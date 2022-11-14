@@ -71,10 +71,6 @@ set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,
 " All modes remaps
 map p gp
 map P gP
-noremap ze <C-e>
-noremap zy <C-y>
-map <C-d> 12jzz
-map <C-u> 12kzz
 noremap <C-a> ggVG
 noremap / /\v
 noremap ? ?\v
@@ -116,7 +112,6 @@ vnoremap * "ry/\V<C-r>r<CR>
 vnoremap # "ry?\V<C-r>r<CR>
 
 if exists('g:vscode')
-   
    " Vscode only remaps
    map <C-d> 12jzt
    map <C-u> 12kzb
@@ -147,5 +142,8 @@ if exists('g:vscode')
    map ]c <Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>
    map [e <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
    map ]e <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
-   
+else
+   map <C-d> 12jzz
+   map <C-u> 12kzz
+   map <C-t> <C-y>
 endif
