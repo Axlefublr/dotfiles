@@ -102,6 +102,7 @@ noremap 'i "_
 noremap 'e "-
 noremap 'q "+
 noremap 'r "/
+noremap 't ".
 inoremap <C-r>w <C-r>0
 inoremap <C-r>e <C-r>-
 inoremap <C-r>q <C-r>+
