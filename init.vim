@@ -31,6 +31,7 @@ Plug 'sainnhe/everforest'
 Plug 'tpope/vim-surround'
 Plug 'bkad/CamelCaseMotion'
 Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-commentary'
 
 " Correct easymotion depending on where I am
 Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
@@ -103,10 +104,11 @@ noremap 'e "-
 noremap 'q "+
 noremap 'r "/
 noremap 't ".
+inoremap <C-r>q <C-r>+
 inoremap <C-r>w <C-r>0
 inoremap <C-r>e <C-r>-
-inoremap <C-r>q <C-r>+
 inoremap <C-r>r <C-r>/
+inoremap <C-r>t <C-r>"
 
 " Normal mode remaps
 nnoremap ~ ~h
