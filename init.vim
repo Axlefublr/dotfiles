@@ -32,6 +32,7 @@ Plug 'tpope/vim-surround'
 Plug 'bkad/CamelCaseMotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
+Plug 'huleiak47/vim-AHKcomplete'
 
 " Correct easymotion depending on where I am
 Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
@@ -65,6 +66,7 @@ colorscheme everforest
 map <silent>ga <Plug>(EasyAlign)
 vnoremap s <Plug>VSurround
 let g:camelcasemotion_key = '<leader>'
+autocmd FileType autohotkey setlocal commentstring=;\ %s
 
 " Russian lang map
 set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,кr,ыs,еt,гu,мv,цw,чx,нy,яz,ю.,ФA,ИB,СC,ВD,УE,АF,ПG,РH,ШI,ОJ,ЛK,ДL,ЬM,ТN,ЩO,ЗP,ЙQ,КR,ЫS,ЕT,ГU,МV,ЦW,ЧX,НY,ЯZ,Ж:,Б<,Ю>
