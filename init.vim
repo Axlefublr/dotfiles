@@ -120,9 +120,6 @@ vnoremap * "ry/\V<C-r>r<CR>
 vnoremap # "ry?\V<C-r>r<CR>
 
 if exists('g:vscode')
-   " Vscode only remaps
-   map <C-d> 12jzt
-   map <C-u> 12kzb
    
    " VsCode Any
    map ze <Cmd>call VSCodeNotify('scrollLineDown')<CR>
