@@ -93,8 +93,8 @@ vnoremap g]x g<C-a>
 vnoremap g[x g<C-x>
 noremap [b vaBo<Esc>s=><Esc>Jjdd
 noremap ]b ^f)f=c3l{<Esc>l"uDo<Esc>"up>>o<Esc>I}<Esc>
-noremap [z Istatic <Esc>
-noremap ]z ^dw
+noremap [z ^dw
+noremap ]z Istatic <Esc>
 
 " Registers
 noremap 'w "0
