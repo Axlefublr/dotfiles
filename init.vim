@@ -82,6 +82,7 @@ noremap ' "
 noremap : ,
 noremap " ;
 noremap Q ge
+noremap U <Cmd>call cursor(0, v:count1)<CR>
 
 " Leader remaps
 noremap <leader>r <Cmd>reg<CR>
