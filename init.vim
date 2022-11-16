@@ -67,6 +67,9 @@ map <silent>ga <Plug>(EasyAlign)
 vnoremap s <Plug>VSurround
 let g:camelcasemotion_key = '<leader>'
 autocmd FileType autohotkey setlocal commentstring=;\ %s
+nnoremap R <Plug>ReplaceWithRegisterOperator
+nnoremap RR <Plug>ReplaceWithRegisterLine
+vnoremap R <Plug>ReplaceWithRegisterVisual
 
 " Russian lang map
 set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,кr,ыs,еt,гu,мv,цw,чx,нy,яz,ю.,ФA,ИB,СC,ВD,УE,АF,ПG,РH,ШI,ОJ,ЛK,ДL,ЬM,ТN,ЩO,ЗP,ЙQ,КR,ЫS,ЕT,ГU,МV,ЦW,ЧX,НY,ЯZ,Ж:,Б<,Ю>
@@ -74,6 +77,7 @@ set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,
 " All modes remaps
 map p gp
 map P gP
+noremap gr R
 noremap <C-a> ggVG
 noremap / /\v
 noremap ? ?\v
@@ -89,6 +93,7 @@ noremap <leader>r <Cmd>reg<CR>
 noremap <leader>/ <Cmd>noh<CR>
 noremap <leader>f $F
 noremap <leader>F ^f
+noremap <leader>` '
 
 " Bracket remaps
 noremap ]x <C-a>
@@ -119,6 +124,8 @@ nnoremap ~ ~h
 " Visual mode remaps
 vnoremap * "ry/\V<C-r>r<CR>
 vnoremap # "ry?\V<C-r>r<CR>
+vnoremap im aBoV
+vnoremap am aBjoV
 
 if exists('g:vscode')
    
