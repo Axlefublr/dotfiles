@@ -77,6 +77,7 @@ set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,
 " All modes remaps
 map p gp
 map P gP
+map <C-r> <C-r><C-o>
 noremap gr R
 noremap <C-a> ggVG
 noremap / /\v
@@ -112,11 +113,11 @@ noremap 'e "-
 noremap 'q "+
 noremap 'r "/
 noremap 't ".
-inoremap <C-r>q <C-r>+
-inoremap <C-r>w <C-r>0
-inoremap <C-r>e <C-r>-
-inoremap <C-r>r <C-r>/
-inoremap <C-r>t <C-r>"
+inoremap <C-r>q <C-r><C-o>+
+inoremap <C-r>w <C-r><C-o>0
+inoremap <C-r>e <C-r><C-o>-
+inoremap <C-r>r <C-r><C-o>/
+inoremap <C-r>t <C-r><C-o>"
 
 " Normal mode remaps
 nnoremap ~ ~h
