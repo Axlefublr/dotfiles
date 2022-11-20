@@ -70,6 +70,9 @@ autocmd FileType autohotkey setlocal commentstring=;\ %s
 nnoremap R <Plug>ReplaceWithRegisterOperator
 nnoremap RR <Plug>ReplaceWithRegisterLine
 vnoremap R <Plug>ReplaceWithRegisterVisual
+omap K <Plug>Commentary
+nmap K <Plug>Commentary
+xmap K <Plug>Commentary
 
 " Russian lang map
 set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,кr,ыs,еt,гu,мv,цw,чx,нy,яz,ю.,ФA,ИB,СC,ВD,УE,АF,ПG,РH,ШI,ОJ,ЛK,ДL,ЬM,ТN,ЩO,ЗP,ЙQ,КR,ЫS,ЕT,ГU,МV,ЦW,ЧX,НY,ЯZ,Ж:,Б<,Ю>
@@ -113,11 +116,11 @@ noremap 'e "-
 noremap 'q "+
 noremap 'r "/
 noremap 't ".
-inoremap <C-r>q <C-r><C-o>+
-inoremap <C-r>w <C-r><C-o>0
-inoremap <C-r>e <C-r><C-o>-
-inoremap <C-r>r <C-r><C-o>/
-inoremap <C-r>t <C-r><C-o>"
+inoremap <C-r>q <C-r>+
+inoremap <C-r>w <C-r>0
+inoremap <C-r>e <C-r>-
+inoremap <C-r>r <C-r>/
+inoremap <C-r>t <C-r>"
 
 " Normal mode remaps
 nnoremap ~ ~h
