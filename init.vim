@@ -19,6 +19,7 @@ endfunction
 
 " Plugging plugins
 call plug#begin()
+Plug 'ThePrimeagen/vim-be-good'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
@@ -78,9 +79,6 @@ xmap K <Plug>Commentary
 set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,кr,ыs,еt,гu,мv,цw,чx,нy,яz,ю.,ФA,ИB,СC,ВD,УE,АF,ПG,РH,ШI,ОJ,ЛK,ДL,ЬM,ТN,ЩO,ЗP,ЙQ,КR,ЫS,ЕT,ГU,МV,ЦW,ЧX,НY,ЯZ,Ж:,Б<,Ю>
 
 " All modes remaps
-map p gp
-map P gP
-map <C-r> <C-r><C-o>
 noremap gr R
 noremap <C-a> ggVG
 noremap / /\v
@@ -104,12 +102,13 @@ noremap ]x <C-a>
 noremap [x <C-x>
 vnoremap g]x g<C-a>
 vnoremap g[x g<C-x>
-noremap [b vaBo<Esc>s=><Esc>Jjdd
+noremap [b $F{"_s=><Esc>Jj"_dd
 noremap ]b ^f)f=c3l{<Esc>l"uDo<Esc>"up>>o<Esc>I}<Esc>
-noremap [z ^dw
-noremap ]z Istatic <Esc>
 
 " Registers
+map p gp
+map P gP
+nmap Y yg_
 noremap 'w "0
 noremap 'i "_
 noremap 'e "-
@@ -128,12 +127,27 @@ nnoremap ~ ~h
 " Visual mode remaps
 vnoremap * "ry/\V<C-r>r<CR>
 vnoremap # "ry?\V<C-r>r<CR>
-vnoremap im aBoV
-vnoremap am aBjoV
+
+" Text objects
+vnoremap i} aB$o0
+vnoremap a} aB}o0
+onoremap i} :normal vaB$o0<CR>
+onoremap a} :normal vaB}o0<CR>
+vnoremap i) ab$o0
+vnoremap a) ab}o0
+onoremap i) :normal vab$o0<CR>
+onoremap a) :normal vab}o0<CR>
+vnoremap i] a[$o0
+vnoremap a] a[}o0
+onoremap i] :normal va[$o0<CR>
+onoremap a] :normal va[}o0<CR>
 
 if exists('g:vscode')
-   
+
    " VsCode Any
+   map zh <Cmd>call VSCodeNotify('yo1dog.cursor-trim.lTrimCursor')<CR>
+   map zl <Cmd>call VSCodeNotify('yo1dog.cursor-trim.rTrimCursor')<CR>
+   map zi <Cmd>call VSCodeNotify('yo1dog.cursor-trim.trimCursor')<CR>
    map ze <Cmd>call VSCodeNotify('scrollLineDown')<CR>
    map zy <Cmd>call VSCodeNotify('scrollLineUp')<CR>
    map [f <Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>
@@ -160,6 +174,8 @@ if exists('g:vscode')
    map [e <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
    map ]e <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
 else
+   noremap <C-f> <C-f>zz
+   noremap <C-b> <C-b>zz
    map <C-d> 12jzz
    map <C-u> 12kzz
    map <C-t> <C-y>
