@@ -130,17 +130,17 @@ vnoremap # "ry?\V<C-r>r<CR>
 
 " Text objects
 vnoremap i} aB$o0
-vnoremap a} aB}o0
+vnoremap a} aBj0o0
 onoremap i} :normal vaB$o0<CR>
-onoremap a} :normal vaB}o0<CR>
+onoremap a} :normal vaBj0o0<CR>
 vnoremap i) ab$o0
-vnoremap a) ab}o0
+vnoremap a) abj0o0
 onoremap i) :normal vab$o0<CR>
-onoremap a) :normal vab}o0<CR>
+onoremap a) :normal vabj0o0<CR>
 vnoremap i] a[$o0
-vnoremap a] a[}o0
+vnoremap a] a[j0o0
 onoremap i] :normal va[$o0<CR>
-onoremap a] :normal va[}o0<CR>
+onoremap a] :normal va[j0o0<CR>
 
 if exists('g:vscode')
 
