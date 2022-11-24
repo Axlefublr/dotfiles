@@ -86,7 +86,9 @@
                "punctuation.definition.block.tag.jsdoc",
                "support.function.command.viml",
                "keyword.other.enum.cs",
-               "keyword.other.checked.cs"
+               "keyword.other.checked.cs",
+               "keyword.other.set.cs",
+               "keyword.other.get.cs",
             ],
             "settings": {
                "foreground": "#CF68E1",
@@ -348,7 +350,11 @@
          "comments": "inline"
       }
    },
-   "editor.fontSize": 22,
+   "extensions.experimental.affinity": {
+      //makes neovim faster, apparently
+      "asvetliakov.vscode-neovim": 1
+   },
+   "editor.fontSize": 24,
    "editor.fontLigatures": false,
    "editor.bracketPairColorization.enabled": true,
    "editor.tabSize": 3,

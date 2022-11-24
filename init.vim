@@ -34,10 +34,6 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'huleiak47/vim-AHKcomplete'
-
-" Correct easymotion depending on where I am
-Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
-Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
 call plug#end()
 
 " System clipboard access
@@ -80,7 +76,6 @@ set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,
 
 " All modes remaps
 noremap gr R
-noremap <C-a> ggVG
 noremap / /\v
 noremap ? ?\v
 noremap ; :
@@ -113,13 +108,13 @@ noremap 'w "0
 noremap 'i "_
 noremap 'e "-
 noremap 'q "+
-noremap 'r "/
 noremap 't ".
-inoremap <C-r>q <C-r>+
-inoremap <C-r>w <C-r>0
-inoremap <C-r>e <C-r>-
-inoremap <C-r>r <C-r>/
-inoremap <C-r>t <C-r>"
+noremap '; ":
+noremap! <C-r>q <C-r>+
+noremap! <C-r>w <C-r>0
+noremap! <C-r>e <C-r>-
+noremap! <C-r>r <C-r>"
+noremap! <C-r>; <C-r>:
 
 " Normal mode remaps
 nnoremap ~ ~h
@@ -142,6 +137,12 @@ vnoremap a] a[j0o0
 onoremap i] :normal va[$o0<CR>
 onoremap a] :normal va[j0o0<CR>
 
+" Control remaps
+noremap <C-a> ggVG
+noremap <C-t> <C-a>
+noremap <C-e> <C-x>
+noremap <C-r> <C-r><C-o>
+
 if exists('g:vscode')
 
    " VsCode Any
@@ -150,11 +151,12 @@ if exists('g:vscode')
    map zi <Cmd>call VSCodeNotify('yo1dog.cursor-trim.trimCursor')<CR>
    map ze <Cmd>call VSCodeNotify('scrollLineDown')<CR>
    map zy <Cmd>call VSCodeNotify('scrollLineUp')<CR>
-   map [f <Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>
+   map [f <Cmd>call VSCodeNotify('workbench.view.search.focus')<CR>
    map ]f <Cmd>call VSCodeNotify('workbench.action.replaceInFiles')<CR>
    map gD <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>
    map [p <Cmd>call VSCodeNotify('extension.pasteImage')<CR>
    map [s <Cmd>call VSCodeNotify('editor.action.toggleStickyScroll')<CR>
+   map =< <Cmd>call VSCodeNotify('editor.action.trimTrailingWhitespace')<CR>
    map gl <Cmd>call VSCodeNotify('editor.action.openLink')<CR>
    vnoremap gs <Cmd>call VSCodeNotifyRangePos('codesnap.start', line("v"), line("."), col("v"), col("."), 1)<CR>
    noremap M <Cmd>call VSCodeNotify('center-cursor.setCursor')<CR>
@@ -178,5 +180,4 @@ else
    noremap <C-b> <C-b>zz
    map <C-d> 12jzz
    map <C-u> 12kzz
-   map <C-t> <C-y>
 endif
