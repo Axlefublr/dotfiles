@@ -101,8 +101,10 @@ noremap [b $F{"_s=><Esc>Jj"_dd
 noremap ]b ^f)f=c3l{<Esc>l"uDo<Esc>"up>>o<Esc>I}<Esc>
 
 " Registers
-map p gp
-map P gP
+noremap p gp
+noremap P gP
+noremap gp p
+noremap gP P
 nmap Y yg_
 noremap 'w "0
 noremap 'i "_
@@ -122,20 +124,22 @@ nnoremap ~ ~h
 " Visual mode remaps
 vnoremap * "ry/\V<C-r>r<CR>
 vnoremap # "ry?\V<C-r>r<CR>
+vnoremap u <Esc>u
+vnoremap U <Esc>u
 
 " Text objects
-vnoremap i} aB$o0
-vnoremap a} aBj0o0
-onoremap i} :normal vaB$o0<CR>
-onoremap a} :normal vaBj0o0<CR>
-vnoremap i) ab$o0
-vnoremap a) abj0o0
-onoremap i) :normal vab$o0<CR>
-onoremap a) :normal vabj0o0<CR>
+vnoremap im ab$o0
+vnoremap am abj$o0
+onoremap im :normal vab$o0<CR>
+onoremap am :normal vabj$o0<CR>
+vnoremap iM aB$o0
+vnoremap aM aBj$o0
+onoremap iM :normal vaB$o0<CR>
+onoremap aM :normal vaBj$o0<CR>
 vnoremap i] a[$o0
-vnoremap a] a[j0o0
+vnoremap a] a[j$o0
 onoremap i] :normal va[$o0<CR>
-onoremap a] :normal va[j0o0<CR>
+onoremap a] :normal va[j$o0<CR>
 
 " Control remaps
 noremap <C-a> ggVG
