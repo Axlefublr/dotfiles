@@ -118,6 +118,8 @@ set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,
 
 " Recursive maps
 nmap Y yg_
+map gg [[
+map G ]]
 
 " All modes remaps
 noremap X gM
@@ -171,18 +173,10 @@ vnoremap u <Esc>u
 vnoremap U <Esc>u
 
 " Text objects
-vnoremap im ab$o0
-vnoremap am abj$o0
-onoremap im :normal vab$o0<CR>
-onoremap am :normal vabj$o0<CR>
-vnoremap iM aB$o0
-vnoremap aM aBj$o0
-onoremap iM :normal vaB$o0<CR>
-onoremap aM :normal vaBj$o0<CR>
-vnoremap i] a[$o0
-vnoremap a] a[j$o0
-onoremap i] :normal va[$o0<CR>
-onoremap a] :normal va[j$o0<CR>
+vnoremap im 0o$F{%l
+onoremap im :normal v0o$F{%l<CR>
+vnoremap am 0o$F{%j$
+onoremap am :normal v0o$F{%j$<CR>
 
 " Control remaps
 noremap <C-t> <C-a>
