@@ -82,15 +82,9 @@ if exists('g:vscode')
    map zC <Cmd>call VSCodeNotify('editor.foldAll')<CR>
    map zO <Cmd>call VSCodeNotify('editor.unfoldAll')<CR>
    map zp <Cmd>call VSCodeNotify('editor.gotoParentFold')<CR>
-   map zj <Cmd>call VSCodeNotify('editor.gotoNextFold')<CR>
-   map zk <Cmd>call VSCodeNotify('editor.gotoPreviousFold')<CR>
    
    " VsCode Scrolling
    map zl <Cmd>call VSCodeNotify('toggleTypewriter')<CR>
-   map [c <Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>
-   map ]c <Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>
-   map [e <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
-   map ]e <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
    nmap <C-k> <Cmd>call VSCodeNotify('editor.action.insertLineBefore')<CR>k
    imap <C-k> <Cmd>call VSCodeNotify('editor.action.insertLineBefore')<CR>
 else
@@ -98,6 +92,7 @@ else
    noremap <C-b> <C-b>zz
    map <C-d> 12jzz
    map <C-u> 12kzz
+   nnoremap zp vaBo^<Esc>
 endif
 
 " Plugins settings
@@ -118,8 +113,6 @@ set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,
 
 " Recursive maps
 nmap Y yg_
-map gg [[
-map G ]]
 
 " All modes remaps
 noremap X gM
