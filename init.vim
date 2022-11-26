@@ -172,12 +172,6 @@ vnoremap # "ry?\V<C-r>r<CR>
 vnoremap u <Esc>u
 vnoremap U <Esc>u
 
-" Text objects
-vnoremap im 0o$F{%l
-onoremap im :normal v0o$F{%l<CR>
-vnoremap am 0o$F{%j$
-onoremap am :normal v0o$F{%j$<CR>
-
 " Control remaps
 noremap <C-t> <C-a>
 noremap <C-e> <C-x>
