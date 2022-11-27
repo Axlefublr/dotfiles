@@ -74,7 +74,9 @@ if exists('g:vscode')
    map [s <Cmd>call VSCodeNotify('editor.action.toggleStickyScroll')<CR>
    map =< <Cmd>call VSCodeNotify('editor.action.trimTrailingWhitespace')<CR>
    map gl <Cmd>call VSCodeNotify('editor.action.openLink')<CR>
+
    vnoremap gs <Cmd>call VSCodeNotifyRangePos('codesnap.start', line("v"), line("."), col("v"), col("."), 1)<CR>
+   
    noremap gM <Cmd>call VSCodeNotify('center-cursor.setCursor')<CR>
    
    " VsCode Folding
@@ -111,6 +113,16 @@ xmap K <Plug>Commentary
 " Recursive maps
 nmap Y yg_
 map _ -
+
+" Text objects
+vmap im vaBlo0
+vmap am vaBj$o0
+omap im <Cmd>normal vaBlo0<CR>
+omap am <Cmd>normal vaBj$o0<CR>
+vmap iM vaBlok0
+vmap aM vaBj$ok0
+omap iM <Cmd>normal vaBlok0<CR>
+omap aM <Cmd>normal vaBj$ok0<CR>
 
 " All modes remaps
 noremap X gM
