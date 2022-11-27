@@ -115,14 +115,14 @@ nmap Y yg_
 nmap _ -
 
 " Text objects
-vmap im aBlo0
-vmap am aBj$o0
-omap im <Cmd>normal vaBlo0<CR>
-omap am <Cmd>normal vaBj$o0<CR>
-vmap iM aBlok0
-vmap aM aBj$ok0
-omap iM <Cmd>normal vaBlok0<CR>
-omap aM <Cmd>normal vaBj$ok0<CR>
+vmap im aBV
+vmap am aBVj
+omap im <Cmd>normal vaBV<CR>
+omap am <Cmd>normal vaBVj<CR>
+vmap iM aBokV
+vmap aM aBjokV
+omap iM <Cmd>normal vaBokV<CR>
+omap aM <Cmd>normal vaBjokV<CR>
 
 vmap i% T%ot%
 omap i% <Cmd>normal vT%ot%<CR>
@@ -137,8 +137,6 @@ noremap ' "
 noremap : ,
 noremap " ;
 noremap Q ge
-noremap zj +
-noremap zk -
 
 noremap U <Cmd>call cursor(0, v:count1)<CR>
 
