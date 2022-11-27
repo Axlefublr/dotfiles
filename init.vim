@@ -34,6 +34,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'huleiak47/vim-AHKcomplete'
+Plug 'wellle/targets.vim'
 call plug#end()
 
 " System clipboard access
@@ -77,8 +78,6 @@ if exists('g:vscode')
 
    vnoremap gs <Cmd>call VSCodeNotifyRangePos('codesnap.start', line("v"), line("."), col("v"), col("."), 1)<CR>
    
-   noremap gM <Cmd>call VSCodeNotify('center-cursor.setCursor')<CR>
-   
    " VsCode Folding
    map za <Cmd>call VSCodeNotify('editor.toggleFold')<CR>
    map zC <Cmd>call VSCodeNotify('editor.foldAll')<CR>
@@ -109,20 +108,26 @@ omap K <Plug>Commentary
 nmap KK <Plug>CommentaryLine
 nmap K <Plug>Commentary
 xmap K <Plug>Commentary
+let g:targets_nl = 'nN'
 
 " Recursive maps
 nmap Y yg_
-map _ -
+nmap _ -
 
 " Text objects
-vmap im vaBlo0
-vmap am vaBj$o0
+vmap im aBlo0
+vmap am aBj$o0
 omap im <Cmd>normal vaBlo0<CR>
 omap am <Cmd>normal vaBj$o0<CR>
-vmap iM vaBlok0
-vmap aM vaBj$ok0
+vmap iM aBlok0
+vmap aM aBj$ok0
 omap iM <Cmd>normal vaBlok0<CR>
 omap aM <Cmd>normal vaBj$ok0<CR>
+
+vmap i% T%ot%
+omap i% <Cmd>normal vT%ot%<CR>
+vmap a% F%of%
+omap a% <Cmd>normal vF%of%<CR>
 
 " All modes remaps
 noremap X gM
