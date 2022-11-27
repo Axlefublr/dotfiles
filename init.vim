@@ -108,11 +108,9 @@ nmap KK <Plug>CommentaryLine
 nmap K <Plug>Commentary
 xmap K <Plug>Commentary
 
-" Russian lang map
-set langmap=фa,иb,сc,вd,уe,аf,пg,рh,шi,оj,лk,дl,ьm,тn,щo,зp,йq,кr,ыs,еt,гu,мv,цw,чx,нy,яz,ю.,ФA,ИB,СC,ВD,УE,АF,ПG,РH,ШI,ОJ,ЛK,ДL,ЬM,ТN,ЩO,ЗP,ЙQ,КR,ЫS,ЕT,ГU,МV,ЦW,ЧX,НY,ЯZ,Ж:,Б<,Ю>
-
 " Recursive maps
 nmap Y yg_
+map _ -
 
 " All modes remaps
 noremap X gM
@@ -122,6 +120,9 @@ noremap ' "
 noremap : ,
 noremap " ;
 noremap Q ge
+noremap zj +
+noremap zk -
+
 noremap U <Cmd>call cursor(0, v:count1)<CR>
 
 " Leader remaps
