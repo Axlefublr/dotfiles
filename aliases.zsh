@@ -12,7 +12,7 @@ alias libv2="cd /mnt/c/Users/serge/Documents/AutoHotkey/Lib"
 alias del="rm -rf"
 
 # Aliases
-alias gitcreate="git add . && git commit -m \"first commit\" && git -u push origin main"
+alias gitcreate="git add . && git commit -m \"first commit\" && git push -u origin main"
 
 # Paths
 nvim_windows=/mnt/c/Programming/dotfiles/init.vim
