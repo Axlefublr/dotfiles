@@ -19,7 +19,6 @@ endfunction
 
 " Plugging plugins
 call plug#begin()
-Plug 'ThePrimeagen/vim-be-good'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
@@ -101,6 +100,7 @@ map <silent>ga <Plug>(EasyAlign)
 vnoremap s <Plug>VSurround
 let g:camelcasemotion_key = '<leader>'
 autocmd FileType autohotkey setlocal commentstring=;\ %s
+autocmd FileType cs setlocal commentstring=//\ %s
 nnoremap R <Plug>ReplaceWithRegisterOperator
 nnoremap RR <Plug>ReplaceWithRegisterLine
 vnoremap R <Plug>ReplaceWithRegisterVisual
@@ -146,6 +146,7 @@ noremap <leader>/ <Cmd>noh<CR>
 noremap <leader>f $F
 noremap <leader>F ^f
 noremap <leader>` '
+noremap <leader>h <Cmd>set hlsearch!<CR>
 
 " Bracket remaps
 noremap ]x <C-a>
