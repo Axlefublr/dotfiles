@@ -119,10 +119,10 @@ vmap im aBV
 vmap am aBVj
 omap im <Cmd>normal vaBV<CR>
 omap am <Cmd>normal vaBVj<CR>
-vmap iM aBokV
-vmap aM aBjokV
-omap iM <Cmd>normal vaBokV<CR>
-omap aM <Cmd>normal vaBjokV<CR>
+vmap iM aBVok
+vmap aM aBVjok
+omap iM <Cmd>normal vaBVok<CR>
+omap aM <Cmd>normal vaBVjok<CR>
 
 vmap i% T%ot%
 omap i% <Cmd>normal vT%ot%<CR>
