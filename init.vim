@@ -1,53 +1,5 @@
 lua require('basic')
  
-function! Cond(Cond, ...)
-   let opts = get(a:000, 0, {})
-   return a:Cond ? opts : extend(opts, { 'on': [], 'for': [] })
-endfunction
-
-" Plugging plugins
-call plug#begin()
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-line'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'christoomey/vim-titlecase'
-Plug 'tpope/vim-repeat'
-Plug 'sheerun/vim-polyglot'
-Plug 'sainnhe/everforest'
-Plug 'tpope/vim-surround'
-Plug 'bkad/CamelCaseMotion'
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-commentary'
-Plug 'huleiak47/vim-AHKcomplete'
-Plug 'wellle/targets.vim'
-Plug 'easymotion/vim-easymotion'
-call plug#end()
-
-" System clipboard access
-let g:clipboard = {
-\   'name': 'wslclipboard',
-\   'copy': {
-\      '+': '/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf',
-\      '*': '/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf',
-\    },
-\   'paste': {
-\      '+': '/mnt/c/Programs/Win32yank/win32yank.exe -o --lf',
-\      '*': '/mnt/c/Programs/Win32yank/win32yank.exe -o --lf',
-\   },
-\   'cache_enabled': 1,
-\ }
-
-" Color theme configuration
-if has('termguicolors')
-   set termguicolors
-endif
-set background=dark
-let g:everforest_background = 'hard'
-let g:everforest_better_performance = 1
-colorscheme everforest
-
 if exists('g:vscode')
 
    " VsCode Any

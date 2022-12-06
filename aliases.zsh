@@ -14,28 +14,15 @@ alias del="rm -rf"
 # Aliases
 alias gitcreate="git add . && git commit -m \"first commit\" && git push -u origin main"
 
-# Paths
-nvim_windows=/mnt/c/Programming/dotfiles/init.vim
-nvim_linux=~/.config/nvim/init.vim
-aliases_windows=/mnt/c/Programming/dotfiles/aliases.zsh
-aliases_linux=$ZSH/custom/aliases.zsh
-lua_windows=/mnt/c/Programming/dotfiles/basic.lua
-lua_lunux=~/.config/nvim/lua/basic.lua
-
-syncFrom() {
-   cp -u $nvim_windows $nvim_linux
-   cp -u $aliases_windows $aliases_linux
-   cp -u $lua_windows $lua_lunux
-}
-syncTo() {
-   cp -u $nvim_linux $nvim_windows
-   cp -u $aliases_linux $aliases_windows
-   cp -u $lua_lunux $lua_windows
+importDotfiles() {
+   cp /mnt/c/Programming/dotfiles/init.vim ~/.config/nvim/init.vim
+   cp /mnt/c/Programming/dotfiles/aliases.zsh $ZSH/custom/aliases.zsh
+   cp /mnt/c/Programming/dotfiles/basic.lua ~/.config/nvim/lua/basic.lua
 }
 
 # Files
-alias n="syncFrom && nvim $nvim_linux && syncTo"
-alias m="syncFrom && nvim $lua_lunux && syncTo"
-alias alis="syncFrom && nvim $aliases_linux && syncTo"
+alias n="importDotfiles && nvim $nvim_linux"
+alias m="importDotfiles && nvim $lua_lunux"
+alias alis="importDotfiles && nvim $aliases_linux"
 alias zshConf="nvim ~/.zshrc"
 alias p10kConf="nvim ~/.p10k.zsh"
