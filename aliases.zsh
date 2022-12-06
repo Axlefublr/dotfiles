@@ -15,14 +15,12 @@ alias del="rm -rf"
 alias gitcreate="git add . && git commit -m \"first commit\" && git push -u origin main"
 
 importDotfiles() {
-   cp /mnt/c/Programming/dotfiles/init.vim ~/.config/nvim/init.vim
    cp /mnt/c/Programming/dotfiles/aliases.zsh $ZSH/custom/aliases.zsh
-   cp /mnt/c/Programming/dotfiles/basic.lua ~/.config/nvim/lua/basic.lua
+   cp /mnt/c/Programming/dotfiles/init.lua ~/.config/nvim/init.lua
 }
 
 # Files
-alias n="importDotfiles && nvim $nvim_linux"
-alias m="importDotfiles && nvim $lua_lunux"
-alias alis="importDotfiles && nvim $aliases_linux"
+alias m="importDotfiles && nvim ~/.config/nvim/init.lua"
+alias alis="importDotfiles && nvim $ZSH/custom/aliases.zsh"
 alias zshConf="nvim ~/.zshrc"
 alias p10kConf="nvim ~/.p10k.zsh"
