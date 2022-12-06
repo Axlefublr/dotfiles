@@ -1,17 +1,5 @@
-" Basic settings
-set relativenumber
-set tabstop=3
-set autoindent
-set smartindent
-set mouse=a
-set nocompatible
-set ignorecase
-set smartcase
-set path+=**
-set wildmenu
-syntax enable
-let mapleader = ","
-
+lua require('basic')
+ 
 function! Cond(Cond, ...)
    let opts = get(a:000, 0, {})
    return a:Cond ? opts : extend(opts, { 'on': [], 'for': [] })
@@ -34,6 +22,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'huleiak47/vim-AHKcomplete'
 Plug 'wellle/targets.vim'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " System clipboard access
