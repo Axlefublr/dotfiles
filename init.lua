@@ -89,11 +89,7 @@ vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
 vim.keymap.set("n", "RR", "<Plug>ReplaceWithRegisterLine")
 vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
 
-vim.keymap.set("n", "Y", "yg_")
-vim.keymap.set("n", "_", "-")
-
 -- Text objects
-
 vim.keymap.set("v", "im", "aBV")
 vim.keymap.set("v", "am", "aBVj")
 vim.keymap.set("v", "iM", "aBVok")
@@ -108,6 +104,7 @@ vim.keymap.set("v", "a%", "F%of%")
 vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
 vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
+-- All modes
 vim.keymap.set("", "K", "gM")
 vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
@@ -115,57 +112,62 @@ vim.keymap.set("", "'", '"')
 vim.keymap.set("", ":", ",")
 vim.keymap.set("", '"', ";")
 
+-- Normal mode
+vim.keymap.set("n", "Y", "yg_")
+vim.keymap.set("n", "_", "-")
+vim.keymap.set("n", "~", "~h")
+
+-- Visual mode remaps
+vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
+vim.keymap.set("v", "#", '"ry?\\V<C-r>r<CR>')
+vim.keymap.set("v", "u", "<Esc>u")
+vim.keymap.set("v", "U", "<Esc>u")
+
+-- Control remaps
+vim.keymap.set("", "<C-t>", "<C-a>")
+vim.keymap.set("", "<C-e>", "<C-x>")
+vim.keymap.set("", "<C-r>", "<C-r><C-o>")
+
+-- Bracket remaps
+vim.keymap.set("", "]x", "<C-a>")
+vim.keymap.set("", "[x", "<C-x>")
+vim.keymap.set("v", "g]x", "g<C-a>")
+vim.keymap.set("v", "g[x", "g<C-x>")
+
+-- Leader remaps
+vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
+vim.keymap.set("", "<leader>f", "$F")
+vim.keymap.set("", "<leader>F", "^f")
+vim.keymap.set("", "<leader>`", "'")
+vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
+
+-- Functionizing
 vim.keymap.set("", "U", function() vim.fn.cursor(0, vim.v.count1) end)
 
-vim.cmd [[
+-- Registers
+vim.keymap.set("", "p", "gp")
+vim.keymap.set("", "P", "gP")
+vim.keymap.set("", "gp", "p")
+vim.keymap.set("", "gP", "P")
+vim.keymap.set("", "'w", '"0')
+vim.keymap.set("", "'i", '"_')
+vim.keymap.set("", "'e", '"-')
+vim.keymap.set("", "'q", '"+')
+vim.keymap.set("", "'r", '".')
+vim.keymap.set("", "';", '":')
 
-" Leader remaps
-noremap <leader>/ <Cmd>noh<CR>
-noremap <leader>f $F
-noremap <leader>F ^f
-noremap <leader>` '
-noremap <leader>h <Cmd>set hlsearch!<CR>
+vim.keymap.set("!", "<C-r>w", "<C-r><C-o>0")
+vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
+vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
+vim.keymap.set("!", "<C-r>r", '<C-r><C-o>"')
+vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
 
-" Bracket remaps
-noremap ]x <C-a>
-noremap [x <C-x>
-vnoremap g]x g<C-a>
-vnoremap g[x g<C-x>
-noremap [b $F{"_s=><Esc>Jj"_dd
-noremap ]b ^f)f=c3l{<Esc>l"uDo<Esc>"up>>o<Esc>I}<Esc>
-
-" Registers
-noremap p gp
-noremap P gP
-noremap gp p
-noremap gP P
-noremap 'w "0
-noremap 'i "_
-noremap 'e "-
-noremap 'q "+
-noremap 'r ".
-noremap '; ":
-noremap! <C-r>w <C-r><C-o>0
-noremap! <C-r>e <C-r><C-o>-
-noremap! <C-r>q <C-r><C-o>+
-noremap! <C-r>r <C-r><C-o>"
-noremap! <C-r>; <C-r><C-o>:
-
-" Normal mode remaps
-nnoremap ~ ~h
-
-" Visual mode remaps
-vnoremap * "ry/\V<C-r>r<CR>
-vnoremap # "ry?\V<C-r>r<CR>
-vnoremap u <Esc>u
-vnoremap U <Esc>u
-
-" Control remaps
-noremap <C-t> <C-a>
-noremap <C-e> <C-x>
-noremap <C-r> <C-r><C-o>
-
-autocmd FileType autohotkey setlocal commentstring=;\ %s
-autocmd FileType cs setlocal commentstring=//\ %s
-
-]]
+--Autocmd
+vim.api.nvim_create_autocmd("FileType", {
+   pattern = "autohotkey",
+   command = "setlocal commentstring=;\\ %s"
+})
+vim.api.nvim_create_autocmd("FileType", {
+   pattern = "cs",
+   command = "setlocal commentstring=//\\ %s"
+})
