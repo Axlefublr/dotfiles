@@ -50,92 +50,76 @@ vim.g.camelcasemotion_key = "<leader>"
 vim.g.targets_nl          = "nN"
 
 if vim.g.vscode then
+   vim.keymap.set("n", "zh", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end)
+   vim.keymap.set("n", "zl", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.rTrimCursor") end)
+   vim.keymap.set("n", "zi", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.trimCursor") end)
+   vim.keymap.set("n", "[f", function() vim.fn.VSCodeNotify("workbench.view.search.focus") end)
+   vim.keymap.set("n", "]f", function() vim.fn.VSCodeNotify("workbench.action.replaceInFiles") end)
+   vim.keymap.set("n", "gD", function() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end)
+   vim.keymap.set("n", "[p", function() vim.fn.VSCodeNotify("extension.pasteImage") end)
+   vim.keymap.set("n", "[s", function() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end)
+   vim.keymap.set("n", "=<", function() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end)
+   vim.keymap.set("n", "gl", function() vim.fn.VSCodeNotify("editor.action.openLink") end)
 
+   vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
+
+   vim.keymap.set("n", "za", function() vim.fn.VSCodeNotify("editor.toggleFold") end)
+   vim.keymap.set("n", "zC", function() vim.fn.VSCodeNotify("editor.foldAll") end)
+   vim.keymap.set("n", "zO", function() vim.fn.VSCodeNotify("editor.unfoldAll") end)
+   vim.keymap.set("n", "zp", function() vim.fn.VSCodeNotify("editor.gotoParentFold") end)
+
+   vim.keymap.set("", "zl", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
+
+   vim.keymap.set("n", "<C-k>", function()
+      vim.fn.VSCodeCall("editor.action.insertLineBefore")
+      vim.cmd("norm k")
+   end)
+   vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
 else
-
+   vim.keymap.set("", "<C-f>", "<C-f>zz")
+   vim.keymap.set("", "<C-b>", "<C-b>zz")
+   vim.keymap.set("", "<C-d>", "12jzz")
+   vim.keymap.set("", "<C-u>", "12kzz")
+   vim.keymap.set("n", "zp", "vaBo^<Esc>")
 end
+
+vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
+vim.keymap.set("v", "s", "<Plug>VSurround")
+vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
+vim.keymap.set("n", "RR", "<Plug>ReplaceWithRegisterLine")
+vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
+
+vim.keymap.set("n", "Y", "yg_")
+vim.keymap.set("n", "_", "-")
+
+-- Text objects
+
+vim.keymap.set("v", "im", "aBV")
+vim.keymap.set("v", "am", "aBVj")
+vim.keymap.set("v", "iM", "aBVok")
+vim.keymap.set("v", "aM", "aBVjok")
+vim.keymap.set("o", "im", function() vim.cmd("normal vaBV") end)
+vim.keymap.set("o", "am", function() vim.cmd("normal vaBVj") end)
+vim.keymap.set("o", "iM", function() vim.cmd("normal vaBVok") end)
+vim.keymap.set("o", "aM", function() vim.cmd("normal vaBVjok") end)
+
+vim.keymap.set("v", "i%", "T%ot%")
+vim.keymap.set("v", "a%", "F%of%")
+vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
+vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
+
+vim.keymap.set("", "K", "gM")
+vim.keymap.set("", "gr", "R")
+vim.keymap.set("", ";", ":")
+vim.keymap.set("", "'", '"')
+vim.keymap.set("", ":", ",")
+vim.keymap.set("", '"', ";")
+
+vim.keymap.set("", "U", function() vim.fn.cursor(0, vim.v.count1) end)
+
 vim.cmd [[
-if exists('g:vscode')
-
-   " VsCode Any
-   map zh <Cmd>call VSCodeNotify('yo1dog.cursor-trim.lTrimCursor')<CR>
-   map zl <Cmd>call VSCodeNotify('yo1dog.cursor-trim.rTrimCursor')<CR>
-   map zi <Cmd>call VSCodeNotify('yo1dog.cursor-trim.trimCursor')<CR>
-   map ze <Cmd>call VSCodeNotify('scrollLineDown')<CR>
-   map zy <Cmd>call VSCodeNotify('scrollLineUp')<CR>
-   map [f <Cmd>call VSCodeNotify('workbench.view.search.focus')<CR>
-   map ]f <Cmd>call VSCodeNotify('workbench.action.replaceInFiles')<CR>
-   map gD <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>
-   map [p <Cmd>call VSCodeNotify('extension.pasteImage')<CR>
-   map [s <Cmd>call VSCodeNotify('editor.action.toggleStickyScroll')<CR>
-   map =< <Cmd>call VSCodeNotify('editor.action.trimTrailingWhitespace')<CR>
-   map gl <Cmd>call VSCodeNotify('editor.action.openLink')<CR>
-
-   vnoremap gs <Cmd>call VSCodeNotifyRangePos('codesnap.start', line("v"), line("."), col("v"), col("."), 1)<CR>
-   
-   " VsCode Folding
-   map za <Cmd>call VSCodeNotify('editor.toggleFold')<CR>
-   map zC <Cmd>call VSCodeNotify('editor.foldAll')<CR>
-   map zO <Cmd>call VSCodeNotify('editor.unfoldAll')<CR>
-   map zp <Cmd>call VSCodeNotify('editor.gotoParentFold')<CR>
-   
-   " VsCode Scrolling
-   map zl <Cmd>call VSCodeNotify('toggleTypewriter')<CR>
-   nmap <C-k> <Cmd>call VSCodeNotify('editor.action.insertLineBefore')<CR>k
-   imap <C-k> <Cmd>call VSCodeNotify('editor.action.insertLineBefore')<CR>
-else
-   noremap <C-f> <C-f>zz
-   noremap <C-b> <C-b>zz
-   map <C-d> 12jzz
-   map <C-u> 12kzz
-   nnoremap zp vaBo^<Esc>
-endif
-
-" Plugins settings
-map <silent>ga <Plug>(EasyAlign)
-vnoremap s <Plug>VSurround
-autocmd FileType autohotkey setlocal commentstring=;\ %s
-autocmd FileType cs setlocal commentstring=//\ %s
-nnoremap R <Plug>ReplaceWithRegisterOperator
-nnoremap RR <Plug>ReplaceWithRegisterLine
-vnoremap R <Plug>ReplaceWithRegisterVisual
-omap K <Plug>Commentary
-nmap KK <Plug>CommentaryLine
-nmap K <Plug>Commentary
-xmap K <Plug>Commentary
-
-" Recursive maps
-nmap Y yg_
-nmap _ -
-
-" Text objects
-vmap im aBV
-vmap am aBVj
-omap im <Cmd>normal vaBV<CR>
-omap am <Cmd>normal vaBVj<CR>
-vmap iM aBVok
-vmap aM aBVjok
-omap iM <Cmd>normal vaBVok<CR>
-omap aM <Cmd>normal vaBVjok<CR>
-
-vmap i% T%ot%
-omap i% <Cmd>normal vT%ot%<CR>
-vmap a% F%of%
-omap a% <Cmd>normal vF%of%<CR>
-
-" All modes remaps
-noremap X gM
-noremap gr R
-noremap ; :
-noremap ' "
-noremap : ,
-noremap " ;
-noremap Q ge
-
-noremap U <Cmd>call cursor(0, v:count1)<CR>
 
 " Leader remaps
-noremap <leader>r <Cmd>reg<CR>
 noremap <leader>/ <Cmd>noh<CR>
 noremap <leader>f $F
 noremap <leader>F ^f
@@ -180,4 +164,8 @@ vnoremap U <Esc>u
 noremap <C-t> <C-a>
 noremap <C-e> <C-x>
 noremap <C-r> <C-r><C-o>
-]] 
+
+autocmd FileType autohotkey setlocal commentstring=;\ %s
+autocmd FileType cs setlocal commentstring=//\ %s
+
+]]
