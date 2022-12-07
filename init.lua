@@ -127,17 +127,6 @@ if vim.g.vscode then
    vim.keymap.set("n", "zO", function() vim.fn.VSCodeNotify("editor.unfoldAll") end)
    vim.keymap.set("n", "zp", function() vim.fn.VSCodeNotify("editor.gotoParentFold") end)
 
-   -- Leader remaps
-   vim.keymap.set("", "<leader><leader>k", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToAboveGroup") end)
-   vim.keymap.set("", "<leader><leader>l", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToRightGroup") end)
-   vim.keymap.set("", "<leader><leader>j", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToBelowGroup") end)
-   vim.keymap.set("", "<leader><leader>h", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToLeftGroup") end)
-   vim.keymap.set("", "<leader><leader>i", function() vim.fn.VSCodeNotify("workbench.action.joinTwoGroups") end)
-   vim.keymap.set("", "<leader>k", function() vim.fn.VSCodeNotify("workbench.action.focusAboveGroup") end)
-   vim.keymap.set("", "<leader>j", function() vim.fn.VSCodeNotify("workbench.action.focusBelowGroup") end)
-   vim.keymap.set("", "<leader>h", function() vim.fn.VSCodeNotify("workbench.action.focusLeftGroup") end)
-   vim.keymap.set("", "<leader>l", function() vim.fn.VSCodeNotify("workbench.action.focusRightGroup") end)
-   
    -- All modes
    vim.keymap.set("", "zl", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
 
