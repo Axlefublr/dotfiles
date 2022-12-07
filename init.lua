@@ -23,9 +23,11 @@ Plug("junegunn/vim-easy-align")
 Plug("tpope/vim-commentary")
 Plug("huleiak47/vim-AHKcomplete")
 Plug("wellle/targets.vim")
-Plug("easymotion/vim-easymotion")
 Plug("sainnhe/everforest")
+Plug("phaazon/hop.nvim")
 vim.call("plug#end")
+
+require("hop").setup()
 
 vim.g.clipboard = {
    name = "wslclipboard",
@@ -83,6 +85,28 @@ else
    vim.keymap.set("n", "zp", "vaBo^<Esc>")
 end
 
+local hop = require("hop")
+local directions = require("hop.hint").HintDirection
+
+vim.keymap.set("", "f", function() hop.hint_char1({
+   direction = directions.AFTER_CURSOR,
+   current_line_only = true
+}) end)
+vim.keymap.set("", "F", function() hop.hint_char1({
+   direction = directions.BEFORE_CURSOR,
+   current_line_only = true
+}) end)
+vim.keymap.set("", "t", function() hop.hint_char1({
+   direction = directions.AFTER_CURSOR,
+   current_line_only = true,
+   hint_offset = -1,
+}) end)
+vim.keymap.set("", "T", function() hop.hint_char1({
+   direction = directions.BEFORE_CURSOR,
+   current_line_only = true,
+   hint_offset = 1,
+})
+end)
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 vim.keymap.set("v", "s", "<Plug>VSurround")
 vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
@@ -115,7 +139,7 @@ vim.keymap.set("", '"', ";")
 -- Normal mode
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "_", "-")
-vim.keymap.set("n", "~", "~h")
+vim.keymap.set("n", "~", "~h") 
 
 -- Visual mode remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
@@ -165,7 +189,7 @@ vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
 --Autocmd
 vim.api.nvim_create_autocmd("FileType", {
    pattern = "autohotkey",
-   command = "setlocal commentstring=;\\ %s"
+    command = "setlocal commentstring=;\\ %s"
 })
 vim.api.nvim_create_autocmd("FileType", {
    pattern = "cs",
