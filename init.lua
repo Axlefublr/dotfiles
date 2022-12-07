@@ -29,6 +29,43 @@ vim.call("plug#end")
 
 require("hop").setup()
 
+local hop = require("hop")
+local directions = require("hop.hint").HintDirection
+
+vim.keymap.set("", "f", function() hop.hint_char1({
+   direction = directions.AFTER_CURSOR,
+   current_line_only = true
+}) end)
+vim.keymap.set("", "F", function() hop.hint_char1({
+   direction = directions.BEFORE_CURSOR,
+   current_line_only = true
+}) end)
+vim.keymap.set("", "t", function() hop.hint_char1({
+   direction = directions.AFTER_CURSOR,
+   current_line_only = true,
+   hint_offset = -1,
+}) end)
+vim.keymap.set("", "T", function() hop.hint_char1({
+   direction = directions.BEFORE_CURSOR,
+   current_line_only = true,
+   hint_offset = 1,
+})
+end)
+vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
+vim.keymap.set("v", "s", "<Plug>VSurround")
+vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
+vim.keymap.set("n", "RR", "<Plug>ReplaceWithRegisterLine")
+vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
+
+if vim.fn.has("termguicolors") == 1 then
+   vim.g.termguicolors = true
+end
+
+vim.g.colors_name         = "everforest"
+vim.opt.background        = "dark"
+vim.g.camelcasemotion_key = "<leader>"
+vim.g.targets_nl          = "nN"
+
 vim.g.clipboard = {
    name = "wslclipboard",
    copy = {
@@ -42,14 +79,15 @@ vim.g.clipboard = {
    cache_enabled = true
 }
 
-if vim.fn.has("termguicolors") == 1 then
-   vim.g.termguicolors = true
-end
-
-vim.g.colors_name         = "everforest"
-vim.opt.background        = "dark"
-vim.g.camelcasemotion_key = "<leader>"
-vim.g.targets_nl          = "nN"
+--Autocmd
+vim.api.nvim_create_autocmd("FileType", {
+   pattern = "autohotkey",
+    command = "setlocal commentstring=;\\ %s"
+})
+vim.api.nvim_create_autocmd("FileType", {
+   pattern = "cs",
+   command = "setlocal commentstring=//\\ %s"
+})
 
 if vim.g.vscode then
    vim.keymap.set("n", "zh", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end)
@@ -84,34 +122,6 @@ else
    vim.keymap.set("", "<C-u>", "12kzz")
    vim.keymap.set("n", "zp", "vaBo^<Esc>")
 end
-
-local hop = require("hop")
-local directions = require("hop.hint").HintDirection
-
-vim.keymap.set("", "f", function() hop.hint_char1({
-   direction = directions.AFTER_CURSOR,
-   current_line_only = true
-}) end)
-vim.keymap.set("", "F", function() hop.hint_char1({
-   direction = directions.BEFORE_CURSOR,
-   current_line_only = true
-}) end)
-vim.keymap.set("", "t", function() hop.hint_char1({
-   direction = directions.AFTER_CURSOR,
-   current_line_only = true,
-   hint_offset = -1,
-}) end)
-vim.keymap.set("", "T", function() hop.hint_char1({
-   direction = directions.BEFORE_CURSOR,
-   current_line_only = true,
-   hint_offset = 1,
-})
-end)
-vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
-vim.keymap.set("v", "s", "<Plug>VSurround")
-vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
-vim.keymap.set("n", "RR", "<Plug>ReplaceWithRegisterLine")
-vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
 
 -- Text objects
 vim.keymap.set("v", "im", "aBV")
@@ -185,13 +195,3 @@ vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
 vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
 vim.keymap.set("!", "<C-r>r", '<C-r><C-o>"')
 vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
-
---Autocmd
-vim.api.nvim_create_autocmd("FileType", {
-   pattern = "autohotkey",
-    command = "setlocal commentstring=;\\ %s"
-})
-vim.api.nvim_create_autocmd("FileType", {
-   pattern = "cs",
-   command = "setlocal commentstring=//\\ %s"
-})
