@@ -112,7 +112,7 @@ vim.g.clipboard = {
 --Autocmd
 vim.api.nvim_create_autocmd("FileType", {
    pattern = "autohotkey",
-    command = "setlocal commentstring=;\\ %s"
+   command = "setlocal commentstring=;\\ %s"
 })
 vim.api.nvim_create_autocmd("FileType", {
    pattern = "cs",
@@ -120,6 +120,28 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 if vim.g.vscode then
+
+   -- Folding
+   vim.keymap.set("n", "za", function() vim.fn.VSCodeNotify("editor.toggleFold") end)
+   vim.keymap.set("n", "zC", function() vim.fn.VSCodeNotify("editor.foldAll") end)
+   vim.keymap.set("n", "zO", function() vim.fn.VSCodeNotify("editor.unfoldAll") end)
+   vim.keymap.set("n", "zp", function() vim.fn.VSCodeNotify("editor.gotoParentFold") end)
+
+   -- Leader remaps
+   vim.keymap.set("", "<leader><leader>k", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToAboveGroup") end)
+   vim.keymap.set("", "<leader><leader>l", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToRightGroup") end)
+   vim.keymap.set("", "<leader><leader>j", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToBelowGroup") end)
+   vim.keymap.set("", "<leader><leader>h", function() vim.fn.VSCodeNotify("workbench.action.moveEditorToLeftGroup") end)
+   vim.keymap.set("", "<leader><leader>i", function() vim.fn.VSCodeNotify("workbench.action.joinTwoGroups") end)
+   vim.keymap.set("", "<leader>k", function() vim.fn.VSCodeNotify("workbench.action.focusAboveGroup") end)
+   vim.keymap.set("", "<leader>j", function() vim.fn.VSCodeNotify("workbench.action.focusBelowGroup") end)
+   vim.keymap.set("", "<leader>h", function() vim.fn.VSCodeNotify("workbench.action.focusLeftGroup") end)
+   vim.keymap.set("", "<leader>l", function() vim.fn.VSCodeNotify("workbench.action.focusRightGroup") end)
+   
+   -- All modes
+   vim.keymap.set("", "zl", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
+
+   -- Normal mode
    vim.keymap.set("n", "zh", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end)
    vim.keymap.set("n", "zl", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.rTrimCursor") end)
    vim.keymap.set("n", "zi", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.trimCursor") end)
@@ -130,22 +152,18 @@ if vim.g.vscode then
    vim.keymap.set("n", "[s", function() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end)
    vim.keymap.set("n", "=<", function() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end)
    vim.keymap.set("n", "gl", function() vim.fn.VSCodeNotify("editor.action.openLink") end)
-
-   vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
-
-   vim.keymap.set("n", "za", function() vim.fn.VSCodeNotify("editor.toggleFold") end)
-   vim.keymap.set("n", "zC", function() vim.fn.VSCodeNotify("editor.foldAll") end)
-   vim.keymap.set("n", "zO", function() vim.fn.VSCodeNotify("editor.unfoldAll") end)
-   vim.keymap.set("n", "zp", function() vim.fn.VSCodeNotify("editor.gotoParentFold") end)
-
-   vim.keymap.set("", "zl", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
-
    vim.keymap.set("n", "<C-k>", function()
       vim.fn.VSCodeCall("editor.action.insertLineBefore")
       vim.cmd("norm k")
    end)
+
+   -- Visual mode
+   vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
+
+   -- Insert mode
    vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
 else
+   -- Not vscode
    vim.keymap.set("", "<C-f>", "<C-f>zz")
    vim.keymap.set("", "<C-b>", "<C-b>zz")
    vim.keymap.set("", "<C-d>", "12jzz")
@@ -173,8 +191,6 @@ vim.keymap.set("", "K", "gM")
 vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
-vim.keymap.set("", ":", ",")
-vim.keymap.set("", '"', ";")
 
 -- Normal mode
 vim.keymap.set("n", "Y", "yg_")
