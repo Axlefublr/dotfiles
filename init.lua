@@ -14,20 +14,33 @@ Plug("kana/vim-textobj-entire")
 Plug("kana/vim-textobj-line")
 Plug("michaeljsmith/vim-indent-object")
 Plug("vim-scripts/ReplaceWithRegister")
-Plug("christoomey/vim-titlecase")
 Plug("tpope/vim-repeat")
 Plug("sheerun/vim-polyglot")
-Plug("tpope/vim-surround")
 Plug("bkad/CamelCaseMotion")
 Plug("junegunn/vim-easy-align")
 Plug("tpope/vim-commentary")
 Plug("huleiak47/vim-AHKcomplete")
 Plug("wellle/targets.vim")
 Plug("sainnhe/everforest")
-Plug("phaazon/hop.nvim")
 vim.call("plug#end")
 
-require("hop").setup()
+require("packer").startup(function(use)
+   use "wbthomason/packer.nvim"
+   use {
+      "phaazon/hop.nvim",
+      branch = "v2",
+      config = function()
+         require("hop").setup({keys = "asdfghjklqwertyuiopzxcvbnm;"})
+      end
+   }
+   use({
+      "kylechui/nvim-surround",
+      tag = "*",
+      config = function()
+         require("nvim-surround").setup()
+      end
+   })
+end)
 
 local hop = require("hop")
 local directions = require("hop.hint").HintDirection
@@ -51,6 +64,23 @@ vim.keymap.set("", "T", function() hop.hint_char1({
    hint_offset = 1,
 })
 end)
+vim.keymap.set("", "<leader>f", function() hop.hint_char1({
+   direction = directions.AFTER_CURSOR,
+   current_line_only = false
+}) end)
+vim.keymap.set("", "<leader>F", function() hop.hint_char1({
+   direction = directions.BEFORE_CURSOR,
+   current_line_only = false
+}) end)
+vim.keymap.set("", "<leader>t", function() hop.hint_char1({
+   direction = directions.AFTER_CURSOR,
+   current_line_only = false
+}) end)
+vim.keymap.set("", "<leader>T", function() hop.hint_char1({
+   direction = directions.BEFORE_CURSOR,
+   current_line_only = false
+}) end)
+
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 vim.keymap.set("v", "s", "<Plug>VSurround")
 vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
@@ -149,7 +179,7 @@ vim.keymap.set("", '"', ";")
 -- Normal mode
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "_", "-")
-vim.keymap.set("n", "~", "~h") 
+vim.keymap.set("n", "~", "~h")
 
 -- Visual mode remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
@@ -170,8 +200,6 @@ vim.keymap.set("v", "g[x", "g<C-x>")
 
 -- Leader remaps
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
-vim.keymap.set("", "<leader>f", "$F")
-vim.keymap.set("", "<leader>F", "^f")
 vim.keymap.set("", "<leader>`", "'")
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
 
