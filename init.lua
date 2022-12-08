@@ -1,7 +1,21 @@
+function Multiply() vim.cmd('norm "ryl"r' .. vim.v.count1 .. "gp") end
+
+-- function Multiply_Visual() vim.api.nvim_input('"rygv<Esc>"r' .. vim.v.count1 .. "gp") end
+function Multiply_Visual()
+   vim.api.nvim_feedkeys(
+      vim.api.nvim_replace_termcodes(
+         '"rygv<Esc>"r' .. vim.v.count1 .. "gp",
+         true, false, true
+      ),
+      "n", true
+   )
+end
+
 vim.opt.relativenumber = true
 vim.opt.tabstop        = 3
 vim.opt.smartindent    = true
 vim.opt.mouse          = "a"
+vim.opt.ignorecase     = true
 vim.opt.smartcase      = true
 vim.opt.hlsearch       = false
 vim.g.mapleader        = ","
@@ -21,16 +35,17 @@ Plug("junegunn/vim-easy-align")
 Plug("tpope/vim-commentary")
 Plug("huleiak47/vim-AHKcomplete")
 Plug("wellle/targets.vim")
-Plug("sainnhe/everforest")
 vim.call("plug#end")
 
 require("packer").startup(function(use)
    use "wbthomason/packer.nvim"
+   use "sainnhe/gruvbox-material"
+   use "jacoborus/tender.vim"
    use {
       "phaazon/hop.nvim",
       branch = "v2",
       config = function()
-         require("hop").setup({keys = "asdfghjklqwertyuiopzxcvbnm;"})
+         require("hop").setup({ keys = "asdfghjklqwertyuiopzxcvbnm;" })
       end
    }
    use({
@@ -46,40 +61,47 @@ local hop = require("hop")
 local directions = require("hop.hint").HintDirection
 
 vim.keymap.set("", "f", function() hop.hint_char1({
-   direction = directions.AFTER_CURSOR,
-   current_line_only = true
-}) end)
+      direction = directions.AFTER_CURSOR,
+      current_line_only = true
+   })
+end)
 vim.keymap.set("", "F", function() hop.hint_char1({
-   direction = directions.BEFORE_CURSOR,
-   current_line_only = true
-}) end)
+      direction = directions.BEFORE_CURSOR,
+      current_line_only = true
+   })
+end)
 vim.keymap.set("", "t", function() hop.hint_char1({
-   direction = directions.AFTER_CURSOR,
-   current_line_only = true,
-   hint_offset = -1,
-}) end)
+      direction = directions.AFTER_CURSOR,
+      current_line_only = true,
+      hint_offset = -1,
+   })
+end)
 vim.keymap.set("", "T", function() hop.hint_char1({
-   direction = directions.BEFORE_CURSOR,
-   current_line_only = true,
-   hint_offset = 1,
-})
+      direction = directions.BEFORE_CURSOR,
+      current_line_only = true,
+      hint_offset = 1,
+   })
 end)
 vim.keymap.set("", "<leader>f", function() hop.hint_char1({
-   direction = directions.AFTER_CURSOR,
-   current_line_only = false
-}) end)
+      direction = directions.AFTER_CURSOR,
+      current_line_only = false
+   })
+end)
 vim.keymap.set("", "<leader>F", function() hop.hint_char1({
-   direction = directions.BEFORE_CURSOR,
-   current_line_only = false
-}) end)
+      direction = directions.BEFORE_CURSOR,
+      current_line_only = false
+   })
+end)
 vim.keymap.set("", "<leader>t", function() hop.hint_char1({
-   direction = directions.AFTER_CURSOR,
-   current_line_only = false
-}) end)
+      direction = directions.AFTER_CURSOR,
+      current_line_only = false
+   })
+end)
 vim.keymap.set("", "<leader>T", function() hop.hint_char1({
-   direction = directions.BEFORE_CURSOR,
-   current_line_only = false
-}) end)
+      direction = directions.BEFORE_CURSOR,
+      current_line_only = false
+   })
+end)
 
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 vim.keymap.set("v", "s", "<Plug>VSurround")
@@ -91,8 +113,11 @@ if vim.fn.has("termguicolors") == 1 then
    vim.g.termguicolors = true
 end
 
-vim.g.colors_name         = "everforest"
-vim.opt.background        = "dark"
+vim.opt.background                        = "dark"
+vim.g.gruvbox_material_background         = "soft"
+vim.g.gruvbox_material_better_performance = true
+vim.cmd("colorscheme tender")
+
 vim.g.camelcasemotion_key = "<leader>"
 vim.g.targets_nl          = "nN"
 
@@ -185,12 +210,14 @@ vim.keymap.set("", "'", '"')
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "_", "-")
 vim.keymap.set("n", "~", "~h")
+vim.keymap.set("n", "Q", Multiply)
 
 -- Visual mode remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
 vim.keymap.set("v", "#", '"ry?\\V<C-r>r<CR>')
 vim.keymap.set("v", "u", "<Esc>u")
 vim.keymap.set("v", "U", "<Esc>u")
+vim.keymap.set("v", "Q", Multiply_Visual)
 
 -- Control remaps
 vim.keymap.set("", "<C-t>", "<C-a>")
