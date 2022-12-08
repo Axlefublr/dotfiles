@@ -1,3 +1,5 @@
+## Eva theme
+
 **#bf7465** — hotkey brown — **191 116 101**
 
 **#E4BF7F** — mild yellow
@@ -27,3 +29,21 @@
 **#F02B77** — yelling red
 
 **#FF6AB3** — girly pink
+
+## Gruvbox material
+
+**#EA6962** — red
+
+**#E78A4E** — orange
+
+**#D8A657** — yellow
+
+**#A9B665** — green
+
+**#89B482** — greean
+
+**#7DAEA3** — cyan
+
+**#D3869B** — purple
+
+**#D4BE98** — white
