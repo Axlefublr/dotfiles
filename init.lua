@@ -1,16 +1,13 @@
-function Multiply() vim.cmd('norm "ryl"r' .. vim.v.count1 .. "gp") end
-
--- function Multiply_Visual() vim.api.nvim_input('"rygv<Esc>"r' .. vim.v.count1 .. "gp") end
-function Multiply_Visual()
-   vim.api.nvim_feedkeys(
-      vim.api.nvim_replace_termcodes(
-         '"rygv<Esc>"r' .. vim.v.count1 .. "gp",
-         true, false, true
-      ),
-      "n", true
-   )
+function FeedKeysCorrectly(keys)
+   local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+   vim.api.nvim_feedkeys(feedableKeys, "n", true)
 end
 
+function Multiply() vim.cmd('norm "ryl"r' .. vim.v.count1 .. "gp") end
+
+function Multiply_Visual() FeedKeysCorrectly('"rygv<Esc>"r' .. vim.v.count1 .. "gp") end
+
+vim.opt.number         = true
 vim.opt.relativenumber = true
 vim.opt.tabstop        = 3
 vim.opt.smartindent    = true
@@ -116,7 +113,7 @@ end
 vim.opt.background                        = "dark"
 vim.g.gruvbox_material_background         = "soft"
 vim.g.gruvbox_material_better_performance = true
-vim.cmd("colorscheme tender")
+vim.cmd("colorscheme gruvbox-material")
 
 vim.g.camelcasemotion_key = "<leader>"
 vim.g.targets_nl          = "nN"
@@ -153,7 +150,7 @@ if vim.g.vscode then
    vim.keymap.set("n", "zp", function() vim.fn.VSCodeNotify("editor.gotoParentFold") end)
 
    -- All modes
-   vim.keymap.set("", "zl", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
+   vim.keymap.set("", "zy", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
 
    -- Normal mode
    vim.keymap.set("n", "zh", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end)
@@ -173,6 +170,8 @@ if vim.g.vscode then
 
    -- Visual mode
    vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
+   vim.keymap.set("v", "<", function() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end)
+   vim.keymap.set("v", ">", function() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end)
 
    -- Insert mode
    vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
