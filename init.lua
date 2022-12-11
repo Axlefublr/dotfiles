@@ -210,6 +210,8 @@ vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "_", "-")
 vim.keymap.set("n", "~", "~h")
 vim.keymap.set("n", "Q", Multiply)
+vim.keymap.set("n", "<C-y>", "<C-a>")
+vim.keymap.set("n", "<C-e>", "<C-x>")
 
 -- Visual mode remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
@@ -218,9 +220,13 @@ vim.keymap.set("v", "u", "<Esc>u")
 vim.keymap.set("v", "U", "<Esc>u")
 vim.keymap.set("v", "Q", Multiply_Visual)
 
+-- Insert mode remaps
+vim.keymap.set("i", "<C-f>", "<C-x><C-f>")
+vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
+vim.keymap.set("i", "<C-h>", "<C-x><C-p>")
+vim.keymap.set("i", "<C-m>", "<C-x><C-n>")
+
 -- Control remaps
-vim.keymap.set("", "<C-t>", "<C-a>")
-vim.keymap.set("", "<C-e>", "<C-x>")
 vim.keymap.set("", "<C-r>", "<C-r><C-o>")
 
 -- Bracket remaps
@@ -249,8 +255,8 @@ vim.keymap.set("", "'q", '"+')
 vim.keymap.set("", "'r", '".')
 vim.keymap.set("", "';", '":')
 
-vim.keymap.set("!", "<C-r>w", "<C-r><C-o>0")
-vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
-vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
-vim.keymap.set("!", "<C-r>r", '<C-r><C-o>"')
-vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
+vim.keymap.set("!", "<C-r>w", "<C-r><C-r>0")
+vim.keymap.set("!", "<C-r>e", "<C-r><C-r>-")
+vim.keymap.set("!", "<C-r>q", "<C-r><C-r>+")
+vim.keymap.set("!", "<C-r>r", '<C-r><C-r>"')
+vim.keymap.set("!", "<C-r>;", "<C-r><C-r>:")
