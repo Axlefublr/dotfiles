@@ -225,6 +225,8 @@ vim.keymap.set("i", "<C-f>", "<C-x><C-f>")
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
 vim.keymap.set("i", "<C-h>", "<C-x><C-p>")
 vim.keymap.set("i", "<C-m>", "<C-x><C-n>")
+vim.keymap.set("i", "<C-i>", "<Esc>B~A")
+vim.keymap.set("i", "<C-u>", "<Esc>S")
 
 -- Control remaps
 vim.keymap.set("", "<C-r>", "<C-r><C-o>")
