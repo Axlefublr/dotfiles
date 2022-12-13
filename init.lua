@@ -145,8 +145,10 @@ if vim.g.vscode then
 
    -- Folding
    vim.keymap.set("n", "za", function() vim.fn.VSCodeNotify("editor.toggleFold") end)
+   vim.keymap.set("n", "zc", function() vim.fn.VSCodeNotify("editor.foldRecursively") end)
    vim.keymap.set("n", "zC", function() vim.fn.VSCodeNotify("editor.foldAll") end)
    vim.keymap.set("n", "zO", function() vim.fn.VSCodeNotify("editor.unfoldAll") end)
+   vim.keymap.set("n", "zo", function() vim.fn.VSCodeNotify("editor.unfoldRecursively") end)
    vim.keymap.set("n", "zp", function() vim.fn.VSCodeNotify("editor.gotoParentFold") end)
 
    -- All modes
