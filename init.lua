@@ -36,8 +36,7 @@ vim.call("plug#end")
 
 require("packer").startup(function(use)
    use "wbthomason/packer.nvim"
-   use "sainnhe/gruvbox-material"
-   use "jacoborus/tender.vim"
+   use "savq/melange"
    use {
       "phaazon/hop.nvim",
       branch = "v2",
@@ -90,14 +89,9 @@ vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
 vim.keymap.set("n", "RR", "<Plug>ReplaceWithRegisterLine")
 vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
 
-if vim.fn.has("termguicolors") == 1 then
-   vim.g.termguicolors = true
-end
-
-vim.opt.background                        = "dark"
-vim.g.gruvbox_material_background         = "soft"
-vim.g.gruvbox_material_better_performance = true
-vim.cmd("colorscheme gruvbox-material")
+vim.opt.termguicolors = true
+vim.opt.background    = "dark"
+vim.cmd("colorscheme melange")
 
 vim.g.camelcasemotion_key = "<leader>"
 vim.g.targets_nl          = "nN"
@@ -205,12 +199,11 @@ vim.keymap.set("v", "U", "<Esc>u")
 vim.keymap.set("v", "<leader>q", Multiply_Visual)
 
 -- Insert mode remaps
-vim.keymap.set("i", "<C-f>", "<C-x><C-f>")
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
-vim.keymap.set("i", "<C-h>", "<C-x><C-p>")
-vim.keymap.set("i", "<C-m>", "<C-x><C-n>")
-vim.keymap.set("i", "<C-i>", "<Esc>B~A")
-vim.keymap.set("i", "<C-u>", "<Esc>S")
+vim.keymap.set("i", "<C-h>", '<Esc>"_ddkA')
+vim.keymap.set("i", "<C-m>", '<Esc>"_ddA')
+vim.keymap.set("i", "<C-i>", "<Esc>B~Ea")
+vim.keymap.set("i", "<C-u>", '<Esc>"_S')
 
 -- Control remaps
 vim.keymap.set("", "<C-r>", "<C-r><C-o>")
