@@ -79,26 +79,6 @@ vim.keymap.set("", "T", function() hop.hint_char1({
       hint_offset = 1,
    })
 end)
-vim.keymap.set("", "<leader>f", function() hop.hint_char1({
-      direction = directions.AFTER_CURSOR,
-      current_line_only = false
-   })
-end)
-vim.keymap.set("", "<leader>F", function() hop.hint_char1({
-      direction = directions.BEFORE_CURSOR,
-      current_line_only = false
-   })
-end)
-vim.keymap.set("", "<leader>t", function() hop.hint_char1({
-      direction = directions.AFTER_CURSOR,
-      current_line_only = false
-   })
-end)
-vim.keymap.set("", "<leader>T", function() hop.hint_char1({
-      direction = directions.BEFORE_CURSOR,
-      current_line_only = false
-   })
-end)
 vim.keymap.set("", "K", function() hop.hint_words({
       current_line_only = true
    })
