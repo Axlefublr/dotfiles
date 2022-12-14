@@ -99,6 +99,10 @@ vim.keymap.set("", "<leader>T", function() hop.hint_char1({
       current_line_only = false
    })
 end)
+vim.keymap.set("", "K", function() hop.hint_words({
+      current_line_only = true
+   })
+end)
 
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 vim.keymap.set("v", "s", "<Plug>VSurround")
@@ -202,14 +206,12 @@ vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
 vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
 -- All modes
-vim.keymap.set("", "K", "gM")
 vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
 
 -- Normal mode
 vim.keymap.set("n", "Y", "yg_")
-vim.keymap.set("n", "_", "-")
 vim.keymap.set("n", "~", "~h")
 vim.keymap.set("n", "Q", Multiply)
 vim.keymap.set("n", "<C-y>", "<C-a>")
@@ -264,3 +266,11 @@ vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
 vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
 vim.keymap.set("!", "<C-r>r", '<C-r><C-o>"')
 vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
+
+-- Vertical movement
+vim.keymap.set("v", "_", "-")
+vim.keymap.set("n", "_", "-")
+vim.keymap.set("n", "<leader>k", "kg_")
+vim.keymap.set("v", "<leader>k", "kg_")
+vim.keymap.set("n", "<leader>j", "jg_")
+vim.keymap.set("v", "<leader>j", "jg_")
