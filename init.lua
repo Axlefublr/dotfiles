@@ -213,16 +213,16 @@ vim.keymap.set("", "'", '"')
 -- Normal mode
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "~", "~h")
-vim.keymap.set("n", "Q", Multiply)
 vim.keymap.set("n", "<C-y>", "<C-a>")
 vim.keymap.set("n", "<C-e>", "<C-x>")
+vim.keymap.set("n", "Q", "@q")
 
 -- Visual mode remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
 vim.keymap.set("v", "#", '"ry?\\V<C-r>r<CR>')
 vim.keymap.set("v", "u", "<Esc>u")
 vim.keymap.set("v", "U", "<Esc>u")
-vim.keymap.set("v", "Q", Multiply_Visual)
+vim.keymap.set("v", "<leader>q", Multiply_Visual)
 
 -- Insert mode remaps
 vim.keymap.set("i", "<C-f>", "<C-x><C-f>")
@@ -245,6 +245,7 @@ vim.keymap.set("v", "g[x", "g<C-x>")
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 vim.keymap.set("", "<leader>`", "'")
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
+vim.keymap.set("n", "<leader>q", Multiply)
 
 -- Functionizing
 vim.keymap.set("", "U", function() vim.fn.cursor(0, vim.v.count1) end)
