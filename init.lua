@@ -37,6 +37,10 @@ vim.call("plug#end")
 require("packer").startup(function(use)
    use "wbthomason/packer.nvim"
    use "savq/melange"
+   use "sainnhe/everforest"
+   use "sainnhe/edge"
+   use "sainnhe/gruvbox-material"
+   use "jacoborus/tender.vim"
    use {
       "phaazon/hop.nvim",
       branch = "v2",
@@ -91,7 +95,7 @@ vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
 
 vim.opt.termguicolors = true
 vim.opt.background    = "dark"
-vim.cmd("colorscheme melange")
+vim.cmd("colorscheme tender")
 
 vim.g.camelcasemotion_key = "<leader>"
 vim.g.targets_nl          = "nN"
