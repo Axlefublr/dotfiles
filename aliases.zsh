@@ -17,10 +17,11 @@ alias gitcreate="git add . && git commit -m \"first commit\" && git push -u orig
 importDotfiles() {
    cp /mnt/c/Programming/dotfiles/aliases.zsh $ZSH/custom/aliases.zsh
    cp /mnt/c/Programming/dotfiles/init.lua ~/.config/nvim/init.lua
+   cp /mnt/c/Programming/dotfiles/.zshrc ~/.zshrc
 }
 
 # Files
 alias m="importDotfiles && nvim ~/.config/nvim/init.lua"
 alias alis="importDotfiles && nvim $ZSH/custom/aliases.zsh"
-alias zshConf="nvim ~/.zshrc"
+alias zshConf="importDotfiles && nvim ~/.zshrc"
 alias p10kConf="nvim ~/.p10k.zsh"

@@ -41,6 +41,8 @@ require("packer").startup(function(use)
    use "sainnhe/edge"
    use "sainnhe/gruvbox-material"
    use "jacoborus/tender.vim"
+   use "farmergreg/vim-lastplace"
+   use "ap/vim-css-color"
    use {
       "phaazon/hop.nvim",
       branch = "v2",
@@ -223,6 +225,10 @@ vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 vim.keymap.set("", "<leader>`", "'")
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
 vim.keymap.set("n", "<leader>q", Multiply)
+vim.keymap.set("n", "<leader>gg", "gg0")
+vim.keymap.set("v", "<leader>gg", "gg0")
+vim.keymap.set("n", "<leader>G", "G$")
+vim.keymap.set("v", "<leader>G", "G$")
 
 -- Functionizing
 vim.keymap.set("", "U", function() vim.fn.cursor(0, vim.v.count1) end)
