@@ -229,6 +229,10 @@ vim.keymap.set("n", "<leader>gg", "gg0")
 vim.keymap.set("v", "<leader>gg", "gg0")
 vim.keymap.set("n", "<leader>G", "G$")
 vim.keymap.set("v", "<leader>G", "G$")
+vim.keymap.set("", "<leader>f", "f")
+vim.keymap.set("", "<leader>F", "F")
+vim.keymap.set("", "<leader>t", "t")
+vim.keymap.set("", "<leader>T", "T")
 
 -- Functionizing
 vim.keymap.set("", "U", function() vim.fn.cursor(0, vim.v.count1) end)
