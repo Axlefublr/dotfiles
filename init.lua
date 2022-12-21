@@ -135,10 +135,10 @@ if vim.g.vscode then
    vim.keymap.set("n", "zo", function() vim.fn.VSCodeNotify("editor.unfoldRecursively") end)
    vim.keymap.set("n", "zp", function() vim.fn.VSCodeNotify("editor.gotoParentFold") end)
 
-   -- All modes
+   -- All remaps
    vim.keymap.set("", "zy", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
 
-   -- Normal mode
+   -- Normal remaps
    vim.keymap.set("n", "zh", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end)
    vim.keymap.set("n", "zl", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.rTrimCursor") end)
    vim.keymap.set("n", "zi", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.trimCursor") end)
@@ -153,13 +153,15 @@ if vim.g.vscode then
       vim.fn.VSCodeCall("editor.action.insertLineBefore")
       vim.cmd("norm k")
    end)
+   vim.keymap.set("n", "<<", function() vim.fn.VSCodeNotify("editor.action.outdentLines") end)
+   vim.keymap.set("n", ">>", function() vim.fn.VSCodeNotify("editor.action.indentLines") end)
 
-   -- Visual mode
+   -- Visual remaps
    vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
    vim.keymap.set("v", "<", function() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end)
    vim.keymap.set("v", ">", function() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end)
 
-   -- Insert mode
+   -- Insert remaps
    vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
 else
    -- Not vscode
@@ -185,31 +187,32 @@ vim.keymap.set("v", "a%", "F%of%")
 vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
 vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
--- All modes
+-- All remaps
 vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
 
--- Normal mode
+-- Normal remaps
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "~", "~h")
 vim.keymap.set("n", "<C-y>", "<C-a>")
 vim.keymap.set("n", "<C-e>", "<C-x>")
 vim.keymap.set("n", "Q", "@q")
 
--- Visual mode remaps
+-- Visual remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
 vim.keymap.set("v", "#", '"ry?\\V<C-r>r<CR>')
 vim.keymap.set("v", "u", "<Esc>u")
 vim.keymap.set("v", "U", "<Esc>u")
 vim.keymap.set("v", "<leader>q", Multiply_Visual)
 
--- Insert mode remaps
+-- Insert remaps
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
 vim.keymap.set("i", "<C-h>", '<Esc>"_ddkA')
 vim.keymap.set("i", "<C-m>", '<Esc>"_ddA')
-vim.keymap.set("i", "<C-i>", "<Esc>B~Ea")
+vim.keymap.set("i", "<C-b>", "<Esc>B~Ea")
 vim.keymap.set("i", "<C-u>", '<Esc>"_S')
+vim.keymap.set("i", "<C-i>", '<Esc>"_S<Esc>I')
 
 -- Control remaps
 vim.keymap.set("", "<C-r>", "<C-r><C-o>")
