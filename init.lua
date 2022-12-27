@@ -44,6 +44,10 @@ require("packer").startup(function(use)
    use "farmergreg/vim-lastplace"
    use "ap/vim-css-color"
    use {
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons", opt = true }
+   }
+   use {
       "phaazon/hop.nvim",
       branch = "v2",
       config = function()
@@ -90,10 +94,50 @@ vim.keymap.set("", "K", function() hop.hint_words({
 end)
 
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
-vim.keymap.set("v", "s", "<Plug>VSurround")
 vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
 vim.keymap.set("n", "RR", "<Plug>ReplaceWithRegisterLine")
 vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
+
+require('lualine').setup {
+   options = {
+      icons_enabled = true,
+      theme = 'auto',
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
+      disabled_filetypes = {
+         statusline = {},
+         winbar = {},
+      },
+      ignore_focus = {},
+      always_divide_middle = true,
+      globalstatus = false,
+      refresh = {
+         statusline = 1000,
+         tabline = 1000,
+         winbar = 1000,
+      }
+   },
+   sections = {
+      lualine_a = { 'mode' },
+      lualine_b = { 'branch', 'diff', 'diagnostics' },
+      lualine_c = { 'filename' },
+      lualine_x = { 'encoding', 'fileformat', 'filetype' },
+      lualine_y = { 'progress' },
+      lualine_z = { 'location' }
+   },
+   inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = { 'filename' },
+      lualine_x = { 'location' },
+      lualine_y = {},
+      lualine_z = {}
+   },
+   tabline = {},
+   winbar = {},
+   inactive_winbar = {},
+   extensions = {}
+}
 
 vim.opt.termguicolors = true
 vim.opt.background    = "dark"
@@ -145,8 +189,7 @@ if vim.g.vscode then
    vim.keymap.set("n", "[f", function() vim.fn.VSCodeNotify("workbench.view.search.focus") end)
    vim.keymap.set("n", "]f", function() vim.fn.VSCodeNotify("workbench.action.replaceInFiles") end)
    vim.keymap.set("n", "gD", function() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end)
-   vim.keymap.set("n", "[p", function() vim.fn.VSCodeNotify("extension.pasteImage") end)
-   vim.keymap.set("n", "[s", function() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end)
+   vim.keymap.set("n", "<leader>s", function() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end)
    vim.keymap.set("n", "=<", function() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end)
    vim.keymap.set("n", "gl", function() vim.fn.VSCodeNotify("editor.action.openLink") end)
    vim.keymap.set("n", "<C-k>", function()
@@ -165,10 +208,6 @@ if vim.g.vscode then
    vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
 else
    -- Not vscode
-   vim.keymap.set("", "<C-f>", "<C-f>zz")
-   vim.keymap.set("", "<C-b>", "<C-b>zz")
-   vim.keymap.set("", "<C-d>", "12jzz")
-   vim.keymap.set("", "<C-u>", "12kzz")
    vim.keymap.set("n", "zp", "vaBo^<Esc>")
 end
 
@@ -195,8 +234,6 @@ vim.keymap.set("", "'", '"')
 -- Normal remaps
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "~", "~h")
-vim.keymap.set("n", "<C-y>", "<C-a>")
-vim.keymap.set("n", "<C-e>", "<C-x>")
 vim.keymap.set("n", "Q", "@q")
 
 -- Visual remaps
@@ -215,13 +252,11 @@ vim.keymap.set("i", "<C-u>", '<Esc>"_S')
 vim.keymap.set("i", "<C-i>", '<Esc>"_S<Esc>I')
 
 -- Control remaps
+vim.keymap.set("", "<C-f>", "24j")
+vim.keymap.set("", "<C-b>", "24k")
+vim.keymap.set("", "<C-d>", "12j")
+vim.keymap.set("", "<C-u>", "12k")
 vim.keymap.set("", "<C-r>", "<C-r><C-o>")
-
--- Bracket remaps
-vim.keymap.set("", "]x", "<C-a>")
-vim.keymap.set("", "[x", "<C-x>")
-vim.keymap.set("v", "g]x", "g<C-a>")
-vim.keymap.set("v", "g[x", "g<C-x>")
 
 -- Leader remaps
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
