@@ -230,6 +230,8 @@ vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
+-- vim.keymap.set("", ":", ",")
+-- vim.keymap.set("", '"', ";")
 
 -- Normal remaps
 vim.keymap.set("n", "Y", "yg_")
@@ -252,8 +254,8 @@ vim.keymap.set("i", "<C-u>", '<Esc>"_S')
 vim.keymap.set("i", "<C-i>", '<Esc>"_S<Esc>I')
 
 -- Control remaps
-vim.keymap.set("", "<C-f>", "24j")
-vim.keymap.set("", "<C-b>", "24k")
+vim.keymap.set("", "<C-f>", "16j")
+vim.keymap.set("", "<C-b>", "16k")
 vim.keymap.set("", "<C-d>", "12j")
 vim.keymap.set("", "<C-u>", "12k")
 vim.keymap.set("", "<C-r>", "<C-r><C-o>")
