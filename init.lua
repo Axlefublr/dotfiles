@@ -296,3 +296,19 @@ vim.keymap.set("n", "<leader>k", "kg_")
 vim.keymap.set("v", "<leader>k", "kg_")
 vim.keymap.set("n", "<leader>j", "jg_")
 vim.keymap.set("v", "<leader>j", "jg_")
+
+Mark_m = 1
+vim.keymap.set("n", "mm", function() Mark_m = vim.fn.line(".") end)
+vim.keymap.set("n", "`m", function() vim.cmd(tostring(Mark_m)) end)
+Mark_n = 1
+vim.keymap.set("n", "mn", function() Mark_n = vim.fn.line(".") end)
+vim.keymap.set("n", "`n", function() vim.cmd(tostring(Mark_n)) end)
+Mark_j = 1
+vim.keymap.set("n", "mj", function() Mark_j = vim.fn.line(".") end)
+vim.keymap.set("n", "`j", function() vim.cmd(tostring(Mark_j)) end)
+Mark_k = 1
+vim.keymap.set("n", "mk", function() Mark_k = vim.fn.line(".") end)
+vim.keymap.set("n", "`k", function() vim.cmd(tostring(Mark_k)) end)
+Mark_l = 1
+vim.keymap.set("n", "ml", function() Mark_l = vim.fn.line(".") end)
+vim.keymap.set("n", "`l", function() vim.cmd(tostring(Mark_l)) end)
