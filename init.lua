@@ -230,6 +230,7 @@ vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
+vim.keymap.set("", "`", "@")
 -- vim.keymap.set("", ":", ",")
 -- vim.keymap.set("", '"', ";")
 
@@ -302,3 +303,11 @@ vim.keymap.set("n", "<leader>k", "kg_")
 vim.keymap.set("v", "<leader>k", "kg_")
 vim.keymap.set("n", "<leader>j", "jg_")
 vim.keymap.set("v", "<leader>j", "jg_")
+
+-- Fixing marks
+local Mark = vim.fn.line(".") .. "G" .. vim.fn.col(".") .. "|q"
+vim.keymap.set("n", "mm", "qm" .. Mark)
+vim.keymap.set("n", "mn", "qn" .. Mark)
+vim.keymap.set("n", "mj", "qj" .. Mark)
+vim.keymap.set("n", "mk", "qk" .. Mark)
+vim.keymap.set("n", "ml", "ql" .. Mark)
