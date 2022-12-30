@@ -88,10 +88,6 @@ vim.keymap.set("", "T", function() hop.hint_char1({
       hint_offset = 1,
    })
 end)
-vim.keymap.set("", "K", function() hop.hint_words({
-      current_line_only = true
-   })
-end)
 
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
@@ -230,7 +226,7 @@ vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
-vim.keymap.set("", "`", "@")
+-- vim.keymap.set("", "`", "@")
 -- vim.keymap.set("", ":", ",")
 -- vim.keymap.set("", '"', ";")
 
@@ -255,10 +251,10 @@ vim.keymap.set("i", "<C-u>", '<Esc>"_S')
 vim.keymap.set("i", "<C-i>", '<Esc>"_S<Esc>I')
 
 -- Control remaps
-vim.keymap.set("", "<C-f>", "16j")
-vim.keymap.set("", "<C-b>", "16k")
-vim.keymap.set("", "<C-d>", "12j")
-vim.keymap.set("", "<C-u>", "12k")
+vim.keymap.set("", "<C-f>", "20jzz")
+vim.keymap.set("", "<C-b>", "20kzz")
+vim.keymap.set("", "<C-d>", "12jzz")
+vim.keymap.set("", "<C-u>", "12kzz")
 vim.keymap.set("", "<C-r>", "<C-r><C-o>")
 
 -- Leader remaps
@@ -274,9 +270,6 @@ vim.keymap.set("", "<leader>f", "f")
 vim.keymap.set("", "<leader>F", "F")
 vim.keymap.set("", "<leader>t", "t")
 vim.keymap.set("", "<leader>T", "T")
-
--- Functionizing
-vim.keymap.set("", "U", function() vim.fn.cursor(0, vim.v.count1) end)
 
 -- Registers
 vim.keymap.set("", "p", "gp")
@@ -303,11 +296,3 @@ vim.keymap.set("n", "<leader>k", "kg_")
 vim.keymap.set("v", "<leader>k", "kg_")
 vim.keymap.set("n", "<leader>j", "jg_")
 vim.keymap.set("v", "<leader>j", "jg_")
-
--- Fixing marks
-local Mark = vim.fn.line(".") .. "G" .. vim.fn.col(".") .. "|q"
-vim.keymap.set("n", "mm", "qm" .. Mark)
-vim.keymap.set("n", "mn", "qn" .. Mark)
-vim.keymap.set("n", "mj", "qj" .. Mark)
-vim.keymap.set("n", "mk", "qk" .. Mark)
-vim.keymap.set("n", "ml", "ql" .. Mark)
