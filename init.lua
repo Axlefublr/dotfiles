@@ -66,23 +66,23 @@ end)
 local hop = require("hop")
 local directions = require("hop.hint").HintDirection
 
-vim.keymap.set("", "f", function() hop.hint_char1({
+vim.keymap.set("", "<leader>f", function() hop.hint_char1({
       direction = directions.AFTER_CURSOR,
       current_line_only = true
    })
 end)
-vim.keymap.set("", "F", function() hop.hint_char1({
+vim.keymap.set("", "<leader>F", function() hop.hint_char1({
       direction = directions.BEFORE_CURSOR,
       current_line_only = true
    })
 end)
-vim.keymap.set("", "t", function() hop.hint_char1({
+vim.keymap.set("", "<leader>t", function() hop.hint_char1({
       direction = directions.AFTER_CURSOR,
       current_line_only = true,
       hint_offset = -1,
    })
 end)
-vim.keymap.set("", "T", function() hop.hint_char1({
+vim.keymap.set("", "<leader>T", function() hop.hint_char1({
       direction = directions.BEFORE_CURSOR,
       current_line_only = true,
       hint_offset = 1,
@@ -228,9 +228,8 @@ vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
 vim.keymap.set("", "K", "ge")
 vim.keymap.set("", "U", "gE")
--- vim.keymap.set("", "`", "@")
--- vim.keymap.set("", ":", ",")
--- vim.keymap.set("", '"', ";")
+vim.keymap.set("", ":", ",")
+vim.keymap.set("", '"', ";")
 
 -- Normal remaps
 vim.keymap.set("n", "Y", "yg_")
@@ -264,16 +263,8 @@ vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 vim.keymap.set("", "<leader>`", "'")
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
 vim.keymap.set("n", "<leader>q", Multiply)
-vim.keymap.set("", "<leader>f", "f")
-vim.keymap.set("", "<leader>F", "F")
-vim.keymap.set("", "<leader>t", "t")
-vim.keymap.set("", "<leader>T", "T")
 
 -- Registers
-vim.keymap.set("", "p", "]p")
-vim.keymap.set("", "P", "]P")
-vim.keymap.set("", "gp", "gp")
-vim.keymap.set("", "gP", "gp")
 vim.keymap.set("", "'w", '"0')
 vim.keymap.set("", "'i", '"_')
 vim.keymap.set("", "'e", '"-')
