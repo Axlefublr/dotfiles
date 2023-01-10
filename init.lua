@@ -90,9 +90,7 @@ vim.keymap.set("", "<leader>T", function() hop.hint_char1({
 end)
 
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
-vim.keymap.set("n", "R", "<Plug>ReplaceWithRegisterOperator")
-vim.keymap.set("n", "RR", "<Plug>ReplaceWithRegisterLine")
-vim.keymap.set("v", "R", "<Plug>ReplaceWithRegisterVisual")
+vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
 
 require('lualine').setup {
    options = {
@@ -223,7 +221,6 @@ vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
 vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
 -- All remaps
-vim.keymap.set("", "gr", "R")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
 vim.keymap.set("", "K", "ge")
