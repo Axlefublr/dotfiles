@@ -3,9 +3,9 @@ function FeedKeysCorrectly(keys)
    vim.api.nvim_feedkeys(feedableKeys, "n", true)
 end
 
-function Multiply() vim.cmd('norm "ryl"r' .. vim.v.count1 .. "gp") end
+function Multiply() FeedKeysCorrectly('"ryl"r' .. vim.v.count1 .. "p") end
 
-function Multiply_Visual() FeedKeysCorrectly('"rygv<Esc>"r' .. vim.v.count1 .. "gp") end
+function Multiply_Visual() FeedKeysCorrectly('"rygv<Esc>"r' .. vim.v.count1 .. "p") end
 
 vim.opt.number         = true
 vim.opt.relativenumber = true
@@ -20,17 +20,17 @@ vim.opt.syntax         = "enable"
 
 local Plug = vim.fn['plug#']
 vim.call("plug#begin")
-Plug("kana/vim-textobj-user")
-Plug("kana/vim-textobj-entire")
-Plug("kana/vim-textobj-line")
-Plug("michaeljsmith/vim-indent-object")
-Plug("vim-scripts/ReplaceWithRegister")
 Plug("tpope/vim-repeat")
 Plug("sheerun/vim-polyglot")
 Plug("bkad/CamelCaseMotion")
 Plug("junegunn/vim-easy-align")
 Plug("tpope/vim-commentary")
 Plug("huleiak47/vim-AHKcomplete")
+Plug("kana/vim-textobj-user")
+Plug("kana/vim-textobj-entire")
+Plug("kana/vim-textobj-line")
+Plug("michaeljsmith/vim-indent-object")
+Plug("vim-scripts/ReplaceWithRegister")
 Plug("wellle/targets.vim")
 vim.call("plug#end")
 
@@ -89,9 +89,6 @@ vim.keymap.set("", "<leader>T", function() hop.hint_char1({
    })
 end)
 
-vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
-vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
-
 require('lualine').setup {
    options = {
       icons_enabled = true,
@@ -133,12 +130,15 @@ require('lualine').setup {
    extensions = {}
 }
 
+vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
+vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
+
 vim.opt.termguicolors = true
 vim.opt.background    = "dark"
 vim.cmd("colorscheme tender")
 
 vim.g.camelcasemotion_key = "<leader>"
-vim.g.targets_nl          = "nN"
+vim.g.targets_nl          = "nh"
 
 vim.g.clipboard = {
    name = "wslclipboard",
@@ -192,11 +192,13 @@ if vim.g.vscode then
    end)
    vim.keymap.set("n", "<<", function() vim.fn.VSCodeNotify("editor.action.outdentLines") end)
    vim.keymap.set("n", ">>", function() vim.fn.VSCodeNotify("editor.action.indentLines") end)
+   vim.keymap.set("n", "gcc", function() vim.fn.VSCodeNotify("editor.action.commentLine") end)
 
    -- Visual remaps
    vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
    vim.keymap.set("v", "<", function() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end)
    vim.keymap.set("v", ">", function() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end)
+   vim.keymap.set("v", "gc", function() vim.fn.VSCodeNotifyVisual("editor.action.commentLine") end)
 
    -- Insert remaps
    vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
@@ -227,6 +229,7 @@ vim.keymap.set("", "K", "ge")
 vim.keymap.set("", "U", "gE")
 vim.keymap.set("", ":", ",")
 vim.keymap.set("", '"', ";")
+vim.keymap.set("", "gm", "gM")
 
 -- Normal remaps
 vim.keymap.set("n", "Y", "yg_")
