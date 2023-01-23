@@ -24,7 +24,6 @@ Plug("tpope/vim-repeat")
 Plug("sheerun/vim-polyglot")
 Plug("bkad/CamelCaseMotion")
 Plug("junegunn/vim-easy-align")
-Plug("tpope/vim-commentary")
 Plug("huleiak47/vim-AHKcomplete")
 Plug("kana/vim-textobj-user")
 Plug("kana/vim-textobj-entire")
@@ -153,16 +152,6 @@ vim.g.clipboard = {
    cache_enabled = true
 }
 
---Autocmd
-vim.api.nvim_create_autocmd("FileType", {
-   pattern = "autohotkey",
-   command = "setlocal commentstring=;\\ %s"
-})
-vim.api.nvim_create_autocmd("FileType", {
-   pattern = "cs",
-   command = "setlocal commentstring=//\\ %s"
-})
-
 if vim.g.vscode then
 
    -- Folding
@@ -198,7 +187,7 @@ if vim.g.vscode then
    vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
    vim.keymap.set("v", "<", function() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end)
    vim.keymap.set("v", ">", function() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end)
-   vim.keymap.set("v", "gc", function() vim.fn.VSCodeNotifyVisual("editor.action.commentLine") end)
+   vim.keymap.set("v", "gc", function() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end)
 
    -- Insert remaps
    vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
