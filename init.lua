@@ -205,9 +205,11 @@ function FeedKeysCorrectly(keys)
 end
 
 --- Remap abstractions
+--# Multiply
 local multiply_current_character = '"ryl"r' .. vim.v.count1 .. "p"
 local multiply_selection = '"rygv<Esc>"r' .. vim.v.count1 .. "p"
 
+--# Hops
 function Hop_forward_f_sameline() hop.hint_char1({
       direction = directions.AFTER_CURSOR,
       current_line_only = true
@@ -231,12 +233,41 @@ function Hop_backward_t_sameline() hop.hint_char1({
    })
 end
 
+--# Code block text object
+
+
+--# Vscode: Folding
 function Vscode_toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
 function Vscode_fold_recursively() vim.fn.VSCodeNotify("editor.foldRecursively") end
 function Vscode_fold_all() vim.fn.VSCodeNotify("editor.foldAll") end
 function Vscode_unfold_all() vim.fn.VSCodeNotify("editor.unfoldAll") end
 function Vscode_unfold_recursively() vim.fn.VSCodeNotify("editor.unfoldRecursively") end
 function Vscode_goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
+
+--# Vscode: All remaps
+function Vscode_toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
+
+--# Vscode: Normal remaps
+function Vscode_trim_left() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end
+function Vscode_trim_right() vim.fn.VSCodeNotify("yo1dog.cursor-trim.rTrimCursor") end
+function Vscode_trim_both() vim.fn.VSCodeNotify("yo1dog.cursor-trim.trimCursor") end
+function Vscode_reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
+function Vscode_toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
+function Vscode_trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
+function Vscode_open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
+function Vscode_insert_line_above()
+      vim.fn.VSCodeCall("editor.action.insertLineBefore")
+      vim.cmd("norm k")
+end
+function Vscode_outdent() vim.fn.VSCodeNotify("editor.action.outdentLines") end
+function Vscode_indent() vim.fn.VSCodeNotify("editor.action.indentLines") end
+function Vscode_comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
+
+--# Vscode: Visual remaps
+function Vscode_vis_codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
+function Vscode_vis_outdent() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
+function Vscode_vis_indent() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
+function Vscode_vis_comment() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
 
 --- Plugins: options
 vim.g.camelcasemotion_key = "<leader>"
@@ -254,34 +285,29 @@ if vim.g.vscode then
    vim.keymap.set("n", "zp", Vscode_goto_parent_fold)
 
    --# Vscode: All remaps
-   vim.keymap.set("", "zy", function() vim.fn.VSCodeNotify("toggleTypewriter") end)
+   vim.keymap.set("", "zy", Vscode_toggle_typewriter)
 
-   --# Normal remaps
-   vim.keymap.set("n", "zh", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end)
-   vim.keymap.set("n", "zl", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.rTrimCursor") end)
-   vim.keymap.set("n", "zi", function() vim.fn.VSCodeNotify("yo1dog.cursor-trim.trimCursor") end)
-   vim.keymap.set("n", "[f", function() vim.fn.VSCodeNotify("workbench.view.search.focus") end)
-   vim.keymap.set("n", "]f", function() vim.fn.VSCodeNotify("workbench.action.replaceInFiles") end)
-   vim.keymap.set("n", "gD", function() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end)
-   vim.keymap.set("n", "<leader>s", function() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end)
-   vim.keymap.set("n", "=<", function() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end)
-   vim.keymap.set("n", "gl", function() vim.fn.VSCodeNotify("editor.action.openLink") end)
-   vim.keymap.set("n", "<C-k>", function()
-      vim.fn.VSCodeCall("editor.action.insertLineBefore")
-      vim.cmd("norm k")
-   end)
-   vim.keymap.set("n", "<<", function() vim.fn.VSCodeNotify("editor.action.outdentLines") end)
-   vim.keymap.set("n", ">>", function() vim.fn.VSCodeNotify("editor.action.indentLines") end)
-   vim.keymap.set("n", "gcc", function() vim.fn.VSCodeNotify("editor.action.commentLine") end)
+   --# Vscode: Normal remaps
+   vim.keymap.set("n", "zh",        Vscode_trim_left)
+   vim.keymap.set("n", "zl",        Vscode_trim_right)
+   vim.keymap.set("n", "zi",        Vscode_trim_both)
+   vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
+   vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
+   vim.keymap.set("n", "=<",        Vscode_trim_trailing_whitespace)
+   vim.keymap.set("n", "gl",        Vscode_open_link)
+   vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above)
+   vim.keymap.set("n", "<<",        Vscode_outdent)
+   vim.keymap.set("n", ">>",        Vscode_indent)
+   vim.keymap.set("n", "gcc",       Vscode_comment)
 
-   --# Visual remaps
-   vim.keymap.set("v", "gs", function() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end)
-   vim.keymap.set("v", "<", function() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end)
-   vim.keymap.set("v", ">", function() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end)
-   vim.keymap.set("v", "gc", function() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end)
+   --# Vscode: Visual remaps
+   vim.keymap.set("v", "gs", Vscode_vis_codesnap)
+   vim.keymap.set("v", "<",  Vscode_vis_outdent)
+   vim.keymap.set("v", ">",  Vscode_vis_indent)
+   vim.keymap.set("v", "gc", Vscode_vis_comment)
 
-   --# Insert remaps
-   vim.keymap.set("i", "<C-k>", function() vim.fn.VSCodeNotify("editor.action.insertLineBefore") end)
+   --# Vscode: Insert remaps
+   vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
 end
 
 --- Remappings
@@ -291,8 +317,7 @@ vim.keymap.set("", "<leader>F", Hop_backward_f_sameline)
 vim.keymap.set("", "<leader>t", Hop_forward_t_sameline)
 vim.keymap.set("", "<leader>T", Hop_backward_t_sameline)
 
---# Text objects
-
+--# Code block text object
 vim.keymap.set("v", "im", "aBV")
 vim.keymap.set("v", "am", "aBVj")
 vim.keymap.set("v", "iM", "aBVok")
@@ -302,6 +327,7 @@ vim.keymap.set("o", "am", function() vim.cmd("normal vaBVj") end)
 vim.keymap.set("o", "iM", function() vim.cmd("normal vaBVok") end)
 vim.keymap.set("o", "aM", function() vim.cmd("normal vaBVjok") end)
 
+--# Percent sign text object
 vim.keymap.set("v", "i%", "T%ot%")
 vim.keymap.set("v", "a%", "F%of%")
 vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
@@ -351,8 +377,7 @@ vim.keymap.set("", "<leader>`", "'")
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
 vim.keymap.set("n", "<leader>q", multiply_current_character)
 
---# Register remaps
-
+--# Register remaps: all modes
 vim.keymap.set("", "'w", '"0')
 vim.keymap.set("", "'i", '"_')
 vim.keymap.set("", "'e", '"-')
@@ -360,6 +385,7 @@ vim.keymap.set("", "'q", '"+')
 vim.keymap.set("", "'r", '".')
 vim.keymap.set("", "';", '":')
 
+--# Register remaps: insert + command mode
 vim.keymap.set("!", "<C-r>w", "<C-r><C-o>0")
 vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
 vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
@@ -367,6 +393,5 @@ vim.keymap.set("!", "<C-r>r", '<C-r><C-o>"')
 vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
 
 --# Vertical movement
-
 vim.keymap.set("v", "_", "-")
 vim.keymap.set("n", "_", "-")
