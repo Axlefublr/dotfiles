@@ -1,10 +1,19 @@
-# Programs
-alias gh='gh.exe'
-alias dotnet='dotnet.exe'
-alias exp='explorer.exe'
-alias lua='lua.exe'
-alias clip='clip.exe'
-alias v='nvim'
+# Configuration
+function fish_greeting
+end
+set LSCOLORS gxfxbeaeBxxEhEhBaDaCaD
+set fish_vi_force_cursor true
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
+
+# Autoflagging
+alias egrep='grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias fgrep='grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias grep='grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias ls='ls --color=auto -A'
+alias l='ls --color=auto -gAh'
 
 # Directories
 set prog     '/mnt/c/Programming'
@@ -13,13 +22,14 @@ set pictures '/mnt/c/Pictures'
 set csproj   '/mnt/c/Programming/csproj'
 set audio    '/mnt/c/Audio'
 
-# Aliases
-alias gcr='git add . && git commit -m \"first commit\" && git push -u origin main'
-alias gcm='git add . && git commit && git push'
+# Programs
+abbr gh     'gh.exe'
+abbr dotnet 'dotnet.exe'
+abbr exp    'explorer.exe'
+abbr lua    'lua.exe'
+abbr clip   'clip.exe'
+abbr v      'nvim'
 
-# Autoflagging
-alias egrep='grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias fgrep='grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias grep='grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias ls='ls --color=auto -A'
-alias l='ls --color=auto -gAh'
+# Aliases
+abbr gcr 'git add . && git commit -m \"first commit\" && git push -u origin main'
+abbr gcm 'git add . && git commit && git push'
