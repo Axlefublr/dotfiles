@@ -233,9 +233,6 @@ function Hop_backward_t_sameline() hop.hint_char1({
    })
 end
 
---# Code block text object
-
-
 --# Vscode: Folding
 function Vscode_toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
 function Vscode_fold_recursively() vim.fn.VSCodeNotify("editor.foldRecursively") end
