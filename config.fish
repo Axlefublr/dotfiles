@@ -1,12 +1,16 @@
 # Configuration
 function fish_greeting
 end
+function fish_user_key_bindings
+end
+set -gx EDITOR nvim
 set LSCOLORS gxfxbeaeBxxEhEhBaDaCaD
-set fish_vi_force_cursor true
-set fish_cursor_default block
-set fish_cursor_insert line
-set fish_cursor_replace_one underscore
-set fish_cursor_visual block
+set fish_vi_force_cursor
+set fish_cursor_selection_mode 'inclusive'
+set fish_cursor_default 'block'
+set fish_cursor_insert 'line'
+set fish_cursor_replace_one 'underscore'
+set fish_cursor_visual 'block'
 
 # Autoflagging
 alias egrep='grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
