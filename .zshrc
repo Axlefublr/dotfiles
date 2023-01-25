@@ -189,6 +189,13 @@ zle -N accept-line expand-alias-and-accept-line
 
 # Aliases
 
+abbrev-alias gh="gh.exe"
+abbrev-alias dotnet="dotnet.exe"
+abbrev-alias exp="explorer.exe"
+abbrev-alias lua="lua.exe"
+abbrev-alias clip="clip.exe"
+
+abbrev-alias v="nvim"
 abbrev-alias rm="rm -fr"
 abbrev-alias ls="ls --color=auto -A"
 abbrev-alias la="ls --color=auto -gAh"
@@ -196,13 +203,7 @@ abbrev-alias la="ls --color=auto -gAh"
 alias egrep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias fgrep="grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias grep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
-
-abbrev-alias gh="gh.exe"
-abbrev-alias dotnet="dotnet.exe"
-abbrev-alias exp="explorer.exe"
-abbrev-alias lua="lua.exe"
-abbrev-alias clip="clip.exe"
-abbrev-alias v="nvim"
+alias history="omz_history"
 
 prog="/mnt/c/Programming"
 libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
