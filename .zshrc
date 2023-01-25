@@ -78,7 +78,7 @@ HIST_STAMPS="yyyy/mm/dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions copypath copybuffer command-not-found)
+plugins=(zsh-autosuggestions copypath copybuffer)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -150,3 +150,82 @@ zle -N zle-line-init
 
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
+
+# Following code is written by Martin Frost and improved by noahdotpy: https://dev.to/frost/fish-style-abbreviations-in-zsh-40aa
+# It adds abbreviations from fish into zsh
+
+# declare a list of expandable aliases to fill up later
+typeset -a ealiases
+ealiases=()
+
+# write a function for adding an alias to the list mentioned above
+function abbrev-alias() {
+    alias $1
+    export $1
+    ealiases+=(${1%%\=*})
+}
+
+# expand any aliases in the current line buffer
+function expand-ealias() {
+    if [[ $LBUFFER =~ "\<(${(j:|:)ealiases})\$" ]] && [[ "$LBUFFER" != "\\"* ]]; then
+        zle _expand_alias
+        zle expand-word
+    fi
+    zle magic-space
+}
+zle -N expand-ealias
+
+# Bind the space key to the expand-alias function above, so that space will expand any expandable aliases
+bindkey ' '        expand-ealias
+bindkey -M isearch " "      magic-space     # normal space during searches
+
+# A function for expanding any aliases before accepting the line as is and executing the entered command
+expand-alias-and-accept-line() {
+    expand-ealias
+    zle .backward-delete-char
+    zle .accept-line
+}
+zle -N accept-line expand-alias-and-accept-line
+
+# Aliases
+
+abbrev-alias rm="rm -fr"
+abbrev-alias ls="ls --color=auto -A"
+abbrev-alias la="ls --color=auto -gAh"
+
+alias egrep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+alias fgrep="grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+alias grep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+
+abbrev-alias gh="gh.exe"
+abbrev-alias dotnet="dotnet.exe"
+abbrev-alias exp="explorer.exe"
+abbrev-alias lua="lua.exe"
+abbrev-alias clip="clip.exe"
+abbrev-alias v="nvim"
+
+prog="/mnt/c/Programming"
+libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
+pictures="/mnt/c/Pictures"
+csproj="/mnt/c/Programming/csproj"
+audio="/mnt/c/Audio"
+
+abbrev-alias g="git"
+abbrev-alias ga="git add"
+abbrev-alias gcm="git commit"
+abbrev-alias gcmm='git commit -m "'
+abbrev-alias gp="git push"
+abbrev-alias gpu="git push -u origin main"
+abbrev-alias gcr="git add . && git commit -m \"first commit\" && git push -u origin main"
+abbrev-alias gcmp="git add . && git commit && git push"
+abbrev-alias gig='echo ".vscode
+bin
+obj
+.gitignore" > .gitignore'
+
+abbrev-alias dn="dotnet.exe"
+abbrev-alias dnn="dotnet.exe new"
+abbrev-alias dnnc="dotnet.exe new console -n"
+abbrev-alias dnns="dotnet.exe new sln -n"
+abbrev-alias dns="dotnet.exe sln"
+abbrev-alias dnsa="dotnet.exe sln *.sln add **/*.csproj"
