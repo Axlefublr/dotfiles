@@ -199,6 +199,7 @@ abbrev-alias v="nvim"
 abbrev-alias rm="rm -fr"
 abbrev-alias ls="ls --color=auto -A"
 abbrev-alias la="ls --color=auto -gAh"
+abbrev-alias src="source"
 
 alias egrep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias fgrep="grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
@@ -213,14 +214,15 @@ audio="/mnt/c/Audio"
 
 abbrev-alias g="git"
 abbrev-alias gs="git status"
+abbrev-alias gl="git log"
 abbrev-alias ga="git add"
 abbrev-alias gaa="git add ."
 abbrev-alias gcm="git commit"
 abbrev-alias gcmm='git commit -m "'
+abbrev-alias gcmp="git add . && git commit && git push"
 abbrev-alias gp="git push"
 abbrev-alias gpu="git push -u origin main"
 abbrev-alias gcr="git add . && git commit -m \"first commit\" && git push -u origin main"
-abbrev-alias gcmp="git add . && git commit && git push"
 abbrev-alias gig='echo ".vscode
 bin
 obj
