@@ -189,18 +189,6 @@ zle -N accept-line expand-alias-and-accept-line
 
 # Aliases
 
-abbrev-alias gh="gh.exe"
-abbrev-alias dotnet="dotnet.exe"
-abbrev-alias exp="explorer.exe"
-abbrev-alias lua="lua.exe"
-abbrev-alias clip="clip.exe"
-
-abbrev-alias v="nvim"
-abbrev-alias rm="rm -fr"
-abbrev-alias ls="ls --color=auto -A"
-abbrev-alias la="ls --color=auto -gAh"
-abbrev-alias src="source"
-
 alias egrep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias fgrep="grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias grep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
@@ -211,6 +199,30 @@ libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
 pictures="/mnt/c/Pictures"
 csproj="/mnt/c/Programming/csproj"
 audio="/mnt/c/Audio"
+
+abbrev-alias prog="/mnt/c/Programming"
+abbrev-alias libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
+abbrev-alias pictures="/mnt/c/Pictures"
+abbrev-alias csproj="/mnt/c/Programming/csproj"
+abbrev-alias audio="/mnt/c/Audio"
+
+abbrev-alias gh="gh.exe"
+abbrev-alias dotnet="dotnet.exe"
+abbrev-alias exp="explorer.exe"
+abbrev-alias lua="lua.exe"
+abbrev-alias clip="clip.exe"
+
+abbrev-alias v="nvim"
+abbrev-alias rm="rm -fr"
+
+abbrev-alias ls="ls --color=auto -A"
+abbrev-alias la="ls --color=auto -gAh"
+abbrev-alias l="ls --color=auto -gAh"
+abbrev-alias ll="ls --color=auto -gAh"
+abbrev-alias lsa="ls --color=auto -gAh"
+
+abbrev-alias src="source"
+abbrev-alias srcz="source ~/.zshrc"
 
 abbrev-alias g="git"
 abbrev-alias gs="git status"
