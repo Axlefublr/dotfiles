@@ -179,7 +179,7 @@ zle -N expand-ealias
 bindkey ' '        expand-ealias
 bindkey -M isearch " "      magic-space     # normal space during searches
 
-# A function for expanding any aliases before accepting the line as is and executing the entered command
+# A function for expanding any aliases before accepting the line as is and executing the entered commanad
 expand-alias-and-accept-line() {
     expand-ealias
     zle .backward-delete-char
@@ -212,7 +212,9 @@ csproj="/mnt/c/Programming/csproj"
 audio="/mnt/c/Audio"
 
 abbrev-alias g="git"
+abbrev-alias gs="git status"
 abbrev-alias ga="git add"
+abbrev-alias gaa="git add ."
 abbrev-alias gcm="git commit"
 abbrev-alias gcmm='git commit -m "'
 abbrev-alias gp="git push"
