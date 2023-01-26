@@ -49,7 +49,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -68,7 +68,10 @@ ENABLE_CORRECTION="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="yyyy/mm/dd"
+HIST_STAMPS="%y/%m/%d %T"
+
+export HISTSIZE=1000
+export SAVEHIST=1000
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -192,7 +195,6 @@ zle -N accept-line expand-alias-and-accept-line
 alias egrep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias fgrep="grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias grep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
-alias history="omz_history"
 
 prog="/mnt/c/Programming"
 libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
@@ -214,6 +216,7 @@ abbrev-alias clip="clip.exe"
 
 abbrev-alias v="nvim"
 abbrev-alias rm="rm -fr"
+abbrev-alias hst="history | sort --reverse | less"
 
 abbrev-alias ls="ls --color=auto -A"
 abbrev-alias la="ls --color=auto -gAh"
@@ -230,6 +233,7 @@ abbrev-alias gl="git log"
 abbrev-alias ga="git add"
 abbrev-alias gaa="git add ."
 abbrev-alias gcm="git commit"
+abbrev-alias gacm="git add . && git commit"
 abbrev-alias gcmm='git commit -m "'
 abbrev-alias gcmp="git add . && git commit && git push"
 abbrev-alias gp="git push"
@@ -246,3 +250,7 @@ abbrev-alias dnnc="dotnet.exe new console -n"
 abbrev-alias dnns="dotnet.exe new sln -n"
 abbrev-alias dns="dotnet.exe sln"
 abbrev-alias dnsa="dotnet.exe sln *.sln add **/*.csproj"
+
+abbrev-alias ghr="gh.exe repo"
+abbrev-alias ghrc="gh.exe repo create --public"
+abbrev-alias ghrcc="gh.exe repo create --clone --public"
