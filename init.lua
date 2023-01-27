@@ -251,10 +251,8 @@ function Vscode_reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.rev
 function Vscode_toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
 function Vscode_trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
 function Vscode_open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
-function Vscode_insert_line_above()
-      vim.fn.VSCodeCall("editor.action.insertLineBefore")
-      vim.cmd("norm k")
-end
+function Vscode_insert_line_above() vim.fn.VSCodeCall("editor.action.insertLineBefore") end
+function Vscode_insert_line_above_moveup() Vscode_insert_line_above() vim.cmd("norm k") end
 function Vscode_outdent() vim.fn.VSCodeNotify("editor.action.outdentLines") end
 function Vscode_indent() vim.fn.VSCodeNotify("editor.action.indentLines") end
 function Vscode_comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
@@ -291,7 +289,7 @@ if vim.g.vscode then
    vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
    vim.keymap.set("n", "=<",        Vscode_trim_trailing_whitespace)
    vim.keymap.set("n", "gl",        Vscode_open_link)
-   vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above)
+   vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above_moveup)
    vim.keymap.set("n", "<<",        Vscode_outdent)
    vim.keymap.set("n", ">>",        Vscode_indent)
    vim.keymap.set("n", "gcc",       Vscode_comment)
