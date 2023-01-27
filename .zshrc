@@ -29,7 +29,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -55,7 +55,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -102,15 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -123,6 +114,9 @@ export EDITOR='nvim'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Disable "correct blank to blank? [nyae]"
+setopt nocorrectall
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -192,9 +186,11 @@ zle -N accept-line expand-alias-and-accept-line
 
 # Aliases
 
-alias egrep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
-alias fgrep="grep -nF --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
-alias grep="grep -nE --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+unalias ll
+unalias l
+unalias lsa
+
+alias grep="grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 
 prog="/mnt/c/Programming"
 libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
@@ -217,15 +213,22 @@ abbrev-alias clip="clip.exe"
 abbrev-alias v="nvim"
 abbrev-alias rm="rm -fr"
 abbrev-alias hst="history | sort --reverse | less"
+abbrev-alias echos="history -1000 | grep echo | awk '{print substr(\$0, index(\$0, \$4))}' | grep -E --color=always '^echo ' | tac | less"
+
+abbrev-alias egrep="grep --color=auto -E"
+abbrev-alias rgrep="grep --color=auto -Ern"
+abbrev-alias agrep="grep --color=always -E"
+abbrev-alias argrep="grep --color=always -Ern"
 
 abbrev-alias ls="ls --color=auto -A"
 abbrev-alias la="ls --color=auto -gAh"
-abbrev-alias l="ls --color=auto -gAh"
-abbrev-alias ll="ls --color=auto -gAh"
-abbrev-alias lsa="ls --color=auto -gAh"
 
 abbrev-alias src="source"
 abbrev-alias srcz="source ~/.zshrc"
+
+abbrev-alias ffind="find -type f -name"
+abbrev-alias dfind="find -type d -name"
+abbrev-alias nfind="find -name"
 
 abbrev-alias g="git"
 abbrev-alias gs="git status"
