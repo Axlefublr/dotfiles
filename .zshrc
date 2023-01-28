@@ -213,7 +213,7 @@ abbrev-alias clip="clip.exe"
 abbrev-alias v="nvim"
 abbrev-alias rm="rm -fr"
 abbrev-alias hst="history | sort --reverse | less"
-abbrev-alias echos="history -1000 | grep echo | awk '{print substr(\$0, index(\$0, \$4))}' | grep -E --color=always '^echo ' | tac | less"
+abbrev-alias echos="history | grep echo | awk '{print substr(\$0, index(\$0, \$4))}' | grep -E --color=always '^echo ' | tac | less"
 
 abbrev-alias egrep="grep --color=auto -E"
 abbrev-alias rgrep="grep --color=auto -Ern"
