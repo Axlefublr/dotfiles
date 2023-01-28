@@ -268,6 +268,7 @@ abbrev-alias ghrcc='gh.exe repo create --clone --public'
 # So, "dotnet" will also match "dotnet.exe"
 # But "dotnet.exe" will only match "dotnet.exe", and won't match "dotnet"
 # Applies to any file extension
+# Only the first command name passed will be considered, any argument after is ignored
 # Try this out with "viewcmd echo"
 viewcmd() {
     history | command grep --color=always -E "[ *] $1(\.\w+)? " | tac | $PAGER
