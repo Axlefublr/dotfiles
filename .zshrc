@@ -113,10 +113,10 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s '$NVM_DIR/nvm.sh' ] && \. '$NVM_DIR/nvm.sh'  # This loads nvm
+[ -s '$NVM_DIR/bash_completion' ] && \. '$NVM_DIR/bash_completion'  # This loads nvm bash_completion
 
-# Disable "correct blank to blank? [nyae]"
+# Disable 'correct blank to blank? [nyae]'
 setopt nocorrectall
 
 bindkey -v
@@ -142,7 +142,7 @@ zle -N zle-keymap-select
 
 zle-line-init() {
   zle -K viins
-  echo -ne "\e[5 q"
+  echo -ne '\e[5 q'
 }
 zle -N zle-line-init
 
@@ -175,7 +175,7 @@ zle -N expand-ealias
 
 # Bind the space key to the expand-alias function above, so that space will expand any expandable aliases
 bindkey ' '        expand-ealias
-bindkey -M isearch " "      magic-space     # normal space during searches
+bindkey -M isearch ' '      magic-space     # normal space during searches
 
 # A function for expanding any aliases before accepting the line as is and executing the entered commanad
 expand-alias-and-accept-line() {
@@ -191,70 +191,72 @@ unalias ll
 unalias l
 unalias lsa
 
-alias grep="grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-prog="/mnt/c/Programming"
-libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
-pictures="/mnt/c/Pictures"
-csproj="/mnt/c/Programming/csproj"
-audio="/mnt/c/Audio"
+prog='/mnt/c/Programming'
+libv2='/mnt/c/Users/serge/Documents/AutoHotkey/Lib'
+pictures='/mnt/c/Pictures'
+csproj='/mnt/c/Programming/csproj'
+audio='/mnt/c/Audio'
 
-abbrev-alias prog="/mnt/c/Programming"
-abbrev-alias libv2="/mnt/c/Users/serge/Documents/AutoHotkey/Lib"
-abbrev-alias pictures="/mnt/c/Pictures"
-abbrev-alias csproj="/mnt/c/Programming/csproj"
-abbrev-alias audio="/mnt/c/Audio"
+abbrev-alias prog='/mnt/c/Programming'
+abbrev-alias libv2='/mnt/c/Users/serge/Documents/AutoHotkey/Lib'
+abbrev-alias pictures='/mnt/c/Pictures'
+abbrev-alias csproj='/mnt/c/Programming/csproj'
+abbrev-alias audio='/mnt/c/Audio'
 
-abbrev-alias gh="gh.exe"
-abbrev-alias dotnet="dotnet.exe"
-abbrev-alias exp="explorer.exe"
-abbrev-alias lua="lua.exe"
-abbrev-alias clip="clip.exe"
+abbrev-alias gh='gh.exe'
+abbrev-alias dotnet='dotnet.exe'
+abbrev-alias exp='explorer.exe'
+abbrev-alias lua='lua.exe'
+abbrev-alias clip='clip.exe'
 
-abbrev-alias v="nvim"
-abbrev-alias rm="rm -fr"
-abbrev-alias hst="history | sort --reverse | less"
-abbrev-alias echos="history | grep echo | awk '{print substr(\$0, index(\$0, \$4))}' | grep -E --color=always '^echo ' | tac | less"
+abbrev-alias v='nvim'
+abbrev-alias rm='rm -fr'
+abbrev-alias hst='history | sort --reverse | less'
+abbrev-alias echos='history | grep echo | awk "{print substr(\$0, index(\$0, \$4))}" | grep -E --color=always "^echo " | tac | less'
 
-abbrev-alias egrep="grep --color=auto -E"
-abbrev-alias rgrep="grep --color=auto -Ern"
-abbrev-alias agrep="grep --color=always -E"
-abbrev-alias argrep="grep --color=always -Ern"
+abbrev-alias egrep='grep --color=auto -E'
+abbrev-alias rgrep='grep --color=auto -Ern'
+abbrev-alias agrep='grep --color=always -E'
+abbrev-alias argrep='grep --color=always -Ern'
 
-abbrev-alias ls="ls --color=auto -A"
-abbrev-alias la="ls --color=auto -gAh"
+abbrev-alias ls='ls --color=auto -A'
+abbrev-alias la='ls --color=auto -gAh'
 
-abbrev-alias src="source"
-abbrev-alias srcz="source ~/.zshrc"
+abbrev-alias src='source'
+abbrev-alias srcz='source ~/.zshrc'
 
-abbrev-alias ffind="find -type f -name"
-abbrev-alias dfind="find -type d -name"
-abbrev-alias nfind="find -name"
+abbrev-alias ffind='find -type f -name'
+abbrev-alias dfind='find -type d -name'
+abbrev-alias nfind='find -name'
 
-abbrev-alias g="git"
-abbrev-alias gs="git status"
-abbrev-alias gl="git log"
-abbrev-alias ga="git add"
-abbrev-alias gaa="git add ."
-abbrev-alias gcm="git commit"
-abbrev-alias gacm="git add . && git commit"
+abbrev-alias g='git'
+abbrev-alias gs='git status'
+abbrev-alias gl='git log'
+abbrev-alias ga='git add'
+abbrev-alias gaa='git add .'
+abbrev-alias gcm='git commit'
+abbrev-alias gacm='git add . && git commit'
 abbrev-alias gcmm='git commit -m "'
-abbrev-alias gcmp="git add . && git commit && git push"
-abbrev-alias gp="git push"
-abbrev-alias gpu="git push -u origin main"
-abbrev-alias gcr="git add . && git commit -m \"first commit\" && git push -u origin main"
+abbrev-alias gcmp='git add . && git commit && git push'
+abbrev-alias gp='git push'
+abbrev-alias gpu='git push -u origin main'
+abbrev-alias gcr='git add . && git commit -m \"first commit\" && git push -u origin main'
 abbrev-alias gig='echo ".vscode
 bin
 obj
 .gitignore" > .gitignore'
 
-abbrev-alias dn="dotnet.exe"
-abbrev-alias dnn="dotnet.exe new"
-abbrev-alias dnnc="dotnet.exe new console -n"
-abbrev-alias dnns="dotnet.exe new sln -n"
-abbrev-alias dns="dotnet.exe sln"
-abbrev-alias dnsa="dotnet.exe sln *.sln add **/*.csproj"
+abbrev-alias dn='dotnet.exe'
+abbrev-alias dnn='dotnet.exe new'
+abbrev-alias dnnc='dotnet.exe new console -n'
+abbrev-alias dnns='dotnet.exe new sln -n'
+abbrev-alias dns='dotnet.exe sln'
+abbrev-alias dnsa='dotnet.exe sln *.sln add **/*.csproj'
 
-abbrev-alias ghr="gh.exe repo"
-abbrev-alias ghrc="gh.exe repo create --public"
-abbrev-alias ghrcc="gh.exe repo create --clone --public"
+abbrev-alias ghr='gh.exe repo'
+abbrev-alias ghrc='gh.exe repo create --public'
+abbrev-alias ghrcc='gh.exe repo create --clone --public'
+
+# Functions
