@@ -9,8 +9,8 @@ vim.opt.smartcase      = true
 vim.opt.hlsearch       = false
 vim.g.mapleader        = ","
 vim.opt.syntax         = "enable"
-vim.opt.termguicolors = true
-vim.opt.background    = "dark"
+vim.opt.termguicolors  = true
+vim.opt.background     = "dark"
 vim.cmd("colorscheme tender")
 
 --- Plugins: VimPlug
@@ -30,32 +30,32 @@ vim.call("plug#end")
 
 --- Plugins: Packer
 require("packer").startup(function(use)
-   use "wbthomason/packer.nvim"
-   use "savq/melange"
-   use "sainnhe/everforest"
-   use "sainnhe/edge"
-   use "sainnhe/gruvbox-material"
-   use "jacoborus/tender.vim"
-   use "farmergreg/vim-lastplace"
-   use "ap/vim-css-color"
-   use {
-      "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true }
-   }
-   use {
-      "phaazon/hop.nvim",
-      branch = "v2",
-      config = function()
-         require("hop").setup({ keys = "asdfghjklqwertyuiopzxcvbnm;" })
-      end
-   }
-   use({
-      "kylechui/nvim-surround",
-      tag = "*",
-      config = function()
-         require("nvim-surround").setup()
-      end
-   })
+    use "wbthomason/packer.nvim"
+    use "savq/melange"
+    use "sainnhe/everforest"
+    use "sainnhe/edge"
+    use "sainnhe/gruvbox-material"
+    use "jacoborus/tender.vim"
+    use "farmergreg/vim-lastplace"
+    use "ap/vim-css-color"
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+    }
+    use {
+        "phaazon/hop.nvim",
+        branch = "v2",
+        config = function()
+            require("hop").setup({ keys = "asdfghjklqwertyuiopzxcvbnm;" })
+        end
+    }
+    use({
+        "kylechui/nvim-surround",
+        tag = "*",
+        config = function()
+            require("nvim-surround").setup()
+        end
+    })
 end)
 
 --- Plugins: setup
@@ -63,58 +63,58 @@ local hop = require("hop")
 local directions = require("hop.hint").HintDirection
 
 require('lualine').setup {
-   options = {
-      icons_enabled = true,
-      theme = 'auto',
-      component_separators = { left = '', right = '' },
-      section_separators = { left = '', right = '' },
-      disabled_filetypes = {
-         statusline = {},
-         winbar = {},
-      },
-      ignore_focus = {},
-      always_divide_middle = true,
-      globalstatus = false,
-      refresh = {
-         statusline = 1000,
-         tabline = 1000,
-         winbar = 1000,
-      }
-   },
-   sections = {
-      lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics' },
-      lualine_c = { 'filename' },
-      lualine_x = { 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' }
-   },
-   inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = { 'filename' },
-      lualine_x = { 'location' },
-      lualine_y = {},
-      lualine_z = {}
-   },
-   tabline = {},
-   winbar = {},
-   inactive_winbar = {},
-   extensions = {}
+    options = {
+        icons_enabled = true,
+        theme = 'auto',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        globalstatus = false,
+        refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+        }
+    },
+    sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
 }
 
 --- Clipboard fix
 vim.g.clipboard = {
-   name = "wslclipboard",
-   copy = {
-      ["+"] = "/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf",
-      ["*"] = "/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf",
-   },
-   paste = {
-      ["+"] = "/mnt/c/Programs/Win32yank/win32yank.exe -o --lf",
-      ["*"] = "/mnt/c/Programs/Win32yank/win32yank.exe -o --lf"
-   },
-   cache_enabled = true
+    name = "wslclipboard",
+    copy = {
+        ["+"] = "/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf",
+        ["*"] = "/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf",
+    },
+    paste = {
+        ["+"] = "/mnt/c/Programs/Win32yank/win32yank.exe -o --lf",
+        ["*"] = "/mnt/c/Programs/Win32yank/win32yank.exe -o --lf"
+    },
+    cache_enabled = true
 }
 
 --- Mark fix (I dare you to write this better)
@@ -199,8 +199,8 @@ vim.keymap.set("n", "`z", function() vim.cmd(tostring(Mark_n)) end)
 
 --- Meta abstractions
 function FeedKeysCorrectly(keys)
-   local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-   vim.api.nvim_feedkeys(feedableKeys, "n", true)
+    local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+    vim.api.nvim_feedkeys(feedableKeys, "n", true)
 end
 
 --- Remap abstractions
@@ -210,26 +210,26 @@ local multiply_selection = '"rygv<Esc>"r' .. vim.v.count1 .. "p"
 
 --# Hops
 function Hop_forward_f_sameline() hop.hint_char1({
-      direction = directions.AFTER_CURSOR,
-      current_line_only = true
-   })
+    direction = directions.AFTER_CURSOR,
+    current_line_only = true
+})
 end
 function Hop_backward_f_sameline() hop.hint_char1({
-      direction = directions.BEFORE_CURSOR,
-      current_line_only = true
-   })
+    direction = directions.BEFORE_CURSOR,
+    current_line_only = true
+})
 end
 function Hop_forward_t_sameline() hop.hint_char1({
-      direction = directions.AFTER_CURSOR,
-      current_line_only = true,
-      hint_offset = -1,
-   })
+    direction = directions.AFTER_CURSOR,
+    current_line_only = true,
+    hint_offset = -1,
+})
 end
 function Hop_backward_t_sameline() hop.hint_char1({
-      direction = directions.BEFORE_CURSOR,
-      current_line_only = true,
-      hint_offset = 1,
-   })
+    direction = directions.BEFORE_CURSOR,
+    current_line_only = true,
+    hint_offset = 1,
+})
 end
 
 --# Vscode: Folding
@@ -256,12 +256,19 @@ function Vscode_insert_line_above_moveup() Vscode_insert_line_above() vim.cmd("n
 function Vscode_outdent() vim.fn.VSCodeNotify("editor.action.outdentLines") end
 function Vscode_indent() vim.fn.VSCodeNotify("editor.action.indentLines") end
 function Vscode_comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
+function Vscode_reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
+function Vscode_convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
+function Vscode_convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentationToTabs") end
+function Vscode_indent_with_spaces() vim.fn.VSCodeNotify("editor.action.indentUsingSpaces") end
+function Vscode_indent_with_tabs() vim.fn.VSCodeNotify("editor.action.indentUsingTabs") end
+function Vscode_change_encoding() vim.fn.VSCodeNotify("workbench.action.editor.changeEncoding") end
 
 --# Vscode: Visual remaps
 function Vscode_vis_codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 function Vscode_vis_outdent() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
 function Vscode_vis_indent() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
 function Vscode_vis_comment() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
+function Vscode_vis_reindent() vim.fn.VSCodeNotifyVisual("editor.action.reindentselectedlines", true) end
 
 --- Plugins: options
 vim.g.camelcasemotion_key = "<leader>"
@@ -270,38 +277,42 @@ vim.g.targets_nl          = "nh"
 --- Vscode
 if vim.g.vscode then
 
-   --# Vscode: Folding
-   vim.keymap.set("n", "za", Vscode_toggle_fold)
-   vim.keymap.set("n", "zc", Vscode_fold_recursively)
-   vim.keymap.set("n", "zC", Vscode_fold_all)
-   vim.keymap.set("n", "zO", Vscode_unfold_all)
-   vim.keymap.set("n", "zo", Vscode_unfold_recursively)
-   vim.keymap.set("n", "zp", Vscode_goto_parent_fold)
+    --# Vscode: Folding
+    vim.keymap.set("n", "za", Vscode_toggle_fold)
+    vim.keymap.set("n", "zc", Vscode_fold_recursively)
+    vim.keymap.set("n", "zC", Vscode_fold_all)
+    vim.keymap.set("n", "zO", Vscode_unfold_all)
+    vim.keymap.set("n", "zo", Vscode_unfold_recursively)
+    vim.keymap.set("n", "zp", Vscode_goto_parent_fold)
 
-   --# Vscode: All remaps
-   vim.keymap.set("", "zy", Vscode_toggle_typewriter)
+    --# Vscode: All remaps
+    vim.keymap.set("", "zy", Vscode_toggle_typewriter)
 
-   --# Vscode: Normal remaps
-   vim.keymap.set("n", "zh",        Vscode_trim_left)
-   vim.keymap.set("n", "zl",        Vscode_trim_right)
-   vim.keymap.set("n", "zi",        Vscode_trim_both)
-   vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
-   vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
-   vim.keymap.set("n", "=<",        Vscode_trim_trailing_whitespace)
-   vim.keymap.set("n", "gl",        Vscode_open_link)
-   vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above_moveup)
-   vim.keymap.set("n", "<<",        Vscode_outdent)
-   vim.keymap.set("n", ">>",        Vscode_indent)
-   vim.keymap.set("n", "gcc",       Vscode_comment)
+    --# Vscode: Normal remaps
+    vim.keymap.set("n", "zh",        Vscode_trim_left)
+    vim.keymap.set("n", "zl",        Vscode_trim_right)
+    vim.keymap.set("n", "zi",        Vscode_trim_both)
+    vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
+    vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
+    vim.keymap.set("n", "=<",        Vscode_trim_trailing_whitespace)
+    vim.keymap.set("n", "gl",        Vscode_open_link)
+    vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above_moveup)
+    vim.keymap.set("n", "<<",        Vscode_outdent)
+    vim.keymap.set("n", ">>",        Vscode_indent)
+    vim.keymap.set("n", "gcc",       Vscode_comment)
+    vim.keymap.set("n", "=>",        Vscode_reindent)
+    vim.keymap.set("n", "=s",        Vscode_convert_to_spaces)
+    vim.keymap.set("n", "=t",        Vscode_convert_to_tabs)
 
-   --# Vscode: Visual remaps
-   vim.keymap.set("v", "gs", Vscode_vis_codesnap)
-   vim.keymap.set("v", "<",  Vscode_vis_outdent)
-   vim.keymap.set("v", ">",  Vscode_vis_indent)
-   vim.keymap.set("v", "gc", Vscode_vis_comment)
+    --# Vscode: Visual remaps
+    vim.keymap.set("v", "gs", Vscode_vis_codesnap)
+    vim.keymap.set("v", "<",  Vscode_vis_outdent)
+    vim.keymap.set("v", ">",  Vscode_vis_indent)
+    vim.keymap.set("v", "gc", Vscode_vis_comment)
+    vim.keymap.set("v", "=>", Vscode_vis_reindent)
 
-   --# Vscode: Insert remaps
-   vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
+    --# Vscode: Insert remaps
+    vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
 end
 
 --- Remappings
