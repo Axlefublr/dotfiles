@@ -70,8 +70,8 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 HIST_STAMPS="%y/%m/%d %T"
 
-export HISTSIZE=1000
-export SAVEHIST=1000
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -214,7 +214,6 @@ abbrev-alias clip='clip.exe'
 abbrev-alias v='nvim'
 abbrev-alias rm='rm -fr'
 abbrev-alias hst='history | sort --reverse | less'
-abbrev-alias echos='history | grep echo | awk "{print substr(\$0, index(\$0, \$4))}" | grep -E --color=always "^echo " | tac | less'
 
 abbrev-alias egrep='grep --color=auto -E'
 abbrev-alias rgrep='grep --color=auto -Ern'
@@ -260,3 +259,16 @@ abbrev-alias ghrc='gh.exe repo create --public'
 abbrev-alias ghrcc='gh.exe repo create --clone --public'
 
 # Functions
+
+# Instead of searching through history, pass a command name to viewcmd to see all the last times
+# you've used that command
+# Will display history of the command being used in your preferred PAGER (is "less" by default),
+# starting with the most recent use of the command at the top
+# You can omit extensions of the command if they have them.
+# So, "dotnet" will also match "dotnet.exe"
+# But "dotnet.exe" will only match "dotnet.exe", and won't match "dotnet"
+# Applies to any file extension
+# Try this out with "viewcmd echo"
+viewcmd() {
+    history | command grep --color=always -E "[ *] $1(\.\w+)? " | tac | $PAGER
+}
