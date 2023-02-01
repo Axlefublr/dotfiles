@@ -366,11 +366,9 @@ vim.keymap.set("v", "<leader>q", multiply_selection)
 
 --# Insert remaps
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
-vim.keymap.set("i", "<C-h>", '<Esc>"_ddkA')
-vim.keymap.set("i", "<C-m>", '<Esc>"_ddA')
-vim.keymap.set("i", "<C-b>", "<Esc>B~Ea")
-vim.keymap.set("i", "<C-u>", '<Esc>"_S')
-vim.keymap.set("i", "<C-i>", '<Esc>"_S<Esc>I')
+vim.keymap.set("i", "<C-u>", '<Esc>^"_c0<BS>')
+vim.keymap.set("i", "<C-i>", '<Esc>"_S')
+vim.keymap.set("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>')
 
 --# Control remaps
 vim.keymap.set("", "<C-f>", "20jzz")

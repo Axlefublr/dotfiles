@@ -211,6 +211,7 @@ abbrev-alias exp='explorer.exe'
 abbrev-alias lua='lua.exe'
 abbrev-alias clip='clip.exe'
 
+abbrev-alias bat='batcat'
 abbrev-alias v='nvim'
 abbrev-alias rm='rm -fr'
 abbrev-alias hst='history | sort --reverse | less'
