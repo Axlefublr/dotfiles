@@ -253,6 +253,8 @@ abbrev-alias dnnc='dotnet.exe new console -n'
 abbrev-alias dnns='dotnet.exe new sln -n'
 abbrev-alias dns='dotnet.exe sln'
 abbrev-alias dnsa='dotnet.exe sln *.sln add **/*.csproj'
+abbrev-alias dnr='dotnet.exe run'
+abbrev-alias dnrp='dotnet.exe run --project'
 
 abbrev-alias ghr='gh.exe repo'
 abbrev-alias ghrc='gh.exe repo create --public'
