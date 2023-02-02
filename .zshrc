@@ -242,20 +242,18 @@ abbrev-alias gcmm='git commit -m "'
 abbrev-alias gcmp='git add . && git commit && git push'
 abbrev-alias gp='git push'
 abbrev-alias gpu='git push -u origin main'
-abbrev-alias gcr='git add . && git commit -m \"first commit\" && git push -u origin main'
-abbrev-alias gig='echo ".vscode
-bin
-obj
-.gitignore" > .gitignore'
+abbrev-alias gcr='git add . && git commit -m "first commit" && git push -u origin main'
 
 abbrev-alias dn='dotnet.exe'
 abbrev-alias dnn='dotnet.exe new'
 abbrev-alias dnnc='dotnet.exe new console -n'
 abbrev-alias dnns='dotnet.exe new sln -n'
+abbrev-alias dnng='dotnet.exe new gitignore'
 abbrev-alias dns='dotnet.exe sln'
 abbrev-alias dnsa='dotnet.exe sln *.sln add **/*.csproj'
 abbrev-alias dnr='dotnet.exe run'
 abbrev-alias dnrp='dotnet.exe run --project'
+abbrev-alias dna='dotnet.exe add'
 
 abbrev-alias ghr='gh.exe repo'
 abbrev-alias ghrc='gh.exe repo create --public'

@@ -401,3 +401,6 @@ vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
 --# Vertical movement
 vim.keymap.set("v", "_", "-")
 vim.keymap.set("n", "_", "-")
+
+--# Operator pending remaps
+vim.keymap.set("o", "b", "vb")
