@@ -3,263 +3,181 @@
       "textMateRules": [
          {
             "name": "red",
+            "settings": {
+               "foreground": "#EA6962",
+               "fontStyle": ""
+            },
             "scope": [
-               "constant.language.import-export-all",
-               "keyword.generator.asterisk",
-               "keyword.operator",
-               "keyword.operator.ahk2",
-               "keyword.operator.arithmetic",
-               "keyword.operator.assignment",
-               "keyword.operator.assignment.compound",
-               "keyword.operator.bitwise",
-               "keyword.operator.comparison",
-               "keyword.operator.conditional.colon",
-               "keyword.operator.conditional.question-mark",
-               "keyword.operator.decrement",
-               "keyword.operator.increment",
-               "keyword.operator.list.shell",
-               "keyword.operator.logical",
-               "keyword.operator.null-coalescing.cs",
-               "keyword.operator.quantifier.regexp",
-               "keyword.operator.regexp.ahk2",
-               "keyword.operator.relational",
-               "keyword.operator.spread",
                "keyword.operator.ternary",
-               "keyword.operator.type.annotation",
-               "punctuation.accessor",
-               "punctuation.definition.equals.reg",
-               "punctuation.definition.scope.key-value.viml",
-               "punctuation.definition.section.case-statement",
-               "punctuation.destructuring.js",
-               "punctuation.optional.ahk2",
-               "punctuation.parens.percent",
-               "punctuation.section.function.begin.python",
-               "punctuation.separator.arguments.python",
-               "punctuation.separator.colon",
-               "punctuation.separator.comma",
-               "punctuation.separator.element.python",
-               "punctuation.separator.key-value",
-               "punctuation.separator.key-value.html",
-               "punctuation.separator.label.js",
-               "punctuation.separator.parameter",
-               "punctuation.separator.period",
-               "punctuation.separator.question-mark",
-               "punctuation.terminator.statement",
-               "storage.type.function.arrow",
-               "meta.conditional.case.ahk2",
-               "keyword.operator.arrow.cs"
-            ],
-            "settings": {
-               "foreground": "#dc5579",
-               "fontStyle": ""
-            }
+               "keyword.operator.logical",
+               "punctuation.separator.question-mark.cs",
+               "keyword.control.switch",
+               "storage.type.getter.ahk2",
+               "storage.type.setter.ahk2",
+               "keyword.operator.arrow.cs",
+               "variable.language.value.ahk2",
+            ]
          },
          {
-            "name": "function blue",
-            "scope": [
-               "punctuation.separator.dictionary.pair.json",
-               "punctuation.separator.array.json",
-               "punctuation.separator.dictionary.key-value.json",
-               "punctuation.definition.tag.begin.html",
-               "punctuation.definition.tag.end.html",
-               "punctuation.destructuring",
-               "punctuation.definition.tag.xml"
-            ],
+            "name": "red italic",
             "settings": {
-               "foreground": "#6495EE",
+               "foreground": "#EA6962",
                "fontStyle": ""
-            }
+            },
+            "scope": ["variable.language.this", "keyword.other.this"]
          },
          {
-            "name": "keyword purple",
-            "scope": [
-               "keyword.control.trycatch",
-               "keyword.control.import",
-               "keyword.control.from",
-               "storage.type.class",
-               "keyword.operator.expression.ahk2",
-               "storage.modifier.shell",
-               "keyword.other.class.cs",
-               "keyword.other.namespace.cs",
-               "keyword.control.as",
-               "storage.type.class.jsdoc",
-               "punctuation.definition.block.tag.jsdoc",
-               "support.function.command.viml",
-               "keyword.other.enum.cs",
-               "keyword.other.checked.cs",
-               "keyword.other.set.cs",
-               "keyword.other.get.cs",
-            ],
+            "name": "orange italic",
             "settings": {
-               "foreground": "#CF68E1",
-               "fontStyle": ""
-            }
+               "foreground": "#E78A4E",
+               "fontStyle": "italic"
+            },
+            "scope": ["storage.modifier", "keyword.local.lua"]
          },
          {
-            "name": "classy cyan",
-            "scope": [
-               "variable.other.object",
-               "variable.other.normal.shell",
-               "variable.other.positional.shell",
-               "entity.name.type.namespace.cs",
-               "punctuation.definition.group.regexp",
-               "punctuation.section.parens.begin.bracket.round.ahk2",
-               "punctuation.section.parens.end.bracket.round.ahk2"
-            ],
+            "name": "yellow",
             "settings": {
-               "foreground": "#56B7C3",
+               "foreground": "#D8A657",
                "fontStyle": ""
-            }
-         },
-         {
-            "name": "girly pink",
+            },
             "scope": [
-               "support.type.object.module.js",
-               "support.class.promise",
-               "variable.language.this",
-               "entity.name.type.module"
-            ],
-            "settings": {
-               "foreground": "#FF6AB3",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "mild yellow",
-            "scope": [
-               "entity.name.label.cs",
-               "entity.name.label.js",
-               "meta.assertion.negative-look-ahead.regexp",
-               "meta.assertion.negative-look-behind.regexp",
-               "meta.object-literal.key.js",
-               "punctuation.definition.colon",
-               "variable.language.ahk2",
-               "variable.object.property.js",
-               "variable.parameter"
-            ],
-            "settings": {
-               "foreground": "#E4BF7F",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "hotkey brown",
-            "scope": [
-               "ahk2.output",
-               "constant.language.ahk2",
-               "keyword.keys.ahk2",
-               "keyword.operator.expression.typeof",
-               "keyword.operator.new",
-               "keyword.other.new",
-               "meta.block.hotstring.ahk2",
-               "meta.brace.round",
-               "meta.brace.square",
-               "punctuation.bracket",
-               "punctuation.definition.arguments.begin",
-               "punctuation.definition.arguments.end",
-               "punctuation.definition.block",
-               "punctuation.definition.bracket",
-               "punctuation.definition.list.begin",
-               "punctuation.definition.list.end",
-               "punctuation.definition.parameters.begin",
-               "punctuation.definition.parameters.begin",
-               "punctuation.definition.parameters.end",
-               "punctuation.definition.parameters.end",
-               "punctuation.definition.typeparameters.begin",
-               "punctuation.definition.typeparameters.end",
-               "punctuation.section.block.begin.ahk2",
-               "punctuation.section.block.end.ahk2",
-               "storage.modifier.ahk2",
-               "storage.modifier.cs",
-               "storage.modifier.ts",
-               "storage.type",
-               "storage.type.function",
-               "support.function.viml",
-               "constant.language.boolean"
-            ],
-            "settings": {
-               "foreground": "#bf7465",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "vary white",
-            "scope": [
-               "meta.object-literal.key",
-               "storage.type.metafunction.ahk2",
-               "variable.other.object.property",
-               "variable.other.property",
-               "support.variable.property"
-            ],
-            "settings": {
-               "foreground": "#B0B7C3",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "static purple",
-            "scope": [
-               "support.function.ahk2",
-               "keyword.type.cs",
-               "support.type.builtin",
-               "support.type.primitive",
+               "punctuation.definition.string.begin.cs",
+               "punctuation.definition.string.end.cs",
+               "string.quoted.double.cs",
+               "string.quoted.single.fish",
                "entity.name.type.instance",
-               "constant.other.character-class.range.regexp"
-            ],
-            "settings": {
-               "foreground": "#A78CFA",
-               "fontStyle": ""
-            }
+               "markup.inline.raw.string.markdown",
+               "string.quoted.double.shell",
+               "punctuation.definition.string.begin.shell",
+               "punctuation.definition.string.end.shell",
+               "string.quoted.single.shell",
+               "punctuation.definition.string.begin.fish",
+               "punctuation.definition.string.end.fish"
+            ]
          },
          {
-            "name": "comment grey",
-            "scope": ["comment"],
+            "name": "yellow bold",
             "settings": {
-               "foreground": "#676E95",
-               "fontStyle": ""
-            }
+               "foreground": "#D8A657",
+               "fontStyle": "bold"
+            },
+            "scope": ["markup.bold", "keyword.type", "keyword.other.var.cs"]
          },
          {
-            "name": "gay mild pink",
+            "name": "green",
+            "settings": {
+               "foreground": "#A9B665",
+               "fontStyle": ""
+            },
+            "scope": ["support.function.builtin.shell"]
+         },
+         {
+            "name": "green italic",
+            "settings": {
+               "foreground": "#A9B665",
+               "fontStyle": "italic"
+            },
+            "scope": []
+         },
+         {
+            "name": "greean",
+            "settings": {
+               "foreground": "#89B482",
+               "fontStyle": ""
+            },
+            "scope": []
+         },
+         {
+            "name": "greean italic",
+            "settings": {
+               "foreground": "#89B482",
+               "fontStyle": "italic"
+            },
             "scope": [
-               "constant.other.character-class.set.regexp",
-               "punctuation.definition.character-class.regexp",
-               "variable.other.constant",
-               "variable.other.constant.object",
-               "variable.other.constant.property",
-               "storage.modifier.scope.viml",
-               "support.constant.attribute.viml",
-               "punctuation.square.end.ahk2",
-               "punctuation.square.begin.ahk2"
-            ],
-            "settings": {
-               "foreground": "#d89aec",
-               "fontStyle": ""
-            }
+               "markup.italic",
+               "support.function.ahk2",
+               "entity.name.function.shell"
+            ]
          },
          {
-            "name": "digit orange",
-            "scope": [],
+            "name": "cyan",
             "settings": {
-               "foreground": "#FF9070",
+               "foreground": "#7DAEA3",
                "fontStyle": ""
-            }
+            },
+            "scope": ["variable.other.object"]
+         },
+         {
+            "name": "cyan bold",
+            "settings": {
+               "foreground": "#7DAEA3",
+               "fontStyle": "bold"
+            },
+            "scope": []
+         },
+         {
+            "name": "cyan italic",
+            "settings": {
+               "foreground": "#7DAEA3",
+               "fontStyle": "italic"
+            },
+            "scope": [
+               "constant.language",
+               "storage.type.metafunction.ahk2",
+               "fenced_code.block.language",
+               "constant.language.null",
+               "constant.language.boolean"
+            ]
+         },
+         {
+            "name": "purple",
+            "settings": {
+               "foreground": "#D3869B",
+               "fontStyle": ""
+            },
+            "scope": []
+         },
+         {
+            "name": "purple italic",
+            "settings": {
+               "foreground": "#D3869B",
+               "fontStyle": "italic"
+            },
+            "scope": []
+         },
+         {
+            "name": "purple bold",
+            "settings": {
+               "foreground": "#D3869B",
+               "fontStyle": "bold"
+            },
+            "scope": []
+         },
+         {
+            "name": "white bold italic",
+            "settings": {
+               "foreground": "#D4BE98",
+               "fontStyle": "bold italic"
+            },
+            "scope": ["variable.language.ahk2"]
+         },
+         {
+            "name": "white bold",
+            "settings": {
+               "foreground": "#D4BE98",
+               "fontStyle": "bold"
+            },
+            "scope": []
+         },
+         {
+            "name": "grey",
+            "settings": {
+               "foreground": "#928374",
+               "fontStyle": ""
+            },
+            "scope": ["constant.character.escape.ahk2"]
          }
       ]
-   },
-   "workbench.colorCustomizations": {
-      "editorBracketHighlight.foreground1": "#bf7465",
-      "editorBracketHighlight.foreground2": "#56B7C3",
-      "editorBracketHighlight.foreground3": "#d89aec",
-      "editorBracketHighlight.foreground4": "#bf7465",
-      "editorBracketHighlight.foreground5": "#56B7C3",
-      "editorBracketHighlight.foreground6": "#d89aec",
-      "editorBracketPairGuide.activeBackground1": "#bf7465cc",
-      "editorBracketPairGuide.activeBackground2": "#56B7C3cc",
-      "editorBracketPairGuide.activeBackground3": "#d89aeccc",
-      "editorBracketPairGuide.activeBackground4": "#bf7465cc",
-      "editorBracketPairGuide.activeBackground5": "#56B7C3cc",
-      "editorBracketPairGuide.activeBackground6": "#d89aeccc"
    },
    "[python]": {
       "editor.defaultFormatter": "ms-python.python"
@@ -270,6 +188,17 @@
       "editor.formatOnSave": false,
       "editor.formatOnType": false
    },
+   "[plaintext]": {
+      "editor.unicodeHighlight.ambiguousCharacters": false,
+      "editor.unicodeHighlight.invisibleCharacters": false,
+      "editor.quickSuggestions": {
+         "other": "inline"
+      }
+   },
+   "Lua.format.defaultConfig": {
+      "indent_style": "space",
+      "indent_size": "4"
+   },
    "material-icon-theme.files.associations": {
       "*.ah2": "autohotkey",
       "*.ahk2": "autohotkey",
@@ -278,8 +207,9 @@
       "*.ah1": "autohotkey"
    },
    "editor.quickSuggestions": {
-      "other": "inline",
-      "comments": false
+      "other": true,
+      "strings": "inline",
+      "comments": "inline"
    },
    "editor.unicodeHighlight.allowedLocales": {
       "ru": true
@@ -314,13 +244,13 @@
    "code-runner.executorMap": {
       "python": "python -u",
       "csharp": "dotnet run",
-      "javascript": "node $fileName"
+      "javascript": "cd $dir && node $fileName"
    },
    "files.associations": {
       "*.ahk": "ahk2",
       "*.json": "json",
       ".ideavimrc": "plaintext",
-      "*.vim": "plaintext"
+      "*.vim": "viml"
    },
    "files.exclude": {
       ".git": true,
@@ -351,16 +281,13 @@
       }
    },
    "extensions.experimental.affinity": {
-      //makes neovim faster, apparently
       "asvetliakov.vscode-neovim": 1
    },
    "editor.fontSize": 24,
    "editor.fontLigatures": false,
    "editor.bracketPairColorization.enabled": true,
-   "editor.tabSize": 3,
    "editor.suggest.snippetsPreventQuickSuggestions": false,
    "editor.mouseWheelScrollSensitivity": 1.7,
-   "editor.scrollbar.verticalScrollbarSize": 0,
    "editor.parameterHints.enabled": false,
    "editor.acceptSuggestionOnEnter": "on",
    "editor.suggestOnTriggerCharacters": false,
@@ -378,12 +305,10 @@
    "editor.linkedEditing": true,
    "editor.showFoldingControls": "always",
    "editor.renderLineHighlight": "gutter",
-   "editor.scrollbar.horizontal": "hidden",
    "editor.wordWrap": "on",
    "editor.find.cursorMoveOnType": false,
    "editor.suggest.insertMode": "replace",
    "editor.suggest.shareSuggestSelections": true,
-   "editor.guides.highlightActiveIndentation": false,
    "editor.stickyTabStops": true,
    "editor.formatOnSaveMode": "modificationsIfAvailable",
    "workbench.iconTheme": "material-icon-theme",
@@ -392,7 +317,7 @@
    "workbench.editor.pinnedTabSizing": "compact",
    "workbench.editor.wrapTabs": true,
    "workbench.list.openMode": "doubleClick",
-   "workbench.colorTheme": "Eva Dark",
+   "workbench.colorTheme": "Gruvbox Material Dark",
    "workbench.tree.expandMode": "doubleClick",
    "workbench.editor.highlightModifiedTabs": true,
    "workbench.editor.tabCloseButton": "off",
@@ -458,7 +383,6 @@
    "codesnap.showWindowControls": false,
    "window.title": "${dirty}${activeEditorLong}${separator}${separator}${appName}",
    "extensions.ignoreRecommendations": true,
-   "search.useIgnoreFiles": false,
    "search.showLineNumbers": true,
    "search.quickOpen.includeHistory": false,
    "search.seedWithNearestWord": true,
@@ -478,7 +402,6 @@
    "diffEditor.renderIndicators": false,
    "gitlens.showWelcomeOnInstall": false,
    "gitlens.fileAnnotations.command": "changes",
-   "terminal.integrated.fontFamily": "Consolas",
    "markdown.preview.fontFamily": "\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"",
    "markdown.preview.lineHeight": 1.5,
    "editor.overviewRulerBorder": false,
@@ -522,7 +445,7 @@
    "debug.console.fontSize": 20,
    "vscode-neovim.useWSL": true,
    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-   "vscode-neovim.neovimInitVimPaths.linux": "/mnt/c/Programming/dotfiles/init.vim",
+   "vscode-neovim.neovimInitVimPaths.linux": "/mnt/c/Programming/dotfiles/init.lua",
    "vscode-pets.petSize": "large",
    "vscode-pets.theme": "forest",
    "editor.occurrencesHighlight": false,
@@ -555,17 +478,61 @@
    "csharp.inlayHints.parameters.enabled": true,
    "editor.suggest.showInlineDetails": false,
    "editor.tabCompletion": "on",
-   "files.autoSave": "afterDelay",
    "search.collapseResults": "auto",
    "search.defaultViewMode": "tree",
-   "editor.minimap.autohide": true,
    "workbench.list.smoothScrolling": true,
-   "editor.scrollbar.vertical": "hidden",
    "editor.hideCursorInOverviewRuler": true,
    "editor.cursorSurroundingLines": 4,
+   "editor.minimap.renderCharacters": false,
+   "editor.minimap.scale": 2,
+   "tabnine.experimentalAutoImports": true,
+   "editor.fontWeight": "normal",
+   "scm.inputFontFamily": "editor",
+   "screencastMode.fontSize": 30,
+   "debug.console.fontFamily": "editor",
+   "editor.mouseWheelZoom": true,
+   "search.quickOpen.history.filterSortOrder": "recency",
+   "task.quickOpen.skip": true,
+   "Lua.semantic.keyword": true,
+   "editor.indentSize": 4,
+   "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
+   "terminal.integrated.fontFamily": "MesloLGS NF, 'Segoe UI Emoji'",
+   "terminal.integrated.tabs.title": "${cwd}",
+   "code-runner.terminalRoot": "/mnt/",
+   "terminal.integrated.cursorWidth": 2,
+   "terminal.integrated.commandsToSkipShell": [
+      "workbench.action.terminal.rename",
+      "workbench.action.openEditorAtIndex2",
+      "workbench.action.openEditorAtIndex3",
+      "workbench.action.openEditorAtIndex4",
+      "workbench.action.openEditorAtIndex5",
+      "workbench.action.openEditorAtIndex6",
+      "workbench.action.openEditorAtIndex7",
+      "workbench.action.openEditorAtIndex8",
+      "workbench.action.openEditorAtIndex9"
+   ],
+   "elasticTabstopsMono.enable": true,
+   "elasticTabstopsMono.fixedIndentation": true,
+   "editor.renderWhitespace": "trailing",
+   "explorer.excludeGitIgnore": true,
+   "task.quickOpen.history": 5,
+   "window.zoomLevel": 0.5,
+   "editor.accessibilitySupport": "off",
+   "window.menuBarVisibility": "compact",
    "workbench.layoutControl.enabled": false,
    "workbench.sideBar.location": "right",
-   "window.menuBarVisibility": "hidden",
-   "editor.minimap.renderCharacters": false,
-   "editor.minimap.scale": 2
+   "editor.minimap.enabled": false,
+   "editor.glyphMargin": false,
+   "editor.scrollbar.horizontalScrollbarSize": 14,
+   "editor.scrollbar.vertical": "visible",
+   "editor.scrollbar.horizontal": "visible",
+   "diffEditor.renderSideBySide": false,
+   "scm.diffDecorationsGutterPattern": {
+      "added": true
+   },
+   "scm.diffDecorationsGutterWidth": 5,
+   "files.autoSave": "afterDelay",
+   "workbench.activityBar.visible": false,
+   "editor.guides.indentation": false,
+   "screencastMode.verticalOffset": 10
 }
