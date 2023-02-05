@@ -356,6 +356,8 @@ vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "~", "~h")
 vim.keymap.set("n", "Q", "@q")
+vim.keymap.set("n", "gg", "ggzz")
+vim.keymap.set("n", "G", "Gzz")
 
 --# Visual remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
@@ -404,3 +406,5 @@ vim.keymap.set("n", "_", "-")
 
 --# Operator pending remaps
 vim.keymap.set("o", "b", "vb")
+vim.keymap.set("o", "{", "V{")
+vim.keymap.set("o", "}", "V}")
