@@ -253,11 +253,13 @@ abbrev-alias dns='dotnet.exe sln *.sln'
 abbrev-alias dnsa='dotnet.exe sln *.sln add **/*.csproj'
 abbrev-alias dnr='dotnet.exe run'
 abbrev-alias dnrp='dotnet.exe run --project'
+abbrev-alias dnb='dotnet.exe build'
 abbrev-alias dna='dotnet.exe add'
 
 abbrev-alias ghr='gh.exe repo'
 abbrev-alias ghrc='gh.exe repo create --public'
 abbrev-alias ghrcc='gh.exe repo create --clone --public'
+abbrev-alias ghrd='gh.exe repo delete --confirm'
 
 # Functions
 

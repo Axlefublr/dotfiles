@@ -294,7 +294,7 @@ if vim.g.vscode then
     vim.keymap.set("n", "zi",        Vscode_trim_both)
     vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
     vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
-    vim.keymap.set("n", "=<",        Vscode_trim_trailing_whitespace)
+    vim.keymap.set("n", "==",        Vscode_trim_trailing_whitespace)
     vim.keymap.set("n", "gl",        Vscode_open_link)
     vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above_moveup)
     vim.keymap.set("n", "<<",        Vscode_outdent)
