@@ -233,11 +233,10 @@ function Hop_backward_t_sameline() hop.hint_char1({
 end
 
 --# Vscode: Folding
-function Vscode_toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
-function Vscode_fold_recursively() vim.fn.VSCodeNotify("editor.foldRecursively") end
-function Vscode_fold_all() vim.fn.VSCodeNotify("editor.foldAll") end
-function Vscode_unfold_all() vim.fn.VSCodeNotify("editor.unfoldAll") end
-function Vscode_unfold_recursively() vim.fn.VSCodeNotify("editor.unfoldRecursively") end
+function Vscode_toggle_fold()
+    vim.fn.VSCodeNotify("editor.toggleFold")
+    vim.cmd("norm za")
+end
 function Vscode_goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
 
 --# Vscode: All remaps
@@ -262,8 +261,17 @@ function Vscode_convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentation
 function Vscode_indent_with_spaces() vim.fn.VSCodeNotify("editor.action.indentUsingSpaces") end
 function Vscode_indent_with_tabs() vim.fn.VSCodeNotify("editor.action.indentUsingTabs") end
 function Vscode_change_encoding() vim.fn.VSCodeNotify("workbench.action.editor.changeEncoding") end
+function Vscode_rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
+function Vscode_comment_motion()
+    vim.cmd("set operatorfunc?")
+    -- Vscode_vis_comment()
+end
 
 --# Vscode: Visual remaps
+function Vscode_vis_fold()
+    vim.fn.VSCodeNotifyVisual("editor.fold", true)
+    vim.cmd("'<,'>fold")
+end
 function Vscode_vis_codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 function Vscode_vis_outdent() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
 function Vscode_vis_indent() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
@@ -278,22 +286,16 @@ vim.g.targets_nl          = "nh"
 if vim.g.vscode then
 
     --# Vscode: Folding
+    vim.keymap.set("v", "zf", Vscode_vis_fold)
     vim.keymap.set("n", "za", Vscode_toggle_fold)
-    vim.keymap.set("n", "zc", Vscode_fold_recursively)
-    vim.keymap.set("n", "zC", Vscode_fold_all)
-    vim.keymap.set("n", "zO", Vscode_unfold_all)
-    vim.keymap.set("n", "zo", Vscode_unfold_recursively)
-    vim.keymap.set("n", "zp", Vscode_goto_parent_fold)
 
     --# Vscode: All remaps
     vim.keymap.set("", "zy", Vscode_toggle_typewriter)
 
     --# Vscode: Normal remaps
-    vim.keymap.set("n", "zh",        Vscode_trim_left)
-    vim.keymap.set("n", "zl",        Vscode_trim_right)
-    vim.keymap.set("n", "zi",        Vscode_trim_both)
     vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
     vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
+    vim.keymap.set("n", "<leader>r", Vscode_rename_symbol)
     vim.keymap.set("n", "==",        Vscode_trim_trailing_whitespace)
     vim.keymap.set("n", "gl",        Vscode_open_link)
     vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above_moveup)
@@ -303,13 +305,13 @@ if vim.g.vscode then
     vim.keymap.set("n", "=>",        Vscode_reindent)
     vim.keymap.set("n", "=s",        Vscode_convert_to_spaces)
     vim.keymap.set("n", "=t",        Vscode_convert_to_tabs)
+    vim.keymap.set("n", "gc",        Vscode_comment_motion)
 
     --# Vscode: Visual remaps
     vim.keymap.set("v", "gs", Vscode_vis_codesnap)
     vim.keymap.set("v", "<",  Vscode_vis_outdent)
     vim.keymap.set("v", ">",  Vscode_vis_indent)
     vim.keymap.set("v", "gc", Vscode_vis_comment)
-    vim.keymap.set("v", "=>", Vscode_vis_reindent)
 
     --# Vscode: Insert remaps
     vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
@@ -356,8 +358,8 @@ vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
 vim.keymap.set("n", "Y", "yg_")
 vim.keymap.set("n", "~", "~h")
 vim.keymap.set("n", "Q", "@q")
-vim.keymap.set("n", "gg", "ggzz")
-vim.keymap.set("n", "G", "Gzz")
+vim.keymap.set("n", "gg", "gg")
+vim.keymap.set("n", "G", "G")
 
 --# Visual remaps
 vim.keymap.set("v", "*", '"ry/\\V<C-r>r<CR>')
@@ -405,6 +407,7 @@ vim.keymap.set("v", "_", "-")
 vim.keymap.set("n", "_", "-")
 
 --# Operator pending remaps
-vim.keymap.set("o", "b", "vb")
 vim.keymap.set("o", "{", "V{")
 vim.keymap.set("o", "}", "V}")
+
+print("nvim loaded")
