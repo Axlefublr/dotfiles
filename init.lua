@@ -233,10 +233,6 @@ function Hop_backward_t_sameline() hop.hint_char1({
 end
 
 --# Vscode: Folding
-function Vscode_toggle_fold()
-    vim.fn.VSCodeNotify("editor.toggleFold")
-    vim.cmd("norm za")
-end
 function Vscode_goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
 
 --# Vscode: All remaps
@@ -268,10 +264,6 @@ function Vscode_comment_motion()
 end
 
 --# Vscode: Visual remaps
-function Vscode_vis_fold()
-    vim.fn.VSCodeNotifyVisual("editor.fold", true)
-    vim.cmd("'<,'>fold")
-end
 function Vscode_vis_codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 function Vscode_vis_outdent() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
 function Vscode_vis_indent() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
@@ -284,10 +276,6 @@ vim.g.targets_nl          = "nh"
 
 --- Vscode
 if vim.g.vscode then
-
-    --# Vscode: Folding
-    vim.keymap.set("v", "zf", Vscode_vis_fold)
-    vim.keymap.set("n", "za", Vscode_toggle_fold)
 
     --# Vscode: All remaps
     vim.keymap.set("", "zy", Vscode_toggle_typewriter)
