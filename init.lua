@@ -208,6 +208,10 @@ end
 local multiply_current_character = '"ryl"r' .. vim.v.count1 .. "p"
 local multiply_selection = '"rygv<Esc>"r' .. vim.v.count1 .. "p"
 
+function CenterScreen() vim.cmd("call <SNR>4_reveal('center', 0)") end
+function TopScreen() vim.cmd("call <SNR>4_reveal('top', 0)") end
+function BottomScreen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
+
 --# Hops
 function Hop_forward_f_sameline() hop.hint_char1({
     direction = directions.AFTER_CURSOR,
@@ -233,7 +237,10 @@ function Hop_backward_t_sameline() hop.hint_char1({
 end
 
 --# Vscode: Folding
+function Vscode_toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
 function Vscode_goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
+function Vscode_next_folding_section() vim.fn.VSCodeNotify("editor.gotoNextFold") end
+function Vscode_prev_folding_section() vim.fn.VSCodeNotify("editor.gotoPreviousFold") end
 
 --# Vscode: All remaps
 function Vscode_toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
@@ -279,6 +286,9 @@ if vim.g.vscode then
 
     --# Vscode: All remaps
     vim.keymap.set("", "zy", Vscode_toggle_typewriter)
+    vim.keymap.set("", "zp", Vscode_goto_parent_fold)
+    vim.keymap.set("", "]f", Vscode_next_folding_section)
+    vim.keymap.set("", "[f", Vscode_prev_folding_section)
 
     --# Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
@@ -294,6 +304,7 @@ if vim.g.vscode then
     vim.keymap.set("n", "=s",        Vscode_convert_to_spaces)
     vim.keymap.set("n", "=t",        Vscode_convert_to_tabs)
     vim.keymap.set("n", "gc",        Vscode_comment_motion)
+    vim.keymap.set("n", "za",        Vscode_toggle_fold)
 
     --# Vscode: Visual remaps
     vim.keymap.set("v", "gs", Vscode_vis_codesnap)
@@ -340,6 +351,12 @@ vim.keymap.set("", "U", "gE")
 vim.keymap.set("", ":", ",")
 vim.keymap.set("", '"', ";")
 vim.keymap.set("", "gm", "gM")
+vim.keymap.set("", "M", CenterScreen)
+vim.keymap.set("", "H", TopScreen)
+vim.keymap.set("", "L", BottomScreen)
+vim.keymap.set("", "zz", "M")
+vim.keymap.set("", "zt", "H")
+vim.keymap.set("", "zb", "L")
 
 --# Normal remaps
 vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
