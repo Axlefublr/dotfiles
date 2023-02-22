@@ -289,9 +289,6 @@ if vim.g.vscode then
     vim.keymap.set("", "zp", Vscode_goto_parent_fold)
     vim.keymap.set("", "]f", Vscode_next_folding_section)
     vim.keymap.set("", "[f", Vscode_prev_folding_section)
-    vim.keymap.set("", "M", CenterScreen)
-    vim.keymap.set("", "H", TopScreen)
-    vim.keymap.set("", "L", BottomScreen)
 
     --# Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
@@ -317,10 +314,6 @@ if vim.g.vscode then
 
     --# Vscode: Insert remaps
     vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
-else
-    vim.keymap.set("", "M", "zz")
-    vim.keymap.set("", "H", "zt")
-    vim.keymap.set("", "L", "zb")
 end
 
 --- Remappings
@@ -358,9 +351,6 @@ vim.keymap.set("", "U", "gE")
 vim.keymap.set("", ":", ",")
 vim.keymap.set("", '"', ";")
 vim.keymap.set("", "gm", "gM")
-vim.keymap.set("", "zz", "M")
-vim.keymap.set("", "zt", "H")
-vim.keymap.set("", "zb", "L")
 
 --# Normal remaps
 vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
