@@ -341,13 +341,15 @@ vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
 --# Markdown heading text object
 vim.keymap.set("v", "ir", "?^#<CR>oNk")
+vim.keymap.set("v", "agc", "[/o]/V")
+vim.keymap.set("v", "igc", "[/3lo]/2h")
+vim.keymap.set("o", "agc", function() vim.cmd("normal v[/o]/V") end)
+vim.keymap.set("o", "igc", function() vim.cmd("normal v[/3lo]/2h") end)
 
 --# All remaps
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 vim.keymap.set("", ";", ":")
 vim.keymap.set("", "'", '"')
-vim.keymap.set("", "K", "ge")
-vim.keymap.set("", "U", "gE")
 vim.keymap.set("", ":", ",")
 vim.keymap.set("", '"', ";")
 vim.keymap.set("", "gm", "gM")
