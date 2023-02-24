@@ -117,85 +117,60 @@ vim.g.clipboard = {
     cache_enabled = true
 }
 
---- Mark fix (I dare you to write this better)
-Mark_a = 1
-vim.keymap.set("n", "ma", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`a", function() vim.cmd(tostring(Mark_m)) end)
-Mark_b = 1
-vim.keymap.set("n", "mb", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`b", function() vim.cmd(tostring(Mark_m)) end)
-Mark_c = 1
-vim.keymap.set("n", "mc", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`c", function() vim.cmd(tostring(Mark_m)) end)
-Mark_d = 1
-vim.keymap.set("n", "md", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`d", function() vim.cmd(tostring(Mark_m)) end)
-Mark_e = 1
-vim.keymap.set("n", "me", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`e", function() vim.cmd(tostring(Mark_m)) end)
-Mark_f = 1
-vim.keymap.set("n", "mf", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`f", function() vim.cmd(tostring(Mark_m)) end)
-Mark_g = 1
-vim.keymap.set("n", "mg", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`g", function() vim.cmd(tostring(Mark_m)) end)
-Mark_h = 1
-vim.keymap.set("n", "mh", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`h", function() vim.cmd(tostring(Mark_m)) end)
-Mark_i = 1
-vim.keymap.set("n", "mi", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`i", function() vim.cmd(tostring(Mark_m)) end)
-Mark_j = 1
-vim.keymap.set("n", "mj", function() Mark_j = vim.fn.line(".") end)
-vim.keymap.set("n", "`j", function() vim.cmd(tostring(Mark_j)) end)
-Mark_k = 1
-vim.keymap.set("n", "mk", function() Mark_k = vim.fn.line(".") end)
-vim.keymap.set("n", "`k", function() vim.cmd(tostring(Mark_k)) end)
-Mark_l = 1
-vim.keymap.set("n", "ml", function() Mark_l = vim.fn.line(".") end)
-vim.keymap.set("n", "`l", function() vim.cmd(tostring(Mark_l)) end)
-Mark_m = 1
-vim.keymap.set("n", "mm", function() Mark_m = vim.fn.line(".") end)
-vim.keymap.set("n", "`m", function() vim.cmd(tostring(Mark_m)) end)
-Mark_n = 1
-vim.keymap.set("n", "mn", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`n", function() vim.cmd(tostring(Mark_n)) end)
-Mark_o = 1
-vim.keymap.set("n", "mo", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`o", function() vim.cmd(tostring(Mark_n)) end)
-Mark_p = 1
-vim.keymap.set("n", "mp", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`p", function() vim.cmd(tostring(Mark_n)) end)
-Mark_q = 1
-vim.keymap.set("n", "mq", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`q", function() vim.cmd(tostring(Mark_n)) end)
-Mark_r = 1
-vim.keymap.set("n", "mr", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`r", function() vim.cmd(tostring(Mark_n)) end)
-Mark_s = 1
-vim.keymap.set("n", "ms", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`s", function() vim.cmd(tostring(Mark_n)) end)
-Mark_t = 1
-vim.keymap.set("n", "mt", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`t", function() vim.cmd(tostring(Mark_n)) end)
-Mark_u = 1
-vim.keymap.set("n", "mu", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`u", function() vim.cmd(tostring(Mark_n)) end)
-Mark_v = 1
-vim.keymap.set("n", "mv", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`v", function() vim.cmd(tostring(Mark_n)) end)
-Mark_w = 1
-vim.keymap.set("n", "mw", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`w", function() vim.cmd(tostring(Mark_n)) end)
-Mark_x = 1
-vim.keymap.set("n", "mx", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`x", function() vim.cmd(tostring(Mark_n)) end)
-Mark_y = 1
-vim.keymap.set("n", "my", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`y", function() vim.cmd(tostring(Mark_n)) end)
-Mark_z = 1
-vim.keymap.set("n", "mz", function() Mark_n = vim.fn.line(".") end)
-vim.keymap.set("n", "`z", function() vim.cmd(tostring(Mark_n)) end)
+--- Mark fix
+vim.keymap.set("n", "mq", "mQ")
+vim.keymap.set("n", "mw", "mW")
+vim.keymap.set("n", "me", "mE")
+vim.keymap.set("n", "mr", "mR")
+vim.keymap.set("n", "mt", "mT")
+vim.keymap.set("n", "my", "mY")
+vim.keymap.set("n", "mu", "mU")
+vim.keymap.set("n", "mi", "mI")
+vim.keymap.set("n", "mo", "mO")
+vim.keymap.set("n", "mp", "mP")
+vim.keymap.set("n", "ma", "mA")
+vim.keymap.set("n", "ms", "mS")
+vim.keymap.set("n", "md", "mD")
+vim.keymap.set("n", "mf", "mF")
+vim.keymap.set("n", "mg", "mG")
+vim.keymap.set("n", "mh", "mH")
+vim.keymap.set("n", "mj", "mJ")
+vim.keymap.set("n", "mk", "mK")
+vim.keymap.set("n", "ml", "mL")
+vim.keymap.set("n", "mz", "mZ")
+vim.keymap.set("n", "mx", "mX")
+vim.keymap.set("n", "mc", "mC")
+vim.keymap.set("n", "mv", "mV")
+vim.keymap.set("n", "mb", "mB")
+vim.keymap.set("n", "mn", "mN")
+vim.keymap.set("n", "mm", "mM")
+
+vim.keymap.set("n", "`q", "`Q")
+vim.keymap.set("n", "`w", "`W")
+vim.keymap.set("n", "`e", "`E")
+vim.keymap.set("n", "`r", "`R")
+vim.keymap.set("n", "`t", "`T")
+vim.keymap.set("n", "`y", "`Y")
+vim.keymap.set("n", "`u", "`U")
+vim.keymap.set("n", "`i", "`I")
+vim.keymap.set("n", "`o", "`O")
+vim.keymap.set("n", "`p", "`P")
+vim.keymap.set("n", "`a", "`A")
+vim.keymap.set("n", "`s", "`S")
+vim.keymap.set("n", "`d", "`D")
+vim.keymap.set("n", "`f", "`F")
+vim.keymap.set("n", "`g", "`G")
+vim.keymap.set("n", "`h", "`H")
+vim.keymap.set("n", "`j", "`J")
+vim.keymap.set("n", "`k", "`K")
+vim.keymap.set("n", "`l", "`L")
+vim.keymap.set("n", "`z", "`Z")
+vim.keymap.set("n", "`x", "`X")
+vim.keymap.set("n", "`c", "`C")
+vim.keymap.set("n", "`v", "`V")
+vim.keymap.set("n", "`b", "`B")
+vim.keymap.set("n", "`n", "`N")
+vim.keymap.set("n", "`m", "`M")
 
 --- Meta abstractions
 function FeedKeysCorrectly(keys)
