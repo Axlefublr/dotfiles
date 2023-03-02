@@ -338,6 +338,8 @@ vim.keymap.set("n", "gg", "gg")
 vim.keymap.set("n", "G", "G")
 vim.keymap.set("n", "*", '*N')
 vim.keymap.set("n", "#", '#N')
+vim.keymap.set("n", "dp", "ddp")
+vim.keymap.set("n", "dP", "ddkP")
 
 --# Visual remaps
 vim.keymap.set("v", "*", 'y/\\V<C-r>"<CR>N')
@@ -352,6 +354,10 @@ vim.keymap.set("i", "<C-u>", '<C-o>d^')
 vim.keymap.set("i", "<C-i>", '<Esc>"_S')
 vim.keymap.set("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>')
 
+--# Operator pending remaps
+vim.keymap.set("o", "{", "V{")
+vim.keymap.set("o", "}", "V}")
+
 --# Control remaps
 vim.keymap.set("", "<C-f>", "20jzz")
 vim.keymap.set("", "<C-b>", "20kzz")
@@ -364,6 +370,9 @@ vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 vim.keymap.set("", "<leader>`", "'")
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
 vim.keymap.set("n", "<leader>q", multiply_current_character)
+vim.keymap.set("n", "<leader>di", "ddddp<iB>iB")
+vim.keymap.set("n", "<leader>dd", "dddd")
+vim.keymap.set("n", "<leader>pi", "p>iB")
 
 --# Register remaps: all modes
 vim.keymap.set("", "'w", '"0')
@@ -383,9 +392,5 @@ vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
 --# Vertical movement
 vim.keymap.set("v", "_", "-")
 vim.keymap.set("n", "_", "-")
-
---# Operator pending remaps
-vim.keymap.set("o", "{", "V{")
-vim.keymap.set("o", "}", "V}")
 
 print("nvim loaded")
