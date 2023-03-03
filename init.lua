@@ -370,9 +370,11 @@ vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 vim.keymap.set("", "<leader>`", "'")
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
 vim.keymap.set("n", "<leader>q", multiply_current_character)
-vim.keymap.set("n", "<leader>di", "ddddp<iB>iB")
+vim.keymap.set("n", "<leader>di", "ddddp>iBvaB<Esc>")
 vim.keymap.set("n", "<leader>dd", "dddd")
 vim.keymap.set("n", "<leader>pi", "p>iB")
+vim.keymap.set("n", "<leader>bi", "vaBo<Esc>s=> <Esc>Jjdd")
+vim.keymap.set("n", "<leader>ba", "^f(%f=c3l{<CR><Esc>o}<Esc>")
 
 --# Register remaps: all modes
 vim.keymap.set("", "'w", '"0')
