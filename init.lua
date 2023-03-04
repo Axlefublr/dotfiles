@@ -441,18 +441,18 @@ vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
 vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
 
 --# Register remaps: all modes
-vim.keymap.set("", "'w", '"0')
-vim.keymap.set("", "'i", '"_')
-vim.keymap.set("", "'e", '"-')
 vim.keymap.set("", "'q", '"+')
+vim.keymap.set("", "'w", '"0')
+vim.keymap.set("", "'e", '"-')
 vim.keymap.set("", "'r", '".')
+vim.keymap.set("", "'i", '"_')
 vim.keymap.set("", "';", '":')
 
 --# Register remaps: insert + command mode
+vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
 vim.keymap.set("!", "<C-r>w", "<C-r><C-o>0")
 vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
-vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
-vim.keymap.set("!", "<C-r>r", '<C-r><C-o>"')
+vim.keymap.set("!", "<C-r>r", '<C-r><C-o>.')
 vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
 vim.keymap.set("!", "<C-w>", '<C-r><C-o>"')
 
