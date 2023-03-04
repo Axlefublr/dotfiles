@@ -240,10 +240,6 @@ function Vscode_indent_with_spaces() vim.fn.VSCodeNotify("editor.action.indentUs
 function Vscode_indent_with_tabs() vim.fn.VSCodeNotify("editor.action.indentUsingTabs") end
 function Vscode_change_encoding() vim.fn.VSCodeNotify("workbench.action.editor.changeEncoding") end
 function Vscode_rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
-function Vscode_comment_motion()
-    vim.cmd("set operatorfunc?")
-    -- Vscode_vis_comment()
-end
 
 --# Vscode: Visual remaps
 function Vscode_vis_codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
@@ -266,7 +262,7 @@ if vim.g.vscode then
     vim.keymap.set("", "[f", Vscode_prev_folding_section)
 
     --# Vscode: Normal remaps
-    vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
+    vim.keymap.set("n", "gD", Vscode_reveal_definition_aside)
     vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
     vim.keymap.set("n", "<leader>r", Vscode_rename_symbol)
     vim.keymap.set("n", "==",        Vscode_trim_trailing_whitespace)
@@ -278,7 +274,6 @@ if vim.g.vscode then
     vim.keymap.set("n", "=>",        Vscode_reindent)
     vim.keymap.set("n", "=s",        Vscode_convert_to_spaces)
     vim.keymap.set("n", "=t",        Vscode_convert_to_tabs)
-    vim.keymap.set("n", "gc",        Vscode_comment_motion)
     vim.keymap.set("n", "za",        Vscode_toggle_fold)
 
     --# Vscode: Visual remaps
@@ -328,30 +323,35 @@ vim.keymap.set("", "'", '"')
 vim.keymap.set("", ":", ",")
 vim.keymap.set("", '"', ";")
 vim.keymap.set("", "gm", "gM")
+vim.keymap.set("", "c", '"_c')
+vim.keymap.set("", "C", '"_C')
+vim.keymap.set("", "s", '"_s')
+vim.keymap.set("", "S", '"_S')
 
 --# Normal remaps
 vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
-vim.keymap.set("n", "Y", "yg_")
-vim.keymap.set("n", "~", "~h")
-vim.keymap.set("n", "Q", "@q")
-vim.keymap.set("n", "gg", "gg")
-vim.keymap.set("n", "G", "G")
-vim.keymap.set("n", "*", '*N')
-vim.keymap.set("n", "#", '#N')
-vim.keymap.set("n", "dp", "ddp")
-vim.keymap.set("n", "dP", "ddkP")
+vim.keymap.set("n", "Y",   "yg_")
+vim.keymap.set("n", "~",   "~h")
+vim.keymap.set("n", "Q",   "@q")
+vim.keymap.set("n", "gg",  "gg")
+vim.keymap.set("n", "G",   "G")
+vim.keymap.set("n", "*",   '*N')
+vim.keymap.set("n", "#",   '#N')
+vim.keymap.set("n", "dp",  "ddp")
+vim.keymap.set("n", "dP",  "ddkP")
+vim.keymap.set("n", "gJ",  "Jx")
+vim.keymap.set("n", "=d",  "=ip", { remap = true })
 
 --# Visual remaps
-vim.keymap.set("v", "*", 'y/\\V<C-r>"<CR>N')
-vim.keymap.set("v", "#", 'y?\\V<C-r>"<CR>N')
-vim.keymap.set("v", "u", "<Esc>u")
-vim.keymap.set("v", "U", "<Esc>u")
+vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>N')
+vim.keymap.set("v", "#",         'y?\\V<C-r>"<CR>N')
+vim.keymap.set("v", "u",         "<Esc>u")
+vim.keymap.set("v", "U",         "<Esc>u")
 vim.keymap.set("v", "<leader>q", multiply_selection)
 
 --# Insert remaps
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
-vim.keymap.set("i", "<C-u>", '<C-o>d^')
-vim.keymap.set("i", "<C-i>", '<Esc>"_S')
+vim.keymap.set("i", "<C-u>", '<Esc>"_S')
 vim.keymap.set("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>')
 
 --# Operator pending remaps
