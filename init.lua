@@ -262,7 +262,7 @@ if vim.g.vscode then
     vim.keymap.set("", "[f", Vscode_prev_folding_section)
 
     --# Vscode: Normal remaps
-    vim.keymap.set("n", "gD", Vscode_reveal_definition_aside)
+    vim.keymap.set("n", "gD",        Vscode_reveal_definition_aside)
     vim.keymap.set("n", "<leader>s", Vscode_toggle_sticky_scroll)
     vim.keymap.set("n", "<leader>r", Vscode_rename_symbol)
     vim.keymap.set("n", "==",        Vscode_trim_trailing_whitespace)
@@ -318,15 +318,15 @@ vim.keymap.set("o", "igc", function() vim.cmd("normal v[/3lo]/2h") end)
 
 --# All remaps
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
-vim.keymap.set("", ";", ":")
-vim.keymap.set("", "'", '"')
-vim.keymap.set("", ":", ",")
-vim.keymap.set("", '"', ";")
+vim.keymap.set("", ";",  ":")
+vim.keymap.set("", "'",  '"')
+vim.keymap.set("", ":",  ",")
+vim.keymap.set("", '"',  ";")
 vim.keymap.set("", "gm", "gM")
-vim.keymap.set("", "c", '"_c')
-vim.keymap.set("", "C", '"_C')
-vim.keymap.set("", "s", '"_s')
-vim.keymap.set("", "S", '"_S')
+vim.keymap.set("", "c",  '"_c')
+vim.keymap.set("", "C",  '"_C')
+vim.keymap.set("", "s",  '"_s')
+vim.keymap.set("", "S",  '"_S')
 
 --# Normal remaps
 vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
@@ -340,7 +340,9 @@ vim.keymap.set("n", "#",   '#N')
 vim.keymap.set("n", "dp",  "ddp")
 vim.keymap.set("n", "dP",  "ddkP")
 vim.keymap.set("n", "gJ",  "Jx")
-vim.keymap.set("n", "=d",  "=ip", { remap = true })
+vim.keymap.set("n", "=d",  "=ip",    { remap = true })
+vim.keymap.set("n", "=,",  "gaip*,", { remap = true })
+vim.keymap.set("n", "=e",  "gaip=",  { remap = true })
 
 --# Visual remaps
 vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>N')
