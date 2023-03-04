@@ -284,8 +284,18 @@ function Vscode_trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.tr
 function Vscode_open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
 function Vscode_insert_line_above() vim.fn.VSCodeCall("editor.action.insertLineBefore") end
 function Vscode_insert_line_above_moveup() Vscode_insert_line_above() vim.cmd("norm k") end
-function Vscode_outdent() vim.fn.VSCodeNotify("editor.action.outdentLines") end
-function Vscode_indent() vim.fn.VSCodeNotify("editor.action.indentLines") end
+function Vscode_outdent()
+---@diagnostic disable-next-line: unused-local
+    for i = 1, vim.v.count1 do
+        vim.fn.VSCodeNotify("editor.action.outdentLines")
+    end
+end
+function Vscode_indent()
+---@diagnostic disable-next-line: unused-local
+    for i = 1, vim.v.count1 do
+        vim.fn.VSCodeNotify("editor.action.indentLines")
+    end
+end
 function Vscode_comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
 function Vscode_reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
 function Vscode_convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
@@ -444,6 +454,7 @@ vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
 vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
 vim.keymap.set("!", "<C-r>r", '<C-r><C-o>"')
 vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
+vim.keymap.set("!", "<C-w>", '<C-r><C-o>"')
 
 --# Vertical movement
 vim.keymap.set("v", "_", "-")
