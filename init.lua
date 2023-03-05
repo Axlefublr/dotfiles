@@ -348,6 +348,8 @@ if vim.g.vscode then
 
     --# Vscode: Insert remaps
     vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
+else
+    vim.keymap.set("!", "<C-v>", "<C-r><C-o>+")
 end
 
 --- Remappings
@@ -394,16 +396,16 @@ vim.keymap.set("", "S",  '"_S')
 
 --# Normal remaps
 vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
-vim.keymap.set("n", "Y", "yg_")
-vim.keymap.set("n", "~", "~h")
-vim.keymap.set("n", "Q", "@q")
-vim.keymap.set("n", "gg", "gg")
-vim.keymap.set("n", "G", "G")
-vim.keymap.set("n", "*", '*N')
-vim.keymap.set("n", "#", '#N')
-vim.keymap.set("n", "dp", "ddp")
-vim.keymap.set("n", "dP", "ddkP")
-vim.keymap.set("n", "gJ", "j0d^kgJ")
+vim.keymap.set("n", "Y",   "yg_")
+vim.keymap.set("n", "~",   "~h")
+vim.keymap.set("n", "Q",   "@q")
+vim.keymap.set("n", "gg",  "gg")
+vim.keymap.set("n", "G",   "G")
+vim.keymap.set("n", "*",   '*N')
+vim.keymap.set("n", "#",   '#N')
+vim.keymap.set("n", "dp",  "ddp")
+vim.keymap.set("n", "dP",  "ddkP")
+vim.keymap.set("n", "gJ",  "j0d^kgJ")
 
 --# Visual remaps
 vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>N')
@@ -454,7 +456,7 @@ vim.keymap.set("!", "<C-r>w", "<C-r><C-o>0")
 vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
 vim.keymap.set("!", "<C-r>r", '<C-r><C-o>.')
 vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
-vim.keymap.set("!", "<C-w>", '<C-r><C-o>"')
+vim.keymap.set("!", "<C-b>",  '<C-r><C-o>"')
 
 --# Vertical movement
 vim.keymap.set("v", "_", "-")
