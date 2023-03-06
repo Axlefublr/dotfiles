@@ -349,7 +349,7 @@ if vim.g.vscode then
     --# Vscode: Insert remaps
     vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
 else
-    vim.keymap.set("!", "<C-v>", "<C-r><C-o>+")
+    vim.keymap.set("!", "<C-v>", "<C-r><C-p>+")
 end
 
 --- Remappings
@@ -416,7 +416,7 @@ vim.keymap.set("v", "<leader>q", multiply_selection)
 
 --# Insert remaps
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
-vim.keymap.set("i", "<C-u>", '<Esc>"_S')
+vim.keymap.set("i", "<C-i>", '<Esc>"_S')
 vim.keymap.set("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>')
 
 --# Operator pending remaps
@@ -428,7 +428,7 @@ vim.keymap.set("", "<C-f>", "20jzz")
 vim.keymap.set("", "<C-b>", "20kzz")
 vim.keymap.set("", "<C-d>", "12jzz")
 vim.keymap.set("", "<C-u>", "12kzz")
-vim.keymap.set("", "<C-r>", "<C-r><C-o>")
+vim.keymap.set("", "<C-r>", "<C-r><C-p>")
 
 --# Leader remaps
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
@@ -451,12 +451,12 @@ vim.keymap.set("", "'i", '"_')
 vim.keymap.set("", "';", '":')
 
 --# Register remaps: insert + command mode
-vim.keymap.set("!", "<C-r>q", "<C-r><C-o>+")
-vim.keymap.set("!", "<C-r>w", "<C-r><C-o>0")
-vim.keymap.set("!", "<C-r>e", "<C-r><C-o>-")
-vim.keymap.set("!", "<C-r>r", '<C-r><C-o>.')
-vim.keymap.set("!", "<C-r>;", "<C-r><C-o>:")
-vim.keymap.set("!", "<C-b>",  '<C-r><C-o>"')
+vim.keymap.set("!", "<C-r>q", "<C-r><C-p>+")
+vim.keymap.set("!", "<C-r>w", "<C-r><C-p>0")
+vim.keymap.set("!", "<C-r>e", "<C-r><C-p>-")
+vim.keymap.set("!", "<C-r>r", '<C-r><C-p>.')
+vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
+vim.keymap.set("!", "<C-b>",  '<C-r><C-p>"')
 
 --# Vertical movement
 vim.keymap.set("v", "_", "-")
