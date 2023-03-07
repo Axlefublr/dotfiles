@@ -304,6 +304,7 @@ function Vscode_indent_with_spaces() vim.fn.VSCodeNotify("editor.action.indentUs
 function Vscode_indent_with_tabs() vim.fn.VSCodeNotify("editor.action.indentUsingTabs") end
 function Vscode_change_encoding() vim.fn.VSCodeNotify("workbench.action.editor.changeEncoding") end
 function Vscode_rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
+function Vscode_format_document() vim.fn.VSCodeNotify("editor.action.formatDocument") end
 
 --# Vscode: Visual remaps
 function Vscode_vis_codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
@@ -339,6 +340,7 @@ if vim.g.vscode then
     vim.keymap.set("n", "=s",        Vscode_convert_to_spaces)
     vim.keymap.set("n", "=t",        Vscode_convert_to_tabs)
     vim.keymap.set("n", "za",        Vscode_toggle_fold)
+    vim.keymap.set("n", "=ie",       Vscode_format_document)
 
     --# Vscode: Visual remaps
     vim.keymap.set("v", "gs", Vscode_vis_codesnap)
