@@ -304,7 +304,10 @@ function Vscode_indent_with_spaces() vim.fn.VSCodeNotify("editor.action.indentUs
 function Vscode_indent_with_tabs() vim.fn.VSCodeNotify("editor.action.indentUsingTabs") end
 function Vscode_change_encoding() vim.fn.VSCodeNotify("workbench.action.editor.changeEncoding") end
 function Vscode_rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
-function Vscode_format_document() vim.fn.VSCodeNotify("editor.action.formatDocument") end
+function Vscode_format_document()
+    vim.fn.VSCodeNotify("editor.action.formatDocument")
+    Vscode_trim_trailing_whitespace()
+end
 
 --# Vscode: Visual remaps
 function Vscode_vis_codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
@@ -456,7 +459,7 @@ vim.keymap.set("", "';", '":')
 vim.keymap.set("!", "<C-r>q", "<C-r><C-p>+")
 vim.keymap.set("!", "<C-r>w", "<C-r><C-p>0")
 vim.keymap.set("!", "<C-r>e", "<C-r><C-p>-")
-vim.keymap.set("!", "<C-r>r", '<C-r><C-p>.')
+vim.keymap.set("!", "<C-r>r", "<C-r><C-p>.")
 vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
 vim.keymap.set("!", "<C-b>",  '<C-r><C-p>"')
 
