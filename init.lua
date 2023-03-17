@@ -282,8 +282,6 @@ function Vscode_reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.rev
 function Vscode_toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
 function Vscode_trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
 function Vscode_open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
-function Vscode_insert_line_above() vim.fn.VSCodeCall("editor.action.insertLineBefore") end
-function Vscode_insert_line_above_moveup() Vscode_insert_line_above() vim.cmd("norm k") end
 function Vscode_outdent()
 ---@diagnostic disable-next-line: unused-local
     for i = 1, vim.v.count1 do
@@ -335,7 +333,6 @@ if vim.g.vscode then
     vim.keymap.set("n", "<leader>r", Vscode_rename_symbol)
     vim.keymap.set("n", "==",        Vscode_trim_trailing_whitespace)
     vim.keymap.set("n", "gl",        Vscode_open_link)
-    vim.keymap.set("n", "<C-k>",     Vscode_insert_line_above_moveup)
     vim.keymap.set("n", "<<",        Vscode_outdent)
     vim.keymap.set("n", ">>",        Vscode_indent)
     vim.keymap.set("n", "gcc",       Vscode_comment)
@@ -351,10 +348,9 @@ if vim.g.vscode then
     vim.keymap.set("v", ">",  Vscode_vis_indent)
     vim.keymap.set("v", "gc", Vscode_vis_comment)
 
-    --# Vscode: Insert remaps
-    vim.keymap.set("i", "<C-k>", Vscode_insert_line_above)
 else
     vim.keymap.set("!", "<C-v>", "<C-r><C-p>+")
+
 end
 
 --- Remappings
@@ -413,6 +409,7 @@ vim.keymap.set("n", "dP",  "ddkP")
 vim.keymap.set("n", "yp", "yyp")
 vim.keymap.set("n", "yP", "yyP")
 vim.keymap.set("n", "gJ",  "j0d^kgJ")
+vim.keymap.set("n", "<Space>", "i <Esc>")
 
 --# Visual remaps
 vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>N')
@@ -425,6 +422,8 @@ vim.keymap.set("v", "<leader>q", multiply_selection)
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
 vim.keymap.set("i", "<C-i>", '<Esc>"_S')
 vim.keymap.set("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>')
+vim.keymap.set("i", "<C-k>", "<C-o>O")
+vim.keymap.set("i", "<C-j>", "<C-o>o")
 
 --# Operator pending remaps
 vim.keymap.set("o", "{", "V{")
@@ -436,6 +435,8 @@ vim.keymap.set("", "<C-b>", "20kzz")
 vim.keymap.set("", "<C-d>", "12jzz")
 vim.keymap.set("", "<C-u>", "12kzz")
 vim.keymap.set("", "<C-r>", "<C-r><C-p>")
+vim.keymap.set("n", "<C-k>", "O<Esc>")
+vim.keymap.set("n", "<C-j>", "o<Esc>")
 
 --# Leader remaps
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
