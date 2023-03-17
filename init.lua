@@ -410,6 +410,8 @@ vim.keymap.set("n", "*",   '*N')
 vim.keymap.set("n", "#",   '#N')
 vim.keymap.set("n", "dp",  "ddp")
 vim.keymap.set("n", "dP",  "ddkP")
+vim.keymap.set("n", "yp", "yyp")
+vim.keymap.set("n", "yP", "yyP")
 vim.keymap.set("n", "gJ",  "j0d^kgJ")
 
 --# Visual remaps
