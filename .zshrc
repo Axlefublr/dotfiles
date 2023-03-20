@@ -86,6 +86,7 @@ plugins=(zsh-autosuggestions copypath copybuffer)
 source $ZSH/oh-my-zsh.sh
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 # User configuration
 
