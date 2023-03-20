@@ -204,6 +204,7 @@ abbrev-alias dotnet='dotnet.exe'
 abbrev-alias exp='explorer.exe'
 abbrev-alias lua='lua.exe'
 abbrev-alias clip='clip.exe'
+abbrev-alias code='code-insiders'
 
 abbrev-alias bat='batcat'
 abbrev-alias v='nvim'
@@ -220,10 +221,6 @@ abbrev-alias la='ls --color=auto -gAh'
 
 abbrev-alias src='source'
 abbrev-alias srcz='source ~/.zshrc'
-
-# abbrev-alias ffind='find -type f -name'
-# abbrev-alias dfind='find -type d -name'
-# abbrev-alias nfind='find -name'
 
 abbrev-alias g='git'
 abbrev-alias gs='git status'
