@@ -210,7 +210,6 @@ abbrev-alias code='code-insiders'
 abbrev-alias bat='batcat'
 abbrev-alias v='nvim'
 abbrev-alias rm='rm -fr'
-abbrev-alias hst='history | sort --reverse | less'
 
 abbrev-alias egrep='grep --color=auto -E'
 abbrev-alias rgrep='grep --color=auto -Ern'
@@ -264,20 +263,6 @@ abbrev-alias Vg='fpick ../.. | xargs code-insiders'
 
 # Functions
 
-# Instead of searching through history, pass a command name to viewcmd to see all the last times
-# you've used that command
-# Will display history of the command being used in your preferred PAGER (is "less" by default),
-# starting with the most recent use of the command at the top
-# You can omit extensions of the command if they have them.
-# So, "dotnet" will also match "dotnet.exe"
-# But "dotnet.exe" will only match "dotnet.exe", and won't match "dotnet"
-# Applies to any file extension
-# Only the first command name passed will be considered, any argument after is ignored
-# Try this out with "viewcmd echo"
-viewcmd() {
-    history | command grep --color=always -E "[ *] $1(\.\w+)? " | tac | $PAGER
-}
-
 dlist() {
     for arg in "$@"
     do
@@ -298,4 +283,8 @@ dpick() {
 
 fpick() {
     flist "$@" | fzf
+}
+
+rp() {
+    print -z $(history | sort -r | awk '{print substr($0, index($0, $4))}' | awk '!a[$0]++' | fzf)
 }
