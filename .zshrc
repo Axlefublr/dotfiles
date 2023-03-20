@@ -253,12 +253,13 @@ abbrev-alias ghrc='gh.exe repo create --public'
 abbrev-alias ghrcc='gh.exe repo create --clone --public'
 abbrev-alias ghrd='gh.exe repo delete --confirm'
 
-abbrev-alias cf='cd $(dfind /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf)'
-abbrev-alias cc='cd $(dfind .. | fzf)'
-abbrev-alias cg='cd $(dfind ../.. | fzf)'
-abbrev-alias vv='ffind . | fzf | xargs -r -I % $EDITOR %'
-abbrev-alias vf='ffind .. | fzf | xargs -r -I % $EDITOR %'
-abbrev-alias vg='ffind ../.. | fzf | xargs -r -I % $EDITOR %'
+abbrev-alias cf='cd $(dpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio)'
+abbrev-alias cc='cd $(dpick .)'
+abbrev-alias cv='cd $(dpick ..)'
+abbrev-alias cg='cd $(dpick ../..)'
+abbrev-alias vc='fpick . | xargs -r -I % $EDITOR %'
+abbrev-alias vv='fpick .. | xargs -r -I % $EDITOR %'
+abbrev-alias vg='fpick ../.. | xargs -r -I % $EDITOR %'
 
 # Functions
 
@@ -276,16 +277,24 @@ viewcmd() {
     history | command grep --color=always -E "[ *] $1(\.\w+)? " | tac | $PAGER
 }
 
-dfind() {
+dlist() {
     for arg in "$@"
     do
         find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name bin \) -prune -o -type d -print
     done
 }
 
-ffind() {
+flist() {
     for arg in "$@"
     do
         find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name bin \) -prune -o -type f -print
     done
+}
+
+dpick() {
+    dlist "$@" | fzf
+}
+
+fpick() {
+    flist "$@" | fzf
 }
