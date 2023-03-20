@@ -258,6 +258,9 @@ abbrev-alias cg='cd $(dpick ../..)'
 abbrev-alias vc='fpick . | xargs -r -I % $EDITOR %'
 abbrev-alias vv='fpick .. | xargs -r -I % $EDITOR %'
 abbrev-alias vg='fpick ../.. | xargs -r -I % $EDITOR %'
+abbrev-alias Vc='fpick . | xargs code-insiders'
+abbrev-alias Vv='fpick .. | xargs code-insiders'
+abbrev-alias Vg='fpick ../.. | xargs code-insiders'
 
 # Functions
 
