@@ -449,7 +449,6 @@ vim.keymap.set("n", "<leader>bi", "vaBo<Esc>s=> <Esc>Jjdd")
 vim.keymap.set("n", "<leader>ba", "^f(%f=c3l{<CR><Esc>o}<Esc>")
 vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
 vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
-vim.keymap.set("n", "<leader>in", "I#Include <")
 
 --# Register remaps: all modes
 vim.keymap.set("", "'q", '"+')

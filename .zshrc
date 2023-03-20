@@ -199,19 +199,6 @@ unalias lsa
 
 alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-prog='/mnt/c/Programming'
-libv2='/mnt/c/Users/serge/Documents/AutoHotkey/Lib'
-pictures='/mnt/c/Pictures'
-csproj='/mnt/c/Programming/csproj'
-audio='/mnt/c/Audio'
-
-abbrev-alias prog='/mnt/c/Programming'
-abbrev-alias libv2='/mnt/c/Users/serge/Documents/AutoHotkey/Lib'
-abbrev-alias pictures='/mnt/c/Pictures'
-abbrev-alias csproj='/mnt/c/Programming/csproj'
-abbrev-alias audio='/mnt/c/Audio'
-abbrev-alias convpath='/mnt/c/Programming/csproj/Toolkit/PathConverter/bin/Debug/net7.0/PathConverter.exe'
-
 abbrev-alias gh='gh.exe'
 abbrev-alias dotnet='dotnet.exe'
 abbrev-alias exp='explorer.exe'
@@ -234,9 +221,9 @@ abbrev-alias la='ls --color=auto -gAh'
 abbrev-alias src='source'
 abbrev-alias srcz='source ~/.zshrc'
 
-abbrev-alias ffind='find -type f -name'
-abbrev-alias dfind='find -type d -name'
-abbrev-alias nfind='find -name'
+# abbrev-alias ffind='find -type f -name'
+# abbrev-alias dfind='find -type d -name'
+# abbrev-alias nfind='find -name'
 
 abbrev-alias g='git'
 abbrev-alias gs='git status'
@@ -266,6 +253,13 @@ abbrev-alias ghrc='gh.exe repo create --public'
 abbrev-alias ghrcc='gh.exe repo create --clone --public'
 abbrev-alias ghrd='gh.exe repo delete --confirm'
 
+abbrev-alias cf='cd $(dfind /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf)'
+abbrev-alias cc='cd $(dfind .. | fzf)'
+abbrev-alias cg='cd $(dfind ../.. | fzf)'
+abbrev-alias vv='ffind . | fzf | xargs -r -I % $EDITOR %'
+abbrev-alias vf='ffind .. | fzf | xargs -r -I % $EDITOR %'
+abbrev-alias vg='ffind ../.. | fzf | xargs -r -I % $EDITOR %'
+
 # Functions
 
 # Instead of searching through history, pass a command name to viewcmd to see all the last times
@@ -280,4 +274,18 @@ abbrev-alias ghrd='gh.exe repo delete --confirm'
 # Try this out with "viewcmd echo"
 viewcmd() {
     history | command grep --color=always -E "[ *] $1(\.\w+)? " | tac | $PAGER
+}
+
+dfind() {
+    for arg in "$@"
+    do
+        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name bin \) -prune -o -type d -print
+    done
+}
+
+ffind() {
+    for arg in "$@"
+    do
+        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name bin \) -prune -o -type f -print
+    done
 }
