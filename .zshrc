@@ -286,6 +286,26 @@ fpick() {
     flist "$@" | fzf
 }
 
+_get_important_dir() {
+    RBUFFER="$(dpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio)"
+    zle end-of-line
+}
+
+_get_important_file() {
+    RBUFFER="$(fpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Picutres /mnt/c/Audio)"
+    zle end-of-line
+}
+
+_get_current_dir() {
+    RBUFFER="$(dpick .)"
+    zle end-of-line
+}
+
+_get_current_file() {
+    RBUFFER="$(fpick .)"
+    zle end-of-line
+}
+
 _rp() {
     LBUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
 }
@@ -294,3 +314,15 @@ _rp() {
 
 zle -N _rp
 bindkey '^r' _rp
+
+zle -N _get_important_dir
+bindkey '^g' _get_important_dir
+
+zle -N _get_important_file
+bindkey '^f' _get_important_file
+
+zle -N _get_current_dir
+bindkey '^s' _get_current_dir
+
+zle -N _get_current_file
+bindkey '^a' _get_current_file
