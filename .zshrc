@@ -251,17 +251,6 @@ abbrev-alias ghrc='gh.exe repo create --public'
 abbrev-alias ghrcc='gh.exe repo create --clone --public'
 abbrev-alias ghrd='gh.exe repo delete --confirm'
 
-abbrev-alias cf='cd $(dpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio)'
-abbrev-alias cc='cd $(dpick .)'
-abbrev-alias cv='cd $(dpick ..)'
-abbrev-alias cg='cd $(dpick ../..)'
-abbrev-alias vc='fpick . | xargs -r -I % $EDITOR %'
-abbrev-alias vv='fpick .. | xargs -r -I % $EDITOR %'
-abbrev-alias vg='fpick ../.. | xargs -r -I % $EDITOR %'
-abbrev-alias Vc='fpick . | xargs code-insiders'
-abbrev-alias Vv='fpick .. | xargs code-insiders'
-abbrev-alias Vg='fpick ../.. | xargs code-insiders'
-
 # Functions
 
 dlist() {
@@ -297,12 +286,12 @@ _get_important_file() {
 }
 
 _get_current_dir() {
-    RBUFFER="$(dpick .)"
+    RBUFFER="$(dpick . | sed "s|^\./|$(pwd)/|")"
     zle end-of-line
 }
 
 _get_current_file() {
-    RBUFFER="$(fpick .)"
+    RBUFFER="$(fpick . | sed "s|^\./|$(pwd)/|"))"
     zle end-of-line
 }
 
