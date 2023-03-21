@@ -286,11 +286,11 @@ fpick() {
     flist "$@" | fzf
 }
 
-rp() {
+_rp() {
     LBUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
 }
 
 # Hotkeys
 
-zle -N rp
-bindkey '^r' rp
+zle -N _rp
+bindkey '^r' _rp
