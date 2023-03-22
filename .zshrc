@@ -276,12 +276,12 @@ fpick() {
 }
 
 _get_important_dir() {
-    RBUFFER="$(dpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio)"
+    RBUFFER="$(dpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
     zle end-of-line
 }
 
 _get_important_file() {
-    RBUFFER="$(fpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio)"
+    RBUFFER="$(fpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
     zle end-of-line
 }
 
