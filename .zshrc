@@ -286,12 +286,12 @@ _get_important_file() {
 }
 
 _get_current_dir() {
-    RBUFFER="$(dpick . | sed "s|^\./|$(pwd)/|")"
+    RBUFFER="$(dpick . | sed "s|^\./|$(pwd)/|" | tr '\n' ' ')"
     zle end-of-line
 }
 
 _get_current_file() {
-    RBUFFER="$(fpick . | sed "s|^\./|$(pwd)/|")"
+    RBUFFER="$(fpick . | sed "s|^\./|$(pwd)/|" | tr '\n' ' ')"
     zle end-of-line
 }
 
