@@ -268,11 +268,11 @@ flist() {
 }
 
 dpick() {
-    dlist "$@" | fzf
+    dlist "$@" | fzf -m
 }
 
 fpick() {
-    flist "$@" | fzf
+    flist "$@" | fzf -m
 }
 
 _get_important_dir() {
@@ -281,7 +281,7 @@ _get_important_dir() {
 }
 
 _get_important_file() {
-    RBUFFER="$(fpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Picutres /mnt/c/Audio)"
+    RBUFFER="$(fpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio)"
     zle end-of-line
 }
 
@@ -291,7 +291,7 @@ _get_current_dir() {
 }
 
 _get_current_file() {
-    RBUFFER="$(fpick . | sed "s|^\./|$(pwd)/|"))"
+    RBUFFER="$(fpick . | sed "s|^\./|$(pwd)/|")"
     zle end-of-line
 }
 
