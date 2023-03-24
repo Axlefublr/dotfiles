@@ -296,7 +296,8 @@ _get_current_file() {
 }
 
 _rp() {
-    LBUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
+    RBUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
+    zle end-of-line
 }
 
 # Hotkeys
