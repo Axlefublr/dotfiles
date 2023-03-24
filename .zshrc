@@ -295,15 +295,22 @@ _get_current_file() {
     zle end-of-line
 }
 
-_rp() {
+_history_left() {
+    LBUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --query=$LBUFFER)"
+}
+
+_history_right() {
     RBUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
     zle end-of-line
 }
 
 # Hotkeys
 
-zle -N _rp
-bindkey '^r' _rp
+zle -N _history_left
+bindkey '^r' _history_left
+
+zle -N _history_right
+bindkey '^t' _history_right
 
 zle -N _get_important_dir
 bindkey '^g' _get_important_dir
