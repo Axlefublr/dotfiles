@@ -212,13 +212,15 @@ abbrev-alias v='nvim'
 abbrev-alias rm='rm -fr'
 # abbrev-alias rp="print -z \$(history | sort -r | awk '{print substr(\$0, index(\$0, \$4))}' | awk '!a[\$0]++' | fzf)"
 
-abbrev-alias egrep='grep --color=auto -E'
-abbrev-alias rgrep='grep --color=auto -Ern'
+abbrev-alias egrep='grep -E'
+abbrev-alias rgrep='grep -Ern'
 abbrev-alias agrep='grep --color=always -E'
 abbrev-alias argrep='grep --color=always -Ern'
 
-abbrev-alias ls='ls --color=auto -A'
-abbrev-alias la='ls --color=auto -gAh'
+abbrev-alias la='ls -A'
+abbrev-alias laa='ls -Ag'
+abbrev-alias al='ls --color=always -A'
+abbrev-alias all='ls --color=always -Ag'
 
 abbrev-alias src='source'
 abbrev-alias srcz='source ~/.zshrc'
