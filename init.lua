@@ -233,9 +233,6 @@ function FeedKeysCorrectly(keys)
 end
 
 --- Remap abstractions
---# Multiply
-local multiply_current_character = '"ryl"r' .. vim.v.count1 .. "p"
-local multiply_selection = '"rygv<Esc>"r' .. vim.v.count1 .. "p"
 
 function CenterScreen() vim.cmd("call <SNR>4_reveal('center', 0)") end
 function TopScreen() vim.cmd("call <SNR>4_reveal('top', 0)") end
@@ -394,6 +391,7 @@ vim.keymap.set("", "c",  '"_c')
 vim.keymap.set("", "C",  '"_C')
 vim.keymap.set("", "s",  '"_s')
 vim.keymap.set("", "S",  '"_S')
+vim.keymap.set("", "_", function() FeedKeysCorrectly(vim.v.count1 .. "k$") end)
 
 --# Normal remaps
 vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
@@ -416,7 +414,7 @@ vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>N')
 vim.keymap.set("v", "#",         'y?\\V<C-r>"<CR>N')
 vim.keymap.set("v", "u",         "<Esc>u")
 vim.keymap.set("v", "U",         "<Esc>u")
-vim.keymap.set("v", "<leader>q", multiply_selection)
+vim.keymap.set("v", "<leader>q", function() FeedKeysCorrectly("ygv<Esc>" .. vim.v.count1 .. "p") end)
 
 --# Insert remaps
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
@@ -441,7 +439,7 @@ vim.keymap.set("n", "<C-j>", "o<Esc>")
 --# Leader remaps
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
-vim.keymap.set("n", "<leader>q", multiply_current_character)
+vim.keymap.set("n", "<leader>q", function() FeedKeysCorrectly("yl" .. vim.v.count1 .. "p") end)
 vim.keymap.set("n", "<leader>di", '"_ddddpvaB<Esc>')
 vim.keymap.set("n", "<leader>dd", '"_dddd')
 vim.keymap.set("n", "<leader>pi", "p>iB")
@@ -465,9 +463,5 @@ vim.keymap.set("!", "<C-r>e", "<C-r><C-p>-")
 vim.keymap.set("!", "<C-r>r", "<C-r><C-p>.")
 vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
 vim.keymap.set("!", "<C-b>",  '<C-r><C-p>"')
-
---# Vertical movement
-vim.keymap.set("v", "_", "-")
-vim.keymap.set("n", "_", "-")
 
 print("nvim loaded")
