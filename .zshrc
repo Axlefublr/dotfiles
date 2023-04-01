@@ -210,7 +210,7 @@ abbrev-alias code='code-insiders'
 abbrev-alias bat='batcat'
 abbrev-alias v='nvim'
 abbrev-alias rm='rm -fr'
-# abbrev-alias rp="print -z \$(history | sort -r | awk '{print substr(\$0, index(\$0, \$4))}' | awk '!a[\$0]++' | fzf)"
+abbrev-alias ff='ffmpeg -i'
 
 abbrev-alias egrep='grep -E'
 abbrev-alias rgrep='grep -Ern'
