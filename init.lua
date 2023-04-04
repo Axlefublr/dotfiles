@@ -450,14 +450,12 @@ vim.keymap.set("n", "<leader>in", "mRggO#Include <")
 --# Register remaps: all modes
 vim.keymap.set("", "'q", '"+')
 vim.keymap.set("", "'w", '"0')
-vim.keymap.set("", "'e", '"-')
 vim.keymap.set("", "'i", '"_')
 vim.keymap.set("", "';", '":')
 
 --# Register remaps: insert + command mode
 vim.keymap.set("!", "<C-r>q", "<C-r><C-p>+")
 vim.keymap.set("!", "<C-r>w", "<C-r><C-p>0")
-vim.keymap.set("!", "<C-r>e", "<C-r><C-p>-")
 vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
 vim.keymap.set("!", "<C-b>",  '<C-r><C-p>"')
 

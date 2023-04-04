@@ -203,7 +203,6 @@ alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 abbrev-alias gh='gh.exe'
 abbrev-alias dotnet='dotnet.exe'
 abbrev-alias exp='explorer.exe'
-abbrev-alias lua='lua.exe'
 abbrev-alias clip='clip.exe'
 abbrev-alias code='code-insiders'
 
