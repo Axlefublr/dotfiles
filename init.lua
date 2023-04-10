@@ -238,7 +238,7 @@ function CenterScreen() vim.cmd("call <SNR>4_reveal('center', 0)") end
 function TopScreen() vim.cmd("call <SNR>4_reveal('top', 0)") end
 function BottomScreen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
 
---# Hops
+--- Hops
 function Hop_forward_f_sameline() hop.hint_char1({
     direction = directions.AFTER_CURSOR,
     current_line_only = true
@@ -262,16 +262,16 @@ function Hop_backward_t_sameline() hop.hint_char1({
 })
 end
 
---# Vscode: Folding
+--- Vscode: Folding
 function Toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
 function Goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
 function Next_folding_section() vim.fn.VSCodeNotify("editor.gotoNextFold") end
 function Prev_folding_section() vim.fn.VSCodeNotify("editor.gotoPreviousFold") end
 
---# Vscode: All remaps
+--- Vscode: All remaps
 function Toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
 
---# Vscode: Normal remaps
+--- Vscode: Normal remaps
 function Trim_left() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end
 function Trim_right() vim.fn.VSCodeNotify("yo1dog.cursor-trim.rTrimCursor") end
 function Trim_both() vim.fn.VSCodeNotify("yo1dog.cursor-trim.trimCursor") end
@@ -304,7 +304,7 @@ function Format_document()
     Trim_trailing_whitespace()
 end
 
---# Vscode: Visual remaps
+--- Vscode: Visual remaps
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
 function Indent_vis() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
@@ -318,13 +318,13 @@ vim.g.targets_nl          = "nh"
 --- Vscode
 if vim.g.vscode then
 
-    --# Vscode: All remaps
+    --- Vscode: All remaps
     vim.keymap.set("", "zy", Toggle_typewriter)
     vim.keymap.set("", "zp", Goto_parent_fold)
     vim.keymap.set("", "]f", Next_folding_section)
     vim.keymap.set("", "[f", Prev_folding_section)
 
-    --# Vscode: Normal remaps
+    --- Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Reveal_definition_aside)
     vim.keymap.set("n", "<leader>s", Toggle_sticky_scroll)
     vim.keymap.set("n", "<leader>r", Rename_symbol)
@@ -339,7 +339,7 @@ if vim.g.vscode then
     vim.keymap.set("n", "za",        Toggle_fold)
     vim.keymap.set("n", "=ie",       Format_document)
 
-    --# Vscode: Visual remaps
+    --- Vscode: Visual remaps
     vim.keymap.set("v", "gs", Codesnap)
     vim.keymap.set("v", "<",  Outdent_vis)
     vim.keymap.set("v", ">",  Indent_vis)
@@ -347,17 +347,16 @@ if vim.g.vscode then
 
 else
     vim.keymap.set("!", "<C-v>", "<C-r><C-p>+")
-
 end
 
 --- Remappings
---# Hops
+--- Hops
 vim.keymap.set("", "<leader>f", Hop_forward_f_sameline)
 vim.keymap.set("", "<leader>F", Hop_backward_f_sameline)
 vim.keymap.set("", "<leader>t", Hop_forward_t_sameline)
 vim.keymap.set("", "<leader>T", Hop_backward_t_sameline)
 
---# Code block text object
+--- Code block text object
 vim.keymap.set("v", "im", "aBV")
 vim.keymap.set("v", "am", "aBVj")
 vim.keymap.set("v", "iM", "aBVok")
@@ -367,20 +366,20 @@ vim.keymap.set("o", "am", function() vim.cmd("normal vaBVj") end)
 vim.keymap.set("o", "iM", function() vim.cmd("normal vaBVok") end)
 vim.keymap.set("o", "aM", function() vim.cmd("normal vaBVjok") end)
 
---# Percent sign text object
+--- Percent sign text object
 vim.keymap.set("v", "i%", "T%ot%")
 vim.keymap.set("v", "a%", "F%of%")
 vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
 vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
---# Markdown heading text object
+--- Markdown heading text object
 vim.keymap.set("v", "ir", "?^#<CR>oNk")
 vim.keymap.set("v", "agc", "[/o]/V")
 vim.keymap.set("v", "igc", "[/3lo]/2h")
 vim.keymap.set("o", "agc", function() vim.cmd("normal v[/o]/V") end)
 vim.keymap.set("o", "igc", function() vim.cmd("normal v[/3lo]/2h") end)
 
---# All remaps
+--- All remaps
 vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 vim.keymap.set("", ";",  ":")
 vim.keymap.set("", "'",  '"')
@@ -390,8 +389,9 @@ vim.keymap.set("", "gm", "gM")
 vim.keymap.set("", "s",  '"_s')
 vim.keymap.set("", "S",  '"_S')
 vim.keymap.set("", "_", function() FeedKeysCorrectly(vim.v.count1 .. "k$") end)
+vim.keymap.set("", "U", "<C-r>")
 
---# Normal remaps
+--- Normal remaps
 vim.keymap.set("n", "grr",     "<Plug>ReplaceWithRegisterLine")
 vim.keymap.set("n", "Y",       "yg_")
 vim.keymap.set("n", "~",       "~h")
@@ -405,25 +405,25 @@ vim.keymap.set("n", "yP",      "yyP")
 vim.keymap.set("n", "gJ",      "j0d^kgJ")
 vim.keymap.set("n", "<Space>", "i <Esc>")
 
---# Visual remaps
+--- Visual remaps
 vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>')
 vim.keymap.set("v", "#",         'y?\\V<C-r>"<CR>')
 vim.keymap.set("v", "u",         "<Esc>u")
 vim.keymap.set("v", "U",         "<Esc>u")
 vim.keymap.set("v", "<leader>q", function() FeedKeysCorrectly("ygv<Esc>" .. vim.v.count1 .. "p") end)
 
---# Insert remaps
+--- Insert remaps
 vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
 vim.keymap.set("i", "<C-i>", '<Esc>"_S')
 vim.keymap.set("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>')
 vim.keymap.set("i", "<C-k>", "<C-o>O")
 vim.keymap.set("i", "<C-j>", "<C-o>o")
 
---# Operator pending remaps
+--- Operator pending remaps
 vim.keymap.set("o", "{", "V{")
 vim.keymap.set("o", "}", "V}")
 
---# Control remaps
+--- Control remaps
 vim.keymap.set("", "<C-f>", "20jzz")
 vim.keymap.set("", "<C-b>", "20kzz")
 vim.keymap.set("", "<C-d>", "12jzz")
@@ -431,8 +431,9 @@ vim.keymap.set("", "<C-u>", "12kzz")
 vim.keymap.set("", "<C-r>", "<C-r><C-p>")
 vim.keymap.set("n", "<C-k>", "O<Esc>")
 vim.keymap.set("n", "<C-j>", "o<Esc>")
+vim.keymap.set("n", "<CR>", "i<CR><Esc>")
 
---# Leader remaps
+--- Leader remaps
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
 vim.keymap.set("n", "<leader>q", function() FeedKeysCorrectly("yl" .. vim.v.count1 .. "p") end)
@@ -443,13 +444,13 @@ vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
 vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
 vim.keymap.set("n", "<leader>in", "mRggO#Include <")
 
---# Register remaps: all modes
+--- Register remaps: all modes
 vim.keymap.set("", "'q", '"+')
 vim.keymap.set("", "'w", '"0')
 vim.keymap.set("", "'i", '"_')
 vim.keymap.set("", "';", '":')
 
---# Register remaps: insert + command mode
+--- Register remaps: insert + command mode
 vim.keymap.set("!", "<C-r>q", "<C-r><C-p>+")
 vim.keymap.set("!", "<C-r>w", "<C-r><C-p>0")
 vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
