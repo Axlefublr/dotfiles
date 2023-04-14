@@ -238,6 +238,8 @@ abbrev-alias gp='git push'
 abbrev-alias gpu='git push -u origin main'
 abbrev-alias gcr='git add . && git commit -am "first commit" && git push -u origin main'
 abbrev-alias gr='git reset'
+abbrev-alias gst='git stash'
+abbrev-alias grb='git rebase'
 
 abbrev-alias dn='dotnet.exe'
 abbrev-alias dnn='dotnet.exe new'
