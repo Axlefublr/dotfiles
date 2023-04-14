@@ -389,7 +389,6 @@ vim.keymap.set("", "gm", "gM")
 vim.keymap.set("", "s",  '"_s')
 vim.keymap.set("", "S",  '"_S')
 vim.keymap.set("", "_", function() FeedKeysCorrectly(vim.v.count1 .. "k$") end)
-vim.keymap.set("", "U", "<C-r>")
 
 --- Normal remaps
 vim.keymap.set("n", "grr",     "<Plug>ReplaceWithRegisterLine")
@@ -404,12 +403,13 @@ vim.keymap.set("n", "yp",      "yyp")
 vim.keymap.set("n", "yP",      "yyP")
 vim.keymap.set("n", "gJ",      "j0d^kgJ")
 vim.keymap.set("n", "<Space>", "i <Esc>")
+vim.keymap.set("n", "U", "<C-r>")
 
 --- Visual remaps
 vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>')
 vim.keymap.set("v", "#",         'y?\\V<C-r>"<CR>')
 vim.keymap.set("v", "u",         "<Esc>u")
-vim.keymap.set("v", "U",         "<Esc>u")
+vim.keymap.set("v", "U",         "<Esc><C-r>")
 vim.keymap.set("v", "<leader>q", function() FeedKeysCorrectly("ygv<Esc>" .. vim.v.count1 .. "p") end)
 
 --- Insert remaps

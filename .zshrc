@@ -290,12 +290,12 @@ _get_important_file() {
 }
 
 _get_current_dir() {
-    RBUFFER="$(dpick . | sed "s|^\./|$(pwd)/|" | tr '\n' ' ')"
+    RBUFFER="$(dpick . | tr '\n' ' ')"
     zle end-of-line
 }
 
 _get_current_file() {
-    RBUFFER="$(fpick . | sed "s|^\./|$(pwd)/|" | tr '\n' ' ')"
+    RBUFFER="$(fpick . | tr '\n' ' ')"
     zle end-of-line
 }
 
