@@ -369,11 +369,11 @@ if vim.g.vscode then
     vim.keymap.set("n", "za",        Toggle_fold)
     vim.keymap.set("n", "=ie",       Format_document)
 
-    vim.keymap.set("n", "<leader>ga", Git_stage_all)
-    vim.keymap.set("n", "<leader>g.", Git_stage_file)
-    vim.keymap.set("n", "<leader>gu", Git_unstage_file)
+    vim.keymap.set("n", "<leader>ga",  Git_stage_all)
+    vim.keymap.set("n", "<leader>g.",  Git_stage_file)
+    vim.keymap.set("n", "<leader>gu",  Git_unstage_file)
     vim.keymap.set("n", "<leader>gcm", Git_commit)
-    vim.keymap.set("n", "<leader>gp", Git_push)
+    vim.keymap.set("n", "<leader>gp",  Git_push)
 
     --- Vscode: Visual remaps
     vim.keymap.set("v", "gs", Codesnap)
