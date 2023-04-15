@@ -262,53 +262,79 @@ function Hop_backward_t_sameline() hop.hint_char1({
 })
 end
 
---- Vscode: Folding
 function Toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
+
 function Goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
+
 function Next_folding_section() vim.fn.VSCodeNotify("editor.gotoNextFold") end
+
 function Prev_folding_section() vim.fn.VSCodeNotify("editor.gotoPreviousFold") end
 
---- Vscode: All remaps
 function Toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
 
---- Vscode: Normal remaps
 function Trim_left() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end
+
 function Trim_right() vim.fn.VSCodeNotify("yo1dog.cursor-trim.rTrimCursor") end
+
 function Trim_both() vim.fn.VSCodeNotify("yo1dog.cursor-trim.trimCursor") end
+
 function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
+
 function Toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
+
 function Trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
+
 function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
+
 function Outdent()
 ---@diagnostic disable-next-line: unused-local
     for i = 1, vim.v.count1 do
         vim.fn.VSCodeNotify("editor.action.outdentLines")
     end
 end
+
 function Indent()
 ---@diagnostic disable-next-line: unused-local
     for i = 1, vim.v.count1 do
         vim.fn.VSCodeNotify("editor.action.indentLines")
     end
 end
+
 function Comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
+
 function Reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
+
 function Convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
+
 function Convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentationToTabs") end
+
 function Indent_with_spaces() vim.fn.VSCodeNotify("editor.action.indentUsingSpaces") end
+
 function Indent_with_tabs() vim.fn.VSCodeNotify("editor.action.indentUsingTabs") end
+
 function Change_encoding() vim.fn.VSCodeNotify("workbench.action.editor.changeEncoding") end
+
 function Rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
+
 function Format_document()
     vim.fn.VSCodeNotify("editor.action.formatDocument")
     Trim_trailing_whitespace()
 end
 
---- Vscode: Visual remaps
+function Git_add_all() vim.fn.VSCodeNotify("git.stageAll") end
+
+function Git_commit() vim.fn.VSCodeNotify("git.commitStaged") end
+
+function Git_push() vim.fn.VSCodeNotify("git.push") end
+
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
+
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
+
 function Indent_vis() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
+
 function Comment_vis() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
+
 function Reindent_vis() vim.fn.VSCodeNotifyVisual("editor.action.reindentselectedlines", true) end
 
 --- Plugins: options
@@ -443,6 +469,7 @@ vim.keymap.set("n", "<leader>ba", "^f(%f=c3l{<CR><Esc>o}<Esc>")
 vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
 vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
 vim.keymap.set("n", "<leader>in", "mRggO#Include <")
+-- vim.keymap.set("n", "<leader>gacmp", )
 
 --- Register remaps: all modes
 vim.keymap.set("", "'q", '"+')
