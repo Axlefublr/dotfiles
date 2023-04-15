@@ -327,6 +327,10 @@ function Git_stage_all() vim.fn.VSCodeNotify("git.stageAll") end
 
 function Git_stage_file() vim.fn.VSCodeNotify("git.stage") end
 
+function Git_commit() vim.fn.VSCodeNotify("git.commit") end
+
+function Git_push() vim.fn.VSCodeNotify("git.push") end
+
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
@@ -364,9 +368,12 @@ if vim.g.vscode then
     vim.keymap.set("n", "=t",        Convert_to_tabs)
     vim.keymap.set("n", "za",        Toggle_fold)
     vim.keymap.set("n", "=ie",       Format_document)
+
     vim.keymap.set("n", "<leader>ga", Git_stage_all)
     vim.keymap.set("n", "<leader>g.", Git_stage_file)
     vim.keymap.set("n", "<leader>gu", Git_unstage_file)
+    vim.keymap.set("n", "<leader>gcm", Git_commit)
+    vim.keymap.set("n", "<leader>gp", Git_push)
 
     --- Vscode: Visual remaps
     vim.keymap.set("v", "gs", Codesnap)
