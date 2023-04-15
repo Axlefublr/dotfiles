@@ -475,7 +475,7 @@ vim.keymap.set("n", "<leader>ba", "^f(%f=c3l{<CR><Esc>o}<Esc>")
 vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
 vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
 vim.keymap.set("n", "<leader>in", "mRggO#Include <")
--- vim.keymap.set("n", "<leader>gacmp", )
+vim.keymap.set("n", "<leader>gacmp", Git_gacmp)
 
 --- Register remaps: all modes
 vim.keymap.set("", "'q", '"+')
