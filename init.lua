@@ -321,11 +321,17 @@ function Format_document()
     Trim_trailing_whitespace()
 end
 
-function Git_add_all() vim.fn.VSCodeNotify("git.stageAll") end
+function Git_add_all() vim.fn.VSCodeCall("git.stageAll") end
 
-function Git_commit() vim.fn.VSCodeNotify("git.commitStaged") end
+function Git_commit() vim.fn.VSCodeCall("git.commitStaged") end
 
-function Git_push() vim.fn.VSCodeNotify("git.push") end
+function Git_push() vim.fn.VSCodeCall("git.push") end
+
+function Git_gacmp()
+    Git_add_all()
+    Git_commit()
+    Git_push()
+end
 
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 
