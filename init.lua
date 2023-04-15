@@ -321,18 +321,6 @@ function Format_document()
     Trim_trailing_whitespace()
 end
 
-function Git_add_all() vim.fn.VSCodeCall("git.stageAll") end
-
-function Git_commit() vim.fn.VSCodeCall("git.commitStaged") end
-
-function Git_push() vim.fn.VSCodeCall("git.push") end
-
-function Git_gacmp()
-    Git_add_all()
-    Git_commit()
-    Git_push()
-end
-
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
@@ -475,7 +463,6 @@ vim.keymap.set("n", "<leader>ba", "^f(%f=c3l{<CR><Esc>o}<Esc>")
 vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
 vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
 vim.keymap.set("n", "<leader>in", "mRggO#Include <")
-vim.keymap.set("n", "<leader>gacmp", Git_gacmp)
 
 --- Register remaps: all modes
 vim.keymap.set("", "'q", '"+')
