@@ -321,6 +321,10 @@ function Format_document()
     Trim_trailing_whitespace()
 end
 
+function Git_unstage_file() vim.fn.VSCodeNotify("git.unstage") end
+
+function Git_stage_file() vim.fn.VSCodeNotify("git.stage") end
+
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
