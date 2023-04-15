@@ -362,6 +362,8 @@ if vim.g.vscode then
     vim.keymap.set("n", "=t",        Convert_to_tabs)
     vim.keymap.set("n", "za",        Toggle_fold)
     vim.keymap.set("n", "=ie",       Format_document)
+    vim.keymap.set("n", "<leader>ga", Git_stage_file)
+    vim.keymap.set("n", "<leader>gu", Git_unstage_file)
 
     --- Vscode: Visual remaps
     vim.keymap.set("v", "gs", Codesnap)
