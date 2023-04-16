@@ -228,6 +228,7 @@ abbrev-alias srcz='source ~/.zshrc'
 
 abbrev-alias g='git'
 abbrev-alias gs='git status'
+abbrev-alias gsh='git show'
 abbrev-alias gl='git log'
 abbrev-alias glo='git log --oneline'
 abbrev-alias ga='git add'
