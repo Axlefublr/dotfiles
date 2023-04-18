@@ -107,12 +107,12 @@ require('lualine').setup {
 vim.g.clipboard = {
     name = "wslclipboard",
     copy = {
-        ["+"] = "/mnt/c/Users/axlefublr/Documents/Win32yank/win32yank.exe -i --crlf",
-        ["*"] = "/mnt/c/Users/axlefublr/Documents/Win32yank/win32yank.exe -i --crlf",
+        ["+"] = "/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf",
+        ["*"] = "/mnt/c/Programs/Win32yank/win32yank.exe -i --crlf",
     },
     paste = {
-        ["+"] = "/mnt/c/Users/axlefublr/Documents/Win32yank/win32yank.exe -o --lf",
-        ["*"] = "/mnt/c/Users/axlefublr/Documents/Win32yank/win32yank.exe -o --lf"
+        ["+"] = "/mnt/c/Programs/Win32yank/win32yank.exe -o --lf",
+        ["*"] = "/mnt/c/Programs/Win32yank/win32yank.exe -o --lf"
     },
     cache_enabled = true
 }
