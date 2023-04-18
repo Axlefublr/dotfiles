@@ -256,6 +256,7 @@ abbrev-alias dnb='dotnet.exe build'
 abbrev-alias dna='dotnet.exe add'
 
 abbrev-alias ghr='gh repo'
+abbrev-alias ghrl='gh repo clone'
 abbrev-alias ghrc='gh repo create --public'
 abbrev-alias ghrcc='gh repo create --clone --public'
 abbrev-alias ghrd='gh repo delete --confirm'
