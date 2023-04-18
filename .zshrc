@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH="/mnt/c/Programming/bin:/mnt/c/Programming/shell:$PATH"
+export PATH="/mnt/c/Programming/binaries:/mnt/c/Programming/shell:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -200,7 +200,6 @@ unalias lsa
 
 alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-abbrev-alias gh='gh.exe'
 abbrev-alias dotnet='dotnet.exe'
 abbrev-alias exp='explorer.exe'
 abbrev-alias clip='clip.exe'
@@ -256,10 +255,10 @@ abbrev-alias dnrp='dotnet.exe run --project'
 abbrev-alias dnb='dotnet.exe build'
 abbrev-alias dna='dotnet.exe add'
 
-abbrev-alias ghr='gh.exe repo'
-abbrev-alias ghrc='gh.exe repo create --public'
-abbrev-alias ghrcc='gh.exe repo create --clone --public'
-abbrev-alias ghrd='gh.exe repo delete --confirm'
+abbrev-alias ghr='gh repo'
+abbrev-alias ghrc='gh repo create --public'
+abbrev-alias ghrcc='gh repo create --clone --public'
+abbrev-alias ghrd='gh repo delete --confirm'
 
 # Functions
 
@@ -286,12 +285,12 @@ fpick() {
 }
 
 _get_important_dir() {
-    RBUFFER="$(dpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
+    RBUFFER="$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
     zle end-of-line
 }
 
 _get_important_file() {
-    RBUFFER="$(fpick /mnt/c/Programming /mnt/c/Users/serge/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
+    RBUFFER="$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
     zle end-of-line
 }
 
