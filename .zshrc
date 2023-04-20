@@ -199,6 +199,8 @@ unalias l
 unalias lsa
 
 alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias ...='../..'
+alias ....='../../..'
 
 abbrev-alias dotnet='dotnet.exe'
 abbrev-alias exp='explorer.exe'
@@ -242,6 +244,7 @@ abbrev-alias gcr='git add . && git commit -m "first commit" && git push -u origi
 abbrev-alias gr='git reset'
 abbrev-alias gst='git stash'
 abbrev-alias grb='git rebase'
+abbrev-alias grm='git remote'
 
 abbrev-alias dn='dotnet.exe'
 abbrev-alias dnn='dotnet.exe new'
