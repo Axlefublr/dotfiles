@@ -290,43 +290,44 @@ fpick() {
 }
 
 _get_important_dir() {
-    BUFFER="$BUFFER $(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
+    BUFFER="$BUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
     zle end-of-line
 }
 
 _get_important_file() {
-    BUFFER="$BUFFER $(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
+    BUFFER="$BUFFER$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
     zle end-of-line
 }
 
 _get_current_dir() {
-    BUFFER="$BUFFER $(dpick . | tr '\n' ' ')"
+    BUFFER="$BUFFER$(dpick . | tr '\n' ' ')"
     zle end-of-line
 }
 
 _get_current_file() {
-    BUFFER="$BUFFER $(fpick . | tr '\n' ' ')"
+    BUFFER="$BUFFER$(fpick . | tr '\n' ' ')"
     zle end-of-line
 }
 
-_history_left() {
+_history_replace() {
     BUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --query=$BUFFER)"
+    zle end-of-line
 }
 
 _history_right() {
-    BUFFER="$BUFFER $(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
+    BUFFER="$BUFFER$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
     zle end-of-line
 }
 
 _less() {
-    BUFFER="$BUFFER | less"
+    BUFFER="$BUFFER| less"
     zle end-of-line
 }
 
 # Hotkeys
 
-zle -N _history_left
-bindkey '^r' _history_left
+zle -N _history_replace
+bindkey '^r' _history_replace
 
 zle -N _history_right
 bindkey '^t' _history_right
