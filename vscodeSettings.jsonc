@@ -68,7 +68,10 @@
                     "foreground": "#A9B665",
                     "fontStyle": ""
                 },
-                "scope": ["support.function.builtin.shell"]
+                "scope": [
+                    "support.function.builtin.shell",
+                    "meta.scope.subject.git-commit"
+                ]
             },
             {
                 "name": "green italic",
@@ -174,12 +177,12 @@
                     "foreground": "#928374",
                     "fontStyle": ""
                 },
-                "scope": ["constant.character.escape.ahk2"]
+                "scope": [
+                    "constant.character.escape.ahk2",
+                    "constant.character.escape.cs"
+                ]
             }
         ]
-    },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
     },
     "[ahk2]": {
         "editor.defaultFormatter": "thqby.vscode-autohotkey2-lsp",
@@ -194,6 +197,14 @@
             "other": "inline"
         }
     },
+    "[git-commit]": {
+        "editor.rulers": [72],
+        "workbench.editor.restoreViewState": false,
+        "editor.quickSuggestions": {
+            "other": "inline"
+        }
+    },
+    "[sql]": {},
     "Lua.format.defaultConfig": {
         "indent_style": "space",
         "indent_size": "4"
@@ -240,11 +251,6 @@
             "args": ["-d", "Ubuntu"]
         }
     },
-    "code-runner.executorMap": {
-        "python": "python -u",
-        "csharp": "dotnet run",
-        "javascript": "cd $dir && node $fileName"
-    },
     "files.associations": {
         "*.ahk": "ahk2",
         "*.json": "json",
@@ -263,24 +269,15 @@
         "space_after_double_colon": true,
         "space_before_conditional": true
     },
-    "gitlens.gitCommands.skipConfirmations": [
-        "fetch:command",
-        "stash-push:command",
-        "switch:command",
-        "branch-create:command"
-    ],
     "[csharp]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp",
-        "editor.acceptSuggestionOnCommitCharacter": false
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
     "[lua]": {
         "editor.defaultFormatter": "sumneko.lua"
     },
     "[markdown]": {
         "editor.quickSuggestions": {
-            "other": "inline",
-            "strings": "inline",
-            "comments": "inline"
+            "other": "inline"
         }
     },
     "extensions.experimental.affinity": {
@@ -334,25 +331,8 @@
     "git.allowForcePush": true,
     "git.autoStash": true,
     "git.confirmForcePush": false,
-    "git.postCommitCommand": "sync",
     "git.useCommitInputAsStashMessage": true,
     "grunt.autoDetect": "on",
-    "gitlens.blame.separateLines": false,
-    "gitlens.blame.avatars": false,
-    "gitlens.views.searchAndCompare.avatars": false,
-    "gitlens.views.worktrees.avatars": false,
-    "gitlens.views.contributors.avatars": false,
-    "gitlens.views.tags.avatars": false,
-    "gitlens.views.remotes.avatars": false,
-    "gitlens.views.branches.avatars": false,
-    "gitlens.views.lineHistory.avatars": false,
-    "gitlens.views.fileHistory.avatars": false,
-    "gitlens.views.repositories.avatars": false,
-    "gitlens.views.commits.avatars": false,
-    "gitlens.hovers.avatars": false,
-    "code-runner.runInTerminal": true,
-    "code-runner.saveFileBeforeRun": true,
-    "code-runner.showRunIconInEditorTitleMenu": false,
     "security.workspace.trust.untrustedFiles": "open",
     "security.workspace.trust.banner": "never",
     "files.defaultLanguage": "markdown",
@@ -362,18 +342,13 @@
     "markdown.preview.fontSize": 25,
     "markdown.extension.tableFormatter.normalizeIndentation": true,
     "prettier.tabWidth": 4,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "liveServer.settings.wait": 1000,
     "javascript.format.semicolons": "insert",
     "javascript.suggest.completeFunctionCalls": true,
     "typescript.format.semicolons": "insert",
     "typescript.suggest.completeFunctionCalls": true,
-    "scrollFaster.cursorFollowsScroll": false,
-    "scrollFaster.scrollByLines": 12,
     "json.format.enable": true,
     "breadcrumbs.filePath": "on",
     "breadcrumbs.symbolPath": "last",
-    "scrollToCursor.offset": 11,
     "emmet.useInlineCompletions": true,
     "codesnap.shutterAction": "copy",
     "codesnap.containerPadding": "1em",
@@ -384,8 +359,6 @@
     "search.quickOpen.includeHistory": false,
     "search.seedWithNearestWord": true,
     "search.searchEditor.doubleClickBehaviour": "openLocationToSide",
-    "pasteImage.path": "${currentFileDir}\\img",
-    "python.analysis.completeFunctionParens": true,
     "AutoHotkey2.CompleteFunctionParens": true,
     "AutoHotkey2.SymbolFoldingFromOpenBrace": false,
     "AutoHotkey2.Diagnostics.ClassStaticMemberCheck": false,
@@ -394,8 +367,6 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "diffEditor.codeLens": true,
     "diffEditor.renderIndicators": false,
-    "gitlens.showWelcomeOnInstall": false,
-    "gitlens.fileAnnotations.command": "changes",
     "markdown.preview.fontFamily": "\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"",
     "markdown.preview.lineHeight": 1.5,
     "editor.overviewRulerBorder": false,
@@ -405,62 +376,26 @@
     "window.customMenuBarAltFocus": false,
     "window.enableMenuBarMnemonics": false,
     "window.openFoldersInNewWindow": "on",
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.codeLens.enabled": false,
-    "gitlens.menus": false,
-    "gitlens.changes.locations": ["overview", "gutter", "line"],
-    "python.testing.pytestEnabled": true,
     "editor.semanticHighlighting.enabled": false,
-    "gitlens.hovers.currentLine.enabled": false,
-    "markdown.experimental.updateLinksOnFileMove.enabled": "always",
     "markdown.extension.print.theme": "dark",
     "markdown.extension.toc.orderedList": true,
     "markdown.extension.toc.unorderedList.marker": "*",
-    "ipynb.experimental.pasteImages.enabled": true,
-    "vim.cursorStylePerMode.insert": "line",
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.cursorStylePerMode.replace": "block",
-    "vim.cursorStylePerMode.visual": "line",
-    "vim.cursorStylePerMode.visualblock": "block",
-    "vim.cursorStylePerMode.visualline": "line",
-    "vim.startofline": false,
     "terminal.integrated.copyOnSelection": true,
-    "vim.showMarksInGutter": true,
-    "vim.joinspaces": false,
-    "vim.hlsearch": true,
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.duration": 100,
-    "vim.camelCaseMotion.enable": true,
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "c:\\Programming\\dotfiles\\.vimrc",
-    "vim.leader": ",",
-    "vim.easymotion": true,
     "debug.console.fontSize": 20,
     "vscode-neovim.useWSL": true,
     "vscode-neovim.neovimExecutablePaths.linux": "~/.local/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.linux": "/mnt/c/Programming/dotfiles/init.lua",
-    "vscode-pets.petSize": "large",
-    "vscode-pets.theme": "forest",
     "editor.occurrencesHighlight": false,
     "files.trimFinalNewlines": true,
-    "vim.foldfix": true,
-    "vim.gdefault": true,
-    "vim.visualstar": true,
     "markdown.validate.enabled": true,
-    "vim.neovimPath": "C:\\Program Files\\Neovim\\bin\\nvim.exe",
-    "vim.neovimConfigPath": "C:\\Programming\\dotfiles\\init.vim",
     "editor.lineNumbers": "relative",
-    "Lua.telemetry.enable": false,
     "editor.suggest.preview": true,
-    "editor.snippetSuggestions": "none",
+    "editor.snippetSuggestions": "bottom",
     "editor.find.seedSearchStringFromSelection": "never",
     "debug.inlineValues": "on",
     "editor.suggest.matchOnWordStartOnly": false,
     "prettier.bracketSameLine": true,
     "files.eol": "\n",
-    "pasteImage.showFilePathConfirmInputBox": true,
-    "pasteImage.filePathConfirmInputBoxMode": "onlyName",
     "vscode-neovim.logOutputToConsole": true,
     "omnisharp.enableImportCompletion": true,
     "omnisharp.enableRoslynAnalyzers": true,
@@ -468,7 +403,6 @@
     "omnisharp.enableAsyncCompletion": true,
     "csharp.inlayHints.types.enabled": true,
     "csharp.inlayHints.parameters.enabled": true,
-    "editor.suggest.showInlineDetails": false,
     "editor.tabCompletion": "on",
     "search.collapseResults": "auto",
     "search.defaultViewMode": "tree",
@@ -477,7 +411,6 @@
     "editor.cursorSurroundingLines": 4,
     "editor.minimap.renderCharacters": false,
     "editor.minimap.scale": 2,
-    "tabnine.experimentalAutoImports": true,
     "editor.fontWeight": "normal",
     "scm.inputFontFamily": "editor",
     "screencastMode.fontSize": 30,
@@ -487,9 +420,8 @@
     "Lua.semantic.keyword": true,
     "editor.indentSize": 4,
     "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
-    "terminal.integrated.fontFamily": "MesloLGS NF, 'Segoe UI Emoji'",
+    "terminal.integrated.fontFamily": "MesloLGS NF, 'Segoe UI Emoji', Consolas",
     "terminal.integrated.tabs.title": "${cwd}",
-    "code-runner.terminalRoot": "/mnt/",
     "terminal.integrated.cursorWidth": 2,
     "terminal.integrated.commandsToSkipShell": [
         "workbench.action.terminal.rename",
@@ -502,8 +434,6 @@
         "workbench.action.openEditorAtIndex8",
         "workbench.action.openEditorAtIndex9"
     ],
-    "elasticTabstopsMono.enable": true,
-    "elasticTabstopsMono.fixedIndentation": true,
     "editor.renderWhitespace": "trailing",
     "explorer.excludeGitIgnore": true,
     "task.quickOpen.history": 5,
@@ -516,7 +446,6 @@
     "editor.scrollbar.vertical": "visible",
     "editor.scrollbar.horizontal": "visible",
     "diffEditor.renderSideBySide": false,
-    "files.autoSave": "afterDelay",
     "workbench.activityBar.visible": false,
     "editor.guides.indentation": false,
     "screencastMode.verticalOffset": 10,
@@ -538,10 +467,28 @@
     "vscode-neovim.mouseSelectionStartVisualMode": true,
     "vscode-neovim.revealCursorScrollLine": true,
     "files.autoSaveDelay": 500,
-    "editor.acceptSuggestionOnCommitCharacter": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
     "git.openRepositoryInParentFolders": "always",
-    "typewriterAutoScroll.enable": false,
-    "window.zoomLevel": 0.5,
     "git.autofetch": true,
-    "git.verboseCommit": true
+    "git.verboseCommit": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorWidth": 4,
+    "files.autoSave": "afterDelay",
+    "material-icon-theme.files.color": "#90a4ae",
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.suggest.showInlineDetails": false,
+    "editor.suggest.showSnippets": false,
+    "Lua.completion.keywordSnippet": "Disable",
+    "editor.wordBasedSuggestionsMode": "allDocuments",
+    "csharp.inlayHints.parameters.forObjectCreationParameters": true,
+    "csharp.inlayHints.parameters.forLiteralParameters": true,
+    "csharp.inlayHints.parameters.forOtherParameters": true,
+    "csharp.inlayHints.parameters.suppressForParametersThatDifferOnlyBySuffix": true,
+    "csharp.inlayHints.parameters.suppressForParametersThatMatchArgumentName": true,
+    "csharp.inlayHints.parameters.suppressForParametersThatMatchMethodIntent": true,
+    "csharp.inlayHints.types.forImplicitObjectCreation": true,
+    "csharp.inlayHints.types.forImplicitVariableTypes": true,
+    "csharp.inlayHints.types.forLambdaParameterTypes": true,
+    "editor.stickyScroll.enabled": true,
+    "window.zoomLevel": 1
 }
