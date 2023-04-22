@@ -335,6 +335,10 @@ function Git_revert_change() vim.fn.VSCodeNotify("git.revertSelectedRanges") end
 
 function Git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
 
+function Git_commit_amend() vim.fn.VSCodeNotify("git.commitStagedAmend") end
+
+function Git_push_force() vim.fn.VSCodeNotify("git.pushForce") end
+
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
@@ -373,11 +377,13 @@ if vim.g.vscode then
     vim.keymap.set("n", "za",        Toggle_fold)
     vim.keymap.set("n", "=ie",       Format_document)
 
-    vim.keymap.set("n", "<leader>ga", Git_stage_all)
-    vim.keymap.set("n", "<leader>g.", Git_stage_file)
+    vim.keymap.set("n", "<leader>ga", Git_stage_file)
+    vim.keymap.set("n", "<leader>gA", Git_stage_all)
     vim.keymap.set("n", "<leader>gu", Git_unstage_file)
     vim.keymap.set("n", "<leader>gm", Git_commit)
+    vim.keymap.set("n", "<leader>gM", Git_commit_amend)
     vim.keymap.set("n", "<leader>gp", Git_push)
+    vim.keymap.set("n", "<leader>gP", Git_push_force)
     vim.keymap.set("n", "<leader>gr", Git_revert_change)
     vim.keymap.set("n", "<leader>gn", Git_open_changes)
 
