@@ -333,6 +333,10 @@ function Git_push() vim.fn.VSCodeNotify("git.push") end
 
 function Git_revert_change() vim.fn.VSCodeNotify("git.revertSelectedRanges") end
 
+function Git_stage_change() vim.fn.VSCodeNotify("git.stageSelectedRanges") end
+
+function Git_unstage_change() vim.fn.VSCodeNotify("git.unstageSelectedRanges") end
+
 function Git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
 
 function Git_commit_amend() vim.fn.VSCodeNotify("git.commitStagedAmend") end
@@ -385,6 +389,8 @@ if vim.g.vscode then
     vim.keymap.set("n", "<leader>gp", Git_push)
     vim.keymap.set("n", "<leader>gP", Git_push_force)
     vim.keymap.set("n", "<leader>gr", Git_revert_change)
+    vim.keymap.set("n", "<leader>gt", Git_stage_change)
+    vim.keymap.set("n", "<leader>gT", Git_unstage_change)
     vim.keymap.set("n", "<leader>gn", Git_open_changes)
 
     --- Vscode: Visual remaps
