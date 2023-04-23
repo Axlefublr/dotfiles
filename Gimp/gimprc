@@ -7,7 +7,7 @@
 # Preferences dialog.
 
 (import-raw-plug-in "${gimp_plug_in_dir}\\plug-ins\\file-raw-placeholder\\file-raw-placeholder.exe")
-(check-update-timestamp 1681918761)
+(check-update-timestamp 1682248113)
 (monitor-xresolution 142)
 (monitor-yresolution 141)
 (fill-options

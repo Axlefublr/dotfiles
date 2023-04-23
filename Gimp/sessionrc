@@ -16,7 +16,7 @@
     (open-on-exit)
     (aux-info
         (left-docks-width "188")
-        (right-docks-width "205")
+        (right-docks-width "260")
         (maximized "yes"))
     (gimp-toolbox
         (side left)
@@ -42,25 +42,6 @@
         (side right)
         (book
             (current-page 0)
-            (dockable "gimp-brush-grid"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true")))
-            (dockable "gimp-pattern-grid"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true")))
-            (dockable "gimp-font-list"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true")))
-            (dockable "gimp-document-list"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true"))))
-        (book
-            (position 465)
-            (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style automatic)
                 (preview-size 32)
@@ -77,13 +58,13 @@
                 (aux-info
                     (show-button-bar "true"))))))
 (session-info "toplevel"
-    (factory-entry "gimp-preferences-dialog")
-    (position 151 269)
-    (size 900 500))
-(session-info "toplevel"
     (factory-entry "gimp-keyboard-shortcuts-dialog")
-    (position 519 253)
+    (position 0 416)
     (size 508 617))
+(session-info "toplevel"
+    (factory-entry "gimp-file-export-dialog")
+    (position 1122 112)
+    (size 780 585))
 
 (hide-docks no)
 (single-window-mode yes)
