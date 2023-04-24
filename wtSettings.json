@@ -6,9 +6,9 @@
         {
             "command": 
             {
-                "action": "commandPalette"
-            },
-            "keys": "alt+shift+p"
+                "action": "copy",
+                "singleLine": false
+            }
         },
         {
             "command": "openNewTabDropdown",
@@ -17,17 +17,28 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            }
+                "action": "commandPalette"
+            },
+            "keys": "alt+shift+p"
         },
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 3
+                "action": "swapPane",
+                "direction": "down"
             },
-            "keys": "alt+4"
+            "keys": "ctrl+alt+f"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "left"
+            },
+            "keys": "ctrl+alt+s"
+        },
+        {
+            "command": "paste"
         },
         {
             "command": 
@@ -38,7 +49,12 @@
             "keys": "alt+shift+2"
         },
         {
-            "command": "paste"
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 3
+            },
+            "keys": "alt+4"
         },
         {
             "command": "find"
@@ -133,10 +149,6 @@
         {
             "command": "unbound",
             "keys": "alt+up"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+t"
         },
         {
             "command": "unbound",
@@ -400,6 +412,14 @@
         {
             "command": 
             {
+                "action": "swapPane",
+                "direction": "right"
+            },
+            "keys": "ctrl+alt+g"
+        },
+        {
+            "command": 
+            {
                 "action": "switchToTab",
                 "index": 5
             },
@@ -428,6 +448,13 @@
                 "index": 4294967295
             },
             "keys": "alt+9"
+        },
+        {
+            "command": 
+            {
+                "action": "closeTab"
+            },
+            "keys": "ctrl+alt+w"
         },
         {
             "command": 
@@ -539,6 +566,18 @@
                 "direction": "up"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "up"
+            },
+            "keys": "ctrl+alt+d"
+        },
+        {
+            "command": "restoreLastClosed",
+            "keys": "ctrl+shift+t"
         }
     ],
     "confirmCloseAllTabs": false,
