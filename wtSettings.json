@@ -6,9 +6,9 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            }
+                "action": "commandPalette"
+            },
+            "keys": "alt+shift+p"
         },
         {
             "command": "openNewTabDropdown",
@@ -17,20 +17,9 @@
         {
             "command": 
             {
-                "action": "commandPalette"
-            },
-            "keys": "alt+shift+p"
-        },
-        {
-            "command": "paste"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab",
-                "index": 1
-            },
-            "keys": "alt+shift+2"
+                "action": "copy",
+                "singleLine": false
+            }
         },
         {
             "command": 
@@ -43,13 +32,24 @@
         {
             "command": 
             {
+                "action": "newTab",
+                "index": 1
+            },
+            "keys": "alt+shift+2"
+        },
+        {
+            "command": "paste"
+        },
+        {
+            "command": "find"
+        },
+        {
+            "command": 
+            {
                 "action": "resizePane",
                 "direction": "left"
             },
             "keys": "alt+shift+s"
-        },
-        {
-            "command": "find"
         },
         {
             "command": 
@@ -73,10 +73,6 @@
                 "index": 7
             },
             "keys": "alt+8"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+w"
         },
         {
             "command": "unbound",
@@ -349,6 +345,10 @@
             "keys": "alt+3"
         },
         {
+            "command": "closeOtherPanes",
+            "keys": "ctrl+shift+w"
+        },
+        {
             "command": "closePane",
             "keys": "alt+w"
         },
@@ -500,6 +500,13 @@
                 "split": "down"
             },
             "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
+                "action": "closeOtherTabs"
+            },
+            "keys": "alt+shift+w"
         },
         {
             "command": 
