@@ -310,12 +310,12 @@ _get_current_file() {
 }
 
 _history_replace() {
-    BUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --query=$BUFFER)"
+    BUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$BUFFER)"
     zle end-of-line
 }
 
 _history_right() {
-    BUFFER="$BUFFER$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf)"
+    BUFFER="$LBUFFER$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$RBUFFER)"
     zle end-of-line
 }
 
