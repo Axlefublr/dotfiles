@@ -6,18 +6,28 @@
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 7
-            },
-            "keys": "ctrl+alt+8"
+                "action": "copy",
+                "singleLine": false
+            }
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": "ctrl+space"
         },
         {
             "command": 
             {
-                "action": "swapPane",
-                "direction": "left"
+                "action": "movePane",
+                "index": 0
             },
-            "keys": "ctrl+alt+s"
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "command": 
+            {
+                "action": "commandPalette"
+            },
+            "keys": "alt+shift+p"
         },
         {
             "command": 
@@ -30,28 +40,18 @@
         {
             "command": 
             {
-                "action": "commandPalette"
+                "action": "swapPane",
+                "direction": "left"
             },
-            "keys": "alt+shift+p"
+            "keys": "ctrl+alt+s"
         },
         {
             "command": 
             {
                 "action": "movePane",
-                "index": 0
+                "index": 7
             },
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "ctrl+space"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            }
+            "keys": "ctrl+alt+8"
         },
         {
             "command": 
@@ -458,7 +458,8 @@
             "command": 
             {
                 "action": "newTab",
-                "index": 4
+                "index": 4,
+                "profile": "{e818091e-cd5d-4ac2-b6bb-9ee9ede9b380}"
             },
             "keys": "alt+shift+5"
         },
@@ -497,9 +498,18 @@
             "command": 
             {
                 "action": "newTab",
-                "index": 3
+                "index": 3,
+                "profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
             },
             "keys": "alt+shift+4"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 1
+            },
+            "keys": "ctrl+alt+2"
         },
         {
             "command": 
@@ -620,14 +630,6 @@
             "command": 
             {
                 "action": "movePane",
-                "index": 1
-            },
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
                 "index": 4
             },
             "keys": "ctrl+alt+5"
@@ -654,15 +656,17 @@
     "copyOnSelect": true,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "focusFollowMouse": true,
-    "launchMode": "default",
+    "launchMode": "maximized",
     "profiles": 
     {
         "defaults": 
         {
             "altGrAliasing": false,
             "bellStyle": "window",
+            "closeOnExit": "never",
             "colorScheme": "GruvboxMaterialMediumDark",
             "cursorShape": "filledBox",
+            "elevate": true,
             "font": 
             {
                 "face": "MesloLGS NF",
@@ -739,14 +743,6 @@
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "useAcrylic": false
-            },
-            {
-                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu",
-                "guid": "{bc48a301-566d-4555-9ceb-a9bd8cde26de}",
-                "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-                "name": "Linux Admin",
-                "tabTitle": "Linux"
             }
         ]
     },
@@ -1007,5 +1003,6 @@
         }
     ],
     "themes": [],
+    "useAcrylicInTabRow": true,
     "windowingBehavior": "useAnyExisting"
 }
