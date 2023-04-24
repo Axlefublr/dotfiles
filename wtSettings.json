@@ -6,20 +6,18 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            }
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "ctrl+space"
+                "action": "movePane",
+                "index": 7
+            },
+            "keys": "ctrl+8"
         },
         {
             "command": 
             {
-                "action": "commandPalette"
+                "action": "swapPane",
+                "direction": "left"
             },
-            "keys": "alt+shift+p"
+            "keys": "ctrl+alt+s"
         },
         {
             "command": 
@@ -32,13 +30,36 @@
         {
             "command": 
             {
-                "action": "swapPane",
-                "direction": "left"
+                "action": "commandPalette"
             },
-            "keys": "ctrl+alt+s"
+            "keys": "alt+shift+p"
         },
         {
-            "command": "paste"
+            "command": 
+            {
+                "action": "movePane",
+                "index": 0
+            },
+            "keys": "ctrl+1"
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": "ctrl+space"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            }
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 3
+            },
+            "keys": "alt+4"
         },
         {
             "command": 
@@ -49,12 +70,7 @@
             "keys": "alt+shift+2"
         },
         {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 3
-            },
-            "keys": "alt+4"
+            "command": "paste"
         },
         {
             "command": "find"
@@ -72,7 +88,8 @@
             {
                 "action": "movePane",
                 "index": 3
-            }
+            },
+            "keys": "ctrl+4"
         },
         {
             "command": 
@@ -81,6 +98,14 @@
                 "index": 2
             },
             "keys": "alt+shift+3"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 2
+            },
+            "keys": "ctrl+3"
         },
         {
             "command": 
@@ -319,6 +344,10 @@
             "keys": "ctrl+shift+m"
         },
         {
+            "command": "unbound",
+            "keys": "alt+9"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -447,7 +476,7 @@
                 "action": "switchToTab",
                 "index": 4294967295
             },
-            "keys": "alt+9"
+            "keys": "alt+0"
         },
         {
             "command": 
@@ -523,6 +552,14 @@
         {
             "command": 
             {
+                "action": "movePane",
+                "index": 5
+            },
+            "keys": "ctrl+6"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "down"
             },
@@ -578,6 +615,38 @@
         {
             "command": "restoreLastClosed",
             "keys": "ctrl+shift+t"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 1
+            },
+            "keys": "ctrl+2"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 4
+            },
+            "keys": "ctrl+5"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 6
+            },
+            "keys": "ctrl+7"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 8
+            },
+            "keys": "ctrl+9"
         }
     ],
     "confirmCloseAllTabs": false,
