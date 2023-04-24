@@ -428,6 +428,9 @@ vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
 --- Markdown heading text object
 vim.keymap.set("v", "ir", "?^#<CR>oNk")
+vim.keymap.set("v", "iR", "?^#<CR>koNk")
+
+--- Commend text object
 vim.keymap.set("v", "agc", "[/o]/V")
 vim.keymap.set("v", "igc", "[/3lo]/2h")
 vim.keymap.set("o", "agc", function() vim.cmd("normal v[/o]/V") end)
