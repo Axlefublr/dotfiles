@@ -6,36 +6,10 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            }
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "ctrl+space"
-        },
-        {
-            "command": 
-            {
                 "action": "movePane",
-                "index": 0
+                "index": 7
             },
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "command": 
-            {
-                "action": "commandPalette"
-            },
-            "keys": "alt+shift+p"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+f"
+            "keys": "ctrl+alt+8"
         },
         {
             "command": 
@@ -48,10 +22,36 @@
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 7
+                "action": "swapPane",
+                "direction": "down"
             },
-            "keys": "ctrl+alt+8"
+            "keys": "ctrl+alt+f"
+        },
+        {
+            "command": 
+            {
+                "action": "commandPalette"
+            },
+            "keys": "alt+shift+p"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 0
+            },
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": "ctrl+space"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            }
         },
         {
             "command": 
@@ -378,6 +378,10 @@
             "keys": "alt+3"
         },
         {
+            "command": "toggleSplitOrientation",
+            "keys": "ctrl+alt+a"
+        },
+        {
             "command": "closeOtherPanes",
             "keys": "ctrl+shift+w"
         },
@@ -649,6 +653,36 @@
                 "index": 8
             },
             "keys": "ctrl+alt+9"
+        },
+        {
+            "command": 
+            {
+                "action": "clearBuffer",
+                "clear": "all"
+            },
+            "keys": "alt+l"
+        },
+        {
+            "command": "scrollDownPage",
+            "keys": "pgdn"
+        },
+        {
+            "command": "scrollUpPage",
+            "keys": "pgup"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollDown"
+            },
+            "keys": "shift+down"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "shift+up"
         }
     ],
     "confirmCloseAllTabs": false,
@@ -672,9 +706,11 @@
                 "face": "MesloLGS NF",
                 "size": 20.0
             },
+            "opacity": 100,
             "scrollbarState": "hidden",
             "startingDirectory": "C:\\Programming",
-            "suppressApplicationTitle": true
+            "suppressApplicationTitle": true,
+            "useAcrylic": true
         },
         "list": 
         [
