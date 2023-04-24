@@ -6,18 +6,28 @@
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 7
-            },
-            "keys": "ctrl+8"
+                "action": "copy",
+                "singleLine": false
+            }
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": "ctrl+space"
         },
         {
             "command": 
             {
-                "action": "swapPane",
-                "direction": "left"
+                "action": "movePane",
+                "index": 0
             },
-            "keys": "ctrl+alt+s"
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "command": 
+            {
+                "action": "commandPalette"
+            },
+            "keys": "alt+shift+p"
         },
         {
             "command": 
@@ -30,28 +40,18 @@
         {
             "command": 
             {
-                "action": "commandPalette"
+                "action": "swapPane",
+                "direction": "left"
             },
-            "keys": "alt+shift+p"
+            "keys": "ctrl+alt+s"
         },
         {
             "command": 
             {
                 "action": "movePane",
-                "index": 0
+                "index": 7
             },
-            "keys": "ctrl+1"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "ctrl+space"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            }
+            "keys": "ctrl+alt+8"
         },
         {
             "command": 
@@ -89,7 +89,7 @@
                 "action": "movePane",
                 "index": 3
             },
-            "keys": "ctrl+4"
+            "keys": "ctrl+alt+4"
         },
         {
             "command": 
@@ -98,14 +98,6 @@
                 "index": 2
             },
             "keys": "alt+shift+3"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab",
-                "index": 2
-            },
-            "keys": "ctrl+3"
         },
         {
             "command": 
@@ -293,42 +285,6 @@
         },
         {
             "command": "unbound",
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+3"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+4"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+5"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+6"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+7"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+8"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+9"
-        },
-        {
-            "command": "unbound",
             "keys": "ctrl+shift+p"
         },
         {
@@ -346,6 +302,42 @@
         {
             "command": "unbound",
             "keys": "alt+9"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+1"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+2"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+4"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+5"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+6"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+9"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+8"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+7"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+3"
         },
         {
             "command": 
@@ -553,9 +545,17 @@
             "command": 
             {
                 "action": "movePane",
+                "index": 2
+            },
+            "keys": "ctrl+alt+3"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
                 "index": 5
             },
-            "keys": "ctrl+6"
+            "keys": "ctrl+alt+6"
         },
         {
             "command": 
@@ -622,7 +622,7 @@
                 "action": "movePane",
                 "index": 1
             },
-            "keys": "ctrl+2"
+            "keys": "ctrl+alt+2"
         },
         {
             "command": 
@@ -630,7 +630,7 @@
                 "action": "movePane",
                 "index": 4
             },
-            "keys": "ctrl+5"
+            "keys": "ctrl+alt+5"
         },
         {
             "command": 
@@ -638,7 +638,7 @@
                 "action": "movePane",
                 "index": 6
             },
-            "keys": "ctrl+7"
+            "keys": "ctrl+alt+7"
         },
         {
             "command": 
@@ -646,7 +646,7 @@
                 "action": "movePane",
                 "index": 8
             },
-            "keys": "ctrl+9"
+            "keys": "ctrl+alt+9"
         }
     ],
     "confirmCloseAllTabs": false,
