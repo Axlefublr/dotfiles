@@ -6,13 +6,6 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            }
-        },
-        {
-            "command": 
-            {
                 "action": "commandPalette"
             },
             "keys": "alt+shift+p"
@@ -22,15 +15,11 @@
             "keys": "ctrl+space"
         },
         {
-            "command": "paste"
-        },
-        {
             "command": 
             {
-                "action": "newTab",
-                "index": 1
-            },
-            "keys": "alt+shift+2"
+                "action": "copy",
+                "singleLine": false
+            }
         },
         {
             "command": 
@@ -41,7 +30,15 @@
             "keys": "alt+4"
         },
         {
-            "command": "find"
+            "command": 
+            {
+                "action": "newTab",
+                "index": 1
+            },
+            "keys": "alt+shift+2"
+        },
+        {
+            "command": "paste"
         },
         {
             "command": 
@@ -49,6 +46,25 @@
                 "action": "movePane",
                 "index": 3
             }
+        },
+        {
+            "command": "find"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 2
+            },
+            "keys": "alt+shift+3"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 7
+            },
+            "keys": "alt+8"
         },
         {
             "command": "unbound",
@@ -301,22 +317,6 @@
         {
             "command": 
             {
-                "action": "newTab",
-                "index": 2
-            },
-            "keys": "alt+shift+3"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "keys": "alt+8"
-        },
-        {
-            "command": 
-            {
                 "action": "switchToTab",
                 "index": 4
             },
@@ -345,15 +345,15 @@
             "keys": "alt+3"
         },
         {
+            "command": "closePane",
+            "keys": "alt+w"
+        },
+        {
             "command": 
             {
                 "action": "newWindow"
             },
             "keys": "alt+e"
-        },
-        {
-            "command": "closePane",
-            "keys": "alt+w"
         },
         {
             "command": 
@@ -397,17 +397,17 @@
             "command": 
             {
                 "action": "switchToTab",
-                "index": 6
+                "index": 5
             },
-            "keys": "alt+7"
+            "keys": "alt+6"
         },
         {
             "command": 
             {
                 "action": "switchToTab",
-                "index": 5
+                "index": 6
             },
-            "keys": "alt+6"
+            "keys": "alt+7"
         },
         {
             "command": 
@@ -428,18 +428,18 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "alt+shift+l"
-        },
-        {
-            "command": 
-            {
                 "action": "newTab",
                 "index": 0
             },
             "keys": "alt+shift+1"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "alt+shift+l"
         },
         {
             "command": 
@@ -472,6 +472,38 @@
                 "direction": "up"
             },
             "keys": "alt+shift+k"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "left"
+            },
+            "keys": "ctrl+shift+h"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "ctrl+shift+l"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "up"
+            },
+            "keys": "ctrl+shift+k"
         }
     ],
     "confirmCloseAllTabs": false,
