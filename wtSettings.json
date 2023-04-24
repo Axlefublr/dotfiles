@@ -6,36 +6,10 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            }
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "ctrl+space"
-        },
-        {
-            "command": 
-            {
                 "action": "movePane",
-                "index": 0
+                "index": 7
             },
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "command": 
-            {
-                "action": "commandPalette"
-            },
-            "keys": "alt+shift+p"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+f"
+            "keys": "ctrl+alt+8"
         },
         {
             "command": 
@@ -48,10 +22,36 @@
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 7
+                "action": "swapPane",
+                "direction": "down"
             },
-            "keys": "ctrl+alt+8"
+            "keys": "ctrl+alt+f"
+        },
+        {
+            "command": 
+            {
+                "action": "commandPalette"
+            },
+            "keys": "alt+shift+p"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 0
+            },
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": "ctrl+space"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            }
         },
         {
             "command": 
@@ -654,7 +654,7 @@
     "copyOnSelect": true,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "focusFollowMouse": true,
-    "launchMode": "focus",
+    "launchMode": "default",
     "profiles": 
     {
         "defaults": 
