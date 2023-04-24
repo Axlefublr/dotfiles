@@ -3080,16 +3080,6 @@
         "when": "editorTextFocus && vim.active && vim.use<C-x> && !inDebugRepl"
     },
     {
-        "key": "shift+alt+j",
-        "command": "editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "shift+alt+k",
-        "command": "editor.action.copyLinesUpAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
         "key": "shift+alt+9",
         "command": "workbench.action.debug.selectandstart",
         "when": "!inDebugMode && editorLangId != 'ahk2'"
@@ -4757,19 +4747,19 @@
         "when": "editorFocus && parameterHintsVisible && neovim.mode != 'insert'"
     },
     {
-        "key": "ctrl+shift+d",
+        "key": "ctrl+shift+k",
         "command": "workbench.action.moveEditorToAboveGroup"
     },
     {
-        "key": "ctrl+shift+f",
+        "key": "ctrl+shift+j",
         "command": "workbench.action.moveEditorToBelowGroup"
     },
     {
-        "key": "ctrl+shift+s",
+        "key": "ctrl+shift+h",
         "command": "workbench.action.moveEditorToLeftGroup"
     },
     {
-        "key": "ctrl+shift+g",
+        "key": "ctrl+shift+l",
         "command": "workbench.action.moveEditorToRightGroup"
     },
     {
@@ -4778,35 +4768,25 @@
         "when": "editorTextFocus && neovim.mode == 'visual'"
     },
     {
-        "key": "shift+alt+d",
+        "key": "shift+alt+k",
         "command": "workbench.action.focusAboveGroup"
     },
     {
-        "key": "shift+alt+f",
+        "key": "shift+alt+j",
         "command": "workbench.action.focusBelowGroup"
     },
     {
-        "key": "shift+alt+s",
+        "key": "shift+alt+h",
         "command": "workbench.action.focusLeftGroup"
     },
     {
-        "key": "shift+alt+g",
+        "key": "shift+alt+l",
         "command": "workbench.action.focusRightGroup"
     },
     {
         "key": "ctrl+alt+g",
         "command": "-workbench.action.terminal.sendSequence",
         "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+.",
-        "command": "workbench.action.focusNextGroup",
-        "when": "!panelFocus"
-    },
-    {
-        "key": "ctrl+,",
-        "command": "workbench.action.focusPreviousGroup",
-        "when": "!panelFocus"
     },
     {
         "key": "shift+alt+f",
@@ -4819,19 +4799,35 @@
         "when": "folderMatchWithResourceFocus && searchViewletVisible"
     },
     {
-        "key": "ctrl+alt+f",
+        "key": "shift+alt+f",
         "command": "workbench.action.decreaseViewHeight"
     },
     {
-        "key": "ctrl+alt+s",
+        "key": "shift+alt+s",
         "command": "workbench.action.decreaseViewWidth"
     },
     {
-        "key": "ctrl+alt+d",
+        "key": "shift+alt+d",
         "command": "workbench.action.increaseViewHeight"
     },
     {
-        "key": "ctrl+alt+g",
+        "key": "shift+alt+g",
         "command": "workbench.action.increaseViewWidth"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "workbench.action.moveActiveEditorGroupDown"
+    },
+    {
+        "key": "ctrl+alt+s",
+        "command": "workbench.action.moveActiveEditorGroupLeft"
+    },
+    {
+        "key": "ctrl+alt+g",
+        "command": "workbench.action.moveActiveEditorGroupRight"
+    },
+    {
+        "key": "ctrl+alt+d",
+        "command": "workbench.action.moveActiveEditorGroupUp"
     }
 ]
