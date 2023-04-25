@@ -6,10 +6,28 @@
         {
             "command": 
             {
+                "action": "copy",
+                "singleLine": false
+            }
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": "ctrl+space"
+        },
+        {
+            "command": 
+            {
                 "action": "movePane",
-                "index": 7
+                "index": 0
             },
-            "keys": "ctrl+alt+8"
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "command": 
+            {
+                "action": "commandPalette"
+            },
+            "keys": "alt+shift+p"
         },
         {
             "command": 
@@ -30,28 +48,18 @@
         {
             "command": 
             {
-                "action": "commandPalette"
+                "action": "movePane",
+                "index": 7
             },
-            "keys": "alt+shift+p"
+            "keys": "ctrl+alt+8"
         },
         {
             "command": 
             {
                 "action": "movePane",
-                "index": 0
+                "index": 7
             },
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "ctrl+space"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            }
+            "keys": "alt+shift+8"
         },
         {
             "command": 
@@ -464,6 +472,13 @@
                 "action": "newTab",
                 "index": 4,
                 "profile": "{e818091e-cd5d-4ac2-b6bb-9ee9ede9b380}"
+            }
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 4
             },
             "keys": "alt+shift+5"
         },
@@ -478,17 +493,17 @@
         {
             "command": 
             {
-                "action": "closeTab"
-            },
-            "keys": "ctrl+alt+w"
-        },
-        {
-            "command": 
-            {
                 "action": "newTab",
                 "index": 0
             },
             "keys": "alt+shift+1"
+        },
+        {
+            "command": 
+            {
+                "action": "closeTab"
+            },
+            "keys": "ctrl+alt+w"
         },
         {
             "command": 
@@ -504,8 +519,7 @@
                 "action": "newTab",
                 "index": 3,
                 "profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
-            },
-            "keys": "alt+shift+4"
+            }
         },
         {
             "command": 
@@ -514,6 +528,14 @@
                 "index": 1
             },
             "keys": "ctrl+alt+2"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 3
+            },
+            "keys": "alt+shift+4"
         },
         {
             "command": 
@@ -582,6 +604,14 @@
         {
             "command": 
             {
+                "action": "splitPane",
+                "split": "up"
+            },
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "command": 
+            {
                 "action": "closeOtherTabs"
             },
             "keys": "alt+shift+w"
@@ -593,14 +623,6 @@
                 "direction": "down"
             },
             "keys": "alt+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "up"
-            },
-            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -619,16 +641,16 @@
             "keys": "alt+shift+d"
         },
         {
+            "command": "restoreLastClosed",
+            "keys": "ctrl+shift+t"
+        },
+        {
             "command": 
             {
                 "action": "swapPane",
                 "direction": "up"
             },
             "keys": "ctrl+alt+d"
-        },
-        {
-            "command": "restoreLastClosed",
-            "keys": "ctrl+shift+t"
         },
         {
             "command": 
@@ -645,6 +667,14 @@
                 "index": 6
             },
             "keys": "ctrl+alt+7"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 6
+            },
+            "keys": "alt+shift+7"
         },
         {
             "command": 
@@ -683,6 +713,22 @@
                 "action": "scrollUp"
             },
             "keys": "shift+up"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 5
+            },
+            "keys": "alt+shift+6"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 8
+            },
+            "keys": "alt+shift+9"
         }
     ],
     "confirmCloseAllTabs": false,
@@ -750,35 +796,6 @@
                 "name": "Linux",
                 "source": "Windows.Terminal.Wsl",
                 "tabTitle": "Linux"
-            },
-            {
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "closeOnExit": "automatic",
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "elevate": true,
-                "guid": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}",
-                "hidden": false,
-                "historySize": 9001,
-                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
-                "name": "Command Prompt Admin",
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "useAcrylic": false
-            },
-            {
-                "antialiasingMode": "grayscale",
-                "closeOnExit": "automatic",
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "elevate": true,
-                "guid": "{e818091e-cd5d-4ac2-b6bb-9ee9ede9b380}",
-                "hidden": false,
-                "historySize": 9001,
-                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "Windows PowerShell Admin",
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "useAcrylic": false
             }
         ]
     },
