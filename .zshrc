@@ -210,7 +210,8 @@ abbrev-alias code='code-insiders'
 
 abbrev-alias bat='batcat'
 abbrev-alias v='nvim'
-abbrev-alias rmr='rm -fr'
+abbrev-alias rf='rm -f'
+abbrev-alias rr='rm -fr'
 abbrev-alias ff='ffmpeg -i'
 
 abbrev-alias egrep='grep -E'

@@ -270,6 +270,8 @@ function Next_folding_section() vim.fn.VSCodeNotify("editor.gotoNextFold") end
 
 function Prev_folding_section() vim.fn.VSCodeNotify("editor.gotoPreviousFold") end
 
+function Show_Focus_Hover() vim.fn.VSCodeNotify("editor.action.showHover") end
+
 function Toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
 
 function Trim_left() vim.fn.VSCodeNotify("yo1dog.cursor-trim.lTrimCursor") end
@@ -365,6 +367,7 @@ if vim.g.vscode then
     vim.keymap.set("", "zp", Goto_parent_fold)
     vim.keymap.set("", "]f", Next_folding_section)
     vim.keymap.set("", "[f", Prev_folding_section)
+    vim.keymap.set("", "gh", Show_Focus_Hover)
 
     --- Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Reveal_definition_aside)
