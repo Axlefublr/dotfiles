@@ -252,6 +252,7 @@ abbrev-alias grb='git rebase'
 abbrev-alias grm='git remote'
 
 abbrev-alias dn='dotnet'
+abbrev-alias dncr='dotnet new gitignore && dotnet sln *.sln add **/*.csproj && git add . && git commit -m "first commit" && git push -u origin main'
 abbrev-alias dnn='dotnet new'
 abbrev-alias dnnc='dotnet new console -n'
 abbrev-alias dnns='dotnet new sln'
