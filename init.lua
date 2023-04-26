@@ -345,6 +345,7 @@ function Git_commit_amend() vim.fn.VSCodeNotify("git.commitStagedAmend") end
 
 function Git_push_force() vim.fn.VSCodeNotify("git.pushForce") end
 
+function Save() vim.fn.VSCodeNotify("workbench.action.files.save") end
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
@@ -368,6 +369,7 @@ if vim.g.vscode then
     vim.keymap.set("", "]f", Next_folding_section)
     vim.keymap.set("", "[f", Prev_folding_section)
     vim.keymap.set("", "gh", Show_Focus_Hover)
+    vim.keymap.set("", "U", Save)
 
     --- Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Reveal_definition_aside)
@@ -404,6 +406,7 @@ if vim.g.vscode then
 
 else
     vim.keymap.set("!", "<C-v>", "<C-r><C-p>+")
+    vim.keymap.set("", "U", function() vim.cmd("w") end)
 end
 
 --- Remappings
@@ -463,13 +466,11 @@ vim.keymap.set("n", "yp",      "yyp")
 vim.keymap.set("n", "yP",      "yyP")
 vim.keymap.set("n", "gJ",      "j0d^kgJ")
 vim.keymap.set("n", "<Space>", "i <Esc>")
-vim.keymap.set("n", "U", "<C-r>")
 
 --- Visual remaps
 vim.keymap.set("v", "*",         'y/\\V<C-r>"<CR>')
 vim.keymap.set("v", "#",         'y?\\V<C-r>"<CR>')
-vim.keymap.set("v", "u",         "<Esc>u")
-vim.keymap.set("v", "U",         "<Esc><C-r>")
+vim.keymap.set("v", "u", "<Esc>u")
 vim.keymap.set("v", "<leader>q", function() FeedKeysCorrectly("ygv<Esc>" .. vim.v.count1 .. "p") end)
 
 --- Insert remaps
