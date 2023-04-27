@@ -284,8 +284,6 @@ function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefi
 
 function Toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
 
-function Trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
-
 function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
 
 function Outdent()
@@ -370,11 +368,20 @@ if vim.g.vscode then
     vim.keymap.set("", "[f", Prev_folding_section)
     vim.keymap.set("", "gh", Show_Focus_Hover)
 
+    function Trim_trailing_whitespace_Save()
+        Trim_trailing_whitespace()
+        Save()
+    end
+    vim.keymap.set("", "U", Trim_trailing_whitespace_Save)
+
     --- Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Reveal_definition_aside)
     vim.keymap.set("n", "<leader>s", Toggle_sticky_scroll)
     vim.keymap.set("n", "<leader>r", Rename_symbol)
+
+    function Trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
     vim.keymap.set("n", "==",        Trim_trailing_whitespace)
+
     vim.keymap.set("n", "gl",        Open_link)
     vim.keymap.set("n", "<<",        Outdent)
     vim.keymap.set("n", ">>",        Indent)
