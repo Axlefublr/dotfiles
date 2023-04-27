@@ -369,7 +369,6 @@ if vim.g.vscode then
     vim.keymap.set("", "]f", Next_folding_section)
     vim.keymap.set("", "[f", Prev_folding_section)
     vim.keymap.set("", "gh", Show_Focus_Hover)
-    vim.keymap.set("", "U", Save)
 
     --- Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Reveal_definition_aside)
