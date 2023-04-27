@@ -329,11 +329,6 @@ _history_right() {
     zle end-of-line
 }
 
-_less() {
-    BUFFER="$BUFFER| less"
-    zle end-of-line
-}
-
 # Hotkeys
 
 zle -N _history_replace
@@ -353,6 +348,3 @@ bindkey '^s' _get_current_dir
 
 zle -N _get_current_file
 bindkey '^a' _get_current_file
-
-zle -N _less
-bindkey '^e' _less
