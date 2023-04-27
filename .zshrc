@@ -201,6 +201,7 @@ unalias lsa
 
 alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 alias dotnet='dotnet.exe'
+alias gh="gh.exe"
 alias ...='../..'
 alias ....='../../..'
 
