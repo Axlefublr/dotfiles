@@ -354,9 +354,8 @@ if vim.g.vscode then
     vim.keymap.set("v", "gc", Comment_vis)
 
 else
-    vim.keymap.set("!", "<C-v>", "<C-r><C-p>+")
-
-    vim.keymap.set("", "U", function() vim.cmd("w") end)
+    function Save_vim() vim.cmd("w") end
+    vim.keymap.set("", "U", Save_vim)
 end
 
 function Hop_forward_f_sameline()
@@ -390,13 +389,17 @@ function Hop_backward_t_sameline() hop.hint_char1({
 end
 vim.keymap.set("", "<leader>T", Hop_backward_t_sameline)
 
-vim.keymap.set("v", "im", "aBV")
+local Block_text_object_self_sameline = "aBV"
+vim.keymap.set("v", "im", Block_text_object_self_sameline)
 
-vim.keymap.set("v", "am", "aBVj")
+local Block_text_object_extra_sameline = "aBVj"
+vim.keymap.set("v", "am", Block_text_object_extra_sameline)
 
-vim.keymap.set("v", "iM", "aBVok")
+local Block_text_object_self_diffline = "aBVok"
+vim.keymap.set("v", "iM", Block_text_object_self_diffline)
 
-vim.keymap.set("v", "aM", "aBVjok")
+local Block_text_object_extra_diffline = "aBVjok"
+vim.keymap.set("v", "aM", Block_text_object_extra_diffline)
 
 vim.keymap.set("o", "im", function() vim.cmd("normal vaBV") end)
 
@@ -532,7 +535,8 @@ vim.keymap.set("", "'i", '"_')
 
 vim.keymap.set("", "';", '":')
 
-vim.keymap.set("!", "<C-r>q", "<C-r><C-p>+")
+local PasteSystemClipboard = "<C-r><C-p>+"
+vim.keymap.set("!", "<C-v>", PasteSystemClipboard)
 
 vim.keymap.set("!", "<C-r>w", "<C-r><C-p>0")
 
