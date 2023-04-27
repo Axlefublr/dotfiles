@@ -343,7 +343,7 @@ function Git_commit_amend() vim.fn.VSCodeNotify("git.commitStagedAmend") end
 
 function Git_push_force() vim.fn.VSCodeNotify("git.pushForce") end
 
-function Save() vim.fn.VSCodeNotify("workbench.action.files.save") end
+function Save() vim.fn.VSCodeCall("workbench.action.files.save") end
 function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
 
 function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
@@ -368,11 +368,11 @@ if vim.g.vscode then
     vim.keymap.set("", "[f", Prev_folding_section)
     vim.keymap.set("", "gh", Show_Focus_Hover)
 
-    function Trim_trailing_whitespace_Save()
+    function Trim_trailing_whitespace__Save()
         Trim_trailing_whitespace()
         Save()
     end
-    vim.keymap.set("", "U", Trim_trailing_whitespace_Save)
+    vim.keymap.set("", "U", Trim_trailing_whitespace__Save)
 
     --- Vscode: Normal remaps
     vim.keymap.set("n", "gD",        Reveal_definition_aside)
@@ -395,7 +395,13 @@ if vim.g.vscode then
     vim.keymap.set("n", "<leader>ga", Git_stage_file)
     vim.keymap.set("n", "<leader>gA", Git_stage_all)
     vim.keymap.set("n", "<leader>gu", Git_unstage_file)
-    vim.keymap.set("n", "<leader>gm", Git_commit)
+
+    function Trim_trailing_whitespace__Save__Git_commit()
+        Trim_trailing_whitespace__Save()
+        Git_commit()
+    end
+    vim.keymap.set("n", "<leader>gm", Trim_trailing_whitespace__Save__Git_commit)
+
     vim.keymap.set("n", "<leader>gM", Git_commit_amend)
     vim.keymap.set("n", "<leader>gp", Git_push)
     vim.keymap.set("n", "<leader>gP", Git_push_force)
