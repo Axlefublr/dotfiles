@@ -482,8 +482,6 @@ vim.keymap.set("n", "~", Switch_case_stays_in_place)
 local Capital_q_executes_m_register = "@m"
 vim.keymap.set("n", "Q", Capital_q_executes_m_register)
 
-vim.keymap.set("n", "G", "G")
-
 vim.keymap.set("n", "dp", "ddp")
 
 vim.keymap.set("n", "dP", "ddkP")
