@@ -404,11 +404,14 @@ vim.keymap.set("v", "aM", Block_text_object_extra_diffline)
 function Block_text_object_self_sameline_operator() vim.cmd("normal vaBV") end
 vim.keymap.set("o", "im", Block_text_object_self_sameline_operator)
 
-vim.keymap.set("o", "am", function() vim.cmd("normal vaBVj") end)
+function Block_text_object_extra_sameline_operator() vim.cmd("normal vaBVj") end
+vim.keymap.set("o", "am", Block_text_object_extra_sameline_operator)
 
-vim.keymap.set("o", "iM", function() vim.cmd("normal vaBVok") end)
+function Block_text_object_self_diffline_operator() vim.cmd("normal vaBVok") end
+vim.keymap.set("o", "iM", Block_text_object_self_diffline_operator)
 
-vim.keymap.set("o", "aM", function() vim.cmd("normal vaBVjok") end)
+function Block_text_object_extra_diffline_operator() vim.cmd("normal vaBVjok") end
+vim.keymap.set("o", "aM", Block_text_object_extra_diffline_operator)
 
 vim.keymap.set("v", "i%", "T%ot%")
 
