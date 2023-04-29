@@ -434,13 +434,17 @@ vim.keymap.set("v", "ir", Markdown_heading_text_object_self_sameline_visual)
 local Markdown_heading_text_object_self_diffline_visual = "?^#<CR>koNk"
 vim.keymap.set("v", "iR", Markdown_heading_text_object_self_diffline_visual)
 
-vim.keymap.set("v", "agc", "[/o]/V")
+local Comment_text_object_self_visual = "[/3lo]/2h"
+vim.keymap.set("v", "igc", Comment_text_object_self_visual)
 
-vim.keymap.set("v", "igc", "[/3lo]/2h")
+local Comment_text_object_extra_visual = "[/o]/V"
+vim.keymap.set("v", "agc", Comment_text_object_extra_visual)
 
-vim.keymap.set("o", "agc", function() vim.cmd("normal v[/o]/V") end)
+function Comment_text_object_extra_operator() vim.cmd("normal v[/o]/V") end
+vim.keymap.set("o", "agc", Comment_text_object_extra_operator)
 
-vim.keymap.set("o", "igc", function() vim.cmd("normal v[/3lo]/2h") end)
+function Comment_text_object_self_operator() vim.cmd("normal v[/3lo]/2h") end
+vim.keymap.set("o", "igc", Comment_text_object_self_operator)
 
 vim.keymap.set("", ";", ":")
 
