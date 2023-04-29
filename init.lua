@@ -361,6 +361,9 @@ end
 local EasyAlignMapping = "<Plug>(EasyAlign)"
 vim.keymap.set("", "ga", EasyAlignMapping)
 
+local ReplaceWithRegisterMapping = "<Plug>ReplaceWithRegisterLine"
+vim.keymap.set("n", "grr", ReplaceWithRegisterMapping)
+
 function Hop_forward_f_sameline()
     hop.hint_char1({
         direction = directions.AFTER_CURSOR,
@@ -446,29 +449,38 @@ vim.keymap.set("o", "agc", Comment_text_object_extra_operator)
 function Comment_text_object_self_operator() vim.cmd("normal v[/3lo]/2h") end
 vim.keymap.set("o", "igc", Comment_text_object_self_operator)
 
-vim.keymap.set("", ";", ":")
+function Goto_end_of_prev_line() FeedKeysCorrectly(vim.v.count1 .. "k$") end
+vim.keymap.set("", "_", Goto_end_of_prev_line)
 
-vim.keymap.set("", "'", '"')
+local Command_mode_remap = ":"
+vim.keymap.set("", ";", Command_mode_remap)
 
-vim.keymap.set("", ":", ",")
+local Register_access_remap = '"'
+vim.keymap.set("", "'", Register_access_remap)
 
-vim.keymap.set("", '"', ";")
+local Redo_seek_motion_backwards = ","
+vim.keymap.set("", ":", Redo_seek_motion_backwards)
 
-vim.keymap.set("", "gm", "gM")
+local Redo_seek_motion_forwards = ";"
+vim.keymap.set("", '"', Redo_seek_motion_forwards)
 
-vim.keymap.set("", "s", '"_s')
+local Goto_middle_of_line = "gM"
+vim.keymap.set("", "gm", Goto_middle_of_line)
 
-vim.keymap.set("", "S", '"_S')
+local Small_substitute_doesnt_consume_register = '"_s'
+vim.keymap.set("", "s", Small_substitute_doesnt_consume_register)
 
-vim.keymap.set("", "_", function() FeedKeysCorrectly(vim.v.count1 .. "k$") end)
+local Big_substitute_doesnt_consume_register = '"_S'
+vim.keymap.set("", "S", Big_substitute_doesnt_consume_register)
 
-vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
+local Capital_yank_doesnt_consume_newline = "yg_"
+vim.keymap.set("n", "Y", Capital_yank_doesnt_consume_newline)
 
-vim.keymap.set("n", "Y", "yg_")
+local Switch_case_stays_in_place = "~h"
+vim.keymap.set("n", "~", Switch_case_stays_in_place)
 
-vim.keymap.set("n", "~", "~h")
-
-vim.keymap.set("n", "Q", "@m")
+local Capital_q_executes_m_register = "@m"
+vim.keymap.set("n", "Q", Capital_q_executes_m_register)
 
 vim.keymap.set("n", "gg", "gg")
 
