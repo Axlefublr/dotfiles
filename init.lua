@@ -401,7 +401,8 @@ vim.keymap.set("v", "iM", Block_text_object_self_diffline)
 local Block_text_object_extra_diffline = "aBVjok"
 vim.keymap.set("v", "aM", Block_text_object_extra_diffline)
 
-vim.keymap.set("o", "im", function() vim.cmd("normal vaBV") end)
+function Block_text_object_self_sameline_operator() vim.cmd("normal vaBV") end
+vim.keymap.set("o", "im", Block_text_object_self_sameline_operator)
 
 vim.keymap.set("o", "am", function() vim.cmd("normal vaBVj") end)
 
@@ -453,7 +454,7 @@ vim.keymap.set("n", "Y", "yg_")
 
 vim.keymap.set("n", "~", "~h")
 
-vim.keymap.set("n", "Q", "@q")
+vim.keymap.set("n", "Q", "@m")
 
 vim.keymap.set("n", "gg", "gg")
 
