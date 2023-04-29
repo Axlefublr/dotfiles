@@ -425,9 +425,11 @@ vim.keymap.set("o", "i%", Percent_sign_text_object_self_operator)
 function Percent_sign_text_object_extra_operator() vim.cmd("normal vF%of%") end
 vim.keymap.set("o", "a%", Percent_sign_text_object_extra_operator)
 
-vim.keymap.set("v", "ir", "?^#<CR>oNk")
+local Markdown_heading_text_object_self_sameline_visual = "?^#<CR>oNk"
+vim.keymap.set("v", "ir", Markdown_heading_text_object_self_sameline_visual)
 
-vim.keymap.set("v", "iR", "?^#<CR>koNk")
+local Markdown_heading_text_object_self_diffline_visual = "?^#<CR>koNk"
+vim.keymap.set("v", "iR", Markdown_heading_text_object_self_diffline_visual)
 
 vim.keymap.set("v", "agc", "[/o]/V")
 
