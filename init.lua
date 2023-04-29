@@ -413,13 +413,17 @@ vim.keymap.set("o", "iM", Block_text_object_self_diffline_operator)
 function Block_text_object_extra_diffline_operator() vim.cmd("normal vaBVjok") end
 vim.keymap.set("o", "aM", Block_text_object_extra_diffline_operator)
 
-vim.keymap.set("v", "i%", "T%ot%")
+local Percent_sign_text_object_self_visual = "T%ot%"
+vim.keymap.set("v", "i%", Percent_sign_text_object_self_visual)
 
-vim.keymap.set("v", "a%", "F%of%")
+local Percent_sign_text_object_extra_visual = "F%of%"
+vim.keymap.set("v", "a%", Percent_sign_text_object_extra_visual)
 
-vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
+function Percent_sign_text_object_self_operator() vim.cmd("normal vT%ot%") end
+vim.keymap.set("o", "i%", Percent_sign_text_object_self_operator)
 
-vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
+function Percent_sign_text_object_extra_operator() vim.cmd("normal vF%of%") end
+vim.keymap.set("o", "a%", Percent_sign_text_object_extra_operator)
 
 vim.keymap.set("v", "ir", "?^#<CR>oNk")
 
