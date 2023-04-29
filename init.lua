@@ -358,6 +358,9 @@ else
     vim.keymap.set("", "U", Save_vim)
 end
 
+local EasyAlignMapping = "<Plug>(EasyAlign)"
+vim.keymap.set("", "ga", EasyAlignMapping)
+
 function Hop_forward_f_sameline()
     hop.hint_char1({
         direction = directions.AFTER_CURSOR,
@@ -438,8 +441,6 @@ vim.keymap.set("v", "igc", "[/3lo]/2h")
 vim.keymap.set("o", "agc", function() vim.cmd("normal v[/o]/V") end)
 
 vim.keymap.set("o", "igc", function() vim.cmd("normal v[/3lo]/2h") end)
-
-vim.keymap.set("", "ga", "<Plug>(EasyAlign)")
 
 vim.keymap.set("", ";", ":")
 
