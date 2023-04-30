@@ -534,7 +534,7 @@ vim.keymap.set("n", "<CR>", "i<CR><Esc>")
 
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 
-vim.keymap.set("", "<leader>y", function() vim.cmd("set hlsearch!") end)
+vim.keymap.set("", "<leader>m", function() vim.cmd("set hlsearch!") end)
 
 vim.keymap.set("n", "<leader>q", function() FeedKeysCorrectly("yl" .. vim.v.count1 .. "p") end)
 
