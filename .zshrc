@@ -274,7 +274,11 @@ abbrev-alias ghrl='gh repo list'
 abbrev-alias ghrcl='gh repo clone'
 abbrev-alias ghrc='gh repo create --public'
 abbrev-alias ghrcc='gh repo create --clone --public'
-abbrev-alias ghrd='gh repo delete --confirm'
+abbrev-alias ghrd='gh repo delete --yes'
+abbrev-alias ghg='gh gist'
+abbrev-alias ghgl='gh gist list'
+abbrev-alias ghgc='gh gist create'
+abbrev-alias ghge='gh gist edit'
 
 # Functions
 
