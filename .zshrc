@@ -235,6 +235,7 @@ abbrev-alias gd='git diff'
 abbrev-alias gs='git status'
 abbrev-alias gsh='git show'
 abbrev-alias gl='git log'
+abbrev-alias glp='git log -p'
 abbrev-alias glo='git log --oneline'
 abbrev-alias ga='git add'
 abbrev-alias gaa='git add .'
@@ -299,11 +300,11 @@ flist() {
 }
 
 dpick() {
-    dlist "$@" | fzf -m --cycle | sed 's/^/"/; s/$/"/'
+    dlist "$@" | fzf -m --cycle | sed "s/^/'/; s/$/'/"
 }
 
 fpick() {
-    flist "$@" | fzf -m --cycle | sed 's/^/"/; s/$/"/'
+    flist "$@" | fzf -m --cycle | sed "s/^/'/; s/$/'/"
 }
 
 _get_important_dir() {
