@@ -254,6 +254,8 @@ abbrev-alias gr='git reset'
 abbrev-alias gst='git stash'
 abbrev-alias grb='git rebase'
 abbrev-alias grm='git remote'
+abbrev-alias grs='git restore'
+abbrev-alias grss='git restore --staged'
 
 abbrev-alias dn='dotnet'
 abbrev-alias dnw='dotnet watch'
