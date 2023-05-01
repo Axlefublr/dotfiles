@@ -272,6 +272,7 @@ abbrev-alias dnr='dotnet run'
 abbrev-alias dnrp='dotnet run --project'
 abbrev-alias dnb='dotnet build'
 abbrev-alias dna='dotnet add'
+abbrev-alias dnf='dotnet format'
 
 abbrev-alias ghr='gh repo'
 abbrev-alias ghrl='gh repo list'
@@ -308,23 +309,27 @@ fpick() {
     flist "$@" | fzf -m --cycle | sed "s/^/'/; s/$/'/"
 }
 
+smush() {
+    tr '\n' ' ' | sed 's/[[:space:]]*$//'
+}
+
 _get_important_dir() {
-    BUFFER="$BUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
+    BUFFER="$BUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
     zle end-of-line
 }
 
 _get_important_file() {
-    BUFFER="$BUFFER$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | tr '\n' ' ')"
+    BUFFER="$BUFFER$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
     zle end-of-line
 }
 
 _get_current_dir() {
-    BUFFER="$BUFFER$(dpick . | tr '\n' ' ')"
+    BUFFER="$BUFFER$(dpick . | smush)"
     zle end-of-line
 }
 
 _get_current_file() {
-    BUFFER="$BUFFER$(fpick . | tr '\n' ' ')"
+    BUFFER="$BUFFER$(fpick . | smush)"
     zle end-of-line
 }
 
