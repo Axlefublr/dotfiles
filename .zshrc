@@ -288,14 +288,14 @@ abbrev-alias ghge='gh gist edit'
 dlist() {
     for arg in "$@"
     do
-        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name bin \) -prune -o -type d -print
+        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
     done
 }
 
 flist() {
     for arg in "$@"
     do
-        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name bin \) -prune -o -type f -print
+        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type f -print
     done
 }
 
