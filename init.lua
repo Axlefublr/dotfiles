@@ -570,4 +570,7 @@ vim.keymap.set("!", "<C-b>",  '<C-r><C-p>"')
 local Delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, {remap = true})
 
+local Delete_big_word_insert = '<C-o>dvB'
+vim.keymap.set("!", "<C-w>", Delete_big_word_insert)
+
 print("nvim loaded")
