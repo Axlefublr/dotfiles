@@ -567,4 +567,7 @@ vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
 
 vim.keymap.set("!", "<C-b>",  '<C-r><C-p>"')
 
+local Delete_line_but_take_inside_line = 'dil\'_dd'
+vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, {remap = true})
+
 print("nvim loaded")
