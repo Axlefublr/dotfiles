@@ -595,7 +595,7 @@
         "when": "notebookCellEditable && notebookCellHasOutputs && notebookEditable && notebookEditorFocused && !inputFocus"
     },
     {
-        "key": "ctrl+backspace",
+        "key": "+backspace",
         "command": "-workbench.action.terminal.sendSequence",
         "when": "terminalFocus"
     },
@@ -796,7 +796,7 @@
         "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
     },
     {
-        "key": "alt+k",
+        "key": "alt+h",
         "command": "keybindings.editor.searchKeybindings",
         "when": "inKeybindings"
     },
@@ -941,11 +941,6 @@
         "key": "ctrl+shift+backspace",
         "command": "-search.searchEditor.action.deleteFileResults",
         "when": "inSearchEditor"
-    },
-    {
-        "key": "shift+escape",
-        "command": "-closeParameterHints",
-        "when": "editorFocus && parameterHintsVisible"
     },
     {
         "key": "shift+space",
@@ -1097,7 +1092,7 @@
         "when": "suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "alt+j",
+        "key": "alt+l",
         "command": "keybindings.editor.focusKeybindings",
         "when": "inKeybindings"
     },
@@ -2283,11 +2278,6 @@
         "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
     },
     {
-        "key": "ctrl+backspace",
-        "command": "deleteWordLeft",
-        "when": "textInputFocus && !editorReadonly"
-    },
-    {
         "key": "escape",
         "command": "-closeFindWidget",
         "when": "editorFocus && findWidgetVisible && !isComposing"
@@ -3111,7 +3101,7 @@
     {
         "key": "ctrl+space",
         "command": "editor.action.quickFix",
-        "when": "textInputFocus && !suggestWidgetVisible && neovim.mode != 'insert'"
+        "when": "textInputFocus && !suggestWidgetVisible && neovim.mode != 'insert' && !codeActionMenuVisible && !actionWidgetVisible"
     },
     {
         "key": "ctrl+; r",
@@ -3402,10 +3392,6 @@
         "command": "copyFilePath"
     },
     {
-        "key": "ctrl+; d",
-        "command": "fileutils.removeFile"
-    },
-    {
         "key": "ctrl+f",
         "command": "-commentsFocusFilter",
         "when": "focusedView == 'workbench.panel.comments'"
@@ -3476,7 +3462,7 @@
     {
         "key": "tab",
         "command": "acceptSelectedSuggestion",
-        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inSnippetMode"
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
     },
     {
         "key": "alt+k",
@@ -4168,10 +4154,6 @@
         "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
     },
     {
-        "key": "ctrl+s",
-        "command": "workbench.action.files.save"
-    },
-    {
         "key": "ctrl+shift+s",
         "command": "workbench.files.action.saveAllInGroup"
     },
@@ -4182,10 +4164,6 @@
     {
         "key": "ctrl+alt+y",
         "command": "workbench.action.removeRootFolder"
-    },
-    {
-        "key": "ctrl+shift+n",
-        "command": "fileutils.newFolderAtRoot"
     },
     {
         "key": "ctrl+shift+;",
@@ -4260,11 +4238,6 @@
         "key": "ctrl+z",
         "command": "undo",
         "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.mode != 'insert'"
-    },
-    {
-        "key": "ctrl+z",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.init && neovim.mode != 'insert'"
     },
     {
         "key": "ctrl+g",
@@ -4697,11 +4670,6 @@
         "when": "editorTextFocus && !suggestWidgetVisible && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
     },
     {
-        "key": "ctrl+]",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
-    },
-    {
         "key": "ctrl+.",
         "command": "-editor.action.quickFix",
         "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
@@ -4761,11 +4729,6 @@
     {
         "key": "ctrl+shift+l",
         "command": "workbench.action.moveEditorToRightGroup"
-    },
-    {
-        "key": "ctrl+shift+f",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.mode == 'visual'"
     },
     {
         "key": "shift+alt+k",
@@ -4829,5 +4792,178 @@
     {
         "key": "ctrl+alt+d",
         "command": "workbench.action.moveActiveEditorGroupUp"
+    },
+    {
+        "key": "ctrl+; h",
+        "command": "editor.action.showHover",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+; h",
+        "command": "workbench.action.terminal.focusHover",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalIsOpen || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "-workbench.action.terminal.focusHover",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalIsOpen || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "down",
+        "command": "editor.action.scrollDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "down",
+        "command": "-editor.action.scrollDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "h",
+        "command": "editor.action.scrollLeftHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "left",
+        "command": "-editor.action.scrollLeftHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "l",
+        "command": "editor.action.scrollRightHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "right",
+        "command": "-editor.action.scrollRightHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "k",
+        "command": "editor.action.scrollUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "up",
+        "command": "-editor.action.scrollUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "u",
+        "command": "editor.action.pageUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "alt+up",
+        "command": "-editor.action.pageUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "p",
+        "command": "editor.action.pageDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "alt+down",
+        "command": "-editor.action.pageDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "i",
+        "command": "editor.action.goToTopHover",
+        "when": "editorHoverFocused && !inputFocus"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "-editor.action.goToTopHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "o",
+        "command": "editor.action.goToBottomHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "-editor.action.goToBottomHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "left",
+        "command": "editor.action.scrollLeftHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "right",
+        "command": "editor.action.scrollRightHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "up",
+        "command": "editor.action.scrollUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "j",
+        "command": "editor.action.scrollDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "shift+alt+u",
+        "command": "workbench.files.action.saveAllInGroup"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.files.save"
+    },
+    {
+        "key": "escape",
+        "command": "-editor.action.inlineSuggest.hide",
+        "when": "inlineSuggestionVisible"
+    },
+    {
+        "key": "alt+l",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "!inlineSuggestionVisible && !inKeybindings"
+    },
+    {
+        "key": "alt+h",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "!inlineSuggestionVisible && !inKeybindings"
+    },
+    {
+        "key": "ctrl+shift+f12",
+        "command": "-editor.action.peekImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "shift+escape",
+        "command": "-closeReferenceSearch",
+        "when": "inReferenceSearchEditor && !config.editor.stablePeek"
+    },
+    {
+        "key": "shift+escape",
+        "command": "-closeReferenceSearch",
+        "when": "referenceSearchVisible && !config.editor.stablePeek"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "hideCodeActionWidget",
+        "when": "actionWidgetVisible || codeActionMenuVisible"
+    },
+    {
+        "key": "tab",
+        "command": "-jumpToNextSnippetPlaceholder",
+        "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+    },
+    {
+        "key": "shift+tab",
+        "command": "-jumpToPrevSnippetPlaceholder",
+        "when": "editorTextFocus && hasPrevTabstop && inSnippetMode"
+    },
+    {
+        "key": "delete",
+        "command": "keybindings.editor.removeKeybinding",
+        "when": "inKeybindings && keybindingFocus && !inputFocus"
     }
 ]
