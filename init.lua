@@ -479,8 +479,8 @@ vim.keymap.set("n", "Y", Capital_yank_doesnt_consume_newline)
 local Switch_case_stays_in_place = "~h"
 vim.keymap.set("n", "~", Switch_case_stays_in_place)
 
-local Capital_q_executes_m_register = "@m"
-vim.keymap.set("n", "Q", Capital_q_executes_m_register)
+local Capital_q_executes_i_register = "@i"
+vim.keymap.set("n", "Q", Capital_q_executes_i_register)
 
 vim.keymap.set("n", "dp", "ddp")
 
@@ -534,7 +534,8 @@ vim.keymap.set("n", "<CR>", "i<CR><Esc>")
 
 vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
 
-vim.keymap.set("", "<leader>m", function() vim.cmd("set hlsearch!") end)
+function Toggle_highlight_search() vim.cmd("set hlsearch!") end
+vim.keymap.set("", "<leader>h", Toggle_highlight_search)
 
 vim.keymap.set("n", "<leader>q", function() FeedKeysCorrectly("yl" .. vim.v.count1 .. "p") end)
 
@@ -548,7 +549,7 @@ vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
 
 vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
 
-vim.keymap.set("n", "<leader>in", "mRggO#Include <")
+vim.keymap.set("n", "<leader>in", "mIggO#Include <")
 
 vim.keymap.set("", "'q", '"+')
 
@@ -572,5 +573,8 @@ vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, {remap = tru
 
 local Delete_big_word_insert = '<C-o>dvB'
 vim.keymap.set("!", "<C-w>", Delete_big_word_insert)
+
+local Move_line_to_top = 'ddmiggP`i'
+-- vim.keymap.set("", "")
 
 print("nvim loaded")

@@ -273,12 +273,17 @@
         "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
     "[lua]": {
-        "editor.defaultFormatter": "sumneko.lua"
+        "editor.defaultFormatter": "sumneko.lua",
+        "editor.formatOnSave": false
     },
     "[markdown]": {
         "editor.quickSuggestions": {
             "other": "inline"
-        }
+        },
+        "editor.formatOnSave": false
+    },
+    "[html]": {
+        "editor.formatOnSave": false
     },
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
@@ -286,7 +291,6 @@
     "editor.fontSize": 24,
     "editor.fontLigatures": false,
     "editor.bracketPairColorization.enabled": true,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.mouseWheelScrollSensitivity": 1.7,
     "editor.parameterHints.enabled": false,
     "editor.acceptSuggestionOnEnter": "off",
@@ -302,7 +306,6 @@
     "editor.suggest.localityBonus": true,
     "editor.formatOnPaste": true,
     "editor.linkedEditing": true,
-    "editor.renderLineHighlight": "gutter",
     "editor.wordWrap": "bounded",
     "editor.find.cursorMoveOnType": false,
     "editor.suggest.insertMode": "replace",
@@ -386,15 +389,12 @@
     "vscode-neovim.neovimExecutablePaths.linux": "~/.local/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.linux": "/mnt/c/Programming/dotfiles/init.lua",
     "editor.occurrencesHighlight": false,
-    "files.trimFinalNewlines": true,
     "markdown.validate.enabled": true,
     "editor.lineNumbers": "relative",
     "editor.suggest.preview": true,
-    "editor.snippetSuggestions": "bottom",
     "editor.find.seedSearchStringFromSelection": "never",
     "debug.inlineValues": "on",
     "editor.suggest.matchOnWordStartOnly": false,
-    "prettier.bracketSameLine": true,
     "files.eol": "\n",
     "vscode-neovim.logOutputToConsole": true,
     "omnisharp.enableImportCompletion": true,
@@ -403,7 +403,6 @@
     "omnisharp.enableAsyncCompletion": true,
     "csharp.inlayHints.types.enabled": true,
     "csharp.inlayHints.parameters.enabled": true,
-    "editor.tabCompletion": "on",
     "search.collapseResults": "auto",
     "search.defaultViewMode": "tree",
     "workbench.list.smoothScrolling": true,
@@ -473,11 +472,9 @@
     "git.verboseCommit": true,
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorWidth": 4,
-    "files.autoSave": "afterDelay",
     "material-icon-theme.files.color": "#90a4ae",
     "editor.inlineSuggest.suppressSuggestions": true,
     "editor.suggest.showInlineDetails": false,
-    "editor.suggest.showSnippets": false,
     "Lua.completion.keywordSnippet": "Disable",
     "editor.wordBasedSuggestionsMode": "allDocuments",
     "csharp.inlayHints.parameters.forLiteralParameters": true,
@@ -488,5 +485,9 @@
     "csharp.inlayHints.types.forImplicitVariableTypes": true,
     "csharp.inlayHints.types.forLambdaParameterTypes": true,
     "window.zoomLevel": 1,
-    "csharp.inlayHints.parameters.forObjectCreationParameters": true
+    "csharp.inlayHints.parameters.forObjectCreationParameters": true,
+    "files.autoSave": "onFocusChange",
+    "editor.tabCompletion": "on",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.renderLineHighlight": "gutter"
 }

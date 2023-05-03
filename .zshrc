@@ -199,14 +199,15 @@ unalias l
 unalias lsa
 
 alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias less='less --use-color'
 alias dotnet='dotnet.exe'
 alias gh="gh.exe"
+alias code="code-insiders"
 alias ...='../..'
 alias ....='../../..'
 
 abbrev-alias exp='explorer.exe'
 abbrev-alias clip='clip.exe'
-abbrev-alias code='code-insiders'
 
 abbrev-alias ch='ChoreTracker.exe'
 
@@ -343,6 +344,11 @@ _history_right() {
     zle end-of-line
 }
 
+_paste_clipboard() {
+    BUFFER="$LBUFFER$(win32yank.exe -o)$RBUFFER"
+    zle end-of-line
+}
+
 # Hotkeys
 
 zle -N _history_replace
@@ -362,3 +368,6 @@ bindkey '^s' _get_current_dir
 
 zle -N _get_current_file
 bindkey '^a' _get_current_file
+
+zle -N _paste_clipboard
+bindkey '^v' _paste_clipboard
