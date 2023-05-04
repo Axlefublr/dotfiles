@@ -379,9 +379,14 @@ if vim.g.vscode then
 	vim.keymap.set("v", "gc", Comment_vis)
 
 else
+
 	function Save_vim() vim.cmd("w") end
 	vim.keymap.set("", "U", Save_vim)
+
 end
+
+local Enter_separates_line = "i<CR><Esc>"
+vim.keymap.set("n", "<CR>", Enter_separates_line)
 
 local EasyAlignMapping = "<Plug>(EasyAlign)"
 vim.keymap.set("", "ga", EasyAlignMapping)
@@ -507,91 +512,128 @@ vim.keymap.set("n", "~", Switch_case_stays_in_place)
 local Capital_q_executes_i_register = "@i"
 vim.keymap.set("n", "Q", Capital_q_executes_i_register)
 
-vim.keymap.set("n", "dp", "ddp")
+local Switch_lines_forward = "ddp"
+vim.keymap.set("n", "dp", Switch_lines_forward)
 
-vim.keymap.set("n", "dP", "ddkP")
+local Switch_lines_backward = "ddkP"
+vim.keymap.set("n", "dP", Switch_lines_backward)
 
-vim.keymap.set("n", "yp", "yyp")
+local Copy_line_forward = "yyp"
+vim.keymap.set("n", "yp", Copy_line_forward)
 
-vim.keymap.set("n", "yP", "yyP")
+local Copy_line_backward = "yyP"
+vim.keymap.set("n", "yP", Copy_line_backward)
 
-vim.keymap.set("n", "gJ", "j0d^kgJ")
+local Join_lines_no_space = "j0d^kgJ"
+vim.keymap.set("n", "gJ", Join_lines_no_space)
 
-vim.keymap.set("n", "<Space>", "i <Esc>")
+local Space_action = ""
+vim.keymap.set("n", "<Space>", Space_action)
 
-vim.keymap.set("v", "*", 'y/\\V<C-r>"<CR>')
+local Backspace_action = ""
+vim.keymap.set("n", "<BS>", Backspace_action)
 
-vim.keymap.set("v", "#", 'y?\\V<C-r>"<CR>')
+local Search_word_forward = 'y/\\V<C-r>"<CR>'
+vim.keymap.set("v", "*", Search_word_forward)
 
-vim.keymap.set("v", "u", "<Esc>u")
+local Search_word_backward = 'y?\\V<C-r>"<CR>'
+vim.keymap.set("v", "#", Search_word_backward)
 
-vim.keymap.set("v", "<leader>q", function() FeedKeysCorrectly("ygv<Esc>" .. vim.v.count1 .. "p") end)
+local Disable_u_visual = "<Esc>u"
+vim.keymap.set("v", "u", Disable_u_visual)
 
-vim.keymap.set("i", "<C-l>", "<C-x><C-l>")
+function Multiply_visual() FeedKeysCorrectly("ygv<Esc>" .. vim.v.count1 .. "p") end
+vim.keymap.set("v", "<leader>q", Multiply_visual)
 
-vim.keymap.set("i", "<C-i>", '<Esc>"_S')
+local Complete_line = "<C-x><C-l>"
+vim.keymap.set("i", "<C-l>", Complete_line)
 
-vim.keymap.set("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>')
+local Replace_line_insert = '<Esc>"_S'
+vim.keymap.set("i", "<C-i>", Replace_line_insert)
 
-vim.keymap.set("i", "<C-k>", "<C-o>O")
+local Delete_up_to_last_line_end = '<C-o>"_S<Esc><C-o>gI<BS>'
+vim.keymap.set("i", "<C-h>", Delete_up_to_last_line_end)
 
-vim.keymap.set("i", "<C-j>", "<C-o>o")
+local Insert_blank_line_up_insert = "<C-o>O"
+vim.keymap.set("i", "<C-k>", Insert_blank_line_up_insert)
 
-vim.keymap.set("o", "{", "V{")
+local Insert_blank_line_down_insert = "<C-o>o"
+vim.keymap.set("i", "<C-j>", Insert_blank_line_down_insert)
 
-vim.keymap.set("o", "}", "V}")
+local Previous_blank_line_operator = "V{"
+vim.keymap.set("o", "{", Previous_blank_line_operator)
 
-vim.keymap.set("", "<C-f>", "20jzz")
+local Next_blank_line_operator = "V}"
+vim.keymap.set("o", "}", Next_blank_line_operator)
 
-vim.keymap.set("", "<C-b>", "20kzz")
+local Twenty_lines_down = "20jzz"
+vim.keymap.set("", "<C-f>", Twenty_lines_down)
 
-vim.keymap.set("", "<C-d>", "12jzz")
+local Twenty_lines_up = "20kzz"
+vim.keymap.set("", "<C-b>", Twenty_lines_up)
 
-vim.keymap.set("", "<C-u>", "12kzz")
+local Twelve_lines_down = "12jzz"
+vim.keymap.set("", "<C-d>", Twelve_lines_down)
 
-vim.keymap.set("", "<C-r>", "<C-r><C-p>")
+local Twelve_lines_up = "12kzz"
+vim.keymap.set("", "<C-u>", Twelve_lines_up)
 
-vim.keymap.set("n", "<C-k>", "O<Esc>")
+local Insert_blank_line_up = "O<Esc>"
+vim.keymap.set("n", "<C-k>", Insert_blank_line_up)
 
-vim.keymap.set("n", "<C-j>", "o<Esc>")
+local Insert_blank_line_down = "o<Esc>"
+vim.keymap.set("n", "<C-j>", Insert_blank_line_down)
 
-vim.keymap.set("n", "<CR>", "i<CR><Esc>")
-
-vim.keymap.set("", "<leader>/", function() vim.cmd("noh") end)
+function Remove_highlighting() vim.cmd("noh") end
+vim.keymap.set("", "<leader>/", Remove_highlighting)
 
 function Toggle_highlight_search() vim.cmd("set hlsearch!") end
 vim.keymap.set("", "<leader>h", Toggle_highlight_search)
 
-vim.keymap.set("n", "<leader>q", function() FeedKeysCorrectly("yl" .. vim.v.count1 .. "p") end)
+function Multiply() FeedKeysCorrectly("yl" .. vim.v.count1 .. "p") end
+vim.keymap.set("n", "<leader>q", Multiply)
 
-vim.keymap.set("n", "<leader>di", '"_ddddpvaB<Esc>')
+local Vore_out_line_into_block = '"_ddddpvaB<Esc>'
+vim.keymap.set("n", "<leader>di", Vore_out_line_into_block)
 
-vim.keymap.set("n", "<leader>bi", "vaBo<Esc>s=> <Esc>Jjdd")
+local Convert_to_arrow_function = "vaBo<Esc>s=> <Esc>Jjdd"
+vim.keymap.set("n", "<leader>bi", Convert_to_arrow_function)
 
-vim.keymap.set("n", "<leader>ba", "^f(%f=c3l{<CR><Esc>o}<Esc>")
+local Convert_to_normal_function = "^f(%f=c3l{<CR><Esc>o}<Esc>"
+vim.keymap.set("n", "<leader>ba", Convert_to_normal_function)
 
-vim.keymap.set("n", "<leader>,", "mrA,<Esc>`r")
+local Add_comma_at_end_of_line = "mrA,<Esc>`r"
+vim.keymap.set("n", "<leader>,", Add_comma_at_end_of_line)
 
-vim.keymap.set("n", "<leader>;", "mrA;<Esc>`r")
+local Add_semicolon_at_end_of_line = "mrA;<Esc>`r"
+vim.keymap.set("n", "<leader>;", Add_semicolon_at_end_of_line)
 
-vim.keymap.set("n", "<leader>in", "mIggO#Include <")
+local Add_ahk_dependency = "mIggO#Include <"
+vim.keymap.set("n", "<leader>in", Add_ahk_dependency)
 
-vim.keymap.set("", "'q", '"+')
+local System_clipboard_register = '"+'
+vim.keymap.set("", "'q", System_clipboard_register)
 
-vim.keymap.set("", "'w", '"0')
+local Yanked_register = '"0'
+vim.keymap.set("", "'w", Yanked_register)
 
-vim.keymap.set("", "'i", '"_')
+local Black_hole_register = '"_'
+vim.keymap.set("", "'i", Black_hole_register)
 
-vim.keymap.set("", "';", '":')
+local Command_register = '":'
+vim.keymap.set("", "';", Command_register)
 
-local PasteSystemClipboard = "<C-r><C-p>+"
-vim.keymap.set("!", "<C-v>", PasteSystemClipboard)
+local Paste_system_register = "<C-r><C-p>+"
+vim.keymap.set("!", "<C-v>", Paste_system_register)
 
-vim.keymap.set("!", "<C-r>w", "<C-r><C-p>0")
+local Paste_yank_register = "<C-r><C-p>0"
+vim.keymap.set("!", "<C-r>w", Paste_yank_register)
 
-vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
+local Paste_command_register = "<C-r><C-p>:"
+vim.keymap.set("!", "<C-r>;", Paste_command_register)
 
-vim.keymap.set("!", "<C-b>",  '<C-r><C-p>"')
+local Paste_default_register = '<C-r><C-p>"'
+vim.keymap.set("!", "<C-b>", Paste_default_register)
 
 local Delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, {remap = true})
