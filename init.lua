@@ -303,30 +303,52 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "=ie", Format_document)
 
-	function Git_stage_file() vim.fn.VSCodeNotify("git.stage") end
+	function Git_stage_file()
+		Trim_trailing_whitespace()
+		Save()
+		vim.fn.VSCodeNotify("git.stage")
+	end
 	vim.keymap.set("n", "<leader>ga", Git_stage_file)
 
-	function Git_stage_all() vim.fn.VSCodeNotify("git.stageAll") end
+	function Git_stage_all()
+		Trim_trailing_whitespace()
+		Save()
+		vim.fn.VSCodeNotify("git.stageAll")
+	end
 	vim.keymap.set("n", "<leader>gA", Git_stage_all)
 
-	function Git_unstage_file() vim.fn.VSCodeNotify("git.unstage") end
+	function Git_unstage_file()
+		Save()
+		vim.fn.VSCodeNotify("git.unstage")
+	end
 	vim.keymap.set("n", "<leader>gu", Git_unstage_file)
 
-	function Git_commit() vim.fn.VSCodeNotify("git.commit") end
-
-	function Trim_trailing_whitespace__Save__Git_commit()
-		Trim_trailing_whitespace__Save()
-		Git_commit()
+	function Git_commit()
+		Trim_trailing_whitespace()
+		Save()
+		vim.fn.VSCodeNotify("git.commit")
 	end
-	vim.keymap.set("n", "<leader>gm", Trim_trailing_whitespace__Save__Git_commit)
+	vim.keymap.set("n", "<leader>gm", Git_commit)
 
-	function Git_commit_amend() vim.fn.VSCodeNotify("git.commitStagedAmend") end
+	function Git_commit_amend()
+		Trim_trailing_whitespace()
+		Save()
+		vim.fn.VSCodeNotify("git.commitStagedAmend")
+	end
 	vim.keymap.set("n", "<leader>gM", Git_commit_amend)
 
-	function Git_push() vim.fn.VSCodeNotify("git.push") end
+	function Git_push()
+		Trim_trailing_whitespace()
+		Save()
+		vim.fn.VSCodeNotify("git.push")
+	end
 	vim.keymap.set("n", "<leader>gp", Git_push)
 
-	function Git_push_force() vim.fn.VSCodeNotify("git.pushForce") end
+	function Git_push_force()
+		Trim_trailing_whitespace()
+		Save()
+		vim.fn.VSCodeNotify("git.pushForce")
+	end
 	vim.keymap.set("n", "<leader>gP", Git_push_force)
 
 	function Git_revert_change() vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 1) end
