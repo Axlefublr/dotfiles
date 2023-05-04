@@ -34,85 +34,85 @@ vim.call("plug#end")
 
 --- Plugins: Packer
 require("packer").startup(function(use)
-    use "wbthomason/packer.nvim"
-    use "savq/melange"
-    use "sainnhe/everforest"
-    use "sainnhe/edge"
-    use "sainnhe/gruvbox-material"
-    use "jacoborus/tender.vim"
-    use "farmergreg/vim-lastplace"
-    use "ap/vim-css-color"
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true }
-    }
-    use {
-        "phaazon/hop.nvim",
-        branch = "v2",
-        config = function()
-            require("hop").setup({ keys = "asdfghjklqwertyuiopzxcvbnm;" })
-        end
-    }
-    use({
-        "kylechui/nvim-surround",
-        tag = "*",
-        config = function()
-            require("nvim-surround").setup()
-        end
-    })
+	use "wbthomason/packer.nvim"
+	use "savq/melange"
+	use "sainnhe/everforest"
+	use "sainnhe/edge"
+	use "sainnhe/gruvbox-material"
+	use "jacoborus/tender.vim"
+	use "farmergreg/vim-lastplace"
+	use "ap/vim-css-color"
+	use {
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true }
+	}
+	use {
+		"phaazon/hop.nvim",
+		branch = "v2",
+		config = function()
+			require("hop").setup({ keys = "asdfghjklqwertyuiopzxcvbnm;" })
+		end
+	}
+	use({
+		"kylechui/nvim-surround",
+		tag = "*",
+		config = function()
+			require("nvim-surround").setup()
+		end
+	})
 end)
 require('lualine').setup {
-    options = {
-        icons_enabled = true,
-        theme = 'auto',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-        }
-    },
-    sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {}
-    },
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
+	options = {
+		icons_enabled = true,
+		theme = 'auto',
+		component_separators = { left = '', right = '' },
+		section_separators = { left = '', right = '' },
+		disabled_filetypes = {
+			statusline = {},
+			winbar = {},
+		},
+		ignore_focus = {},
+		always_divide_middle = true,
+		globalstatus = false,
+		refresh = {
+			statusline = 1000,
+			tabline = 1000,
+			winbar = 1000,
+		}
+	},
+	sections = {
+		lualine_a = { 'mode' },
+		lualine_b = { 'branch', 'diff', 'diagnostics' },
+		lualine_c = { 'filename' },
+		lualine_x = { 'encoding', 'fileformat', 'filetype' },
+		lualine_y = { 'progress' },
+		lualine_z = { 'location' }
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { 'filename' },
+		lualine_x = { 'location' },
+		lualine_y = {},
+		lualine_z = {}
+	},
+	tabline = {},
+	winbar = {},
+	inactive_winbar = {},
+	extensions = {}
 }
 
 vim.g.clipboard = {
-    name = "wslclipboard",
-    copy = {
-        ["+"] = "win32yank.exe -i --crlf",
-        ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-        ["+"] = "win32yank.exe -o --lf",
-        ["*"] = "win32yank.exe -o --lf"
-    },
-    cache_enabled = true
+	name = "wslclipboard",
+	copy = {
+		["+"] = "win32yank.exe -i --crlf",
+		["*"] = "win32yank.exe -i --crlf",
+	},
+	paste = {
+		["+"] = "win32yank.exe -o --lf",
+		["*"] = "win32yank.exe -o --lf"
+	},
+	cache_enabled = true
 }
 
 vim.keymap.set("n", "mq", "mQ")
@@ -221,8 +221,8 @@ vim.keymap.set("n", "<leader>`n", "`n")
 vim.keymap.set("n", "<leader>`m", "`m")
 
 function FeedKeysCorrectly(keys)
-    local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-    vim.api.nvim_feedkeys(feedableKeys, "n", true)
+	local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+	vim.api.nvim_feedkeys(feedableKeys, "n", true)
 end
 
 function CenterScreen() vim.cmd("call <SNR>4_reveal('center', 0)") end
@@ -231,131 +231,131 @@ function BottomScreen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
 
 if vim.g.vscode then
 
-    function Toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
-    vim.keymap.set("", "zy", Toggle_typewriter)
+	function Toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
+	vim.keymap.set("", "zy", Toggle_typewriter)
 
-    function Goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
-    vim.keymap.set("", "zp", Goto_parent_fold)
+	function Goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
+	vim.keymap.set("", "zp", Goto_parent_fold)
 
-    function Next_folding_section() vim.fn.VSCodeNotify("editor.gotoNextFold") end
-    vim.keymap.set("", "]f", Next_folding_section)
+	function Next_folding_section() vim.fn.VSCodeNotify("editor.gotoNextFold") end
+	vim.keymap.set("", "]f", Next_folding_section)
 
-    function Prev_folding_section() vim.fn.VSCodeNotify("editor.gotoPreviousFold") end
-    vim.keymap.set("", "[f", Prev_folding_section)
+	function Prev_folding_section() vim.fn.VSCodeNotify("editor.gotoPreviousFold") end
+	vim.keymap.set("", "[f", Prev_folding_section)
 
-    function Trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
-    vim.keymap.set("n", "==", Trim_trailing_whitespace)
+	function Trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
+	vim.keymap.set("n", "==", Trim_trailing_whitespace)
 
-    function Save() vim.fn.VSCodeCall("workbench.action.files.save") end
+	function Save() vim.fn.VSCodeCall("workbench.action.files.save") end
 
-    function Trim_trailing_whitespace__Save()
-        Trim_trailing_whitespace()
-        Save()
-    end
-    vim.keymap.set("", "U", Trim_trailing_whitespace__Save)
+	function Trim_trailing_whitespace__Save()
+		Trim_trailing_whitespace()
+		Save()
+	end
+	vim.keymap.set("", "U", Trim_trailing_whitespace__Save)
 
-    function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
-    vim.keymap.set("n", "gD", Reveal_definition_aside)
+	function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
+	vim.keymap.set("n", "gD", Reveal_definition_aside)
 
-    function Toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
-    vim.keymap.set("n", "<leader>s", Toggle_sticky_scroll)
+	function Toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
+	vim.keymap.set("n", "<leader>s", Toggle_sticky_scroll)
 
-    function Rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
-    vim.keymap.set("n", "<leader>r", Rename_symbol)
+	function Rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
+	vim.keymap.set("n", "<leader>r", Rename_symbol)
 
-    function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
-    vim.keymap.set("n", "gl", Open_link)
+	function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
+	vim.keymap.set("n", "gl", Open_link)
 
-    function Outdent()
-    ---@diagnostic disable-next-line: unused-local
-        for i = 1, vim.v.count1 do
-            vim.fn.VSCodeNotify("editor.action.outdentLines")
-        end
-    end
-    vim.keymap.set("n", "<<", Outdent)
+	function Outdent()
+	---@diagnostic disable-next-line: unused-local
+		for i = 1, vim.v.count1 do
+			vim.fn.VSCodeNotify("editor.action.outdentLines")
+		end
+	end
+	vim.keymap.set("n", "<<", Outdent)
 
-    function Indent()
-    ---@diagnostic disable-next-line: unused-local
-        for i = 1, vim.v.count1 do
-            vim.fn.VSCodeNotify("editor.action.indentLines")
-        end
-    end
-    vim.keymap.set("n", ">>", Indent)
+	function Indent()
+	---@diagnostic disable-next-line: unused-local
+		for i = 1, vim.v.count1 do
+			vim.fn.VSCodeNotify("editor.action.indentLines")
+		end
+	end
+	vim.keymap.set("n", ">>", Indent)
 
-    function Comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
-    vim.keymap.set("n", "gcc", Comment)
+	function Comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
+	vim.keymap.set("n", "gcc", Comment)
 
-    function Reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
-    vim.keymap.set("n", "=>", Reindent)
+	function Reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
+	vim.keymap.set("n", "=>", Reindent)
 
-    function Convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
-    vim.keymap.set("n", "=s", Convert_to_spaces)
+	function Convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
+	vim.keymap.set("n", "=s", Convert_to_spaces)
 
-    function Convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentationToTabs") end
-    vim.keymap.set("n", "=t", Convert_to_tabs)
+	function Convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentationToTabs") end
+	vim.keymap.set("n", "=t", Convert_to_tabs)
 
-    function Toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
-    vim.keymap.set("n", "za", Toggle_fold)
+	function Toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
+	vim.keymap.set("n", "za", Toggle_fold)
 
-    function Format_document()
-        vim.fn.VSCodeNotify("editor.action.formatDocument")
-        Trim_trailing_whitespace()
-    end
-    vim.keymap.set("n", "=ie", Format_document)
+	function Format_document()
+		vim.fn.VSCodeNotify("editor.action.formatDocument")
+		Trim_trailing_whitespace()
+	end
+	vim.keymap.set("n", "=ie", Format_document)
 
-    function Git_stage_file() vim.fn.VSCodeNotify("git.stage") end
-    vim.keymap.set("n", "<leader>ga", Git_stage_file)
+	function Git_stage_file() vim.fn.VSCodeNotify("git.stage") end
+	vim.keymap.set("n", "<leader>ga", Git_stage_file)
 
-    function Git_stage_all() vim.fn.VSCodeNotify("git.stageAll") end
-    vim.keymap.set("n", "<leader>gA", Git_stage_all)
+	function Git_stage_all() vim.fn.VSCodeNotify("git.stageAll") end
+	vim.keymap.set("n", "<leader>gA", Git_stage_all)
 
-    function Git_unstage_file() vim.fn.VSCodeNotify("git.unstage") end
-    vim.keymap.set("n", "<leader>gu", Git_unstage_file)
+	function Git_unstage_file() vim.fn.VSCodeNotify("git.unstage") end
+	vim.keymap.set("n", "<leader>gu", Git_unstage_file)
 
-    function Git_commit() vim.fn.VSCodeNotify("git.commit") end
+	function Git_commit() vim.fn.VSCodeNotify("git.commit") end
 
-    function Trim_trailing_whitespace__Save__Git_commit()
-        Trim_trailing_whitespace__Save()
-        Git_commit()
-    end
-    vim.keymap.set("n", "<leader>gm", Trim_trailing_whitespace__Save__Git_commit)
+	function Trim_trailing_whitespace__Save__Git_commit()
+		Trim_trailing_whitespace__Save()
+		Git_commit()
+	end
+	vim.keymap.set("n", "<leader>gm", Trim_trailing_whitespace__Save__Git_commit)
 
-    function Git_commit_amend() vim.fn.VSCodeNotify("git.commitStagedAmend") end
-    vim.keymap.set("n", "<leader>gM", Git_commit_amend)
+	function Git_commit_amend() vim.fn.VSCodeNotify("git.commitStagedAmend") end
+	vim.keymap.set("n", "<leader>gM", Git_commit_amend)
 
-    function Git_push() vim.fn.VSCodeNotify("git.push") end
-    vim.keymap.set("n", "<leader>gp", Git_push)
+	function Git_push() vim.fn.VSCodeNotify("git.push") end
+	vim.keymap.set("n", "<leader>gp", Git_push)
 
-    function Git_push_force() vim.fn.VSCodeNotify("git.pushForce") end
-    vim.keymap.set("n", "<leader>gP", Git_push_force)
+	function Git_push_force() vim.fn.VSCodeNotify("git.pushForce") end
+	vim.keymap.set("n", "<leader>gP", Git_push_force)
 
-    function Git_revert_change() vim.fn.VSCodeNotify("git.revertSelectedRanges") end
-    vim.keymap.set("n", "<leader>gr", Git_revert_change)
+	function Git_revert_change() vim.fn.VSCodeNotify("git.revertSelectedRanges") end
+	vim.keymap.set("n", "<leader>gr", Git_revert_change)
 
-    function Git_stage_change() vim.fn.VSCodeNotify("git.stageSelectedRanges") end
-    vim.keymap.set("n", "<leader>gt", Git_stage_change)
+	function Git_stage_change() vim.fn.VSCodeNotify("git.stageSelectedRanges") end
+	vim.keymap.set("n", "<leader>gt", Git_stage_change)
 
-    function Git_unstage_change() vim.fn.VSCodeNotify("git.unstageSelectedRanges") end
-    vim.keymap.set("n", "<leader>gT", Git_unstage_change)
+	function Git_unstage_change() vim.fn.VSCodeNotify("git.unstageSelectedRanges") end
+	vim.keymap.set("n", "<leader>gT", Git_unstage_change)
 
-    function Git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
-    vim.keymap.set("n", "<leader>gn", Git_open_changes)
+	function Git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
+	vim.keymap.set("n", "<leader>gn", Git_open_changes)
 
-    function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
-    vim.keymap.set("v", "gs", Codesnap)
+	function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
+	vim.keymap.set("v", "gs", Codesnap)
 
-    function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
-    vim.keymap.set("v", "<", Outdent_vis)
+	function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
+	vim.keymap.set("v", "<", Outdent_vis)
 
-    function Indent_vis() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
-    vim.keymap.set("v", ">", Indent_vis)
+	function Indent_vis() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
+	vim.keymap.set("v", ">", Indent_vis)
 
-    function Comment_vis() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
-    vim.keymap.set("v", "gc", Comment_vis)
+	function Comment_vis() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
+	vim.keymap.set("v", "gc", Comment_vis)
 
 else
-    function Save_vim() vim.cmd("w") end
-    vim.keymap.set("", "U", Save_vim)
+	function Save_vim() vim.cmd("w") end
+	vim.keymap.set("", "U", Save_vim)
 end
 
 local EasyAlignMapping = "<Plug>(EasyAlign)"
@@ -365,32 +365,32 @@ local ReplaceWithRegisterMapping = "<Plug>ReplaceWithRegisterLine"
 vim.keymap.set("n", "grr", ReplaceWithRegisterMapping)
 
 function Hop_forward_f_sameline()
-    hop.hint_char1({
-        direction = directions.AFTER_CURSOR,
-        current_line_only = true
-    })
+	hop.hint_char1({
+		direction = directions.AFTER_CURSOR,
+		current_line_only = true
+	})
 end
 vim.keymap.set("", "<leader>f", Hop_forward_f_sameline)
 
 function Hop_backward_f_sameline() hop.hint_char1({
-    direction = directions.BEFORE_CURSOR,
-    current_line_only = true
+	direction = directions.BEFORE_CURSOR,
+	current_line_only = true
 })
 end
 vim.keymap.set("", "<leader>F", Hop_backward_f_sameline)
 
 function Hop_forward_t_sameline() hop.hint_char1({
-    direction = directions.AFTER_CURSOR,
-    current_line_only = true,
-    hint_offset = -1,
+	direction = directions.AFTER_CURSOR,
+	current_line_only = true,
+	hint_offset = -1,
 })
 end
 vim.keymap.set("", "<leader>t", Hop_forward_t_sameline)
 
 function Hop_backward_t_sameline() hop.hint_char1({
-    direction = directions.BEFORE_CURSOR,
-    current_line_only = true,
-    hint_offset = 1,
+	direction = directions.BEFORE_CURSOR,
+	current_line_only = true,
+	hint_offset = 1,
 })
 end
 vim.keymap.set("", "<leader>T", Hop_backward_t_sameline)

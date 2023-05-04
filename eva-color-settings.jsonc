@@ -1,272 +1,272 @@
 "editor.tokenColorCustomizations": {
-      "textMateRules": [
-         {
-            "name": "red",
-            "scope": [
-               "constant.language.import-export-all",
-               "keyword.generator.asterisk",
-               "keyword.operator",
-               "keyword.operator.ahk2",
-               "keyword.operator.arithmetic",
-               "keyword.operator.assignment",
-               "keyword.operator.assignment.compound",
-               "keyword.operator.bitwise",
-               "keyword.operator.comparison",
-               "keyword.operator.conditional.colon",
-               "keyword.operator.conditional.question-mark",
-               "keyword.operator.decrement",
-               "keyword.operator.increment",
-               "keyword.operator.list.shell",
-               "keyword.operator.logical",
-               "keyword.operator.null-coalescing.cs",
-               "keyword.operator.quantifier.regexp",
-               "keyword.operator.regexp.ahk2",
-               "keyword.operator.relational",
-               "keyword.operator.spread",
-               "keyword.operator.ternary",
-               "keyword.operator.type.annotation",
-               "punctuation.accessor",
-               "punctuation.definition.equals.reg",
-               "punctuation.definition.scope.key-value.viml",
-               "punctuation.definition.section.case-statement",
-               "punctuation.destructuring.js",
-               "punctuation.optional.ahk2",
-               "punctuation.parens.percent",
-               "punctuation.section.function.begin.python",
-               "punctuation.separator.arguments.python",
-               "punctuation.separator.colon",
-               "punctuation.separator.comma",
-               "punctuation.separator.element.python",
-               "punctuation.separator.key-value",
-               "punctuation.separator.key-value.html",
-               "punctuation.separator.label.js",
-               "punctuation.separator.parameter",
-               "punctuation.separator.period",
-               "punctuation.separator.question-mark",
-               "punctuation.terminator.statement",
-               "storage.type.function.arrow",
-               "meta.conditional.case.ahk2",
-               "keyword.operator.arrow.cs",
-               "punctuation.definition.typeparameters.begin.cs",
-               "punctuation.definition.typeparameters.end.cs"
-            ],
-            "settings": {
-               "foreground": "#dc5579",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "function blue",
-            "scope": [
-               "punctuation.separator.dictionary.pair.json",
-               "punctuation.separator.array.json",
-               "punctuation.separator.dictionary.key-value.json",
-               "punctuation.definition.tag.begin.html",
-               "punctuation.definition.tag.end.html",
-               "punctuation.destructuring",
-               "punctuation.definition.tag.xml"
-            ],
-            "settings": {
-               "foreground": "#6495EE",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "keyword purple",
-            "scope": [
-               "keyword.control.trycatch",
-               "keyword.control.import",
-               "keyword.control.from",
-               "storage.type.class",
-               "keyword.operator.expression.ahk2",
-               "storage.modifier.shell",
-               "keyword.other.class.cs",
-               "keyword.other.namespace.cs",
-               "keyword.control.as",
-               "storage.type.class.jsdoc",
-               "punctuation.definition.block.tag.jsdoc",
-               "support.function.command.viml",
-               "keyword.other.enum.cs",
-               "keyword.other.checked.cs",
-               "keyword.other.set.cs",
-               "keyword.other.get.cs",
-               "keyword.other.typeof.cs",
-               "keyword.other.operator-decl.cs",
-               "keyword.other.is.cs"
-            ],
-            "settings": {
-               "foreground": "#CF68E1",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "classy cyan",
-            "scope": [
-               "variable.other.object",
-               "variable.other.normal.shell",
-               "variable.other.positional.shell",
-               "entity.name.type.namespace.cs",
-               "punctuation.definition.group.regexp",
-               "punctuation.section.parens.begin.bracket.round.ahk2",
-               "punctuation.section.parens.end.bracket.round.ahk2"
-            ],
-            "settings": {
-               "foreground": "#56B7C3",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "girly pink",
-            "scope": [
-               "support.type.object.module.js",
-               "support.class.promise",
-               "variable.language.this",
-               "keyword.other.base",
-               "keyword.other.this",
-               "entity.name.type.module"
-            ],
-            "settings": {
-               "foreground": "#FF6AB3",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "mild yellow",
-            "scope": [
-               "entity.name.label.cs",
-               "entity.name.label.js",
-               "meta.assertion.negative-look-ahead.regexp",
-               "meta.assertion.negative-look-behind.regexp",
-               "meta.object-literal.key.js",
-               "punctuation.definition.colon",
-               "variable.language.ahk2",
-               "variable.object.property.js",
-               "variable.parameter"
-            ],
-            "settings": {
-               "foreground": "#E4BF7F",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "hotkey brown",
-            "scope": [
-               "ahk2.output",
-               "constant.language.ahk2",
-               "keyword.keys.ahk2",
-               "keyword.operator.expression.typeof",
-               "keyword.operator.new",
-               "keyword.other.new",
-               "meta.block.hotstring.ahk2",
-               "meta.brace.round",
-               "meta.brace.square",
-               "punctuation.bracket",
-               "punctuation.definition.arguments.begin",
-               "punctuation.definition.arguments.end",
-               "punctuation.definition.block",
-               "punctuation.definition.bracket",
-               "punctuation.definition.list.begin",
-               "punctuation.definition.list.end",
-               "punctuation.definition.parameters.begin",
-               "punctuation.definition.parameters.begin",
-               "punctuation.definition.parameters.end",
-               "punctuation.definition.parameters.end",
-               "punctuation.definition.typeparameters.begin",
-               "punctuation.definition.typeparameters.end",
-               "punctuation.section.block.begin.ahk2",
-               "punctuation.section.block.end.ahk2",
-               "storage.modifier.ahk2",
-               "storage.modifier.cs",
-               "storage.modifier.ts",
-               "storage.type",
-               "storage.type.function",
-               "support.function.viml",
-               "constant.language.boolean",
-               "keyword.local.lua"
-            ],
-            "settings": {
-               "foreground": "#bf7465",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "vary white",
-            "scope": [
-               "meta.object-literal.key",
-               "storage.type.metafunction.ahk2",
-               "variable.other.object.property",
-               "variable.other.property",
-               "support.variable.property"
-            ],
-            "settings": {
-               "foreground": "#B0B7C3",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "static purple",
-            "scope": [
-               "support.function.ahk2",
-               "keyword.type.cs",
-               "support.type.builtin",
-               "support.type.primitive",
-               "entity.name.type.instance",
-               "constant.other.character-class.range.regexp",
-               "entity.name.type.type-parameter.cs",
-               "entity.name.type.cs"
-            ],
-            "settings": {
-               "foreground": "#A78CFA",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "comment grey",
-            "scope": ["comment"],
-            "settings": {
-               "foreground": "#676E95",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "gay mild pink",
-            "scope": [
-               "constant.other.character-class.set.regexp",
-               "punctuation.definition.character-class.regexp",
-               "variable.other.constant",
-               "variable.other.constant.object",
-               "variable.other.constant.property",
-               "storage.modifier.scope.viml",
-               "support.constant.attribute.viml",
-               "punctuation.square.end.ahk2",
-               "punctuation.square.begin.ahk2"
-            ],
-            "settings": {
-               "foreground": "#d89aec",
-               "fontStyle": ""
-            }
-         },
-         {
-            "name": "digit orange",
-            "scope": [],
-            "settings": {
-               "foreground": "#FF9070",
-               "fontStyle": ""
-            }
-         }
-      ]
-   },
-   "workbench.colorCustomizations": {
-      "editorBracketHighlight.foreground1": "#bf7465",
-      "editorBracketHighlight.foreground2": "#56B7C3",
-      "editorBracketHighlight.foreground3": "#d89aec",
-      "editorBracketHighlight.foreground4": "#bf7465",
-      "editorBracketHighlight.foreground5": "#56B7C3",
-      "editorBracketHighlight.foreground6": "#d89aec",
-      "editorBracketPairGuide.activeBackground1": "#bf7465cc",
-      "editorBracketPairGuide.activeBackground2": "#56B7C3cc",
-      "editorBracketPairGuide.activeBackground3": "#d89aeccc",
-      "editorBracketPairGuide.activeBackground4": "#bf7465cc",
-      "editorBracketPairGuide.activeBackground5": "#56B7C3cc",
-      "editorBracketPairGuide.activeBackground6": "#d89aeccc"
-   },
+	"textMateRules": [
+		{
+			"name": "red",
+			"scope": [
+				"constant.language.import-export-all",
+				"keyword.generator.asterisk",
+				"keyword.operator",
+				"keyword.operator.ahk2",
+				"keyword.operator.arithmetic",
+				"keyword.operator.assignment",
+				"keyword.operator.assignment.compound",
+				"keyword.operator.bitwise",
+				"keyword.operator.comparison",
+				"keyword.operator.conditional.colon",
+				"keyword.operator.conditional.question-mark",
+				"keyword.operator.decrement",
+				"keyword.operator.increment",
+				"keyword.operator.list.shell",
+				"keyword.operator.logical",
+				"keyword.operator.null-coalescing.cs",
+				"keyword.operator.quantifier.regexp",
+				"keyword.operator.regexp.ahk2",
+				"keyword.operator.relational",
+				"keyword.operator.spread",
+				"keyword.operator.ternary",
+				"keyword.operator.type.annotation",
+				"punctuation.accessor",
+				"punctuation.definition.equals.reg",
+				"punctuation.definition.scope.key-value.viml",
+				"punctuation.definition.section.case-statement",
+				"punctuation.destructuring.js",
+				"punctuation.optional.ahk2",
+				"punctuation.parens.percent",
+				"punctuation.section.function.begin.python",
+				"punctuation.separator.arguments.python",
+				"punctuation.separator.colon",
+				"punctuation.separator.comma",
+				"punctuation.separator.element.python",
+				"punctuation.separator.key-value",
+				"punctuation.separator.key-value.html",
+				"punctuation.separator.label.js",
+				"punctuation.separator.parameter",
+				"punctuation.separator.period",
+				"punctuation.separator.question-mark",
+				"punctuation.terminator.statement",
+				"storage.type.function.arrow",
+				"meta.conditional.case.ahk2",
+				"keyword.operator.arrow.cs",
+				"punctuation.definition.typeparameters.begin.cs",
+				"punctuation.definition.typeparameters.end.cs"
+			],
+			"settings": {
+				"foreground": "#dc5579",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "function blue",
+			"scope": [
+				"punctuation.separator.dictionary.pair.json",
+				"punctuation.separator.array.json",
+				"punctuation.separator.dictionary.key-value.json",
+				"punctuation.definition.tag.begin.html",
+				"punctuation.definition.tag.end.html",
+				"punctuation.destructuring",
+				"punctuation.definition.tag.xml"
+			],
+			"settings": {
+				"foreground": "#6495EE",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "keyword purple",
+			"scope": [
+				"keyword.control.trycatch",
+				"keyword.control.import",
+				"keyword.control.from",
+				"storage.type.class",
+				"keyword.operator.expression.ahk2",
+				"storage.modifier.shell",
+				"keyword.other.class.cs",
+				"keyword.other.namespace.cs",
+				"keyword.control.as",
+				"storage.type.class.jsdoc",
+				"punctuation.definition.block.tag.jsdoc",
+				"support.function.command.viml",
+				"keyword.other.enum.cs",
+				"keyword.other.checked.cs",
+				"keyword.other.set.cs",
+				"keyword.other.get.cs",
+				"keyword.other.typeof.cs",
+				"keyword.other.operator-decl.cs",
+				"keyword.other.is.cs"
+			],
+			"settings": {
+				"foreground": "#CF68E1",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "classy cyan",
+			"scope": [
+				"variable.other.object",
+				"variable.other.normal.shell",
+				"variable.other.positional.shell",
+				"entity.name.type.namespace.cs",
+				"punctuation.definition.group.regexp",
+				"punctuation.section.parens.begin.bracket.round.ahk2",
+				"punctuation.section.parens.end.bracket.round.ahk2"
+			],
+			"settings": {
+				"foreground": "#56B7C3",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "girly pink",
+			"scope": [
+				"support.type.object.module.js",
+				"support.class.promise",
+				"variable.language.this",
+				"keyword.other.base",
+				"keyword.other.this",
+				"entity.name.type.module"
+			],
+			"settings": {
+				"foreground": "#FF6AB3",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "mild yellow",
+			"scope": [
+				"entity.name.label.cs",
+				"entity.name.label.js",
+				"meta.assertion.negative-look-ahead.regexp",
+				"meta.assertion.negative-look-behind.regexp",
+				"meta.object-literal.key.js",
+				"punctuation.definition.colon",
+				"variable.language.ahk2",
+				"variable.object.property.js",
+				"variable.parameter"
+			],
+			"settings": {
+				"foreground": "#E4BF7F",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "hotkey brown",
+			"scope": [
+				"ahk2.output",
+				"constant.language.ahk2",
+				"keyword.keys.ahk2",
+				"keyword.operator.expression.typeof",
+				"keyword.operator.new",
+				"keyword.other.new",
+				"meta.block.hotstring.ahk2",
+				"meta.brace.round",
+				"meta.brace.square",
+				"punctuation.bracket",
+				"punctuation.definition.arguments.begin",
+				"punctuation.definition.arguments.end",
+				"punctuation.definition.block",
+				"punctuation.definition.bracket",
+				"punctuation.definition.list.begin",
+				"punctuation.definition.list.end",
+				"punctuation.definition.parameters.begin",
+				"punctuation.definition.parameters.begin",
+				"punctuation.definition.parameters.end",
+				"punctuation.definition.parameters.end",
+				"punctuation.definition.typeparameters.begin",
+				"punctuation.definition.typeparameters.end",
+				"punctuation.section.block.begin.ahk2",
+				"punctuation.section.block.end.ahk2",
+				"storage.modifier.ahk2",
+				"storage.modifier.cs",
+				"storage.modifier.ts",
+				"storage.type",
+				"storage.type.function",
+				"support.function.viml",
+				"constant.language.boolean",
+				"keyword.local.lua"
+			],
+			"settings": {
+				"foreground": "#bf7465",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "vary white",
+			"scope": [
+				"meta.object-literal.key",
+				"storage.type.metafunction.ahk2",
+				"variable.other.object.property",
+				"variable.other.property",
+				"support.variable.property"
+			],
+			"settings": {
+				"foreground": "#B0B7C3",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "static purple",
+			"scope": [
+				"support.function.ahk2",
+				"keyword.type.cs",
+				"support.type.builtin",
+				"support.type.primitive",
+				"entity.name.type.instance",
+				"constant.other.character-class.range.regexp",
+				"entity.name.type.type-parameter.cs",
+				"entity.name.type.cs"
+			],
+			"settings": {
+				"foreground": "#A78CFA",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "comment grey",
+			"scope": ["comment"],
+			"settings": {
+				"foreground": "#676E95",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "gay mild pink",
+			"scope": [
+				"constant.other.character-class.set.regexp",
+				"punctuation.definition.character-class.regexp",
+				"variable.other.constant",
+				"variable.other.constant.object",
+				"variable.other.constant.property",
+				"storage.modifier.scope.viml",
+				"support.constant.attribute.viml",
+				"punctuation.square.end.ahk2",
+				"punctuation.square.begin.ahk2"
+			],
+			"settings": {
+				"foreground": "#d89aec",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "digit orange",
+			"scope": [],
+			"settings": {
+				"foreground": "#FF9070",
+				"fontStyle": ""
+			}
+		}
+	]
+},
+"workbench.colorCustomizations": {
+	"editorBracketHighlight.foreground1": "#bf7465",
+	"editorBracketHighlight.foreground2": "#56B7C3",
+	"editorBracketHighlight.foreground3": "#d89aec",
+	"editorBracketHighlight.foreground4": "#bf7465",
+	"editorBracketHighlight.foreground5": "#56B7C3",
+	"editorBracketHighlight.foreground6": "#d89aec",
+	"editorBracketPairGuide.activeBackground1": "#bf7465cc",
+	"editorBracketPairGuide.activeBackground2": "#56B7C3cc",
+	"editorBracketPairGuide.activeBackground3": "#d89aeccc",
+	"editorBracketPairGuide.activeBackground4": "#bf7465cc",
+	"editorBracketPairGuide.activeBackground5": "#56B7C3cc",
+	"editorBracketPairGuide.activeBackground6": "#d89aeccc"
+},

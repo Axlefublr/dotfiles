@@ -263,9 +263,9 @@
 		"**/.git": false
 	},
 	"AutoHotkey2.FormatOptions": {
-		"indent_string": "    ",
+		"indent_string": "\t",
 		"keep_array_indentation": true,
-		"white_space_before_inline_comment": " ",
+		"white_space_before_inline_comment": "\t",
 		"space_after_double_colon": true,
 		"space_before_conditional": true
 	},
@@ -489,5 +489,6 @@
 	"editor.tabCompletion": "on",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.renderLineHighlight": "gutter",
-	"prettier.useTabs": true
+	"prettier.useTabs": true,
+	"editor.snippetSuggestions": "bottom"
 }

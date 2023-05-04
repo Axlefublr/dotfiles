@@ -135,21 +135,21 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 function zle-keymap-select {
-    if [[ ${KEYMAP} == vicmd ]] ||
-        [[ $1 = 'block' ]]; then
-        echo -ne '\e[1 q'
-    elif [[ ${KEYMAP} == main ]] ||
-        [[ ${KEYMAP} == viins ]] ||
-        [[ ${KEYMAP} == '' ]] ||
-        [[ $1 = 'beam' ]]; then
-        echo -ne '\e[5 q'
-    fi
+	if [[ ${KEYMAP} == vicmd ]] ||
+		[[ $1 = 'block' ]]; then
+		echo -ne '\e[1 q'
+	elif [[ ${KEYMAP} == main ]] ||
+		[[ ${KEYMAP} == viins ]] ||
+		[[ ${KEYMAP} == '' ]] ||
+		[[ $1 = 'beam' ]]; then
+		echo -ne '\e[5 q'
+	fi
 }
 zle -N zle-keymap-select
 
 zle-line-init() {
-  zle -K viins
-  echo -ne '\e[5 q'
+	zle -K viins
+	echo -ne '\e[5 q'
 }
 zle -N zle-line-init
 
@@ -165,18 +165,18 @@ ealiases=()
 
 # write a function for adding an alias to the list mentioned above
 function abbrev-alias() {
-    alias $1
-    export $1
-    ealiases+=(${1%%\=*})
+	alias $1
+	export $1
+	ealiases+=(${1%%\=*})
 }
 
 # expand any aliases in the current line buffer
 function expand-ealias() {
-    if [[ $LBUFFER =~ "\<(${(j:|:)ealiases})\$" ]] && [[ "$LBUFFER" != "\\"* ]]; then
-        zle _expand_alias
-        zle expand-word
-    fi
-    zle magic-space
+	if [[ $LBUFFER =~ "\<(${(j:|:)ealiases})\$" ]] && [[ "$LBUFFER" != "\\"* ]]; then
+		zle _expand_alias
+		zle expand-word
+	fi
+	zle magic-space
 }
 zle -N expand-ealias
 
@@ -186,9 +186,9 @@ bindkey -M isearch ' '      magic-space     # normal space during searches
 
 # A function for expanding any aliases before accepting the line as is and executing the entered commanad
 expand-alias-and-accept-line() {
-    expand-ealias
-    zle .backward-delete-char
-    zle .accept-line
+	expand-ealias
+	zle .backward-delete-char
+	zle .accept-line
 }
 zle -N accept-line expand-alias-and-accept-line
 
@@ -244,9 +244,13 @@ abbrev-alias gaa='git add .'
 abbrev-alias gm='git commit'
 abbrev-alias gma='git commit --amend'
 abbrev-alias gman='git commit --amend --no-edit'
+abbrev-alias gmanp='git commit --amend --no-edit && git push'
+abbrev-alias gmanpf='git commit --amend --no-edit && git push -f'
 abbrev-alias gmp='git commit && git push'
 abbrev-alias gam='git add . && git commit'
 abbrev-alias gamp='git add . && git commit && git push'
+abbrev-alias gamap='git add . && git commit --amend && git push'
+abbrev-alias gamanp='git add . && git commit --amend --no-edit && git push'
 abbrev-alias gamapf='git add . && git commit --amend && git push -f'
 abbrev-alias gamanpf='git add . && git commit --amend --no-edit && git push -f'
 abbrev-alias gp='git push'
@@ -290,64 +294,64 @@ abbrev-alias ghge='gh gist edit'
 # Functions
 
 dlist() {
-    for arg in "$@"
-    do
-        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
-    done
+	for arg in "$@"
+	do
+		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
+	done
 }
 
 flist() {
-    for arg in "$@"
-    do
-        find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type f -print
-    done
+	for arg in "$@"
+	do
+		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type f -print
+	done
 }
 
 dpick() {
-    dlist "$@" | fzf -m --cycle | sed "s/^/'/; s/$/'/"
+	dlist "$@" | fzf -m --cycle | sed "s/^/'/; s/$/'/"
 }
 
 fpick() {
-    flist "$@" | fzf -m --cycle | sed "s/^/'/; s/$/'/"
+	flist "$@" | fzf -m --cycle | sed "s/^/'/; s/$/'/"
 }
 
 smush() {
-    tr '\n' ' ' | sed 's/[[:space:]]*$//'
+	tr '\n' ' ' | sed 's/[[:space:]]*$//'
 }
 
 _get_important_dir() {
-    BUFFER="$BUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
-    zle end-of-line
+	BUFFER="$BUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
+	zle end-of-line
 }
 
 _get_important_file() {
-    BUFFER="$BUFFER$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
-    zle end-of-line
+	BUFFER="$BUFFER$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
+	zle end-of-line
 }
 
 _get_current_dir() {
-    BUFFER="$BUFFER$(dpick . | smush)"
-    zle end-of-line
+	BUFFER="$BUFFER$(dpick . | smush)"
+	zle end-of-line
 }
 
 _get_current_file() {
-    BUFFER="$BUFFER$(fpick . | smush)"
-    zle end-of-line
+	BUFFER="$BUFFER$(fpick . | smush)"
+	zle end-of-line
 }
 
 _history_replace() {
-    BUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$BUFFER)"
-    zle end-of-line
+	BUFFER="$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$BUFFER)"
+	zle end-of-line
 }
 
 _history_right() {
-    BUFFER="$LBUFFER$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$RBUFFER)"
-    zle end-of-line
+	BUFFER="$LBUFFER$(history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$RBUFFER)"
+	zle end-of-line
 }
 
 _paste_clipboard() {
-    BUFFER="$LBUFFER$(win32yank.exe -o)$RBUFFER"
-    zle end-of-line
+	BUFFER="$LBUFFER$(win32yank.exe -o)$RBUFFER"
+	zle end-of-line
 }
 
 # Hotkeys
