@@ -642,6 +642,9 @@ local Delete_big_word_insert = '<C-o>dvB'
 vim.keymap.set("!", "<C-w>", Delete_big_word_insert)
 
 local Move_line_to_top = 'ddmiggP`i'
--- vim.keymap.set("", "")
+vim.keymap.set("", "<leader>mt", Move_line_to_top)
+
+local Move_line_to_bottom = 'ddmiGp`i'
+vim.keymap.set("", "<leader>mb", Move_line_to_bottom)
 
 print("nvim loaded")
