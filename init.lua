@@ -329,14 +329,17 @@ if vim.g.vscode then
 	function Git_push_force() vim.fn.VSCodeNotify("git.pushForce") end
 	vim.keymap.set("n", "<leader>gP", Git_push_force)
 
-	function Git_revert_change() vim.fn.VSCodeNotify("git.revertSelectedRanges") end
+	function Git_revert_change() vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 1) end
 	vim.keymap.set("n", "<leader>gr", Git_revert_change)
+	vim.keymap.set("v", "<leader>gr", Git_revert_change)
 
-	function Git_stage_change() vim.fn.VSCodeNotify("git.stageSelectedRanges") end
+	function Git_stage_change() vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 1) end
 	vim.keymap.set("n", "<leader>gt", Git_stage_change)
+	vim.keymap.set("v", "<leader>gt", Git_stage_change)
 
-	function Git_unstage_change() vim.fn.VSCodeNotify("git.unstageSelectedRanges") end
+	function Git_unstage_change() vim.fn.VSCodeNotifyVisual("git.unstageSelectedRanges", 1) end
 	vim.keymap.set("n", "<leader>gT", Git_unstage_change)
+	vim.keymap.set("v", "<leader>gT", Git_unstage_change)
 
 	function Git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
 	vim.keymap.set("n", "<leader>gn", Git_open_changes)
