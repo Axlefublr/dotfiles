@@ -338,6 +338,20 @@ smush() {
 	tr '\n' ' ' | sed 's/[[:space:]]*$//'
 }
 
+gpa() {
+	prevDir=$(pwd)
+	cd /mnt/c/Programming/dotfiles
+	git push
+	cd ../info
+	git push
+	cd ../main
+	git push
+	cd ../music
+	git push
+	cd /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib
+	git push
+}
+
 _get_important_dir() {
 	BUFFER="$BUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
 	zle end-of-line
