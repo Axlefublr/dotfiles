@@ -199,7 +199,8 @@ unalias l
 unalias lsa
 
 alias grep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias less='less --use-color'
+alias less='less --use-color -R'
+alias termdown='termdown -a -W -f roman'
 alias dotnet='dotnet.exe'
 alias gh="gh.exe"
 alias code="code-insiders"
@@ -215,7 +216,9 @@ abbrev-alias bat='batcat'
 abbrev-alias v='nvim'
 abbrev-alias rf='rm -f'
 abbrev-alias rr='rm -fr'
-abbrev-alias ff='ffmpeg -i'
+abbrev-alias ff='ffmpeg.exe'
+abbrev-alias treecl='tree -C | less'
+abbrev-alias clock='termdown -z'
 
 abbrev-alias egrep='grep -E'
 abbrev-alias rgrep='grep -Ern'
@@ -279,6 +282,7 @@ abbrev-alias grb='git rebase'
 abbrev-alias grm='git remote'
 abbrev-alias grs='git restore'
 abbrev-alias grss='git restore --staged'
+abbrev-alias grsH='git restore --source=HEAD --'
 abbrev-alias gch='git checkout'
 abbrev-alias gchm='git checkout main'
 abbrev-alias gb='git branch'
@@ -339,6 +343,10 @@ smush() {
 	tr '\n' ' ' | sed 's/[[:space:]]*$//'
 }
 
+timer() {
+	termdown "$@" && Ting.exe
+}
+
 gpa() {
 	prevDir=$(pwd)
 	cd /mnt/c/Programming/dotfiles
@@ -351,6 +359,7 @@ gpa() {
 	git push
 	cd /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib
 	git push
+	cd $prevDir
 }
 
 _get_important_dir() {
