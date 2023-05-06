@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH="/mnt/c/Programming/binaries:/mnt/c/Programming/shell:$PATH"
+export PATH="/mnt/c/Programming/binaries:/mnt/c/Programming/shell:$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -283,6 +283,7 @@ abbrev-alias gch='git checkout'
 abbrev-alias gchm='git checkout main'
 abbrev-alias gb='git branch'
 abbrev-alias gme='git merge'
+abbrev-alias gre='git remote'
 
 abbrev-alias dn='dotnet'
 abbrev-alias dnw='dotnet watch'
