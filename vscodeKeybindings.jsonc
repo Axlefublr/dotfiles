@@ -4965,5 +4965,39 @@
 		"key": "delete",
 		"command": "keybindings.editor.removeKeybinding",
 		"when": "inKeybindings && keybindingFocus && !inputFocus"
+	},
+	{
+		"key": "ctrl+shift+v",
+		"command": "-html.showPreview",
+		"when": "editorLangId == 'html'"
+	},
+	{
+		"key": "ctrl+k v",
+		"command": "-html.showPreviewToSide",
+		"when": "editorLangId == 'html'"
+	},
+	{
+		"key": "ctrl+k w",
+		"command": "-html.showInBrowser",
+		"when": "editorLangId == 'html'"
+	},
+	{
+		"key": "ctrl+; v",
+		"command": "html.showPreview",
+		"when": "editorLangId == 'html'"
+	},
+	{
+		"key": "ctrl+; v",
+		"command": "markdown.showPreview",
+		"when": "editorLangId == 'markdown'"
+	},
+	{
+		"key": "ctrl+; shift+v",
+		"command": "html.showInBrowser",
+		"when": "editorLangId == 'html'"
+	},
+	{
+		"key": "ctrl+; q",
+		"command": "workbench.action.focusQuickOpen"
 	}
 ]

@@ -343,6 +343,10 @@ smush() {
 	tr '\n' ' ' | sed 's/[[:space:]]*$//'
 }
 
+cut() {
+	ffmpeg.exe -i $1 -ss $3 -to $4 -c:a copy $2
+}
+
 timer() {
 	termdown "$@" && Ting.exe
 }

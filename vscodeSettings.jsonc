@@ -172,6 +172,14 @@
 				"scope": []
 			},
 			{
+				"name": "white strikethrough",
+				"settings": {
+					"foreground": "#D4BE98",
+					"fontStyle": "strikethrough"
+				},
+				"scope": ["markup.strikethrough.markdown"]
+			},
+			{
 				"name": "grey",
 				"settings": {
 					"foreground": "#928374",
@@ -490,5 +498,7 @@
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.renderLineHighlight": "gutter",
 	"prettier.useTabs": true,
-	"editor.snippetSuggestions": "bottom"
+	"editor.snippetSuggestions": "bottom",
+	"workbench.quickOpen.closeOnFocusLost": false,
+	"workbench.quickOpen.preserveInput": true
 }
