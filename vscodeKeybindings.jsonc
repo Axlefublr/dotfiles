@@ -4104,18 +4104,8 @@
 		"when": "editorTextFocus && !editorReadonly && !suggestWidgetVisible && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
 	},
 	{
-		"key": "ctrl+alt+h",
-		"command": "markdown.extension.editing.toggleHeadingDown",
-		"when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
-	},
-	{
 		"key": "ctrl+shift+[",
 		"command": "-markdown.extension.editing.toggleHeadingDown",
-		"when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
-	},
-	{
-		"key": "ctrl+alt+l",
-		"command": "markdown.extension.editing.toggleHeadingUp",
 		"when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
 	},
 	{
