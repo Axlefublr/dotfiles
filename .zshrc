@@ -305,7 +305,7 @@ abbrev-alias dna='dotnet add'
 abbrev-alias dnf='dotnet format'
 
 abbrev-alias ghr='gh repo'
-abbrev-alias ghrl='gh repo list'
+abbrev-alias ghrl='gh repo list -L 1000'
 abbrev-alias ghrcl='gh repo clone'
 abbrev-alias ghrc='gh repo create --public'
 abbrev-alias ghrcc='gh repo create --clone --public'
