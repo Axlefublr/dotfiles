@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH="/mnt/c/Programming/binaries:/mnt/c/Programming/shell:$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -258,6 +258,7 @@ abbrev-alias gmmp='git commit -m "" && git push'
 abbrev-alias gam='git add . && git commit'
 abbrev-alias gamm='git add . && git commit -m ""'
 abbrev-alias gamp='git add . && git commit && git push'
+abbrev-alias gampf='git add . && git commit && git push -f'
 abbrev-alias gammp='git add . && git commit -m "" && git push'
 abbrev-alias gamap='git add . && git commit --amend && git push'
 abbrev-alias gamanp='git add . && git commit --amend --no-edit && git push'
@@ -345,6 +346,10 @@ smush() {
 
 cut() {
 	ffmpeg.exe -i $1 -ss $3 -to $4 -c:a copy $2
+}
+
+compress() {
+	ffmpeg.exe -i $1 -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $2
 }
 
 timer() {
