@@ -368,6 +368,10 @@ gpa() {
 	git push
 	cd /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib
 	git push
+	cd /mnt/c/Pictures/Tree
+	git push
+	cd /mnt/c/Pictures/Tools
+	git push
 	cd $prevDir
 }
 
