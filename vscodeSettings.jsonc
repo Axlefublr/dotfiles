@@ -42,6 +42,8 @@
 				"scope": [
 					"punctuation.definition.string.begin.cs",
 					"punctuation.definition.string.end.cs",
+					"punctuation.definition.char.begin.cs",
+					"punctuation.definition.char.end.cs",
 					"string.quoted.double.cs",
 					"string.quoted.single.fish",
 					"entity.name.type.instance",
@@ -51,7 +53,8 @@
 					"punctuation.definition.string.end.shell",
 					"string.quoted.single.shell",
 					"punctuation.definition.string.begin.fish",
-					"punctuation.definition.string.end.fish"
+					"punctuation.definition.string.end.fish",
+					"string.quoted.single.cs"
 				]
 			},
 			{
@@ -409,7 +412,6 @@
 	"omnisharp.organizeImportsOnFormat": true,
 	"omnisharp.enableAsyncCompletion": true,
 	"csharp.inlayHints.types.enabled": true,
-	"csharp.inlayHints.parameters.enabled": true,
 	"search.collapseResults": "auto",
 	"search.defaultViewMode": "tree",
 	"workbench.list.smoothScrolling": true,
