@@ -373,7 +373,7 @@
       local       meta='%f'     # default foreground
       local      clean='%99F'   # purple foreground
       local   modified='%111F'  # light blue foreground
-      local  untracked='%39F'   # blue foreground
+      local  untracked='%44F'   # cyan foreground
       local conflicted='%196F'  # red foreground
     else
       # Styling for incomplete and stale Git status.
