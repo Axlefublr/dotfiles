@@ -1,0 +1,7 @@
+0000000000000000 header
+05000000 4 remaps
+01003A00 capslock to escape
+3A000100 escape to capslock
+1DE05DE0 context menu key to right ctrl
+5CE01DE0 right ctrl to right windows key
+00000000 footer
