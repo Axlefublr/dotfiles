@@ -377,11 +377,11 @@
 			local conflicted='%196F'  # red foreground
 		else
 			# Styling for incomplete and stale Git status.
-			local       meta='%244F'  # grey foreground
-			local      clean='%244F'  # grey foreground
-			local   modified='%244F'  # grey foreground
-			local  untracked='%244F'  # grey foreground
-			local conflicted='%244F'  # grey foreground
+			local       meta='%102F'  # grey foreground
+			local      clean='%102F'  # grey foreground
+			local   modified='%102F'  # grey foreground
+			local  untracked='%102F'  # grey foreground
+			local conflicted='%102F'  # grey foreground
 		fi
 
 		local res
