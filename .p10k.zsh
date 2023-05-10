@@ -76,6 +76,8 @@
 		command_execution_time  # duration of the last command
 		# =========================[ Line #2 ]=========================
 		newline                 # \n
+		context                 # user@hostname
+		time                    # current time
 		prompt_char             # prompt symbol
 	)
 
@@ -139,7 +141,6 @@
 		# timewarrior             # timewarrior tracking status (https://timewarrior.net/)
 		# taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
 		# cpu_arch              # CPU architecture
-		# time                  # current time
 		# =========================[ Line #2 ]=========================
 		newline
 		# ip                    # ip address and bandwidth usage for a specified network interface
@@ -1604,7 +1605,7 @@
 
 	####################################[ time: current time ]####################################
 	# Current time color.
-	typeset -g POWERLEVEL9K_TIME_FOREGROUND=66
+	typeset -g POWERLEVEL9K_TIME_FOREGROUND=141
 	# Format for the current time: 09:51:02. See `man 3 strftime`.
 	typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
 	# If set to true, time will update when you hit enter. This way prompts for the past
