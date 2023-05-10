@@ -71,12 +71,12 @@
 		# =========================[ Line #1 ]=========================
 		# os_icon               # os identifier
 		dir                     # current directory
+		context                 # user@hostname
 		vcs                     # git status
 		status                  # exit code of the last command
 		command_execution_time  # duration of the last command
 		# =========================[ Line #2 ]=========================
 		newline                 # \n
-		context                 # user@hostname
 		time                    # current time
 		prompt_char             # prompt symbol
 	)
