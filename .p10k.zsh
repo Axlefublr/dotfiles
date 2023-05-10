@@ -11,6 +11,44 @@
 #
 # for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 
+# All the following comments until the first actual code are made by a user, not the theme. You're not supposed to uncomment them and leave it be. Instead, search for them in the place they already exist in. This is essentially just docs, not something you're supposed to use right here.
+
+# Colors I use
+# 218 - pink
+
+# Change directory to only [blank] parent directories (instead of the full path)
+# typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
+
+# See only 2 parent directories (pick your number)
+# typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+
+# Change the color of the shown directory to pink
+# typeset -g POWERLEVEL9K_DIR_FOREGROUND=218
+
+# Change the background & foreground color of the last command's execution status section
+# typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND=7
+# typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=7
+# typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=8
+# typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=8
+
+# Change the color of anchor directories
+# typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=0
+
+# Disable anchor directories displaying in bold
+# typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
+
+# Change the background of your vim mode section: NORMAL
+# typeset -g POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=6
+
+# Change the background of your vim mode section: OVERWRITE
+# typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=5
+
+# Change the color of your character prompt (>) for when the command executed without errors
+# typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=128
+
+# Change the color of your character prompt (>) for when the command executed with errors
+# typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=128
+
 # Temporarily change options.
 'builtin' 'local' '-a' 'p10k_config_opts'
 [[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
