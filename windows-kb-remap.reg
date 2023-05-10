@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,\
+; 5 remaps
+06,00,00,00,\
+; capslock to escape
+01,00,3A,00,\
+; escape to F13
+64,00,01,00,\
+; context menu key to right ctrl
+1D,E0,5D,E0,\
+; right ctrl to right windows key
+5C,E0,1D,E0,\
+; scrolllock to F14
+65,00,46,00,\
+00,00,00,00

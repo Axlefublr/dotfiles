@@ -1,8 +1,0 @@
-0000000000000000 header
-0600 0000 5 remaps
-0100 3A00 capslock to escape
-6400 0100 escape to F13
-1DE0 5DE0 context menu key to right ctrl
-5CE0 1DE0 right ctrl to right windows key
-6500 4600 scrolllock to F14
-00000000 footer
