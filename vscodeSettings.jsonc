@@ -217,7 +217,7 @@
 	},
 	"[sql]": {},
 	"Lua.format.defaultConfig": {
-		"indent_style": "space",
+		"indent_style": "tab",
 		"indent_size": "4"
 	},
 	"material-icon-theme.files.associations": {
@@ -294,7 +294,7 @@
 		"editor.formatOnSave": false
 	},
 	"[html]": {
-		// "editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
@@ -321,7 +321,7 @@
 	"editor.find.cursorMoveOnType": false,
 	"editor.suggest.insertMode": "replace",
 	"editor.suggest.shareSuggestSelections": true,
-	"editor.formatOnSaveMode": "modificationsIfAvailable",
+	"editor.formatOnSaveMode": "file",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.editor.untitled.hint": "hidden",
 	"workbench.startupEditor": "none",
@@ -455,7 +455,6 @@
 	"editor.scrollbar.horizontal": "visible",
 	"diffEditor.renderSideBySide": false,
 	"workbench.activityBar.visible": false,
-	"editor.guides.indentation": false,
 	"screencastMode.verticalOffset": 10,
 	"editor.guides.bracketPairsHorizontal": false,
 	"editor.guides.bracketPairs": true,
@@ -503,5 +502,8 @@
 	"editor.snippetSuggestions": "bottom",
 	"workbench.quickOpen.closeOnFocusLost": false,
 	"workbench.quickOpen.preserveInput": true,
-	"liveServer.settings.donotShowInfoMsg": true
+	"liveServer.settings.donotShowInfoMsg": true,
+	"editor.guides.indentation": false,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false
 }
