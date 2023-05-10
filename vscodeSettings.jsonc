@@ -294,7 +294,7 @@
 		"editor.formatOnSave": false
 	},
 	"[html]": {
-		"editor.formatOnSave": false
+		// "editor.formatOnSave": false
 	},
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
@@ -502,5 +502,6 @@
 	"prettier.useTabs": true,
 	"editor.snippetSuggestions": "bottom",
 	"workbench.quickOpen.closeOnFocusLost": false,
-	"workbench.quickOpen.preserveInput": true
+	"workbench.quickOpen.preserveInput": true,
+	"liveServer.settings.donotShowInfoMsg": true
 }

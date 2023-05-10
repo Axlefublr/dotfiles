@@ -204,6 +204,7 @@ alias termdown='termdown -a -W -f roman'
 alias dotnet='dotnet.exe'
 alias gh="gh.exe"
 alias code="code-insiders"
+alias node="node.exe"
 alias ...='../..'
 alias ....='../../..'
 
