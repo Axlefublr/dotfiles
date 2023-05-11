@@ -15,6 +15,7 @@
 
 # Colors I use
 # 218 - pink
+# 210 - redder pink
 
 # Change directory to only [blank] parent directories (instead of the full path)
 # typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
@@ -410,8 +411,9 @@
 			# Styling for up-to-date Git status.
 			local       meta='%f'     # default foreground
 			local      clean='%141F'  # purple foreground
-			local   modified='%45F'   # light blue foreground
-			local  untracked='%119F'  # cyan foreground
+			local     staged='%119F'  # green foreground
+			local   modified='%218F'  # pink foreground
+			local  untracked='%45F'   # cyan foreground
 			local conflicted='%196F'  # red foreground
 		else
 			# Styling for incomplete and stale Git status.
@@ -478,7 +480,7 @@
 		# ~42 if have merge conflicts.
 		(( VCS_STATUS_NUM_CONFLICTED )) && res+=" ${conflicted}~${VCS_STATUS_NUM_CONFLICTED}"
 		# +42 if have staged changes.
-		(( VCS_STATUS_NUM_STAGED     )) && res+=" ${modified}+${VCS_STATUS_NUM_STAGED}"
+		(( VCS_STATUS_NUM_STAGED     )) && res+=" ${staged}+${VCS_STATUS_NUM_STAGED}"
 		# !42 if have unstaged changes.
 		(( VCS_STATUS_NUM_UNSTAGED   )) && res+=" ${modified}!${VCS_STATUS_NUM_UNSTAGED}"
 		# ?42 if have untracked files. It's really a question mark, your font isn't broken.
