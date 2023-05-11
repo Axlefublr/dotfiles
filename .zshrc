@@ -361,6 +361,14 @@ combine() {
 	ffmpeg.exe -f concat -safe 0 -i inputs.txt -c copy $3
 	rm inputs.txt input1.ts input2.ts
 }
+
+cutout() {
+	ffmpeg.exe -i $1 -to $3 -c:a copy input1.mp4
+	ffmpeg.exe -i $1 -ss $4 -c:a copy input2.mp4
+	combine input1.mp4 input2.mp4 $2
+	rm input1.mp4 input2.mp4
+}
+
 timer() {
 	termdown "$@" && Ting.exe
 }
