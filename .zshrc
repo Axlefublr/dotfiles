@@ -353,6 +353,14 @@ compress() {
 	ffmpeg.exe -i $1 -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $2
 }
 
+combine() {
+	ffmpeg -i $1 -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
+	ffmpeg -i $2 -c copy -bsf:v h264_mp4toannexb -f mpegts input2.ts
+	echo "file 'input1.ts'
+	file 'input2.ts'" > inputs.txt
+	ffmpeg -f concat -safe 0 -i inputs.txt -c copy $3
+	rm inputs.txt input1.ts input2.ts
+}
 timer() {
 	termdown "$@" && Ting.exe
 }
