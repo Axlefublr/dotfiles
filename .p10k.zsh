@@ -9,7 +9,7 @@
 #
 # Tip: Looking for a nice color? Here's a one-liner to print colormap.
 #
-for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+# for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 
 # All the following comments until the first actual code are made by a user, not the theme. You're not supposed to uncomment them and leave it be. Instead, search for them in the place they already exist in. This is essentially just docs, not something you're supposed to use right here.
 
@@ -75,9 +75,9 @@ for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6
 		# os_icon               # os identifier
 		dir                     # current directory
 		context                 # user@hostname
+		background_jobs         # presence of background jobs
 		vcs                     # git status
 		status                  # exit code of the last command
-		background_jobs         # presence of background jobs
 		command_execution_time  # duration of the last command
 		# =========================[ Line #2 ]=========================
 		newline                 # \n
@@ -595,7 +595,7 @@ for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6
 	# Don't show the number of background jobs.
 	typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
 	# Background jobs color.
-	typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=208
+	typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=221 # yellow
 	# Custom icon.
 	# typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
