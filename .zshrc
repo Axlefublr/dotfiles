@@ -256,15 +256,16 @@ abbrev-alias gmanp='git commit --amend --no-edit && git push'
 abbrev-alias gmanpf='git commit --amend --no-edit && git push -f'
 abbrev-alias gmp='git commit && git push'
 abbrev-alias gmmp='git commit -m "" && git push'
-abbrev-alias gam='git add . && git commit'
-abbrev-alias gamm='git add . && git commit -m ""'
-abbrev-alias gamp='git add . && git commit && git push'
-abbrev-alias gampf='git add . && git commit && git push -f'
-abbrev-alias gammp='git add . && git commit -m "" && git push'
-abbrev-alias gamap='git add . && git commit --amend && git push'
-abbrev-alias gamanp='git add . && git commit --amend --no-edit && git push'
-abbrev-alias gamapf='git add . && git commit --amend && git push -f'
-abbrev-alias gamanpf='git add . && git commit --amend --no-edit && git push -f'
+abbrev-alias gam='git add . && git commit -a'
+abbrev-alias gamm='git add . && git commit -am ""'
+abbrev-alias gamp='git add . && git commit -a && git push'
+abbrev-alias gampf='git add . && git commit -a && git push -f'
+abbrev-alias gammp='git add . && git commit -am "" && git push'
+abbrev-alias gamap='git add . && git commit -a --amend && git push'
+abbrev-alias gamanp='git add . && git commit -a --amend --no-edit && git push'
+abbrev-alias gaman='git add . && git commit -a --amend --no-edit'
+abbrev-alias gamapf='git add . && git commit -a --amend && git push -f'
+abbrev-alias gamanpf='git add . && git commit -a --amend --no-edit && git push -f'
 abbrev-alias gp='git push'
 abbrev-alias gpf='git push -f'
 abbrev-alias gpu='git push -u origin main'
@@ -387,7 +388,7 @@ gpa() {
 	git push
 	cd /mnt/c/Pictures/Tree
 	git push
-	cd /mnt/c/Pictures/Tools
+	cd ../Tools
 	git push
 	cd $prevDir
 }

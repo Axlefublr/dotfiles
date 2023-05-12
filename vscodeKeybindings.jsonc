@@ -2858,7 +2858,7 @@
 		"when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
 	},
 	{
-		"key": "ctrl+shift+y ctrl+shift+y",
+		"key": "ctrl+shift+y",
 		"command": "workbench.action.addRootFolder"
 	},
 	{
@@ -3660,10 +3660,6 @@
 	{
 		"key": "shift+alt+y shift+alt+y",
 		"command": "workbench.action.reloadWindow"
-	},
-	{
-		"key": "ctrl+shift+y y",
-		"command": "workbench.action.files.openFolder"
 	},
 	{
 		"key": "ctrl+k ctrl+up",

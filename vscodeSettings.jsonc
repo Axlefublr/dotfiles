@@ -504,6 +504,5 @@
 	"workbench.quickOpen.preserveInput": true,
 	"liveServer.settings.donotShowInfoMsg": true,
 	"editor.guides.indentation": false,
-	"editor.insertSpaces": false,
-	"editor.detectIndentation": false
+	"editor.insertSpaces": false
 }
