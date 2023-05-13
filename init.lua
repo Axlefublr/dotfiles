@@ -649,4 +649,10 @@ vim.keymap.set("", "<leader>mt", Move_line_to_top)
 local Move_line_to_bottom = 'ddmiGp`i'
 vim.keymap.set("", "<leader>mb", Move_line_to_bottom)
 
+local Search_for_default_register_forward = '/\\V<C-r>"<CR>'
+vim.keymap.set("", "''/", Search_for_default_register_forward)
+
+local Search_for_default_register_backward = '/\\V<C-r>"<CR>'
+vim.keymap.set("", "''?", Search_for_default_register_backward)
+
 print("nvim loaded")
