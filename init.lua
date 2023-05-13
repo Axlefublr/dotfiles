@@ -302,6 +302,7 @@ if vim.g.vscode then
 	function Format_document()
 		vim.fn.VSCodeNotify("editor.action.formatDocument")
 		Trim_trailing_whitespace()
+		print("formatted")
 	end
 	vim.keymap.set("n", "=ie", Format_document)
 
@@ -511,8 +512,8 @@ vim.keymap.set("n", "Y", Capital_yank_doesnt_consume_newline)
 local Switch_case_stays_in_place = "~h"
 vim.keymap.set("n", "~", Switch_case_stays_in_place)
 
-local Capital_q_executes_i_register = "@i"
-vim.keymap.set("n", "Q", Capital_q_executes_i_register)
+local Capital_q_executes_u_register = "@u"
+vim.keymap.set("n", "Q", Capital_q_executes_u_register)
 
 local Switch_lines_forward = "ddp"
 vim.keymap.set("n", "dp", Switch_lines_forward)

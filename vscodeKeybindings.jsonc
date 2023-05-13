@@ -4985,5 +4985,15 @@
 	{
 		"key": "ctrl+; q",
 		"command": "workbench.action.focusQuickOpen"
+	},
+	{
+		"key": "alt+l",
+		"command": "jumpToNextSnippetPlaceholder",
+		"when": "!inKeybindings && inSnippetMode"
+	},
+	{
+		"key": "alt+h",
+		"command": "jumpToPrevSnippetPlaceholder",
+		"when": "!inKeybindings && inSnippetMode"
 	}
 ]

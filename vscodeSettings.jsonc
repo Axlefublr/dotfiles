@@ -421,7 +421,7 @@
 	"editor.minimap.scale": 2,
 	"editor.fontWeight": "normal",
 	"scm.inputFontFamily": "editor",
-	"screencastMode.fontSize": 30,
+	"screencastMode.fontSize": 26,
 	"editor.mouseWheelZoom": true,
 	"search.quickOpen.history.filterSortOrder": "recency",
 	"task.quickOpen.skip": true,
@@ -455,7 +455,7 @@
 	"editor.scrollbar.horizontal": "visible",
 	"diffEditor.renderSideBySide": false,
 	"workbench.activityBar.visible": false,
-	"screencastMode.verticalOffset": 10,
+	"screencastMode.verticalOffset": 0,
 	"editor.guides.bracketPairsHorizontal": false,
 	"editor.guides.bracketPairs": true,
 	"editor.matchBrackets": "near",
@@ -505,5 +505,6 @@
 	"liveServer.settings.donotShowInfoMsg": true,
 	"editor.guides.indentation": false,
 	"editor.insertSpaces": false,
-	"editor.tabSize": 3
+	"editor.tabSize": 3,
+	"screencastMode.keyboardShortcutsFormat": "keys"
 }
