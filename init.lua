@@ -661,4 +661,10 @@ vim.keymap.set("", "'q/", Search_for_system_register_forward)
 local Search_for_system_register_backward = '?\\V<C-r>+<CR>'
 vim.keymap.set("", "'q?", Search_for_system_register_backward)
 
+local Search_for_yank_register_forward = '/\\V<C-r>0<CR>'
+vim.keymap.set("", "'w/", Search_for_yank_register_forward)
+
+local Search_for_yank_register_backward = '?\\V<C-r>0<CR>'
+vim.keymap.set("", "'w?", Search_for_yank_register_backward)
+
 print("nvim loaded")
