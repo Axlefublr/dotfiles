@@ -394,22 +394,22 @@ gpa() {
 }
 
 _get_important_dir() {
-	BUFFER="$BUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
+	BUFFER="$LBUFFER$(dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)$RBUFFER"
 	zle end-of-line
 }
 
 _get_important_file() {
-	BUFFER="$BUFFER$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)"
+	BUFFER="$LBUFFER$(fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)$RBUFFER"
 	zle end-of-line
 }
 
 _get_current_dir() {
-	BUFFER="$BUFFER$(dpick . | smush)"
+	BUFFER="$LBUFFER$(dpick . | smush)$RBUFFER"
 	zle end-of-line
 }
 
 _get_current_file() {
-	BUFFER="$BUFFER$(fpick . | smush)"
+	BUFFER="$LBUFFER$(fpick . | smush)$RBUFFER"
 	zle end-of-line
 }
 
