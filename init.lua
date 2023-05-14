@@ -256,6 +256,8 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("", "U", Trim_trailing_whitespace__Save)
 
+	function Save_no_format() vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting") end
+
 	function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
 	vim.keymap.set("n", "gD", Reveal_definition_aside)
 
