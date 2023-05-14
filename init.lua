@@ -258,6 +258,12 @@ if vim.g.vscode then
 
 	function Save_no_format() vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting") end
 
+	function Trim_trailing_whitespace__Save_no_format()
+		Trim_trailing_whitespace()
+		Save_no_format()
+	end
+	vim.keymap.set("", "<leader>U", Trim_trailing_whitespace__Save_no_format)
+
 	function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
 	vim.keymap.set("n", "gD", Reveal_definition_aside)
 
@@ -271,7 +277,7 @@ if vim.g.vscode then
 	vim.keymap.set("n", "gl", Open_link)
 
 	function Outdent()
-	---@diagnostic disable-next-line: unused-local
+		---@diagnostic disable-next-line: unused-local
 		for i = 1, vim.v.count1 do
 			vim.fn.VSCodeNotify("editor.action.outdentLines")
 		end
@@ -279,7 +285,7 @@ if vim.g.vscode then
 	vim.keymap.set("n", "<<", Outdent)
 
 	function Indent()
-	---@diagnostic disable-next-line: unused-local
+		---@diagnostic disable-next-line: unused-local
 		for i = 1, vim.v.count1 do
 			vim.fn.VSCodeNotify("editor.action.indentLines")
 		end
@@ -641,7 +647,7 @@ local Paste_default_register = '<C-r><C-p>"'
 vim.keymap.set("!", "<C-b>", Paste_default_register)
 
 local Delete_line_but_take_inside_line = 'dil\'_dd'
-vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, {remap = true})
+vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, { remap = true })
 
 local Delete_big_word_insert = '<C-o>dvB'
 vim.keymap.set("!", "<C-w>", Delete_big_word_insert)
