@@ -701,4 +701,10 @@ vim.keymap.set("n", "Q", Sneak_S)
 vim.keymap.set("x", "Q", Sneak_S)
 vim.keymap.set("o", "Q", Sneak_S)
 
+local Sneak_repeat_forward = "<Plug>Sneak_;"
+vim.keymap.set("", '"', Sneak_repeat_forward)
+
+local Sneak_repeat_backward = "<Plug>Sneak_,"
+vim.keymap.set("", ":", Sneak_repeat_backward)
+
 print("nvim loaded")
