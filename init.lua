@@ -227,11 +227,25 @@ function FeedKeysCorrectly(keys)
 	vim.api.nvim_feedkeys(feedableKeys, "n", true)
 end
 
-function CenterScreen() vim.cmd("call <SNR>4_reveal('center', 0)") end
-function TopScreen() vim.cmd("call <SNR>4_reveal('top', 0)") end
-function BottomScreen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
-
 if vim.g.vscode then
+
+	function Center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
+	function Top_screen() vim.cmd("call <SNR>4_reveal('top', 0)") end
+	function Bottom_screen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
+	function Move_to_top_screen() vim.cmd("call <SNR>4_moveCursor('top')") end
+	function Move_to_bottom_screen() vim.cmd("call <SNR>4_moveCursor('bottom')") end
+
+	function Move_to_bottom_screen__center_screen()
+		Move_to_bottom_screen()
+		Center_screen()
+	end
+	vim.keymap.set("", "L", Move_to_bottom_screen__center_screen)
+
+	function Move_to_top_screen_center_screen()
+		Move_to_top_screen()
+		Center_screen()
+	end
+	vim.keymap.set("", "H", Move_to_top_screen_center_screen)
 
 	function Toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
 	vim.keymap.set("", "zy", Toggle_typewriter)

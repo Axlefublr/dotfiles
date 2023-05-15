@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../main"
+		},
+		{
+			"path": "../../Users/axlefublr/Documents/Autohotkey/Lib"
+		},
+		{
+			"path": "../info"
+		},
+		{
+			"path": "../test"
+		},
+		{
+			"path": "../registers"
+		},
+		{
+			"path": "../shows"
+		},
+		{
+			"path": "../music"
+		},
+		{
+			"path": "../job"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "test"
+	}
+}
