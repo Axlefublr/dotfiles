@@ -16,8 +16,8 @@ vim.opt.background        = "dark"
 vim.g.camelcasemotion_key = "<leader>"
 vim.g.targets_nl          = "nh"
 vim.cmd("colorscheme tender")
-local hop = require("hop")
-local directions = require("hop.hint").HintDirection
+vim.cmd("let g:sneak#use_ic_scs = 1")
+vim.cmd("highlight link Sneak None")
 
 --- Plugins: VimPlug
 local Plug = vim.fn['plug#']
@@ -48,13 +48,6 @@ require("packer").startup(function(use)
 	use {
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true }
-	}
-	use {
-		"phaazon/hop.nvim",
-		branch = "v2",
-		config = function()
-			require("hop").setup({ keys = "asdfghjklqwertyuiopzxcvbnm;" })
-		end
 	}
 	use({
 		"kylechui/nvim-surround",
@@ -419,37 +412,6 @@ vim.keymap.set("", "ga", EasyAlignMapping)
 
 local ReplaceWithRegisterMapping = "<Plug>ReplaceWithRegisterLine"
 vim.keymap.set("n", "grr", ReplaceWithRegisterMapping)
-
-function Hop_forward_f_sameline()
-	hop.hint_char1({
-		direction = directions.AFTER_CURSOR,
-		current_line_only = true
-	})
-end
-vim.keymap.set("", "<leader>f", Hop_forward_f_sameline)
-
-function Hop_backward_f_sameline() hop.hint_char1({
-	direction = directions.BEFORE_CURSOR,
-	current_line_only = true
-})
-end
-vim.keymap.set("", "<leader>F", Hop_backward_f_sameline)
-
-function Hop_forward_t_sameline() hop.hint_char1({
-	direction = directions.AFTER_CURSOR,
-	current_line_only = true,
-	hint_offset = -1,
-})
-end
-vim.keymap.set("", "<leader>t", Hop_forward_t_sameline)
-
-function Hop_backward_t_sameline() hop.hint_char1({
-	direction = directions.BEFORE_CURSOR,
-	current_line_only = true,
-	hint_offset = 1,
-})
-end
-vim.keymap.set("", "<leader>T", Hop_backward_t_sameline)
 
 local Block_text_object_self_sameline = "aBV"
 vim.keymap.set("v", "im", Block_text_object_self_sameline)

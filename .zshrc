@@ -212,6 +212,7 @@ abbrev-alias exp='explorer.exe'
 abbrev-alias clip='clip.exe'
 
 abbrev-alias ch='ChoreTracker.exe'
+abbrev-alias we='Welde.exe'
 
 abbrev-alias bat='batcat'
 abbrev-alias v='nvim'
