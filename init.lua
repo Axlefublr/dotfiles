@@ -32,6 +32,7 @@ Plug("kana/vim-textobj-line")
 Plug("michaeljsmith/vim-indent-object")
 Plug("vim-scripts/ReplaceWithRegister")
 Plug("wellle/targets.vim")
+Plug('justinmk/vim-sneak')
 vim.call("plug#end")
 
 --- Plugins: Packer
@@ -534,9 +535,6 @@ vim.keymap.set("n", "Y", Capital_yank_doesnt_consume_newline)
 local Switch_case_stays_in_place = "~h"
 vim.keymap.set("n", "~", Switch_case_stays_in_place)
 
-local Capital_q_executes_u_register = "@u"
-vim.keymap.set("n", "Q", Capital_q_executes_u_register)
-
 local Switch_lines_forward = "ddp"
 vim.keymap.set("n", "dp", Switch_lines_forward)
 
@@ -627,10 +625,10 @@ vim.keymap.set("n", "<leader>bi", Convert_to_arrow_function)
 local Convert_to_normal_function = "^f(%f=c3l{<CR><Esc>o}<Esc>"
 vim.keymap.set("n", "<leader>ba", Convert_to_normal_function)
 
-local Add_comma_at_end_of_line = "mrA,<Esc>`r"
+local Add_comma_at_end_of_line = "mIA,<Esc>`I"
 vim.keymap.set("n", "<leader>,", Add_comma_at_end_of_line)
 
-local Add_semicolon_at_end_of_line = "mrA;<Esc>`r"
+local Add_semicolon_at_end_of_line = "mIA;<Esc>`I"
 vim.keymap.set("n", "<leader>;", Add_semicolon_at_end_of_line)
 
 local Add_ahk_dependency = "mIggO#Include <"
@@ -689,5 +687,18 @@ vim.keymap.set("", "'w/", Search_for_yank_register_forward)
 
 local Search_for_yank_register_backward = '?\\V<C-r>0<CR>'
 vim.keymap.set("", "'w?", Search_for_yank_register_backward)
+
+local Captal_R_records_macro = 'q'
+vim.keymap.set("", "R", Captal_R_records_macro)
+
+local Sneak_s = "<Plug>Sneak_s"
+vim.keymap.set("n", "q", Sneak_s)
+vim.keymap.set("x", "q", Sneak_s)
+vim.keymap.set("o", "q", Sneak_s)
+
+local Sneak_S = "<Plug>Sneak_S"
+vim.keymap.set("n", "Q", Sneak_S)
+vim.keymap.set("x", "Q", Sneak_S)
+vim.keymap.set("o", "Q", Sneak_S)
 
 print("nvim loaded")
