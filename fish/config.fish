@@ -43,6 +43,9 @@ set -g tide_pwd_color_anchors $color_pink
 set -g tide_pwd_color_dirs $color_pink
 set -g tide_pwd_color_truncated_dirs $color_redder_pink
 
+set -g tide_shlvl_color $color_yellow
+set -g tide_shlvl_threshold 2
+
 set -g tide_time_format '%H:%M'
 
 set -g fish_cursor_default block
