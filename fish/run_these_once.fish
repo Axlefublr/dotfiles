@@ -130,3 +130,8 @@ function _edit_command_buffer
     rm $tempfile
 end
 funcsave _edit_command_buffer
+
+function _copy_command_buffer
+	commandline | fish_clipboard_copy
+end
+funcsave _copy_command_buffer

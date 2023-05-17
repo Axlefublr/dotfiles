@@ -149,6 +149,7 @@ abbr -a gr      'git reset'
 abbr -a grs     'git reset --soft'
 abbr -a grh     'git reset --hard'
 abbr -a grhh    'git reset --hard HEAD'
+abbr -a grhom   'git reset --hard origin/main'
 abbr -a gst     'git stash'
 abbr -a gstp    'git stash push'
 abbr -a gsts    'git stash show'
@@ -170,8 +171,9 @@ abbr -a gre     'git remote'
 abbr -a gui     'git update-index'
 abbr -a guiau   'git update-index --assume-unchanged'
 abbr -a guinau  'git update-index --no-assume-unchanged'
-abbr -a gcl     'git clean'
+abbr -a gcl     'git clean -f'
 abbr -a gcf     'git config'
+abbr -a gpl     'git pull'
 
 abbr -a dn   'dotnet'
 abbr -a dnw  'dotnet watch'
@@ -216,5 +218,8 @@ bind -M default \cR _history_replace
 
 bind -M insert  \cE _history_insert
 bind -M default \cE _history_insert
+
+bind -M insert  \cO _copy_command_buffer
+bind -M default \cO _copy_command_buffer
 
 bind -M default V _edit_command_buffer
