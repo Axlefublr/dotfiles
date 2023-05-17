@@ -58,27 +58,27 @@ set -g fish_cursor_visual block
 
 set -g fish_prompt_vim_symbol
 
-abbr -a exp explorer.exe
-abbr -a clip clip.exe
-abbr -a ch ChoreTracker.exe
-abbr -a we Welde.exe
+abbr -a exp 'explorer.exe'
+abbr -a clip 'clip.exe'
+abbr -a ch 'ChoreTracker.exe'
+abbr -a we 'Welde.exe'
 
-abbr -a bat batcat
-abbr -a v nvim
-abbr -a rm rm -fr
-abbr -a ff ffmpeg.exe
-abbr -a tree tree -C | less
-abbr -a clock termdown -z
+abbr -a bat 'batcat'
+abbr -a v 'nvim'
+abbr -a rm 'rm -fr'
+abbr -a ff 'ffmpeg.exe'
+abbr -a tree 'tree -C | less'
+abbr -a clock 'termdown -z'
 
-abbr -a grep grep -E
-abbr -a rgrep grep -Ern
-abbr -a agrep grep --color=always -E
-abbr -a argrep grep --color=always -Ern
+abbr -a grep 'grep -E'
+abbr -a rgrep 'grep -Ern'
+abbr -a agrep 'grep --color=always -E'
+abbr -a argrep 'grep --color=always -Ern'
 
-abbr -a ls ls -A
-abbr -a lg ls -Ag
-abbr -a lsa ls --color=always -A
-abbr -a lsg ls --color=always -Ag
+abbr -a ls 'ls -A'
+abbr -a lg 'ls -Ag'
+abbr -a lsa 'ls --color=always -A'
+abbr -a lsg 'ls --color=always -Ag'
 
 abbr -a g       'git'
 abbr -a gd      'git diff'
