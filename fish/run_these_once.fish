@@ -133,8 +133,7 @@ function _edit_command_buffer
     set -l tempfile (mktemp)
     commandline > $tempfile
     $EDITOR $tempfile
-    set -l new_command (cat $tempfile)
-    commandline -r $new_command
+    commandline -r (cat $tempfile)
     rm $tempfile
 end
 funcsave _edit_command_buffer
