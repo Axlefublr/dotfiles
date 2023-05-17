@@ -168,6 +168,8 @@ abbr -a gme     'git merge'
 abbr -a gre     'git remote'
 abbr -a gui     'git update-index'
 abbr -a guiau   'git update-index --assume-unchanged'
+abbr -a gcl     'git clean'
+abbr -a gcf     'git config'
 
 abbr -a dn   'dotnet'
 abbr -a dnw  'dotnet watch'
