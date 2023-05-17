@@ -1,3 +1,5 @@
+# fish_vi_key_bindings
+
 set -g color_pink FFAFD7
 set -g color_purple AF87FF
 
