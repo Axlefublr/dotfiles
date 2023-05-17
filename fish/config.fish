@@ -48,9 +48,9 @@ set -g tide_right_prompt_items
 set -g tide_character_color $color_pink
 set -g tide_character_color_failure $color_pink
 set -g tide_character_icon '>>>'
-set -g tide_character_vi_icon_default '$$$'
-set -g tide_character_vi_icon_replace '$$$'
-set -g tide_character_vi_icon_visual 'OOO'
+set -g tide_character_vi_icon_default '>>>'
+set -g tide_character_vi_icon_replace '>>>'
+set -g tide_character_vi_icon_visual '>>>'
 
 set -g tide_cmd_duration_color $color_grey
 set -g tide_cmd_duration_decimals 4
