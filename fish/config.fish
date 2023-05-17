@@ -226,4 +226,8 @@ bind -M insert  \cD 'exit'
 bind -M default \cD 'exit'
 bind -M visual  \cD 'exit'
 
+bind -M insert  \cE repaint
+bind -M default \cE repaint
+bind -M visual  \cE repaint
+
 bind -M default V edit_command_buffer
