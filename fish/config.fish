@@ -17,8 +17,16 @@ set -g color_gruvbox_red EA6962
 set -g color_gruvbox_sea 89B482
 set -g color_gruvbox_grey 928374
 
+set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
+set -gx EDITOR 'nvim'
+set -gx VISUAL 'nvim'
+set -gx PATH "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" $PATH
+set -gx HISTSIZE 10000
+set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
+set -gx SAVEHIST 10000
 set -g fish_lazy_load_completions 'true'
 set -g fish_lazy_load_functions 'true'
+
 set -g fish_color_normal $color_gruvbox_white
 set -g fish_color_command $color_gruvbox_green
 set -g fish_color_quote $color_gruvbox_yellow
