@@ -140,7 +140,10 @@
 					"foreground": "#D3869B",
 					"fontStyle": ""
 				},
-				"scope": []
+				"scope": [
+					"variable.other.normal.fish",
+					"punctuation.definition.variable.fish"
+				]
 			},
 			{
 				"name": "purple italic",

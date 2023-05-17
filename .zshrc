@@ -433,23 +433,23 @@ _paste_clipboard() {
 
 # Hotkeys
 
-# zle -N _history_replace
-# bindkey '^r' _history_replace
+zle -N _history_replace
+bindkey '^r' _history_replace
 
-# zle -N _history_right
-# bindkey '^t' _history_right
+zle -N _history_right
+bindkey '^t' _history_right
 
-# zle -N _get_important_dir
-# bindkey '^g' _get_important_dir
+zle -N _get_important_dir
+bindkey '^g' _get_important_dir
 
-# zle -N _get_important_file
-# bindkey '^f' _get_important_file
+zle -N _get_important_file
+bindkey '^f' _get_important_file
 
-# zle -N _get_current_dir
-# bindkey '^s' _get_current_dir
+zle -N _get_current_dir
+bindkey '^s' _get_current_dir
 
-# zle -N _get_current_file
-# bindkey '^a' _get_current_file
+zle -N _get_current_file
+bindkey '^a' _get_current_file
 
-# zle -N _paste_clipboard
-# bindkey '^v' _paste_clipboard
+zle -N _paste_clipboard
+bindkey '^v' _paste_clipboard
