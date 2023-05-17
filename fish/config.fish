@@ -238,7 +238,7 @@ end
 function _get_important_dir
 	commandline -i (dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
 end
-
-
-
 bind -M insert \cD _get_important_dir
+
+
+
