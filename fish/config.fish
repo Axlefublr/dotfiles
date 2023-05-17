@@ -175,11 +175,11 @@ function flist
 end
 
 function dpick
-	dlist $argv | fzf -m --cycle | sed "s/^/'/; s/$/'/"
+	dlist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
 end
 
 function fpick
-	flist $argv | fzf -m --cycle | sed "s/^/'/; s/$/'/"
+	flist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
 end
 
 function smush
