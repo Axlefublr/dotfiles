@@ -122,15 +122,6 @@ function _history_insert
 end
 funcsave _history_insert
 
-function _edit_command_buffer
-    set -l tempfile (mktemp)
-    commandline > $tempfile
-    $EDITOR $tempfile
-    commandline -r (cat $tempfile)
-    rm $tempfile
-end
-funcsave _edit_command_buffer
-
 function _copy_command_buffer
 	commandline | fish_clipboard_copy
 end
