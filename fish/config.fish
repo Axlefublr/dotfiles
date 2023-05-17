@@ -240,19 +240,19 @@ function _get_important_dir
 end
 bind -M insert \cD _get_important_dir
 
-_get_important_file() {
+function _get_important_file
 	commandline -i (fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
-}
+end
 bind -M insert \cF _get_important_file
 
-_get_current_dir() {
+function _get_current_dir
 	commandline -i (dpick . | smush)
-}
+end
 bind -M insert \cS _get_current_dir
 
-_get_current_file() {
+function _get_current_file
 	commandline -i (fpick . | smush)
-}
+end
 bind -M insert \cA _get_current_file
 
 # _history_replace() {
