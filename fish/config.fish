@@ -240,5 +240,10 @@ function _get_important_dir
 end
 bind -M insert \cD _get_important_dir
 
+_get_important_file() {
+	commandline -i (fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
+}
+bind -M insert \cF _get_important_file
+
 
 
