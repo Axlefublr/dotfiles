@@ -112,7 +112,7 @@ function _get_current_file
 end
 funcsave _get_current_file
 
-function _history_replace
+
 	commandline (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
 end
 funcsave _history_replace
@@ -121,11 +121,6 @@ function _history_insert
 	commandline -i (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
 end
 funcsave _history_insert
-
-function _paste_clipboard
-	commandline -i (win32yank.exe -o)
-end
-funcsave _paste_clipboard
 
 function _edit_command_buffer
     set -l tempfile (mktemp)

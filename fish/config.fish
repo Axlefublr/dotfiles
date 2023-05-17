@@ -216,7 +216,4 @@ bind -M default \cR _history_replace
 bind -M insert  \cE _history_insert
 bind -M default \cE _history_insert
 
-bind -M insert  \cV fish_clipboard_paste
-bind -M default \cV fish_clipboard_paste
-
 bind -M default V _edit_command_buffer
