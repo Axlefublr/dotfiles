@@ -16,6 +16,7 @@ set -g color_gruvbox_yellow D8A657
 set -g color_gruvbox_red EA6962
 set -g color_gruvbox_sea 89B482
 set -g color_gruvbox_grey 928374
+set -g color_gruvbox_cyan 7DAEA3
 
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
