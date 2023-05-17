@@ -36,6 +36,8 @@ set -g tide_git_color_stash $color_orange
 set -g tide_git_color_untracked $color_cyan
 set -g tide_git_color_upstream $color_yellow
 
+set -g tide_jobs_color $color_yellow
+
 set -g tide_time_format '%H:%M'
 
 set -g fish_cursor_default block
