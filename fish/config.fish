@@ -222,4 +222,8 @@ bind -M default \cE _history_insert
 bind -M insert  \cO _copy_command_buffer
 bind -M default \cO _copy_command_buffer
 
+bind -M insert  \cD 'exit'
+bind -M default \cD 'exit'
+bind -M visual  \cD 'exit'
+
 bind -M default V edit_command_buffer
