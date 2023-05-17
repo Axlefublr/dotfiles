@@ -539,9 +539,6 @@ vim.keymap.set("v", "<leader>q", Multiply_visual)
 local Complete_line = "<C-x><C-l>"
 vim.keymap.set("i", "<C-l>", Complete_line)
 
-local Replace_line_insert = '<Esc>"_S'
-vim.keymap.set("i", "<C-m>", Replace_line_insert)
-
 local Delete_up_to_last_line_end = '<C-o>"_S<Esc><C-o>gI<BS>'
 vim.keymap.set("i", "<C-h>", Delete_up_to_last_line_end)
 
