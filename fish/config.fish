@@ -16,8 +16,11 @@ set -g tide_character_vi_icon_default '$$$'
 set -g tide_character_vi_icon_replace '$$$'
 set -g tide_character_vi_icon_visual 'OOO'
 
+set -g tide_time_format '%H:%M'
+
 set -g fish_cursor_default block
 set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
+
 set -g fish_prompt_vim_symbol
