@@ -22,6 +22,10 @@ set -g tide_character_vi_icon_default '$$$'
 set -g tide_character_vi_icon_replace '$$$'
 set -g tide_character_vi_icon_visual 'OOO'
 
+set -g tide_cmd_duration_color $color_grey
+set -g tide_cmd_duration_decimals 4
+set -g tide_cmd_duration_threshold 0
+
 set -g tide_time_format '%H:%M'
 
 set -g fish_cursor_default block
