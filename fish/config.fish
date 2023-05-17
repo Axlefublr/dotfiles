@@ -198,11 +198,25 @@ abbr -a ghgl  'gh gist list'
 abbr -a ghgc  'gh gist create'
 abbr -a ghge  'gh gist edit'
 
-bind -M insert \cG _get_important_dir
-bind -M insert \cF _get_important_file
-bind -M insert \cS _get_current_dir
-bind -M insert \cA _get_current_file
-bind -M insert \cR _history_replace
-bind -M insert \cE _history_insert
-bind -M insert \cV _paste_clipboard
+bind -M insert  \cG _get_important_dir
+bind -M default \cG _get_important_dir
+
+bind -M insert  \cF _get_important_file
+bind -M default \cF _get_important_file
+
+bind -M insert  \cS _get_current_dir
+bind -M default \cS _get_current_dir
+
+bind -M insert  \cA _get_current_file
+bind -M default \cA _get_current_file
+
+bind -M insert  \cR _history_replace
+bind -M default \cR _history_replace
+
+bind -M insert  \cE _history_insert
+bind -M default \cE _history_insert
+
+bind -M insert  \cV fish_clipboard_paste
+bind -M default \cV fish_clipboard_paste
+
 bind -M default V _edit_command_buffer
