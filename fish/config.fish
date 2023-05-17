@@ -28,6 +28,13 @@ set -g tide_cmd_duration_threshold 0
 
 set -g tide_context_color_root $color_red
 set -g tide_context_color_ssh $color_orange
+set -g tide_git_color_branch $color_purple
+set -g tide_git_color_conflicted $color_red
+set -g tide_git_color_dirty $color_pink
+set -g tide_git_color_staged $color_green
+set -g tide_git_color_stash $color_orange
+set -g tide_git_color_untracked $color_cyan
+set -g tide_git_color_upstream $color_yellow
 
 set -g tide_time_format '%H:%M'
 
