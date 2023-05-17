@@ -385,6 +385,8 @@ gpa() {
 	git push
 	cd ../music
 	git push
+   cd ../fish
+   git push
 	cd /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib
 	git push
 	cd /mnt/c/Pictures/Tree
