@@ -231,3 +231,5 @@ bind -M default \cE repaint
 bind -M visual  \cE repaint
 
 bind -M default V edit_command_buffer
+bind -M default : repeat-jump-reverse
+bind -M default \" repeat-jump
