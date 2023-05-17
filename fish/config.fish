@@ -39,6 +39,10 @@ set -g tide_git_color_upstream $color_yellow
 
 set -g tide_jobs_color $color_yellow
 
+set -g tide_pwd_color_anchors $color_pink
+set -g tide_pwd_color_dirs $color_pink
+set -g tide_pwd_color_truncated_dirs $color_redder_pink
+
 set -g tide_time_format '%H:%M'
 
 set -g fish_cursor_default block
