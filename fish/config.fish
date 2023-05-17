@@ -188,3 +188,4 @@ bind -M insert \cA _get_current_file
 bind -M insert \cR _history_replace
 bind -M insert \cE _history_insert
 bind -M insert \cV _paste_clipboard
+bind -M default V _edit_command_buffer

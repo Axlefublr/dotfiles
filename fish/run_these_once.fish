@@ -128,3 +128,13 @@ function _paste_clipboard
 	commandline -i (win32yank.exe -o)
 end
 funcsave _paste_clipboard
+
+function _edit_command_buffer
+    set -l tempfile (mktemp)
+    commandline > $tempfile
+    $EDITOR $tempfile
+    set -l new_command (cat $tempfile)
+    commandline -r $new_command
+    rm $tempfile
+end
+funcsave _edit_command_buffer
