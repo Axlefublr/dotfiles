@@ -41,6 +41,7 @@ set -g fish_color_escape $color_gruvbox_grey
 set -g fish_color_autosuggestion $color_gruvbox_grey
 
 set -g tide_left_prompt_items pwd context shlvl jobs git status cmd_duration newline time character
+set -g tide_left_prompt_suffix
 set -g tide_right_prompt_items
 
 set -g tide_character_color $color_pink
@@ -73,6 +74,7 @@ set -g tide_pwd_color_truncated_dirs $color_redder_pink
 set -g tide_shlvl_color $color_yellow
 set -g tide_shlvl_threshold 2
 
+set -g tide_status_color $color_red
 set -g tide_status_color_failure $color_red
 
 set -g tide_time_color $color_purple
