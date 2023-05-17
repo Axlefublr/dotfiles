@@ -255,15 +255,15 @@ function _get_current_file
 end
 bind -M insert \cA _get_current_file
 
-# _history_replace() {
-# 	BUFFER="$(history | tac | awk '{print substr($0, index($0, $argv[4]))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$BUFFER)"
-# 	zle end-of-line
-# }
+function _history_replace
+	commandline (history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
+end
+bind -M insert \cR _history_replace
 
-# _history_right() {
-# 	BUFFER="$LBUFFER$(history | tac | awk '{print substr($0, index($0, $argv[4]))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=$RBUFFER)"
-# 	zle end-of-line
-# }
+function _history_insert
+	commandline -i (history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
+end
+bind -M insert \cE _history_insert
 
 # _paste_clipboard() {
 # 	BUFFER="$LBUFFER$(win32yank.exe -o)$RBUFFER"
