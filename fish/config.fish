@@ -265,7 +265,7 @@ function _history_insert
 end
 bind -M insert \cE _history_insert
 
-# _paste_clipboard() {
-# 	BUFFER="$LBUFFER$(win32yank.exe -o)$RBUFFER"
-# 	zle end-of-line
-# }
+function _paste_clipboard
+	commandline -i (win32yank.exe -o)
+end
+bind -M insert \cV _paste_clipboard
