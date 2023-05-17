@@ -26,6 +26,9 @@ set -g tide_cmd_duration_color $color_grey
 set -g tide_cmd_duration_decimals 4
 set -g tide_cmd_duration_threshold 0
 
+set -g tide_context_color_root $color_red
+set -g tide_context_color_ssh $color_orange
+
 set -g tide_time_format '%H:%M'
 
 set -g fish_cursor_default block
