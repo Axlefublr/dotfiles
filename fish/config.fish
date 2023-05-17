@@ -161,3 +161,77 @@ abbr -a ghg   'gh gist'
 abbr -a ghgl  'gh gist list'
 abbr -a ghgc  'gh gist create'
 abbr -a ghge  'gh gist edit'
+
+function dlist
+	for arg in $argv
+		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
+	end
+end
+
+function flist
+	for arg in $argv
+		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type f -print
+	end
+end
+
+function dpick
+	dlist $argv | fzf -m --cycle | sed "s/^/'/; s/$/'/"
+end
+
+function fpick
+	flist $argv | fzf -m --cycle | sed "s/^/'/; s/$/'/"
+end
+
+function smush
+	tr '\n' ' ' | sed 's/[[:space:]]*$//'
+end
+
+function cut
+	ffmpeg.exe -i $argv[1] -ss $argv[3] -to $argv[4] -c:a copy $argv[2]
+end
+
+function compress
+	ffmpeg.exe -i $argv[1] -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $argv[2]
+end
+
+function combine
+	ffmpeg.exe -i $argv[1] -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
+	ffmpeg.exe -i $argv[2] -c copy -bsf:v h264_mp4toannexb -f mpegts input2.ts
+	echo "file 'input1.ts'
+	file 'input2.ts'" > inputs.txt
+	ffmpeg.exe -f concat -safe 0 -i inputs.txt -c copy $argv[3]
+	rm inputs.txt input1.ts input2.ts
+end
+
+function cutout
+	ffmpeg.exe -i $argv[1] -to $argv[3] -c:a copy input1.mp4
+	ffmpeg.exe -i $argv[1] -ss $argv[4] -c:a copy input2.mp4
+	combine input1.mp4 input2.mp4 $argv[2]
+	rm input1.mp4 input2.mp4
+end
+
+function timer
+	termdown $argv && Ting.exe
+end
+
+function gpa
+	set -l prevDir (pwd)
+	cd /mnt/c/Programming/dotfiles
+	git push
+	cd ../info
+	git push
+	cd ../main
+	git push
+	cd ../music
+	git push
+   cd ../fish
+   git push
+	cd /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib
+	git push
+	cd /mnt/c/Pictures/Tree
+	git push
+	cd ../Tools
+	git push
+	cd $prevDir
+end
+
