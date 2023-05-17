@@ -112,7 +112,7 @@ function _get_current_file
 end
 funcsave _get_current_file
 
-
+function _history_replace
 	commandline (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
 end
 funcsave _history_replace
