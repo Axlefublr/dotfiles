@@ -115,12 +115,12 @@ end
 funcsave _get_current_file
 
 function _history_replace
-	commandline (history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
+	commandline (history | tac | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
 end
 funcsave _history_replace
 
 function _history_insert
-	commandline -i (history | tac | awk '{print substr($0, index($0, $4))}' | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
+	commandline -i (history | tac | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
 end
 funcsave _history_insert
 
