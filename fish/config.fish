@@ -41,6 +41,7 @@ set -g fish_color_operator $color_gruvbox_orange
 set -g fish_color_escape $color_gruvbox_grey
 set -g fish_color_autosuggestion $color_gruvbox_grey
 
+set -g tide_prompt_add_line_before false
 set -g tide_left_prompt_items pwd context shlvl jobs git status cmd_duration newline time character
 set -g tide_left_prompt_suffix
 set -g tide_right_prompt_items
