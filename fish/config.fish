@@ -8,6 +8,7 @@ set -g color_green 87FF5F
 set -g color_cyan 00D7FF
 set -g color_red FF005F
 set -g color_orange FF8700
+set -g color_redder_pink FF8787
 
 set -g fish_lazy_load_completions 'true'
 set -g fish_lazy_load_functions 'true'
