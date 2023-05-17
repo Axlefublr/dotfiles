@@ -31,7 +31,7 @@ set -g fish_lazy_load_functions 'true'
 set -g fish_color_normal $color_gruvbox_white
 set -g fish_color_command $color_gruvbox_green
 set -g fish_color_quote $color_gruvbox_yellow
-set -g fish_color_redirection $color_gruvbox_orange
+set -g fish_color_redirection $color_gruvbox_purple
 set -g fish_color_end $color_gruvbox_orange
 set -g fish_color_error $color_gruvbox_red
 set -g fish_color_param $color_gruvbox_sea
