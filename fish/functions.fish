@@ -1,15 +1,4 @@
-fish_vi_key_bindings
-
-alias --save grep 'grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias --save less 'less --use-color -R'
-alias --save termdown 'termdown -a -W -f roman'
-alias --save dotnet 'dotnet.exe'
-alias --save gh 'gh.exe'
-alias --save code 'code-insiders'
-alias --save node 'node.exe'
-alias --save ... 'cd ../..'
-alias --save .... 'cd ../../..'
-
+#!usr/bin/fish
 function dlist
 	for arg in $argv
 		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
@@ -126,3 +115,7 @@ function _copy_command_buffer
 	commandline | fish_clipboard_copy
 end
 funcsave _copy_command_buffer
+
+function fish_greeting
+end
+funcsave fish_greeting
