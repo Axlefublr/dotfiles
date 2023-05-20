@@ -46,8 +46,8 @@ set -g tide_left_prompt_items pwd context shlvl jobs git status cmd_duration new
 set -g tide_left_prompt_suffix
 set -g tide_right_prompt_items
 
-set -g tide_character_color $color_pink
-set -g tide_character_color_failure $color_pink
+set -g tide_character_color $color_yellow
+set -g tide_character_color_failure $color_yellow
 set -g tide_character_icon '>>>'
 set -g tide_character_vi_icon_default '>>>'
 set -g tide_character_vi_icon_replace '>>>'
