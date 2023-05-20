@@ -14,12 +14,12 @@ end
 funcsave flist
 
 function dpick
-	dlist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
+	dlist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
 end
 funcsave dpick
 
 function fpick
-	flist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
+	flist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
 end
 funcsave fpick
 
