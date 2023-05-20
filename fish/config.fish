@@ -145,11 +145,13 @@ abbr -a gp      'git push'
 abbr -a gpf     'git push -f'
 abbr -a gpu     'git push -u origin main'
 abbr -a gcr     'git add . && git commit -m "first commit" && git push -u origin main'
-abbr -a gr      'git reset'
-abbr -a grs     'git reset --soft'
-abbr -a grh     'git reset --hard'
-abbr -a grhh    'git reset --hard HEAD'
-abbr -a grhom   'git reset --hard origin/main'
+abbr -a grs     'git reset'
+abbr -a grss    'git reset --soft'
+abbr -a grssH   'git reset --soft HEAD'
+abbr -a grssom  'git reset --soft origin/main'
+abbr -a grsh    'git reset --hard'
+abbr -a grshH   'git reset --hard HEAD'
+abbr -a grshom  'git reset --hard origin/main'
 abbr -a gst     'git stash'
 abbr -a gstp    'git stash push'
 abbr -a gsts    'git stash show'
@@ -160,9 +162,9 @@ abbr -a gstl    'git stash list'
 abbr -a gstc    'git stash clear'
 abbr -a grb     'git rebase'
 abbr -a grm     'git remote'
-abbr -a grs     'git restore'
-abbr -a grss    'git restore --staged'
-abbr -a grsH    'git restore --source=HEAD --'
+abbr -a grt     'git restore'
+abbr -a grts    'git restore --staged'
+abbr -a grtH    'git restore --source=HEAD --'
 abbr -a gch     'git checkout'
 abbr -a gchm    'git checkout main'
 abbr -a gb      'git branch'
@@ -216,8 +218,8 @@ bind -M default \cA _get_current_file
 bind -M insert  \cR _history_replace
 bind -M default \cR _history_replace
 
-bind -M insert  \cE _history_insert
-bind -M default \cE _history_insert
+bind -M insert  \cT _history_insert
+bind -M default \cT _history_insert
 
 bind -M insert  \cO _copy_command_buffer
 bind -M default \cO _copy_command_buffer
@@ -225,10 +227,6 @@ bind -M default \cO _copy_command_buffer
 bind -M insert  \cD 'exit'
 bind -M default \cD 'exit'
 bind -M visual  \cD 'exit'
-
-bind -M insert  \cE repaint
-bind -M default \cE repaint
-bind -M visual  \cE repaint
 
 bind -M default V edit_command_buffer
 bind -M default : repeat-jump-reverse
