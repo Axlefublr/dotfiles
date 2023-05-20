@@ -9,3 +9,4 @@ git config --global credential.helper '/mnt/c/Program\ Files/Git/mingw64/libexec
 command -q pip || sudo apt install pip
 command -q termdown || sudo apt install termdown
 command -q fzf || sudo apt install fzf
+command -q batcat || sudo apt install bat
