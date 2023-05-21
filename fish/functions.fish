@@ -64,18 +64,38 @@ funcsave timer
 function gpa
 	set -l prevDir (pwd)
 	cd /mnt/c/Programming/dotfiles
+	pwd
+	git status
 	git push
 	cd ../info
+	printf \n\n
+	pwd
+	git status
 	git push
 	cd ../main
+	printf \n\n
+	pwd
+	git status
 	git push
 	cd ../music
+	printf \n\n
+	pwd
+	git status
 	git push
 	cd /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib
+	printf \n\n
+	pwd
+	git status
 	git push
 	cd /mnt/c/Pictures/Tree
+	printf \n\n
+	pwd
+	git status
 	git push
 	cd ../Tools
+	printf \n\n
+	pwd
+	git status
 	git push
 	cd $prevDir
 end
