@@ -7,7 +7,9 @@ git config --global credential.helper store
 git config --global credential.helper '/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe'
 
 command -q pip || sudo apt install pip
-command -q exrex || sudo apt install exrex
-command -q termdown || sudo apt install termdown
+command -q exrex || pip install exrex
+command -q termdown || pip install termdown
+
+command -q tree || sudo apt install tree
 command -q fzf || sudo apt install fzf
 command -q batcat || sudo apt install bat

@@ -88,8 +88,6 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
-set -g fish_prompt_vim_symbol
-
 abbr -a exp 'explorer.exe'
 abbr -a clip 'clip.exe'
 abbr -a ch 'ChoreTracker.exe'
