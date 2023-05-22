@@ -509,5 +509,6 @@
 	"editor.guides.indentation": false,
 	"editor.insertSpaces": false,
 	"editor.tabSize": 3,
-	"screencastMode.keyboardShortcutsFormat": "keys"
+	"screencastMode.keyboardShortcutsFormat": "keys",
+	"workbench.editor.splitInGroupLayout": "vertical"
 }

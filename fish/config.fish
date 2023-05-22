@@ -107,9 +107,9 @@ abbr -a agrep 'grep --color=always -E'
 abbr -a argrep 'grep --color=always -Ern'
 
 abbr -a ls 'ls -A'
-abbr -a lg 'ls -Ag'
+abbr -a lg 'ls -Agh'
 abbr -a lsa 'ls --color=always -A'
-abbr -a lsg 'ls --color=always -Ag'
+abbr -a lsg 'ls --color=always -Agh'
 
 abbr -a g       'git'
 abbr -a gd      'git diff'

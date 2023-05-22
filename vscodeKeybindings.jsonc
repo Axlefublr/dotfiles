@@ -3683,7 +3683,7 @@
 		"when": "!panelFocus"
 	},
 	{
-		"key": "ctrl+; g",
+		"key": "ctrl+alt+q",
 		"command": "workbench.action.joinTwoGroups"
 	},
 	{
@@ -5015,5 +5015,13 @@
 		"key": "shift+alt+f5",
 		"command": "-workbench.action.compareEditor.previousChange",
 		"when": "textCompareEditorVisible"
+	},
+	{
+		"key": "ctrl+; g",
+		"command": "workbench.action.joinAllGroups"
+	},
+	{
+		"key": "ctrl+alt+a",
+		"command": "workbench.action.toggleEditorGroupLayout"
 	}
 ]
