@@ -13,3 +13,5 @@ command -q termdown || pip install termdown
 command -q tree || sudo apt install tree
 command -q fzf || sudo apt install fzf
 command -q batcat || sudo apt install bat
+command -q neofetch || sudo apt install neofetch
+command -q ncdu || sudo apt install ncdu
