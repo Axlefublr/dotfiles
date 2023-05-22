@@ -62,7 +62,7 @@ end
 funcsave timer
 
 function gpa
-	set -l prevDir (pwd)
+	set -l prevDir pwd
 	cd /mnt/c/Programming/dotfiles
 	set_color yellow
 	pwd
@@ -84,6 +84,13 @@ function gpa
 	git status
 	git push
 	cd ../music
+	printf \n\n
+	set_color yellow
+	pwd
+	set_color normal
+	git status
+	git push
+	cd ../binaries
 	printf \n\n
 	set_color yellow
 	pwd
