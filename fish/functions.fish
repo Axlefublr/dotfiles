@@ -62,63 +62,24 @@ end
 funcsave timer
 
 function gpa
-	set -l prevDir pwd
-	cd /mnt/c/Programming/dotfiles
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd ../info
-	printf \n\n
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd ../main
-	printf \n\n
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd ../music
-	printf \n\n
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd ../binaries
-	printf \n\n
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib
-	printf \n\n
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd /mnt/c/Pictures/Tree
-	printf \n\n
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd ../Tools
-	printf \n\n
-	set_color yellow
-	pwd
-	set_color normal
-	git status
-	git push
-	cd $prevDir
+    set -l prevDir (pwd)
+    set -l directories /mnt/c/Programming/dotfiles /mnt/c/Programming/info /mnt/c/Programming/main /mnt/c/Programming/music /mnt/c/Programming/binaries /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib /mnt/c/Pictures/Tree /mnt/c/Pictures/Tools
+
+    for dir in $directories
+
+		  cd $dir
+        set_color yellow
+        echo $dir
+        set_color normal
+        and git status
+        and git push
+
+        if test $status != $dir[-1] # if not the last directory
+            printf \n\n
+        end
+    end
+
+    cd $prevDir
 end
 funcsave gpa
 
