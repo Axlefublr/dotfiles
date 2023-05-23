@@ -1,4 +1,4 @@
-#!usr/bin/fish
+#!/usr/bin/env fish
 mkdir -p ~/.config/fish
 rm -f ~/.config/fish/config.fish
 ln -s /mnt/c/Programming/dotfiles/fish/config.fish ~/.config/fish/config.fish

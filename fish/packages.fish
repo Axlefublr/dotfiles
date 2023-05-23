@@ -1,4 +1,4 @@
-#!usr/bin/fish
+#!/usr/bin/env fish
 command -q git || sudo apt install git
 git config --global user.email 101342105+Axlefublr@users.noreply.github.com
 git config --global user.name Axlefublr
@@ -15,3 +15,6 @@ command -q fzf || sudo apt install fzf
 command -q batcat || sudo apt install bat
 command -q neofetch || sudo apt install neofetch
 command -q ncdu || sudo apt install ncdu
+command -q cmatrix || sudo apt install cmatrix
+command -q lolcat || sudo apt install lolcat
+command -q cowsay || sudo apt install cowsay

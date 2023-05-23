@@ -1,4 +1,4 @@
-#!usr/bin/fish
+#!/usr/bin/env fish
 fish_vi_key_bindings
 
 alias --save grep 'grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'

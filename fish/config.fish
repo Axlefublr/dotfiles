@@ -1,3 +1,4 @@
+#!/usr/bin/env fish
 set -g color_pink FFAFD7
 set -g color_purple AF87FF
 set -g color_grey 878787
@@ -21,7 +22,7 @@ set -g color_gruvbox_cyan 7DAEA3
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
-set -gx PATH "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" $PATH
+set -gx PATH "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" "/mnt/c/Programming/dotfiles/fish" $PATH
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000

@@ -1,4 +1,4 @@
-#!usr/bin/fish
+#!/usr/bin/env fish
 set -l choreTrackerBrokenSymlink /mnt/c/Programming/binaries/ChoreTracker.exe
 set -l choreTrackerTarget /mnt/c/Programming/csproj/ChoreTracker/ChoreTracker/bin/Debug/net7.0/ChoreTracker.exe
 rm -f $choreTrackerBrokenSymlink

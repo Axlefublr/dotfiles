@@ -1693,10 +1693,6 @@
 		"when": "editorTextFocus"
 	},
 	{
-		"key": "shift+alt+;",
-		"command": "workbench.action.toggleAutoSave"
-	},
-	{
 		"key": "alt+i",
 		"command": "workbench.action.togglePanel"
 	},
@@ -5023,5 +5019,9 @@
 	{
 		"key": "ctrl+alt+a",
 		"command": "workbench.action.toggleEditorGroupLayout"
+	},
+	{
+		"key": "ctrl+shift+[",
+		"command": "workbench.action.toggleFullScreen"
 	}
 ]
