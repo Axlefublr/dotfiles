@@ -160,3 +160,13 @@ funcsave _copy_command_buffer
 function fish_greeting
 end
 funcsave fish_greeting
+
+function postvideo
+	set -l prevDir (pwd)
+	cd '/mnt/c/Pictures/Screenvideos'
+	rm -f "*"
+	cd ..
+	rm -f "*.png"
+	cd $prevDir
+end
+funcsave postvideo
