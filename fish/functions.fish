@@ -125,9 +125,9 @@ funcsave fish_greeting
 function postvideo
 	set -l prevDir (pwd)
 	cd '/mnt/c/Pictures/Screenvideos'
-	rm -f "*"
+	rm -f *
 	cd ..
-	rm -f "*.png"
+	rm -f *.png
 	cd $prevDir
 end
 funcsave postvideo
