@@ -128,7 +128,7 @@ function rms
 	end
 
 	for file in $argv
-		set -l target /tmp/deleted/(basename $file)_$(date +%Y%m%d%H%M%S)
+		set -l target /tmp/deleted/$(date '+%Y.%m.%d %H:%M:%S ')(basename $file)
 		mv $file $target
 	end
 end
@@ -137,9 +137,9 @@ funcsave rms
 function postvideo
 	set -l prevDir (pwd)
 	cd '/mnt/c/Pictures/Screenvideos'
-	srm *
+	rms *
 	cd ..
-	srm *.png
+	rms *.png
 	cd $prevDir
 end
 funcsave postvideo
