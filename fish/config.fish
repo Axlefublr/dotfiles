@@ -97,7 +97,7 @@ abbr -a ff 'ffmpeg.exe'
 
 abbr -a bat 'batcat'
 abbr -a v 'nvim'
-abbr -a rm 'rms'
+abbr -a rm 'trash-put'
 abbr -a rmf 'rm -fr'
 abbr -a tree 'tree -C | less'
 abbr -a clock 'termdown -z'

@@ -122,24 +122,12 @@ function fish_greeting
 end
 funcsave fish_greeting
 
-function rms
-	if not test -e /tmp/deleted
-		mkdir /tmp/deleted
-	end
-
-	for file in $argv
-		set -l target /tmp/deleted/$(date '+%Y.%m.%d %H:%M:%S ')(basename $file)
-		mv $file $target
-	end
-end
-funcsave rms
-
 function postvideo
 	set -l prevDir (pwd)
 	cd '/mnt/c/Pictures/Screenvideos'
-	rms *
+	trash-put *
 	cd ..
-	rms *.png
+	trash-put *.png
 	cd $prevDir
 end
 funcsave postvideo
