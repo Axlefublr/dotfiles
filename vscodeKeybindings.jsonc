@@ -5023,5 +5023,10 @@
 	{
 		"key": "ctrl+shift+[",
 		"command": "workbench.action.toggleFullScreen"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "workbench.action.files.newUntitledFile",
+		"when": "neovim.mode != 'insert'"
 	}
 ]

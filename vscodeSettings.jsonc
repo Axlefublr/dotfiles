@@ -263,6 +263,10 @@
 		"Ubuntu (WSL)": {
 			"path": "C:\\Windows\\System32\\wsl.exe",
 			"args": ["-d", "Ubuntu"]
+		},
+		"kali-linux (WSL)": {
+			"path": "C:\\WINDOWS\\System32\\wsl.exe",
+			"args": ["-d", "kali-linux"]
 		}
 	},
 	"files.associations": {
@@ -303,7 +307,7 @@
 		"asvetliakov.vscode-neovim": 1
 	},
 	"editor.fontSize": 24,
-	"editor.fontLigatures": false,
+	"editor.fontLigatures": true,
 	"editor.bracketPairColorization.enabled": true,
 	"editor.mouseWheelScrollSensitivity": 1.7,
 	"editor.parameterHints.enabled": false,
@@ -339,7 +343,7 @@
 	"explorer.incrementalNaming": "smart",
 	"explorer.confirmDelete": false,
 	"terminal.integrated.fontSize": 24,
-	"terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+	"terminal.integrated.defaultProfile.windows": "kali-linux (WSL)",
 	"terminal.integrated.enableMultiLinePasteWarning": false,
 	"terminal.integrated.smoothScrolling": true,
 	"git.enableSmartCommit": true,
@@ -430,8 +434,8 @@
 	"task.quickOpen.skip": true,
 	"Lua.semantic.keyword": true,
 	"editor.indentSize": 4,
-	"editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
-	"terminal.integrated.fontFamily": "MesloLGS NF, 'Segoe UI Emoji', Consolas",
+	"editor.fontFamily": "'Consolas ligaturized v3', 'Consolas NF', Consolas, 'Segoe UI Emoji'",
+	"terminal.integrated.fontFamily": "",
 	"terminal.integrated.tabs.title": "${cwd}",
 	"terminal.integrated.cursorWidth": 2,
 	"terminal.integrated.commandsToSkipShell": [
