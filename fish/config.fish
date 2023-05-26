@@ -42,7 +42,7 @@ set -g fish_color_operator $color_gruvbox_orange
 set -g fish_color_escape $color_gruvbox_grey
 set -g fish_color_autosuggestion $color_gruvbox_grey
 
-set -g tide_prompt_add_line_before false
+set -g tide_prompt_add_newline_before false
 set -g tide_left_prompt_suffix
 set -g tide_prompt_min_cols 50
 set -g tide_left_prompt_items private_mode pwd context shlvl jobs git status newline character
@@ -102,6 +102,8 @@ abbr -a rmf 'rm -fr'
 abbr -a tree 'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
+
+abbr -a trr 'trash-restore'
 
 abbr -a grep 'grep -E'
 abbr -a rgrep 'grep -Ern'
