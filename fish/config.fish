@@ -51,10 +51,10 @@ set -g tide_right_prompt_items private_mode
 
 set -g tide_character_color -o $color_yellow
 set -g tide_character_color_failure -o $color_yellow
-set -g tide_character_icon '>>>>'
-set -g tide_character_vi_icon_default '>>>>'
-set -g tide_character_vi_icon_replace '>>>>'
-set -g tide_character_vi_icon_visual '>>>>'
+set -g tide_character_icon            '>>'
+set -g tide_character_vi_icon_default '>>'
+set -g tide_character_vi_icon_replace '>>'
+set -g tide_character_vi_icon_visual  '>>'
 
 set -g tide_cmd_duration_color $color_grey
 set -g tide_cmd_duration_decimals 4
@@ -72,11 +72,12 @@ set -g tide_git_color_upstream $color_yellow
 
 set -g tide_jobs_color $color_yellow
 
+set -g tide_pwd_icon ''
 set -g tide_pwd_color_anchors $color_pink
 set -g tide_pwd_color_dirs $color_pink
 set -g tide_pwd_color_truncated_dirs $color_redder_pink
 
-set -g tide_shlvl_color $color_yellow
+set -g tide_shlvl_color -o $color_yellow
 set -g tide_shlvl_threshold 1
 
 set -g tide_status_color $color_red
