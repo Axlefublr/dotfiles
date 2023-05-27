@@ -52,9 +52,9 @@ set -g tide_right_prompt_items private_mode
 set -g tide_character_color -o $color_yellow
 set -g tide_character_color_failure -o $color_yellow
 set -g tide_character_icon            '>>'
-set -g tide_character_vi_icon_default '$$'
-set -g tide_character_vi_icon_replace '^^'
-set -g tide_character_vi_icon_visual  '$$'
+set -g tide_character_vi_icon_default '>>'
+set -g tide_character_vi_icon_replace '>>'
+set -g tide_character_vi_icon_visual  '>>'
 
 set -g tide_cmd_duration_color $color_grey
 set -g tide_cmd_duration_decimals 4
