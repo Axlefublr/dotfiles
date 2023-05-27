@@ -440,14 +440,7 @@
 	"terminal.integrated.cursorWidth": 2,
 	"terminal.integrated.commandsToSkipShell": [
 		"workbench.action.terminal.rename",
-		"workbench.action.openEditorAtIndex2",
-		"workbench.action.openEditorAtIndex3",
-		"workbench.action.openEditorAtIndex4",
-		"workbench.action.openEditorAtIndex5",
-		"workbench.action.openEditorAtIndex6",
-		"workbench.action.openEditorAtIndex7",
-		"workbench.action.openEditorAtIndex8",
-		"workbench.action.openEditorAtIndex9"
+		"workbench.action.terminal.kill"
 	],
 	"editor.renderWhitespace": "trailing",
 	"explorer.excludeGitIgnore": true,

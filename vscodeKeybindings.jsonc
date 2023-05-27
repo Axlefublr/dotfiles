@@ -152,7 +152,7 @@
 		"when": "viewContainer.workbench.view.debug.enabled"
 	},
 	{
-		"key": "ctrl+; y",
+		"key": "ctrl+5",
 		"command": "workbench.view.extensions",
 		"when": "viewContainer.workbench.view.extensions.enabled"
 	},
@@ -2247,7 +2247,7 @@
 		"command": "workbench.action.toggleMaximizedPanel"
 	},
 	{
-		"key": "ctrl+; p",
+		"key": "ctrl+6",
 		"command": "timeline.focus"
 	},
 	{
@@ -2477,7 +2477,7 @@
 		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
-		"key": "ctrl+; u",
+		"key": "ctrl+1",
 		"command": "workbench.explorer.fileView.focus"
 	},
 	{
@@ -2526,7 +2526,7 @@
 		"when": "!editorHasSelection && editorLangId == 'ahk2'"
 	},
 	{
-		"key": "ctrl+; o",
+		"key": "ctrl+8",
 		"command": "workbench.panel.output.focus"
 	},
 	{
@@ -2550,10 +2550,6 @@
 		"key": "shift+alt+9",
 		"command": "ahk2.debug",
 		"when": "!inDebugMode && editorLangId == 'ahk2'"
-	},
-	{
-		"key": "ctrl+9",
-		"command": "editor.debug.action.toggleBreakpoint"
 	},
 	{
 		"key": "ctrl+alt+enter",
@@ -3071,9 +3067,9 @@
 		"when": "!inDebugMode && editorLangId != 'ahk2'"
 	},
 	{
-		"key": "ctrl+; k",
+		"key": "alt+w",
 		"command": "workbench.action.terminal.kill",
-		"when": "activePanel == 'terminal'"
+		"when": "terminalFocus && activePanel == 'terminal' && panelFocus"
 	},
 	{
 		"key": "delete",
@@ -3874,7 +3870,7 @@
 		"when": "!editorHasSelection && editorLangId == 'ahk2' && resourceScheme == 'file'"
 	},
 	{
-		"key": "ctrl+; j",
+		"key": "ctrl+`",
 		"command": "terminal.focus"
 	},
 	{
@@ -3920,11 +3916,6 @@
 		"key": "ctrl+; ctrl+k",
 		"command": "workbench.action.createTerminalEditor",
 		"when": "!keybindingFocus && !panelFocus && activePanel != 'terminal'"
-	},
-	{
-		"key": "alt+w",
-		"command": "workbench.action.terminal.killEditor",
-		"when": "terminalFocus"
 	},
 	{
 		"key": "alt+2",
@@ -4030,11 +4021,6 @@
 		"key": "shift+tab",
 		"command": "-outdent",
 		"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
-	},
-	{
-		"key": "ctrl+; m",
-		"command": "markdown.extension.checkTaskList",
-		"when": "!terminalFocus && editorTextFocus && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
 	},
 	{
 		"key": "alt+c",
@@ -4256,7 +4242,7 @@
 		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
 	},
 	{
-		"key": "ctrl+; ]",
+		"key": "ctrl+7",
 		"command": "notifications.focusToasts",
 		"when": "notificationToastsVisible && !notificationFocus"
 	},
@@ -4528,7 +4514,7 @@
 		"command": "-testing.cancelRun"
 	},
 	{
-		"key": "ctrl+; [",
+		"key": "ctrl+3",
 		"command": "workbench.view.extension.test"
 	},
 	{
@@ -4581,10 +4567,6 @@
 	},
 	{
 		"key": "alt+'",
-		"command": "workbench.action.quickOpenPreviousRecentlyUsedEditor"
-	},
-	{
-		"key": "ctrl+'",
 		"command": "workbench.action.showAllEditors"
 	},
 	{
@@ -4776,12 +4758,12 @@
 		"command": "workbench.action.moveActiveEditorGroupUp"
 	},
 	{
-		"key": "ctrl+; h",
+		"key": "ctrl+4",
 		"command": "editor.action.showHover",
 		"when": "!terminalFocus"
 	},
 	{
-		"key": "ctrl+; h",
+		"key": "ctrl+4",
 		"command": "workbench.action.terminal.focusHover",
 		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalIsOpen || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
 	},
@@ -4979,7 +4961,7 @@
 		"when": "editorLangId == 'html'"
 	},
 	{
-		"key": "ctrl+; q",
+		"key": "ctrl+9",
 		"command": "workbench.action.focusQuickOpen"
 	},
 	{
@@ -5028,5 +5010,48 @@
 		"key": "ctrl+n",
 		"command": "workbench.action.files.newUntitledFile",
 		"when": "neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+alt+[",
+		"command": "workbench.action.toggleTabsVisibility"
+	},
+	{
+		"key": "space",
+		"command": "-breadcrumbs.revealFocused",
+		"when": "breadcrumbsActive && breadcrumbsVisible"
+	},
+	{
+		"key": "space",
+		"command": "breadcrumbs.revealFocused",
+		"when": "breadcrumbsActive && breadcrumbsVisible"
+	},
+	{
+		"key": "shift+tab",
+		"command": "breadcrumbs.revealFocusedFromTreeAside",
+		"when": "breadcrumbsActive && breadcrumbsVisible"
+	},
+	{
+		"key": "tab",
+		"command": "-acceptSelectedSuggestion",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inSnippetMode"
+	},
+	{
+		"key": "tab",
+		"command": "vscode-neovim.send",
+		"when": "neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert'"
+	},
+	{
+		"key": "tab",
+		"command": "-vscode-neovim.send",
+		"when": "neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert'"
+	},
+	{
+		"key": "tab",
+		"command": "list.select",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "ctrl+2",
+		"command": "workbench.action.focusActiveEditorGroup"
 	}
 ]
