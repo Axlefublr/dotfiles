@@ -88,6 +88,12 @@ function _get_important_dir
 end
 funcsave _get_important_dir
 
+function _cd_important_dir
+	cd (dlist /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf --tac --cycle)
+	commandline -f repaint
+end
+funcsave _cd_important_dir
+
 function _get_important_file
 	commandline -i (fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
 end
@@ -97,6 +103,12 @@ function _get_current_dir
 	commandline -i (dpick . | smush)
 end
 funcsave _get_current_dir
+
+function _cd_current_dir
+	cd (dlist . | fzf --tac --cycle)
+	commandline -f repaint
+end
+funcsave _cd_current_dir
 
 function _get_current_file
 	commandline -i (fpick . | smush)

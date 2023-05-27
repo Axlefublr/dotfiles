@@ -210,13 +210,13 @@ abbr -a ghgc  'gh gist create'
 abbr -a ghge  'gh gist edit'
 
 bind -M insert  \cG _get_important_dir
-bind -M default \cG _get_important_dir
+bind -M default -m insert \cG _cd_important_dir
 
 bind -M insert  \cF _get_important_file
 bind -M default \cF _get_important_file
 
 bind -M insert  \cS _get_current_dir
-bind -M default \cS _get_current_dir
+bind -M default -m insert \cS _cd_current_dir
 
 bind -M insert  \cA _get_current_file
 bind -M default \cA _get_current_file
