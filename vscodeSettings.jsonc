@@ -306,7 +306,7 @@
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
 	},
-	"editor.fontSize": 24,
+	"editor.fontSize": 20,
 	"editor.fontLigatures": true,
 	"editor.bracketPairColorization.enabled": true,
 	"editor.mouseWheelScrollSensitivity": 1.7,
@@ -434,7 +434,7 @@
 	"task.quickOpen.skip": true,
 	"Lua.semantic.keyword": true,
 	"editor.indentSize": 4,
-	"editor.fontFamily": "'Consolas ligaturized v3', 'Consolas NF', Consolas, 'Segoe UI Emoji'",
+	"editor.fontFamily": "'Hack Nerd Font Mono', Hack, 'Consolas NF', Consolas, 'Segoe UI Emoji'",
 	"terminal.integrated.fontFamily": "",
 	"terminal.integrated.tabs.title": "${cwd}",
 	"terminal.integrated.cursorWidth": 2,
