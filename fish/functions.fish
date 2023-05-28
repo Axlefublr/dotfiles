@@ -99,6 +99,12 @@ function _get_important_file
 end
 funcsave _get_important_file
 
+function _open_important_file
+	nvim (flist /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf --tac --cycle)
+	commandline -f repaint
+end
+funcsave _open_important_file
+
 function _get_current_dir
 	commandline -i (dpick . | smush)
 end
@@ -114,6 +120,12 @@ function _get_current_file
 	commandline -i (fpick . | smush)
 end
 funcsave _get_current_file
+
+function _open_current_file
+	nvim (flist . | fzf --tac --cycle)
+	commandline -f repaint
+end
+funcsave _open_current_file
 
 function _history_replace
 	commandline (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
