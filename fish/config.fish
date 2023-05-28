@@ -45,6 +45,7 @@ set -g fish_color_autosuggestion $color_gruvbox_grey
 set -g tide_prompt_add_newline_before false
 set -g tide_prompt_min_cols 50
 set -g tide_prompt_pad_items false
+set -g tide_left_prompt_frame_enabled true
 set -g tide_left_prompt_suffix
 set -g tide_left_prompt_items character pwd context shlvl jobs git status newline character
 set -g tide_right_prompt_items private_mode

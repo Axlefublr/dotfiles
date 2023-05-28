@@ -4058,7 +4058,7 @@
 		"when": "codeActionMenuVisible"
 	},
 	{
-		"key": "ctrl+; /",
+		"key": "shift+alt+w",
 		"command": "workbench.action.closeOtherEditors"
 	},
 	{
