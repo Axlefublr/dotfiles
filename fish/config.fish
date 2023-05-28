@@ -49,7 +49,7 @@ set -g tide_prompt_color_frame_and_connection $color_yellow
 set -g tide_left_prompt_frame_enabled true
 set -g tide_left_prompt_prefix
 set -g tide_left_prompt_suffix
-set -g tide_left_prompt_items pwd shlvl context jobs git status newline character
+set -g tide_left_prompt_items shlvl pwd context jobs git status newline character
 set -g tide_right_prompt_items private_mode
 
 set -g tide_character_color -o $color_pink
@@ -81,7 +81,8 @@ set -g tide_pwd_color_dirs $color_pink
 set -g tide_pwd_color_truncated_dirs $color_redder_pink
 
 set -g tide_shlvl_color -o $color_yellow
-set -g tide_shlvl_threshold 1
+set -g tide_shlvl_icon ' '
+set -g tide_shlvl_threshold 0
 
 set -g tide_status_color $color_red
 set -g tide_status_color_failure $color_red
