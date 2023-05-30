@@ -672,4 +672,16 @@ vim.keymap.set("", '"', Sneak_repeat_forward)
 local Sneak_repeat_backward = "<Plug>Sneak_,"
 vim.keymap.set("", ":", Sneak_repeat_backward)
 
+local Inclusive_next_blankie = "}k"
+vim.keymap.set("n", "<leader>}", Inclusive_next_blankie)
+
+local Inclusive_prev_blankie = "{j"
+vim.keymap.set("n", "<leader>{", Inclusive_prev_blankie)
+
+function Inclusive_next_blankie_visual() vim.cmd("normal V}k") end
+vim.keymap.set("o", "<leader>}", Inclusive_next_blankie_visual)
+
+function Inclusive_prev_blankie_visual() vim.cmd("normal V{j") end
+vim.keymap.set("o", "<leader>{", Inclusive_prev_blankie_visual)
+
 print("nvim loaded")

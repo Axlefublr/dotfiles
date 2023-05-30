@@ -4,10 +4,9 @@
 	"actions": [
 		{
 			"command": {
-				"action": "swapPane",
-				"direction": "left"
+				"action": "commandPalette"
 			},
-			"keys": "ctrl+alt+s"
+			"keys": "ctrl+shift+p"
 		},
 		{
 			"command": {
@@ -18,9 +17,10 @@
 		},
 		{
 			"command": {
-				"action": "commandPalette"
+				"action": "swapPane",
+				"direction": "left"
 			},
-			"keys": "alt+shift+p"
+			"keys": "ctrl+alt+s"
 		},
 		{
 			"command": {
@@ -30,8 +30,7 @@
 			"keys": "ctrl+alt+8"
 		},
 		{
-			"command": "openNewTabDropdown",
-			"keys": "ctrl+space"
+			"command": "openNewTabDropdown"
 		},
 		{
 			"command": {
@@ -65,17 +64,17 @@
 		},
 		{
 			"command": {
-				"action": "resizePane",
-				"direction": "left"
-			},
-			"keys": "alt+shift+s"
-		},
-		{
-			"command": {
 				"action": "movePane",
 				"index": 3
 			},
 			"keys": "ctrl+alt+4"
+		},
+		{
+			"command": {
+				"action": "resizePane",
+				"direction": "left"
+			},
+			"keys": "alt+shift+s"
 		},
 		{
 			"command": "find"
@@ -267,10 +266,6 @@
 		},
 		{
 			"command": "unbound",
-			"keys": "ctrl+shift+p"
-		},
-		{
-			"command": "unbound",
 			"keys": "alt+enter"
 		},
 		{
@@ -323,10 +318,6 @@
 		},
 		{
 			"command": "unbound",
-			"keys": "ctrl+shift+["
-		},
-		{
-			"command": "unbound",
 			"keys": "alt+shift+1"
 		},
 		{
@@ -354,11 +345,26 @@
 			"keys": "shift+up"
 		},
 		{
+			"command": "unbound",
+			"keys": "ctrl+space"
+		},
+		{
+			"command": "unbound",
+			"keys": "alt+shift+p"
+		},
+		{
 			"command": {
 				"action": "switchToTab",
 				"index": 4
 			},
 			"keys": "alt+5"
+		},
+		{
+			"command": {
+				"action": "switchToTab",
+				"index": 2
+			},
+			"keys": "alt+3"
 		},
 		{
 			"command": {
@@ -373,11 +379,12 @@
 			"keys": "alt+comma"
 		},
 		{
-			"command": {
-				"action": "switchToTab",
-				"index": 2
-			},
-			"keys": "alt+3"
+			"command": "closePane",
+			"keys": "alt+w"
+		},
+		{
+			"command": "toggleSplitOrientation",
+			"keys": "ctrl+alt+a"
 		},
 		{
 			"command": {
@@ -387,16 +394,8 @@
 			"keys": "ctrl+alt+period"
 		},
 		{
-			"command": "toggleSplitOrientation",
-			"keys": "ctrl+alt+a"
-		},
-		{
-			"command": "closePane",
-			"keys": "alt+w"
-		},
-		{
 			"command": "closeOtherPanes",
-			"keys": "ctrl+shift+w"
+			"keys": "ctrl+alt+w"
 		},
 		{
 			"command": {
@@ -439,17 +438,17 @@
 		},
 		{
 			"command": {
-				"action": "swapPane",
-				"direction": "right"
-			},
-			"keys": "ctrl+alt+g"
-		},
-		{
-			"command": {
 				"action": "switchToTab",
 				"index": 5
 			},
 			"keys": "alt+6"
+		},
+		{
+			"command": {
+				"action": "swapPane",
+				"direction": "right"
+			},
+			"keys": "ctrl+alt+g"
 		},
 		{
 			"command": {
@@ -467,23 +466,30 @@
 		},
 		{
 			"command": {
-				"action": "switchToTab",
-				"index": 4294967295
-			},
-			"keys": "alt+0"
-		},
-		{
-			"command": {
 				"action": "newTab",
-				"index": 4
+				"index": 4,
+				"profile": "{96bca9de-cc58-4586-83fe-5907dae3f119}"
 			},
 			"keys": "alt+shift+0"
 		},
 		{
+			"command": "scrollDownPage",
+			"keys": "pgdn"
+		},
+		{
+			"command": "scrollDownPage",
+			"keys": "alt+p"
+		},
+		{
+			"command": "scrollDownPage",
+			"keys": "alt+pgdn"
+		},
+		{
 			"command": {
-				"action": "closeTab"
+				"action": "switchToTab",
+				"index": 4294967295
 			},
-			"keys": "ctrl+alt+w"
+			"keys": "alt+0"
 		},
 		{
 			"command": {
@@ -494,6 +500,12 @@
 		},
 		{
 			"command": {
+				"action": "closeTab"
+			},
+			"keys": "ctrl+shift+w"
+		},
+		{
+			"command": {
 				"action": "moveFocus",
 				"direction": "right"
 			},
@@ -501,17 +513,17 @@
 		},
 		{
 			"command": {
-				"action": "newTab",
-				"index": 3,
-				"profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
-			}
-		},
-		{
-			"command": {
 				"action": "movePane",
 				"index": 1
 			},
 			"keys": "ctrl+alt+2"
+		},
+		{
+			"command": {
+				"action": "newTab",
+				"index": 3,
+				"profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
+			}
 		},
 		{
 			"command": "scrollUpPage",
@@ -542,13 +554,6 @@
 		},
 		{
 			"command": {
-				"action": "moveFocus",
-				"direction": "down"
-			},
-			"keys": "alt+shift+j"
-		},
-		{
-			"command": {
 				"action": "splitPane",
 				"split": "right"
 			},
@@ -557,9 +562,20 @@
 		{
 			"command": {
 				"action": "moveFocus",
+				"direction": "down"
+			},
+			"keys": "alt+shift+j"
+		},
+		{
+			"command": {
+				"action": "moveFocus",
 				"direction": "left"
 			},
 			"keys": "alt+shift+h"
+		},
+		{
+			"command": "tabSearch",
+			"keys": "alt+'"
 		},
 		{
 			"command": {
@@ -570,10 +586,10 @@
 		},
 		{
 			"command": {
-				"action": "movePane",
-				"index": 2
+				"action": "splitPane",
+				"split": "down"
 			},
-			"keys": "ctrl+alt+3"
+			"keys": "ctrl+shift+j"
 		},
 		{
 			"command": {
@@ -584,14 +600,10 @@
 		},
 		{
 			"command": {
-				"action": "splitPane",
-				"split": "down"
+				"action": "movePane",
+				"index": 2
 			},
-			"keys": "ctrl+shift+j"
-		},
-		{
-			"command": "openTabRenamer",
-			"keys": "alt+shift+r"
+			"keys": "ctrl+alt+3"
 		},
 		{
 			"command": {
@@ -601,10 +613,8 @@
 			"keys": "alt+shift+f"
 		},
 		{
-			"command": {
-				"action": "closeOtherTabs"
-			},
-			"keys": "alt+shift+w"
+			"command": "openTabRenamer",
+			"keys": "alt+shift+r"
 		},
 		{
 			"command": {
@@ -612,6 +622,12 @@
 				"split": "up"
 			},
 			"keys": "ctrl+shift+k"
+		},
+		{
+			"command": {
+				"action": "closeOtherTabs"
+			},
+			"keys": "alt+shift+w"
 		},
 		{
 			"command": {
@@ -628,15 +644,15 @@
 			"keys": "alt+shift+d"
 		},
 		{
+			"command": "restoreLastClosed",
+			"keys": "ctrl+shift+t"
+		},
+		{
 			"command": {
 				"action": "swapPane",
 				"direction": "up"
 			},
 			"keys": "ctrl+alt+d"
-		},
-		{
-			"command": "restoreLastClosed",
-			"keys": "ctrl+shift+t"
 		},
 		{
 			"command": {
@@ -665,18 +681,6 @@
 				"clear": "all"
 			},
 			"keys": "alt+l"
-		},
-		{
-			"command": "scrollDownPage",
-			"keys": "pgdn"
-		},
-		{
-			"command": "scrollDownPage",
-			"keys": "alt+p"
-		},
-		{
-			"command": "scrollDownPage",
-			"keys": "alt+pgdn"
 		},
 		{
 			"command": {
@@ -724,33 +728,50 @@
 				"direction": "backward"
 			},
 			"keys": "ctrl+alt+comma"
+		},
+		{
+			"command": "togglePaneZoom",
+			"keys": "ctrl+alt+q"
+		},
+		{
+			"command": "toggleFullscreen"
+		},
+		{
+			"command": "toggleFocusMode",
+			"keys": "ctrl+shift+["
 		}
 	],
 	"confirmCloseAllTabs": false,
 	"copyFormatting": "none",
 	"copyOnSelect": true,
-	"defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+	"defaultProfile": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+	"disableAnimations": true,
 	"firstWindowPreference": "persistedWindowLayout",
 	"focusFollowMouse": false,
 	"launchMode": "maximized",
-	"newTabPosition": "afterLastTab",
+	"newTabPosition": "afterCurrentTab",
 	"profiles": {
 		"defaults": {
 			"altGrAliasing": false,
+			"backgroundImage": "C:\\Pictures\\Tree\\Themes\\java keyboard dark no text.png",
+			"backgroundImageAlignment": "center",
+			"backgroundImageOpacity": 0.6,
 			"bellStyle": "window",
 			"closeOnExit": "never",
 			"colorScheme": "GruvboxMaterialMediumDark",
 			"cursorShape": "filledBox",
 			"elevate": false,
 			"font": {
-				"face": "MesloLGS NF",
+				"face": "JetBrainsMono Nerd Font",
 				"size": 20.0
 			},
+			"intenseTextStyle": "bold",
 			"opacity": 100,
+			"padding": "3",
 			"scrollbarState": "hidden",
 			"startingDirectory": "C:\\Programming",
 			"suppressApplicationTitle": true,
-			"useAcrylic": true
+			"useAcrylic": false
 		},
 		"list": [
 			{
@@ -768,6 +789,15 @@
 				"tabTitle": "PowerShell"
 			},
 			{
+				"font": {
+					"weight": "normal"
+				},
+				"guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+				"hidden": false,
+				"name": "Kali Linux",
+				"source": "Windows.Terminal.Wsl"
+			},
+			{
 				"guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
 				"hidden": true,
 				"name": "Azure Cloud Shell",
@@ -778,20 +808,6 @@
 				"hidden": true,
 				"name": "Git Bash",
 				"source": "Git"
-			},
-			{
-				"guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-				"hidden": true,
-				"name": "Ubuntu",
-				"source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
-			},
-			{
-				"guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-				"hidden": false,
-				"name": "Linux",
-				"source": "Windows.Terminal.Wsl",
-				"suppressApplicationTitle": false,
-				"tabTitle": "Linux"
 			},
 			{
 				"antialiasingMode": "grayscale",
@@ -1076,6 +1092,7 @@
 			"yellow": "#808000"
 		}
 	],
+	"tabSwitcherMode": "inOrder",
 	"tabWidthMode": "equal",
 	"themes": [],
 	"trimPaste": false,
