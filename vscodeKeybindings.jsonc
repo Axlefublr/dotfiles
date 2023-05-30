@@ -4058,7 +4058,7 @@
 		"when": "codeActionMenuVisible"
 	},
 	{
-		"key": "shift+alt+w",
+		"key": "ctrl+shift+w",
 		"command": "workbench.action.closeOtherEditors"
 	},
 	{
@@ -5053,5 +5053,18 @@
 	{
 		"key": "ctrl+2",
 		"command": "workbench.action.focusActiveEditorGroup"
+	},
+	{
+		"key": "shift+alt+o",
+		"command": "-editor.action.organizeImports",
+		"when": "textInputFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
+	},
+	{
+		"key": "shift+alt+i",
+		"command": "workbench.action.focusFirstEditorGroup"
+	},
+	{
+		"key": "shift+alt+o",
+		"command": "workbench.action.focusLastEditorGroup"
 	}
 ]

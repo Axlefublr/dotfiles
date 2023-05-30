@@ -327,7 +327,7 @@
 	"editor.find.cursorMoveOnType": false,
 	"editor.suggest.insertMode": "replace",
 	"editor.suggest.shareSuggestSelections": true,
-	"editor.formatOnSaveMode": "file",
+	"editor.formatOnSaveMode": "modificationsIfAvailable",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.editor.untitled.hint": "hidden",
 	"workbench.startupEditor": "none",
@@ -431,7 +431,7 @@
 	"task.quickOpen.skip": true,
 	"Lua.semantic.keyword": true,
 	"editor.indentSize": 4,
-	"editor.fontFamily": "'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Segoe UI Emoji'",
+	"editor.fontFamily": "'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji'",
 	"editor.fontWeight": "normal",
 	"editor.fontSize": 21,
 	"screencastMode.fontSize": 26,
@@ -507,5 +507,7 @@
 	"editor.insertSpaces": false,
 	"editor.tabSize": 3,
 	"screencastMode.keyboardShortcutsFormat": "keys",
-	"workbench.editor.splitInGroupLayout": "vertical"
+	"workbench.editor.splitInGroupLayout": "vertical",
+	"editor.codeActionsOnSave": {},
+	"workbench.editor.showTabs": false
 }
