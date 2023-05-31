@@ -62,26 +62,31 @@ end
 funcsave timer
 
 function gpa
-    set -l prevDir (pwd)
-    set -l directories $git_directories
+	 set -l prevDir (pwd)
+	 set -l directories $git_directories
 
-    for dir in $directories
+	 for dir in $directories
 
 		  cd $dir
-        set_color yellow
-        echo $dir
-        set_color normal
-        and git status -s
-        and git push
+		  set_color yellow
+		  echo $dir
+		  set_color normal
+		  and git status -s
+		  and git push
 
-        if test $status != $dir[-1] # if not the last directory
-            printf \n
-        end
-    end
+		  if test $status != $dir[-1] # if not the last directory
+				printf \n
+		  end
+	 end
 
-    cd $prevDir
+	 cd $prevDir
 end
 funcsave gpa
+
+function prli
+	printf '%s\n' $argv
+end
+funcsave prli
 
 function _get_important_dir
 	commandline -i (dpick $search_directories | smush)
