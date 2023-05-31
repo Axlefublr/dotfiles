@@ -1,6 +1,9 @@
 #!/usr/bin/env fish
-set -g quick_directories /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio
-set -g git_directories /mnt/c/Programming/dotfiles /mnt/c/Programming/info /mnt/c/Programming/main /mnt/c/Programming/music /mnt/c/Programming/binaries /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib /mnt/c/Pictures/Tree /mnt/c/Pictures/Tools
+set -l prog /mnt/c/Programming
+set -l pic /mnt/c/Pictures
+set -l lib /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib
+set -g quick_directories $prog/dotfiles $prog/job $prog/music $prog/shows $prog/info $prog/test $prog/csproj $lib $pic /mnt/c/Audio
+set -g git_directories $prog/dotfiles $prog/info $prog/main $prog/music $prog/binaries $lib $pic/Tree $pic/Tools
 
 set -g color_pink        FFAFD7
 set -g color_purple      AF87FF
