@@ -94,7 +94,7 @@ end
 funcsave _get_important_dir
 
 function _cd_important_dir
-	cd (dlist $search_directories | fzf --tac --cycle)
+	cd (prli $plain_directories | fzf --cycle || echo .)
 	commandline -f repaint
 end
 funcsave _cd_important_dir
@@ -116,7 +116,7 @@ end
 funcsave _get_current_dir
 
 function _cd_current_dir
-	cd (dlist . | fzf --tac --cycle)
+	cd (dlist . | fzf --tac --cycle || echo .)
 	commandline -f repaint
 end
 funcsave _cd_current_dir
