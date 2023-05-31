@@ -71,7 +71,7 @@ function gpa
         set_color yellow
         echo $dir
         set_color normal
-        and git status
+        and git status -s
         and git push
 
         if test $status != $dir[-1] # if not the last directory
