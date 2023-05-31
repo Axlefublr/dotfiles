@@ -2,8 +2,9 @@
 set -l prog /mnt/c/Programming
 set -l pic /mnt/c/Pictures
 set -l lib /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib
-set -g quick_directories $prog/dotfiles $prog/job $prog/music $prog/shows $prog/info $prog/test $prog/csproj $lib $pic /mnt/c/Audio
-set -g git_directories $prog/dotfiles $prog/info $prog/main $prog/music $prog/binaries $lib $pic/Tree $pic/Tools
+set -l audio /mnt/c/Audio
+
+set -g search_directories $prog \
 
 set -g color_pink        FFAFD7
 set -g color_purple      AF87FF

@@ -75,7 +75,7 @@ function gpa
         and git push
 
         if test $status != $dir[-1] # if not the last directory
-            printf \n\n
+            printf \n
         end
     end
 
@@ -84,23 +84,23 @@ end
 funcsave gpa
 
 function _get_important_dir
-	commandline -i (dpick $quick_directories | smush)
+	commandline -i (dpick $search_directories | smush)
 end
 funcsave _get_important_dir
 
 function _cd_important_dir
-	cd (dlist $quick_directories | fzf --tac --cycle)
+	cd (dlist $search_directories | fzf --tac --cycle)
 	commandline -f repaint
 end
 funcsave _cd_important_dir
 
 function _get_important_file
-	commandline -i (fpick $quick_directories | smush)
+	commandline -i (fpick $search_directories | smush)
 end
 funcsave _get_important_file
 
 function _open_important_file
-	nvim (flist $quick_directories | fzf --tac --cycle)
+	nvim (flist $search_directories | fzf --tac --cycle)
 	commandline -f repaint
 end
 funcsave _open_important_file
