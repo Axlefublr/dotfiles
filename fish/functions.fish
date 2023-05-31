@@ -84,23 +84,23 @@ end
 funcsave gpa
 
 function _get_important_dir
-	commandline -i (dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
+	commandline -i (dpick $quick_directories | smush)
 end
 funcsave _get_important_dir
 
 function _cd_important_dir
-	cd (dlist /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf --tac --cycle)
+	cd (dlist $quick_directories | fzf --tac --cycle)
 	commandline -f repaint
 end
 funcsave _cd_important_dir
 
 function _get_important_file
-	commandline -i (fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
+	commandline -i (fpick $quick_directories | smush)
 end
 funcsave _get_important_file
 
 function _open_important_file
-	nvim (flist /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf --tac --cycle)
+	nvim (flist $quick_directories | fzf --tac --cycle)
 	commandline -f repaint
 end
 funcsave _open_important_file

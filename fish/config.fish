@@ -1,4 +1,6 @@
 #!/usr/bin/env fish
+set -g quick_directories /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio
+
 set -g color_pink FFAFD7
 set -g color_purple AF87FF
 set -g color_grey 878787
