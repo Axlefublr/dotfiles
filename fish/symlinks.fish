@@ -31,3 +31,13 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 fisher install IlanCosman/tide@v5
 
+set -l target /mnt/c/Programming/tide-functions
+set -l symlink ~/.config/fish/functions
+cd $symlink
+mv -f *_tide* $target
+cd $target
+for file in (ls *)
+    set -l source_path (realpath $file)
+    set -l dest_path "$symlink/$file"
+    ln -s $source_path $dest_path
+end
