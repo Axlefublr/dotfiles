@@ -1,0 +1,51 @@
+format = """
+[╭─](yellow) $shlvl\
+$username\
+$hostname\
+$localip\
+$singularity\
+$vcsh\
+$hg_branch\
+$pijul_channel\
+$package\
+$guix_shell\
+$haxe\
+$helm\
+$red\
+$spack\
+$memory_usage\
+$openstack\
+$custom\
+$sudo\
+$jobs\
+$time\
+$status\
+$os\
+$shell
+[│](yellow) $directory
+[╰─](yellow)$character"""
+
+add_newline = false
+palette = 'pinkie'
+command_timeout = 1000
+
+[palettes.pinkie]
+pink        = '#FFAFD7'
+purple      = '#AF87FF'
+grey        = '#878787'
+yellow      = '#FFD75F'
+green       = '#87FF5F'
+cyan        = '#00D7FF'
+red         = '#FF005F'
+orange      = '#FF8700'
+redder_pink = '#FF8787'
+
+[character]
+format = '$symbol '
+success_symbol = '[>](yellow)'
+error_symbol = '[>](redder_pink)'
+vimcmd_symbol = '[\$](yellow)'
+vimcmd_replace_one_symbol = '[_](yellow)'
+vimcmd_replace_symbol = '[_](yellow)'
+vimcmd_visual_symbol = '[\$](yellow)'
+disabled = false

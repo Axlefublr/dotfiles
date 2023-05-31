@@ -684,4 +684,7 @@ vim.keymap.set("o", "<leader>}", Inclusive_next_blankie_visual)
 function Inclusive_prev_blankie_visual() vim.cmd("normal V{j") end
 vim.keymap.set("o", "<leader>{", Inclusive_prev_blankie_visual)
 
+-- function Remove_slash_comments() vim.cmd("'<,'>g/\\/\\//d") end
+-- vim.keymap.set("v", "<leader>c", Remove_slash_comments)
+
 print("nvim loaded")

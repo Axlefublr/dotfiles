@@ -95,6 +95,8 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
+starship init fish | source
+
 abbr -a exp 'explorer.exe'
 abbr -a clip 'clip.exe'
 abbr -a ch 'ChoreTracker.exe'
