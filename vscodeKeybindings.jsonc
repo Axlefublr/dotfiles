@@ -5066,5 +5066,9 @@
 	{
 		"key": "shift+alt+o",
 		"command": "workbench.action.focusLastEditorGroup"
+	},
+	{
+		"key": "alt+;",
+		"command": "extension.goto-previous-buffer"
 	}
 ]

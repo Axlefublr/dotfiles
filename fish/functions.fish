@@ -63,7 +63,7 @@ funcsave timer
 
 function gpa
     set -l prevDir (pwd)
-    set -l directories /mnt/c/Programming/dotfiles /mnt/c/Programming/info /mnt/c/Programming/main /mnt/c/Programming/music /mnt/c/Programming/binaries /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib /mnt/c/Pictures/Tree /mnt/c/Pictures/Tools
+    set -l directories $git_directories
 
     for dir in $directories
 

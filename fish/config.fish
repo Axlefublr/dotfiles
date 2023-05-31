@@ -1,25 +1,26 @@
 #!/usr/bin/env fish
 set -g quick_directories /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio
+set -g git_directories /mnt/c/Programming/dotfiles /mnt/c/Programming/info /mnt/c/Programming/main /mnt/c/Programming/music /mnt/c/Programming/binaries /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib /mnt/c/Pictures/Tree /mnt/c/Pictures/Tools
 
-set -g color_pink FFAFD7
-set -g color_purple AF87FF
-set -g color_grey 878787
-set -g color_yellow FFD75F
-set -g color_green 87FF5F
-set -g color_cyan 00D7FF
-set -g color_red FF005F
-set -g color_orange FF8700
+set -g color_pink        FFAFD7
+set -g color_purple      AF87FF
+set -g color_grey        878787
+set -g color_yellow      FFD75F
+set -g color_green       87FF5F
+set -g color_cyan        00D7FF
+set -g color_red         FF005F
+set -g color_orange      FF8700
 set -g color_redder_pink FF8787
 
-set -g color_gruvbox_white D4BE98
-set -g color_gruvbox_green A9B665
+set -g color_gruvbox_white  D4BE98
+set -g color_gruvbox_green  A9B665
 set -g color_gruvbox_purple D3869B
 set -g color_gruvbox_orange E78A4E
 set -g color_gruvbox_yellow D8A657
-set -g color_gruvbox_red EA6962
-set -g color_gruvbox_sea 89B482
-set -g color_gruvbox_grey 928374
-set -g color_gruvbox_cyan 7DAEA3
+set -g color_gruvbox_red    EA6962
+set -g color_gruvbox_sea    89B482
+set -g color_gruvbox_grey   928374
+set -g color_gruvbox_cyan   7DAEA3
 
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
