@@ -41,3 +41,5 @@ for file in (ls *)
     set -l dest_path "$symlink/$file"
     ln -s $source_path $dest_path
 end
+
+curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
