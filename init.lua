@@ -545,8 +545,8 @@ vim.keymap.set("i", "<C-h>", Delete_up_to_last_line_end)
 local Insert_blank_line_up_insert = "<C-o>O"
 vim.keymap.set("i", "<C-k>", Insert_blank_line_up_insert)
 
-local Insert_blank_line_down_insert = "<C-o>o"
-vim.keymap.set("i", "<C-j>", Insert_blank_line_down_insert)
+-- local Insert_blank_line_down_insert = "<C-o>o"
+-- vim.keymap.set("i", "<C-j>", Insert_blank_line_down_insert)
 
 local Previous_blank_line_operator = "V{"
 vim.keymap.set("o", "{", Previous_blank_line_operator)
