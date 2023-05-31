@@ -27,3 +27,7 @@ ln -s /mnt/c/Programming/dotfiles/fish/config.fish ~/.config/fish/config.fish
 mkdir -p ~/.config/nvim
 ln -s /mnt/c/Programming/dotfiles/init.lua ~/.config/nvim/init.lua
 
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+fisher install IlanCosman/tide@v5
+
