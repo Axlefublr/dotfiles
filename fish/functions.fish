@@ -133,7 +133,10 @@ end
 funcsave _open_current_file > /dev/null
 
 function _history_replace
-	commandline (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
+	set -l picked (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
+	if test $picked
+		commandline $picked
+	end
 end
 funcsave _history_replace > /dev/null
 
