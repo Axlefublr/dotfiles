@@ -3343,11 +3343,6 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "l",
-		"command": "breadcrumbs.focusNext",
-		"when": "breadcrumbsActive && breadcrumbsVisible"
-	},
-	{
 		"key": "ctrl+h",
 		"command": "breadcrumbs.focusNextWithPicker",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
@@ -5018,11 +5013,6 @@
 	{
 		"key": "space",
 		"command": "-breadcrumbs.revealFocused",
-		"when": "breadcrumbsActive && breadcrumbsVisible"
-	},
-	{
-		"key": "space",
-		"command": "breadcrumbs.revealFocused",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
