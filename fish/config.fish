@@ -277,11 +277,8 @@ bind -M default -m insert \cS _cd_current_dir
 bind -M insert  \cA _get_current_file
 bind -M default -m insert \cA _open_current_file
 
-bind -M insert  \cR _history_replace
+bind -M insert  \cR _history_insert
 bind -M default \cR _history_replace
-
-bind -M insert  \cT _history_insert
-bind -M default \cT _history_insert
 
 bind -M insert  \cD 'exec fish -C clear'
 bind -M default \cD 'exec fish -C clear'
