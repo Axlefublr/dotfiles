@@ -141,6 +141,10 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
+abbr -a @hl --position anywhere -- '--help | less'
+abbr -a @l --position anywhere -- '| less'
+abbr -a @ca --position anywhere -- '--color=always'
+
 abbr -a exp 'explorer.exe'
 abbr -a clip 'clip.exe'
 abbr -a ch 'ChoreTracker.exe'
@@ -280,8 +284,8 @@ bind -M default \cT _history_insert
 bind -M insert  \cO _copy_command_buffer
 bind -M default \cO _copy_command_buffer
 
-bind -M insert  \cD 'exit'
-bind -M default \cD 'exit'
+bind -M insert  \cD 'exec fish'
+bind -M default \cD 'exec fish'
 
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
