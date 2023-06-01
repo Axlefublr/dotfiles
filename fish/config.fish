@@ -126,7 +126,7 @@ set -g tide_pwd_color_truncated_dirs $color_redder_pink
 
 set -g tide_shlvl_color -o $color_yellow
 set -g tide_shlvl_icon ' '
-set -g tide_shlvl_threshold 0
+set -g tide_shlvl_threshold 1
 
 set -g tide_status_color $color_red
 set -g tide_status_icon ' ✘'
