@@ -152,6 +152,7 @@ abbr -a clip 'clip.exe'
 abbr -a ch 'ChoreTracker.exe'
 abbr -a we 'Welde.exe'
 abbr -a ff 'ffmpeg.exe'
+abbr -a ffi 'ffmepg.exe -i'
 
 abbr -a bat 'batcat'
 abbr -a v 'nvim'
@@ -283,7 +284,8 @@ bind -M default \cR _history_replace
 bind -M insert  \cD 'exec fish -C clear'
 bind -M default \cD 'exec fish -C clear'
 
-bind -M default m accept-autosuggestion execute
+bind -M default m accept-autosuggestion
+bind -M default M accept-autosuggestion execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default \" repeat-jump
