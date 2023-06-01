@@ -9,7 +9,8 @@ set -g search_directories $prog \
 	$pic \
 	$audio/Sounds
 
-set -g plain_directories $prog/binaries \
+set -g plain_directories $prog \
+	$prog/binaries \
 	$prog/dotfiles \
 	$prog/job \
 	$prog/music \
@@ -26,6 +27,7 @@ set -g plain_directories $prog/binaries \
 	$pic \
 	$pic/Tree \
 	$pic/Screenvideos \
+	$pic/Content \
 	$audio/Sounds
 
 set -g git_directories $prog/dotfiles \
