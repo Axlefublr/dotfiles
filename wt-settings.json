@@ -60,7 +60,7 @@
 				"action": "newTab",
 				"index": 1
 			},
-			"keys": "alt+shift+7"
+			"keys": "alt+shift+0"
 		},
 		{
 			"command": {
@@ -98,7 +98,8 @@
 				"action": "splitPane",
 				"split": "auto",
 				"splitMode": "duplicate"
-			}
+			},
+			"keys": "ctrl+alt+j"
 		},
 		{
 			"command": "unbound",
@@ -183,10 +184,6 @@
 		{
 			"command": "unbound",
 			"keys": "ctrl+shift+8"
-		},
-		{
-			"command": "unbound",
-			"keys": "ctrl+shift+9"
 		},
 		{
 			"command": "unbound",
@@ -353,6 +350,26 @@
 			"keys": "alt+shift+p"
 		},
 		{
+			"command": "unbound",
+			"keys": "ctrl+shift+["
+		},
+		{
+			"command": "unbound",
+			"keys": "alt+l"
+		},
+		{
+			"command": "unbound",
+			"keys": "alt+shift+6"
+		},
+		{
+			"command": "unbound",
+			"keys": "alt+shift+7"
+		},
+		{
+			"command": "scrollToBottom",
+			"keys": "alt+o"
+		},
+		{
 			"command": {
 				"action": "switchToTab",
 				"index": 4
@@ -470,7 +487,7 @@
 				"index": 4,
 				"profile": "{96bca9de-cc58-4586-83fe-5907dae3f119}"
 			},
-			"keys": "alt+shift+0"
+			"keys": "ctrl+shift+0"
 		},
 		{
 			"command": "scrollDownPage",
@@ -496,13 +513,13 @@
 				"action": "newTab",
 				"index": 0
 			},
-			"keys": "alt+shift+6"
+			"keys": "alt+shift+9"
 		},
 		{
 			"command": {
 				"action": "closeTab"
 			},
-			"keys": "ctrl+shift+w"
+			"keys": "alt+shift+w"
 		},
 		{
 			"command": {
@@ -543,7 +560,7 @@
 				"index": 3,
 				"profile": "{7ed80e74-6d73-4016-8c07-911421ed5467}"
 			},
-			"keys": "alt+shift+9"
+			"keys": "ctrl+shift+9"
 		},
 		{
 			"command": {
@@ -583,6 +600,10 @@
 				"direction": "up"
 			},
 			"keys": "alt+shift+k"
+		},
+		{
+			"command": "duplicateTab",
+			"keys": "ctrl+alt+k"
 		},
 		{
 			"command": {
@@ -627,7 +648,7 @@
 			"command": {
 				"action": "closeOtherTabs"
 			},
-			"keys": "alt+shift+w"
+			"keys": "ctrl+shift+w"
 		},
 		{
 			"command": {
@@ -679,8 +700,7 @@
 			"command": {
 				"action": "clearBuffer",
 				"clear": "all"
-			},
-			"keys": "alt+l"
+			}
 		},
 		{
 			"command": {
@@ -738,7 +758,11 @@
 		},
 		{
 			"command": "toggleFocusMode",
-			"keys": "ctrl+shift+["
+			"keys": "ctrl+alt+["
+		},
+		{
+			"command": "scrollToTop",
+			"keys": "alt+i"
 		}
 	],
 	"confirmCloseAllTabs": false,
@@ -1093,7 +1117,7 @@
 		}
 	],
 	"tabSwitcherMode": "inOrder",
-	"tabWidthMode": "equal",
+	"tabWidthMode": "titleLength",
 	"themes": [],
 	"trimPaste": false,
 	"useAcrylicInTabRow": false,
