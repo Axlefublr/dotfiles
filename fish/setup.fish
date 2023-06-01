@@ -41,5 +41,7 @@ for file in (ls *)
     set -l dest_path "$symlink/$file"
     ln -s $source_path $dest_path
 end
+mv -f $symlink/fish_prompt.fish $target/fish_prompt.fish
+ln -s $target/fish_prompt.fish $symlink/fish_prompt.fish
 
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin

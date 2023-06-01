@@ -312,7 +312,6 @@
 	"editor.parameterHints.enabled": false,
 	"editor.acceptSuggestionOnEnter": "off",
 	"editor.suggestOnTriggerCharacters": false,
-	"editor.cursorBlinking": "solid",
 	"editor.quickSuggestionsDelay": 0,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
@@ -478,7 +477,6 @@
 	"git.openRepositoryInParentFolders": "always",
 	"git.autofetch": true,
 	"git.verboseCommit": true,
-	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorWidth": 4,
 	"material-icon-theme.files.color": "#90a4ae",
 	"editor.inlineSuggest.suppressSuggestions": true,
@@ -509,5 +507,5 @@
 	"screencastMode.keyboardShortcutsFormat": "keys",
 	"workbench.editor.splitInGroupLayout": "vertical",
 	"editor.codeActionsOnSave": {},
-	"workbench.editor.showTabs": false
+	"editor.cursorBlinking": "solid"
 }
