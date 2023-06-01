@@ -5100,5 +5100,9 @@
 		"key": "ctrl+alt+r",
 		"command": "-workbench.action.terminal.runRecentCommand",
 		"when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+	},
+	{
+		"key": "shift+alt+[",
+		"command": "breadcrumbs.toggle"
 	}
 ]

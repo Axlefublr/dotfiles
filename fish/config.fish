@@ -286,6 +286,7 @@ bind -M default \cT _history_insert
 bind -M insert  \cD 'exec fish -C clear'
 bind -M default \cD 'exec fish -C clear'
 
+bind -M default m accept-autosuggestion and execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default \" repeat-jump
