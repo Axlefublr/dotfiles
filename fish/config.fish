@@ -143,8 +143,8 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
-abbr -a @hl --position anywhere -- '--help | less'
-abbr -a @l --position anywhere -- '| less'
+abbr -a @hl --position anywhere -- '--help &| less'
+abbr -a @l --position anywhere -- '&| less'
 abbr -a @ca --position anywhere -- '--color=always'
 
 abbr -a exp 'explorer.exe'
