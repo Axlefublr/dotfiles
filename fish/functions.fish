@@ -142,11 +142,6 @@ function _history_insert
 end
 funcsave _history_insert > /dev/null
 
-function _copy_command_buffer
-	commandline | fish_clipboard_copy
-end
-funcsave _copy_command_buffer > /dev/null
-
 function fish_greeting
 end
 funcsave fish_greeting > /dev/null

@@ -281,9 +281,6 @@ bind -M default \cR _history_replace
 bind -M insert  \cT _history_insert
 bind -M default \cT _history_insert
 
-bind -M insert  \cO _copy_command_buffer
-bind -M default \cO _copy_command_buffer
-
 bind -M insert  \cD 'exec fish -C clear'
 bind -M default \cD 'exec fish -C clear'
 
