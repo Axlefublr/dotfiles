@@ -28,7 +28,9 @@ set -g plain_directories $prog \
 	$pic/Tree \
 	$pic/Screenvideos \
 	$pic/Content \
-	$audio/Sounds
+	$audio/Sounds \
+	~/.config/fish \
+	~/.config/fish/functions
 
 set -g git_directories $prog/dotfiles \
 	$prog/info \
