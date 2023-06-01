@@ -4,39 +4,39 @@ function dlist
 		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
 	end
 end
-funcsave dlist
+funcsave dlist > /dev/null
 
 function flist
 	for arg in $argv
 		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type f -print
 	end
 end
-funcsave flist
+funcsave flist > /dev/null
 
 function dpick
 	dlist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
 end
-funcsave dpick
+funcsave dpick > /dev/null
 
 function fpick
 	flist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
 end
-funcsave fpick
+funcsave fpick > /dev/null
 
 function smush
 	tr '\n' ' ' | sed 's/[[:space:]]*$//'
 end
-funcsave smush
+funcsave smush > /dev/null
 
 function cut
 	ffmpeg.exe -i $argv[1] -ss $argv[3] -to $argv[4] -c:a copy $argv[2]
 end
-funcsave cut
+funcsave cut > /dev/null
 
 function compress
 	ffmpeg.exe -i $argv[1] -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $argv[2]
 end
-funcsave compress
+funcsave compress > /dev/null
 
 function combine
 	ffmpeg.exe -i $argv[1] -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
@@ -46,7 +46,7 @@ function combine
 	ffmpeg.exe -f concat -safe 0 -i inputs.txt -c copy $argv[3]
 	rm inputs.txt input1.ts input2.ts
 end
-funcsave combine
+funcsave combine > /dev/null
 
 function cutout
 	ffmpeg.exe -i $argv[1] -to $argv[3] -c:a copy input1.mp4
@@ -54,12 +54,12 @@ function cutout
 	combine input1.mp4 input2.mp4 $argv[2]
 	rm input1.mp4 input2.mp4
 end
-funcsave cutout
+funcsave cutout > /dev/null
 
 function timer
 	termdown $argv && Ting.exe
 end
-funcsave timer
+funcsave timer > /dev/null
 
 function gpa
 	 set -l prevDir (pwd)
@@ -81,75 +81,75 @@ function gpa
 
 	 cd $prevDir
 end
-funcsave gpa
+funcsave gpa > /dev/null
 
 function prli
 	printf '%s\n' $argv
 end
-funcsave prli
+funcsave prli > /dev/null
 
 function _get_important_dir
 	commandline -i (dpick $search_directories | smush)
 end
-funcsave _get_important_dir
+funcsave _get_important_dir > /dev/null
 
 function _cd_important_dir
 	cd (prli $plain_directories | fzf --cycle || echo .)
 	commandline -f repaint
 end
-funcsave _cd_important_dir
+funcsave _cd_important_dir > /dev/null
 
 function _get_important_file
 	commandline -i (fpick $search_directories | smush)
 end
-funcsave _get_important_file
+funcsave _get_important_file > /dev/null
 
 function _open_important_file
 	nvim (flist $search_directories | fzf --tac --cycle)
 	commandline -f repaint
 end
-funcsave _open_important_file
+funcsave _open_important_file > /dev/null
 
 function _get_current_dir
 	commandline -i (dpick . | smush)
 end
-funcsave _get_current_dir
+funcsave _get_current_dir > /dev/null
 
 function _cd_current_dir
 	cd (dlist . | fzf --tac --cycle || echo .)
 	commandline -f repaint
 end
-funcsave _cd_current_dir
+funcsave _cd_current_dir > /dev/null
 
 function _get_current_file
 	commandline -i (fpick . | smush)
 end
-funcsave _get_current_file
+funcsave _get_current_file > /dev/null
 
 function _open_current_file
 	nvim (flist . | fzf --tac --cycle)
 	commandline -f repaint
 end
-funcsave _open_current_file
+funcsave _open_current_file > /dev/null
 
 function _history_replace
 	commandline (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
 end
-funcsave _history_replace
+funcsave _history_replace > /dev/null
 
 function _history_insert
 	commandline -i (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
 end
-funcsave _history_insert
+funcsave _history_insert > /dev/null
 
 function _copy_command_buffer
 	commandline | fish_clipboard_copy
 end
-funcsave _copy_command_buffer
+funcsave _copy_command_buffer > /dev/null
 
 function fish_greeting
 end
-funcsave fish_greeting
+funcsave fish_greeting > /dev/null
 
 function postvideo
 	set -l prevDir (pwd)
@@ -159,4 +159,7 @@ function postvideo
 	trash-put *.png
 	cd $prevDir
 end
-funcsave postvideo
+funcsave postvideo > /dev/null
+
+
+echo 'functions written'
