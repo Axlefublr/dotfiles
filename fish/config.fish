@@ -108,6 +108,7 @@ set -g tide_cmd_duration_threshold 0
 
 set -g tide_context_color_root $color_red
 set -g tide_context_color_ssh $color_orange
+set -g tide_git_icon ''
 set -g tide_git_color_branch $color_purple
 set -g tide_git_color_conflicted $color_red
 set -g tide_git_color_dirty $color_pink
