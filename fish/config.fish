@@ -76,13 +76,13 @@ set -g fish_lazy_load_functions 'true'
 set -g fish_color_normal $color_gruvbox_white
 set -g fish_color_command $color_gruvbox_green
 set -g fish_color_quote $color_gruvbox_yellow
-set -g fish_color_redirection $color_gruvbox_purple
+set -g fish_color_redirection $color_gruvbox_orange
 set -g fish_color_end $color_gruvbox_orange
 set -g fish_color_error $color_gruvbox_red
 set -g fish_color_param $color_gruvbox_sea
 set -g fish_color_comment $color_gruvbox_grey
 set -g fish_color_match $color_gruvbox_purple
-set -g fish_color_operator $color_gruvbox_orange
+set -g fish_color_operator $color_gruvbox_purple
 set -g fish_color_escape $color_gruvbox_grey
 set -g fish_color_autosuggestion $color_gruvbox_grey
 
@@ -110,7 +110,7 @@ set -g tide_cmd_duration_threshold 0
 
 set -g tide_context_color_root $color_red
 set -g tide_context_color_ssh $color_orange
-set -g tide_git_icon ''
+set -g tide_git_icon ' '
 set -g tide_git_color_branch $color_purple
 set -g tide_git_color_conflicted $color_red
 set -g tide_git_color_dirty $color_pink
