@@ -378,9 +378,9 @@ if vim.g.vscode then
 	vim.keymap.set("n", "<leader>gt", Git_stage_change)
 	vim.keymap.set("v", "<leader>gt", Git_stage_change)
 
-	function Git_unstage_change() vim.fn.VSCodeNotifyVisual("git.unstageSelectedRanges", 0) end
-	vim.keymap.set("n", "<leader>gT", Git_unstage_change)
-	vim.keymap.set("v", "<leader>gT", Git_unstage_change)
+	function Git_open_all_changes() vim.fn.VSCodeNotifyVisual("git.openAllChanges", 0) end
+	vim.keymap.set("n", "<leader>gN", Git_open_all_changes)
+	vim.keymap.set("v", "<leader>gN", Git_open_all_changes)
 
 	function Git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
 	vim.keymap.set("n", "<leader>gn", Git_open_changes)

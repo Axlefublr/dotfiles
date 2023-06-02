@@ -4542,10 +4542,6 @@
 		"when": "resource == 'vscode-userdata:/c%3A/Users/serge/AppData/Roaming/Code%20-%20Insiders/User/keybindings.json'"
 	},
 	{
-		"key": "alt+'",
-		"command": "workbench.action.showAllEditors"
-	},
-	{
 		"key": "ctrl+r",
 		"command": "-workbench.action.terminal.runRecentCommand",
 		"when": "accessibilityModeEnabled && terminalFocus && terminalHasBeenCreated || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
@@ -5063,10 +5059,6 @@
 		"command": "-workbench.action.splitEditorUp"
 	},
 	{
-		"key": "alt+;",
-		"command": "workbench.action.openNextRecentlyUsedEditor"
-	},
-	{
 		"key": "ctrl+alt+k",
 		"command": "workbench.action.splitEditorToAboveGroup"
 	},
@@ -5104,5 +5096,19 @@
 	{
 		"key": "shift+alt+[",
 		"command": "breadcrumbs.toggle"
+	},
+	{
+		"key": "alt+'",
+		"command": "workbench.action.showAllEditors"
+	},
+	{
+		"key": "ctrl+.",
+		"command": "scrollLineDown",
+		"when": "!panelFocus"
+	},
+	{
+		"key": "ctrl+,",
+		"command": "scrollLineUp",
+		"when": "!panelFocus"
 	}
 ]
