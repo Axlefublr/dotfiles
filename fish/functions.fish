@@ -184,12 +184,12 @@ end
 funcsave new > /dev/null
 
 function argrep
-	grep --color=always -Ern $argv &| less
+	grep --color=always -Ern $argv &> /tmp/pagie ; less /tmp/pagie
 end
 funcsave argrep > /dev/null
 
 function agrep
-	grep --color=always -E $argv &| less
+	grep --color=always -E $argv &> /tmp/pagie ; less /tmp/pagie
 end
 funcsave agrep > /dev/null
 
@@ -201,4 +201,4 @@ function work
 end
 funcsave work > /dev/null
 
-echo 'functions written'
+echo (set_color yellow)'functions written'

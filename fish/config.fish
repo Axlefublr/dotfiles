@@ -143,9 +143,9 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
-abbr -a @hl  --position anywhere -- '--help &| less'
+abbr -a @hl  --position anywhere -- '--help &> /tmp/pagie ; less /tmp/pagie'
 abbr -a @h   --position anywhere -- '--help'
-abbr -a @l   --position anywhere -- '&| less'
+abbr -a @l   --position anywhere -- '&> /tmp/pagie ; less /tmp/pagie'
 abbr -a @ca  --position anywhere -- '--color=always'
 abbr -a @dn  --position anywhere -- '> /dev/null'
 abbr -a @ed  --position anywhere -- '2> /dev/null'
@@ -295,6 +295,9 @@ bind -M default \cR _history_replace
 
 bind -M insert  \cD "exec fish -C 'clear -x'"
 bind -M default \cD "exec fish -C 'clear -x'"
+
+bind -M insert  \cE 'less /tmp/pagie'
+bind -M default \cE 'less /tmp/pagie'
 
 bind -M default \; accept-autosuggestion
 bind -M default "'" accept-autosuggestion execute
