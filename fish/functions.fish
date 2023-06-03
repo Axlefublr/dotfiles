@@ -72,11 +72,8 @@ function gpa
 		  echo $dir
 		  set_color normal
 		  and git status -s
-		  and git push
+		  and git push 2> /dev/null
 
-		  if test $status != $dir[-1] # if not the last directory
-				printf \n
-		  end
 	 end
 
 	 cd $prevDir
