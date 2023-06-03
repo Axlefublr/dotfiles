@@ -225,8 +225,10 @@ function FeedKeysInt(keys)
 	vim.api.nvim_feedkeys(feedableKeys, "n", true)
 end
 
-function Escape(input)
-	return string.gsub(input, '[%-%.%+%[%]%(%)%{%}%?%^%$%*%%]', '\\%0')
+function Escape_V_search(input)
+	input = string.gsub(input, '\\', '\\\\')
+	input = string.gsub(input, '/', '\\/')
+	return input
 end
 
 if vim.g.vscode then
@@ -532,11 +534,16 @@ vim.keymap.set("n", "<Space>", Space_action)
 local Backspace_action = ""
 vim.keymap.set("n", "<BS>", Backspace_action)
 
-local Search_word_forward = 'y/\\V<C-r>"<CR>'
-vim.keymap.set("v", "*", Search_word_forward)
-
-local Search_word_backward = 'y?\\V<C-r>"<CR>'
-vim.keymap.set("v", "#", Search_word_backward)
+function Search_for_selection(searchOperator)
+	FeedKeys('y')
+	vim.schedule(function()
+		local escaped_selection = Escape_V_search(vim.fn.getreg('"'))
+		FeedKeys(searchOperator .. '\\V' .. escaped_selection)
+		FeedKeysInt('<CR>')
+	end)
+end
+vim.keymap.set("v", "*", "<cmd>lua Search_for_selection('/')<CR>")
+vim.keymap.set("v", "#", "<cmd>lua Search_for_selection('?')<CR>")
 
 local Disable_u_visual = "<Esc>u"
 vim.keymap.set("v", "u", Disable_u_visual)

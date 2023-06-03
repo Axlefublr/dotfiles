@@ -157,7 +157,7 @@ abbr -a clip 'clip.exe'
 abbr -a ch 'ChoreTracker.exe'
 abbr -a we 'Welde.exe'
 abbr -a ff 'ffmpeg.exe'
-abbr -a ffi 'ffmepg.exe -i'
+abbr -a ffi 'ffmpeg.exe -i'
 
 abbr -a bat 'batcat'
 abbr -a v 'nvim'
