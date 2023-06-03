@@ -508,6 +508,6 @@
 	"workbench.editor.splitInGroupLayout": "vertical",
 	"editor.codeActionsOnSave": {},
 	"editor.cursorBlinking": "solid",
-	"breadcrumbs.enabled": false,
-	"editor.cursorSmoothCaretAnimation": "on"
+	"editor.cursorSmoothCaretAnimation": "on",
+	"breadcrumbs.enabled": false
 }
