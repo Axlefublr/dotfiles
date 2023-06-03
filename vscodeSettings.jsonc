@@ -388,7 +388,6 @@
 	"markdown.preview.fontFamily": "\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"",
 	"markdown.preview.lineHeight": 1.5,
 	"editor.overviewRulerBorder": false,
-	"workbench.editor.enablePreview": false,
 	"window.restoreFullscreen": true,
 	"debug.toolBarLocation": "docked",
 	"window.customMenuBarAltFocus": false,
@@ -509,5 +508,8 @@
 	"editor.codeActionsOnSave": {},
 	"editor.cursorBlinking": "solid",
 	"editor.cursorSmoothCaretAnimation": "on",
-	"breadcrumbs.enabled": false
+	"breadcrumbs.enabled": false,
+	"workbench.editor.enablePreviewFromCodeNavigation": true,
+	"workbench.editor.enablePreviewFromQuickOpen": true,
+	"workbench.editor.showTabs": false
 }

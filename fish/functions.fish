@@ -195,8 +195,8 @@ funcsave agrep > /dev/null
 
 function work
 	while true
-		timer 20m
-		timer 5m
+		timer 20m || break
+		timer 5m || break
 	end
 end
 funcsave work > /dev/null
