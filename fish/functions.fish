@@ -183,4 +183,14 @@ function new --description='Creates new files or directories and all required pa
 end
 funcsave new > /dev/null
 
+function argrep
+	grep --color=always -Ern $argv &| less
+end
+funcsave argrep > /dev/null
+
+function agrep
+	grep --color=always -E $argv &| less
+end
+funcsave agrep > /dev/null
+
 echo 'functions written'

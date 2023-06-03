@@ -144,6 +144,7 @@ set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
 abbr -a @hl  --position anywhere -- '--help &| less'
+abbr -a @h   --position anywhere -- '--help'
 abbr -a @l   --position anywhere -- '&| less'
 abbr -a @ca  --position anywhere -- '--color=always'
 abbr -a @dn  --position anywhere -- '> /dev/null'
@@ -170,8 +171,7 @@ abbr -a trr 'trash-restore'
 
 abbr -a grep 'grep -E'
 abbr -a rgrep 'grep -Ern'
-abbr -a agrep 'grep --color=always -E'
-abbr -a argrep 'grep --color=always -Ern'
+abbr -a lgrep 'grep -Erl'
 
 abbr -a ls 'ls -A'
 abbr -a lg 'ls -Agh'

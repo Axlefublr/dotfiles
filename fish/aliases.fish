@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 fish_vi_key_bindings
 
-alias --save grep 'grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias --save grep 'grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 alias --save less 'less --use-color -R'
 alias --save termdown 'termdown -a -W -f roman'
 alias --save dotnet 'dotnet.exe'
