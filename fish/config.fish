@@ -143,9 +143,12 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
-abbr -a @hl --position anywhere -- '--help &| less'
-abbr -a @l --position anywhere -- '&| less'
-abbr -a @ca --position anywhere -- '--color=always'
+abbr -a @hl  --position anywhere -- '--help &| less'
+abbr -a @l   --position anywhere -- '&| less'
+abbr -a @ca  --position anywhere -- '--color=always'
+abbr -a @dn  --position anywhere -- '> /dev/null'
+abbr -a @ed  --position anywhere -- '2> /dev/null'
+abbr -a @bd  --position anywhere -- '&> /dev/null'
 
 abbr -a exp 'explorer.exe'
 abbr -a clip 'clip.exe'
