@@ -193,4 +193,12 @@ function agrep
 end
 funcsave agrep > /dev/null
 
+function work
+	while true
+		timer 20m
+		timer 5m
+	end
+end
+funcsave work > /dev/null
+
 echo 'functions written'
