@@ -241,7 +241,7 @@ abbr -a gme     'git merge'
 abbr -a gre     'git remote'
 abbr -a greg    'git remote get-url'
 abbr -a grego   'git remote get-url origin'
-abbr -a gregc   'printf (git remote get-url origin | sed \'s/\.git//\')/tree/(git rev-parse HEAD)'
+abbr -a gregc   'printf (git remote get-url origin | sed \'s/\.git$//\')/tree/(git rev-parse HEAD)'
 abbr -a gui     'git update-index'
 abbr -a guiau   'git update-index --assume-unchanged'
 abbr -a guinau  'git update-index --no-assume-unchanged'
@@ -293,8 +293,8 @@ bind -M default -m insert \cA _open_current_file
 bind -M insert  \cR _history_insert
 bind -M default \cR _history_replace
 
-bind -M insert  \cD 'exec fish -C clear'
-bind -M default \cD 'exec fish -C clear'
+bind -M insert  \cD 'exec fish -C clear -x'
+bind -M default \cD 'exec fish -C clear -x'
 
 bind -M default \; accept-autosuggestion
 bind -M default "'" accept-autosuggestion execute
