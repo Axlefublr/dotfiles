@@ -217,8 +217,7 @@ vim.keymap.set("n", "<leader>`n", "`n")
 vim.keymap.set("n", "<leader>`m", "`m")
 
 function FeedKeysCorrectly(keys)
-	local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-	vim.api.nvim_feedkeys(feedableKeys, "n", true)
+	vim.api.nvim_feedkeys(keys, "n", false)
 end
 
 if vim.g.vscode then
