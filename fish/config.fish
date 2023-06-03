@@ -245,7 +245,7 @@ abbr -a gregc   'printf (git remote get-url origin | sed \'s/\.git$//\')/tree/(g
 abbr -a gui     'git update-index'
 abbr -a guiau   'git update-index --assume-unchanged'
 abbr -a guinau  'git update-index --no-assume-unchanged'
-abbr -a gcl     'git clean -f'
+abbr -a gcl     'git clean -id'
 abbr -a gcf     'git config'
 abbr -a gpl     'git pull'
 abbr -a grp     'git rev-parse'
@@ -293,8 +293,8 @@ bind -M default -m insert \cA _open_current_file
 bind -M insert  \cR _history_insert
 bind -M default \cR _history_replace
 
-bind -M insert  \cD 'exec fish -C clear -x'
-bind -M default \cD 'exec fish -C clear -x'
+bind -M insert  \cD "exec fish -C 'clear -x'"
+bind -M default \cD "exec fish -C 'clear -x'"
 
 bind -M default \; accept-autosuggestion
 bind -M default "'" accept-autosuggestion execute
