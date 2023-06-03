@@ -216,8 +216,17 @@ vim.keymap.set("n", "<leader>`b", "`b")
 vim.keymap.set("n", "<leader>`n", "`n")
 vim.keymap.set("n", "<leader>`m", "`m")
 
-function FeedKeysCorrectly(keys)
+function FeedKeys(keys)
 	vim.api.nvim_feedkeys(keys, "n", false)
+end
+
+function FeedKeysInt(keys)
+	local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+	vim.api.nvim_feedkeys(feedableKeys, "n", true)
+end
+
+function Escape(input)
+	return string.gsub(input, '[%-%.%+%[%]%(%)%{%}%?%^%$%*%%]', '\\%0')
 end
 
 if vim.g.vscode then
@@ -410,7 +419,7 @@ else
 end
 
 local Enter_separates_line = "i<CR><Esc>"
-vim.keymap.set("n", "<CR>", Enter_separates_line)
+-- vim.keymap.set("n", "<CR>", Enter_separates_line)
 
 local EasyAlignMapping = "<Plug>(EasyAlign)"
 vim.keymap.set("", "ga", EasyAlignMapping)
@@ -472,7 +481,7 @@ vim.keymap.set("o", "agc", Comment_text_object_extra_operator)
 function Comment_text_object_self_operator() vim.cmd("normal v[/3lo]/2h") end
 vim.keymap.set("o", "igc", Comment_text_object_self_operator)
 
-function Goto_end_of_prev_line() FeedKeysCorrectly(vim.v.count1 .. "k$") end
+function Goto_end_of_prev_line() FeedKeysInt(vim.v.count1 .. "k$") end
 vim.keymap.set("", "_", Goto_end_of_prev_line)
 
 local Command_mode_remap = ":"
@@ -532,7 +541,7 @@ vim.keymap.set("v", "#", Search_word_backward)
 local Disable_u_visual = "<Esc>u"
 vim.keymap.set("v", "u", Disable_u_visual)
 
-function Multiply_visual() FeedKeysCorrectly("ygv<Esc>" .. vim.v.count1 .. "p") end
+function Multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
 vim.keymap.set("v", "<leader>q", Multiply_visual)
 
 local Complete_line = "<C-x><C-l>"
@@ -577,7 +586,7 @@ vim.keymap.set("", "<leader>/", Remove_highlighting)
 function Toggle_highlight_search() vim.cmd("set hlsearch!") end
 vim.keymap.set("", "<leader>h", Toggle_highlight_search)
 
-function Multiply() FeedKeysCorrectly("yl" .. vim.v.count1 .. "p") end
+function Multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
 vim.keymap.set("n", "<leader>q", Multiply)
 
 local Vore_out_line_into_block = '"_ddddpvaB<Esc>'
