@@ -14,12 +14,12 @@ end
 funcsave flist > /dev/null
 
 function dpick
-	dlist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
+	dlist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
 end
 funcsave dpick > /dev/null
 
 function fpick
-	flist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
+	flist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
 end
 funcsave fpick > /dev/null
 
@@ -91,8 +91,11 @@ end
 funcsave _get_important_dir > /dev/null
 
 function _cd_important_dir
-	cd (prli $plain_directories | fzf --cycle || echo .)
-	commandline -f repaint
+	set -l picked (prli $plain_directories | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
 end
 funcsave _cd_important_dir > /dev/null
 
@@ -102,8 +105,11 @@ end
 funcsave _get_important_file > /dev/null
 
 function _open_important_file
-	nvim (flist $search_directories | fzf --tac --cycle)
-	commandline -f repaint
+	set -l picked (flist $search_directories | fzf --cycle)
+	if test $picked
+		commandline "nvim '$picked'"
+		commandline -f execute
+	end
 end
 funcsave _open_important_file > /dev/null
 
@@ -113,8 +119,11 @@ end
 funcsave _get_current_dir > /dev/null
 
 function _cd_current_dir
-	cd (dlist . | fzf --tac --cycle || echo .)
-	commandline -f repaint
+	set -l picked (dlist . | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
 end
 funcsave _cd_current_dir > /dev/null
 
@@ -124,8 +133,11 @@ end
 funcsave _get_current_file > /dev/null
 
 function _open_current_file
-	nvim (flist . | fzf --tac --cycle)
-	commandline -f repaint
+	set -l picked (flist . | fzf --cycle)
+	if test $picked
+		commandline "nvim '$picked'"
+		commandline -f execute
+	end
 end
 funcsave _open_current_file > /dev/null
 
