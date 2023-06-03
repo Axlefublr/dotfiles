@@ -650,23 +650,63 @@ vim.keymap.set("", "<leader>mt", Move_line_to_top)
 local Move_line_to_bottom = 'ddmiGp`i'
 vim.keymap.set("", "<leader>mb", Move_line_to_bottom)
 
-local Search_for_default_register_forward = '/\\V<C-r>"<CR>'
-vim.keymap.set("", "''/", Search_for_default_register_forward)
-
-local Search_for_default_register_backward = '?\\V<C-r>"<CR>'
-vim.keymap.set("", "''?", Search_for_default_register_backward)
-
-local Search_for_system_register_forward = '/\\V<C-r>+<CR>'
-vim.keymap.set("", "'q/", Search_for_system_register_forward)
-
-local Search_for_system_register_backward = '?\\V<C-r>+<CR>'
-vim.keymap.set("", "'q?", Search_for_system_register_backward)
-
-local Search_for_yank_register_forward = '/\\V<C-r>0<CR>'
-vim.keymap.set("", "'w/", Search_for_yank_register_forward)
-
-local Search_for_yank_register_backward = '?\\V<C-r>0<CR>'
-vim.keymap.set("", "'w?", Search_for_yank_register_backward)
+function Search_for_register(register, searchOperator)
+	local escaped_register = Escape_V_search(vim.fn.getreg(register))
+	FeedKeys(searchOperator .. '\\V' .. escaped_register)
+	FeedKeysInt('<CR>')
+end
+vim.keymap.set("n", "''/", "<cmd>lua Search_for_register('\"', '/')<CR>")
+vim.keymap.set("n", "''?", "<cmd>lua Search_for_register('\"', '?')<CR>")
+vim.keymap.set("n", "'q/", "<cmd>lua Search_for_register('+',  '/')<CR>")
+vim.keymap.set("n", "'q?", "<cmd>lua Search_for_register('+',  '?')<CR>")
+vim.keymap.set("n", "'w/", "<cmd>lua Search_for_register('0',  '/')<CR>")
+vim.keymap.set("n", "'w?", "<cmd>lua Search_for_register('0',  '?')<CR>")
+vim.keymap.set("n", "'e/", "<cmd>lua Search_for_register('e',  '/')<CR>")
+vim.keymap.set("n", "'e?", "<cmd>lua Search_for_register('e',  '?')<CR>")
+vim.keymap.set("n", "'r/", "<cmd>lua Search_for_register('r',  '/')<CR>")
+vim.keymap.set("n", "'r?", "<cmd>lua Search_for_register('r',  '?')<CR>")
+vim.keymap.set("n", "'t/", "<cmd>lua Search_for_register('t',  '/')<CR>")
+vim.keymap.set("n", "'t?", "<cmd>lua Search_for_register('t',  '?')<CR>")
+vim.keymap.set("n", "'y/", "<cmd>lua Search_for_register('y',  '/')<CR>")
+vim.keymap.set("n", "'y?", "<cmd>lua Search_for_register('y',  '?')<CR>")
+vim.keymap.set("n", "'u/", "<cmd>lua Search_for_register('u',  '/')<CR>")
+vim.keymap.set("n", "'u?", "<cmd>lua Search_for_register('u',  '?')<CR>")
+vim.keymap.set("n", "'o/", "<cmd>lua Search_for_register('o',  '/')<CR>")
+vim.keymap.set("n", "'o?", "<cmd>lua Search_for_register('o',  '?')<CR>")
+vim.keymap.set("n", "'p/", "<cmd>lua Search_for_register('p',  '/')<CR>")
+vim.keymap.set("n", "'p?", "<cmd>lua Search_for_register('p',  '?')<CR>")
+vim.keymap.set("n", "'a/", "<cmd>lua Search_for_register('a',  '/')<CR>")
+vim.keymap.set("n", "'a?", "<cmd>lua Search_for_register('a',  '?')<CR>")
+vim.keymap.set("n", "'s/", "<cmd>lua Search_for_register('s',  '/')<CR>")
+vim.keymap.set("n", "'s?", "<cmd>lua Search_for_register('s',  '?')<CR>")
+vim.keymap.set("n", "'d/", "<cmd>lua Search_for_register('d',  '/')<CR>")
+vim.keymap.set("n", "'d?", "<cmd>lua Search_for_register('d',  '?')<CR>")
+vim.keymap.set("n", "'f/", "<cmd>lua Search_for_register('f',  '/')<CR>")
+vim.keymap.set("n", "'f?", "<cmd>lua Search_for_register('f',  '?')<CR>")
+vim.keymap.set("n", "'g/", "<cmd>lua Search_for_register('g',  '/')<CR>")
+vim.keymap.set("n", "'g?", "<cmd>lua Search_for_register('g',  '?')<CR>")
+vim.keymap.set("n", "'h/", "<cmd>lua Search_for_register('h',  '/')<CR>")
+vim.keymap.set("n", "'h?", "<cmd>lua Search_for_register('h',  '?')<CR>")
+vim.keymap.set("n", "'j/", "<cmd>lua Search_for_register('j',  '/')<CR>")
+vim.keymap.set("n", "'j?", "<cmd>lua Search_for_register('j',  '?')<CR>")
+vim.keymap.set("n", "'k/", "<cmd>lua Search_for_register('k',  '/')<CR>")
+vim.keymap.set("n", "'k?", "<cmd>lua Search_for_register('k',  '?')<CR>")
+vim.keymap.set("n", "'l/", "<cmd>lua Search_for_register('l',  '/')<CR>")
+vim.keymap.set("n", "'l?", "<cmd>lua Search_for_register('l',  '?')<CR>")
+vim.keymap.set("n", "'z/", "<cmd>lua Search_for_register('z',  '/')<CR>")
+vim.keymap.set("n", "'z?", "<cmd>lua Search_for_register('z',  '?')<CR>")
+vim.keymap.set("n", "'x/", "<cmd>lua Search_for_register('x',  '/')<CR>")
+vim.keymap.set("n", "'x?", "<cmd>lua Search_for_register('x',  '?')<CR>")
+vim.keymap.set("n", "'c/", "<cmd>lua Search_for_register('c',  '/')<CR>")
+vim.keymap.set("n", "'c?", "<cmd>lua Search_for_register('c',  '?')<CR>")
+vim.keymap.set("n", "'v/", "<cmd>lua Search_for_register('v',  '/')<CR>")
+vim.keymap.set("n", "'v?", "<cmd>lua Search_for_register('v',  '?')<CR>")
+vim.keymap.set("n", "'b/", "<cmd>lua Search_for_register('b',  '/')<CR>")
+vim.keymap.set("n", "'b?", "<cmd>lua Search_for_register('b',  '?')<CR>")
+vim.keymap.set("n", "'n/", "<cmd>lua Search_for_register('n',  '/')<CR>")
+vim.keymap.set("n", "'n?", "<cmd>lua Search_for_register('n',  '?')<CR>")
+vim.keymap.set("n", "'m/", "<cmd>lua Search_for_register('m',  '/')<CR>")
+vim.keymap.set("n", "'m?", "<cmd>lua Search_for_register('m',  '?')<CR>")
 
 local Captal_R_records_macro = 'q'
 vim.keymap.set("", "R", Captal_R_records_macro)
