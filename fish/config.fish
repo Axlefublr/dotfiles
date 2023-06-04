@@ -121,18 +121,18 @@ set -g tide_git_color_upstream $color_yellow
 
 set -g tide_jobs_color $color_yellow
 
-set -g tide_pwd_icon ' '
+set -g tide_pwd_icon ''
 set -g tide_pwd_color_anchors $color_pink
 set -g tide_pwd_color_dirs $color_pink
 set -g tide_pwd_color_truncated_dirs $color_redder_pink
 
 set -g tide_shlvl_color -o $color_yellow
-set -g tide_shlvl_icon ' '
+set -g tide_shlvl_icon ''
 set -g tide_shlvl_threshold 1
 
 set -g tide_status_color $color_red
-set -g tide_status_icon ' ✘'
-set -g tide_status_icon_failure ' ✘'
+set -g tide_status_icon '✘'
+set -g tide_status_icon_failure '✘'
 set -g tide_status_color_failure $color_red
 
 set -g tide_time_color $color_purple
