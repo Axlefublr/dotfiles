@@ -94,8 +94,8 @@ set -g tide_left_prompt_frame_enabled true
 set -g tide_left_prompt_prefix
 set -g tide_left_prompt_suffix
 set -g tide_left_prompt_separator_same_color
-set -g tide_left_prompt_items shlvl pwd context jobs git status newline character
-set -g tide_right_prompt_items private_mode
+set -g tide_left_prompt_items private_mode shlvl pwd context jobs git status newline character
+set -g tide_right_prompt_items
 
 set -g tide_character_color -o $color_yellow
 set -g tide_character_color_failure -o $color_yellow
@@ -138,10 +138,14 @@ set -g tide_status_color_failure $color_red
 set -g tide_time_color $color_purple
 set -g tide_time_format '%H:%M'
 
+set -g tide_private_mode_icon "󰗹"
+
 set -g fish_cursor_default block
 set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
+
+## abbreviations
 
 abbr -a @hl  --position anywhere -- '--help &> /tmp/pagie ; less /tmp/pagie'
 abbr -a @h   --position anywhere -- '--help'
@@ -166,6 +170,7 @@ abbr -a rmf 'rm -fr'
 abbr -a tree 'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
+abbr -a fishp 'fish -P'
 
 abbr -a trr 'trash-restore'
 
