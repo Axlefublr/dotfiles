@@ -119,6 +119,8 @@ set -g tide_git_color_staged $color_green
 set -g tide_git_color_stash $color_orange
 set -g tide_git_color_untracked $color_cyan
 set -g tide_git_color_upstream $color_yellow
+set -g tide_git_color_conflicted $color_red
+set -g tide_git_color_operation $color_orange
 
 set -g tide_jobs_color $color_yellow
 
