@@ -39,7 +39,7 @@ end
 funcsave cutfrom > /dev/null
 
 function cutto
-	ffmpeg.exe -i $argv[1] -to $argv[3] -c:a copy $argv[2]
+	ffmpeg.exe -i $argv[1] -ss 00:00 -to $argv[3] -c:a copy $argv[2]
 end
 funcsave cutto > /dev/null
 
