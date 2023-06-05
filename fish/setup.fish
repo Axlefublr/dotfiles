@@ -30,6 +30,7 @@ ln -s /mnt/c/Programming/dotfiles/init.lua ~/.config/nvim/init.lua
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
 fisher install IlanCosman/tide@v5
+fisher install acomagu/fish-async-prompt
 
 set -l target /mnt/c/Programming/tide-functions
 set -l symlink ~/.config/fish/functions
