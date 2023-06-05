@@ -10,6 +10,7 @@ vim.opt.ignorecase        = true
 vim.opt.smartcase         = true
 vim.opt.hlsearch          = false
 vim.g.mapleader           = ","
+vim.g.rust_recommended_style = false
 vim.opt.syntax            = "enable"
 vim.opt.termguicolors     = true
 vim.opt.background        = "dark"

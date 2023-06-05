@@ -23,6 +23,7 @@ set -g plain_directories $prog \
 	$prog/csproj/Welde \
 	$prog/csproj/ChoreTracker \
 	$prog/csproj/TestCs \
+	$prog/rust \
 	$lib \
 	$pic \
 	$pic/Tree \
@@ -165,13 +166,13 @@ abbr -a ffi 'ffmpeg.exe -i'
 
 abbr -a bat 'batcat'
 abbr -a v 'nvim'
-abbr -a rm 'trash-put'
 abbr -a rmf 'rm -fr'
 abbr -a tree 'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
 abbr -a fishp 'fish -P'
 
+abbr -a rm 'trash-put'
 abbr -a trr 'trash-restore'
 
 abbr -a grep 'grep -E'
@@ -244,6 +245,7 @@ abbr -a gchm    'git checkout main'
 abbr -a gb      'git branch'
 abbr -a gme     'git merge'
 abbr -a gre     'git remote'
+abbr -a greao   'git remote add origin'
 abbr -a greg    'git remote get-url'
 abbr -a grego   'git remote get-url origin'
 abbr -a gregoc  'printf (git remote get-url origin | sed \'s/\.git$//\') | clip.exe'
@@ -261,6 +263,8 @@ abbr -a grp     'git rev-parse'
 abbr -a grpsH   'git rev-parse --short HEAD'
 abbr -a grpH    'git rev-parse HEAD'
 
+## dotnet
+
 abbr -a dn   'dotnet'
 abbr -a dnw  'dotnet watch'
 abbr -a dncr 'dotnet new gitignore && dotnet sln *.sln add **/*.csproj && git add . && git commit -m "first commit" && git push -u origin main'
@@ -275,6 +279,12 @@ abbr -a dnrp 'dotnet run --project'
 abbr -a dnb  'dotnet build'
 abbr -a dna  'dotnet add'
 abbr -a dnf  'dotnet format'
+
+## rust
+
+abbr -a ca 'cargo'
+abbr -a can 'cargo new'
+abbr -a car 'cargo run'
 
 abbr -a ghr   'gh repo'
 abbr -a ghrl  'gh repo list -L 1000'

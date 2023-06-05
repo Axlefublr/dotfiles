@@ -45,3 +45,5 @@ mv -f $symlink/fish_prompt.fish $target/fish_prompt.fish
 ln -s $target/fish_prompt.fish $symlink/fish_prompt.fish
 
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

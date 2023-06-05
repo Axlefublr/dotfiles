@@ -14,7 +14,8 @@
 					"keyword.control.switch",
 					"storage.type.getter.ahk2",
 					"storage.type.setter.ahk2",
-					"keyword.operator.arrow.cs"
+					"keyword.operator.arrow.cs",
+					"keyword.operator.attribute.inner.rust"
 				]
 			},
 			{
@@ -23,7 +24,15 @@
 					"foreground": "#EA6962",
 					"fontStyle": ""
 				},
-				"scope": ["variable.language.this", "keyword.other.this"]
+				"scope": []
+			},
+			{
+				"name": "orange",
+				"settings": {
+					"foreground": "#E78A4E",
+					"fontStyle": ""
+				},
+				"scope": ["meta.attribute.rust"]
 			},
 			{
 				"name": "orange italic",
@@ -54,7 +63,8 @@
 					"string.quoted.single.shell",
 					"punctuation.definition.string.begin.fish",
 					"punctuation.definition.string.end.fish",
-					"string.quoted.single.cs"
+					"string.quoted.single.cs",
+					"punctuation.definition.string"
 				]
 			},
 			{
@@ -151,7 +161,12 @@
 					"foreground": "#D3869B",
 					"fontStyle": "italic"
 				},
-				"scope": []
+				"scope": [
+					"variable.language.this",
+					"keyword.other.this",
+					"variable.language.this.ahk2",
+					"variable.language.self.rust"
+				]
 			},
 			{
 				"name": "purple bold",
@@ -184,6 +199,14 @@
 					"fontStyle": "strikethrough"
 				},
 				"scope": ["markup.strikethrough.markdown"]
+			},
+			{
+				"name": "white",
+				"settings": {
+					"foreground": "#D4BE98",
+					"fontStyle": ""
+				},
+				"scope": ["keyword.operator.namespace.rust"]
 			},
 			{
 				"name": "grey",
