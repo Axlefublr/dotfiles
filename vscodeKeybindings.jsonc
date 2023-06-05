@@ -2238,11 +2238,6 @@
 		"when": "!activeEditorGroupEmpty"
 	},
 	{
-		"key": "win+end",
-		"command": "editor.action.commentLine",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
 		"key": "alt+u",
 		"command": "workbench.action.toggleMaximizedPanel"
 	},
@@ -2810,16 +2805,6 @@
 		"command": "-editor.togglequotes"
 	},
 	{
-		"key": "alt+j",
-		"command": "editor.action.nextMatchFindAction",
-		"when": "(findWidgetVisible || replaceActive) && !editorTextFocus "
-	},
-	{
-		"key": "alt+k",
-		"command": "editor.action.previousMatchFindAction",
-		"when": "(findWidgetVisible || replaceActive) && !editorTextFocus "
-	},
-	{
 		"key": "ctrl+shift+1",
 		"command": "-search.action.replaceAllInFile",
 		"when": "fileMatchFocus && replaceActive && searchViewletVisible"
@@ -3075,10 +3060,6 @@
 		"key": "delete",
 		"command": "-workbench.action.terminal.killInstance",
 		"when": "terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
-	},
-	{
-		"key": "ctrl+alt+left",
-		"command": "editor.action.outdentLines"
 	},
 	{
 		"key": "shift+alt+0",
@@ -3340,11 +3321,6 @@
 	{
 		"key": "h",
 		"command": "breadcrumbs.focusPrevious",
-		"when": "breadcrumbsActive && breadcrumbsVisible"
-	},
-	{
-		"key": "l",
-		"command": "breadcrumbs.focusNext",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
@@ -4566,10 +4542,6 @@
 		"when": "resource == 'vscode-userdata:/c%3A/Users/serge/AppData/Roaming/Code%20-%20Insiders/User/keybindings.json'"
 	},
 	{
-		"key": "alt+'",
-		"command": "workbench.action.showAllEditors"
-	},
-	{
 		"key": "ctrl+r",
 		"command": "-workbench.action.terminal.runRecentCommand",
 		"when": "accessibilityModeEnabled && terminalFocus && terminalHasBeenCreated || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
@@ -5021,11 +4993,6 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "space",
-		"command": "breadcrumbs.revealFocused",
-		"when": "breadcrumbsActive && breadcrumbsVisible"
-	},
-	{
 		"key": "shift+tab",
 		"command": "breadcrumbs.revealFocusedFromTreeAside",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
@@ -5066,5 +5033,82 @@
 	{
 		"key": "shift+alt+o",
 		"command": "workbench.action.focusLastEditorGroup"
+	},
+	{
+		"key": "alt+;",
+		"command": "extension.goto-previous-buffer"
+	},
+	{
+		"key": "ctrl+f4",
+		"command": "-workbench.action.closeActiveEditor"
+	},
+	{
+		"key": "ctrl+k ctrl+\\",
+		"command": "-workbench.action.splitEditorDown"
+	},
+	{
+		"key": "ctrl+k ctrl+\\",
+		"command": "-workbench.action.splitEditorLeft"
+	},
+	{
+		"key": "ctrl+k ctrl+\\",
+		"command": "-workbench.action.splitEditorRight"
+	},
+	{
+		"key": "ctrl+k ctrl+\\",
+		"command": "-workbench.action.splitEditorUp"
+	},
+	{
+		"key": "ctrl+alt+k",
+		"command": "workbench.action.splitEditorToAboveGroup"
+	},
+	{
+		"key": "ctrl+alt+j",
+		"command": "workbench.action.splitEditorToBelowGroup"
+	},
+	{
+		"key": "ctrl+alt+h",
+		"command": "workbench.action.splitEditorToLeftGroup"
+	},
+	{
+		"key": "ctrl+alt+l",
+		"command": "workbench.action.splitEditorToRightGroup"
+	},
+	{
+		"key": "ctrl+alt+enter",
+		"command": "-workbench.action.chat.runInTerminal",
+		"when": "hasChatProvider"
+	},
+	{
+		"key": "ctrl+alt+o",
+		"command": "-workbench.action.remote.showMenu"
+	},
+	{
+		"key": "ctrl+alt+backspace",
+		"command": "-editor.action.removeBrackets",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+alt+r",
+		"command": "-workbench.action.terminal.runRecentCommand",
+		"when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+	},
+	{
+		"key": "shift+alt+[",
+		"command": "breadcrumbs.toggle"
+	},
+	{
+		"key": "alt+'",
+		"command": "workbench.action.showAllEditors"
+	},
+	{
+		"key": "ctrl+.",
+		"command": "scrollLineDown",
+		"when": "!panelFocus"
+	},
+	{
+		"key": "ctrl+,",
+		"command": "scrollLineUp",
+		"when": "!panelFocus"
 	}
 ]

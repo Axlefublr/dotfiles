@@ -4,39 +4,57 @@ function dlist
 		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
 	end
 end
-funcsave dlist
+funcsave dlist > /dev/null
 
 function flist
 	for arg in $argv
 		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type f -print
 	end
 end
-funcsave flist
+funcsave flist > /dev/null
 
 function dpick
-	dlist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
+	dlist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
 end
-funcsave dpick
+funcsave dpick > /dev/null
 
 function fpick
-	flist $argv | fzf -m --tac --cycle | sed 's/^/\'/; s/$/\'/'
+	flist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
 end
-funcsave fpick
+funcsave fpick > /dev/null
 
 function smush
 	tr '\n' ' ' | sed 's/[[:space:]]*$//'
 end
-funcsave smush
+funcsave smush > /dev/null
 
 function cut
 	ffmpeg.exe -i $argv[1] -ss $argv[3] -to $argv[4] -c:a copy $argv[2]
 end
-funcsave cut
+funcsave cut > /dev/null
+
+function cutfrom
+	ffmpeg.exe -i $argv[1] -ss $argv[3] -c:a copy $argv[2]
+end
+funcsave cutfrom > /dev/null
+
+function cutto
+	ffmpeg.exe -i $argv[1] -to $argv[3] -c:a copy $argv[2]
+end
+funcsave cutto > /dev/null
+
+function cutout
+	ffmpeg.exe -i $argv[1] -to $argv[3] -c:a copy input1.mp4
+	ffmpeg.exe -i $argv[1] -ss $argv[4] -c:a copy input2.mp4
+	combine input1.mp4 input2.mp4 $argv[2]
+	rm input1.mp4 input2.mp4
+end
+funcsave cutout > /dev/null
 
 function compress
 	ffmpeg.exe -i $argv[1] -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $argv[2]
 end
-funcsave compress
+funcsave compress > /dev/null
 
 function combine
 	ffmpeg.exe -i $argv[1] -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
@@ -46,105 +64,109 @@ function combine
 	ffmpeg.exe -f concat -safe 0 -i inputs.txt -c copy $argv[3]
 	rm inputs.txt input1.ts input2.ts
 end
-funcsave combine
-
-function cutout
-	ffmpeg.exe -i $argv[1] -to $argv[3] -c:a copy input1.mp4
-	ffmpeg.exe -i $argv[1] -ss $argv[4] -c:a copy input2.mp4
-	combine input1.mp4 input2.mp4 $argv[2]
-	rm input1.mp4 input2.mp4
-end
-funcsave cutout
+funcsave combine > /dev/null
 
 function timer
 	termdown $argv && Ting.exe
 end
-funcsave timer
+funcsave timer > /dev/null
 
 function gpa
-    set -l prevDir (pwd)
-    set -l directories /mnt/c/Programming/dotfiles /mnt/c/Programming/info /mnt/c/Programming/main /mnt/c/Programming/music /mnt/c/Programming/binaries /mnt/c/Users/axlefublr/Documents/Autohotkey/Lib /mnt/c/Pictures/Tree /mnt/c/Pictures/Tools
+	 set -l prevDir (pwd)
+	 set -l directories $git_directories
 
-    for dir in $directories
+	 for dir in $directories
 
 		  cd $dir
-        set_color yellow
-        echo $dir
-        set_color normal
-        and git status
-        and git push
+		  set_color yellow
+		  echo $dir
+		  set_color normal
+		  and git status -s
+		  and git push 2> /dev/null
 
-        if test $status != $dir[-1] # if not the last directory
-            printf \n\n
-        end
-    end
+	 end
 
-    cd $prevDir
+	 cd $prevDir
 end
-funcsave gpa
+funcsave gpa > /dev/null
+
+function prli
+	printf '%s\n' $argv
+end
+funcsave prli > /dev/null
 
 function _get_important_dir
-	commandline -i (dpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
+	commandline -i (dpick $search_directories | smush)
 end
-funcsave _get_important_dir
+funcsave _get_important_dir > /dev/null
 
 function _cd_important_dir
-	cd (dlist /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf --tac --cycle)
-	commandline -f repaint
+	set -l picked (prli $plain_directories | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
 end
-funcsave _cd_important_dir
+funcsave _cd_important_dir > /dev/null
 
 function _get_important_file
-	commandline -i (fpick /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | smush)
+	commandline -i (fpick $search_directories | smush)
 end
-funcsave _get_important_file
+funcsave _get_important_file > /dev/null
 
 function _open_important_file
-	nvim (flist /mnt/c/Programming /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib /mnt/c/Pictures /mnt/c/Audio | fzf --tac --cycle)
-	commandline -f repaint
+	set -l picked (flist $search_directories | fzf --cycle)
+	if test $picked
+		commandline "nvim '$picked'"
+		commandline -f execute
+	end
 end
-funcsave _open_important_file
+funcsave _open_important_file > /dev/null
 
 function _get_current_dir
 	commandline -i (dpick . | smush)
 end
-funcsave _get_current_dir
+funcsave _get_current_dir > /dev/null
 
 function _cd_current_dir
-	cd (dlist . | fzf --tac --cycle)
-	commandline -f repaint
+	set -l picked (dlist . | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
 end
-funcsave _cd_current_dir
+funcsave _cd_current_dir > /dev/null
 
 function _get_current_file
 	commandline -i (fpick . | smush)
 end
-funcsave _get_current_file
+funcsave _get_current_file > /dev/null
 
 function _open_current_file
-	nvim (flist . | fzf --tac --cycle)
-	commandline -f repaint
+	set -l picked (flist . | fzf --cycle)
+	if test $picked
+		commandline "nvim '$picked'"
+		commandline -f execute
+	end
 end
-funcsave _open_current_file
+funcsave _open_current_file > /dev/null
 
 function _history_replace
-	commandline (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
+	set -l picked (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
+	if test $picked
+		commandline $picked
+	end
 end
-funcsave _history_replace
+funcsave _history_replace > /dev/null
 
 function _history_insert
 	commandline -i (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
 end
-funcsave _history_insert
-
-function _copy_command_buffer
-	commandline | fish_clipboard_copy
-end
-funcsave _copy_command_buffer
+funcsave _history_insert > /dev/null
 
 function fish_greeting
 end
-funcsave fish_greeting
+funcsave fish_greeting > /dev/null
 
 function postvideo
 	set -l prevDir (pwd)
@@ -154,4 +176,39 @@ function postvideo
 	trash-put *.png
 	cd $prevDir
 end
-funcsave postvideo
+funcsave postvideo > /dev/null
+
+# made by https://github.com/Micha-ohne-el
+function new --description='Creates new files or directories and all required parent directories'
+    for arg in $argv
+        if string match -rq '/$' -- $arg
+            mkdir -p $arg
+        else
+            set -l dir (string match -rg '(.*)/.+?$' -- $arg)
+            and mkdir -p $dir
+
+            touch $arg
+        end
+    end
+end
+funcsave new > /dev/null
+
+function argrep
+	grep --color=always -Ern $argv &> /tmp/pagie ; less /tmp/pagie
+end
+funcsave argrep > /dev/null
+
+function agrep
+	grep --color=always -E $argv &> /tmp/pagie ; less /tmp/pagie
+end
+funcsave agrep > /dev/null
+
+function work
+	while true
+		timer 20m || break
+		timer 5m || break
+	end
+end
+funcsave work > /dev/null
+
+echo (set_color yellow)'functions written'
