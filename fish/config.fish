@@ -31,6 +31,7 @@ set -g plain_directories $prog \
 	$pic/Tree \
 	$pic/Screenvideos \
 	$pic/Content \
+	$pic/Downloaded \
 	$audio/Sounds \
 	~/.config/fish \
 	~/.config/fish/functions
@@ -179,6 +180,7 @@ abbr -a xcode 'xargs code-insiders'
 abbr -a fishp 'fish -P'
 
 abbr -a rm 'trash-put'
+abbr -a rma 'trash-put *'
 abbr -a trr 'trash-restore'
 
 abbr -a grep 'grep -E'
@@ -330,8 +332,8 @@ bind -M default \cR _history_replace
 bind -M insert  \cD "exec fish -C 'clear -x'"
 bind -M default \cD "exec fish -C 'clear -x'"
 
-bind -M insert  \cP "exec fish -PC 'clear -x'"
-bind -M default \cP "exec fish -PC 'clear -x'"
+bind -M insert  \cP "exec fish -PC 'clear'"
+bind -M default \cP "exec fish -PC 'clear'"
 
 bind -M insert  \cE 'less /tmp/pagie'
 bind -M default \cE 'less /tmp/pagie'

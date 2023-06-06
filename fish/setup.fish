@@ -10,7 +10,9 @@ git config --global credential.helper '/mnt/c/Program\ Files/Git/mingw64/libexec
 command -q pip || sudo apt install pip
 command -q exrex || pip install exrex
 command -q termdown || pip install termdown
+
 command -q yt-dlp || pip install yt-dlp
+ln -s /mnt/c/Programming/dotfiles/yt-dlp.conf ~/yt-dlp.conf
 
 command -q tree || sudo apt install tree
 command -q fzf || sudo apt install fzf
