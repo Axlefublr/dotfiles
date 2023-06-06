@@ -10,6 +10,7 @@ git config --global credential.helper '/mnt/c/Program\ Files/Git/mingw64/libexec
 command -q pip || sudo apt install pip
 command -q exrex || pip install exrex
 command -q termdown || pip install termdown
+command -q yt-dlp || pip install yt-dlp
 
 command -q tree || sudo apt install tree
 command -q fzf || sudo apt install fzf
@@ -29,7 +30,7 @@ ln -s /mnt/c/Programming/dotfiles/init.lua ~/.config/nvim/init.lua
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
-fisher install IlanCosman/tide@v5
+command -q tide || fisher install IlanCosman/tide@v5
 
 set -l target /mnt/c/Programming/tide-functions
 set -l symlink ~/.config/fish/functions
@@ -44,6 +45,6 @@ end
 mv -f $symlink/fish_prompt.fish $target/fish_prompt.fish
 ln -s $target/fish_prompt.fish $symlink/fish_prompt.fish
 
-curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
+command -q tgpt || curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+command -q cargo || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

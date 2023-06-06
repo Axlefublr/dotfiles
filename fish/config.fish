@@ -24,6 +24,8 @@ set -g plain_directories $prog \
 	$prog/csproj/ChoreTracker \
 	$prog/csproj/TestCs \
 	$prog/rust \
+	$prog/rust/learning \
+	$prog/rust/test-proj \
 	$lib \
 	$pic \
 	$pic/Tree \
@@ -95,7 +97,7 @@ set -g tide_left_prompt_frame_enabled true
 set -g tide_left_prompt_prefix
 set -g tide_left_prompt_suffix
 set -g tide_left_prompt_separator_same_color
-set -g tide_left_prompt_items private_mode shlvl pwd context jobs git status newline character
+set -g tide_left_prompt_items shlvl private_mode pwd context jobs git status newline character
 set -g tide_right_prompt_items
 
 set -g tide_character_color -o $color_yellow
@@ -111,7 +113,7 @@ set -g tide_cmd_duration_threshold 0
 
 set -g tide_context_color_root $color_red
 set -g tide_context_color_ssh $color_orange
-set -g tide_git_icon ' '
+set -g tide_git_icon ''
 set -g tide_git_color_branch $color_purple
 set -g tide_git_color_conflicted $color_red
 set -g tide_git_color_dirty $color_pink
@@ -273,6 +275,7 @@ abbr -a dn   'dotnet'
 abbr -a dnw  'dotnet watch'
 abbr -a dncr 'dotnet new gitignore && dotnet sln *.sln add **/*.csproj && git add . && git commit -m "first commit" && git push -u origin main'
 abbr -a dnn  'dotnet new'
+abbr -a dnnl 'dotnet new list'
 abbr -a dnnc 'dotnet new console -n'
 abbr -a dnns 'dotnet new sln'
 abbr -a dnng 'dotnet new gitignore'
@@ -289,6 +292,14 @@ abbr -a dnf  'dotnet format'
 abbr -a ca 'cargo'
 abbr -a can 'cargo new'
 abbr -a car 'cargo run'
+abbr -a cab 'cargo build'
+abbr -a cacl 'cargo clean'
+abbr -a cach 'cargo check'
+abbr -a cau 'cargo update'
+
+abbr -a ru 'rustup'
+abbr -a rud 'rustup docs'
+abbr -a rudb 'rustup docs --book'
 
 abbr -a ghr   'gh repo'
 abbr -a ghrl  'gh repo list -L 1000'

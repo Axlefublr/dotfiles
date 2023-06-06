@@ -389,7 +389,6 @@
 	"typescript.suggest.completeFunctionCalls": true,
 	"json.format.enable": true,
 	"breadcrumbs.filePath": "on",
-	"breadcrumbs.symbolPath": "last",
 	"emmet.useInlineCompletions": true,
 	"codesnap.shutterAction": "copy",
 	"codesnap.containerPadding": "1em",
@@ -533,5 +532,5 @@
 	"editor.cursorSmoothCaretAnimation": "on",
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
-	"breadcrumbs.enabled": false
+	"workbench.editor.showTabs": false
 }

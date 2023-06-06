@@ -5110,5 +5110,15 @@
 		"key": "ctrl+,",
 		"command": "scrollLineUp",
 		"when": "!panelFocus"
+	},
+	{
+		"key": "l",
+		"command": "breadcrumbs.focusNext",
+		"when": "breadcrumbsActive && breadcrumbsVisible"
+	},
+	{
+		"key": "shift+a",
+		"command": "explorer.newFolder",
+		"when": "filesExplorerFocus && !inputFocus"
 	}
 ]
