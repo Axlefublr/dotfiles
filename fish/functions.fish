@@ -211,4 +211,16 @@ function work
 end
 funcsave work > /dev/null
 
+function tg
+	set -l tempFile /tmp/tgptie
+	$EDITOR $tempFile
+	set -l tempText (cat $tempFile)
+	if test -z $tempText
+		return 1
+	end
+	truncate -s 0 $tempFile
+	tgpt $tempText
+end
+funcsave tg > /dev/null
+
 echo (set_color yellow)'functions written'

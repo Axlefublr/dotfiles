@@ -943,9 +943,9 @@
 		"when": "inSearchEditor"
 	},
 	{
-		"key": "shift+space",
+		"key": "alt+m",
 		"command": "editor.action.triggerParameterHints",
-		"when": "editorHasSignatureHelpProvider && editorTextFocus && !parameterHintsVisible && !suggestWidgetVisible"
+		"when": "editorHasSignatureHelpProvider && editorTextFocus && !parameterHintsVisible"
 	},
 	{
 		"key": "ctrl+shift+space",
@@ -1037,9 +1037,9 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
 	},
 	{
-		"key": "ctrl+space",
+		"key": "alt+'",
 		"command": "editor.action.triggerSuggest",
-		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
 	},
 	{
 		"key": "ctrl+i",
@@ -1047,7 +1047,7 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
 	},
 	{
-		"key": "shift+space",
+		"key": "alt+m",
 		"command": "toggleSuggestionDetails",
 		"when": "suggestWidgetVisible && textInputFocus"
 	},
@@ -1070,11 +1070,6 @@
 		"key": "alt+up",
 		"command": "-showPrevParameterHint",
 		"when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-	},
-	{
-		"key": "shift+space",
-		"command": "closeParameterHints",
-		"when": "editorFocus && parameterHintsVisible"
 	},
 	{
 		"key": "alt+f5",
@@ -2280,7 +2275,7 @@
 		"when": "editorFocus && findWidgetVisible && !isComposing"
 	},
 	{
-		"key": "alt+'",
+		"key": "alt+p",
 		"command": "workbench.action.showAllSymbols"
 	},
 	{
@@ -3070,9 +3065,9 @@
 		"when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
 	},
 	{
-		"key": "ctrl+space",
+		"key": "alt+/",
 		"command": "editor.action.quickFix",
-		"when": "textInputFocus && !suggestWidgetVisible && neovim.mode != 'insert' && !codeActionMenuVisible && !actionWidgetVisible"
+		"when": "textInputFocus && !actionWidgetVisible && !codeActionMenuVisible"
 	},
 	{
 		"key": "ctrl+; r",
@@ -3204,10 +3199,6 @@
 		"when": "explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
 	},
 	{
-		"key": "alt+/",
-		"command": "editor.action.startFindReplaceAction"
-	},
-	{
 		"key": "shift+a",
 		"command": "-explorer.newFolder",
 		"when": "filesExplorerFocus && !inputFocus"
@@ -3298,7 +3289,7 @@
 		"when": "inSettingsEditor && inSettingsSearch"
 	},
 	{
-		"key": "ctrl+alt+space",
+		"key": "alt+n",
 		"command": "notifications.clearAll",
 		"when": "notificationToastsVisible"
 	},
@@ -3379,17 +3370,7 @@
 	},
 	{
 		"key": "ctrl+delete",
-		"command": "deleteWordRight",
-		"when": "textInputFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+delete",
 		"command": "-deleteWordRight",
-		"when": "textInputFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+shift+backspace",
-		"command": "deleteWordRight",
 		"when": "textInputFocus && !editorReadonly"
 	},
 	{
@@ -3403,7 +3384,7 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
 	},
 	{
-		"key": "ctrl+space",
+		"key": "alt+'",
 		"command": "hideSuggestWidget",
 		"when": "suggestWidgetVisible && textInputFocus"
 	},
@@ -4010,11 +3991,6 @@
 	},
 	{
 		"key": "escape",
-		"command": "hideCodeActionWidget",
-		"when": "actionWidgetVisible || codeActionMenuVisible"
-	},
-	{
-		"key": "escape",
 		"command": "-hideCodeActionWidget",
 		"when": "codeActionMenuVisible"
 	},
@@ -4616,16 +4592,6 @@
 		"when": "editorFocus && parameterHintsVisible"
 	},
 	{
-		"key": "shift+k",
-		"command": "editor.action.triggerParameterHints",
-		"when": "editorHasSignatureHelpProvider && editorTextFocus && !parameterHintsVisible && !suggestWidgetVisible && neovim.mode != 'insert'"
-	},
-	{
-		"key": "shift+k",
-		"command": "closeParameterHints",
-		"when": "editorFocus && parameterHintsVisible && neovim.mode != 'insert'"
-	},
-	{
 		"key": "ctrl+shift+k",
 		"command": "workbench.action.moveEditorToAboveGroup"
 	},
@@ -4853,7 +4819,7 @@
 		"when": "referenceSearchVisible && !config.editor.stablePeek"
 	},
 	{
-		"key": "ctrl+space",
+		"key": "escape",
 		"command": "hideCodeActionWidget",
 		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
@@ -5100,5 +5066,30 @@
 	{
 		"key": "ctrl+shift+,",
 		"command": "scrollPageUp"
+	},
+	{
+		"key": "ctrl+space",
+		"command": "-toggleSuggestionDetails",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "alt+/",
+		"command": "hideCodeActionWidget",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
+	},
+	{
+		"key": "space",
+		"command": "acceptSelectedCodeAction",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
+	},
+	{
+		"key": "alt+m",
+		"command": "closeParameterHints",
+		"when": "editorFocus && parameterHintsVisible"
+	},
+	{
+		"key": "shift+escape",
+		"command": "-closeParameterHints",
+		"when": "editorFocus && parameterHintsVisible"
 	}
 ]

@@ -334,21 +334,18 @@
 	"editor.mouseWheelScrollSensitivity": 1.7,
 	"editor.parameterHints.enabled": false,
 	"editor.acceptSuggestionOnEnter": "off",
-	"editor.suggestOnTriggerCharacters": false,
 	"editor.quickSuggestionsDelay": 0,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"editor.smoothScrolling": true,
 	"editor.formatOnType": true,
 	"editor.minimap.showSlider": "always",
-	"editor.suggestSelection": "recentlyUsedByPrefix",
 	"editor.suggest.localityBonus": true,
 	"editor.formatOnPaste": true,
 	"editor.linkedEditing": true,
 	"editor.wordWrap": "bounded",
 	"editor.find.cursorMoveOnType": false,
 	"editor.suggest.insertMode": "replace",
-	"editor.suggest.shareSuggestSelections": true,
 	"editor.formatOnSaveMode": "modificationsIfAvailable",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.editor.untitled.hint": "hidden",
@@ -430,7 +427,6 @@
 	"editor.suggest.preview": true,
 	"editor.find.seedSearchStringFromSelection": "never",
 	"debug.inlineValues": "on",
-	"editor.suggest.matchOnWordStartOnly": false,
 	"files.eol": "\n",
 	"vscode-neovim.logOutputToConsole": true,
 	"omnisharp.enableImportCompletion": true,
@@ -494,7 +490,6 @@
 	"vscode-neovim.mouseSelectionStartVisualMode": true,
 	"vscode-neovim.revealCursorScrollLine": true,
 	"files.autoSaveDelay": 500,
-	"editor.acceptSuggestionOnCommitCharacter": false,
 	"git.openRepositoryInParentFolders": "always",
 	"git.autofetch": true,
 	"git.verboseCommit": true,
@@ -531,5 +526,8 @@
 	"editor.cursorBlinking": "solid",
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
-	"workbench.editor.showTabs": false
+	"workbench.editor.showTabs": false,
+	"AutoHotkey2.CompletionCommitCharacters": {
+		"Function": ".("
+	}
 }
