@@ -2206,8 +2206,9 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "alt+p",
-		"command": "workbench.action.gotoSymbol"
+		"key": "alt+l",
+		"command": "workbench.action.gotoSymbol",
+		"when": "!inKeybindings && neovim.mode != 'insert'"
 	},
 	{
 		"key": "ctrl+k m",
@@ -2279,7 +2280,7 @@
 		"when": "editorFocus && findWidgetVisible && !isComposing"
 	},
 	{
-		"key": "ctrl+alt+p",
+		"key": "alt+'",
 		"command": "workbench.action.showAllSymbols"
 	},
 	{
@@ -2317,7 +2318,8 @@
 	},
 	{
 		"key": "f2",
-		"command": "codesnap.start"
+		"command": "codesnap.start",
+		"when": "!filesExplorerFocus"
 	},
 	{
 		"key": "ctrl+shift+] ]",
@@ -2581,11 +2583,6 @@
 		"when": "editorFocus"
 	},
 	{
-		"key": "shift+alt+r",
-		"command": "fileutils.renameFile",
-		"when": "!terminalFocus"
-	},
-	{
 		"key": "shift+escape",
 		"command": "-cancelRenameInput",
 		"when": "editorFocus && renameInputVisible"
@@ -2596,8 +2593,9 @@
 		"when": "config.editor.rename.enablePreview && editorFocus && renameInputVisible"
 	},
 	{
-		"key": "ctrl+shift+p",
-		"command": "breadcrumbs.focusAndSelect"
+		"key": "alt+;",
+		"command": "breadcrumbs.focusAndSelect",
+		"when": "neovim.mode != 'insert'"
 	},
 	{
 		"key": "enter",
@@ -3380,10 +3378,6 @@
 		"when": "editorTextFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
 	},
 	{
-		"key": "ctrl+; n",
-		"command": "fileutils.copyFileName"
-	},
-	{
 		"key": "ctrl+delete",
 		"command": "deleteWordRight",
 		"when": "textInputFocus && !editorReadonly"
@@ -3397,11 +3391,6 @@
 		"key": "ctrl+shift+backspace",
 		"command": "deleteWordRight",
 		"when": "textInputFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+shift+r",
-		"command": "fileutils.moveFile",
-		"when": "!terminalFocus"
 	},
 	{
 		"key": "ctrl+a",
@@ -3622,8 +3611,9 @@
 		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
 	},
 	{
-		"key": "alt+o",
-		"command": "editor.action.insertSnippet"
+		"key": "alt+;",
+		"command": "editor.action.insertSnippet",
+		"when": "neovim.mode == 'insert'"
 	},
 	{
 		"key": "shift+alt+y shift+alt+y",
@@ -3813,9 +3803,9 @@
 		"when": "inReferenceSearchEditor && neovim.mode == 'normal'"
 	},
 	{
-		"key": "ctrl+p",
+		"key": "alt+j",
 		"command": "workbench.action.quickOpen",
-		"when": "neovim.mode != 'insert'"
+		"when": "neovim.mode != 'insert' && !inQuickOpen"
 	},
 	{
 		"key": "ctrl+p",
@@ -4068,16 +4058,6 @@
 		"when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
 	},
 	{
-		"key": "alt+j",
-		"command": "gotoNextPreviousMember.nextMember",
-		"when": "editorTextFocus && !codeActionMenuVisible && !suggestWidgetVisible && neovim.mode == 'normal'"
-	},
-	{
-		"key": "alt+k",
-		"command": "gotoNextPreviousMember.previousMember",
-		"when": "editorTextFocus && !codeActionMenuVisible && !suggestWidgetVisible && neovim.mode == 'normal'"
-	},
-	{
 		"key": "ctrl+b",
 		"command": "-vscode-neovim.ctrl-b",
 		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
@@ -4275,11 +4255,6 @@
 		"key": "ctrl+w",
 		"command": "-workbench.action.closeGroup",
 		"when": "activeEditorGroupEmpty && multipleEditorGroups"
-	},
-	{
-		"key": "ctrl+space",
-		"command": "editor.action.triggerSuggest",
-		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "ctrl+space",
@@ -4568,7 +4543,7 @@
 	{
 		"key": "alt+l",
 		"command": "editor.action.inlineSuggest.showNext",
-		"when": "inlineSuggestionVisible && !editorReadonly"
+		"when": "inlineSuggestionVisible && !editorReadonly && neovim.mode == 'insert'"
 	},
 	{
 		"key": "right",
@@ -4578,7 +4553,7 @@
 	{
 		"key": "alt+h",
 		"command": "editor.action.inlineSuggest.showPrevious",
-		"when": "inlineSuggestionVisible && !editorReadonly"
+		"when": "inlineSuggestionVisible && !editorReadonly && neovim.mode == 'insert'"
 	},
 	{
 		"key": "left",
@@ -4858,14 +4833,9 @@
 		"when": "inlineSuggestionVisible"
 	},
 	{
-		"key": "alt+l",
-		"command": "editor.action.inlineSuggest.trigger",
-		"when": "!inlineSuggestionVisible && !inKeybindings"
-	},
-	{
 		"key": "alt+h",
 		"command": "editor.action.inlineSuggest.trigger",
-		"when": "!inlineSuggestionVisible && !inKeybindings"
+		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "ctrl+shift+f12",
@@ -4939,12 +4909,12 @@
 	{
 		"key": "alt+l",
 		"command": "jumpToNextSnippetPlaceholder",
-		"when": "!inKeybindings && inSnippetMode"
+		"when": "inSnippetMode && !inKeybindings && neovim.mode == 'insert'"
 	},
 	{
 		"key": "alt+h",
 		"command": "jumpToPrevSnippetPlaceholder",
-		"when": "!inKeybindings && inSnippetMode"
+		"when": "inSnippetMode && !inKeybindings && neovim.mode == 'insert'"
 	},
 	{
 		"key": "alt+]",
@@ -5035,10 +5005,6 @@
 		"command": "workbench.action.focusLastEditorGroup"
 	},
 	{
-		"key": "alt+;",
-		"command": "extension.goto-previous-buffer"
-	},
-	{
 		"key": "ctrl+f4",
 		"command": "-workbench.action.closeActiveEditor"
 	},
@@ -5098,10 +5064,6 @@
 		"command": "breadcrumbs.toggle"
 	},
 	{
-		"key": "alt+'",
-		"command": "workbench.action.showAllEditors"
-	},
-	{
 		"key": "ctrl+.",
 		"command": "scrollLineDown",
 		"when": "!panelFocus"
@@ -5120,5 +5082,23 @@
 		"key": "shift+a",
 		"command": "explorer.newFolder",
 		"when": "filesExplorerFocus && !inputFocus"
+	},
+	{
+		"key": "alt+k",
+		"command": "workbench.action.showAllEditorsByMostRecentlyUsed",
+		"when": "!inQuickOpen && neovim.mode != 'insert'"
+	},
+	{
+		"key": "alt+l",
+		"command": "editor.action.inlineSuggest.trigger",
+		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert'"
+	},
+	{
+		"key": "ctrl+shift+.",
+		"command": "scrollPageDown"
+	},
+	{
+		"key": "ctrl+shift+,",
+		"command": "scrollPageUp"
 	}
 ]

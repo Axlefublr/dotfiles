@@ -518,7 +518,7 @@
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.renderLineHighlight": "gutter",
 	"prettier.useTabs": true,
-	"editor.snippetSuggestions": "bottom",
+	"editor.snippetSuggestions": "none",
 	"workbench.quickOpen.closeOnFocusLost": false,
 	"workbench.quickOpen.preserveInput": true,
 	"liveServer.settings.donotShowInfoMsg": true,
@@ -529,7 +529,6 @@
 	"workbench.editor.splitInGroupLayout": "vertical",
 	"editor.codeActionsOnSave": {},
 	"editor.cursorBlinking": "solid",
-	"editor.cursorSmoothCaretAnimation": "on",
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
 	"workbench.editor.showTabs": false

@@ -171,9 +171,9 @@ funcsave fish_greeting > /dev/null
 function postvideo
 	set -l prevDir (pwd)
 	cd '/mnt/c/Pictures/Screenvideos'
-	trash-put *
+	trash-put "*"
 	cd ..
-	trash-put *.png
+	trash-put "*.png"
 	cd $prevDir
 end
 funcsave postvideo > /dev/null
