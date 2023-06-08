@@ -164,31 +164,31 @@ abbr -a @c   --position anywhere -- '| clip.exe'
 abbr -a @tt  --position anywhere -- '| tee /dev/tty |'
 abbr -a @ttc --position anywhere -- '| tee /dev/tty | clip.exe'
 
-abbr -a exp 'explorer.exe'
+abbr -a exp  'explorer.exe'
 abbr -a clip 'clip.exe'
-abbr -a ch 'ChoreTracker.exe'
-abbr -a we 'Welde.exe'
-abbr -a ff 'ffmpeg.exe'
-abbr -a ffi 'ffmpeg.exe -i'
+abbr -a ch   'ChoreTracker.exe'
+abbr -a we   'Welde.exe'
+abbr -a ff   'ffmpeg.exe'
+abbr -a ffi  'ffmpeg.exe -i'
 
-abbr -a bat 'batcat'
-abbr -a v 'nvim'
-abbr -a rmf 'rm -fr'
-abbr -a tree 'tree -C | less'
+abbr -a bat   'batcat'
+abbr -a v     'nvim'
+abbr -a rmf   'rm -fr'
+abbr -a tree  'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
 abbr -a fishp 'fish -P'
 
-abbr -a rm 'trash-put'
+abbr -a rm  'trash-put'
 abbr -a rma 'trash-put *'
 abbr -a trr 'trash-restore'
 
-abbr -a grep 'grep -E'
+abbr -a grep  'grep -E'
 abbr -a rgrep 'grep -Ern'
 abbr -a lgrep 'grep -Erl'
 
-abbr -a ls 'ls -A'
-abbr -a lg 'ls -Agh'
+abbr -a ls  'ls -A'
+abbr -a lg  'ls -Agh'
 abbr -a lsa 'ls --color=always -A'
 abbr -a lsg 'ls --color=always -Agh'
 
@@ -224,6 +224,7 @@ abbr -a gamanp  'git add . && git commit -a --amend --no-edit && git push 2> /de
 abbr -a gaman   'git add . && git commit -a --amend --no-edit'
 abbr -a gamapf  'git add . && git commit -a --amend && git push -f'
 abbr -a gamanpf 'git add . && git commit -a --amend --no-edit && git push -f'
+abbr -a gpp     'git push'
 abbr -a gp      'git push 2> /dev/null'
 abbr -a gpf     'git push -f'
 abbr -a gpu     'git push -u origin main'
@@ -291,16 +292,17 @@ abbr -a dnf  'dotnet format'
 
 ## rust
 
-abbr -a ca 'cargo'
-abbr -a can 'cargo new'
-abbr -a car 'cargo run'
-abbr -a cab 'cargo build'
+abbr -a ca   'cargo'
+abbr -a can  'cargo new'
+abbr -a car  'cargo run'
+abbr -a carq 'cargo run -q'
+abbr -a cab  'cargo build'
 abbr -a cacl 'cargo clean'
 abbr -a cach 'cargo check'
-abbr -a cau 'cargo update'
+abbr -a cau  'cargo update'
 
-abbr -a ru 'rustup'
-abbr -a rud 'rustup docs'
+abbr -a ru   'rustup'
+abbr -a rud  'rustup docs'
 abbr -a rudb 'rustup docs --book'
 
 abbr -a ghr   'gh repo'
@@ -339,7 +341,7 @@ bind -M insert  \cE 'less /tmp/pagie'
 bind -M default \cE 'less /tmp/pagie'
 
 bind -M default \; accept-autosuggestion
-bind -M default "'" accept-autosuggestion execute
+bind -M default -m insert "'" accept-autosuggestion execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
