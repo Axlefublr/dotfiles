@@ -222,7 +222,7 @@
 		]
 	},
 	"[ahk2]": {
-		"editor.defaultFormatter": "thqby.vscode-autohotkey2-lsp",
+		"editor.defaultFormatter": null,
 		"editor.formatOnPaste": false,
 		"editor.formatOnSave": false,
 		"editor.formatOnType": false

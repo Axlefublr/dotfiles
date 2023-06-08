@@ -1,21 +1,21 @@
 --- Options
-vim.opt.number            = true
-vim.opt.relativenumber    = true
-vim.opt.tabstop           = 3
-vim.opt.shiftwidth        = 3
-vim.opt.expandtab         = false
-vim.opt.smartindent       = true
-vim.opt.mouse             = "a"
-vim.opt.ignorecase        = true
-vim.opt.smartcase         = true
-vim.opt.hlsearch          = false
-vim.g.mapleader           = ","
+vim.opt.number               = true
+vim.opt.relativenumber       = true
+vim.opt.tabstop              = 3
+vim.opt.shiftwidth           = 3
+vim.opt.expandtab            = false
+vim.opt.smartindent          = true
+vim.opt.mouse                = "a"
+vim.opt.ignorecase           = true
+vim.opt.smartcase            = true
+vim.opt.hlsearch             = false
+vim.g.mapleader              = ","
 vim.g.rust_recommended_style = false
-vim.opt.syntax            = "enable"
-vim.opt.termguicolors     = true
-vim.opt.background        = "dark"
-vim.g.camelcasemotion_key = "<leader>"
-vim.g.targets_nl          = "nh"
+vim.opt.syntax               = "enable"
+vim.opt.termguicolors        = true
+vim.opt.background           = "dark"
+vim.g.camelcasemotion_key    = "<leader>"
+vim.g.targets_nl             = "nh"
 vim.cmd("colorscheme tender")
 vim.cmd("let g:sneak#use_ic_scs = 1")
 vim.cmd("highlight link Sneak None")
@@ -271,7 +271,6 @@ if vim.g.vscode then
 
 	function Trim_trailing_whitespace__Save()
 		Trim_trailing_whitespace()
-		Format_document()
 		Save()
 	end
 	vim.keymap.set("", "U", Trim_trailing_whitespace__Save)
@@ -333,6 +332,7 @@ if vim.g.vscode then
 		print("formatted")
 	end
 	vim.keymap.set("n", "=ie", Format_document)
+	vim.keymap.set("n", "K", Format_document)
 
 	function Git_stage_file()
 		Trim_trailing_whitespace()
