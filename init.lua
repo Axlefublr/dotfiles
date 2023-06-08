@@ -271,6 +271,7 @@ if vim.g.vscode then
 
 	function Trim_trailing_whitespace__Save()
 		Trim_trailing_whitespace()
+		Format_document()
 		Save()
 	end
 	vim.keymap.set("", "U", Trim_trailing_whitespace__Save)

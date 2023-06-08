@@ -336,7 +336,6 @@
 	"editor.acceptSuggestionOnEnter": "off",
 	"editor.quickSuggestionsDelay": 0,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
 	"editor.smoothScrolling": true,
 	"editor.formatOnType": true,
 	"editor.minimap.showSlider": "always",
