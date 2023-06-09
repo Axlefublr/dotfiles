@@ -232,6 +232,10 @@ function Escape_V_search(input)
 	return input
 end
 
+function GetInput()
+	return vim.fn.input("Enter input: ")
+end
+
 if vim.g.vscode then
 
 	function Center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
@@ -656,6 +660,14 @@ vim.keymap.set("", "<leader>mt", Move_line_to_top)
 
 local Move_line_to_bottom = 'ddmiGp`i'
 vim.keymap.set("", "<leader>mb", Move_line_to_bottom)
+
+function Literal_search(searchOperator)
+	local escaped_text = Escape_V_search(GetInput())
+	FeedKeys(searchOperator .. '\\V' .. escaped_text)
+	FeedKeysInt("<CR>")
+end
+vim.keymap.set("", "<leader>/", "<cmd>lua Literal_search('/')<CR>")
+vim.keymap.set("", "<leader>?", "<cmd>lua Literal_search('?')<CR>")
 
 function Search_for_register(register, searchOperator)
 	local escaped_register = Escape_V_search(vim.fn.getreg(register))
