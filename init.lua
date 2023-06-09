@@ -126,11 +126,11 @@ function FeedKeys(keys)
 end
 
 function FeedKeysInt(keys)
-	local feedableKeys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-	vim.api.nvim_feedkeys(feedableKeys, "n", true)
+	local feedable_keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+	vim.api.nvim_feedkeys(feedable_keys, "n", true)
 end
 
-function Escape_V_search(input)
+function EscapeForLiteralSearch(input)
 	input = string.gsub(input, '\\', '\\\\')
 	input = string.gsub(input, '/', '\\/')
 	return input
@@ -142,381 +142,381 @@ end
 
 if vim.g.vscode then
 
-	function Center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
-	function Top_screen() vim.cmd("call <SNR>4_reveal('top', 0)") end
-	function Bottom_screen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
-	function Move_to_top_screen() vim.cmd("call <SNR>4_moveCursor('top')") end
-	function Move_to_bottom_screen() vim.cmd("call <SNR>4_moveCursor('bottom')") end
+	local function center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
+	local function top_screen() vim.cmd("call <SNR>4_reveal('top', 0)") end
+	local function bottom_screen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
+	local function move_to_top_screen() vim.cmd("call <SNR>4_moveCursor('top')") end
+	local function move_to_bottom_screen() vim.cmd("call <SNR>4_moveCursor('bottom')") end
 
-	function Move_to_bottom_screen__center_screen()
-		Move_to_bottom_screen()
-		Center_screen()
+	local function move_to_bottom_screen__center_screen()
+		move_to_bottom_screen()
+		center_screen()
 	end
-	vim.keymap.set("", "L", Move_to_bottom_screen__center_screen)
+	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
 
-	function Move_to_top_screen__center_screen()
-		Move_to_top_screen()
-		Center_screen()
+	local function move_to_top_screen__center_screen()
+		move_to_top_screen()
+		center_screen()
 	end
-	vim.keymap.set("", "H", Move_to_top_screen__center_screen)
+	vim.keymap.set("", "H", move_to_top_screen__center_screen)
 
-	function Trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
+	local function trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
 
-	function Save() vim.fn.VSCodeCall("workbench.action.files.save") end
+	local function save() vim.fn.VSCodeCall("workbench.action.files.save") end
 
-	function Save_no_format() vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting") end
+	local function save_no_format() vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting") end
 
-	function Trim__Save__No_format()
-		Trim_trailing_whitespace()
-		Save_no_format()
+	local function trim__Save__No_format()
+		trim_trailing_whitespace()
+		save_no_format()
 	end
-	vim.keymap.set("", "U", Trim__Save__No_format)
+	vim.keymap.set("", "U", trim__Save__No_format)
 
-	function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
-	vim.keymap.set("n", "gD", Reveal_definition_aside)
+	local function reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
+	vim.keymap.set("n", "gD", reveal_definition_aside)
 
-	function Rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
-	vim.keymap.set("n", "<leader>r", Rename_symbol)
+	local function rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
+	vim.keymap.set("n", "<leader>r", rename_symbol)
 
-	function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
-	vim.keymap.set("n", "gl", Open_link)
+	local function open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
+	vim.keymap.set("n", "gl", open_link)
 
-	function Outdent()
+	local function outdent()
 		---@diagnostic disable-next-line: unused-local
 		for i = 1, vim.v.count1 do
 			vim.fn.VSCodeNotify("editor.action.outdentLines")
 		end
 	end
-	vim.keymap.set("n", "<<", Outdent)
+	vim.keymap.set("n", "<<", outdent)
 
-	function Indent()
+	local function indent()
 		---@diagnostic disable-next-line: unused-local
 		for i = 1, vim.v.count1 do
 			vim.fn.VSCodeNotify("editor.action.indentLines")
 		end
 	end
-	vim.keymap.set("n", ">>", Indent)
+	vim.keymap.set("n", ">>", indent)
 
-	function Comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
-	vim.keymap.set("n", "gcc", Comment)
+	local function comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
+	vim.keymap.set("n", "gcc", comment)
 
-	function Reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
-	vim.keymap.set("n", "==", Reindent)
+	local function reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
+	vim.keymap.set("n", "==", reindent)
 
-	function Convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
-	vim.keymap.set("n", "=s", Convert_to_spaces)
+	local function convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
+	vim.keymap.set("n", "=s", convert_to_spaces)
 
-	function Convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentationToTabs") end
-	vim.keymap.set("n", "=t", Convert_to_tabs)
+	local function convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentationToTabs") end
+	vim.keymap.set("n", "=t", convert_to_tabs)
 
-	function Toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
-	vim.keymap.set("n", "za", Toggle_fold)
+	local function toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
+	vim.keymap.set("n", "za", toggle_fold)
 
-	function Format_document()
+	local function format_document()
 		vim.fn.VSCodeNotify("editor.action.formatDocument")
-		Trim_trailing_whitespace()
+		trim_trailing_whitespace()
 		print("formatted")
 	end
-	vim.keymap.set("n", "=ie", Format_document)
+	vim.keymap.set("n", "=ie", format_document)
 
-	function CloseEditor()
+	local function closeEditor()
 		vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
 	end
-	vim.keymap.set("n", "K", CloseEditor)
+	vim.keymap.set("n", "K", closeEditor)
 
-	function ReopenClosedEditor()
+	local function reopenClosedEditor()
 		vim.fn.VSCodeNotify("workbench.action.reopenClosedEditor")
 	end
-	vim.keymap.set("n", "<leader>K", ReopenClosedEditor)
+	vim.keymap.set("n", "<leader>K", reopenClosedEditor)
 
-	function Git_stage_file()
-		Trim_trailing_whitespace()
-		Save()
+	local function git_stage_file()
+		trim_trailing_whitespace()
+		save()
 		vim.fn.VSCodeNotify("git.stage")
 	end
-	vim.keymap.set("n", "<leader>ga", Git_stage_file)
+	vim.keymap.set("n", "<leader>ga", git_stage_file)
 
-	function Git_stage_all()
-		Trim_trailing_whitespace()
-		Save()
+	local function git_stage_all()
+		trim_trailing_whitespace()
+		save()
 		vim.fn.VSCodeNotify("git.stageAll")
 	end
-	vim.keymap.set("n", "<leader>gA", Git_stage_all)
+	vim.keymap.set("n", "<leader>gA", git_stage_all)
 
-	function Git_unstage_file()
-		Save()
+	local function git_unstage_file()
+		save()
 		vim.fn.VSCodeNotify("git.unstage")
 	end
-	vim.keymap.set("n", "<leader>gu", Git_unstage_file)
+	vim.keymap.set("n", "<leader>gu", git_unstage_file)
 
-	function Git_revert_change() vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0) end
-	vim.keymap.set("n", "<leader>gr", Git_revert_change)
-	vim.keymap.set("v", "<leader>gr", Git_revert_change)
+	local function git_revert_change() vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0) end
+	vim.keymap.set("n", "<leader>gr", git_revert_change)
+	vim.keymap.set("v", "<leader>gr", git_revert_change)
 
-	function Git_stage_change() vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 0) end
-	vim.keymap.set("n", "<leader>gt", Git_stage_change)
-	vim.keymap.set("v", "<leader>gt", Git_stage_change)
+	local function git_stage_change() vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 0) end
+	vim.keymap.set("n", "<leader>gt", git_stage_change)
+	vim.keymap.set("v", "<leader>gt", git_stage_change)
 
-	function Git_open_all_changes() vim.fn.VSCodeNotifyVisual("git.openAllChanges", 0) end
-	vim.keymap.set("n", "<leader>gN", Git_open_all_changes)
-	vim.keymap.set("v", "<leader>gN", Git_open_all_changes)
+	local function git_open_all_changes() vim.fn.VSCodeNotifyVisual("git.openAllChanges", 0) end
+	vim.keymap.set("n", "<leader>gN", git_open_all_changes)
+	vim.keymap.set("v", "<leader>gN", git_open_all_changes)
 
-	function Git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
-	vim.keymap.set("n", "<leader>gn", Git_open_changes)
+	local function git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
+	vim.keymap.set("n", "<leader>gn", git_open_changes)
 
-	function Codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
-	vim.keymap.set("v", "gs", Codesnap)
+	local function codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
+	vim.keymap.set("v", "gs", codesnap)
 
-	function Outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
-	vim.keymap.set("v", "<", Outdent_vis)
+	local function outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
+	vim.keymap.set("v", "<", outdent_vis)
 
-	function Indent_vis() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
-	vim.keymap.set("v", ">", Indent_vis)
+	local function indent_vis() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
+	vim.keymap.set("v", ">", indent_vis)
 
-	function Comment_vis() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
-	vim.keymap.set("v", "gc", Comment_vis)
+	local function comment_vis() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
+	vim.keymap.set("v", "gc", comment_vis)
 
 else
 
-	function CloseEditor()
+	local function closeEditor()
 		vim.cmd("x")
 	end
-	vim.keymap.set("n", "K", CloseEditor)
+	vim.keymap.set("n", "K", closeEditor)
 
-	function Save_vim() vim.cmd("w") end
-	vim.keymap.set("", "U", Save_vim)
+	local function save_vim() vim.cmd("w") end
+	vim.keymap.set("", "U", save_vim)
 
-	local Move_to_bottom_screen__center_screen = 'Lzz'
-	vim.keymap.set("", "L", Move_to_bottom_screen__center_screen)
+	local move_to_bottom_screen__center_screen = 'Lzz'
+	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
 
-	local Move_to_top_screen__center_screen = 'Hzz'
-	vim.keymap.set("", "H", Move_to_top_screen__center_screen)
+	local move_to_top_screen__center_screen = 'Hzz'
+	vim.keymap.set("", "H", move_to_top_screen__center_screen)
 
 end
 
-local EasyAlignMapping = "<Plug>(EasyAlign)"
-vim.keymap.set("", "ga", EasyAlignMapping)
+local easyAlignMapping = "<Plug>(EasyAlign)"
+vim.keymap.set("", "ga", easyAlignMapping)
 
-local ReplaceWithRegisterMapping = "<Plug>ReplaceWithRegisterLine"
-vim.keymap.set("n", "grr", ReplaceWithRegisterMapping)
+local replaceWithRegisterMapping = "<Plug>ReplaceWithRegisterLine"
+vim.keymap.set("n", "grr", replaceWithRegisterMapping)
 
-local Block_text_object_self_sameline = "aBV"
-vim.keymap.set("v", "im", Block_text_object_self_sameline)
+local block_text_object_self_sameline = "aBV"
+vim.keymap.set("v", "im", block_text_object_self_sameline)
 
-local Block_text_object_extra_sameline = "aBVj"
-vim.keymap.set("v", "am", Block_text_object_extra_sameline)
+local block_text_object_extra_sameline = "aBVj"
+vim.keymap.set("v", "am", block_text_object_extra_sameline)
 
-local Block_text_object_self_diffline = "aBVok"
-vim.keymap.set("v", "iM", Block_text_object_self_diffline)
+local block_text_object_self_diffline = "aBVok"
+vim.keymap.set("v", "iM", block_text_object_self_diffline)
 
-local Block_text_object_extra_diffline = "aBVjok"
-vim.keymap.set("v", "aM", Block_text_object_extra_diffline)
+local block_text_object_extra_diffline = "aBVjok"
+vim.keymap.set("v", "aM", block_text_object_extra_diffline)
 
-function Block_text_object_self_sameline_operator() vim.cmd("normal vaBV") end
-vim.keymap.set("o", "im", Block_text_object_self_sameline_operator)
+local function block_text_object_self_sameline_operator() vim.cmd("normal vaBV") end
+vim.keymap.set("o", "im", block_text_object_self_sameline_operator)
 
-function Block_text_object_extra_sameline_operator() vim.cmd("normal vaBVj") end
-vim.keymap.set("o", "am", Block_text_object_extra_sameline_operator)
+local function block_text_object_extra_sameline_operator() vim.cmd("normal vaBVj") end
+vim.keymap.set("o", "am", block_text_object_extra_sameline_operator)
 
-function Block_text_object_self_diffline_operator() vim.cmd("normal vaBVok") end
-vim.keymap.set("o", "iM", Block_text_object_self_diffline_operator)
+local function block_text_object_self_diffline_operator() vim.cmd("normal vaBVok") end
+vim.keymap.set("o", "iM", block_text_object_self_diffline_operator)
 
-function Block_text_object_extra_diffline_operator() vim.cmd("normal vaBVjok") end
-vim.keymap.set("o", "aM", Block_text_object_extra_diffline_operator)
+local function block_text_object_extra_diffline_operator() vim.cmd("normal vaBVjok") end
+vim.keymap.set("o", "aM", block_text_object_extra_diffline_operator)
 
-local Percent_sign_text_object_self_visual = "T%ot%"
-vim.keymap.set("v", "i%", Percent_sign_text_object_self_visual)
+local percent_sign_text_object_self_visual = "T%ot%"
+vim.keymap.set("v", "i%", percent_sign_text_object_self_visual)
 
-local Percent_sign_text_object_extra_visual = "F%of%"
-vim.keymap.set("v", "a%", Percent_sign_text_object_extra_visual)
+local percent_sign_text_object_extra_visual = "F%of%"
+vim.keymap.set("v", "a%", percent_sign_text_object_extra_visual)
 
-function Percent_sign_text_object_self_operator() vim.cmd("normal vT%ot%") end
-vim.keymap.set("o", "i%", Percent_sign_text_object_self_operator)
+local function percent_sign_text_object_self_operator() vim.cmd("normal vT%ot%") end
+vim.keymap.set("o", "i%", percent_sign_text_object_self_operator)
 
-function Percent_sign_text_object_extra_operator() vim.cmd("normal vF%of%") end
-vim.keymap.set("o", "a%", Percent_sign_text_object_extra_operator)
+local function percent_sign_text_object_extra_operator() vim.cmd("normal vF%of%") end
+vim.keymap.set("o", "a%", percent_sign_text_object_extra_operator)
 
-local Markdown_heading_text_object_self_sameline_visual = "?^#<CR>oNk"
-vim.keymap.set("v", "ir", Markdown_heading_text_object_self_sameline_visual)
+local markdown_heading_text_object_self_sameline_visual = "?^#<CR>oNk"
+vim.keymap.set("v", "ir", markdown_heading_text_object_self_sameline_visual)
 
-local Markdown_heading_text_object_self_diffline_visual = "?^#<CR>koNk"
-vim.keymap.set("v", "iR", Markdown_heading_text_object_self_diffline_visual)
+local markdown_heading_text_object_self_diffline_visual = "?^#<CR>koNk"
+vim.keymap.set("v", "iR", markdown_heading_text_object_self_diffline_visual)
 
-local Comment_text_object_self_visual = "[/3lo]/2h"
-vim.keymap.set("v", "igc", Comment_text_object_self_visual)
+local comment_text_object_self_visual = "[/3lo]/2h"
+vim.keymap.set("v", "igc", comment_text_object_self_visual)
 
-local Comment_text_object_extra_visual = "[/o]/V"
-vim.keymap.set("v", "agc", Comment_text_object_extra_visual)
+local comment_text_object_extra_visual = "[/o]/V"
+vim.keymap.set("v", "agc", comment_text_object_extra_visual)
 
-function Comment_text_object_extra_operator() vim.cmd("normal v[/o]/V") end
-vim.keymap.set("o", "agc", Comment_text_object_extra_operator)
+local function comment_text_object_extra_operator() vim.cmd("normal v[/o]/V") end
+vim.keymap.set("o", "agc", comment_text_object_extra_operator)
 
-function Comment_text_object_self_operator() vim.cmd("normal v[/3lo]/2h") end
-vim.keymap.set("o", "igc", Comment_text_object_self_operator)
+local function comment_text_object_self_operator() vim.cmd("normal v[/3lo]/2h") end
+vim.keymap.set("o", "igc", comment_text_object_self_operator)
 
-function Goto_end_of_prev_line() FeedKeysInt(vim.v.count1 .. "k$") end
-vim.keymap.set("", "_", Goto_end_of_prev_line)
+local function goto_end_of_prev_line() FeedKeysInt(vim.v.count1 .. "k$") end
+vim.keymap.set("", "_", goto_end_of_prev_line)
 
-local Command_mode_remap = ":"
-vim.keymap.set("", ";", Command_mode_remap)
+local command_mode_remap = ":"
+vim.keymap.set("", ";", command_mode_remap)
 
-local Register_access_remap = '"'
-vim.keymap.set("", "'", Register_access_remap)
+local register_access_remap = '"'
+vim.keymap.set("", "'", register_access_remap)
 
-local Redo_seek_motion_backwards = ","
-vim.keymap.set("", ":", Redo_seek_motion_backwards)
+local redo_seek_motion_backwards = ","
+vim.keymap.set("", ":", redo_seek_motion_backwards)
 
-local Redo_seek_motion_forwards = ";"
-vim.keymap.set("", '"', Redo_seek_motion_forwards)
+local redo_seek_motion_forwards = ";"
+vim.keymap.set("", '"', redo_seek_motion_forwards)
 
-local Goto_middle_of_line = "gM"
-vim.keymap.set("", "gm", Goto_middle_of_line)
+local goto_middle_of_line = "gM"
+vim.keymap.set("", "gm", goto_middle_of_line)
 
-local Small_substitute_doesnt_consume_register = '"_s'
-vim.keymap.set("", "s", Small_substitute_doesnt_consume_register)
+local small_substitute_doesnt_consume_register = '"_s'
+vim.keymap.set("", "s", small_substitute_doesnt_consume_register)
 
-local Big_substitute_doesnt_consume_register = '"_S'
-vim.keymap.set("", "S", Big_substitute_doesnt_consume_register)
+local big_substitute_doesnt_consume_register = '"_S'
+vim.keymap.set("", "S", big_substitute_doesnt_consume_register)
 
-local Capital_yank_doesnt_consume_newline = "yg_"
-vim.keymap.set("n", "Y", Capital_yank_doesnt_consume_newline)
+local capital_yank_doesnt_consume_newline = "yg_"
+vim.keymap.set("n", "Y", capital_yank_doesnt_consume_newline)
 
-local Switch_case_stays_in_place = "~h"
-vim.keymap.set("n", "~", Switch_case_stays_in_place)
+local switch_case_stays_in_place = "~h"
+vim.keymap.set("n", "~", switch_case_stays_in_place)
 
-local Switch_lines_forward = "ddp"
-vim.keymap.set("n", "dp", Switch_lines_forward)
+local switch_lines_forward = "ddp"
+vim.keymap.set("n", "dp", switch_lines_forward)
 
-local Switch_lines_backward = "ddkP"
-vim.keymap.set("n", "dP", Switch_lines_backward)
+local switch_lines_backward = "ddkP"
+vim.keymap.set("n", "dP", switch_lines_backward)
 
-local Copy_line_forward = "yyp"
-vim.keymap.set("n", "yp", Copy_line_forward)
+local copy_line_forward = "yyp"
+vim.keymap.set("n", "yp", copy_line_forward)
 
-local Copy_line_backward = "yyP"
-vim.keymap.set("n", "yP", Copy_line_backward)
+local copy_line_backward = "yyP"
+vim.keymap.set("n", "yP", copy_line_backward)
 
-local Join_lines_no_space = "j0d^kgJ"
-vim.keymap.set("n", "gJ", Join_lines_no_space)
+local join_lines_no_space = "j0d^kgJ"
+vim.keymap.set("n", "gJ", join_lines_no_space)
 
-local Space_action = ""
-vim.keymap.set("n", "<Space>", Space_action)
+local space_action = ""
+vim.keymap.set("n", "<Space>", space_action)
 
-local Backspace_action = ""
-vim.keymap.set("n", "<BS>", Backspace_action)
+local backspace_action = ""
+vim.keymap.set("n", "<BS>", backspace_action)
 
-local Disable_u_visual = "<Esc>u"
-vim.keymap.set("v", "u", Disable_u_visual)
+local disable_u_visual = "<Esc>u"
+vim.keymap.set("v", "u", disable_u_visual)
 
-function Multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
-vim.keymap.set("v", "<leader>q", Multiply_visual)
+local function multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
+vim.keymap.set("v", "<leader>q", multiply_visual)
 
-local Complete_line = "<C-x><C-l>"
-vim.keymap.set("i", "<C-l>", Complete_line)
+local complete_line = "<C-x><C-l>"
+vim.keymap.set("i", "<C-l>", complete_line)
 
-local Delete_up_to_last_line_end = '<C-o>"_S<Esc><C-o>gI<BS>'
-vim.keymap.set("i", "<C-h>", Delete_up_to_last_line_end)
+local delete_up_to_last_line_end = '<C-o>"_S<Esc><C-o>gI<BS>'
+vim.keymap.set("i", "<C-h>", delete_up_to_last_line_end)
 
-local Insert_blank_line_up_insert = "<C-o>O"
-vim.keymap.set("i", "<C-k>", Insert_blank_line_up_insert)
+local insert_blank_line_up_insert = "<C-o>O"
+vim.keymap.set("i", "<C-k>", insert_blank_line_up_insert)
 
-local Insert_blank_line_down_insert = "<C-o>o"
--- vim.keymap.set("i", "<C-j>", Insert_blank_line_down_insert)
+local insert_blank_line_down_insert = "<C-o>o"
+-- vim.keymap.set("i", "<C-j>", insert_blank_line_down_insert)
 
-local Previous_blank_line_operator = "V{"
-vim.keymap.set("o", "{", Previous_blank_line_operator)
+local previous_blank_line_operator = "V{"
+vim.keymap.set("o", "{", previous_blank_line_operator)
 
-local Next_blank_line_operator = "V}"
-vim.keymap.set("o", "}", Next_blank_line_operator)
+local next_blank_line_operator = "V}"
+vim.keymap.set("o", "}", next_blank_line_operator)
 
-local Twenty_lines_down = "20jzz"
-vim.keymap.set("", "<C-f>", Twenty_lines_down)
+local twenty_lines_down = "20jzz"
+vim.keymap.set("", "<C-f>", twenty_lines_down)
 
-local Twenty_lines_up = "20kzz"
-vim.keymap.set("", "<C-b>", Twenty_lines_up)
+local twenty_lines_up = "20kzz"
+vim.keymap.set("", "<C-b>", twenty_lines_up)
 
-local Twelve_lines_down = "12jzz"
-vim.keymap.set("", "<C-d>", Twelve_lines_down)
+local twelve_lines_down = "12jzz"
+vim.keymap.set("", "<C-d>", twelve_lines_down)
 
-local Twelve_lines_up = "12kzz"
-vim.keymap.set("", "<C-u>", Twelve_lines_up)
+local twelve_lines_up = "12kzz"
+vim.keymap.set("", "<C-u>", twelve_lines_up)
 
-local Insert_blank_line_up = "O<Esc>"
-vim.keymap.set("n", "<C-k>", Insert_blank_line_up)
+local insert_blank_line_up = "O<Esc>"
+vim.keymap.set("n", "<C-k>", insert_blank_line_up)
 
-local Insert_blank_line_down = "o<Esc>"
-vim.keymap.set("n", "<C-j>", Insert_blank_line_down)
+local insert_blank_line_down = "o<Esc>"
+vim.keymap.set("n", "<C-j>", insert_blank_line_down)
 
-function Remove_highlighting() vim.cmd("noh") end
+local function remove_highlighting() vim.cmd("noh") end
 
-function Remove_highlighting__escape()
-	Remove_highlighting()
+local function remove_highlighting__escape()
+	remove_highlighting()
 	FeedKeysInt("<Esc>")
 end
-vim.keymap.set("n", "<Esc>", Remove_highlighting__escape)
+vim.keymap.set("n", "<Esc>", remove_highlighting__escape)
 
-function Toggle_highlight_search() vim.cmd("set hlsearch!") end
--- vim.keymap.set("", "<leader>H", Toggle_highlight_search)
+local function toggle_highlight_search() vim.cmd("set hlsearch!") end
+-- vim.keymap.set("", "<leader>H", toggle_highlight_search)
 
-function Multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
-vim.keymap.set("n", "<leader>q", Multiply)
+local function multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
+vim.keymap.set("n", "<leader>q", multiply)
 
-local Vore_out_line_into_block = '"_ddddpvaB<Esc>'
-vim.keymap.set("n", "<leader>di", Vore_out_line_into_block)
+local vore_out_line_into_block = '"_ddddpvaB<Esc>'
+vim.keymap.set("n", "<leader>di", vore_out_line_into_block)
 
-local Convert_to_arrow_function = "vaBo<Esc>s=> <Esc>Jjdd"
-vim.keymap.set("n", "<leader>bi", Convert_to_arrow_function)
+local convert_to_arrow_function = "vaBo<Esc>s=> <Esc>Jjdd"
+vim.keymap.set("n", "<leader>bi", convert_to_arrow_function)
 
-local Convert_to_normal_function = "^f(%f=c3l{<CR><Esc>o}<Esc>"
-vim.keymap.set("n", "<leader>ba", Convert_to_normal_function)
+local convert_to_normal_function = "^f(%f=c3l{<CR><Esc>o}<Esc>"
+vim.keymap.set("n", "<leader>ba", convert_to_normal_function)
 
-local Add_comma_at_end_of_line = "mIA,<Esc>`I"
-vim.keymap.set("n", "<leader>,", Add_comma_at_end_of_line)
+local add_comma_at_end_of_line = "mIA,<Esc>`I"
+vim.keymap.set("n", "<leader>,", add_comma_at_end_of_line)
 
-local Add_semicolon_at_end_of_line = "mIA;<Esc>`I"
-vim.keymap.set("n", "<leader>;", Add_semicolon_at_end_of_line)
+local add_semicolon_at_end_of_line = "mIA;<Esc>`I"
+vim.keymap.set("n", "<leader>;", add_semicolon_at_end_of_line)
 
-local Add_ahk_dependency = "mIggO#Include <"
-vim.keymap.set("n", "<leader>in", Add_ahk_dependency)
+local add_ahk_dependency = "mIggO#Include <"
+vim.keymap.set("n", "<leader>in", add_ahk_dependency)
 
-local System_clipboard_register = '"+'
-vim.keymap.set("", "'q", System_clipboard_register)
+local system_clipboard_register = '"+'
+vim.keymap.set("", "'q", system_clipboard_register)
 
-local Yanked_register = '"0'
-vim.keymap.set("", "'w", Yanked_register)
+local yanked_register = '"0'
+vim.keymap.set("", "'w", yanked_register)
 
-local Black_hole_register = '"_'
-vim.keymap.set("", "'i", Black_hole_register)
+local black_hole_register = '"_'
+vim.keymap.set("", "'i", black_hole_register)
 
-local Command_register = '":'
-vim.keymap.set("", "';", Command_register)
+local command_register = '":'
+vim.keymap.set("", "';", command_register)
 
-local Paste_system_register = "<C-r><C-p>+"
-vim.keymap.set("!", "<C-v>", Paste_system_register)
+local paste_system_register = "<C-r><C-p>+"
+vim.keymap.set("!", "<C-v>", paste_system_register)
 
-local Paste_yank_register = "<C-r><C-p>0"
-vim.keymap.set("!", "<C-r>w", Paste_yank_register)
+local paste_yank_register = "<C-r><C-p>0"
+vim.keymap.set("!", "<C-r>w", paste_yank_register)
 
-local Paste_command_register = "<C-r><C-p>:"
-vim.keymap.set("!", "<C-r>;", Paste_command_register)
+local paste_command_register = "<C-r><C-p>:"
+vim.keymap.set("!", "<C-r>;", paste_command_register)
 
-local Paste_default_register = '<C-r><C-p>"'
-vim.keymap.set("!", "<C-b>", Paste_default_register)
+local paste_default_register = '<C-r><C-p>"'
+vim.keymap.set("!", "<C-b>", paste_default_register)
 
-local Delete_line_but_take_inside_line = 'dil\'_dd'
-vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, { remap = true })
+local delete_line_but_take_inside_line = 'dil\'_dd'
+vim.keymap.set("n", "<leader>dl", delete_line_but_take_inside_line, { remap = true })
 
-local Move_line_to_top = 'ddmiggP`i'
-vim.keymap.set("", "<leader>mt", Move_line_to_top)
+local move_line_to_top = 'ddmiggP`i'
+vim.keymap.set("", "<leader>mt", move_line_to_top)
 
-local Move_line_to_bottom = 'ddmiGp`i'
-vim.keymap.set("", "<leader>mb", Move_line_to_bottom)
+local move_line_to_bottom = 'ddmiGp`i'
+vim.keymap.set("", "<leader>mb", move_line_to_bottom)
 
-function Search_for_selection(searchOperator)
+function Search_for_selection(search_operator)
 	FeedKeys('y')
 	vim.schedule(function()
-		local escaped_selection = Escape_V_search(vim.fn.getreg('"'))
-		FeedKeys(searchOperator .. '\\V' .. escaped_selection)
+		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('"'))
+		FeedKeys(search_operator .. '\\V' .. escaped_selection)
 		FeedKeysInt('<CR>')
 	end)
 end
@@ -530,7 +530,7 @@ vim.keymap.set("", "<leader>/", "<cmd>lua Regex_search('/')<CR>")
 vim.keymap.set("", "<leader>?", "<cmd>lua Regex_search('?')<CR>")
 
 function Literal_search(searchOperator)
-	local escaped_text = Escape_V_search(GetInput("Type in your literal search: "))
+	local escaped_text = EscapeForLiteralSearch(GetInput("Type in your literal search: "))
 	if escaped_text == '' then
 		return
 	end
@@ -540,9 +540,9 @@ end
 vim.keymap.set("", "/", "<cmd>lua Literal_search('/')<CR>")
 vim.keymap.set("", "?", "<cmd>lua Literal_search('?')<CR>")
 
-function Search_for_register(register, searchOperator)
-	local escaped_register = Escape_V_search(vim.fn.getreg(register))
-	FeedKeys(searchOperator .. '\\V' .. escaped_register)
+function Search_for_register(register, search_operator)
+	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
+	FeedKeys(search_operator .. '\\V' .. escaped_register)
 	FeedKeysInt('<CR>')
 end
 for c = string.byte("a"), string.byte("z") do
@@ -561,35 +561,35 @@ end
 vim.keymap.set("n", "''/", "<cmd>lua Search_for_register('\"', '/')<CR>")
 vim.keymap.set("n", "''?", "<cmd>lua Search_for_register('\"', '?')<CR>")
 
-local Captal_R_records_macro = 'q'
-vim.keymap.set("", "R", Captal_R_records_macro)
+local captal_R_records_macro = 'q'
+vim.keymap.set("", "R", captal_R_records_macro)
 
-local Sneak_s = "<Plug>Sneak_s"
-vim.keymap.set("n", "q", Sneak_s)
-vim.keymap.set("x", "q", Sneak_s)
-vim.keymap.set("o", "q", Sneak_s)
+local sneak_s = "<Plug>Sneak_s"
+vim.keymap.set("n", "q", sneak_s)
+vim.keymap.set("x", "q", sneak_s)
+vim.keymap.set("o", "q", sneak_s)
 
-local Sneak_S = "<Plug>Sneak_S"
-vim.keymap.set("n", "Q", Sneak_S)
-vim.keymap.set("x", "Q", Sneak_S)
-vim.keymap.set("o", "Q", Sneak_S)
+local sneak_S = "<Plug>Sneak_S"
+vim.keymap.set("n", "Q", sneak_S)
+vim.keymap.set("x", "Q", sneak_S)
+vim.keymap.set("o", "Q", sneak_S)
 
-local Sneak_repeat_forward = "<Plug>Sneak_;"
-vim.keymap.set("", '"', Sneak_repeat_forward)
+local sneak_repeat_forward = "<Plug>Sneak_;"
+vim.keymap.set("", '"', sneak_repeat_forward)
 
-local Sneak_repeat_backward = "<Plug>Sneak_,"
-vim.keymap.set("", ":", Sneak_repeat_backward)
+local sneak_repeat_backward = "<Plug>Sneak_,"
+vim.keymap.set("", ":", sneak_repeat_backward)
 
-local Inclusive_next_blankie = "}k"
-vim.keymap.set("n", "<leader>}", Inclusive_next_blankie)
+local inclusive_next_blankie = "}k"
+vim.keymap.set("n", "<leader>}", inclusive_next_blankie)
 
-local Inclusive_prev_blankie = "{j"
-vim.keymap.set("n", "<leader>{", Inclusive_prev_blankie)
+local inclusive_prev_blankie = "{j"
+vim.keymap.set("n", "<leader>{", inclusive_prev_blankie)
 
-function Inclusive_next_blankie_visual() vim.cmd("normal V}k") end
-vim.keymap.set("o", "<leader>}", Inclusive_next_blankie_visual)
+local function inclusive_next_blankie_visual() vim.cmd("normal V}k") end
+vim.keymap.set("o", "<leader>}", inclusive_next_blankie_visual)
 
-function Inclusive_prev_blankie_visual() vim.cmd("normal V{j") end
-vim.keymap.set("o", "<leader>{", Inclusive_prev_blankie_visual)
+local function inclusive_prev_blankie_visual() vim.cmd("normal V{j") end
+vim.keymap.set("o", "<leader>{", inclusive_prev_blankie_visual)
 
 print("nvim loaded")
