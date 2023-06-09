@@ -336,11 +336,16 @@ if vim.g.vscode then
 		print("formatted")
 	end
 	vim.keymap.set("n", "=ie", Format_document)
-	vim.keymap.set("n", "K", Format_document)
 
-	function CloseDocument()
+	function CloseEditor()
 		vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
 	end
+	vim.keymap.set("n", "K", CloseEditor)
+
+	function ReopenClosedEditor()
+		vim.fn.VSCodeNotify("workbench.action.reopenClosedEditor")
+	end
+	vim.keymap.set("n", "<leader>K", ReopenClosedEditor)
 
 	function Git_stage_file()
 		Trim_trailing_whitespace()
@@ -419,10 +424,10 @@ if vim.g.vscode then
 
 else
 
-	function CloseDocument()
+	function CloseEditor()
 		vim.cmd("x")
 	end
-	vim.keymap.set("n", "K", CloseDocument)
+	vim.keymap.set("n", "K", CloseEditor)
 
 	function Save_vim() vim.cmd("w") end
 	vim.keymap.set("", "U", Save_vim)
