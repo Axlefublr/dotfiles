@@ -517,10 +517,10 @@ vim.keymap.set("!", "<C-b>", paste_default_register)
 local delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", delete_line_but_take_inside_line, { remap = true })
 
-local move_line_to_top = 'ddm' .. THROWAWAY_MARK .. '`' .. THROWAWAY_MARK
+local move_line_to_top = 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK
 vim.keymap.set("", "<leader>mt", move_line_to_top)
 
-local move_line_to_bottom = 'ddm' .. THROWAWAY_MARK .. '`' .. THROWAWAY_MARK
+local move_line_to_bottom = 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK
 vim.keymap.set("", "<leader>mb", move_line_to_bottom)
 
 function Search_for_selection(search_operator)
