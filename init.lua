@@ -661,6 +661,12 @@ vim.keymap.set("", "<leader>mt", Move_line_to_top)
 local Move_line_to_bottom = 'ddmiGp`i'
 vim.keymap.set("", "<leader>mb", Move_line_to_bottom)
 
+function Regex_search(searchOperator)
+	FeedKeys(searchOperator .. '\\v')
+end
+vim.keymap.set("", "<leader>/", "<cmd>lua Regex_search('/')<CR>")
+vim.keymap.set("", "<leader>?", "<cmd>lua Regex_search('?')<CR>")
+
 function Literal_search(searchOperator)
 	local escaped_text = Escape_V_search(GetInput())
 	FeedKeys(searchOperator .. '\\V' .. escaped_text)
