@@ -15,7 +15,7 @@
 					"storage.type.getter.ahk2",
 					"storage.type.setter.ahk2",
 					"keyword.operator.arrow.cs",
-					"keyword.operator.attribute.inner.rust"
+					"keyword.operator.attribute.inner.rust",
 				]
 			},
 			{

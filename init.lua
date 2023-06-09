@@ -668,12 +668,15 @@ vim.keymap.set("", "<leader>/", "<cmd>lua Regex_search('/')<CR>")
 vim.keymap.set("", "<leader>?", "<cmd>lua Regex_search('?')<CR>")
 
 function Literal_search(searchOperator)
-	local escaped_text = Escape_V_search(GetInput())
+	local escaped_text = Escape_V_search(GetInput("Type in your literal search: "))
+	if escaped_text == '' then
+		return
+	end
 	FeedKeys(searchOperator .. '\\V' .. escaped_text)
 	FeedKeysInt("<CR>")
 end
-vim.keymap.set("", "<leader>/", "<cmd>lua Literal_search('/')<CR>")
-vim.keymap.set("", "<leader>?", "<cmd>lua Literal_search('?')<CR>")
+vim.keymap.set("", "/", "<cmd>lua Literal_search('/')<CR>")
+vim.keymap.set("", "?", "<cmd>lua Literal_search('?')<CR>")
 
 function Search_for_register(register, searchOperator)
 	local escaped_register = Escape_V_search(vim.fn.getreg(register))
