@@ -256,42 +256,20 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("", "H", Move_to_top_screen__center_screen)
 
-	function Toggle_typewriter() vim.fn.VSCodeNotify("toggleTypewriter") end
-	vim.keymap.set("", "zy", Toggle_typewriter)
-
-	function Goto_parent_fold() vim.fn.VSCodeNotify("editor.gotoParentFold") end
-	vim.keymap.set("", "zp", Goto_parent_fold)
-
-	function Next_folding_section() vim.fn.VSCodeNotify("editor.gotoNextFold") end
-	vim.keymap.set("", "]f", Next_folding_section)
-
-	function Prev_folding_section() vim.fn.VSCodeNotify("editor.gotoPreviousFold") end
-	vim.keymap.set("", "[f", Prev_folding_section)
-
 	function Trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
-	vim.keymap.set("n", "==", Trim_trailing_whitespace)
 
 	function Save() vim.fn.VSCodeCall("workbench.action.files.save") end
 
-	function Trim_trailing_whitespace__Save()
-		Trim_trailing_whitespace()
-		Save()
-	end
-	vim.keymap.set("", "U", Trim_trailing_whitespace__Save)
-
 	function Save_no_format() vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting") end
 
-	function Trim_trailing_whitespace__Save_no_format()
+	function Trim__Save__No_format()
 		Trim_trailing_whitespace()
 		Save_no_format()
 	end
-	vim.keymap.set("", "<leader>U", Trim_trailing_whitespace__Save_no_format)
+	vim.keymap.set("", "U", Trim__Save__No_format)
 
 	function Reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
 	vim.keymap.set("n", "gD", Reveal_definition_aside)
-
-	function Toggle_sticky_scroll() vim.fn.VSCodeNotify("editor.action.toggleStickyScroll") end
-	vim.keymap.set("n", "<leader>s", Toggle_sticky_scroll)
 
 	function Rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
 	vim.keymap.set("n", "<leader>r", Rename_symbol)
@@ -319,7 +297,7 @@ if vim.g.vscode then
 	vim.keymap.set("n", "gcc", Comment)
 
 	function Reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
-	vim.keymap.set("n", "=>", Reindent)
+	vim.keymap.set("n", "==", Reindent)
 
 	function Convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
 	vim.keymap.set("n", "=s", Convert_to_spaces)
@@ -367,34 +345,6 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "<leader>gu", Git_unstage_file)
 
-	function Git_commit()
-		Trim_trailing_whitespace()
-		Save()
-		vim.fn.VSCodeNotify("git.commit")
-	end
-	vim.keymap.set("n", "<leader>gm", Git_commit)
-
-	function Git_commit_amend()
-		Trim_trailing_whitespace()
-		Save()
-		vim.fn.VSCodeNotify("git.commitStagedAmend")
-	end
-	vim.keymap.set("n", "<leader>gM", Git_commit_amend)
-
-	function Git_push()
-		Trim_trailing_whitespace()
-		Save()
-		vim.fn.VSCodeNotify("git.push")
-	end
-	vim.keymap.set("n", "<leader>gp", Git_push)
-
-	function Git_push_force()
-		Trim_trailing_whitespace()
-		Save()
-		vim.fn.VSCodeNotify("git.pushForce")
-	end
-	vim.keymap.set("n", "<leader>gP", Git_push_force)
-
 	function Git_revert_change() vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0) end
 	vim.keymap.set("n", "<leader>gr", Git_revert_change)
 	vim.keymap.set("v", "<leader>gr", Git_revert_change)
@@ -439,9 +389,6 @@ else
 	vim.keymap.set("", "H", Move_to_top_screen__center_screen)
 
 end
-
-local Enter_separates_line = "i<CR><Esc>"
--- vim.keymap.set("n", "<CR>", Enter_separates_line)
 
 local EasyAlignMapping = "<Plug>(EasyAlign)"
 vim.keymap.set("", "ga", EasyAlignMapping)
@@ -554,17 +501,6 @@ vim.keymap.set("n", "<Space>", Space_action)
 local Backspace_action = ""
 vim.keymap.set("n", "<BS>", Backspace_action)
 
-function Search_for_selection(searchOperator)
-	FeedKeys('y')
-	vim.schedule(function()
-		local escaped_selection = Escape_V_search(vim.fn.getreg('"'))
-		FeedKeys(searchOperator .. '\\V' .. escaped_selection)
-		FeedKeysInt('<CR>')
-	end)
-end
-vim.keymap.set("v", "*", "<cmd>lua Search_for_selection('/')<CR>")
-vim.keymap.set("v", "#", "<cmd>lua Search_for_selection('?')<CR>")
-
 local Disable_u_visual = "<Esc>u"
 vim.keymap.set("v", "u", Disable_u_visual)
 
@@ -580,7 +516,7 @@ vim.keymap.set("i", "<C-h>", Delete_up_to_last_line_end)
 local Insert_blank_line_up_insert = "<C-o>O"
 vim.keymap.set("i", "<C-k>", Insert_blank_line_up_insert)
 
--- local Insert_blank_line_down_insert = "<C-o>o"
+local Insert_blank_line_down_insert = "<C-o>o"
 -- vim.keymap.set("i", "<C-j>", Insert_blank_line_down_insert)
 
 local Previous_blank_line_operator = "V{"
@@ -666,14 +602,22 @@ vim.keymap.set("!", "<C-b>", Paste_default_register)
 local Delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", Delete_line_but_take_inside_line, { remap = true })
 
-local Delete_big_word_insert = '<C-o>dvB'
-vim.keymap.set("!", "<C-w>", Delete_big_word_insert)
-
 local Move_line_to_top = 'ddmiggP`i'
 vim.keymap.set("", "<leader>mt", Move_line_to_top)
 
 local Move_line_to_bottom = 'ddmiGp`i'
 vim.keymap.set("", "<leader>mb", Move_line_to_bottom)
+
+function Search_for_selection(searchOperator)
+	FeedKeys('y')
+	vim.schedule(function()
+		local escaped_selection = Escape_V_search(vim.fn.getreg('"'))
+		FeedKeys(searchOperator .. '\\V' .. escaped_selection)
+		FeedKeysInt('<CR>')
+	end)
+end
+vim.keymap.set("v", "*", "<cmd>lua Search_for_selection('/')<CR>")
+vim.keymap.set("v", "#", "<cmd>lua Search_for_selection('?')<CR>")
 
 function Regex_search(searchOperator)
 	FeedKeys(searchOperator .. '\\v')

@@ -5091,5 +5091,10 @@
 		"key": "shift+escape",
 		"command": "-closeParameterHints",
 		"when": "editorFocus && parameterHintsVisible"
+	},
+	{
+		"key": "alt+h",
+		"command": "editor.action.formatDocument",
+		"when": "neovim.mode != 'insert' && !inKeybindings"
 	}
 ]
