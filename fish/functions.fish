@@ -215,11 +215,11 @@ function tg
 	set -l tempFile /tmp/tgptie
 	$EDITOR $tempFile
 	set -l tempText (cat $tempFile)
-	if test -z $tempText
+	truncate -s 0 $tempFile
+	if test -z "$tempText"
 		return 1
 	end
-	truncate -s 0 $tempFile
-	tgpt $tempText
+	tgpt "$tempText"
 end
 funcsave tg > /dev/null
 
