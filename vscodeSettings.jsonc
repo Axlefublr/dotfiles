@@ -525,7 +525,6 @@
 	"editor.cursorBlinking": "solid",
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
-	"workbench.editor.showTabs": false,
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	}

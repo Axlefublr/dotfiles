@@ -590,10 +590,10 @@ local Insert_blank_line_down = "o<Esc>"
 vim.keymap.set("n", "<C-j>", Insert_blank_line_down)
 
 function Remove_highlighting() vim.cmd("noh") end
-vim.keymap.set("", "<leader>/", Remove_highlighting)
+vim.keymap.set("", "<leader>h", Remove_highlighting)
 
 function Toggle_highlight_search() vim.cmd("set hlsearch!") end
-vim.keymap.set("", "<leader>h", Toggle_highlight_search)
+vim.keymap.set("", "<leader>H", Toggle_highlight_search)
 
 function Multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
 vim.keymap.set("n", "<leader>q", Multiply)
