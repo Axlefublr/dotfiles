@@ -574,6 +574,41 @@ end
 vim.keymap.set("n", "''/", "<cmd>lua Search_for_register('\"', '/')<CR>")
 vim.keymap.set("n", "''?", "<cmd>lua Search_for_register('\"', '?')<CR>")
 
+function Better_replace(what, range, is_regex)
+	if what == '' then print("You didn't specify 'what'") return end
+	local with = GetInput("Replace with? ")
+	local magic
+	if is_regex then
+		magic = "\\v"
+	else
+		what = EscapeForLiteralSearch(what)
+		magic = "\\V"
+	end
+	vim.cmd(range .. "s/" .. magic .. what .. "/" .. with .. "/g")
+end
+vim.keymap.set("n", "<leader>s", "<cmd>lua Better_replace(GetInput('Replace what? '), '%', false)<CR>")
+vim.keymap.set("n", "<leader>S", "<cmd>lua Better_replace(GetInput('Replace what? '), '%', true)<CR>")
+
+vim.keymap.set("v", "<leader>s", "<esc><cmd>lua Better_replace(GetInput('Replace what? '), \"'<,'>\", false)<CR>")
+vim.keymap.set("v", "<leader>S", "<esc><cmd>lua Better_replace(GetInput('Replace what? '), \"'<,'>\", true)<CR>")
+
+vim.keymap.set("n", "''<leader>s", "<cmd>lua Better_replace(GetRegister('\"'), '%', false)<CR>")
+vim.keymap.set("v", "''<leader>s", "<esc><cmd>lua Better_replace(GetRegister('\"'), \"'<,'>\", false)<CR>")
+
+for c = string.byte("a"), string.byte("z") do
+	local char = string.char(c)
+	if char == 'q' then
+		vim.keymap.set("n", "'" .. char .. "<leader>s", "<cmd>lua Better_replace(GetRegister('+'), '%', false)<CR>")
+		vim.keymap.set("v", "'" .. char .. "<leader>s", "<esc><cmd>lua Better_replace(GetRegister('+'), \"'<,'>\", false)<CR>")
+	elseif char == 'w' then
+		vim.keymap.set("n", "'" .. char .. "<leader>s", "<cmd>lua Better_replace(GetRegister('0'), '%', false)<CR>")
+		vim.keymap.set("v", "'" .. char .. "<leader>s", "<esc><cmd>lua Better_replace(GetRegister('0'), \"'<,'>\", false)<CR>")
+	else
+		vim.keymap.set("n", "'" .. char .. "<leader>s", "<cmd>lua Better_replace(GetRegister('" .. char .. "'), '%', false)<CR>")
+		vim.keymap.set("v", "'" .. char .. "<leader>s", "<esc><cmd>lua Better_replace(GetRegister('" .. char .. "'), \"'<,'>\", false)<CR>")
+	end
+end
+
 local captal_R_records_macro = 'q'
 vim.keymap.set("", "R", captal_R_records_macro)
 
