@@ -121,6 +121,13 @@ for c = string.byte("a"), string.byte("z") do
 	vim.keymap.set("n", "<leader>m" .. char, "m" .. char)
 end
 
+-- Own constants
+
+local THROWAWAY_REGISTER = 'o'
+local THROWAWAY_MARK = 'I'
+
+-- Own functions
+
 function FeedKeys(keys)
 	vim.api.nvim_feedkeys(keys, "n", false)
 end
@@ -138,6 +145,10 @@ end
 
 function GetInput(suggestion_string)
 	return vim.fn.input(suggestion_string)
+end
+
+function SetRegister(register, value)
+	vim.api.nvim_set_reg(register, value)
 end
 
 if vim.g.vscode then
@@ -464,19 +475,19 @@ vim.keymap.set("n", "<leader>q", multiply)
 local vore_out_line_into_block = '"_ddddpvaB<Esc>'
 vim.keymap.set("n", "<leader>di", vore_out_line_into_block)
 
-local convert_to_arrow_function = "vaBo<Esc>s=> <Esc>Jjdd"
+local convert_to_arrow_function = 'vaBo<Esc>"_s=> <Esc>Jj"_dd'
 vim.keymap.set("n", "<leader>bi", convert_to_arrow_function)
 
-local convert_to_normal_function = "^f(%f=c3l{<CR><Esc>o}<Esc>"
+local convert_to_normal_function = '^f(%f="_c3l{<CR><Esc>o}<Esc>'
 vim.keymap.set("n", "<leader>ba", convert_to_normal_function)
 
-local add_comma_at_end_of_line = "mIA,<Esc>`I"
+local add_comma_at_end_of_line = "m" .. THROWAWAY_MARK .. ",<Esc>`" .. THROWAWAY_MARK
 vim.keymap.set("n", "<leader>,", add_comma_at_end_of_line)
 
-local add_semicolon_at_end_of_line = "mIA;<Esc>`I"
+local add_semicolon_at_end_of_line = "m" .. THROWAWAY_MARK .. ";<Esc>`" .. THROWAWAY_MARK
 vim.keymap.set("n", "<leader>;", add_semicolon_at_end_of_line)
 
-local add_ahk_dependency = "mIggO#Include <"
+local add_ahk_dependency = "m" .. THROWAWAY_MARK .. "#Include <"
 vim.keymap.set("n", "<leader>in", add_ahk_dependency)
 
 local system_clipboard_register = '"+'
@@ -506,18 +517,20 @@ vim.keymap.set("!", "<C-b>", paste_default_register)
 local delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", delete_line_but_take_inside_line, { remap = true })
 
-local move_line_to_top = 'ddmiggP`i'
+local move_line_to_top = 'ddm' .. THROWAWAY_MARK .. '`' .. THROWAWAY_MARK
 vim.keymap.set("", "<leader>mt", move_line_to_top)
 
-local move_line_to_bottom = 'ddmiGp`i'
+local move_line_to_bottom = 'ddm' .. THROWAWAY_MARK .. '`' .. THROWAWAY_MARK
 vim.keymap.set("", "<leader>mb", move_line_to_bottom)
 
 function Search_for_selection(search_operator)
-	FeedKeys('y')
+	local prev_def_reg = vim.fn.getreg('"')
+	FeedKeys('"' .. THROWAWAY_REGISTER .. 'y')
 	vim.schedule(function()
-		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('"'))
+		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg(THROWAWAY_REGISTER))
 		FeedKeys(search_operator .. '\\V' .. escaped_selection)
 		FeedKeysInt('<CR>')
+		SetRegister('"', prev_def_reg)
 	end)
 end
 vim.keymap.set("v", "*", "<cmd>lua Search_for_selection('/')<CR>")
