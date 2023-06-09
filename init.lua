@@ -8,7 +8,7 @@ vim.opt.smartindent          = true
 vim.opt.mouse                = "a"
 vim.opt.ignorecase           = true
 vim.opt.smartcase            = true
-vim.opt.hlsearch             = false
+vim.opt.hlsearch             = true
 vim.g.mapleader              = ","
 vim.g.rust_recommended_style = false
 vim.opt.syntax               = "enable"
@@ -590,10 +590,15 @@ local Insert_blank_line_down = "o<Esc>"
 vim.keymap.set("n", "<C-j>", Insert_blank_line_down)
 
 function Remove_highlighting() vim.cmd("noh") end
-vim.keymap.set("", "<leader>h", Remove_highlighting)
+
+function Remove_highlighting__escape()
+	Remove_highlighting()
+	FeedKeysInt("<Esc>")
+end
+vim.keymap.set("n", "<Esc>", Remove_highlighting__escape)
 
 function Toggle_highlight_search() vim.cmd("set hlsearch!") end
-vim.keymap.set("", "<leader>H", Toggle_highlight_search)
+-- vim.keymap.set("", "<leader>H", Toggle_highlight_search)
 
 function Multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
 vim.keymap.set("n", "<leader>q", Multiply)

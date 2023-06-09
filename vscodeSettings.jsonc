@@ -527,5 +527,6 @@
 	"workbench.editor.enablePreviewFromQuickOpen": true,
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
-	}
+	},
+	"workbench.editor.showTabs": false
 }
