@@ -232,8 +232,8 @@ function Escape_V_search(input)
 	return input
 end
 
-function GetInput()
-	return vim.fn.input("Enter input: ")
+function GetInput(suggestion_string)
+	return vim.fn.input(suggestion_string)
 end
 
 if vim.g.vscode then
