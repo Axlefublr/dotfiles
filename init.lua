@@ -9,6 +9,7 @@ vim.opt.mouse                = "a"
 vim.opt.ignorecase           = true
 vim.opt.smartcase            = true
 vim.opt.hlsearch             = true
+vim.opt.colorcolumn          = "50,72,80"
 vim.g.mapleader              = ","
 vim.g.rust_recommended_style = false
 vim.opt.syntax               = "enable"
