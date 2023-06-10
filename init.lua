@@ -147,6 +147,10 @@ function GetInput(suggestion_string)
 	return vim.fn.input(suggestion_string)
 end
 
+function GetRegister(register)
+	return vim.fn.getreg(register)
+end
+
 function SetRegister(register, value)
 	vim.api.nvim_set_reg(register, value)
 end
