@@ -156,6 +156,16 @@ function GetRegisterInteractive()
 	return GetRegister(register)
 end
 
+function GetChar()
+	vim.api.nvim_echo({ { "Enter a character: ", "Input" } }, true, {})
+	local char = vim.fn.getcharstr()
+	if char == '' then -- That's the escape character. Not sure how to specify it smarter
+		char = nil
+	end
+	return char
+end
+vim.keymap.set("n", "<leader>a", GetChar)
+
 if vim.g.vscode then
 
 	local function center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
