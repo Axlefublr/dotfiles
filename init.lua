@@ -166,6 +166,18 @@ function GetChar(prompt)
 end
 vim.keymap.set("n", "<leader>a", GetChar)
 
+function Validate_register(register)
+	if register == 'q' then
+		return '+'
+	elseif register == 'w' then
+		return '0'
+	elseif register == "'" then
+		return '"'
+	else
+		return register
+	end
+end
+
 if vim.g.vscode then
 
 	local function center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
@@ -566,40 +578,18 @@ end
 vim.keymap.set("", "/", "<cmd>lua Literal_search('/')<CR>")
 vim.keymap.set("", "?", "<cmd>lua Literal_search('?')<CR>")
 
-function Search_for_register(register, search_operator)
+function Search_for_register(search_operator)
+	local char = GetChar("Input register key to search for:")
+	if not char then return end
+	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(GetRegister(register))
 	FeedKeys(search_operator .. '\\V' .. escaped_register)
 	FeedKeysInt('<CR>')
 end
-for c = string.byte("a"), string.byte("z") do
-	local char = string.char(c)
-	if char == 'q' then
-		vim.keymap.set("n", "'q/", "<cmd>lua Search_for_register('+',  '/')<CR>")
-		vim.keymap.set("n", "'q?", "<cmd>lua Search_for_register('+',  '?')<CR>")
-	elseif char == 'w' then
-		vim.keymap.set("n", "'w/", "<cmd>lua Search_for_register('0',  '/')<CR>")
-		vim.keymap.set("n", "'w?", "<cmd>lua Search_for_register('0',  '?')<CR>")
-	else
-		vim.keymap.set("n", "'" .. char .. "/", "<cmd>lua Search_for_register('" .. char .. "', '/')<CR>")
-		vim.keymap.set("n", "'" .. char .. "?", "<cmd>lua Search_for_register('" .. char .. "', '?')<CR>")
-	end
-end
-vim.keymap.set("n", "''/", "<cmd>lua Search_for_register('\"', '/')<CR>")
-vim.keymap.set("n", "''?", "<cmd>lua Search_for_register('\"', '?')<CR>")
+vim.keymap.set("", "<leader>f", "<cmd>lua Search_for_register('/')<cr>")
+vim.keymap.set("", "<leader>F", "<cmd>lua Search_for_register('?')<cr>")
 
 function Better_replace(isWhatInput, isWithInput, range, is_regex)
-
-	local function validate_register(register)
-		if register == 'q' then
-			return '+'
-		elseif register == 'w' then
-			return '0'
-		elseif register == "'" then
-			return '"'
-		else
-			return register
-		end
-	end
 
 	local what
 	if isWhatInput then
@@ -608,7 +598,7 @@ function Better_replace(isWhatInput, isWithInput, range, is_regex)
 	else
 		local char = GetChar("Press what register key:")
 		if not char then return end
-		what = GetRegister(validate_register(char))
+		what = GetRegister(Validate_register(char))
 		if what == '' then print('The register "' .. char .. '" is empty') return end
 	end
 
@@ -618,7 +608,7 @@ function Better_replace(isWhatInput, isWithInput, range, is_regex)
 	else
 		local char = GetChar("Press with register key:")
 		if not char then return end
-		with = GetRegister(validate_register(char))
+		with = GetRegister(Validate_register(char))
 	end
 
 	local magic
@@ -670,6 +660,9 @@ vim.keymap.set("v", "<leader>sf", "<esc><cmd>lua Better_replace(true, false, \"'
 vim.keymap.set("v", "<leader>as", "<esc><cmd>lua Better_replace(true, true, \"'<,'>\", true)<CR>")
 -- With is a register, regex, visual
 vim.keymap.set("v", "<leader>af", "<esc><cmd>lua Better_replace(true, false, \"'<,'>\", true)<CR>")
+
+local repeat_replace_goes_next = "n&"
+vim.keymap.set("n", "&", repeat_replace_goes_next)
 
 local captal_R_records_macro = 'q'
 vim.keymap.set("", "R", captal_R_records_macro)
