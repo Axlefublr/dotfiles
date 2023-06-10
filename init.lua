@@ -321,6 +321,11 @@ else
 	end
 	vim.keymap.set("n", "K", closeEditor)
 
+	local function close_without_saving()
+		vim.cmd("q!")
+	end
+	vim.keymap.set("n", "<leader>K", close_without_saving)
+
 	local function save_vim() vim.cmd("w") end
 	vim.keymap.set("", "U", save_vim)
 
