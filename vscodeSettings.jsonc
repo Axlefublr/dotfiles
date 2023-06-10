@@ -15,7 +15,7 @@
 					"storage.type.getter.ahk2",
 					"storage.type.setter.ahk2",
 					"keyword.operator.arrow.cs",
-					"keyword.operator.attribute.inner.rust",
+					"keyword.operator.attribute.inner.rust"
 				]
 			},
 			{
@@ -315,7 +315,10 @@
 	},
 	"[lua]": {
 		"editor.defaultFormatter": "sumneko.lua",
-		"editor.formatOnSave": false
+		"editor.formatOnSave": false,
+		"editor.quickSuggestions": {
+			"strings": "inline"
+		}
 	},
 	"[markdown]": {
 		"editor.quickSuggestions": {
@@ -528,5 +531,5 @@
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
-	"workbench.editor.showTabs": false
+	"editor.formatOnSave": true
 }

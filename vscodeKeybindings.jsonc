@@ -622,7 +622,7 @@
 		"command": "-workbench.action.openSettings"
 	},
 	{
-		"key": "shift+alt+p",
+		"key": "alt+o",
 		"command": "workbench.action.showCommands"
 	},
 	{
@@ -3394,7 +3394,7 @@
 		"when": "searchViewletVisible && panelFocus"
 	},
 	{
-		"key": "shift+alt+y y",
+		"key": "shift+alt+u",
 		"command": "workbench.action.restartExtensionHost"
 	},
 	{
@@ -3597,7 +3597,7 @@
 		"when": "neovim.mode == 'insert'"
 	},
 	{
-		"key": "shift+alt+y shift+alt+y",
+		"key": "shift+alt+y",
 		"command": "workbench.action.reloadWindow"
 	},
 	{
@@ -4052,10 +4052,6 @@
 		"key": "ctrl+u",
 		"command": "-vscode-neovim.ctrl-u",
 		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
-	},
-	{
-		"key": "ctrl+shift+s",
-		"command": "workbench.files.action.saveAllInGroup"
 	},
 	{
 		"key": "alt+h",
@@ -4529,7 +4525,7 @@
 	{
 		"key": "alt+h",
 		"command": "editor.action.inlineSuggest.showPrevious",
-		"when": "inlineSuggestionVisible && !editorReadonly && neovim.mode == 'insert'"
+		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert' && !inSnippetMode"
 	},
 	{
 		"key": "left",
@@ -4786,22 +4782,14 @@
 		"when": "editorHoverFocused"
 	},
 	{
-		"key": "shift+alt+u",
-		"command": "workbench.files.action.saveAllInGroup"
-	},
-	{
-		"key": "ctrl+s",
-		"command": "workbench.action.files.save"
-	},
-	{
 		"key": "escape",
 		"command": "-editor.action.inlineSuggest.hide",
 		"when": "inlineSuggestionVisible"
 	},
 	{
-		"key": "alt+h",
+		"key": "alt+l",
 		"command": "editor.action.inlineSuggest.trigger",
-		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert'"
+		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert' && !inSnippetMode"
 	},
 	{
 		"key": "ctrl+shift+f12",
@@ -5045,7 +5033,7 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "shift+a",
+		"key": "shift+n",
 		"command": "explorer.newFolder",
 		"when": "filesExplorerFocus && !inputFocus"
 	},
@@ -5053,11 +5041,6 @@
 		"key": "alt+k",
 		"command": "workbench.action.showAllEditorsByMostRecentlyUsed",
 		"when": "!inQuickOpen && neovim.mode != 'insert'"
-	},
-	{
-		"key": "alt+l",
-		"command": "editor.action.inlineSuggest.trigger",
-		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "ctrl+shift+.",
@@ -5096,5 +5079,15 @@
 		"key": "alt+h",
 		"command": "editor.action.formatDocument",
 		"when": "neovim.mode != 'insert' && !inKeybindings"
+	},
+	{
+		"key": "n",
+		"command": "explorer.newFile",
+		"when": "filesExplorerFocus && !inputFocus"
+	},
+	{
+		"key": "a",
+		"command": "-explorer.newFile",
+		"when": "filesExplorerFocus && !inputFocus"
 	}
 ]

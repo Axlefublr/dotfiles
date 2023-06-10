@@ -156,8 +156,8 @@ function GetRegisterInteractive()
 	return GetRegister(register)
 end
 
-function GetChar()
-	vim.api.nvim_echo({ { "Enter a character: ", "Input" } }, true, {})
+function GetChar(prompt)
+	vim.api.nvim_echo({ { prompt , "Input" } }, true, {})
 	local char = vim.fn.getcharstr()
 	if char == '' then -- That's the escape character. Not sure how to specify it smarter
 		char = nil
@@ -587,9 +587,40 @@ end
 vim.keymap.set("n", "''/", "<cmd>lua Search_for_register('\"', '/')<CR>")
 vim.keymap.set("n", "''?", "<cmd>lua Search_for_register('\"', '?')<CR>")
 
-function Better_replace(what, range, is_regex)
-	if what == '' then print("You didn't specify 'what'") return end
-	local with = GetInput("Replace with? ")
+function Better_replace(isWhatInput, isWithInput, range, is_regex)
+
+	local function validate_register(register)
+		if register == 'q' then
+			return '+'
+		elseif register == 'w' then
+			return '0'
+		elseif register == "'" then
+			return '"'
+		else
+			return register
+		end
+	end
+
+	local what
+	if isWhatInput then
+		what = GetInput("Enter what:")
+		if what == '' then print("You didn't specify 'what'") return end
+	else
+		local char = GetChar("Press what register key:")
+		if not char then return end
+		what = GetRegister(validate_register(char))
+		if what == '' then print('The register "' .. char .. '" is empty') return end
+	end
+
+	local with
+	if isWithInput then
+		with = GetInput("Enter with:")
+	else
+		local char = GetChar("Press with register key:")
+		if not char then return end
+		with = GetRegister(validate_register(char))
+	end
+
 	local magic
 	if is_regex then
 		magic = "\\v"
@@ -597,30 +628,35 @@ function Better_replace(what, range, is_regex)
 		what = EscapeForLiteralSearch(what)
 		magic = "\\V"
 	end
+
 	vim.cmd(range .. "s/" .. magic .. what .. "/" .. with .. "/g")
 end
-vim.keymap.set("n", "<leader>s", "<cmd>lua Better_replace(GetInput('Replace what? '), '%', false)<CR>")
-vim.keymap.set("n", "<leader>S", "<cmd>lua Better_replace(GetInput('Replace what? '), '%', true)<CR>")
 
-vim.keymap.set("v", "<leader>s", "<esc><cmd>lua Better_replace(GetInput('Replace what? '), \"'<,'>\", false)<CR>")
-vim.keymap.set("v", "<leader>S", "<esc><cmd>lua Better_replace(GetInput('Replace what? '), \"'<,'>\", true)<CR>")
+-- Both are inputs, non regex
+vim.keymap.set("n", "<leader>ss", "<cmd>lua Better_replace(true, true, '%', false)<CR>")
+-- Both are registers, non regex
+vim.keymap.set("n", "<leader>sa", "<cmd>lua Better_replace(false, false, '%', false)<CR>")
+-- What is a register, non regex
+vim.keymap.set("n", "<leader>sd", "<cmd>lua Better_replace(false, true, '%', false)<CR>")
+-- With is a register, non regex
+vim.keymap.set("n", "<leader>sf", "<cmd>lua Better_replace(true, false, '%', false)<CR>")
+-- Both are inputs, regex
+vim.keymap.set("n", "<leader>as", "<cmd>lua Better_replace(true, true, '%', true)<CR>")
+-- With is a register, regex
+vim.keymap.set("n", "<leader>af", "<cmd>lua Better_replace(true, false, '%', true)<CR>")
 
-vim.keymap.set("n", "''<leader>s", "<cmd>lua Better_replace(GetRegister('\"'), '%', false)<CR>")
-vim.keymap.set("v", "''<leader>s", "<esc><cmd>lua Better_replace(GetRegister('\"'), \"'<,'>\", false)<CR>")
-
-for c = string.byte("a"), string.byte("z") do
-	local char = string.char(c)
-	if char == 'q' then
-		vim.keymap.set("n", "'" .. char .. "<leader>s", "<cmd>lua Better_replace(GetRegister('+'), '%', false)<CR>")
-		vim.keymap.set("v", "'" .. char .. "<leader>s", "<esc><cmd>lua Better_replace(GetRegister('+'), \"'<,'>\", false)<CR>")
-	elseif char == 'w' then
-		vim.keymap.set("n", "'" .. char .. "<leader>s", "<cmd>lua Better_replace(GetRegister('0'), '%', false)<CR>")
-		vim.keymap.set("v", "'" .. char .. "<leader>s", "<esc><cmd>lua Better_replace(GetRegister('0'), \"'<,'>\", false)<CR>")
-	else
-		vim.keymap.set("n", "'" .. char .. "<leader>s", "<cmd>lua Better_replace(GetRegister('" .. char .. "'), '%', false)<CR>")
-		vim.keymap.set("v", "'" .. char .. "<leader>s", "<esc><cmd>lua Better_replace(GetRegister('" .. char .. "'), \"'<,'>\", false)<CR>")
-	end
-end
+-- Both are inputs, non regex, visual
+vim.keymap.set("v", "<leader>ss", "<esc><cmd>lua Better_replace(true, true, \"'<,'>\", false)<CR>")
+-- Both are registers, non regex, visual
+vim.keymap.set("v", "<leader>sa", "<esc><cmd>lua Better_replace(false, false, \"'<,'>\", false)<CR>")
+-- What is a register, non regex, visual
+vim.keymap.set("v", "<leader>sd", "<esc><cmd>lua Better_replace(false, true, \"'<,'>\", false)<CR>")
+-- With is a register, non regex, visual
+vim.keymap.set("v", "<leader>sf", "<esc><cmd>lua Better_replace(true, false, \"'<,'>\", false)<CR>")
+-- Both are inputs, regex, visual
+vim.keymap.set("v", "<leader>as", "<esc><cmd>lua Better_replace(true, true, \"'<,'>\", true)<CR>")
+-- With is a register, regex, visual
+vim.keymap.set("v", "<leader>af", "<esc><cmd>lua Better_replace(true, false, \"'<,'>\", true)<CR>")
 
 local captal_R_records_macro = 'q'
 vim.keymap.set("", "R", captal_R_records_macro)

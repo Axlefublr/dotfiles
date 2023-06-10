@@ -178,6 +178,7 @@ abbr -a tree  'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
 abbr -a fishp 'fish -P'
+abbr -a mvf 'mv -f'
 
 abbr -a rm  'trash-put'
 abbr -a rma 'trash-put *'
