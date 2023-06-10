@@ -528,13 +528,11 @@ local move_line_to_bottom = 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK
 vim.keymap.set("", "<leader>mb", move_line_to_bottom)
 
 function Search_for_selection(search_operator)
-	local prev_def_reg = vim.fn.getreg('"')
-	FeedKeys('"' .. THROWAWAY_REGISTER .. 'y')
+	FeedKeys('y')
 	vim.schedule(function()
-		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg(THROWAWAY_REGISTER))
+		local escaped_selection = EscapeForLiteralSearch(GetRegister('"'))
 		FeedKeys(search_operator .. '\\V' .. escaped_selection)
 		FeedKeysInt('<CR>')
-		SetRegister('"', prev_def_reg)
 	end)
 end
 vim.keymap.set("v", "*", "<cmd>lua Search_for_selection('/')<CR>")
@@ -558,7 +556,7 @@ vim.keymap.set("", "/", "<cmd>lua Literal_search('/')<CR>")
 vim.keymap.set("", "?", "<cmd>lua Literal_search('?')<CR>")
 
 function Search_for_register(register, search_operator)
-	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
+	local escaped_register = EscapeForLiteralSearch(GetRegister(register))
 	FeedKeys(search_operator .. '\\V' .. escaped_register)
 	FeedKeysInt('<CR>')
 end
