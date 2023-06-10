@@ -496,10 +496,10 @@ vim.keymap.set("n", "<leader>bi", convert_to_arrow_function)
 local convert_to_normal_function = '^f(%f="_c3l{<CR><Esc>o}<Esc>'
 vim.keymap.set("n", "<leader>ba", convert_to_normal_function)
 
-local add_comma_at_end_of_line = "m" .. THROWAWAY_MARK .. ",<Esc>`" .. THROWAWAY_MARK
+local add_comma_at_end_of_line = "m" .. THROWAWAY_MARK .. "A,<Esc>`" .. THROWAWAY_MARK
 vim.keymap.set("n", "<leader>,", add_comma_at_end_of_line)
 
-local add_semicolon_at_end_of_line = "m" .. THROWAWAY_MARK .. ";<Esc>`" .. THROWAWAY_MARK
+local add_semicolon_at_end_of_line = "m" .. THROWAWAY_MARK .. "A;<Esc>`" .. THROWAWAY_MARK
 vim.keymap.set("n", "<leader>;", add_semicolon_at_end_of_line)
 
 local add_ahk_dependency = "m" .. THROWAWAY_MARK .. "#Include <"
