@@ -144,7 +144,7 @@ set -g tide_status_color_failure $color_red
 set -g tide_time_color $color_purple
 set -g tide_time_format '%H:%M'
 
-set -g tide_private_mode_icon "󰗹"
+set -g tide_private_mode_icon "󰗹 "
 
 set -g fish_cursor_default block
 set -g fish_cursor_insert line
