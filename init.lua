@@ -262,11 +262,6 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "K", closeEditor)
 
-	local function reopenClosedEditor()
-		vim.fn.VSCodeNotify("workbench.action.reopenClosedEditor")
-	end
-	vim.keymap.set("n", "<leader>K", reopenClosedEditor)
-
 	local function git_stage_file()
 		trim_trailing_whitespace()
 		save()
