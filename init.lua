@@ -151,8 +151,9 @@ function GetRegister(register)
 	return vim.fn.getreg(register)
 end
 
-function SetRegister(register, value)
-	vim.api.nvim_set_reg(register, value)
+function GetRegisterInteractive()
+	local register = GetChar()
+	return GetRegister(register)
 end
 
 if vim.g.vscode then
