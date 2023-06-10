@@ -695,4 +695,7 @@ vim.keymap.set("o", "<leader>}", inclusive_next_blankie_visual)
 local function inclusive_prev_blankie_visual() vim.cmd("normal V{j") end
 vim.keymap.set("o", "<leader>{", inclusive_prev_blankie_visual)
 
+local dig_into_docs = "K"
+vim.keymap.set("n", "gK", dig_into_docs)
+
 print("nvim loaded")
