@@ -632,18 +632,31 @@ function Better_replace(isWhatInput, isWithInput, range, is_regex)
 	vim.cmd(range .. "s/" .. magic .. what .. "/" .. with .. "/g")
 end
 
--- Both are inputs, non regex
-vim.keymap.set("n", "<leader>ss", "<cmd>lua Better_replace(true, true, '%', false)<CR>")
--- Both are registers, non regex
-vim.keymap.set("n", "<leader>sa", "<cmd>lua Better_replace(false, false, '%', false)<CR>")
--- What is a register, non regex
-vim.keymap.set("n", "<leader>sd", "<cmd>lua Better_replace(false, true, '%', false)<CR>")
--- With is a register, non regex
-vim.keymap.set("n", "<leader>sf", "<cmd>lua Better_replace(true, false, '%', false)<CR>")
--- Both are inputs, regex
-vim.keymap.set("n", "<leader>as", "<cmd>lua Better_replace(true, true, '%', true)<CR>")
--- With is a register, regex
-vim.keymap.set("n", "<leader>af", "<cmd>lua Better_replace(true, false, '%', true)<CR>")
+-- Both are inputs, non regex, current line
+vim.keymap.set("n", "<leader>ss", "<cmd>lua Better_replace(true, true, '.', false)<CR>")
+-- Both are registers, non regex, current line
+vim.keymap.set("n", "<leader>sa", "<cmd>lua Better_replace(false, false, '.', false)<CR>")
+-- What is a register, non regex, current line
+vim.keymap.set("n", "<leader>sd", "<cmd>lua Better_replace(false, true, '.', false)<CR>")
+-- With is a register, non regex, current line
+vim.keymap.set("n", "<leader>sf", "<cmd>lua Better_replace(true, false, '.', false)<CR>")
+-- Both are inputs, regex, current line
+vim.keymap.set("n", "<leader>as", "<cmd>lua Better_replace(true, true, '.', true)<CR>")
+-- With is a register, regex, current line
+vim.keymap.set("n", "<leader>af", "<cmd>lua Better_replace(true, false, '.', true)<CR>")
+
+-- Both are inputs, non regex, whole file
+vim.keymap.set("n", "<leader>Ss", "<cmd>lua Better_replace(true, true, '%', false)<CR>")
+-- Both are registers, non regex, whole file
+vim.keymap.set("n", "<leader>Sa", "<cmd>lua Better_replace(false, false, '%', false)<CR>")
+-- What is a register, non regex, whole file
+vim.keymap.set("n", "<leader>Sd", "<cmd>lua Better_replace(false, true, '%', false)<CR>")
+-- With is a register, non regex, whole file
+vim.keymap.set("n", "<leader>Sf", "<cmd>lua Better_replace(true, false, '%', false)<CR>")
+-- Both are inputs, regex, whole file
+vim.keymap.set("n", "<leader>As", "<cmd>lua Better_replace(true, true, '%', true)<CR>")
+-- With is a register, regex, whole file
+vim.keymap.set("n", "<leader>Af", "<cmd>lua Better_replace(true, false, '%', true)<CR>")
 
 -- Both are inputs, non regex, visual
 vim.keymap.set("v", "<leader>ss", "<esc><cmd>lua Better_replace(true, true, \"'<,'>\", false)<CR>")
