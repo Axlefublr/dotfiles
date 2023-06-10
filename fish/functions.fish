@@ -213,7 +213,7 @@ funcsave work > /dev/null
 
 function tg
 	set -l tempFile /tmp/tgptie
-	$EDITOR $tempFile
+	$EDITOR -c 'startinsert' $tempFile
 	set -l tempText (cat $tempFile)
 	truncate -s 0 $tempFile
 	if test -z "$tempText"
