@@ -2590,7 +2590,7 @@
 	{
 		"key": "alt+;",
 		"command": "breadcrumbs.focusAndSelect",
-		"when": "neovim.mode != 'insert'"
+		"when": "neovim.mode != 'insert' && breadcrumbsVisible"
 	},
 	{
 		"key": "enter",
@@ -3313,12 +3313,12 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "ctrl+h",
+		"key": "shift+l",
 		"command": "breadcrumbs.focusNextWithPicker",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "ctrl+l",
+		"key": "shift+h",
 		"command": "breadcrumbs.focusPreviousWithPicker",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
@@ -4937,11 +4937,6 @@
 		"when": "neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert'"
 	},
 	{
-		"key": "tab",
-		"command": "list.select",
-		"when": "listFocus && !inputFocus"
-	},
-	{
 		"key": "ctrl+2",
 		"command": "workbench.action.focusActiveEditorGroup"
 	},
@@ -5076,11 +5071,6 @@
 		"when": "editorFocus && parameterHintsVisible"
 	},
 	{
-		"key": "alt+h",
-		"command": "editor.action.formatDocument",
-		"when": "neovim.mode != 'insert' && !inKeybindings"
-	},
-	{
 		"key": "n",
 		"command": "explorer.newFile",
 		"when": "filesExplorerFocus && !inputFocus"
@@ -5094,5 +5084,70 @@
 		"key": "alt+h",
 		"command": "editor.action.inlineSuggest.trigger",
 		"when": "!inKeybindings && !inSnippetMode && !inlineSuggestionVisible && neovim.mode == 'insert'"
+	},
+	{
+		"key": "alt+enter",
+		"command": "explorer.openToSide",
+		"when": "explorerViewletFocus && foldersViewVisible && !inputFocus"
+	},
+	{
+		"key": "ctrl+enter",
+		"command": "-explorer.openToSide",
+		"when": "explorerViewletFocus && foldersViewVisible && !inputFocus"
+	},
+	{
+		"key": "home",
+		"command": "firstCompressedFolder",
+		"when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedFirstFocus && !inputFocus"
+	},
+	{
+		"key": "home",
+		"command": "-firstCompressedFolder",
+		"when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedFirstFocus && !inputFocus"
+	},
+	{
+		"key": "end",
+		"command": "lastCompressedFolder",
+		"when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedLastFocus && !inputFocus"
+	},
+	{
+		"key": "end",
+		"command": "-lastCompressedFolder",
+		"when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedLastFocus && !inputFocus"
+	},
+	{
+		"key": "f",
+		"command": "workbench.files.action.collapseExplorerFolders",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+	},
+	{
+		"key": "l",
+		"command": "-list.select",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "h",
+		"command": "-list.collapse",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "left",
+		"command": "-notebook.fold",
+		"when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
+	},
+	{
+		"key": "h",
+		"command": "list.collapse",
+		"when": "listFocus && treeElementCanCollapse && !inputFocus || listFocus && treeElementHasParent && !inputFocus && !breadcrumbsActive"
+	},
+	{
+		"key": "right",
+		"command": "-notebook.unfold",
+		"when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
+	},
+	{
+		"key": "l",
+		"command": "list.expand",
+		"when": "listFocus && treeElementCanExpand && !inputFocus || listFocus && treeElementHasChild && !inputFocus && !breadcrumbsActive"
 	}
 ]

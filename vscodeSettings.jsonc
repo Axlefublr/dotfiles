@@ -222,7 +222,6 @@
 		]
 	},
 	"[ahk2]": {
-		"editor.defaultFormatter": null,
 		"editor.formatOnPaste": false,
 		"editor.formatOnSave": false,
 		"editor.formatOnType": false
@@ -244,7 +243,7 @@
 	"[sql]": {},
 	"Lua.format.defaultConfig": {
 		"indent_style": "tab",
-		"indent_size": "4"
+		"indent_size": "3"
 	},
 	"material-icon-theme.files.associations": {
 		"*.ah2": "autohotkey",
@@ -315,7 +314,6 @@
 	},
 	"[lua]": {
 		"editor.defaultFormatter": "sumneko.lua",
-		"editor.formatOnSave": false,
 		"editor.quickSuggestions": {
 			"strings": "inline"
 		}
@@ -324,10 +322,8 @@
 		"editor.quickSuggestions": {
 			"other": "inline"
 		},
-		"editor.formatOnSave": false
 	},
 	"[html]": {
-		"editor.formatOnSave": true
 	},
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
@@ -380,7 +376,6 @@
 	"files.encoding": "utf8bom",
 	"audioCues.lineHasInlineSuggestion": "off",
 	"markdown.preview.fontSize": 25,
-	"markdown.extension.tableFormatter.normalizeIndentation": true,
 	"prettier.tabWidth": 4,
 	"javascript.format.semicolons": "insert",
 	"javascript.suggest.completeFunctionCalls": true,
@@ -531,6 +526,8 @@
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
-	"editor.rulers": [80, 120],
-	"workbench.editor.showTabs": false
+	"editor.rulers": [
+		80,
+		120
+	]
 }
