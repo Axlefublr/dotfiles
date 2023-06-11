@@ -531,6 +531,6 @@
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
-	"editor.formatOnSave": true,
-	"editor.rulers": [80]
+	"editor.rulers": [80, 120],
+	"workbench.editor.showTabs": false
 }

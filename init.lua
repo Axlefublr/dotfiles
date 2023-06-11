@@ -215,11 +215,22 @@ if vim.g.vscode then
 		vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting")
 	end
 
-	local function trim__Save__No_format()
+	local function trim__save__no_format()
 		trim_trailing_whitespace()
 		save_no_format()
 	end
-	vim.keymap.set("", "U", trim__Save__No_format)
+	vim.keymap.set("", "U", trim__save__no_format)
+
+	local function format()
+		vim.fn.VSCodeNotify("editor.action.formatDocument")
+	end
+
+	local function trim__save__format()
+		trim_trailing_whitespace()
+		format()
+		save()
+	end
+	vim.keymap.set("", "<leader>U", trim__save__format)
 
 	local function reveal_definition_aside()
 		vim.fn.VSCodeNotify("editor.action.revealDefinitionAside")
