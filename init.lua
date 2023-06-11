@@ -160,7 +160,9 @@ end
 function GetChar(prompt)
 	vim.api.nvim_echo({ { prompt , "Input" } }, true, {})
 	local char = vim.fn.getcharstr()
-	if char == '' then -- That's the escape character. Not sure how to specify it smarter
+	-- That's the escape character (<Esc>). Not sure how to specify it smarter
+	-- In other words, if you pressed escape, we return nil
+	if char == '' then
 		char = nil
 	end
 	return char
@@ -184,8 +186,12 @@ if vim.g.vscode then
 	local function center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
 	local function top_screen() vim.cmd("call <SNR>4_reveal('top', 0)") end
 	local function bottom_screen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
-	local function move_to_top_screen() vim.cmd("call <SNR>4_moveCursor('top')") end
-	local function move_to_bottom_screen() vim.cmd("call <SNR>4_moveCursor('bottom')") end
+	local function move_to_top_screen()
+		vim.cmd("call <SNR>4_moveCursor('top')")
+	end
+	local function move_to_bottom_screen()
+		vim.cmd("call <SNR>4_moveCursor('bottom')")
+	end
 
 	local function move_to_bottom_screen__center_screen()
 		move_to_bottom_screen()
@@ -199,11 +205,15 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("", "H", move_to_top_screen__center_screen)
 
-	local function trim_trailing_whitespace() vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace") end
+	local function trim_trailing_whitespace()
+		vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace")
+	end
 
 	local function save() vim.fn.VSCodeCall("workbench.action.files.save") end
 
-	local function save_no_format() vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting") end
+	local function save_no_format()
+		vim.fn.VSCodeCall("workbench.action.files.saveWithoutFormatting")
+	end
 
 	local function trim__Save__No_format()
 		trim_trailing_whitespace()
@@ -211,10 +221,14 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("", "U", trim__Save__No_format)
 
-	local function reveal_definition_aside() vim.fn.VSCodeNotify("editor.action.revealDefinitionAside") end
+	local function reveal_definition_aside()
+		vim.fn.VSCodeNotify("editor.action.revealDefinitionAside")
+	end
 	vim.keymap.set("n", "gD", reveal_definition_aside)
 
-	local function rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
+	local function rename_symbol()
+		vim.fn.VSCodeNotify("editor.action.rename")
+	end
 	vim.keymap.set("n", "<leader>r", rename_symbol)
 
 	local function open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
@@ -239,13 +253,17 @@ if vim.g.vscode then
 	local function comment() vim.fn.VSCodeNotify("editor.action.commentLine") end
 	vim.keymap.set("n", "gcc", comment)
 
-	local function reindent() vim.fn.VSCodeNotify("editor.action.reindentlines") end
+	local function reindent()
+		vim.fn.VSCodeNotify("editor.action.reindentlines")
+	end
 	vim.keymap.set("n", "==", reindent)
 
 	local function convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
 	vim.keymap.set("n", "=s", convert_to_spaces)
 
-	local function convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentationToTabs") end
+	local function convert_to_tabs()
+		vim.fn.VSCodeNotify("editor.action.indentationToTabs")
+	end
 	vim.keymap.set("n", "=t", convert_to_tabs)
 
 	local function toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
@@ -283,31 +301,45 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "<leader>gu", git_unstage_file)
 
-	local function git_revert_change() vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0) end
+	local function git_revert_change()
+		vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0)
+	end
 	vim.keymap.set("n", "<leader>gr", git_revert_change)
 	vim.keymap.set("v", "<leader>gr", git_revert_change)
 
-	local function git_stage_change() vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 0) end
+	local function git_stage_change()
+		vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 0)
+	end
 	vim.keymap.set("n", "<leader>gt", git_stage_change)
 	vim.keymap.set("v", "<leader>gt", git_stage_change)
 
-	local function git_open_all_changes() vim.fn.VSCodeNotifyVisual("git.openAllChanges", 0) end
+	local function git_open_all_changes()
+		vim.fn.VSCodeNotifyVisual("git.openAllChanges", 0)
+	end
 	vim.keymap.set("n", "<leader>gN", git_open_all_changes)
 	vim.keymap.set("v", "<leader>gN", git_open_all_changes)
 
 	local function git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
 	vim.keymap.set("n", "<leader>gn", git_open_changes)
 
-	local function codesnap() vim.fn.VSCodeNotifyVisual("codesnap.start", true) end
+	local function codesnap()
+		vim.fn.VSCodeNotifyVisual("codesnap.start", true)
+	end
 	vim.keymap.set("v", "gs", codesnap)
 
-	local function outdent_vis() vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false) end
+	local function outdent_vis()
+		vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false)
+	end
 	vim.keymap.set("v", "<", outdent_vis)
 
-	local function indent_vis() vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false) end
+	local function indent_vis()
+		vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false)
+	end
 	vim.keymap.set("v", ">", indent_vis)
 
-	local function comment_vis() vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false) end
+	local function comment_vis()
+		vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false)
+	end
 	vim.keymap.set("v", "gc", comment_vis)
 
 else
@@ -351,16 +383,24 @@ vim.keymap.set("v", "iM", block_text_object_self_diffline)
 local block_text_object_extra_diffline = "aBVjok"
 vim.keymap.set("v", "aM", block_text_object_extra_diffline)
 
-local function block_text_object_self_sameline_operator() vim.cmd("normal vaBV") end
+local function block_text_object_self_sameline_operator()
+	vim.cmd("normal vaBV")
+end
 vim.keymap.set("o", "im", block_text_object_self_sameline_operator)
 
-local function block_text_object_extra_sameline_operator() vim.cmd("normal vaBVj") end
+local function block_text_object_extra_sameline_operator()
+	vim.cmd("normal vaBVj")
+end
 vim.keymap.set("o", "am", block_text_object_extra_sameline_operator)
 
-local function block_text_object_self_diffline_operator() vim.cmd("normal vaBVok") end
+local function block_text_object_self_diffline_operator()
+	vim.cmd("normal vaBVok")
+end
 vim.keymap.set("o", "iM", block_text_object_self_diffline_operator)
 
-local function block_text_object_extra_diffline_operator() vim.cmd("normal vaBVjok") end
+local function block_text_object_extra_diffline_operator()
+	vim.cmd("normal vaBVjok")
+end
 vim.keymap.set("o", "aM", block_text_object_extra_diffline_operator)
 
 local percent_sign_text_object_self_visual = "T%ot%"
@@ -369,10 +409,14 @@ vim.keymap.set("v", "i%", percent_sign_text_object_self_visual)
 local percent_sign_text_object_extra_visual = "F%of%"
 vim.keymap.set("v", "a%", percent_sign_text_object_extra_visual)
 
-local function percent_sign_text_object_self_operator() vim.cmd("normal vT%ot%") end
+local function percent_sign_text_object_self_operator()
+	vim.cmd("normal vT%ot%")
+end
 vim.keymap.set("o", "i%", percent_sign_text_object_self_operator)
 
-local function percent_sign_text_object_extra_operator() vim.cmd("normal vF%of%") end
+local function percent_sign_text_object_extra_operator()
+	vim.cmd("normal vF%of%")
+end
 vim.keymap.set("o", "a%", percent_sign_text_object_extra_operator)
 
 local markdown_heading_text_object_self_sameline_visual = "?^#<CR>oNk"
@@ -387,10 +431,14 @@ vim.keymap.set("v", "igc", comment_text_object_self_visual)
 local comment_text_object_extra_visual = "[/o]/V"
 vim.keymap.set("v", "agc", comment_text_object_extra_visual)
 
-local function comment_text_object_extra_operator() vim.cmd("normal v[/o]/V") end
+local function comment_text_object_extra_operator()
+	vim.cmd("normal v[/o]/V")
+end
 vim.keymap.set("o", "agc", comment_text_object_extra_operator)
 
-local function comment_text_object_self_operator() vim.cmd("normal v[/3lo]/2h") end
+local function comment_text_object_self_operator()
+	vim.cmd("normal v[/3lo]/2h")
+end
 vim.keymap.set("o", "igc", comment_text_object_self_operator)
 
 local function goto_end_of_prev_line() FeedKeysInt(vim.v.count1 .. "k$") end
@@ -447,7 +495,9 @@ vim.keymap.set("n", "<BS>", backspace_action)
 local disable_u_visual = "<Esc>u"
 vim.keymap.set("v", "u", disable_u_visual)
 
-local function multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
+local function multiply_visual()
+	FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p")
+end
 vim.keymap.set("v", "<leader>q", multiply_visual)
 
 local complete_line = "<C-x><C-l>"
