@@ -144,8 +144,21 @@ function EscapeForLiteralSearch(input)
 	return input
 end
 
-function GetInput(suggestion_string)
-	return vim.fn.input(suggestion_string)
+function EscapeFromLiteralSearch(input)
+	if string.sub(input, 1, 2) ~= "\\V" then return input end
+	input = string.sub(input, 3)
+	input = string.gsub(input, '\\/', '/')
+	input = string.gsub(input, '\\\\', '\\')
+	return input
+end
+
+function EscapeFromRegexSearch(input)
+	if string.sub(input, 1, 2) ~= '\\v' then return input end
+	return string.sub(input, 3)
+end
+
+function GetInput(suggestion_string, default)
+	return vim.fn.input(suggestion_string, default and default or '')
 end
 
 function GetRegister(register)
@@ -668,37 +681,47 @@ function Better_replace(range)
 		return bool
 	end
 
-	local function _quit() print("exit") end
-
-	local is_what_input = _get_bool("Is what input?")
-	if is_what_input == nil then _quit() return end
+	local should_paste_register_what = _get_bool("Paste register?")
+	if should_paste_register_what == nil then return end
 
 	local is_regex
 	local what
-	if is_what_input then
-		is_regex = _get_bool("Regex?")
-		if is_regex == nil then _quit() return end
-		what = GetInput("Enter what:")
-		if what == '' then print("You didn't specify 'what'") return end
-		print("\n")
-	else
+	local reg_value = ''
+	if should_paste_register_what then
 		local char = GetChar("Press what register key:")
-		if not char then _quit() return end
-		what = GetRegister(Validate_register(char))
-		if what == '' then print('The register "' .. char .. '" is empty') return end
-	end
+		if not char then return end
 
-	local is_with_input = _get_bool("Is with input?")
-	if is_with_input == nil then _quit() return end
+		reg_value = GetRegister(Validate_register(char))
+
+		if char == '/' then
+			reg_value = EscapeFromLiteralSearch(reg_value)
+			reg_value = EscapeFromRegexSearch(reg_value)
+		end
+
+		if reg_value == '' then print('The register "' .. char .. '" is empty') return end
+	end
+	what = GetInput("Enter what:", reg_value)
+	if what == '' then print("You didn't specify 'what'") return end
+	is_regex = _get_bool("\nRegex?")
+	if is_regex == nil then return end
+
+	local should_paste_register_with = _get_bool("Paste register?")
+	if should_paste_register_with == nil then return end
 
 	local with
-	if is_with_input then
-		with = GetInput("Enter with:")
-	else
+	reg_value = ''
+	if should_paste_register_with then
 		local char = GetChar("Press with register key:")
-		if not char then _quit() return end
-		with = GetRegister(Validate_register(char))
+		if not char then return end
+
+		reg_value = GetRegister(Validate_register(char))
+
+		if char == '/' then
+			reg_value = EscapeFromLiteralSearch(reg_value)
+			reg_value = EscapeFromRegexSearch(reg_value)
+		end
 	end
+	with = GetInput("Enter with:", reg_value)
 
 	local magic
 	if is_regex then
