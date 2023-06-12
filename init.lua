@@ -211,7 +211,7 @@ if vim.g.vscode then
 		move_to_bottom_screen()
 		center_screen()
 	end
-	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
+	vim.keymap.set("", "!", move_to_bottom_screen__center_screen)
 
 	local function move_to_top_screen__center_screen()
 		move_to_top_screen()
@@ -233,7 +233,12 @@ if vim.g.vscode then
 		trim_trailing_whitespace()
 		save_no_format()
 	end
-	vim.keymap.set("", "U", trim__save__no_format)
+
+	local function trim__save()
+		trim_trailing_whitespace()
+		save()
+	end
+	vim.keymap.set("", "U", trim__save)
 
 	local function format()
 		vim.fn.VSCodeNotify("editor.action.formatDocument")
@@ -384,7 +389,7 @@ else
 	vim.keymap.set("", "U", save_vim)
 
 	local move_to_bottom_screen__center_screen = 'Lzz'
-	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
+	vim.keymap.set("", "!", move_to_bottom_screen__center_screen)
 
 	local move_to_top_screen__center_screen = 'Hzz'
 	vim.keymap.set("", "H", move_to_top_screen__center_screen)
@@ -607,16 +612,16 @@ local command_register = '":'
 vim.keymap.set("", "';", command_register)
 
 local paste_system_register = "<C-r><C-p>+"
-vim.keymap.set("l", "<C-v>", paste_system_register)
+vim.keymap.set("!", "<C-v>", paste_system_register)
 
 local paste_yank_register = "<C-r><C-p>0"
-vim.keymap.set("l", "<C-r>w", paste_yank_register)
+vim.keymap.set("!", "<C-r>w", paste_yank_register)
 
 local paste_command_register = "<C-r><C-p>:"
-vim.keymap.set("l", "<C-r>;", paste_command_register)
+vim.keymap.set("!", "<C-r>;", paste_command_register)
 
 local paste_default_register = '<C-r><C-p>"'
-vim.keymap.set("l", "<C-b>", paste_default_register)
+vim.keymap.set("!", "<C-b>", paste_default_register)
 
 local delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", delete_line_but_take_inside_line, { remap = true })
