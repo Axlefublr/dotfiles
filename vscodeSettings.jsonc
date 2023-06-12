@@ -243,7 +243,6 @@
 	"[sql]": {},
 	"Lua.format.defaultConfig": {
 		"indent_style": "tab",
-		"indent_size": "3"
 	},
 	"material-icon-theme.files.associations": {
 		"*.ah2": "autohotkey",
@@ -341,7 +340,7 @@
 	"editor.suggest.localityBonus": true,
 	"editor.formatOnPaste": true,
 	"editor.linkedEditing": true,
-	"editor.wordWrap": "bounded",
+	"editor.wordWrap": "on",
 	"editor.find.cursorMoveOnType": false,
 	"editor.suggest.insertMode": "replace",
 	"editor.formatOnSaveMode": "modificationsIfAvailable",
@@ -462,10 +461,8 @@
 	"window.menuBarVisibility": "compact",
 	"workbench.layoutControl.enabled": false,
 	"workbench.sideBar.location": "right",
-	"editor.minimap.enabled": false,
 	"editor.scrollbar.horizontalScrollbarSize": 14,
 	"editor.scrollbar.vertical": "visible",
-	"editor.scrollbar.horizontal": "visible",
 	"diffEditor.renderSideBySide": false,
 	"workbench.activityBar.visible": false,
 	"screencastMode.verticalOffset": 0,
@@ -536,5 +533,6 @@
 	"settingsSync.ignoredSettings": [
 		"-window.zoomLevel"
 	],
-	"editor.scrollbar.verticalScrollbarSize": 6
+	"editor.scrollbar.verticalScrollbarSize": 8,
+	"editor.minimap.enabled": false
 }

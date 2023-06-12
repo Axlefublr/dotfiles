@@ -157,19 +157,6 @@ function EscapeFromRegexSearch(input)
 	return string.sub(input, 3)
 end
 
-function GetInput(suggestion_string, default)
-	return vim.fn.input(suggestion_string, default and default or '')
-end
-
-function GetRegister(register)
-	return vim.fn.getreg(register)
-end
-
-function GetRegisterInteractive()
-	local register = GetChar()
-	return GetRegister(register)
-end
-
 function GetChar(prompt)
 	vim.api.nvim_echo({ { prompt , "Input" } }, true, {})
 	local char = vim.fn.getcharstr()
@@ -629,7 +616,7 @@ vim.keymap.set("", "<leader>mb", move_line_to_bottom)
 function Search_for_selection(search_operator)
 	FeedKeys('y')
 	vim.schedule(function()
-		local escaped_selection = EscapeForLiteralSearch(GetRegister('"'))
+		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('"'))
 		FeedKeys(search_operator .. '\\V' .. escaped_selection)
 		FeedKeysInt('<CR>')
 	end)
@@ -644,7 +631,7 @@ vim.keymap.set("", "<leader>/", "<cmd>lua Regex_search('/')<CR>")
 vim.keymap.set("", "<leader>?", "<cmd>lua Regex_search('?')<CR>")
 
 function Literal_search(searchOperator)
-	local escaped_text = EscapeForLiteralSearch(GetInput("Type in your literal search: "))
+	local escaped_text = EscapeForLiteralSearch(vim.fn.input("Type in your literal search: "))
 	if escaped_text == '' then
 		return
 	end
@@ -658,7 +645,7 @@ function Search_for_register(search_operator)
 	local char = GetChar("Input register key to search for:")
 	if not char then return end
 	local register = Validate_register(char)
-	local escaped_register = EscapeForLiteralSearch(GetRegister(register))
+	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
 	FeedKeys(search_operator .. '\\V' .. escaped_register)
 	FeedKeysInt('<CR>')
 end
@@ -691,7 +678,7 @@ function Better_replace(range)
 		local char = GetChar("Press what register key:")
 		if not char then return end
 
-		reg_value = GetRegister(Validate_register(char))
+		reg_value = vim.fn.getreg(Validate_register(char))
 
 		if char == '/' then
 			reg_value = EscapeFromLiteralSearch(reg_value)
@@ -700,7 +687,7 @@ function Better_replace(range)
 
 		if reg_value == '' then print('The register "' .. char .. '" is empty') return end
 	end
-	what = GetInput("Enter what:", reg_value)
+	what = vim.fn.input("Enter what:", reg_value)
 	if what == '' then print("You didn't specify 'what'") return end
 	is_regex = _get_bool("Regex?")
 	if is_regex == nil then return end
@@ -714,14 +701,14 @@ function Better_replace(range)
 		local char = GetChar("Press with register key:")
 		if not char then return end
 
-		reg_value = GetRegister(Validate_register(char))
+		reg_value = vim.fn.getreg(Validate_register(char))
 
 		if char == '/' then
 			reg_value = EscapeFromLiteralSearch(reg_value)
 			reg_value = EscapeFromRegexSearch(reg_value)
 		end
 	end
-	with = GetInput("Enter with:", reg_value)
+	with = vim.fn.input("Enter with:", reg_value)
 
 	local magic
 	if is_regex then
@@ -733,15 +720,16 @@ function Better_replace(range)
 
 	vim.cmd(range .. "s/" .. magic .. what .. "/" .. with .. "/g")
 end
-
 -- Both are inputs, non regex, current line
 vim.keymap.set("n", "<leader>s", "<cmd>lua Better_replace('.')<CR>")
-
 -- Both are inputs, non regex, whole file
 vim.keymap.set("n", "<leader>S", "<cmd>lua Better_replace('%')<CR>")
-
 -- Both are inputs, non regex, visual
 vim.keymap.set("v", "<leader>s", "<esc><cmd>lua Better_replace(\"'<,'>\")<CR>")
+
+function Better_global(global_command)
+
+end
 
 local repeat_replace_goes_next = "n&"
 vim.keymap.set("n", "&", repeat_replace_goes_next)
