@@ -607,16 +607,16 @@ local command_register = '":'
 vim.keymap.set("", "';", command_register)
 
 local paste_system_register = "<C-r><C-p>+"
-vim.keymap.set("!", "<C-v>", paste_system_register)
+vim.keymap.set("l", "<C-v>", paste_system_register)
 
 local paste_yank_register = "<C-r><C-p>0"
-vim.keymap.set("!", "<C-r>w", paste_yank_register)
+vim.keymap.set("l", "<C-r>w", paste_yank_register)
 
 local paste_command_register = "<C-r><C-p>:"
-vim.keymap.set("!", "<C-r>;", paste_command_register)
+vim.keymap.set("l", "<C-r>;", paste_command_register)
 
 local paste_default_register = '<C-r><C-p>"'
-vim.keymap.set("!", "<C-b>", paste_default_register)
+vim.keymap.set("l", "<C-b>", paste_default_register)
 
 local delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", delete_line_but_take_inside_line, { remap = true })

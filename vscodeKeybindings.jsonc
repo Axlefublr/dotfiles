@@ -4497,7 +4497,19 @@
 		"key": "ctrl+b",
 		"command": "vscode-neovim.send-cmdline",
 		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'",
-		"args": "<C-b>"
+		"args": "<C-r>\""
+	},
+	{
+		"key": "ctrl+r w",
+		"command": "vscode-neovim.send-cmdline",
+		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'",
+		"args": "<C-r>0"
+	},
+	{
+		"key": "ctrl+r ;",
+		"command": "vscode-neovim.send-cmdline",
+		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'",
+		"args": "<C-r>:"
 	},
 	{
 		"key": "ctrl+; ctrl+l",
@@ -5154,5 +5166,10 @@
 		"key": "tab",
 		"command": "explorer.openAndPassFocus",
 		"when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus"
+	},
+	{
+		"key": "ctrl+r w",
+		"command": "-vscode-neovim.send-cmdline",
+		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
 	}
 ]
