@@ -181,6 +181,20 @@ function Validate_register(register)
 	end
 end
 
+function GetBool(message)
+	local char = GetChar(message .. " (f/d):")
+	local bool
+	if char == 'f' then
+		bool = true
+	elseif char == 'd' then
+		bool = false
+	else
+		print("Press f for true, d for false")
+		return nil
+	end
+	return bool
+end
+
 if vim.g.vscode then
 
 	local function center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
@@ -431,10 +445,10 @@ local function percent_sign_text_object_extra_operator()
 end
 vim.keymap.set("o", "a%", percent_sign_text_object_extra_operator)
 
-local markdown_heading_text_object_self_sameline_visual = "?^#<CR>oNk"
+local markdown_heading_text_object_self_sameline_visual = "?^#<cr>oNk"
 vim.keymap.set("v", "ir", markdown_heading_text_object_self_sameline_visual)
 
-local markdown_heading_text_object_self_diffline_visual = "?^#<CR>koNk"
+local markdown_heading_text_object_self_diffline_visual = "?^#<cr>koNk"
 vim.keymap.set("v", "iR", markdown_heading_text_object_self_diffline_visual)
 
 local comment_text_object_self_visual = "[/3lo]/2h"
@@ -568,7 +582,7 @@ vim.keymap.set("n", "<leader>di", vore_out_line_into_block)
 local convert_to_arrow_function = 'vaBo<Esc>"_s=> <Esc>Jj"_dd'
 vim.keymap.set("n", "<leader>bi", convert_to_arrow_function)
 
-local convert_to_normal_function = '^f(%f="_c3l{<CR><Esc>o}<Esc>'
+local convert_to_normal_function = '^f(%f="_c3l{<cr><Esc>o}<Esc>'
 vim.keymap.set("n", "<leader>ba", convert_to_normal_function)
 
 local add_comma_at_end_of_line = "m" .. THROWAWAY_MARK .. "A,<Esc>`" .. THROWAWAY_MARK
@@ -618,17 +632,17 @@ function Search_for_selection(search_operator)
 	vim.schedule(function()
 		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('"'))
 		FeedKeys(search_operator .. '\\V' .. escaped_selection)
-		FeedKeysInt('<CR>')
+		FeedKeysInt('<cr>')
 	end)
 end
-vim.keymap.set("v", "*", "<cmd>lua Search_for_selection('/')<CR>")
-vim.keymap.set("v", "#", "<cmd>lua Search_for_selection('?')<CR>")
+vim.keymap.set("v", "*", "<cmd>lua Search_for_selection('/')<cr>")
+vim.keymap.set("v", "#", "<cmd>lua Search_for_selection('?')<cr>")
 
 function Regex_search(searchOperator)
 	FeedKeys(searchOperator .. '\\v')
 end
-vim.keymap.set("", "<leader>/", "<cmd>lua Regex_search('/')<CR>")
-vim.keymap.set("", "<leader>?", "<cmd>lua Regex_search('?')<CR>")
+vim.keymap.set("", "<leader>/", "<cmd>lua Regex_search('/')<cr>")
+vim.keymap.set("", "<leader>?", "<cmd>lua Regex_search('?')<cr>")
 
 function Literal_search(searchOperator)
 	local escaped_text = EscapeForLiteralSearch(vim.fn.input("Type in your literal search: "))
@@ -636,10 +650,10 @@ function Literal_search(searchOperator)
 		return
 	end
 	FeedKeys(searchOperator .. '\\V' .. escaped_text)
-	FeedKeysInt("<CR>")
+	FeedKeysInt("<cr>")
 end
-vim.keymap.set("", "/", "<cmd>lua Literal_search('/')<CR>")
-vim.keymap.set("", "?", "<cmd>lua Literal_search('?')<CR>")
+vim.keymap.set("", "/", "<cmd>lua Literal_search('/')<cr>")
+vim.keymap.set("", "?", "<cmd>lua Literal_search('?')<cr>")
 
 function Search_for_register(search_operator)
 	local char = GetChar("Input register key to search for:")
@@ -647,28 +661,14 @@ function Search_for_register(search_operator)
 	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
 	FeedKeys(search_operator .. '\\V' .. escaped_register)
-	FeedKeysInt('<CR>')
+	FeedKeysInt('<cr>')
 end
 vim.keymap.set("", "<leader>f", "<cmd>lua Search_for_register('/')<cr>")
 vim.keymap.set("", "<leader>F", "<cmd>lua Search_for_register('?')<cr>")
 
 function Better_replace(range)
 
-	local function _get_bool(message)
-		local char = GetChar(message .. " (f/d):")
-		local bool
-		if char == 'f' then
-			bool = true
-		elseif char == 'd' then
-			bool = false
-		else
-			print("Press f for true, d for false")
-			return nil
-		end
-		return bool
-	end
-
-	local should_paste_register_what = _get_bool("Paste register?")
+	local should_paste_register_what = GetBool("Paste register?")
 	if should_paste_register_what == nil then return end
 
 	local is_regex
@@ -689,10 +689,10 @@ function Better_replace(range)
 	end
 	what = vim.fn.input("Enter what:", reg_value)
 	if what == '' then print("You didn't specify 'what'") return end
-	is_regex = _get_bool("Regex?")
+	is_regex = GetBool("Regex?")
 	if is_regex == nil then return end
 
-	local should_paste_register_with = _get_bool("Paste register?")
+	local should_paste_register_with = GetBool("Paste register?")
 	if should_paste_register_with == nil then return end
 
 	local with
@@ -721,15 +721,61 @@ function Better_replace(range)
 	vim.cmd(range .. "s/" .. magic .. what .. "/" .. with .. "/g")
 end
 -- Both are inputs, non regex, current line
-vim.keymap.set("n", "<leader>s", "<cmd>lua Better_replace('.')<CR>")
+vim.keymap.set("n", "<leader>s", "<cmd>lua Better_replace('.')<cr>")
 -- Both are inputs, non regex, whole file
-vim.keymap.set("n", "<leader>S", "<cmd>lua Better_replace('%')<CR>")
+vim.keymap.set("n", "<leader>S", "<cmd>lua Better_replace('%')<cr>")
 -- Both are inputs, non regex, visual
-vim.keymap.set("v", "<leader>s", "<esc><cmd>lua Better_replace(\"'<,'>\")<CR>")
+vim.keymap.set("v", "<leader>s", "<esc><cmd>lua Better_replace(\"'<,'>\")<cr>")
 
-function Better_global(global_command)
+function Better_global()
 
+	local global_command = GetBool("Those that match or the opposite?")
+	if global_command == nil then return end
+
+	local should_paste_register_pattern = GetBool("Paste register?")
+	if should_paste_register_pattern == nil then return end
+
+	local is_regex
+	local pattern
+	local reg_value = ''
+	if should_paste_register_pattern then
+		local char = GetChar("Press what register key:")
+		if not char then return end
+
+		reg_value = vim.fn.getreg(Validate_register(char))
+
+		if char == '/' then
+			reg_value = EscapeFromLiteralSearch(reg_value)
+			reg_value = EscapeFromRegexSearch(reg_value)
+		end
+
+		if reg_value == '' then print('The register "' .. char .. '" is empty') return end
+	end
+	pattern = vim.fn.input("Enter what:", reg_value)
+	if pattern == '' then print("You didn't specify 'what'") return end
+	is_regex = GetBool("Regex?")
+	if is_regex == nil then return end
+
+	local command = vim.fn.input("Enter command:", reg_value)
+
+	local magic
+	if is_regex then
+		magic = "\\v"
+	else
+		pattern = EscapeForLiteralSearch(pattern)
+		magic = "\\V"
+	end
+
+	local global_command_str
+	if global_command then
+		global_command_str = 'g'
+	else
+		global_command_str = 'v'
+	end
+
+	vim.cmd(global_command_str .. '/' .. magic .. pattern .. '/' .. command)
 end
+vim.keymap.set("n", "<leader>v", Better_global)
 
 local repeat_replace_goes_next = "n&"
 vim.keymap.set("n", "&", repeat_replace_goes_next)
