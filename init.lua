@@ -668,47 +668,13 @@ vim.keymap.set("", "<leader>F", "<cmd>lua Search_for_register('?')<cr>")
 
 function Better_replace(range)
 
-	local should_paste_register_what = GetBool("Paste register?")
-	if should_paste_register_what == nil then return end
+	local what
+	what = vim.fn.input("Enter what:")
+	if what == '' then print("You didn't specify 'what'") return end
 
 	local is_regex
-	local what
-	local reg_value = ''
-	if should_paste_register_what then
-		local char = GetChar("Press what register key:")
-		if not char then return end
-
-		reg_value = vim.fn.getreg(Validate_register(char))
-
-		if char == '/' then
-			reg_value = EscapeFromLiteralSearch(reg_value)
-			reg_value = EscapeFromRegexSearch(reg_value)
-		end
-
-		if reg_value == '' then print('The register "' .. char .. '" is empty') return end
-	end
-	what = vim.fn.input("Enter what:", reg_value)
-	if what == '' then print("You didn't specify 'what'") return end
 	is_regex = GetBool("Regex?")
 	if is_regex == nil then return end
-
-	local should_paste_register_with = GetBool("Paste register?")
-	if should_paste_register_with == nil then return end
-
-	local with
-	reg_value = ''
-	if should_paste_register_with then
-		local char = GetChar("Press with register key:")
-		if not char then return end
-
-		reg_value = vim.fn.getreg(Validate_register(char))
-
-		if char == '/' then
-			reg_value = EscapeFromLiteralSearch(reg_value)
-			reg_value = EscapeFromRegexSearch(reg_value)
-		end
-	end
-	with = vim.fn.input("Enter with:", reg_value)
 
 	local magic
 	if is_regex then
@@ -717,6 +683,9 @@ function Better_replace(range)
 		what = EscapeForLiteralSearch(what)
 		magic = "\\V"
 	end
+
+	local with
+	with = vim.fn.input("Enter with:")
 
 	vim.cmd(range .. "s/" .. magic .. what .. "/" .. with .. "/g")
 end
@@ -729,34 +698,22 @@ vim.keymap.set("v", "<leader>s", "<esc><cmd>lua Better_replace(\"'<,'>\")<cr>")
 
 function Better_global()
 
-	local global_command = GetBool("Those that match or the opposite?")
+	local global_command = GetBool("Those that match?")
 	if global_command == nil then return end
 
-	local should_paste_register_pattern = GetBool("Paste register?")
-	if should_paste_register_pattern == nil then return end
-
-	local is_regex
-	local pattern
-	local reg_value = ''
-	if should_paste_register_pattern then
-		local char = GetChar("Press what register key:")
-		if not char then return end
-
-		reg_value = vim.fn.getreg(Validate_register(char))
-
-		if char == '/' then
-			reg_value = EscapeFromLiteralSearch(reg_value)
-			reg_value = EscapeFromRegexSearch(reg_value)
-		end
-
-		if reg_value == '' then print('The register "' .. char .. '" is empty') return end
+	local global_command_str
+	if global_command then
+		global_command_str = 'g'
+	else
+		global_command_str = 'v'
 	end
-	pattern = vim.fn.input("Enter what:", reg_value)
-	if pattern == '' then print("You didn't specify 'what'") return end
-	is_regex = GetBool("Regex?")
-	if is_regex == nil then return end
 
-	local command = vim.fn.input("Enter command:", reg_value)
+	local pattern
+	pattern = vim.fn.input("Enter what:")
+	if pattern == '' then print("You didn't specify 'what'") return end
+
+	local is_regex = GetBool("Regex?")
+	if is_regex == nil then return end
 
 	local magic
 	if is_regex then
@@ -766,12 +723,8 @@ function Better_global()
 		magic = "\\V"
 	end
 
-	local global_command_str
-	if global_command then
-		global_command_str = 'g'
-	else
-		global_command_str = 'v'
-	end
+	local command = vim.fn.input("Enter command:")
+	if command == '' then print("You didn't enter a command") return end
 
 	vim.cmd(global_command_str .. '/' .. magic .. pattern .. '/' .. command)
 end
