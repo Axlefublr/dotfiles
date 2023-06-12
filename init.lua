@@ -777,6 +777,9 @@ function Better_global()
 end
 vim.keymap.set("n", "<leader>v", Better_global)
 
+local execute_normal_command = "<esc>:'<,'>norm "
+vim.keymap.set("v", "<leader>v", execute_normal_command)
+
 local repeat_replace_goes_next = "n&"
 vim.keymap.set("n", "&", repeat_replace_goes_next)
 
