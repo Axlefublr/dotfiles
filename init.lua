@@ -666,20 +666,25 @@ end
 vim.keymap.set("", "<leader>f", "<cmd>lua Search_for_register('/')<cr>")
 vim.keymap.set("", "<leader>F", "<cmd>lua Search_for_register('?')<cr>")
 
+function Search_for_current_word(direction)
+	FeedKeys('yiw')
+	vim.schedule(function()
+		local escaped_word = vim.fn.getreg('"')
+		FeedKeys(direction .. '\\v<' .. escaped_word .. ">")
+		FeedKeysInt('<cr>')
+	end)
+end
+vim.keymap.set("n", "*", "<cmd>lua Search_for_current_word('/')<cr>")
+vim.keymap.set("n", "#", "<cmd>lua Search_for_current_word('/')<cr>")
+
 function Better_replace(range)
 
 	local what
 	what = vim.fn.input("Enter what:")
 	if what == '' then print("You didn't specify 'what'") return end
 
-	local is_regex
-	is_regex = GetBool("Regex?")
-	if is_regex == nil then return end
-
-	local magic
-	if is_regex then
-		magic = "\\v"
-	else
+	local magic = ''
+	if string.sub(what, 1, 2) ~= '\\v' then
 		what = EscapeForLiteralSearch(what)
 		magic = "\\V"
 	end
@@ -709,16 +714,11 @@ function Better_global()
 	end
 
 	local pattern
-	pattern = vim.fn.input("Enter what:")
-	if pattern == '' then print("You didn't specify 'what'") return end
+	pattern = vim.fn.input("Enter the pattern:")
+	if pattern == '' then print("You didn't specify the pattern") return end
 
-	local is_regex = GetBool("Regex?")
-	if is_regex == nil then return end
-
-	local magic
-	if is_regex then
-		magic = "\\v"
-	else
+	local magic = ''
+	if string.sub(pattern, 1, 2) ~= '\\v' then
 		pattern = EscapeForLiteralSearch(pattern)
 		magic = "\\V"
 	end
@@ -727,7 +727,7 @@ function Better_global()
 	if command == '' then print("You didn't enter a command") return end
 
 	vim.cmd(global_command_str .. '/' .. magic .. pattern .. '/' .. command)
-end
+end -- Better
 vim.keymap.set("n", "<leader>v", Better_global)
 
 local execute_normal_command = "<esc>:'<,'>norm "
