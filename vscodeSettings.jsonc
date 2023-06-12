@@ -446,7 +446,7 @@
 	"editor.indentSize": 4,
 	"editor.fontFamily": "'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji'",
 	"editor.fontWeight": "normal",
-	"editor.fontSize": 21,
+	"editor.fontSize": 18,
 	"screencastMode.fontSize": 26,
 	"terminal.integrated.fontFamily": "",
 	"terminal.integrated.tabs.title": "${cwd}",
@@ -503,7 +503,6 @@
 	"csharp.inlayHints.parameters.suppressForParametersThatMatchMethodIntent": true,
 	"csharp.inlayHints.types.forImplicitVariableTypes": true,
 	"csharp.inlayHints.types.forLambdaParameterTypes": true,
-	"window.zoomLevel": 1,
 	"csharp.inlayHints.parameters.forObjectCreationParameters": true,
 	"files.autoSave": "onFocusChange",
 	"editor.tabCompletion": "on",
@@ -529,5 +528,13 @@
 	"editor.rulers": [
 		80,
 		120
-	]
+	],
+	"window.zoomLevel": 1.8,
+	"git.enableStatusBarSync": false,
+	"Lua.window.progressBar": false,
+	"Lua.window.statusBar": false,
+	"settingsSync.ignoredSettings": [
+		"-window.zoomLevel"
+	],
+	"editor.scrollbar.verticalScrollbarSize": 6
 }

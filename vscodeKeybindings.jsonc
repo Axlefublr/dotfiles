@@ -2469,7 +2469,7 @@
 		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
-		"key": "ctrl+1",
+		"key": "ctrl+2",
 		"command": "workbench.explorer.fileView.focus"
 	},
 	{
@@ -4937,7 +4937,7 @@
 		"when": "neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert'"
 	},
 	{
-		"key": "ctrl+2",
+		"key": "ctrl+1",
 		"command": "workbench.action.focusActiveEditorGroup"
 	},
 	{
@@ -5147,7 +5147,12 @@
 	},
 	{
 		"key": "l",
-		"command": "list.expand",
-		"when": "listFocus && treeElementCanExpand && !inputFocus || listFocus && treeElementHasChild && !inputFocus && !breadcrumbsActive"
+		"command": "list.toggleExpand",
+		"when": "listFocus && !inputFocus && !breadcrumbsActive"
+	},
+	{
+		"key": "tab",
+		"command": "explorer.openAndPassFocus",
+		"when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus"
 	}
 ]

@@ -702,7 +702,7 @@ function Better_replace(range)
 	end
 	what = GetInput("Enter what:", reg_value)
 	if what == '' then print("You didn't specify 'what'") return end
-	is_regex = _get_bool("\nRegex?")
+	is_regex = _get_bool("Regex?")
 	if is_regex == nil then return end
 
 	local should_paste_register_with = _get_bool("Paste register?")
