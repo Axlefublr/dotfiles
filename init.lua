@@ -211,7 +211,7 @@ if vim.g.vscode then
 		move_to_bottom_screen()
 		center_screen()
 	end
-	vim.keymap.set("", "!", move_to_bottom_screen__center_screen)
+	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
 
 	local function move_to_top_screen__center_screen()
 		move_to_top_screen()

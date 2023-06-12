@@ -3329,7 +3329,8 @@
 	},
 	{
 		"key": "shift+alt+w",
-		"command": "workbench.action.closeEditorsInGroup"
+		"command": "workbench.action.closeEditorsInGroup",
+		"when": "!terminalFocus"
 	},
 	{
 		"key": "ctrl+k w",
@@ -3680,18 +3681,8 @@
 		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
 	},
 	{
-		"key": "pagedown",
-		"command": "workbench.action.terminal.scrollDownPage",
-		"when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
-	},
-	{
 		"key": "shift+pagedown",
 		"command": "-workbench.action.terminal.scrollDownPage",
-		"when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
-	},
-	{
-		"key": "pageup",
-		"command": "workbench.action.terminal.scrollUpPage",
 		"when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
 	},
 	{
@@ -3737,11 +3728,6 @@
 		"key": "ctrl+k left",
 		"command": "-views.moveViewLeft",
 		"when": "focusedView != ''"
-	},
-	{
-		"key": "ctrl+; ctrl+k",
-		"command": "workbench.action.terminal.new",
-		"when": "!keybindingFocus && terminalFocus && panelFocus && activePanel == 'terminal'"
 	},
 	{
 		"key": "ctrl+v",
@@ -3860,11 +3846,6 @@
 		"when": "inKeybindings && keybindingFocus && !inputFocus"
 	},
 	{
-		"key": "ctrl+; ctrl+k",
-		"command": "workbench.action.createTerminalEditor",
-		"when": "!keybindingFocus && !panelFocus && activePanel != 'terminal'"
-	},
-	{
 		"key": "alt+2",
 		"command": "workbench.action.openEditorAtIndex2",
 		"when": "!terminalFocus || !panelFocus"
@@ -3950,19 +3931,9 @@
 		"when": "terminalFocus && panelFocus && activePanel == 'terminal'"
 	},
 	{
-		"key": "ctrl+; r",
+		"key": "ctrl+alt+d",
 		"command": "workbench.action.terminal.relaunch",
 		"when": "terminalFocus"
-	},
-	{
-		"key": "ctrl+; m",
-		"command": "workbench.action.terminal.moveToEditor",
-		"when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-	},
-	{
-		"key": "ctrl+; m",
-		"command": "workbench.action.terminal.moveToTerminalPanel",
-		"when": "terminalFocus && !panelFocus"
 	},
 	{
 		"key": "shift+tab",
@@ -4629,7 +4600,8 @@
 	},
 	{
 		"key": "shift+alt+l",
-		"command": "workbench.action.focusRightGroup"
+		"command": "workbench.action.focusRightGroup",
+		"when": "!terminalFocus"
 	},
 	{
 		"key": "ctrl+alt+g",
@@ -4676,7 +4648,8 @@
 	},
 	{
 		"key": "ctrl+alt+d",
-		"command": "workbench.action.moveActiveEditorGroupUp"
+		"command": "workbench.action.moveActiveEditorGroupUp",
+		"when": "!terminalFocus"
 	},
 	{
 		"key": "ctrl+4",
@@ -5171,5 +5144,88 @@
 		"key": "ctrl+r w",
 		"command": "-vscode-neovim.send-cmdline",
 		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
+	},
+	{
+		"key": "ctrl+alt+enter",
+		"command": "-workbench.action.chat.runInTerminal",
+		"when": "hasChatProvider && inChat"
+	},
+	{
+		"key": "ctrl+down",
+		"command": "-workbench.action.terminal.accessibleBufferGoToNextCommand",
+		"when": "terminalAccessibleBufferFocus || terminalAccessibleBufferFocus && terminalHasBeenCreated || terminalAccessibleBufferFocus && terminalProcessSupported"
+	},
+	{
+		"key": "ctrl+up",
+		"command": "-workbench.action.terminal.accessibleBufferGoToPreviousCommand",
+		"when": "terminalAccessibleBufferFocus && terminalHasBeenCreated || terminalAccessibleBufferFocus && terminalProcessSupported"
+	},
+	{
+		"key": "shift+tab",
+		"command": "-workbench.action.terminal.focusAccessibleBuffer",
+		"when": "accessibilityModeEnabled && terminalHasBeenCreated && terminalTabFocusMode && !terminalAccessibleBufferFocus || accessibilityModeEnabled && terminalProcessSupported && terminalTabFocusMode && !terminalAccessibleBufferFocus"
+	},
+	{
+		"key": "ctrl+shift+o",
+		"command": "-workbench.action.terminal.navigateAccessibleBuffer",
+		"when": "terminalAccessibleBufferFocus && terminalHasBeenCreated || terminalAccessibleBufferFocus && terminalProcessSupported"
+	},
+	{
+		"key": "alt+l",
+		"command": "workbench.action.terminal.openDetectedLink",
+		"when": "terminalFocus && terminalHasBeenCreated"
+	},
+	{
+		"key": "ctrl+shift+o",
+		"command": "-workbench.action.terminal.openDetectedLink",
+		"when": "terminalFocus && terminalHasBeenCreated"
+	},
+	{
+		"key": "ctrl+end",
+		"command": "-workbench.action.terminal.scrollToBottom",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
+	},
+	{
+		"key": "ctrl+home",
+		"command": "-workbench.action.terminal.scrollToTop",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
+	},
+	{
+		"key": "ctrl+alt+r",
+		"command": "workbench.action.terminal.changeIcon",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "alt+k",
+		"command": "workbench.action.terminal.scrollToPreviousCommand",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "alt+j",
+		"command": "workbench.action.terminal.scrollToNextCommand",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+alt+k",
+		"command": "workbench.action.terminal.scrollUpPage",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+alt+j",
+		"command": "workbench.action.terminal.scrollDownPage",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "shift+alt+8",
+		"command": "workbench.action.terminal.newInActiveWorkspace"
+	},
+	{
+		"key": "shift+alt+9",
+		"command": "workbench.action.terminal.newWithProfile"
+	},
+	{
+		"key": "shift+alt+w",
+		"command": "workbench.action.terminal.killAll",
+		"when": "terminalFocus"
 	}
 ]

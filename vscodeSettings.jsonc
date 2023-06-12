@@ -242,7 +242,7 @@
 	},
 	"[sql]": {},
 	"Lua.format.defaultConfig": {
-		"indent_style": "tab",
+		"indent_style": "tab"
 	},
 	"material-icon-theme.files.associations": {
 		"*.ah2": "autohotkey",
@@ -263,10 +263,6 @@
 		"*.md": "default"
 	},
 	"terminal.integrated.profiles.windows": {
-		"PowerShell": {
-			"source": "PowerShell",
-			"icon": "terminal-powershell"
-		},
 		"Command Prompt": {
 			"path": [
 				"${env:windir}\\Sysnative\\cmd.exe",
@@ -275,17 +271,10 @@
 			"args": [],
 			"icon": "terminal-cmd"
 		},
-		"Git Bash": {
-			"source": "Git Bash"
-		},
 		"Windows PowerShell": {
 			"path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 		},
-		"Ubuntu (WSL)": {
-			"path": "C:\\Windows\\System32\\wsl.exe",
-			"args": ["-d", "Ubuntu"]
-		},
-		"kali-linux (WSL)": {
+		"WSL": {
 			"path": "C:\\WINDOWS\\System32\\wsl.exe",
 			"args": ["-d", "kali-linux"]
 		}
@@ -320,7 +309,7 @@
 	"[markdown]": {
 		"editor.quickSuggestions": {
 			"other": "inline"
-		},
+		}
 	},
 	"[html]": {
 	},
@@ -453,7 +442,9 @@
 	"terminal.integrated.cursorWidth": 2,
 	"terminal.integrated.commandsToSkipShell": [
 		"workbench.action.terminal.rename",
-		"workbench.action.terminal.kill"
+		"workbench.action.terminal.kill",
+		"workbench.action.terminal.openDetectedLink",
+		"workbench.action.terminal.killAll"
 	],
 	"editor.renderWhitespace": "trailing",
 	"explorer.excludeGitIgnore": true,
