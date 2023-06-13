@@ -1,0 +1,257 @@
+format = """
+[╭─](bold yellow) $directory\
+$username\
+$hostname\
+$localip\
+$os\
+$shlvl\
+$jobs\
+$git_branch\
+$git_state\
+$git_status\
+$status\
+$line_break\
+[╰─](bold yellow)$character"""
+
+add_newline = false
+palette = 'pinkie'
+command_timeout = 1000
+
+[palettes.pinkie]
+pink        = '#FFAFD7'
+purple      = '#AF87FF'
+grey        = '#878787'
+yellow      = '#FFD75F'
+green       = '#87FF5F'
+cyan        = '#00D7FF'
+red         = '#FF005F'
+orange      = '#FF8700'
+redder_pink = '#FF8787'
+
+[aws]
+disabled = true
+[azure]
+disabled = true
+[battery]
+disabled = true
+[buf]
+disabled = true
+[bun]
+disabled = true
+[c]
+disabled = true
+
+[character]
+format = '$symbol '
+success_symbol = '[>](yellow)'
+error_symbol = '[>](yellow)'
+vimcmd_symbol = '[<](yellow)'
+vimcmd_replace_one_symbol = '[_](yellow)'
+vimcmd_replace_symbol = '[_](yellow)'
+vimcmd_visual_symbol = '[<](yellow)'
+disabled = false
+
+[cmake]
+disabled = true
+[cobol]
+disabled = true
+[cmd_duration]
+disabled = true
+[conda]
+disabled = true
+[container]
+disabled = true
+[crystal]
+disabled = true
+[daml]
+disabled = true
+[dart]
+disabled = true
+[deno]
+disabled = true
+
+[directory]
+style = 'pink'
+format = '[$read_only]($read_only_style)[$path]($style) '
+read_only = " "
+truncate_to_repo = true
+truncation_length = 5
+truncation_symbol = ''
+home_symbol = '~'
+
+[docker_context]
+disabled = true
+[dotnet]
+disabled = true
+[elixir]
+disabled = true
+[elm]
+disabled = true
+[erlang]
+disabled = true
+[fennel]
+disabled = true
+[fill]
+disabled = true
+[fossil_branch]
+disabled = true
+[gcloud]
+disabled = true
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+style = 'purple'
+symbol = ""
+truncation_symbol = ''
+ignore_branches = ['main', 'master']
+
+[git_commit]
+disabled = true
+
+[git_state]
+rebase = 'rebase'
+revert = 'revert'
+cherry_pick = 'cherry-pick'
+bisect = 'bisect'
+am = 'am'
+am_or_rebase = 'am/rebase'
+style = 'orange'
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[git_metrics]
+disabled = true
+
+[git_status]
+disabled = true
+format = '[$all_status$ahead_behind]($style) '
+# windows_starship = 'starship.exe'
+
+[golang]
+disabled = true
+[guix_shell]
+disabled = true
+[gradle]
+disabled = true
+[haskell]
+disabled = true
+[haxe]
+disabled = true
+[helm]
+disabled = true
+[java]
+disabled = true
+
+[jobs]
+symbol = ' '
+style = 'yellow'
+
+[julia]
+disabled = true
+[kotlin]
+disabled = true
+[kubernetes]
+disabled = true
+
+[line_break]
+disabled = false
+
+[lua]
+disabled = true
+[memory_usage]
+disabled = true
+[meson]
+disabled = true
+[hg_branch]
+disabled = true
+[nim]
+disabled = true
+[nix_shell]
+disabled = true
+[nodejs]
+disabled = true
+[ocaml]
+disabled = true
+[opa]
+disabled = true
+[openstack]
+disabled = true
+[os]
+disabled = true
+
+[package]
+disabled = false
+
+[perl]
+disabled = true
+[php]
+disabled = true
+[pijul_channel]
+disabled = true
+[pulumi]
+disabled = true
+[purescript]
+disabled = true
+[python]
+disabled = true
+[rlang]
+disabled = true
+[raku]
+disabled = true
+[red]
+disabled = true
+[ruby]
+disabled = true
+
+[rust]
+disabled = false
+
+[scala]
+disabled = true
+[shell]
+disabled = true
+
+[shlvl]
+format = '[$symbol$shlvl]($style) '
+symbol = ' '
+style = 'yellow'
+disabled = false
+
+[singularity]
+disabled = true
+[solidity]
+disabled = true
+[spack]
+disabled = true
+
+[status]
+disabled = false
+format = '[$symbol$status]($style)'
+symbol = '✘'
+style = 'red'
+map_symbol = false
+recognize_signal_code = true
+pipestatus = true
+pipestatus_format = '$pipestatus'
+pipestatus_separator = '[|](red)'
+pipestatus_segment_format = '[$status]($style)'
+
+[sudo]
+disabled = true
+[swift]
+disabled = true
+[terraform]
+disabled = true
+[time]
+disabled = true
+
+[username]
+disabled = false
+
+[vagrant]
+disabled = true
+[vlang]
+disabled = true
+[vcsh]
+disabled = true
+[zig]
+disabled = true

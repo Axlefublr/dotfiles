@@ -794,4 +794,7 @@ vim.keymap.set("o", "<leader>{", inclusive_prev_blankie_visual)
 local dig_into_docs = "K"
 vim.keymap.set("n", "gK", dig_into_docs)
 
+-- function Remove_slash_comments() vim.cmd("'<,'>g/\\/\\//d") end
+-- vim.keymap.set("v", "<leader>c", Remove_slash_comments)
+
 print("nvim loaded")

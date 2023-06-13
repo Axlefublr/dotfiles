@@ -152,6 +152,7 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
+starship init fish | source
 ## abbreviations
 
 abbr -a @hl  --position anywhere -- '--help &> /tmp/pagie ; less /tmp/pagie'

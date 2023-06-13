@@ -64,7 +64,9 @@
 					"punctuation.definition.string.begin.fish",
 					"punctuation.definition.string.end.fish",
 					"string.quoted.single.cs",
-					"punctuation.definition.string"
+					"punctuation.definition.string",
+					"string.quoted.single.literal.line.toml",
+					"string.quoted.single.basic.line.toml"
 				]
 			},
 			{
@@ -206,7 +208,7 @@
 					"foreground": "#D4BE98",
 					"fontStyle": ""
 				},
-				"scope": ["keyword.operator.namespace.rust"]
+				"scope": ["keyword.operator.namespace.rust", "support.type.property-name.toml"]
 			},
 			{
 				"name": "grey",
@@ -529,5 +531,8 @@
 		"editor.defaultFormatter": "rust-lang.rust-analyzer",
 		"editor.formatOnSave": true
 	},
-	"files.autoSave": "onFocusChange"
+	"files.autoSave": "onFocusChange",
+	"resmon.show.battery": false,
+	"resmon.show.cpufreq": false,
+	"resmon.updatefrequencyms": 5000
 }
