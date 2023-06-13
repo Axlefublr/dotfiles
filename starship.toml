@@ -8,6 +8,7 @@ $shlvl\
 $jobs\
 $git_branch\
 $git_state\
+$git_status\
 $status\
 $line_break\
 [╰─](bold yellow)$character"""
@@ -119,8 +120,12 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [git_metrics]
 disabled = true
+
 [git_status]
 disabled = true
+format = '[$all_status$ahead_behind]($style) '
+# windows_starship = 'starship.exe'
+
 [golang]
 disabled = true
 [guix_shell]
