@@ -152,7 +152,6 @@ set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
-starship init fish | source
 ## abbreviations
 
 abbr -a @hl  --position anywhere -- '--help &> /tmp/pagie ; less /tmp/pagie'
@@ -257,6 +256,7 @@ abbr -a grtH    'git restore --source=HEAD --'
 abbr -a gch     'git checkout'
 abbr -a gchm    'git checkout main'
 abbr -a gb      'git branch'
+abbr -a gbd     'git branch --delete'
 abbr -a gme     'git merge'
 abbr -a gre     'git remote'
 abbr -a greao   'git remote add origin'
@@ -354,3 +354,5 @@ bind -M default -m insert "'" accept-autosuggestion execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
+
+starship init fish | source

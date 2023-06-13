@@ -1,4 +1,5 @@
 #!/usr/bin/env fish
+
 function dlist
 	for arg in $argv
 		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
