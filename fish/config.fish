@@ -24,11 +24,15 @@ set -g plain_directories $prog \
 	$prog/csproj/ChoreTracker \
 	$prog/csproj/TestCs \
 	$prog/rust \
+	$prog/rust/learning \
+	$prog/rust/test-proj \
 	$lib \
 	$pic \
 	$pic/Tree \
 	$pic/Screenvideos \
 	$pic/Content \
+	$pic/Downloaded \
+	$pic/Tools \
 	$audio/Sounds \
 	~/.config/fish \
 	~/.config/fish/functions
@@ -95,7 +99,7 @@ set -g tide_left_prompt_frame_enabled true
 set -g tide_left_prompt_prefix
 set -g tide_left_prompt_suffix
 set -g tide_left_prompt_separator_same_color
-set -g tide_left_prompt_items private_mode shlvl pwd context jobs git status newline character
+set -g tide_left_prompt_items shlvl private_mode pwd context jobs git status newline character
 set -g tide_right_prompt_items
 
 set -g tide_character_color -o $color_yellow
@@ -111,7 +115,7 @@ set -g tide_cmd_duration_threshold 0
 
 set -g tide_context_color_root $color_red
 set -g tide_context_color_ssh $color_orange
-set -g tide_git_icon ' '
+set -g tide_git_icon ''
 set -g tide_git_color_branch $color_purple
 set -g tide_git_color_conflicted $color_red
 set -g tide_git_color_dirty $color_pink
@@ -141,7 +145,7 @@ set -g tide_status_color_failure $color_red
 set -g tide_time_color $color_purple
 set -g tide_time_format '%H:%M'
 
-set -g tide_private_mode_icon "󰗹"
+set -g tide_private_mode_icon "󰗹 "
 
 set -g fish_cursor_default block
 set -g fish_cursor_insert line
@@ -162,30 +166,32 @@ abbr -a @c   --position anywhere -- '| clip.exe'
 abbr -a @tt  --position anywhere -- '| tee /dev/tty |'
 abbr -a @ttc --position anywhere -- '| tee /dev/tty | clip.exe'
 
-abbr -a exp 'explorer.exe'
+abbr -a exp  'explorer.exe'
 abbr -a clip 'clip.exe'
-abbr -a ch 'ChoreTracker.exe'
-abbr -a we 'Welde.exe'
-abbr -a ff 'ffmpeg.exe'
-abbr -a ffi 'ffmpeg.exe -i'
+abbr -a ch   'ChoreTracker.exe'
+abbr -a we   'Welde.exe'
+abbr -a ff   'ffmpeg.exe'
+abbr -a ffi  'ffmpeg.exe -i'
 
-abbr -a bat 'batcat'
-abbr -a v 'nvim'
-abbr -a rmf 'rm -fr'
-abbr -a tree 'tree -C | less'
+abbr -a bat   'batcat'
+abbr -a v     'nvim'
+abbr -a rmf   'rm -fr'
+abbr -a tree  'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
 abbr -a fishp 'fish -P'
+abbr -a mvf 'mv -f'
 
-abbr -a rm 'trash-put'
+abbr -a rm  'trash-put'
+abbr -a rma 'trash-put *'
 abbr -a trr 'trash-restore'
 
-abbr -a grep 'grep -E'
+abbr -a grep  'grep -E'
 abbr -a rgrep 'grep -Ern'
 abbr -a lgrep 'grep -Erl'
 
-abbr -a ls 'ls -A'
-abbr -a lg 'ls -Agh'
+abbr -a ls  'ls -A'
+abbr -a lg  'ls -Agh'
 abbr -a lsa 'ls --color=always -A'
 abbr -a lsg 'ls --color=always -Agh'
 
@@ -221,11 +227,13 @@ abbr -a gamanp  'git add . && git commit -a --amend --no-edit && git push 2> /de
 abbr -a gaman   'git add . && git commit -a --amend --no-edit'
 abbr -a gamapf  'git add . && git commit -a --amend && git push -f'
 abbr -a gamanpf 'git add . && git commit -a --amend --no-edit && git push -f'
+abbr -a gpp     'git push'
 abbr -a gp      'git push 2> /dev/null'
 abbr -a gpf     'git push -f'
 abbr -a gpu     'git push -u origin main'
 abbr -a gcr     'git add . && git commit -m "first commit" && git push -u origin main'
 abbr -a grs     'git reset'
+abbr -a grsH    'git reset HEAD'
 abbr -a grss    'git reset --soft'
 abbr -a grssH   'git reset --soft HEAD'
 abbr -a grssom  'git reset --soft origin/main'
@@ -274,6 +282,7 @@ abbr -a dn   'dotnet'
 abbr -a dnw  'dotnet watch'
 abbr -a dncr 'dotnet new gitignore && dotnet sln *.sln add **/*.csproj && git add . && git commit -m "first commit" && git push -u origin main'
 abbr -a dnn  'dotnet new'
+abbr -a dnnl 'dotnet new list &> /tmp/pagie ; less /tmp/pagie'
 abbr -a dnnc 'dotnet new console -n'
 abbr -a dnns 'dotnet new sln'
 abbr -a dnng 'dotnet new gitignore'
@@ -287,9 +296,22 @@ abbr -a dnf  'dotnet format'
 
 ## rust
 
-abbr -a ca 'cargo'
-abbr -a can 'cargo new'
-abbr -a car 'cargo run'
+abbr -a ca   'cargo'
+abbr -a can  'cargo new'
+abbr -a canl 'cargo new --lib'
+abbr -a car  'cargo run'
+abbr -a carq 'cargo run -q'
+abbr -a cab  'cargo build'
+abbr -a cacl 'cargo clean'
+abbr -a cach 'cargo check'
+abbr -a cau  'cargo update'
+abbr -a caf  'cargo fmt'
+abbr -a cai  'cargo init'
+
+abbr -a ru   'rustup'
+abbr -a rud  'rustup docs'
+abbr -a rudd 'rustup docs --std'
+abbr -a rudb 'rustup docs --book'
 
 abbr -a ghr   'gh repo'
 abbr -a ghrl  'gh repo list -L 1000'
@@ -303,7 +325,7 @@ abbr -a ghgc  'gh gist create'
 abbr -a ghge  'gh gist edit'
 
 bind -M insert  \cG _get_important_dir
-bind -M default -m insert \cG _cd_important_dir
+bind -M default \cG _cd_important_dir
 
 bind -M insert  \cF _get_important_file
 bind -M default -m insert \cF _open_important_file
@@ -320,14 +342,14 @@ bind -M default \cR _history_replace
 bind -M insert  \cD "exec fish -C 'clear -x'"
 bind -M default \cD "exec fish -C 'clear -x'"
 
-bind -M insert  \cP "exec fish -PC 'clear -x'"
-bind -M default \cP "exec fish -PC 'clear -x'"
+bind -M insert  \cP "exec fish -PC 'clear'"
+bind -M default \cP "exec fish -PC 'clear'"
 
 bind -M insert  \cE 'less /tmp/pagie'
 bind -M default \cE 'less /tmp/pagie'
 
 bind -M default \; accept-autosuggestion
-bind -M default "'" accept-autosuggestion execute
+bind -M default -m insert "'" accept-autosuggestion execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump

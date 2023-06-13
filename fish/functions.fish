@@ -39,7 +39,7 @@ end
 funcsave cutfrom > /dev/null
 
 function cutto
-	ffmpeg.exe -i $argv[1] -to $argv[3] -c:a copy $argv[2]
+	ffmpeg.exe -i $argv[1] -ss 00:00 -to $argv[3] -c:a copy $argv[2]
 end
 funcsave cutto > /dev/null
 
@@ -71,22 +71,39 @@ function timer
 end
 funcsave timer > /dev/null
 
+function gsa
+	set -l prevDir (pwd)
+	set -l directories $git_directories
+
+	for dir in $directories
+
+		cd $dir
+		set_color yellow
+		echo $dir
+		set_color normal
+		and git status -s
+
+	end
+
+	cd $prevDir
+end
+funcsave gsa > /dev/null
+
 function gpa
-	 set -l prevDir (pwd)
-	 set -l directories $git_directories
+	set -l prevDir (pwd)
+	set -l directories $git_directories
 
-	 for dir in $directories
+	for dir in $directories
 
-		  cd $dir
-		  set_color yellow
-		  echo $dir
-		  set_color normal
-		  and git status -s
-		  and git push 2> /dev/null
+		cd $dir
+		set_color yellow
+		echo $dir
+		set_color normal
+		git push
 
-	 end
+	end
 
-	 cd $prevDir
+	cd $prevDir
 end
 funcsave gpa > /dev/null
 
@@ -171,9 +188,9 @@ funcsave fish_greeting > /dev/null
 function postvideo
 	set -l prevDir (pwd)
 	cd '/mnt/c/Pictures/Screenvideos'
-	trash-put *
+	trash-put "*"
 	cd ..
-	trash-put *.png
+	trash-put "*.png"
 	cd $prevDir
 end
 funcsave postvideo > /dev/null
@@ -210,5 +227,17 @@ function work
 	end
 end
 funcsave work > /dev/null
+
+function tg
+	set -l tempFile /tmp/tgptie
+	$EDITOR -c 'startinsert' $tempFile
+	set -l tempText (cat $tempFile)
+	truncate -s 0 $tempFile
+	if test -z "$tempText"
+		return 1
+	end
+	tgpt "$tempText"
+end
+funcsave tg > /dev/null
 
 echo (set_color yellow)'functions written'
