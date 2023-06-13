@@ -32,6 +32,7 @@ set -g plain_directories $prog \
 	$pic/Screenvideos \
 	$pic/Content \
 	$pic/Downloaded \
+	$pic/Tools \
 	$audio/Sounds \
 	~/.config/fish \
 	~/.config/fish/functions

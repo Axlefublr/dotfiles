@@ -71,22 +71,39 @@ function timer
 end
 funcsave timer > /dev/null
 
+function gsa
+	set -l prevDir (pwd)
+	set -l directories $git_directories
+
+	for dir in $directories
+
+		cd $dir
+		set_color yellow
+		echo $dir
+		set_color normal
+		and git status -s
+
+	end
+
+	cd $prevDir
+end
+funcsave gsa > /dev/null
+
 function gpa
-	 set -l prevDir (pwd)
-	 set -l directories $git_directories
+	set -l prevDir (pwd)
+	set -l directories $git_directories
 
-	 for dir in $directories
+	for dir in $directories
 
-		  cd $dir
-		  set_color yellow
-		  echo $dir
-		  set_color normal
-		  and git status -s
-		  and git push 2> /dev/null
+		cd $dir
+		set_color yellow
+		echo $dir
+		set_color normal
+		git push
 
-	 end
+	end
 
-	 cd $prevDir
+	cd $prevDir
 end
 funcsave gpa > /dev/null
 
