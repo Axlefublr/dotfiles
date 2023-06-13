@@ -1,4 +1,5 @@
 #!/usr/bin/env fish
+
 set -l prog /mnt/c/Programming
 set -l pic /mnt/c/Pictures
 set -l lib /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib
@@ -47,16 +48,6 @@ set -g git_directories $prog/dotfiles \
 	$pic/Tree \
 	$pic/Tools
 
-set -g color_pink        FFAFD7
-set -g color_purple      AF87FF
-set -g color_grey        878787
-set -g color_yellow      FFD75F
-set -g color_green       87FF5F
-set -g color_cyan        00D7FF
-set -g color_red         FF005F
-set -g color_orange      FF8700
-set -g color_redder_pink FF8787
-
 set -g color_gruvbox_white  D4BE98
 set -g color_gruvbox_green  A9B665
 set -g color_gruvbox_purple D3869B
@@ -90,62 +81,6 @@ set -g fish_color_match $color_gruvbox_purple
 set -g fish_color_operator $color_gruvbox_purple
 set -g fish_color_escape $color_gruvbox_grey
 set -g fish_color_autosuggestion $color_gruvbox_grey
-
-set -g tide_prompt_add_newline_before false
-set -g tide_prompt_min_cols 50
-set -g tide_prompt_pad_items false
-set -g tide_prompt_color_frame_and_connection $color_yellow
-set -g tide_left_prompt_frame_enabled true
-set -g tide_left_prompt_prefix
-set -g tide_left_prompt_suffix
-set -g tide_left_prompt_separator_same_color
-set -g tide_left_prompt_items shlvl private_mode pwd context jobs git status newline character
-set -g tide_right_prompt_items
-
-set -g tide_character_color -o $color_yellow
-set -g tide_character_color_failure -o $color_yellow
-set -g tide_character_icon            '>'
-set -g tide_character_vi_icon_default '<'
-set -g tide_character_vi_icon_replace '>'
-set -g tide_character_vi_icon_visual  '<'
-
-set -g tide_cmd_duration_color $color_grey
-set -g tide_cmd_duration_decimals 4
-set -g tide_cmd_duration_threshold 0
-
-set -g tide_context_color_root $color_red
-set -g tide_context_color_ssh $color_orange
-set -g tide_git_icon ''
-set -g tide_git_color_branch $color_purple
-set -g tide_git_color_conflicted $color_red
-set -g tide_git_color_dirty $color_pink
-set -g tide_git_color_staged $color_green
-set -g tide_git_color_stash $color_orange
-set -g tide_git_color_untracked $color_cyan
-set -g tide_git_color_upstream $color_yellow
-set -g tide_git_color_conflicted $color_red
-set -g tide_git_color_operation $color_orange
-
-set -g tide_jobs_color $color_yellow
-
-set -g tide_pwd_icon ''
-set -g tide_pwd_color_anchors $color_pink
-set -g tide_pwd_color_dirs $color_pink
-set -g tide_pwd_color_truncated_dirs $color_redder_pink
-
-set -g tide_shlvl_color -o $color_yellow
-set -g tide_shlvl_icon ''
-set -g tide_shlvl_threshold 1
-
-set -g tide_status_color $color_red
-set -g tide_status_icon '✘'
-set -g tide_status_icon_failure '✘'
-set -g tide_status_color_failure $color_red
-
-set -g tide_time_color $color_purple
-set -g tide_time_format '%H:%M'
-
-set -g tide_private_mode_icon "󰗹 "
 
 set -g fish_cursor_default block
 set -g fish_cursor_insert line
