@@ -326,6 +326,13 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "<leader>gA", git_stage_all)
 
+	local function git_commit()
+		trim_trailing_whitespace()
+		save()
+		vim.fn.VSCodeNotify("git.commit")
+	end
+	vim.keymap.set("n", "<leader>gm", git_commit)
+
 	local function git_unstage_file()
 		save()
 		vim.fn.VSCodeNotify("git.unstage")
