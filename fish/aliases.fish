@@ -1,5 +1,4 @@
 #!/usr/bin/env fish
-fish_vi_key_bindings
 
 alias --save grep 'grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 alias --save less 'less --use-color -R'
