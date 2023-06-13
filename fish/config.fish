@@ -301,6 +301,7 @@ abbr -a cab  'cargo build'
 abbr -a cacl 'cargo clean'
 abbr -a cach 'cargo check'
 abbr -a cau  'cargo update'
+abbr -a caf  'cargo fmt'
 
 abbr -a ru   'rustup'
 abbr -a rud  'rustup docs'
@@ -319,7 +320,7 @@ abbr -a ghgc  'gh gist create'
 abbr -a ghge  'gh gist edit'
 
 bind -M insert  \cG _get_important_dir
-bind -M default -m insert \cG _cd_important_dir
+bind -M default \cG _cd_important_dir
 
 bind -M insert  \cF _get_important_file
 bind -M default -m insert \cF _open_important_file

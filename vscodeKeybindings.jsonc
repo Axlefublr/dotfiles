@@ -5196,16 +5196,6 @@
 		"when": "terminalFocus"
 	},
 	{
-		"key": "alt+k",
-		"command": "workbench.action.terminal.scrollToPreviousCommand",
-		"when": "terminalFocus"
-	},
-	{
-		"key": "alt+j",
-		"command": "workbench.action.terminal.scrollToNextCommand",
-		"when": "terminalFocus"
-	},
-	{
 		"key": "ctrl+alt+k",
 		"command": "workbench.action.terminal.scrollUpPage",
 		"when": "terminalFocus"
@@ -5226,6 +5216,16 @@
 	{
 		"key": "shift+alt+w",
 		"command": "workbench.action.terminal.killAll",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "alt+j",
+		"command": "workbench.action.terminal.scrollDown",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "alt+k",
+		"command": "workbench.action.terminal.scrollUp",
 		"when": "terminalFocus"
 	}
 ]

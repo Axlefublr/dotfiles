@@ -9,7 +9,7 @@ vim.opt.mouse                = "a"
 vim.opt.ignorecase           = true
 vim.opt.smartcase            = true
 vim.opt.hlsearch             = true
-vim.opt.colorcolumn          = "50,72,80"
+vim.opt.colorcolumn          = "50,72"
 vim.g.mapleader              = ","
 vim.g.rust_recommended_style = false
 vim.opt.syntax               = "enable"
@@ -590,11 +590,23 @@ vim.keymap.set("n", "<leader>bi", convert_to_arrow_function)
 local convert_to_normal_function = '^f(%f="_c3l{<cr><Esc>o}<Esc>'
 vim.keymap.set("n", "<leader>ba", convert_to_normal_function)
 
-local add_comma_at_end_of_line = "m" .. THROWAWAY_MARK .. "A,<Esc>`" .. THROWAWAY_MARK
-vim.keymap.set("n", "<leader>,", add_comma_at_end_of_line)
+local function add_character_at_the_end_of_line()
+	local char = GetChar("Press a character:")
+	if not char then return end
+	FeedKeys("m" .. THROWAWAY_MARK .. "A" .. char)
+	FeedKeysInt("<Esc>")
+	FeedKeys("`" .. THROWAWAY_MARK)
+end
+vim.keymap.set("n", "<leader>;", add_character_at_the_end_of_line)
 
-local add_semicolon_at_end_of_line = "m" .. THROWAWAY_MARK .. "A;<Esc>`" .. THROWAWAY_MARK
-vim.keymap.set("n", "<leader>;", add_semicolon_at_end_of_line)
+local function add_character_at_the_start_of_line()
+	local char = GetChar("Press a character:")
+	if not char then return end
+	FeedKeys("m" .. THROWAWAY_MARK .. "I" .. char)
+	FeedKeysInt("<Esc>")
+	FeedKeys("`" .. THROWAWAY_MARK)
+end
+vim.keymap.set("n", "<leader>:", add_character_at_the_start_of_line)
 
 local add_ahk_dependency = "m" .. THROWAWAY_MARK .. "#Include <"
 vim.keymap.set("n", "<leader>in", add_ahk_dependency)
