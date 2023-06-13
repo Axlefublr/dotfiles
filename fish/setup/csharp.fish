@@ -6,5 +6,4 @@ ln -sf $choreTrackerTarget $choreTrackerBrokenSymlink
 
 set -l weldeBrokenSymlink /mnt/c/Programming/binaries/Welde.exe
 set -l weldeTarget /mnt/c/Programming/csproj/Welde/Welde/bin/Debug/net7.0/Welde.exe
-rm -f $weldeBrokenSymlink
-ln -s $weldeTarget $weldeBrokenSymlink
+ln -sf $weldeTarget $weldeBrokenSymlink

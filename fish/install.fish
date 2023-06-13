@@ -11,9 +11,6 @@ command -q pip || sudo apt install pip
 command -q exrex || pip install exrex
 command -q termdown || pip install termdown
 
-command -q yt-dlp || pip install yt-dlp
-ln -s /mnt/c/Programming/dotfiles/yt-dlp.conf ~/yt-dlp.conf
-
 command -q tree || sudo apt install tree
 command -q fzf || sudo apt install fzf
 command -q batcat || sudo apt install bat
@@ -24,13 +21,12 @@ command -q lolcat || sudo apt install lolcat
 command -q cowsay || sudo apt install cowsay
 
 mkdir -p ~/.config/fish
-rm -f ~/.config/fish/config.fish
-ln -s /mnt/c/Programming/dotfiles/fish/config.fish ~/.config/fish/config.fish
+ln -sf /mnt/c/Programming/dotfiles/fish/config.fish ~/.config/fish/config.fish
 
 mkdir -p ~/.config/nvim
 ln -s /mnt/c/Programming/dotfiles/init.lua ~/.config/nvim/init.lua
 
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+command -q fisher || curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
 command -q tide || fisher install IlanCosman/tide@v5
 
@@ -50,5 +46,5 @@ command -q tgpt || curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/m
 
 command -q cargo || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-curl -sS https://starship.rs/install.sh | sh
-ln -sf /mnt/c/Programming/dotfiles/starship.toml ~/.config/starship.toml
+command -q starship || curl -sS https://starship.rs/install.sh | sh
+ln -s /mnt/c/Programming/dotfiles/starship.toml ~/.config/starship.toml
