@@ -20,9 +20,6 @@ command -q cmatrix || sudo apt install cmatrix
 command -q lolcat || sudo apt install lolcat
 command -q cowsay || sudo apt install cowsay
 
-mkdir -p ~/.config/fish
-ln -sf /mnt/c/Programming/dotfiles/fish/config.fish ~/.config/fish/config.fish
-
 mkdir -p ~/.config/nvim
 ln -s /mnt/c/Programming/dotfiles/init.lua ~/.config/nvim/init.lua
 
@@ -45,6 +42,3 @@ ln -sf $target/fish_prompt.fish $symlink/fish_prompt.fish
 command -q tgpt || curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 
 command -q cargo || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-command -q starship || curl -sS https://starship.rs/install.sh | sh
-ln -s /mnt/c/Programming/dotfiles/starship.toml ~/.config/starship.toml

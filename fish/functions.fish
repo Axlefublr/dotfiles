@@ -186,6 +186,10 @@ function fish_greeting
 end
 funcsave fish_greeting > /dev/null
 
+function fish_mode_prompt
+end
+funcsave fish_mode_prompt > /dev/null
+
 function postvideo
 	set -l prevDir (pwd)
 	cd '/mnt/c/Pictures/Screenvideos'
