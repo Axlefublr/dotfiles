@@ -751,7 +751,7 @@ function Better_global()
 	if command == '' then print("You didn't enter a command") return end
 
 	vim.cmd(global_command_str .. '/' .. magic .. pattern .. '/' .. command)
-end -- Better
+end
 vim.keymap.set("n", "<leader>v", Better_global)
 
 local execute_normal_command = "<esc>:'<,'>norm "
@@ -796,5 +796,8 @@ vim.keymap.set("n", "gK", dig_into_docs)
 
 -- function Remove_slash_comments() vim.cmd("'<,'>g/\\/\\//d") end
 -- vim.keymap.set("v", "<leader>c", Remove_slash_comments)
+
+local copy_current_character = 'yl'
+vim.keymap.set("n", "X", copy_current_character)
 
 print("nvim loaded")
