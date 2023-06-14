@@ -4068,22 +4068,14 @@
 		"when": "interactivePlaygroundFocus && !editorTextFocus"
 	},
 	{
-		"key": "pagedown",
-		"command": "scrollPageDown"
+		"key": "ctrl+shift+.",
+		"command": "scrollPageDown",
+		"when": "!panelFocus"
 	},
 	{
-		"key": "pageup",
-		"command": "scrollPageUp"
-	},
-	{
-		"key": "ctrl+.",
-		"command": "workbench.action.nextPanelView",
-		"when": "panelFocus"
-	},
-	{
-		"key": "ctrl+,",
-		"command": "workbench.action.previousPanelView",
-		"when": "panelFocus"
+		"key": "ctrl+shift+,",
+		"command": "scrollPageUp",
+		"when": "!panelFocus"
 	},
 	{
 		"key": "ctrl+; e",
@@ -4998,12 +4990,12 @@
 		"command": "breadcrumbs.toggle"
 	},
 	{
-		"key": "ctrl+.",
+		"key": "shift+alt+.",
 		"command": "scrollLineDown",
 		"when": "!panelFocus"
 	},
 	{
-		"key": "ctrl+,",
+		"key": "shift+alt+,",
 		"command": "scrollLineUp",
 		"when": "!panelFocus"
 	},
@@ -5021,14 +5013,6 @@
 		"key": "alt+k",
 		"command": "workbench.action.showAllEditorsByMostRecentlyUsed",
 		"when": "!inQuickOpen && neovim.mode != 'insert'"
-	},
-	{
-		"key": "ctrl+shift+.",
-		"command": "scrollPageDown"
-	},
-	{
-		"key": "ctrl+shift+,",
-		"command": "scrollPageUp"
 	},
 	{
 		"key": "ctrl+space",
@@ -5196,12 +5180,12 @@
 		"when": "terminalFocus"
 	},
 	{
-		"key": "ctrl+alt+k",
+		"key": "ctrl+shift+,",
 		"command": "workbench.action.terminal.scrollUpPage",
 		"when": "terminalFocus"
 	},
 	{
-		"key": "ctrl+alt+j",
+		"key": "ctrl+shift+.",
 		"command": "workbench.action.terminal.scrollDownPage",
 		"when": "terminalFocus"
 	},
@@ -5219,13 +5203,23 @@
 		"when": "terminalFocus"
 	},
 	{
-		"key": "alt+j",
+		"key": "shift+alt+.",
 		"command": "workbench.action.terminal.scrollDown",
 		"when": "terminalFocus"
 	},
 	{
-		"key": "alt+k",
+		"key": "shift+alt+,",
 		"command": "workbench.action.terminal.scrollUp",
 		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+.",
+		"command": "-editor.changeDropType",
+		"when": "dropWidgetVisible"
+	},
+	{
+		"key": "ctrl+.",
+		"command": "-editor.changePasteType",
+		"when": "pasteWidgetVisible"
 	}
 ]

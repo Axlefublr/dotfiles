@@ -66,7 +66,8 @@
 					"string.quoted.single.cs",
 					"punctuation.definition.string",
 					"string.quoted.single.literal.line.toml",
-					"string.quoted.single.basic.line.toml"
+					"string.quoted.single.basic.line.toml",
+					"markup.fenced_code.block.markdown"
 				]
 			},
 			{
@@ -208,7 +209,10 @@
 					"foreground": "#D4BE98",
 					"fontStyle": ""
 				},
-				"scope": ["keyword.operator.namespace.rust", "support.type.property-name.toml"]
+				"scope": [
+					"keyword.operator.namespace.rust",
+					"support.type.property-name.toml"
+				]
 			},
 			{
 				"name": "grey",
@@ -243,6 +247,13 @@
 		}
 	},
 	"[sql]": {},
+	"[json]": {
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+		"editor.suggest.insertMode": "replace",
+		"editor.formatOnSave": true
+	},
 	"Lua.format.defaultConfig": {
 		"indent_style": "tab"
 	},
@@ -265,6 +276,10 @@
 		"*.md": "default"
 	},
 	"terminal.integrated.profiles.windows": {
+		"PowerShell": {
+			"source": "PowerShell",
+			"icon": "terminal-powershell"
+		},
 		"Command Prompt": {
 			"path": [
 				"${env:windir}\\Sysnative\\cmd.exe",
@@ -273,10 +288,17 @@
 			"args": [],
 			"icon": "terminal-cmd"
 		},
+		"Git Bash": {
+			"source": "Git Bash"
+		},
 		"Windows PowerShell": {
 			"path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 		},
 		"WSL": {
+			"path": "C:\\WINDOWS\\System32\\wsl.exe",
+			"args": ["-d", "kali-linux"]
+		},
+		"kali-linux (WSL)": {
 			"path": "C:\\WINDOWS\\System32\\wsl.exe",
 			"args": ["-d", "kali-linux"]
 		}
@@ -313,8 +335,7 @@
 			"other": "inline"
 		}
 	},
-	"[html]": {
-	},
+	"[html]": {},
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
 	},
@@ -514,17 +535,12 @@
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
-	"editor.rulers": [
-		80,
-		120
-	],
+	"editor.rulers": [80, 120],
 	"window.zoomLevel": 1.8,
 	"git.enableStatusBarSync": false,
 	"Lua.window.progressBar": false,
 	"Lua.window.statusBar": false,
-	"settingsSync.ignoredSettings": [
-		"-window.zoomLevel"
-	],
+	"settingsSync.ignoredSettings": ["-window.zoomLevel"],
 	"editor.scrollbar.verticalScrollbarSize": 8,
 	"editor.minimap.enabled": false,
 	"[rust]": {
