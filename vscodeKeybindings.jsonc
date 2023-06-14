@@ -4070,12 +4070,12 @@
 	{
 		"key": "ctrl+shift+.",
 		"command": "scrollPageDown",
-		"when": "!panelFocus"
+		"when": "!panelFocus && !listFocus"
 	},
 	{
 		"key": "ctrl+shift+,",
 		"command": "scrollPageUp",
-		"when": "!panelFocus"
+		"when": "!panelFocus && !listFocus"
 	},
 	{
 		"key": "ctrl+; e",
@@ -4992,12 +4992,12 @@
 	{
 		"key": "shift+alt+.",
 		"command": "scrollLineDown",
-		"when": "!panelFocus"
+		"when": "!panelFocus && !listFocus"
 	},
 	{
 		"key": "shift+alt+,",
 		"command": "scrollLineUp",
-		"when": "!panelFocus"
+		"when": "!panelFocus && !listFocus"
 	},
 	{
 		"key": "l",
@@ -5005,7 +5005,7 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "shift+n",
+		"key": "shift+a",
 		"command": "explorer.newFolder",
 		"when": "filesExplorerFocus && !inputFocus"
 	},
@@ -5040,7 +5040,7 @@
 		"when": "editorFocus && parameterHintsVisible"
 	},
 	{
-		"key": "n",
+		"key": "a",
 		"command": "explorer.newFile",
 		"when": "filesExplorerFocus && !inputFocus"
 	},
@@ -5221,5 +5221,50 @@
 		"key": "ctrl+.",
 		"command": "-editor.changePasteType",
 		"when": "pasteWidgetVisible"
+	},
+	{
+		"key": "n",
+		"command": "explorer.newFile",
+		"when": "filesExplorerFocus && !inputFocus"
+	},
+	{
+		"key": "shift+n",
+		"command": "explorer.newFolder",
+		"when": "filesExplorerFocus && !inputFocus"
+	},
+	{
+		"key": "o",
+		"command": "filesExplorer.openFilePreserveFocus",
+		"when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus"
+	},
+	{
+		"key": "d",
+		"command": "moveFileToTrash",
+		"when": "explorerResourceMoveableToTrash && filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
+	},
+	{
+		"key": "d",
+		"command": "-deleteFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+	},
+	{
+		"key": "shift+alt+.",
+		"command": "list.scrollDown",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "ctrl+down",
+		"command": "-list.scrollDown",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "shift+alt+,",
+		"command": "list.scrollUp",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "ctrl+up",
+		"command": "-list.scrollUp",
+		"when": "listFocus && !inputFocus"
 	}
 ]

@@ -4,19 +4,9 @@
 	"actions": [
 		{
 			"command": {
-				"action": "copy",
-				"singleLine": false
-			}
-		},
-		{
-			"command": "openNewTabDropdown"
-		},
-		{
-			"command": {
-				"action": "movePane",
-				"index": 0
+				"action": "commandPalette"
 			},
-			"keys": "ctrl+alt+1"
+			"keys": "ctrl+shift+p"
 		},
 		{
 			"command": {
@@ -34,16 +24,26 @@
 		},
 		{
 			"command": {
-				"action": "commandPalette"
-			},
-			"keys": "ctrl+shift+p"
-		},
-		{
-			"command": {
 				"action": "movePane",
 				"index": 7
 			},
 			"keys": "ctrl+alt+8"
+		},
+		{
+			"command": "openNewTabDropdown"
+		},
+		{
+			"command": {
+				"action": "movePane",
+				"index": 0
+			},
+			"keys": "ctrl+alt+1"
+		},
+		{
+			"command": {
+				"action": "copy",
+				"singleLine": false
+			}
 		},
 		{
 			"command": {
@@ -53,17 +53,14 @@
 			"keys": "alt+4"
 		},
 		{
+			"command": "paste"
+		},
+		{
 			"command": {
 				"action": "newTab",
 				"index": 1
 			},
 			"keys": "alt+shift+0"
-		},
-		{
-			"command": "paste"
-		},
-		{
-			"command": "find"
 		},
 		{
 			"command": {
@@ -80,6 +77,16 @@
 			"keys": "alt+shift+s"
 		},
 		{
+			"command": "find"
+		},
+		{
+			"command": {
+				"action": "switchToTab",
+				"index": 7
+			},
+			"keys": "alt+8"
+		},
+		{
 			"command": {
 				"action": "newTab",
 				"index": 2
@@ -88,10 +95,11 @@
 		},
 		{
 			"command": {
-				"action": "switchToTab",
-				"index": 7
+				"action": "splitPane",
+				"split": "auto",
+				"splitMode": "duplicate"
 			},
-			"keys": "alt+8"
+			"keys": "ctrl+alt+j"
 		},
 		{
 			"command": "unbound",
@@ -414,14 +422,6 @@
 			"keys": "alt+pgup"
 		},
 		{
-			"command": {
-				"action": "splitPane",
-				"split": "auto",
-				"splitMode": "duplicate"
-			},
-			"keys": "ctrl+alt+j"
-		},
-		{
 			"command": "scrollToBottom"
 		},
 		{
@@ -478,23 +478,16 @@
 		},
 		{
 			"command": {
-				"action": "newTab",
-				"index": 3,
-				"profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
-			}
-		},
-		{
-			"command": {
 				"action": "newWindow"
 			},
 			"keys": "alt+e"
 		},
 		{
 			"command": {
-				"action": "openSettings",
-				"target": "settingsUI"
-			},
-			"keys": "ctrl+shift+]"
+				"action": "newTab",
+				"index": 3,
+				"profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
+			}
 		},
 		{
 			"command": {
@@ -513,6 +506,13 @@
 				"action": "nextTab"
 			},
 			"keys": "alt+period"
+		},
+		{
+			"command": {
+				"action": "openSettings",
+				"target": "settingsUI"
+			},
+			"keys": "ctrl+shift+]"
 		},
 		{
 			"command": {
@@ -577,16 +577,16 @@
 		},
 		{
 			"command": {
-				"action": "closeTab"
-			},
-			"keys": "alt+shift+w"
-		},
-		{
-			"command": {
 				"action": "newTab",
 				"index": 0
 			},
 			"keys": "alt+shift+9"
+		},
+		{
+			"command": {
+				"action": "closeTab"
+			},
+			"keys": "alt+shift+w"
 		},
 		{
 			"command": {
@@ -596,16 +596,16 @@
 			"keys": "alt+shift+l"
 		},
 		{
+			"command": "scrollUpPage",
+			"keys": "ctrl+shift+comma"
+		},
+		{
 			"command": {
 				"action": "newTab",
 				"index": 3,
 				"profile": "{7ed80e74-6d73-4016-8c07-911421ed5467}"
 			},
 			"keys": "ctrl+shift+9"
-		},
-		{
-			"command": "scrollUpPage",
-			"keys": "ctrl+shift+comma"
 		},
 		{
 			"command": {
@@ -640,15 +640,15 @@
 			"keys": "alt+;"
 		},
 		{
-			"command": "duplicateTab",
-			"keys": "ctrl+alt+k"
-		},
-		{
 			"command": {
 				"action": "moveFocus",
 				"direction": "up"
 			},
 			"keys": "alt+shift+k"
+		},
+		{
+			"command": "duplicateTab",
+			"keys": "ctrl+alt+k"
 		},
 		{
 			"command": {
@@ -673,9 +673,14 @@
 		},
 		{
 			"command": {
-				"action": "closeOtherTabs"
+				"action": "resizePane",
+				"direction": "down"
 			},
-			"keys": "ctrl+shift+w"
+			"keys": "alt+shift+f"
+		},
+		{
+			"command": "openTabRenamer",
+			"keys": "alt+shift+r"
 		},
 		{
 			"command": {
@@ -686,14 +691,9 @@
 		},
 		{
 			"command": {
-				"action": "resizePane",
-				"direction": "down"
+				"action": "closeOtherTabs"
 			},
-			"keys": "alt+shift+f"
-		},
-		{
-			"command": "openTabRenamer",
-			"keys": "alt+shift+r"
+			"keys": "ctrl+shift+w"
 		},
 		{
 			"command": {

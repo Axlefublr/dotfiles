@@ -68,7 +68,7 @@ end
 funcsave combine > /dev/null
 
 function timer
-	termdown $argv && Ting.exe
+	termdown $argv[1] && Ting.exe $argv[2]
 end
 funcsave timer > /dev/null
 
@@ -227,8 +227,8 @@ funcsave agrep > /dev/null
 
 function work
 	while true
-		timer 20m || break
-		timer 5m || break
+		timer 20m 'Work session ended, time to rest!' || break
+		timer 5m 'I hope you rested well, time to work!' || break
 	end
 end
 funcsave work > /dev/null

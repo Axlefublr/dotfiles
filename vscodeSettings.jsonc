@@ -482,7 +482,6 @@
 	"workbench.activityBar.visible": false,
 	"screencastMode.verticalOffset": 0,
 	"editor.guides.bracketPairsHorizontal": false,
-	"editor.guides.bracketPairs": true,
 	"editor.matchBrackets": "near",
 	"editor.guides.highlightActiveBracketPair": false,
 	"workbench.editor.highlightModifiedTabs": true,
@@ -495,7 +494,6 @@
 	"window.openWithoutArgumentsInNewWindow": "off",
 	"markdown.extension.theming.decoration.renderTrailingSpace": true,
 	"editor.wordWrapColumn": 170,
-	"scm.diffDecorationsGutterWidth": 2,
 	"vscode-neovim.mouseSelectionStartVisualMode": true,
 	"vscode-neovim.revealCursorScrollLine": true,
 	"git.openRepositoryInParentFolders": "always",
@@ -523,7 +521,6 @@
 	"workbench.quickOpen.closeOnFocusLost": false,
 	"workbench.quickOpen.preserveInput": true,
 	"liveServer.settings.donotShowInfoMsg": true,
-	"editor.guides.indentation": false,
 	"editor.insertSpaces": false,
 	"editor.tabSize": 3,
 	"screencastMode.keyboardShortcutsFormat": "keys",
@@ -550,5 +547,12 @@
 	"files.autoSave": "onFocusChange",
 	"resmon.show.battery": false,
 	"resmon.show.cpufreq": false,
-	"resmon.updatefrequencyms": 5000
+	"resmon.updatefrequencyms": 5000,
+	"[aspnetcorerazor]": {
+		"editor.defaultFormatter": "ms-dotnettools.csharp"
+	},
+	"editor.guides.bracketPairs": true,
+	"editor.guides.indentation": false,
+	"workbench.tree.renderIndentGuides": "always",
+	"scm.diffDecorationsGutterWidth": 2
 }

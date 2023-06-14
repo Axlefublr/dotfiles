@@ -287,7 +287,7 @@ if vim.g.vscode then
 	local function reindent()
 		vim.fn.VSCodeNotify("editor.action.reindentlines")
 	end
-	vim.keymap.set("n", "==", reindent)
+	vim.keymap.set("n", "=>", reindent)
 
 	local function convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
 	vim.keymap.set("n", "=s", convert_to_spaces)
