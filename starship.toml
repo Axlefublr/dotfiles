@@ -1,5 +1,5 @@
 format = """
-[╭─](bold yellow) $directory\
+[╭──](bold yellow) $directory\
 $username\
 $hostname\
 $localip\
@@ -8,7 +8,6 @@ $shlvl\
 $jobs\
 $git_branch\
 $git_state\
-$git_status\
 $status\
 $line_break\
 [╰─](bold yellow)$character"""
@@ -27,6 +26,7 @@ cyan        = '#00D7FF'
 red         = '#FF005F'
 orange      = '#FF8700'
 redder_pink = '#FF8787'
+white       = '#D4BE98'
 
 [aws]
 disabled = true
