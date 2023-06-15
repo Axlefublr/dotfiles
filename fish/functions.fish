@@ -239,7 +239,16 @@ funcsave tg > /dev/null
 
 function fish_prompt
 	set -l statussy $pipestatus
-	set_color $color_yellow
+	set_color $color_orange
+	if test $USER != 'axlefublr'
+		echo -n ' '$USER
+	end
+	if set -q SSH_TTY
+		set_color $color_yellow
+		echo -n '@'
+		set_color $color_orange
+		echo -n $hostname
+	end
 	set_color $color_pink
 	set -l home (string escape --style=regex $HOME)
 	echo -n ' '(string replace -r "^$home" '~' $PWD)
