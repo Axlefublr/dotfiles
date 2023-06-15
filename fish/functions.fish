@@ -241,7 +241,8 @@ function fish_prompt
 	set -l statussy $pipestatus
 	set_color $color_yellow
 	set_color $color_pink
-	printf ' '(basename (pwd))
+	set -l home (string escape --style=regex $HOME)
+	echo -n ' '(string replace -r "^$home" '~' $PWD)
 	set -l curr_branch (git branch --show-current 2> /dev/null)
 	if test curr_branch
 		set_color $color_purple
