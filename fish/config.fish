@@ -57,6 +57,17 @@ set -g git_directories $prog/dotfiles \
 	$pic/Tree \
 	$pic/Tools
 
+set -g color_pink        FFAFD7
+set -g color_purple      AF87FF
+set -g color_grey        878787
+set -g color_yellow      FFD75F
+set -g color_green       87FF5F
+set -g color_cyan        00D7FF
+set -g color_red         FF005F
+set -g color_orange      FF8700
+set -g color_redder_pink FF8787
+set -g color_white       D4BE98
+
 set -g color_gruvbox_white  D4BE98
 set -g color_gruvbox_green  A9B665
 set -g color_gruvbox_purple D3869B
@@ -264,7 +275,7 @@ abbr -a ghgc  'gh gist create'
 abbr -a ghge  'gh gist edit'
 
 bind -M insert  \cG _get_important_dir
-bind -M default \cG _cd_important_dir
+bind -M default -m insert \cG _cd_important_dir
 
 bind -M insert  \cF _get_important_file
 bind -M default -m insert \cF _open_important_file
@@ -292,5 +303,3 @@ bind -M default -m insert "'" accept-autosuggestion execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
-
-starship init fish | source

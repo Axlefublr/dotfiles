@@ -552,7 +552,6 @@
 		"editor.defaultFormatter": "ms-dotnettools.csharp"
 	},
 	"editor.guides.bracketPairs": true,
-	"editor.guides.indentation": false,
 	"workbench.tree.renderIndentGuides": "always",
 	"scm.diffDecorationsGutterWidth": 2
 }

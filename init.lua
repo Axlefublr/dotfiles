@@ -396,7 +396,7 @@ else
 	vim.keymap.set("", "U", save_vim)
 
 	local move_to_bottom_screen__center_screen = 'Lzz'
-	vim.keymap.set("", "!", move_to_bottom_screen__center_screen)
+	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
 
 	local move_to_top_screen__center_screen = 'Hzz'
 	vim.keymap.set("", "H", move_to_top_screen__center_screen)
