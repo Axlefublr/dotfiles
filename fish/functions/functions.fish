@@ -2,6 +2,11 @@
 
 trash-put "~/.config/fish/functions/*" 2> /dev/null
 
+function prli
+	printf '%s\n' $argv
+end
+funcsave prli > /dev/null
+
 function pick
 	set -l current $argv[1]
 	set -l here $argv[1]
@@ -35,59 +40,63 @@ function pick_parent_dir
 end
 funcsave pick_parent_dir > /dev/null
 
+function pick_plain
+	prli $plain_directories | fzf --cycle
+end
+funcsave pick_plain > /dev/null
+
 function ks
-	set -l picked (finde . -maxdepth 3 -- -type d | fzf --cycle)
+	set -l picked (pick .)
 	if test $picked
-		commandline "cd '$picked'"
+		commandline "cd $picked"
 		commandline -f execute
 	end
 end
 funcsave ks > /dev/null
 
-function kd
-	set -l picked (prli $plain_directories | fzf --cycle)
-	if test $picked
-		commandline "cd '$picked'"
-		commandline -f execute
-	end
-end
-funcsave kd > /dev/null
-
 function kf
-	set -l picked (finde $search_directories -maxdepth 3 -- -type d | fzf --cycle)
-	if test $picked
-		commandline "cd '$picked'"
-		commandline -f execute
+	set -l init (pick_parent_dir)
+	if not test $init
+		return 1
 	end
+	set -l picked (pick $init)
+	if not test $picked
+		return 1
+	end
+	commandline "cd $picked"
+	commandline -f execute
 end
 funcsave kf > /dev/null
 
-function ja
-	set -l picked (finde .. -maxdepth 4 -- -type f | fzf --cycle)
-	if test $picked
-		commandline "nvim '$picked'"
-		commandline -f execute
-	end
-end
-funcsave ja > /dev/null
-
 function js
-	set -l picked (finde . -maxdepth 3 -- -type f | fzf --cycle)
+	set -l picked (pick .)
 	if test $picked
-		commandline "nvim '$picked'"
+		commandline "nvim $picked"
 		commandline -f execute
 	end
 end
 funcsave js > /dev/null
 
-function jf
-	set -l picked (finde $search_directories -maxdepth 3 -- -type f | fzf --cycle)
-	if test $picked
-		commandline "nvim '$picked'"
-		commandline -f execute
+function finde
+	set -l paths
+	set -l options
+	set -l current_list paths
+
+	for arg in $argv
+		if test $arg = "--"
+			set current_list options
+			continue
+		end
+
+		if test $current_list = "paths"
+			set paths $paths $arg
+		else
+			set options $options $arg
+		end
 	end
+	find $paths \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name target \) -prune -o $options -not -name '.' -not -name '..' -print
 end
-funcsave jf > /dev/null
+funcsave finde > /dev/null
 
 function cut
 	ffmpeg.exe -i $argv[1] -ss $argv[3] -to $argv[4] -c:a copy $argv[2]
