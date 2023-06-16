@@ -17,44 +17,23 @@ function pick
 end
 funcsave pick > /dev/null
 
-function smush
-	tr '\n' ' ' | sed 's/[[:space:]]*$//'
-end
-funcsave smush > /dev/null
-
-function prli
-	printf '%s\n' $argv
-end
-funcsave prli > /dev/null
-
-function _get_important_dir
-	commandline -i (pick $search_directories -- -type d | smush)
-end
-funcsave _get_important_dir > /dev/null
-
-function _get_important_file
-	commandline -i (pick $search_directories -- -type f | smush)
-end
-funcsave _get_important_file > /dev/null
-
-function _get_current_dir
-	commandline -i (pick . -- -type d | smush)
-end
-funcsave _get_current_dir > /dev/null
-
-function _get_current_file
-	commandline -i (pick . -- -type f | smush)
-end
-funcsave _get_current_file > /dev/null
-
-function ka
-	set -l picked (finde .. -maxdepth 4 -- -type d | fzf --cycle)
-	if test $picked
-		commandline "cd '$picked'"
-		commandline -f execute
+function print_parent_dir
+	set -l input (pwd)
+	set segments (string split "/" $input)
+	set output ''
+	echo '/'
+	for segment in $segments[2..]
+		set output "$output/$segment"
+		echo $output
 	end
+	echo '.'
 end
-funcsave ka > /dev/null
+funcsave print_parent_dir > /dev/null
+
+function pick_parent_dir
+	print_parent_dir | fzf --cycle --tac
+end
+funcsave pick_parent_dir > /dev/null
 
 function ks
 	set -l picked (finde . -maxdepth 3 -- -type d | fzf --cycle)
