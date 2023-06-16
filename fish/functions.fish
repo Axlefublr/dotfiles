@@ -1,33 +1,125 @@
 #!/usr/bin/env fish
 
-function dlist
+trash-put "~/.config/fish/functions/*" 2> /dev/null
+
+function finde
+	set -l paths
+	set -l options
+	set -l current_list paths
+
 	for arg in $argv
-		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type d -print
+		if test $arg = "--"
+			set current_list options
+			continue
+		end
+
+		if test $current_list = "paths"
+			set paths $paths $arg
+		else
+			set options $options $arg
+		end
 	end
+	find $paths \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name target \) -prune -o $options -not -name '.' -not -name '..' -print
 end
-funcsave dlist > /dev/null
+funcsave finde > /dev/null
 
-function flist
-	for arg in $argv
-		find $arg \( -name .git -o -name .npm -o -name .vscode -o -name obj \) -prune -o -type f -print
-	end
+function pick
+	finde $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
 end
-funcsave flist > /dev/null
-
-function dpick
-	dlist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
-end
-funcsave dpick > /dev/null
-
-function fpick
-	flist $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
-end
-funcsave fpick > /dev/null
+funcsave pick > /dev/null
 
 function smush
 	tr '\n' ' ' | sed 's/[[:space:]]*$//'
 end
 funcsave smush > /dev/null
+
+function prli
+	printf '%s\n' $argv
+end
+funcsave prli > /dev/null
+
+function _get_important_dir
+	commandline -i (pick $search_directories -- -type d | smush)
+end
+funcsave _get_important_dir > /dev/null
+
+function _get_important_file
+	commandline -i (pick $search_directories -- -type f | smush)
+end
+funcsave _get_important_file > /dev/null
+
+function _get_current_dir
+	commandline -i (pick . -- -type d | smush)
+end
+funcsave _get_current_dir > /dev/null
+
+function _get_current_file
+	commandline -i (pick . -- -type f | smush)
+end
+funcsave _get_current_file > /dev/null
+
+function ka
+	set -l picked (finde .. -maxdepth 4 -- -type d | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
+end
+funcsave ka > /dev/null
+
+function ks
+	set -l picked (finde . -maxdepth 3 -- -type d | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
+end
+funcsave ks > /dev/null
+
+function kd
+	set -l picked (prli $plain_directories | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
+end
+funcsave kd > /dev/null
+
+function kf
+	set -l picked (finde $search_directories -maxdepth 3 -- -type d | fzf --cycle)
+	if test $picked
+		commandline "cd '$picked'"
+		commandline -f execute
+	end
+end
+funcsave kf > /dev/null
+
+function ja
+	set -l picked (finde .. -maxdepth 4 -- -type f | fzf --cycle)
+	if test $picked
+		commandline "nvim '$picked'"
+		commandline -f execute
+	end
+end
+funcsave ja > /dev/null
+
+function js
+	set -l picked (finde . -maxdepth 3 -- -type f | fzf --cycle)
+	if test $picked
+		commandline "nvim '$picked'"
+		commandline -f execute
+	end
+end
+funcsave js > /dev/null
+
+function jf
+	set -l picked (finde $search_directories -maxdepth 3 -- -type f | fzf --cycle)
+	if test $picked
+		commandline "nvim '$picked'"
+		commandline -f execute
+	end
+end
+funcsave jf > /dev/null
 
 function cut
 	ffmpeg.exe -i $argv[1] -ss $argv[3] -to $argv[4] -c:a copy $argv[2]
@@ -108,66 +200,13 @@ function gpa
 end
 funcsave gpa > /dev/null
 
-function prli
-	printf '%s\n' $argv
-end
-funcsave prli > /dev/null
-
-function _get_important_dir
-	commandline -i (dpick $search_directories | smush)
-end
-funcsave _get_important_dir > /dev/null
-
-function _cd_important_dir
-	set -l picked (prli $plain_directories | fzf --cycle)
+function r
+	set -l picked (history | set -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
 	if test $picked
-		commandline "cd '$picked'"
-		commandline -f execute
+		commandline $picked
 	end
 end
-funcsave _cd_important_dir > /dev/null
-
-function _get_important_file
-	commandline -i (fpick $search_directories | smush)
-end
-funcsave _get_important_file > /dev/null
-
-function _open_important_file
-	set -l picked (flist $search_directories | fzf --cycle)
-	if test $picked
-		commandline "nvim '$picked'"
-		commandline -f execute
-	end
-end
-funcsave _open_important_file > /dev/null
-
-function _get_current_dir
-	commandline -i (dpick . | smush)
-end
-funcsave _get_current_dir > /dev/null
-
-function _cd_current_dir
-	set -l picked (dlist . | fzf --cycle)
-	if test $picked
-		commandline "cd '$picked'"
-		commandline -f execute
-	end
-end
-funcsave _cd_current_dir > /dev/null
-
-function _get_current_file
-	commandline -i (fpick . | smush)
-end
-funcsave _get_current_file > /dev/null
-
-function _open_current_file
-	set -l picked (flist . | fzf --cycle)
-	if test $picked
-		commandline "nvim '$picked'"
-		commandline -f execute
-	end
-end
-funcsave _open_current_file > /dev/null
+funcsave r > /dev/null
 
 function _history_replace
 	set -l picked (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
