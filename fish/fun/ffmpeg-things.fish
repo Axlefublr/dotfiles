@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env fish
+#!/usr/bin/env fish
 
 function cut
 	ffmpeg.exe -i $argv[1] -ss $argv[3] -to $argv[4] -c:a copy $argv[2]

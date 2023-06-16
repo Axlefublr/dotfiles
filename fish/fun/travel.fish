@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env fish
+#!/usr/bin/env fish
 
 function pick
 	set -l current $argv[1]
@@ -21,8 +21,7 @@ function print_parent_dir
 	set output ''
 	echo '/'
 	for segment in $segments[2..]
-		set output "$output/$segment"
-		echo $output
+		echo $segment
 	end
 	echo '.'
 end
@@ -90,3 +89,5 @@ function finde
 	find $paths \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name target \) -prune -o $options -not -name '.' -not -name '..' -print
 end
 funcsave finde > /dev/null
+
+echo (set_color yellow)'functions written'

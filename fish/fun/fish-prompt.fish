@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env fish
+#!/usr/bin/env fish
 
 function fish_prompt
 	set -l statussy $pipestatus
