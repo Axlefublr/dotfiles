@@ -2,29 +2,18 @@
 
 trash-put "~/.config/fish/functions/*" 2> /dev/null
 
-function finde
-	set -l paths
-	set -l options
-	set -l current_list paths
-
-	for arg in $argv
-		if test $arg = "--"
-			set current_list options
-			continue
-		end
-
-		if test $current_list = "paths"
-			set paths $paths $arg
-		else
-			set options $options $arg
-		end
-	end
-	find $paths \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name target \) -prune -o $options -not -name '.' -not -name '..' -print
-end
-funcsave finde > /dev/null
-
 function pick
-	finde $argv | fzf -m --cycle | sed 's/^/\'/; s/$/\'/'
+	set -l current $argv[1]
+	set -l here $argv[1]
+	while test -d $current
+		set here (ls $current -Ab -w 1 2> /dev/null | fzf --cycle)
+		if not test $here
+			break
+		end
+		set current "$current/$here"
+	end
+	set current (string replace -r '^\/\/' '/' $current)
+	printf $current
 end
 funcsave pick > /dev/null
 
