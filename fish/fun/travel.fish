@@ -106,25 +106,4 @@ function paste_relative_path
 end
 funcsave paste_relative_path > /dev/null
 
-function finde
-	set -l paths
-	set -l options
-	set -l current_list paths
-
-	for arg in $argv
-		if test $arg = "--"
-			set current_list options
-			continue
-		end
-
-		if test $current_list = "paths"
-			set paths $paths $arg
-		else
-			set options $options $arg
-		end
-	end
-	find $paths \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name target \) -prune -o $options -not -name '.' -not -name '..' -print
-end
-funcsave finde > /dev/null
-
 echo (set_color yellow)'functions written'
