@@ -47,7 +47,7 @@ funcsave get_important_dir > /dev/null
 
 function ks
 	set -l picked (pick .)
-	if not test $picked
+	if not test $picked || not test -d $picked
 		return 1
 	end
 	commandline "cd $picked"
@@ -61,7 +61,7 @@ function kd
 		return 1
 	end
 	set -l picked (pick $init)
-	if not test $picked
+	if not test $picked || not test -d $picked
 		return 1
 	end
 	commandline "cd $picked"
@@ -75,7 +75,7 @@ function kf
 		return 1
 	end
 	set -l picked (pick $init)
-	if not test $picked
+	if not test $picked || not test -d $picked
 		return 1
 	end
 	commandline "cd $picked"
@@ -85,7 +85,7 @@ funcsave kf > /dev/null
 
 function js
 	set -l picked (pick .)
-	if not test $picked
+	if not test $picked || note test -f $picked
 		return 1
 	end
 	commandline "nvim $picked"
@@ -99,7 +99,7 @@ function jd
 		return 1
 	end
 	set -l picked (pick $init)
-	if not test $picked
+	if not test $picked || note test -f $picked
 		return 1
 	end
 	commandline "nvim $picked"
@@ -113,7 +113,7 @@ function jf
 		return 1
 	end
 	set -l picked (pick $init)
-	if not test $picked
+	if not test $picked || note test -f $picked
 		return 1
 	end
 	commandline "nvim $picked"
