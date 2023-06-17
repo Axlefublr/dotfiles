@@ -6,7 +6,7 @@ end
 funcsave prli > /dev/null
 
 function timer
-	termdown $argv[1] && Ting.exe $argv[2]
+	termdown $argv[1] && Ting.exe $argv[2..]
 end
 funcsave timer > /dev/null
 
