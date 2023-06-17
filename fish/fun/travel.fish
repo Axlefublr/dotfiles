@@ -15,22 +15,24 @@ function pick
 end
 funcsave pick > /dev/null
 
-function print_parent_dir
+function get_parent_dir
 	set -l input (pwd)
-	set segments (string split "/" $input)
-	set output ''
-	echo '/'
-	for segment in $segments[2..]
-		echo $segment
+	set input (string split '/' $input)[2..]
+	set -l parts '/' $input '.'
+	set -l picked (prli $parts | fzf --cycle --tac)
+	set -l output $picked
+	if not test $picked = '.' && not test $picked = '/'
+		set output
+		for segment in $parts[2..]
+			set output "$output/$segment"
+			if test $segment = $picked
+				break
+			end
+		end
 	end
-	echo '.'
+	echo $output
 end
-funcsave print_parent_dir > /dev/null
-
-function pick_parent_dir
-	print_parent_dir | fzf --cycle --tac
-end
-funcsave pick_parent_dir > /dev/null
+funcsave get_parent_dir > /dev/null
 
 function pick_plain
 	prli $plain_directories | fzf --cycle
