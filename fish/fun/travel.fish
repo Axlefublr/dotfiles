@@ -28,6 +28,7 @@ function get_parent_dir
 	end
 	set -l output $picked
 	if not test $picked = '.' && not test $picked = '/'
+		set output
 		for segment in $parts[2..]
 			set output "$output/$segment"
 			if test $segment = $picked
