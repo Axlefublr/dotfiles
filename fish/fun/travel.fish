@@ -34,22 +34,37 @@ function get_parent_dir
 end
 funcsave get_parent_dir > /dev/null
 
-function pick_plain
-	prli $plain_directories | fzf --cycle
+function get_important_dir
+	prli $important_directories | fzf --cycle
 end
-funcsave pick_plain > /dev/null
+funcsave get_important_dir > /dev/null
 
 function ks
 	set -l picked (pick .)
-	if test $picked
-		commandline "cd $picked"
-		commandline -f execute
+	if not test $picked
+		return 1
 	end
+	commandline "cd $picked"
+	commandline -f execute
 end
 funcsave ks > /dev/null
 
+function kd
+	set -l init (get_important_dir)
+	if not test $init
+		return 1
+	end
+	set -l picked (pick $init)
+	if not test $picked
+		return 1
+	end
+	commandline "cd $picked"
+	commandline -f execute
+end
+funcsave kd > /dev/null
+
 function kf
-	set -l init (pick_parent_dir)
+	set -l init (get_parent_dir)
 	if not test $init
 		return 1
 	end
@@ -64,12 +79,41 @@ funcsave kf > /dev/null
 
 function js
 	set -l picked (pick .)
-	if test $picked
-		commandline "nvim $picked"
-		commandline -f execute
+	if not test $picked
+		return 1
 	end
+	commandline "nvim $picked"
+	commandline -f execute
 end
 funcsave js > /dev/null
+
+function jd
+	set -l init (get_important_dir)
+	if not test $init
+		return 1
+	end
+	set -l picked (pick $init)
+	if not test $picked
+		return 1
+	end
+	commandline "nvim $picked"
+	commandline -f execute
+end
+funcsave jd > /dev/null
+
+function jf
+	set -l init (get_parent_dir)
+	if not test $init
+		return 1
+	end
+	set -l picked (pick $init)
+	if not test $picked
+		return 1
+	end
+	commandline "nvim $picked"
+	commandline -f execute
+end
+funcsave jf > /dev/null
 
 function paste_parent_path
 	set -l init (get_parent_dir)
@@ -85,7 +129,7 @@ end
 funcsave paste_parent_path > /dev/null
 
 function paste_important_path
-	set -l init (prli $important_directories | fzf --cycle)
+	set -l init (get_important_dir)
 	if not test $init
 		return 1
 	end

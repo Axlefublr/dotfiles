@@ -255,8 +255,8 @@ bind -M insert \cS paste_relative_path
 bind -M insert  \cR _history_insert
 bind -M default \cR _history_replace
 
-bind -M insert  \cD "exec fish -C 'clear -x'"
-bind -M default \cD "exec fish -C 'clear -x'"
+bind -M insert  \cO "exec fish -C 'clear -x'"
+bind -M default \cO "exec fish -C 'clear -x'"
 
 bind -M insert  \cP "exec fish -PC 'clear'"
 bind -M default \cP "exec fish -PC 'clear'"
