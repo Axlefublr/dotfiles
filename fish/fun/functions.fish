@@ -93,12 +93,12 @@ end
 funcsave new > /dev/null
 
 function argrep
-	grep --color=always -Ern $argv &> /tmp/pagie ; less /tmp/pagie
+	grep --color=always -Ern $argv &| tee /tmp/pagie &| less
 end
 funcsave argrep > /dev/null
 
 function agrep
-	grep --color=always -E $argv &> /tmp/pagie ; less /tmp/pagie
+	grep --color=always -E $argv &| tee /tmp/pagie &| less
 end
 funcsave agrep > /dev/null
 

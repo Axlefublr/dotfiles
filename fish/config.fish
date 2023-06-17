@@ -75,9 +75,9 @@ set -g fish_cursor_visual block
 
 ## abbreviations
 
-abbr -a @hl  --position anywhere -- '--help &> /tmp/pagie ; less /tmp/pagie'
+abbr -a @hl  --position anywhere -- '--help &| tee /tmp/pagie &| less'
 abbr -a @h   --position anywhere -- '--help'
-abbr -a @l   --position anywhere -- '&> /tmp/pagie ; less /tmp/pagie'
+abbr -a @l   --position anywhere -- '&| tee /tmp/pagie &| less'
 abbr -a @ca  --position anywhere -- '--color=always'
 abbr -a @dn  --position anywhere -- '> /dev/null'
 abbr -a @en  --position anywhere -- '2> /dev/null'
@@ -205,7 +205,7 @@ abbr -a grpH    'git rev-parse HEAD'
 abbr -a dn   'dotnet'
 abbr -a dnw  'dotnet watch'
 abbr -a dnn  'dotnet new'
-abbr -a dnnl 'dotnet new list &> /tmp/pagie ; less /tmp/pagie'
+abbr -a dnnl 'dotnet new list &| tee /tmp/pagie &| less'
 abbr -a dnnc 'dotnet new console -n'
 abbr -a dnns 'dotnet new sln'
 abbr -a dnng 'dotnet new gitignore'
