@@ -11,6 +11,9 @@ function pick
 		set current "$current/$here"
 	end
 	set current (string replace -r '^\/\/' '/' $current)
+	if test $current = '.'
+		return 1
+	end
 	printf $current
 end
 funcsave pick > /dev/null
@@ -20,9 +23,11 @@ function get_parent_dir
 	set input (string split '/' $input)[2..]
 	set -l parts '/' $input '.'
 	set -l picked (prli $parts | fzf --cycle --tac)
+	if not test $picked
+		return 1
+	end
 	set -l output $picked
 	if not test $picked = '.' && not test $picked = '/'
-		set output
 		for segment in $parts[2..]
 			set output "$output/$segment"
 			if test $segment = $picked
