@@ -553,5 +553,6 @@
 	},
 	"editor.guides.bracketPairs": true,
 	"workbench.tree.renderIndentGuides": "always",
-	"scm.diffDecorationsGutterWidth": 2
+	"scm.diffDecorationsGutterWidth": 2,
+	"editor.acceptSuggestionOnCommitCharacter": false
 }

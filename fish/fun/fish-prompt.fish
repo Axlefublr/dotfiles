@@ -78,3 +78,13 @@ function fish_mode_prompt
 	end
 end
 funcsave fish_mode_prompt > /dev/null
+
+function fish_title
+	if set -q title
+		echo $title
+	else
+		set auto_title (set -q argv[1] && echo " : $argv" || echo '')
+		echo (basename $PWD)$auto_title
+	end
+end
+funcsave fish_title > /dev/null
