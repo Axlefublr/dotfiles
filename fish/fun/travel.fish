@@ -10,11 +10,11 @@ function pick
 		end
 		set current "$current/$here"
 	end
-	set current (string replace -r '^\/\/' '/' $current)
 	if test $current = '.'
 		return 1
 	end
-	printf $current
+	set current (string replace -r '^\/\/' '/' $current)
+	printf $current | tee /tmp/pickie
 end
 funcsave pick > /dev/null
 

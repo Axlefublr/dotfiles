@@ -250,6 +250,7 @@ abbr -a ghge  'gh gist edit'
 bind -M insert \cD paste_important_path
 bind -M insert \cF paste_parent_path
 bind -M insert \cS paste_relative_path
+bind -M insert \cQ 'commandline -i (cat /tmp/pickie)'
 
 bind -M insert  \cR _history_insert
 bind -M default \cR _history_replace
