@@ -15,8 +15,42 @@ function fish_prompt_pwd
 end
 funcsave fish_prompt_pwd > /dev/null
 
+function fish_prompt_status
+	set -l countstatus (count $argv)
+	if test $countstatus -gt 1
+		set -l are_all_success true
+		for i in (seq $countstatus)
+			if test $argv[$i] -ne 0
+				set are_all_success false
+				break
+			end
+		end
+		echo $are_all_success > /tmp/pagie
+		if test $are_all_success = false
+			printf ' '
+			for i in (seq $countstatus)
+				if test $i -gt 1
+					printf ' '
+				end
+				if test $argv[$i] -ne 0
+					set_color $color_red
+				else
+					set_color $color_green
+				end
+				printf $argv[$i]
+			end
+		end
+	else
+		if test $argv -ne 0
+			set_color $color_red
+			printf ' ✘%s' $argv
+		end
+	end
+end
+funcsave fish_prompt_status > /dev/null
+
 function fish_prompt
-	set -l statussy $pipestatus
+	set -l fullstatuses $pipestatus
 	set_color $color_orange
 	if test $USER != 'axlefublr'
 		echo -n ' '$USER
@@ -43,26 +77,7 @@ function fish_prompt
 		set_color $color_yellow
 		printf '  '$SHLVL
 	end
-	set -l stati (count $statussy)
-	if test $stati -gt 1
-		printf ' '
-		for i in (seq $stati)
-			if test $i -gt 1
-				printf ' '
-			end
-			if test $statussy[$i] -ne 0
-				set_color $color_red
-			else
-				set_color $color_green
-			end
-			printf $statussy[$i]
-		end
-	else
-		if test $statussy -ne 0
-			set_color $color_red
-			printf ' ✘%s' $statussy
-		end
-	end
+	fish_prompt_status $fullstatuses
 	set_color $color_yellow
 	printf '\n╰─> '
 	set_color normal
