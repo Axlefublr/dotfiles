@@ -13,3 +13,8 @@ function fish_title
 	end
 end
 funcsave fish_title > /dev/null
+
+function fish_command_not_found
+	echo "sorry, but the `$argv[1]` command doesn't exist"
+end
+funcsave fish_command_not_found > /dev/null
