@@ -64,10 +64,6 @@ function fish_prompt
 end
 funcsave fish_prompt > /dev/null
 
-function fish_greeting
-end
-funcsave fish_greeting > /dev/null
-
 function fish_mode_prompt
 	set_color $color_yellow
 	switch $fish_bind_mode
@@ -78,13 +74,3 @@ function fish_mode_prompt
 	end
 end
 funcsave fish_mode_prompt > /dev/null
-
-function fish_title
-	if set -q title
-		echo $title
-	else
-		set auto_title (set -q argv[1] && echo " : $argv" || echo '')
-		echo (basename $PWD)$auto_title
-	end
-end
-funcsave fish_title > /dev/null
