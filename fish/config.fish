@@ -265,6 +265,7 @@ bind -M insert  \cE 'less /tmp/pagie'
 bind -M default \cE 'less /tmp/pagie'
 
 bind -M default \; accept-autosuggestion
+bind -M default K execute
 bind -M default -m insert "'" accept-autosuggestion execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse

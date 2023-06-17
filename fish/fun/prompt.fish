@@ -33,17 +33,19 @@ function fish_prompt_status
 					printf ' '
 				end
 				if test $argv[$i] -ne 0
-					set_color $color_red
+					set_color -o $color_red
+					printf '󱎘'
 				else
-					set_color $color_green
+					set_color -o $color_green
+					printf ''
 				end
 				printf $argv[$i]
 			end
 		end
 	else
 		if test $argv -ne 0
-			set_color $color_red
-			printf ' ✘%s' $argv
+			set_color -o $color_red
+			printf ' 󱎘%s' $argv
 		end
 	end
 end

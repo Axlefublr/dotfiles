@@ -85,7 +85,7 @@ funcsave kf > /dev/null
 
 function js
 	set -l picked (pick .)
-	if not test $picked || note test -f $picked
+	if not test $picked || not test -f $picked
 		return 1
 	end
 	commandline "nvim $picked"
@@ -99,7 +99,7 @@ function jd
 		return 1
 	end
 	set -l picked (pick $init)
-	if not test $picked || note test -f $picked
+	if not test $picked || not test -f $picked
 		return 1
 	end
 	commandline "nvim $picked"
@@ -113,7 +113,7 @@ function jf
 		return 1
 	end
 	set -l picked (pick $init)
-	if not test $picked || note test -f $picked
+	if not test $picked || not test -f $picked
 		return 1
 	end
 	commandline "nvim $picked"
