@@ -241,7 +241,7 @@ if vim.g.vscode then
 	vim.keymap.set("", "U", trim__save)
 
 	local function format()
-		vim.fn.VSCodeNotify("editor.action.formatDocument")
+		vim.fn.VSCodeCall("editor.action.formatDocument")
 		print("formatted!")
 	end
 
