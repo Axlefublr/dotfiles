@@ -71,6 +71,41 @@ function js
 end
 funcsave js > /dev/null
 
+function paste_parent_path
+	set -l init (get_parent_dir)
+	if not test $init
+		return 1
+	end
+	set -l picked (pick $init)
+	if not test $picked
+		return 1
+	end
+	commandline -i $picked
+end
+funcsave paste_parent_path > /dev/null
+
+function paste_important_path
+	set -l init (prli $important_directories | fzf --cycle)
+	if not test $init
+		return 1
+	end
+	set -l picked (pick $init)
+	if not test $picked
+		return 1
+	end
+	commandline -i $picked
+end
+funcsave paste_important_path > /dev/null
+
+function paste_relative_path
+	set -l picked (pick .)
+	if not test $picked
+		return 1
+	end
+	commandline -i $picked
+end
+funcsave paste_relative_path > /dev/null
+
 function finde
 	set -l paths
 	set -l options

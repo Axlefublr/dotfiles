@@ -14,45 +14,19 @@ set -l pic /mnt/c/Pictures
 set -l lib /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib
 set -l audio /mnt/c/Audio
 
-set -g search_directories $prog \
-	$lib \
-	$pic \
-	$audio/Sounds
-
-set -g plain_directories $prog \
-	$prog/binaries \
-	$prog/dotfiles \
-	$prog/job \
-	$prog/music \
-	$prog/shows \
-	$prog/tide-functions \
-	$prog/info \
-	$prog/main \
-	$prog/test \
-	$prog/csproj \
-	$prog/csproj/Welde \
-	$prog/csproj/ChoreTracker \
-	$prog/csproj/TestCs \
+set -g important_directories $prog \
 	$prog/rust \
-	$prog/rust/learning \
-	$prog/rust/test-proj \
+	$prog/csproj \
 	$lib \
 	$pic \
-	$pic/Tree \
-	$pic/Screenvideos \
-	$pic/Content \
-	$pic/Downloaded \
-	$pic/Tools \
-	$audio/Sounds \
+	$audio/ \
 	~/.config/fish \
-	~/.config/fish/functions
 
 set -g git_directories $prog/dotfiles \
 	$prog/info \
 	$prog/main \
 	$prog/music \
 	$prog/binaries \
-	$prog/tide-functions \
 	$lib \
 	$pic/Tree \
 	$pic/Tools
@@ -274,10 +248,9 @@ abbr -a ghgl  'gh gist list'
 abbr -a ghgc  'gh gist create'
 abbr -a ghge  'gh gist edit'
 
-bind -M insert \cG _get_important_dir
-bind -M insert \cF _get_important_file
-bind -M insert \cS _get_current_dir
-bind -M insert \cA _get_current_file
+bind -M insert \cD paste_important_path
+bind -M insert \cF paste_parent_path
+bind -M insert \cS paste_relative_path
 
 bind -M insert  \cR _history_insert
 bind -M default \cR _history_replace
