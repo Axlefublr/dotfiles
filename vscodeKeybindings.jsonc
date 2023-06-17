@@ -5266,5 +5266,15 @@
 		"key": "ctrl+up",
 		"command": "-list.scrollUp",
 		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "alt+j",
+		"command": "selectNextCodeAction",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
+	},
+	{
+		"key": "alt+k",
+		"command": "selectPrevCodeAction",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
 	}
 ]

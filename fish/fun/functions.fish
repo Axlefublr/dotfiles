@@ -104,7 +104,7 @@ funcsave agrep > /dev/null
 
 function work
 	while true
-		timer 20m 'Work session ended, time to rest!' || break
+		timer 20m 'Work session ended, time to rest!' no || break
 		timer 5m 'I hope you rested well, time to work!' || break
 	end
 end

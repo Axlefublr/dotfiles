@@ -204,7 +204,6 @@ abbr -a grpH    'git rev-parse HEAD'
 
 abbr -a dn   'dotnet'
 abbr -a dnw  'dotnet watch'
-abbr -a dncr 'dotnet new gitignore && dotnet sln *.sln add **/*.csproj && git add . && git commit -m "first commit" && git push -u origin main'
 abbr -a dnn  'dotnet new'
 abbr -a dnnl 'dotnet new list &> /tmp/pagie ; less /tmp/pagie'
 abbr -a dnnc 'dotnet new console -n'
