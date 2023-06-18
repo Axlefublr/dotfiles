@@ -1,17 +1,27 @@
 #!/usr/bin/env fish
 
 function ggl
-	printf (git remote get-url origin | sed 's/\.git$//')
+	set -l branch
+	if set -q argv[1] && test $argv[1] != ''
+		set branch $argv[1]
+	else
+		set branch (git branch --show-current)
+	end
+	set -l connector 'tree'
+	if set -q argv[2] && test $argv[2] != ''
+		set connector $argv[2]
+	end
+	printf (git remote get-url origin | sed 's/\.git$//')/$connector/$branch
 end
 funcsave ggl > /dev/null
 
 function gglc
-	ggl | tee /dev/tty | clip.exe
+	ggl $argv | tee /dev/tty | clip.exe
 end
 funcsave gglc > /dev/null
 
 function gglb
-	$BROWSER (ggl)
+	$BROWSER (ggl $argv)
 end
 funcsave gglb > /dev/null
 
@@ -32,7 +42,11 @@ function gglf
 	else
 		set connector 'tree'
 	end
-	printf (ggl)/$connector/(git branch --show-current)/$path
+	set -l branch ''
+	if set -q argv[2]
+		set branch $argv[2]
+	end
+	printf (ggl $branch $connector)/$path
 end
 funcsave gglf > /dev/null
 
@@ -47,13 +61,16 @@ end
 funcsave gglfb > /dev/null
 
 function gll
-	set -l connector
+	set -l hsh 'HEAD'
+	if set -q argv[1] && test $argv[1] != ''
+		set hsh $argv[1]
+	end
+	set hsh (git rev-parse $hsh)
+	set -l connector ''
 	if set -q argv[2]
 		set connector $argv[2]
-	else
-		set connector tree
 	end
-	printf (ggl)/$connector/(git rev-parse $argv[1])
+	printf (ggl $hsh $connector)
 end
 funcsave gll > /dev/null
 
@@ -68,7 +85,7 @@ end
 funcsave gllb > /dev/null
 
 function gllf
-	set -l path $argv[2]
+	set -l path $argv[1]
 	set -l is_file
 	if test -d $path
 		set is_file false
@@ -84,7 +101,11 @@ function gllf
 	else
 		set connector 'tree'
 	end
-	printf (gll $argv[1] $connector)/$path
+	set -l hsh ''
+	if set -q argv[2]
+		set hsh $argv[2]
+	end
+	printf (gll $hsh $connector)/$path
 end
 funcsave gllf > /dev/null
 
