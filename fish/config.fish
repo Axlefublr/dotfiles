@@ -100,9 +100,11 @@ abbr -a rmf   'rm -fr'
 abbr -a tree  'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
-abbr -a fishp 'fish -P'
 abbr -a mvf   'mv -f'
 abbr -a pri   'echo $fish_private_mode'
+abbr -a fp 'fish -P'
+abbr -a fi 'fish'
+abbr -a x  'exit'
 
 abbr -a rm  'trash-put'
 abbr -a rma 'trash-put *'
@@ -257,9 +259,6 @@ bind -M default \cR _history_replace
 
 bind -M insert  \cO "exec fish -C 'clear -x'"
 bind -M default \cO "exec fish -C 'clear -x'"
-
-bind -M insert  \cP "exec fish -PC 'clear'"
-bind -M default \cP "exec fish -PC 'clear'"
 
 bind -M insert  \cE 'less /tmp/pagie'
 bind -M default \cE 'less /tmp/pagie'

@@ -53,35 +53,42 @@ funcsave fish_prompt_status > /dev/null
 
 function fish_prompt
 	set -l fullstatuses $pipestatus
+	printf ' '
+	set_color $color_yellow
+	if test $SHLVL -gt 1
+		printf ' '
+	end
+	if set -q fish_private_mode
+		printf '󰗹 '
+	end
+	if test (jobs)
+		printf ' '
+	end
+	if not test -w .
+		printf ' '
+	end
 	set_color $color_orange
 	if test $USER != 'axlefublr'
 		echo -n ' '$USER
 	end
 	if set -q SSH_TTY
-		set_color $color_yellow
+		set_color -o $color_yellow
 		echo -n '@'
+		set_color normal
 		set_color $color_orange
 		echo -n $hostname
 	end
 	set_color $color_pink
-	printf ' '
 	fish_prompt_pwd
 	set -l curr_branch (git branch --show-current 2> /dev/null)
 	if test curr_branch
-		set_color $color_purple
+		set_color -o $color_purple
 		echo -n ' '$curr_branch
-	end
-	if set -q fish_private_mode
-		set_color $color_white
-		printf ' 󰗹 '
-	end
-	if test $SHLVL -gt 1
-		set_color $color_yellow
-		printf '  '$SHLVL
+		set_color normal
 	end
 	fish_prompt_status $fullstatuses
 	set_color $color_yellow
-	printf '\n╰─> '
+	printf '\n╰─ '
 	set_color normal
 end
 funcsave fish_prompt > /dev/null
@@ -90,9 +97,9 @@ function fish_mode_prompt
 	set_color $color_yellow
 	switch $fish_bind_mode
 		case insert
-			echo '╭──'
+			echo '󰼁'
 		case '*'
-			echo '╭─ '
+			echo ''
 	end
 end
 funcsave fish_mode_prompt > /dev/null
