@@ -88,7 +88,7 @@ function js
 	if not test $picked || not test -f $picked
 		return 1
 	end
-	commandline "nvim $picked"
+	commandline "$EDITOR $picked"
 	commandline -f execute
 end
 funcsave js > /dev/null
@@ -102,7 +102,7 @@ function jd
 	if not test $picked || not test -f $picked
 		return 1
 	end
-	commandline "nvim $picked"
+	commandline "$EDITOR $picked"
 	commandline -f execute
 end
 funcsave jd > /dev/null
@@ -116,7 +116,7 @@ function jf
 	if not test $picked || not test -f $picked
 		return 1
 	end
-	commandline "nvim $picked"
+	commandline "$EDITOR $picked"
 	commandline -f execute
 end
 funcsave jf > /dev/null
