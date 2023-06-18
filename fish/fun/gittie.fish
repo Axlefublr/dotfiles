@@ -15,27 +15,6 @@ function gglb
 end
 funcsave gglb > /dev/null
 
-function gll
-	set -l connector
-	if set -q argv[1]
-		set connector $argv[1]
-	else
-		set connector tree
-	end
-	printf (ggl)/$connector/(git rev-parse HEAD)
-end
-funcsave gll > /dev/null
-
-function gllc
-	gll | tee /dev/tty | clip.exe
-end
-funcsave gllc > /dev/null
-
-function gllb
-	$BROWSER (gll)
-end
-funcsave gllb > /dev/null
-
 function gglf
 	set -l path $argv[1]
 	set -l is_file
@@ -67,8 +46,29 @@ function gglfb
 end
 funcsave gglfb > /dev/null
 
+function gll
+	set -l connector
+	if set -q argv[2]
+		set connector $argv[2]
+	else
+		set connector tree
+	end
+	printf (ggl)/$connector/(git rev-parse $argv[1])
+end
+funcsave gll > /dev/null
+
+function gllc
+	gll $argv | tee /dev/tty | clip.exe
+end
+funcsave gllc > /dev/null
+
+function gllb
+	$BROWSER (gll $argv)
+end
+funcsave gllb > /dev/null
+
 function gllf
-	set -l path $argv[1]
+	set -l path $argv[2]
 	set -l is_file
 	if test -d $path
 		set is_file false
@@ -84,7 +84,7 @@ function gllf
 	else
 		set connector 'tree'
 	end
-	printf (gll $connector)/$path
+	printf (gll $argv[1] $connector)/$path
 end
 funcsave gllf > /dev/null
 
