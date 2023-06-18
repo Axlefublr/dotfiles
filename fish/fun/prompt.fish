@@ -78,8 +78,9 @@ function fish_prompt
 		set_color $color_orange
 		echo -n $hostname
 	end
-	set_color $color_pink
+	set_color -o $color_pink
 	fish_prompt_pwd
+	set_color normal
 	set -l curr_branch (git branch --show-current 2> /dev/null)
 	if test curr_branch
 		set_color -o $color_purple
