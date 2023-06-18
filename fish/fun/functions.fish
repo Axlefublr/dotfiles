@@ -47,7 +47,7 @@ end
 funcsave gpa > /dev/null
 
 function r
-	set -l picked (history | set -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
+	set -l picked (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
 	if test $picked
 		commandline $picked
 	end

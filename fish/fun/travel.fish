@@ -21,13 +21,13 @@ funcsave pick > /dev/null
 function get_parent_dir
 	set -l input (pwd)
 	set input (string split '/' $input)[2..]
-	set -l parts '/' $input '.'
+	set -l parts '/' $input
 	set -l picked (prli $parts | fzf --cycle --tac)
 	if not test $picked
 		return 1
 	end
 	set -l output $picked
-	if not test $picked = '.' && not test $picked = '/'
+	if not test $picked = '/'
 		set output
 		for segment in $parts[2..]
 			set output "$output/$segment"
