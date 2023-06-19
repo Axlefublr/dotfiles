@@ -50,8 +50,7 @@ function ks
 	if not test $picked || not test -d $picked
 		return 1
 	end
-	commandline "cd $picked"
-	commandline -f execute
+	cd $picked
 end
 funcsave ks > /dev/null
 
@@ -64,8 +63,7 @@ function kd
 	if not test $picked || not test -d $picked
 		return 1
 	end
-	commandline "cd $picked"
-	commandline -f execute
+	cd $picked
 end
 funcsave kd > /dev/null
 
@@ -78,8 +76,7 @@ function kf
 	if not test $picked || not test -d $picked
 		return 1
 	end
-	commandline "cd $picked"
-	commandline -f execute
+	cd $picked
 end
 funcsave kf > /dev/null
 
@@ -88,8 +85,7 @@ function js
 	if not test $picked || not test -f $picked
 		return 1
 	end
-	commandline "$EDITOR $picked"
-	commandline -f execute
+	$EDITOR $picked
 end
 funcsave js > /dev/null
 
@@ -102,8 +98,7 @@ function jd
 	if not test $picked || not test -f $picked
 		return 1
 	end
-	commandline "$EDITOR $picked"
-	commandline -f execute
+	$EDITOR $picked
 end
 funcsave jd > /dev/null
 
@@ -116,8 +111,7 @@ function jf
 	if not test $picked || not test -f $picked
 		return 1
 	end
-	commandline "$EDITOR $picked"
-	commandline -f execute
+	$EDITOR $picked
 end
 funcsave jf > /dev/null
 
