@@ -126,3 +126,21 @@ function gsu
 end
 funcsave gsu > /dev/null
 
+function gsa
+	set -l prevDir (pwd)
+	set -l directories $git_directories
+
+	for dir in $directories
+
+		cd $dir
+		set_color yellow
+		echo $dir
+		set_color normal
+		and git status -s
+		and gsu
+
+	end
+
+	cd $prevDir
+end
+funcsave gsa > /dev/null
