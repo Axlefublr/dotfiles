@@ -317,27 +317,13 @@ if vim.g.vscode then
 		save()
 		vim.fn.VSCodeNotify("git.stage")
 	end
-	vim.keymap.set("n", "<leader>ga", git_stage_file)
-
-	local function git_stage_all()
-		trim_trailing_whitespace()
-		save()
-		vim.fn.VSCodeNotify("git.stageAll")
-	end
-	vim.keymap.set("n", "<leader>gA", git_stage_all)
-
-	local function git_commit()
-		trim_trailing_whitespace()
-		save()
-		vim.fn.VSCodeNotify("git.commit")
-	end
-	vim.keymap.set("n", "<leader>gm", git_commit)
+	vim.keymap.set("n", "zk", git_stage_file)
 
 	local function git_unstage_file()
 		save()
 		vim.fn.VSCodeNotify("git.unstage")
 	end
-	vim.keymap.set("n", "<leader>gu", git_unstage_file)
+	vim.keymap.set("n", "zK", git_unstage_file)
 
 	local function git_revert_change()
 		vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0)
@@ -348,14 +334,23 @@ if vim.g.vscode then
 	local function git_stage_change()
 		vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 0)
 	end
-	vim.keymap.set("n", "<leader>gt", git_stage_change)
-	vim.keymap.set("v", "<leader>gt", git_stage_change)
+	vim.keymap.set("n", "zj", git_stage_change)
+	vim.keymap.set("v", "zj", git_stage_change)
+
+	local function git_unstage_change()
+		vim.fn.VSCodeNotifyVisual("git.unstageSelectedRanges", 0)
+	end
+	vim.keymap.set("n", "zJ", git_unstage_change)
+	vim.keymap.set("v", "zJ", git_unstage_change)
+
+	local function git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
+	vim.keymap.set("n", "zi", git_open_changes)
 
 	local function git_open_all_changes()
-		vim.fn.VSCodeNotifyVisual("git.openAllChanges", 0)
+		vim.fn.VSCodeNotify("git.openAllChanges")
 	end
-	vim.keymap.set("n", "<leader>gN", git_open_all_changes)
-	vim.keymap.set("v", "<leader>gN", git_open_all_changes)
+	vim.keymap.set("n", "zI", git_open_all_changes)
+
 
 	local function git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
 	vim.keymap.set("n", "<leader>gn", git_open_changes)

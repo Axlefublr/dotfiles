@@ -943,7 +943,7 @@
 		"when": "inSearchEditor"
 	},
 	{
-		"key": "alt+m",
+		"key": "alt+'",
 		"command": "editor.action.triggerParameterHints",
 		"when": "editorHasSignatureHelpProvider && editorTextFocus && !parameterHintsVisible"
 	},
@@ -1037,7 +1037,7 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
 	},
 	{
-		"key": "alt+'",
+		"key": "alt+m",
 		"command": "editor.action.triggerSuggest",
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
 	},
@@ -1047,7 +1047,7 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
 	},
 	{
-		"key": "alt+m",
+		"key": "alt+'",
 		"command": "toggleSuggestionDetails",
 		"when": "suggestWidgetVisible && textInputFocus"
 	},
@@ -3289,7 +3289,7 @@
 		"when": "inSettingsEditor && inSettingsSearch"
 	},
 	{
-		"key": "alt+n",
+		"key": "ctrl+space",
 		"command": "notifications.clearAll",
 		"when": "notificationToastsVisible"
 	},
@@ -3385,7 +3385,7 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
 	},
 	{
-		"key": "alt+'",
+		"key": "alt+m",
 		"command": "hideSuggestWidget",
 		"when": "suggestWidgetVisible && textInputFocus"
 	},
@@ -4644,14 +4644,9 @@
 		"when": "!terminalFocus"
 	},
 	{
-		"key": "ctrl+4",
+		"key": "alt+h",
 		"command": "editor.action.showHover",
-		"when": "!terminalFocus"
-	},
-	{
-		"key": "ctrl+4",
-		"command": "workbench.action.terminal.focusHover",
-		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalIsOpen || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+		"when": "!inKeybindings && neovim.mode != 'insert' && !editorHoverFocused"
 	},
 	{
 		"key": "ctrl+k ctrl+i",
@@ -5030,7 +5025,7 @@
 		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
-		"key": "alt+m",
+		"key": "alt+'",
 		"command": "closeParameterHints",
 		"when": "editorFocus && parameterHintsVisible"
 	},
@@ -5276,5 +5271,10 @@
 		"key": "alt+k",
 		"command": "selectPrevCodeAction",
 		"when": "actionWidgetVisible || codeActionMenuVisible"
+	},
+	{
+		"key": "alt+h",
+		"command": "editor.action.escapeFocusHover",
+		"when": "editorHoverFocused && !inKeybindings"
 	}
 ]
