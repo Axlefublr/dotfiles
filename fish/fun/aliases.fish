@@ -1,12 +1,12 @@
 #!/usr/bin/env fish
 
-alias --save grep 'grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias --save less 'less --use-color -R'
-alias --save termdown 'termdown -W -f roman'
-alias --save dotnet 'dotnet.exe'
-alias --save gh 'gh.exe'
-alias --save code 'code-insiders'
-alias --save node 'node.exe'
-alias --save ... 'cd ../..'
-alias --save .... 'cd ../../..'
-alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git &| tee /tmp/pagie &| less'
+alias --save grep 'grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}' > /dev/null
+alias --save less 'less --use-color -R' > /dev/null
+alias --save termdown 'termdown -W -f roman' > /dev/null
+alias --save dotnet 'dotnet.exe' > /dev/null
+alias --save gh 'gh.exe' > /dev/null
+alias --save code 'code-insiders' > /dev/null
+alias --save node 'node.exe' > /dev/null
+alias --save ... 'cd ../..' > /dev/null
+alias --save .... 'cd ../../..' > /dev/null
+alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git &| tee /tmp/pagie &| less' > /dev/null

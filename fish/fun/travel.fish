@@ -149,5 +149,3 @@ function paste_relative_path
 	commandline -i $picked
 end
 funcsave paste_relative_path > /dev/null
-
-echo (set_color yellow)'functions written'

@@ -85,5 +85,3 @@ function finde
 	find $paths \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name target \) -prune -o $options -not -name '.' -not -name '..' -print
 end
 funcsave finde > /dev/null
-
-echo (set_color yellow)'functions written'
