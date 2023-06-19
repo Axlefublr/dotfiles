@@ -53,7 +53,6 @@ funcsave fish_prompt_status > /dev/null
 
 function fish_prompt
 	set -l fullstatuses $pipestatus
-	printf ' '
 	set_color $color_yellow
 	if test $SHLVL -gt 1
 		printf ' '
@@ -98,9 +97,9 @@ function fish_mode_prompt
 	set_color $color_yellow
 	switch $fish_bind_mode
 		case insert
-			echo '󰼁'
+			echo '󰼁 '
 		case '*'
-			echo ''
+			echo ' '
 	end
 end
 funcsave fish_mode_prompt > /dev/null
