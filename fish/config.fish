@@ -213,6 +213,7 @@ abbr -a dnrp 'dotnet run --project'
 abbr -a dnb  'dotnet build'
 abbr -a dna  'dotnet add'
 abbr -a dnf  'dotnet format'
+abbr -a dnap 'dotnet add package'
 
 ## rust
 

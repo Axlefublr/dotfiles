@@ -118,3 +118,11 @@ function gllfb
 	$BROWSER (gllf $argv)
 end
 funcsave gllfb > /dev/null
+
+function gsu
+	set -l remote (git remote)
+	set -l branch (git branch --show-current)
+	git log --oneline $remote/$branch..$branch
+end
+funcsave gsu > /dev/null
+

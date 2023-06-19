@@ -25,7 +25,6 @@ function fish_prompt_status
 				break
 			end
 		end
-		echo $are_all_success > /tmp/pagie
 		if test $are_all_success = false
 			printf ' '
 			for i in (seq $countstatus)
