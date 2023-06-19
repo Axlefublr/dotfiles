@@ -249,8 +249,8 @@ bind -M insert \cF paste_parent_path
 bind -M insert \cS paste_relative_path
 bind -M insert \cQ 'commandline -i (cat /tmp/pickie)'
 
-bind -M insert  \cR _history_insert
-bind -M default \cR _history_replace
+bind -M insert  \cR hist_insert
+bind -M default \cR hist_replace
 
 bind -M insert  \cO "exec fish -C 'clear -x'"
 bind -M default \cO "exec fish -C 'clear -x'"

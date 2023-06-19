@@ -46,27 +46,6 @@ function gpa
 end
 funcsave gpa > /dev/null
 
-function r
-	set -l picked (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
-	if test $picked
-		commandline $picked
-	end
-end
-funcsave r > /dev/null
-
-function _history_replace
-	set -l picked (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index --query=(commandline))
-	if test $picked
-		commandline $picked
-	end
-end
-funcsave _history_replace > /dev/null
-
-function _history_insert
-	commandline -i (history | sed -e 's/[[:space:]]*$//' | awk '!a[$0]++' | fzf --tiebreak=index)
-end
-funcsave _history_insert > /dev/null
-
 function postvideo
 	set -l prevDir (pwd)
 	cd '/mnt/c/Pictures/Screenvideos'
