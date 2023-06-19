@@ -119,12 +119,12 @@ function gllfb
 end
 funcsave gllfb > /dev/null
 
-function gsu
+function gsp
 	set -l remote (git remote)
 	set -l branch (git branch --show-current)
 	git log --oneline $remote/$branch..$branch
 end
-funcsave gsu > /dev/null
+funcsave gsp > /dev/null
 
 function gsa
 	set -l prevDir (pwd)
@@ -137,7 +137,7 @@ function gsa
 		echo $dir
 		set_color normal
 		and git status -s
-		and gsu
+		and gsp
 
 	end
 
