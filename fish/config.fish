@@ -125,6 +125,7 @@ abbr -a g       'git'
 abbr -a gd      'git diff'
 abbr -a gds     'git diff --staged'
 abbr -a gss     'git status'
+abbr -a gsv     'git status -s | awk "{print \$2}" | xargs code-insiders'
 abbr -a gs      'git status -s'
 abbr -a gsh     'git show'
 abbr -a gl      'git log'
@@ -212,8 +213,8 @@ abbr -a dnr  'dotnet run'
 abbr -a dnrp 'dotnet run --project'
 abbr -a dnb  'dotnet build'
 abbr -a dna  'dotnet add'
-abbr -a dnf  'dotnet format'
 abbr -a dnap 'dotnet add package'
+abbr -a dnf  'dotnet format'
 
 ## rust
 
@@ -251,7 +252,7 @@ bind -M insert \cS paste_relative_path
 bind -M insert \cQ 'commandline -i (cat /tmp/pickie)'
 
 bind -M insert  \cR hist_insert
-bind -M default \cR hist_replace
+bind -M default R   hist_replace
 
 bind -M insert  \cO "exec fish -C 'clear -x'"
 bind -M default \cO "exec fish -C 'clear -x'"
