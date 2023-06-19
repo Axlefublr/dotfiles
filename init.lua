@@ -351,9 +351,41 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "zI", git_open_all_changes)
 
+	local function accept_merge_both()
+		vim.fn.VSCodeNotify("merge-conflict.accept.both")
+	end
+	vim.keymap.set("n", "zo", accept_merge_both)
 
-	local function git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
-	vim.keymap.set("n", "<leader>gn", git_open_changes)
+	local function accept_merge_all_both()
+		vim.fn.VSCodeNotify("merge-conflict.accept.all-both")
+	end
+	vim.keymap.set("n", "zO", accept_merge_all_both)
+
+	local function accept_merge_current()
+		vim.fn.VSCodeNotify("merge-conflict.accept.current")
+	end
+	vim.keymap.set("n", "zu", accept_merge_current)
+
+	local function accept_merge_all_current()
+		vim.fn.VSCodeNotify("merge-conflict.accept.all-current")
+	end
+	vim.keymap.set("n", "zU", accept_merge_all_current)
+
+	local function accept_merge_incoming()
+		vim.fn.VSCodeNotify("merge-conflict.accept.incoming")
+	end
+	vim.keymap.set("n", "zp", accept_merge_incoming)
+
+	local function accept_merge_all_incoming()
+		vim.fn.VSCodeNotify("merge-conflict.accept.all-incoming")
+	end
+	vim.keymap.set("n", "zP", accept_merge_all_incoming)
+
+	local function accept_merge_selection()
+		vim.fn.VSCodeNotifyVisual("merge-conflict.accept.selection", 0)
+	end
+	vim.keymap.set("n", "zl", accept_merge_selection)
+	vim.keymap.set("v", "zl", accept_merge_selection)
 
 	local function codesnap()
 		vim.fn.VSCodeNotifyVisual("codesnap.start", true)
