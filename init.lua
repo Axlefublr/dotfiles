@@ -167,7 +167,6 @@ function GetChar(prompt)
 	end
 	return char
 end
-vim.keymap.set("n", "<leader>a", GetChar)
 
 function Validate_register(register)
 	if register == 'q' then
@@ -610,7 +609,6 @@ end
 vim.keymap.set("n", "<Esc>", remove_highlighting__escape)
 
 local function toggle_highlight_search() vim.cmd("set hlsearch!") end
--- vim.keymap.set("", "<leader>H", toggle_highlight_search)
 
 local function multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
 vim.keymap.set("n", "<leader>q", multiply)
@@ -619,10 +617,10 @@ local vore_out_line_into_block = '"_ddddpvaB<Esc>'
 vim.keymap.set("n", "<leader>di", vore_out_line_into_block)
 
 local convert_to_arrow_function = 'vaBo<Esc>"_s=> <Esc>Jj"_dd'
-vim.keymap.set("n", "<leader>bi", convert_to_arrow_function)
+vim.keymap.set("n", "<leader>da", convert_to_arrow_function)
 
 local convert_to_normal_function = '^f(%f="_c3l{<cr><Esc>o}<Esc>'
-vim.keymap.set("n", "<leader>ba", convert_to_normal_function)
+vim.keymap.set("n", "<leader>dn", convert_to_normal_function)
 
 local function add_character_at_the_end_of_line()
 	local char = GetChar("Press a character:")
@@ -641,9 +639,6 @@ local function add_character_at_the_start_of_line()
 	FeedKeys("`" .. THROWAWAY_MARK)
 end
 vim.keymap.set("n", "<leader>:", add_character_at_the_start_of_line)
-
-local add_ahk_dependency = "m" .. THROWAWAY_MARK .. "#Include <"
-vim.keymap.set("n", "<leader>in", add_ahk_dependency)
 
 local system_clipboard_register = '"+'
 vim.keymap.set("", "'q", system_clipboard_register)
@@ -673,10 +668,10 @@ local delete_line_but_take_inside_line = 'dil\'_dd'
 vim.keymap.set("n", "<leader>dl", delete_line_but_take_inside_line, { remap = true })
 
 local move_line_to_top = 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK
-vim.keymap.set("", "<leader>mt", move_line_to_top)
+vim.keymap.set("", "<leader>do", move_line_to_top)
 
 local move_line_to_bottom = 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK
-vim.keymap.set("", "<leader>mb", move_line_to_bottom)
+vim.keymap.set("", "<leader>db", move_line_to_bottom)
 
 function Search_for_selection(search_operator)
 	FeedKeys('y')
@@ -745,12 +740,6 @@ function Better_replace(range)
 
 	vim.cmd(range .. "s/" .. magic .. what .. "/" .. with .. "/g")
 end
--- Both are inputs, non regex, current line
-vim.keymap.set("n", "<leader>s", "<cmd>lua Better_replace('.')<cr>")
--- Both are inputs, non regex, whole file
-vim.keymap.set("n", "<leader>S", "<cmd>lua Better_replace('%')<cr>")
--- Both are inputs, non regex, visual
-vim.keymap.set("v", "<leader>s", "<esc><cmd>lua Better_replace(\"'<,'>\")<cr>")
 
 function Better_global()
 
@@ -779,10 +768,8 @@ function Better_global()
 
 	vim.cmd(global_command_str .. '/' .. magic .. pattern .. '/' .. command)
 end
-vim.keymap.set("n", "<leader>v", Better_global)
 
 local execute_normal_command = "<esc>:'<,'>norm "
-vim.keymap.set("v", "<leader>v", execute_normal_command)
 
 local repeat_replace_goes_next = "n&"
 vim.keymap.set("n", "&", repeat_replace_goes_next)
@@ -808,9 +795,11 @@ vim.keymap.set("", ":", sneak_repeat_backward)
 
 local inclusive_next_blankie = "}k"
 vim.keymap.set("n", "<leader>}", inclusive_next_blankie)
+vim.keymap.set("v", "<leader>}", inclusive_next_blankie)
 
 local inclusive_prev_blankie = "{j"
 vim.keymap.set("n", "<leader>{", inclusive_prev_blankie)
+vim.keymap.set("v", "<leader>{", inclusive_prev_blankie)
 
 local function inclusive_next_blankie_visual() vim.cmd("normal V}k") end
 vim.keymap.set("o", "<leader>}", inclusive_next_blankie_visual)
@@ -820,9 +809,6 @@ vim.keymap.set("o", "<leader>{", inclusive_prev_blankie_visual)
 
 local dig_into_docs = "K"
 vim.keymap.set("n", "gK", dig_into_docs)
-
--- function Remove_slash_comments() vim.cmd("'<,'>g/\\/\\//d") end
--- vim.keymap.set("v", "<leader>c", Remove_slash_comments)
 
 local copy_current_character = 'yl'
 vim.keymap.set("n", "X", copy_current_character)
