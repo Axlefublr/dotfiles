@@ -97,11 +97,11 @@ abbr -a ffi  'ffmpeg.exe -i'
 abbr -a bat   'batcat'
 abbr -a v     'nvim'
 abbr -a rmf   'rm -fr'
-abbr -a tree  'tree -C | less'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
 abbr -a mvf   'mv -f'
 abbr -a pri   'echo $fish_private_mode'
+
 abbr -a fp 'fish -P'
 abbr -a fi 'fish'
 abbr -a x  'exit'
@@ -114,10 +114,10 @@ abbr -a grep  'grep -E'
 abbr -a rgrep 'grep -Ern'
 abbr -a lgrep 'grep -Erl'
 
-abbr -a ls  'ls -A'
-abbr -a lg  'ls -Agh'
-abbr -a lsa 'ls --color=always -A'
-abbr -a lsg 'ls --color=always -Agh'
+abbr -a ls 'ls -A'
+abbr -a lg 'ls -Agh'
+abbr -a lr 'ls --color=always -R &| tee /tmp/pagie &| less'
+abbr -a lar 'ls --color=always -AR &| tee /tmp/pagie &| less'
 
 ## git
 
