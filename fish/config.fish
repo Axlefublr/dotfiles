@@ -8,6 +8,7 @@ set -gx BROWSER 'browser.exe'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000
+set -g fish_escape_delay_ms 10
 
 set -l prog /mnt/c/Programming
 set -l pic /mnt/c/Pictures
@@ -218,17 +219,22 @@ abbr -a dnf  'dotnet format'
 
 ## rust
 
-abbr -a ca   'cargo'
-abbr -a can  'cargo new'
-abbr -a canl 'cargo new --lib'
-abbr -a car  'cargo run'
-abbr -a carq 'cargo run -q'
-abbr -a cab  'cargo build'
-abbr -a cacl 'cargo clean'
-abbr -a cach 'cargo check'
-abbr -a cau  'cargo update'
-abbr -a caf  'cargo fmt'
-abbr -a cai  'cargo init'
+abbr -a ca    'cargo'
+abbr -a can   'cargo new'
+abbr -a canf  'echo "hard_tabs = true" > rustfmt.toml'
+abbr -a canl  'cargo new --lib'
+abbr -a car   'cargo run'
+abbr -a carr  'cargo run -r'
+abbr -a carq  'cargo run -q'
+abbr -a carrq 'cargo run -rq'
+abbr -a cab   'cargo build'
+abbr -a cabr  'cargo build --release'
+abbr -a cad   'cargo doc'
+abbr -a cacl  'cargo clean'
+abbr -a cach  'cargo check'
+abbr -a cau   'cargo update'
+abbr -a caf   'cargo fmt'
+abbr -a cai   'cargo init'
 
 abbr -a ru   'rustup'
 abbr -a rud  'rustup docs'

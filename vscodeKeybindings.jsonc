@@ -5276,13 +5276,5 @@
 		"key": "alt+h",
 		"command": "editor.action.escapeFocusHover",
 		"when": "editorHoverFocused && !inKeybindings"
-	},
-	{
-		"key": "shift+alt+]",
-		"command": "merge-conflict.next"
-	},
-	{
-		"key": "shift+alt+[",
-		"command": "merge-conflict.previous"
 	}
 ]

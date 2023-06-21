@@ -155,7 +155,8 @@
 				},
 				"scope": [
 					"variable.other.normal.fish",
-					"punctuation.definition.variable.fish"
+					"punctuation.definition.variable.fish",
+					"keyword.operator.borrow.and.rust"
 				]
 			},
 			{
@@ -168,7 +169,8 @@
 					"variable.language.this",
 					"keyword.other.this",
 					"variable.language.this.ahk2",
-					"variable.language.self.rust"
+					"variable.language.self.rust",
+					"storage.modifier.mut.rust"
 				]
 			},
 			{
@@ -211,7 +213,8 @@
 				},
 				"scope": [
 					"keyword.operator.namespace.rust",
-					"support.type.property-name.toml"
+					"support.type.property-name.toml",
+					"keyword.operator.key-value.rust"
 				]
 			},
 			{
@@ -530,7 +533,7 @@
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
-	"editor.rulers": [80, 120],
+	"editor.rulers": [],
 	"window.zoomLevel": 1.8,
 	"git.enableStatusBarSync": false,
 	"Lua.window.progressBar": false,
@@ -554,5 +557,22 @@
 	"scm.diffDecorationsGutterWidth": 2,
 	"editor.acceptSuggestionOnCommitCharacter": false,
 	"csharp.inlayHints.parameters.forObjectCreationParameters": true,
-	"editor.guides.indentation": false
+	"editor.guides.indentation": false,
+	"rust-analyzer.completion.postfix.enable": false,
+	"rust-analyzer.hover.actions.references.enable": true,
+	"rust-analyzer.inlayHints.bindingModeHints.enable": true,
+	"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
+	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+	"rust-analyzer.inlayHints.closureStyle": "rust_analyzer",
+	"rust-analyzer.inlayHints.discriminantHints.enable": "always",
+	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
+	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
+	"rust-analyzer.hover.actions.enable": false,
+	"rust-analyzer.lens.debug.enable": false,
+	"rust-analyzer.lens.references.adt.enable": true,
+	"rust-analyzer.lens.references.enumVariant.enable": true,
+	"rust-analyzer.lens.references.method.enable": true,
+	"rust-analyzer.lens.references.trait.enable": true,
+	"rust-analyzer.lens.run.enable": false,
+	"rust-analyzer.restartServerOnConfigChange": true
 }
