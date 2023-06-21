@@ -8,6 +8,18 @@ function pick
 		if test (echo $here) = ''
 			break
 		end
+		if set -q argv[2] # prune out files if you pass the 2nd argument
+			set -l newHere
+			for obj in $here
+				if not test -f $current/$obj
+					set newHere $newHere $obj
+				end
+			end
+			set here $newHere
+		end
+		if test (echo $here) = ''
+			break
+		end
 		set here (prli $here | fzf --cycle)
 		if not test $here
 			break
@@ -50,8 +62,8 @@ end
 funcsave get_important_dir > /dev/null
 
 function ks
-	set -l picked (pick .)
-	if not test $picked || not test -d $picked
+	set -l picked (pick . true)
+	if not test $picked
 		return 1
 	end
 	cd $picked
@@ -63,8 +75,8 @@ function kd
 	if not test $init
 		return 1
 	end
-	set -l picked (pick $init)
-	if not test $picked || not test -d $picked
+	set -l picked (pick $init true)
+	if not test $picked
 		return 1
 	end
 	cd $picked
@@ -76,8 +88,8 @@ function kf
 	if not test $init
 		return 1
 	end
-	set -l picked (pick $init)
-	if not test $picked || not test -d $picked
+	set -l picked (pick $init true)
+	if not test $picked
 		return 1
 	end
 	cd $picked
