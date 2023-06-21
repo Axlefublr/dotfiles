@@ -67,7 +67,8 @@
 					"punctuation.definition.string",
 					"string.quoted.single.literal.line.toml",
 					"string.quoted.single.basic.line.toml",
-					"markup.fenced_code.block.markdown"
+					"markup.fenced_code.block.markdown",
+					"punctuation.definition.char.rust"
 				]
 			},
 			{
@@ -76,7 +77,12 @@
 					"foreground": "#D8A657",
 					"fontStyle": "bold"
 				},
-				"scope": ["markup.bold", "keyword.type", "keyword.other.var.cs"]
+				"scope": [
+					"markup.bold",
+					"keyword.type",
+					"keyword.other.var.cs",
+					"storage.type.rust"
+				]
 			},
 			{
 				"name": "green",
@@ -103,7 +109,9 @@
 					"foreground": "#89B482",
 					"fontStyle": ""
 				},
-				"scope": []
+				"scope": [
+					"meta.interpolation.rust"
+				]
 			},
 			{
 				"name": "greean italic",
@@ -156,7 +164,9 @@
 				"scope": [
 					"variable.other.normal.fish",
 					"punctuation.definition.variable.fish",
-					"keyword.operator.borrow.and.rust"
+					"keyword.operator.borrow.and.rust",
+					"keyword.other.crate.rust",
+					"punctuation.definition.interpolation.rust"
 				]
 			},
 			{
@@ -212,9 +222,14 @@
 					"fontStyle": ""
 				},
 				"scope": [
-					"keyword.operator.namespace.rust",
 					"support.type.property-name.toml",
-					"keyword.operator.key-value.rust"
+					"keyword.operator.key-value.rust",
+					"keyword.operator.assignment.equal.rust",
+					"meta.attribute.rust",
+					"keyword.operator.access.dot.rust",
+					"keyword.operator.namespace.rust",
+					"keyword.operator.arrow.skinny.rust",
+					"keyword.operator.range.rust"
 				]
 			},
 			{
@@ -565,7 +580,6 @@
 	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
 	"rust-analyzer.inlayHints.closureStyle": "rust_analyzer",
 	"rust-analyzer.inlayHints.discriminantHints.enable": "always",
-	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
 	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
 	"rust-analyzer.hover.actions.enable": false,
 	"rust-analyzer.lens.debug.enable": false,
@@ -574,5 +588,16 @@
 	"rust-analyzer.lens.references.method.enable": true,
 	"rust-analyzer.lens.references.trait.enable": true,
 	"rust-analyzer.lens.run.enable": false,
-	"rust-analyzer.restartServerOnConfigChange": true
+	"rust-analyzer.restartServerOnConfigChange": true,
+	"rust-analyzer.semanticHighlighting.operator.specialization.enable": true,
+	"rust-analyzer.semanticHighlighting.punctuation.enable": true,
+	"rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": true,
+	"rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
+	"rust-analyzer.showDependenciesExplorer": false,
+	"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+	"rust-analyzer.typing.continueCommentsOnNewline": false,
+	"rust-analyzer.workspace.symbol.search.kind": "all_symbols",
+	"rust-analyzer.workspace.symbol.search.scope": "workspace_and_dependencies",
+	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
+	"rust-analyzer.inlayHints.parameterHints.enable": false
 }

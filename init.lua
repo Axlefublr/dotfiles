@@ -261,8 +261,9 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "<leader>r", rename_symbol)
 
-	local function open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
-	vim.keymap.set("n", "gl", open_link)
+	function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
+	vim.keymap.set("n", "gl", Open_link)
+	vim.keymap.set("v", "gl", "<esc><cmd>lua Open_link()<cr>")
 
 	local function outdent()
 		---@diagnostic disable-next-line: unused-local

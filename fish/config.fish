@@ -238,7 +238,7 @@ abbr -a cai   'cargo init'
 
 abbr -a ru   'rustup'
 abbr -a rud  'rustup docs'
-abbr -a rudd 'rustup docs --std'
+abbr -a ruds 'rustup docs --std'
 abbr -a rudb 'rustup docs --book'
 
 abbr -a ghr   'gh repo'
