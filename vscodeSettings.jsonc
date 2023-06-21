@@ -442,7 +442,6 @@
 	"omnisharp.enableRoslynAnalyzers": true,
 	"omnisharp.organizeImportsOnFormat": true,
 	"omnisharp.enableAsyncCompletion": true,
-	"csharp.inlayHints.types.enabled": true,
 	"search.collapseResults": "auto",
 	"search.defaultViewMode": "tree",
 	"workbench.list.smoothScrolling": true,
@@ -512,7 +511,6 @@
 	"csharp.inlayHints.parameters.suppressForParametersThatMatchMethodIntent": true,
 	"csharp.inlayHints.types.forImplicitVariableTypes": true,
 	"csharp.inlayHints.types.forLambdaParameterTypes": true,
-	"csharp.inlayHints.parameters.forObjectCreationParameters": true,
 	"editor.tabCompletion": "on",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.renderLineHighlight": "gutter",
@@ -554,5 +552,7 @@
 	"editor.guides.bracketPairs": true,
 	"workbench.tree.renderIndentGuides": "always",
 	"scm.diffDecorationsGutterWidth": 2,
-	"editor.acceptSuggestionOnCommitCharacter": false
+	"editor.acceptSuggestionOnCommitCharacter": false,
+	"csharp.inlayHints.parameters.forObjectCreationParameters": true,
+	"editor.guides.indentation": false
 }

@@ -4,7 +4,11 @@ function pick
 	set -l current $argv[1]
 	set -l here $argv[1]
 	while test -d $current
-		set here (ls $current -Ab -w 1 2> /dev/null | fzf --cycle)
+		set here (ls $current -Ab -w 1 2> /dev/null)
+		if test (echo $here) = ''
+			break
+		end
+		set here (prli $here | fzf --cycle)
 		if not test $here
 			break
 		end
