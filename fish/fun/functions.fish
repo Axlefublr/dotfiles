@@ -71,12 +71,12 @@ function finde
 	set -l current_list paths
 
 	for arg in $argv
-		if test $arg = "--"
+		if test $arg = '--'
 			set current_list options
 			continue
 		end
 
-		if test $current_list = "paths"
+		if test $current_list = 'paths'
 			set paths $paths $arg
 		else
 			set options $options $arg
@@ -85,3 +85,10 @@ function finde
 	find $paths \( -name .git -o -name .npm -o -name .vscode -o -name obj -o -name target \) -prune -o $options -not -name '.' -not -name '..' -print
 end
 funcsave finde > /dev/null
+
+function cado
+	set -l project_name (basename $PWD)
+	set -l full_path $PWD/target/doc/$project_name/index.html
+	$BROWSER (wslpath -w $full_path)
+end
+funcsave cado > /dev/null

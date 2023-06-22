@@ -15,16 +15,26 @@
 					"storage.type.getter.ahk2",
 					"storage.type.setter.ahk2",
 					"keyword.operator.arrow.cs",
-					"keyword.operator.attribute.inner.rust"
+					"keyword.operator.attribute.inner.rust",
+					"keyword.operator.increment",
+					"keyword.operator.decrement"
 				]
 			},
 			{
 				"name": "red italic",
 				"settings": {
 					"foreground": "#EA6962",
-					"fontStyle": ""
+					"fontStyle": "italic"
 				},
 				"scope": []
+			},
+			{
+				"name": "red bold",
+				"settings": {
+					"foreground": "#EA6962",
+					"fontStyle": "bold"
+				},
+				"scope": ["keyword.operator.comparison"]
 			},
 			{
 				"name": "orange",
@@ -32,7 +42,14 @@
 					"foreground": "#E78A4E",
 					"fontStyle": ""
 				},
-				"scope": ["meta.attribute.rust"]
+				"scope": [
+					"storage.modifier",
+					"meta.attribute.rust",
+					"keyword.local.lua",
+					"keyword.control.flow.throw",
+					"keyword.other.nameof",
+					"keyword.other.await"
+				]
 			},
 			{
 				"name": "orange italic",
@@ -40,7 +57,15 @@
 					"foreground": "#E78A4E",
 					"fontStyle": "italic"
 				},
-				"scope": ["storage.modifier", "keyword.local.lua"]
+				"scope": []
+			},
+			{
+				"name": "orange bold",
+				"settings": {
+					"foreground": "#E78A4E",
+					"fontStyle": "bold"
+				},
+				"scope": []
 			},
 			{
 				"name": "yellow",
@@ -68,7 +93,8 @@
 					"string.quoted.single.literal.line.toml",
 					"string.quoted.single.basic.line.toml",
 					"markup.fenced_code.block.markdown",
-					"punctuation.definition.char.rust"
+					"punctuation.definition.char.rust",
+					"support.type.property-name.json"
 				]
 			},
 			{
@@ -92,8 +118,17 @@
 				},
 				"scope": [
 					"support.function.builtin.shell",
-					"meta.scope.subject.git-commit"
+					"meta.scope.subject.git-commit",
+					"support.function.unix.fish"
 				]
+			},
+			{
+				"name": "green bold",
+				"settings": {
+					"foreground": "#A9B665",
+					"fontStyle": "bold"
+				},
+				"scope": []
 			},
 			{
 				"name": "green italic",
@@ -110,7 +145,8 @@
 					"fontStyle": ""
 				},
 				"scope": [
-					"meta.interpolation.rust"
+					"entity.name.type.namespace.cs",
+					"string.quoted.double.json",
 				]
 			},
 			{
@@ -162,11 +198,11 @@
 					"fontStyle": ""
 				},
 				"scope": [
-					"variable.other.normal.fish",
-					"punctuation.definition.variable.fish",
-					"keyword.operator.borrow.and.rust",
 					"keyword.other.crate.rust",
-					"punctuation.definition.interpolation.rust"
+					"keyword.other.new",
+					"keyword.operator.null-coalescing",
+					"variable.other.normal.fish",
+					"punctuation.definition.variable.fish"
 				]
 			},
 			{
@@ -180,7 +216,8 @@
 					"keyword.other.this",
 					"variable.language.this.ahk2",
 					"variable.language.self.rust",
-					"storage.modifier.mut.rust"
+					"storage.modifier.mut.rust",
+					"keyword.other.base"
 				]
 			},
 			{
@@ -192,6 +229,22 @@
 				"scope": []
 			},
 			{
+				"name": "purple underline",
+				"settings": {
+					"foreground": "#D3869B",
+					"fontStyle": "underline"
+				},
+				"scope": ["variable.other.fixed.fish"]
+			},
+			{
+				"name": "purple bold underline",
+				"settings": {
+					"foreground": "#D3869B",
+					"fontStyle": "bold underline"
+				},
+				"scope": ["variable.other.special.fish"]
+			},
+			{
 				"name": "white bold italic",
 				"settings": {
 					"foreground": "#D4BE98",
@@ -200,12 +253,30 @@
 				"scope": ["variable.language.ahk2"]
 			},
 			{
+				"name": "white italic",
+				"settings": {
+					"foreground": "#D4BE98",
+					"fontStyle": "italic"
+				},
+				"scope": ["string.other.option.fish"]
+			},
+			{
 				"name": "white bold",
 				"settings": {
 					"foreground": "#D4BE98",
 					"fontStyle": "bold"
 				},
-				"scope": []
+				"scope": [
+					"punctuation.definition.interpolation.begin.cs",
+					"punctuation.definition.interpolation.end.cs",
+					"punctuation.definition.interpolation.rust",
+					"keyword.operator.range.rust",
+					"keyword.operator.borrow.and.rust",
+					"punctuation.definition.typeparameters",
+					"keyword.operator.assignment",
+					"keyword.operator.arithmetic",
+					"keyword.operator.relational.cs"
+				]
 			},
 			{
 				"name": "white strikethrough",
@@ -222,14 +293,13 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"meta.interpolation.rust",
 					"support.type.property-name.toml",
 					"keyword.operator.key-value.rust",
-					"keyword.operator.assignment.equal.rust",
-					"meta.attribute.rust",
 					"keyword.operator.access.dot.rust",
 					"keyword.operator.namespace.rust",
 					"keyword.operator.arrow.skinny.rust",
-					"keyword.operator.range.rust"
+					"variable.other.object.property.cs"
 				]
 			},
 			{
@@ -240,7 +310,9 @@
 				},
 				"scope": [
 					"constant.character.escape.ahk2",
-					"constant.character.escape.cs"
+					"constant.character.escape.cs",
+					"constant.character.escape.fish",
+					"constant.character.escape.single.fish"
 				]
 			}
 		]
@@ -335,7 +407,7 @@
 	"AutoHotkey2.FormatOptions": {
 		"indent_string": "\t",
 		"keep_array_indentation": true,
-		"white_space_before_inline_comment": "\t",
+		"white_space_before_inline_comment": " ",
 		"space_after_double_colon": true,
 		"space_before_conditional": true
 	},
@@ -599,5 +671,6 @@
 	"rust-analyzer.workspace.symbol.search.kind": "all_symbols",
 	"rust-analyzer.workspace.symbol.search.scope": "workspace_and_dependencies",
 	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
-	"rust-analyzer.inlayHints.parameterHints.enable": false
+	"rust-analyzer.inlayHints.parameterHints.enable": false,
+	"csharp.testsCodeLens.enabled": false
 }
