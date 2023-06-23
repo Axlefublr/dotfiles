@@ -17,7 +17,8 @@
 					"keyword.operator.arrow.cs",
 					"keyword.operator.attribute.inner.rust",
 					"keyword.operator.increment",
-					"keyword.operator.decrement"
+					"keyword.operator.decrement",
+					"keyword.operator.arrow.fat.rust"
 				]
 			},
 			{
@@ -146,7 +147,7 @@
 				},
 				"scope": [
 					"entity.name.type.namespace.cs",
-					"string.quoted.double.json",
+					"string.quoted.double.json"
 				]
 			},
 			{
@@ -630,7 +631,7 @@
 	"editor.minimap.enabled": false,
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer",
-		"editor.formatOnSave": true
+		"editor.formatOnSave": true,
 	},
 	"files.autoSave": "onFocusChange",
 	"resmon.show.battery": false,
@@ -647,12 +648,8 @@
 	"editor.guides.indentation": false,
 	"rust-analyzer.completion.postfix.enable": false,
 	"rust-analyzer.hover.actions.references.enable": true,
-	"rust-analyzer.inlayHints.bindingModeHints.enable": true,
-	"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
-	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
 	"rust-analyzer.inlayHints.closureStyle": "rust_analyzer",
 	"rust-analyzer.inlayHints.discriminantHints.enable": "always",
-	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
 	"rust-analyzer.hover.actions.enable": false,
 	"rust-analyzer.lens.debug.enable": false,
 	"rust-analyzer.lens.references.adt.enable": true,
@@ -672,5 +669,11 @@
 	"rust-analyzer.workspace.symbol.search.scope": "workspace_and_dependencies",
 	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
 	"rust-analyzer.inlayHints.parameterHints.enable": false,
-	"csharp.testsCodeLens.enabled": false
+	"csharp.testsCodeLens.enabled": false,
+	"rust-analyzer.completion.callable.snippets": "add_parentheses",
+	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
+	"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
+	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+	"rust-analyzer.inlayHints.bindingModeHints.enable": true,
+	"rust-analyzer.inlayHints.closingBraceHints.enable": false
 }
