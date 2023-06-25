@@ -5110,9 +5110,9 @@
 		"when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
 	},
 	{
-		"key": "l",
+		"key": "tab",
 		"command": "list.toggleExpand",
-		"when": "listFocus && !inputFocus && !breadcrumbsActive"
+		"when": "breadcrumbsActive"
 	},
 	{
 		"key": "tab",
@@ -5276,5 +5276,20 @@
 		"key": "alt+h",
 		"command": "editor.action.escapeFocusHover",
 		"when": "editorHoverFocused && !inKeybindings"
+	},
+	{
+		"key": "l",
+		"command": "list.toggleExpand",
+		"when": "listFocus && !breadcrumbsActive && !inputFocus"
+	},
+	{
+		"key": "o",
+		"command": "notification.acceptPrimaryAction",
+		"when": "notificationFocus && notificationToastsVisible"
+	},
+	{
+		"key": "ctrl+shift+a",
+		"command": "-notification.acceptPrimaryAction",
+		"when": "notificationToastsVisible"
 	}
 ]

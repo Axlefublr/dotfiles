@@ -44,6 +44,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"constant.numeric.decimal.rust",
 					"storage.modifier",
 					"meta.attribute.rust",
 					"keyword.local.lua",
@@ -108,7 +109,20 @@
 					"markup.bold",
 					"keyword.type",
 					"keyword.other.var.cs",
-					"storage.type.rust"
+					"storage.type.rust",
+					"variable.language.this",
+					"keyword.other.this",
+					"variable.language.this.ahk2",
+					"variable.language.self.rust",
+				]
+			},
+			{
+				"name": "yellow italic",
+				"settings": {
+					"foreground": "#D8A657",
+					"fontStyle": "italic"
+				},
+				"scope": [
 				]
 			},
 			{
@@ -213,10 +227,6 @@
 					"fontStyle": "italic"
 				},
 				"scope": [
-					"variable.language.this",
-					"keyword.other.this",
-					"variable.language.this.ahk2",
-					"variable.language.self.rust",
 					"storage.modifier.mut.rust",
 					"keyword.other.base"
 				]
@@ -268,6 +278,7 @@
 					"fontStyle": "bold"
 				},
 				"scope": [
+					"keyword.operator.math.rust",
 					"punctuation.definition.interpolation.begin.cs",
 					"punctuation.definition.interpolation.end.cs",
 					"punctuation.definition.interpolation.rust",
@@ -427,6 +438,9 @@
 		}
 	},
 	"[html]": {},
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer"
+	},
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
 	},
@@ -629,10 +643,6 @@
 	"settingsSync.ignoredSettings": ["-window.zoomLevel"],
 	"editor.scrollbar.verticalScrollbarSize": 8,
 	"editor.minimap.enabled": false,
-	"[rust]": {
-		"editor.defaultFormatter": "rust-lang.rust-analyzer",
-		"editor.formatOnSave": true,
-	},
 	"files.autoSave": "onFocusChange",
 	"resmon.show.battery": false,
 	"resmon.show.cpufreq": false,
@@ -671,9 +681,11 @@
 	"rust-analyzer.inlayHints.parameterHints.enable": false,
 	"csharp.testsCodeLens.enabled": false,
 	"rust-analyzer.completion.callable.snippets": "add_parentheses",
-	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
+	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
 	"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
 	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
 	"rust-analyzer.inlayHints.bindingModeHints.enable": true,
-	"rust-analyzer.inlayHints.closingBraceHints.enable": false
+	"rust-analyzer.inlayHints.closingBraceHints.enable": false,
+	"rust-analyzer.inlayHints.renderColons": false,
+	"rust-analyzer.inlayHints.typeHints.enable": false
 }

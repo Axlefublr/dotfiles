@@ -9,7 +9,7 @@ function fish_title
 		echo $title
 	else
 		set auto_title (set -q argv[1] && echo " : $argv" || echo '')
-		echo (fish_prompt_pwd)$auto_title
+		echo (basename $PWD)$auto_title
 	end
 end
 funcsave fish_title > /dev/null

@@ -219,7 +219,7 @@ if vim.g.vscode then
 	vim.keymap.set("", "H", move_to_top_screen__center_screen)
 
 	local function trim_trailing_whitespace()
-		vim.fn.VSCodeNotify("editor.action.trimTrailingWhitespace")
+		vim.fn.VSCodeCall("editor.action.trimTrailingWhitespace")
 	end
 
 	local function save() vim.fn.VSCodeCall("workbench.action.files.save") end
@@ -287,7 +287,7 @@ if vim.g.vscode then
 	local function reindent()
 		vim.fn.VSCodeNotify("editor.action.reindentlines")
 	end
-	vim.keymap.set("n", "=>", reindent)
+	vim.keymap.set("n", "==", reindent)
 
 	local function convert_to_spaces() vim.fn.VSCodeNotify("editor.action.indentationToSpaces") end
 	vim.keymap.set("n", "=s", convert_to_spaces)
@@ -299,13 +299,6 @@ if vim.g.vscode then
 
 	local function toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
 	vim.keymap.set("n", "za", toggle_fold)
-
-	local function format_document()
-		vim.fn.VSCodeNotify("editor.action.formatDocument")
-		trim_trailing_whitespace()
-		print("formatted")
-	end
-	vim.keymap.set("n", "=ie", format_document)
 
 	local function closeEditor()
 		vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
@@ -328,8 +321,8 @@ if vim.g.vscode then
 	local function git_revert_change()
 		vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0)
 	end
-	vim.keymap.set("n", "<leader>gr", git_revert_change)
-	vim.keymap.set("v", "<leader>gr", git_revert_change)
+	vim.keymap.set("n", "zJ", git_revert_change)
+	vim.keymap.set("v", "zJ", git_revert_change)
 
 	local function git_stage_change()
 		vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 0)
@@ -340,8 +333,6 @@ if vim.g.vscode then
 	local function git_unstage_change()
 		vim.fn.VSCodeNotifyVisual("git.unstageSelectedRanges", 0)
 	end
-	vim.keymap.set("n", "zJ", git_unstage_change)
-	vim.keymap.set("v", "zJ", git_unstage_change)
 
 	local function git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
 	vim.keymap.set("n", "zi", git_open_changes)
