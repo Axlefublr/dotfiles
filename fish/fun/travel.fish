@@ -20,7 +20,7 @@ function pick
 		if test (echo $here) = ''
 			break
 		end
-		set here (prli $here | fzf --cycle)
+		set here (prli $here | fzf -e --cycle)
 		if not test $here
 			break
 		end
@@ -38,7 +38,7 @@ function get_parent_dir
 	set -l input (pwd)
 	set input (string split '/' $input)[2..]
 	set -l parts '/' $input
-	set -l picked (prli $parts | fzf --cycle --tac)
+	set -l picked (prli $parts | fzf -e --cycle --tac)
 	if not test $picked
 		return 1
 	end
@@ -57,7 +57,7 @@ end
 funcsave get_parent_dir > /dev/null
 
 function get_important_dir
-	prli $important_directories | fzf --cycle
+	prli $important_directories | fzf -e --cycle
 end
 funcsave get_important_dir > /dev/null
 
