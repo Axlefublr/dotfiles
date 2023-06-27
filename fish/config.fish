@@ -16,12 +16,12 @@ set -l lib /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib
 set -l audio /mnt/c/Audio
 
 set -g important_directories $prog \
-	$prog/rust \
-	$prog/csproj \
 	$lib \
 	$pic \
 	$audio/ \
 	~/.config/fish \
+	$prog/rust \
+	$prog/csproj \
 
 set -g git_directories $prog/dotfiles \
 	$prog/info \
@@ -237,6 +237,7 @@ abbr -a cau   'cargo update'
 abbr -a caf   'cargo fmt'
 abbr -a cafi  'cargo fix'
 abbr -a cai   'cargo init'
+abbr -a caa   'cargo add'
 
 abbr -a ru   'rustup'
 abbr -a rud  'rustup docs'

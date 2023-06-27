@@ -3070,9 +3070,9 @@
 		"when": "textInputFocus && !actionWidgetVisible && !codeActionMenuVisible"
 	},
 	{
-		"key": "ctrl+; r",
+		"key": "t",
 		"command": "copyRelativeFilePath",
-		"when": "!terminalFocus"
+		"when": "filesExplorerFocus && !inputFocus"
 	},
 	{
 		"key": "shift+alt+up",
@@ -3346,8 +3346,9 @@
 		"when": "testing.canRefresh"
 	},
 	{
-		"key": "ctrl+; f",
-		"command": "copyFilePath"
+		"key": "shift+t",
+		"command": "copyFilePath",
+		"when": "filesExplorerFocus && !inputFocus"
 	},
 	{
 		"key": "ctrl+f",
@@ -5291,5 +5292,13 @@
 		"key": "ctrl+shift+a",
 		"command": "-notification.acceptPrimaryAction",
 		"when": "notificationToastsVisible"
+	},
+	{
+		"key": "ctrl+; f",
+		"command": "copyFilePath"
+	},
+	{
+		"key": "ctrl+; r",
+		"command": "copyRelativeFilePath"
 	}
 ]

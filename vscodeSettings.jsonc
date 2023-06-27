@@ -18,7 +18,8 @@
 					"keyword.operator.attribute.inner.rust",
 					"keyword.operator.increment",
 					"keyword.operator.decrement",
-					"keyword.operator.arrow.fat.rust"
+					"keyword.operator.arrow.fat.rust",
+					"keyword.control.case"
 				]
 			},
 			{
@@ -44,7 +45,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
-					"constant.numeric.decimal.rust",
+					"constant.numeric",
 					"storage.modifier",
 					"meta.attribute.rust",
 					"keyword.local.lua",
@@ -113,7 +114,7 @@
 					"variable.language.this",
 					"keyword.other.this",
 					"variable.language.this.ahk2",
-					"variable.language.self.rust",
+					"variable.language.self.rust"
 				]
 			},
 			{
@@ -122,8 +123,7 @@
 					"foreground": "#D8A657",
 					"fontStyle": "italic"
 				},
-				"scope": [
-				]
+				"scope": []
 			},
 			{
 				"name": "green",
@@ -226,10 +226,7 @@
 					"foreground": "#D3869B",
 					"fontStyle": "italic"
 				},
-				"scope": [
-					"storage.modifier.mut.rust",
-					"keyword.other.base"
-				]
+				"scope": ["storage.modifier.mut.rust", "keyword.other.base"]
 			},
 			{
 				"name": "purple bold",
@@ -305,6 +302,8 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"keyword.operator.ahk2",
+					"constant.other.caps.rust",
 					"meta.interpolation.rust",
 					"support.type.property-name.toml",
 					"keyword.operator.key-value.rust",
@@ -320,12 +319,7 @@
 					"foreground": "#928374",
 					"fontStyle": ""
 				},
-				"scope": [
-					"constant.character.escape.ahk2",
-					"constant.character.escape.cs",
-					"constant.character.escape.fish",
-					"constant.character.escape.single.fish"
-				]
+				"scope": ["constant.character.escape"]
 			}
 		]
 	},
@@ -505,7 +499,6 @@
 	"codesnap.containerPadding": "1em",
 	"codesnap.showWindowControls": false,
 	"window.title": "${dirty}${activeEditorLong}${separator}${separator}${appName}",
-	"extensions.ignoreRecommendations": true,
 	"search.showLineNumbers": true,
 	"search.quickOpen.includeHistory": false,
 	"search.seedWithNearestWord": true,
@@ -543,7 +536,6 @@
 	"debug.inlineValues": "on",
 	"files.eol": "\n",
 	"vscode-neovim.logOutputToConsole": true,
-	"omnisharp.enableImportCompletion": true,
 	"omnisharp.enableRoslynAnalyzers": true,
 	"omnisharp.organizeImportsOnFormat": true,
 	"omnisharp.enableAsyncCompletion": true,
@@ -573,7 +565,7 @@
 		"workbench.action.terminal.openDetectedLink",
 		"workbench.action.terminal.killAll"
 	],
-	"editor.renderWhitespace": "trailing",
+	"editor.renderWhitespace": "boundary",
 	"explorer.excludeGitIgnore": true,
 	"task.quickOpen.history": 5,
 	"editor.accessibilitySupport": "off",
@@ -609,13 +601,6 @@
 	"editor.suggest.showInlineDetails": false,
 	"Lua.completion.keywordSnippet": "Disable",
 	"editor.wordBasedSuggestionsMode": "allDocuments",
-	"csharp.inlayHints.parameters.forLiteralParameters": true,
-	"csharp.inlayHints.parameters.forOtherParameters": true,
-	"csharp.inlayHints.parameters.suppressForParametersThatDifferOnlyBySuffix": true,
-	"csharp.inlayHints.parameters.suppressForParametersThatMatchArgumentName": true,
-	"csharp.inlayHints.parameters.suppressForParametersThatMatchMethodIntent": true,
-	"csharp.inlayHints.types.forImplicitVariableTypes": true,
-	"csharp.inlayHints.types.forLambdaParameterTypes": true,
 	"editor.tabCompletion": "on",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.renderLineHighlight": "gutter",
@@ -635,7 +620,7 @@
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
-	"editor.rulers": [],
+	"editor.rulers": [96, 128],
 	"window.zoomLevel": 1.8,
 	"git.enableStatusBarSync": false,
 	"Lua.window.progressBar": false,
@@ -650,11 +635,9 @@
 	"[aspnetcorerazor]": {
 		"editor.defaultFormatter": "ms-dotnettools.csharp"
 	},
-	"editor.guides.bracketPairs": true,
 	"workbench.tree.renderIndentGuides": "always",
 	"scm.diffDecorationsGutterWidth": 2,
 	"editor.acceptSuggestionOnCommitCharacter": false,
-	"csharp.inlayHints.parameters.forObjectCreationParameters": true,
 	"editor.guides.indentation": false,
 	"rust-analyzer.completion.postfix.enable": false,
 	"rust-analyzer.hover.actions.references.enable": true,
@@ -686,6 +669,15 @@
 	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
 	"rust-analyzer.inlayHints.bindingModeHints.enable": true,
 	"rust-analyzer.inlayHints.closingBraceHints.enable": false,
-	"rust-analyzer.inlayHints.renderColons": false,
-	"rust-analyzer.inlayHints.typeHints.enable": false
+	"rust-analyzer.imports.granularity.group": "preserve",
+	"editor.guides.bracketPairs": true,
+	"dotnet.inlayHints.enableInlayHintsForLiteralParameters": true,
+	"dotnet.inlayHints.enableInlayHintsForObjectCreationParameters": true,
+	"dotnet.inlayHints.enableInlayHintsForOtherParameters": true,
+	"dotnet.inlayHints.suppressInlayHintsForParametersThatDifferOnlyBySuffix": true,
+	"dotnet.inlayHints.suppressInlayHintsForParametersThatMatchMethodIntent": true,
+	"dotnet.inlayHints.suppressInlayHintsForParametersThatMatchArgumentName": true,
+	"csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
+	"csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
+	"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true
 }
