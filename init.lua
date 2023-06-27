@@ -197,8 +197,11 @@ end
 if vim.g.vscode then
 
 	local function center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
+	vim.keymap.set("", "z,", center_screen)
 	local function top_screen() vim.cmd("call <SNR>4_reveal('top', 0)") end
+	vim.keymap.set("", "zm", top_screen)
 	local function bottom_screen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
+	vim.keymap.set("", "z.", bottom_screen)
 	local function move_to_top_screen()
 		vim.cmd("call <SNR>4_moveCursor('top')")
 	end
@@ -419,7 +422,22 @@ else
 	local move_to_top_screen__center_screen = 'Hzz'
 	vim.keymap.set("", "H", move_to_top_screen__center_screen)
 
+	local bottom_screen = "zb"
+	vim.keymap.set("", "z.", bottom_screen)
+
+	local top_screen = "zt"
+	vim.keymap.set("", "zm", top_screen)
+
+	local center_screen = "zz"
+	vim.keymap.set("", "z,", center_screen)
+
 end
+
+local twelve_lines_down = "12jzz"
+vim.keymap.set("", "<C-d>", twelve_lines_down)
+
+local twelve_lines_up = "12kzz"
+vim.keymap.set("", "<C-u>", twelve_lines_up)
 
 local easyAlignMapping = "<Plug>(EasyAlign)"
 vim.keymap.set("", "ga", easyAlignMapping)
@@ -579,12 +597,6 @@ vim.keymap.set("", "<C-f>", twenty_lines_down)
 
 local twenty_lines_up = "20kzz"
 vim.keymap.set("", "<C-b>", twenty_lines_up)
-
-local twelve_lines_down = "12jzz"
-vim.keymap.set("", "<C-d>", twelve_lines_down)
-
-local twelve_lines_up = "12kzz"
-vim.keymap.set("", "<C-u>", twelve_lines_up)
 
 local insert_blank_line_up = "O<Esc>"
 vim.keymap.set("n", "<C-k>", insert_blank_line_up)
