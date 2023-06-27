@@ -300,6 +300,16 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "=t", convert_to_tabs)
 
+	local function indent_with_spaces()
+		vim.fn.VSCodeNotify("editor.action.indentUsingSpaces")
+	end
+	vim.keymap.set("n", "=d", indent_with_spaces)
+
+	local function indent_with_tabs()
+		vim.fn.VSCodeNotify("editor.action.indentUsingTabs")
+	end
+	vim.keymap.set("n", "=g", indent_with_tabs)
+
 	local function toggle_fold() vim.fn.VSCodeNotify("editor.toggleFold") end
 	vim.keymap.set("n", "za", toggle_fold)
 
