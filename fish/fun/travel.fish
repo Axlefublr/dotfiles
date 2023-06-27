@@ -61,6 +61,11 @@ function get_important_dir
 end
 funcsave get_important_dir > /dev/null
 
+function akd
+	set important_directories $PWD $important_directories
+end
+funcsave akd > /dev/null
+
 function ks
 	set -l picked (pick . true)
 	if not test $picked
