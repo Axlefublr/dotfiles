@@ -45,6 +45,8 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"punctuation.definition.tag.begin.html",
+					"punctuation.definition.tag.end.html",
 					"constant.numeric",
 					"storage.modifier",
 					"meta.attribute.rust",
@@ -160,8 +162,10 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"entity.name.tag.localname.cs",
 					"entity.name.type.namespace.cs",
-					"string.quoted.double.json"
+					"string.quoted.double.json",
+					"entity.name.tag.html"
 				]
 			},
 			{

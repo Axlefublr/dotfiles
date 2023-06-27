@@ -9,4 +9,4 @@ alias --save code 'code-insiders' > /dev/null
 alias --save node 'node.exe' > /dev/null
 alias --save ... 'cd ../..' > /dev/null
 alias --save .... 'cd ../../..' > /dev/null
-alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git &| tee /tmp/pagie &| less' > /dev/null
+alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git -I bin -I obj -I target -I .vscode &| tee /tmp/pagie &| less' > /dev/null
