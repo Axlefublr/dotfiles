@@ -20,7 +20,7 @@ function pick
 		if test (echo $here) = ''
 			break
 		end
-		set here (prli $here | fzf -e --cycle)
+		set here (prli $here | fzf -e --cycle --tac)
 		if not test $here
 			break
 		end

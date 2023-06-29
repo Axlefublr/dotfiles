@@ -238,7 +238,10 @@
 					"foreground": "#D3869B",
 					"fontStyle": "bold"
 				},
-				"scope": []
+				"scope": [
+					"punctuation.definition.lifetime.rust",
+					"entity.name.type.lifetime.rust"
+				]
 			},
 			{
 				"name": "purple underline",
@@ -660,14 +663,12 @@
 	"rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": true,
 	"rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
 	"rust-analyzer.showDependenciesExplorer": false,
-	"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
 	"rust-analyzer.typing.continueCommentsOnNewline": false,
 	"rust-analyzer.workspace.symbol.search.kind": "all_symbols",
 	"rust-analyzer.workspace.symbol.search.scope": "workspace_and_dependencies",
 	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
 	"rust-analyzer.inlayHints.parameterHints.enable": false,
 	"csharp.testsCodeLens.enabled": false,
-	"rust-analyzer.completion.callable.snippets": "add_parentheses",
 	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
 	"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
 	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
@@ -683,5 +684,7 @@
 	"dotnet.inlayHints.suppressInlayHintsForParametersThatMatchArgumentName": true,
 	"csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
 	"csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
-	"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true
+	"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+	"rust-analyzer.completion.callable.snippets": "add_parentheses",
+	"extensions.ignoreRecommendations": true
 }
