@@ -34,6 +34,24 @@ function pick
 end
 funcsave pick > /dev/null
 
+function ks
+	set -l picked (pick . true)
+	if not test $picked
+		return 1
+	end
+	cd $picked
+end
+funcsave ks > /dev/null
+
+function js
+	set -l picked (pick .)
+	if not test $picked || not test -f $picked
+		return 1
+	end
+	$EDITOR $picked
+end
+funcsave js > /dev/null
+
 function kd
 	ranger --choosedir /tmp/dickie
 	set -l picked (cat /tmp/dickie)
