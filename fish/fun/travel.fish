@@ -136,6 +136,18 @@ function jf
 end
 funcsave jf > /dev/null
 
+function paste_ranger_file
+	ranger --choosefile /tmp/flickie
+	commandline -i (cat /tmp/flickie)
+end
+funcsave paste_ranger_file > /dev/null
+
+function paste_ranger_dir
+	ranger --show-only-dirs --choosedir /tmp/dickie
+	commandline -i (cat /tmp/dickie)
+end
+funcsave paste_ranger_dir > /dev/null
+
 function paste_parent_path
 	set -l init (get_parent_dir)
 	if not test $init

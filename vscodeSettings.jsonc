@@ -466,7 +466,6 @@
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.editor.untitled.hint": "hidden",
 	"workbench.startupEditor": "none",
-	"workbench.editor.pinnedTabSizing": "compact",
 	"workbench.editor.wrapTabs": true,
 	"workbench.list.openMode": "doubleClick",
 	"workbench.colorTheme": "Gruvbox Material Dark",
@@ -686,5 +685,6 @@
 	"csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
 	"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
 	"rust-analyzer.completion.callable.snippets": "add_parentheses",
-	"extensions.ignoreRecommendations": true
+	"extensions.ignoreRecommendations": true,
+	"workbench.editor.pinnedTabSizing": "compact"
 }

@@ -4129,11 +4129,6 @@
 		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
 	},
 	{
-		"key": "ctrl+y",
-		"command": "redo",
-		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
-	},
-	{
 		"key": "ctrl+7",
 		"command": "notifications.focusToasts",
 		"when": "notificationToastsVisible && !notificationFocus"
@@ -5300,5 +5295,30 @@
 	{
 		"key": "ctrl+; r",
 		"command": "copyRelativeFilePath"
+	},
+	{
+		"key": "ctrl+d",
+		"command": "vscode-neovim.ctrl-d",
+		"when": "editorTextFocus && neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+u",
+		"command": "vscode-neovim.ctrl-u",
+		"when": "editorTextFocus && neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+b",
+		"command": "vscode-neovim.ctrl-b",
+		"when": "editorTextFocus && neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+f",
+		"command": "vscode-neovim.ctrl-f",
+		"when": "editorTextFocus && neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "-cursorEnd",
+		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
 	}
 ]

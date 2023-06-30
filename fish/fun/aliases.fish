@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-alias --save grep 'grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}' > /dev/null
+alias --save grep 'grep --color=auto --exclude-dir={target,.bzr,CVS,.git,.hg,.svn,.idea,.tox}' > /dev/null
 alias --save less 'less --use-color -R' > /dev/null
 alias --save termdown 'termdown -W -f roman' > /dev/null
 alias --save dotnet 'dotnet.exe' > /dev/null
