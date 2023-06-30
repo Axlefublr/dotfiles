@@ -143,7 +143,7 @@ end
 funcsave paste_ranger_file > /dev/null
 
 function paste_ranger_dir
-	ranger --show-only-dirs --choosedir /tmp/dickie
+	ranger --choosedir /tmp/dickie
 	commandline -i (cat /tmp/dickie)
 end
 funcsave paste_ranger_dir > /dev/null
