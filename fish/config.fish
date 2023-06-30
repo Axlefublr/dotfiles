@@ -262,9 +262,9 @@ abbr -a ghgl    'gh gist list'
 abbr -a ghgc    'gh gist create'
 abbr -a ghge    'gh gist edit'
 
-bind -M insert \cS paste_ranger_file
+bind -M insert \cF paste_ranger_file
 bind -M insert \cD paste_ranger_dir
-bind -M insert \cF paste_relative_path
+bind -M insert \cS paste_relative_path
 bind -M insert \cQ 'commandline -i (cat /tmp/dickie)'
 bind -M insert \cA 'commandline -i (cat /tmp/flickie)'
 bind -M insert \cR 'commandline -i (cat /tmp/pickie)'
