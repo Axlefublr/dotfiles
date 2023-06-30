@@ -264,11 +264,12 @@ abbr -a ghge    'gh gist edit'
 
 bind -M insert \cS paste_ranger_file
 bind -M insert \cD paste_ranger_dir
+bind -M insert \cF paste_relative_path
 bind -M insert \cQ 'commandline -i (cat /tmp/dickie)'
 bind -M insert \cA 'commandline -i (cat /tmp/flickie)'
+bind -M insert \cR 'commandline -i (cat /tmp/pickie)'
 
-bind -M insert  \cR hist_insert
-bind -M default R   hist_replace
+bind -M default R hist_replace
 
 bind -M insert  \cO "exec fish -C 'clear -x'"
 bind -M default \cO "exec fish -C 'clear -x'"
