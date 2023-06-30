@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-trash-put ~/.config/fish/functions/*
+rm ~/.config/fish/functions/*
 /mnt/c/Programming/dotfiles/fish/fun/aliases.fish
 /mnt/c/Programming/dotfiles/fish/fun/builtin.fish
 /mnt/c/Programming/dotfiles/fish/fun/fffunctions.fish
