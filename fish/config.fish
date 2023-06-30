@@ -211,6 +211,7 @@ abbr -a dnns 'dotnet new sln'
 abbr -a dnng 'dotnet new gitignore'
 abbr -a dns  'dotnet sln *.sln'
 abbr -a dnsa 'dotnet sln *.sln add **/*.csproj'
+abbr -a dnsr 'dotnet sln *.sln remove'
 abbr -a dnr  'dotnet run'
 abbr -a dnrp 'dotnet run --project'
 abbr -a dnb  'dotnet build'
@@ -268,8 +269,6 @@ bind -M insert \cS paste_relative_path
 bind -M insert \cQ 'commandline -i (cat /tmp/dickie)'
 bind -M insert \cA 'commandline -i (cat /tmp/flickie)'
 bind -M insert \cR 'commandline -i (cat /tmp/pickie)'
-
-bind -M default R hist_replace
 
 bind -M insert  \cO "exec fish -C 'clear -x'"
 bind -M default \cO "exec fish -C 'clear -x'"
