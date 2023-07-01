@@ -102,7 +102,7 @@ abbr -a rmf   'rm -fr'
 abbr -a clock 'termdown -z'
 abbr -a xcode 'xargs code-insiders'
 abbr -a mvf   'mv -f'
-abbr -a pri   'echo $fish_private_mode'
+abbr -a ranger 'ranger --choosedir /tmp/dickie'
 
 abbr -a fp 'fish -P'
 abbr -a fi 'fish'
