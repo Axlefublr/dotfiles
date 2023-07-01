@@ -71,13 +71,6 @@ function kd
 end
 funcsave kd > /dev/null
 
-function paste_ranger_file
-	ranger --choosefile /tmp/flickie
-	commandline -i (cat /tmp/flickie)
-	commandline -f repaint
-end
-funcsave paste_ranger_file > /dev/null
-
 function paste_ranger_files
 	ranger --choosefiles /tmp/flickie
 	commandline -i (cat /tmp/flickie | tr '\n' ' ')
