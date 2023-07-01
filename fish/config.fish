@@ -8,6 +8,7 @@ set -gx BROWSER 'browser.exe'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000
+set -gx RANGER_LOAD_DEFAULT_RC false
 set -g fish_escape_delay_ms 10
 
 set -l prog /mnt/c/Programming
