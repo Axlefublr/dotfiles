@@ -277,6 +277,8 @@ bind -M default \cO "exec fish -C 'clear -x'"
 bind -M insert  \cE 'less /tmp/pagie'
 bind -M default \cE 'less /tmp/pagie'
 
+bind -M insert \el 'commandline -f history-search-backward execute'
+
 bind -M default \; accept-autosuggestion
 bind -M default K execute
 bind -M default -m insert "'" accept-autosuggestion execute
