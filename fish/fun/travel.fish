@@ -52,6 +52,15 @@ function js
 end
 funcsave js > /dev/null
 
+function paste_relative_path
+	set -l picked (pick .)
+	if not test $picked
+		return 1
+	end
+	commandline -i $picked
+end
+funcsave paste_relative_path > /dev/null
+
 function kd
 	ranger --choosedir /tmp/dickie
 	set -l picked (cat /tmp/dickie)
@@ -82,12 +91,3 @@ function paste_ranger_dir
 	commandline -f repaint
 end
 funcsave paste_ranger_dir > /dev/null
-
-function paste_relative_path
-	set -l picked (pick .)
-	if not test $picked
-		return 1
-	end
-	commandline -i $picked
-end
-funcsave paste_relative_path > /dev/null
