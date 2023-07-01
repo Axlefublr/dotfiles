@@ -62,16 +62,6 @@ function kd
 end
 funcsave kd > /dev/null
 
-function jf
-	ranger --choosefile /tmp/flickie
-	set -l picked (cat /tmp/flickie)
-	if not test $picked
-		return 1
-	end
-	$EDITOR $picked
-end
-funcsave jf > /dev/null
-
 function paste_ranger_file
 	ranger --choosefile /tmp/flickie
 	commandline -i (cat /tmp/flickie)
