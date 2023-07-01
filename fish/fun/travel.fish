@@ -69,6 +69,13 @@ function paste_ranger_file
 end
 funcsave paste_ranger_file > /dev/null
 
+function paste_ranger_files
+	ranger --choosefiles /tmp/flickie
+	commandline -i (cat /tmp/flickie | tr '\n' ' ')
+	commandline -f repaint
+end
+funcsave paste_ranger_files > /dev/null
+
 function paste_ranger_dir
 	ranger --choosedir /tmp/dickie
 	commandline -i (cat /tmp/dickie)
