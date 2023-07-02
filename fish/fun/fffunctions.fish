@@ -37,3 +37,11 @@ function combine
 	rm inputs.txt input1.ts input2.ts
 end
 funcsave combine > /dev/null
+
+function mpm3
+	for file in (ls)
+		ffmpeg.exe -i $file (string replace -r '\.mp4$' '.mp3' $file)
+	end
+	trash-put *.mp4
+end
+funcsave mpm3 > /dev/null
