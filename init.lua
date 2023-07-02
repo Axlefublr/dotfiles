@@ -443,11 +443,11 @@ else
 
 end
 
-local twelve_lines_down = "12jzz"
-vim.keymap.set("", "<C-d>", twelve_lines_down)
+local better_half_page_down = "6jzz"
+vim.keymap.set("", "<C-d>", better_half_page_down)
 
-local twelve_lines_up = "12kzz"
-vim.keymap.set("", "<C-u>", twelve_lines_up)
+local better_half_page_up = "6kzz"
+vim.keymap.set("", "<C-u>", better_half_page_up)
 
 local easyAlignMapping = "<Plug>(EasyAlign)"
 vim.keymap.set("", "ga", easyAlignMapping)
@@ -602,11 +602,11 @@ vim.keymap.set("o", "{", previous_blank_line_operator)
 local next_blank_line_operator = "V}"
 vim.keymap.set("o", "}", next_blank_line_operator)
 
-local twenty_lines_down = "20jzz"
-vim.keymap.set("", "<C-f>", twenty_lines_down)
+local better_page_down = "12jzz"
+vim.keymap.set("", "<C-f>", better_page_down)
 
-local twenty_lines_up = "20kzz"
-vim.keymap.set("", "<C-b>", twenty_lines_up)
+local better_page_up = "12kzz"
+vim.keymap.set("", "<C-b>", better_page_up)
 
 local insert_blank_line_up = "O<Esc>"
 vim.keymap.set("n", "<C-k>", insert_blank_line_up)
