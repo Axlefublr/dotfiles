@@ -4991,11 +4991,6 @@
 		"when": "!panelFocus && !listFocus"
 	},
 	{
-		"key": "l",
-		"command": "breadcrumbs.focusNext",
-		"when": "breadcrumbsActive && breadcrumbsVisible"
-	},
-	{
 		"key": "shift+a",
 		"command": "explorer.newFolder",
 		"when": "filesExplorerFocus && !inputFocus"
@@ -5276,7 +5271,7 @@
 	{
 		"key": "l",
 		"command": "list.toggleExpand",
-		"when": "listFocus && !breadcrumbsActive && !inputFocus"
+		"when": "listFocus && !inputFocus"
 	},
 	{
 		"key": "o",
@@ -5300,5 +5295,10 @@
 		"key": "ctrl+e",
 		"command": "-cursorEnd",
 		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
+	},
+	{
+		"key": "l",
+		"command": "breadcrumbs.focusNext",
+		"when": "breadcrumbsActive && breadcrumbsVisible"
 	}
 ]

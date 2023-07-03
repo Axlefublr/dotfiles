@@ -106,7 +106,9 @@ abbr -a ranger 'ranger --choosedir /tmp/dickie'
 abbr -a fp     'fish -P'
 abbr -a fi     'fish'
 abbr -a x      'exit'
+
 abbr -a cls    'clear'
+abbr -a clx    'clear -x'
 
 abbr -a rm  'trash-put'
 abbr -a rma 'trash-put *'

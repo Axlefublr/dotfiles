@@ -309,6 +309,8 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"keyword.control.razor.optionalSemicolon",
+					"punctuation.accessor.js",
 					"keyword.operator.ahk2",
 					"constant.other.caps.rust",
 					"meta.interpolation.rust",
