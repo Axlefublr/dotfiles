@@ -106,9 +106,11 @@ abbr -a ranger 'ranger --choosedir /tmp/dickie'
 abbr -a fp     'fish -P'
 abbr -a fi     'fish'
 abbr -a x      'exit'
+abbr -a kdc    'kd ; clear'
+abbr -a kdcl   'kd ; clear ; ls'
 
-abbr -a cls    'clear'
-abbr -a clx    'clear -x'
+abbr -a cls 'clear'
+abbr -a clx 'clear -x'
 
 abbr -a rm  'trash-put'
 abbr -a rma 'trash-put *'
@@ -118,14 +120,12 @@ abbr -a grep  'grep -E'
 abbr -a rgrep 'grep -Ern'
 abbr -a lgrep 'grep -Erl'
 
-abbr -a rg 'rg -n'
-abbr -a rgl 'rg -l'
-abbr -a rgan 'rga -n'
-
-abbr -a ls 'ls -A'
+abbr -a ls  'ls -A'
 abbr -a lsw 'ls -A -w 1'
-abbr -a lg 'ls -Agh'
-abbr -a lr 'ls --color=always -R &| tee /tmp/pagie &| less'
+abbr -a lg  'ls -Agh'
+abbr -a lls 'ls --color=always -A &| tee /tmp/pagie &| less'
+abbr -a llg 'ls --color=always -Agh &| tee /tmp/pagie &| less'
+abbr -a lr  'ls --color=always -R &| tee /tmp/pagie &| less'
 abbr -a lar 'ls --color=always -AR &| tee /tmp/pagie &| less'
 
 ## git
