@@ -9,7 +9,6 @@ set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000
 set -gx RANGER_LOAD_DEFAULT_RC false
-set -g fish_escape_delay_ms 10
 
 set -l prog /mnt/c/Programming
 set -l pic /mnt/c/Pictures
@@ -56,6 +55,7 @@ set -g color_gruvbox_cyan   7DAEA3
 
 set -g fish_lazy_load_completions 'true'
 set -g fish_lazy_load_functions 'true'
+set -g fish_escape_delay_ms 10
 
 set -g fish_color_normal $color_gruvbox_white
 set -g fish_color_command $color_gruvbox_green
@@ -117,6 +117,9 @@ abbr -a trr 'trash-restore'
 abbr -a grep  'grep -E'
 abbr -a rgrep 'grep -Ern'
 abbr -a lgrep 'grep -Erl'
+
+abbr -a rg 'rg -n'
+abbr -a rgl 'rg -l'
 
 abbr -a ls 'ls -A'
 abbr -a lsw 'ls -A -w 1'
@@ -242,6 +245,7 @@ abbr -a cau   'cargo update'
 abbr -a caf   'cargo fmt'
 abbr -a cafi  'cargo fix'
 abbr -a cai   'cargo init'
+abbr -a cain  'cargo install'
 abbr -a caa   'cargo add'
 
 abbr -a ru   'rustup'

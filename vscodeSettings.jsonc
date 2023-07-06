@@ -357,7 +357,8 @@
 			"strings": true
 		},
 		"editor.suggest.insertMode": "replace",
-		"editor.formatOnSave": true
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"Lua.format.defaultConfig": {
 		"indent_style": "tab"
