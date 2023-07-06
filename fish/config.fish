@@ -106,6 +106,7 @@ abbr -a ranger 'ranger --choosedir /tmp/dickie && clear -x'
 abbr -a fp     'fish -P'
 abbr -a fi     'fish'
 abbr -a x      'exit'
+abbr -a bacon  'clear -x ; bacon -j clippy'
 
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'

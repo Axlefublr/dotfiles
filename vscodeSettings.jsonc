@@ -36,7 +36,9 @@
 					"foreground": "#EA6962",
 					"fontStyle": "bold"
 				},
-				"scope": ["keyword.operator.comparison"]
+				"scope": [
+					"keyword.operator.comparison"
+				]
 			},
 			{
 				"name": "orange",
@@ -186,7 +188,9 @@
 					"foreground": "#7DAEA3",
 					"fontStyle": ""
 				},
-				"scope": ["variable.other.object"]
+				"scope": [
+					"variable.other.object"
+				]
 			},
 			{
 				"name": "cyan bold",
@@ -230,7 +234,10 @@
 					"foreground": "#D3869B",
 					"fontStyle": "italic"
 				},
-				"scope": ["storage.modifier.mut.rust", "keyword.other.base"]
+				"scope": [
+					"storage.modifier.mut.rust",
+					"keyword.other.base"
+				]
 			},
 			{
 				"name": "purple bold",
@@ -249,7 +256,9 @@
 					"foreground": "#D3869B",
 					"fontStyle": "underline"
 				},
-				"scope": ["variable.other.fixed.fish"]
+				"scope": [
+					"variable.other.fixed.fish"
+				]
 			},
 			{
 				"name": "purple bold underline",
@@ -257,7 +266,9 @@
 					"foreground": "#D3869B",
 					"fontStyle": "bold underline"
 				},
-				"scope": ["variable.other.special.fish"]
+				"scope": [
+					"variable.other.special.fish"
+				]
 			},
 			{
 				"name": "white bold italic",
@@ -265,7 +276,9 @@
 					"foreground": "#D4BE98",
 					"fontStyle": "bold italic"
 				},
-				"scope": ["variable.language.ahk2"]
+				"scope": [
+					"variable.language.ahk2"
+				]
 			},
 			{
 				"name": "white italic",
@@ -273,7 +286,9 @@
 					"foreground": "#D4BE98",
 					"fontStyle": "italic"
 				},
-				"scope": ["string.other.option.fish"]
+				"scope": [
+					"string.other.option.fish"
+				]
 			},
 			{
 				"name": "white bold",
@@ -300,7 +315,9 @@
 					"foreground": "#D4BE98",
 					"fontStyle": "strikethrough"
 				},
-				"scope": ["markup.strikethrough.markdown"]
+				"scope": [
+					"markup.strikethrough.markdown"
+				]
 			},
 			{
 				"name": "white",
@@ -328,7 +345,9 @@
 					"foreground": "#928374",
 					"fontStyle": ""
 				},
-				"scope": ["constant.character.escape"]
+				"scope": [
+					"constant.character.escape"
+				]
 			}
 		]
 	},
@@ -345,7 +364,9 @@
 		}
 	},
 	"[git-commit]": {
-		"editor.rulers": [72],
+		"editor.rulers": [
+			72
+		],
 		"workbench.editor.restoreViewState": false,
 		"editor.quickSuggestions": {
 			"other": "inline"
@@ -402,11 +423,17 @@
 		},
 		"WSL": {
 			"path": "C:\\WINDOWS\\System32\\wsl.exe",
-			"args": ["-d", "kali-linux"]
+			"args": [
+				"-d",
+				"kali-linux"
+			]
 		},
 		"kali-linux (WSL)": {
 			"path": "C:\\WINDOWS\\System32\\wsl.exe",
-			"args": ["-d", "kali-linux"]
+			"args": [
+				"-d",
+				"kali-linux"
+			]
 		}
 	},
 	"files.associations": {
@@ -629,12 +656,17 @@
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
-	"editor.rulers": [96, 128],
+	"editor.rulers": [
+		96,
+		128
+	],
 	"window.zoomLevel": 1.8,
 	"git.enableStatusBarSync": false,
 	"Lua.window.progressBar": false,
 	"Lua.window.statusBar": false,
-	"settingsSync.ignoredSettings": ["-window.zoomLevel"],
+	"settingsSync.ignoredSettings": [
+		"-window.zoomLevel"
+	],
 	"editor.scrollbar.verticalScrollbarSize": 8,
 	"editor.minimap.enabled": false,
 	"files.autoSave": "onFocusChange",
@@ -689,5 +721,6 @@
 	"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
 	"rust-analyzer.completion.callable.snippets": "add_parentheses",
 	"extensions.ignoreRecommendations": true,
-	"workbench.editor.pinnedTabSizing": "compact"
+	"workbench.editor.pinnedTabSizing": "compact",
+	"rust-analyzer.checkOnSave": false
 }
