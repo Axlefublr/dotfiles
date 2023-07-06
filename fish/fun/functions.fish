@@ -45,6 +45,7 @@ function work
 		timer 20m 'Work session ended, time to rest!' no || break
 		timer 5m 'I hope you rested well, time to work!' || break
 	end
+	clear -x
 end
 funcsave work > /dev/null
 

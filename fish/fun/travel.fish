@@ -66,7 +66,7 @@ function kd
 	if not test $picked
 		return 1
 	end
-	cd $picked
+	cd $picked && clear -x
 end
 funcsave kd > /dev/null
 
