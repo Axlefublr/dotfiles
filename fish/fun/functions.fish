@@ -36,11 +36,7 @@ end
 funcsave new > /dev/null
 
 function rga
-	if command -q rg
-		rg --color=always -n $argv &| tee /tmp/pagie &| less
-	else
-		grep --color=always -E $argv &| tee /tmp/pagie &| less
-	end
+	rg --color=always -n $argv &| tee /tmp/pagie &| less
 end
 funcsave rga > /dev/null
 
