@@ -127,6 +127,7 @@ end
 funcsave gsp > /dev/null
 
 function gsa
+	clear -x
 	set -l prevDir (pwd)
 	set -l directories $git_directories
 
