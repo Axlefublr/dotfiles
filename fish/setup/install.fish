@@ -14,6 +14,7 @@ command -q termdown || pip install termdown
 
 command -q tgpt || curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 command -q cargo || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+command -q rg || cargo install ripgrep
 
 command -q tree || sudo apt install tree
 command -q fzf || sudo apt install fzf
