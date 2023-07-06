@@ -36,7 +36,7 @@ end
 funcsave new > /dev/null
 
 function rga
-	rg --color=always -n $argv &| tee /tmp/pagie &| less
+	rg --color=always $argv &| tee /tmp/pagie &| less
 end
 funcsave rga > /dev/null
 
