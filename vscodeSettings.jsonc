@@ -722,5 +722,5 @@
 	"rust-analyzer.completion.callable.snippets": "add_parentheses",
 	"extensions.ignoreRecommendations": true,
 	"workbench.editor.pinnedTabSizing": "compact",
-	"rust-analyzer.checkOnSave": false
+	"rust-analyzer.check.command": "clippy"
 }
