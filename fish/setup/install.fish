@@ -22,3 +22,4 @@ command -q ncdu || sudo apt install ncdu
 command -q cmatrix || sudo apt install cmatrix
 command -q lolcat || sudo apt install lolcat
 command -q cowsay || sudo apt install cowsay
+sudo apt install libssl-dev

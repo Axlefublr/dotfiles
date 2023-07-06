@@ -6,3 +6,4 @@ rustup update
 rustup component add clippy
 command -q bacon || cargo install bacon
 ln -sf /mnt/c/Programming/dotfiles/rust/prefs.toml ~/.config/bacon/prefs.toml
+cargo install cargo-info
