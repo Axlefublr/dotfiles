@@ -4,9 +4,19 @@
 	"actions": [
 		{
 			"command": {
-				"action": "commandPalette"
+				"action": "copy",
+				"singleLine": false
+			}
+		},
+		{
+			"command": "openNewTabDropdown"
+		},
+		{
+			"command": {
+				"action": "movePane",
+				"index": 0
 			},
-			"keys": "ctrl+shift+p"
+			"keys": "ctrl+alt+1"
 		},
 		{
 			"command": {
@@ -24,26 +34,16 @@
 		},
 		{
 			"command": {
+				"action": "commandPalette"
+			},
+			"keys": "ctrl+shift+p"
+		},
+		{
+			"command": {
 				"action": "movePane",
 				"index": 7
 			},
 			"keys": "ctrl+alt+8"
-		},
-		{
-			"command": "openNewTabDropdown"
-		},
-		{
-			"command": {
-				"action": "movePane",
-				"index": 0
-			},
-			"keys": "ctrl+alt+1"
-		},
-		{
-			"command": {
-				"action": "copy",
-				"singleLine": false
-			}
 		},
 		{
 			"command": {
@@ -53,14 +53,17 @@
 			"keys": "alt+4"
 		},
 		{
-			"command": "paste"
-		},
-		{
 			"command": {
 				"action": "newTab",
 				"index": 1
 			},
 			"keys": "alt+shift+0"
+		},
+		{
+			"command": "paste"
+		},
+		{
+			"command": "find"
 		},
 		{
 			"command": {
@@ -77,16 +80,6 @@
 			"keys": "alt+shift+s"
 		},
 		{
-			"command": "find"
-		},
-		{
-			"command": {
-				"action": "switchToTab",
-				"index": 7
-			},
-			"keys": "alt+8"
-		},
-		{
 			"command": {
 				"action": "newTab",
 				"index": 2
@@ -95,11 +88,10 @@
 		},
 		{
 			"command": {
-				"action": "splitPane",
-				"split": "auto",
-				"splitMode": "duplicate"
+				"action": "switchToTab",
+				"index": 7
 			},
-			"keys": "ctrl+alt+j"
+			"keys": "alt+8"
 		},
 		{
 			"command": "unbound",
@@ -407,10 +399,6 @@
 		},
 		{
 			"command": "unbound",
-			"keys": "alt+k"
-		},
-		{
-			"command": "unbound",
 			"keys": "alt+u"
 		},
 		{
@@ -422,7 +410,20 @@
 			"keys": "alt+pgup"
 		},
 		{
-			"command": "scrollToBottom"
+			"command": "unbound",
+			"keys": "alt+;"
+		},
+		{
+			"command": {
+				"action": "splitPane",
+				"split": "auto",
+				"splitMode": "duplicate"
+			},
+			"keys": "ctrl+alt+j"
+		},
+		{
+			"command": "scrollToBottom",
+			"keys": "ctrl+end"
 		},
 		{
 			"command": {
@@ -478,16 +479,23 @@
 		},
 		{
 			"command": {
+				"action": "newTab",
+				"index": 3,
+				"profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
+			}
+		},
+		{
+			"command": {
 				"action": "newWindow"
 			},
 			"keys": "alt+e"
 		},
 		{
 			"command": {
-				"action": "newTab",
-				"index": 3,
-				"profile": "{937c8820-1b22-4f6d-bb66-9cbfe6b22302}"
-			}
+				"action": "openSettings",
+				"target": "settingsUI"
+			},
+			"keys": "ctrl+shift+]"
 		},
 		{
 			"command": {
@@ -506,13 +514,6 @@
 				"action": "nextTab"
 			},
 			"keys": "alt+period"
-		},
-		{
-			"command": {
-				"action": "openSettings",
-				"target": "settingsUI"
-			},
-			"keys": "ctrl+shift+]"
 		},
 		{
 			"command": {
@@ -577,16 +578,16 @@
 		},
 		{
 			"command": {
+				"action": "closeTab"
+			},
+			"keys": "alt+shift+w"
+		},
+		{
+			"command": {
 				"action": "newTab",
 				"index": 0
 			},
 			"keys": "alt+shift+9"
-		},
-		{
-			"command": {
-				"action": "closeTab"
-			},
-			"keys": "alt+shift+w"
 		},
 		{
 			"command": {
@@ -596,16 +597,16 @@
 			"keys": "alt+shift+l"
 		},
 		{
-			"command": "scrollUpPage",
-			"keys": "ctrl+shift+comma"
-		},
-		{
 			"command": {
 				"action": "newTab",
 				"index": 3,
 				"profile": "{7ed80e74-6d73-4016-8c07-911421ed5467}"
 			},
 			"keys": "ctrl+shift+9"
+		},
+		{
+			"command": "scrollUpPage",
+			"keys": "ctrl+shift+comma"
 		},
 		{
 			"command": {
@@ -637,7 +638,11 @@
 		},
 		{
 			"command": "tabSearch",
-			"keys": "alt+;"
+			"keys": "alt+k"
+		},
+		{
+			"command": "duplicateTab",
+			"keys": "ctrl+alt+k"
 		},
 		{
 			"command": {
@@ -645,10 +650,6 @@
 				"direction": "up"
 			},
 			"keys": "alt+shift+k"
-		},
-		{
-			"command": "duplicateTab",
-			"keys": "ctrl+alt+k"
 		},
 		{
 			"command": {
@@ -673,14 +674,9 @@
 		},
 		{
 			"command": {
-				"action": "resizePane",
-				"direction": "down"
+				"action": "closeOtherTabs"
 			},
-			"keys": "alt+shift+f"
-		},
-		{
-			"command": "openTabRenamer",
-			"keys": "alt+shift+r"
+			"keys": "ctrl+shift+w"
 		},
 		{
 			"command": {
@@ -691,9 +687,14 @@
 		},
 		{
 			"command": {
-				"action": "closeOtherTabs"
+				"action": "resizePane",
+				"direction": "down"
 			},
-			"keys": "ctrl+shift+w"
+			"keys": "alt+shift+f"
+		},
+		{
+			"command": "openTabRenamer",
+			"keys": "alt+shift+r"
 		},
 		{
 			"command": {
@@ -788,7 +789,8 @@
 			"keys": "ctrl+alt+["
 		},
 		{
-			"command": "scrollToTop"
+			"command": "scrollToTop",
+			"keys": "ctrl+home"
 		}
 	],
 	"centerOnLaunch": false,
@@ -796,7 +798,7 @@
 	"copyFormatting": "none",
 	"copyOnSelect": true,
 	"defaultProfile": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
-	"disableAnimations": true,
+	"disableAnimations": false,
 	"firstWindowPreference": "persistedWindowLayout",
 	"focusFollowMouse": false,
 	"launchMode": "maximized",
@@ -805,10 +807,12 @@
 			"type": "remainingProfiles"
 		}
 	],
-	"newTabPosition": "afterCurrentTab",
+	"newTabPosition": "afterLastTab",
 	"profiles": {
 		"defaults": {
+			"adjustIndistinguishableColors": "never",
 			"altGrAliasing": false,
+			"antialiasingMode": "grayscale",
 			"backgroundImage": "C:\\Pictures\\Tree\\Themes\\java keyboard dark no text.png",
 			"backgroundImageAlignment": "center",
 			"backgroundImageOpacity": 0.6,
@@ -817,17 +821,19 @@
 			"colorScheme": "GruvboxMaterialMediumDark",
 			"cursorShape": "filledBox",
 			"elevate": false,
+			"experimental.retroTerminalEffect": false,
 			"font": {
-				"face": "JetBrainsMono Nerd Font",
-				"size": 20.0
+				"face": "JetBrainsMono Nerd Font Mono",
+				"size": 22.0
 			},
 			"intenseTextStyle": "bold",
 			"opacity": 100,
-			"padding": "3",
+			"padding": "10",
 			"scrollbarState": "hidden",
 			"startingDirectory": "C:\\Programming",
-			"suppressApplicationTitle": true,
-			"useAcrylic": false
+			"suppressApplicationTitle": false,
+			"useAcrylic": false,
+			"useAtlasEngine": true
 		},
 		"list": [
 			{
@@ -1161,7 +1167,7 @@
 		}
 	],
 	"tabSwitcherMode": "inOrder",
-	"tabWidthMode": "titleLength",
+	"tabWidthMode": "equal",
 	"themes": [
 		{
 			"name": "legacyDark",
