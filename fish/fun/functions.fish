@@ -35,18 +35,9 @@ function new --description='Creates new files or directories and all required pa
 end
 funcsave new > /dev/null
 
-function rgan
-	if command -q rg
-		rg --color=always -n $argv &| tee /tmp/pagie &| less
-	else
-		grep --color=always -Ern $argv &| tee /tmp/pagie &| less
-	end
-end
-funcsave rgan > /dev/null
-
 function rga
 	if command -q rg
-		rg --color=always $argv &| tee /tmp/pagie &| less
+		rg --color=always -n $argv &| tee /tmp/pagie &| less
 	else
 		grep --color=always -E $argv &| tee /tmp/pagie &| less
 	end

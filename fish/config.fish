@@ -120,6 +120,7 @@ abbr -a lgrep 'grep -Erl'
 
 abbr -a rg 'rg -n'
 abbr -a rgl 'rg -l'
+abbr -a rgan 'rga -n'
 
 abbr -a ls 'ls -A'
 abbr -a lsw 'ls -A -w 1'
