@@ -108,6 +108,7 @@ abbr -a fi     'fish'
 abbr -a x      'exit'
 abbr -a bacon  'clear -x ; bacon -j clippy'
 abbr -a wec    'watchexec --poll 0 -c clear'
+abbr -a gitui  'clear -x ; gitui'
 
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'
@@ -287,8 +288,8 @@ bind -M insert \cR 'commandline -i (cat /tmp/pickie)'
 bind -M insert  \cO "exec fish -C 'clear -x'"
 bind -M default \cO "exec fish -C 'clear -x'"
 
-bind -M insert  \cE 'less /tmp/pagie'
-bind -M default \cE 'less /tmp/pagie'
+bind -M insert  \cE _showie
+bind -M default \cE _showie
 
 bind -M insert \el 'commandline -f history-search-backward execute'
 

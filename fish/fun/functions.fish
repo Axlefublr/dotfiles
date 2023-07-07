@@ -88,3 +88,11 @@ function cado
 	$BROWSER (wslpath -w $full_path)
 end
 funcsave cado > /dev/null
+
+function _showie
+	echo "$(cat /tmp/dickie)
+$(cat /tmp/flickie)
+
+$(cat /tmp/pagie)" &| less
+end
+funcsave _showie > /dev/null
