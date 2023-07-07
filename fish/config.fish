@@ -78,15 +78,12 @@ set -g fish_cursor_visual block
 ## abbreviations
 
 abbr -a @hl  --position anywhere -- '--help &| tee /tmp/pagie &| less'
-abbr -a @h   --position anywhere -- '--help'
 abbr -a @l   --position anywhere -- '&| tee /tmp/pagie &| less'
-abbr -a @ca  --position anywhere -- '--color=always'
 abbr -a @dn  --position anywhere -- '> /dev/null'
 abbr -a @en  --position anywhere -- '2> /dev/null'
 abbr -a @bn  --position anywhere -- '&> /dev/null'
-abbr -a @c   --position anywhere -- '| clip.exe'
-abbr -a @tt  --position anywhere -- '| tee /dev/tty |'
-abbr -a @ttc --position anywhere -- '| tee /dev/tty | clip.exe'
+abbr -a @c   --position anywhere -- '&| clip.exe'
+abbr -a @tt  --position anywhere -- '&| tee /dev/tty &|'
 abbr -a @x   --position anywhere -- '&& exit'
 
 abbr -a exp  'explorer.exe'
@@ -108,7 +105,7 @@ abbr -a fi     'fish'
 abbr -a x      'exit'
 abbr -a bacon  'clear -x ; bacon -j clippy'
 abbr -a wec    'watchexec --poll 0 -c clear'
-abbr -a gitui  'clear -x ; gitui'
+abbr -a gitui  'gitui ; clear -x'
 
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'
