@@ -11,12 +11,8 @@ end
 funcsave timer > /dev/null
 
 function postvideo
-	set -l prevDir (pwd)
-	cd '/mnt/c/Pictures/Screenvideos'
-	trash-put "*"
-	cd ..
-	trash-put "*.png"
-	cd $prevDir
+	trash-put /mnt/c/Pictures/Screenvideos/*
+	trash-put /mnt/c/Pictures/*.png
 end
 funcsave postvideo > /dev/null
 
