@@ -509,22 +509,6 @@ vim.keymap.set("v", "ir", markdown_heading_text_object_self_sameline_visual)
 local markdown_heading_text_object_self_diffline_visual = "?^#<cr>koNk"
 vim.keymap.set("v", "iR", markdown_heading_text_object_self_diffline_visual)
 
-local comment_text_object_self_visual = "[/3lo]/2h"
-vim.keymap.set("v", "igc", comment_text_object_self_visual)
-
-local comment_text_object_extra_visual = "[/o]/V"
-vim.keymap.set("v", "agc", comment_text_object_extra_visual)
-
-local function comment_text_object_extra_operator()
-	vim.cmd("normal v[/o]/V")
-end
-vim.keymap.set("o", "agc", comment_text_object_extra_operator)
-
-local function comment_text_object_self_operator()
-	vim.cmd("normal v[/3lo]/2h")
-end
-vim.keymap.set("o", "igc", comment_text_object_self_operator)
-
 local function goto_end_of_prev_line() FeedKeysInt(vim.v.count1 .. "k$") end
 vim.keymap.set("", "_", goto_end_of_prev_line)
 
