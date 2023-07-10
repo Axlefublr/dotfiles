@@ -47,9 +47,8 @@ funcsave work > /dev/null
 
 function tg
 	set -l tempFile /tmp/tgptie
-	nvim -c 'startinsert' $tempFile
+	nvim $tempFile
 	set -l tempText (cat $tempFile)
-	truncate -s 0 $tempFile
 	if test -z "$tempText"
 		return 1
 	end
