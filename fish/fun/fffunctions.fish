@@ -38,10 +38,10 @@ function combine
 end
 funcsave combine > /dev/null
 
-function mpm3
+function mp43
 	for file in (ls)
-		ffmpeg.exe -i $file (string replace -r '\.mp4$' '.mp3' $file)
+		ffmpeg.exe -i $file (uclanr)-(uclanr).mp3
+		trash-put $file
 	end
-	trash-put *.mp4
 end
-funcsave mpm3 > /dev/null
+funcsave mp43 > /dev/null

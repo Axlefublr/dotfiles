@@ -211,6 +211,7 @@ abbr -a caqst 'cargo quickinstall'
 abbr -a cabst 'cargo binstall -y'
 abbr -a cain  'cargo info'
 abbr -a caa   'cargo add'
+abbr -a care  'cargo remove'
 
 abbr -a ru   'rustup'
 abbr -a rud  'rustup docs'
