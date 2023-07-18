@@ -38,7 +38,7 @@ funcsave rga > /dev/null
 
 function work
 	while true
-		timer 20m 'Work session ended, time to rest!' no || break
+		timer 25m 'Work session ended, time to rest!' no-sound || break
 		timer 5m 'I hope you rested well, time to work!' || break
 	end
 	clear -x
