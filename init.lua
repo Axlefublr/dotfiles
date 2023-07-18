@@ -259,6 +259,16 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "gD", reveal_definition_aside)
 
+	local function go_to_implementation()
+		vim.fn.VSCodeNotify("editor.action.goToImplementation")
+	end
+	vim.keymap.set("n", "gt", go_to_implementation)
+
+	local function go_to_reference()
+		vim.fn.VSCodeNotify("editor.action.goToReferences")
+	end
+	vim.keymap.set("n", "gq", go_to_reference)
+
 	local function rename_symbol()
 		vim.fn.VSCodeNotify("editor.action.rename")
 	end
