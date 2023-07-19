@@ -40,7 +40,7 @@ funcsave combine > /dev/null
 
 function mp43
 	for file in (ls)
-		ffmpeg.exe -i $file (uclanr)-(uclanr).mp3
+		ffmpeg.exe -i $file (uclanr -j - 3).mp3
 		trash-put $file
 	end
 end
