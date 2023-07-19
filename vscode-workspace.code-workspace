@@ -27,7 +27,6 @@
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "test",
-		"cSpell.language": "en,ru-RU",
-		"cSpell.enabled": false
+		"cSpell.language": "en,ru-RU"
 	}
 }

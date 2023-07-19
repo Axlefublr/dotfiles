@@ -8,6 +8,7 @@ git config --global credential.helper store
 git config --global push.autoSetupRemote true
 git config --global interactive.singleKey true
 # git config --global credential.helper '/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe'
+git config --global pull.ff only
 
 command -q pip || sudo apt install pip
 command -q exrex || pip install exrex
