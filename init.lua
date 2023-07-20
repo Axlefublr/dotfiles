@@ -122,6 +122,25 @@ for c = string.byte("a"), string.byte("z") do
 	vim.keymap.set("n", "<leader>m" .. char, "m" .. char)
 end
 
+-- Russian layout support
+
+local ru_keys = {
+	'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ',
+	'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э',
+	'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю'
+}
+local en_keys = {
+	'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']',
+	'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'',
+	'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.',
+}
+
+for i = 1, #ru_keys do
+	vim.api.nvim_set_keymap('n', ru_keys[i], en_keys[i], { noremap = false })
+	vim.api.nvim_set_keymap('v', ru_keys[i], en_keys[i], { noremap = false })
+	vim.api.nvim_set_keymap('o', ru_keys[i], en_keys[i], { noremap = false })
+end
+
 -- Own constants
 
 local THROWAWAY_REGISTER = 'o'
