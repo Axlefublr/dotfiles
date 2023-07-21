@@ -457,6 +457,7 @@ else
 		vim.cmd("x")
 	end
 	vim.keymap.set("n", "K", closeEditor)
+	vim.keymap.set("i", "<C-]>", closeEditor)
 
 	local function close_without_saving()
 		vim.cmd("q!")
