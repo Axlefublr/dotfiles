@@ -91,3 +91,11 @@ $(cat /tmp/flickie)
 $(cat /tmp/pagie)" &| less
 end
 funcsave _showie > /dev/null
+
+function gi
+	command -q uclanr || return 1
+	set -l temp /tmp/(uclanr -j - 2)
+	$EDITOR $temp
+	printf (cat $temp)
+end
+funcsave gi > /dev/null
