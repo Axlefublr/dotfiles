@@ -446,6 +446,11 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("v", "gc", comment_vis)
 
+	local function add_word_user_dictionary()
+		vim.fn.VSCodeNotify("cSpell.addWordToUserDictionary")
+	end
+	vim.keymap.set("n", "=w", add_word_user_dictionary)
+
 else
 
 	local function closeEditor()
