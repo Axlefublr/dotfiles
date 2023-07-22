@@ -5,7 +5,6 @@ alias --save fd 'fd --no-require-git' > /dev/null
 alias --save rg 'rg --engine auto' > /dev/null
 alias --save less 'less --use-color -R' > /dev/null
 alias --save termdown 'termdown -W -f roman' > /dev/null
-alias --save dotnet 'dotnet.exe' > /dev/null
 alias --save gh 'gh.exe' > /dev/null
 alias --save code 'code-insiders' > /dev/null
 alias --save node 'node.exe' > /dev/null

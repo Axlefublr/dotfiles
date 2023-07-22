@@ -3,12 +3,13 @@
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
-set -gx PATH "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" "/mnt/c/Programming/dotfiles/fish" "/mnt/c/Programming/dotfiles/fish/fun" "/mnt/c/Programming/dotfiles/fish/setup" $PATH
+set -gx PATH "~/Programming/binaries" "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" "/mnt/c/Programming/dotfiles/fish" "/mnt/c/Programming/dotfiles/fish/fun" "/mnt/c/Programming/dotfiles/fish/setup" $PATH
 set -gx BROWSER 'browser.exe'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000
 set -gx RANGER_LOAD_DEFAULT_RC false
+set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 
 set -l prog /mnt/c/Programming
 set -l pic /mnt/c/Pictures
@@ -105,6 +106,7 @@ abbr -a cls 'clear'
 abbr -a clx 'clear -x'
 
 abbr -a rm  'trash-put'
+abbr -a rmf 'rm -fr'
 abbr -a trr 'trash-restore'
 
 abbr -a ls  'clear -x ; ls -A'
@@ -175,7 +177,9 @@ abbr -a cab   'cargo build'
 abbr -a cabr  'cargo build --release'
 abbr -a cach  'cargo clippy'
 abbr -a caf   'cargo fmt'
+abbr -a caa   'cargo add'
 abbr -a cain  'cargo binstall -y'
+abbr -a cass  'cp -f ./target/release/(basename $PWD) ~/Programming/binaries'
 
 abbr -a ghr     'gh repo'
 abbr -a ghrl    'gh repo list -L 1000'
