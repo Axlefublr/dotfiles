@@ -20,10 +20,12 @@ vim.g.targets_nl             = "nh"
 vim.cmd("colorscheme tender")
 vim.cmd("let g:sneak#use_ic_scs = 1")
 vim.cmd("highlight link Sneak None")
+vim.cmd("packadd! matchit")
 
 --- Plugins: VimPlug
 local Plug = vim.fn['plug#']
 vim.call("plug#begin")
+Plug("adelarsq/vim-matchit")
 Plug("tpope/vim-repeat")
 Plug("sheerun/vim-polyglot")
 Plug("bkad/CamelCaseMotion")
@@ -639,10 +641,10 @@ vim.keymap.set("n", "<C-k>", insert_blank_line_up)
 local insert_blank_line_down = "o<Esc>"
 vim.keymap.set("n", "<C-j>", insert_blank_line_down)
 
-local function remove_highlighting() vim.cmd("noh") end
+function Remove_highlighting() vim.cmd("noh") end
 
 local function remove_highlighting__escape()
-	remove_highlighting()
+	Remove_highlighting()
 	FeedKeysInt("<Esc>")
 end
 vim.keymap.set("n", "<Esc>", remove_highlighting__escape)
