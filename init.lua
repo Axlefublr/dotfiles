@@ -305,6 +305,13 @@ if vim.g.vscode then
 	vim.keymap.set("n", "gl", Open_link)
 	vim.keymap.set("v", "gl", "<esc><cmd>lua Open_link()<cr>")
 
+	function Goto_next_link()
+		FeedKeys("/https")
+		FeedKeysInt("<CR>")
+	end
+	vim.keymap.set("n", "gL", Goto_next_link)
+	vim.keymap.set("v", "gL", "<esc><cmd>lua Goto_next_link()<cr>")
+
 	local function outdent()
 		---@diagnostic disable-next-line: unused-local
 		for i = 1, vim.v.count1 do
