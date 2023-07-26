@@ -102,18 +102,18 @@ require('lualine').setup {
 	extensions = {}
 }
 
-vim.g.clipboard = {
-	name = "wslclipboard",
-	copy = {
-		["+"] = "win32yank.exe -i --crlf",
-		["*"] = "win32yank.exe -i --crlf",
-	},
-	paste = {
-		["+"] = "win32yank.exe -o --lf",
-		["*"] = "win32yank.exe -o --lf"
-	},
-	cache_enabled = true
-}
+-- vim.g.clipboard = {
+-- 	name = "wslclipboard",
+-- 	copy = {
+-- 		["+"] = "win32yank.exe -i --crlf",
+-- 		["*"] = "win32yank.exe -i --crlf",
+-- 	},
+-- 	paste = {
+-- 		["+"] = "win32yank.exe -o --lf",
+-- 		["*"] = "win32yank.exe -o --lf"
+-- 	},
+-- 	cache_enabled = true
+-- }
 
 -- Mark fix
 for c = string.byte("a"), string.byte("z") do

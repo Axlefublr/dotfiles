@@ -1,4 +1,4 @@
 ﻿#!/usr/bin/env fish
 
-command -q yt-dlp || pip install yt-dlp
-ln -s /mnt/c/Programming/dotfiles/yt-dlp.conf ~/yt-dlp.conf
+command -q yt-dlp || pipx install yt-dlp
+ln -s ~/Programming/dotfiles/yt-dlp.conf ~/yt-dlp.conf

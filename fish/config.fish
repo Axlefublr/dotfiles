@@ -3,7 +3,7 @@
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
-set -gx PATH "~/Programming/binaries" "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" "/mnt/c/Programming/dotfiles/fish" "/mnt/c/Programming/dotfiles/fish/fun" "/mnt/c/Programming/dotfiles/fish/setup" $PATH
+set -gx PATH "~/Programming/binaries" "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" "~/Programming/dotfiles/fish" "~/Programming/dotfiles/fish/fun" "~/Programming/dotfiles/fish/setup" $PATH
 set -gx BROWSER 'browser.exe'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
@@ -11,25 +11,14 @@ set -gx SAVEHIST 10000
 set -gx RANGER_LOAD_DEFAULT_RC false
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 
-set -l prog /mnt/c/Programming
-set -l pic /mnt/c/Pictures
-set -l lib /mnt/c/Users/axlefublr/Documents/AutoHotkey/Lib
-set -l audio /mnt/c/Audio
-
-set -g important_directories $prog \
-	$lib \
-	$pic \
-	$audio/ \
-	~/.config/fish \
-	$prog/rust \
-	$prog/csproj \
+set -l prog ~/Programming
+set -l pic ~/Pictures
+set -l audio ~/Music
 
 set -g git_directories $prog/dotfiles \
 	$prog/info \
-	$prog/main \
 	$prog/music \
 	$prog/binaries \
-	$lib \
 	$pic/Tree \
 	$pic/Tools
 
