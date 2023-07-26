@@ -460,6 +460,11 @@ if vim.g.vscode then
 	end
 	vim.keymap.set("n", "=w", add_word_user_dictionary)
 
+	local function toggle_breakpoint()
+		vim.fn.VSCodeNotify("editor.debug.action.toggleBreakpoint")
+	end
+	vim.keymap.set("n", "zy", toggle_breakpoint)
+
 else
 
 	local function closeEditor()
