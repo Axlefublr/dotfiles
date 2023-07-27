@@ -223,17 +223,17 @@ end
 
 if vim.g.vscode then
 
-	local function center_screen() vim.cmd("call <SNR>4_reveal('center', 0)") end
+	local function center_screen() vim.cmd("call <SNR>3_reveal('center', 0)") end
 	vim.keymap.set("", "z,", center_screen)
-	local function top_screen() vim.cmd("call <SNR>4_reveal('top', 0)") end
+	local function top_screen() vim.cmd("call <SNR>3_reveal('top', 0)") end
 	vim.keymap.set("", "zm", top_screen)
-	local function bottom_screen() vim.cmd("call <SNR>4_reveal('bottom', 0)") end
+	local function bottom_screen() vim.cmd("call <SNR>3_reveal('bottom', 0)") end
 	vim.keymap.set("", "z.", bottom_screen)
 	local function move_to_top_screen()
-		vim.cmd("call <SNR>4_moveCursor('top')")
+		vim.cmd("call <SNR>3_moveCursor('top')")
 	end
 	local function move_to_bottom_screen()
-		vim.cmd("call <SNR>4_moveCursor('bottom')")
+		vim.cmd("call <SNR>3_moveCursor('bottom')")
 	end
 
 	local function move_to_bottom_screen__center_screen()
