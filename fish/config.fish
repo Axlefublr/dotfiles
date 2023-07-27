@@ -4,23 +4,14 @@ set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
 set -gx PATH "~/Programming/binaries" "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" "~/Programming/dotfiles/fish" "~/Programming/dotfiles/fish/fun" "~/Programming/dotfiles/fish/setup" $PATH
-set -gx BROWSER 'browser.exe'
+set -gx BROWSER '/usr/bin/firefox'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000
 set -gx RANGER_LOAD_DEFAULT_RC false
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
-
-set -l prog ~/Programming
-set -l pic ~/Pictures
-set -l audio ~/Music
-
-set -g git_directories $prog/dotfiles \
-	$prog/info \
-	$prog/music \
-	$prog/binaries \
-	$pic/Tree \
-	$pic/Tools
+set -gx QT_QPA_PLATFORM wayland
+set -gx QT_QPA_PLATFORMTHEME gt5ct
 
 set -g color_pink        FFAFD7
 set -g color_purple      AF87FF
@@ -73,26 +64,23 @@ abbr -a @dn  --position anywhere -- '> /dev/null'
 abbr -a @en  --position anywhere -- '2> /dev/null'
 abbr -a @bn  --position anywhere -- '&> /dev/null'
 
-abbr -a exp  'explorer.exe'
-abbr -a clip 'clip.exe'
-abbr -a ch   'ChoreTracker.exe'
-abbr -a we   'Welde.exe'
-abbr -a ff   'ffmpeg.exe'
-abbr -a ffi  'ffmpeg.exe -i'
-
 abbr -a bat    'batcat'
 abbr -a v      'nvim'
-abbr -a xcode  'xargs code-insiders'
+abbr -a xcode  'xargs code'
 abbr -a ranger 'ranger --choosedir /tmp/dickie && clear -x'
 abbr -a fp     'fish -P'
 abbr -a fi     'fish'
 abbr -a x      'exit'
 abbr -a bacon  'clear -x ; bacon -j clippy'
-abbr -a wec    'watchexec --poll 0 -c clear'
+abbr -a wec    'watchexec -c clear'
 abbr -a gitui  'gitui ; clear -x'
+abbr -a sain   'sudo apt install -y'
 
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'
+
+abbr -a ff   'ffmpeg'
+abbr -a ffi  'ffmpeg -i'
 
 abbr -a rm  'trash-put'
 abbr -a rmf 'rm -fr'
