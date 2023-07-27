@@ -1692,7 +1692,7 @@
 		"command": "workbench.action.togglePanel"
 	},
 	{
-		"key": "alt+b",
+		"key": "alt+`",
 		"command": "workbench.action.toggleSidebarVisibility"
 	},
 	{
@@ -3277,11 +3277,6 @@
 		"key": "enter",
 		"command": "-acceptSelectedCodeAction",
 		"when": "codeActionMenuVisible"
-	},
-	{
-		"key": "capslock",
-		"command": "vscode-neovim.escape",
-		"when": "editorTextFocus && neovim.init"
 	},
 	{
 		"key": "escape",
@@ -5289,4 +5284,9 @@
 		"command": "breadcrumbs.focusNext",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
+	{
+		"key": "capslock",
+		"command": "vscode-neovim.escape",
+		"when": "editorTextFocus && neovim.init"
+	}
 ]
