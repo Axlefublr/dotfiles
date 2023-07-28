@@ -371,19 +371,19 @@ if vim.g.vscode then
 	vim.keymap.set("n", "zK", git_unstage_file)
 
 	local function git_revert_change()
-		vim.fn.VSCodeNotifyVisual("git.revertSelectedRanges", 0)
+		vim.fn.VSCodeNotify("git.revertSelectedRanges")
 	end
 	vim.keymap.set("n", "zJ", git_revert_change)
 	vim.keymap.set("v", "zJ", git_revert_change)
 
 	local function git_stage_change()
-		vim.fn.VSCodeNotifyVisual("git.stageSelectedRanges", 0)
+		vim.fn.VSCodeNotify("git.stageSelectedRanges")
 	end
 	vim.keymap.set("n", "zj", git_stage_change)
 	vim.keymap.set("v", "zj", git_stage_change)
 
 	local function git_unstage_change()
-		vim.fn.VSCodeNotifyVisual("git.unstageSelectedRanges", 0)
+		vim.fn.VSCodeNotify("git.unstageSelectedRanges")
 	end
 
 	local function git_open_changes() vim.fn.VSCodeNotify("git.openChange") end
@@ -425,28 +425,28 @@ if vim.g.vscode then
 	vim.keymap.set("n", "zP", accept_merge_all_incoming)
 
 	local function accept_merge_selection()
-		vim.fn.VSCodeNotifyVisual("merge-conflict.accept.selection", 0)
+		vim.fn.VSCodeNotify("merge-conflict.accept.selection")
 	end
 	vim.keymap.set("n", "zl", accept_merge_selection)
 	vim.keymap.set("v", "zl", accept_merge_selection)
 
 	local function codesnap()
-		vim.fn.VSCodeNotifyVisual("codesnap.start", true)
+		vim.fn.VSCodeNotify("codesnap.start", true)
 	end
 	vim.keymap.set("v", "gs", codesnap)
 
 	local function outdent_vis()
-		vim.fn.VSCodeNotifyVisual("editor.action.outdentLines", false)
+		vim.fn.VSCodeNotify("editor.action.outdentLines", false)
 	end
 	vim.keymap.set("v", "<", outdent_vis)
 
 	local function indent_vis()
-		vim.fn.VSCodeNotifyVisual("editor.action.indentLines", false)
+		vim.fn.VSCodeNotify("editor.action.indentLines", false)
 	end
 	vim.keymap.set("v", ">", indent_vis)
 
 	local function comment_vis()
-		vim.fn.VSCodeNotifyVisual("editor.action.commentLine", false)
+		vim.fn.VSCodeNotify("editor.action.commentLine", false)
 	end
 	vim.keymap.set("v", "gc", comment_vis)
 
