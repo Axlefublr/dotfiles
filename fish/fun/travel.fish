@@ -34,24 +34,6 @@ function pick
 end
 funcsave pick > /dev/null
 
-function ks
-	set -l picked (pick . true)
-	if not test $picked
-		return 1
-	end
-	cd $picked
-end
-funcsave ks > /dev/null
-
-function js
-	set -l picked (pick .)
-	if not test $picked || not test -f $picked
-		return 1
-	end
-	$EDITOR $picked
-end
-funcsave js > /dev/null
-
 function paste_relative_path
 	set -l picked (pick .)
 	if not test $picked
@@ -60,26 +42,3 @@ function paste_relative_path
 	commandline -i $picked
 end
 funcsave paste_relative_path > /dev/null
-
-function kd
-	set -l picked (cat /tmp/dickie)
-	if not test $picked
-		return 1
-	end
-	cd $picked && clear -x
-end
-funcsave kd > /dev/null
-
-function paste_ranger_files
-	ranger --choosefiles /tmp/flickie
-	commandline -i (cat /tmp/flickie | tr '\n' ' ')
-	commandline -f repaint
-end
-funcsave paste_ranger_files > /dev/null
-
-function paste_ranger_dir
-	ranger --choosedir /tmp/dickie
-	commandline -i (cat /tmp/dickie)
-	commandline -f repaint
-end
-funcsave paste_ranger_dir > /dev/null

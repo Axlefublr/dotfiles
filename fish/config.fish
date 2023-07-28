@@ -78,7 +78,6 @@ abbr -a wcp    'wl-copy -n'
 abbr -a bat    'batcat'
 abbr -a v      'nvim'
 abbr -a xcode  'xargs code'
-abbr -a ranger 'ranger --choosedir /tmp/dickie && clear -x'
 abbr -a fp     'fish -P'
 abbr -a fi     'fish'
 abbr -a x      'exit'
@@ -181,18 +180,14 @@ abbr -a ghrccuM 'gh repo create --clone --public --license MIT'
 abbr -a ghrccp  'gh repo create --clone --private'
 abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 
-bind -M insert \cD paste_ranger_dir
-bind -M insert \cS paste_relative_path
-bind -M insert \cF paste_ranger_files
-bind -M insert \cQ 'commandline -i (cat /tmp/dickie)'
-bind -M insert \cA 'commandline -i (cat /tmp/flickie | tr \'\n\' \' \')'
-bind -M insert \cR 'commandline -i (cat /tmp/pickie)'
+bind -M insert \cD 'ranger --choosedir /tmp/dickie ; cd (cat /tmp/dickie) ; commandline -f repaint'
+bind -M insert \cR 'ranger ; commandline -f repaint'
 
 bind -M insert  \cO "exec fish -C 'clear -x'"
 bind -M default \cO "exec fish -C 'clear -x'"
 
-bind -M insert  \cE _showie
-bind -M default \cE _showie
+bind -M insert  \cE less /tmp/pagie
+bind -M default \cE less /tmp/pagie
 
 bind -M default K execute
 bind -M insert \c] execute

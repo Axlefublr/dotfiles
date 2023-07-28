@@ -30,14 +30,6 @@ function tg
 end
 funcsave tg > /dev/null
 
-function _showie
-	echo "$(cat /tmp/dickie)
-$(cat /tmp/flickie)
-
-$(cat /tmp/pagie)" &| less
-end
-funcsave _showie > /dev/null
-
 function gi
 	command -q uclanr || return 1
 	set -l temp /tmp/(uclanr -j - 2)
