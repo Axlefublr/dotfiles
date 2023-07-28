@@ -194,11 +194,10 @@ bind -M default \cO "exec fish -C 'clear -x'"
 bind -M insert  \cE _showie
 bind -M default \cE _showie
 
-bind -M insert \el 'commandline -f history-search-backward execute'
-
-bind -M default \; accept-autosuggestion
 bind -M default K execute
-bind -M default -m insert "'" accept-autosuggestion execute
+bind -M insert \c] execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
+bind -M default \; accept-autosuggestion
+bind -M insert \e\; accept-autosuggestion
