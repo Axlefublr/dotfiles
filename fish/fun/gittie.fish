@@ -129,9 +129,7 @@ funcsave gsp > /dev/null
 function gsa
 	clear -x
 	set -l prevDir (pwd)
-	set -l directories ~/Programming/info \
-	~/Programming/dotfiles \
-	~/Programming/scripts
+	set -l directories $git_repositories
 
 	for dir in $directories
 

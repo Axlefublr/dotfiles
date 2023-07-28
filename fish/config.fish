@@ -1,9 +1,14 @@
 #!/usr/bin/env fish
 
+set -g git_repositories ~/Programming/info \
+	~/Programming/dotfiles \
+	~/Programming/scripts \
+	~/Programming/binaries
+
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
-set -gx PATH "~/Programming/binaries" "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" "~/Programming/dotfiles/fish" "~/Programming/dotfiles/fish/fun" "~/Programming/dotfiles/fish/setup" $PATH
+set -gx PATH "$HOME/Programming/binaries" "$HOME/Programming/dotfiles/fish" "$HOME/Programming/dotfiles/fish/fun" "$HOME/Programming/scripts/src" "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" $PATH
 set -gx BROWSER '/usr/bin/firefox'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'

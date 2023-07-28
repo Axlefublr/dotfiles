@@ -17,38 +17,23 @@ vim.opt.termguicolors        = true
 vim.opt.background           = "dark"
 vim.g.camelcasemotion_key    = "<leader>"
 vim.g.targets_nl             = "nh"
-vim.cmd("colorscheme tender")
-vim.cmd("let g:sneak#use_ic_scs = 1")
-vim.cmd("highlight link Sneak None")
-vim.cmd("packadd! matchit")
-
---- Plugins: VimPlug
-local Plug = vim.fn['plug#']
-vim.call("plug#begin")
-Plug("adelarsq/vim-matchit")
-Plug("tpope/vim-repeat")
-Plug("sheerun/vim-polyglot")
-Plug("bkad/CamelCaseMotion")
-Plug("junegunn/vim-easy-align")
-Plug("kana/vim-textobj-user")
-Plug("kana/vim-textobj-entire")
-Plug("kana/vim-textobj-line")
-Plug("michaeljsmith/vim-indent-object")
-Plug("vim-scripts/ReplaceWithRegister")
-Plug("wellle/targets.vim")
-Plug('justinmk/vim-sneak')
-vim.call("plug#end")
 
 --- Plugins: Packer
 require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
-	use "savq/melange"
-	use "sainnhe/everforest"
-	use "sainnhe/edge"
+	use "kana/vim-textobj-user"
+	use "kana/vim-textobj-line"
+	use "michaeljsmith/vim-indent-object"
+	use "vim-scripts/ReplaceWithRegister"
+	use "wellle/targets.vim"
+	use "justinmk/vim-sneak"
+	use "junegunn/vim-easy-align"
+	use "bkad/CamelCaseMotion"
+	use "sheerun/vim-polyglot"
+	use "tpope/vim-repeat"
+	use "adelarsq/vim-matchit"
 	use "sainnhe/gruvbox-material"
-	use "jacoborus/tender.vim"
 	use "farmergreg/vim-lastplace"
-	use "ap/vim-css-color"
 	use {
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true }
@@ -61,6 +46,16 @@ require("packer").startup(function(use)
 		end
 	})
 end)
+--- Plugins: VimPlug
+local Plug = vim.fn['plug#']
+vim.call("plug#begin")
+Plug("kana/vim-textobj-entire")
+vim.call("plug#end")
+
+vim.cmd("colorscheme gruvbox-material")
+vim.cmd("let g:sneak#use_ic_scs = 1")
+vim.cmd("highlight link Sneak None")
+vim.cmd("packadd! matchit")
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
