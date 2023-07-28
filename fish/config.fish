@@ -196,3 +196,4 @@ bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
 bind -M default \; accept-autosuggestion
 bind -M insert \e\; accept-autosuggestion
+bind -M insert \eh list_current_token

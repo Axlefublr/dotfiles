@@ -18,3 +18,23 @@ function fish_command_not_found
 	echo "sorry, but the `$argv[1]` command doesn't exist"
 end
 funcsave fish_command_not_found > /dev/null
+
+function list_current_token -d "List contents of token under the cursor (including dotfiles) if it is a directory, otherwise list the contents of the current directory"
+	set -l val (commandline -t)
+	clear -x
+	if test -d $val
+		ls -A $val
+	else
+		set -l dir (dirname -- $val)
+		if test $dir != . -a -d $dir
+			ls -A $dir
+		else
+			ls -A
+		end
+	end
+
+	string repeat -N \n --count=(math (count (fish_prompt)) - 1)
+
+	commandline -f repaint
+end
+funcsave list_current_token > /dev/null
