@@ -5147,7 +5147,7 @@
 		"when": "terminalFocus"
 	},
 	{
-		"key": "shift+alt+8",
+		"key": "alt+e",
 		"command": "workbench.action.terminal.newInActiveWorkspace"
 	},
 	{
