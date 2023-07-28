@@ -11,19 +11,9 @@ function ggl
 	if set -q argv[2] && test $argv[2] != ''
 		set connector $argv[2]
 	end
-	printf (git remote get-url origin | sed 's/\.git$//')/$connector/$branch
+	echo (git remote get-url origin | sed 's/\.git$//')/$connector/$branch
 end
 funcsave ggl > /dev/null
-
-function gglc
-	ggl $argv | tee /dev/tty | clip.exe
-end
-funcsave gglc > /dev/null
-
-function gglb
-	$BROWSER (ggl $argv)
-end
-funcsave gglb > /dev/null
 
 function gglf
 	set -l path $argv[1]
@@ -46,19 +36,9 @@ function gglf
 	if set -q argv[2]
 		set branch $argv[2]
 	end
-	printf (ggl $branch $connector)/$path
+	echo (ggl $branch $connector)/$path
 end
 funcsave gglf > /dev/null
-
-function gglfc
-	gglf $argv | tee /dev/tty | clip.exe
-end
-funcsave gglfc > /dev/null
-
-function gglfb
-	$BROWSER (gglf $argv)
-end
-funcsave gglfb > /dev/null
 
 function gll
 	set -l hsh 'HEAD'
@@ -70,19 +50,9 @@ function gll
 	if set -q argv[2]
 		set connector $argv[2]
 	end
-	printf (ggl $hsh $connector)
+	echo (ggl $hsh $connector)
 end
 funcsave gll > /dev/null
-
-function gllc
-	gll $argv | tee /dev/tty | clip.exe
-end
-funcsave gllc > /dev/null
-
-function gllb
-	$BROWSER (gll $argv)
-end
-funcsave gllb > /dev/null
 
 function gllf
 	set -l path $argv[1]
@@ -105,19 +75,9 @@ function gllf
 	if set -q argv[2]
 		set hsh $argv[2]
 	end
-	printf (gll $hsh $connector)/$path
+	echo (gll $hsh $connector)/$path
 end
 funcsave gllf > /dev/null
-
-function gllfc
-	gllf $argv | tee /dev/tty | clip.exe
-end
-funcsave gllfc > /dev/null
-
-function gllfb
-	$BROWSER (gllf $argv)
-end
-funcsave gllfb > /dev/null
 
 function gsp
 	set -l remote (git remote)
