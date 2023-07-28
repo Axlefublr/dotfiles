@@ -3,7 +3,12 @@
 set -g git_repositories ~/Programming/info \
 	~/Programming/dotfiles \
 	~/Programming/scripts \
-	~/Programming/binaries
+	~/Programming/binaries \
+	~/Programming/music \
+	~/Programming/job \
+	~/Programming/shows \
+	~/Pictures/Tree \
+	~/Pictures/Tools
 
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
@@ -69,6 +74,7 @@ abbr -a @dn  --position anywhere -- '> /dev/null'
 abbr -a @en  --position anywhere -- '2> /dev/null'
 abbr -a @bn  --position anywhere -- '&> /dev/null'
 
+abbr -a wcp    'wl-copy -n'
 abbr -a bat    'batcat'
 abbr -a v      'nvim'
 abbr -a xcode  'xargs code'
