@@ -28,7 +28,7 @@
 					"foreground": "#EA6962",
 					"fontStyle": "italic"
 				},
-				"scope": []
+				"scope": [ ]
 			},
 			{
 				"name": "red bold",
@@ -36,9 +36,7 @@
 					"foreground": "#EA6962",
 					"fontStyle": "bold"
 				},
-				"scope": [
-					"keyword.operator.comparison"
-				]
+				"scope": [ ]
 			},
 			{
 				"name": "orange",
@@ -51,7 +49,6 @@
 					"punctuation.definition.tag.end.html",
 					"constant.numeric",
 					"storage.modifier",
-					"meta.attribute.rust",
 					"keyword.local.lua",
 					"keyword.control.flow.throw",
 					"keyword.other.nameof",
@@ -64,7 +61,7 @@
 					"foreground": "#E78A4E",
 					"fontStyle": "italic"
 				},
-				"scope": []
+				"scope": [ ]
 			},
 			{
 				"name": "orange bold",
@@ -72,7 +69,7 @@
 					"foreground": "#E78A4E",
 					"fontStyle": "bold"
 				},
-				"scope": []
+				"scope": [ ]
 			},
 			{
 				"name": "yellow",
@@ -127,7 +124,7 @@
 					"foreground": "#D8A657",
 					"fontStyle": "italic"
 				},
-				"scope": []
+				"scope": [ ]
 			},
 			{
 				"name": "green",
@@ -147,7 +144,7 @@
 					"foreground": "#A9B665",
 					"fontStyle": "bold"
 				},
-				"scope": []
+				"scope": [ ]
 			},
 			{
 				"name": "green italic",
@@ -155,7 +152,7 @@
 					"foreground": "#A9B665",
 					"fontStyle": "italic"
 				},
-				"scope": []
+				"scope": [ ]
 			},
 			{
 				"name": "greean",
@@ -167,7 +164,18 @@
 					"entity.name.tag.localname.cs",
 					"entity.name.type.namespace.cs",
 					"string.quoted.double.json",
-					"entity.name.tag.html"
+					"entity.name.tag.html",
+				]
+			},
+			{
+				"name": "greean bold",
+				"settings": {
+					"foreground": "#89B482",
+					"fontStyle": "bold"
+				},
+				"scope": [
+					"punctuation.definition.attribute.rust",
+					"punctuation.brackets.attribute.rust",
 				]
 			},
 			{
@@ -198,7 +206,7 @@
 					"foreground": "#7DAEA3",
 					"fontStyle": "bold"
 				},
-				"scope": []
+				"scope": [ ]
 			},
 			{
 				"name": "cyan italic",
@@ -221,11 +229,12 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"meta.attribute.rust",
 					"keyword.other.crate.rust",
 					"keyword.other.new",
 					"keyword.operator.null-coalescing",
 					"variable.other.normal.fish",
-					"punctuation.definition.variable.fish"
+					"punctuation.definition.variable.fish",
 				]
 			},
 			{
@@ -247,7 +256,7 @@
 				},
 				"scope": [
 					"punctuation.definition.lifetime.rust",
-					"entity.name.type.lifetime.rust"
+					"entity.name.type.lifetime.rust",
 				]
 			},
 			{
@@ -297,6 +306,9 @@
 					"fontStyle": "bold"
 				},
 				"scope": [
+					"keyword.operator.dereference.rust",
+					"keyword.operator.arrow.skinny.rust",
+					"keyword.operator.comparison",
 					"keyword.operator.math.rust",
 					"punctuation.definition.interpolation.begin.cs",
 					"punctuation.definition.interpolation.end.cs",
@@ -326,6 +338,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"keyword.operator.lua",
 					"keyword.control.razor.optionalSemicolon",
 					"punctuation.accessor.js",
 					"keyword.operator.ahk2",
@@ -335,7 +348,6 @@
 					"keyword.operator.key-value.rust",
 					"keyword.operator.access.dot.rust",
 					"keyword.operator.namespace.rust",
-					"keyword.operator.arrow.skinny.rust",
 					"variable.other.object.property.cs"
 				]
 			},
@@ -346,10 +358,25 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"punctuation.definition.array.end.json",
+					"punctuation.definition.array.begin.json",
+					"punctuation.definition.dictionary.end.json",
+					"punctuation.definition.dictionary.begin.json",
 					"constant.character.escape"
+				]
+			},
+			{
+				"name": "grey bold",
+				"settings": {
+					"foreground": "#928374",
+					"fontStyle": "bold"
+				},
+				"scope": [
 				]
 			}
 		]
+	},
+	"workbench.colorCustomizations": {
 	},
 	"[ahk2]": {
 		"editor.formatOnPaste": false,
@@ -372,7 +399,7 @@
 			"other": "inline"
 		}
 	},
-	"[sql]": {},
+	"[sql]": { },
 	"[json]": {
 		"editor.quickSuggestions": {
 			"strings": true
@@ -412,7 +439,7 @@
 				"${env:windir}\\Sysnative\\cmd.exe",
 				"${env:windir}\\System32\\cmd.exe"
 			],
-			"args": [],
+			"args": [ ],
 			"icon": "terminal-cmd"
 		},
 		"Git Bash": {
@@ -468,7 +495,7 @@
 			"other": "inline"
 		}
 	},
-	"[html]": {},
+	"[html]": { },
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer"
 	},
@@ -476,7 +503,7 @@
 		"asvetliakov.vscode-neovim": 1
 	},
 	"editor.fontLigatures": true,
-	"editor.bracketPairColorization.enabled": true,
+	"editor.bracketPairColorization.enabled": false,
 	"editor.mouseWheelScrollSensitivity": 1.7,
 	"editor.parameterHints.enabled": false,
 	"editor.acceptSuggestionOnEnter": "off",
@@ -552,7 +579,6 @@
 	"editor.overviewRulerBorder": false,
 	"window.restoreFullscreen": true,
 	"debug.toolBarLocation": "docked",
-	"window.customMenuBarAltFocus": false,
 	"window.enableMenuBarMnemonics": false,
 	"window.openFoldersInNewWindow": "on",
 	"editor.semanticHighlighting.enabled": false,
@@ -561,9 +587,8 @@
 	"markdown.extension.toc.unorderedList.marker": "*",
 	"terminal.integrated.copyOnSelection": true,
 	"debug.console.fontSize": 18,
-	"vscode-neovim.useWSL": true,
-	"vscode-neovim.neovimExecutablePaths.linux": "~/.local/bin/nvim",
-	"vscode-neovim.neovimInitVimPaths.linux": "/mnt/c/Programming/dotfiles/init.lua",
+	"vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+	"vscode-neovim.neovimInitVimPaths.linux": "~/Programming/dotfiles/init.lua",
 	"editor.occurrencesHighlight": false,
 	"markdown.validate.enabled": true,
 	"editor.lineNumbers": "relative",
@@ -588,7 +613,7 @@
 	"task.quickOpen.skip": true,
 	"Lua.semantic.keyword": true,
 	"editor.indentSize": 4,
-	"editor.fontFamily": "'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji'",
+	"editor.fontFamily": "'JetBrains Mono', 'JetBrainsMono Nerd Font', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji'",
 	"editor.fontWeight": "normal",
 	"editor.fontSize": 16,
 	"screencastMode.fontSize": 26,
@@ -605,7 +630,7 @@
 	"explorer.excludeGitIgnore": true,
 	"task.quickOpen.history": 5,
 	"editor.accessibilitySupport": "off",
-	"window.menuBarVisibility": "compact",
+	"window.menuBarVisibility": "hidden",
 	"workbench.layoutControl.enabled": false,
 	"workbench.sideBar.location": "right",
 	"editor.scrollbar.horizontalScrollbarSize": 14,
@@ -649,7 +674,7 @@
 	"editor.tabSize": 3,
 	"screencastMode.keyboardShortcutsFormat": "keys",
 	"workbench.editor.splitInGroupLayout": "vertical",
-	"editor.codeActionsOnSave": {},
+	"editor.codeActionsOnSave": { },
 	"editor.cursorBlinking": "solid",
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
@@ -660,7 +685,6 @@
 		96,
 		128
 	],
-	"window.zoomLevel": 1.8,
 	"git.enableStatusBarSync": false,
 	"Lua.window.progressBar": false,
 	"Lua.window.statusBar": false,
@@ -693,9 +717,6 @@
 	"rust-analyzer.lens.run.enable": false,
 	"rust-analyzer.restartServerOnConfigChange": true,
 	"rust-analyzer.semanticHighlighting.operator.specialization.enable": true,
-	"rust-analyzer.semanticHighlighting.punctuation.enable": true,
-	"rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": true,
-	"rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
 	"rust-analyzer.showDependenciesExplorer": false,
 	"rust-analyzer.typing.continueCommentsOnNewline": false,
 	"rust-analyzer.workspace.symbol.search.kind": "all_symbols",
@@ -703,7 +724,6 @@
 	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
 	"rust-analyzer.inlayHints.parameterHints.enable": false,
 	"csharp.testsCodeLens.enabled": false,
-	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
 	"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
 	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
 	"rust-analyzer.inlayHints.bindingModeHints.enable": true,
@@ -722,5 +742,63 @@
 	"rust-analyzer.completion.callable.snippets": "add_parentheses",
 	"extensions.ignoreRecommendations": true,
 	"workbench.editor.pinnedTabSizing": "compact",
-	"rust-analyzer.check.command": "clippy"
+	"rust-analyzer.check.command": "clippy",
+	"rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "always",
+	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+	"cSpell.language": "ru-RU,en-US",
+	"cSpell.enableFiletypes": [
+		"!c",
+		"!cpp",
+		"!csharp",
+		"!css",
+		"!elixir",
+		"!erlang",
+		"!go",
+		"!graphql",
+		"!handlebars",
+		"!haskell",
+		"!html",
+		"!jade",
+		"!java",
+		"!javascript",
+		"!javascriptreact",
+		"!json",
+		"!jsonc",
+		"!jupyter",
+		"!less",
+		"!php",
+		"!pug",
+		"!python",
+		"!rust",
+		"!scala",
+		"!scss",
+		"!swift",
+		"!typescript",
+		"!typescriptreact",
+		"!vue",
+		"!yaml",
+		"!yml"
+	],
+	"errorLens.messageBackgroundMode": "message",
+	"errorLens.onSave": true,
+	"errorLens.onSaveTimeout": 0,
+	"errorLens.scrollbarHackEnabled": true,
+	"errorLens.searchForProblemQuery": "https://google.com/?q=$message",
+	"errorLens.enabledDiagnosticLevels": [
+		"error",
+		"info",
+		"hint",
+		"warning"
+	],
+	"errorLens.messageEnabled": true,
+	"rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "postfix",
+	"zenMode.hideLineNumbers": false,
+	"json.format.keepLines": true,
+	"markdown.editor.pasteUrlAsFormattedLink.enabled": "never",
+	"prettier.printWidth": 96,
+	"vscord.app.name": "Visual Studio Code",
+	"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+	"csharp.inlayHints.enableInlayHintsForTypes": true,
+	"window.zoomLevel": 1.8,
+	"window.customMenuBarAltFocus": false,
 }
