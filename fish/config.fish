@@ -183,9 +183,6 @@ abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 bind -M insert \cD 'ranger --choosedir /tmp/dickie ; cd (cat /tmp/dickie) ; commandline -f repaint'
 bind -M insert \cR 'ranger ; commandline -f repaint'
 
-bind -M insert  \cO "exec fish -C 'clear -x'"
-bind -M default \cO "exec fish -C 'clear -x'"
-
 bind -M insert  \cE less /tmp/pagie
 bind -M default \cE less /tmp/pagie
 
@@ -196,4 +193,4 @@ bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
 bind -M default \; accept-autosuggestion
 bind -M insert \e\; accept-autosuggestion
-bind -M insert \eh list_current_token
+bind -M insert \el list_current_token
