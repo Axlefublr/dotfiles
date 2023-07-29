@@ -68,23 +68,21 @@ set -g fish_cursor_visual block
 
 ## abbreviations
 
-abbr -a @hl  --position anywhere -- '--help &| tee /tmp/pagie &| less'
-abbr -a @l   --position anywhere -- '&| tee /tmp/pagie &| less'
-abbr -a @dn  --position anywhere -- '> /dev/null'
-abbr -a @en  --position anywhere -- '2> /dev/null'
-abbr -a @bn  --position anywhere -- '&> /dev/null'
+abbr -a @dn --position anywhere -- '> /dev/null'
+abbr -a @en --position anywhere -- '2> /dev/null'
+abbr -a @bn --position anywhere -- '&> /dev/null'
 
-abbr -a wcp    'wl-copy -n'
-abbr -a bat    'batcat'
-abbr -a v      'nvim'
-abbr -a xcode  'xargs code'
-abbr -a fp     'fish -P'
-abbr -a fi     'fish'
-abbr -a x      'exit'
-abbr -a bacon  'clear -x ; bacon -j clippy'
-abbr -a wec    'watchexec -c clear'
-abbr -a gitui  'gitui ; clear -x'
-abbr -a sain   'sudo apt install -y'
+abbr -a sycp  'wl-copy -n'
+abbr -a bat   'batcat'
+abbr -a v     'nvim'
+abbr -a xcode 'xargs code'
+abbr -a fp    'fish -P'
+abbr -a fi    'fish'
+abbr -a x     'exit'
+abbr -a bacon 'clear -x ; bacon -j clippy'
+abbr -a wec   'watchexec -c clear'
+abbr -a gitui 'gitui ; clear -x'
+abbr -a sain  'sudo apt install -y'
 
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'
@@ -188,9 +186,11 @@ bind -M default \cE less /tmp/pagie
 
 bind -M default K execute
 bind -M insert \c] execute
+
+bind -M default \; accept-autosuggestion
+bind -M insert \e\; accept-autosuggestion
+
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
-bind -M default \; accept-autosuggestion
-bind -M insert \e\; accept-autosuggestion
 bind -M insert \el list_current_token

@@ -20,20 +20,11 @@ end
 funcsave work > /dev/null
 
 function tg
-	set -l tempFile /tmp/tgptie
-	nvim $tempFile
-	set -l tempText (cat $tempFile)
+	$EDITOR /tmp/gi
+	set -l tempText (cat /tmp/gi)
 	if test -z "$tempText"
 		return 1
 	end
 	tgpt "$tempText"
 end
 funcsave tg > /dev/null
-
-function gi
-	command -q uclanr || return 1
-	set -l temp /tmp/(uclanr -j - 2)
-	$EDITOR $temp
-	printf (cat $temp)
-end
-funcsave gi > /dev/null

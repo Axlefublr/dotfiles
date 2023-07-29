@@ -801,4 +801,5 @@
 	"csharp.inlayHints.enableInlayHintsForTypes": true,
 	"window.zoomLevel": 1.8,
 	"window.customMenuBarAltFocus": false,
+	"editor.renderFinalNewline": "on",
 }
