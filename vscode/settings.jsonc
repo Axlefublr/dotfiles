@@ -682,8 +682,6 @@
 		"Function": ".("
 	},
 	"editor.rulers": [
-		96,
-		128
 	],
 	"git.enableStatusBarSync": false,
 	"Lua.window.progressBar": false,
