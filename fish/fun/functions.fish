@@ -13,9 +13,15 @@ funcsave rga > /dev/null
 function work
 	while true
 		termdown 25m -T 'Work!' || break
+		echo "You just worked! Rest now?"
+		read -n 1
+		clear
 		termdown 5m -T 'Rest!' || break
+		echo "You just rested! Work now?"
+		read -n 1
+		clear
 	end
-	clear -x
+	clear
 end
 funcsave work > /dev/null
 
