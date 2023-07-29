@@ -94,7 +94,7 @@ abbr -a rm  'trash-put'
 abbr -a rmf 'rm -fr'
 abbr -a trr 'trash-restore'
 
-abbr -a ls  'clear -x ; ls -A'
+abbr -a ls  'ls -A'
 abbr -a lsw 'ls -A -w 1'
 abbr -a lg  'ls -Agh'
 
@@ -102,7 +102,7 @@ abbr -a lg  'ls -Agh'
 
 abbr -a gd      'git diff'
 abbr -a gss     'git status'
-abbr -a gs      'clear -x ; git status -s'
+abbr -a gs      'git status -s'
 abbr -a gsh     'git show'
 abbr -a gl      'git log'
 abbr -a glo     'git log --oneline'
@@ -181,15 +181,13 @@ abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 bind -M insert \cD 'ranger --choosedir /tmp/dickie ; cd (cat /tmp/dickie) ; commandline -f repaint'
 bind -M insert \cR 'ranger ; commandline -f repaint'
 
-bind -M insert  \cE less /tmp/pagie
-bind -M default \cE less /tmp/pagie
-
 bind -M default K execute
 bind -M insert \c] execute
 
 bind -M default \; accept-autosuggestion
 bind -M insert \e\; accept-autosuggestion
 
+bind -M insert \e\cX 'eval $history[1] | string collect | wl-copy -n'
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
