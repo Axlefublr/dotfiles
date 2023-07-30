@@ -82,6 +82,7 @@ abbr -a x     'exit'
 abbr -a bacon 'bacon -j clippy'
 abbr -a wec   'watchexec -c clear'
 abbr -a sain  'sudo apt install -y'
+abbr -a ch    'ChoreTracker'
 
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'
@@ -135,6 +136,7 @@ abbr -a gcl     'git clean -id'
 
 ## dotnet
 
+abbr -a dn   'dotnet'
 abbr -a dnn  'dotnet new'
 abbr -a dnnl 'dotnet new list &| tee /tmp/pagie &| less'
 abbr -a dnns 'dotnet new sln'
@@ -147,9 +149,11 @@ abbr -a dnb  'dotnet build'
 abbr -a dna  'dotnet add'
 abbr -a dnap 'dotnet add package'
 abbr -a dnf  'dotnet format'
+abbr -a dnp  'dotnet publish'
 
 ## rust
 
+abbr -a ca    'cargo'
 abbr -a can   'cargo new'
 abbr -a canf  'echo "hard_tabs = true" > rustfmt.toml'
 abbr -a cai   'cargo init'

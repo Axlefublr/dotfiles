@@ -8,3 +8,4 @@ rm ~/.config/fish/functions/*
 ~/Programming/dotfiles/fish/fun/gittie.fish
 ~/Programming/dotfiles/fish/fun/prompt.fish
 ~/Programming/dotfiles/fish/fun/travel.fish
+~/Programming/dotfiles/fish/fun/release.fish
