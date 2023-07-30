@@ -191,4 +191,4 @@ bind -M insert \e\cX 'eval $history[1] | string collect | wl-copy -n'
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
-bind -M insert \el list_current_token
+bind -M insert \em list_current_token

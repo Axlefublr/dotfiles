@@ -8,6 +8,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"entity.name.tag.localname.cs",
 					"keyword.operator.ternary",
 					"keyword.operator.logical",
 					"punctuation.separator.question-mark.cs",
@@ -161,7 +162,6 @@
 					"fontStyle": ""
 				},
 				"scope": [
-					"entity.name.tag.localname.cs",
 					"entity.name.type.namespace.cs",
 					"string.quoted.double.json",
 					"entity.name.tag.html",
@@ -792,7 +792,7 @@
 	"rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "postfix",
 	"zenMode.hideLineNumbers": false,
 	"json.format.keepLines": true,
-	"markdown.editor.pasteUrlAsFormattedLink.enabled": "never",
+	"markdown.editor.pasteUrlAsFormattedLink.enabled": false,
 	"prettier.printWidth": 96,
 	"vscord.app.name": "Visual Studio Code",
 	"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
