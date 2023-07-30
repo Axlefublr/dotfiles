@@ -81,7 +81,6 @@ abbr -a fi    'fish'
 abbr -a x     'exit'
 abbr -a bacon 'bacon -j clippy'
 abbr -a wec   'watchexec -c clear'
-abbr -a gitui 'gitui'
 abbr -a sain  'sudo apt install -y'
 
 abbr -a cls 'clear'
