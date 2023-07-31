@@ -12,11 +12,9 @@ function csharp-release
 	set -l taggedVersion v$argv[1]
 	git tag $taggedVersion
 	git push origin $taggedVersion
-	mkdir -p ./bin/Donsies/{linux,windows}
-	rm -f "./bin/Donsies/{linux,windows}/*" 2> /dev/null
-	dotnet publish -r linux-x64 --self-contained -o ./bin/Donsies/linux/
-	dotnet publish -r win-x64 --self-contained -o ./bin/Donsies/windows/
+	dotnet publish --configuration Release --runtime linux-x64 --self-contained
+	dotnet publish --configuration Release --runtime win-x64 --self-contained
 	set -l binaryName (basename $PWD)
-	gh release create $taggedVersion -n "" ./bin/Donsies/linux/$binaryName ./bin/Donsies/windows/$binaryName.exe
+	gh release create $taggedVersion -n "" ./bin/Release/net7.0/linux-x64/publish/$binaryName ./bin/Release/win-x64/publish/$binaryName.exe
 end
 funcsave csharp-release > /dev/null
