@@ -18,7 +18,6 @@ set -gx BROWSER '/usr/bin/firefox'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000
-set -gx RANGER_LOAD_DEFAULT_RC false
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 set -gx QT_QPA_PLATFORM wayland
 set -gx QT_QPA_PLATFORMTHEME gt5ct
