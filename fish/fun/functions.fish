@@ -34,3 +34,8 @@ function tg
 	tgpt "$tempText"
 end
 funcsave tg > /dev/null
+
+function set_title
+	echo -ne "\e]0;$argv[1]\a"
+end
+funcsave set_title > /dev/null
