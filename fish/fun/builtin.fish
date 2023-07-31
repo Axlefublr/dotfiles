@@ -5,9 +5,9 @@ end
 funcsave fish_greeting > /dev/null
 
 function fish_title
-	if set -q title
+	if set -q title && not test "$title" = ''
 		echo $title
-		return 0
+		return
 	end
 
 	set -l command_name
