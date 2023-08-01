@@ -802,4 +802,7 @@
 	"diffEditor.experimental.collapseUnchangedRegions": true,
 	"diffEditor.experimental.showMoves": true,
 	"diffEditor.experimental.useVersion2": true,
+	"[toml]": {
+		"editor.defaultFormatter": "tamasfe.even-better-toml"
+	},
 }

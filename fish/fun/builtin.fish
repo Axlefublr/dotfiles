@@ -16,7 +16,8 @@ function fish_title
 	else
 		set command_name ''
 	end
-	echo (basename $PWD)$command_name
+	set -l cwd (string replace -r "^$HOME" "~" "$PWD")
+	echo (basename $cwd)$command_name
 end
 funcsave fish_title > /dev/null
 
