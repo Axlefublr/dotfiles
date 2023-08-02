@@ -3592,7 +3592,7 @@
 		"command": "-workbench.action.focusRightGroup"
 	},
 	{
-		"key": "alt+s",
+		"key": "alt+,",
 		"command": "workbench.action.previousEditorInGroup",
 		"when": "!panelFocus"
 	},
@@ -3905,11 +3905,6 @@
 		"when": "terminalFocus && panelFocus && activePanel == 'terminal'"
 	},
 	{
-		"key": "ctrl+alt+d",
-		"command": "workbench.action.terminal.relaunch",
-		"when": "terminalFocus"
-	},
-	{
 		"key": "shift+tab",
 		"command": "-outdent",
 		"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
@@ -3920,7 +3915,7 @@
 		"when": "editorTextFocus && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
 	},
 	{
-		"key": "alt+d",
+		"key": "alt+.",
 		"command": "workbench.action.nextEditorInGroup",
 		"when": "!panelFocus"
 	},
