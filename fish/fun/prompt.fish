@@ -79,7 +79,7 @@ function fish_prompt
 	fish_prompt_pwd
 	set_color normal
 	set -l curr_branch (git branch --show-current 2> /dev/null)
-	if test curr_branch
+	if test $curr_branch
 		set_color -o $color_purple
 		echo -n ' '$curr_branch' '
 		set_color normal
