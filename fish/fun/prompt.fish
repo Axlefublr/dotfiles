@@ -26,7 +26,6 @@ function fish_prompt_status
 			end
 		end
 		if test $are_all_success = false
-			printf ' '
 			for i in (seq $countstatus)
 				if test $i -gt 1
 					printf ' '
@@ -44,7 +43,7 @@ function fish_prompt_status
 	else
 		if test $argv -ne 0
 			set_color -o $color_red
-			printf ' 󱎘%s' $argv
+			printf '󱎘%s' $argv
 		end
 	end
 end
@@ -82,8 +81,9 @@ function fish_prompt
 	set -l curr_branch (git branch --show-current 2> /dev/null)
 	if test curr_branch
 		set_color -o $color_purple
-		echo -n ' '$curr_branch
+		echo -n ' '$curr_branch' '
 		set_color normal
+		command -q octussy-git-status && octussy-git-status --status (git status --porcelain | string collect -a) --unpushed (gsp | wc -l)
 	end
 	fish_prompt_status $fullstatuses
 	set_color $color_yellow
