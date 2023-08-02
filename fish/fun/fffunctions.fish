@@ -45,3 +45,10 @@ function mp43
 	end
 end
 funcsave mp43 > /dev/null
+
+function renameall
+	for file in (ls)
+		mv $file (uclanr -j - 3)(path extension $file)
+	end
+end
+funcsave renameall > /dev/null
