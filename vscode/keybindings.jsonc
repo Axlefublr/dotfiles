@@ -4037,12 +4037,12 @@
 		"when": "interactivePlaygroundFocus && !editorTextFocus"
 	},
 	{
-		"key": "shift+alt+a",
+		"key": "shift+alt+c",
 		"command": "scrollPageDown",
 		"when": "!listFocus && !panelFocus"
 	},
 	{
-		"key": "shift+alt+q",
+		"key": "shift+alt+x",
 		"command": "scrollPageUp",
 		"when": "!listFocus && !panelFocus"
 	},
@@ -4950,7 +4950,7 @@
 		"command": "breadcrumbs.toggle"
 	},
 	{
-		"key": "alt+a",
+		"key": "alt+c",
 		"command": "scrollLineDown",
 		"when": "!listFocus && !panelFocus"
 	},
@@ -5178,7 +5178,7 @@
 		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
 	},
 	{
-		"key": "alt+a",
+		"key": "alt+c",
 		"command": "list.scrollDown",
 		"when": "listFocus && !inputFocus"
 	},
@@ -5188,7 +5188,7 @@
 		"when": "listFocus && !inputFocus"
 	},
 	{
-		"key": "alt+q",
+		"key": "alt+x",
 		"command": "list.scrollUp",
 		"when": "listFocus && !inputFocus"
 	},
@@ -5315,7 +5315,7 @@
 		"when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
 	},
 	{
-		"key": "alt+q",
+		"key": "alt+x",
 		"command": "scrollLineUp"
 	},
 ]

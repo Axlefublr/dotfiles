@@ -805,4 +805,5 @@
 	"[toml]": {
 		"editor.defaultFormatter": "tamasfe.even-better-toml"
 	},
+	"editor.cursorSmoothCaretAnimation": "on",
 }
