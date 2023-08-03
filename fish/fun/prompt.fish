@@ -10,7 +10,7 @@ function fish_prompt_pwd
 		set -l home (string escape --style=regex $HOME)
 		set -l cwd (string replace -r "^$home" '~' $PWD)
 		set -l base (basename $cwd)
-		printf $base
+		echo -n $base
 	end
 end
 funcsave fish_prompt_pwd > /dev/null
@@ -77,11 +77,12 @@ function fish_prompt
 	end
 	set_color -o $color_pink
 	fish_prompt_pwd
+	printf ' '
 	set_color normal
 	set -l curr_branch (git branch --show-current 2> /dev/null)
 	if test $curr_branch
 		set_color -o $color_purple
-		echo -n ' '$curr_branch' '
+		echo -n ''$curr_branch' '
 		set_color normal
 		command -q octussy-git-status && octussy-git-status --status (git status --porcelain | string collect -a) --unpushed (gsp | wc -l)
 	end
