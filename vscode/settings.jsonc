@@ -547,10 +547,9 @@
 	"security.workspace.trust.banner": "never",
 	"files.defaultLanguage": "markdown",
 	"files.hotExit": "onExitAndWindowClose",
-	"files.encoding": "utf8bom",
 	"audioCues.lineHasInlineSuggestion": "off",
 	"markdown.preview.fontSize": 18,
-	"prettier.tabWidth": 4,
+	"prettier.tabWidth": 3,
 	"javascript.format.semicolons": "insert",
 	"javascript.suggest.completeFunctionCalls": true,
 	"typescript.format.semicolons": "insert",
@@ -806,4 +805,5 @@
 		"editor.defaultFormatter": "tamasfe.even-better-toml"
 	},
 	"editor.cursorSmoothCaretAnimation": "on",
+	"rust-analyzer.completion.privateEditable.enable": true,
 }

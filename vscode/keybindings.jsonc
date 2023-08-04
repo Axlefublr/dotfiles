@@ -317,7 +317,7 @@
 	},
 	{
 		"key": "escape",
-		"command": "-workbench.action.hideInterfaceOverview",
+		"command": "workbench.action.hideInterfaceOverview",
 		"when": "interfaceOverviewVisible"
 	},
 	{
@@ -2266,11 +2266,6 @@
 	},
 	{
 		"key": "escape",
-		"command": "-closeFindWidget",
-		"when": "editorFocus && findWidgetVisible && !isComposing"
-	},
-	{
-		"key": "escape",
 		"command": "closeFindWidget",
 		"when": "editorFocus && findWidgetVisible && !isComposing"
 	},
@@ -2588,13 +2583,8 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "escape",
+		"key": "capslock",
 		"command": "breadcrumbs.selectEditor",
-		"when": "breadcrumbsActive && breadcrumbsVisible"
-	},
-	{
-		"key": "escape",
-		"command": "-breadcrumbs.selectEditor",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
@@ -2988,11 +2978,6 @@
 	{
 		"key": "escape",
 		"command": "removeSecondaryCursors",
-		"when": "editorHasMultipleSelections && textInputFocus"
-	},
-	{
-		"key": "escape",
-		"command": "-removeSecondaryCursors",
 		"when": "editorHasMultipleSelections && textInputFocus"
 	},
 	{
@@ -5213,6 +5198,11 @@
 		"when": "editorHoverFocused && !inKeybindings"
 	},
 	{
+		"key": "capslock",
+		"command": "editor.action.escapeFocusHover",
+		"when": "editorHoverFocused"
+	},
+	{
 		"key": "l",
 		"command": "list.toggleExpand",
 		"when": "listFocus && !inputFocus"
@@ -5246,14 +5236,14 @@
 		"when": "breadcrumbsActive && breadcrumbsVisible"
 	},
 	{
-		"key": "capslock",
-		"command": "vscode-neovim.escape",
-		"when": "editorTextFocus && neovim.init"
-	},
-	{
 		"key": "escape",
 		"command": "vscode-neovim.escape",
-		"when": "editorTextFocus && neovim.init"
+		"when": "editorTextFocus && neovim.init && !markersNavigationVisible"
+	},
+	{
+		"key": "capslock",
+		"command": "vscode-neovim.escape",
+		"when": "editorTextFocus && neovim.init && !markersNavigationVisible"
 	},
 	{
 		"key": "escape",
@@ -5318,4 +5308,14 @@
 		"key": "alt+x",
 		"command": "scrollLineUp"
 	},
+	{
+		"key": "shift+escape",
+		"command": "-closeMarkersNavigation",
+		"when": "editorFocus && markersNavigationVisible"
+	},
+	{
+		"key": "capslock",
+		"command": "closeMarkersNavigation",
+		"when": "editorFocus && markersNavigationVisible"
+	}
 ]
