@@ -22,7 +22,6 @@ vim.g.targets_nl             = "nh"
 require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "kana/vim-textobj-user"
-	use "kana/vim-textobj-line"
 	use "michaeljsmith/vim-indent-object"
 	use "vim-scripts/ReplaceWithRegister"
 	use "wellle/targets.vim"
@@ -49,6 +48,7 @@ end)
 --- Plugins: VimPlug
 local Plug = vim.fn['plug#']
 vim.call("plug#begin")
+Plug("kana/vim-textobj-line")
 Plug("kana/vim-textobj-entire")
 vim.call("plug#end")
 
