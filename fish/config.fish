@@ -1,27 +1,24 @@
 #!/usr/bin/env fish
 
-set -g git_repositories ~/Programming/info \
-	~/Programming/dotfiles \
-	~/Programming/scripts \
-	~/Programming/binaries \
-	~/Programming/music \
-	~/Programming/job \
-	~/Programming/shows \
+set -g git_repositories ~/prog/info \
+	~/prog/dotfiles \
+	~/prog/scripts \
+	~/prog/binaries \
+	~/prog/music \
+	~/prog/job \
+	~/prog/shows \
 	~/Pictures/Tree \
 	~/Pictures/Tools
 
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
-set -gx PATH "$HOME/Programming/binaries" "$HOME/Programming/dotfiles/fish" "$HOME/Programming/dotfiles/fish/fun" "$HOME/Programming/scripts/src" "$HOME/.cargo/bin" "$HOME/.cargo/env" "$HOME/.local/bin" $PATH
 set -gx BROWSER '/usr/bin/firefox'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx SAVEHIST 10000
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 set -gx RANGER_LOAD_DEFAULT_RC true
-set -gx QT_QPA_PLATFORM wayland
-set -gx QT_QPA_PLATFORMTHEME gt5ct
 
 set -g color_pink        FFAFD7
 set -g color_purple      AF87FF
@@ -81,7 +78,7 @@ abbr -a fi    'fish'
 abbr -a x     'exit'
 abbr -a bacon 'bacon -j clippy'
 abbr -a wec   'watchexec -c clear'
-abbr -a sain  'sudo apt install -y'
+abbr -a sain  'sudo pacman -Syu --noconfirm'
 abbr -a ch    'ChoreTracker'
 
 abbr -a cls 'clear'
@@ -167,7 +164,7 @@ abbr -a cach  'cargo clippy'
 abbr -a caf   'cargo fmt'
 abbr -a caa   'cargo add'
 abbr -a cain  'cargo binstall -y'
-abbr -a cass  'cp -f ./target/release/(basename $PWD) ~/Programming/binaries'
+abbr -a cass  'cp -f ./target/release/(basename $PWD) ~/prog/binaries'
 
 abbr -a ghr     'gh repo'
 abbr -a ghrl    'gh repo list -L 1000'

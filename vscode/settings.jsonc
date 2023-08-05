@@ -587,7 +587,7 @@
 	"terminal.integrated.copyOnSelection": true,
 	"debug.console.fontSize": 18,
 	"vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-	"vscode-neovim.neovimInitVimPaths.linux": "~/Programming/dotfiles/init.lua",
+	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
 	"editor.occurrencesHighlight": false,
 	"markdown.validate.enabled": true,
 	"editor.lineNumbers": "relative",
@@ -629,7 +629,6 @@
 	"explorer.excludeGitIgnore": true,
 	"task.quickOpen.history": 5,
 	"editor.accessibilitySupport": "off",
-	"window.menuBarVisibility": "hidden",
 	"workbench.layoutControl.enabled": false,
 	"workbench.sideBar.location": "right",
 	"editor.scrollbar.horizontalScrollbarSize": 14,
@@ -806,4 +805,5 @@
 	},
 	"editor.cursorSmoothCaretAnimation": "on",
 	"rust-analyzer.completion.privateEditable.enable": true,
+	"window.menuBarVisibility": "toggle",
 }
