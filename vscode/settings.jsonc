@@ -805,5 +805,5 @@
 	},
 	"editor.cursorSmoothCaretAnimation": "on",
 	"rust-analyzer.completion.privateEditable.enable": true,
-	"window.menuBarVisibility": "toggle",
+	"window.menuBarVisibility": "hidden",
 }
