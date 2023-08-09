@@ -2454,7 +2454,7 @@
 		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
-		"key": "ctrl+2",
+		"key": "alt+e",
 		"command": "workbench.explorer.fileView.focus"
 	},
 	{
@@ -3762,7 +3762,7 @@
 		"when": "!editorHasSelection && editorLangId == 'ahk2' && resourceScheme == 'file'"
 	},
 	{
-		"key": "ctrl+`",
+		"key": "alt+r",
 		"command": "terminal.focus"
 	},
 	{
@@ -3927,16 +3927,6 @@
 	{
 		"key": "ctrl+shift+w",
 		"command": "workbench.action.closeOtherEditors"
-	},
-	{
-		"key": "shift+alt+r",
-		"command": "workbench.action.terminal.rename",
-		"when": "terminalFocus"
-	},
-	{
-		"key": "ctrl+shift+r",
-		"command": "workbench.action.terminal.changeColor",
-		"when": "terminalFocus"
 	},
 	{
 		"key": "alt+down",
@@ -4859,7 +4849,7 @@
 		"when": "neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert'"
 	},
 	{
-		"key": "ctrl+1",
+		"key": "alt+q",
 		"command": "workbench.action.focusActiveEditorGroup"
 	},
 	{
@@ -5110,17 +5100,8 @@
 		"when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
 	},
 	{
-		"key": "ctrl+alt+r",
-		"command": "workbench.action.terminal.changeIcon",
-		"when": "terminalFocus"
-	},
-	{
-		"key": "alt+e",
+		"key": "shift+alt+r",
 		"command": "workbench.action.terminal.newInActiveWorkspace"
-	},
-	{
-		"key": "shift+alt+9",
-		"command": "workbench.action.terminal.newWithProfile"
 	},
 	{
 		"key": "shift+alt+w",
