@@ -6386,13 +6386,6 @@ keyconfig_data = \
        ],
       },
      ),
-    ("sequencer.split",
-     {"type": 'K', "value": 'PRESS', "shift": True},
-     {"properties":
-      [("type", 'HARD'),
-       ],
-      },
-     ),
     ("sequencer.unmute",
      {"type": 'H', "value": 'PRESS', "alt": True},
      {"properties":
