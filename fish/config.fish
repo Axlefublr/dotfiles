@@ -1,5 +1,9 @@
 #!/usr/bin/env fish
 
+set -g starred_directories ~/prog \
+	~/prog/dotfiles \
+	~/Pictures/Screenshots
+
 set -g git_repositories ~/prog/info \
 	~/prog/dotfiles \
 	~/prog/scripts \

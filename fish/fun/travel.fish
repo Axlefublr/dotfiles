@@ -42,3 +42,27 @@ function paste_relative_path
 	commandline -i $picked
 end
 funcsave paste_relative_path > /dev/null
+
+function swoosh
+	set -l parent_path
+	set -l base_path
+	set -l index 0
+	for dir in $starred_directories
+		set index (math $index + 1)
+		set base_path $base_path $index.\ (basename $dir)
+		set parent_path $parent_path (path dirname $dir)
+	end
+
+	set -l picked_index (prli $base_path | fzf -e --cycle | string match -r '^\\d+')
+	if not test $picked_index
+		return 1
+	end
+
+	set -l no_index_base_path
+	for indexed_dir in $base_path
+		set no_index_base_path $no_index_base_path (string replace -r '^\\d+\\. ' '' $indexed_dir)
+	end
+
+	cd $parent_path[$picked_index]/$no_index_base_path[$picked_index]
+end
+funcsave swoosh > /dev/null
