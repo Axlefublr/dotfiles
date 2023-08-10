@@ -1,8 +1,14 @@
 #!/usr/bin/env fish
 
 set -g starred_directories ~/prog \
+	~/prog/rust \
+	~/prog/csproj \
 	~/prog/dotfiles \
-	~/Pictures/Screenshots
+	~/prog/shows \
+	~/prog/music \
+	~/prog/job \
+	~/Pictures/Screenshots \
+	~/Videos/Content/One\ Piece
 
 set -g git_repositories ~/prog/info \
 	~/prog/dotfiles \
@@ -180,7 +186,7 @@ abbr -a ghrccuM 'gh repo create --clone --public --license MIT'
 abbr -a ghrccp  'gh repo create --clone --private'
 abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 
-bind -M insert \cD 'ranger --choosedir /tmp/dickie ; cd (cat /tmp/dickie) ; commandline -f repaint'
+bind -M insert \cD 'swoosh ; commandline -f repaint'
 bind -M insert \cR 'ranger ; commandline -f repaint'
 
 bind -M default K execute

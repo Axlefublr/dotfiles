@@ -63,6 +63,9 @@ function swoosh
 		set no_index_base_path $no_index_base_path (string replace -r '^\\d+\\. ' '' $indexed_dir)
 	end
 
-	cd $parent_path[$picked_index]/$no_index_base_path[$picked_index]
+	set -l final_dir "$parent_path[$picked_index]/$no_index_base_path[$picked_index]"
+	set -l cd_cmd 'cd '(string escape -n $final_dir | string replace -r "^$HOME" '~')
+	commandline $cd_cmd
+	commandline -f execute
 end
 funcsave swoosh > /dev/null
