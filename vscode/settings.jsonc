@@ -718,7 +718,6 @@
 	"rust-analyzer.workspace.symbol.search.scope": "workspace_and_dependencies",
 	"rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
 	"rust-analyzer.inlayHints.parameterHints.enable": false,
-	"csharp.testsCodeLens.enabled": false,
 	"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
 	"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
 	"rust-analyzer.inlayHints.bindingModeHints.enable": true,
@@ -806,4 +805,5 @@
 	"editor.cursorSmoothCaretAnimation": "on",
 	"rust-analyzer.completion.privateEditable.enable": true,
 	"window.menuBarVisibility": "hidden",
+	"dotnet.codeLens.enableTestsCodeLens": false,
 }
