@@ -186,8 +186,8 @@ abbr -a ghrccuM 'gh repo create --clone --public --license MIT'
 abbr -a ghrccp  'gh repo create --clone --private'
 abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 
-bind -M insert \cD 'swoosh ; commandline -f repaint'
-bind -M insert \cR 'ranger ; commandline -f repaint'
+bind -M insert \es 'swoosh ; commandline -f repaint'
+bind -M insert \ev 'ranger ; commandline -f repaint'
 
 bind -M default K execute
 bind -M insert \c] execute
