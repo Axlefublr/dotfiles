@@ -8,6 +8,8 @@ set -g starred_directories ~/prog \
 	~/prog/music \
 	~/prog/job \
 	~/Pictures/Screenshots \
+	~/Pictures/Tree \
+	~/Pictures/Tree/Emojis \
 	~/Videos/Content/One\ Piece
 
 set -g git_repositories ~/prog/info \
@@ -192,11 +194,12 @@ bind -M insert \ev 'ranger ; commandline -f repaint'
 bind -M default K execute
 bind -M insert \c] execute
 
-bind -M default \; accept-autosuggestion
-bind -M insert \e\; accept-autosuggestion
-
 bind -M insert \e\cX 'eval $history[1] | string collect | wl-copy -n'
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
 bind -M insert \el list_current_token
+
+bind -M default \; accept-autosuggestion
+bind -M insert \e\; accept-autosuggestion
+bind -M insert \e\' forward-word
