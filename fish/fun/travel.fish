@@ -47,7 +47,7 @@ function swoosh
 	set -l parent_path
 	set -l base_path
 	set -l index 0
-	for dir in $starred_directories
+	for dir in (cat ~/prog/dotfiles/fish/bookmarks.txt | string split '\n')
 		set index (math $index + 1)
 		set base_path $base_path $index.\ (basename $dir)
 		set parent_path $parent_path (path dirname $dir)
@@ -64,7 +64,7 @@ function swoosh
 	end
 
 	set -l final_dir "$parent_path[$picked_index]/$no_index_base_path[$picked_index]"
-	set -l cd_cmd 'cd '(string escape -n $final_dir | string replace -r "^$HOME" '~')
+	set -l cd_cmd 'cd '(string escape -n $final_dir | string replace -r '^\\\\?' '')
 	commandline $cd_cmd
 	commandline -f execute
 end

@@ -1,0 +1,9 @@
+~/prog/info
+~/prog/dotfiles
+~/prog/scripts
+~/prog/binaries
+~/prog/music
+~/prog/job
+~/prog/shows
+~/Pictures/Tree
+~/Pictures/Tools

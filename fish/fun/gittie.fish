@@ -91,10 +91,11 @@ funcsave gsp > /dev/null
 function gsa
 	clear -x
 	set -l prevDir (pwd)
-	set -l directories $git_repositories
+	set -l directories (cat ~/prog/dotfiles/fish/recognized-git.txt | string split '\n')
 
 	for dir in $directories
 
+		set dir (string replace -r "^~" "$HOME" $dir)
 		cd $dir
 		set_color yellow
 		echo $dir
