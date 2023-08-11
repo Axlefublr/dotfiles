@@ -1,27 +1,5 @@
 #!/usr/bin/env fish
 
-set -g starred_directories ~/prog \
-	~/prog/rust \
-	~/prog/csproj \
-	~/prog/dotfiles \
-	~/prog/shows \
-	~/prog/music \
-	~/prog/job \
-	~/Pictures/Screenshots \
-	~/Pictures/Tree \
-	~/Pictures/Tree/Emojis \
-	~/Videos/Content/One\ Piece
-
-set -g git_repositories ~/prog/info \
-	~/prog/dotfiles \
-	~/prog/scripts \
-	~/prog/binaries \
-	~/prog/music \
-	~/prog/job \
-	~/prog/shows \
-	~/Pictures/Tree \
-	~/Pictures/Tools
-
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
@@ -127,6 +105,7 @@ abbr -a gamap   'git add . && git commit -a --amend && git push'
 abbr -a gamanp  'git add . && git commit -a --amend --no-edit && git push'
 abbr -a gaman   'git add . && git commit -a --amend --no-edit'
 abbr -a gp      'git push'
+abbr -a gps     'git push 2> /dev/null &'
 abbr -a gcr     'git add . && git commit -m "first commit" && git push -u origin main'
 abbr -a grs     'git reset'
 abbr -a grsH    'git reset HEAD'

@@ -71,3 +71,17 @@ function set_title
 	echo -ne "\e]0;$argv[1]\a"
 end
 funcsave set_title > /dev/null
+
+function new --description='Creates new files or directories and all required parent directories'
+	for arg in $argv
+		if string match -rq '/$' -- $arg
+			mkdir -p $arg
+		else
+			set -l dir (string match -rg '(.*)/.+?$' -- $arg)
+			and mkdir -p $dir
+
+			touch $arg
+		end
+	end
+end
+funcsave new > /dev/null
