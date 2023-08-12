@@ -1,4 +1,5 @@
 ~/prog
+~/prog/info
 ~/prog/scripts
 ~/prog/binaries
 ~/prog/rust

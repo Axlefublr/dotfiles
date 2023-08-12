@@ -22,6 +22,7 @@ vim.g.targets_nl             = "nh"
 require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "kana/vim-textobj-user"
+	use "LeonB/vim-textobj-url"
 	use "michaeljsmith/vim-indent-object"
 	use "vim-scripts/ReplaceWithRegister"
 	use "wellle/targets.vim"
@@ -33,17 +34,18 @@ require("packer").startup(function(use)
 	use "adelarsq/vim-matchit"
 	use "sainnhe/gruvbox-material"
 	use "farmergreg/vim-lastplace"
+	use "chrisgrieser/nvim-spider"
 	use {
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true }
 	}
-	use({
+	use {
 		"kylechui/nvim-surround",
 		tag = "*",
 		config = function()
 			require("nvim-surround").setup()
 		end
-	})
+	}
 end)
 --- Plugins: VimPlug
 local Plug = vim.fn['plug#']
@@ -96,6 +98,11 @@ require('lualine').setup {
 	inactive_winbar = {},
 	extensions = {}
 }
+
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 -- vim.g.clipboard = {
 -- 	name = "wslclipboard",
@@ -297,7 +304,7 @@ if vim.g.vscode then
 	vim.keymap.set("n", "<leader>r", rename_symbol)
 
 	function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
-	vim.keymap.set("n", "gl", Open_link)
+	vim.keymap.set("n", "gll", Open_link)
 	vim.keymap.set("v", "gl", "<esc><cmd>lua Open_link()<cr>")
 
 	function Goto_next_link()
@@ -492,6 +499,12 @@ else
 	vim.keymap.set("", "z,", center_screen)
 
 end
+
+local function select_link()
+	FeedKeys("/http")
+	FeedKeysInt("<CR>")
+end
+vim.keymap.set("n", "gl", select_link)
 
 local better_half_page_down = "6jzz"
 vim.keymap.set("", "<C-d>", better_half_page_down)

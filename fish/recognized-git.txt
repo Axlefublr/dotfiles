@@ -1,3 +1,5 @@
+~/prog/csproj/ChoreTracker
+~/prog/csproj/AlienTemple
 ~/prog/info
 ~/prog/dotfiles
 ~/prog/scripts

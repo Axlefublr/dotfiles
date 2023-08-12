@@ -89,7 +89,6 @@ end
 funcsave gsp > /dev/null
 
 function gsa
-	clear -x
 	set -l prevDir (pwd)
 	set -l directories (cat ~/prog/dotfiles/fish/recognized-git.txt | string split '\n')
 
