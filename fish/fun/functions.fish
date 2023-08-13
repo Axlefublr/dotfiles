@@ -5,6 +5,18 @@ function prli
 end
 funcsave prli > /dev/null
 
+function timer
+	termdown $argv[1] || return 1
+	read -ln 1 should_continue
+	if not test $should_continue
+		return 1
+	end
+	if set -q argv[2]
+		exit
+	end
+end
+funcsave timer > /dev/null
+
 function work
 	clear
 
