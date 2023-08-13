@@ -124,7 +124,7 @@ abbr -a gcl     'git clean -id'
 
 abbr -a dn   'dotnet'
 abbr -a dnn  'dotnet new'
-abbr -a dnnl 'dotnet new list &| tee /tmp/pagie &| less'
+abbr -a dnnl 'dotnet new list'
 abbr -a dnns 'dotnet new sln'
 abbr -a dnng 'dotnet new gitignore'
 abbr -a dns  'dotnet sln *.sln'

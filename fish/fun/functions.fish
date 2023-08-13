@@ -5,11 +5,6 @@ function prli
 end
 funcsave prli > /dev/null
 
-function rga
-	rg --color always $argv &| tee /tmp/pagie &| less
-end
-funcsave rga > /dev/null
-
 function work
 	clear
 

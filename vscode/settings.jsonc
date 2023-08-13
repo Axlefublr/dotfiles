@@ -806,4 +806,7 @@
 	"rust-analyzer.completion.privateEditable.enable": true,
 	"window.menuBarVisibility": "hidden",
 	"dotnet.codeLens.enableTestsCodeLens": false,
+	"screencastMode.keyboardOptions": {
+		"showCommands": false
+	},
 }
