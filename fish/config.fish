@@ -167,6 +167,7 @@ abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 
 bind -M insert \es 'swoosh ; commandline -f repaint'
 bind -M insert \ev 'ranger ; commandline -f repaint'
+bind -M insert \ea 'paste_relative_path'
 
 bind -M default K execute
 bind -M insert \c] execute
