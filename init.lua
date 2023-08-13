@@ -133,7 +133,7 @@ vim.keymap.set({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(f
 vim.keymap.set({ "o", "x" }, "ik", "<cmd>lua require('various-textobjs').key(true)<CR>")
 vim.keymap.set({ "o", "x" }, "ak", "<cmd>lua require('various-textobjs').key(false)<CR>")
 
-vim.keymap.set({ "o", "x" }, "L", "<cmd>lua require('various-textobjs').url()<CR>")
+vim.keymap.set({ "o", "x" }, "gl", "<cmd>lua require('various-textobjs').url()<CR>")
 
 vim.keymap.set({ "o", "x" }, "il", "<cmd>lua require('various-textobjs').lineCharacterwise(true)<CR>")
 vim.keymap.set({ "o", "x" }, "al", "<cmd>lua require('various-textobjs').lineCharacterwise(false)<CR>")
@@ -376,13 +376,13 @@ if vim.g.vscode then
 		move_to_bottom_screen()
 		center_screen()
 	end
-	vim.keymap.set("n", "L", move_to_bottom_screen__center_screen)
+	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
 
 	local function move_to_top_screen__center_screen()
 		move_to_top_screen()
 		center_screen()
 	end
-	vim.keymap.set("n", "H", move_to_top_screen__center_screen)
+	vim.keymap.set("", "H", move_to_top_screen__center_screen)
 
 	local function trim_trailing_whitespace()
 		vim.fn.VSCodeCall("editor.action.trimTrailingWhitespace")
