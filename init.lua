@@ -22,14 +22,11 @@ vim.g.targets_nl             = "nh"
 require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "kana/vim-textobj-user"
-	use "LeonB/vim-textobj-url"
-	use "michaeljsmith/vim-indent-object"
 	use "vim-scripts/ReplaceWithRegister"
 	use "wellle/targets.vim"
 	use "justinmk/vim-sneak"
 	use "junegunn/vim-easy-align"
-	use "bkad/CamelCaseMotion"
-	use "sheerun/vim-polyglot"
+	-- use "sheerun/vim-polyglot"
 	use "tpope/vim-repeat"
 	use "adelarsq/vim-matchit"
 	use "sainnhe/gruvbox-material"
@@ -46,18 +43,29 @@ require("packer").startup(function(use)
 			require("nvim-surround").setup()
 		end
 	}
+	use {
+		"chrisgrieser/nvim-various-textobjs",
+		config = function()
+			require("various-textobjs").setup({
+				-- lines to seek forwards for "small" textobjs (mostly characterwise textobjs)
+				-- set to 0 to only look in the current line
+				lookForwardSmall = 5,
+
+				-- lines to seek forwards for "big" textobjs (mostly linewise textobjs)
+				lookForwardBig = 15,
+
+				-- use suggested keymaps (see overview table in README)
+				useDefaultKeymaps = false,
+			})
+		end,
+	}
 end)
---- Plugins: VimPlug
-local Plug = vim.fn['plug#']
-vim.call("plug#begin")
-Plug("kana/vim-textobj-line")
-Plug("kana/vim-textobj-entire")
-vim.call("plug#end")
 
 vim.cmd("colorscheme gruvbox-material")
 vim.cmd("let g:sneak#use_ic_scs = 1")
 vim.cmd("highlight link Sneak None")
 vim.cmd("packadd! matchit")
+
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
@@ -99,10 +107,136 @@ require('lualine').setup {
 	extensions = {}
 }
 
+vim.keymap.set({ "o", "x" }, "ii", "<cmd>lua require('various-textobjs').indentation(true, true)<CR>")
+vim.keymap.set({ "o", "x" }, "ai", "<cmd>lua require('various-textobjs').indentation(false, true)<CR>")
+vim.keymap.set({ "o", "x" }, "iI", "<cmd>lua require('various-textobjs').indentation(true, true)<CR>")
+vim.keymap.set({ "o", "x" }, "aI", "<cmd>lua require('various-textobjs').indentation(false, false)<CR>")
+
+vim.keymap.set({ "o", "x" }, "R", "<cmd>lua require('various-textobjs').restOfIndentation()<CR>")
+
+vim.keymap.set({ "o", "x" }, "iS", "<cmd>lua require('various-textobjs').subword(true)<CR>")
+vim.keymap.set({ "o", "x" }, "aS", "<cmd>lua require('various-textobjs').subword(false)<CR>")
+
+vim.keymap.set({ "o", "x" }, "C", "<cmd>lua require('various-textobjs').toNextClosingBracket()<CR>")
+
+vim.keymap.set({ "o", "x" }, "Y", "<cmd>lua require('various-textobjs').toNextQuotationMark()<CR>")
+
+vim.keymap.set({ "o", "x" }, "gG", "<cmd>lua require('various-textobjs').entireBuffer()<CR>")
+
+vim.keymap.set({ "o", "x" }, "n", "<cmd>lua require('various-textobjs').nearEoL()<CR>")
+
+vim.keymap.set({ "o", "x" }, "|", "<cmd>lua require('various-textobjs').column()<CR>")
+
+vim.keymap.set({ "o", "x" }, "iv", "<cmd>lua require('various-textobjs').value(true)<CR>")
+vim.keymap.set({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(false)<CR>")
+
+vim.keymap.set({ "o", "x" }, "ik", "<cmd>lua require('various-textobjs').key(true)<CR>")
+vim.keymap.set({ "o", "x" }, "ak", "<cmd>lua require('various-textobjs').key(false)<CR>")
+
+vim.keymap.set({ "o", "x" }, "L", "<cmd>lua require('various-textobjs').url()<CR>")
+
+vim.keymap.set({ "o", "x" }, "il", "<cmd>lua require('various-textobjs').lineCharacterwise(true)<CR>")
+vim.keymap.set({ "o", "x" }, "al", "<cmd>lua require('various-textobjs').lineCharacterwise(false)<CR>")
+
+vim.keymap.set({ "o", "x" }, "ie", "<cmd>lua require('various-textobjs').chainMember(true)<CR>")
+vim.keymap.set({ "o", "x" }, "ae", "<cmd>lua require('various-textobjs').chainMember(false)<CR>")
+
+vim.keymap.set(
+	{ "o", "x" },
+	"iC",
+	"<cmd>lua require('various-textobjs').mdFencedCodeBlock(true)<CR>"
+)
+vim.keymap.set(
+	{ "o", "x" },
+	"aC",
+	"<cmd>lua require('various-textobjs').mdFencedCodeBlock(false)<CR>"
+)
+
+vim.keymap.set(
+	{ "o", "x" },
+	"ix",
+	"<cmd>lua require('various-textobjs').htmlAttribute(true)<CR>"
+)
+vim.keymap.set(
+	{ "o", "x" },
+	"ax",
+	"<cmd>lua require('various-textobjs').htmlAttribute(false)<CR>"
+)
+
+vim.keymap.set(
+	{ "o", "x" },
+	"iD",
+	"<cmd>lua require('various-textobjs').doubleSquareBrackets(true)<CR>"
+)
+vim.keymap.set(
+	{ "o", "x" },
+	"aD",
+	"<cmd>lua require('various-textobjs').doubleSquareBrackets(false)<CR>"
+)
+
+vim.keymap.set(
+	{ "o", "x" },
+	"iP",
+	"<cmd>lua require('various-textobjs').shellPipe(true)<CR>"
+)
+vim.keymap.set(
+	{ "o", "x" },
+	"aP",
+	"<cmd>lua require('various-textobjs').shellPipe(false)<CR>"
+)
+
 vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+
+vim.keymap.set("n", "gx", function()
+	-- select URL
+	require("various-textobjs").url()
+
+	-- plugin only switches to visual mode when textobj found
+	local foundURL = vim.fn.mode():find("v")
+
+	-- if not found, search whole buffer via urlview.nvim instead
+	if not foundURL then
+		vim.cmd.UrlView("buffer")
+		return
+	end
+
+	-- retrieve URL with the z-register as intermediary
+	vim.cmd.normal { '"zy', bang = true }
+	local url = vim.fn.getreg("z")
+
+	-- open with the OS-specific shell command
+	local opener
+	if vim.fn.has("macunix") == 1 then
+		opener = "open"
+	elseif vim.fn.has("linux") == 1 then
+		opener = "xdg-open"
+	elseif vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 then
+		opener = "start"
+	end
+	local openCommand = string.format("%s '%s' >/dev/null 2>&1", opener, url)
+	os.execute(openCommand)
+end, { desc = "Smart URL Opener" })
+
+vim.keymap.set("n", "dsi", function()
+	-- select inner indentation
+	require("various-textobjs").indentation(true, true)
+
+	-- plugin only switches to visual mode when a textobj has been found
+	local notOnIndentedLine = vim.fn.mode():find("V") == nil
+	if notOnIndentedLine then return end
+
+	-- dedent indentation
+	vim.cmd.normal { "<", bang = true }
+
+	-- delete surrounding lines
+	local endBorderLn = vim.api.nvim_buf_get_mark(0, ">")[1] + 1
+	local startBorderLn = vim.api.nvim_buf_get_mark(0, "<")[1] - 1
+	vim.cmd(tostring(endBorderLn) .. " delete") -- delete end first so line index is not shifted
+	vim.cmd(tostring(startBorderLn) .. " delete")
+end, { desc = "Delete surrounding indentation" })
 
 -- vim.g.clipboard = {
 -- 	name = "wslclipboard",
@@ -242,13 +376,13 @@ if vim.g.vscode then
 		move_to_bottom_screen()
 		center_screen()
 	end
-	vim.keymap.set("", "L", move_to_bottom_screen__center_screen)
+	vim.keymap.set("n", "L", move_to_bottom_screen__center_screen)
 
 	local function move_to_top_screen__center_screen()
 		move_to_top_screen()
 		center_screen()
 	end
-	vim.keymap.set("", "H", move_to_top_screen__center_screen)
+	vim.keymap.set("n", "H", move_to_top_screen__center_screen)
 
 	local function trim_trailing_whitespace()
 		vim.fn.VSCodeCall("editor.action.trimTrailingWhitespace")
@@ -302,17 +436,6 @@ if vim.g.vscode then
 		vim.fn.VSCodeNotify("editor.action.rename")
 	end
 	vim.keymap.set("n", "<leader>r", rename_symbol)
-
-	function Open_link() vim.fn.VSCodeNotify("editor.action.openLink") end
-	vim.keymap.set("n", "gll", Open_link)
-	vim.keymap.set("v", "gl", "<esc><cmd>lua Open_link()<cr>")
-
-	function Goto_next_link()
-		FeedKeys("/https")
-		FeedKeysInt("<CR>")
-	end
-	vim.keymap.set("n", "gL", Goto_next_link)
-	vim.keymap.set("v", "gL", "<esc><cmd>lua Goto_next_link()<cr>")
 
 	local function outdent()
 		---@diagnostic disable-next-line: unused-local
@@ -499,12 +622,6 @@ else
 	vim.keymap.set("", "z,", center_screen)
 
 end
-
-local function select_link()
-	FeedKeys("/http")
-	FeedKeysInt("<CR>")
-end
-vim.keymap.set("n", "gl", select_link)
 
 local better_half_page_down = "6jzz"
 vim.keymap.set("", "<C-d>", better_half_page_down)
@@ -836,7 +953,7 @@ local repeat_replace_goes_next = "n&"
 vim.keymap.set("n", "&", repeat_replace_goes_next)
 
 local captal_R_records_macro = 'q'
-vim.keymap.set("", "R", captal_R_records_macro)
+vim.keymap.set("n", "R", captal_R_records_macro)
 
 local sneak_s = "<Plug>Sneak_s"
 vim.keymap.set("n", "q", sneak_s)
