@@ -89,6 +89,9 @@ end
 funcsave gsp > /dev/null
 
 function gsa
+	if not command -q octussy-git-status
+		echo "you don't have octussy-git-status"
+	end
 	set -l prevDir (pwd)
 	set -l directories (cat ~/prog/dotfiles/fish/recognized-git.txt | string split '\n')
 
@@ -96,11 +99,9 @@ function gsa
 
 		set dir (string replace -r "^~" "$HOME" $dir)
 		cd $dir
-		set_color yellow
-		echo $dir
-		set_color normal
-		and git status -s
-		and gsp
+		echo -n (basename $dir)' '
+		octussy-git-status --status (git status --porcelain | string collect -a) --unpushed (gsp | wc -l || echo 0)
+		printf '\n'
 
 	end
 
