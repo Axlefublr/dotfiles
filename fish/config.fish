@@ -6,6 +6,7 @@ set -gx VISUAL 'nvim'
 set -gx BROWSER '/usr/bin/firefox'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
+set -gx _ZO_FZF_OPTS '--layout default -- height 100%'
 set -gx SAVEHIST 10000
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 set -gx RANGER_LOAD_DEFAULT_RC true
@@ -52,6 +53,8 @@ set -g fish_cursor_default block
 set -g fish_cursor_insert line
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
+
+zoxide init fish | source
 
 ## abbreviations
 

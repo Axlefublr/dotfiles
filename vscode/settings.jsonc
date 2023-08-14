@@ -795,7 +795,6 @@
 	"csharp.inlayHints.enableInlayHintsForTypes": true,
 	"window.zoomLevel": 1.8,
 	"window.customMenuBarAltFocus": false,
-	"editor.renderFinalNewline": "on",
 	"diffEditor.experimental.collapseUnchangedRegions": true,
 	"diffEditor.experimental.showMoves": true,
 	"diffEditor.experimental.useVersion2": true,
@@ -809,4 +808,5 @@
 	"screencastMode.keyboardOptions": {
 		"showCommands": false
 	},
+	"files.insertFinalNewline": true,
 }
