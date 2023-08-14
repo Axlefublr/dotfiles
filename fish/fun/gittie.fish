@@ -80,7 +80,7 @@ end
 funcsave gllf > /dev/null
 
 function gsp
-	set -l remote (git remote 2> /dev/null)
+	set -l remote (git remote 2> /dev/null)[1]
 	set -l branch (git branch --show-current 2> /dev/null)
 	if test $remote && test $branch
 		git log --oneline $remote/$branch..$branch
