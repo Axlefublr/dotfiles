@@ -51,3 +51,23 @@
 **#928374** — grey
 
 ## Shell prompt
+
+FFAFD7 pink
+
+AF87FF purple
+
+878787 grey
+
+FFD75F yellow
+
+87FF5F green
+
+00D7FF cyan
+
+FF005F red
+
+FF8700 orange
+
+FF8787 redder_pink
+
+D4BE98 white

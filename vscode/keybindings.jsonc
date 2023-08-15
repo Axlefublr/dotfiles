@@ -5325,5 +5325,15 @@
 		"key": "ctrl+alt+c",
 		"command": "-search.action.copyPath",
 		"when": "fileMatchOrFolderMatchWithResourceFocus"
+	},
+	{
+		"key": "alt+.",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "alt+,",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus"
 	}
 ]
