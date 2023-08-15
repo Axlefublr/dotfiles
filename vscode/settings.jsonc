@@ -587,7 +587,7 @@
 	"terminal.integrated.copyOnSelection": true,
 	"debug.console.fontSize": 18,
 	"vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-	"vscode-neovim.neovimInitVimPaths.linux": "~/prog/dotfiles/init.lua",
+	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
 	"editor.occurrencesHighlight": false,
 	"markdown.validate.enabled": true,
 	"editor.lineNumbers": "relative",
@@ -807,5 +807,4 @@
 	"screencastMode.keyboardOptions": {
 		"showCommands": false
 	},
-	"files.insertFinalNewline": true,
 }
