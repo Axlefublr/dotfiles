@@ -9,12 +9,6 @@ end
 Map("v", "*", "<cmd>lua Search_for_selection('/')<cr>")
 Map("v", "#", "<cmd>lua Search_for_selection('?')<cr>")
 
-function Regex_search(searchOperator)
-	FeedKeys(searchOperator .. '\\v')
-end
-Map("", "<leader>/", "<cmd>lua Regex_search('/')<cr>")
-Map("", "<leader>?", "<cmd>lua Regex_search('?')<cr>")
-
 function Literal_search(searchOperator)
 	local escaped_text = EscapeForLiteralSearch(vim.fn.input("Type in your literal search: "))
 	if escaped_text == '' then

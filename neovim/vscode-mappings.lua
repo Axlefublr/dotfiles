@@ -1,6 +1,3 @@
-Map("", "z,", Center_screen)
-Map("", "zm", Top_screen)
-Map("", "z.", Bottom_screen)
 Map("", "L", Move_to_bottom_screen__center_screen)
 Map("", "H", Move_to_top_screen__center_screen)
 Map("", "<Space>", Trim__save)

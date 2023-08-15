@@ -20,12 +20,3 @@ Map("", "L", move_to_bottom_screen__center_screen)
 
 local move_to_top_screen__center_screen = 'Hzz'
 Map("", "H", move_to_top_screen__center_screen)
-
-local bottom_screen = "zb"
-Map("", "z.", bottom_screen)
-
-local top_screen = "zt"
-Map("", "zm", top_screen)
-
-local center_screen = "zz"
-Map("", "z,", center_screen)

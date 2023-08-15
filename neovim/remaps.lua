@@ -7,6 +7,8 @@ Map("", '"', ";")
 Map("", "gm", "gM")
 Map("", "<C-f>", "12jzz")
 Map("", "<C-b>", "12kzz")
+Map("", "<leader>/", "/\\v")
+Map("", "<leader>?", "?\\v")
 
 Map("v", "u", "<Esc>u")
 
