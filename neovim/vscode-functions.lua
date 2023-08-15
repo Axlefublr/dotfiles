@@ -143,3 +143,6 @@ function Codesnap() VSCodeNotify("codesnap.start", true) end
 function Comment_vis() VSCodeNotify("editor.action.commentLine", false) end
 
 function Toggle_breakpoint() VSCodeNotify("editor.debug.action.toggleBreakpoint") end
+
+function Copy_path() VSCodeNotify("copyFilePath") end
+function Copy_relative_path() VSCodeNotify("copyRelativeFilePath") end

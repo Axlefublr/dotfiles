@@ -3045,7 +3045,7 @@
 		"when": "textInputFocus && !actionWidgetVisible && !codeActionMenuVisible"
 	},
 	{
-		"key": "t",
+		"key": "y r",
 		"command": "copyRelativeFilePath",
 		"when": "filesExplorerFocus && !inputFocus"
 	},
@@ -3316,7 +3316,7 @@
 		"when": "testing.canRefresh"
 	},
 	{
-		"key": "shift+t",
+		"key": "y shift+r",
 		"command": "copyFilePath",
 		"when": "filesExplorerFocus && !inputFocus"
 	},
@@ -5199,14 +5199,6 @@
 		"when": "notificationToastsVisible"
 	},
 	{
-		"key": "ctrl+; f",
-		"command": "copyFilePath"
-	},
-	{
-		"key": "ctrl+; r",
-		"command": "copyRelativeFilePath"
-	},
-	{
 		"key": "ctrl+e",
 		"command": "-cursorEnd",
 		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
@@ -5298,5 +5290,40 @@
 		"key": "capslock",
 		"command": "closeMarkersNavigation",
 		"when": "editorFocus && markersNavigationVisible"
+	},
+	{
+		"key": "y y",
+		"command": "filesExplorer.copy",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+	},
+	{
+		"key": "y",
+		"command": "-filesExplorer.copy",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+	},
+	{
+		"key": "ctrl+alt+c",
+		"command": "-copyFilePath",
+		"when": "!editorFocus"
+	},
+	{
+		"key": "ctrl+k ctrl+alt+c",
+		"command": "-copyFilePath",
+		"when": "editorFocus"
+	},
+	{
+		"key": "ctrl+shift+alt+c",
+		"command": "-copyRelativeFilePath",
+		"when": "!editorFocus"
+	},
+	{
+		"key": "ctrl+k ctrl+shift+alt+c",
+		"command": "-copyRelativeFilePath",
+		"when": "editorFocus"
+	},
+	{
+		"key": "ctrl+alt+c",
+		"command": "-search.action.copyPath",
+		"when": "fileMatchOrFolderMatchWithResourceFocus"
 	}
 ]
