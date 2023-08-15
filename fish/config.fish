@@ -35,6 +35,7 @@ set -g color_gruvbox_cyan   7DAEA3
 set -g fish_lazy_load_completions 'true'
 set -g fish_lazy_load_functions 'true'
 set -g fish_escape_delay_ms 10
+set -g pisces_only_insert_at_eol 1
 
 set -g fish_color_normal $color_gruvbox_white
 set -g fish_color_command $color_gruvbox_green
