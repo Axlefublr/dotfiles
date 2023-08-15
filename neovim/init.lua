@@ -19,7 +19,8 @@ require('features')
 require('big')
 
 if vim.g.vscode then
-	require('vscode')
+	require('vscode-functions')
+	require('vscode-mappings')
 else
 	require('nvim')
 end

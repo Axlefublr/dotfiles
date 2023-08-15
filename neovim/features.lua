@@ -1,24 +1,10 @@
 local function goto_end_of_prev_line() FeedKeysInt(vim.v.count1 .. "k$") end
 Map("", "_", goto_end_of_prev_line)
 
-local switch_lines_forward = "ddp"
-Map("n", "dp", switch_lines_forward)
-
-local switch_lines_backward = "ddkP"
-Map("n", "dP", switch_lines_backward)
-
-local copy_line_forward = "yyp"
-Map("n", "yp", copy_line_forward)
-
-local copy_line_backward = "yyP"
-Map("n", "yP", copy_line_backward)
-
 local join_lines_no_space = "j0d^kgJ"
 Map("n", "gJ", join_lines_no_space)
 
-local function multiply_visual()
-	FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p")
-end
+local function multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
 Map("v", "<leader>q", multiply_visual)
 
 local delete_up_to_last_line_end = '<C-o>"_S<Esc><C-o>gI<BS>'
