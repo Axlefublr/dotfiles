@@ -672,8 +672,6 @@
 	"workbench.editor.splitInGroupLayout": "vertical",
 	"editor.codeActionsOnSave": { },
 	"editor.cursorBlinking": "solid",
-	"workbench.editor.enablePreviewFromCodeNavigation": true,
-	"workbench.editor.enablePreviewFromQuickOpen": true,
 	"AutoHotkey2.CompletionCommitCharacters": {
 		"Function": ".("
 	},
@@ -808,4 +806,5 @@
 	},
 	"scm.diffDecorationsGutterWidth": 5,
 	"editor.foldingStrategy": "indentation",
+	"workbench.editor.enablePreview": false,
 }
