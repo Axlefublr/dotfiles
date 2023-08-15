@@ -49,10 +49,10 @@ require("packer").startup(function(use)
 			require("various-textobjs").setup({
 				-- lines to seek forwards for "small" textobjs (mostly characterwise textobjs)
 				-- set to 0 to only look in the current line
-				lookForwardSmall = 5,
+				lookForwardSmall = 2,
 
 				-- lines to seek forwards for "big" textobjs (mostly linewise textobjs)
-				lookForwardBig = 15,
+				lookForwardBig = 0,
 
 				-- use suggested keymaps (see overview table in README)
 				useDefaultKeymaps = false,
@@ -61,7 +61,6 @@ require("packer").startup(function(use)
 	}
 end)
 
-vim.cmd("colorscheme gruvbox-material")
 vim.cmd("let g:sneak#use_ic_scs = 1")
 vim.cmd("highlight link Sneak None")
 vim.cmd("packadd! matchit")
@@ -592,6 +591,8 @@ if vim.g.vscode then
 
 else
 
+	vim.cmd("colorscheme gruvbox-material")
+
 	local function closeEditor()
 		vim.cmd("x")
 	end
@@ -992,3 +993,4 @@ local copy_current_character = 'yl'
 vim.keymap.set("n", "X", copy_current_character)
 
 print("nvim loaded")
+
