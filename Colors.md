@@ -49,3 +49,5 @@
 **#D4BE98** — white
 
 **#928374** — grey
+
+## Shell prompt
