@@ -695,7 +695,6 @@
 		"editor.defaultFormatter": "ms-dotnettools.csharp"
 	},
 	"workbench.tree.renderIndentGuides": "always",
-	"scm.diffDecorationsGutterWidth": 2,
 	"editor.acceptSuggestionOnCommitCharacter": false,
 	"editor.guides.indentation": false,
 	"rust-analyzer.completion.postfix.enable": false,
@@ -807,4 +806,6 @@
 	"screencastMode.keyboardOptions": {
 		"showCommands": false
 	},
+	"scm.diffDecorationsGutterWidth": 5,
+	"editor.foldingStrategy": "indentation",
 }
