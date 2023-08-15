@@ -159,18 +159,20 @@ abbr -a ghrccuM 'gh repo create --clone --public --license MIT'
 abbr -a ghrccp  'gh repo create --clone --private'
 abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 
-bind -M insert \ev 'ranger ; commandline -f repaint'
-bind -M insert \ea 'paste_relative_path'
 
 bind -M default K execute
 bind -M insert \c] execute
 
-bind -M insert \e\cX 'eval $history[1] | string collect | wl-copy -n'
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
-bind -M insert \el list_current_token
-
 bind -M default \; accept-autosuggestion
+
+bind -M insert \e\cX 'eval $history[1] | string collect | xclip -r -selection clipboard'
+
+bind -M insert \ed 'clear -x'
+bind -M insert \ev 'ranger ; commandline -f repaint'
+bind -M insert \ea 'paste_relative_path'
+bind -M insert \el list_current_token
 bind -M insert \e\; accept-autosuggestion
 bind -M insert \e\' forward-word
