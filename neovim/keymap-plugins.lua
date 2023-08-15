@@ -132,18 +132,7 @@ end, { desc = "Delete surrounding indentation" })
 Map("", "ga", "<Plug>(EasyAlign)")
 Map("n", "grr", "<Plug>ReplaceWithRegisterLine")
 
-local sneak_s = "<Plug>Sneak_s"
-Map("n", "q", sneak_s)
-Map("x", "q", sneak_s)
-Map("o", "q", sneak_s)
-
-local sneak_S = "<Plug>Sneak_S"
-Map("n", "Q", sneak_S)
-Map("x", "Q", sneak_S)
-Map("o", "Q", sneak_S)
-
-local sneak_repeat_forward = "<Plug>Sneak_;"
-Map("", '"', sneak_repeat_forward)
-
-local sneak_repeat_backward = "<Plug>Sneak_,"
-Map("", ":", sneak_repeat_backward)
+Map({"n", "x", "o"}, "q", "<Plug>Sneak_s")
+Map({"n", "x", "o"}, "Q", "<Plug>Sneak_S")
+Map("", '"', "<Plug>Sneak_;")
+Map("", ":", "<Plug>Sneak_,")
