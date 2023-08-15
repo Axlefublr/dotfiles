@@ -89,8 +89,6 @@ function Indent_vis() VSCodeNotify("editor.action.indentLines", false) end
 
 function Comment() VSCodeNotify("editor.action.commentLine") end
 
-function Reindent() VSCodeNotify("editor.action.reindentlines") end
-
 function Convert_to_spaces() VSCodeNotify("editor.action.indentationToSpaces") end
 
 function Convert_to_tabs() VSCodeNotify("editor.action.indentationToTabs") end
@@ -98,8 +96,6 @@ function Convert_to_tabs() VSCodeNotify("editor.action.indentationToTabs") end
 function Indent_with_spaces() VSCodeNotify("editor.action.indentUsingSpaces") end
 
 function Indent_with_tabs() VSCodeNotify("editor.action.indentUsingTabs") end
-
-function Toggle_fold() VSCodeNotify("editor.toggleFold") end
 
 function CloseEditor() VSCodeNotify("workbench.action.closeActiveEditor") end
 
@@ -145,7 +141,5 @@ function Accept_merge_selection() VSCodeNotify("merge-conflict.accept.selection"
 function Codesnap() VSCodeNotify("codesnap.start", true) end
 
 function Comment_vis() VSCodeNotify("editor.action.commentLine", false) end
-
-function Add_word_user_dictionary() VSCodeNotify("cSpell.addWordToUserDictionary") end
 
 function Toggle_breakpoint() VSCodeNotify("editor.debug.action.toggleBreakpoint") end
