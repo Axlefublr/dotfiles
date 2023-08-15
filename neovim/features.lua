@@ -31,21 +31,3 @@ local function remove_highlighting__escape()
 	FeedKeysInt("<Esc>")
 end
 Map("n", "<Esc>", remove_highlighting__escape)
-
-local function add_character_at_the_end_of_line()
-	local char = GetChar("Press a character:")
-	if not char then return end
-	FeedKeys("m" .. THROWAWAY_MARK .. "A" .. char)
-	FeedKeysInt("<Esc>")
-	FeedKeys("`" .. THROWAWAY_MARK)
-end
-Map("n", "<leader>;", add_character_at_the_end_of_line)
-
-local function add_character_at_the_start_of_line()
-	local char = GetChar("Press a character:")
-	if not char then return end
-	FeedKeys("m" .. THROWAWAY_MARK .. "I" .. char)
-	FeedKeysInt("<Esc>")
-	FeedKeys("`" .. THROWAWAY_MARK)
-end
-Map("n", "<leader>:", add_character_at_the_start_of_line)
