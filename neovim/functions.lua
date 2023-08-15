@@ -27,7 +27,7 @@ function EscapeFromRegexSearch(input)
 end
 
 function GetChar(prompt)
-	vim.api.nvim_echo({ { prompt , "Input" } }, true, {})
+	vim.api.nvim_echo({ { prompt, "Input" } }, true, {})
 	local char = vim.fn.getcharstr()
 	-- That's the escape character (<Esc>). Not sure how to specify it smarter
 	-- In other words, if you pressed escape, we return nil

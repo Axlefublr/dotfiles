@@ -4714,8 +4714,8 @@
 		"when": "inReferenceSearchEditor && !config.editor.stablePeek"
 	},
 	{
-		"key": "shift+escape",
-		"command": "-closeReferenceSearch",
+		"key": "capslock",
+		"command": "closeReferenceSearch",
 		"when": "referenceSearchVisible && !config.editor.stablePeek"
 	},
 	{
