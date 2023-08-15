@@ -37,6 +37,16 @@ end
 Map("", "<leader>f", "<cmd>lua Search_for_register('/')<cr>")
 Map("", "<leader>F", "<cmd>lua Search_for_register('?')<cr>")
 
+function Search_for_char(search_operator)
+	local char = GetChar("Input char key to search for:")
+	if not char then return end
+	local escaped_char = EscapeForLiteralSearch(char)
+	FeedKeys(search_operator .. '\\V' .. escaped_char)
+	FeedKeysInt('<cr>')
+end
+Map("", "<leader>s", "<cmd>lua Search_for_char('/')<cr>")
+Map("", "<leader>S", "<cmd>lua Search_for_char('?')<cr>")
+
 function Search_for_current_word(direction)
 	FeedKeys('yiw')
 	vim.schedule(function()

@@ -7,10 +7,6 @@ Map("", '"', ";")
 Map("", "gm", "gM")
 Map("", "<C-f>", "12jzz")
 Map("", "<C-b>", "12kzz")
-Map("", "<leader>a", "[m")
-Map("", "<leader>s", "]m")
-Map("", "<leader>A", "[M")
-Map("", "<leader>S", "]M")
 
 Map("v", "u", "<Esc>u")
 
