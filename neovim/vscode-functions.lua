@@ -99,6 +99,8 @@ function Indent_with_tabs() VSCodeNotify("editor.action.indentUsingTabs") end
 
 function CloseEditor() VSCodeNotify("workbench.action.closeActiveEditor") end
 
+function UndoCloseEditor() VSCodeNotify("workbench.action.reopenClosedEditor") end
+
 function Git_stage_file()
 	Trim_trailing_whitespace()
 	Save()
@@ -145,4 +147,5 @@ function Comment_vis() VSCodeNotify("editor.action.commentLine", false) end
 function Toggle_breakpoint() VSCodeNotify("editor.debug.action.toggleBreakpoint") end
 
 function Copy_path() VSCodeNotify("copyFilePath") end
+
 function Copy_relative_path() VSCodeNotify("copyRelativeFilePath") end

@@ -409,7 +409,7 @@
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"Lua.format.defaultConfig": {
-		"indent_style": "tab"
+		"indent_style": "tab",
 	},
 	"material-icon-theme.files.associations": {
 		"*.ah2": "autohotkey",
