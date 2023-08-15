@@ -6,13 +6,19 @@ end
 funcsave prli > /dev/null
 
 function timer
-	termdown $argv[1] || return 1
-	read -ln 1 should_continue
-	if not test $should_continue
-		return 1
-	end
-	if set -q argv[2]
-		exit
+	while true
+		termdown $argv || return 1
+		read -ln 1 response
+		if not test $response
+			return 1
+		end
+		if test $response = 'e'
+			exit
+		else if test $response = 'c'
+			continue
+		else
+			break
+		end
 	end
 end
 funcsave timer > /dev/null
