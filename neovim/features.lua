@@ -51,3 +51,5 @@ Map("", "<leader>do", move_line_to_top)
 
 local move_line_to_bottom = 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK
 Map("", "<leader>db", move_line_to_bottom)
+
+Map("n", "<leader>dl", 'dil\'_dd', { remap = true })
