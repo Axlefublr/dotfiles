@@ -35,7 +35,7 @@ function Search_for_char(search_operator)
 	local char = GetChar("Input char key to search for:")
 	if not char then return end
 	local escaped_char = EscapeForLiteralSearch(char)
-	FeedKeys(search_operator .. '\\V' .. escaped_char)
+	FeedKeys("m" .. THROWAWAY_MARK .. search_operator .. '\\V' .. escaped_char)
 	FeedKeysInt('<cr>')
 end
 Map("", "<leader>s", "<cmd>lua Search_for_char('/')<cr>")

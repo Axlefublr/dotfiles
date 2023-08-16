@@ -930,7 +930,7 @@
 	{
 		"key": "tab",
 		"command": "editor.action.inlineSuggest.commit",
-		"when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus && !inSnippetMode"
+		"when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
 	},
 	{
 		"key": "shift+down",
@@ -3372,7 +3372,7 @@
 	{
 		"key": "tab",
 		"command": "acceptSelectedSuggestion",
-		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inlineSuggestionVisible"
 	},
 	{
 		"key": "alt+k",
@@ -4439,7 +4439,7 @@
 	{
 		"key": "alt+h",
 		"command": "editor.action.inlineSuggest.showPrevious",
-		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert' && !inSnippetMode"
+		"when": "!inKeybindings && !inSnippetMode && inlineSuggestionVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "left",
@@ -4473,6 +4473,11 @@
 	},
 	{
 		"key": "escape",
+		"command": "keybindings.editor.rejectWhenExpression",
+		"when": "inKeybindings && keybindingFocus && whenFocus"
+	},
+	{
+		"key": "capslock",
 		"command": "keybindings.editor.rejectWhenExpression",
 		"when": "inKeybindings && keybindingFocus && whenFocus"
 	},
@@ -4858,14 +4863,6 @@
 		"when": "textInputFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
 	},
 	{
-		"key": "shift+alt+i",
-		"command": "workbench.action.focusFirstEditorGroup"
-	},
-	{
-		"key": "shift+alt+o",
-		"command": "workbench.action.focusLastEditorGroup"
-	},
-	{
 		"key": "ctrl+f4",
 		"command": "-workbench.action.closeActiveEditor"
 	},
@@ -5080,11 +5077,6 @@
 		"when": "terminalAccessibleBufferFocus && terminalHasBeenCreated || terminalAccessibleBufferFocus && terminalProcessSupported"
 	},
 	{
-		"key": "alt+l",
-		"command": "workbench.action.terminal.openDetectedLink",
-		"when": "terminalFocus && terminalHasBeenCreated"
-	},
-	{
 		"key": "ctrl+shift+o",
 		"command": "-workbench.action.terminal.openDetectedLink",
 		"when": "terminalFocus && terminalHasBeenCreated"
@@ -5176,7 +5168,7 @@
 	{
 		"key": "alt+h",
 		"command": "editor.action.escapeFocusHover",
-		"when": "editorHoverFocused && !inKeybindings"
+		"when": "editorHoverFocused"
 	},
 	{
 		"key": "capslock",
@@ -5335,5 +5327,35 @@
 		"key": "alt+,",
 		"command": "workbench.action.terminal.focusPrevious",
 		"when": "terminalFocus"
+	},
+	{
+		"key": "tab",
+		"command": "-editor.action.inlineSuggest.commit",
+		"when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus && !suggestWidgetVisible"
+	},
+	{
+		"key": "down",
+		"command": "list.focusDown",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "alt+tab",
+		"command": "acceptSelectedSuggestion",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "ctrl+escape",
+		"command": "-workbench.action.focusActiveEditorGroup",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+w ctrl+w",
+		"command": "-workbench.action.focusNextGroup",
+		"when": "!editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus"
+	},
+	{
+		"key": "ctrl+w ctrl+w",
+		"command": "-workbench.action.focusFirstEditorGroup",
+		"when": "!editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus"
 	}
 ]
