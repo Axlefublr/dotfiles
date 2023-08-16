@@ -41,6 +41,15 @@ end
 Map("", "<leader>s", "<cmd>lua Search_for_char('/')<cr>")
 Map("", "<leader>S", "<cmd>lua Search_for_char('?')<cr>")
 
+function Search_for_newlines(search_operator)
+	local newlines = vim.v.count1 + 1
+	local newlines_str = string.rep("\\n", newlines)
+	FeedKeys(search_operator .. newlines_str)
+	FeedKeysInt('<cr>')
+end
+Map("", "<leader>a", function() Search_for_newlines('/') end)
+Map("", "<leader>A", function() Search_for_newlines('?') end)
+
 function Search_for_current_word(direction)
 	FeedKeys('yiw')
 	vim.schedule(function()
