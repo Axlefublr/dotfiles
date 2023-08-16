@@ -377,6 +377,16 @@
 		]
 	},
 	"workbench.colorCustomizations": {
+		"gitDecoration.modifiedResourceForeground": "#D3869B",
+		"gitDecoration.stageModifiedResourceForeground": "#7DAEA3",
+		"gitDecoration.untrackedResourceForeground": "#D8A657",
+		"gitDecoration.addedResourceForeground": "#A9B665",
+		"editorGutter.modifiedBackground": "#D3869B",
+		"editorGutter.addedBackground": "#A9B665",
+		"editorGutter.deletedBackground": "#EA6962",
+		"gitDecoration.deletedResourceForeground": "#EA6962",
+		"gitDecoration.renamedResourceForeground": "#89B482",
+		"gitDecoration.stageDeletedResourceForeground": "#E78A4E",
 	},
 	"[ahk2]": {
 		"editor.formatOnPaste": false,
@@ -804,7 +814,8 @@
 	"screencastMode.keyboardOptions": {
 		"showCommands": false
 	},
-	"scm.diffDecorationsGutterWidth": 5,
 	"editor.foldingStrategy": "indentation",
 	"workbench.editor.enablePreview": false,
+	"scm.diffDecorationsGutterWidth": 5,
+	"editor.suggest.matchOnWordStartOnly": false,
 }

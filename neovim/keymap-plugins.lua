@@ -50,23 +50,12 @@ Map(
 
 Map(
 	{ "o", "x" },
-	"iD",
-	"<cmd>lua require('various-textobjs').doubleSquareBrackets(true)<CR>"
-)
-Map(
-	{ "o", "x" },
-	"aD",
-	"<cmd>lua require('various-textobjs').doubleSquareBrackets(false)<CR>"
-)
-
-Map(
-	{ "o", "x" },
-	"iP",
+	"i|",
 	"<cmd>lua require('various-textobjs').shellPipe(true)<CR>"
 )
 Map(
 	{ "o", "x" },
-	"aP",
+	"a|",
 	"<cmd>lua require('various-textobjs').shellPipe(false)<CR>"
 )
 
