@@ -10,7 +10,7 @@ require("packer").startup(function(use)
 	use "adelarsq/vim-matchit"
 	use "sainnhe/gruvbox-material"
 	use "farmergreg/vim-lastplace"
-	use "chrisgrieser/nvim-spider"
+	use "bkad/CamelCaseMotion"
 	use {
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true }

@@ -1,3 +1,4 @@
+vim.g.camelcasemotion_key = "<leader>"
 Cmd("let g:sneak#use_ic_scs = 1")
 Cmd("highlight link Sneak None")
 Cmd("packadd! matchit")
