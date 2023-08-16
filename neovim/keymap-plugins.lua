@@ -18,6 +18,9 @@ Map({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(false)<CR>")
 Map({ "o", "x" }, "ik", "<cmd>lua require('various-textobjs').key(true)<CR>")
 Map({ "o", "x" }, "ak", "<cmd>lua require('various-textobjs').key(false)<CR>")
 
+Map({ "o", "x" }, "iu", "<cmd>lua require('various-textobjs').number(true)<CR>")
+Map({ "o", "x" }, "au", "<cmd>lua require('various-textobjs').number(false)<CR>")
+
 Map({ "o", "x" }, "gl", "<cmd>lua require('various-textobjs').url()<CR>")
 
 Map({ "o", "x" }, "il", "<cmd>lua require('various-textobjs').lineCharacterwise(true)<CR>")
