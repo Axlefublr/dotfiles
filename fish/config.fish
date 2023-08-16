@@ -22,6 +22,16 @@ set -g color_orange      FF8700
 set -g color_redder_pink FF8787
 set -g color_white       D4BE98
 
+set -g color_gruvbox_white  D4BE98
+set -g color_gruvbox_green  A9B665
+set -g color_gruvbox_purple D3869B
+set -g color_gruvbox_orange E78A4E
+set -g color_gruvbox_yellow D8A657
+set -g color_gruvbox_red    EA6962
+set -g color_gruvbox_sea    89B482
+set -g color_gruvbox_grey   928374
+set -g color_gruvbox_cyan   7DAEA3
+
 set -g fish_lazy_load_completions 'true'
 set -g fish_lazy_load_functions 'true'
 set -g fish_escape_delay_ms 10
