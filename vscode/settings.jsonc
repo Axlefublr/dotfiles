@@ -743,7 +743,6 @@
 	"extensions.ignoreRecommendations": true,
 	"workbench.editor.pinnedTabSizing": "compact",
 	"rust-analyzer.check.command": "clippy",
-	"rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "always",
 	"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
 	"cSpell.language": "ru-RU,en-US",
 	"cSpell.enableFiletypes": [

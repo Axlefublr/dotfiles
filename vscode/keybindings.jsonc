@@ -3605,9 +3605,9 @@
 		"when": "actionWidgetVisible"
 	},
 	{
-		"key": "shift+escape",
-		"command": "-hideCodeActionWidget",
-		"when": "actionWidgetVisible"
+		"key": "capslock",
+		"command": "hideCodeActionWidget",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
 		"key": "ctrl+p",

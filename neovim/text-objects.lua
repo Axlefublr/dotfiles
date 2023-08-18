@@ -1,12 +1,12 @@
 -- Code block
-Map("v", "im", "aBV")
-Map("v", "am", "aBVj")
-Map("v", "iM", "aBVok")
-Map("v", "aM", "aBVjok")
-Map("o", "im", function() Cmd("normal vaBV") end)
-Map("o", "am", function() Cmd("normal vaBVj") end)
-Map("o", "iM", function() Cmd("normal vaBVok") end)
-Map("o", "aM", function() Cmd("normal vaBVjok") end)
+Map("v", "im", "iiok")
+Map("v", "am", "iijok")
+Map("v", "iM", "iio2k")
+Map("v", "aM", "iijo2k")
+Map("o", "im", function() Cmd("normal viiok") end)
+Map("o", "am", function() Cmd("normal viijok") end)
+Map("o", "iM", function() Cmd("normal viio2k") end)
+Map("o", "aM", function() Cmd("normal viijo2k") end)
 
 -- Percent sign %
 Map("v", "i%", "T%ot%")
