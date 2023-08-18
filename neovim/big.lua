@@ -17,8 +17,8 @@ function Literal_search(searchOperator)
 	FeedKeys(searchOperator .. '\\V' .. escaped_text)
 	FeedKeysInt("<cr>")
 end
-Map("", "/", "<cmd>lua Literal_search('/')<cr>")
-Map("", "?", "<cmd>lua Literal_search('?')<cr>")
+Map("", "<leader>c", "<cmd>lua Literal_search('/')<cr>")
+Map("", "<leader>C", "<cmd>lua Literal_search('?')<cr>")
 
 function Search_for_register(search_operator)
 	local char = GetChar("Input register key to search for:")
@@ -44,7 +44,7 @@ Map("", "<leader>S", "<cmd>lua Search_for_char('?')<cr>")
 function Search_for_newlines(search_operator)
 	local newlines = vim.v.count1 + 1
 	local newlines_str = string.rep("\\n", newlines)
-	FeedKeys(search_operator .. newlines_str)
+	FeedKeys(search_operator .. newlines_str .. "/e")
 	FeedKeysInt('<cr>')
 end
 Map("", "<leader>a", function() Search_for_newlines('/') end)

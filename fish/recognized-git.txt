@@ -1,4 +1,4 @@
-~/prog/csproj/ChoreTracker
+~/prog/rust/gaf
 ~/prog/csproj/AlienTemple
 ~/prog/info
 ~/prog/dotfiles
