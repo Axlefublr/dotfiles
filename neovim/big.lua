@@ -31,6 +31,15 @@ end
 Map("", "<leader>f", "<cmd>lua Search_for_register('/')<cr>")
 Map("", "<leader>F", "<cmd>lua Search_for_register('?')<cr>")
 
+function Move_default_to_other()
+	local char = GetChar("Register: ")
+	if not char then return end
+	local register = Validate_register(char)
+	local default_contents = vim.fn.getreg('"')
+	vim.fn.setreg(register, default_contents)
+end
+Map("n", "<leader>g", Move_default_to_other)
+
 function Search_for_char(search_operator)
 	local char = GetChar("Input char key to search for:")
 	if not char then return end
