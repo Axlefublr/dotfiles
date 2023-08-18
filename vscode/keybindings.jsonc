@@ -2563,8 +2563,8 @@
 		"when": "editorFocus"
 	},
 	{
-		"key": "shift+escape",
-		"command": "-cancelRenameInput",
+		"key": "capslock",
+		"command": "cancelRenameInput",
 		"when": "editorFocus && renameInputVisible"
 	},
 	{
