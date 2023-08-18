@@ -18,6 +18,8 @@ Map("i", "<C-k>", "<C-o>O")
 
 Map("o", "{", "V{")
 Map("o", "}", "V}")
+Map("o", "+", "v+")
+Map("o", "-", "v-")
 
 Map("n", "<C-k>", "O<Esc>")
 Map("n", "<C-j>", "o<Esc>")
