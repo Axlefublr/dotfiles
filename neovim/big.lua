@@ -1,35 +1,36 @@
-function Search_for_selection(search_operator)
+-- I call it death because that's where we end up in. Just like /e or no /e
+function Search_for_selection(death)
 	FeedKeys('y')
 	vim.schedule(function()
 		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('"'))
-		FeedKeys(search_operator .. '\\V' .. escaped_selection)
+		FeedKeys('/\\V' .. escaped_selection .. death)
 		FeedKeysInt('<cr>')
 	end)
 end
-Map("v", "*", "<cmd>lua Search_for_selection('/')<cr>")
-Map("v", "#", "<cmd>lua Search_for_selection('?')<cr>")
+Map("v", "*", function() Search_for_selection('') end)
+Map("v", "#", function() Search_for_selection('/e') end)
 
-function Literal_search(searchOperator)
+function Literal_search(death)
 	local escaped_text = EscapeForLiteralSearch(vim.fn.input("Type in your literal search: "))
 	if escaped_text == '' then
 		return
 	end
-	FeedKeys(searchOperator .. '\\V' .. escaped_text)
+	FeedKeys('/\\V' .. escaped_text .. death)
 	FeedKeysInt("<cr>")
 end
-Map("", "<leader>c", "<cmd>lua Literal_search('/')<cr>")
-Map("", "<leader>C", "<cmd>lua Literal_search('?')<cr>")
+Map("", "<leader>c", function() Literal_search('') end)
+Map("", "<leader>C", function() Literal_search('/e') end)
 
-function Search_for_register(search_operator)
+function Search_for_register(death)
 	local char = GetChar("Input register key to search for:")
 	if not char then return end
 	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
-	FeedKeys(search_operator .. '\\V' .. escaped_register)
+	FeedKeys('/\\V' .. escaped_register .. death)
 	FeedKeysInt('<cr>')
 end
-Map("", "<leader>f", "<cmd>lua Search_for_register('/')<cr>")
-Map("", "<leader>F", "<cmd>lua Search_for_register('?')<cr>")
+Map("", "<leader>f", function() Search_for_register('') end)
+Map("", "<leader>F", function() Search_for_register('/e') end)
 
 function Move_default_to_other()
 	local char = GetChar("Register: ")
@@ -40,32 +41,31 @@ function Move_default_to_other()
 end
 Map("n", "<leader>g", Move_default_to_other)
 
-function Search_for_char(search_operator)
+function Search_for_char()
 	local char = GetChar("Input char key to search for:")
 	if not char then return end
 	local escaped_char = EscapeForLiteralSearch(char)
-	FeedKeys("m" .. THROWAWAY_MARK .. search_operator .. '\\V' .. escaped_char)
+	FeedKeys("m" .. THROWAWAY_MARK .. '/\\V' .. escaped_char)
 	FeedKeysInt('<cr>')
 end
-Map("", "<leader>s", "<cmd>lua Search_for_char('/')<cr>")
-Map("", "<leader>S", "<cmd>lua Search_for_char('?')<cr>")
+Map("", "<leader>s", Search_for_char)
 
-function Search_for_newlines(search_operator)
+function Search_for_newlines(death)
 	local newlines = vim.v.count1 + 1
 	local newlines_str = string.rep("\\n", newlines)
-	FeedKeys(search_operator .. newlines_str .. "/e")
+	FeedKeys('/\\V' .. newlines_str .. death)
 	FeedKeysInt('<cr>')
 end
-Map("", "<leader>a", function() Search_for_newlines('/') end)
-Map("", "<leader>A", function() Search_for_newlines('?') end)
+Map("", "<leader>a", function() Search_for_newlines('') end)
+Map("", "<leader>A", function() Search_for_newlines('/e') end)
 
-function Search_for_current_word(direction)
+function Search_for_current_word(death)
 	FeedKeys('yiw')
 	vim.schedule(function()
-		local escaped_word = vim.fn.getreg('"')
-		FeedKeys(direction .. '\\v<' .. escaped_word .. ">")
+		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg('"'))
+		FeedKeys('/\\V\\<' .. escaped_word .. "\\>" .. death)
 		FeedKeysInt('<cr>')
 	end)
 end
-Map("n", "*", function() Search_for_current_word('/') end)
-Map("n", "#", function() Search_for_current_word('?') end)
+Map("n", "*", function() Search_for_current_word('') end)
+Map("n", "#", function() Search_for_current_word('/e') end)
