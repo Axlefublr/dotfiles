@@ -3926,7 +3926,8 @@
 	},
 	{
 		"key": "ctrl+shift+w",
-		"command": "workbench.action.closeOtherEditors"
+		"command": "workbench.action.closeOtherEditors",
+		"when": "!terminalFocus"
 	},
 	{
 		"key": "alt+down",

@@ -9,9 +9,6 @@ Map("n", "<leader>di", '"_ddddpvaB<Esc>') -- Push line of code after block into 
 Map("", "<leader>do", 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
 Map("", "<leader>db", 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
 
-Map("n", "<BS>", "ggcG")
-Map("n", "<leader><BS>", "ggdG")
-
 Map("", "_", function() FeedKeysInt(vim.v.count1 .. "k$") end)
 
 local function multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end

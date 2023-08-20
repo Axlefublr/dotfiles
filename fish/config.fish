@@ -158,6 +158,7 @@ abbr -a cain  'cargo binstall -y'
 abbr -a cass  'cp -f ./target/release/(basename $PWD) ~/prog/binaries'
 
 abbr -a ghr     'gh repo'
+abbr -a ghrd    'gh repo delete --yes'
 abbr -a ghrl    'gh repo list -L 1000'
 abbr -a ghrcl   'gh repo clone'
 abbr -a ghrf    'gh repo fork'
