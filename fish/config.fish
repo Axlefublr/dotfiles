@@ -171,10 +171,10 @@ abbr -a ghrccuM 'gh repo create --clone --public --license MIT'
 abbr -a ghrccp  'gh repo create --clone --private'
 abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 
-
 bind -M default K execute
 bind -M insert \c] execute
-
+bind -M default q backward-word forward-single-char forward-word backward-char
+bind -M default Q backward-bigword forward-bigword backward-char
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
