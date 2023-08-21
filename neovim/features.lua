@@ -17,6 +17,9 @@ Map("n", "<leader>q", multiply)
 local function multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
 Map("v", "<leader>q", multiply_visual)
 
+local function simplify_gM() FeedKeys(vim.v.count * 10 .. "gM") end
+Map("", "gm", simplify_gM)
+
 Map("n", "J", function()
 	for i = 1, vim.v.count1 do
 		FeedKeys("J")
