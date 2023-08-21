@@ -3,7 +3,6 @@ require("packer").startup(function(use)
 	use "kana/vim-textobj-user"
 	use "vim-scripts/ReplaceWithRegister"
 	use "wellle/targets.vim"
-	use "justinmk/vim-sneak"
 	use "junegunn/vim-easy-align"
 	-- use "sheerun/vim-polyglot"
 	use "tpope/vim-repeat"

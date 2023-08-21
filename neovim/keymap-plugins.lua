@@ -10,7 +10,7 @@ Map({ "o", "x" }, "aS", "<cmd>lua require('various-textobjs').subword(false)<CR>
 
 Map({ "o", "x" }, "gG", "<cmd>lua require('various-textobjs').entireBuffer()<CR>")
 
-Map({ "o", "x" }, "n", "<cmd>lua require('various-textobjs').nearEoL()<CR>")
+Map({ "o", "x" }, ".", "<cmd>lua require('various-textobjs').nearEoL()<CR>")
 
 Map({ "o", "x" }, "iv", "<cmd>lua require('various-textobjs').value(true)<CR>")
 Map({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(false)<CR>")
@@ -112,8 +112,3 @@ end, { desc = "Delete surrounding indentation" })
 
 Map("", "ga", "<Plug>(EasyAlign)")
 Map("n", "grr", "<Plug>ReplaceWithRegisterLine")
-
-Map({ "n", "x", "o" }, "q", "<Plug>Sneak_s")
-Map({ "n", "x", "o" }, "Q", "<Plug>Sneak_S")
-Map("", '"', "<Plug>Sneak_;")
-Map("", ":", "<Plug>Sneak_,")
