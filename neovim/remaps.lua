@@ -8,8 +8,8 @@ Map("", "<C-f>", "12jzz")
 Map("", "<C-b>", "12kzz")
 Map("", "/", "/\\V")
 Map("", "?", "/\\v")
-Map("", "x", "ge")
-Map("", "X", "gE")
+Map("", "q", "ge")
+Map("", "Q", "gE")
 
 Map("v", "u", "<Esc>u")
 
