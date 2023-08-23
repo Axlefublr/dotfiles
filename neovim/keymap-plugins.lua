@@ -26,9 +26,6 @@ Map({ "o", "x" }, "gl", "<cmd>lua require('various-textobjs').url()<CR>")
 Map({ "o", "x" }, "il", "<cmd>lua require('various-textobjs').lineCharacterwise(true)<CR>")
 Map({ "o", "x" }, "al", "<cmd>lua require('various-textobjs').lineCharacterwise(false)<CR>")
 
-Map({ "o", "x" }, "ie", "<cmd>lua require('various-textobjs').chainMember(true)<CR>")
-Map({ "o", "x" }, "ae", "<cmd>lua require('various-textobjs').chainMember(false)<CR>")
-
 Map(
 	{ "o", "x" },
 	"iC",
