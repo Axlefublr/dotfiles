@@ -70,6 +70,7 @@ abbr -a bacon 'bacon -j clippy'
 abbr -a wec   'watchexec -c clear'
 abbr -a ch    'ChoreTracker'
 abbr -a xcp   'xclip -r -selection clipboard'
+abbr -a jf    'source ~/.config/fish/config.fish'
 
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'

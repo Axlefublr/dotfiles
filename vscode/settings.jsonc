@@ -570,7 +570,7 @@
 	"codesnap.shutterAction": "copy",
 	"codesnap.containerPadding": "1em",
 	"codesnap.showWindowControls": false,
-	"window.title": "${activeEditorMedium} ${dirty}",
+	"window.title": "${activeEditorMedium}${separator}vscode${separator}${dirty}",
 	"search.showLineNumbers": true,
 	"search.quickOpen.includeHistory": false,
 	"search.seedWithNearestWord": true,
