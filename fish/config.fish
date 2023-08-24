@@ -86,6 +86,14 @@ abbr -a ls  'ls -A'
 abbr -a lsw 'ls -A -w 1'
 abbr -a lg  'ls -Agh'
 
+abbr -a gafsn 'gaf stage new'
+abbr -a gafsd 'gaf stage deleted'
+abbr -a gafsm 'gaf stage modified'
+abbr -a gafua 'gaf unstage added'
+abbr -a gafud 'gaf unstage deleted'
+abbr -a gafum 'gaf unstage modified'
+abbr -a gafur 'gaf unstage renamed'
+
 ## git
 
 abbr -a gd      'git diff'
