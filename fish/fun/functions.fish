@@ -103,3 +103,9 @@ function new --description='Creates new files or directories and all required pa
 	end
 end
 funcsave new > /dev/null
+
+function rename
+	mv $argv[1] _$argv[1]
+	mv _$argv[1] $argv[2]
+end
+funcsave rename > /dev/null
