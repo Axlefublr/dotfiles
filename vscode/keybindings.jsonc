@@ -928,11 +928,6 @@
 		"when": "suggestWidgetVisible && textInputFocus"
 	},
 	{
-		"key": "tab",
-		"command": "editor.action.inlineSuggest.commit",
-		"when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
-	},
-	{
 		"key": "shift+down",
 		"command": "-cursorColumnSelectDown",
 		"when": "editorColumnSelection && textInputFocus"
@@ -945,7 +940,7 @@
 	{
 		"key": "alt+'",
 		"command": "editor.action.triggerParameterHints",
-		"when": "editorHasSignatureHelpProvider && editorTextFocus && !parameterHintsVisible"
+		"when": "editorHasSignatureHelpProvider && editorTextFocus && !parameterHintsVisible && !inlineSuggestionVisible"
 	},
 	{
 		"key": "ctrl+shift+space",
@@ -1037,9 +1032,9 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
 	},
 	{
-		"key": "alt+m",
+		"key": "alt+,",
 		"command": "editor.action.triggerSuggest",
-		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "ctrl+i",
@@ -1689,7 +1684,8 @@
 	},
 	{
 		"key": "alt+i",
-		"command": "workbench.action.togglePanel"
+		"command": "workbench.action.togglePanel",
+		"when": "neovim.mode != 'insert'"
 	},
 	{
 		"key": "alt+`",
@@ -3351,12 +3347,12 @@
 		"when": "!editorTextFocus"
 	},
 	{
-		"key": "alt+j",
-		"command": "editor.action.triggerSuggest",
-		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
+		"key": "alt+,",
+		"command": "hideSuggestWidget",
+		"when": "suggestWidgetVisible && textInputFocus"
 	},
 	{
-		"key": "alt+m",
+		"key": "capslock",
 		"command": "hideSuggestWidget",
 		"when": "suggestWidgetVisible && textInputFocus"
 	},
@@ -3373,11 +3369,6 @@
 		"key": "tab",
 		"command": "acceptSelectedSuggestion",
 		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inlineSuggestionVisible"
-	},
-	{
-		"key": "alt+k",
-		"command": "editor.action.triggerSuggest",
-		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "alt+k",
@@ -3552,7 +3543,7 @@
 		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
 	},
 	{
-		"key": "alt+;",
+		"key": "alt+i",
 		"command": "editor.action.insertSnippet",
 		"when": "neovim.mode == 'insert'"
 	},
@@ -3579,7 +3570,7 @@
 	{
 		"key": "alt+,",
 		"command": "workbench.action.previousEditorInGroup",
-		"when": "!panelFocus"
+		"when": "!panelFocus && neovim.mode != 'insert'"
 	},
 	{
 		"key": "ctrl+alt+q",
@@ -3902,7 +3893,7 @@
 	{
 		"key": "alt+.",
 		"command": "workbench.action.nextEditorInGroup",
-		"when": "!panelFocus"
+		"when": "!panelFocus && neovim.mode != 'insert'"
 	},
 	{
 		"key": "alt+1",
@@ -4440,7 +4431,7 @@
 	{
 		"key": "alt+h",
 		"command": "editor.action.inlineSuggest.showPrevious",
-		"when": "!inKeybindings && !inSnippetMode && inlineSuggestionVisible && neovim.mode == 'insert'"
+		"when": "inlineSuggestionVisible && !inKeybindings && !inSnippetMode && neovim.mode == 'insert'"
 	},
 	{
 		"key": "left",
@@ -4705,11 +4696,6 @@
 		"when": "inlineSuggestionVisible"
 	},
 	{
-		"key": "alt+l",
-		"command": "editor.action.inlineSuggest.trigger",
-		"when": "!inKeybindings && !inlineSuggestionVisible && neovim.mode == 'insert' && !inSnippetMode"
-	},
-	{
 		"key": "ctrl+shift+f12",
 		"command": "-editor.action.peekImplementation",
 		"when": "editorHasImplementationProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
@@ -4971,11 +4957,6 @@
 		"key": "a",
 		"command": "-explorer.newFile",
 		"when": "filesExplorerFocus && !inputFocus"
-	},
-	{
-		"key": "alt+h",
-		"command": "editor.action.inlineSuggest.trigger",
-		"when": "!inKeybindings && !inSnippetMode && !inlineSuggestionVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "alt+enter",
@@ -5340,11 +5321,6 @@
 		"when": "listFocus && !inputFocus"
 	},
 	{
-		"key": "alt+tab",
-		"command": "acceptSelectedSuggestion",
-		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-	},
-	{
 		"key": "ctrl+escape",
 		"command": "-workbench.action.focusActiveEditorGroup",
 		"when": "terminalFocus"
@@ -5358,5 +5334,80 @@
 		"key": "ctrl+w ctrl+w",
 		"command": "-workbench.action.focusFirstEditorGroup",
 		"when": "!editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus"
+	},
+	{
+		"key": "alt+.",
+		"command": "editor.action.inlineSuggest.hide",
+		"when": "inlineSuggestionVisible && textInputFocus"
+	},
+	{
+		"key": "alt+meta+j",
+		"command": "-notebook.cell.joinBelow",
+		"when": "notebookEditorFocused"
+	},
+	{
+		"key": "shift+alt+meta+j",
+		"command": "-notebook.cell.joinAbove",
+		"when": "notebookEditorFocused"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "-focusSuggestion",
+		"when": "suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+	},
+	{
+		"key": "ctrl+down",
+		"command": "-selectNextSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+	},
+	{
+		"key": "ctrl+pagedown",
+		"command": "-selectNextPageSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+	},
+	{
+		"key": "ctrl+pageup",
+		"command": "-selectPrevPageSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+	},
+	{
+		"key": "ctrl+up",
+		"command": "-selectPrevSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+	},
+	{
+		"key": "down",
+		"command": "-notebook.focusNextEditor",
+		"when": "config.notebook.navigation.allowNavigateToSurroundingCells && inlineChatFocused && inlineChatInnerCursorLast && inputFocus && notebookEditorFocused && !accessibilityModeEnabled && !isEmbeddedDiffEditor && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'"
+	},
+	{
+		"key": "down",
+		"command": "-notebook.focusNextEditor",
+		"when": "config.notebook.navigation.allowNavigateToSurroundingCells && editorTextFocus && inputFocus && notebookEditorFocused && !accessibilityModeEnabled && !isEmbeddedDiffEditor && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'"
+	},
+	{
+		"key": "z shift+c",
+		"command": "-list.collapseAllToFocus",
+		"when": "!editorTextFocus && !inputFocus"
+	},
+	{
+		"key": "alt+.",
+		"command": "editor.action.inlineSuggest.trigger",
+		"when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
+	},
+	{
+		"key": "alt+;",
+		"command": "editor.action.inlineSuggest.commit",
+		"when": "textInputFocus && neovim.mode == 'insert'"
+	},
+	{
+		"key": "ctrl+shift+alt+i",
+		"command": "-chat.action.askQuickQuestion",
+		"when": "hasChatProvider"
+	},
+	{
+		"key": "alt+'",
+		"command": "editor.action.inlineSuggest.acceptNextWord",
+		"when": "inlineSuggestionVisible && neovim.mode == 'insert'"
 	}
 ]
