@@ -70,17 +70,21 @@ end
 Map("n", "*", function() Search_for_current_word('') end)
 Map("n", "#", function() Search_for_current_word('/e') end)
 
-function Split_on_input_selection(isBefore)
-	local default_contents = vim.fn.getreg('"')
-	local input = vim.fn.input("input: ")
-	if not input then return end
-	local splitted
-	if isBefore then
-		splitted = string.gsub(default_contents, input, '\n' .. input)
-	else
-		splitted = string.gsub(default_contents, input, input .. '\n')
-	end
-	vim.fn.setreg('"', splitted)
+local function visual_replace()
+	FeedKeys('ygv')
+	vim.schedule(function()
+		local default_contents = vim.fn.getreg('"')
+		local what = vim.fn.input("what: ")
+		if not what then return end
+		local with = vim.fn.input("with: ")
+		if not with then return end
+		with = string.gsub(with, '\\\\', '\\')
+		with = string.gsub(with, '\\n', '\n')
+		with = string.gsub(with, '\\t', '\t')
+		with = string.gsub(with, '\\s', what)
+		local splitted = string.gsub(default_contents, what, with)
+		vim.fn.setreg('"', splitted)
+		FeedKeys('p')
+	end)
 end
-Map("", "<leader>de", function() Split_on_input_selection(true) end)
-Map("", "<leader>dE", function() Split_on_input_selection(false) end)
+Map("v", "<leader>de", visual_replace)
