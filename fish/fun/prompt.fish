@@ -43,7 +43,7 @@ function fish_prompt_status
 	else
 		if test $argv -ne 0
 			set_color -o $color_red
-			printf '󱎘%s' $argv
+			printf '󱎘%s ' $argv
 		end
 	end
 end
@@ -88,7 +88,7 @@ function fish_prompt
 	end
 	fish_prompt_status $fullstatuses
 	set_color $color_yellow
-	printf '\n╰─ '
+	printf '󱕅 '
 	set_color normal
 end
 funcsave fish_prompt > /dev/null
