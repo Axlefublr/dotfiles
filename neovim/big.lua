@@ -41,14 +41,23 @@ function Move_default_to_other()
 end
 Map("n", "<leader>g", Move_default_to_other)
 
-function Search_for_char()
-	local char = GetChar("Input char key to search for:")
-	if not char then return end
-	local escaped_char = EscapeForLiteralSearch(char)
-	FeedKeys("m" .. THROWAWAY_MARK .. '/\\V' .. escaped_char)
-	FeedKeysInt('<cr>')
+local function search_for_char(death)
+	local chars = {}
+	for i = 1, vim.v.count1 do
+		local char = GetChar("char " .. i .. ":")
+		if not char then return end
+		table.insert(chars, char)
+	end
+	for index, value in pairs(chars) do
+		local escaped_char = EscapeForLiteralSearch(value)
+		chars[index] = escaped_char
+	end
+	local search_string = table.concat(chars, '')
+	FeedKeys('m' .. THROWAWAY_MARK .. '/\\V' .. search_string .. death)
+	FeedKeysInt("<cr>")
 end
-Map("", "<leader>s", Search_for_char)
+Map("", "<leader>s", function() search_for_char('') end)
+Map("", "<leader>S", function() search_for_char('/e') end)
 
 function Search_for_newlines(death)
 	local newlines = vim.v.count1 + 1
