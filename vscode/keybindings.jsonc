@@ -1037,6 +1037,16 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
 	},
 	{
+		"key": "alt+j",
+		"command": "editor.action.triggerSuggest",
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
+	},
+	{
+		"key": "alt+k",
+		"command": "editor.action.triggerSuggest",
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
+	},
+	{
 		"key": "ctrl+i",
 		"command": "-editor.action.triggerSuggest",
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
@@ -5392,6 +5402,16 @@
 	},
 	{
 		"key": "alt+.",
+		"command": "editor.action.inlineSuggest.trigger",
+		"when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
+	},
+	{
+		"key": "alt+h",
+		"command": "editor.action.inlineSuggest.trigger",
+		"when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
+	},
+	{
+		"key": "alt+l",
 		"command": "editor.action.inlineSuggest.trigger",
 		"when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
 	},
