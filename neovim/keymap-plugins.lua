@@ -8,7 +8,7 @@ Map({ "o", "x" }, "R", "<cmd>lua require('various-textobjs').restOfIndentation()
 Map({ "o", "x" }, "iS", "<cmd>lua require('various-textobjs').subword(true)<CR>")
 Map({ "o", "x" }, "aS", "<cmd>lua require('various-textobjs').subword(false)<CR>")
 
-Map({ "o", "x" }, "gG", "<cmd>lua require('various-textobjs').entireBuffer()<CR>")
+Map({ "o", "x" }, "ie", "<cmd>lua require('various-textobjs').entireBuffer()<CR>")
 
 Map({ "o", "x" }, ".", "<cmd>lua require('various-textobjs').nearEoL()<CR>")
 
