@@ -10,17 +10,6 @@ end
 Map("v", "*", function() Search_for_selection('') end)
 Map("v", "#", function() Search_for_selection('/e') end)
 
-function Literal_search(death)
-	local escaped_text = EscapeForLiteralSearch(vim.fn.input("Type in your literal search: "))
-	if escaped_text == '' then
-		return
-	end
-	FeedKeys('/\\V' .. escaped_text .. death)
-	FeedKeysInt("<cr>")
-end
-Map("", "<leader>c", function() Literal_search('') end)
-Map("", "<leader>C", function() Literal_search('/e') end)
-
 function Search_for_register(death)
 	local char = GetChar("Input register key to search for:")
 	if not char then return end
@@ -40,15 +29,6 @@ function Move_default_to_other()
 	vim.fn.setreg(register, default_contents)
 end
 Map("n", "<leader>g", Move_default_to_other)
-
-function Search_for_newlines(death)
-	local newlines = vim.v.count1 + 1
-	local newlines_str = string.rep("\\n", newlines)
-	FeedKeys('/\\V' .. newlines_str .. death)
-	FeedKeysInt('<cr>')
-end
-Map("", "<leader>a", function() Search_for_newlines('') end)
-Map("", "<leader>A", function() Search_for_newlines('/e') end)
 
 function Search_for_current_word(death)
 	FeedKeys('yiw')
