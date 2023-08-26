@@ -69,3 +69,18 @@ function Search_for_current_word(death)
 end
 Map("n", "*", function() Search_for_current_word('') end)
 Map("n", "#", function() Search_for_current_word('/e') end)
+
+function Split_on_input_selection(isBefore)
+	local default_contents = vim.fn.getreg('"')
+	local input = vim.fn.input("input: ")
+	if not input then return end
+	local splitted
+	if isBefore then
+		splitted = string.gsub(default_contents, input, '\n' .. input)
+	else
+		splitted = string.gsub(default_contents, input, input .. '\n')
+	end
+	vim.fn.setreg('"', splitted)
+end
+Map("", "<leader>de", function() Split_on_input_selection(true) end)
+Map("", "<leader>dE", function() Split_on_input_selection(false) end)
