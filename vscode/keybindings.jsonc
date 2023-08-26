@@ -623,7 +623,8 @@
 	},
 	{
 		"key": "alt+o",
-		"command": "workbench.action.showCommands"
+		"command": "workbench.action.showCommands",
+		"when": "neovim.mode != 'insert'"
 	},
 	{
 		"key": "ctrl+shift+p",
@@ -1032,7 +1033,7 @@
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
 	},
 	{
-		"key": "alt+,",
+		"key": "alt+o",
 		"command": "editor.action.triggerSuggest",
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
 	},
@@ -2277,7 +2278,8 @@
 	},
 	{
 		"key": "alt+p",
-		"command": "workbench.action.showAllSymbols"
+		"command": "workbench.action.showAllSymbols",
+		"when": "neovim.mode != 'insert'"
 	},
 	{
 		"key": "shift+alt+'",
@@ -3357,7 +3359,7 @@
 		"when": "!editorTextFocus"
 	},
 	{
-		"key": "alt+,",
+		"key": "alt+o",
 		"command": "hideSuggestWidget",
 		"when": "suggestWidgetVisible && textInputFocus"
 	},
@@ -3580,7 +3582,7 @@
 	{
 		"key": "alt+,",
 		"command": "workbench.action.previousEditorInGroup",
-		"when": "!panelFocus && neovim.mode != 'insert'"
+		"when": "!panelFocus"
 	},
 	{
 		"key": "ctrl+alt+q",
@@ -3903,7 +3905,7 @@
 	{
 		"key": "alt+.",
 		"command": "workbench.action.nextEditorInGroup",
-		"when": "!panelFocus && neovim.mode != 'insert'"
+		"when": "!panelFocus"
 	},
 	{
 		"key": "alt+1",
@@ -5346,7 +5348,7 @@
 		"when": "!editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus"
 	},
 	{
-		"key": "alt+.",
+		"key": "alt+p",
 		"command": "editor.action.inlineSuggest.hide",
 		"when": "inlineSuggestionVisible && textInputFocus"
 	},
@@ -5401,9 +5403,9 @@
 		"when": "!editorTextFocus && !inputFocus"
 	},
 	{
-		"key": "alt+.",
+		"key": "alt+p",
 		"command": "editor.action.inlineSuggest.trigger",
-		"when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
+		"when": "textInputFocus && !inlineSuggestionVisible && neovim.mode == 'insert'"
 	},
 	{
 		"key": "alt+h",
@@ -5429,5 +5431,10 @@
 		"key": "alt+'",
 		"command": "editor.action.inlineSuggest.acceptNextWord",
 		"when": "inlineSuggestionVisible && neovim.mode == 'insert'"
+	},
+	{
+		"key": "shift+alt+.",
+		"command": "-editor.action.autoFix",
+		"when": "textInputFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
 	}
 ]
