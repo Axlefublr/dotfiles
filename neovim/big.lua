@@ -12,16 +12,18 @@ Map("v", "<leader>*", function() Search_for_selection('/', '/e') end)
 Map("v", "#", function() Search_for_selection('?', '') end)
 Map("v", "<leader>#", function() Search_for_selection('?', '/e') end)
 
-function Search_for_register(death)
+function Search_for_register(direction, death)
 	local char = GetChar("Input register key to search for:")
 	if not char then return end
 	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
-	FeedKeys('/\\V' .. escaped_register .. death)
+	FeedKeys(direction .. '\\V' .. escaped_register .. death)
 	FeedKeysInt('<cr>')
 end
-Map("", "<leader>f", function() Search_for_register('') end)
-Map("", "<leader>F", function() Search_for_register('/e') end)
+Map("", "<leader>f", function() Search_for_register('/', '') end)
+Map("", "<leader>s", function() Search_for_register('/', '/e') end)
+Map("", "<leader>F", function() Search_for_register('?', '') end)
+Map("", "<leader>S", function() Search_for_register('?', '/e') end)
 
 function Move_default_to_other()
 	local char = GetChar("Register: ")
