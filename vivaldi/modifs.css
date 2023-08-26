@@ -1,0 +1,20 @@
+#titlebar button.vivaldi {
+	display: none;
+}
+
+.linux #tabs-container:not(.none).top {
+	padding-left: 0;
+}
+
+div.button-toolbar.newtab {
+	display: none;
+}
+
+div.startpage > nav.startpage-navigation.toolbar-medium {
+	display: none;
+}
+
+
+div#reaction-control-panel.style-scope.yt-reaction-control-panel-overlay-view-model {
+	display: none;
+}
