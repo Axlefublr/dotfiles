@@ -75,9 +75,11 @@ local function visual_replace()
 	vim.schedule(function()
 		local default_contents = vim.fn.getreg('"')
 		local what = vim.fn.input("what: ")
-		if not what then return end
+		if what == '' then return end
+		what = string.gsub(what, '\\\\', '\\')
+		what = string.gsub(what, '\\n', '\n')
+		what = string.gsub(what, '\\t', '\t')
 		local with = vim.fn.input("with: ")
-		if not with then return end
 		with = string.gsub(with, '\\\\', '\\')
 		with = string.gsub(with, '\\n', '\n')
 		with = string.gsub(with, '\\t', '\t')
@@ -87,4 +89,4 @@ local function visual_replace()
 		FeedKeys('p')
 	end)
 end
-Map("v", "<leader>de", visual_replace)
+Map("v", "<leader>z", visual_replace)
