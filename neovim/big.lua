@@ -13,7 +13,7 @@ Map("v", "#", function() Search_for_selection('?', '') end)
 Map("v", "<leader>#", function() Search_for_selection('?', '/e') end)
 
 function Search_for_register(direction, death)
-	local char = GetChar("Input register key to search for:")
+	local char = GetChar("register: ")
 	if not char then return end
 	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
@@ -26,7 +26,7 @@ Map("", "<leader>F", function() Search_for_register('?', '') end)
 Map("", "<leader>S", function() Search_for_register('?', '/e') end)
 
 function Move_default_to_other()
-	local char = GetChar("Register: ")
+	local char = GetChar("register: ")
 	if not char then return end
 	local register = Validate_register(char)
 	local default_contents = vim.fn.getreg('"')
@@ -46,3 +46,14 @@ Map("n", "*", function() Search_for_current_word('/', '') end)
 Map("n", "<leader>*", function() Search_for_current_word('/', '/e') end)
 Map("n", "#", function() Search_for_current_word('?', '') end)
 Map("n", "<leader>#", function() Search_for_current_word('?', '/e') end)
+
+local function write_to_register()
+	local register = GetChar('register: ')
+	if not register then print("no such register") return end
+	register = Validate_register(register)
+	local register_contents = vim.fn.getreg(register)
+	local input = vim.fn.input("contents: `" .. register_contents .. "`")
+	if input == '' then return end
+	vim.fn.setreg(register, input)
+end
+Map({"n", "v"}, "<leader>a", write_to_register)

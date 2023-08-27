@@ -57,7 +57,7 @@ function GetBool(message)
 	elseif char == 'd' then
 		bool = false
 	else
-		print("Press f for true, d for false")
+		print("press f for true, d for false")
 		return nil
 	end
 	return bool
