@@ -39,5 +39,5 @@ local function dd_count()
 end
 Map("n", "dd", dd_count)
 
-Map("n", "<leader>p", "Pv`[o`]do<esc>p")
-Map("n", "<leader>P", "Pv`[o`]dO<esc>p")
+Map("n", "<leader>p", "Pv`[o`]do<c-r><c-p>\"<esc>")
+Map("n", "<leader>P", "Pv`[o`]dO<c-r><c-p>\"<esc>")
