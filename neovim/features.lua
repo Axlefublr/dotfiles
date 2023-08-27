@@ -31,3 +31,10 @@ local function remove_highlighting__escape()
 	FeedKeysInt("<Esc>")
 end
 Map("n", "<Esc>", remove_highlighting__escape)
+
+local function dd_count()
+	for i = 1, vim.v.count1 do
+		FeedKeys("dd")
+	end
+end
+Map("n", "dd", dd_count)
