@@ -28,8 +28,10 @@ local function killring_take_numbered(index)
 		return
 	end
 	local register_contents = killring[index]
-	vim.fn.setreg('"', register_contents)
-	print("got contents of " .. index)
+	local new_contents = vim.fn.input("killring " .. index .. ": ", register_contents)
+	if new_contents == '' then return end
+	killring[index] = new_contents
+	vim.fn.setreg('"', new_contents)
 end
 Map({"n", "v"}, "'1", function() killring_take_numbered(1) end)
 Map({"n", "v"}, "'2", function() killring_take_numbered(2) end)
