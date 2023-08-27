@@ -61,9 +61,6 @@ Map({"n", "v"}, "<leader>'9", function() killring_replace_numbered(9) end)
 Map({"n", "v"}, "<leader>'0", function() killring_replace_numbered(0) end)
 
 local function killring_kill()
-	local compiled_killring = killring:concat('')
-	local should_kill = vim.fn.input(compiled_killring)
-	if should_kill == '' then print("aborted") return end
 	killring = setmetatable({}, { __index = table })
 	print("ring killed!")
 end
@@ -71,8 +68,6 @@ Map({"n", "v"}, "<leader>Z", killring_kill)
 
 local function killring_compile()
 	local compiled_killring = killring:concat('')
-	local should_compile = vim.fn.input(compiled_killring)
-	if should_compile == '' then print("aborted") return end
 	vim.fn.setreg('"', compiled_killring)
 	killring = setmetatable({compiled_killring}, { __index = table })
 	print("killring compiled!")
