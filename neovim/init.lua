@@ -17,6 +17,7 @@ require('remaps')
 require('registers')
 require('features')
 require('big')
+require('killring')
 
 if vim.g.vscode then
 	require('vscode-functions')

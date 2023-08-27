@@ -39,6 +39,7 @@ function fish_prompt_status
 				end
 				printf $argv[$i]
 			end
+			printf ' '
 		end
 	else
 		if test $argv -ne 0

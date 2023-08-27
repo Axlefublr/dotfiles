@@ -197,6 +197,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"support.constant.lua",
 					"variable.other.object"
 				]
 			},
@@ -306,6 +307,7 @@
 					"fontStyle": "bold"
 				},
 				"scope": [
+					"variable.language.self.lua",
 					"keyword.operator.dereference.rust",
 					"keyword.operator.arrow.skinny.rust",
 					"keyword.operator.comparison",
