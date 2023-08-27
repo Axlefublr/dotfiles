@@ -21,9 +21,8 @@ function Search_for_register(direction, death)
 	FeedKeysInt('<cr>')
 end
 Map("", "]f", function() Search_for_register('/', '') end)
-Map("", "]s", function() Search_for_register('/', '/e') end)
+Map("", "<leader>s", function() Search_for_register('/', '/e') end)
 Map("", "[f", function() Search_for_register('?', '') end)
-Map("", "[s", function() Search_for_register('?', '/e') end)
 
 function Move_default_to_other()
 	local char = GetChar("register: ")
