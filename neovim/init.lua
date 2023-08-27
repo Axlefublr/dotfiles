@@ -10,8 +10,8 @@ require('options')
 require('functions')
 require('fixes')
 require('plugins/plugins')
-require('plugins/conf-plugins')
-require('plugins/keymap-plugins')
+require('plugins/configuration')
+require('plugins/keymap')
 require('registers/text-objects')
 require('remaps')
 require('registers/registers')
@@ -20,8 +20,8 @@ require('big')
 require('registers/killring')
 
 if vim.g.vscode then
-	require('vscode-functions')
-	require('vscode-mappings')
+	require('vscode/functions')
+	require('vscode/mappings')
 else
 	require('nvim')
 end
