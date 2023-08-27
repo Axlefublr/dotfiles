@@ -52,7 +52,7 @@ local function write_to_register()
 	if not register then print("no such register") return end
 	register = Validate_register(register)
 	local register_contents = vim.fn.getreg(register)
-	local input = vim.fn.input("register " .. register .. ": ", register_contents)
+	local input = vim.fn.input(register_contents)
 	if input == '' then return end
 	vim.fn.setreg(register, input)
 end

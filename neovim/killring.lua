@@ -28,7 +28,7 @@ local function killring_take_numbered(index)
 		return
 	end
 	local register_contents = killring[index]
-	local new_contents = vim.fn.input("killring " .. index .. ": ", register_contents)
+	local new_contents = vim.fn.input(register_contents)
 	if new_contents == '' then return end
 	killring[index] = new_contents
 	vim.fn.setreg('"', new_contents)
@@ -46,8 +46,8 @@ Map({"n", "v"}, "'0", function() killring_take_numbered(0) end)
 
 local function killring_kill()
 	local compiled_killring = killring:concat('')
-	local to_kill = vim.fn.input("kill this?: ", compiled_killring)
-	if to_kill == '' then print("aborted") return end
+	local should_kill = vim.fn.input(compiled_killring)
+	if should_kill == '' then print("aborted") return end
 	killring = setmetatable({}, { __index = table })
 	print("ring killed!")
 end
@@ -55,10 +55,10 @@ Map({"n", "v"}, "<leader>Z", killring_kill)
 
 local function killring_compile()
 	local compiled_killring = killring:concat('')
-	local to_compile = vim.fn.input("compile this?: ", compiled_killring)
-	if to_compile == '' then print("aborted") return end
-	vim.fn.setreg('"', to_compile)
-	killring = setmetatable({to_compile}, { __index = table })
+	local should_compile = vim.fn.input(compiled_killring)
+	if should_compile == '' then print("aborted") return end
+	vim.fn.setreg('"', compiled_killring)
+	killring = setmetatable({compiled_killring}, { __index = table })
 	print("killring compiled!")
 end
 Map({"n", "v"}, "<leader>X", killring_compile)
