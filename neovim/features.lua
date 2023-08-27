@@ -38,3 +38,5 @@ local function dd_count()
 	end
 end
 Map("n", "dd", dd_count)
+
+Map("n", "[p", "Pv`[o`]do<esc>p")
