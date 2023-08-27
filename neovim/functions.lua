@@ -66,3 +66,14 @@ end
 function Remove_highlighting() Cmd("noh") end
 
 function Toggle_highlight_search() Cmd("set hlsearch!") end
+
+function ReverseTable(table)
+	local reversed = {}
+	local length = #table
+
+	for i = length, 1, -1 do
+		table.insert(reversed, table[i])
+	end
+
+	return reversed
+end
