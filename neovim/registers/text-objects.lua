@@ -23,3 +23,6 @@ Map({"n", "v"}, "<leader>}", "}k")
 Map({"n", "v"}, "<leader>{", "{j")
 Map("o", "<leader>}", function() Cmd("normal V}k") end)
 Map("o", "<leader>{", function() Cmd("normal V{j") end)
+
+-- Last operated on text
+Map("v", "io", "`[o`]")
