@@ -28,10 +28,7 @@ local function killring_take_numbered(index)
 		return
 	end
 	local register_contents = killring[index]
-	local new_contents = vim.fn.input(register_contents)
-	if new_contents == '' then return end
-	killring[index] = new_contents
-	vim.fn.setreg('"', new_contents)
+	vim.fn.setreg('"', register_contents)
 end
 Map({"n", "v"}, "'1", function() killring_take_numbered(1) end)
 Map({"n", "v"}, "'2", function() killring_take_numbered(2) end)
@@ -43,6 +40,25 @@ Map({"n", "v"}, "'7", function() killring_take_numbered(7) end)
 Map({"n", "v"}, "'8", function() killring_take_numbered(8) end)
 Map({"n", "v"}, "'9", function() killring_take_numbered(9) end)
 Map({"n", "v"}, "'0", function() killring_take_numbered(0) end)
+
+local function killring_replace_numbered(index)
+	if index > #killring then
+		print("no value at index!")
+		return
+	end
+	local default_contents = vim.fn.getreg('"')
+	killring[index] = default_contents
+end
+Map({"n", "v"}, "<leader>'1", function() killring_replace_numbered(1) end)
+Map({"n", "v"}, "<leader>'2", function() killring_replace_numbered(2) end)
+Map({"n", "v"}, "<leader>'3", function() killring_replace_numbered(3) end)
+Map({"n", "v"}, "<leader>'4", function() killring_replace_numbered(4) end)
+Map({"n", "v"}, "<leader>'5", function() killring_replace_numbered(5) end)
+Map({"n", "v"}, "<leader>'6", function() killring_replace_numbered(6) end)
+Map({"n", "v"}, "<leader>'7", function() killring_replace_numbered(7) end)
+Map({"n", "v"}, "<leader>'8", function() killring_replace_numbered(8) end)
+Map({"n", "v"}, "<leader>'9", function() killring_replace_numbered(9) end)
+Map({"n", "v"}, "<leader>'0", function() killring_replace_numbered(0) end)
 
 local function killring_kill()
 	local compiled_killring = killring:concat('')
