@@ -41,3 +41,9 @@ Map({"n", "v"}, "'7", function() killring_take_numbered(7) end)
 Map({"n", "v"}, "'8", function() killring_take_numbered(8) end)
 Map({"n", "v"}, "'9", function() killring_take_numbered(9) end)
 Map({"n", "v"}, "'0", function() killring_take_numbered(0) end)
+
+local function killring_kill()
+	killring = setmetatable({}, { __index = table })
+	print("ring killed")
+end
+Map({"n", "v"}, "<leader>Z", killring_kill)
