@@ -9,15 +9,6 @@ THROWAWAY_MARK = 'I'
 require('options')
 require('functions')
 require('fixes')
-require('plugins/plugins')
-require('plugins/configuration')
-require('plugins/keymap')
-require('registers/text-objects')
-require('remaps')
-require('registers/registers')
-require('features')
-require('big')
-require('registers/killring')
 
 if vim.g.vscode then
 	require('vscode/functions')
@@ -25,5 +16,15 @@ if vim.g.vscode then
 else
 	require('nvim')
 end
+
+require('remaps')
+require('registers/registers')
+require('registers/text-objects')
+require('features')
+require('big')
+require('registers/killring')
+require('plugins/plugins')
+require('plugins/configuration')
+require('plugins/keymap')
 
 print("nvim loaded")

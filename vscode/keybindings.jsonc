@@ -1703,10 +1703,6 @@
 		"command": "workbench.action.toggleSidebarVisibility"
 	},
 	{
-		"key": "ctrl+b",
-		"command": "-workbench.action.toggleSidebarVisibility"
-	},
-	{
 		"key": "alt+p",
 		"command": "-toggleSearchPreserveCase",
 		"when": "searchViewletFocus"
@@ -1881,11 +1877,6 @@
 		"key": "alt+h",
 		"command": "-testing.toggleTestingPeekHistory",
 		"when": "testing.isPeekVisible"
-	},
-	{
-		"key": "ctrl+b",
-		"command": "-markdown.extension.editing.toggleBold",
-		"when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
 	},
 	{
 		"key": "shift+enter",
@@ -3332,11 +3323,6 @@
 		"key": "ctrl+f",
 		"command": "-commentsFocusFilter",
 		"when": "focusedView == 'workbench.panel.comments'"
-	},
-	{
-		"key": "ctrl+b",
-		"command": "-cursorHome",
-		"when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
 	},
 	{
 		"key": "ctrl+p",
