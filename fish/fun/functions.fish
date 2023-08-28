@@ -109,3 +109,9 @@ function rename
 	mv _$argv[1] $argv[2]
 end
 funcsave rename > /dev/null
+
+function abbrad
+	abbr -a $argv
+	echo "abbr -a $argv" >> ~/prog/dotfiles/fish/interactive-abbreviations.fish
+end
+funcsave abbrad > /dev/null
