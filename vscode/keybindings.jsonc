@@ -52,26 +52,6 @@
 		"command": "-editor.action.clipboardCopyAction"
 	},
 	{
-		"key": "ctrl+shift+d",
-		"command": "-l13Duplicate.action.duplicate.before",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+shift+alt+d",
-		"command": "-l13Duplicate.action.duplicate.after",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "f9",
-		"command": "-ahk++.debug",
-		"when": "editorLangId == 'ahk'"
-	},
-	{
-		"key": "ctrl+f9",
-		"command": "-ahk++.run",
-		"when": "editorLangId == 'ahk'"
-	},
-	{
 		"key": "a",
 		"command": "-notebook.cell.insertCodeCellAboveAndFocusContainer",
 		"when": "notebookEditorFocused && !inputFocus"
@@ -622,6 +602,26 @@
 		"command": "-workbench.action.openSettings"
 	},
 	{
+		"key": "capslock",
+		"command": "hideSuggestWidget",
+		"when": "suggestWidgetVisible"
+	},
+	{
+		"key": "capslock",
+		"command": "hideCodeActionWidget",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
+	},
+	{
+		"key": "tab",
+		"command": "workbench.action.acceptSelectedQuickOpenItem",
+		"when": "inQuickOpen"
+	},
+	{
+		"key": "alt+/",
+		"command": "hideCodeActionWidget",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
+	},
+	{
 		"key": "alt+o",
 		"command": "workbench.action.showCommands",
 		"when": "neovim.mode != 'insert'"
@@ -989,48 +989,19 @@
 		"when": "activeEditorIsPinned"
 	},
 	{
-		"key": "ctrl+k shift+enter",
-		"command": "-workbench.action.unpinEditor",
-		"when": "activeEditorIsPinned"
+		"key": "alt+p",
+		"command": "workbench.action.showAllSymbols",
+		"when": "neovim.mode != 'insert' && !inlineSuggestionVisible"
 	},
 	{
-		"key": "alt+j",
-		"command": "selectNextSuggestion",
-		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus && neovim.mode == 'insert'"
+		"key": "alt+o",
+		"command": "workbench.action.showCommands",
+		"when": "neovim.mode != 'insert' && !suggestWidgetVisible"
 	},
 	{
-		"key": "f10",
-		"command": "-jupyter.runByLineNext",
-		"when": "jupyter.notebookeditor.runByLineInProgress"
-	},
-	{
-		"key": "f10",
-		"command": "-jupyter.runByLine",
-		"when": "!jupyter.notebookeditor.debuggingInProgress && !jupyter.notebookeditor.runByLineInProgress && notebookKernelCount > 0"
-	},
-	{
-		"key": "ctrl+up",
-		"command": "-selectPrevSuggestion",
-		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-	},
-	{
-		"key": "ctrl+w",
-		"command": "-workbench.action.closeActiveEditor"
-	},
-	{
-		"key": "ctrl+k ctrl+0",
-		"command": "-editor.foldAll",
-		"when": "editorTextFocus && foldingEnabled"
-	},
-	{
-		"key": "ctrl+k ctrl+j",
-		"command": "-editor.unfoldAll",
-		"when": "editorTextFocus && foldingEnabled"
-	},
-	{
-		"key": "ctrl+space",
-		"command": "-editor.action.triggerSuggest",
-		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+		"key": "alt+o",
+		"command": "hideSuggestWidget",
+		"when": "suggestWidgetVisible"
 	},
 	{
 		"key": "alt+o",
@@ -1046,6 +1017,46 @@
 		"key": "alt+k",
 		"command": "editor.action.triggerSuggest",
 		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
+	},
+	{
+		"key": "alt+k",
+		"command": "selectPrevSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "alt+j",
+		"command": "selectNextSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "alt+j",
+		"command": "workbench.action.quickOpen",
+		"when": "!inQuickOpen && !suggestWidgetVisible"
+	},
+	{
+		"key": "alt+k",
+		"command": "workbench.action.showAllEditorsByMostRecentlyUsed",
+		"when": "!inQuickOpen && !suggestWidgetVisible"
+	},
+	{
+		"key": "alt+j",
+		"command": "workbench.action.quickOpenSelectNext",
+		"when": "inQuickOpen"
+	},
+	{
+		"key": "alt+k",
+		"command": "workbench.action.quickOpenSelectPrevious",
+		"when": "inQuickOpen"
+	},
+	{
+		"key": "alt+j",
+		"command": "selectNextCodeAction",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
+	},
+	{
+		"key": "alt+k",
+		"command": "selectPrevCodeAction",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
 		"key": "ctrl+i",
