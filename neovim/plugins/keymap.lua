@@ -109,3 +109,4 @@ end, { desc = "Delete surrounding indentation" })
 
 Map("", "ga", "<Plug>(EasyAlign)")
 Map("n", "grr", "<Plug>ReplaceWithRegisterLine")
+Map({"v", "n", "o"}, "<leader>q", "<Plug>CamelCaseMotion_ge")

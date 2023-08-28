@@ -12,10 +12,10 @@ Map("", "<leader>db", 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bot
 Map("", "_", function() FeedKeysInt(vim.v.count1 .. "k$") end)
 
 local function multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
-Map("n", "<leader>q", multiply)
+Map("n", "@", multiply)
 
 local function multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
-Map("v", "<leader>q", multiply_visual)
+Map("v", "@", multiply_visual)
 
 local function simplify_gM() FeedKeys(vim.v.count * 10 .. "gM") end
 Map("", "gm", simplify_gM)
