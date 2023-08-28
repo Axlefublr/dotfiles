@@ -69,7 +69,7 @@ function Remove_highlighting() Cmd("noh") end
 function Toggle_highlight_search() Cmd("set hlsearch!") end
 
 function ReverseTable(table)
-	local reversed = {}
+	local reversed = setmetatable({}, { __index = table })
 	local length = #table
 
 	for i = length, 1, -1 do
