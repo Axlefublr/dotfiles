@@ -5091,4 +5091,14 @@
 "command": "-keybindings.editor.defineKeybinding",
 "when": "inKeybindings && keybindingFocus && !whenFocus"
 },
+{
+"key": "enter",
+"command": "-keybindings.editor.acceptWhenExpression",
+"when": "inKeybindings && whenFocus && !suggestWidgetVisible"
+},
+{
+"key": "w",
+"command": "keybindings.editor.defineWhenExpression",
+"when": "inKeybindings && !whenFocus && !textInputFocus",
+},
 ]
