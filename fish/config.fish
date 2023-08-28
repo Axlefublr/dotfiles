@@ -58,6 +58,7 @@ set -g fish_cursor_visual block
 zoxide init fish | source
 source ~/prog/dotfiles/fish/abbreviations.fish
 source ~/prog/dotfiles/fish/positional.fish
+source ~/prog/dotfiles/fish/relative.fish
 
 bind -M default q backward-word forward-single-char forward-word backward-char
 bind -M default Q backward-bigword forward-bigword backward-char
