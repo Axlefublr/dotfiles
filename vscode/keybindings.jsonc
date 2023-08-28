@@ -4841,8 +4841,7 @@
 	},
 	{
 		"key": "alt+c",
-		"command": "scrollLineDown",
-		"when": "!listFocus && !panelFocus"
+		"command": "scrollLineDown"
 	},
 	{
 		"key": "shift+a",

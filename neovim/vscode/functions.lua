@@ -12,6 +12,12 @@ function Move_to_bottom_screen()
 	Cmd("call <SNR>3_moveCursor('bottom')")
 end
 
+function Scroll_line_down() VSCodeCall("scrollLineDown") end
+function Scroll_line_up() VSCodeCall("scrollLineUp") end
+
+function Vscode_ctrl_d() VSCodeNotify("vscode-neovim.ctrl-d") end
+function Vscode_ctrl_u() VSCodeNotify("vscode-neovim.ctrl-u") end
+
 function Move_to_bottom_screen__center_screen()
 	Move_to_bottom_screen()
 	Center_screen()
