@@ -9,6 +9,7 @@ end
 
 function EscapeForLiteralSearch(input)
 	input = string.gsub(input, '\\', '\\\\')
+	input = string.gsub(input, '\n', '\\n')
 	input = string.gsub(input, '/', '\\/')
 	return input
 end
