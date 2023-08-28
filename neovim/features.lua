@@ -2,12 +2,16 @@ Map("n", "gJ", "j0d^kgJ") -- Join current line with the next line with no space 
 
 Map("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
 
-Map("n", "<leader>dl", 'dil\'_dd', { remap = true }) -- Take the contents of the line, but delete the line too
+Map("n", ",dl", 'dal\'_dd', { remap = true }) -- Take the contents of the line, but delete the line too
 
-Map("n", "<leader>di", '"_ddddpvaB<Esc>') -- Push line of code after block into block
+Map("n", ",di", '"_ddddpvaB<Esc>') -- Push line of code after block into block
 
-Map("", "<leader>do", 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
-Map("", "<leader>db", 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
+Map("", ",do", 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
+Map("", ",db", 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
+
+-- Paste a characterwise register on a new line
+Map("n", ",p", "Pv`[o`]do<c-r><c-p>\"<esc>")
+Map("n", ",P", "Pv`[o`]dO<c-r><c-p>\"<esc>")
 
 Map("", "_", function() FeedKeysInt(vim.v.count1 .. "k$") end)
 
@@ -33,11 +37,8 @@ end
 Map("n", "<Esc>", remove_highlighting__escape)
 
 local function dd_count()
-	for i = 1, vim.v.count1 do
+	-- for i = 1, vim.v.count1 + 1 do
 		FeedKeys("dd")
 	end
 end
-Map("n", "dd", dd_count)
-
-Map("n", "<leader>p", "Pv`[o`]do<c-r><c-p>\"<esc>")
-Map("n", "<leader>P", "Pv`[o`]dO<c-r><c-p>\"<esc>")
+-- Map("n", ",dd", dd_count)

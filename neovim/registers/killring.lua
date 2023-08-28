@@ -48,7 +48,7 @@ local function killring_kill()
 	killring = setmetatable({}, { __index = table })
 	print("ring killed")
 end
-Map({"n", "v"}, "<leader>z", killring_kill)
+Map({"n", "v"}, ",z", killring_kill)
 
 local function killring_compile()
 	local compiled_killring = killring:concat('')

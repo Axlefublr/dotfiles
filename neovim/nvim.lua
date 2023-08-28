@@ -9,7 +9,7 @@ Map("i", "<C-]>", closeEditor)
 local function close_without_saving()
 	Cmd("q!")
 end
-Map("n", "<leader>K", close_without_saving)
+Map("n", ",K", close_without_saving)
 
 local function save_vim() Cmd("w") end
 Map("", "U", save_vim)
