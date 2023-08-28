@@ -7,9 +7,6 @@ function Search_for_selection(direction, death)
 		FeedKeysInt('<cr>')
 	end)
 end
-Map("v", "*", function() Search_for_selection('/', '') end)
-Map("v", "<leader>*", function() Search_for_selection('/', '/e') end)
-Map("v", "#", function() Search_for_selection('?', '') end)
 
 function Search_for_register(direction, death)
 	local char = GetChar("register: ")
@@ -19,9 +16,6 @@ function Search_for_register(direction, death)
 	FeedKeys(direction .. '\\V' .. escaped_register .. death)
 	FeedKeysInt('<cr>')
 end
-Map("", "]f", function() Search_for_register('/', '') end)
-Map("", "<leader>s", function() Search_for_register('/', '/e') end)
-Map("", "[f", function() Search_for_register('?', '') end)
 
 function Move_default_to_other()
 	local char = GetChar("register: ")
@@ -30,7 +24,6 @@ function Move_default_to_other()
 	local default_contents = vim.fn.getreg('"')
 	vim.fn.setreg(register, default_contents)
 end
-Map("n", "<leader>g", Move_default_to_other)
 
 function Search_for_current_word(direction, death)
 	FeedKeys('yiw')
@@ -40,11 +33,8 @@ function Search_for_current_word(direction, death)
 		FeedKeysInt('<cr>')
 	end)
 end
-Map("n", "*", function() Search_for_current_word('/', '') end)
-Map("n", "<leader>*", function() Search_for_current_word('/', '/e') end)
-Map("n", "#", function() Search_for_current_word('?', '') end)
 
-local function write_to_register()
+function Write_to_register()
 	local register = GetChar('register: ')
 	if not register then print("no such register") return end
 	register = Validate_register(register)
@@ -53,4 +43,3 @@ local function write_to_register()
 	if input == '' then return end
 	vim.fn.setreg(register, input)
 end
-Map({"n", "v"}, "<leader>a", write_to_register)
