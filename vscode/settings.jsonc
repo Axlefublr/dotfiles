@@ -614,7 +614,7 @@
 	"search.defaultViewMode": "tree",
 	"workbench.list.smoothScrolling": true,
 	"editor.hideCursorInOverviewRuler": true,
-	"editor.cursorSurroundingLines": 4,
+	"editor.cursorSurroundingLines": 6,
 	"editor.minimap.renderCharacters": false,
 	"editor.minimap.scale": 2,
 	"scm.inputFontFamily": "editor",

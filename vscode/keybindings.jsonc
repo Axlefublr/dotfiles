@@ -1,15 +1,6 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
 	{
-		"key": "ctrl+f8",
-		"command": "-ahk++.runSelection",
-		"when": "editorLangId == 'ahk'"
-	},
-	{
-		"key": "ctrl+f1",
-		"command": "-ahk++.openHelp"
-	},
-	{
 		"key": "ctrl+alt+up",
 		"command": "-editor.action.insertCursorAbove",
 		"when": "editorTextFocus"
@@ -612,9 +603,9 @@
 		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
-		"key": "tab",
-		"command": "workbench.action.acceptSelectedQuickOpenItem",
-		"when": "inQuickOpen"
+		"key": "escape",
+		"command": "hideCodeActionWidget",
+		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
 		"key": "alt+/",
@@ -622,9 +613,9 @@
 		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
-		"key": "alt+o",
-		"command": "workbench.action.showCommands",
-		"when": "neovim.mode != 'insert'"
+		"key": "tab",
+		"command": "workbench.action.acceptSelectedQuickOpenItem",
+		"when": "inQuickOpen"
 	},
 	{
 		"key": "ctrl+shift+p",
@@ -1031,12 +1022,12 @@
 	{
 		"key": "alt+j",
 		"command": "workbench.action.quickOpen",
-		"when": "!inQuickOpen && !suggestWidgetVisible"
+		"when": "!inQuickOpen && !suggestWidgetVisible && neovim.mode != insert"
 	},
 	{
 		"key": "alt+k",
 		"command": "workbench.action.showAllEditorsByMostRecentlyUsed",
-		"when": "!inQuickOpen && !suggestWidgetVisible"
+		"when": "!inQuickOpen && !suggestWidgetVisible && neovim.mode != insert"
 	},
 	{
 		"key": "alt+j",
@@ -3331,21 +3322,6 @@
 		"when": "!editorTextFocus"
 	},
 	{
-		"key": "alt+o",
-		"command": "hideSuggestWidget",
-		"when": "suggestWidgetVisible && textInputFocus"
-	},
-	{
-		"key": "capslock",
-		"command": "hideSuggestWidget",
-		"when": "suggestWidgetVisible && textInputFocus"
-	},
-	{
-		"key": "alt+j",
-		"command": "search.focus.nextInputBox",
-		"when": "searchViewletVisible && panelFocus"
-	},
-	{
 		"key": "shift+alt+u",
 		"command": "workbench.action.restartExtensionHost"
 	},
@@ -3368,11 +3344,6 @@
 		"key": "alt+;",
 		"command": "acceptSelectedSuggestion",
 		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inlineSuggestionVisible"
-	},
-	{
-		"key": "alt+k",
-		"command": "search.focus.previousInputBox",
-		"when": "searchViewletVisible && panelFocus"
 	},
 	{
 		"key": "alt+f8",
@@ -3599,11 +3570,6 @@
 		"key": "enter",
 		"command": "-acceptSelectedCodeAction",
 		"when": "actionWidgetVisible"
-	},
-	{
-		"key": "capslock",
-		"command": "hideCodeActionWidget",
-		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
 		"key": "ctrl+p",
@@ -4283,21 +4249,6 @@
 		"when": "inQuickOpen"
 	},
 	{
-		"key": "alt+j",
-		"command": "workbench.action.quickOpenSelectNext",
-		"when": "inQuickOpen"
-	},
-	{
-		"key": "alt+k",
-		"command": "workbench.action.quickOpenSelectPrevious",
-		"when": "inQuickOpen"
-	},
-	{
-		"key": "tab",
-		"command": "workbench.action.acceptSelectedQuickOpenItem",
-		"when": "inQuickOpen"
-	},
-	{
 		"key": "alt+f8",
 		"command": "-testing.goToNextMessage",
 		"when": "editorFocus && testing.isPeekVisible"
@@ -4696,11 +4647,6 @@
 		"when": "referenceSearchVisible && !config.editor.stablePeek"
 	},
 	{
-		"key": "escape",
-		"command": "hideCodeActionWidget",
-		"when": "actionWidgetVisible || codeActionMenuVisible"
-	},
-	{
 		"key": "tab",
 		"command": "-jumpToNextSnippetPlaceholder",
 		"when": "editorTextFocus && hasNextTabstop && inSnippetMode"
@@ -4904,19 +4850,9 @@
 		"when": "filesExplorerFocus && !inputFocus"
 	},
 	{
-		"key": "alt+k",
-		"command": "workbench.action.showAllEditorsByMostRecentlyUsed",
-		"when": "!inQuickOpen && neovim.mode != 'insert'"
-	},
-	{
 		"key": "ctrl+space",
 		"command": "-toggleSuggestionDetails",
 		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-	},
-	{
-		"key": "alt+/",
-		"command": "hideCodeActionWidget",
-		"when": "actionWidgetVisible || codeActionMenuVisible"
 	},
 	{
 		"key": "space",
@@ -5413,5 +5349,10 @@
 	{
 		"key": "ctrl+q",
 		"command": "-workbench.action.quit"
-	}
+	},
+	{
+		"key": "alt+j", // "ctrl+f" on Windows/Linux
+		"command": "-list.find",
+		"when": "listFocus && listSupportsFind && !editorTextFocus"
+	},
 ]
