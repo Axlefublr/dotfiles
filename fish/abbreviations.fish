@@ -43,6 +43,7 @@ abbr -a gafur 'gaf unstage renamed'
 ## git
 
 abbr -a gd      'git diff'
+abbr -a giti    'git init'
 abbr -a gss     'git status'
 abbr -a gs      'git status -s'
 abbr -a gsh     'git show'

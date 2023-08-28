@@ -2787,26 +2787,6 @@
 		"when": "folderMatchFocus && replaceActive && searchViewletVisible"
 	},
 	{
-		"key": "tab",
-		"command": "-acceptSelectedSuggestion",
-		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-	},
-	{
-		"key": "tab",
-		"command": "-insertBestCompletion",
-		"when": "atEndOfWord && textInputFocus && !hasOtherSuggestions && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
-	},
-	{
-		"key": "tab",
-		"command": "-insertNextSuggestion",
-		"when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
-	},
-	{
-		"key": "tab",
-		"command": "-insertSnippet",
-		"when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
-	},
-	{
 		"key": "ctrl+shift+y",
 		"command": "workbench.action.addRootFolder"
 	},
@@ -3228,11 +3208,6 @@
 		"when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
 	},
 	{
-		"key": "tab",
-		"command": "-editor.action.inlineSuggest.commit",
-		"when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
-	},
-	{
 		"key": "shift+escape",
 		"command": "-leaveSnippet",
 		"when": "editorTextFocus && inSnippetMode"
@@ -3365,6 +3340,21 @@
 	},
 	{
 		"key": "tab",
+		"command": "editor.action.inlineSuggest.commit",
+		"when": "editorTextFocus && neovim.mode == 'insert' && inlineSuggestionVisible && !suggestWidgetVisible"
+	},
+	{
+		"key": "tab",
+		"command": "acceptSelectedSuggestion",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "alt+;",
+		"command": "editor.action.inlineSuggest.commit",
+		"when": "editorTextFocus && neovim.mode == 'insert' && inlineSuggestionVisible"
+	},
+	{
+		"key": "alt+;",
 		"command": "acceptSelectedSuggestion",
 		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inlineSuggestionVisible"
 	},
@@ -3790,11 +3780,6 @@
 		"when": "editorTextFocus && !suggestWidgetVisible && editorLangId =~ /^markdown$|^rmd$|^qmd$/"
 	},
 	{
-		"key": "ctrl+k ctrl+k",
-		"command": "-editor.action.defineKeybinding",
-		"when": "editorTextFocus && !editorReadonly && editorLangId == 'jsonc'"
-	},
-	{
 		"key": "w",
 		"command": "keybindings.editor.defineWhenExpression",
 		"when": "inKeybindings && keybindingFocus && !inputFocus"
@@ -4137,11 +4122,6 @@
 		"when": "suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
 	},
 	{
-		"key": "ctrl+k ctrl+k",
-		"command": "-editor.action.defineKeybinding",
-		"when": "resource == 'vscode-userdata:/c%3A/Users/serge/AppData/Roaming/Code/User/keybindings.json'"
-	},
-	{
 		"key": "ctrl+k ctrl+r",
 		"command": "-git.revertSelectedRanges",
 		"when": "isInDiffEditor && !operationInProgress"
@@ -4382,11 +4362,6 @@
 		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
 	},
 	{
-		"key": "ctrl+k ctrl+k",
-		"command": "-editor.action.defineKeybinding",
-		"when": "resource == 'vscode-userdata:/c%3A/Users/serge/AppData/Roaming/Code%20-%20Insiders/User/keybindings.json'"
-	},
-	{
 		"key": "ctrl+r",
 		"command": "-workbench.action.terminal.runRecentCommand",
 		"when": "accessibilityModeEnabled && terminalFocus && terminalHasBeenCreated || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
@@ -4486,11 +4461,6 @@
 		"key": "enter",
 		"command": "keybindings.editor.defineKeybinding",
 		"when": "inKeybindings && keybindingFocus && !inputFocus"
-	},
-	{
-		"key": "enter",
-		"command": "-keybindings.editor.defineKeybinding",
-		"when": "inKeybindings && keybindingFocus && !whenFocus"
 	},
 	{
 		"key": "delete",
@@ -5408,11 +5378,6 @@
 		"key": "alt+l",
 		"command": "editor.action.inlineSuggest.trigger",
 		"when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
-	},
-	{
-		"key": "alt+;",
-		"command": "editor.action.inlineSuggest.commit",
-		"when": "textInputFocus && neovim.mode == 'insert'"
 	},
 	{
 		"key": "ctrl+shift+alt+i",
