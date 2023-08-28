@@ -800,7 +800,7 @@
 	"vscord.app.name": "Visual Studio Code",
 	"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
 	"csharp.inlayHints.enableInlayHintsForTypes": true,
-	"window.zoomLevel": 1.8,
+	"window.zoomLevel": 2,
 	"window.customMenuBarAltFocus": false,
 	"diffEditor.experimental.collapseUnchangedRegions": true,
 	"diffEditor.experimental.showMoves": true,
