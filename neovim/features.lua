@@ -37,8 +37,8 @@ end
 Map("n", "<Esc>", remove_highlighting__escape)
 
 local function dd_count()
-	-- for i = 1, vim.v.count1 + 1 do
+	for i = 1, vim.v.count1 do
 		FeedKeys("dd")
 	end
 end
--- Map("n", ",dd", dd_count)
+Map("n", "du", dd_count)
