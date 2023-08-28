@@ -10,7 +10,6 @@ end
 Map("v", "*", function() Search_for_selection('/', '') end)
 Map("v", "<leader>*", function() Search_for_selection('/', '/e') end)
 Map("v", "#", function() Search_for_selection('?', '') end)
-Map("v", "<leader>#", function() Search_for_selection('?', '/e') end)
 
 function Search_for_register(direction, death)
 	local char = GetChar("register: ")
@@ -44,7 +43,6 @@ end
 Map("n", "*", function() Search_for_current_word('/', '') end)
 Map("n", "<leader>*", function() Search_for_current_word('/', '/e') end)
 Map("n", "#", function() Search_for_current_word('?', '') end)
-Map("n", "<leader>#", function() Search_for_current_word('?', '/e') end)
 
 local function write_to_register()
 	local register = GetChar('register: ')
