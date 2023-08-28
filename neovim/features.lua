@@ -19,7 +19,7 @@ local function multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
 Map("n", "@", multiply)
 
 local function multiply_visual() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end
-Map("v", "@", multiply_visual)
+Map("v", "@@", multiply_visual)
 
 local function simplify_gM() FeedKeys(vim.v.count * 10 .. "gM") end
 Map("", "gm", simplify_gM)
