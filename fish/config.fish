@@ -59,14 +59,16 @@ zoxide init fish | source
 source ~/prog/dotfiles/fish/abbreviations.fish
 source ~/prog/dotfiles/fish/positional.fish
 
-bind -M default K execute
-bind -M insert \c] execute
 bind -M default q backward-word forward-single-char forward-word backward-char
 bind -M default Q backward-bigword forward-bigword backward-char
 bind -M default daw forward-single-char forward-single-char backward-word kill-word delete-char
 bind -M default daW forward-single-char forward-single-char backward-bigword kill-bigword delete-char
 bind -M default -m insert caw forward-single-char forward-single-char backward-word kill-word delete-char repaint-mode
 bind -M default -m insert caW forward-single-char forward-single-char backward-bigword kill-bigword delete-char repaint-mode
+
+bind -M insert \c] execute
+
+bind -M default K execute
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
@@ -78,5 +80,5 @@ bind -M insert \ed 'clear -x'
 bind -M insert \ev 'ranger ; commandline -f repaint'
 bind -M insert \ea 'paste_relative_path'
 bind -M insert \el list_current_token
-bind -M insert \e\; accept-autosuggestion
+bind -M insert \e\; expand-abbr accept-autosuggestion
 bind -M insert \e\' forward-word
