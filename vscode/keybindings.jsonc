@@ -443,6 +443,11 @@
   "when": "!editorTextFocus"
 },
 {
+  "key": "ctrl+u",
+  "command": "editor.action.selectAll",
+  "when": "!editorTextFocus"
+},
+{
   "key": "shift+alt+u",
   "command": "workbench.action.restartExtensionHost"
 },
@@ -2327,11 +2332,6 @@
 {
   "key": "ctrl+d",
   "command": "-editor.action.outdentLines",
-  "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'"
-},
-{
-  "key": "ctrl+u",
-  "command": "-deleteAllLeft",
   "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'"
 },
 {
