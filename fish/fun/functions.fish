@@ -112,6 +112,12 @@ funcsave rename > /dev/null
 
 function abbrad
 	abbr -a $argv
-	echo "abbr -a $argv" >> ~/prog/dotfiles/fish/interactive-abbreviations.fish
+	echo "abbr -a '$argv'" >> ~/prog/dotfiles/fish/abbreviations.fish
 end
 funcsave abbrad > /dev/null
+
+function abbrap
+	abbr -a :"$argv[1]" --position anywhere -- $argv[2..]
+	echo "abbr -a :$argv[1] --position anywhere -- '$argv[2..]'" >> ~/prog/dotfiles/fish/positional.fish
+end
+funcsave abbrap > /dev/null

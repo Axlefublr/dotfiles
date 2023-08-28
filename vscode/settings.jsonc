@@ -819,4 +819,5 @@
 	"workbench.editor.enablePreview": false,
 	"scm.diffDecorationsGutterWidth": 5,
 	"editor.suggest.matchOnWordStartOnly": false,
+	"editor.renderFinalNewline": "on",
 }

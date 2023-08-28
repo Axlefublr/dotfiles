@@ -1259,12 +1259,12 @@
 {
   "key": "alt+h",
   "command": "editor.action.inlineSuggest.trigger",
-  "when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
+  "when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible && !inSnippetMode"
 },
 {
   "key": "alt+l",
   "command": "editor.action.inlineSuggest.trigger",
-  "when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible"
+  "when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible && !inSnippetMode"
 },
 {
   "key": "alt+'",

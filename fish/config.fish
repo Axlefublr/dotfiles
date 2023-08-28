@@ -57,7 +57,7 @@ set -g fish_cursor_visual block
 
 zoxide init fish | source
 source ~/prog/dotfiles/fish/abbreviations.fish
-source ~/prog/dotfiles/fish/interactive-abbreviations.fish
+source ~/prog/dotfiles/fish/positional.fish
 
 bind -M default K execute
 bind -M insert \c] execute
