@@ -1,14 +1,6 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
 {
-  "key": "alt+home",
-  "command": "deleteAllLeft"
-},
-{
-  "key": "alt+end",
-  "command": "deleteAllRight"
-},
-{
   "key": "ctrl+5",
   "command": "workbench.view.extensions",
   "when": "viewContainer.workbench.view.extensions.enabled"
@@ -69,11 +61,6 @@
   "key": "alt+h",
   "command": "keybindings.editor.searchKeybindings",
   "when": "inKeybindings"
-},
-{
-  "key": "a",
-  "command": "keybindings.editor.addKeybinding",
-  "when": "inKeybindings && keybindingFocus && !inputFocus"
 },
 {
   "key": "y",
@@ -412,11 +399,6 @@
   "when": "inKeybindings && keybindingFocus && !inputFocus"
 },
 {
-  "key": "d",
-  "command": "keybindings.editor.removeKeybinding",
-  "when": "inKeybindings && keybindingFocus && !inputFocus"
-},
-{
   "key": "ctrl+v",
   "command": "editor.action.clipboardPasteAction",
   "when": "editorTextFocus && neovim.mode == 'insert'"
@@ -643,11 +625,6 @@
 {
   "key": "alt+r",
   "command": "terminal.focus"
-},
-{
-  "key": "w",
-  "command": "keybindings.editor.defineWhenExpression",
-  "when": "inKeybindings && keybindingFocus && !inputFocus"
 },
 {
   "key": "alt+2",
@@ -893,11 +870,6 @@
   "when": "inKeybindings && keybindingFocus && whenFocus"
 },
 {
-  "key": "enter",
-  "command": "keybindings.editor.defineKeybinding",
-  "when": "inKeybindings && keybindingFocus && !inputFocus"
-},
-{
   "key": "ctrl+shift+k",
   "command": "workbench.action.moveEditorToAboveGroup"
 },
@@ -1018,11 +990,6 @@
   "key": "capslock",
   "command": "closeReferenceSearch",
   "when": "referenceSearchVisible && !config.editor.stablePeek"
-},
-{
-  "key": "delete",
-  "command": "keybindings.editor.removeKeybinding",
-  "when": "inKeybindings && keybindingFocus && !inputFocus"
 },
 {
   "key": "ctrl+; v",
@@ -5113,5 +5080,15 @@
 {
   "key": "ctrl+shift+alt+left",
   "command": "-selectPartOfWord.selectLeft"
+},
+{
+  "key": "ctrl+k ctrl+k",
+  "command": "-editor.action.defineKeybinding",
+  "when": "resource == 'vscode-userdata:/home/axlefublr/.config/Code/User/keybindings.json'"
+},
+{
+"key": "enter",
+"command": "-keybindings.editor.defineKeybinding",
+"when": "inKeybindings && keybindingFocus && !whenFocus"
 },
 ]
