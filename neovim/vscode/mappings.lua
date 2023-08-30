@@ -1,6 +1,6 @@
 Map("", "L", Move_to_bottom_screen__center_screen)
 Map("", "H", Move_to_top_screen__center_screen)
-Map("", "<Space>", Trim__save)
+Map("", "<Space>", Trim__save__no_highlight)
 Map("", "U", Trim__save__format)
 
 Map("n", "gD", Reveal_definition_aside)

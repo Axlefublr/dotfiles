@@ -3,7 +3,7 @@
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
-set -gx BROWSER '/usr/bin/firefox'
+set -gx BROWSER '/usr/bin/vivaldi-stable'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx _ZO_FZF_OPTS '--layout default --height 100%'

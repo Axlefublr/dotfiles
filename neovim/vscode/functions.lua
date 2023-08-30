@@ -43,9 +43,10 @@ function Trim__save__no_format()
 	Save_no_format()
 end
 
-function Trim__save()
+function Trim__save__no_highlight()
 	Trim_trailing_whitespace()
 	Save()
+	Remove_highlighting()
 end
 
 function Format()
