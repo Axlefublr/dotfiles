@@ -86,10 +86,6 @@ abbr -a gafud 'gaf unstage deleted'
 abbr -a gafum 'gaf unstage modified'
 abbr -a gafur 'gaf unstage renamed'
 
-abbr -a . '..'
-abbr -a .. '../..'
-abbr -a ... '../../..'
-abbr -a .... '../../../..'
 abbr -a u 'z -'
 
 abbr -a cls 'clear'
