@@ -14,5 +14,3 @@ Map("n", "*", function() Search_for_current_word('/', '') end)
 Map("n", ",*", function() Search_for_current_word('/', '/e') end)
 Map("n", "#", function() Search_for_current_word('?', '') end)
 Map("n", ",#", function() Search_for_current_word('?', '?e') end)
-
-Map({"n", "v"}, ",a", Write_to_register)

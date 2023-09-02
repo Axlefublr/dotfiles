@@ -104,12 +104,6 @@
   "when": "editorTextFocus && neovim.init && neovim.mode == 'insert'",
   "args": "<C-q>"
 },
-{
-  "key": "ctrl+backspace",
-  "command": "vscode-neovim.send",
-  "when": "editorTextFocus && neovim.init && neovim.mode == 'insert'",
-  "args": "<C-o>'idv,b"
-},
 // not insert mode
 {
   "key": "ctrl+q",
@@ -5100,10 +5094,5 @@
   "key": "w",
   "command": "keybindings.editor.defineWhenExpression",
   "when": "inKeybindings && !whenFocus && !textInputFocus",
-},
-{
-  "key": "ctrl+backspace",
-  "command": "-deleteWordLeft",
-  "when": "textInputFocus && !editorReadonly"
 },
 ]
