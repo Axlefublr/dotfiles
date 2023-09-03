@@ -20,6 +20,7 @@ end
 require('remaps')
 require('registers/registers')
 require('registers/text-objects')
+require('registers/brackets')
 require('features')
 require('big/functions')
 require('big/mappings')
