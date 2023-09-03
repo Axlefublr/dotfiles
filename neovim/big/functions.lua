@@ -29,7 +29,7 @@ function Search_for_current_word(direction, death)
 	FeedKeys('yiw')
 	vim.schedule(function()
 		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg('"'))
-		FeedKeys(direction .. '\\V\\<' .. escaped_word .. "\\>" .. death)
+		FeedKeys(direction .. '\\V' .. escaped_word .. death)
 		FeedKeysInt('<cr>')
 	end)
 end

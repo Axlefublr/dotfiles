@@ -704,7 +704,6 @@
 	"csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
 	"csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
 	"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
-	"rust-analyzer.completion.callable.snippets": "add_parentheses",
 	"extensions.ignoreRecommendations": true,
 	"workbench.editor.pinnedTabSizing": "compact",
 	"rust-analyzer.check.command": "clippy",

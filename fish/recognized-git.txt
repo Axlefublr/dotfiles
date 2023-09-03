@@ -6,6 +6,6 @@
 ~/prog/binaries
 ~/prog/music
 ~/prog/job
-~/prog/shows
+~/.local/share/floral_barrel
 ~/Pictures/Tree
 ~/Pictures/Tools

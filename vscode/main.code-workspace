@@ -13,10 +13,10 @@
 			"path": "../../job"
 		},
 		{
-			"path": "../../shows"
+			"path": "../../noties"
 		},
 		{
-			"path": "../../noties"
+			"path": "../../../.local/share/floral_barrel"
 		}
 	]
 }
