@@ -317,6 +317,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"meta.function",
 					"constant.language.lua",
 					"keyword.operator.lua",
 					"keyword.control.razor.optionalSemicolon",
@@ -580,7 +581,7 @@
 	"search.defaultViewMode": "tree",
 	"workbench.list.smoothScrolling": true,
 	"editor.hideCursorInOverviewRuler": true,
-	"editor.cursorSurroundingLines": 69,
+	"editor.cursorSurroundingLines": 8,
 	"editor.minimap.renderCharacters": false,
 	"editor.minimap.scale": 2,
 	"scm.inputFontFamily": "editor",
@@ -775,5 +776,5 @@
 	"workbench.editor.enablePreview": false,
 	"scm.diffDecorationsGutterWidth": 5,
 	"editor.suggest.matchOnWordStartOnly": false,
-	"editor.renderFinalNewline": "on"
+	"editor.renderFinalNewline": "on",
 }
