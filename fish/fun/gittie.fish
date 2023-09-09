@@ -108,3 +108,19 @@ function gsa
 	cd $prevDir
 end
 funcsave gsa > /dev/null
+
+function gpp
+	set -l prevDir (pwd)
+	set -l directories (cat ~/prog/dotfiles/fish/recognized-git.txt | string split '\n')
+
+	for dir in $directories
+
+		set dir (string replace -r "^~" "$HOME" $dir)
+		cd $dir
+		git push
+
+	end
+
+	cd $prevDir
+end
+funcsave gpp > /dev/null
