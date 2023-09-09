@@ -7,16 +7,13 @@
 			"path": "../../scripts"
 		},
 		{
-			"path": "../../music"
-		},
-		{
 			"path": "../../job"
 		},
 		{
 			"path": "../../noties"
 		},
 		{
-			"path": "../../../.local/share/floral_barrel"
+			"path": "../../../.local/share/alien_temple"
 		}
 	]
 }

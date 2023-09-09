@@ -760,7 +760,6 @@
 	"csharp.inlayHints.enableInlayHintsForTypes": true,
 	"window.zoomLevel": 2,
 	"window.customMenuBarAltFocus": false,
-	"diffEditor.experimental.collapseUnchangedRegions": true,
 	"diffEditor.experimental.showMoves": true,
 	"diffEditor.experimental.useVersion2": true,
 	"[toml]": {
@@ -777,4 +776,5 @@
 	"scm.diffDecorationsGutterWidth": 5,
 	"editor.suggest.matchOnWordStartOnly": false,
 	"editor.renderFinalNewline": "on",
+	"diffEditor.hideUnchangedRegions.enabled": true,
 }

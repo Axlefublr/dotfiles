@@ -121,3 +121,22 @@ function abbrap
 	echo "abbr -a :$argv[1] --position anywhere -- '$argv[2..]'" >> ~/prog/dotfiles/fish/positional.fish
 end
 funcsave abbrap > /dev/null
+
+function atglo
+	cd ~/.local/share/alien_temple
+	git log --oneline
+	cd -
+end
+funcsave atglo > /dev/null
+
+function ats
+	set -l shark (alien_temple shark)
+	prli $shark
+	echo $shark[1] | xclip -r -selection clipboard
+end
+funcsave ats > /dev/null
+
+function atc
+	alien_temple consent | tee /dev/tty | xclip -r -selection clipboard
+end
+funcsave atc > /dev/null

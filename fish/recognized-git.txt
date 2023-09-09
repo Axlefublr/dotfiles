@@ -1,11 +1,10 @@
-~/prog/rust/gaf
-~/prog/csproj/AlienTemple
 ~/prog/info
 ~/prog/dotfiles
 ~/prog/scripts
 ~/prog/binaries
-~/prog/music
+~/prog/noties
 ~/prog/job
-~/.local/share/floral_barrel
 ~/Pictures/Tree
 ~/Pictures/Tools
+~/.local/share/floral_barrel
+~/.local/share/alien_temple
