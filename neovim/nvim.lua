@@ -1,7 +1,12 @@
 Cmd("colorscheme gruvbox-material")
 
 local function closeEditor()
-	Cmd("x")
+	local bufnr = vim.api.nvim_get_current_buf()
+	if vim.api.nvim_buf_get_name(bufnr) == '' then
+		Cmd('q!')
+	else
+		Cmd('x')
+	end
 end
 Map("n", "K", closeEditor)
 Map("i", "<C-]>", closeEditor)
