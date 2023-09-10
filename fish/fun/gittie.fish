@@ -109,6 +109,26 @@ function gsa
 end
 funcsave gsa > /dev/null
 
+function gsah
+	if not command -q octussy-git-status
+		echo "you don't have octussy-git-status"
+	end
+	set -l prevDir (pwd)
+	set -l directories (fd -uu '.git$' | path dirname)
+
+	for dir in $directories
+
+		cd $prevDir/$dir
+		echo -n $dir' '
+		octussy-git-status --status (git status --porcelain | string collect -a) --unpushed (gsp | wc -l || echo 0)
+		printf '\n'
+
+	end
+
+	cd $prevDir
+end
+funcsave gsah > /dev/null
+
 function gpp
 	set -l prevDir (pwd)
 	set -l directories (cat ~/prog/dotfiles/fish/recognized-git.txt | string split '\n')
