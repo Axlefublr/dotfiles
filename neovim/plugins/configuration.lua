@@ -3,9 +3,10 @@ Cmd("let g:sneak#use_ic_scs = 1")
 Cmd("highlight link Sneak None")
 Cmd("packadd! matchit")
 
--- require('leap').add_default_mappings()
 require('leap').opts.case_sensitive = false
 require('leap').opts.equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', '\'э', 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю'}
+require('leap').opts.safe_labels = { "f", ";", "q", "n", "u", "t", "/", "S", "F", "N", "L", "H", "M", "U", "G", "T", "?", "Z" }
+require('leap').opts.labels = { "f", ";", "q", "n", "u", "t", "/", "S", "F", "N", "L", "H", "M", "U", "G", "T", "?", "Z" }
 
 require('lualine').setup {
 	options = {
