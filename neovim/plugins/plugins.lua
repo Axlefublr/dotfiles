@@ -1,10 +1,10 @@
 require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
+	use "ggandor/leap.nvim"
 	use "kana/vim-textobj-user"
 	use "vim-scripts/ReplaceWithRegister"
 	use "wellle/targets.vim"
 	use "junegunn/vim-easy-align"
-	-- use "sheerun/vim-polyglot"
 	use "tpope/vim-repeat"
 	use "adelarsq/vim-matchit"
 	use "sainnhe/gruvbox-material"
