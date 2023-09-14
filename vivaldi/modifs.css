@@ -14,7 +14,11 @@ div.startpage > nav.startpage-navigation.toolbar-medium {
 	display: none;
 }
 
+/* address bar */
+.mainbar > .toolbar-mainbar {
+	height: 29px;
+}
 
-div#reaction-control-panel.style-scope.yt-reaction-control-panel-overlay-view-model {
-	display: none;
+#tabs-tabbar-container {
+	height: 29px;
 }
