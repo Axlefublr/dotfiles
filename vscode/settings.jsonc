@@ -317,6 +317,10 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"keyword.operator.combinator.css",
+					"punctuation.definition.entity.css",
+					"punctuation.separator.key-value.css",
+					"punctuation.terminator.rule.css",
 					"meta.function",
 					"constant.language.lua",
 					"keyword.operator.lua",
