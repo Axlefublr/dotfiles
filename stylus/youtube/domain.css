@@ -1,0 +1,34 @@
+/*starts with*/
+/*https://www.youtube.com*/
+
+/* switcher header */
+#header.style-scope.ytd-account-section-list-renderer {
+	display: none;
+}
+
+/* undeletable non-business channel */
+#contents > ytd-account-item-renderer:nth-child(1) {
+	display: none;
+}
+/* super special channel name in selector */
+#contents > ytd-account-item-renderer:nth-child(3) yt-formatted-string {
+	display: none;
+}
+/* special channel name in selector */
+#contents > ytd-account-item-renderer:nth-child(6) yt-formatted-string {
+	display: none;
+}
+
+/* pre-selector channel name */
+#account-name {
+	display: none;
+}
+/* pre-selector channel nickname */
+#channel-handle {
+	display: none;
+}
+
+/* sign out */
+#items > ytd-compact-link-renderer:nth-child(4) {
+	display: none;
+}
