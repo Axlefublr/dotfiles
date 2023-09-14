@@ -1,0 +1,16 @@
+#reaction-control-panel {
+	display: none;
+}
+
+yt-live-chat-viewer-engagement-message-renderer {
+	display: none;
+}
+
+yt-live-chat-header-renderer {
+	display: none;
+}
+
+yt-live-chat-message-input-renderer { /* the input box */
+	padding: 2px;
+	margin-top: 130px;
+}

@@ -52,9 +52,9 @@
 
 ## Shell prompt
 
-FFAFD7 pink
+FFAFD7 pink — 255 175 215
 
-AF87FF purple
+AF87FF purple ­— 175 135 255
 
 878787 grey
 
