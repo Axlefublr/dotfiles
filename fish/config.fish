@@ -60,22 +60,22 @@ source ~/prog/dotfiles/fish/abbreviations.fish
 source ~/prog/dotfiles/fish/positional.fish
 source ~/prog/dotfiles/fish/relative.fish
 
-bind -M default q backward-word forward-single-char forward-word backward-char
-bind -M default Q backward-bigword forward-bigword backward-char
 bind -M default daw forward-single-char forward-single-char backward-word kill-word delete-char
 bind -M default daW forward-single-char forward-single-char backward-bigword kill-bigword delete-char
+
 bind -M default -m insert caw forward-single-char forward-single-char backward-word kill-word delete-char repaint-mode
 bind -M default -m insert caW forward-single-char forward-single-char backward-bigword kill-bigword delete-char repaint-mode
 
-bind -M insert \c] execute
+bind -M default -m insert cie 'commandline ""'
+bind -M default die 'commandline ""'
 
+bind -M insert \c] execute
 bind -M default K execute
+
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default '"' repeat-jump
 bind -M default \; accept-autosuggestion
-
-bind -M insert \e\cX 'eval $history[1] | string collect | xclip -r -selection clipboard'
 
 bind -M insert \ed 'clear -x'
 bind -M insert \ev 'ranger ; commandline -f repaint'
