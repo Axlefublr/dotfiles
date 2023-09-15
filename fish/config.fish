@@ -68,6 +68,7 @@ bind -M default -m insert caW forward-single-char forward-single-char backward-b
 
 bind -M default -m insert cie 'commandline ""'
 bind -M default die 'commandline ""'
+bind -M default yie 'commandline | xclip -r -selection clipboard'
 
 bind -M insert \c] execute
 bind -M default K execute
