@@ -66,6 +66,9 @@ bind -M default daW forward-single-char forward-single-char backward-bigword kil
 bind -M default -m insert caw forward-single-char forward-single-char backward-word kill-word delete-char repaint-mode
 bind -M default -m insert caW forward-single-char forward-single-char backward-bigword kill-bigword delete-char repaint-mode
 
+bind -M default X delete-char forward-single-char backward-char
+bind -M default x begin-selection kill-selection end-selection repaint-mode
+
 bind -M default -m insert cie 'commandline ""'
 bind -M default die 'commandline ""'
 bind -M default yie 'commandline | xclip -r -selection clipboard'
