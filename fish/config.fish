@@ -79,7 +79,7 @@ bind -M insert \e\cX 'eval $history[1] | string collect | xclip -r -selection cl
 
 bind -M insert \ed 'clear -x'
 bind -M insert \ev 'ranger ; commandline -f repaint'
-bind -M insert \ea 'paste_relative_path'
+bind -M insert \ea 'commandline -i (fzf) ; commandline -f repaint'
 bind -M insert \el list_current_token
 bind -M insert \e\; expand-abbr accept-autosuggestion
 bind -M insert \e\' forward-word
