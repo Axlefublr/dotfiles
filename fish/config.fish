@@ -75,8 +75,8 @@ bind -M default K execute
 
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
-bind -M default '"' repeat-jump
-bind -M default \; accept-autosuggestion
+bind -M default \; repeat-jump
+bind -M default '"' accept-autosuggestion
 
 bind -M insert \ed 'clear -x'
 bind -M insert \ev 'ranger ; commandline -f repaint'
