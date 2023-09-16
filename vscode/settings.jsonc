@@ -8,6 +8,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"keyword.control.import.python",
 					"entity.name.tag.localname.cs",
 					"keyword.operator.ternary",
 					"keyword.operator.logical",
@@ -317,6 +318,7 @@
 					"fontStyle": ""
 				},
 				"scope": [
+					"punctuation.separator.period.python",
 					"keyword.operator.combinator.css",
 					"punctuation.definition.entity.css",
 					"punctuation.separator.key-value.css",

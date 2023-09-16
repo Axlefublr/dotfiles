@@ -1,4 +1,4 @@
-xclip -selection clipboard -t image/png -o 2>/dev/null > /tmp/recent-screenshot.png && display /tmp/recent-screenshot.png
+xclip -selection clipboard -t image/png -o 2>/dev/null | display
 
 uclanr -tj '' 3 | xclip -r -selection clipboard
 
