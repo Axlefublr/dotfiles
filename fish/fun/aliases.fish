@@ -8,3 +8,4 @@ alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .g
 alias --save bell 'printf \a' > /dev/null
 alias --save note 'printf "\n$argv" >> ~/prog/noties/tasks.txt' > /dev/null
 alias --save vcl 'xclip -selection clipboard -o > /tmp/bibren ; nvim -n /tmp/bibren ; cat /tmp/bibren | xclip -r -selection clipboard' > /dev/null
+alias --save toco 'touch $argv && code $argv' > /dev/null
