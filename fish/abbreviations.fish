@@ -88,14 +88,6 @@ abbr -a ghrccp  'gh repo create --clone --private'
 abbr -a ghrccpM 'gh repo create --clone --private --license MIT'
 abbr -a ghal    'gh auth login'
 
-abbr -a gafsn 'gaf stage new'
-abbr -a gafsd 'gaf stage deleted'
-abbr -a gafsm 'gaf stage modified'
-abbr -a gafua 'gaf unstage added'
-abbr -a gafud 'gaf unstage deleted'
-abbr -a gafum 'gaf unstage modified'
-abbr -a gafur 'gaf unstage renamed'
-
 abbr -a cls 'clear'
 abbr -a clx 'clear -x'
 
