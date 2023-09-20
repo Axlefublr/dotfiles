@@ -60,3 +60,7 @@ yt-live-chat-text-message-renderer {
 	padding: 4px 11px;
 }
 
+/* each singular chat message pfp container */
+#author-photo.yt-live-chat-text-message-renderer {
+	margin-right: 9px;
+}
