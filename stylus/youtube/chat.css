@@ -54,3 +54,9 @@ yt-live-chat-author-chip.style-scope.yt-live-chat-message-input-renderer {
 html {
 	--yt-deprecated-blue: #FFD75F;
 }
+
+/* each singular chat message container */
+yt-live-chat-text-message-renderer {
+	padding: 4px 11px;
+}
+
