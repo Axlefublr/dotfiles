@@ -15,11 +15,18 @@ yt-live-chat-header-renderer {
 	display: none;
 }
 
-/* the input box */
-yt-live-chat-message-input-renderer {
-	padding-right: 30px;
-	padding-left: 5px;
-	padding-bottom: 9px;
+/* place for chat */
+div#item-offset.style-scope.yt-live-chat-item-list-renderer {
+	min-height: 10px !important;
+	min-width: 10px !important;
+}
+
+/* place for chat, scrollable area */
+yt-live-chat-app {
+	min-width: 10px !important;
+	min-height: 10px !important;
+}
+
 }
 
 #chat.style-scope.yt-live-chat-renderer {
