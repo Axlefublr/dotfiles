@@ -27,8 +27,30 @@ yt-live-chat-app {
 	min-height: 10px !important;
 }
 
+/* div with buttons under chat input box */
+#buttons.yt-live-chat-message-input-renderer {
+	display: none;
 }
 
-#chat.style-scope.yt-live-chat-renderer {
-	padding-bottom: 109px;
+/* pfp in chat input */
+#avatar.yt-live-chat-message-input-renderer {
+	display: none;
+}
+
+/* thingy that holds my side of chat input */
+yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 11px;
+	padding-top: 3px;
+}
+
+/* my nickname in chat input box */
+yt-live-chat-author-chip.style-scope.yt-live-chat-message-input-renderer {
+	display: none;
+}
+
+/* underline of my chat, when focused */
+html {
+	--yt-deprecated-blue: #FFD75F;
 }
