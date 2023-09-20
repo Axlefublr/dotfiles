@@ -6,4 +6,4 @@ xclip -selection clipboard -o > /tmp/bibren ; kitty -T temporary-terminal nvim -
 
 kitty paru ; ChoreTracker do update ; reboot
 
-kitty -T temporary-terminal
+pidof gromit-mpx && gromit-mpx -q || gromit-mpx -k none -u none -a -o 1
