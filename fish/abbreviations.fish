@@ -1,67 +1,59 @@
-abbr -a gd      'git diff'
-abbr -a giti    'git init'
-abbr -a gss     'git status'
-abbr -a gs      'git status -s'
-abbr -a gsh     'git show'
-abbr -a gl      'git log'
-abbr -a glo     'git log --oneline'
-abbr -a ga      'git add'
-abbr -a gap     'git add -p'
-abbr -a gm      'git commit'
-abbr -a gma     'git commit --amend'
-abbr -a gmap    'git commit --amend
-git push
-kitten @scroll_prompt_to_top'
-abbr -a gman    'git commit --amend --no-edit'
-abbr -a gmanp   'git commit --amend --no-edit
-git push
-kitten @scroll_prompt_to_top'
-abbr -a gmp     'git commit
-git push
-kitten @scroll_prompt_to_top'
-abbr -a gam     'git add .
-git commit -a'
-abbr -a gamn    'git add .
-git commit -a --no-edit'
-abbr -a gamp    'git add .
-git commit -a
-git push
-kitten @scroll_prompt_to_top'
-abbr -a gamap   'git add .
-git commit -a --amend
-git push
-kitten @scroll_prompt_to_top'
-abbr -a gamanp  'git add .
-git commit -a --amend --no-edit
-git push
-kitten @scroll_prompt_to_top'
+abbr -a gd    'git diff'
+abbr -a giti  'git init'
+abbr -a gss   'git status'
+abbr -a gs    'git status -s'
+abbr -a gsh   'git show'
+abbr -a gl    'git log'
+abbr -a glo   'git log --oneline'
+abbr -a ga    'git add'
+abbr -a gap   'git add -p'
+abbr -a gm    'git commit'
+abbr -a gma   'git commit --amend'
+abbr -a gman  'git commit --amend --no-edit'
+abbr -a gp    'git push'
+abbr -a grs   'git reset'
+abbr -a grsH  'git reset HEAD'
+abbr -a grsh  'git reset --hard'
+abbr -a grshH 'git reset --hard HEAD'
+abbr -a gst   'git stash'
+abbr -a gsts  'git stash save'
+abbr -a gsta  'git stash apply'
+abbr -a gstl  'git stash list'
+abbr -a grt   'git restore'
+abbr -a grts  'git restore --staged'
+abbr -a gch   'git checkout'
+abbr -a gb    'git branch'
+abbr -a gme   'git merge'
+abbr -a gre   'git remote'
+abbr -a gcl   'git clean -id'
+
+abbr -a gmap 'git commit --amend
+	git push'
+abbr -a gmanp 'git commit --amend --no-edit
+	git push'
+abbr -a gmp 'git commit
+	git push'
+abbr -a gam 'git add .
+	git commit -a'
+abbr -a gamn 'git add .
+	git commit -a --no-edit'
+abbr -a gamp 'git add .
+	git commit -a
+	git push'
+abbr -a gamap 'git add .
+	git commit -a --amend
+	git push'
+abbr -a gamanp 'git add .
+	git commit -a --amend --no-edit
+	git push'
 abbr -a gamanpf 'git add .
-git commit -a --amend --no-edit
-git push -f
-kitten @scroll_prompt_to_top'
-abbr -a gaman   'git add .
-git commit -a --amend --no-edit'
-abbr -a gp      'git push
-kitten @scroll_prompt_to_top'
-abbr -a gcr     'git add .
-git commit -m "first commit"
-git push -u origin main
-kitten @scroll_prompt_to_top'
-abbr -a grs     'git reset'
-abbr -a grsH    'git reset HEAD'
-abbr -a grsh    'git reset --hard'
-abbr -a grshH   'git reset --hard HEAD'
-abbr -a gst     'git stash'
-abbr -a gsts    'git stash save'
-abbr -a gsta    'git stash apply'
-abbr -a gstl    'git stash list'
-abbr -a grt     'git restore'
-abbr -a grts    'git restore --staged'
-abbr -a gch     'git checkout'
-abbr -a gb      'git branch'
-abbr -a gme     'git merge'
-abbr -a gre     'git remote'
-abbr -a gcl     'git clean -id'
+	git commit -a --amend --no-edit
+	git push -f'
+abbr -a gaman 'git add .
+	git commit -a --amend --no-edit'
+abbr -a gcr 'git add .
+	git commit -m "first commit"
+	git push -u origin main'
 
 abbr -a dn   'dotnet'
 abbr -a dnn  'dotnet new'
@@ -95,7 +87,7 @@ abbr -a cain  'cargo binstall -y'
 abbr -a cate  'cargo test'
 abbr -a cap   'cargo publish'
 abbr -a cass  'cargo build -r
-cp -f ./target/release/(basename $PWD) ~/prog/binaries'
+	cp -f ./target/release/(basename $PWD) ~/prog/binaries'
 
 abbr -a ghr     'gh repo'
 abbr -a ghrd    'gh repo delete --yes'
