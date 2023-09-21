@@ -9,19 +9,35 @@ abbr -a ga      'git add'
 abbr -a gap     'git add -p'
 abbr -a gm      'git commit'
 abbr -a gma     'git commit --amend'
-abbr -a gmap    'git commit --amend && git push'
+abbr -a gmap    'git commit --amend
+git push'
 abbr -a gman    'git commit --amend --no-edit'
-abbr -a gmanp   'git commit --amend --no-edit && git push'
-abbr -a gmp     'git commit && git push'
-abbr -a gam     'git add . && git commit -a'
-abbr -a gamn    'git add . && git commit -a --no-edit'
-abbr -a gamp    'git add . && git commit -a && git push'
-abbr -a gamap   'git add . && git commit -a --amend && git push'
-abbr -a gamanp  'git add . && git commit -a --amend --no-edit && git push'
-abbr -a gamanpf 'git add . && git commit -a --amend --no-edit && git push -f'
-abbr -a gaman   'git add . && git commit -a --amend --no-edit'
+abbr -a gmanp   'git commit --amend --no-edit
+git push'
+abbr -a gmp     'git commit
+git push'
+abbr -a gam     'git add .
+git commit -a'
+abbr -a gamn    'git add .
+git commit -a --no-edit'
+abbr -a gamp    'git add .
+git commit -a
+git push'
+abbr -a gamap   'git add .
+git commit -a --amend
+git push'
+abbr -a gamanp  'git add .
+git commit -a --amend --no-edit
+git push'
+abbr -a gamanpf 'git add .
+git commit -a --amend --no-edit
+git push -f'
+abbr -a gaman   'git add .
+git commit -a --amend --no-edit'
 abbr -a gp      'git push'
-abbr -a gcr     'git add . && git commit -m "first commit" && git push -u origin main'
+abbr -a gcr     'git add .
+git commit -m "first commit"
+git push -u origin main'
 abbr -a grs     'git reset'
 abbr -a grsH    'git reset HEAD'
 abbr -a grsh    'git reset --hard'
@@ -69,7 +85,8 @@ abbr -a caa   'cargo add'
 abbr -a cain  'cargo binstall -y'
 abbr -a cate  'cargo test'
 abbr -a cap   'cargo publish'
-abbr -a cass  'cargo build -r && cp -f ./target/release/(basename $PWD) ~/prog/binaries'
+abbr -a cass  'cargo build -r
+cp -f ./target/release/(basename $PWD) ~/prog/binaries'
 
 abbr -a ghr     'gh repo'
 abbr -a ghrd    'gh repo delete --yes'
