@@ -28,7 +28,7 @@ funcsave fish_command_not_found > /dev/null
 
 function list_current_token -d "List contents of token under the cursor (including dotfiles) if it is a directory, otherwise list the contents of the current directory"
 	set -l val (commandline -t | string replace -r '^~' "$HOME")
-	clear -x
+	echo
 	if test -d $val
 		ls -A $val
 	else
