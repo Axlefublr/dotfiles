@@ -1,0 +1,21 @@
+{
+	"all": {
+		"changeLogs": {
+			"BDFDB": "3.3.5",
+			"MessageUtilities": "1.9.7"
+		},
+		"choices": {
+			"toastPosition": "right"
+		},
+		"general": {
+			"shareData": true,
+			"showToasts": true,
+			"showSupportBadges": false,
+			"useChromium": false
+		},
+		"hashes": {
+			"0BDFDB.data.json": "ed5068ee0796c039dae68ccc70a9336760f70908",
+			"0BDFDB.raw.css": "6b9da96e121eb6dc70477f21e35a467a73e8d250"
+		}
+	}
+}
