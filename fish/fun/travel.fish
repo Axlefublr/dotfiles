@@ -44,7 +44,7 @@ end
 funcsave paste_relative_path > /dev/null
 
 function tippity_tappity
-	set -l picked (fd -tf -td '' (commandline -t | string replace -r '^$' '.' | string replace -r '^~' "$HOME") | fzf -e --cycle --tac | string replace "$HOME" '~')
+	set -l picked (fd -u -tf -td '' (commandline -t | string replace -r '^$' '.' | string replace -r '^~' $HOME) | fzf -e --cycle --tac | string replace $HOME '~')
 	commandline -t $picked
 	commandline -f repaint
 end
