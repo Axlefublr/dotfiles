@@ -1,0 +1,4 @@
+div.js-calendar-graph.mx-md-2.mx-3.d-flex.flex-column.flex-items-end.flex-xl-items-center.overflow-hidden.pt-1.is-graph-loading.graph-canvas.ContributionCalendar.height-full.text-center > div {
+	overflow-x: clip !important;
+	max-width: 120% !important;
+}
