@@ -85,6 +85,7 @@ bind -M default '"' accept-autosuggestion
 bind -M insert \ed 'clear -x'
 bind -M insert \ev 'ranger ; commandline -f repaint'
 bind -M insert \ea tippity_tappity
+bind -M insert \ep 'commandline -i (pwd | string replace -r "$HOME" \'~\')'
 bind -M insert \el list_current_token
 bind -M insert \e\; expand-abbr accept-autosuggestion
 bind -M insert \e\' forward-word
