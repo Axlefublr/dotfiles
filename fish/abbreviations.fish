@@ -10,34 +10,43 @@ abbr -a gap     'git add -p'
 abbr -a gm      'git commit'
 abbr -a gma     'git commit --amend'
 abbr -a gmap    'git commit --amend
-git push'
+git push
+kitten @scroll_prompt_to_top'
 abbr -a gman    'git commit --amend --no-edit'
 abbr -a gmanp   'git commit --amend --no-edit
-git push'
+git push
+kitten @scroll_prompt_to_top'
 abbr -a gmp     'git commit
-git push'
+git push
+kitten @scroll_prompt_to_top'
 abbr -a gam     'git add .
 git commit -a'
 abbr -a gamn    'git add .
 git commit -a --no-edit'
 abbr -a gamp    'git add .
 git commit -a
-git push'
+git push
+kitten @scroll_prompt_to_top'
 abbr -a gamap   'git add .
 git commit -a --amend
-git push'
+git push
+kitten @scroll_prompt_to_top'
 abbr -a gamanp  'git add .
 git commit -a --amend --no-edit
-git push'
+git push
+kitten @scroll_prompt_to_top'
 abbr -a gamanpf 'git add .
 git commit -a --amend --no-edit
-git push -f'
+git push -f
+kitten @scroll_prompt_to_top'
 abbr -a gaman   'git add .
 git commit -a --amend --no-edit'
-abbr -a gp      'git push'
+abbr -a gp      'git push
+kitten @scroll_prompt_to_top'
 abbr -a gcr     'git add .
 git commit -m "first commit"
-git push -u origin main'
+git push -u origin main
+kitten @scroll_prompt_to_top'
 abbr -a grs     'git reset'
 abbr -a grsH    'git reset HEAD'
 abbr -a grsh    'git reset --hard'

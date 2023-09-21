@@ -3,7 +3,8 @@ abbr --set-cursor -a gamm  'git add .
 git commit -am "%"'
 abbr --set-cursor -a gammp 'git add .
 git commit -am "%"
-git push'
+git push
+kitten @scroll_prompt_to_top'
 abbr --set-cursor -a tgg 'tgpt "%"'
 abbr --set-cursor -a ytv 'yt-dlp -o \'%.%(ext)s\''
 abbr --set-cursor -a care 'set -l taggedVersion %
