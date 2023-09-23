@@ -1,0 +1,4 @@
+/* scrollbar of the left side preview of the playlist */
+.immersive-header-content.ytd-playlist-header-renderer {
+	overflow-y: hidden;
+}
