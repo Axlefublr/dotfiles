@@ -10,7 +10,7 @@ abbr --set-cursor -a gammp 'git add .
 
 abbr --set-cursor -a care 'set -l taggedVersion %
 	touch README.md
-	touch release-notes.txt
+	nvim release-notes.txt
 	git add .
 	git commit -m $taggedVersion
 	git push
@@ -20,10 +20,10 @@ abbr --set-cursor -a care 'set -l taggedVersion %
 	set -l binaryName (basename $PWD)
 	gh release create $taggedVersion -F release-notes.txt ./target/release/$binaryName
 	cargo publish'
-	
+
 abbr --set-cursor -a dnre 'set -l taggedVersion %
 	touch README.md
-	touch release-notes.txt
+	nvim release-notes.txt
 	git add .
 	git commit -m $taggedVersion
 	git push
