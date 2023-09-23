@@ -32,3 +32,8 @@
 #items > ytd-compact-link-renderer:nth-child(4) {
 	display: none;
 }
+
+/* shorts in right hand side watch later */
+ytd-reel-shelf-renderer.style-scope.ytd-item-section-renderer {
+	display: none;
+}
