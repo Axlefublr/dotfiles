@@ -118,7 +118,7 @@ funcsave abbrad > /dev/null
 
 function abbrap
 	abbr -a :"$argv[1]" --position anywhere -- $argv[2..]
-	echo "abbr -a :$argv[1] --position anywhere -- '$argv[2..]'" >> ~/prog/dotfiles/fish/positional.fish
+	echo "abbr -a ,$argv[1] --position anywhere -- '$argv[2..]'" >> ~/prog/dotfiles/fish/positional.fish
 end
 funcsave abbrap > /dev/null
 
