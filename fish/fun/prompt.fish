@@ -85,7 +85,7 @@ function fish_prompt
 		set_color -o $color_purple
 		echo -n ''$curr_branch' '
 		set_color normal
-		command -q octussy-git-status && octussy-git-status --status (git status --porcelain | string collect -a) --unpushed (gsp | wc -l || echo 0)
+		command -q octussy && octussy
 	end
 	fish_prompt_status $fullstatuses
 	set_color $color_yellow
