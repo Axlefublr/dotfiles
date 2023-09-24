@@ -64,3 +64,7 @@ yt-live-chat-text-message-renderer {
 #author-photo.yt-live-chat-text-message-renderer {
 	margin-right: 9px;
 }
+
+body {
+	font-family: Ubuntu Nerd Font, Roboto, Arial, sans-serif;
+}
