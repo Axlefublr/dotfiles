@@ -146,6 +146,16 @@
 },
 // other
 {
+  "key": "w",
+  "command": "keybindings.editor.defineWhenExpression",
+  "when": "inKeybindings && !whenFocus && !textInputFocus && keybindingFocus",
+},
+{
+  "key": "alt+n",
+  "command": "workbench.action.files.newUntitledFile",
+  "when": ""
+},
+{
   "key": "ctrl+5",
   "command": "workbench.view.extensions",
   "when": "viewContainer.workbench.view.extensions.enabled"
@@ -5089,10 +5099,5 @@
   "key": "enter",
   "command": "-keybindings.editor.acceptWhenExpression",
   "when": "inKeybindings && whenFocus && !suggestWidgetVisible"
-},
-{
-  "key": "w",
-  "command": "keybindings.editor.defineWhenExpression",
-  "when": "inKeybindings && !whenFocus && !textInputFocus",
 },
 ]
