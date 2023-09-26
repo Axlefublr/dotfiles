@@ -18,7 +18,7 @@ abbr --set-cursor -a care 'set -l taggedVersion %
 	git push origin $taggedVersion
 	cargo build --release
 	set -l binaryName (basename $PWD)
-	gh release create $taggedVersion -F release-notes.txt ./target/release/$binaryName
+	gh release create $taggedVersion -t $taggedVersion -F release-notes.txt ./target/release/$binaryName
 	cargo publish'
 
 abbr --set-cursor -a dnre 'set -l taggedVersion %
@@ -32,4 +32,4 @@ abbr --set-cursor -a dnre 'set -l taggedVersion %
 	dotnet publish --configuration Release --runtime linux-x64 --self-contained
 	dotnet publish --configuration Release --runtime win-x64 --self-contained
 	set -l binaryName (basename $PWD)
-	gh release create $taggedVersion -F release-notes.txt ./bin/Release/net7.0/linux-x64/publish/$binaryName ./bin/Release/win-x64/publish/$binaryName.exe'
+	gh release create $taggedVersion -t $taggedVersion -F release-notes.txt ./bin/Release/net7.0/linux-x64/publish/$binaryName ./bin/Release/win-x64/publish/$binaryName.exe'

@@ -444,7 +444,12 @@
 {
   "key": "shift+tab",
   "command": "acceptAlternativeSelectedSuggestion",
-  "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inSnippetMode"
+  "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+},
+{
+  "key": "shift+alt+;",
+  "command": "acceptAlternativeSelectedSuggestion",
+  "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 },
 {
   "key": "alt+e",
