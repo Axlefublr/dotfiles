@@ -101,7 +101,7 @@ function gsa
 		set dir (string replace -r "^~" "$HOME" $dir)
 		cd $dir
 		echo -n (basename $dir)' '
-		octussy
+		octussy-set
 		printf '\n'
 
 	end
@@ -111,8 +111,8 @@ end
 funcsave gsa > /dev/null
 
 function gsah
-	if not command -q octussy-git-status
-		echo "you don't have octussy-git-status"
+	if not command -q octussy
+		echo "you don't have octussy"
 	end
 	set -l prevDir (pwd)
 	set -l directories (fd -uu '.git$' | path dirname)
@@ -121,7 +121,7 @@ function gsah
 
 		cd $prevDir/$dir
 		echo -n $dir' '
-		octussy-git-status --status (git status --porcelain | string collect -a) --unpushed (gsp | wc -l || echo 0)
+		octussy-set
 		printf '\n'
 
 	end

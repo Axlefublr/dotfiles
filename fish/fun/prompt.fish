@@ -85,7 +85,7 @@ function fish_prompt
 		set_color -o $color_purple
 		echo -n ''$curr_branch' '
 		set_color normal
-		command -q octussy && octussy
+		command -q octussy && octussy-set
 	end
 	fish_prompt_status $fullstatuses
 	set_color $color_yellow
