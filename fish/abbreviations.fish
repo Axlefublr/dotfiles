@@ -72,7 +72,7 @@ abbr -a dnp  'dotnet publish'
 
 abbr -a ca    'cargo'
 abbr -a can   'cargo new'
-abbr -a canf  'echo "hard_tabs = true" > rustfmt.toml ; cargo fmt'
+abbr -a canf  'cat ~/prog/dotfiles/rustfmt.toml > rustfmt.toml ; cargo fmt'
 abbr -a cai   'cargo init'
 abbr -a car   'cargo run'
 abbr -a carr  'cargo run -r'
