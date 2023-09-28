@@ -58,7 +58,7 @@
 
 #878787 — grey
 
-#FFD75F — yellow
+#FFD75F — yellow — *255 215 95*
 
 #87FF5F — green
 

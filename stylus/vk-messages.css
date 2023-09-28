@@ -1,0 +1,11 @@
+.FCPanel {
+	display: none;
+}
+
+body {
+	overflow-y: hidden;
+}
+
+div.left_menu_nav_wrap {
+	display: none;
+}
