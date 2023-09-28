@@ -140,3 +140,17 @@ function atc
 	alien_temple consent | tee /dev/tty | xclip -r -selection clipboard
 end
 funcsave atc > /dev/null
+
+function screenie
+	set -l current_date (date +%y.%m.%d)
+	set -l screenshots_dir "/home/axlefublr/Pictures/Job"
+	set -l location "$screenshots_dir/$current_date"
+
+	mkdir -p $location
+
+	while true
+		scrot -F (date +"$location/%y.%m.%d-%H:%M.jpg") -q 30
+		sleep 60
+	end
+end
+funcsave screenie > /dev/null
