@@ -14,8 +14,8 @@ alias --save octussy-set 'octussy --color-unpushed FFD75F \
 	--color-all-unstaged 00D7FF \
 	--symbol-renamed 󰕍 \
 	--symbol-modified  \
-	--symbol-deleted  \
+	--symbol-deleted 󰍴 \
 	--symbol-staged-deleted 󰍴 \
 	--symbol-added 󰐕 \
-	--symbol-unstaged 󰏢 \
+	--symbol-unstaged 󰐕 \
 	--symbol-unpushed ' > /dev/null
