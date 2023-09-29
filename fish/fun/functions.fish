@@ -149,7 +149,7 @@ function screenie
 	mkdir -p $location
 
 	while true
-		scrot -F (date +"$location/%y.%m.%d-%H:%M.jpg") -q 30
+		scrot -F (date +"$location/%y.%m.%d-%H:%M.jpg") -q 30 &
 		sleep 60
 	end
 end
