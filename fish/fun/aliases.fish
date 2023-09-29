@@ -13,7 +13,7 @@ alias --save octussy-set 'octussy --color-unpushed FFD75F \
 	--color-all-staged 87FF5F \
 	--color-all-unstaged 00D7FF \
 	--symbol-renamed 󰕍 \
-	--symbol-modified 󰘬 \
+	--symbol-modified  \
 	--symbol-deleted  \
 	--symbol-staged-deleted 󰍴 \
 	--symbol-added 󰐕 \
