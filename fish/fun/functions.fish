@@ -148,9 +148,11 @@ function screenie
 
 	mkdir -p $location
 
+	echo 0 > ~/prog/noties/minutes
 	while true
-		scrot -F (date +"$location/%y.%m.%d-%H:%M.jpg") -q 30 &
-		sleep 60
+		scrot -F $location/(date +"%y.%m.%d-%H:%M.jpg") -q 30 &
+		math (cat ~/prog/noties/minutes) + 1 > ~/prog/noties/minutes
+		termdown -B 60 || break
 	end
 end
 funcsave screenie > /dev/null
