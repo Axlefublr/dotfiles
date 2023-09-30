@@ -11,11 +11,4 @@ alias --save vcl 'xclip -selection clipboard -o > /tmp/bibren ; nvim -n /tmp/bib
 alias --save toco 'touch $argv && code $argv' > /dev/null
 alias --save octussy-set 'octussy --color-unpushed FFD75F \
 	--color-all-staged 87FF5F \
-	--color-all-unstaged 00D7FF \
-	--symbol-renamed 󰕍 \
-	--symbol-modified  \
-	--symbol-deleted 󰍴 \
-	--symbol-staged-deleted 󰍴 \
-	--symbol-added 󰐕 \
-	--symbol-unstaged 󰐕 \
-	--symbol-unpushed ' > /dev/null
+	--color-all-unstaged 00D7FF' > /dev/null
