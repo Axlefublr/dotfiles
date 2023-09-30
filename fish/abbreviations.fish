@@ -30,32 +30,32 @@ abbr -a gme   'git merge'
 abbr -a gre   'git remote'
 abbr -a gcl   'git clean -id'
 
-abbr -a gmap 'git commit --amend
+abbr -a gmap 'git commit --amend &&
 	git push'
-abbr -a gmanp 'git commit --amend --no-edit
+abbr -a gmanp 'git commit --amend - &&-no-edit
 	git push'
-abbr -a gmp 'git commit
+abbr -a gmp 'git commit &&
 	git push'
-abbr -a gam 'git add .
+abbr -a gam 'git add . &&
 	git commit -a'
-abbr -a gamn 'git add .
+abbr -a gamn 'git add . &&
 	git commit -a --no-edit'
-abbr -a gamp 'git add .
-	git commit -a
+abbr -a gamp 'git add . &&
+	git commit -a &&
 	git push'
-abbr -a gamap 'git add .
-	git commit -a --amend
+abbr -a gamap 'git add . &&
+	git commit -a --amend &&
 	git push'
-abbr -a gamanp 'git add .
-	git commit -a --amend --no-edit
+abbr -a gamanp 'git add . &&
+	git commit -a --amend --no-edit &&
 	git push'
-abbr -a gamanpf 'git add .
-	git commit -a --amend --no-edit
+abbr -a gamanpf 'git add . &&
+	git commit -a --amend --no-edit &&
 	git push -f'
-abbr -a gaman 'git add .
+abbr -a gaman 'git add . &&
 	git commit -a --amend --no-edit'
-abbr -a gcr 'git add .
-	git commit -m "first commit"
+abbr -a gcr 'git add . &&
+	git commit -m "first commit" &&
 	git push -u origin main'
 
 abbr -a dn   'dotnet'
@@ -90,7 +90,7 @@ abbr -a caa   'cargo add'
 abbr -a cain  'cargo binstall -y'
 abbr -a cate  'cargo test'
 abbr -a cap   'cargo publish'
-abbr -a cass  'cargo build -r
+abbr -a cass  'cargo build -r &&
 	cp -f ./target/release/(basename $PWD) ~/prog/binaries'
 
 abbr -a ghr     'gh repo'
