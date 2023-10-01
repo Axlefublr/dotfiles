@@ -12,9 +12,9 @@ div.left_menu_nav_wrap {
 
 /* dialog insides that introduce scrolling */
 .im-page {
-	padding-top: 3px;
-	padding-bottom: 0%;
-	height: 90vh;
+	padding-top: 2.7px;
+	padding-bottom: 3px;
+	height: calc(100vh - 5.7px - var(--header-height));
 }
 
 /* separator used in the left nav */
