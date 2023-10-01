@@ -1,13 +1,48 @@
 /*https://vk.com/im*/
 
+/* mini dialogs at the bottom right */
 .FCPanel {
 	display: none;
 }
 
-body {
-	overflow-y: hidden;
+/* add and info thingies at the left */
+div.left_menu_nav_wrap {
+	display: none;
 }
 
-div.left_menu_nav_wrap {
+/* dialog insides that introduce scrolling */
+.im-page {
+	padding-top: 3px;
+	padding-bottom: 0%;
+	height: 90vh;
+}
+
+/* separator used in the left nav */
+#react_rootLeftMenuRoot > div > nav > ol > div {
+	display: none;
+}
+
+/* bookmarks */
+#l_fav {
+	display: none;
+}
+
+/* files */
+#l_doc {
+	display: none;
+}
+
+/* market */
+#l_mk {
+	display: none;
+}
+
+/* left side inside of the message panel that contains the up menu and the down useless "showing all messages" */
+.im-page .im-page--dialogs {
+	padding: 48px 0 0;
+}
+
+/* useless "showing all messages" */
+#content > div > div > div.im-page--dialogs._im_page_dialogs.page_block > div.im-page--dialogs-footer._im_dialogs_footer {
 	display: none;
 }
