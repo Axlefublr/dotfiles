@@ -145,22 +145,12 @@ function screenie
 	set -l current_date (date +%y.%m.%d)
 	set -l screenshots_dir ~/Pictures/Job
 	set -l location "$screenshots_dir/$current_date"
-	set -l minutes_file ~/prog/noties/minutes
 
 	mkdir -p $location
-	echo 0 > $minutes_file
 
 	while true
-		termdown -B 60 || break
-		set -l minutes (cat $minutes_file)
-		set minutes (math $minutes + 1)
-		echo $minutes > $minutes_file
-
-		if test (math $minutes % 60) -eq 0
-			notify-send -t 2000 -a 'Work' (math $minutes / 60)' hours'
-		end
-
-		scrot -F $location/(date +"%y.%m.%d-%H:%M.jpg") -q 30 &
+		scrot -F $location/(date +"%d-%m-%Y-%H-%M.jpg") -q 30 &
+		sleep 60
 	end
 end
 funcsave screenie > /dev/null
