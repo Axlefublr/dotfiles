@@ -142,7 +142,12 @@ end
 funcsave atc > /dev/null
 
 function screenie
-	set -l current_date (date +%y.%m.%d)
+	set -l current_date
+	if set -q argv[1]
+		set current_date $argv[1]-(date +%m-%Y)
+	else
+		set current_date (date +%d-%m-%Y)
+	end
 	set -l screenshots_dir ~/Pictures/Job
 	set -l location "$screenshots_dir/$current_date"
 
