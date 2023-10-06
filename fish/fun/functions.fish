@@ -142,20 +142,31 @@ end
 funcsave atc > /dev/null
 
 function screenie
-	set -l current_date
-	if set -q argv[1]
-		set current_date $argv[1]-(date +%m-%Y)
-	else
-		set current_date (date +%d-%m-%Y)
-	end
-	set -l screenshots_dir ~/Pictures/Job
-	set -l location "$screenshots_dir/$current_date"
+	set -l current_date (date +%d-%m-%Y)
+	set -l location ~/Pictures/Job/$current_date
+	set -l start_notice 175950
+	set -l start 1800
+	set -l report 2140
+	set -l finish 2200
 
 	mkdir -p $location
 
+	while test (date +%H%M%S) -lt $start_notice
+		sleep 1
+	end
+	notify-send -t 2000 -a 'Work' 'Starting in ten seconds'
+	sleep 10
 	while true
 		scrot -F $location/(date +"%d-%m-%Y-%H-%M.jpg") -q 30 &
+		if test (date +%H%M) -eq $report
+			notify-send -a 'Work' 'Send the report'
+		end
+		if test (date +%H%M) -ge $finish
+			notify-send -a 'Work' 'Stop right now!!'
+			break
+		end
 		sleep 60
 	end
+	zip -r $location.zip $location
 end
 funcsave screenie > /dev/null
