@@ -175,9 +175,9 @@ funcsave screenie > /dev/null
 
 function plm
 	set -l daily 4800
-	set -l commission 500
+	set -l commission 404
 	set -l days (cat ~/prog/info/pswds/ftp/days)
-	math $days '*' $daily / 100 '*' 97 - $commission
+	math $days '*' $daily / 100 '*' 98 - $commission
 end
 funcsave plm > /dev/null
 
