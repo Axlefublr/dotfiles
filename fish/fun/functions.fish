@@ -145,7 +145,6 @@ function screenie
 	set -l current_date (date +%d-%m-%Y)
 	set -l location ~/Pictures/Job/$current_date
 	set -l start_notice 175950
-	set -l start 1800
 	set -l report 2140
 	set -l finish 2200
 
@@ -154,12 +153,12 @@ function screenie
 	while test (date +%H%M%S) -lt $start_notice
 		sleep 1
 	end
-	notify-send -t 2000 -a 'Work' 'Starting in ten seconds'
+	notify-send -t 2000 -a 'Work' 'Starting in ten seconds' &
 	sleep 10
 	while true
 		scrot -F $location/(date +"%d-%m-%Y-%H-%M.jpg") -q 30 &
 		if test (date +%H%M) -eq $report
-			notify-send -a 'Work' 'Send the report'
+			notify-send -a 'Work' 'Send the report' &
 		end
 		if test (date +%H%M) -ge $finish
 			notify-send -a 'Work' 'Stop right now!!'
@@ -168,5 +167,21 @@ function screenie
 		sleep 60
 	end
 	zip -r $location.zip $location
+	math (cat ~/prog/info/pswds/ftp/days || printf 0) + 1 > ~/prog/info/pswds/ftp/days
+	printf 'you now have: '
+	plm
 end
 funcsave screenie > /dev/null
+
+function plm
+	set -l daily 4800
+	set -l commission 500
+	set -l days (cat ~/prog/info/pswds/ftp/days)
+	math $days '*' $daily / 100 '*' 97 - $commission
+end
+funcsave plm > /dev/null
+
+function plo
+	printf 1 > ~/prog/info/pswds/ftp/days
+end
+funcsave plo > /dev/null
