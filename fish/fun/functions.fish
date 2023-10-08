@@ -185,3 +185,8 @@ function plo
 	printf 1 > ~/prog/info/pswds/ftp/days
 end
 funcsave plo > /dev/null
+
+function plof
+	printf 0 > ~/prog/info/pswds/ftp/days
+end
+funcsave plof > /dev/null
