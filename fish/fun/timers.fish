@@ -19,7 +19,8 @@ end
 funcsave timer > /dev/null
 
 function alarm
-	while test $argv[1] -gt (date +%H%M%S)
+	set -l finish (string pad -r -c 0 -w 6 $argv[1])
+	while test $finish -gt (date +%H%M%S)
 		sleep 0.5
 	end
 	bell
