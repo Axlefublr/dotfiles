@@ -109,8 +109,3 @@ function screenie
 	plm
 end
 funcsave screenie > /dev/null
-
-function infoterm
-	kitty --detach --hold -T infoterm msg $argv
-end
-funcsave infoterm > /dev/null
