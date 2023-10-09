@@ -23,7 +23,6 @@ function alarm
 	while test $finish -gt (date +%H%M%S)
 		sleep 0.5
 	end
-	bell
 end
 funcsave alarm > /dev/null
 
