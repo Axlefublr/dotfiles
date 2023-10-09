@@ -19,8 +19,13 @@ end
 funcsave timer > /dev/null
 
 function alarm
-	set -l finish (string pad -r -c 0 -w 6 $argv[1])
-	while test $finish -gt (date +%H%M%S)
+	set -l input $argv[1]
+	set -l first (string sub -l 1 $input)
+	if test $first != 0 && test $first != 1 && test $first != 2
+		set input '0'$input
+	end
+	set -l input (string pad -r -c 0 -w 6 $input)
+	while test $input -gt (date +%H%M%S)
 		sleep 0.5
 	end
 end
