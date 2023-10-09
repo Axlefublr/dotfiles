@@ -2,6 +2,7 @@ abbr --set-cursor -a gmm 'git commit -m "%"'
 abbr --set-cursor -a tgg 'tgpt "%"'
 abbr --set-cursor -a ytv 'yt-dlp -o \'%.%(ext)s\''
 abbr --set-cursor -a ghic 'gh issue create -t "%"'
+abbr --set-cursor -a msg 'infoterm "%"'
 
 abbr --set-cursor -a gamm 'git add . &&
 	git commit -am "%"'

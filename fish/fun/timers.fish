@@ -26,8 +26,9 @@ function alarm
 	end
 	set -l input (string pad -r -c 0 -w 6 $input)
 	while test $input -gt (date +%H%M%S)
-		sleep 0.5
+		sleep 0.1
 	end
+	sleep 0.5
 end
 funcsave alarm > /dev/null
 
@@ -108,3 +109,8 @@ function screenie
 	plm
 end
 funcsave screenie > /dev/null
+
+function infoterm
+	kitty --detach --hold -T infoterm msg $argv
+end
+funcsave infoterm > /dev/null
