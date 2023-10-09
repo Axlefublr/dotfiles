@@ -86,11 +86,12 @@ function screenie
 	set -l report 2140
 	set -l finish 2200
 
-	mkdir -p $location
-
 	alarm $start_notice
 	notify-send -t 2000 -a 'Work' 'Starting in ten seconds' &
 	sleep 10
+
+	mkdir -p $location
+
 	while true
 		scrot -F $location/(date +"%d-%m-%Y-%H-%M.jpg") -q 30 &
 		if test (date +%H%M) -eq $report
@@ -107,5 +108,13 @@ function screenie
 	math (cat ~/prog/info/pswds/ftp/days || printf 0) + 1 > ~/prog/info/pswds/ftp/days
 	printf 'you now have: '
 	plm
+	cat ~/prog/info/pswds/ftp/host | xclip -r -selection clipboard
+	echo 'host copied'
+	read -ln 1 _
+	cat ~/prog/info/pswds/ftp/user | xclip -r -selection clipboard
+	echo 'user copied'
+	read -ln 1 _
+	cat ~/prog/info/pswds/ftp/pass | xclip -r -selection clipboard
+	echo 'password copied'
 end
 funcsave screenie > /dev/null
