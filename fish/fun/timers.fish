@@ -83,12 +83,13 @@ function screenie
 	set -l current_date (date +%d-%m-%Y)
 	set -l location ~/Pictures/Job/$current_date
 	set -l start_notice 175940
+	set -l start 18
 	set -l report 2140
 	set -l finish 2200
 
 	alarm $start_notice
 	notify-send -t 2000 -a 'Work' 'Starting in 20 seconds' &
-	sleep 10
+	alarm $start
 
 	mkdir -p $location
 	echo 'started'
