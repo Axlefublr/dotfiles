@@ -110,7 +110,8 @@ function screenie
 		sleep 60
 	end
 	sleep 1
-	zip -r $location.zip $location
+	cd $job
+	zip -r $current_date.zip $current_date
 	math (cat ~/prog/info/pswds/ftp/days || printf 0) + 1 > ~/prog/info/pswds/ftp/days
 	printf 'you now have: '
 	plm
