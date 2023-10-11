@@ -81,7 +81,8 @@ funcsave work > /dev/null
 
 function screenie
 	set -l current_date (date +%d-%m-%Y)
-	set -l location ~/Pictures/Job/$current_date
+	set -l job ~/Pictures/Job
+	set -l location $job/$current_date
 	set -l start_notice 175940
 	set -l start 18
 	set -l report 2140
@@ -96,7 +97,9 @@ function screenie
 	echo 'started'
 
 	while true
-		scrot -F $location/(date +"%d-%m-%Y-%H-%M.jpg") -q 30 &
+		set -l minute (date +"%d-%m-%Y-%H-%M.jpg")
+		scrot -F $location/$minute -q 30 &
+		echo $minute
 		if test (date +%H%M) -eq $report
 			notify-send -a 'Work' 'Send the report' &
 		end
