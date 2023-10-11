@@ -97,6 +97,7 @@ abbr -a caa   'cargo add'
 abbr -a cain  'cargo binstall -y'
 abbr -a cate  'cargo test'
 abbr -a cap   'cargo publish'
+abbr -a cado  'cargo doc --open'
 abbr -a cass  'cargo build -r &&
 	cp -f ./target/release/(basename $PWD) ~/prog/binaries'
 

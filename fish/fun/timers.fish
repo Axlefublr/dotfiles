@@ -117,10 +117,10 @@ function screenie
 	plm
 	cat ~/prog/info/pswds/ftp/host | xclip -r -selection clipboard
 	echo 'host copied'
-	read -ln 1 _
+	read -ln 1 a
 	cat ~/prog/info/pswds/ftp/user | xclip -r -selection clipboard
 	echo 'user copied'
-	read -ln 1 _
+	read -ln 1 a
 	cat ~/prog/info/pswds/ftp/pass | xclip -r -selection clipboard
 	echo 'password copied'
 end
