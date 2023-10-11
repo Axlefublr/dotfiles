@@ -88,6 +88,7 @@ function screenie
 	set -l finish 2200
 
 	alarm $start_notice
+	bell
 	notify-send -t 2000 -a 'Work' 'Starting in 20 seconds' &
 	alarm $start
 
