@@ -37,6 +37,11 @@ div.left_menu_nav_wrap {
 	display: none;
 }
 
+/* розыгрыш */
+#l_vkfest2023 {
+	display: none;
+}
+
 /* left side inside of the message panel that contains the up menu and the down useless "showing all messages" */
 .im-page .im-page--dialogs {
 	padding: 48px 0 0;
@@ -44,5 +49,15 @@ div.left_menu_nav_wrap {
 
 /* useless "showing all messages" */
 #content > div > div > div.im-page--dialogs._im_page_dialogs.page_block > div.im-page--dialogs-footer._im_dialogs_footer {
+	display: none;
+}
+
+/* recommended by ad thing */
+.LegalRecommendationsLinkLeftMenuAuthorized {
+	display: none;
+}
+
+/* separator for the recommended by ad thing */
+.WideSeparator.WideSeparator--legalRecommendationsLink {
 	display: none;
 }
