@@ -88,9 +88,11 @@ function screenie
 	set -l report 2140
 	set -l finish 2200
 
+	echo 'waiting for the start'
 	alarm $start_notice
 	bell
 	notify-send -t 2000 -a 'Work' 'Starting in 20 seconds' &
+	echo 'starting in 20 seconds'
 	alarm $start
 
 	mkdir -p $location
@@ -115,6 +117,7 @@ function screenie
 	math (cat ~/prog/info/pswds/ftp/days || printf 0) + 1 > ~/prog/info/pswds/ftp/days
 	printf 'you now have: '
 	plm
+	read -ln 1 a
 	cat ~/prog/info/pswds/ftp/host | xclip -r -selection clipboard
 	echo 'host copied'
 	read -ln 1 a
