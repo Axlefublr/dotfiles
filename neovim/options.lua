@@ -18,6 +18,6 @@ vim.opt.swapfile             = false
 vim.opt.undofile             = true
 vim.opt.timeout              = false
 vim.g.mapleader              = ","
-vim.g.rust_recommended_style = false
+vim.g.rust_recommended_style = true
 vim.g.targets_nl             = "nh"
 vim.o.cpoptions              = "aABceFs"
