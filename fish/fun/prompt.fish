@@ -59,7 +59,7 @@ function fish_prompt
 	if set -q fish_private_mode
 		printf '󰗹 '
 	end
-	if test (jobs)
+	if test (count (jobs)) -gt 0
 		printf ' '
 	end
 	if not test -w .
