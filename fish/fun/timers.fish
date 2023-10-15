@@ -115,8 +115,6 @@ function screenie
 	cd $job
 	zip -r $current_date.zip $current_date
 	math (cat ~/prog/info/pswds/ftp/days || printf 0) + 1 > ~/prog/info/pswds/ftp/days
-	printf 'you now have: '
-	plm
 	read -ln 1 a
 	cat ~/prog/info/pswds/ftp/host | xclip -r -selection clipboard
 	echo 'host copied'
@@ -126,5 +124,7 @@ function screenie
 	read -ln 1 a
 	cat ~/prog/info/pswds/ftp/pass | xclip -r -selection clipboard
 	echo 'password copied'
+	printf 'you now have: '
+	dengi
 end
 funcsave screenie > /dev/null

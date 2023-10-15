@@ -64,14 +64,6 @@ function atc
 end
 funcsave atc > /dev/null
 
-function plm
-	set -l daily 4800
-	set -l commission 404
-	set -l days (cat ~/prog/info/pswds/ftp/days)
-	math $days '*' $daily / 100 '*' 98 - $commission
-end
-funcsave plm > /dev/null
-
 function plo
 	printf 1 > ~/prog/info/pswds/ftp/days
 end
