@@ -44,7 +44,7 @@ set -g fish_color_quote $color_gruvbox_yellow
 set -g fish_color_redirection $color_gruvbox_orange
 set -g fish_color_end $color_gruvbox_orange
 set -g fish_color_error $color_gruvbox_red
-set -g fish_color_param $color_gruvbox_sea
+set -g fish_color_param $color_gruvbox_cyan
 set -g fish_color_comment $color_gruvbox_grey
 set -g fish_color_match $color_gruvbox_purple
 set -g fish_color_operator $color_gruvbox_purple
