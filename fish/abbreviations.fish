@@ -37,6 +37,7 @@ abbr -a gcfg  'git config --global'
 abbr -a gsw   'git switch'
 abbr -a gf    'git fetch'
 abbr -a gpu   'git pull'
+abbr -a grm   'git rm'
 
 abbr -a gmap 'git commit --amend &&
 	git push'
@@ -167,3 +168,4 @@ abbr -a unimatrix 'unimatrix -s 95 -abf'
 abbr -a apr 'touch project.md ; echo project.md >> .gitignore ; code project.md'
 abbr -a exp 'expressvpn'
 abbr -a otch 'nvim /home/axlefublr/prog/noties/otchet.md'
+abbr -a greb 'git rebase'

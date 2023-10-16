@@ -13,6 +13,8 @@ Map("", ",db", 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
 Map("n", ",p", "Pv`[o`]do<c-r><c-p>\"<esc>")
 Map("n", ",P", "Pv`[o`]dO<c-r><c-p>\"<esc>")
 
+Map("n", ",m", "?\\V$0<cr>cgn")
+
 Map("", "_", function() FeedKeysInt(vim.v.count1 .. "k$") end)
 
 local function multiply() FeedKeysInt("yl" .. vim.v.count1 .. "p") end
