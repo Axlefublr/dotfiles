@@ -589,10 +589,6 @@
   "when": "!terminalFocus"
 },
 {
-  "key": "ctrl+insert",
-  "command": "editor.action.clipboardCopyAction"
-},
-{
   "key": "y shift+r",
   "command": "copyFilePath",
   "when": "filesExplorerFocus && !inputFocus"
@@ -1290,6 +1286,16 @@
   "key": "alt+'",
   "command": "editor.action.inlineSuggest.acceptNextWord",
   "when": "inlineSuggestionVisible && neovim.mode == 'insert'"
+},
+{
+  "key": "ctrl+c",
+  "command": "editor.action.clipboardCopyAction",
+  "when": "!editorTextFocus"
+},
+{
+  "key": "ctrl+insert",
+  "command": "editor.action.clipboardCopyAction",
+  "when": ""
 },
 // cutoff
 {
@@ -5104,5 +5110,9 @@
   "key": "enter",
   "command": "-keybindings.editor.acceptWhenExpression",
   "when": "inKeybindings && whenFocus && !suggestWidgetVisible"
+},
+{
+  "key": "ctrl+k ctrl+alt+c",
+  "command": "-workbench.action.addComment"
 },
 ]
