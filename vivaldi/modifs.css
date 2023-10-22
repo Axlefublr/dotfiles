@@ -21,4 +21,5 @@ div.startpage > nav.startpage-navigation.toolbar-medium {
 
 #tabs-tabbar-container {
 	height: 29px;
+	padding-top: 0px;
 }
