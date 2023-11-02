@@ -1,0 +1,9 @@
+{
+  "filterLinkHints": true,
+  "linkHintCharacters": "sadfjklewcmpgh;x,v.zbturioyq",
+  "regexFindMode": true,
+  "ignoreKeyboardLayout": true,
+  "grabBackFocus": true,
+  "settingsVersion": "2.0.4",
+  "exclusionRules": []
+}
