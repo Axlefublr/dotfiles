@@ -1,9 +1,13 @@
 {
   "filterLinkHints": true,
+  "waitForEnterForFilteredHints": false,
+  "hideHud": true,
   "linkHintCharacters": "sadfjklewcmpgh;x,v.zbturioyq",
   "regexFindMode": true,
   "ignoreKeyboardLayout": true,
+  "scrollStepSize": 40,
   "grabBackFocus": true,
   "settingsVersion": "2.0.4",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n\t/* linkhint boxes */\n\tbackground: #ffafd7 !important;\n\tborder: none !important;\n}\n\ndiv > .vimiumHintMarker span {\n\t/* linkhint text */\n\tcolor: black;\n\tfont-weight: bold;\n\tfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}",
   "exclusionRules": []
 }
