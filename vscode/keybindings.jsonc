@@ -1297,6 +1297,11 @@
   "command": "editor.action.clipboardCopyAction",
   "when": ""
 },
+{
+  "key": "ctrl+shift+q",
+  "command": "workbench.action.toggleMaximizeEditorGroup",
+  "when": "maximizedEditorGroup || multipleEditorGroups"
+},
 // cutoff
 {
   "key": "ctrl+alt+win+down",
