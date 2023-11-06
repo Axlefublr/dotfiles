@@ -8,4 +8,4 @@ kitty --hold kitten @set-window-title timer
 
 kitty --detach --hold -T infoterm printwait
 
-kitty -T emoji-picker sh -c "kitty +kitten unicode_input --tab name > /tmp/unicode_input" ; cat /tmp/unicode_input | xclip -r -selection clipboard
+kitty -T emoji-picker --start-as maximized sh -c "kitty +kitten unicode_input --tab name > /tmp/unicode_input" ; cat /tmp/unicode_input | xclip -r -selection clipboard
