@@ -25,6 +25,6 @@ div.startpage > nav.startpage-navigation.toolbar-medium {
 }
 
 /* Ugly ahhh title bar when you hide ui */
-.div#header {
+div#header {
 	display: none;
 }
