@@ -28,3 +28,9 @@ div.startpage > nav.startpage-navigation.toolbar-medium {
 div#header {
 	display: none;
 }
+
+/* Small left padding on the left of the workspaces button */
+#app div:not(.draggable-button) > .button-toolbar.workspace-popup button {
+	padding: 0 !important;
+}
+
