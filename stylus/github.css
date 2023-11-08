@@ -2,3 +2,9 @@ div.js-calendar-graph.mx-md-2.mx-3.d-flex.flex-column.flex-items-end.flex-xl-ite
 	overflow-x: clip !important;
 	max-width: 120% !important;
 }
+
+/* activity rose */
+#user-activity-overview > div > div.d-flex.flex-column.flex-lg-row > div.pl-lg-3.col-6.border-lg-left > div > svg.js-activity-overview-graph.mx-auto.d-block > g > path {
+	fill: #AF87FF;
+	stroke: #AF87FF;
+}
