@@ -53,6 +53,7 @@ yt-live-chat-author-chip.style-scope.yt-live-chat-message-input-renderer {
 /* underline of my chat, when focused */
 html {
 	--yt-deprecated-blue: #FFD75F;
+	--yt-live-chat-author-chip-owner-background-color: #FFD75F;
 }
 
 /* each singular chat message container */
