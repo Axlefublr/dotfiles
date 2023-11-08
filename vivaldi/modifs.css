@@ -30,9 +30,9 @@ div#header {
 }
 
 /* Small left padding on the left of the workspaces button */
-#app div:not(.draggable-button) > .button-toolbar.workspace-popup button {
+/* #app div:not(.draggable-button) > .button-toolbar.workspace-popup button {
 	padding: 0 !important;
-}
+} */
 
 /* Thin line on the top of the bottom tab bar */
 .address-top #tabs-tabbar-container.bottom, .address-top-off #tabs-tabbar-container.bottom, .address-bottom-off #tabs-tabbar-container.bottom {
