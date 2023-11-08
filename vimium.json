@@ -7,6 +7,7 @@
   "ignoreKeyboardLayout": true,
   "scrollStepSize": 40,
   "grabBackFocus": true,
+  "searchEngines": "",
   "settingsVersion": "2.0.4",
   "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n\t/* linkhint boxes */\n\tbackground: #ffafd7 !important;\n\tborder: none !important;\n}\n\ndiv > .vimiumHintMarker span {\n\t/* linkhint text */\n\tfont-family: 'UbuntuMono';\n\tcolor: black;\n\tfont-weight: bold;\n\tfont-size: 10px !important;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}",
   "exclusionRules": []
