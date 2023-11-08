@@ -1,7 +1,7 @@
 {
   "waitForEnterForFilteredHints": false,
   "hideHud": true,
-  "keyMappings": "map s LinkHints.activateMode action=hover\nmap a LinkHints.activateMode action=focus\nmap c LinkHints.activateMode action=copy-text\nmap o LinkHints.activateModeToOpenInNewTab\nmap O LinkHints.activateModeWithQueue\nmap q LinkHints.activateModeToDownloadLink\nmap F LinkHints.activateModeToOpenInNewForegroundTab\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nmap [ passNextKey",
+  "keyMappings": "map s LinkHints.activateMode action=hover\nmap a LinkHints.activateMode action=focus\nmap c LinkHints.activateMode action=copy-text\nmap o LinkHints.activateModeToOpenInNewTab\nmap O LinkHints.activateModeWithQueue\nmap q LinkHints.activateModeToDownloadLink\nmap F LinkHints.activateModeToOpenInNewForegroundTab\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nmap [ passNextKey\nunmap <a-f>",
   "linkHintCharacters": "fjdksla;gheiworum",
   "regexFindMode": true,
   "ignoreKeyboardLayout": true,
