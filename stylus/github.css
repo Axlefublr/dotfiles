@@ -1,4 +1,6 @@
 :root {
+	--fgColor-accent: #FFAFD7 !important;
+	--color-accent-fg: #FFAFD7 !important;
 	--bgColor-accent-emphasis: #FFAFD7 !important;
 	--color-accent-emphasis: #FFAFD7 !important;
 	--color-calendar-graph-day-L1-bg: #9e5a77 !important;
