@@ -1,6 +1,10 @@
 :root {
 	--fgColor-accent: #FFD75F !important;
 	--color-accent-fg: #FFD75F !important;
+	--color-calendar-graph-day-L1-bg: #9e5a77 !important;
+	--color-calendar-graph-day-L2-bg: #bc8099 !important;
+	--color-calendar-graph-day-L3-bg: #daa1b9 !important;
+	--color-calendar-graph-day-L4-bg: #ffafd7 !important;
 }
 
 div.js-calendar-graph.mx-md-2.mx-3.d-flex.flex-column.flex-items-end.flex-xl-items-center.overflow-hidden.pt-1.is-graph-loading.graph-canvas.ContributionCalendar.height-full.text-center
