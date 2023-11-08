@@ -1,6 +1,6 @@
 :root {
-	--fgColor-accent: #FFD75F !important;
-	--color-accent-fg: #FFD75F !important;
+	--bgColor-accent-emphasis: #FFAFD7 !important;
+	--color-accent-emphasis: #FFAFD7 !important;
 	--color-calendar-graph-day-L1-bg: #9e5a77 !important;
 	--color-calendar-graph-day-L2-bg: #bc8099 !important;
 	--color-calendar-graph-day-L3-bg: #daa1b9 !important;
@@ -17,4 +17,9 @@ div.js-calendar-graph.mx-md-2.mx-3.d-flex.flex-column.flex-items-end.flex-xl-ite
 #user-activity-overview > div > div.d-flex.flex-column.flex-lg-row > div.pl-lg-3.col-6.border-lg-left > div > svg.js-activity-overview-graph.mx-auto.d-block > g > path {
 	fill: #AF87FF;
 	stroke: #AF87FF;
+}
+
+/* blue background color of the selected year */
+.filter-item.selected, .filter-item[aria-selected=true], .filter-item[aria-current]:not([aria-current=false]) {
+	color: black;
 }
