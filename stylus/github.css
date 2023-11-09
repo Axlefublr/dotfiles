@@ -19,8 +19,7 @@ https://github.com/ */
 /* removes the horizontal scroll bar of the green squares
 and attempts making the div right aligned, cutting off all non-fitting squares on the *left*
 instead of the right */
-div.js-calendar-graph.mx-md-2.mx-3.d-flex.flex-column.flex-items-end.flex-xl-items-center.overflow-hidden.pt-1.is-graph-loading.graph-canvas.ContributionCalendar.height-full.text-center
-	> div {
+.ContributionCalendar > div {
 	overflow-x: clip !important;
 	max-width: 120% !important;
 }
