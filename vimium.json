@@ -1,14 +1,14 @@
 {
   "waitForEnterForFilteredHints": false,
   "hideHud": true,
-  "keyMappings": "map s LinkHints.activateMode action=hover\nmap a LinkHints.activateMode action=focus\nmap c LinkHints.activateMode action=copy-text\nmap o LinkHints.activateModeWithQueue\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nunmap <a-f>",
+  "keyMappings": "map s LinkHints.activateMode action=hover\nmap a LinkHints.activateMode action=focus\nmap c LinkHints.activateMode action=copy-text\nmap o LinkHints.activateModeWithQueue\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nunmap <a-f>\nunmap t",
   "linkHintCharacters": "fjdksla;gheiworum",
   "regexFindMode": true,
   "ignoreKeyboardLayout": true,
   "scrollStepSize": 40,
   "grabBackFocus": true,
   "searchEngines": "",
-  "settingsVersion": "2.0.4",
+  "settingsVersion": "2.0.5",
   "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n\t/* linkhint boxes */\n\tbackground: #ffafd7 !important;\n\tborder: none !important;\n}\n\ndiv > .vimiumHintMarker span {\n\t/* linkhint text */\n\tfont-family: 'UbuntuMono';\n\tcolor: black;\n\tfont-weight: bold;\n\tfont-size: 10px !important;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}",
   "exclusionRules": []
 }
