@@ -27,3 +27,9 @@
 #FF8787 — redder_pink — **
 #D4BE98 — white       — **
 ```
+
+## Micha's pink
+
+```
+#FFAA99 — pink — *255 170 153*
+```
