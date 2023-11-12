@@ -18,14 +18,13 @@
 ```
 #FFAFD7 — pink        — *255 175 215*
 #AF87FF — purple      ­— *175 135 255*
-#878787 — grey        — **
+#878787 — grey        — *135 135 135*
 #FFD75F — yellow      — *255 215 95*
-#87FF5F — green       — **
-#00D7FF — cyan        — **
-#FF005F — red         — **
-#FF8700 — orange      — **
-#FF8787 — redder_pink — **
-#D4BE98 — white       — **
+#87FF5F — green       — *135 255 95*
+#00D7FF — cyan        — *0   215 255*
+#FF005F — red         — *255 0   95*
+#FF8700 — orange      — *255 135 0*
+#FF8787 — redder_pink — *255 135 135*
 ```
 
 ## Micha's pink
