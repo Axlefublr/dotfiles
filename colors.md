@@ -8,7 +8,7 @@
 
 #A9B665 — green
 
-#89B482 — greean
+#89B482 — mint
 
 #7DAEA3 — cyan
 

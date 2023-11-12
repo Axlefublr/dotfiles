@@ -157,7 +157,7 @@
 				"scope": [ ]
 			},
 			{
-				"name": "greean",
+				"name": "mint",
 				"settings": {
 					"foreground": "#89B482",
 					"fontStyle": ""
@@ -169,7 +169,7 @@
 				]
 			},
 			{
-				"name": "greean bold",
+				"name": "mint bold",
 				"settings": {
 					"foreground": "#89B482",
 					"fontStyle": "bold"
@@ -180,7 +180,7 @@
 				]
 			},
 			{
-				"name": "greean italic",
+				"name": "mint italic",
 				"settings": {
 					"foreground": "#89B482",
 					"fontStyle": "italic"
