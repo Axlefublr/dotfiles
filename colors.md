@@ -1,16 +1,16 @@
 ## Gruvbox material
 
 ```
-#EA6962 — red        — **
-#E78A4E — orange     — **
-#D8A657 — yellow     — **
-#A9B665 — green      — **
-#89B482 — mint       — **
-#7DAEA3 — cyan       — **
-#D3869B — purple     — **
-#D4BE98 — white      — **
-#928374 — grey       — **
-#292828 — background — **
+#EA6962 — red        — *234 105 98*
+#E78A4E — orange     — *231 138 78*
+#D8A657 — yellow     — *216 166 87*
+#A9B665 — green      — *169 182 101*
+#89B482 — mint       — *137 180 130*
+#7DAEA3 — cyan       — *125 174 163*
+#D3869B — purple     — *211 134 155*
+#D4BE98 — white      — *212 190 152*
+#928374 — grey       — *146 131 116*
+#292828 — background — *41  40  40*
 ```
 
 ## Shell prompt
