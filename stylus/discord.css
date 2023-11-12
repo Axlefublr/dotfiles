@@ -1,0 +1,13 @@
+/* https://discord.com
+ * urls starting with
+ */
+
+/* chat input box */
+#app-mount > div.appAsidePanelWrapper__714a6 > div.notAppAsidePanel__9d124 > div.app_b1f720 > div > div.layers__1c917.layers_a23c37 > div > div > div > div > div.chat__52833 > div.content__1a4fe > div > div.chatContainer__23434 > main > form > div.channelTextArea__2e60f.channelTextArea__56a36 > div {
+	overflow-y: hidden;
+}
+
+/* div that holds the chat input box */
+#app-mount > div.appAsidePanelWrapper__714a6 > div.notAppAsidePanel__9d124 > div.app_b1f720 > div > div.layers__1c917.layers_a23c37 > div > div > div > div > div.chat__52833 > div.content__1a4fe > div > div.chatContainer__23434 > main > form > div > div > div {
+	padding: 0 16px;
+}
