@@ -24,7 +24,7 @@
 #00D7FF — cyan        — *0   215 255*
 #FF005F — red         — *255 0   95*
 #FF8700 — orange      — *255 135 0*
-#FF8787 — redder_pink — *255 135 135*
+#FF8787 — coral       — *255 135 135*
 ```
 
 ## Micha's pink
