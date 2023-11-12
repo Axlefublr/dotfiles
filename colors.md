@@ -18,6 +18,8 @@
 
 #928374 — grey
 
+#292828 — background
+
 ## Shell prompt
 
 #FFAFD7 — pink — *255 175 215*
