@@ -1,0 +1,13 @@
+/* https://www.glanceoflife.com/statuses
+ * urls starting with
+ */
+
+/* buttons between images */
+div.tool {
+	display: none;
+}
+
+/* back to the top button */
+#back-top {
+	display: none !important;
+}
