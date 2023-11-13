@@ -53,5 +53,6 @@ function work
 		clear
 	end
 	clear
+	kitten @set-window-title
 end
 funcsave work > /dev/null
