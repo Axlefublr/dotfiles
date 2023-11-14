@@ -23,8 +23,11 @@
 	display: none;
 }
 
-/* pre-selector channel name */
-#account-name {
+/* pfps in switcher */
+#contentIcon {
+	display: none;
+}
+
 	display: none;
 }
 /* pre-selector channel nickname */
