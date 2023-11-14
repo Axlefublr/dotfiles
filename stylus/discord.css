@@ -100,6 +100,7 @@
 	display: none;
 }
 
+/* top toolbar */
 #app-mount
 	> div.appAsidePanelWrapper__714a6
 	> div.notAppAsidePanel__9d124
@@ -113,4 +114,61 @@
 	> div.chat__52833
 	> section {
 	padding: 0 5px;
+}
+
+/* information button in top toolbar */
+#app-mount
+	> div.appAsidePanelWrapper__714a6
+	> div.notAppAsidePanel__9d124
+	> div.app_b1f720
+	> div
+	> div.layers__1c917.layers_a23c37
+	> div
+	> div
+	> div
+	> div
+	> div.chat__52833
+	> section
+	> div
+	> div.toolbar__88c63
+	> a {
+	display: none;
+}
+
+/* show member list buttong in top toolbar */
+#app-mount
+	> div.appAsidePanelWrapper__714a6
+	> div.notAppAsidePanel__9d124
+	> div.app_b1f720
+	> div
+	> div.layers__1c917.layers_a23c37
+	> div
+	> div
+	> div
+	> div
+	> div.chat__52833
+	> section
+	> div
+	> div.toolbar__88c63
+	> div:nth-child(4) {
+	display: none;
+}
+
+/* notifications button in top toolbar */
+#app-mount
+	> div.appAsidePanelWrapper__714a6
+	> div.notAppAsidePanel__9d124
+	> div.app_b1f720
+	> div
+	> div.layers__1c917.layers_a23c37
+	> div
+	> div
+	> div
+	> div
+	> div.chat__52833
+	> section
+	> div
+	> div.toolbar__88c63
+	> div:nth-child(2) {
+	display: none;
 }
