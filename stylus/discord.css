@@ -295,3 +295,8 @@
 .fontSize16Padding__48818 {
 	padding-top: 8px;
 }
+
+/* between last chat message and inputbox */
+.scrollerSpacer__9cd32 {
+	height: 22px;
+}
