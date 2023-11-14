@@ -196,3 +196,22 @@
 #channels > ul > div.container__4f639.containerWithMargin__7d380 {
 	padding: 0 0 11px 4px;
 }
+
+/* channel description at the top */
+#app-mount
+	> div.appAsidePanelWrapper__714a6
+	> div.notAppAsidePanel__9d124
+	> div.app_b1f720
+	> div
+	> div.layers__1c917.layers_a23c37
+	> div
+	> div
+	> div
+	> div
+	> div.chat__52833
+	> section
+	> div
+	> div.children__32014
+	> div.topic__16ae3.expandable_ddf73d {
+	margin: 4px 0 0 8px;
+}
