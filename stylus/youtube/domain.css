@@ -5,6 +5,10 @@
 #header.style-scope.ytd-account-section-list-renderer {
 	display: none;
 }
+/* pre-switcher header */
+#contentWrapper > ytd-multi-page-menu-renderer > #header {
+	display: none;
+}
 
 /* undeletable non-business channel */
 #contents > ytd-account-item-renderer:nth-child(1) {
