@@ -11,3 +11,8 @@
 #app-mount > div.appAsidePanelWrapper__714a6 > div.notAppAsidePanel__9d124 > div.app_b1f720 > div > div.layers__1c917.layers_a23c37 > div > div > div > div > div.chat__52833 > div.content__1a4fe > div > div.chatContainer__23434 > main > form > div > div > div {
 	padding: 0 16px;
 }
+
+/* discover button, separator, and "download apps" button */
+#app-mount > div.appAsidePanelWrapper__714a6 > div.notAppAsidePanel__9d124 > div.app_b1f720 > div > div.layers__1c917.layers_a23c37 > div > div > nav > ul > div.scroller__3d071.none__51a8f.scrollerBase_dc3aa9 > div:nth-child(n+5):nth-child(-n+7) {
+	display: none;
+}
