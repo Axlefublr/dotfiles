@@ -290,3 +290,8 @@
 	> div:nth-child(2) {
 	display: none;
 }
+
+/* text holder in inputbox */
+.fontSize16Padding__48818 {
+	padding-top: 8px;
+}
