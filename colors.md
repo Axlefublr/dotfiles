@@ -1,3 +1,13 @@
+## Chart
+
+```
+#E94C3D — red
+#E67D22 — orange
+#EEC110 — yellow
+#2FCC72 — green
+#3497DA — blue
+```
+
 ## Gruvbox material
 
 ```
