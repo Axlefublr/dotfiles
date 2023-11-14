@@ -99,3 +99,18 @@
 	div.pill__6b31b.wrapper__3670f {
 	display: none;
 }
+
+#app-mount
+	> div.appAsidePanelWrapper__714a6
+	> div.notAppAsidePanel__9d124
+	> div.app_b1f720
+	> div
+	> div.layers__1c917.layers_a23c37
+	> div
+	> div
+	> div
+	> div
+	> div.chat__52833
+	> section {
+	padding: 0 5px;
+}
