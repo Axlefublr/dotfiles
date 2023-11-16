@@ -35,7 +35,11 @@ funcsave alarm > /dev/null
 function pom
 	while true
 		kitten @set-window-title action
-		termdown 25m || break
+		if set -q argv[1]
+			termdown $argv[1] || break
+		else
+			termdown 25m || break
+		end
 		echo "You just acted! Rest now?"
 		read -ln 1 should_continue
 		if not test $should_continue
@@ -44,7 +48,11 @@ function pom
 		clear
 
 		kitten @set-window-title rest
-		termdown 5m || break
+		if set -q argv[2]
+			termdown $argv[2] || break
+		else
+			termdown 5m || break
+		end
 		echo "You just rested! Act now?"
 		read -ln 1 should_continue
 		if not test $should_continue
