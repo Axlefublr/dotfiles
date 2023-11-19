@@ -27,6 +27,19 @@
 #contentIcon {
 	display: none;
 }
+/* pfps in notifications */
+yt-img-shadow#avatar {
+	display: none;
+}
+/* blue notification markers in notification popout */
+div#new.ytd-notification-renderer {
+	display: none;
+}
+
+/* each singular notification */
+ytd-notification-renderer {
+	padding: 16px;
+}
 
 /* sign out */
 yt-multi-page-menu-section-renderer:first-of-type > #items > ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(3) {
