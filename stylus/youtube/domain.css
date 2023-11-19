@@ -28,31 +28,8 @@
 	display: none;
 }
 
-/* google account in pre-switcher */
-yt-multi-page-menu-section-renderer:first-of-type > #items > ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(1) {
-	display: none;
-}
 /* sign out */
 yt-multi-page-menu-section-renderer:first-of-type > #items > ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(3) {
-	display: none;
-}
-
-/* purchases and memberships */
-yt-multi-page-menu-section-renderer:nth-of-type(2) > #items > ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(2) {
-	display: none;
-}
-
-/* your data in youtube */
-yt-multi-page-menu-section-renderer:nth-of-type(3) > #items > ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(1) {
-	display: none;
-}
-/* keyboard shortcuts */
-yt-multi-page-menu-section-renderer:nth-of-type(3) > #items > ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(6) {
-	display: none;
-}
-
-/* help and send data section in pre switcher */
-yt-multi-page-menu-section-renderer:last-of-type {
 	display: none;
 }
 
