@@ -63,3 +63,13 @@ function atc
 	alien_temple consent | tee /dev/tty | xclip -r -selection clipboard
 end
 funcsave atc > /dev/null
+
+function uboot
+	paru
+	rustup update
+	read -ln 1 response
+	if test $response = " "
+		reboot
+	end
+end
+funcsave uboot > /dev/null
