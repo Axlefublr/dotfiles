@@ -67,6 +67,7 @@ funcsave atc > /dev/null
 function uboot
 	paru
 	rustup update
+	cargo install-update -a
 	read -ln 1 response
 	if test $response = " "
 		reboot
