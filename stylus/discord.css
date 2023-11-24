@@ -3,7 +3,7 @@
  */
 
 :root {
-	--font-code: JetBrainsMono Nerd Font, Consolas, "Andale Mono WT", "Andale Mono",
+	--font-code: JetBrainsMono NF, JetBrainsMono Nerd Font, Consolas, "Andale Mono WT", "Andale Mono",
 		"Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
 		"Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }

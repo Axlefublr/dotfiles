@@ -595,7 +595,7 @@
 	"task.quickOpen.skip": true,
 	"Lua.semantic.keyword": true,
 	"editor.indentSize": 4,
-	"editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji'",
+	"editor.fontFamily": "'JetBrainsMono NF', 'JetBrainsMono Nerd Font', 'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji'",
 	"editor.fontWeight": "normal",
 	"editor.fontSize": 14,
 	"screencastMode.fontSize": 26,
