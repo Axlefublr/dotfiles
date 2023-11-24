@@ -45,6 +45,12 @@ div#item-offset.style-scope.yt-live-chat-item-list-renderer {
 	min-width: 10px !important;
 }
 
+/* down arrow that appears when you have stuff to scroll down to */
+yt-icon-button.yt-live-chat-item-list-renderer {
+	background-color: var(--shell-yellow);
+	color: var(--smooth-black);
+}
+
 /* place for chat, scrollable area */
 yt-live-chat-app {
 	min-width: 10px !important;
