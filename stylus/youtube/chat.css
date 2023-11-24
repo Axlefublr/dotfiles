@@ -1,6 +1,30 @@
 /*starts with*/
 /*https://studio.youtube.com/live_chat?is_popout*/
 
+:root {
+	--shell-yellow: #ffd75f;
+	--smooth-black: hsl(0, 0%, 6.7%);
+	--gruvbox-background: #292828;
+	--gruvbox-white: #d4be98;
+}
+
+html {
+	--yt-deprecated-blue: var(--shell-yellow);
+	--yt-live-chat-author-chip-owner-background-color: var(--shell-yellow);
+	--yt-spec-base-background: var(--gruvbox-background) !important;
+}
+
+html[dark],
+[dark] {
+	--yt-spec-general-background-b: var(--gruvbox-background);
+	--yt-spec-raised-background: var(--gruvbox-background);
+	--yt-spec-static-brand-white: var(--gruvbox-white);
+}
+
+body {
+	font-family: Ubuntu Nerd Font, Roboto, Arial, sans-serif;
+}
+
 #reaction-control-panel {
 	display: none;
 }
@@ -50,12 +74,6 @@ yt-live-chat-author-chip.style-scope.yt-live-chat-message-input-renderer {
 	display: none;
 }
 
-/* underline of my chat, when focused */
-html {
-	--yt-deprecated-blue: #FFD75F;
-	--yt-live-chat-author-chip-owner-background-color: #FFD75F;
-}
-
 /* each singular chat message container */
 yt-live-chat-text-message-renderer {
 	padding: 4px 11px;
@@ -64,8 +82,4 @@ yt-live-chat-text-message-renderer {
 /* each singular chat message pfp container */
 #author-photo.yt-live-chat-text-message-renderer {
 	margin-right: 9px;
-}
-
-body {
-	font-family: Ubuntu Nerd Font, Roboto, Arial, sans-serif;
 }
