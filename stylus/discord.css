@@ -8,22 +8,22 @@
 		"Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New",
 		Courier, monospace;
 	--font-weight-semibold-1x-light-theme: 600;
-	--shell-pink: #ffafd7;
-	--shell-coral: #ff8787;
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
+	--gruvbox-yellow: #D8A657;
+	--gruvbox-orange: #E78A4E;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-middle-background: hsl(0, 1%, 15%);
 	--gruvbox-darker-background: hsl(0, 1%, 13%);
 	--text-normal: var(--gruvbox-white);
 	--text-muted: var(--gruvbox-grey);
-	--text-link: var(--shell-pink);
-	--header-primary: var(--shell-pink);
-	--brand-experiment: var(--shell-pink);
-	--interactive-active: var(--shell-pink);
+	--text-link: var(--gruvbox-yellow);
+	--header-primary: var(--gruvbox-white);
+	--brand-experiment: var(--gruvbox-yellow);
+	--interactive-active: var(--gruvbox-yellow);
 	--interactive-normal: var(--gruvbox-white);
-	--interactive-hover: var(--shell-coral);
+	--interactive-hover: var(--gruvbox-orange);
 	--interactive-muted: var(--gruvbox-grey);
 	--channels-default: var(--gruvbox-white);
 	--channel-icon: var(--gruvbox-white);
@@ -371,5 +371,5 @@
 
 /* discover servers button selected */
 .circleIconButton_d8df29.selected__5250e {
-	background-color: var(--shell-pink);
+	background-color: var(--gruvbox-yellow);
 }
