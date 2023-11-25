@@ -4,10 +4,12 @@
 
 :root {
 	--gruvbox-white: #d4be98;
+	--gruvbox-background: hsl(0, 1%, 16%);
 	--font-code: JetBrainsMono NF, JetBrainsMono Nerd Font, Consolas, "Andale Mono WT", "Andale Mono",
 		"Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
 		"Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 	--text-normal: var(--gruvbox-white);
+	--background-primary: var(--gruvbox-background);
 }
 
 /* chat input box */
