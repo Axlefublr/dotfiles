@@ -21,6 +21,7 @@
 	--text-muted: var(--gruvbox-grey);
 	--text-link: var(--shell-yellow);
 	--header-primary: var(--gruvbox-white);
+	--header-secondary: var(--gruvbox-white);
 	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
 	--interactive-active: var(--shell-yellow);
