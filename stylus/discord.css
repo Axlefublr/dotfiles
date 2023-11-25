@@ -382,3 +382,13 @@
 	> h2 {
 	display: none;
 }
+
+/* discover servers button */
+.circleIconButton_d8df29 {
+	color: var(--gruvbox-white);
+}
+
+/* discover servers button selected */
+.circleIconButton_d8df29.selected__5250e {
+	background-color: var(--shell-pink);
+}
