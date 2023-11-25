@@ -28,6 +28,7 @@
 	--channels-default: var(--gruvbox-white);
 	--channel-icon: var(--gruvbox-white);
 	--channeltextarea-background: var(--gruvbox-lighter-background);
+	--channel-text-area-placeholder: var(--gruvbox-grey);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
 	--background-modifier-hover: var(--gruvbox-lighter-background);
 	--background-primary: var(--gruvbox-background);
