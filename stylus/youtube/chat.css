@@ -19,6 +19,7 @@ html[dark],
 	--yt-spec-general-background-b: var(--gruvbox-background);
 	--yt-spec-raised-background: var(--gruvbox-background);
 	--yt-spec-static-brand-white: var(--gruvbox-white);
+	--yt-live-chat-secondary-text-color: var(--shell-yellow);
 }
 
 body {
