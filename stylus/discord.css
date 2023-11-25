@@ -14,6 +14,7 @@
 		"Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 	--text-normal: var(--gruvbox-white);
 	--text-muted: var(--gruvbox-grey);
+	--channels-default: var(--gruvbox-white);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
