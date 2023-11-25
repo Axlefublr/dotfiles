@@ -30,6 +30,7 @@
 	--channel-text-area-placeholder: var(--gruvbox-grey);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
 	--background-modifier-hover: var(--gruvbox-lighter-background);
+	--background-message-hover: var(--gruvbox-lighter-background);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
