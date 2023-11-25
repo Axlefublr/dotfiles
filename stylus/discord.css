@@ -6,6 +6,7 @@
 	--font-code: JetBrainsMono NF, JetBrainsMono Nerd Font, Consolas, "Andale Mono WT", "Andale Mono",
 		"Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
 		"Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+	--shell-pink: #ffafd7;
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
@@ -14,6 +15,7 @@
 	--gruvbox-darker-background: hsl(0, 1%, 13%);
 	--text-normal: var(--gruvbox-white);
 	--text-muted: var(--gruvbox-grey);
+	--interactive-active: var(--shell-pink);
 	--channels-default: var(--gruvbox-white);
 	--channeltextarea-background: var(--gruvbox-lighter-background);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
