@@ -26,6 +26,11 @@ body {
 	font-family: Ubuntu Nerd Font, Roboto, Arial, sans-serif;
 }
 
+/* "Chat..." */
+#label.yt-live-chat-text-input-field-renderer {
+	color: var(--gruvbox-white);
+}
+
 #reaction-control-panel {
 	display: none;
 }
