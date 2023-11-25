@@ -377,3 +377,13 @@
 .circleIconButton_d8df29.selected__5250e {
 	background-color: var(--gruvbox-yellow);
 }
+
+/* discord server nitro boosting level */
+#channels
+	> ul
+	> div.container__4f639.containerWithMargin__7d380
+	> div.textArea_f2029c
+	> div.goalTextContainer_b4492d
+	> div {
+	color: var(--gruvbox-white) !important;
+}
