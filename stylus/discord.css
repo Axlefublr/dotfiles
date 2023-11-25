@@ -8,6 +8,7 @@
 		"Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New",
 		Courier, monospace;
 	--font-weight-semibold-1x-light-theme: 500;
+	--smooth-black: hsl(0, 0%, 6.7%);
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
 	--shell-yellow: #ffd75f;
@@ -77,6 +78,8 @@
 	--scrollbar-thin-track: var(--gruvbox-darker-background);
 	--scrollbar-thin-thumb: var(--gruvbox-lighter-background);
 
+	--status-positive-text: var(--smooth-black);
+	--status-positive-background: var(--shell-yellow);
 }
 
 /* chat input box */
