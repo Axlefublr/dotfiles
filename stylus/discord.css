@@ -389,3 +389,8 @@
 	> div {
 	color: var(--gruvbox-white) !important;
 }
+
+/* strange gradient at the end of top bar */
+.theme-dark .children__32014:after {
+	background: unset;
+}
