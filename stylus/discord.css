@@ -10,8 +10,8 @@
 	--font-weight-semibold-1x-light-theme: 500;
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
-	--gruvbox-yellow: #d8a657;
-	--gruvbox-orange: #e78a4e;
+	--shell-yellow: #ffd75f;
+	--shell-orange: #FF8700;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
@@ -19,13 +19,13 @@
 	--gruvbox-background-orange: hsl(26, 10%, 20%);
 	--text-normal: var(--gruvbox-white);
 	--text-muted: var(--gruvbox-grey);
-	--text-link: var(--gruvbox-yellow);
+	--text-link: var(--shell-yellow);
 	--header-primary: var(--gruvbox-white);
-	--brand-experiment: var(--gruvbox-yellow);
+	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
-	--interactive-active: var(--gruvbox-yellow);
+	--interactive-active: var(--shell-yellow);
 	--interactive-normal: var(--gruvbox-white);
-	--interactive-hover: var(--gruvbox-orange);
+	--interactive-hover: var(--shell-orange);
 	--interactive-muted: var(--gruvbox-grey);
 	--channels-default: var(--gruvbox-white);
 	--channel-icon: var(--gruvbox-white);
@@ -39,6 +39,7 @@
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
 	--background-secondary-alt: var(--gruvbox-darker-background);
+	--bg-overlay-2: var(--gruvbox-darker-background);
 	--scrollbar-auto-track: var(--gruvbox-lighter-background);
 	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
 	--scrollbar-thin-track: var(--gruvbox-darker-background);
@@ -375,7 +376,7 @@
 
 /* discover servers button selected */
 .circleIconButton_d8df29.selected__5250e {
-	background-color: var(--gruvbox-yellow);
+	background-color: var(--shell-yellow);
 }
 
 /* discord server nitro boosting level */
