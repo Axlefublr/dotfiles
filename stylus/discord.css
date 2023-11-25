@@ -4,6 +4,7 @@
 
 :root {
 	--gruvbox-white: #d4be98;
+	--gruvbox-grey: #928374;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-middle-background: hsl(0, 1%, 15%);
@@ -12,6 +13,7 @@
 		"Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
 		"Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 	--text-normal: var(--gruvbox-white);
+	--text-muted: var(--gruvbox-grey);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
