@@ -9,6 +9,7 @@
 		Courier, monospace;
 	--font-weight-semibold-1x-light-theme: 600;
 	--shell-pink: #ffafd7;
+	--shell-coral: #ff8787;
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
@@ -22,7 +23,7 @@
 	--brand-experiment: var(--shell-pink);
 	--interactive-active: var(--shell-pink);
 	--interactive-normal: var(--gruvbox-white);
-	--interactive-hover: var(--shell-pink);
+	--interactive-hover: var(--shell-coral);
 	--interactive-muted: var(--gruvbox-grey);
 	--channels-default: var(--gruvbox-white);
 	--channel-icon: var(--gruvbox-white);
