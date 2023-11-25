@@ -6,6 +6,7 @@
 	--gruvbox-white: #d4be98;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
+	--gruvbox-middle-background: hsl(0, 1%, 15%);
 	--gruvbox-darker-background: hsl(0, 1%, 13%);
 	--font-code: JetBrainsMono NF, JetBrainsMono Nerd Font, Consolas, "Andale Mono WT", "Andale Mono",
 		"Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
@@ -14,6 +15,7 @@
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
+	--background-secondary-alt: var(--gruvbox-middle-background);
 	--channeltextarea-background: var(--gruvbox-lighter-background);
 }
 
