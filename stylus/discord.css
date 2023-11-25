@@ -17,6 +17,7 @@
 	--text-normal: var(--gruvbox-white);
 	--text-muted: var(--gruvbox-grey);
 	--text-link: var(--shell-pink);
+	--header-primary: var(--shell-pink);
 	--interactive-active: var(--shell-pink);
 	--channels-default: var(--gruvbox-white);
 	--channeltextarea-background: var(--gruvbox-lighter-background);
