@@ -18,34 +18,6 @@
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
 	--gruvbox-background-yellow: hsl(60, 10%, 20%);
 	--gruvbox-background-orange: hsl(26, 10%, 20%);
-	--text-normal: var(--gruvbox-white);
-	--text-muted: var(--gruvbox-grey);
-	--text-link: var(--shell-yellow);
-	--header-primary: var(--gruvbox-white);
-	--header-secondary: var(--gruvbox-white);
-	--brand-experiment: var(--shell-yellow);
-	--brand-experiment-10a: var(--gruvbox-background-orange);
-	--interactive-active: var(--shell-yellow);
-	--interactive-normal: var(--gruvbox-white);
-	--interactive-hover: var(--shell-orange);
-	--interactive-muted: var(--gruvbox-grey);
-	--channels-default: var(--gruvbox-white);
-	--channel-icon: var(--gruvbox-white);
-	--channeltextarea-background: var(--gruvbox-lighter-background);
-	--channel-text-area-placeholder: var(--gruvbox-grey);
-	--background-modifier-selected: var(--gruvbox-lighter-background);
-	--background-modifier-hover: var(--gruvbox-lighter-background);
-	--background-message-highlight: var(--gruvbox-background-yellow);
-	--background-message-hover: var(--gruvbox-lighter-background);
-	--background-primary: var(--gruvbox-background);
-	--background-tertiary: var(--gruvbox-background); /* left side server list */
-	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
-	--background-secondary-alt: var(--gruvbox-darker-background);
-	--bg-overlay-2: var(--gruvbox-darker-background);
-	--scrollbar-auto-track: var(--gruvbox-lighter-background);
-	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
-	--scrollbar-thin-track: var(--gruvbox-darker-background);
-	--scrollbar-thin-thumb: var(--gruvbox-lighter-background);
 }
 
 .theme-dark {
