@@ -270,7 +270,7 @@
 	padding: 0 12px;
 }
 
-/* gif picker */
+/* sticker, gif, emoji pickers */
 #app-mount
 	> div.appAsidePanelWrapper__714a6
 	> div.notAppAsidePanel__9d124
@@ -291,32 +291,7 @@
 	> div
 	> div
 	> div.buttons_ce5b56
-	> div:nth-child(1) {
-	display: none;
-}
-
-/* sticker picker */
-#app-mount
-	> div.appAsidePanelWrapper__714a6
-	> div.notAppAsidePanel__9d124
-	> div.app_b1f720
-	> div
-	> div.layers__1c917.layers_a23c37
-	> div
-	> div
-	> div
-	> div
-	> div.chat__52833
-	> div.content__1a4fe
-	> div
-	> div.chatContainer__23434
-	> main
-	> form
-	> div
-	> div
-	> div
-	> div.buttons_ce5b56
-	> div:nth-child(2) {
+	> div.expression-picker-chat-input-button.buttonContainer__8b164 {
 	display: none;
 }
 
