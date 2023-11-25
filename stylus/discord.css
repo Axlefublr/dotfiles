@@ -4,6 +4,7 @@
 
 :root {
 	--gruvbox-white: #d4be98;
+	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--font-code: JetBrainsMono NF, JetBrainsMono Nerd Font, Consolas, "Andale Mono WT", "Andale Mono",
 		"Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
@@ -11,6 +12,7 @@
 	--text-normal: var(--gruvbox-white);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
+	--channeltextarea-background: var(--gruvbox-lighter-background);
 }
 
 /* chat input box */
