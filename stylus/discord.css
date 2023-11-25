@@ -35,6 +35,10 @@
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
 	--background-secondary-alt: var(--gruvbox-middle-background);
+	--scrollbar-auto-track: var(--gruvbox-lighter-background);
+	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
+	--scrollbar-thin-track: var(--gruvbox-darker-background);
+	--scrollbar-thin-thumb: var(--gruvbox-lighter-background);
 }
 
 /* chat input box */
