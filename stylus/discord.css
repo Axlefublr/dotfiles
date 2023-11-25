@@ -16,6 +16,7 @@
 	--text-muted: var(--gruvbox-grey);
 	--channels-default: var(--gruvbox-white);
 	--channeltextarea-background: var(--gruvbox-lighter-background);
+	--background-modifier-selected: var(--gruvbox-lighter-background);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
