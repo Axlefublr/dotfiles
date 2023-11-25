@@ -23,6 +23,7 @@
 	--interactive-active: var(--shell-pink);
 	--interactive-normal: var(--gruvbox-white);
 	--interactive-hover: var(--shell-pink);
+	--interactive-muted: var(--gruvbox-grey);
 	--channels-default: var(--gruvbox-white);
 	--channel-icon: var(--gruvbox-white);
 	--channeltextarea-background: var(--gruvbox-lighter-background);
