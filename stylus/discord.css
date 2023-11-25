@@ -20,6 +20,7 @@
 	--header-primary: var(--shell-pink);
 	--interactive-active: var(--shell-pink);
 	--interactive-normal: var(--gruvbox-white);
+	--interactive-hover: var(--shell-pink);
 	--channels-default: var(--gruvbox-white);
 	--channeltextarea-background: var(--gruvbox-lighter-background);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
