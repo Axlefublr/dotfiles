@@ -47,6 +47,13 @@
 	--scrollbar-thin-thumb: var(--gruvbox-lighter-background);
 }
 
+.theme-dark {
+	--header-primary: var(--gruvbox-white);
+	--interactive-active: var(--shell-yellow);
+	--interactive-normal: var(--gruvbox-white);
+	--channel-icon: var(--gruvbox-white);
+}
+
 /* chat input box */
 #app-mount
 	> div.appAsidePanelWrapper__714a6
