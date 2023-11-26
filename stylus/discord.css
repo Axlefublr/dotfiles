@@ -93,6 +93,7 @@
 	--button-outline-danger-background-active: var(--shell-red);
 	--button-outline-danger-background-hover: var(--shell-orange);
 	--profile-body-background-color: var(--gruvbox-darkerest-background);
+	--profile-body-background-hover: var(--shell-orange);
 	--mention-background: var(--shell-yellow);
 	--mention-foreground: var(--smooth-black);
 	--input-background: var(--gruvbox-lighter-background);
