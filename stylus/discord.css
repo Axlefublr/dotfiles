@@ -402,3 +402,8 @@
 .theme-dark .children__32014:after {
 	background: unset;
 }
+
+/* message editing inputbox */
+div.channelTextArea_af1f8b.channelTextArea__56a36 > div {
+	border: 1px solid var(--shell-yellow);
+}
