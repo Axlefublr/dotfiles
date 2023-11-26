@@ -54,6 +54,7 @@
 	--status-positive-background: var(--shell-yellow);
 	--button-positive-background: var(--shell-yellow);
 	--button-secondary-background: var(--gruvbox-darker-background);
+	--profile-body-background-color: var(--gruvbox-darker-background);
 }
 
 /* chat input box */
@@ -431,3 +432,7 @@ div.attachedBars_da3c74 > div {
 	color: var(--gruvbox-white);
 }
 
+/* user profile background */
+.userProfileInnerThemedNonPremium__3d0a6 {
+	background: var(--gruvbox-background);
+}
