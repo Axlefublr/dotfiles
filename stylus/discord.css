@@ -11,6 +11,7 @@
 	--smooth-black: hsl(0, 0%, 6.7%);
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
+	--shell-pink: #ffafd7;
 	--shell-red: #ff005f;
 	--shell-yellow: #ffd75f;
 	--shell-orange: #ff8700;
@@ -28,6 +29,7 @@
 	--text-muted: var(--gruvbox-grey);
 	--text-link: var(--shell-yellow);
 	--text-brand: var(--shell-yellow);
+	--textbox-markdown-syntax: var(--gruvbox-white);
 	--header-primary: var(--gruvbox-white);
 	--header-secondary: var(--gruvbox-white);
 	--primary-400: var(--gruvbox-white);
