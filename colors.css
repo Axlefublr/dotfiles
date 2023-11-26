@@ -1,0 +1,45 @@
+.shell {
+	--red: #ff005f;
+	--coral: #ff8787;
+	--pink: #ffafd7;
+	--purple: #af87ff;
+	--cyan: #00d7ff;
+	--orange: #ff8700;
+	--yellow: #ffd75f;
+	--green: #87ff5f;
+	--grey: #878787;
+}
+
+.gruvbox-material {
+	--red: #ea6962;
+	--orange: #e78a4e;
+	--yellow: #d8a657;
+	--green: #a9b665;
+	--mint: #89b482;
+	--cyan: #7daea3;
+	--purple: #d3869b;
+	--white: #d4be98;
+	--grey: #928374;
+}
+
+.gruvbox-material.background {
+	--lighter: hsl(0, 1%, 19%);
+	--level: hsl(0, 1%, 16%);
+	--darker: hsl(0, 1%, 14%);
+	--darkerest: hsl(0, 1%, 13%);
+}
+.gruvbox-material.background.hex {
+	--leel: #292828;
+}
+
+.chart {
+	--red: #e94c3d;
+	--orange: #e67d22;
+	--yellow: #eec110;
+	--green: #2fcc72;
+	--blue: #3497da;
+}
+
+.extra {
+	--micha-pink: #ffaa99;
+}
