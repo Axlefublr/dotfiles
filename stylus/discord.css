@@ -463,6 +463,16 @@ div.attachedBars_da3c74 > div {
 	border-color: var(--shell-orange);
 }
 
+/* find or start a conversation */
+.searchBar_e4ea2a .searchBarComponent__22760 {
+	background-color: var(--gruvbox-lighter-background);
+}
+
+/* ctrl+f search */
+.searchBar_e0c60b {
+	background-color: var(--gruvbox-lighter-background);
+}
+
 /* normal selected button, like in ∴ friend floating menu */
 .colorDefault__0b482.focused__27621,
 /* in a dm, "accept" friend button */
