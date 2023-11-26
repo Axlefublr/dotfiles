@@ -16,6 +16,7 @@
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
+	--gruvbox-darkerest-background: hsl(0, 1%, 13%);
 	--gruvbox-background-yellow: hsl(60, 10%, 20%);
 	--gruvbox-background-orange: hsl(26, 10%, 20%);
 }
@@ -53,8 +54,8 @@
 	--status-positive-text: var(--smooth-black);
 	--status-positive-background: var(--shell-yellow);
 	--button-positive-background: var(--shell-yellow);
-	--button-secondary-background: var(--gruvbox-darker-background);
-	--profile-body-background-color: var(--gruvbox-darker-background);
+	--button-secondary-background: var(--gruvbox-darkerest-background);
+	--profile-body-background-color: var(--gruvbox-darkerest-background);
 }
 
 /* chat input box */
