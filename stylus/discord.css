@@ -11,6 +11,7 @@
 	--smooth-black: hsl(0, 0%, 6.7%);
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
+	--shell-red: #ff005f;
 	--shell-yellow: #ffd75f;
 	--shell-orange: #ff8700;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
@@ -53,10 +54,12 @@
 	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
 	--scrollbar-thin-track: var(--gruvbox-darker-background);
 	--scrollbar-thin-thumb: var(--gruvbox-lighter-background);
+	--status-danger: var(--shell-red);
 	--status-positive-text: var(--smooth-black);
 	--status-positive-background: var(--shell-yellow);
 	--button-positive-background: var(--shell-yellow);
 	--button-positive-background-hover: var(--shell-orange);
+	--button-danger-background: var(--shell-red);
 	--button-secondary-background: var(--gruvbox-darkerest-background);
 	--button-secondary-background-hover: var(--shell-orange);
 	--profile-body-background-color: var(--gruvbox-darkerest-background);
@@ -446,6 +449,7 @@ div.attachedBars_da3c74 > div {
 	background: var(--gruvbox-background);
 }
 
+/* normal selected button, like in ∴ friend floating menu */
 .colorDefault__0b482.focused__27621 {
 	color: var(--smooth-black);
 }
