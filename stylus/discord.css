@@ -12,7 +12,7 @@
 	--gruvbox-white: #d4be98;
 	--gruvbox-grey: #928374;
 	--shell-yellow: #ffd75f;
-	--shell-orange: #FF8700;
+	--shell-orange: #ff8700;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
@@ -112,7 +112,7 @@
 	> nav
 	> ul
 	> div.scroller__3d071.none__51a8f.scrollerBase_dc3aa9
-	> div:nth-last-of-type(-n+3) {
+	> div:nth-last-of-type(-n + 3) {
 	display: none;
 }
 
