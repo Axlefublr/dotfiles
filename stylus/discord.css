@@ -457,6 +457,12 @@ div.attachedBars_da3c74 > div {
 	background-color: var(--shell-orange);
 }
 
+/* unreacted react hover */
+.reaction_fef95b:hover {
+	background-color: var(--gruvbox-background-orange);
+	border-color: var(--shell-orange);
+}
+
 /* normal selected button, like in ∴ friend floating menu */
 .colorDefault__0b482.focused__27621,
 /* in a dm, "accept" friend button */
