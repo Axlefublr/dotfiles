@@ -53,6 +53,7 @@
 	--status-positive-text: var(--smooth-black);
 	--status-positive-background: var(--shell-yellow);
 	--button-positive-background: var(--shell-yellow);
+	--button-secondary-background: var(--gruvbox-darker-background);
 }
 
 /* chat input box */
@@ -425,3 +426,8 @@ div.attachedBars_da3c74 > div {
 .lookFilled__19298.colorGreen__5f181 {
 	color: var(--smooth-black);
 }
+/* "ignore" friend button */
+.lookFilled__19298.colorPrimary__6ed40 {
+	color: var(--gruvbox-white);
+}
+
