@@ -518,6 +518,11 @@ div.attachedBars_da3c74 > div {
 	color: var(--smooth-black);
 }
 
+.akaBadge__7df41 {
+	color: var(--gruvbox-white) !important;
+	background-color: var(--gruvbox-darkerest-background);
+}
+
 /* browse channels */
 .theme-dark .container__7590f {
 	background-color: var(--gruvbox-background);
