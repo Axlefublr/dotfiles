@@ -450,17 +450,13 @@ div.attachedBars_da3c74 > div {
 }
 
 /* normal selected button, like in ∴ friend floating menu */
-.colorDefault__0b482.focused__27621 {
-	color: var(--smooth-black);
-}
-
+.colorDefault__0b482.focused__27621,
 /* in a dm, "accept" friend button */
-.lookFilled__19298.colorBrand_b2253e.sizeTiny__1b8a2.grow__4c8a4
-	> div {
-	color: var(--smooth-black);
-}
-
+.lookFilled__19298.colorBrand_b2253e.sizeTiny__1b8a2.grow__4c8a4,
 /* "wave to [blank]" text */
-.lookFilled__19298.colorBrand_b2253e {
+.lookFilled__19298.colorBrand_b2253e,
+/* n new messages top status bar */
+.barButtonBase__8fa46,
+.botTagRegular_c89c9a{
 	color: var(--smooth-black);
 }
