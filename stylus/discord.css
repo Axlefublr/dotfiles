@@ -30,6 +30,7 @@
 	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
 	--brand-experiment-15a: var(--gruvbox-background-yellow);
+	--brand-experiment-560: var(--shell-orange);
 	--interactive-active: var(--shell-yellow);
 	--interactive-normal: var(--gruvbox-white);
 	--interactive-hover: var(--shell-orange);
@@ -46,6 +47,7 @@
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
 	--background-secondary-alt: var(--gruvbox-darker-background);
+	--background-floating: var(--gruvbox-darkerest-background);
 	--bg-overlay-2: var(--gruvbox-darker-background);
 	--scrollbar-auto-track: var(--gruvbox-lighter-background);
 	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
@@ -442,4 +444,8 @@ div.attachedBars_da3c74 > div {
 /* user profile background */
 .userProfileInnerThemedNonPremium__3d0a6 {
 	background: var(--gruvbox-background);
+}
+
+.colorDefault__0b482.focused__27621 {
+	color: var(--smooth-black);
 }
