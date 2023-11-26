@@ -23,7 +23,6 @@
 }
 
 .theme-dark {
-	--white-500: var(--smooth-black);
 	--text-normal: var(--gruvbox-white);
 	--text-muted: var(--gruvbox-grey);
 	--text-link: var(--shell-yellow);
@@ -432,12 +431,36 @@ div.attachedBars_da3c74 > div {
 	padding: 0 !important;
 }
 
+/* "accept" friend button */
+.lookFilled__19298.colorGreen__5f181 {
+	color: var(--smooth-black);
+}
 /* "ignore" friend button */
 .lookFilled__19298.colorPrimary__6ed40 {
 	color: var(--gruvbox-white);
+}
+/* "ignore" friend button on hover */
+.lookFilled__19298.colorPrimary__6ed40:hover {
+	color: var(--smooth-black);
 }
 
 /* user profile background */
 .userProfileInnerThemedNonPremium__3d0a6 {
 	background: var(--gruvbox-background);
+}
+
+/* normal selected button, like in ∴ friend floating menu */
+.colorDefault__0b482.focused__27621 {
+	color: var(--smooth-black);
+}
+
+/* in a dm, "accept" friend button */
+.lookFilled__19298.colorBrand_b2253e.sizeTiny__1b8a2.grow__4c8a4
+	> div {
+	color: var(--smooth-black);
+}
+
+/* "wave to [blank]" text */
+.lookFilled__19298.colorBrand_b2253e {
+	color: var(--smooth-black);
 }
