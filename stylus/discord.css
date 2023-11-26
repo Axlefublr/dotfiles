@@ -70,6 +70,8 @@
 	--input-background: var(--gruvbox-lighter-background);
 	--input-placeholder-text: var(--gruvbox-grey);
 	--home-background: var(--gruvbox-darker-background);
+	--modal-background: var(--gruvbox-background);
+	--modal-footer-background: var(--gruvbox-darker-background);
 }
 
 /* chat input box */
