@@ -407,3 +407,16 @@
 div.channelTextArea_af1f8b.channelTextArea__56a36 > div {
 	border: 1px solid var(--shell-yellow);
 }
+
+/* holder + connector for "replying to" line */
+.attachedBars_da3c74 {
+	background: var(--gruvbox-lighter-background);
+}
+/* "replying to" line */
+.replyBar_b64d74 {
+	background: var(--gruvbox-lighter-background);
+}
+/* "replying to" but the place that defines the padding against holder + connector */
+div.attachedBars_da3c74 > div {
+	padding: 0 !important;
+}
