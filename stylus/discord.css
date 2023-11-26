@@ -63,6 +63,8 @@
 	--button-secondary-background: var(--gruvbox-darkerest-background);
 	--button-secondary-background-hover: var(--shell-orange);
 	--profile-body-background-color: var(--gruvbox-darkerest-background);
+	--mention-background: var(--shell-yellow);
+	--mention-foreground: var(--smooth-black);
 }
 
 /* chat input box */
@@ -447,6 +449,12 @@ div.attachedBars_da3c74 > div {
 /* user profile background */
 .userProfileInnerThemedNonPremium__3d0a6 {
 	background: var(--gruvbox-background);
+}
+
+/* hovering over mentions */
+.interactive:hover {
+	color: var(--smooth-black);
+	background-color: var(--shell-orange);
 }
 
 /* normal selected button, like in ∴ friend floating menu */
