@@ -50,9 +50,9 @@
 	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
 	--scrollbar-thin-track: var(--gruvbox-darker-background);
 	--scrollbar-thin-thumb: var(--gruvbox-lighter-background);
-
 	--status-positive-text: var(--smooth-black);
 	--status-positive-background: var(--shell-yellow);
+	--button-positive-background: var(--shell-yellow);
 }
 
 /* chat input box */
@@ -419,4 +419,9 @@ div.channelTextArea_af1f8b.channelTextArea__56a36 > div {
 /* "replying to" but the place that defines the padding against holder + connector */
 div.attachedBars_da3c74 > div {
 	padding: 0 !important;
+}
+
+/* "accept" friend button */
+.lookFilled__19298.colorGreen__5f181 {
+	color: var(--smooth-black);
 }
