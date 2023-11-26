@@ -20,6 +20,7 @@
 	--gruvbox-darkerest-background: hsl(0, 1%, 13%);
 	--gruvbox-background-yellow: hsl(60, 10%, 20%);
 	--gruvbox-background-orange: hsl(26, 10%, 20%);
+	--gruvbox-background-red: hsl(0, 10%, 20%);
 }
 
 .theme-dark {
@@ -68,6 +69,8 @@
 	--button-positive-background: var(--shell-yellow);
 	--button-positive-background-hover: var(--shell-orange);
 	--button-danger-background: var(--shell-red);
+	--button-danger-background-active: var(--shell-red);
+	--button-danger-background-hover: var(--shell-orange);
 	--button-secondary-background: var(--gruvbox-darkerest-background);
 	--button-secondary-background-hover: var(--shell-orange);
 	--button-outline-primary-text: var(--gruvbox-white);
@@ -78,6 +81,12 @@
 	--button-outline-primary-border: var(--gruvbox-background);
 	--button-outline-primary-border-active: var(--shell-yellow);
 	--button-outline-primary-border-hover: var(--shell-orange);
+	--button-outline-danger-text: var(--gruvbox-white);
+	--button-outline-danger-text-hover: var(--smooth-black);
+	--button-outline-danger-border: var(--shell-red);
+	--button-outline-danger-border-hover: var(--shell-orange);
+	--button-outline-danger-background-active: var(--shell-red);
+	--button-outline-danger-background-hover: var(--shell-orange);
 	--profile-body-background-color: var(--gruvbox-darkerest-background);
 	--mention-background: var(--shell-yellow);
 	--mention-foreground: var(--smooth-black);
@@ -517,6 +526,11 @@ div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path {
 }
 
 .colorDefault__0b482:active:not(.hideInteraction__2790e) {
+	color: var(--smooth-black);
+}
+
+/* disable account button */
+.lookFilled__19298.colorRed_d6b062:hover {
 	color: var(--smooth-black);
 }
 
