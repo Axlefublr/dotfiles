@@ -31,6 +31,7 @@
 	--header-primary: var(--gruvbox-white);
 	--header-secondary: var(--gruvbox-white);
 	--primary-400: var(--gruvbox-white);
+	--brand-500: var(--shell-yellow);
 	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
 	--brand-experiment-15a: var(--gruvbox-background-yellow);
