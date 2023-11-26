@@ -453,3 +453,11 @@ div.attachedBars_da3c74 > div {
 .colorDefault__0b482.focused__27621 {
 	color: var(--smooth-black);
 }
+
+/* in a dm, "accept" friend button */
+div.text-md-normal__4afad.description__57d03
+	> div
+	> button.action_e4d3b9.button_afdfd9.lookFilled__19298.colorBrand_b2253e.sizeTiny__1b8a2.grow__4c8a4
+	> div {
+	color: var(--smooth-black);
+}
