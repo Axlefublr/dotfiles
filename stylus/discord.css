@@ -41,6 +41,7 @@
 	--channeltextarea-background: var(--gruvbox-lighter-background);
 	--channel-text-area-placeholder: var(--gruvbox-grey);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
+	--background-modifier-active: var(--gruvbox-background-orange);
 	--background-modifier-hover: var(--gruvbox-lighter-background);
 	--background-message-highlight: var(--gruvbox-background-yellow);
 	--background-message-hover: var(--gruvbox-lighter-background);
