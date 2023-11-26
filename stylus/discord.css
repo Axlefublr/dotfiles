@@ -77,6 +77,7 @@
 	--home-background: var(--gruvbox-darker-background);
 	--modal-background: var(--gruvbox-background);
 	--modal-footer-background: var(--gruvbox-darker-background);
+	--control-brand-foreground: var(--shell-yellow);
 }
 
 /* chat input box */
@@ -483,6 +484,11 @@ div.attachedBars_da3c74 > div {
 /* ctrl+f search */
 .searchBar_e0c60b {
 	background-color: var(--gruvbox-lighter-background);
+}
+
+/* channels and roles tab hover */
+.top__592a7 .brand_ce3ecf.item__48dda:hover {
+	border-bottom-color: var(--shell-orange);
 }
 
 /* channels and roles menu background */
