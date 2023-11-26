@@ -492,8 +492,14 @@ div.attachedBars_da3c74 > div {
 	border-bottom-color: var(--shell-orange);
 }
 
+/* white on vc server 🕪 icon */
 .base__92a12 {
 	color: var(--smooth-black);
+}
+
+/* browse channels */
+.theme-dark .container__7590f {
+	background-color: var(--gruvbox-background);
 }
 
 /* channels and roles menu background */
