@@ -542,8 +542,17 @@ div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path,
 	background-color: var(--gruvbox-lighter-background);
 }
 
-.colorDefault__0b482.focused__27621 .subtext__8a015, .colorDefault__0b482.focused__27621 .checkbox__45366, .colorDefault__0b482.focused__27621 .radioSelection__5ed39, .colorDefault__0b482.focused__27621 .caret_ce50ce {
+.colorDefault__0b482.focused__27621 .subtext__8a015 {
 	color: var(--smooth-black);
+}
+.colorDefault__0b482.focused__27621 .checkbox__45366,
+.colorDefault__0b482.focused__27621 .radioSelection__5ed39,
+.colorDefault__0b482.focused__27621 .caret_ce50ce {
+	color: var(--shell-yellow);
+}
+
+.theme-dark .lookLink__93965.colorPrimary__6ed40 {
+	color: var(--gruvbox-white);
 }
 
 /* channels and roles menu background */
