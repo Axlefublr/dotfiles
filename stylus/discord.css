@@ -31,6 +31,7 @@
 	--header-primary: var(--gruvbox-white);
 	--header-secondary: var(--gruvbox-white);
 	--primary-400: var(--gruvbox-white);
+	--primary-600: var(--gruvbox-background);
 	--brand-500: var(--shell-yellow);
 	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
@@ -553,6 +554,15 @@ div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path,
 }
 
 .theme-dark .lookLink__93965.colorPrimary__6ed40 {
+	color: var(--gruvbox-white);
+}
+
+/* discover servers searchbox */
+.search_e47903 .searchBox__88a98 {
+	background-color: var(--gruvbox-background);
+}
+/* discover servers searchbox input */
+input.inputDefault__80165.input_d266e7.searchBoxInput__73c9c.searchBoxInput_bbea1c {
 	color: var(--gruvbox-white);
 }
 
