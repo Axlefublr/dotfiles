@@ -521,7 +521,8 @@ div.attachedBars_da3c74 > div {
 
 /* channel pick checkbox */
 div.checkbox_c7f690.box__66058.checked__24ad6 > svg > path,
-div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path {
+div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path,
+.colorDefault__0b482 .check__8d1bd {
 	fill: var(--smooth-black);
 }
 
