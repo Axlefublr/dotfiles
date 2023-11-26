@@ -36,6 +36,7 @@
 	--brand-experiment-400: var(--gruvbox-background);
 	--brand-experiment-560: var(--shell-orange);
 	--brand-experiment-500: var(--shell-yellow);
+	--brand-experiment-600: var(--shell-yellow);
 	--interactive-active: var(--shell-yellow);
 	--interactive-normal: var(--gruvbox-white);
 	--interactive-hover: var(--shell-orange);
@@ -512,6 +513,10 @@ div.attachedBars_da3c74 > div {
 div.checkbox_c7f690.box__66058.checked__24ad6 > svg > path,
 div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path {
 	fill: var(--smooth-black);
+}
+
+.colorDefault__0b482:active:not(.hideInteraction__2790e) {
+	color: var(--smooth-black);
 }
 
 /* channels and roles menu background */
