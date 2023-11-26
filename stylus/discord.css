@@ -68,6 +68,7 @@
 	--mention-foreground: var(--smooth-black);
 	--input-background: var(--gruvbox-lighter-background);
 	--input-placeholder-text: var(--gruvbox-grey);
+	--home-background: var(--gruvbox-darker-background);
 }
 
 /* chat input box */
