@@ -28,6 +28,7 @@
 	--header-secondary: var(--gruvbox-white);
 	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
+	--brand-experiment-15a: var(--gruvbox-background-yellow);
 	--interactive-active: var(--shell-yellow);
 	--interactive-normal: var(--gruvbox-white);
 	--interactive-hover: var(--shell-orange);
