@@ -51,6 +51,7 @@
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
 	--background-secondary-alt: var(--gruvbox-darker-background);
 	--background-floating: var(--gruvbox-darkerest-background);
+	--background-accent: var(--shell-yellow);
 	--bg-overlay-2: var(--gruvbox-darker-background);
 	--scrollbar-auto-track: var(--gruvbox-lighter-background);
 	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
@@ -489,6 +490,10 @@ div.attachedBars_da3c74 > div {
 /* channels and roles tab hover */
 .top__592a7 .brand_ce3ecf.item__48dda:hover {
 	border-bottom-color: var(--shell-orange);
+}
+
+.base__92a12 {
+	color: var(--smooth-black);
 }
 
 /* channels and roles menu background */
