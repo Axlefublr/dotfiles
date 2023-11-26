@@ -566,6 +566,10 @@ input.inputDefault__80165.input_d266e7.searchBoxInput__73c9c.searchBoxInput_bbea
 	color: var(--gruvbox-white);
 }
 
+div.clear_a52805 > svg.clearIcon__91449.closeIcon__3dfb5 > path {
+	fill: var(--gruvbox-white);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
