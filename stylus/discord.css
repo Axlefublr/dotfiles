@@ -54,7 +54,9 @@
 	--status-positive-text: var(--smooth-black);
 	--status-positive-background: var(--shell-yellow);
 	--button-positive-background: var(--shell-yellow);
+	--button-positive-background-hover: var(--shell-orange);
 	--button-secondary-background: var(--gruvbox-darkerest-background);
+	--button-secondary-background-hover: var(--shell-orange);
 	--profile-body-background-color: var(--gruvbox-darkerest-background);
 }
 
@@ -431,6 +433,10 @@ div.attachedBars_da3c74 > div {
 /* "ignore" friend button */
 .lookFilled__19298.colorPrimary__6ed40 {
 	color: var(--gruvbox-white);
+}
+/* "ignore" friend button on hover */
+.lookFilled__19298.colorPrimary__6ed40:hover {
+	color: var(--smooth-black);
 }
 
 /* user profile background */
