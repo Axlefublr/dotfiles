@@ -29,10 +29,13 @@
 	--text-brand: var(--shell-yellow);
 	--header-primary: var(--gruvbox-white);
 	--header-secondary: var(--gruvbox-white);
+	--primary-400: var(--gruvbox-white);
 	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
 	--brand-experiment-15a: var(--gruvbox-background-yellow);
+	--brand-experiment-400: var(--gruvbox-background);
 	--brand-experiment-560: var(--shell-orange);
+	--brand-experiment-500: var(--shell-yellow);
 	--interactive-active: var(--shell-yellow);
 	--interactive-normal: var(--gruvbox-white);
 	--interactive-hover: var(--shell-orange);
@@ -42,7 +45,7 @@
 	--channeltextarea-background: var(--gruvbox-lighter-background);
 	--channel-text-area-placeholder: var(--gruvbox-grey);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
-	--background-modifier-active: var(--gruvbox-background-orange);
+	--background-modifier-active: var(--gruvbox-background-yellow);
 	--background-modifier-hover: var(--gruvbox-lighter-background);
 	--background-message-highlight: var(--gruvbox-background-yellow);
 	--background-message-hover: var(--gruvbox-lighter-background);
@@ -66,10 +69,13 @@
 	--button-secondary-background: var(--gruvbox-darkerest-background);
 	--button-secondary-background-hover: var(--shell-orange);
 	--button-outline-primary-text: var(--gruvbox-white);
+	--button-outline-primary-text-active: var(--gruvbox-white);
 	--button-outline-primary-text-hover: var(--gruvbox-white);
+	--button-outline-primary-background-active: var(--gruvbox-background-yellow);
 	--button-outline-primary-background-hover: var(--gruvbox-background-orange);
 	--button-outline-primary-border: var(--gruvbox-background);
-	--button-outline-primary-border-hover: var(--shell-yellow);
+	--button-outline-primary-border-active: var(--shell-yellow);
+	--button-outline-primary-border-hover: var(--shell-orange);
 	--profile-body-background-color: var(--gruvbox-darkerest-background);
 	--mention-background: var(--shell-yellow);
 	--mention-foreground: var(--smooth-black);
@@ -500,6 +506,12 @@ div.attachedBars_da3c74 > div {
 /* browse channels */
 .theme-dark .container__7590f {
 	background-color: var(--gruvbox-background);
+}
+
+/* channel pick checkbox */
+div.checkbox_c7f690.box__66058.checked__24ad6 > svg > path,
+div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path {
+	fill: var(--smooth-black);
 }
 
 /* channels and roles menu background */
