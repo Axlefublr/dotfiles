@@ -784,4 +784,7 @@
 	"workbench.editor.empty.hint": "hidden",
 	"window.density.editorTabHeight": "compact",
 	"workbench.activityBar.location": "hidden",
+	"vscode_custom_css.imports": [
+		"file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"
+	],
 }
