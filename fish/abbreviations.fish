@@ -150,6 +150,11 @@ abbr -a wpcc 'warp-cli connect'
 abbr -a wpcd 'warp-cli disconnect'
 abbr -a wpcs 'warp-cli status'
 
+abbr -a str 'kitten @set-window-title repeat
+	timer'
+abbr -a stf 'kitten @set-window-title food
+	termdown'
+
 abbr -a u 'z -'
 abbr -a v 'nvim'
 abbr -a vf 'commandline "nvim "(fzf) ; commandline -f execute'
