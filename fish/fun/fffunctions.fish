@@ -43,6 +43,7 @@ function mp43
 		ffmpeg -i $file (uclanr -j - 3).mp3
 		trash-put $file
 	end
+	bell
 end
 funcsave mp43 > /dev/null
 
