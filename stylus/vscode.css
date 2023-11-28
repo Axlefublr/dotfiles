@@ -7,3 +7,14 @@
 div.editor-actions {
 	display: none;
 }
+
+/* git addition glyph */
+div.cldr.dirty-diff-glyph.dirty-diff-added-pattern {
+	width: 7% !important;
+}
+
+/* git addition glyph background */
+.monaco-editor .dirty-diff-added-pattern, .monaco-editor .dirty-diff-added-pattern:before {
+	background-image: none;
+	background-color: var(--vscode-editorGutter-addedBackground);
+}
