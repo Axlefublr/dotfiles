@@ -14,6 +14,10 @@ div.cldr.dirty-diff-glyph {
 	margin-left: unset !important;
 }
 
+/* breakpoint circle */
+div.cgmr.codicon.codicon-debug-breakpoint {
+	left: 3px !important;
+}
 
 /* the reason for why we're using a background image when really, we mean background color is because if we use the latter, it's twice as big. I imagine background image also depends on something else that makes it be a certain size, and it also keeps being configurable via vscode settings */
 /* git addition glyph background  */
