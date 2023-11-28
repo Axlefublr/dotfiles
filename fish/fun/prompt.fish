@@ -78,14 +78,21 @@ function fish_prompt
 	end
 	set_color -o $color_pink
 	fish_prompt_pwd
-	printf ' '
 	set_color normal
+	if test $COLUMNS -ge $small_threshold
+		printf ' '
+	else
+		printf '\n'
+	end
 	set -l curr_branch (git branch --show-current 2> /dev/null)
 	if test $curr_branch
 		set_color -o $color_purple
 		echo -n ''$curr_branch' '
 		set_color normal
 		command -q octussy && octussy-set
+		if test $COLUMNS -lt $small_threshold
+			printf '\n'
+		end
 	end
 	fish_prompt_status $fullstatuses
 	set_color $color_yellow

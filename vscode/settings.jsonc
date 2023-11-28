@@ -787,4 +787,5 @@
 	"vscode_custom_css.imports": [
 		"file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"
 	],
+	"vscode_custom_css.statusbar": false,
 }
