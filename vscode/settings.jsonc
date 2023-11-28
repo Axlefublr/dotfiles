@@ -788,4 +788,6 @@
 		"file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"
 	],
 	"vscode_custom_css.statusbar": false,
+	"editor.folding": false,
+	"editor.glyphMargin": false,
 }
