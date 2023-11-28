@@ -234,7 +234,7 @@
 	display: none;
 }
 
-/* show member list buttong in top toolbar */
+/* show member list button in top toolbar */
 #app-mount
 	> div.appAsidePanelWrapper__714a6
 	> div.notAppAsidePanel__9d124
@@ -370,9 +370,9 @@
 }
 
 /* between last chat message and inputbox */
-.scrollerSpacer__9cd32 {
+/* .scrollerSpacer__9cd32 {
 	height: 24px;
-}
+} */
 
 /* dms nitro and shop */
 #app-mount
