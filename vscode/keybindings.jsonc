@@ -146,6 +146,10 @@
 },
 // other
 {
+  "key": "F5",
+  "command": "extension.updateCustomCSS"
+},
+{
   "key": "w",
   "command": "keybindings.editor.defineWhenExpression",
   "when": "inKeybindings && !whenFocus && !textInputFocus && keybindingFocus",

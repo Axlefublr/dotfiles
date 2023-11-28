@@ -775,7 +775,6 @@
 	},
 	"editor.foldingStrategy": "indentation",
 	"workbench.editor.enablePreview": false,
-	"scm.diffDecorationsGutterWidth": 5,
 	"editor.suggest.matchOnWordStartOnly": false,
 	"editor.renderFinalNewline": "on",
 	"diffEditor.hideUnchangedRegions.enabled": true,
@@ -789,5 +788,5 @@
 	],
 	"vscode_custom_css.statusbar": false,
 	"editor.folding": false,
-	"editor.glyphMargin": false,
+	"scm.diffDecorationsGutterWidth": 5,
 }
