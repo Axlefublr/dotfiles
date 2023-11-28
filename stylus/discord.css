@@ -584,8 +584,14 @@ div.scroller_e89578.list__0870a.thin_b1c063.scrollerBase_dc3aa9 {
 	background-color: var(--gruvbox-lighter-background);
 }
 
+/* live badge */
 .live_b195a5.liveSmall_ca35ec.eyebrow__847c8.textBadge__45d79.base__92a12.eyebrow__60985.liveShapeRound__811c0 {
 	background-color: var(--shell-yellow) !important;
+}
+
+/* slash command input */
+.selectedPill_f3e999 {
+	border-color: var(--shell-yellow) !important;
 }
 
 /* channels and roles menu background */
