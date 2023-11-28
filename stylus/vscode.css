@@ -1,0 +1,9 @@
+/* status bar paint button */
+#be5invis.vscode-custom-css {
+	display: none;
+}
+
+/* triple dot button at the top right for editor actions */
+div.editor-actions {
+	display: none;
+}
