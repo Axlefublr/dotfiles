@@ -594,6 +594,11 @@ div.scroller_e89578.list__0870a.thin_b1c063.scrollerBase_dc3aa9 {
 	border-color: var(--shell-yellow) !important;
 }
 
+/* slowmode / cooldown notice */
+div.cooldownWrapper_de448f {
+	color: var(--gruvbox-white) !important;
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
