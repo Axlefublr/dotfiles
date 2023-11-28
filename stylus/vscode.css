@@ -8,13 +8,22 @@ div.editor-actions {
 	display: none;
 }
 
+/* git addition glyph background */
+.monaco-editor .dirty-diff-added-pattern, .monaco-editor .dirty-diff-added-pattern:before {
+	background-image: none;
+	background-color: var(--vscode-editorGutter-addedBackground);
+}
 /* git addition glyph */
 div.cldr.dirty-diff-glyph.dirty-diff-added-pattern {
 	width: 7% !important;
 }
 
-/* git addition glyph background */
-.monaco-editor .dirty-diff-added-pattern, .monaco-editor .dirty-diff-added-pattern:before {
+/* git modification glyph background */
+.monaco-editor .dirty-diff-modified-pattern {
 	background-image: none;
-	background-color: var(--vscode-editorGutter-addedBackground);
+	background-color: var(--vscode-editorGutter-modifiedBackground);
+}
+/* git modification glyph */
+div.cldr.dirty-diff-glyph.dirty-diff-modified-pattern {
+	width: 7% !important;
 }
