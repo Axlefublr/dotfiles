@@ -3,12 +3,13 @@
 	display: none;
 }
 
+
 /* triple dot button at the top right for editor actions */
 div.editor-actions {
 	display: none;
 }
 
-/* git addition glyph background */
+/* git addition glyph background  */
 .monaco-editor .dirty-diff-added-pattern, .monaco-editor .dirty-diff-added-pattern:before {
 	background-image: none;
 	background-color: var(--vscode-editorGutter-addedBackground);
@@ -19,7 +20,7 @@ div.cldr.dirty-diff-glyph.dirty-diff-added-pattern {
 }
 
 /* git modification glyph background */
-.monaco-editor .dirty-diff-modified-pattern {
+.monaco-editor .dirty-diff-modified-pattern, .monaco-editor .dirty-diff-modified-pattern:before {
 	background-image: none;
 	background-color: var(--vscode-editorGutter-modifiedBackground);
 }
