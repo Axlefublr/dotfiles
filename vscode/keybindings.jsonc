@@ -1306,7 +1306,12 @@
   "command": "workbench.action.toggleMaximizeEditorGroup",
   "when": "maximizedEditorGroup || multipleEditorGroups"
 },
-// cutoff
+// cutoff / disable / remove / turn off
+{
+  "key": "f9",
+  "command": "-editor.debug.action.toggleBreakpoint",
+  "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
+},
 {
   "key": "ctrl+alt+win+down",
   "command": "-selectPartOfWord.selectRight"
