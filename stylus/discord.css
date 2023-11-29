@@ -29,6 +29,7 @@
 	--text-muted: var(--gruvbox-grey);
 	--text-link: var(--shell-yellow);
 	--text-brand: var(--shell-yellow);
+	--text-positive: var(--shell-yellow);
 	--textbox-markdown-syntax: var(--gruvbox-white);
 	--header-primary: var(--gruvbox-white);
 	--header-secondary: var(--gruvbox-white);
@@ -568,6 +569,11 @@ div.scroller_e89578.list__0870a.thin_b1c063.scrollerBase_dc3aa9 {
 /* slowmode / cooldown notice */
 div.cooldownWrapper_de448f {
 	color: var(--gruvbox-white) !important;
+}
+
+/* sound icon on the "n in voice" badge on the bottom left */
+svg.voiceChannelsIcon__98792 > path {
+	fill: var(--shell-yellow) !important;
 }
 
 /* channels and roles menu background */
