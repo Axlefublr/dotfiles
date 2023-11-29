@@ -374,39 +374,10 @@
 	height: 24px;
 } */
 
-/* dms nitro and shop */
-#app-mount
-	> div.appAsidePanelWrapper__714a6
-	> div.notAppAsidePanel__9d124
-	> div.app_b1f720
-	> div
-	> div.layers__1c917.layers_a23c37
-	> div
-	> div
-	> div
-	> div
-	> div
-	> nav
-	> div.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0
+/* dms nitro */
+div.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0
 	> ul
-	> li:nth-child(3) {
-	display: none;
-}
-#app-mount
-	> div.appAsidePanelWrapper__714a6
-	> div.notAppAsidePanel__9d124
-	> div.app_b1f720
-	> div
-	> div.layers__1c917.layers_a23c37
-	> div
-	> div
-	> div
-	> div
-	> div
-	> nav
-	> div.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0
-	> ul
-	> li:nth-child(4) {
+	> li:nth-of-type(2) {
 	display: none;
 }
 
