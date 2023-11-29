@@ -1,7 +1,7 @@
 {
   "waitForEnterForFilteredHints": false,
   "hideHud": true,
-  "keyMappings": "unmap <a-f>\nunmap t\nmap x LinkHints.activateMode action=focus\nmap r LinkHints.activateMode action=hover\nmap c LinkHints.activateMode action=copy-text\nmap o LinkHints.activateModeWithQueue\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nmap s scrollDown\nmap a scrollUp",
+  "keyMappings": "unmap <a-f>\nunmap t\nunmap <c-e>\nunmap <c-y>\nunmap `\nunmap O\nunmap b\nunmap B\nunmap T\nunmap J\nunmap K\nunmap gt\nunmap gT\nunmap g0\nunmap g$\nunmap yt\nunmap X\nunmap <<\nunmap >>\nunmap gs\n\nmap x LinkHints.activateMode action=focus\nmap r LinkHints.activateMode action=hover\nmap c LinkHints.activateMode action=copy-text\nmap o LinkHints.activateModeWithQueue\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nmap s scrollDown\nmap a scrollUp\nmap M Marks.activateGotoMode",
   "linkHintCharacters": "fjdksla;gheiworum",
   "regexFindMode": true,
   "ignoreKeyboardLayout": true,
