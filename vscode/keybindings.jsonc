@@ -992,7 +992,7 @@
   "when": "editorHoverFocused"
 },
 {
-  "key": "p",
+  "key": "d",
   "command": "editor.action.pageDownHover",
   "when": "editorHoverFocused"
 },
