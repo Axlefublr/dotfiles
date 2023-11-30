@@ -83,7 +83,6 @@ abbr -a dnf  'dotnet format'
 abbr -a dnp  'dotnet publish'
 abbr -a dnt  'dotnet test'
 
-abbr -a ca    'cargo'
 abbr -a can   'cargo new'
 abbr -a canf  'cat ~/prog/dotfiles/rustfmt.toml > rustfmt.toml ; cargo fmt'
 abbr -a cai   'cargo init'
@@ -150,12 +149,11 @@ abbr -a wpcc 'warp-cli connect'
 abbr -a wpcd 'warp-cli disconnect'
 abbr -a wpcs 'warp-cli status'
 
-abbr -a str 'kitten @set-window-title repeat
-	timer
-	kitten @set-window-title ""'
-abbr -a stf 'kitten @set-window-title food
-	termdown
-	kitten @set-window-title ""'
+abbr -a stb 'kitten @set-window-title ""'
+abbr -a stre 'kitten @set-window-title repeat
+	timer'
+abbr -a stfo 'kitten @set-window-title food
+	termdown'
 
 abbr -a u 'z -'
 abbr -a v 'nvim'
