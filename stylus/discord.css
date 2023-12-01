@@ -576,6 +576,11 @@ svg.voiceChannelsIcon__98792 > path {
 	fill: var(--shell-yellow) !important;
 }
 
+/* normal user role color */
+span.username_d30d99.desaturateUserColors_b72bd3.clickable_d866f1 {
+	color: var(--shell-pink);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
