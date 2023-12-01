@@ -1,3 +1,9 @@
+abbr -a ign 'nvim .gitignore'
+abbr -a rlnts 'nvim release-notes'
+
+
+abbr -a rust-fmt 'cp -f ~/prog/dotfiles/rustfmt.toml ./rustfmt.toml ; cargo fmt'
+
 abbr --set-cursor -a rust-ci 'cp -f ~/prog/dotfiles/ghactions/rust.yml ./.github/workflows/ci.yml &&
 	sd your-project-name % ./.github/workflows/ci.yml'
 
@@ -11,6 +17,7 @@ abbr --set-cursor -a rust-release 'set -l taggedVersion % &&
 	git tag $taggedVersion -F release-notes &&
 	git push origin $taggedVersion &&
 	cargo publish'
+
 
 abbr --set-cursor -a csharp-release 'set -l taggedVersion % &&
 	test -e README.md &&
