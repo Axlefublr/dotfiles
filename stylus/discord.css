@@ -581,6 +581,16 @@ span.username_d30d99.desaturateUserColors_b72bd3.clickable_d866f1 {
 	color: var(--shell-pink);
 }
 
+/* voice channel live badge to the right */
+div.textBadge__45d79.base__92a12.eyebrow__60985.baseShapeRound__95d0f {
+	background-color: var(--shell-yellow) !important;
+}
+
+/* checkmark on Channels & Roles extra channels buttons */
+div.checkIcon__5aa1f > svg > path {
+	fill: var(--smooth-black) !important;
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
