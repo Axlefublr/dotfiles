@@ -14,21 +14,18 @@ abbr --set-cursor -a alarmb 'alarm %
 	bell'
 
 abbr --set-cursor -a care 'set -l taggedVersion %
-	touch README.md
-	nvim release-notes.txt
+	test -e README.md &&
+	test -e release-notes &&
 	git add . &&
 	git commit -m $taggedVersion &&
 	git push &&
 	git tag $taggedVersion -F release-notes.txt &&
 	git push origin $taggedVersion &&
-	cargo build --release &&
-	set -l binaryName (basename $PWD) &&
-	gh release create $taggedVersion -t $taggedVersion -F release-notes.txt ./target/release/$binaryName &&
 	cargo publish'
 
 abbr --set-cursor -a dnre 'set -l taggedVersion %
-	touch README.md
-	nvim release-notes.txt
+	test -e README.md &&
+	test -e release-notes.txt &&
 	git add . &&
 	git commit -m $taggedVersion &&
 	git push &&
