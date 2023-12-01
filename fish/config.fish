@@ -61,6 +61,7 @@ zoxide init fish | source
 source ~/prog/dotfiles/fish/abbreviations/abbreviations.fish
 source ~/prog/dotfiles/fish/abbreviations/positional.fish
 source ~/prog/dotfiles/fish/abbreviations/relative.fish
+source ~/prog/dotfiles/fish/abbreviations/release.fish
 
 bind -M default daw forward-single-char forward-single-char backward-word kill-word delete-char
 bind -M default daW forward-single-char forward-single-char backward-bigword kill-bigword delete-char

@@ -21,7 +21,7 @@ jobs:
             target: x86_64-pc-windows-gnu
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Install Rust target
         uses: actions-rs/toolchain@v1
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Download all artifacts
         uses: actions/download-artifact@v3
@@ -59,11 +59,11 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            tag_name: ${{ github.ref }}
-            release_name: ${{ github.ref_name }}
-            draft: false
-            prerelease: false
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
 
       - name: Upload release binaries
         uses: actions/upload-release-asset@v1
