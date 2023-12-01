@@ -58,40 +58,39 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB
-        _TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           with:
             tag_name: ${{ github.ref }}
             release_name: ${{ github.ref_name }}
             draft: false
             prerelease: false
 
-        - name: Upload release binaries
-          uses: actions/upload-release-asset@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: ./x86_64-unknown-linux-gnu/your-project-name
-            asset_name: your-project-name-linux
-            asset_content_type: application/octet-stream
+      - name: Upload release binaries
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./x86_64-unknown-linux-gnu/your-project-name
+          asset_name: your-project-name-linux
+          asset_content_type: application/octet-stream
 
-        - name: Upload release binaries
-          uses: actions/upload-release-asset@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: ./x86_64-apple-darwin/your-project-name
-            asset_name: your-project-name-macos
-            asset_content_type: application/octet-stream
+      - name: Upload release binaries
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./x86_64-apple-darwin/your-project-name
+          asset_name: your-project-name-macos
+          asset_content_type: application/octet-stream
 
-        - name: Upload release binaries
-          uses: actions/upload-release-asset@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: ./x86_64-pc-windows-gnu/your-project-name.exe
-            asset_name: your-project-name-windows.exe
-            asset_content_type: application/octet-stream
+      - name: Upload release binaries
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./x86_64-pc-windows-gnu/your-project-name.exe
+          asset_name: your-project-name-windows.exe
+          asset_content_type: application/octet-stream
