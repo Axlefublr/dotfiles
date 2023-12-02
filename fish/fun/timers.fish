@@ -32,7 +32,7 @@ function alarm
 end
 funcsave alarm > /dev/null
 
-function pom
+function doti
 	while true
 		kitten @set-window-title action
 		if set -q argv[1]
@@ -63,4 +63,4 @@ function pom
 	clear
 	kitten @set-window-title
 end
-funcsave pom > /dev/null
+funcsave doti > /dev/null
