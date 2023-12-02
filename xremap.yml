@@ -1,0 +1,15 @@
+virtual_modifiers:
+  - CapsLock
+modmap:
+  - remap:
+      Tab: Esc
+keymap:
+  - remap:
+      CapsLock-t: Tab
+      CapsLock-Backspace: Delete
+      CapsLock-d: Delete
+      CapsLock-f: Esc
+      CapsLock-h: left
+      CapsLock-j: down
+      CapsLock-k: up
+      CapsLock-l: right
