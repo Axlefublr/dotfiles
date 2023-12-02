@@ -13,3 +13,7 @@ keymap:
       CapsLock-j: down
       CapsLock-k: up
       CapsLock-l: right
+      CapsLock-i: home
+      CapsLock-o: end
+      CapsLock-u: pageup
+      CapsLock-p: pagedown
