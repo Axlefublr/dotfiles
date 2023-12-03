@@ -3,7 +3,7 @@ virtual_modifiers:
 modmap:
   - remap:
       CapsLock: Esc
-      Esc: Delete
+      Esc: F13
       Compose: Super_R # For me, Compose is the Menu key
   - name: Game side mouse buttons fix
     remap:
