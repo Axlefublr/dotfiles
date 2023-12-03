@@ -43,6 +43,7 @@ keymap:
       Tab-Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
 
       Tab-w: ctrl-c
+      Tab-s: ctrl-x
       Tab-e: ctrl-v
       Tab-r: ctrl-a
 
