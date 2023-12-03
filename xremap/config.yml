@@ -13,6 +13,7 @@ modmap:
 keymap:
   - remap:
       Tab-t: Tab
+
       Tab-h: left
       Tab-j: down
       Tab-k: up
@@ -21,6 +22,14 @@ keymap:
       Tab-o: end
       Tab-u: pageup
       Tab-p: pagedown
+
+      Tab-LeftBrace: { launch: ["ydotool", "click", "c0"] } # c0 — left click
+      Tab-RightBrace: { launch: ["ydotool", "click", "c1"] } # c1 — right click
+      Tab-m: { launch: ["ydotool", "mousemove", "-w", "--", "-1", "0"] } # left
+      Tab-Comma: { launch: ["ydotool", "mousemove", "-w", "--", "0", "1"] } # up
+      Tab-Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
+      Tab-Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
+
       Tab-w: ctrl-insert
       Tab-e: shift-insert
       Tab-r: ctrl-a
