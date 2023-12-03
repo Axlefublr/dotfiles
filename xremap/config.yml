@@ -3,12 +3,16 @@ virtual_modifiers:
 modmap:
   - remap:
       CapsLock: Esc
+  - remap:
+      Forward: j
+      Back: k
+    # application:
+    #   only: terraria
 keymap:
   - remap:
       Tab-t: Tab
       Tab-Backspace: Delete
       Tab-d: Delete
-      Tab-f: Esc
       Tab-h: left
       Tab-j: down
       Tab-k: up
