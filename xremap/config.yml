@@ -4,8 +4,12 @@ modmap:
   - remap:
       CapsLock: Esc
       Esc: Delete
-    # application:
-    #   only: terraria
+  - name: Game side mouse buttons fix
+    remap:
+      Btn_Side: k
+      Btn_Extra: j
+    application:
+      only: /Terraria/
 keymap:
   - remap:
       Tab-t: Tab
@@ -17,8 +21,12 @@ keymap:
       Tab-o: end
       Tab-u: pageup
       Tab-p: pagedown
+      Tab-w: ctrl-insert
+      Tab-e: shift-insert
+      Tab-r: ctrl-a
 
       Alt-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
+      # Show image in clipboard
       Super-w:
         {
           launch:

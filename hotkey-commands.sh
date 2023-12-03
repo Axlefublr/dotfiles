@@ -16,3 +16,7 @@ gromit-mpx -k "none" -u "none"
 gromit-mpx -c ; gromit-mpx -t
 gromit-mpx -c
 gromit-mpx -t
+
+
+# autostart
+kitty sudo xremap --mouse ~/prog/dotfiles/xremap/config.yml
