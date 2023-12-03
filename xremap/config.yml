@@ -42,8 +42,8 @@ keymap:
       Tab-Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
       Tab-Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
 
-      Tab-w: ctrl-insert
-      Tab-e: shift-insert
+      Tab-w: ctrl-c
+      Tab-e: ctrl-v
       Tab-r: ctrl-a
 
       Super-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
