@@ -19,7 +19,9 @@ keymap:
       only: Anki
 
   - remap:
-      Tab-t: Tab
+      Shift-Esc: insert # because it's the kde compose key
+
+  - remap:
 
       Tab-h: left
       Tab-j: down
