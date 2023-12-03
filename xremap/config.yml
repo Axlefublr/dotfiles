@@ -22,6 +22,9 @@ keymap:
       Shift-Esc: insert # because it's the kde compose key
 
   - remap:
+      Tab-t: tab
+      Tab-Backspace: delete
+      Tab-q: delete
 
       Tab-h: left
       Tab-j: down
