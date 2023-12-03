@@ -17,3 +17,4 @@ keymap:
       CapsLock-o: end
       CapsLock-u: pageup
       CapsLock-p: pagedown
+      CapsLock-w: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
