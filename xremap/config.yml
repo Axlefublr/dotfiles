@@ -12,6 +12,12 @@ modmap:
     application:
       only: /Terraria/
 keymap:
+  - name: Tile and focus input
+    remap:
+      Tab-b: ["super-8", "shift-tab", "shift-tab", "shift-tab", "shift-tab"] # banking on #8 toggling float
+    application:
+      only: Anki
+
   - remap:
       Tab-t: Tab
 
