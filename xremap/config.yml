@@ -3,16 +3,12 @@ virtual_modifiers:
 modmap:
   - remap:
       CapsLock: Esc
-  - remap:
-      Forward: j
-      Back: k
+      Esc: Delete
     # application:
     #   only: terraria
 keymap:
   - remap:
       Tab-t: Tab
-      Tab-Backspace: Delete
-      Tab-d: Delete
       Tab-h: left
       Tab-j: down
       Tab-k: up
@@ -21,8 +17,8 @@ keymap:
       Tab-o: end
       Tab-u: pageup
       Tab-p: pagedown
-      Alt-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
 
+      Alt-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
       Super-w:
         {
           launch:
