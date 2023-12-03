@@ -12,7 +12,6 @@ kitty --detach --hold -T infoterm printwait
 
 kitty -T emoji-picker --start-as maximized sh -c "kitty +kitten unicode_input --tab code > /tmp/unicode_input" ; cat /tmp/unicode_input | xclip -r -selection clipboard
 
-gromit-mpx -k "none" -u "none"
 gromit-mpx -c ; gromit-mpx -t
 gromit-mpx -c
 gromit-mpx -t
