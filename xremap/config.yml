@@ -25,7 +25,7 @@ keymap:
       Tab-e: shift-insert
       Tab-r: ctrl-a
 
-      Alt-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
+      Super-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
       # Show image in clipboard
       Super-w:
         {
