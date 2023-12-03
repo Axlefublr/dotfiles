@@ -789,4 +789,5 @@
 	"vscode_custom_css.statusbar": false,
 	"editor.folding": false,
 	"scm.diffDecorationsGutterWidth": 5,
+	"redhat.telemetry.enabled": false,
 }

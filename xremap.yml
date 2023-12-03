@@ -1,20 +1,30 @@
 virtual_modifiers:
-  - CapsLock
+  - Tab
 modmap:
   - remap:
-      Tab: Esc
+      CapsLock: Esc
 keymap:
   - remap:
-      CapsLock-t: Tab
-      CapsLock-Backspace: Delete
-      CapsLock-d: Delete
-      CapsLock-f: Esc
-      CapsLock-h: left
-      CapsLock-j: down
-      CapsLock-k: up
-      CapsLock-l: right
-      CapsLock-i: home
-      CapsLock-o: end
-      CapsLock-u: pageup
-      CapsLock-p: pagedown
-      CapsLock-w: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
+      Tab-t: Tab
+      Tab-Backspace: Delete
+      Tab-d: Delete
+      Tab-f: Esc
+      Tab-h: left
+      Tab-j: down
+      Tab-k: up
+      Tab-l: right
+      Tab-i: home
+      Tab-o: end
+      Tab-u: pageup
+      Tab-p: pagedown
+      Alt-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
+
+      Super-w:
+        {
+          launch:
+            [
+              "bash",
+              "-c",
+              "xclip -selection clipboard -t image/png -o 2>/dev/null | display",
+            ],
+        }
