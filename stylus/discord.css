@@ -591,6 +591,11 @@ div.checkIcon__5aa1f > svg > path {
 	fill: var(--smooth-black) !important;
 }
 
+/* in-vc buttons */
+.button__66e8c .buttonColor_a6eb73, .button__66e8c.buttonColor_a6eb73 {
+	background-color: var(--shell-yellow);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
