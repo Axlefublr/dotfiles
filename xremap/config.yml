@@ -4,6 +4,7 @@ modmap:
   - remap:
       CapsLock: Esc
       Esc: Delete
+      Compose: Super_R # For me, Compose is the Menu key
   - name: Game side mouse buttons fix
     remap:
       Btn_Side: k
