@@ -139,6 +139,17 @@ keymap:
       l: { launch: [ydotool, mousemove, '--', '5', '0']}
       j: { launch: [ydotool, mousemove, '--', '0', '5']}
       k: { launch: [ydotool, mousemove, '--', '0', '-5']}
+
+      Shift-h: { launch: [ydotool, mousemove, '--', '-20', '0']}
+      Shift-l: { launch: [ydotool, mousemove, '--', '20', '0']}
+      Shift-j: { launch: [ydotool, mousemove, '--', '0', '20']}
+      Shift-k: { launch: [ydotool, mousemove, '--', '0', '-20']}
+
+      Alt-h: { launch: [ydotool, mousemove, '--', '-50', '0']}
+      Alt-l: { launch: [ydotool, mousemove, '--', '50', '0']}
+      Alt-j: { launch: [ydotool, mousemove, '--', '0', '50']}
+      Alt-k: { launch: [ydotool, mousemove, '--', '0', '-50']}
+
     mode: vim
 
   - remap:
