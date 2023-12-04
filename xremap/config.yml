@@ -117,23 +117,23 @@ keymap:
     remap:
       Tab-Semicolon: { set_mode: default }
 
-      q: { launch: [xdotool, mousemove, '320',  '270']}
-      w: { launch: [xdotool, mousemove, '640',  '270']}
-      e: { launch: [xdotool, mousemove, '960',  '270']}
-      r: { launch: [xdotool, mousemove, '1280', '270']}
-      t: { launch: [xdotool, mousemove, '1600', '270']}
+      q: { launch: [xdotool, mousemove, '160',  '135']}
+      w: { launch: [xdotool, mousemove, '560',  '135']}
+      e: { launch: [xdotool, mousemove, '960',  '135']}
+      r: { launch: [xdotool, mousemove, '1360', '135']}
+      t: { launch: [xdotool, mousemove, '1760', '135']}
 
-      a: { launch: [xdotool, mousemove, '320',  '540']}
-      s: { launch: [xdotool, mousemove, '640',  '540']}
+      a: { launch: [xdotool, mousemove, '160',  '540']}
+      s: { launch: [xdotool, mousemove, '560',  '540']}
       d: { launch: [xdotool, mousemove, '960',  '540']}
-      f: { launch: [xdotool, mousemove, '1280', '540']}
-      g: { launch: [xdotool, mousemove, '1600', '540']}
+      f: { launch: [xdotool, mousemove, '1360', '540']}
+      g: { launch: [xdotool, mousemove, '1760', '540']}
 
-      z: { launch: [xdotool, mousemove, '320',  '810']}
-      x: { launch: [xdotool, mousemove, '640',  '810']}
-      c: { launch: [xdotool, mousemove, '960',  '810']}
-      v: { launch: [xdotool, mousemove, '1280', '810']}
-      b: { launch: [xdotool, mousemove, '1600', '810']}
+      z: { launch: [xdotool, mousemove, '160',  '945']}
+      x: { launch: [xdotool, mousemove, '560',  '945']}
+      c: { launch: [xdotool, mousemove, '960',  '945']}
+      v: { launch: [xdotool, mousemove, '1360', '945']}
+      b: { launch: [xdotool, mousemove, '1760', '945']}
 
       h: { launch: [ydotool, mousemove, '--', '-5', '0']}
       l: { launch: [ydotool, mousemove, '--', '5', '0']}
