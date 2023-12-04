@@ -163,7 +163,7 @@ keymap:
   - remap:
       CapsLock-t: tab
       CapsLock-Backspace: delete
-      CapsLock-q: delete
+      CapsLock-a: delete
 
       CapsLock-h: left
       CapsLock-j: down
@@ -174,7 +174,7 @@ keymap:
       CapsLock-u: pageup
       CapsLock-p: pagedown
 
-      CapsLock-w: ctrl-c
-      CapsLock-s: ctrl-x
-      CapsLock-e: ctrl-v
-      CapsLock-r: ctrl-a
+      CapsLock-s: ctrl-c
+      CapsLock-w: ctrl-x
+      CapsLock-d: ctrl-v
+      CapsLock-f: ctrl-a
