@@ -23,7 +23,7 @@ keymap:
 
   - name: Kde Compose key
     remap:
-      Shift-Esc: insert
+      CapsLock-Apostrophe: insert
 
   - name: Kill focused process (kills all instances of a browser, for example)
     remap:
