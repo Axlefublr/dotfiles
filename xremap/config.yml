@@ -110,15 +110,37 @@ keymap:
 
   - name: Default mode
     remap:
-      Tab-n: { set_mode: vim }
+      Tab-Semicolon: { set_mode: vim }
     mode: default
 
   - name: Vim mode
     remap:
-      Tab-n: { set_mode: default }
-      Tab-y: { launch: ["kitty"]}
+      Tab-Semicolon: { set_mode: default }
+
+      q: { launch: [xdotool, mousemove, '320',  '270']}
+      w: { launch: [xdotool, mousemove, '640',  '270']}
+      e: { launch: [xdotool, mousemove, '960',  '270']}
+      r: { launch: [xdotool, mousemove, '1280', '270']}
+      t: { launch: [xdotool, mousemove, '1600', '270']}
+
+      a: { launch: [xdotool, mousemove, '320',  '540']}
+      s: { launch: [xdotool, mousemove, '640',  '540']}
+      d: { launch: [xdotool, mousemove, '960',  '540']}
+      f: { launch: [xdotool, mousemove, '1280', '540']}
+      g: { launch: [xdotool, mousemove, '1600', '540']}
+
+      z: { launch: [xdotool, mousemove, '320',  '810']}
+      x: { launch: [xdotool, mousemove, '640',  '810']}
+      c: { launch: [xdotool, mousemove, '960',  '810']}
+      v: { launch: [xdotool, mousemove, '1280', '810']}
+      b: { launch: [xdotool, mousemove, '1600', '810']}
+
+      h: { launch: [ydotool, mousemove, '--', '-5', '0']}
+      l: { launch: [ydotool, mousemove, '--', '5', '0']}
+      j: { launch: [ydotool, mousemove, '--', '0', '5']}
+      k: { launch: [ydotool, mousemove, '--', '0', '-5']}
     mode: vim
-      
+
   - remap:
       Tab-t: tab
       Tab-Backspace: delete
