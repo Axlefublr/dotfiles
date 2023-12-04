@@ -10,6 +10,7 @@ require("packer").startup(function(use)
 	use "sainnhe/gruvbox-material"
 	use "farmergreg/vim-lastplace"
 	use "bkad/CamelCaseMotion"
+	use "xiyaowong/transparent.nvim"
 	use {
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true }
