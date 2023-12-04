@@ -452,7 +452,8 @@
 		"*.ahk": "ahk2",
 		"*.json": "json",
 		".ideavimrc": "plaintext",
-		"*.vim": "viml"
+		"*.vim": "viml",
+		"*.conf": "plaintext"
 	},
 	"files.exclude": {
 		".git": true,
