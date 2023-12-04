@@ -27,7 +27,7 @@ keymap:
 
   - name: Kill focused process (kills all instances of a browser, for example)
     remap:
-      CapsLock-d: { launch: [xdotool, getwindowfocus, windowkill] }
+      CapsLock-q: { launch: [xdotool, getwindowfocus, windowkill] }
 
   - name: Gromit
     remap:
