@@ -53,9 +53,6 @@ funcsave fish_prompt_status > /dev/null
 function fish_prompt
 	set -l fullstatuses $pipestatus
 	set_color $color_yellow
-	if test $SHLVL -gt 1
-		printf ' '
-	end
 	if set -q fish_private_mode
 		printf '󰗹 '
 	end
