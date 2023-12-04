@@ -113,3 +113,13 @@ keymap:
   - name: Stdin typer
     remap:
       Super-n: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
+
+  - name: Kitty
+    remap:
+      Super-r: { launch: [kitty] }
+      Super-Alt-r: { launch: [kitty, -T, temporary-terminal] }
+
+  - name: Screenkey
+    remap:
+      Super-3: { launch: [screenkey] }
+      Super-Alt-3: { launch: [killall, screenkey] }
