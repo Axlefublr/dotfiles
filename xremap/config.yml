@@ -5,21 +5,20 @@ modmap:
       CapsLock: Esc
       Esc: F13
       Compose: Super_R # For me, Compose is the Menu key
+
   - name: Game side mouse buttons fix
     remap:
       Btn_Side: k
       Btn_Extra: j
     application:
       only: /Terraria/
+
 keymap:
   - name: Tile and focus input
     remap:
       Tab-b: ["super-8", "shift-tab", "shift-tab", "shift-tab", "shift-tab"] # banking on #8 toggling float
     application:
       only: Anki
-
-  - remap:
-      Shift-Esc: insert # because it's the kde compose key
 
   - remap:
       Tab-t: tab
@@ -47,14 +46,70 @@ keymap:
       Tab-e: ctrl-v
       Tab-r: ctrl-a
 
-      Super-Esc: { launch: ["xdotool", "getwindowfocus", "windowkill"] }
-      # Show image in clipboard
+  - name: Kde Compose key
+    remap:
+      Shift-Esc: insert
+
+  - name: Kill focused process (kills all instances of a browser, for example)
+    remap:
+      Tab-d: { launch: [xdotool, getwindowfocus, windowkill] }
+
+  - name: Gromit
+    remap:
+      Super-f: { launch: [gromit-mpx, -t] }
+      Super-Alt-f: { launch: [gromit-mpx, -c] }
+      Super-g: { launch: [gromit-mpx, -t, -c] }
+
+  - name: Edit clipboard
+    remap:
+      Super-e:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              "xclip -selection clipboard -o > /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard",
+            ],
+        }
+      Super-Alt-e:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              "truncate -s 0 /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard",
+            ],
+        }
+
+  - name: Pick unicode
+    remap:
+      Super-Alt-Semicolon:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'kitty -T emoji-picker --start-as maximized sh -c "kitty +kitten unicode_input --tab code > /tmp/unicode_input" ; cat /tmp/unicode_input | xclip -r -selection clipboard',
+            ],
+        }
+
+  - name: Float image in clipboard
+    remap:
       Super-w:
         {
           launch:
             [
-              "bash",
-              "-c",
+              fish,
+              -c,
               "xclip -selection clipboard -t image/png -o 2>/dev/null | display",
             ],
         }
+
+  - name: Put three random words to clipboard
+    remap:
+      Super-5:
+        { launch: [sh, -c, "uclanr -tj '' 3 | xclip -r -selection clipboard"] }
+
+  - name: Stdin typer
+    remap:
+      Super-n: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
