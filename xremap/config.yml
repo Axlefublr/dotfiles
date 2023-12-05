@@ -87,7 +87,7 @@ keymap:
 
   - name: Stdin typer
     remap:
-      Super-n: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
+      CapsLock-Comma: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
 
   - name: Kitty
     remap:
