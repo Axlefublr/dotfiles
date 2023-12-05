@@ -36,6 +36,7 @@
 	--primary-400: var(--gruvbox-white);
 	--primary-600: var(--gruvbox-background);
 	--primary-630: var(--gruvbox-background);
+	--green-360: var(--shell-yellow);
 	--brand-500: var(--shell-yellow);
 	--brand-experiment: var(--shell-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
@@ -598,6 +599,83 @@ div.checkIcon__5aa1f > svg > path {
 /* op badge */
 .botTagOP_e48ddb {
 	background-color: var(--shell-yellow);
+}
+
+/* green border around a person speaking */
+.border_d9a17b.speaking__9b95a {
+	box-shadow: inset 0 0 0 2px var(--shell-yellow),inset 0 0 0 3px var(--black-500);
+}
+
+/* live badge in top toolbar of watched vc */
+.live_b195a5.liveLarge__9308a.textBadge__45d79.base__92a12.eyebrow__60985.liveShapeRoundRight__35bb2 {
+	background-color: var(--shell-red) !important;
+}
+
+/* vc resolution badge background */
+.liveQualityIndicator_e98ef7.qualityIndicatorBadge__7974c.textBadge__45d79.base__92a12.eyebrow__60985.baseShapeRoundLeft__99acd {
+	background-color: var(--shell-yellow) !important;
+}
+
+/* vc resolution text */
+.liveQualityIndicator_e98ef7.qualityIndicatorBadge__7974c.textBadge__45d79.base__92a12.eyebrow__60985.baseShapeRoundLeft__99acd > *,
+.premiumStreamIcon__5ddbc {
+	color: var(--smooth-black);
+}
+
+/* stop watching stream vc button */
+.colorable_c84c4c.red_a51ba8 {
+	background-color: var(--shell-red);
+}
+
+/* clips enabled vc badge */
+.clipBadgeText_f5874d.liveLarge__9308a.textBadge__45d79.base__92a12.eyebrow__60985.baseShapeRoundRight__556f4,
+.clipBadgeIcon_a9441c.iconBadge__2abac.base__92a12.eyebrow__60985.baseShapeRoundLeft__99acd {
+	background-color: var(--shell-yellow) !important;
+}
+
+/* border around speaking person in channel list */
+.avatarSpeaking_c95053 {
+	box-shadow: inset 0 0 0 2px var(--shell-yellow),inset 0 0 0 3px var(--background-secondary);
+}
+
+/* buttons in vc */
+.controlIcon__25700 {
+	color: var(--gruvbox-white);
+}
+
+/* vc title */
+.playingText_f2f60c {
+	color: var(--gruvbox-white);
+}
+
+/* vc big button on hover */
+.colorable_c84c4c.primaryDark__6b700.active_ff29dc, .colorable_c84c4c.primaryDark__6b700:hover {
+	background: var(--gruvbox-background-orange);
+}
+
+/* vc big button */
+.colorable_c84c4c.primaryDark__6b700 {
+	background: var(--gruvbox-background);
+}
+
+/* unactivated big vc button symbol */
+.colorable_c84c4c.primaryDark__6b700, .colorable_c84c4c.primaryDark__6b700 .centerIcon__6075a {
+	color: var(--gruvbox-white);
+}
+
+/* activated big vc button symbol */
+.colorable_c84c4c.white__10e89 {
+	background: var(--shell-yellow);
+}
+
+/* hover big vc button symbol */
+.colorable_c84c4c.white__10e89.active_ff29dc, .colorable_c84c4c.white__10e89:hover {
+	background: var(--shell-orange);
+}
+
+/* hover on red big vc button symbol */
+.colorable_c84c4c.red_a51ba8.active_ff29dc, .colorable_c84c4c.red_a51ba8:hover {
+	background: var(--shell-orange);
 }
 
 /* channels and roles menu background */
