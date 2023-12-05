@@ -595,6 +595,11 @@ div.checkIcon__5aa1f > svg > path {
 	background-color: var(--shell-yellow);
 }
 
+/* op badge */
+.botTagOP_e48ddb {
+	background-color: var(--shell-yellow);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
