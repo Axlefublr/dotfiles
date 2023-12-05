@@ -37,7 +37,7 @@ keymap:
 
   - name: Edit clipboard
     remap:
-      Super-e:
+      CapsLock-Dot:
         {
           launch:
             [
@@ -46,7 +46,7 @@ keymap:
               "xclip -selection clipboard -o > /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard",
             ],
         }
-      Super-Alt-e:
+      CapsLock-Alt-Dot:
         {
           launch:
             [
