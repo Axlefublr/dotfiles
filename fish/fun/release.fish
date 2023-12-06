@@ -30,27 +30,23 @@ function rust-release
 		return 1
 	end
 
-	if not test -f ./.github/workflows/ci.yml
-		echo 'no ci pipeline'
-		return 1
-	end
-	if not test -s ./.github/workflows/ci.yml
-		echo 'ci pipeline empty'
-		return 1
-	end
-
+	echo 'is Cargo.toml filled in with proper metadata?'
 	echo 'did you update the README?'
 	echo 'did you update --help?'
 	echo 'did you update the release notes?'
+	echo 'did you git ignore them?'
+	echo 'your ci pipeline is going to get updated if necessary'
 	read -ln 1 should_continue
 	if not test $should_continue
 		return 1
 	end
 
-	if not test (rg -e "^version = \"$taggedVersion\"" Cargo.toml &> /dev/null)
+	if not test (rg -e "^version = \"$taggedVersion\"" Cargo.toml)
 		echo "you didn't update the version in Cargo.toml"
 		return 1
 	end
+
+	rust-ci
 
 	git add . &&
 	git commit -m $taggedVersion &&
