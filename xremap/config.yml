@@ -160,6 +160,18 @@ keymap:
       CapsLock-8: { launch: ["ydotool", "click", "82"] }
       CapsLock-9: { launch: ["ydotool", "click", "41"] }
 
+      # Holds down and up a modifier (the one aside from capslock):
+      # j — down event
+      # k — up event
+      CapsLock-Super-j: { launch: [ydotool, key, '125:1'] }
+      CapsLock-Super-k: { launch: [ydotool, key, '125:0'] }
+      CapsLock-Shift-j: { launch: [ydotool, key, '42:1'] }
+      CapsLock-Shift-k: { launch: [ydotool, key, '42:0'] }
+      CapsLock-Alt-j:   { launch: [ydotool, key, '56:1'] }
+      CapsLock-Alt-k:   { launch: [ydotool, key, '56:0'] }
+      CapsLock-Ctrl-j:  { launch: [ydotool, key, '29:1'] }
+      CapsLock-Ctrl-k:  { launch: [ydotool, key, '29:0'] }
+
       m: { launch: ["ydotool", "mousemove", "-w", "--", "-1", "0"] } # left
       Comma: { launch: ["ydotool", "mousemove", "-w", "--", "0", "1"] } # up
       Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
