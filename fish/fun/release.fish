@@ -47,7 +47,7 @@ function rust-release
 		return 1
 	end
 
-	if not test (rg -q '^version \= "'$taggedVersion'"$' Cargo.toml)
+	if not test (rg -e "^version = \"$taggedVersion\"" Cargo.toml &> /dev/null)
 		echo "you didn't update the version in Cargo.toml"
 		return 1
 	end
@@ -57,7 +57,7 @@ function rust-release
 	git push &&
 	git tag $taggedVersion -F release-notes.txt &&
 	git push origin $taggedVersion
-	truncate -s release-notes.txt
+	truncate -s 0 release-notes.txt
 	cargo publish
 end
 funcsave rust-release > /dev/null
