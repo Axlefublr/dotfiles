@@ -7,7 +7,7 @@ function rust-release
 	end
 	set -l taggedVersion $argv[1]
 
-	if not test -d src && not set -q argv[2]
+	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
 	end
@@ -62,7 +62,7 @@ end
 funcsave rust-release > /dev/null
 
 function rust-fmt --description 'Bring in format config and format with it'
-	if not test -d src && not set -q argv[1]
+	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
 	end
@@ -72,7 +72,7 @@ end
 funcsave rust-fmt > /dev/null
 
 function rust-ci --description 'Bring in on tag push github action'
-	if not test -d src && not set -q argv[1]
+	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
 	end
@@ -83,7 +83,7 @@ end
 funcsave rust-ci > /dev/null
 
 function rust-bin
-	if not test -d src && not set -q argv[1]
+	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
 	end
