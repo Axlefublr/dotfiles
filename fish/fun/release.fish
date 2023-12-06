@@ -96,3 +96,14 @@ function rust-bin
 	cp -f ./target/release/(basename $PWD) ~/prog/binaries
 end
 funcsave rust-bin > /dev/null
+
+function rust-init
+	cargo init
+	touch README.md
+	touch release-notes.txt
+	echo release-notes.txt >> .gitignore
+	rust-ci
+	git add . &&
+	git commit -m "first commit"
+end
+funcsave rust-init > /dev/null
