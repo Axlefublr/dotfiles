@@ -85,3 +85,14 @@ function rust-ci --description 'Bring in on tag push github action'
 	sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
 end
 funcsave rust-ci > /dev/null
+
+function rust-bin
+	echo 'is this the repo root: '$PWD
+	read -ln 1 is_root
+	if not test $is_root
+		return 1
+	end
+	cargo build -r &&
+	cp -f ./target/release/(basename $PWD) ~/prog/binaries
+end
+funcsave rust-bin > /dev/null

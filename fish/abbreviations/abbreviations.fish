@@ -99,8 +99,6 @@ abbr -a cain  'cargo binstall -y'
 abbr -a cate  'cargo test'
 abbr -a cap   'cargo publish'
 abbr -a cado  'cargo doc --open'
-abbr -a cass  'cargo build -r &&
-	cp -f ./target/release/(basename $PWD) ~/prog/binaries'
 
 abbr -a ghr     'gh repo'
 abbr -a ghrd    'gh repo delete --yes'
