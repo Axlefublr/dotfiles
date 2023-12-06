@@ -136,11 +136,19 @@ keymap:
       Shift-l: { launch: [ydotool, mousemove, '--', '20', '0']}
       Shift-j: { launch: [ydotool, mousemove, '--', '0', '20']}
       Shift-k: { launch: [ydotool, mousemove, '--', '0', '-20']}
+      CapsLock-h: { launch: [ydotool, mousemove, '--', '-20', '0']}
+      CapsLock-l: { launch: [ydotool, mousemove, '--', '20', '0']}
+      CapsLock-j: { launch: [ydotool, mousemove, '--', '0', '20']}
+      CapsLock-k: { launch: [ydotool, mousemove, '--', '0', '-20']}
 
       Alt-h: { launch: [ydotool, mousemove, '--', '-50', '0']}
       Alt-l: { launch: [ydotool, mousemove, '--', '50', '0']}
       Alt-j: { launch: [ydotool, mousemove, '--', '0', '50']}
       Alt-k: { launch: [ydotool, mousemove, '--', '0', '-50']}
+      Ctrl-h: { launch: [ydotool, mousemove, '--', '-50', '0']}
+      Ctrl-l: { launch: [ydotool, mousemove, '--', '50', '0']}
+      Ctrl-j: { launch: [ydotool, mousemove, '--', '0', '50']}
+      Ctrl-k: { launch: [ydotool, mousemove, '--', '0', '-50']}
 
       u: { launch: ["ydotool", "click", "c0"] } # c0 — left click
       i: { launch: ["ydotool", "click", "c2"] } # c2 — middle click
