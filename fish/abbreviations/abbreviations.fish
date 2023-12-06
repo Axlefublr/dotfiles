@@ -39,6 +39,7 @@ abbr -a gf    'git fetch'
 abbr -a gpu   'git pull'
 abbr -a grm   'git rm'
 abbr -a greb  'git rebase'
+abbr -a grp   'git rev-parse'
 
 abbr -a gmap 'git commit --amend &&
 	git push'
