@@ -1,3 +1,5 @@
+#!/usr/bin/env fish
+
 function rust-release
 	if not set -q argv[1]
 		echo 'set the version'
@@ -6,7 +8,7 @@ function rust-release
 	set -l taggedVersion $argv[1]
 
 	set -l root (basename $PWD)
-	echo 'is this the repo root: '$root
+	echo 'is this the repo root: '$PWD
 	read -ln 1 is_root
 	if not test $is_root
 		return 1
@@ -60,3 +62,26 @@ function rust-release
 	cargo publish
 end
 funcsave rust-release > /dev/null
+
+function rust-fmt --description 'Bring in format config and format with it'
+	echo 'is this the repo root: '$PWD
+	read -ln 1 is_root
+	if not test $is_root
+		return 1
+	end
+	cp -f ~/prog/dotfiles/rustfmt.toml ./rustfmt.toml &&
+	cargo fmt
+end
+funcsave rust-fmt > /dev/null
+
+function rust-ci --description 'Bring in on tag push github action'
+	echo 'is this the repo root: '$PWD
+	read -ln 1 is_root
+	if not test $is_root
+		return 1
+	end
+	mkdir -p ./.github/workflows &&
+	cp -f ~/prog/dotfiles/ghactions/rust.yml ./.github/workflows/ci.yml &&
+	sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
+end
+funcsave rust-ci > /dev/null
