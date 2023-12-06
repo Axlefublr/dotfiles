@@ -7,10 +7,8 @@ function rust-release
 	end
 	set -l taggedVersion $argv[1]
 
-	set -l root (basename $PWD)
-	echo 'is this the repo root: '$PWD
-	read -ln 1 is_root
-	if not test $is_root
+	if not test -d src && not set -q argv[2]
+		echo "you're not in repo root"
 		return 1
 	end
 
@@ -23,11 +21,11 @@ function rust-release
 		return 1
 	end
 
-	if not test -f release-notes
+	if not test -f release-notes.txt
 		echo 'no release notes'
 		return 1
 	end
-	if not test -s release-notes
+	if not test -s release-notes.txt
 		echo 'release notes empty'
 		return 1
 	end
@@ -57,16 +55,15 @@ function rust-release
 	git add . &&
 	git commit -m $taggedVersion &&
 	git push &&
-	git tag $taggedVersion -F release-notes &&
+	git tag $taggedVersion -F release-notes.txt &&
 	git push origin $taggedVersion
 	cargo publish
 end
 funcsave rust-release > /dev/null
 
 function rust-fmt --description 'Bring in format config and format with it'
-	echo 'is this the repo root: '$PWD
-	read -ln 1 is_root
-	if not test $is_root
+	if not test -d src && not set -q argv[1]
+		echo "you're not in repo root"
 		return 1
 	end
 	cp -f ~/prog/dotfiles/rustfmt.toml ./rustfmt.toml &&
@@ -75,9 +72,8 @@ end
 funcsave rust-fmt > /dev/null
 
 function rust-ci --description 'Bring in on tag push github action'
-	echo 'is this the repo root: '$PWD
-	read -ln 1 is_root
-	if not test $is_root
+	if not test -d src && not set -q argv[1]
+		echo "you're not in repo root"
 		return 1
 	end
 	mkdir -p ./.github/workflows &&
@@ -87,9 +83,8 @@ end
 funcsave rust-ci > /dev/null
 
 function rust-bin
-	echo 'is this the repo root: '$PWD
-	read -ln 1 is_root
-	if not test $is_root
+	if not test -d src && not set -q argv[1]
+		echo "you're not in repo root"
 		return 1
 	end
 	cargo build -r &&
