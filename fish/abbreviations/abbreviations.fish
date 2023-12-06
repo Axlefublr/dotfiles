@@ -157,8 +157,6 @@ abbr -a stfo 'kitten @set-window-title food
 
 abbr -a u 'z -'
 abbr -a v 'nvim'
-abbr -a vf 'commandline "nvim "(fzf) ; commandline -f execute'
-abbr -a codef 'commandline "code "(fzf) ; commandline -f execute'
 abbr -a fp 'fish -P'
 abbr -a x 'exit'
 abbr -a bacon 'bacon -j clippy'

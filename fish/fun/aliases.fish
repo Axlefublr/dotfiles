@@ -18,3 +18,15 @@ function ghrclc
 	cd (path basename $argv)
 end
 funcsave ghrclc > /dev/null
+
+function vf
+	commandline "nvim "(fzf)
+	commandline -f execute
+end
+funcsave vf > /dev/null
+
+function codef
+	commandline "code "(fzf)
+	commandline -f execute
+end
+funcsave codef > /dev/null
