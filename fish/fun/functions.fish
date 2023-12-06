@@ -68,8 +68,10 @@ function uboot
 	paru
 	rustup update
 	cargo install-update -a
+	clorange updates increment
 	read -ln 1 response
 	if test $response = " "
+		clorange reboots increment
 		reboot
 	end
 end
