@@ -20,4 +20,4 @@ ln -sf ~/prog/dotfiles/ranger/rc.conf ~/.config/ranger/rc.conf
 ln -sf ~/prog/dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
 
 gh auth login
-sudo usermod -aG input $USER # needed by ydotool
+# sudo usermod -aG input $USER # needed by ydotool (where the fuck did I get this?)
