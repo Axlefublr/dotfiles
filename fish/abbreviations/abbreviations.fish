@@ -145,10 +145,6 @@ abbr -a ls  'ls -A'
 abbr -a lsw 'ls -A -w 1'
 abbr -a lg  'ls -gAh'
 
-abbr -a wpcc 'warp-cli connect'
-abbr -a wpcd 'warp-cli disconnect'
-abbr -a wpcs 'warp-cli status'
-
 abbr -a stb 'kitten @set-window-title ""'
 abbr -a stre 'kitten @set-window-title repeat
 	timer'
