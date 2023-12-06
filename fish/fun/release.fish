@@ -57,6 +57,7 @@ function rust-release
 	git push &&
 	git tag $taggedVersion -F release-notes.txt &&
 	git push origin $taggedVersion
+	truncate -s release-notes.txt
 	cargo publish
 end
 funcsave rust-release > /dev/null
