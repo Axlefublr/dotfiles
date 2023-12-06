@@ -800,4 +800,7 @@
 	"[yml]": {
 		"editor.defaultFormatter": "redhat.vscode-yaml"
 	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 }

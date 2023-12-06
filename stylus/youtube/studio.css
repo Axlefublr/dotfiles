@@ -37,13 +37,7 @@ alt text is displayed without wpcc */
 }
 /* special channel */
 #contents.style-scope.ytd-account-item-section-renderer
-	> ytd-account-item-renderer:nth-child(3)
-	yt-formatted-string {
-	display: none;
-}
-/* super special channel */
-#contents.style-scope.ytd-account-item-section-renderer
-	> ytd-account-item-renderer:nth-child(6)
+	> ytd-account-item-renderer:nth-child(5)
 	yt-formatted-string {
 	display: none;
 }

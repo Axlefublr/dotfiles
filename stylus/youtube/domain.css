@@ -14,12 +14,8 @@
 #contents > ytd-account-item-renderer:nth-child(1) {
 	display: none;
 }
-/* super special channel name in selector */
-#contents > ytd-account-item-renderer:nth-child(3) yt-formatted-string {
-	display: none;
-}
 /* special channel name in selector */
-#contents > ytd-account-item-renderer:nth-child(6) yt-formatted-string {
+#contents > ytd-account-item-renderer:nth-child(5) yt-formatted-string {
 	display: none;
 }
 
