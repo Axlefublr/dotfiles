@@ -166,7 +166,7 @@ keymap:
       CapsLock-o: { launch: ["ydotool", "click", "41"] }
       CapsLock-7: { launch: ["ydotool", "click", "80"] }
       CapsLock-8: { launch: ["ydotool", "click", "82"] }
-      CapsLock-9: { launch: ["ydotool", "click", "41"] }
+      CapsLock-9: { launch: ["ydotool", "click", "81"] }
 
       # Holds down and up a modifier (the one aside from capslock):
       # j — down event
