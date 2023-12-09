@@ -58,6 +58,17 @@ function rust-release
 end
 funcsave rust-release > /dev/null
 
+function rust-publish
+	echo 'is Cargo.toml filled in with proper metadata?'
+	echo 'did you commit your unstaged changes?'
+	read -ln 1 should_continue
+	if not test $should_continue
+		return 1
+	end
+	cargo publish
+end
+funcsave rust-publish > /dev/null
+
 function rust-fmt --description 'Bring in format config and format with it'
 	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
