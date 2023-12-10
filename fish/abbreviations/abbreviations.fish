@@ -148,7 +148,8 @@ abbr -a stb 'kitten @set-window-title ""'
 abbr -a stre 'kitten @set-window-title repeat
 	timer'
 abbr -a stfo 'kitten @set-window-title food
-	termdown'
+	termdown
+	exit'
 
 abbr -a u 'z -'
 abbr -a v 'nvim'
