@@ -803,4 +803,5 @@
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"gruvboxMaterial.italicComments": false,
 }
