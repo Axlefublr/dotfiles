@@ -573,7 +573,7 @@
 	"debug.console.fontSize": 18,
 	"vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
 	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
-	"editor.occurrencesHighlight": false,
+	"editor.occurrencesHighlight": "off",
 	"markdown.validate.enabled": true,
 	"editor.lineNumbers": "relative",
 	"editor.suggest.preview": true,
@@ -804,4 +804,5 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"gruvboxMaterial.italicComments": false,
+	"workbench.editor.tabActionCloseVisibility": false,
 }

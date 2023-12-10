@@ -1308,6 +1308,11 @@
 },
 // cutoff / disable / remove / turn off
 {
+  "key": "ctrl+shift+o",
+  "command": "-editor.action.accessibleViewGoToSymbol",
+  "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown"
+},
+{
   "key": "f9",
   "command": "-editor.debug.action.toggleBreakpoint",
   "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
