@@ -33,8 +33,6 @@ function rust-release
 	echo 'is Cargo.toml filled in with proper metadata?'
 	echo 'did you update the README?'
 	echo 'did you update --help?'
-	echo 'did you update the release notes?'
-	echo 'did you git ignore them?'
 	echo 'your ci pipeline is going to get updated if necessary'
 	read -ln 1 should_continue
 	if not test $should_continue
@@ -47,6 +45,7 @@ function rust-release
 	end
 
 	rust-ci
+	indeed .gitignore release-notes.txt
 
 	git add . &&
 	git commit -m $taggedVersion &&
@@ -104,7 +103,7 @@ function rust-init
 	cargo init
 	touch README.md
 	touch release-notes.txt
-	echo release-notes.txt >> .gitignore
+	indeed .gitignore release-notes.txt
 	rust-ci
 	git add . &&
 	git commit -m "first commit"
