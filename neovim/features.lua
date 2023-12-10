@@ -2,7 +2,7 @@ Map("n", "gJ", "j0d^kgJ") -- Join current line with the next line with no space 
 
 Map("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
 
-Map("n", ",dl", 'dal\'_dd', { remap = true }) -- Take the contents of the line, but delete the line too
+Map("n", ",dl", 'dil\'_dd', { remap = true }) -- Take the contents of the line, but delete the line too
 
 Map("n", ",di", '"_ddddpvaB<Esc>') -- Push line of code after block into block
 
