@@ -20,4 +20,9 @@ ln -sf ~/prog/dotfiles/ranger/rc.conf ~/.config/ranger/rc.conf
 ln -sf ~/prog/dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
 
 gh auth login
-# sudo usermod -aG input $USER # needed by ydotool (where the fuck did I get this?)
+
+ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
+ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
+# Needed for the CSS & JS extension
+sudo chown -R $(whoami) $(which code)
+sudo chown -R $(whoami) /opt/visual-studio-code
