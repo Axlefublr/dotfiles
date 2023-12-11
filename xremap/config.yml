@@ -59,7 +59,7 @@ keymap:
 
   - name: Pick unicode
     remap:
-      Super-Alt-Semicolon:
+      CapsLock-m:
         {
           launch:
             [
