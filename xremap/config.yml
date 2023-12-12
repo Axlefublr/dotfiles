@@ -189,6 +189,8 @@ keymap:
 
   - name: System & Media
     remap:
+      CapsLock-Alt-s: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, decrease_volume] }
+      CapsLock-Alt-d: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, increase_volume] }
       CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
 
   - remap:
