@@ -191,15 +191,15 @@ keymap:
     remap:
       CapsLock-Alt-s: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, decrease_volume] }
       CapsLock-Alt-d: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, increase_volume] }
-      CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
+      CapsLock-Shift-s: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
+      CapsLock-Shift-d: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
       CapsLock-Alt-w: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
       CapsLock-Alt-e: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
       CapsLock-Shift-w: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, decrease_microphone_volume] }
       CapsLock-Shift-e: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, increase_microphone_volume] }
       CapsLock-Alt-r: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, mic_mute] }
       CapsLock-Shift-r: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, mute] }
-      CapsLock-Shift-s: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
-      CapsLock-Shift-d: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
+      CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
 
   - remap:
       CapsLock-t: tab
