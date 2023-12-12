@@ -201,6 +201,11 @@ keymap:
       CapsLock-Shift-r: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, mute] }
       CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
 
+      CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
+      CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }
+      CapsLock-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/kwin, invokeShortcut, "Decrease Opacity"] }
+      CapsLock-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/kwin, invokeShortcut, "Increase Opacity"] }
+
   - remap:
       CapsLock-t: tab
       CapsLock-Backspace: delete
