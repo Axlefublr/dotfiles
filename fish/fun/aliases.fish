@@ -12,6 +12,7 @@ alias --save toco 'touch $argv && code $argv' > /dev/null
 alias --save octussy-set 'octussy --color-all-commits FFD75F \
 	--color-all-staged 87FF5F \
 	--color-all-unstaged 00D7FF' > /dev/null
+alias --save etg 'shuf -n 1 ~/prog/noties/etg-actives.txt' > /dev/null
 
 function ghrclc
 	gh repo clone $argv &&
