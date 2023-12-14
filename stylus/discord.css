@@ -734,6 +734,24 @@ div.iconVisibility__62ab5.wrapper__7bcde.modeConnected__1c02e.typeVoice_f4ba92:h
 	color: var(--shell-yellow);
 }
 
+/* vc window with no people "choose an activity" yellow button text */
+div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__19298.colorBrand_b2253e.sizeLarge__9049d.grow__4c8a4 > div.contents_fb6220.buttonContents_b350d4 > div.defaultColor__77578.text-sm-medium__1ba28 {
+	color: var(--smooth-black);
+}
+
+/* vc window with no people "invite friends" grey button */
+div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__19298.colorPrimary__6ed40.sizeLarge__9049d.grow__4c8a4 {
+	background-color: var(--gruvbox-lighter-background);
+}
+div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__19298.colorPrimary__6ed40.sizeLarge__9049d.grow__4c8a4:hover {
+	background-color: var(--gruvbox-background-orange);
+}
+
+/* vc window with no people "invite friends" person icon */
+div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__19298.colorPrimary__6ed40.sizeLarge__9049d.grow__4c8a4 > div > svg {
+	color: var(--gruvbox-white);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
