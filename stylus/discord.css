@@ -688,6 +688,22 @@ div.checkIcon__5aa1f > svg > path {
 	height: 42px;
 }
 
+/* active channel icon */
+.modeSelected__487d6 .icon_eff5d4 {
+	color: var(--shell-yellow);
+}
+
+/* hovered channel icon */
+.modeSelected__487d6:hover .icon_eff5d4,
+div.iconVisibility__62ab5.wrapper__7bcde.typeDefault__05b19:hover .icon_eff5d4 {
+	color: var(--shell-orange);
+}
+
+/* hovered channel name */
+.modeSelected__487d6:hover .name__8d1ec {
+	color: var(--shell-orange);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
