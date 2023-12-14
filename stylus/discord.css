@@ -538,6 +538,26 @@ div.checkbox_c7f690.smallBox__28dd5.checked__24ad6 > svg > path,
 	color: var(--gruvbox-white);
 }
 
+/* channels and roles menu background */
+.theme-dark .container__10dc7,
+.theme-dark .header__60bef,
+.theme-dark .scrollerContainer_bf5dbd,
+.theme-dark .emptyPage__3e15d {
+	background-color: var(--gruvbox-background);
+}
+
+/* normal selected button, like in ∴ friend floating menu */
+.colorDefault__0b482.focused__27621,
+/* in a dm, "accept" friend button */
+.lookFilled__19298.colorBrand_b2253e.sizeTiny__1b8a2.grow__4c8a4,
+/* "wave to [blank]" text */
+.lookFilled__19298.colorBrand_b2253e,
+/* n new messages top status bar */
+.barButtonBase__8fa46,
+.botTagRegular_c89c9a {
+	color: var(--smooth-black);
+}
+
 /* discover servers searchbox */
 .search_e47903 .searchBox__88a98 {
 	background-color: var(--gruvbox-background);
@@ -750,24 +770,4 @@ div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__1929
 /* vc window with no people "invite friends" person icon */
 div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__19298.colorPrimary__6ed40.sizeLarge__9049d.grow__4c8a4 > div > svg {
 	color: var(--gruvbox-white);
-}
-
-/* channels and roles menu background */
-.theme-dark .container__10dc7,
-.theme-dark .header__60bef,
-.theme-dark .scrollerContainer_bf5dbd,
-.theme-dark .emptyPage__3e15d {
-	background-color: var(--gruvbox-background);
-}
-
-/* normal selected button, like in ∴ friend floating menu */
-.colorDefault__0b482.focused__27621,
-/* in a dm, "accept" friend button */
-.lookFilled__19298.colorBrand_b2253e.sizeTiny__1b8a2.grow__4c8a4,
-/* "wave to [blank]" text */
-.lookFilled__19298.colorBrand_b2253e,
-/* n new messages top status bar */
-.barButtonBase__8fa46,
-.botTagRegular_c89c9a {
-	color: var(--smooth-black);
 }
