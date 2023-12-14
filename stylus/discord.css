@@ -704,6 +704,26 @@ div.iconVisibility__62ab5.wrapper__7bcde.typeDefault__05b19:hover .icon_eff5d4 {
 	color: var(--shell-orange);
 }
 
+/* white buttons in a vc window */
+.controlIcon__25700:hover {
+	color: var(--shell-orange);
+}
+
+/* invite button in vc window */
+.buttonColor_fa1bb3:hover {
+	background-color: var(--gruvbox-background-orange);
+}
+
+/* invite vc window button text */
+.buttonColor_fa1bb3 {
+	color: var(--gruvbox-white);
+}
+
+/* active vc icon */
+div.iconVisibility__62ab5.wrapper__7bcde.modeConnected__1c02e.typeVoice_f4ba92 .icon_eff5d4 {
+	color: var(--shell-yellow);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
