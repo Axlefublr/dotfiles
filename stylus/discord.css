@@ -729,6 +729,11 @@ div.iconVisibility__62ab5.wrapper__7bcde.typeVoice_f4ba92:hover .icon_eff5d4 {
 	color: var(--shell-orange);
 }
 
+/* hovered active vc chat icon */
+div.iconVisibility__62ab5.wrapper__7bcde.modeConnected__1c02e.typeVoice_f4ba92:hover .icon_eff5d4 {
+	color: var(--shell-yellow);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
