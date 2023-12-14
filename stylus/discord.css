@@ -678,6 +678,11 @@ div.checkIcon__5aa1f > svg > path {
 	background: var(--shell-orange);
 }
 
+/* number of reacts */
+.reaction_fef95b.reactionMe__98f57 .reactionCount_b49901 {
+	color: var(--gruvbox-white);
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
