@@ -100,6 +100,10 @@ keymap:
       Super-3: { launch: [screenkey] }
       Super-Alt-3: { launch: [killall, screenkey] }
 
+  - name: System
+    remap:
+      ScrollLock: { launch: [sh, -c, "clorange reboots increment ; reboot"] }
+
   - name: Default mode
     remap:
       CapsLock-Semicolon: { set_mode: vim }
