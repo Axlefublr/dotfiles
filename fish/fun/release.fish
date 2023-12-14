@@ -46,6 +46,7 @@ function rust-release
 
 	rust-ci
 	indeed .gitignore release-notes.txt
+	cargo fmt
 
 	git add . &&
 	git commit -m $taggedVersion &&
