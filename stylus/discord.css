@@ -771,3 +771,8 @@ div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__1929
 div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__19298.colorPrimary__6ed40.sizeLarge__9049d.grow__4c8a4 > div > svg {
 	color: var(--gruvbox-white);
 }
+
+/* unread channel */
+.modeUnreadImportant_efb53e:hover .name__8d1ec {
+	color: var(--shell-orange);
+}
