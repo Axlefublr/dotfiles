@@ -683,6 +683,11 @@ div.checkIcon__5aa1f > svg > path {
 	color: var(--gruvbox-white);
 }
 
+/* "find or start a conversation" in dms */
+.searchBar_e4ea2a {
+	height: 42px;
+}
+
 /* channels and roles menu background */
 .theme-dark .container__10dc7,
 .theme-dark .header__60bef,
