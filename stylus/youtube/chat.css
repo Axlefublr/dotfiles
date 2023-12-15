@@ -3,6 +3,7 @@
 
 :root {
 	--shell-yellow: #ffd75f;
+	--shell-pink: #ffafd7;
 	--smooth-black: hsl(0, 0%, 6.7%);
 	--gruvbox-background: #292828;
 	--gruvbox-white: #d4be98;
@@ -19,6 +20,7 @@ html[dark],
 	--yt-spec-general-background-b: var(--gruvbox-background);
 	--yt-spec-raised-background: var(--gruvbox-background);
 	--yt-spec-static-brand-white: var(--gruvbox-white);
+	--yt-live-chat-moderator-color: var(--shell-pink);
 	--yt-live-chat-secondary-text-color: var(--shell-yellow);
 }
 
