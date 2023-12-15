@@ -24,6 +24,10 @@ html[dark],
 	--yt-live-chat-secondary-text-color: var(--shell-yellow);
 }
 
+html[darker-dark-theme][dark], [darker-dark-theme] [dark] {
+	--yt-spec-text-primary: var(--gruvbox-white);
+}
+
 body {
 	font-family: Ubuntu Nerd Font, Roboto, Arial, sans-serif;
 }
@@ -75,6 +79,10 @@ yt-live-chat-app {
 	display: none;
 }
 
+#emoji-picker-button.style-scope.yt-live-chat-message-input-renderer {
+	display: none;
+}
+
 /* thingy that holds my side of chat input */
 yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
 	padding-left: 3px;
@@ -96,4 +104,27 @@ yt-live-chat-text-message-renderer {
 /* each singular chat message pfp container */
 #author-photo.yt-live-chat-text-message-renderer {
 	margin-right: 9px;
+}
+
+/* background color of chat input box */
+yt-live-chat-message-input-renderer[updated-input-visuals] #input-container.yt-live-chat-message-input-renderer {
+	background-color: unset;
+}
+
+/* start poll + button */
+yt-live-chat-message-input-renderer[updated-input-visuals] #picker-buttons.yt-live-chat-message-input-renderer yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer {
+	margin-left: 0;
+}
+yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer>#button.yt-live-chat-icon-toggle-button-renderer {
+	background-color: unset;
+}
+
+/* bottom bar that includes inputbox among ඞ other things */
+yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
+	padding: 0px 4px 2px 0px;
+}
+
+/* positioning of the + start poll button */
+yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer>#button.yt-live-chat-icon-toggle-button-renderer {
+	padding: 5px 5px 4px 4px;
 }
