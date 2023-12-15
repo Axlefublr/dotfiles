@@ -49,3 +49,4 @@ sudo pacman -S --noconfirm devtools
 sudo pacman -S --noconfirm wmctrl
 sudo pacman -S --noconfirm ydotool
 sudo pacman -S --noconfirm libreoffice-still
+sudo pacman -S --noconfirm sl
