@@ -92,8 +92,8 @@ keymap:
 
   - name: Kitty
     remap:
-      Super-r: { launch: [kitty] }
-      Super-Alt-r: { launch: [kitty, -T, temporary-terminal] }
+      CapsLock-Slash: { launch: [kitty] }
+      CapsLock-Alt-Slash: { launch: [kitty, -T, temporary-terminal] }
 
   - name: Screenkey
     remap:
