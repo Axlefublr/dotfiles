@@ -39,6 +39,7 @@
 	--green-360: var(--shell-yellow);
 	--brand-500: var(--shell-yellow);
 	--brand-experiment: var(--shell-yellow);
+	--brand-experiment-05a: var(--gruvbox-background-yellow);
 	--brand-experiment-10a: var(--gruvbox-background-orange);
 	--brand-experiment-15a: var(--gruvbox-background-yellow);
 	--brand-experiment-360: var(--gruvbox-white);
@@ -775,4 +776,8 @@ div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__1929
 /* unread channel */
 .modeUnreadImportant_efb53e:hover .name__8d1ec {
 	color: var(--shell-orange);
+}
+
+div.iconCircle_de71da > svg > path {
+	fill: var(--smooth-black) !important;
 }
