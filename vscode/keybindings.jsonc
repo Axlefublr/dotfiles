@@ -152,7 +152,7 @@
 {
   "key": "w",
   "command": "keybindings.editor.defineWhenExpression",
-  "when": "inKeybindings && !whenFocus && !textInputFocus && keybindingFocus",
+  "when": "inKeybindings && !whenFocus && !textInputFocus && keybindingFocus"
 },
 {
   "key": "alt+n",
@@ -482,11 +482,6 @@
   "when": "editorFocus && renameInputVisible"
 },
 {
-  "key": "alt+;",
-  "command": "breadcrumbs.focusAndSelect",
-  "when": "neovim.mode != 'insert' && breadcrumbsVisible"
-},
-{
   "key": "capslock",
   "command": "breadcrumbs.selectEditor",
   "when": "breadcrumbsActive && breadcrumbsVisible"
@@ -630,6 +625,16 @@
   "key": "alt+;",
   "command": "acceptSelectedSuggestion",
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inlineSuggestionVisible"
+},
+{
+  "key": "alt+;",
+  "command": "breadcrumbs.focusAndSelect",
+  "when": "neovim.mode != 'insert' && breadcrumbsVisible"
+},
+{
+  "key": "alt+;",
+  "command": "acceptSelectedCodeAction",
+  "when": "actionWidgetVisible || codeActionMenuVisible"
 },
 {
   "key": "alt+insert",
@@ -2534,7 +2539,7 @@
 {
   "key": "ctrl+e",
   "command": "-vscode-neovim.ctrl-e",
-  "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'",
+  "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'"
 },
 {
   "key": "ctrl+m",
@@ -5133,5 +5138,5 @@
 {
   "key": "ctrl+k ctrl+alt+c",
   "command": "-workbench.action.addComment"
-},
+}
 ]
