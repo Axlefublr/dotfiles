@@ -1,6 +1,5 @@
 ~/prog/info
 ~/prog/dotfiles
-~/prog/scripts
 ~/prog/binaries
 ~/prog/noties
 ~/prog/job
