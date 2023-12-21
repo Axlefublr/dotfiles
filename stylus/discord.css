@@ -781,3 +781,8 @@ div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__1929
 div.iconCircle_de71da > svg > path {
 	fill: var(--smooth-black) !important;
 }
+
+/* vc chat */
+div.container_def45c.floating_f021e2 {
+	width: 600px !important;
+}
