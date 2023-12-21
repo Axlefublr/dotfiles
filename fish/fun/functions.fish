@@ -65,7 +65,7 @@ end
 funcsave atc > /dev/null
 
 function uboot
-	paru
+	yay
 	rustup update
 	cargo install-update -a
 	clorange updates increment
