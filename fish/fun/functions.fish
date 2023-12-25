@@ -76,3 +76,9 @@ function uboot
 	end
 end
 funcsave uboot > /dev/null
+
+function reboot
+	clorange reboots increment
+	reboot
+end
+funcsave reboot > /dev/null
