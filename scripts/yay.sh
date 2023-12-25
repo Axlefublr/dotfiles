@@ -12,3 +12,4 @@ yay mullvad-vpn-bin
 yay xremap-x11-bin
 yay gromit-mpx
 yay visual-studio-code-bin
+yay spicetify-cli
