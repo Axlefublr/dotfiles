@@ -8,3 +8,4 @@ sudo pacman -Rns --noconfirm nano
 sudo pacman -Rns --noconfirm vim
 sudo pacman -Rns --noconfirm htop
 sudo pacman -Rns --noconfirm amdvlk
+sudo pacman -Rns --noconfirm meld
