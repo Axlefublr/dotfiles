@@ -6,9 +6,6 @@ bash "$HOME/.cargo/env"
 fish_add_path "$HOME/.cargo/env"
 rustup update
 
-mkdir -p ~/.config/rustfmt
-ln -sf ~/prog/dotfiles/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
-
 cargo install cargo-binstall
 cargo binstall -y cargo-quickinstall
 cargo binstall -y cargo-info
@@ -17,7 +14,4 @@ cargo binstall -y watchexec-cli
 cargo binstall -y fd-find
 cargo binstall -y irust
 cargo binstall -y cargo-update
-
 cargo binstall -y bacon
-mkdir -p ~/.config/bacon
-ln -sf ~/prog/dotfiles/bacon/prefs.toml ~/.config/bacon/prefs.toml
