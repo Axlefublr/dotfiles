@@ -13,7 +13,7 @@ alias --save octussy-set 'octussy --color-all-commits FFD75F \
 	--color-all-staged 87FF5F \
 	--color-all-unstaged 00D7FF' > /dev/null
 alias --save etg 'shuf -n 1 ~/prog/noties/etg-actives.txt' > /dev/null
-alias --save icat 'kitten icat' > /dev/null
+alias --save icat 'kitten icat --align left' > /dev/null
 
 function ghrclc
 	gh repo clone $argv &&
