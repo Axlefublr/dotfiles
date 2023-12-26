@@ -78,3 +78,19 @@ function ReverseTable(table)
 
 	return reversed
 end
+
+function TrimFinalNewlines()
+	local total_lines = vim.api.nvim_buf_line_count(0)
+
+	local last_non_blank = total_lines
+	for i = total_lines, 1, -1 do
+		if not string.match(vim.fn.getline(i), "^%s*$") then
+			last_non_blank = i
+			break
+		end
+	end
+
+	if last_non_blank < total_lines then
+		vim.api.nvim_buf_set_lines(0, last_non_blank, total_lines, false, {})
+	end
+end
