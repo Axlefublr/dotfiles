@@ -1,10 +1,5 @@
 #!/usr/bin/env fish
 
-function mkcd
-	mkdir -p $argv && z $argv
-end
-funcsave mkcd > /dev/null
-
 function prli
 	printf '%s\n' $argv
 end

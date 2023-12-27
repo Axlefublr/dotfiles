@@ -778,7 +778,6 @@
 	"workbench.editor.enablePreview": false,
 	"editor.suggest.matchOnWordStartOnly": false,
 	"editor.renderFinalNewline": "on",
-	"diffEditor.hideUnchangedRegions.enabled": true,
 	"rust-analyzer.assist.expressionFillDefault": "default",
 	"rust-analyzer.completion.fullFunctionSignatures.enable": true,
 	"workbench.editor.empty.hint": "hidden",
@@ -805,4 +804,5 @@
 	},
 	"gruvboxMaterial.italicComments": false,
 	"workbench.editor.tabActionCloseVisibility": false,
+	"diffEditor.hideUnchangedRegions.enabled": true,
 }

@@ -15,6 +15,11 @@ alias --save octussy-set 'octussy --color-all-commits FFD75F \
 alias --save etg 'shuf -n 1 ~/prog/noties/etg-actives.txt' > /dev/null
 alias --save icat 'kitten icat --align left' > /dev/null
 
+function mkcd
+	mkdir -p $argv && z $argv
+end
+funcsave mkcd > /dev/null
+
 function ghrclc
 	gh repo clone $argv &&
 	cd (path basename $argv)
@@ -32,3 +37,28 @@ function codef
 	commandline -f execute
 end
 funcsave codef > /dev/null
+
+function uboot
+	yay
+	rustup update
+	cargo install-update -a
+	clorange updates increment
+	read -ln 1 response
+	if test $response = " "
+		clorange reboots increment
+		reboot
+	end
+end
+funcsave uboot > /dev/null
+
+function xrestart
+	killall xremap
+	xremap --mouse --watch ~/prog/dotfiles/xremap/config.yml &> /dev/null & disown
+end
+funcsave xrestart > /dev/null
+
+function grostart
+	killall gromit-mpx
+	gromit-mpx -k "none" -u "none" &> /dev/null & disown
+end
+funcsave grostart > /dev/null
