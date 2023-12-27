@@ -177,3 +177,4 @@ abbr -a xrestart 'killall xremap ; xremap --mouse --watch ~/prog/dotfiles/xremap
 abbr -a grostart 'killall gromit-mpx ; gromit-mpx -k "none" -u "none" &> /dev/null & disown'
 abbr -a hime 'history merge'
 abbr -a dsf 'diff-so-fancy'
+abbr -a reboot 'clorange reboots increment ; reboot'
