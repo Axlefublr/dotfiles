@@ -15,12 +15,6 @@ modmap:
       only: /Terraria/
 
 keymap:
-  - name: Tile and focus input
-    remap:
-      CapsLock-b: ["super-8", "shift-tab", "shift-tab", "shift-tab", "shift-tab"] # banking on #8 toggling float
-    application:
-      only: Anki
-
   - name: Kde Compose key
     remap:
       CapsLock-Apostrophe: CapsLock
