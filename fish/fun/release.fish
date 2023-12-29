@@ -74,7 +74,7 @@ function rust-fmt --description 'Bring in format config and format with it'
 		echo "you're not in repo root"
 		return 1
 	end
-	cp -f ~/prog/dotfiles/rustfmt.toml ./rustfmt.toml &&
+	cp -f ~/prog/dotfiles/rustfmt.toml ./.rustfmt.toml &&
 	cargo fmt
 end
 funcsave rust-fmt > /dev/null

@@ -5,6 +5,7 @@ fish_add_path "$HOME/.cargo/bin"
 bash "$HOME/.cargo/env"
 fish_add_path "$HOME/.cargo/env"
 rustup update
+rustup toolchain install nightly
 
 cargo install cargo-binstall
 cargo binstall -y cargo-quickinstall
