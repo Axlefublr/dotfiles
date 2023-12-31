@@ -5,4 +5,3 @@ sudo pacman -S --noconfirm python-pip
 sudo pacman -S --noconfirm python-pipx
 pipx install termdown
 pipx install exrex
-pipx install yt-dlp
