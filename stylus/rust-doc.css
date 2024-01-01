@@ -1,0 +1,7 @@
+body {
+	font-family: Ubuntu Nerd Font !important;
+}
+
+code, pre, a.test-arrow, .code-header {
+	font-family: JetBrainsMono NF;
+}
