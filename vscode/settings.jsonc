@@ -100,7 +100,8 @@
 					"string.quoted.single.basic.line.toml",
 					"markup.fenced_code.block.markdown",
 					"punctuation.definition.char.rust",
-					"support.type.property-name.json"
+					"support.type.property-name.json",
+					"storage.type.string.python",
 				]
 			},
 			{
@@ -165,7 +166,8 @@
 				"scope": [
 					"entity.name.type.namespace.cs",
 					"string.quoted.double.json",
-					"entity.name.tag.html"
+					"entity.name.tag.html",
+					"support.type.python"
 				]
 			},
 			{
@@ -214,7 +216,8 @@
 					"storage.type.metafunction.ahk2",
 					"fenced_code.block.language",
 					"constant.language.null",
-					"constant.language.boolean"
+					"constant.language.boolean",
+					"constant.language.python"
 				]
 			},
 			{
@@ -300,7 +303,9 @@
 					"punctuation.definition.typeparameters",
 					"keyword.operator.assignment",
 					"keyword.operator.arithmetic",
-					"keyword.operator.relational.cs"
+					"keyword.operator.relational.cs",
+					"keyword.operator.python",
+					"keyword.operator.unpacking.parameter.python"
 				]
 			},
 			{
@@ -335,7 +340,8 @@
 					"keyword.operator.key-value.rust",
 					"keyword.operator.access.dot.rust",
 					"keyword.operator.namespace.rust",
-					"variable.other.object.property.cs"
+					"variable.other.object.property.cs",
+					"storage.type.format.python"
 				]
 			},
 			{

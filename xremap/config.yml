@@ -15,6 +15,11 @@ modmap:
       only: /Terraria/
 
 keymap:
+  # - name: Anki
+  #   remap:
+  #   application:
+  #     only: Anki
+
   - name: Kde Compose key
     remap:
       CapsLock-Apostrophe: CapsLock
