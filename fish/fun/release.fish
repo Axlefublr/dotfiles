@@ -75,7 +75,7 @@ function rust-fmt --description 'Bring in format config and format with it'
 		return 1
 	end
 	cp -f ~/prog/dotfiles/rustfmt.toml ./.rustfmt.toml &&
-	cargo fmt
+	cargo +nightly fmt
 end
 funcsave rust-fmt > /dev/null
 
