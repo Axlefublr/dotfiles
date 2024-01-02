@@ -160,7 +160,7 @@
   "when": ""
 },
 {
-  "key": "ctrl+5",
+  "key": "alt+6",
   "command": "workbench.view.extensions",
   "when": "viewContainer.workbench.view.extensions.enabled"
 },
@@ -410,17 +410,13 @@
   "command": "workbench.action.moveEditorRightInGroup"
 },
 {
-  "key": "alt+0",
+  "key": "ctrl+0",
   "command": "workbench.action.lastEditorInGroup",
   "when": "!panelFocus || !terminalFocus"
 },
 {
   "key": "alt+u",
   "command": "workbench.action.toggleMaximizedPanel"
-},
-{
-  "key": "ctrl+6",
-  "command": "timeline.focus"
 },
 {
   "key": "escape",
@@ -460,7 +456,7 @@
   "command": "workbench.explorer.fileView.focus"
 },
 {
-  "key": "ctrl+8",
+  "key": "alt+8",
   "command": "workbench.panel.output.focus"
 },
 {
@@ -516,19 +512,9 @@
   "when": "editorTextFocus && !neovim.recording && neovim.init && neovim.mode == 'insert'"
 },
 {
-  "key": "shift+alt+9",
-  "command": "workbench.action.debug.selectandstart",
-  "when": "!inDebugMode && editorLangId != 'ahk2'"
-},
-{
   "key": "alt+w",
   "command": "workbench.action.terminal.kill",
   "when": "terminalFocus && activePanel == 'terminal' && panelFocus"
-},
-{
-  "key": "shift+alt+0",
-  "command": "toggleSearchEditorRegex",
-  "when": "inSearchEditor"
 },
 {
   "key": "alt+/",
@@ -545,7 +531,7 @@
   "command": "editor.action.fontZoomIn"
 },
 {
-  "key": "ctrl+0",
+  "key": "ctrl+alt+=",
   "command": "editor.action.fontZoomReset"
 },
 {
@@ -681,89 +667,44 @@
   "command": "terminal.focus"
 },
 {
-  "key": "alt+2",
+  "key": "ctrl+2",
   "command": "workbench.action.openEditorAtIndex2",
   "when": "!terminalFocus || !panelFocus"
 },
 {
-  "key": "alt+3",
+  "key": "ctrl+3",
   "command": "workbench.action.openEditorAtIndex3",
   "when": "!terminalFocus || !panelFocus"
 },
 {
-  "key": "alt+4",
+  "key": "ctrl+4",
   "command": "workbench.action.openEditorAtIndex4",
   "when": "!terminalFocus || !panelFocus"
 },
 {
-  "key": "alt+5",
+  "key": "ctrl+5",
   "command": "workbench.action.openEditorAtIndex5",
   "when": "!terminalFocus || !panelFocus"
 },
 {
-  "key": "alt+6",
+  "key": "ctrl+6",
   "command": "workbench.action.openEditorAtIndex6",
   "when": "!terminalFocus || !panelFocus"
 },
 {
-  "key": "alt+7",
+  "key": "ctrl+7",
   "command": "workbench.action.openEditorAtIndex7",
   "when": "!terminalFocus || !panelFocus"
 },
 {
-  "key": "alt+8",
+  "key": "ctrl+8",
   "command": "workbench.action.openEditorAtIndex8",
   "when": "!terminalFocus || !panelFocus"
 },
 {
-  "key": "alt+9",
+  "key": "ctrl+9",
   "command": "workbench.action.openEditorAtIndex9",
   "when": "!terminalFocus || !panelFocus"
-},
-{
-  "key": "alt+1",
-  "command": "workbench.action.terminal.focusAtIndex1",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+2",
-  "command": "workbench.action.terminal.focusAtIndex2",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+3",
-  "command": "workbench.action.terminal.focusAtIndex3",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+4",
-  "command": "workbench.action.terminal.focusAtIndex4",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+5",
-  "command": "workbench.action.terminal.focusAtIndex5",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+6",
-  "command": "workbench.action.terminal.focusAtIndex6",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+7",
-  "command": "workbench.action.terminal.focusAtIndex7",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+8",
-  "command": "workbench.action.terminal.focusAtIndex8",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
-},
-{
-  "key": "alt+9",
-  "command": "workbench.action.terminal.focusAtIndex9",
-  "when": "terminalFocus && panelFocus && activePanel == 'terminal'"
 },
 {
   "key": "alt+.",
@@ -771,7 +712,7 @@
   "when": "!panelFocus"
 },
 {
-  "key": "alt+1",
+  "key": "ctrl+1",
   "command": "workbench.action.firstEditorInGroup",
   "when": "!terminalFocus || !panelFocus"
 },
@@ -824,11 +765,6 @@
   "when": "editorTextFocus && neovim.mode != 'insert'"
 },
 {
-  "key": "ctrl+7",
-  "command": "notifications.focusToasts",
-  "when": "notificationToastsVisible && !notificationFocus"
-},
-{
   "key": "g",
   "command": "notifications.focusFirstToast",
   "when": "notificationFocus && notificationToastsVisible"
@@ -847,10 +783,6 @@
   "key": "k",
   "command": "notifications.focusPreviousToast",
   "when": "notificationFocus && notificationToastsVisible"
-},
-{
-  "key": "ctrl+3",
-  "command": "workbench.view.extension.test"
 },
 {
   "key": "c",
@@ -1037,7 +969,7 @@
   "when": "editorLangId == 'html'"
 },
 {
-  "key": "ctrl+9",
+  "key": "alt+9",
   "command": "workbench.action.focusQuickOpen"
 },
 {
