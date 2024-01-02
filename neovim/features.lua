@@ -4,7 +4,7 @@ Map("i", "<C-h>", '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current positio
 
 Map("n", ",dl", 'dil\'_dd', { remap = true }) -- Take the contents of the line, but delete the line too
 
-Map("n", ",di", '"_ddddpvaB<Esc>') -- Push line of code after block into block
+Map("n", ",di", '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
 
 Map("", ",do", 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
 Map("", ",db", 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
