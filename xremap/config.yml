@@ -130,28 +130,25 @@ keymap:
       v: { launch: [xdotool, mousemove, '1360', '945']}
       b: { launch: [xdotool, mousemove, '1760', '945']}
 
-      h: { launch: [ydotool, mousemove, '--', '-5', '0']}
-      l: { launch: [ydotool, mousemove, '--', '5', '0']}
-      j: { launch: [ydotool, mousemove, '--', '0', '5']}
-      k: { launch: [ydotool, mousemove, '--', '0', '-5']}
+      h: { launch: [ydotool, mousemove, '--', '-26', '0']}
+      l: { launch: [ydotool, mousemove, '--', '26', '0']}
+      j: { launch: [ydotool, mousemove, '--', '0', '26']}
+      k: { launch: [ydotool, mousemove, '--', '0', '-26']}
 
-      Shift-h: { launch: [ydotool, mousemove, '--', '-20', '0']}
-      Shift-l: { launch: [ydotool, mousemove, '--', '20', '0']}
-      Shift-j: { launch: [ydotool, mousemove, '--', '0', '20']}
-      Shift-k: { launch: [ydotool, mousemove, '--', '0', '-20']}
-      CapsLock-h: { launch: [ydotool, mousemove, '--', '-20', '0']}
-      CapsLock-l: { launch: [ydotool, mousemove, '--', '20', '0']}
-      CapsLock-j: { launch: [ydotool, mousemove, '--', '0', '20']}
-      CapsLock-k: { launch: [ydotool, mousemove, '--', '0', '-20']}
+      Shift-h: { launch: [ydotool, mousemove, '--', '-52', '0']}
+      Shift-l: { launch: [ydotool, mousemove, '--', '52', '0']}
+      Shift-j: { launch: [ydotool, mousemove, '--', '0', '52']}
+      Shift-k: { launch: [ydotool, mousemove, '--', '0', '-52']}
 
-      Alt-h: { launch: [ydotool, mousemove, '--', '-50', '0']}
-      Alt-l: { launch: [ydotool, mousemove, '--', '50', '0']}
-      Alt-j: { launch: [ydotool, mousemove, '--', '0', '50']}
-      Alt-k: { launch: [ydotool, mousemove, '--', '0', '-50']}
-      Ctrl-h: { launch: [ydotool, mousemove, '--', '-50', '0']}
-      Ctrl-l: { launch: [ydotool, mousemove, '--', '50', '0']}
-      Ctrl-j: { launch: [ydotool, mousemove, '--', '0', '50']}
-      Ctrl-k: { launch: [ydotool, mousemove, '--', '0', '-50']}
+      Alt-h: { launch: [ydotool, mousemove, '--', '-13', '0']}
+      Alt-l: { launch: [ydotool, mousemove, '--', '13', '0']}
+      Alt-j: { launch: [ydotool, mousemove, '--', '0', '13']}
+      Alt-k: { launch: [ydotool, mousemove, '--', '0', '-13']}
+
+      Ctrl-h: { launch: [ydotool, mousemove, '--', '-6.5', '0']}
+      Ctrl-l: { launch: [ydotool, mousemove, '--', '6.5', '0']}
+      Ctrl-j: { launch: [ydotool, mousemove, '--', '0', '6.5']}
+      Ctrl-k: { launch: [ydotool, mousemove, '--', '0', '-6.5']}
 
       u: { launch: ["ydotool", "click", "c0"] } # c0 — left click
       i: { launch: ["ydotool", "click", "c2"] } # c2 — middle click
