@@ -811,4 +811,7 @@
 	"gruvboxMaterial.italicComments": false,
 	"workbench.editor.tabActionCloseVisibility": false,
 	"diffEditor.hideUnchangedRegions.enabled": true,
+	"rust-analyzer.rustfmt.extraArgs": [
+		"+nightly"
+	],
 }
