@@ -112,11 +112,11 @@ keymap:
     remap:
       CapsLock-Semicolon: { set_mode: default }
 
-      q: { launch: [xdotool, mousemove, '128',  '135']}
-      w: { launch: [xdotool, mousemove, '544',  '135']}
-      e: { launch: [xdotool, mousemove, '960',  '135']}
-      r: { launch: [xdotool, mousemove, '1376', '135']}
-      t: { launch: [xdotool, mousemove, '1792', '135']}
+      q: { launch: [xdotool, mousemove, '128',  '120']}
+      w: { launch: [xdotool, mousemove, '544',  '120']}
+      e: { launch: [xdotool, mousemove, '960',  '120']}
+      r: { launch: [xdotool, mousemove, '1376', '120']}
+      t: { launch: [xdotool, mousemove, '1792', '120']}
 
       a: { launch: [xdotool, mousemove, '128',  '540']}
       s: { launch: [xdotool, mousemove, '544',  '540']}
@@ -124,11 +124,11 @@ keymap:
       f: { launch: [xdotool, mousemove, '1376', '540']}
       g: { launch: [xdotool, mousemove, '1792', '540']}
 
-      z: { launch: [xdotool, mousemove, '128',  '945']}
-      x: { launch: [xdotool, mousemove, '544',  '945']}
-      c: { launch: [xdotool, mousemove, '960',  '945']}
-      v: { launch: [xdotool, mousemove, '1376', '945']}
-      b: { launch: [xdotool, mousemove, '1792', '945']}
+      z: { launch: [xdotool, mousemove, '128',  '960']}
+      x: { launch: [xdotool, mousemove, '544',  '960']}
+      c: { launch: [xdotool, mousemove, '960',  '960']}
+      v: { launch: [xdotool, mousemove, '1376', '960']}
+      b: { launch: [xdotool, mousemove, '1792', '960']}
 
       h: { launch: [ydotool, mousemove, '--', '-26', '0']}
       l: { launch: [ydotool, mousemove, '--', '26', '0']}
