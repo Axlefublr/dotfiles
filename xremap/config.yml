@@ -130,6 +130,21 @@ keymap:
       v: { launch: [xdotool, mousemove, '1376', '960']}
       b: { launch: [xdotool, mousemove, '1792', '960']}
 
+      Shift-q: { launch: [xdotool, mousemove, '336',  '120']}
+      Shift-w: { launch: [xdotool, mousemove, '752',  '120']}
+      Shift-e: { launch: [xdotool, mousemove, '1168', '120']}
+      Shift-r: { launch: [xdotool, mousemove, '1584', '120']}
+
+      Shift-a: { launch: [xdotool, mousemove, '336',  '540']}
+      Shift-s: { launch: [xdotool, mousemove, '752',  '540']}
+      Shift-d: { launch: [xdotool, mousemove, '1168', '540']}
+      Shift-f: { launch: [xdotool, mousemove, '1584', '540']}
+
+      Shift-z: { launch: [xdotool, mousemove, '336',  '960']}
+      Shift-x: { launch: [xdotool, mousemove, '752',  '960']}
+      Shift-c: { launch: [xdotool, mousemove, '1168', '960']}
+      Shift-v: { launch: [xdotool, mousemove, '1584', '960']}
+
       h: { launch: [ydotool, mousemove, '--', '-26', '0']}
       l: { launch: [ydotool, mousemove, '--', '26', '0']}
       j: { launch: [ydotool, mousemove, '--', '0', '26']}
