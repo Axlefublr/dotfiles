@@ -5,6 +5,7 @@ abbr --set-cursor -a ytvy 'yt-dlp -o \'/home/axlefublr/Videos/Content/Youtube/%.
 abbr --set-cursor -a yta 'yt-dlp -x --audio-format mp3 -o \'%.%(ext)s\' \'\''
 abbr --set-cursor -a ghic 'gh issue create -t "%"'
 abbr --set-cursor -a diff 'diff -u % | diff-so-fancy'
+abbr --set-cursor -a math 'math \'%\''
 
 abbr --set-cursor -a gamm 'git add . &&
 	git commit -am "%"'
