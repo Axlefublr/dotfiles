@@ -157,6 +157,16 @@ keymap:
       Alt-v: { launch: [xdotool, mousemove, '1376', '750']}
       Alt-b: { launch: [xdotool, mousemove, '1792', '750']}
 
+      Shift-Alt-q: { launch: [xdotool, mousemove, '336',  '330']}
+      Shift-Alt-w: { launch: [xdotool, mousemove, '752',  '330']}
+      Shift-Alt-e: { launch: [xdotool, mousemove, '1168', '330']}
+      Shift-Alt-r: { launch: [xdotool, mousemove, '1584', '330']}
+
+      Shift-Alt-z: { launch: [xdotool, mousemove, '336',  '750']}
+      Shift-Alt-x: { launch: [xdotool, mousemove, '752',  '750']}
+      Shift-Alt-c: { launch: [xdotool, mousemove, '1168', '750']}
+      Shift-Alt-v: { launch: [xdotool, mousemove, '1584', '750']}
+
       h: { launch: [ydotool, mousemove, '--', '-26', '0']}
       l: { launch: [ydotool, mousemove, '--', '26', '0']}
       j: { launch: [ydotool, mousemove, '--', '0', '26']}
