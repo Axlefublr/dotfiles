@@ -29,7 +29,7 @@
 	--darkerest: hsl(0, 1%, 13%);
 }
 .gruvbox-material.background.hex {
-	--leel: #292828;
+	--level: #292828;
 }
 
 .chart {
@@ -42,4 +42,5 @@
 
 .extra {
 	--micha-pink: #ffaa99;
+	--smooth-black: #0f0f0f;
 }
