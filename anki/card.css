@@ -1,0 +1,15 @@
+.card {
+    font-family: Ubuntu Nerd Font;
+    font-size: 22px;
+    text-align: center;
+}
+
+.header {
+    color: #ffafd7;
+    margin-bottom: 30px;
+}
+
+code {
+    font-family: JetBrainsMono NF;
+    background-color: #212121;
+}
