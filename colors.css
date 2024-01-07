@@ -29,7 +29,10 @@
 	--darkerest: hsl(0, 1%, 13%);
 }
 .gruvbox-material.background.hex {
+	--lighter: #313030;
 	--level: #292828;
+	--darker: #242323;
+	--darkerest: #212121;
 }
 
 .chart {
