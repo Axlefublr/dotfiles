@@ -81,10 +81,15 @@ function fish_prompt
 	else
 		printf '\n'
 	end
-	set -l curr_branch (git branch --show-current 2> /dev/null)
-	if test $curr_branch
+	if test (git rev-parse --is-inside-work-tree 2> /dev/null)
+		set -l curr_branch (git branch --show-current 2> /dev/null)
 		set_color -o $color_purple
-		echo -n ''$curr_branch' '
+		if test $curr_branch
+			echo -n ''$curr_branch' '
+		else
+			set -l curr_commit (git rev-parse --short HEAD 2> /dev/null)
+			echo -n ''$curr_commit' '
+		end
 		set_color normal
 		command -q octussy && octussy-set
 		if test $COLUMNS -lt $small_threshold
