@@ -41,7 +41,9 @@ funcsave codef > /dev/null
 
 function uboot
 	yay
-	rustup update
+	if test (math (clorange updates show) % 5) -eq 0
+		rustup update
+	end
 	cargo install-update -a
 	clorange updates increment
 	read -ln 1 response
