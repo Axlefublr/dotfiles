@@ -222,7 +222,18 @@ keymap:
 
   - name: System
     remap:
+      Sysrq: { launch: [sh, -c, "qdbus org.kde.ksmserver /KSMServer logout 0 0 0"]} # Printscreen
+      Shift-Sysrq: { launch: [sh, -c, "clorange reboots increment ; poweroff"] }
       ScrollLock: { launch: [sh, -c, "clorange reboots increment ; reboot"] }
+      Pause: { launch: [systemctl, suspend] }
+      Shift-Pause: { launch: [xset, dpms, force, 'off'] }
+
+      CapsLock-Alt-6: { launch: [sh, -c, "qdbus org.kde.ksmserver /KSMServer logout 0 0 0"]}
+      CapsLock-Shift-Alt-6: { launch: [sh, -c, "clorange reboots increment ; poweroff"] }
+      CapsLock-Shift-Alt-8: { launch: [sh, -c, "clorange reboots increment ; reboot"] }
+      CapsLock-Alt-8: { launch: [kitty, -T, uboot, fish, -c, uboot] }
+      CapsLock-Alt-7: { launch: [systemctl, suspend] }
+      CapsLock-Alt-9: { launch: [xset, dpms, force, 'off'] }
 
   - name: System & Media
     remap:
