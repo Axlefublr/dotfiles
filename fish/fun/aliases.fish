@@ -48,6 +48,8 @@ function uboot
 	if test $response = " "
 		clorange reboots increment
 		reboot
+	else if test $response = "l"
+		qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 	end
 end
 funcsave uboot > /dev/null
