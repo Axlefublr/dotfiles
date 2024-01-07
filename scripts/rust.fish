@@ -7,12 +7,7 @@ fish_add_path "$HOME/.cargo/env"
 rustup update
 rustup toolchain install nightly
 
-cargo install cargo-binstall
 cargo binstall -y cargo-quickinstall
 cargo binstall -y cargo-info
-cargo binstall -y ripgrep
 cargo binstall -y watchexec-cli
-cargo binstall -y fd-find
 cargo binstall -y irust
-cargo binstall -y cargo-update
-cargo binstall -y bacon

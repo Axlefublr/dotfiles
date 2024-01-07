@@ -54,3 +54,8 @@ sudo pacman -S --noconfirm cronie
 sudo pacman -S --noconfirm diff-so-fancy
 sudo pacman -S --noconfirm yt-dlp
 sudo pacman -S --noconfirm python-mutagen
+sudo pacman -S --noconfirm cargo-binstall
+sudo pacman -S --noconfirm ripgrep
+sudo pacman -S --noconfirm fd
+sudo pacman -S --noconfirm cargo-update
+sudo pacman -S --noconfirm bacon
