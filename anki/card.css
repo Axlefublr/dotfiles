@@ -1,15 +1,32 @@
 .card {
-    font-family: Ubuntu Nerd Font;
-    font-size: 22px;
-    text-align: center;
+	font-family: Ubuntu Nerd Font;
+	font-size: 22px;
+	text-align: center;
 }
 
 .header {
-    color: #ffafd7;
-    margin-bottom: 30px;
+	color: #ffafd7;
+	margin-bottom: 30px;
+}
+
+.margin {
+	height: 20px;
+}
+
+.extra-pointer {
+	color: #ffafd7;
+}
+
+.cloze {
+	font-weight: bold;
+	color: #ffafd7;
+}
+
+.nightMode .cloze {
+	color: #ffafd7;
 }
 
 code {
-    font-family: JetBrainsMono NF;
-    background-color: #212121;
+	font-family: JetBrainsMono NF;
+	background-color: #212121;
 }
