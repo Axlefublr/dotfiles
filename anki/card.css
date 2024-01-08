@@ -26,15 +26,59 @@
 	color: #ffafd7;
 }
 
+hr#answer {
+	margin: 14px;
+}
+
+/* singular diffed letters in inputbox result */
+.typeBad,
+.typeMissed,
+.typeGood {
+	color: #f6f6f6;
+	background: transparent;
+}
+
 .codeblock {
 	font-family: JetBrainsMono NF;
-	background-color: #212121;
+	background-color: #242323;
 	border-radius: 5px;
-	padding: 5px;
+	padding: 7px;
 }
 
 code {
 	font-family: JetBrainsMono NF;
-	background-color: #212121;
-	padding: 1px;
+	background-color: #242323;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+
+input {
+	font-family: JetBrainsMono NF !important;
+	font-size: 22px !important;
+	padding: 7px;
+	text-align: center;
+	border-radius: 5px;
+	border: #878787 dashed 1px;
+	background-color: #242323;
+	line-height: 1.5;
+}
+
+input:active,
+input:focus {
+	border: transparent solid 1px !important;
+}
+
+code#typeans {
+	display: block;
+	border-radius: 5px;
+	border: transparent solid 1px !important;
+	font-size: 22px;
+	padding: 7px;
+	line-height: 1.5;
+	background-color: #242323;
+}
+
+span#typearrow,
+span#typearrow ~ br {
+	display: none;
 }
