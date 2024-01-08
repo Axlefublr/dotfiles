@@ -26,6 +26,13 @@
 	color: #ffafd7;
 }
 
+.codeblock {
+	font-family: JetBrainsMono NF;
+	background-color: #212121;
+	border-radius: 5px;
+	padding: 5px;
+}
+
 code {
 	font-family: JetBrainsMono NF;
 	background-color: #212121;
