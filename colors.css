@@ -23,12 +23,14 @@
 }
 
 .gruvbox-material.background {
+	--lighterest: hsl(0, 1%, 25%);
 	--lighter: hsl(0, 1%, 19%);
 	--level: hsl(0, 1%, 16%);
 	--darker: hsl(0, 1%, 14%);
 	--darkerest: hsl(0, 1%, 13%);
 }
 .gruvbox-material.background.hex {
+	--lighterest: #403f3f;
 	--lighter: #313030;
 	--level: #292828;
 	--darker: #242323;

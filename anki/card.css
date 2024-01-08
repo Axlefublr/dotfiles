@@ -38,7 +38,7 @@ hr#answer {
 .typeBad,
 .typeMissed,
 .typeGood {
-	color: #f6f6f6;
+	color: #cccccc;
 	background: transparent;
 }
 
@@ -62,8 +62,8 @@ input {
 	padding: 7px;
 	text-align: center;
 	border-radius: 5px;
-	border: #878787 dashed 1px;
-	background-color: #242323;
+	border: hsl(0, 1%, 80%) dashed 1px;
+	background-color: #403f3f;
 	line-height: 1.5;
 }
 
@@ -80,7 +80,7 @@ code#typeans {
 	font-size: 22px;
 	padding: 7px;
 	line-height: 1.5;
-	background-color: #242323;
+	background-color: #403f3f;
 }
 
 /* ↓ arrow and newline after it removed, to give us the ability to define the line height between the diff in a nicer way */
