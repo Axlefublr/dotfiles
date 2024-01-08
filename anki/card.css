@@ -13,6 +13,10 @@
 	height: 30px;
 }
 
+.extra {
+	margin-top: 15px;
+}
+
 .extra-pointer {
 	color: #ffafd7;
 }
@@ -63,6 +67,7 @@ input {
 	line-height: 1.5;
 }
 
+/* by keeping a transparent border, the inputbox doesn't jump when it turns into the answer box */
 input:active,
 input:focus {
 	border: transparent solid 1px !important;
@@ -78,6 +83,7 @@ code#typeans {
 	background-color: #242323;
 }
 
+/* ↓ arrow and newline after it removed, to give us the ability to define the line height between the diff in a nicer way */
 span#typearrow,
 span#typearrow ~ br {
 	display: none;
