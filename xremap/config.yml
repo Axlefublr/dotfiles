@@ -138,8 +138,8 @@ keymap:
 
   - name: 'Anki: Note Types'
     remap:
-      CapsLock-8: [ tab, tab, tab, tab, tab ]
-      CapsLock-7: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
+      Alt-c: [ tab, tab, tab, tab, tab, enter ]
+      Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
     application:
       only: Anki
 
