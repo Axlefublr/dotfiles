@@ -58,3 +58,12 @@ function atc
 	alien_temple consent | tee /dev/tty | xclip -r -selection clipboard
 end
 funcsave atc > /dev/null
+
+function winwaitname
+	while not test (xdotool search --name $argv[1])
+	end
+	if set -q argv[2]
+		sleep $argv[2]
+	end
+end
+funcsave winwaitname > /dev/null
