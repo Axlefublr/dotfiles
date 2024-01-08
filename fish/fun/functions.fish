@@ -60,7 +60,7 @@ end
 funcsave atc > /dev/null
 
 function winwaitname
-	while not test (xdotool search --name $argv[1])
+	while not test (xdotool search --onlyvisible --name $argv[1])
 	end
 	if set -q argv[2]
 		sleep $argv[2]

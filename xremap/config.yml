@@ -140,8 +140,12 @@ keymap:
     remap:
       Alt-c: [ tab, tab, tab, tab, tab, enter ]
       Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
-      Alt-d: [ ctrl-d, { launch: [fish, -c, "winwaitname 'Change|Choose Deck' 0.1 ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"] }]
-      Alt-o: [ ctrl-n, { launch: [fish, -c, "winwaitname 'Choose Note Type' 0.1 ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"] } ]
+      Alt-d: [ ctrl-d, { launch: [
+        fish, -c, "winwaitname '(Choose|Change) Deck' ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
+        ] }]
+      Alt-o: [ ctrl-n, { launch: [
+        fish, -c, "winwaitname 'Choose Note Type' ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
+        ] } ]
     application:
       only: Anki
 
