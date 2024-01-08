@@ -663,10 +663,6 @@
   "command": "workbench.action.nextEditorInGroup"
 },
 {
-  "key": "alt+r",
-  "command": "terminal.focus"
-},
-{
   "key": "ctrl+2",
   "command": "workbench.action.openEditorAtIndex2",
   "when": "!terminalFocus || !panelFocus"
