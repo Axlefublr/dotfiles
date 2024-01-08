@@ -136,10 +136,12 @@ keymap:
       CapsLock-Semicolon: { set_mode: vim }
     mode: default
 
-  # - name: Anki
-  #   remap:
-  #   application:
-  #     only: Anki
+  - name: 'Anki: Note Types'
+    remap:
+      CapsLock-8: [ tab, tab, tab, tab, tab ]
+      CapsLock-7: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
+    application:
+      only: Anki
 
   - name: Kde Compose key
     remap:
