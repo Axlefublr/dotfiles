@@ -39,23 +39,6 @@ function codef
 end
 funcsave codef > /dev/null
 
-function uboot
-	yay
-	if test (math (clorange updates show) % 5) -eq 0
-		rustup update
-	end
-	cargo install-update -a
-	clorange updates increment
-	read -ln 1 response
-	if test $response = " "
-		clorange reboots increment
-		reboot
-	else if test $response = "l"
-		qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-	end
-end
-funcsave uboot > /dev/null
-
 function xrestart
 	killall xremap
 	xremap --mouse --watch ~/prog/dotfiles/xremap/config.yml &> /dev/null & disown
