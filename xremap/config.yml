@@ -137,6 +137,7 @@ keymap:
     mode: default
 
   - name: 'Anki: Note Types'
+    exact_match: true
     remap:
       Alt-c: [ tab, tab, tab, tab, tab, enter ]
       Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
@@ -162,6 +163,7 @@ keymap:
       CapsLock-Shift-q: { launch: [xdotool, getwindowfocus, windowkill] }
 
   - name: Gromit
+    exact_match: true
     remap:
       Super-f: { launch: [gromit-mpx, -t] }
       Super-Alt-f: { launch: [gromit-mpx, -c] }
@@ -201,6 +203,7 @@ keymap:
         }
 
   - name: Float image in clipboard
+    exact_match: true
     remap:
       Super-w:
         {
@@ -213,6 +216,7 @@ keymap:
         }
 
   - name: Put three random words to clipboard
+    exact_match: true
     remap:
       Super-5:
         { launch: [sh, -c, "uclanr -tj '' 3 | xclip -r -selection clipboard"] }
@@ -227,6 +231,7 @@ keymap:
       CapsLock-Alt-Slash: { launch: [kitty, -T, temporary-terminal] }
 
   - name: Screenkey
+    exact_match: true
     remap:
       Super-3: { launch: [screenkey] }
       Super-Alt-3: { launch: [killall, screenkey] }
