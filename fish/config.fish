@@ -58,7 +58,9 @@ set -g fish_cursor_visual block
 set -g small_threshold 46
 
 zoxide init fish | source
-source ~/prog/dotfiles/fish/abbreviations/*.fish
+for file in ~/prog/dotfiles/fish/abbreviations/*.fish
+	source $file
+end
 
 bind -M default daw forward-single-char forward-single-char backward-word kill-word delete-char
 bind -M default daW forward-single-char forward-single-char backward-bigword kill-bigword delete-char
