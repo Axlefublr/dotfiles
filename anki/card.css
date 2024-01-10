@@ -44,21 +44,21 @@ hr#answer {
 }
 
 .codeblock {
-	font-family: JetBrainsMono NF;
+	font-family: JetBrainsMonoNL NF;
 	background-color: #242323;
 	border-radius: 5px;
 	padding: 7px;
 }
 
 code {
-	font-family: JetBrainsMono NF;
+	font-family: JetBrainsMonoNL NF;
 	background-color: #242323;
 	padding: 2px 5px;
 	border-radius: 5px;
 }
 
 input {
-	font-family: JetBrainsMono NF !important;
+	font-family: JetBrainsMonoNL NF !important;
 	font-size: 22px !important;
 	padding: 7px;
 	text-align: center;
