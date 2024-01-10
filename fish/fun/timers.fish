@@ -64,3 +64,17 @@ function doti
 	kitten @set-window-title
 end
 funcsave doti > /dev/null
+
+function stre
+	kitten @set-window-title repeat
+	timer $argv
+	kitten @set-window-title timerkitty
+end
+funcsave stre > /dev/null
+
+function stfo
+	kitten @set-window-title food
+	termdown
+	kitten @set-window-title timerkitty
+end
+funcsave stfo > /dev/null

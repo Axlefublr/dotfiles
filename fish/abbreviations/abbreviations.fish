@@ -153,12 +153,8 @@ abbr -a ls  'ls -A'
 abbr -a lsw 'ls -A -w 1'
 abbr -a lg  'ls -gAh'
 
+abbr -a st  'kitten @set-window-title'
 abbr -a stb 'kitten @set-window-title ""'
-abbr -a stre 'kitten @set-window-title repeat
-	timer'
-abbr -a stfo 'kitten @set-window-title food
-	termdown
-	exit'
 
 abbr -a u 'z -'
 abbr -a v 'nvim'
@@ -175,7 +171,6 @@ abbr -a to 'touch'
 abbr -a fb 'floral_barrel'
 abbr -a fbg 'floral_barrel --git'
 abbr -a at 'alien_temple'
-abbr -a st 'kitten @set-window-title'
 abbr -a unimatrix 'unimatrix -s 95 -abf'
 abbr -a cl 'clorange'
 abbr -a hime 'history merge'
