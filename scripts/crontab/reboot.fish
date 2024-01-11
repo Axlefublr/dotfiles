@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env fish
+
 xremap --mouse --watch ~/prog/dotfiles/xremap/config.yml & disown
 ydotoold & disown
 gromit-mpx -k "none" -u "none" & disown
