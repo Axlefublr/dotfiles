@@ -11,6 +11,9 @@ function timer
 			exit
 		else if test $response = 'c' || test $response = ' ' || test $response = 'r'
 			continue
+		else if test $response = 'l'
+			clear -x
+			continue
 		else
 			break
 		end
