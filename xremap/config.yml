@@ -233,7 +233,7 @@ keymap:
 
   - name: Stdin typer
     remap:
-      CapsLock-Comma: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
+      CapsLock-Alt-m: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
 
   - name: Kitty
     remap:
