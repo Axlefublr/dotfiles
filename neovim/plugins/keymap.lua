@@ -112,5 +112,5 @@ Map("n", "grr", "<Plug>ReplaceWithRegisterLine")
 
 Map({"n", "x", "o"}, "q", "<Plug>(leap-forward-to)")
 Map({"n", "x", "o"}, "Q", "<Plug>(leap-backward-to)")
-Map({"x", "o"}, "x", "<Plug>(leap-forward-till)")
-Map({"x", "o"}, "X", "<Plug>(leap-backward-till)")
+Map({"n", "x", "o"}, ",q", "<Plug>(leap-forward-till)")
+Map({"n", "x", "o"}, ",Q", "<Plug>(leap-backward-till)")
