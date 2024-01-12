@@ -4,9 +4,9 @@ Cmd("highlight link Sneak None")
 Cmd("packadd! matchit")
 
 require('leap').opts.case_sensitive = false
+require('leap').opts.max_phase_one_targets = 1
 require('leap').opts.equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', '\'э', 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю'}
-require('leap').opts.safe_labels = { "f", ";", "q", "n", "u", "t", "/", "S", "F", "N", "L", "H", "M", "U", "G", "T", "?", "Z" }
-require('leap').opts.labels = { "f", ";", "q", "n", "u", "t", "/", "S", "F", "N", "L", "H", "M", "U", "G", "T", "?", "Z" }
+require('leap').opts.safe_labels = {}
 
 require('lualine').setup {
 	options = {
