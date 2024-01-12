@@ -7,7 +7,7 @@ require('leap').opts.case_sensitive = false
 require('leap').opts.max_phase_one_targets = 1
 require('leap').opts.equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', '\'э', 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю'}
 require('leap').opts.safe_labels = {}
-require('leap').opts.labels = { "f", "j", "d", "k", "s", "l", "a", ";", "e", "i", "w", "o", "g", "h", "r", "u", "x", ".", "c", ",", "z", "/", "v", "m", "t", "y", "q", "p", "'" }
+require('leap').opts.labels = { "f", "j", "d", "k", "s", "l", "a", ";", "e", "i", "w", "o", "g", "h", "r", "u", "x", ".", "c", ",", "z", "/", "v", "m", "t", "y", "q", "p" }
 
 require('lualine').setup {
 	options = {
