@@ -30,7 +30,7 @@ Map("o", "-", "v-")
 
 Map("n", "<C-k>", "O<Esc>")
 Map("n", "<C-j>", "o<Esc>")
-Map("n", "`", "q")
+Map("n", "Q", "q")
 Map("n", "gK", "K")
 Map("n", "Y", "yg_")
 Map("n", "~", "~h")
