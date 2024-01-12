@@ -671,7 +671,7 @@
 	"settingsSync.ignoredSettings": [ "-window.zoomLevel" ],
 	"editor.scrollbar.verticalScrollbarSize": 8,
 	"editor.minimap.enabled": false,
-	"files.autoSave": "afterDelay",
+	"files.autoSave": "onFocusChange",
 	"resmon.show.battery": false,
 	"resmon.show.cpufreq": false,
 	"resmon.updatefrequencyms": 5000,
