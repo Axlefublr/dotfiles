@@ -1,6 +1,6 @@
 vim.g.camelcasemotion_key = "<leader>"
-Cmd("let g:sneak#use_ic_scs = 1")
-Cmd("highlight link Sneak None")
+vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = '#0f0f0f', bg = '#ffafd7' })
+vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = '#0f0f0f', bg = '#ffd75f' })
 Cmd("packadd! matchit")
 
 require('leap').opts.case_sensitive = false
