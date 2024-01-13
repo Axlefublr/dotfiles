@@ -1,3 +1,0 @@
-@monthly ~/prog/dotfiles/scripts/crontab/monthly.fish
-0 5 * * sat ~/prog/dotfiles/scripts/crontab/saturday.fish
-0 5 * * sun ~/prog/dotfiles/scripts/crontab/sunday.fish

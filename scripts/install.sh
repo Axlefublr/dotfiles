@@ -50,7 +50,6 @@ sudo pacman -S --noconfirm wmctrl
 sudo pacman -S --noconfirm ydotool
 sudo pacman -S --noconfirm libreoffice-still
 sudo pacman -S --noconfirm sl
-sudo pacman -S --noconfirm cronie
 sudo pacman -S --noconfirm diff-so-fancy
 sudo pacman -S --noconfirm yt-dlp
 sudo pacman -S --noconfirm python-mutagen
