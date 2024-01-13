@@ -16,6 +16,7 @@ modmap:
 
 keymap:
   - name: Vim mode
+    mode: vim
     remap:
       CapsLock-Semicolon: { set_mode: default }
 
@@ -129,12 +130,90 @@ keymap:
       Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
       Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
 
-    mode: vim
-
   - name: Default mode
+    mode: default
     remap:
       CapsLock-Semicolon: { set_mode: vim }
-    mode: default
+
+  - name: Clipboard Manager
+    remap:
+      CapsLock-Alt-Comma:
+        remap:
+          q: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/q" ] }
+          w: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/w" ] }
+          e: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/e" ] }
+          r: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/r" ] }
+          t: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/t" ] }
+          'y': { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/y" ] }
+          u: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/u" ] }
+          i: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/i" ] }
+          o: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/o" ] }
+          p: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/p" ] }
+          a: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/a" ] }
+          s: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/s" ] }
+          d: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/d" ] }
+          f: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/f" ] }
+          g: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/g" ] }
+          h: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/h" ] }
+          j: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/j" ] }
+          k: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/k" ] }
+          l: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/l" ] }
+          z: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/z" ] }
+          x: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/x" ] }
+          c: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/c" ] }
+          v: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/v" ] }
+          b: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/b" ] }
+          'n': { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/n" ] }
+          m: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/m" ] }
+          Key_1: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/1" ] }
+          Key_2: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/2" ] }
+          Key_3: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/3" ] }
+          Key_4: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/4" ] }
+          Key_5: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/5" ] }
+          Key_6: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/6" ] }
+          Key_7: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/7" ] }
+          Key_8: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/8" ] }
+          Key_9: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/9" ] }
+          Key_0: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/0" ] }
+      CapsLock-Comma:
+        remap:
+          q: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/q" ] }
+          w: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/w" ] }
+          e: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/e" ] }
+          r: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/r" ] }
+          t: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/t" ] }
+          'y': { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/y" ] }
+          u: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/u" ] }
+          i: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/i" ] }
+          o: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/o" ] }
+          p: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/p" ] }
+          a: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/a" ] }
+          s: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/s" ] }
+          d: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/d" ] }
+          f: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/f" ] }
+          g: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/g" ] }
+          h: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/h" ] }
+          j: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/j" ] }
+          k: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/k" ] }
+          l: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/l" ] }
+          z: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/z" ] }
+          x: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/x" ] }
+          c: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/c" ] }
+          v: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/v" ] }
+          b: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/b" ] }
+          'n': { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/n" ] }
+          m: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/m" ] }
+          Key_1: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/1" ] }
+          Key_2: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/2" ] }
+          Key_3: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/3" ] }
+          Key_4: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/4" ] }
+          Key_5: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/5" ] }
+          Key_6: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/6" ] }
+          Key_7: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/7" ] }
+          Key_8: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/8" ] }
+          Key_9: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/9" ] }
+          Key_0: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/0" ] }
+
 
   - name: 'Anki: Note Types'
     exact_match: true
