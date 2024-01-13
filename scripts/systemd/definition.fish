@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-sudo ln -sf ~/prog/dotfiles/scripts/crontab/services/* /etc/systemd/system
-sudo ln -sf ~/prog/dotfiles/scripts/crontab/timers/* /etc/systemd/system
+sudo ln -sf ~/prog/dotfiles/scripts/systemd/services/* /etc/systemd/system
+sudo ln -sf ~/prog/dotfiles/scripts/systemd/timers/* /etc/systemd/system
 
 sudo systemctl daemon-reload
 
