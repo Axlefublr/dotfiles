@@ -459,7 +459,8 @@
 		"*.json": "json",
 		".ideavimrc": "plaintext",
 		"*.vim": "viml",
-		"*.conf": "plaintext"
+		"*.conf": "plaintext",
+		"zathura": "plaintext"
 	},
 	"files.exclude": {
 		".git": true,
