@@ -75,10 +75,10 @@ function uboot
 	end
 	cargo install-update -a
 	clorange updates increment
+	loago do update
 	bell
 	read -ln 1 response
 	if test $response = " "
-		clorange reboots increment
 		reboot
 	else if test $response = "l"
 		qdbus org.kde.ksmserver /KSMServer logout 0 0 0
