@@ -1,13 +1,13 @@
 #!/usr/bin/env fish
 
-sudo ln -sf ~/prog/dotfiles/scripts/systemd/services/* /etc/systemd/system
-sudo ln -sf ~/prog/dotfiles/scripts/systemd/timers/* /etc/systemd/system
+ln -sf ~/prog/dotfiles/scripts/systemd/services/* ~/.config/systemd/user
+ln -sf ~/prog/dotfiles/scripts/systemd/timers/* ~/.config/systemd/user
 
-sudo systemctl daemon-reload
+systemctl --user daemon-reload
 
-sudo systemctl enable monthly.timer
-sudo systemctl start monthly.timer
-sudo systemctl enable saturday.timer
-sudo systemctl start saturday.timer
-sudo systemctl enable sunday.timer
-sudo systemctl start sunday.timer
+systemctl --user enable monthly.timer
+systemctl --user start monthly.timer
+systemctl --user enable saturday.timer
+systemctl --user start saturday.timer
+systemctl --user enable sunday.timer
+systemctl --user start sunday.timer
