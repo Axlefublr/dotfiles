@@ -1,3 +1,4 @@
 #!/usr/bin/env fish
 
-kitty -T task holup ask
+kitty -T task holup ask &
+wait
