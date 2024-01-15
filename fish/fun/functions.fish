@@ -97,3 +97,8 @@ function minigun-apply
 	xdotool mousemove $coords[1] $coords[2]
 end
 funcsave minigun-apply > /dev/null
+
+function take
+	math "$argv[1] + ($argv[2] / 20) + $argv[2]"
+end
+funcsave take > /dev/null
