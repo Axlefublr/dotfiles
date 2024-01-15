@@ -67,3 +67,31 @@ function doti
 	kitten @set-window-title
 end
 funcsave doti > /dev/null
+
+function yeared-parse
+	for line in (cat ~/prog/info/events/anniversaries.txt | string split '\n')
+		set -l match (string match -gr '(\\d+).(\\d+.\\d+) — (.*)' $line)
+		set -l year $match[1]
+		set -l date $match[2]
+		set -l description $match[3]
+		if not test $date = (date +%m.%d)
+			continue
+		end
+		set year (math (date +%y) - $year)
+		kitty -T task holup "$year years ago: $description" &
+	end
+end
+funcsave yeared-parse > /dev/null
+
+function yearless-parse
+	for line in (cat ~/prog/info/events/yearly.txt | string split '\n')
+		set -l match (string match -gr '(\\d+.\\d+) — (.*)' $line)
+		set -l date $match[1]
+		set -l description $match[2]
+		if not test $date = (date +%m.%d)
+			continue
+		end
+		kitty -T task holup "$description" &
+	end
+end
+funcsave yearless-parse > /dev/null

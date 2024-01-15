@@ -11,3 +11,5 @@ systemctl --user enable saturday.timer
 systemctl --user start saturday.timer
 systemctl --user enable sunday.timer
 systemctl --user start sunday.timer
+systemctl --user enable daily.timer
+systemctl --user start daily.timer
