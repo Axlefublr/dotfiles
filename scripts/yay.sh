@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+yay --save --answerclean All --answerdiff All
+
 yay ttf-twemoji
 yay ascii-image-converter
 yay tgpt
