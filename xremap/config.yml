@@ -302,13 +302,13 @@ keymap:
       Alt-d: [ ctrl-d, { launch: [
           fish, -c, "winwaitname '(Choose|Change) Deck' ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
         ] }]
-      Alt-o: [ ctrl-n, { launch: [
+      Alt-n: [ ctrl-n, { launch: [
           fish, -c, "winwaitname 'Choose Note Type' ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
         ] } ]
       Alt-Slash: [ slash, { launch: [
           fish, -c, "winwaitname 'Study Deck' ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
         ] } ]
-      Alt-n: [ ctrl-shift-n, { launch: [
+      Alt-o: [ ctrl-shift-n, { launch: [
           fish, -c, "winwaitname 'Note Types' ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
         ] } ]
 
