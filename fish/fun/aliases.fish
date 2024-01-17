@@ -51,3 +51,9 @@ function grostart
 	gromit-mpx -k "none" -u "none" &> /tmp/log/gromit-mpx.txt & disown
 end
 funcsave grostart > /dev/null
+
+function ollamastart
+	killall ollama
+	ollama serve &> /tmp/log/ollama.txt & disown
+end
+funcsave ollamastart > /dev/null

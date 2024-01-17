@@ -58,3 +58,4 @@ sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm fd
 sudo pacman -S --noconfirm cargo-update
 sudo pacman -S --noconfirm bacon
+sudo pacman -S --noconfirm ollama

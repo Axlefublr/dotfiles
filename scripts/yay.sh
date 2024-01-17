@@ -4,7 +4,6 @@ yay --save --answerclean All --answerdiff All
 
 yay ttf-twemoji
 yay ascii-image-converter
-yay tgpt
 yay mapscii
 yay unimatrix-git
 yay zoom
