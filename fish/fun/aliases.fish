@@ -42,12 +42,12 @@ funcsave codef > /dev/null
 
 function xrestart
 	killall xremap
-	xremap --mouse --watch ~/prog/dotfiles/xremap/config.yml &> /dev/null & disown
+	xremap --mouse --watch ~/prog/dotfiles/xremap/config.yml &> /tmp/log/xremap.txt & disown
 end
 funcsave xrestart > /dev/null
 
 function grostart
 	killall gromit-mpx
-	gromit-mpx -k "none" -u "none" &> /dev/null & disown
+	gromit-mpx -k "none" -u "none" &> /tmp/log/gromit-mpx.txt & disown
 end
 funcsave grostart > /dev/null
