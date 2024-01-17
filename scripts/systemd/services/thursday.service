@@ -1,0 +1,2 @@
+[Service]
+ExecStart=/home/axlefublr/prog/dotfiles/scripts/systemd/executables/thursday.fish
