@@ -537,7 +537,7 @@
 	"grunt.autoDetect": "on",
 	"security.workspace.trust.untrustedFiles": "open",
 	"security.workspace.trust.banner": "never",
-	"files.defaultLanguage": "markdown",
+	"files.defaultLanguage": "plaintext",
 	"files.hotExit": "onExitAndWindowClose",
 	"audioCues.lineHasInlineSuggestion": "off",
 	"markdown.preview.fontSize": 18,
