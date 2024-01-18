@@ -763,7 +763,6 @@
 	"rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "postfix",
 	"zenMode.hideLineNumbers": false,
 	"json.format.keepLines": true,
-	"markdown.editor.pasteUrlAsFormattedLink.enabled": false,
 	"prettier.printWidth": 96,
 	"vscord.app.name": "Visual Studio Code",
 	"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
