@@ -78,10 +78,12 @@ function uboot
 	loago do update
 	bell
 	read -ln 1 response
-	if test $response = " "
+	if test $response = "r"
 		reboot
 	else if test $response = "l"
 		qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+	else if test $response = "s"
+		poweroff
 	end
 end
 funcsave uboot > /dev/null
