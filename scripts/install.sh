@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-sudo pacman -Syu --noconfirm tree
+sudo pacman -Syu --noconfirm paru
+sudo pacman -S --noconfirm tree
 sudo pacman -S --noconfirm fzf
 sudo pacman -S --noconfirm hyfetch
 sudo pacman -S --noconfirm ncdu
