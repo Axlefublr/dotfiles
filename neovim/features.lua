@@ -32,6 +32,12 @@ Map("n", "J", function()
 	end
 end)
 
+Map("n", ".", function()
+	for i = 1, vim.v.count1 do
+		FeedKeys(".")
+	end
+end)
+
 local function remove_highlighting__escape()
 	Remove_highlighting()
 	FeedKeysInt("<Esc>")
