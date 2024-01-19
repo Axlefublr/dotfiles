@@ -814,4 +814,6 @@
 	"rust-analyzer.rustfmt.extraArgs": [
 		"+nightly"
 	],
+	"editor.hover.enabled": false,
+	"editor.hover.sticky": false,
 }
