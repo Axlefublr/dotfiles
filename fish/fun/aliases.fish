@@ -57,3 +57,42 @@ function ollamastart
 	ollama serve &> /tmp/log/ollama.txt & disown
 end
 funcsave ollamastart > /dev/null
+
+function nimer
+	set -l name $argv[1]
+
+	set -l executable ~/prog/dotfiles/scripts/systemd/executables/$name.fish
+	printf '#!/usr/bin/env fish' > $executable
+	chmod +x $executable
+	code $executable
+
+	set -l service ~/prog/dotfiles/scripts/systemd/services/$name.service
+	printf "[Service]
+ExecStart=$executable" > $service
+
+	set -l timer ~/prog/dotfiles/scripts/systemd/timers/$name.timer
+	printf '[Timer]
+OnCalendar=*-*-18 05:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target' > $timer
+	code $timer
+
+	printf "
+
+systemctl --user enable $name.timer
+systemctl --user start $name.timer" >> ~/prog/dotfiles/scripts/systemd/definition.fish
+end
+funcsave nimer > /dev/null
+
+
+function rimer
+	set -l name $argv[1]
+	rm -fr ~/prog/dotfiles/scripts/systemd/{services,timers,executables}/$name.*
+	sd "
+
+systemctl --user enable $name.timer
+systemctl --user start $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
+end
+funcsave rimer > /dev/null
