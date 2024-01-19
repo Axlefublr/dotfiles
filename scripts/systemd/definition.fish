@@ -22,3 +22,9 @@ systemctl --user start saturday.timer
 
 systemctl --user enable sunday.timer
 systemctl --user start sunday.timer
+
+systemctl --user enable 27.timer
+systemctl --user start 27.timer
+
+systemctl --user enable 18.timer
+systemctl --user start 18.timer
