@@ -16,7 +16,6 @@ alias --save octussy-set 'octussy --color-all-commits FFD75F \
 alias --save etg 'shuf -n 1 ~/prog/noties/etg-actives.txt' > /dev/null
 alias --save icat 'kitten icat --align left' > /dev/null
 alias --save logout 'qdbus org.kde.ksmserver /KSMServer logout 0 0 0' > /dev/null
-alias --save paru 'paru --bottomup' > /dev/null
 
 function mkcd
 	mkdir -p $argv && z $argv

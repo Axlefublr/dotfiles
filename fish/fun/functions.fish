@@ -69,7 +69,7 @@ end
 funcsave winwaitname > /dev/null
 
 function uboot
-	yay
+	paru
 	if test (math (clorange updates show) % 5) -eq 0
 		rustup update
 	end

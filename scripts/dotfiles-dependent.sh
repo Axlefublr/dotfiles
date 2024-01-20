@@ -52,4 +52,5 @@ crontab -e
 ln -sf ~/prog/dotfiles/lesskey ~/.config/lesskey
 
 # Paru
+mkdir -p ~/.config/paru
 ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
