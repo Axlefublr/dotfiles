@@ -50,3 +50,6 @@ crontab -e
 
 # Less
 ln -sf ~/prog/dotfiles/lesskey ~/.config/lesskey
+
+# Paru
+ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf

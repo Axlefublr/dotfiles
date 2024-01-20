@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 clorange days increment
-clorange megafon inrement
+clorange megafon increment
 
 yeared-parse
 yearless-parse
