@@ -5066,5 +5066,10 @@
 {
   "key": "ctrl+k ctrl+alt+c",
   "command": "-workbench.action.addComment"
+},
+{
+  "key": "shift+k",
+  "command": "-editor.action.showHover",
+  "when": "editorHoverVisible && editorTextFocus && neovim.init && neovim.mode == 'normal'"
 }
 ]
