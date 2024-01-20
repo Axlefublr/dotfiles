@@ -95,8 +95,16 @@ function rust-bin
 		echo "you're not in repo root"
 		return 1
 	end
+	set -l name (basename $PWD)
 	cargo build -r &&
-	cp -f ./target/release/(basename $PWD) ~/prog/binaries
+	cp -f ./target/release/$name ~/prog/binaries
+	if set -q argv[1]
+		set -l newVersion $argv[1]
+		set -l prevdir (pwd)
+		cd ~/prog/binaries
+		git add $name && git commit -m "$name: $newVersion"
+		cd $prevdir
+	end
 end
 funcsave rust-bin > /dev/null
 
