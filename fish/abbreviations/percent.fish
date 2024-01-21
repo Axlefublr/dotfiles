@@ -17,6 +17,5 @@ abbr --set-cursor -a gammp 'git add . &&
 abbr --set-cursor -a alarmb 'alarm %
 	bell'
 
-abbr --set-cursor -a sysd-stat 'set -l service %
-	systemctl --user status $service.timer
-	systemctl --user status $service.service'
+abbr --set-cursor -a slurr 'systemctl --user daemon-reload
+	systemctl --user restart %.timer'
