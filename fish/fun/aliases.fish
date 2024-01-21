@@ -61,18 +61,19 @@ funcsave ollamastart > /dev/null
 function smdn
 	set -l name $argv[1]
 
-	set -l executable ~/prog/dotfiles/scripts/systemd/executables/$name.fish
+	set -l executable /home/axlefublr/prog/dotfiles/scripts/systemd/executables/$name.fish
 	printf '#!/usr/bin/env fish' > $executable
 	chmod +x $executable
 	code $executable
 
 	set -l service ~/prog/dotfiles/scripts/systemd/services/$name.service
 	printf "[Service]
+ExecStartPre=/home/axlefublr/prog/dotfiles/scripts/processwait.fish
 ExecStart=$executable" > $service
 
 	set -l timer ~/prog/dotfiles/scripts/systemd/timers/$name.timer
 	printf '[Timer]
-OnCalendar=*-*-18 05:00:00
+OnCalendar=*-*-8 05:00:00
 Persistent=true
 
 [Install]
