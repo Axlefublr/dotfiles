@@ -97,6 +97,13 @@ function winwaitclass
 end
 funcsave winwaitclass > /dev/null
 
+function winmoveall
+	for win_id in (wmctrl -lx | rg $argv[1] | awk '{print $1}')
+		wmctrl -ir $win_id -t $argv[2]
+	end
+end
+funcsave winmoveall > /dev/null
+
 function uboot
 	paru
 	if test (math (clorange updates show) % 5) -eq 0
