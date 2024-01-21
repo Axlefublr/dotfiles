@@ -60,13 +60,42 @@ end
 funcsave atc > /dev/null
 
 function winwaitname
-	while not test (xdotool search --onlyvisible --name $argv[1])
+	set -l counter 0
+	while test (xdotool search --onlyvisible --name $argv[1] | count) -lt 1
+		set counter (math $counter + 1)
+		if set -q argv[2]
+			sleep $argv[2]
+		end
+		if set -q argv[4]
+			if test $counter -ge $argv[4]
+				return 1
+			end
+		end
 	end
-	if set -q argv[2]
-		sleep $argv[2]
+	if set -q argv[3]
+		sleep $argv[3]
 	end
 end
 funcsave winwaitname > /dev/null
+
+function winwaitclass
+	set -l counter 0
+	while test (xdotool search --onlyvisible --class $argv[1] | count) -lt 1
+		set counter (math $counter + 1)
+		if set -q argv[2]
+			sleep $argv[2]
+		end
+		if set -q argv[4]
+			if test $counter -ge $argv[4]
+				return 1
+			end
+		end
+	end
+	if set -q argv[3]
+		sleep $argv[3]
+	end
+end
+funcsave winwaitclass > /dev/null
 
 function uboot
 	paru
