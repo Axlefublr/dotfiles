@@ -58,7 +58,7 @@ function ollamastart
 end
 funcsave ollamastart > /dev/null
 
-function sysd-new
+function smdn
 	set -l name $argv[1]
 
 	set -l executable ~/prog/dotfiles/scripts/systemd/executables/$name.fish
@@ -84,10 +84,9 @@ WantedBy=timers.target' > $timer
 systemctl --user enable $name.timer
 systemctl --user start $name.timer" >> ~/prog/dotfiles/scripts/systemd/definition.fish
 end
-funcsave sysd-new > /dev/null
+funcsave smdn > /dev/null
 
-
-function sysd-rm
+function smdr
 	set -l name $argv[1]
 	rm -fr ~/prog/dotfiles/scripts/systemd/{services,timers,executables}/$name.*
 	sd "
@@ -95,4 +94,4 @@ function sysd-rm
 systemctl --user enable $name.timer
 systemctl --user start $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
 end
-funcsave sysd-rm > /dev/null
+funcsave smdr > /dev/null
