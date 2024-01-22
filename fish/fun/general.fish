@@ -147,3 +147,18 @@ function ate
 	printf '\n'(date '+%y.%m.%d %H:%M') >> ~/.local/share/hungry
 end
 funcsave ate > /dev/null
+
+function bak
+	set -l full_path $argv[1]
+	set -l file_name (basename $full_path)
+	set -l extension (path extension $full_path)
+	mkdir -p $full_path.bak
+	clorange $file_name increment
+	set -l current (clorange $file_name show)
+	cp -f $full_path $full_path.bak/$current$extension
+	set -l cutoff (math $current - 50)
+	if test $cutoff -ge 1
+		rm -fr $full_path.bak/$cutoff$extension
+	end
+end
+funcsave bak > /dev/null
