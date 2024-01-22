@@ -96,3 +96,13 @@ systemctl --user enable $name.timer
 systemctl --user start $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
 end
 funcsave smdr > /dev/null
+
+function asmra
+	set -l prevdir (pwd)
+	cd ~/prog/info/socials
+	printf '\n'$argv[1]
+	git add asmr.txt
+	git commit -m 'asmr: '$argv[1]
+	cd $prevdir
+end
+funcsave asmra > /dev/null
