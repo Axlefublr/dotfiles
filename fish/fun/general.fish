@@ -109,7 +109,9 @@ function uboot
 	if test (math (clorange updates show) % 5) -eq 0
 		rustup update
 	end
-	cargo install-update -a
+	if test (math (clorange updates show) % 3) -eq 0
+		cargo install-update -a
+	end
 	clorange updates increment
 	loago do update
 	bell
