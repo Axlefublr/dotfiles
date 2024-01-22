@@ -18,3 +18,5 @@ winwaitname 'Discord' 1 0 30
 wmctrl -r 'Discord' -t 8
 winwaitname 'Watch later' 1 0 30
 wmctrl -r 'Watch later' -t 10
+winwaitname 'Anki' 1 0 30
+loopuntil close-anki-popup 1 0.5 30
