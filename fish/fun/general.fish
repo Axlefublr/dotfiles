@@ -142,3 +142,8 @@ function take
 	math "$argv[1] + ($argv[2] / 20) + $argv[2]"
 end
 funcsave take > /dev/null
+
+function ate
+	printf '\n'(date '+%y.%m.%d %H:%M') >> ~/.local/share/hungry
+end
+funcsave ate > /dev/null
