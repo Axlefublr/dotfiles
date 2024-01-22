@@ -53,27 +53,27 @@ keymap:
       Shift-c: { launch: [xdotool, mousemove, '1168', '960']}
       Shift-v: { launch: [xdotool, mousemove, '1584', '960']}
 
-      CapsLock-q: { launch: [xdotool, mousemove, '128',  '330']}
-      CapsLock-w: { launch: [xdotool, mousemove, '544',  '330']}
-      CapsLock-e: { launch: [xdotool, mousemove, '960',  '330']}
-      CapsLock-r: { launch: [xdotool, mousemove, '1376', '330']}
-      CapsLock-t: { launch: [xdotool, mousemove, '1792', '330']}
+      Ctrl-q: { launch: [xdotool, mousemove, '128',  '330']}
+      Ctrl-w: { launch: [xdotool, mousemove, '544',  '330']}
+      Ctrl-e: { launch: [xdotool, mousemove, '960',  '330']}
+      Ctrl-r: { launch: [xdotool, mousemove, '1376', '330']}
+      Ctrl-t: { launch: [xdotool, mousemove, '1792', '330']}
 
-      CapsLock-a: { launch: [xdotool, mousemove, '128',  '750']}
-      CapsLock-s: { launch: [xdotool, mousemove, '544',  '750']}
-      CapsLock-d: { launch: [xdotool, mousemove, '960',  '750']}
-      CapsLock-f: { launch: [xdotool, mousemove, '1376', '750']}
-      CapsLock-g: { launch: [xdotool, mousemove, '1792', '750']}
+      Ctrl-a: { launch: [xdotool, mousemove, '128',  '750']}
+      Ctrl-s: { launch: [xdotool, mousemove, '544',  '750']}
+      Ctrl-d: { launch: [xdotool, mousemove, '960',  '750']}
+      Ctrl-f: { launch: [xdotool, mousemove, '1376', '750']}
+      Ctrl-g: { launch: [xdotool, mousemove, '1792', '750']}
 
-      Shift-CapsLock-q: { launch: [xdotool, mousemove, '336',  '330']}
-      Shift-CapsLock-w: { launch: [xdotool, mousemove, '752',  '330']}
-      Shift-CapsLock-e: { launch: [xdotool, mousemove, '1168', '330']}
-      Shift-CapsLock-r: { launch: [xdotool, mousemove, '1584', '330']}
+      Shift-Ctrl-q: { launch: [xdotool, mousemove, '336',  '330']}
+      Shift-Ctrl-w: { launch: [xdotool, mousemove, '752',  '330']}
+      Shift-Ctrl-e: { launch: [xdotool, mousemove, '1168', '330']}
+      Shift-Ctrl-r: { launch: [xdotool, mousemove, '1584', '330']}
 
-      Shift-CapsLock-a: { launch: [xdotool, mousemove, '336',  '750']}
-      Shift-CapsLock-s: { launch: [xdotool, mousemove, '752',  '750']}
-      Shift-CapsLock-d: { launch: [xdotool, mousemove, '1168', '750']}
-      Shift-CapsLock-f: { launch: [xdotool, mousemove, '1584', '750']}
+      Shift-Ctrl-a: { launch: [xdotool, mousemove, '336',  '750']}
+      Shift-Ctrl-s: { launch: [xdotool, mousemove, '752',  '750']}
+      Shift-Ctrl-d: { launch: [xdotool, mousemove, '1168', '750']}
+      Shift-Ctrl-f: { launch: [xdotool, mousemove, '1584', '750']}
 
       h: { launch: [ydotool, mousemove, '--', '-26', '0']}
       l: { launch: [ydotool, mousemove, '--', '26', '0']}
