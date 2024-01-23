@@ -56,18 +56,3 @@ function minigun-apply
 	xdotool mousemove $coords[1] $coords[2]
 end
 funcsave minigun-apply > /dev/null
-
-function close-anki-popup
-	set -l ankis (xdotool search --name '^Anki$')
-	for anki in $ankis
-		set -l output (xdotool getwindowgeometry --shell $anki)
-		set -l x (string match -gr 'X\\=(\\d+)' $output[2])
-		set -l y (string match -gr 'Y\\=(\\d+)' $output[3])
-		if test $x -eq 598 -a $y -eq 430
-			xdotool windowclose $anki
-			return 0
-		end
-	end
-	return 1
-end
-funcsave close-anki-popup > /dev/null
