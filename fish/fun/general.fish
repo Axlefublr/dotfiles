@@ -82,7 +82,11 @@ end
 funcsave uboot > /dev/null
 
 function take
-	math "$argv[1] + ($argv[2] / 20) + $argv[2]"
+	set -l total 0
+	for arg in $argv[2..]
+		set total (math $total + $arg)
+	end
+	math "$argv[1] + ($total / 20) + $total"
 end
 funcsave take > /dev/null
 
