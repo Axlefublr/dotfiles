@@ -60,6 +60,7 @@
 	--background-modifier-selected: var(--gruvbox-lighter-background);
 	--background-modifier-active: var(--shell-background-yellow);
 	--background-modifier-hover: var(--gruvbox-lighter-background);
+	--background-modifier-accent: var(--gruvbox-lighter-background);
 	--background-message-highlight: var(--shell-background-yellow);
 	--background-message-hover: var(--gruvbox-lighter-background);
 	--background-primary: var(--gruvbox-background);
@@ -821,4 +822,30 @@ blockquote {
 /* vertical bar before the message to reply to */
 .replying_d7b6ad:before {
 	background-color: var(--shell-orange);
+}
+
+/* "SEARCH FOR:" text after you type something in in ctrl+f search */
+.theme-dark .queryContainer_c359fe {
+	color: var(--gruvbox-white);
+}
+
+/* the actual text after "SEARCH FOR:" */
+.theme-dark .queryContainer_c359fe > div.queryText__5bb6b strong {
+	color: var(--gruvbox-white);
+}
+
+/* background color holding the "SEARCH FOR: text ENTER" thingy */
+.theme-dark .focused_f9cf2c {
+	background-color: var(--gruvbox-darkerest-background);
+}
+
+/* keyboard key letters within yellow boxes */
+.theme-dark .dim__7b9b1 .key__06fe6 {
+	color: var(--smooth-black);
+	background-color: var(--shell-yellow);
+}
+
+/* weird black gradient to the right of dates in ctrl+f search */
+.option_b5597b:after {
+	display: none;
 }
