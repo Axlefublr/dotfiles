@@ -813,3 +813,12 @@ blockquote {
 	padding: 2px 7px 2px 7px !important;
 	border-radius: 0 5px 5px 0;
 }
+
+/* selected message to reply to */
+.replying_d7b6ad {
+	background-color: var(--shell-background-orange);
+}
+/* vertical bar before the message to reply to */
+.replying_d7b6ad:before {
+	background-color: var(--shell-orange);
+}
