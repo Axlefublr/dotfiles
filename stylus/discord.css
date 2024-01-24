@@ -21,6 +21,7 @@
 	--gruvbox-darkerest-background: hsl(0, 1%, 13%);
 	--gruvbox-background-yellow: hsl(60, 10%, 20%);
 	--gruvbox-background-orange: hsl(26, 10%, 20%);
+	--gruvbox-background-pink: hsl(330, 10%, 20%);
 	--gruvbox-background-red: hsl(0, 10%, 20%);
 }
 
@@ -785,4 +786,20 @@ div.iconCircle_de71da > svg > path {
 /* vc chat */
 div.container_def45c.floating_f021e2 {
 	width: 600px !important;
+}
+
+/* container for both vertical line and blockquote */
+div.blockquoteContainer_f24d1f {
+	margin: 5px 0;
+}
+
+/* vertical line that indicates a > */
+div.blockquoteDivider__96157 {
+	background-color: var(--shell-pink);
+}
+
+blockquote {
+	background-color: var(--gruvbox-background-pink);
+	padding: 2px 7px 2px 7px !important;
+	border-radius: 0 5px 5px 0;
 }
