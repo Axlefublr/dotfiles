@@ -19,10 +19,11 @@
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
 	--gruvbox-darkerest-background: hsl(0, 1%, 13%);
-	--gruvbox-background-yellow: hsl(60, 10%, 20%);
-	--gruvbox-background-orange: hsl(26, 10%, 20%);
-	--gruvbox-background-pink: hsl(330, 10%, 20%);
-	--gruvbox-background-red: hsl(0, 10%, 20%);
+	--shell-background-yellow: hsl(60, 10%, 20%);
+	--shell-background-orange: hsl(26, 10%, 20%);
+	--shell-background-pink: hsl(330, 10%, 20%);
+	--shell-background-lighter-pink: hsl(330, 10%, 23%);
+	--shell-background-red: hsl(0, 10%, 20%);
 }
 
 .theme-dark {
@@ -40,9 +41,9 @@
 	--green-360: var(--shell-yellow);
 	--brand-500: var(--shell-yellow);
 	--brand-experiment: var(--shell-yellow);
-	--brand-experiment-05a: var(--gruvbox-background-yellow);
-	--brand-experiment-10a: var(--gruvbox-background-orange);
-	--brand-experiment-15a: var(--gruvbox-background-yellow);
+	--brand-experiment-05a: var(--shell-background-yellow);
+	--brand-experiment-10a: var(--shell-background-orange);
+	--brand-experiment-15a: var(--shell-background-yellow);
 	--brand-experiment-360: var(--gruvbox-white);
 	--brand-experiment-400: var(--gruvbox-background);
 	--brand-experiment-560: var(--shell-orange);
@@ -57,9 +58,9 @@
 	--channeltextarea-background: var(--gruvbox-lighter-background);
 	--channel-text-area-placeholder: var(--gruvbox-grey);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
-	--background-modifier-active: var(--gruvbox-background-yellow);
+	--background-modifier-active: var(--shell-background-yellow);
 	--background-modifier-hover: var(--gruvbox-lighter-background);
-	--background-message-highlight: var(--gruvbox-background-yellow);
+	--background-message-highlight: var(--shell-background-yellow);
 	--background-message-hover: var(--gruvbox-lighter-background);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
@@ -67,7 +68,7 @@
 	--background-secondary-alt: var(--gruvbox-darker-background);
 	--background-floating: var(--gruvbox-darkerest-background);
 	--background-accent: var(--shell-yellow);
-	--background-mentioned: var(--gruvbox-background-yellow);
+	--background-mentioned: var(--shell-background-yellow);
 	--bg-overlay-2: var(--gruvbox-darker-background);
 	--scrollbar-auto-track: var(--gruvbox-lighter-background);
 	--scrollbar-auto-thumb: var(--gruvbox-darker-background);
@@ -86,8 +87,8 @@
 	--button-outline-primary-text: var(--gruvbox-white);
 	--button-outline-primary-text-active: var(--gruvbox-white);
 	--button-outline-primary-text-hover: var(--gruvbox-white);
-	--button-outline-primary-background-active: var(--gruvbox-background-yellow);
-	--button-outline-primary-background-hover: var(--gruvbox-background-orange);
+	--button-outline-primary-background-active: var(--shell-background-yellow);
+	--button-outline-primary-background-hover: var(--shell-background-orange);
 	--button-outline-primary-border: var(--gruvbox-background);
 	--button-outline-primary-border-active: var(--shell-yellow);
 	--button-outline-primary-border-hover: var(--shell-orange);
@@ -473,7 +474,7 @@ div.attachedBars_da3c74 > div {
 
 /* unreacted react hover */
 .reaction_fef95b:hover {
-	background-color: var(--gruvbox-background-orange);
+	background-color: var(--shell-background-orange);
 	border-color: var(--shell-orange);
 }
 
@@ -672,7 +673,7 @@ div.checkIcon__5aa1f > svg > path {
 
 /* vc big button on hover */
 .colorable_c84c4c.primaryDark__6b700.active_ff29dc, .colorable_c84c4c.primaryDark__6b700:hover {
-	background: var(--gruvbox-background-orange);
+	background: var(--shell-background-orange);
 }
 
 /* vc big button */
@@ -733,7 +734,7 @@ div.iconVisibility__62ab5.wrapper__7bcde.typeDefault__05b19:hover .icon_eff5d4 {
 
 /* invite button in vc window */
 .buttonColor_fa1bb3:hover {
-	background-color: var(--gruvbox-background-orange);
+	background-color: var(--shell-background-orange);
 }
 
 /* invite vc window button text */
@@ -766,7 +767,7 @@ div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__1929
 	background-color: var(--gruvbox-lighter-background);
 }
 div.buttonContainer__1a3e8 > button.button__908fa.button_afdfd9.lookFilled__19298.colorPrimary__6ed40.sizeLarge__9049d.grow__4c8a4:hover {
-	background-color: var(--gruvbox-background-orange);
+	background-color: var(--shell-background-orange);
 }
 
 /* vc window with no people "invite friends" person icon */
@@ -794,12 +795,21 @@ div.blockquoteContainer_f24d1f {
 }
 
 /* vertical line that indicates a > */
-div.blockquoteDivider__96157 {
+.blockquoteDivider__96157 {
 	background-color: var(--shell-pink);
 }
 
+/* blockquote inside of chat */
+div.slateBlockquoteContainer_c8209b > blockquote {
+	background-color: var(--shell-background-lighter-pink);
+}
+
+/* blockquote when in chat, not in inputbox */
+div.blockquoteContainer_f24d1f:not(.slateBlockquoteContainer_c8209b) > blockquote {
+	background-color: var(--shell-background-pink);
+}
+
 blockquote {
-	background-color: var(--gruvbox-background-pink);
 	padding: 2px 7px 2px 7px !important;
 	border-radius: 0 5px 5px 0;
 }

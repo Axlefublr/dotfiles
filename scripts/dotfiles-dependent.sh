@@ -81,6 +81,7 @@ psql -U postgres
 # create database dvdrental;
 # \q
 pg_restore -U postgres --dbname=dvdrental --verbose dvdrental.tar
+rm -fr dvdrental.tar
 psql -U postgres
 # \c dvdrental
 # select count(*) from film;
