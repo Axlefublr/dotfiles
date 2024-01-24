@@ -17,6 +17,7 @@ vim.opt.writebackup          = false
 vim.opt.swapfile             = false
 vim.opt.undofile             = true
 vim.opt.timeout              = false
+-- vim.opt.scrolloff            = 50
 vim.g.mapleader              = ","
 vim.g.rust_recommended_style = true
 vim.g.targets_nl             = "nh"

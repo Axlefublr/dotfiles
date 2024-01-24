@@ -816,4 +816,5 @@
 	],
 	"editor.hover.enabled": false,
 	"editor.hover.sticky": false,
+	"editor.cursorSurroundingLines": 50,
 }
