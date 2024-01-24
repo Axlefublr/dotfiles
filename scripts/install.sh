@@ -62,3 +62,5 @@ sudo pacman -S --noconfirm bacon
 sudo pacman -S --noconfirm ollama
 sudo pacman -S --noconfirm rustup
 sudo pacman -S --noconfirm pastel
+sudo pacman -S --noconfirm postgresql
+sudo pacman -S --noconfirm ufw

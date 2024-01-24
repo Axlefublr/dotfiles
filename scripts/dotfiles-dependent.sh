@@ -54,3 +54,34 @@ ln -sf ~/prog/dotfiles/lesskey ~/.config/lesskey
 # Paru
 mkdir -p ~/.config/paru
 ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
+
+# Postgresql
+sudo -iu postgres 'initdb -D /var/lib/postgres/data'
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+sudo usermod -aG postgres $USER
+sudo setfacl -R -m u:axlefublr:rwx /var/lib/postgres/data
+nvim /var/lib/postgres/data/postgresql.conf # listen_addresses = '*'
+sudo sed -i '/^host/s/ident/md5/' /var/lib/postgres/data/pg_hba.conf
+sudo sed -i '/^local/s/peer/trust/' /var/lib/postgres/data/pg_hba.conf
+echo "host all all 0.0.0.0/0 md5" | sudo tee -a /var/lib/postgres/data/pg_hba.conf
+sudo setfacl -R -x u:axlefublr /var/lib/postgres/data
+sudo systemctl restart postgresql
+sudo ufw allow 5432/tcp
+sudo touch /var/lib/postgres/.psql_history
+sudo chown postgres:postgres /var/lib/postgres/.psql_history
+psql -U postgres
+# ALTER USER postgres PASSWORD 'password';
+# \q
+cd ~/Documents
+curl -O https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
+unzip dvdrental.zip
+rm -fr dvdrental.zip
+psql -U postgres
+# create database dvdrental;
+# \q
+pg_restore -U postgres --dbname=dvdrental --verbose dvdrental.tar
+psql -U postgres
+# \c dvdrental
+# select count(*) from film;
+# select version();
