@@ -5,7 +5,7 @@
 }
 
 /* div that actually holds the / search inputbox */
-.HUD.D:after {
+div.R.UI.HUD.D:after {
 	background: transparent;
 }
 .HUD:after {
@@ -14,15 +14,31 @@
 }
 /* positioning of the inputbox outer div */
 .HUD.UI {
-	height: 40px;
+	height: 29px;
 }
 .HUD {
 	bottom: 0;
+	padding: 5px 7px;
 	right: 25%;
-	padding: 0;
 	width: 50%;
 	max-width: 50%;
 	min-width: 50%;
+	height: auto;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+/* notifications, like when you get in insert mode */
+.HUD.D:not(.UI) {
+	font-family: Ubuntu Nerd Font, Ubuntu;
+	bottom: 5px;
+	min-width: unset;
+	width: unset;
+	right: 5px;
+	color: #d4be98;
+}
+.HUD.D:after {
+	background-color: #292828;
 }
 
 /* #find */
@@ -38,7 +54,7 @@
 }
 .r.D {
 	font-size: 16px;
-	font-family: JetBrainsMono NF, JetBrainsMono Nerd Font;
+	font-family: Ubuntu Nerd Font, Ubuntu;
 	padding: 5px 7px;
 	background-color: #292828;
 	color: #d4be98;
@@ -49,8 +65,8 @@
 
 /* span that holds amount of matches */
 #c {
-	margin-top: 2px;
-	height: 13px;
+	margin-top: 1px;
+	height: auto;
 	margin-left: 5px;
 }
 
@@ -63,8 +79,8 @@
 /* height of the searched for text */
 #i {
 	height: auto;
-	/* margin: 3px 0 3px 10px; */
-	padding: unset;
+	padding-bottom: 1px;
+	margin-left: 0;
 }
 
 /* `/` character before the search */
