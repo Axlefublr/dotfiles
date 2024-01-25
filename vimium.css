@@ -1,0 +1,73 @@
+/* #ui */
+/* hint labels */
+.D > .LH {
+	background: #ffafd7;
+}
+
+/* div that actually holds the / search inputbox */
+.HUD.D:after {
+	background: transparent;
+}
+.HUD:after {
+	border: none;
+	border-radius: unset;
+}
+/* positioning of the inputbox outer div */
+.HUD.UI {
+	height: 40px;
+}
+.HUD {
+	bottom: 0;
+	right: 25%;
+	padding: 0;
+	width: 50%;
+	max-width: 50%;
+	min-width: 50%;
+}
+
+/* #find */
+/* the inner inputbox of the / search */
+.r {
+	box-shadow: none;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: hsl(0, 1%, 40%);
+	border-width: 0;
+	height: auto;
+	padding: unset;
+}
+.r.D {
+	font-size: 16px;
+	font-family: JetBrainsMono NF, JetBrainsMono Nerd Font;
+	padding: 5px 7px;
+	background-color: #292828;
+	color: #d4be98;
+}
+* {
+	font: unset;
+}
+
+/* span that holds amount of matches */
+#c {
+	margin-top: 2px;
+	height: 13px;
+	margin-left: 5px;
+}
+
+/* amount of matches */
+#c::after {
+	color: #ffd75f;
+	font-size: 14px;
+}
+
+/* height of the searched for text */
+#i {
+	height: auto;
+	/* margin: 3px 0 3px 10px; */
+	padding: unset;
+}
+
+/* `/` character before the search */
+#s {
+	display: none;
+}
