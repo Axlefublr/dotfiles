@@ -89,3 +89,9 @@ div#header {
 	color: #d4be98;
 	background-color: #292828;
 }
+
+/* favicon in the current tab highlighted in white */
+.theme-dark .tab-position .tab.active .tab-header .favicon:not(.svg), .acc-dark.color-behind-tabs-off .tab-position .tab.active .tab-header .favicon:not(.svg) {
+	filter: unset;
+}
+
