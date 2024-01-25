@@ -38,7 +38,7 @@ div.R.UI.HUD.D:after {
 	color: #d4be98;
 }
 .HUD.D:after {
-	background-color: #292828;
+	background-color: hsl(0, 1%, 10%);
 }
 
 /* #find */
@@ -56,7 +56,7 @@ div.R.UI.HUD.D:after {
 	font-size: 16px;
 	font-family: Ubuntu Nerd Font, Ubuntu;
 	padding: 5px 7px;
-	background-color: #292828;
+	background-color: hsl(0, 1%, 10%);
 	color: #d4be98;
 }
 * {
