@@ -1,3 +1,7 @@
+:root {
+	--radiusHalf: 5px
+}
+
 #titlebar button.vivaldi {
 	display: none;
 }
@@ -37,4 +41,51 @@ div#header {
 /* Thin line on the top of the bottom tab bar */
 .address-top #tabs-tabbar-container.bottom, .address-top-off #tabs-tabbar-container.bottom, .address-bottom-off #tabs-tabbar-container.bottom {
 	border-top-width: 0;
+}
+
+/* inactive tabs */
+:not(.ui-transparent-tabs).color-behind-tabs-off .tab-position .tab {
+	background-color: hsl(0, 1%, 22%);
+}
+
+/* active tab */
+#browser.color-behind-tabs-off .tab-position .tab.active.active {
+	color: #d4be98;
+	border-bottom-left-radius: unset;
+	border-bottom-right-radius: unset;
+}
+
+/* hovered over tab */
+.color-behind-tabs-off .tab-position .tab:hover:not(.active) {
+	background-color: hsl(0, 1%, 26%);
+}
+
+.tabs-bottom .tab-position .tab:not(.tab-in-accordion, .tab-accordion),
+.tabs-bottom .tab-position .tab.tab-in-accordion,
+.tabs-bottom .tab-position .tab.tab-accordion {
+	border-radius: 14px;
+	font-size: 13px;
+}
+.tabs-bottom .tab-position .tab.tab-accordion {
+	border-radius: 14px 0 0 0;
+}
+.tabs-bottom .tab-position .tab.tab-in-accordion {
+	border-radius: unset;
+}
+.tabs-bottom .tab-position .tab.tab-first-in-group {
+	border-top-left-radius: 14px;
+}
+.tabs-bottom .tab-position .tab.tab-last-in-group {
+	border-top-right-radius: 14px;
+}
+
+/* border for grouping tab stacks together */
+.color-behind-tabs-off .svg-tab-stack .stack-frame {
+	stroke: transparent;
+}
+
+/* > button for unfolding currently active tab stack */
+.color-behind-tabs-off .accordion-toggle-arrow.closed.active {
+	color: #d4be98;
+	background-color: #292828;
 }
