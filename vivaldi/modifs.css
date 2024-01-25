@@ -95,3 +95,6 @@ div#header {
 	filter: unset;
 }
 
+#browser.color-behind-tabs-off .tab-position {
+	bottom: 1px;
+}
