@@ -50,3 +50,5 @@ local function dd_count()
 	end
 end
 Map("n", "du", dd_count)
+
+Map("n", "gy", "<cmd>%y+<cr>")
