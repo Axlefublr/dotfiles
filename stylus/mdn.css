@@ -1,0 +1,7 @@
+/* https://developer.mozilla.org/en-US/docs
+ * starts with
+ */
+
+div.main-wrapper {
+	grid-template-columns: 0;
+}
