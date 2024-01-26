@@ -19,10 +19,10 @@ div.R.UI.HUD.D:after {
 .HUD {
 	bottom: 0;
 	padding: 5px 7px;
-	right: 25%;
-	width: 50%;
-	max-width: 50%;
-	min-width: 50%;
+	right: 35%;
+	width: 30%;
+	max-width: 30%;
+	min-width: 30%;
 	height: auto;
 	font-size: 16px;
 	border-radius: 5px;
@@ -32,6 +32,7 @@ div.R.UI.HUD.D:after {
 .HUD.D:not(.UI) {
 	font-family: Ubuntu Nerd Font, Ubuntu;
 	bottom: 5px;
+	max-width: unset;
 	min-width: unset;
 	width: unset;
 	right: 5px;
