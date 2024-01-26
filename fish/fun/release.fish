@@ -46,7 +46,7 @@ function rust-release
 
 	rust-ci
 	indeed .gitignore release-notes.txt
-	cargo +nightly fmt
+	cargo mommy +nightly fmt
 
 	git add . &&
 	git commit -m $taggedVersion &&
@@ -54,7 +54,7 @@ function rust-release
 	git tag $taggedVersion -F release-notes.txt &&
 	git push origin $taggedVersion
 	truncate -s 0 release-notes.txt
-	cargo publish
+	cargo mommy publish
 end
 funcsave rust-release > /dev/null
 
@@ -65,7 +65,7 @@ function rust-publish
 	if not test $should_continue
 		return 1
 	end
-	cargo publish
+	cargo mommy publish
 end
 funcsave rust-publish > /dev/null
 
@@ -75,7 +75,7 @@ function rust-fmt --description 'Bring in format config and format with it'
 		return 1
 	end
 	cp -f ~/prog/dotfiles/rustfmt.toml ./.rustfmt.toml &&
-	cargo +nightly fmt
+	cargo mommy +nightly fmt
 end
 funcsave rust-fmt > /dev/null
 
@@ -96,7 +96,7 @@ function rust-bin
 		return 1
 	end
 	set -l name (basename $PWD)
-	cargo build -r &&
+	cargo mommy build -r &&
 	cp -f ./target/release/$name ~/prog/binaries
 	if set -q argv[1]
 		set -l newVersion $argv[1]
@@ -109,7 +109,7 @@ end
 funcsave rust-bin > /dev/null
 
 function rust-init
-	cargo init
+	cargo mommy init
 	touch README.md
 	touch release-notes.txt
 	indeed .gitignore release-notes.txt

@@ -65,7 +65,7 @@ function uboot
 		rustup update
 	end
 	if test (math (clorange updates show) % 3) -eq 0
-		cargo install-update -a
+		cargo mommy install-update -a
 	end
 	clorange updates increment
 	loago do update

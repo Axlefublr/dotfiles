@@ -13,6 +13,7 @@ set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 set -gx RANGER_LOAD_DEFAULT_RC true
 set -gx MANPAGER 'nvim +Man!'
 set -gx LESSKEYIN '/opt/lesskey'
+set -gx CARGO_MOMMYS_MOODS 'chill/thirsty'
 
 set -g color_pink        FFAFD7
 set -g color_purple      AF87FF

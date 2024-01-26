@@ -72,6 +72,7 @@ sudo touch /var/lib/postgres/.psql_history
 sudo chown postgres:postgres /var/lib/postgres/.psql_history
 psql -U postgres
 # ALTER USER postgres PASSWORD 'password';
+# \pset null null
 # \q
 cd ~/Documents
 curl -O https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
