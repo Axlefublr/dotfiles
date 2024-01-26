@@ -13,3 +13,7 @@ aside#secondary {
 div.left-column.__web-inspector-hide-shortcut__ {
 	display: none;
 }
+
+div.whitelist {
+	display: none;
+}
