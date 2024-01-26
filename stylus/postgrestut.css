@@ -1,0 +1,15 @@
+/* https://www.postgresqltutorial.com
+ * urls starting with
+ */
+
+.site {
+	grid-template-columns: 10vw 1fr 10vw;
+}
+
+aside#secondary {
+	display: none;
+}
+
+div.left-column.__web-inspector-hide-shortcut__ {
+	display: none;
+}
