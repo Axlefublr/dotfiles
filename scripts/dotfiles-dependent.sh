@@ -49,7 +49,7 @@ crontab -e
 # @monthly ~/prog/dotfiles/scripts/crontab/monthly.fish
 
 # Less
-ln -sf ~/prog/dotfiles/lesskey ~/.config/lesskey
+sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
 
 # Paru
 mkdir -p ~/.config/paru

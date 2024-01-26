@@ -3,6 +3,7 @@
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
+set -gx PAGER '/usr/bin/less'
 set -gx BROWSER '/usr/bin/vivaldi-stable'
 set -gx HISTSIZE 10000
 set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
@@ -11,6 +12,7 @@ set -gx SAVEHIST 10000
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 set -gx RANGER_LOAD_DEFAULT_RC true
 set -gx MANPAGER 'nvim +Man!'
+set -gx LESSKEYIN '/opt/lesskey'
 
 set -g color_pink        FFAFD7
 set -g color_purple      AF87FF
