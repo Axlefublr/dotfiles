@@ -472,4 +472,5 @@ keymap:
       CapsLock-s: ctrl-c
       CapsLock-w: ctrl-x
       CapsLock-d: ctrl-v
+      CapsLock-Ctrl-d: ctrl-shift-v
       CapsLock-f: ctrl-a
