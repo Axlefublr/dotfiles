@@ -165,6 +165,7 @@ abbr -a slup 'systemctl --user stop'
 
 abbr -a u 'z -'
 abbr -a v 'nvim'
+abbr -a c 'code'
 abbr -a fp 'fish -P'
 abbr -a x 'exit'
 abbr -a bacon 'bacon -j clippy'

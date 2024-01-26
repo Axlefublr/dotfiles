@@ -55,6 +55,9 @@ sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
 mkdir -p ~/.config/paru
 ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
 
+# Custom compose
+ln -sf ~/prog/dotfiles/compose.txt ~/.XCompose
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql
