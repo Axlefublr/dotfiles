@@ -33,3 +33,5 @@ Map({ "n", "v" }, "zJ", Git_revert_change)
 Map({ "n", "v" }, "zj", Git_stage_change)
 -- Map({ "n", "v" }, "zt", Vscode_ctrl_d)
 -- Map({ "n", "v" }, "zb", Vscode_ctrl_u)
+
+Map("", ",K", "ZQ", { remap = true })
