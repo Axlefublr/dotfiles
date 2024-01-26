@@ -46,6 +46,9 @@ div.R.UI.HUD.D:after {
 .One {
 	border-color: #ffd75f;
 }
+.Frame {
+	border: 5px solid #ffd75f;
+}
 
 /* #find */
 /* the inner inputbox of the / search */
