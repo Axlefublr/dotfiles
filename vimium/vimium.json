@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "1/26/2024, 3:50:00 PM",
-	"time": 1706255400676,
+	"@time": "1/26/2024, 11:14:40 PM",
+	"time": 1706282080345,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "linux",
@@ -79,7 +79,7 @@
 		"map yt copyCurrentTitle",
 		"map I LinkHints.activateEdit",
 		"map M Marks.activateGotoMode",
-		"map ^ visitPreviousTab acrossWindows",
+		"map o visitPreviousTab acrossWindows",
 		""
 	],
 	"keyupTime": 50,

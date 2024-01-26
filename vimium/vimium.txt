@@ -61,4 +61,4 @@ map L scrollPxRight
 map yt copyCurrentTitle
 map I LinkHints.activateEdit
 map M Marks.activateGotoMode
-map ^ visitPreviousTab acrossWindows
+map o visitPreviousTab acrossWindows
