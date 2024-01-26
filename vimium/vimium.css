@@ -42,6 +42,11 @@ div.R.UI.HUD.D:after {
 	background-color: hsl(0, 1%, 10%);
 }
 
+/* frame around the gf / gF frames */
+.One {
+	border-color: #ffd75f;
+}
+
 /* #find */
 /* the inner inputbox of the / search */
 .r {
@@ -87,4 +92,10 @@ div.R.UI.HUD.D:after {
 /* `/` character before the search */
 #s {
 	display: none;
+}
+
+/* #find:selection */
+::selection {
+	color: #0f0f0f;
+	background: #ffafd7 !important;
 }
