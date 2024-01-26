@@ -1,0 +1,64 @@
+unmap <a-f>
+unmap t
+unmap r
+unmap R
+unmap <c-e>
+unmap <c-y>
+unmap <a-r>
+unmap <s-f1>
+unmap <f1>
+unmap <f2>
+unmap <f8>
+unmap `
+unmap o
+unmap O
+unmap b
+unmap B
+unmap T
+unmap gn
+unmap <a-n>
+unmap <a-s-r>
+unmap <a-s-c>
+unmap <a-c>
+unmap <a-v>
+unmap J
+unmap K
+unmap gt
+unmap gT
+unmap g0
+unmap g$
+unmap <a-t>
+unmap yt
+unmap x
+unmap X
+unmap W
+unmap <a-p>
+unmap <a-m>
+unmap <<
+unmap >>
+unmap gs
+
+map ,f LinkHints.activateWithQueue
+map yc LinkHints.activateCopyLinkText
+map yI LinkHints.activateOpenImage
+map x LinkHints.activateFocus
+map r LinkHints.activateHover
+map R LinkHints.unhoverLast
+
+map D scrollFullPageDown
+map U scrollFullPageUp
+map ; scrollPageDown
+map q scrollPageUp
+map j scrollDown keepHover="false"
+map k scrollUp keepHover="false"
+map s scrollDown keepHover="false"
+map a scrollUp keepHover="false"
+map H scrollPxLeft
+map J scrollPxDown
+map K scrollPxUp
+map L scrollPxRight
+
+map yt copyCurrentTitle
+map I LinkHints.activateEdit
+map M Marks.activateGotoMode
+map ^ visitPreviousTab acrossWindows

@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "1/25/2024, 11:38:57 PM",
-	"time": 1706197137608,
+	"@time": "1/26/2024, 3:08:10 PM",
+	"time": 1706252890454,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "linux",
@@ -12,6 +12,7 @@
 	"autoReduceMotion": 0,
 	"exclusionRules": [],
 	"grabBackFocus": true,
+	"hideHud": true,
 	"keyLayout": 18,
 	"keyMappings": [
 		"#!no-check",
@@ -119,6 +120,7 @@
 		"",
 		"/* notifications, like when you get in insert mode */",
 		".HUD.D:not(.UI) {",
+		"\tfont-family: Ubuntu Nerd Font, Ubuntu;",
 		"\tbottom: 5px;",
 		"\tmin-width: unset;",
 		"\twidth: unset;",
@@ -126,7 +128,7 @@
 		"\tcolor: #d4be98;",
 		"}",
 		".HUD.D:after {",
-		"\tbackground-color: #292828;",
+		"\tbackground-color: hsl(0, 1%, 10%);",
 		"}",
 		"",
 		"/* #find */",
@@ -144,7 +146,7 @@
 		"\tfont-size: 16px;",
 		"\tfont-family: Ubuntu Nerd Font, Ubuntu;",
 		"\tpadding: 5px 7px;",
-		"\tbackground-color: #292828;",
+		"\tbackground-color: hsl(0, 1%, 10%);",
 		"\tcolor: #d4be98;",
 		"}",
 		"* {",
