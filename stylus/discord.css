@@ -849,3 +849,10 @@ blockquote {
 .option_b5597b:after {
 	display: none;
 }
+
+/* restart video button */
+div.videoButton__1a553 > svg > path,
+/* volume button */
+div > div > div.videoControls__96149 > div.flex__909d4 > div > button > div > svg > path {
+	fill: #d4be98;
+}
