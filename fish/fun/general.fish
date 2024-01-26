@@ -90,11 +90,6 @@ function take
 end
 funcsave take > /dev/null
 
-function ate
-	printf '\n'(date '+%y.%m.%d %H:%M') >> ~/.local/share/hungry
-end
-funcsave ate > /dev/null
-
 function bak
 	set -l full_path $argv[1]
 	set -l file_name (basename $full_path)
