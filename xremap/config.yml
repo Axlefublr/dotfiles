@@ -130,6 +130,17 @@ keymap:
       Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
       Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
 
+      Key_1: { launch: [ fish, -c, "minigun-apply 1" ] }
+      Key_2: { launch: [ fish, -c, "minigun-apply 2" ] }
+      Key_3: { launch: [ fish, -c, "minigun-apply 3" ] }
+      Key_4: { launch: [ fish, -c, "minigun-apply 4" ] }
+      Key_5: { launch: [ fish, -c, "minigun-apply 5" ] }
+      Key_6: { launch: [ fish, -c, "minigun-apply 6" ] }
+      Key_7: { launch: [ fish, -c, "minigun-apply 7" ] }
+      Key_8: { launch: [ fish, -c, "minigun-apply 8" ] }
+      Key_9: { launch: [ fish, -c, "minigun-apply 9" ] }
+      Key_0: { launch: [ fish, -c, "minigun-apply 0" ] }
+
       Semicolon:
         remap:
           q: { launch: [ fish, -c, "minigun-save q" ] }
