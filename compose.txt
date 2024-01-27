@@ -9,7 +9,8 @@
 
 # Measurements
 
-<Multi_key> <o> <o> : "°"
+
+<Multi_key> <o> <d> : "°"
 <Multi_key> <percent> <o> : "‰"
 
 # Trademarks
@@ -93,25 +94,92 @@
 
 # Double-struck letters
 
+<Multi_key> <A> <A> : "𝔸"
+<Multi_key> <B> <B> : "𝔹"
 <Multi_key> <C> <C> : "ℂ"
+<Multi_key> <D> <D> : "𝔻"
+<Multi_key> <E> <E> : "𝔼"
+<Multi_key> <F> <F> : "𝔽"
+<Multi_key> <G> <G> : "𝔾"
+<Multi_key> <H> <H> : "ℍ"
+<Multi_key> <I> <I> : "𝕀"
+<Multi_key> <J> <J> : "𝕁"
+<Multi_key> <K> <K> : "𝕂"
+<Multi_key> <L> <L> : "𝕃"
+<Multi_key> <M> <M> : "𝕄"
 <Multi_key> <N> <N> : "ℕ"
+<Multi_key> <O> <O> : "𝕆"
+<Multi_key> <P> <P> : "ℙ"
 <Multi_key> <Q> <Q> : "ℚ"
 <Multi_key> <R> <R> : "ℝ"
+<Multi_key> <S> <S> : "𝕊"
+<Multi_key> <T> <T> : "𝕋"
+<Multi_key> <U> <U> : "𝕌"
+<Multi_key> <V> <V> : "𝕍"
+<Multi_key> <W> <W> : "𝕎"
+<Multi_key> <X> <X> : "𝕏"
+<Multi_key> <Y> <Y> : "𝕐"
 <Multi_key> <Z> <Z> : "ℤ"
+
+<Multi_key> <a> <a> : "𝕒"
+<Multi_key> <b> <b> : "𝕓"
+<Multi_key> <c> <c> : "𝕔"
+<Multi_key> <d> <d> : "𝕕"
+<Multi_key> <e> <e> : "𝕖"
+<Multi_key> <f> <f> : "𝕗"
+<Multi_key> <g> <g> : "𝕘"
+<Multi_key> <h> <h> : "𝕙"
+<Multi_key> <i> <i> : "𝕚"
+<Multi_key> <j> <j> : "𝕛"
+<Multi_key> <k> <k> : "𝕜"
+<Multi_key> <l> <l> : "𝕝"
+<Multi_key> <m> <m> : "𝕞"
+<Multi_key> <n> <n> : "𝕟"
+<Multi_key> <o> <o> : "𝕠"
+<Multi_key> <p> <p> : "𝕡"
+<Multi_key> <q> <q> : "𝕢"
+<Multi_key> <r> <r> : "𝕣"
+<Multi_key> <s> <s> : "𝕤"
+<Multi_key> <t> <t> : "𝕥"
+<Multi_key> <u> <u> : "𝕦"
+<Multi_key> <v> <v> : "𝕧"
+<Multi_key> <w> <w> : "𝕨"
+<Multi_key> <x> <x> : "𝕩"
+<Multi_key> <y> <y> : "𝕪"
+<Multi_key> <z> <z> : "𝕫"
+
+# Double-struck digits
+
+<Multi_key> <0> <0> : "𝟘"
+<Multi_key> <1> <1> : "𝟙"
+<Multi_key> <2> <2> : "𝟚"
+<Multi_key> <3> <3> : "𝟛"
+<Multi_key> <4> <4> : "𝟜"
+<Multi_key> <5> <5> : "𝟝"
+<Multi_key> <6> <6> : "𝟞"
+<Multi_key> <7> <7> : "𝟟"
+<Multi_key> <8> <8> : "𝟠"
+<Multi_key> <9> <9> : "𝟡"
 
 # Arrows
 
-<Multi_key> <a> <r> <r> <h>: "←"
-<Multi_key> <a> <r> <r> <k>: "↑"
-<Multi_key> <a> <r> <r> <l>: "→"
-<Multi_key> <a> <r> <r> <j>: "↓"
+<Multi_key> <a> <r> <h> <h>: "←"
+<Multi_key> <a> <r> <j> <j>: "↓"
+<Multi_key> <a> <r> <k> <k>: "↑"
+<Multi_key> <a> <r> <l> <l>: "→"
+<Multi_key> <a> <r> <h> <j>: "↙"
+<Multi_key> <a> <r> <h> <k>: "↖"
+<Multi_key> <a> <r> <l> <j>: "↘"
+<Multi_key> <a> <r> <l> <k>: "↗"
+<Multi_key> <a> <r> <h> <l>: "↔"
+<Multi_key> <a> <r> <j> <k>: "↕"
 
 # Math
 
 <Multi_key> <colon> <minus>:           "÷"
-<Multi_key> <x> <slash>:               "×"
+<Multi_key> <x> <m>:                   "×"
 <Multi_key> <asciitilde> <asciitilde>: "≈"
-<Multi_key> <exclam> <slash>:          "≠"
+<Multi_key> <exclam> <equal>:          "≠"
 <Multi_key> <less> <equal>:            "≤"
 <Multi_key> <greater> <equal>:         "≥"
 <Multi_key> <v> <slash>:               "√"
@@ -120,13 +188,13 @@
 
 # Currency
 
-<Multi_key> <c> <slash> : "¢"
-<Multi_key> <l> <minus> : "£"
-<Multi_key> <y> <equal> : "¥"
-<Multi_key> <l> <equal> : "₤" # lira
-<Multi_key> <c> <equal> : "€"
-<Multi_key> <r> <equal> : "₹" # indian rupee
-<Multi_key> <p> <equal> : "₽"
+<Multi_key> <c> <e> <n> <t>:     "¢"
+<Multi_key> <p> <o> <u> <n> <d>: "£"
+<Multi_key> <y> <e> <n>:         "¥"
+<Multi_key> <l> <i> <r> <a>:     "₤"
+<Multi_key> <e> <u> <r> <o>:     "€"
+<Multi_key> <r> <u> <p> <e>:     "₹"
+<Multi_key> <r> <u> <b> <l> <e>: "₽"
 
 # Fractions
 
@@ -162,19 +230,6 @@
 <Multi_key> <underscore> <7> : "₇"
 <Multi_key> <underscore> <8> : "₈"
 <Multi_key> <underscore> <9> : "₉"
-
-# Superscript letters
-
-<Multi_key> <asciicircum> <underscore> <n>: "ⁿ" U207F # SUPERSCRIPT LATIN SMALL LETTER N
-<Multi_key> <asciicircum> <underscore> <i>: "ⁱ" U2071 # SUPERSCRIPT LATIN SMALL LETTER I
-<Multi_key> <asciicircum> <underscore> <h>: "ʰ" U02B0 # MODIFIER LETTER SMALL H
-<Multi_key> <asciicircum> <underscore> <j>: "ʲ" U02B2 # MODIFIER LETTER SMALL J
-<Multi_key> <asciicircum> <underscore> <r>: "ʳ" U02B3 # MODIFIER LETTER SMALL R
-<Multi_key> <asciicircum> <underscore> <w>: "ʷ" U02B7 # MODIFIER LETTER SMALL W
-<Multi_key> <asciicircum> <underscore> <y>: "ʸ" U02B8 # MODIFIER LETTER SMALL Y
-<Multi_key> <asciicircum> <underscore> <l>: "ˡ" U02E1 # MODIFIER LETTER SMALL L
-<Multi_key> <asciicircum> <underscore> <s>: "ˢ" U02E2 # MODIFIER LETTER SMALL S
-<Multi_key> <asciicircum> <underscore> <x>: "ˣ" U02E3 # MODIFIER LETTER SMALL X
 
 # Subscript symbols
 
