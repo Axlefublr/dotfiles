@@ -14,8 +14,6 @@ set -gx RANGER_LOAD_DEFAULT_RC true
 set -gx MANPAGER 'nvim +Man!'
 set -gx LESSKEYIN '/opt/lesskey'
 set -gx CARGO_MOMMYS_MOODS 'chill/thirsty'
-set -gx GTK_IM_MODULE xim
-set -gx QT_IM_MODULE xim
 set -gx XMODIFIERS @im=none
 
 set -g color_pink        FFAFD7
