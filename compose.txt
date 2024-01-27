@@ -1,30 +1,124 @@
-<Multi_key> <c> <r> <y> : "😭"
-
-<Multi_key> <o> <o> : "°"
-<Multi_key> <o> <c> : "©"
-<Multi_key> <o> <r> : "®"
-
-<Multi_key> <period> <period> : "…"
-<Multi_key> <exclam> <exclam> : "¡"
-<Multi_key> <plus> <minus> : "±"
-<Multi_key> <question> <question> : "¿"
-<Multi_key> <exclam> <question> : "‽"
-<Multi_key> <question> <exclam> : "⸘"
-
-<Multi_key> <percent> <o> : "‰"
+# Extra
 
 <Multi_key> <a> <e> : "æ"
 <Multi_key> <A> <E> : "Æ"
 
-<Multi_key> <less> <less> : "«"
-<Multi_key> <greater> <greater> : "»"
-###
-<Multi_key> <less> <apostrophe> : "‘"
-<Multi_key> <greater> <apostrophe> : "’"
-<Multi_key> <comma> <apostrophe> : "‚"
-<Multi_key> <less> <quotedbl> : "“"
-<Multi_key> <greater> <quotedbl> : "”"
-<Multi_key> <comma> <quotedbl> : "„"
+# Emojis
+
+<Multi_key> <c> <r> <y> : "😭"
+
+# Measurements
+
+<Multi_key> <o> <o> : "°"
+<Multi_key> <percent> <o> : "‰"
+
+# Trademarks
+
+<Multi_key> <o> <c> : "©"
+<Multi_key> <o> <r> : "®"
+<Multi_key> <s> <m> : "℠"
+<Multi_key> <t> <m> : "™"
+
+# Lexical
+
+<Multi_key> <s> <o>:                  "§"
+<Multi_key> <n> <o>:                  "№"
+<Multi_key> <period> <period>:        "…"
+<Multi_key> <exclam> <exclam>:        "¡"
+<Multi_key> <question> <question>:    "¿"
+<Multi_key> <exclam> <question>:      "‽"
+<Multi_key> <question> <exclam>:      "⸘"
+<Multi_key> <less> <less>:            "«"
+<Multi_key> <greater> <greater>:      "»"
+<Multi_key> <less> <apostrophe>:      "‘"
+<Multi_key> <greater> <apostrophe>:   "’"
+<Multi_key> <comma> <apostrophe>:     "‚"
+<Multi_key> <less> <quotedbl>:        "“"
+<Multi_key> <greater> <quotedbl>:     "”"
+<Multi_key> <comma> <quotedbl>:       "„"
+<Multi_key> <minus> <minus> <period>: "–" # en dash
+<Multi_key> <minus> <minus> <minus>:  "—" # em dash
+
+# With acute
+
+<Multi_key> <A> <apostrophe> : "Á"
+<Multi_key> <a> <apostrophe> : "á"
+<Multi_key> <C> <apostrophe> : "Ć"
+<Multi_key> <c> <apostrophe> : "ć"
+<Multi_key> <E> <apostrophe> : "É"
+<Multi_key> <e> <apostrophe> : "é"
+<Multi_key> <G> <apostrophe> : "Ǵ"
+<Multi_key> <g> <apostrophe> : "ǵ"
+<Multi_key> <I> <apostrophe> : "Í"
+<Multi_key> <i> <apostrophe> : "í"
+<Multi_key> <J> <apostrophe> : "J́"
+<Multi_key> <j> <apostrophe> : "j́"
+<Multi_key> <K> <apostrophe> : "Ḱ"
+<Multi_key> <k> <apostrophe> : "ḱ"
+<Multi_key> <L> <apostrophe> : "Ĺ"
+<Multi_key> <l> <apostrophe> : "ĺ"
+<Multi_key> <M> <apostrophe> : "Ḿ"
+<Multi_key> <m> <apostrophe> : "ḿ"
+<Multi_key> <N> <apostrophe> : "Ń"
+<Multi_key> <n> <apostrophe> : "ń"
+<Multi_key> <O> <apostrophe> : "Ó"
+<Multi_key> <o> <apostrophe> : "ó"
+<Multi_key> <P> <apostrophe> : "Ṕ"
+<Multi_key> <p> <apostrophe> : "ṕ"
+<Multi_key> <R> <apostrophe> : "Ŕ"
+<Multi_key> <r> <apostrophe> : "ŕ"
+<Multi_key> <S> <apostrophe> : "Ś"
+<Multi_key> <s> <apostrophe> : "ś"
+<Multi_key> <U> <apostrophe> : "Ú"
+<Multi_key> <u> <apostrophe> : "ú"
+<Multi_key> <Y> <apostrophe> : "Ý"
+<Multi_key> <y> <apostrophe> : "ý"
+<Multi_key> <W> <apostrophe> : "Ẃ"
+<Multi_key> <w> <apostrophe> : "ẃ"
+<Multi_key> <Z> <apostrophe> : "Ź"
+<Multi_key> <z> <apostrophe> : "ź"
+
+# With tilde
+
+<Multi_key> <A> <asciitilde> : "Ã"
+<Multi_key> <a> <asciitilde> : "ã"
+<Multi_key> <N> <asciitilde> : "Ñ"
+<Multi_key> <n> <asciitilde> : "ñ"
+<Multi_key> <O> <asciitilde> : "Õ"
+<Multi_key> <o> <asciitilde> : "õ"
+<Multi_key> <I> <asciitilde> : "Ĩ"
+<Multi_key> <i> <asciitilde> : "ĩ"
+<Multi_key> <U> <asciitilde> : "Ũ"
+<Multi_key> <u> <asciitilde> : "ũ"
+
+# Double-struck letters
+
+<Multi_key> <C> <C> : "ℂ"
+<Multi_key> <N> <N> : "ℕ"
+<Multi_key> <Q> <Q> : "ℚ"
+<Multi_key> <R> <R> : "ℝ"
+<Multi_key> <Z> <Z> : "ℤ"
+
+# Arrows
+
+<Multi_key> <a> <r> <r> <h>: "←"
+<Multi_key> <a> <r> <r> <k>: "↑"
+<Multi_key> <a> <r> <r> <l>: "→"
+<Multi_key> <a> <r> <r> <j>: "↓"
+
+# Math
+
+<Multi_key> <colon> <minus>:           "÷"
+<Multi_key> <x> <slash>:               "×"
+<Multi_key> <asciitilde> <asciitilde>: "≈"
+<Multi_key> <exclam> <slash>:          "≠"
+<Multi_key> <less> <equal>:            "≤"
+<Multi_key> <greater> <equal>:         "≥"
+<Multi_key> <v> <slash>:               "√"
+<Multi_key> <8> <underscore>:          "∞"
+<Multi_key> <plus> <minus>:            "±"
+
+# Currency
 
 <Multi_key> <c> <slash> : "¢"
 <Multi_key> <l> <minus> : "£"
@@ -34,241 +128,188 @@
 <Multi_key> <r> <equal> : "₹" # indian rupee
 <Multi_key> <p> <equal> : "₽"
 
-<Multi_key> <minus> <minus> <period> : "–" # en dash
-<Multi_key> <minus> <minus> <minus> : "—" # em dash
+# Fractions
 
-<Multi_key> <s> <o> : "§"
-<Multi_key> <n> <o> : "№"
+<Multi_key> <1> <7>:     "⅐"
+<Multi_key> <1> <9>:     "⅑"
+<Multi_key> <1> <1> <0>: "⅒"
+<Multi_key> <1> <3>:     "⅓"
+<Multi_key> <2> <3>:     "⅔"
+<Multi_key> <1> <5>:     "⅕"
+<Multi_key> <2> <5>:     "⅖"
+<Multi_key> <3> <5>:     "⅗"
+<Multi_key> <4> <5>:     "⅘"
+<Multi_key> <1> <6>:     "⅙"
+<Multi_key> <5> <6>:     "⅚"
+<Multi_key> <1> <8>:     "⅛"
+<Multi_key> <3> <8>:     "⅜"
+<Multi_key> <5> <8>:     "⅝"
+<Multi_key> <7> <8>:     "⅞"
+<Multi_key> <0> <3>:     "↉"
+<Multi_key> <1> <4>:     "¼"
+<Multi_key> <1> <2>:     "½"
+<Multi_key> <3> <4>:     "¾"
+
+# Subscript digits
+
+<Multi_key> <underscore> <0> : "₀"
+<Multi_key> <underscore> <1> : "₁"
+<Multi_key> <underscore> <2> : "₂"
+<Multi_key> <underscore> <3> : "₃"
+<Multi_key> <underscore> <4> : "₄"
+<Multi_key> <underscore> <5> : "₅"
+<Multi_key> <underscore> <6> : "₆"
+<Multi_key> <underscore> <7> : "₇"
+<Multi_key> <underscore> <8> : "₈"
+<Multi_key> <underscore> <9> : "₉"
+
+# Superscript letters
+
+<Multi_key> <asciicircum> <underscore> <n>: "ⁿ" U207F # SUPERSCRIPT LATIN SMALL LETTER N
+<Multi_key> <asciicircum> <underscore> <i>: "ⁱ" U2071 # SUPERSCRIPT LATIN SMALL LETTER I
+<Multi_key> <asciicircum> <underscore> <h>: "ʰ" U02B0 # MODIFIER LETTER SMALL H
+<Multi_key> <asciicircum> <underscore> <j>: "ʲ" U02B2 # MODIFIER LETTER SMALL J
+<Multi_key> <asciicircum> <underscore> <r>: "ʳ" U02B3 # MODIFIER LETTER SMALL R
+<Multi_key> <asciicircum> <underscore> <w>: "ʷ" U02B7 # MODIFIER LETTER SMALL W
+<Multi_key> <asciicircum> <underscore> <y>: "ʸ" U02B8 # MODIFIER LETTER SMALL Y
+<Multi_key> <asciicircum> <underscore> <l>: "ˡ" U02E1 # MODIFIER LETTER SMALL L
+<Multi_key> <asciicircum> <underscore> <s>: "ˢ" U02E2 # MODIFIER LETTER SMALL S
+<Multi_key> <asciicircum> <underscore> <x>: "ˣ" U02E3 # MODIFIER LETTER SMALL X
+
+# Subscript symbols
+
+<Multi_key> <underscore> <plus>:       "₊"
+<Multi_key> <underscore> <minus>:      "₋"
+<Multi_key> <underscore> <equal>:      "₌"
+<Multi_key> <underscore> <parenleft>:  "₍"
+<Multi_key> <underscore> <parenright>: "₎"
+
+# Superscript digits
+
+<Multi_key> <asciicircum> <0> : "⁰"
 <Multi_key> <asciicircum> <1> : "¹"
 <Multi_key> <asciicircum> <2> : "²"
 <Multi_key> <asciicircum> <3> : "³"
-<Multi_key> <1> <4> : "¼"
-<Multi_key> <1> <2> : "½"
-<Multi_key> <3> <4> : "¾"
-<Multi_key> <A> <apostrophe> : "Á"
-<Multi_key> <A> <asciitilde> : "Ã"
-<Multi_key> <E> <apostrophe> : "É"
+<Multi_key> <asciicircum> <4> : "⁴"
+<Multi_key> <asciicircum> <5> : "⁵"
+<Multi_key> <asciicircum> <6> : "⁶"
+<Multi_key> <asciicircum> <7> : "⁷"
+<Multi_key> <asciicircum> <8> : "⁸"
+<Multi_key> <asciicircum> <9> : "⁹"
 
-<Multi_key> <I> <apostrophe> : "Í"
-<Multi_key> <J> <apostrophe> : "J́"
-<Multi_key> <N> <asciitilde> : "Ñ"
-<Multi_key> <O> <apostrophe> : "Ó"
-<Multi_key> <O> <asciitilde> : "Õ"
+# Superscript symbols
 
-<Multi_key> <x> <x> : "×" multiply # MULTIPLICATION SIGN
-<Multi_key> <U> <apostrophe> : "Ú" Uacute # LATIN CAPITAL LETTER U WITH ACUTE
-<Multi_key> <Y> <apostrophe> : "Ý" Yacute # LATIN CAPITAL LETTER Y WITH ACUTE
-<Multi_key> <a> <apostrophe> : "á" aacute # LATIN SMALL LETTER A WITH ACUTE
-<Multi_key> <a> <asciitilde> : "ã" atilde # LATIN SMALL LETTER A WITH TILDE
-<Multi_key> <e> <apostrophe> : "é" eacute # LATIN SMALL LETTER E WITH ACUTE
-<Multi_key> <i> <apostrophe> : "í" iacute # LATIN SMALL LETTER I WITH ACUTE
-<Multi_key> <j> <apostrophe> : "j́" # LATIN SMALL LETTER J plus COMBINING ACUTE
-<Multi_key> <n> <asciitilde> : "ñ" ntilde # LATIN SMALL LETTER N WITH TILDE
-<Multi_key> <o> <apostrophe> : "ó" oacute # LATIN SMALL LETTER O WITH ACUTE
-<Multi_key> <o> <asciitilde> : "õ" otilde # LATIN SMALL LETTER O WITH TILDE
-<Multi_key> <colon> <minus> : "÷" division # DIVISION SIGN
-<Multi_key> <u> <apostrophe> : "ú" uacute # LATIN SMALL LETTER U WITH ACUTE
-<Multi_key> <y> <apostrophe> : "ý" yacute # LATIN SMALL LETTER Y WITH ACUTE
+<Multi_key> <asciicircum> <plus>:       "⁺"
+<Multi_key> <asciicircum> <minus>:      "⁻"
+<Multi_key> <asciicircum> <equal>:      "⁼"
+<Multi_key> <asciicircum> <parenleft>:  "⁽"
+<Multi_key> <asciicircum> <parenright>: "⁾"
 
-<Multi_key> <C> <apostrophe> : "Ć" U0106 # LATIN CAPITAL LETTER C WITH ACUTE
-<Multi_key> <c> <apostrophe> : "ć" U0107 # LATIN SMALL LETTER C WITH ACUTE
+# Circled letters
 
-<Multi_key> <I> <asciitilde> : "Ĩ" U0128 # LATIN CAPITAL LETTER I WITH TILDE
-<Multi_key> <i> <asciitilde> : "ĩ" U0129 # LATIN SMALL LETTER I WITH TILDE
-<Multi_key> <L> <apostrophe> : "Ĺ" U0139 # LATIN CAPITAL LETTER L WITH ACUTE
-<Multi_key> <l> <apostrophe> : "ĺ" U013A # LATIN SMALL LETTER L WITH ACUTE
-<Multi_key> <N> <apostrophe> : "Ń" U0143 # LATIN CAPITAL LETTER N WITH ACUTE
-<Multi_key> <n> <apostrophe> : "ń" U0144 # LATIN SMALL LETTER N WITH ACUTE
-<Multi_key> <R> <apostrophe> : "Ŕ" U0154 # LATIN CAPITAL LETTER R WITH ACUTE
-<Multi_key> <r> <apostrophe> : "ŕ" U0155 # LATIN SMALL LETTER R WITH ACUTE
-<Multi_key> <S> <apostrophe> : "Ś" U015A # LATIN CAPITAL LETTER S WITH ACUTE
-<Multi_key> <s> <apostrophe> : "ś" U015B # LATIN SMALL LETTER S WITH ACUTE
-<Multi_key> <U> <asciitilde> : "Ũ" U0168 # LATIN CAPITAL LETTER U WITH TILDE
-<Multi_key> <u> <asciitilde> : "ũ" U0169 # LATIN SMALL LETTER U WITH TILDE
-<Multi_key> <Z> <apostrophe> : "Ź" U0179 # LATIN CAPITAL LETTER Z WITH ACUTE
-<Multi_key> <z> <apostrophe> : "ź" U017A # LATIN SMALL LETTER Z WITH ACUTE
-<Multi_key> <asciicircum> <underscore> <h> : "ʰ" U02B0 # MODIFIER LETTER SMALL H
-<Multi_key> <asciicircum> <underscore> <j> : "ʲ" U02B2 # MODIFIER LETTER SMALL J
-<Multi_key> <asciicircum> <underscore> <r> : "ʳ" U02B3 # MODIFIER LETTER SMALL R
-<Multi_key> <asciicircum> <underscore> <w> : "ʷ" U02B7 # MODIFIER LETTER SMALL W
-<Multi_key> <asciicircum> <underscore> <y> : "ʸ" U02B8 # MODIFIER LETTER SMALL Y
-<Multi_key> <asciicircum> <underscore> <l> : "ˡ" U02E1 # MODIFIER LETTER SMALL L
-<Multi_key> <asciicircum> <underscore> <s> : "ˢ" U02E2 # MODIFIER LETTER SMALL S
-<Multi_key> <asciicircum> <underscore> <x> : "ˣ" U02E3 # MODIFIER LETTER SMALL X
-# Superscripts and Subscripts
-<Multi_key> <asciicircum> <0> : "⁰" U2070 # SUPERSCRIPT ZERO
-<Multi_key> <asciicircum> <underscore> <i> : "ⁱ" U2071 # SUPERSCRIPT LATIN SMALL LETTER I
-<Multi_key> <asciicircum> <4> : "⁴" U2074 # SUPERSCRIPT FOUR
-<Multi_key> <asciicircum> <5> : "⁵" U2075 # SUPERSCRIPT FIVE
-<Multi_key> <asciicircum> <6> : "⁶" U2076 # SUPERSCRIPT SIX
-<Multi_key> <asciicircum> <7> : "⁷" U2077 # SUPERSCRIPT SEVEN
-<Multi_key> <asciicircum> <8> : "⁸" U2078 # SUPERSCRIPT EIGHT
-<Multi_key> <asciicircum> <9> : "⁹" U2079 # SUPERSCRIPT NINE
-<Multi_key> <asciicircum> <plus> : "⁺" U207A # SUPERSCRIPT PLUS SIGN
-<Multi_key> <asciicircum> <minus> : "⁻" U207B # SUPERSCRIPT MINUS
-<Multi_key> <asciicircum> <equal> : "⁼" U207C # SUPERSCRIPT EQUALS SIGN
-<Multi_key> <asciicircum> <parenleft> : "⁽" U207D # SUPERSCRIPT LEFT PARENTHESIS
-<Multi_key> <asciicircum> <parenright> : "⁾" U207E # SUPERSCRIPT RIGHT PARENTHESIS
-<Multi_key> <asciicircum> <underscore> <n> : "ⁿ" U207F # SUPERSCRIPT LATIN SMALL LETTER N
-<Multi_key> <underscore> <0> : "₀" U2080 # SUBSCRIPT ZERO
-<Multi_key> <underscore> <1> : "₁" U2081 # SUBSCRIPT ONE
-<Multi_key> <underscore> <2> : "₂" U2082 # SUBSCRIPT TWO
-<Multi_key> <underscore> <3> : "₃" U2083 # SUBSCRIPT THREE
-<Multi_key> <underscore> <4> : "₄" U2084 # SUBSCRIPT FOUR
-<Multi_key> <underscore> <5> : "₅" U2085 # SUBSCRIPT FIVE
-<Multi_key> <underscore> <6> : "₆" U2086 # SUBSCRIPT SIX
-<Multi_key> <underscore> <7> : "₇" U2087 # SUBSCRIPT SEVEN
-<Multi_key> <underscore> <8> : "₈" U2088 # SUBSCRIPT EIGHT
-<Multi_key> <underscore> <9> : "₉" U2089 # SUBSCRIPT NINE
-<Multi_key> <underscore> <plus> : "₊" U208A # SUBSCRIPT PLUS SIGN
-<Multi_key> <underscore> <minus> : "₋" U208B # SUBSCRIPT MINUS
-<Multi_key> <underscore> <equal> : "₌" U208C # SUBSCRIPT EQUALS SIGN
-<Multi_key> <underscore> <parenleft> : "₍" U208D # SUBSCRIPT LEFT PARENTHESIS
-<Multi_key> <underscore> <parenright> : "₎" U208E # SUBSCRIPT RIGHT PARENTHESIS
-<Multi_key> <C> <C> : "ℂ" U2102 # DOUBLE-STRUCK CAPITAL C
-<Multi_key> <N> <N> : "ℕ" U2115 # DOUBLE-STRUCK CAPITAL N
-<Multi_key> <Q> <Q> : "ℚ" U211A # DOUBLE-STRUCK CAPITAL Q
-<Multi_key> <R> <R> : "ℝ" U211D # DOUBLE-STRUCK CAPITAL R
-<Multi_key> <Z> <Z> : "ℤ" U2124 # DOUBLE-STRUCK CAPITAL Z
-<Multi_key> <s> <m> : "℠" U2120 # SERVICE MARK
-<Multi_key> <t> <m> : "™" U2122 # TRADE MARK SIGN
-# Number Forms
-<Multi_key> <1> <7> : "⅐" U2150 # VULGAR FRACTION ONE SEVENTH
-<Multi_key> <1> <9> : "⅑" U2151 # VULGAR FRACTION ONE NINTH
-<Multi_key> <1> <1> <0> : "⅒" U2152 # VULGAR FRACTION ONE TENTH
-<Multi_key> <1> <3> : "⅓" U2153 # VULGAR FRACTION ONE THIRD
-<Multi_key> <2> <3> : "⅔" U2154 # VULGAR FRACTION TWO THIRDS
-<Multi_key> <1> <5> : "⅕" U2155 # VULGAR FRACTION ONE FIFTH
-<Multi_key> <2> <5> : "⅖" U2156 # VULGAR FRACTION TWO FIFTHS
-<Multi_key> <3> <5> : "⅗" U2157 # VULGAR FRACTION THREE FIFTHS
-<Multi_key> <4> <5> : "⅘" U2158 # VULGAR FRACTION FOUR FIFTHS
-<Multi_key> <1> <6> : "⅙" U2159 # VULGAR FRACTION ONE SIXTH
-<Multi_key> <5> <6> : "⅚" U215A # VULGAR FRACTION FIVE SIXTHS
-<Multi_key> <1> <8> : "⅛" U215B # VULGAR FRACTION ONE EIGHTH
-<Multi_key> <3> <8> : "⅜" U215C # VULGAR FRACTION THREE EIGHTHS
-<Multi_key> <5> <8> : "⅝" U215D # VULGAR FRACTION FIVE EIGHTHS
-<Multi_key> <7> <8> : "⅞" U215E # VULGAR FRACTION SEVEN EIGHTHS
-<Multi_key> <0> <3> : "↉" U2189 # VULGAR FRACTION ZERO THIRDS
-# Arrows
-<Multi_key> <less> <minus> : "←" U2190 # LEFTWARDS ARROW
-<Multi_key> <bar> <asciicircum> : "↑" U2191 # UPWARDS ARROW
-<Multi_key> <minus> <greater> : "→" U2192 # RIGHTWARDS ARROW
-<Multi_key> <bar> <v> : "↓" U2193 # DOWNWARDS ARROW
-<Multi_key> <equal> <less> : "⇐" U21D0 # LEFTWARDS DOUBLE ARROW
-<Multi_key> <equal> <asciicircum> : "⇑" U21D1 # UPWARDS DOUBLE ARROW
-<Multi_key> <equal> <greater> : "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
-<Multi_key> <equal> <v> : "⇓" U21D3 # DOWNWARDS DOUBLE ARROW
-# Mathematical Operators
-<Multi_key> <equal> <slash> : "≠" U2260 # NOT EQUAL TO
-<Multi_key> <less> <equal> : "≤" U2264 # LESS-THAN OR EQUAL TO
-<Multi_key> <greater> <equal> : "≥" U2265 # GREATER-THAN OR EQUAL TO
-
-<Multi_key> <v> <slash> : "√" U221a # v / SQUARE ROOT
-<Multi_key> <8> <8> : "∞" U221e # 8 8 INFINITY
-<Multi_key> <asciitilde> <asciitilde> : "≈" U2248 # ~ ~ ALMOST EQUAL TO
-
-<Multi_key> <parenleft> <A> <parenright> : "Ⓐ" U24B6 # CIRCLED LATIN CAPITAL LETTER A
-<Multi_key> <parenleft> <B> <parenright> : "Ⓑ" U24B7 # CIRCLED LATIN CAPITAL LETTER B
-<Multi_key> <parenleft> <C> <parenright> : "Ⓒ" U24B8 # CIRCLED LATIN CAPITAL LETTER C
-<Multi_key> <parenleft> <D> <parenright> : "Ⓓ" U24B9 # CIRCLED LATIN CAPITAL LETTER D
-<Multi_key> <parenleft> <E> <parenright> : "Ⓔ" U24BA # CIRCLED LATIN CAPITAL LETTER E
-<Multi_key> <parenleft> <F> <parenright> : "Ⓕ" U24BB # CIRCLED LATIN CAPITAL LETTER F
-<Multi_key> <parenleft> <G> <parenright> : "Ⓖ" U24BC # CIRCLED LATIN CAPITAL LETTER G
-<Multi_key> <parenleft> <H> <parenright> : "Ⓗ" U24BD # CIRCLED LATIN CAPITAL LETTER H
-<Multi_key> <parenleft> <I> <parenright> : "Ⓘ" U24BE # CIRCLED LATIN CAPITAL LETTER I
-<Multi_key> <parenleft> <J> <parenright> : "Ⓙ" U24BF # CIRCLED LATIN CAPITAL LETTER J
-<Multi_key> <parenleft> <K> <parenright> : "Ⓚ" U24C0 # CIRCLED LATIN CAPITAL LETTER K
-<Multi_key> <parenleft> <L> <parenright> : "Ⓛ" U24C1 # CIRCLED LATIN CAPITAL LETTER L
-<Multi_key> <parenleft> <M> <parenright> : "Ⓜ" U24C2 # CIRCLED LATIN CAPITAL LETTER M
-<Multi_key> <parenleft> <N> <parenright> : "Ⓝ" U24C3 # CIRCLED LATIN CAPITAL LETTER N
-<Multi_key> <parenleft> <O> <parenright> : "Ⓞ" U24C4 # CIRCLED LATIN CAPITAL LETTER O
-<Multi_key> <parenleft> <P> <parenright> : "Ⓟ" U24C5 # CIRCLED LATIN CAPITAL LETTER P
-<Multi_key> <parenleft> <Q> <parenright> : "Ⓠ" U24C6 # CIRCLED LATIN CAPITAL LETTER Q
-<Multi_key> <parenleft> <R> <parenright> : "Ⓡ" U24C7 # CIRCLED LATIN CAPITAL LETTER R
-<Multi_key> <parenleft> <S> <parenright> : "Ⓢ" U24C8 # CIRCLED LATIN CAPITAL LETTER S
-<Multi_key> <parenleft> <T> <parenright> : "Ⓣ" U24C9 # CIRCLED LATIN CAPITAL LETTER T
-<Multi_key> <parenleft> <U> <parenright> : "Ⓤ" U24CA # CIRCLED LATIN CAPITAL LETTER U
-<Multi_key> <parenleft> <V> <parenright> : "Ⓥ" U24CB # CIRCLED LATIN CAPITAL LETTER V
-<Multi_key> <parenleft> <W> <parenright> : "Ⓦ" U24CC # CIRCLED LATIN CAPITAL LETTER W
-<Multi_key> <parenleft> <X> <parenright> : "Ⓧ" U24CD # CIRCLED LATIN CAPITAL LETTER X
-<Multi_key> <parenleft> <Y> <parenright> : "Ⓨ" U24CE # CIRCLED LATIN CAPITAL LETTER Y
-<Multi_key> <parenleft> <Z> <parenright> : "Ⓩ" U24CF # CIRCLED LATIN CAPITAL LETTER Z
-<Multi_key> <parenleft> <a> <parenright> : "ⓐ" U24D0 # CIRCLED LATIN SMALL LETTER A
-<Multi_key> <parenleft> <b> <parenright> : "ⓑ" U24D1 # CIRCLED LATIN SMALL LETTER B
-<Multi_key> <parenleft> <c> <parenright> : "ⓒ" U24D2 # CIRCLED LATIN SMALL LETTER C
-<Multi_key> <parenleft> <d> <parenright> : "ⓓ" U24D3 # CIRCLED LATIN SMALL LETTER D
-<Multi_key> <parenleft> <e> <parenright> : "ⓔ" U24D4 # CIRCLED LATIN SMALL LETTER E
-<Multi_key> <parenleft> <f> <parenright> : "ⓕ" U24D5 # CIRCLED LATIN SMALL LETTER F
-<Multi_key> <parenleft> <g> <parenright> : "ⓖ" U24D6 # CIRCLED LATIN SMALL LETTER G
-<Multi_key> <parenleft> <h> <parenright> : "ⓗ" U24D7 # CIRCLED LATIN SMALL LETTER H
-<Multi_key> <parenleft> <i> <parenright> : "ⓘ" U24D8 # CIRCLED LATIN SMALL LETTER I
-<Multi_key> <parenleft> <j> <parenright> : "ⓙ" U24D9 # CIRCLED LATIN SMALL LETTER J
-<Multi_key> <parenleft> <k> <parenright> : "ⓚ" U24DA # CIRCLED LATIN SMALL LETTER K
-<Multi_key> <parenleft> <l> <parenright> : "ⓛ" U24DB # CIRCLED LATIN SMALL LETTER L
-<Multi_key> <parenleft> <m> <parenright> : "ⓜ" U24DC # CIRCLED LATIN SMALL LETTER M
-<Multi_key> <parenleft> <n> <parenright> : "ⓝ" U24DD # CIRCLED LATIN SMALL LETTER N
-<Multi_key> <parenleft> <o> <parenright> : "ⓞ" U24DE # CIRCLED LATIN SMALL LETTER O
-<Multi_key> <parenleft> <p> <parenright> : "ⓟ" U24DF # CIRCLED LATIN SMALL LETTER P
-<Multi_key> <parenleft> <q> <parenright> : "ⓠ" U24E0 # CIRCLED LATIN SMALL LETTER Q
-<Multi_key> <parenleft> <r> <parenright> : "ⓡ" U24E1 # CIRCLED LATIN SMALL LETTER R
-<Multi_key> <parenleft> <s> <parenright> : "ⓢ" U24E2 # CIRCLED LATIN SMALL LETTER S
-<Multi_key> <parenleft> <t> <parenright> : "ⓣ" U24E3 # CIRCLED LATIN SMALL LETTER T
-<Multi_key> <parenleft> <u> <parenright> : "ⓤ" U24E4 # CIRCLED LATIN SMALL LETTER U
-<Multi_key> <parenleft> <v> <parenright> : "ⓥ" U24E5 # CIRCLED LATIN SMALL LETTER V
-<Multi_key> <parenleft> <w> <parenright> : "ⓦ" U24E6 # CIRCLED LATIN SMALL LETTER W
-<Multi_key> <parenleft> <x> <parenright> : "ⓧ" U24E7 # CIRCLED LATIN SMALL LETTER X
-<Multi_key> <parenleft> <y> <parenright> : "ⓨ" U24E8 # CIRCLED LATIN SMALL LETTER Y
-<Multi_key> <parenleft> <z> <parenright> : "ⓩ" U24E9 # CIRCLED LATIN SMALL LETTER Z
+<Multi_key> <parenleft> <A> <parenright> : "Ⓐ"
+<Multi_key> <parenleft> <B> <parenright> : "Ⓑ"
+<Multi_key> <parenleft> <C> <parenright> : "Ⓒ"
+<Multi_key> <parenleft> <D> <parenright> : "Ⓓ"
+<Multi_key> <parenleft> <E> <parenright> : "Ⓔ"
+<Multi_key> <parenleft> <F> <parenright> : "Ⓕ"
+<Multi_key> <parenleft> <G> <parenright> : "Ⓖ"
+<Multi_key> <parenleft> <H> <parenright> : "Ⓗ"
+<Multi_key> <parenleft> <I> <parenright> : "Ⓘ"
+<Multi_key> <parenleft> <J> <parenright> : "Ⓙ"
+<Multi_key> <parenleft> <K> <parenright> : "Ⓚ"
+<Multi_key> <parenleft> <L> <parenright> : "Ⓛ"
+<Multi_key> <parenleft> <M> <parenright> : "Ⓜ"
+<Multi_key> <parenleft> <N> <parenright> : "Ⓝ"
+<Multi_key> <parenleft> <O> <parenright> : "Ⓞ"
+<Multi_key> <parenleft> <P> <parenright> : "Ⓟ"
+<Multi_key> <parenleft> <Q> <parenright> : "Ⓠ"
+<Multi_key> <parenleft> <R> <parenright> : "Ⓡ"
+<Multi_key> <parenleft> <S> <parenright> : "Ⓢ"
+<Multi_key> <parenleft> <T> <parenright> : "Ⓣ"
+<Multi_key> <parenleft> <U> <parenright> : "Ⓤ"
+<Multi_key> <parenleft> <V> <parenright> : "Ⓥ"
+<Multi_key> <parenleft> <W> <parenright> : "Ⓦ"
+<Multi_key> <parenleft> <X> <parenright> : "Ⓧ"
+<Multi_key> <parenleft> <Y> <parenright> : "Ⓨ"
+<Multi_key> <parenleft> <Z> <parenright> : "Ⓩ"
+<Multi_key> <parenleft> <a> <parenright> : "ⓐ"
+<Multi_key> <parenleft> <b> <parenright> : "ⓑ"
+<Multi_key> <parenleft> <c> <parenright> : "ⓒ"
+<Multi_key> <parenleft> <d> <parenright> : "ⓓ"
+<Multi_key> <parenleft> <e> <parenright> : "ⓔ"
+<Multi_key> <parenleft> <f> <parenright> : "ⓕ"
+<Multi_key> <parenleft> <g> <parenright> : "ⓖ"
+<Multi_key> <parenleft> <h> <parenright> : "ⓗ"
+<Multi_key> <parenleft> <i> <parenright> : "ⓘ"
+<Multi_key> <parenleft> <j> <parenright> : "ⓙ"
+<Multi_key> <parenleft> <k> <parenright> : "ⓚ"
+<Multi_key> <parenleft> <l> <parenright> : "ⓛ"
+<Multi_key> <parenleft> <m> <parenright> : "ⓜ"
+<Multi_key> <parenleft> <n> <parenright> : "ⓝ"
+<Multi_key> <parenleft> <o> <parenright> : "ⓞ"
+<Multi_key> <parenleft> <p> <parenright> : "ⓟ"
+<Multi_key> <parenleft> <q> <parenright> : "ⓠ"
+<Multi_key> <parenleft> <r> <parenright> : "ⓡ"
+<Multi_key> <parenleft> <s> <parenright> : "ⓢ"
+<Multi_key> <parenleft> <t> <parenright> : "ⓣ"
+<Multi_key> <parenleft> <u> <parenright> : "ⓤ"
+<Multi_key> <parenleft> <v> <parenright> : "ⓥ"
+<Multi_key> <parenleft> <w> <parenright> : "ⓦ"
+<Multi_key> <parenleft> <x> <parenright> : "ⓧ"
+<Multi_key> <parenleft> <y> <parenright> : "ⓨ"
+<Multi_key> <parenleft> <z> <parenright> : "ⓩ"
 
 # Circled numbers
-<Multi_key> <parenleft> <0> <parenright> : "⓪" U24EA # CIRCLED DIGIT ZERO
-<Multi_key> <parenleft> <1> <parenright> : "①" U2460 # CIRCLED DIGIT ONE
-<Multi_key> <parenleft> <2> <parenright> : "②" U2461 # CIRCLED DIGIT TWO
-<Multi_key> <parenleft> <3> <parenright> : "③" U2462 # CIRCLED DIGIT THREE
-<Multi_key> <parenleft> <4> <parenright> : "④" U2463 # CIRCLED DIGIT FOUR
-<Multi_key> <parenleft> <5> <parenright> : "⑤" U2464 # CIRCLED DIGIT FIVE
-<Multi_key> <parenleft> <6> <parenright> : "⑥" U2465 # CIRCLED DIGIT SIX
-<Multi_key> <parenleft> <7> <parenright> : "⑦" U2466 # CIRCLED DIGIT SEVEN
-<Multi_key> <parenleft> <8> <parenright> : "⑧" U2467 # CIRCLED DIGIT EIGHT
-<Multi_key> <parenleft> <9> <parenright> : "⑨" U2468 # CIRCLED DIGIT NINE
-<Multi_key> <parenleft> <1> <0> <parenright> : "⑩" U2469 # CIRCLED NUMBER TEN
-<Multi_key> <parenleft> <1> <1> <parenright> : "⑪" U246A # CIRCLED NUMBER ELEVEN
-<Multi_key> <parenleft> <1> <2> <parenright> : "⑫" U246B # CIRCLED NUMBER TWELVE
-<Multi_key> <parenleft> <1> <3> <parenright> : "⑬" U246C # CIRCLED NUMBER THIRTEEN
-<Multi_key> <parenleft> <1> <4> <parenright> : "⑭" U246D # CIRCLED NUMBER FOURTEEN
-<Multi_key> <parenleft> <1> <5> <parenright> : "⑮" U246E # CIRCLED NUMBER FIFTEEN
-<Multi_key> <parenleft> <1> <6> <parenright> : "⑯" U246F # CIRCLED NUMBER SIXTEEN
-<Multi_key> <parenleft> <1> <7> <parenright> : "⑰" U2470 # CIRCLED NUMBER SEVENTEEN
-<Multi_key> <parenleft> <1> <8> <parenright> : "⑱" U2471 # CIRCLED NUMBER EIGHTEEN
-<Multi_key> <parenleft> <1> <9> <parenright> : "⑲" U2472 # CIRCLED NUMBER NINETEEN
-<Multi_key> <parenleft> <2> <0> <parenright> : "⑳" U2473 # CIRCLED NUMBER TWENTY
-<Multi_key> <parenleft> <2> <1> <parenright> : "㉑" U3251 # CIRCLED NUMBER TWENTY ONE
-<Multi_key> <parenleft> <2> <2> <parenright> : "㉒" U3252 # CIRCLED NUMBER TWENTY TWO
-<Multi_key> <parenleft> <2> <3> <parenright> : "㉓" U3253 # CIRCLED NUMBER TWENTY THREE
-<Multi_key> <parenleft> <2> <4> <parenright> : "㉔" U3254 # CIRCLED NUMBER TWENTY FOUR
-<Multi_key> <parenleft> <2> <5> <parenright> : "㉕" U3255 # CIRCLED NUMBER TWENTY FIVE
-<Multi_key> <parenleft> <2> <6> <parenright> : "㉖" U3256 # CIRCLED NUMBER TWENTY SIX
-<Multi_key> <parenleft> <2> <7> <parenright> : "㉗" U3257 # CIRCLED NUMBER TWENTY SEVEN
-<Multi_key> <parenleft> <2> <8> <parenright> : "㉘" U3258 # CIRCLED NUMBER TWENTY EIGHT
-<Multi_key> <parenleft> <2> <9> <parenright> : "㉙" U3259 # CIRCLED NUMBER TWENTY NINE
-<Multi_key> <parenleft> <3> <0> <parenright> : "㉚" U325A # CIRCLED NUMBER THIRTY
-<Multi_key> <parenleft> <3> <1> <parenright> : "㉛" U325B # CIRCLED NUMBER THIRTY ONE
-<Multi_key> <parenleft> <3> <2> <parenright> : "㉜" U325C # CIRCLED NUMBER THIRTY TWO
-<Multi_key> <parenleft> <3> <3> <parenright> : "㉝" U325D # CIRCLED NUMBER THIRTY THREE
-<Multi_key> <parenleft> <3> <4> <parenright> : "㉞" U325E # CIRCLED NUMBER THIRTY FOUR
-<Multi_key> <parenleft> <3> <5> <parenright> : "㉟" U325F # CIRCLED NUMBER THIRTY FIVE
-<Multi_key> <parenleft> <3> <6> <parenright> : "㊱" U32B1 # CIRCLED NUMBER THIRTY SIX
-<Multi_key> <parenleft> <3> <7> <parenright> : "㊲" U32B2 # CIRCLED NUMBER THIRTY SEVEN
-<Multi_key> <parenleft> <3> <8> <parenright> : "㊳" U32B3 # CIRCLED NUMBER THIRTY EIGHT
-<Multi_key> <parenleft> <3> <9> <parenright> : "㊴" U32B4 # CIRCLED NUMBER THIRTY NINE
-<Multi_key> <parenleft> <4> <0> <parenright> : "㊵" U32B5 # CIRCLED NUMBER FORTY
-<Multi_key> <parenleft> <4> <1> <parenright> : "㊶" U32B6 # CIRCLED NUMBER FORTY ONE
-<Multi_key> <parenleft> <4> <2> <parenright> : "㊷" U32B7 # CIRCLED NUMBER FORTY TWO
-<Multi_key> <parenleft> <4> <3> <parenright> : "㊸" U32B8 # CIRCLED NUMBER FORTY THREE
-<Multi_key> <parenleft> <4> <4> <parenright> : "㊹" U32B9 # CIRCLED NUMBER FORTY FOUR
-<Multi_key> <parenleft> <4> <5> <parenright> : "㊺" U32BA # CIRCLED NUMBER FORTY FIVE
-<Multi_key> <parenleft> <4> <6> <parenright> : "㊻" U32BB # CIRCLED NUMBER FORTY SIX
-<Multi_key> <parenleft> <4> <7> <parenright> : "㊼" U32BC # CIRCLED NUMBER FORTY SEVEN
-<Multi_key> <parenleft> <4> <8> <parenright> : "㊽" U32BD # CIRCLED NUMBER FORTY EIGHT
-<Multi_key> <parenleft> <4> <9> <parenright> : "㊾" U32BE # CIRCLED NUMBER FORTY NINE
-<Multi_key> <parenleft> <5> <0> <parenright> : "㊿" U32BF # CIRCLED NUMBER FIFTY
+
+<Multi_key> <parenleft> <0> <parenright> : "⓪"
+<Multi_key> <parenleft> <1> <parenright> : "①"
+<Multi_key> <parenleft> <2> <parenright> : "②"
+<Multi_key> <parenleft> <3> <parenright> : "③"
+<Multi_key> <parenleft> <4> <parenright> : "④"
+<Multi_key> <parenleft> <5> <parenright> : "⑤"
+<Multi_key> <parenleft> <6> <parenright> : "⑥"
+<Multi_key> <parenleft> <7> <parenright> : "⑦"
+<Multi_key> <parenleft> <8> <parenright> : "⑧"
+<Multi_key> <parenleft> <9> <parenright> : "⑨"
+<Multi_key> <parenleft> <1> <0> <parenright> : "⑩"
+<Multi_key> <parenleft> <1> <1> <parenright> : "⑪"
+<Multi_key> <parenleft> <1> <2> <parenright> : "⑫"
+<Multi_key> <parenleft> <1> <3> <parenright> : "⑬"
+<Multi_key> <parenleft> <1> <4> <parenright> : "⑭"
+<Multi_key> <parenleft> <1> <5> <parenright> : "⑮"
+<Multi_key> <parenleft> <1> <6> <parenright> : "⑯"
+<Multi_key> <parenleft> <1> <7> <parenright> : "⑰"
+<Multi_key> <parenleft> <1> <8> <parenright> : "⑱"
+<Multi_key> <parenleft> <1> <9> <parenright> : "⑲"
+<Multi_key> <parenleft> <2> <0> <parenright> : "⑳"
+<Multi_key> <parenleft> <2> <1> <parenright> : "㉑"
+<Multi_key> <parenleft> <2> <2> <parenright> : "㉒"
+<Multi_key> <parenleft> <2> <3> <parenright> : "㉓"
+<Multi_key> <parenleft> <2> <4> <parenright> : "㉔"
+<Multi_key> <parenleft> <2> <5> <parenright> : "㉕"
+<Multi_key> <parenleft> <2> <6> <parenright> : "㉖"
+<Multi_key> <parenleft> <2> <7> <parenright> : "㉗"
+<Multi_key> <parenleft> <2> <8> <parenright> : "㉘"
+<Multi_key> <parenleft> <2> <9> <parenright> : "㉙"
+<Multi_key> <parenleft> <3> <0> <parenright> : "㉚"
+<Multi_key> <parenleft> <3> <1> <parenright> : "㉛"
+<Multi_key> <parenleft> <3> <2> <parenright> : "㉜"
+<Multi_key> <parenleft> <3> <3> <parenright> : "㉝"
+<Multi_key> <parenleft> <3> <4> <parenright> : "㉞"
+<Multi_key> <parenleft> <3> <5> <parenright> : "㉟"
+<Multi_key> <parenleft> <3> <6> <parenright> : "㊱"
+<Multi_key> <parenleft> <3> <7> <parenright> : "㊲"
+<Multi_key> <parenleft> <3> <8> <parenright> : "㊳"
+<Multi_key> <parenleft> <3> <9> <parenright> : "㊴"
+<Multi_key> <parenleft> <4> <0> <parenright> : "㊵"
+<Multi_key> <parenleft> <4> <1> <parenright> : "㊶"
+<Multi_key> <parenleft> <4> <2> <parenright> : "㊷"
+<Multi_key> <parenleft> <4> <3> <parenright> : "㊸"
+<Multi_key> <parenleft> <4> <4> <parenright> : "㊹"
+<Multi_key> <parenleft> <4> <5> <parenright> : "㊺"
+<Multi_key> <parenleft> <4> <6> <parenright> : "㊻"
+<Multi_key> <parenleft> <4> <7> <parenright> : "㊼"
+<Multi_key> <parenleft> <4> <8> <parenright> : "㊽"
+<Multi_key> <parenleft> <4> <9> <parenright> : "㊾"
+<Multi_key> <parenleft> <5> <0> <parenright> : "㊿"
