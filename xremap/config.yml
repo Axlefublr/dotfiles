@@ -223,6 +223,16 @@ keymap:
     remap:
       CapsLock-Semicolon: { set_mode: vim }
 
+  - name: Global chords
+    remap:
+      CapsLock-Alt-Semicolon:
+        remap:
+          e: { launch: [ loago, do, eat ]}
+          u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
+          i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
+          k: { launch: [screenkey] }
+          Shift-k: { launch: [killall, screenkey] }
+
   - name: Clipboard Manager
     remap:
       CapsLock-Alt-Comma:
@@ -302,8 +312,7 @@ keymap:
           Key_9: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/9" ] }
           Key_0: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/0" ] }
 
-
-  - name: 'Anki: Note Types'
+  - name: 'Anki'
     exact_match: true
     application:
       only: Anki
@@ -334,7 +343,7 @@ keymap:
     remap:
       CapsLock-Apostrophe: CapsLock
 
-  - name: Kill focused process (kills all instances of a browser, for example)
+  - name: Close / kill focused process
     remap:
       CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
       CapsLock-Shift-q: { launch: [xdotool, getwindowfocus, windowkill] }
@@ -392,26 +401,10 @@ keymap:
             ],
         }
 
-  - name: Put three random words to clipboard
-    exact_match: true
-    remap:
-      Super-5:
-        { launch: [sh, -c, "uclanr -tj '' 3 | xclip -r -selection clipboard"] }
-
-  - name: Stdin typer
-    remap:
-      CapsLock-Alt-m: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
-
   - name: Kitty
     remap:
       CapsLock-Slash: { launch: [kitty] }
       CapsLock-Alt-Slash: { launch: [kitty, -T, temporary-terminal] }
-
-  - name: Screenkey
-    exact_match: true
-    remap:
-      Super-3: { launch: [screenkey] }
-      Super-Alt-3: { launch: [killall, screenkey] }
 
   - name: Bismuth layouts
     remap:
