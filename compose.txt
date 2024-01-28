@@ -2,8 +2,9 @@
 
 <Multi_key> <c> <r> <y>: "😭"
 <Multi_key> <e> <x> <p>: "🤯"
-<Multi_key> <p> <l> <e>: "🥺"
+<Multi_key> <p> <l> <e> <a>: "🥺"
 <Multi_key> <s> <k> <u>: "💀"
+<Multi_key> <u> <g> <h>: "😩"
 
 # Extra
 
