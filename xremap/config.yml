@@ -339,6 +339,13 @@ keymap:
     remap:
       Alt-j: { launch: [sh, -c, "xdotool mousemove 58 1025 ; ydotool click c1"] }
 
+  - name: Kitty
+    exact_match: true
+    application:
+      only: kitty
+    remap:
+      Ctrl-Backspace: ctrl-w
+
   - name: Kde Compose key
     remap:
       CapsLock-Apostrophe: CapsLock
