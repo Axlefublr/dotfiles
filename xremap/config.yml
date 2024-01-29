@@ -403,8 +403,8 @@ keymap:
 
   - name: Kitty
     remap:
-      CapsLock-Slash: { launch: [kitty] }
-      CapsLock-Alt-Slash: { launch: [kitty, -T, temporary-terminal] }
+      CapsLock-Slash: { launch: [kitty, -d, '~'] }
+      CapsLock-Alt-Slash: { launch: [kitty, -d, '~', -T, temporary-terminal] }
 
   - name: Bismuth layouts
     remap:
