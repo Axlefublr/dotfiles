@@ -77,3 +77,9 @@ function renameall
 	end
 end
 funcsave renameall > /dev/null
+
+function remove-metadata
+	ffmpeg -i $argv[1] -c:a copy -c:v copy -map_metadata -1 _$argv[1]
+	mv -f _$argv[1] $argv[1]
+end
+funcsave remove-metadata > /dev/null
