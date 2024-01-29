@@ -91,7 +91,7 @@ function fish_prompt
 			echo -n ''$curr_commit' '
 		end
 		set_color normal
-		command -q octussy && octussy-set
+		command -q octogit && octogit-set
 		if test $COLUMNS -lt $small_threshold
 			printf '\n'
 		end
