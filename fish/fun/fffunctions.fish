@@ -6,17 +6,35 @@ function cut
 end
 funcsave cut > /dev/null
 
+function cut3
+	ffmpeg -i $argv[1] -ss $argv[3] -to $argv[4] -vn -acodec libmp3lame $argv[2].mp3
+	bell
+end
+funcsave cut3 > /dev/null
+
 function cutfrom
 	ffmpeg -i $argv[1] -ss $argv[3] -c:a copy $argv[2]
 	bell
 end
 funcsave cutfrom > /dev/null
 
+function cutfrom3
+	ffmpeg -i $argv[1] -ss $argv[3] -vn -acodec libmp3lame $argv[2].mp3
+	bell
+end
+funcsave cutfrom3 > /dev/null
+
 function cutto
 	ffmpeg -i $argv[1] -ss 00:00 -to $argv[3] -c:a copy $argv[2]
 	bell
 end
 funcsave cutto > /dev/null
+
+function cutto3
+	ffmpeg -i $argv[1] -ss 00:00 -to $argv[3] -vn -acodec libmp3lame $argv[2].mp3
+	bell
+end
+funcsave cutto3 > /dev/null
 
 function cutout
 	ffmpeg -i $argv[1] -to $argv[3] -c:a copy input1.mp4
