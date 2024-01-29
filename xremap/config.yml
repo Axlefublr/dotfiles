@@ -406,6 +406,10 @@ keymap:
       CapsLock-Slash: { launch: [kitty, -d, '~'] }
       CapsLock-Alt-Slash: { launch: [kitty, -d, '~', -T, temporary-terminal] }
 
+  - name: Toggle fullscreen
+    remap:
+      CapsLock-g: { launch: [qdbus, org.kde.kglobalaccel, /component/kwin, invokeShortcut, "Window Fullscreen"]}
+
   - name: Bismuth layouts
     remap:
       CapsLock-6: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_three_column_layout" ] }
