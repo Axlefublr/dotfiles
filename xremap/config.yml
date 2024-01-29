@@ -404,7 +404,7 @@ keymap:
   - name: Kitty
     remap:
       CapsLock-Slash: { launch: [kitty, -d, '~'] }
-      CapsLock-Alt-Slash: { launch: [kitty, -d, '~', -T, temporary-terminal] }
+      CapsLock-Alt-Slash: { launch: [kitty, -d, '~', -T, temporary-terminal, -o, 'background=#1a1919'] }
 
   - name: Toggle fullscreen
     remap:
