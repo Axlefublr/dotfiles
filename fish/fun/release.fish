@@ -30,7 +30,11 @@ function rust-release
 		return 1
 	end
 
-	echo 'is Cargo.toml filled in with proper metadata?'
+	if test (rg '^description \= ""$' Cargo.toml)
+		echo 'no description in Cargo.toml'
+		return 1
+	end
+
 	echo 'did you update the README?'
 	echo 'did you update --help?'
 	echo 'your ci pipeline is going to get updated if necessary'
@@ -59,10 +63,16 @@ end
 funcsave rust-release > /dev/null
 
 function rust-publish
-	echo 'is Cargo.toml filled in with proper metadata?'
-	echo 'did you commit your unstaged changes?'
-	read -ln 1 should_continue
-	if not test $should_continue
+	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
+		echo "you're not in repo root"
+		return 1
+	end
+	if test (rg '^description \= ""$' Cargo.toml | count) -ge 1
+		echo 'no description in Cargo.toml'
+		return 1
+	end
+	if test (git status -s | count) -ge 1
+		echo 'you have unstaged changes'
 		return 1
 	end
 	cargo mommy publish
@@ -74,7 +84,7 @@ function rust-fmt --description 'Bring in format config and format with it'
 		echo "you're not in repo root"
 		return 1
 	end
-	cp -f ~/prog/dotfiles/rustfmt.toml ./.rustfmt.toml &&
+	cp -f ~/prog/dotfiles/rust/rustfmt.toml ./.rustfmt.toml &&
 	cargo mommy +nightly fmt
 end
 funcsave rust-fmt > /dev/null
@@ -110,6 +120,8 @@ funcsave rust-bin > /dev/null
 
 function rust-init
 	cargo mommy init
+	cp -f ~/prog/dotfiles/rust/metadata.toml ./Cargo.toml
+	sd '%project_name%' (basename $PWD) Cargo.toml
 	touch README.md
 	touch release-notes.txt
 	indeed .gitignore release-notes.txt

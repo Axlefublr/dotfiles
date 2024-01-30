@@ -35,7 +35,7 @@ ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
 
 # Rust formatting
 mkdir -p ~/.config/rustfmt
-ln -sf ~/prog/dotfiles/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
+ln -sf ~/prog/dotfiles/rust/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
 
 # Bacon
 mkdir -p ~/.config/bacon

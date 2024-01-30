@@ -16,6 +16,7 @@ alias --save octogit-set 'octogit --color-all-commits FFD75F \
 alias --save etg 'shuf -n 1 ~/prog/noties/etg-actives.txt' > /dev/null
 alias --save icat 'kitten icat --align left' > /dev/null
 alias --save logout 'qdbus org.kde.ksmserver /KSMServer logout 0 0 0' > /dev/null
+alias --save woman 'man' > /dev/null # lol and even lmao
 
 function mkcd
 	mkdir -p $argv && z $argv

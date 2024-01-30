@@ -1,0 +1,15 @@
+[package]
+name = "%project_name%"
+version = "0.0.1"
+edition = "2021"
+authors = ["Axlefublr"]
+license = "MIT"
+description = ""
+readme = "README.md"
+homepage = "https://github.com/Axlefublr/%project_name%"
+repository = "https://github.com/Axlefublr/%project_name%"
+
+[lints.rustdoc]
+unescaped_backticks = "deny"
+
+[dependencies]
