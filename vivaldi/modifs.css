@@ -3,7 +3,7 @@
 }
 
 .tab-position .tab .tab-header {
-	flex: 0 0 30px;
+	flex: 0 0 29px;
 }
 
 .tabs-bottom#browser .tab-position .tab.active {
@@ -24,6 +24,10 @@ div.button-toolbar.newtab {
 
 div.startpage > nav.startpage-navigation.toolbar-medium {
 	display: none;
+}
+
+#tabs-container .tab.isdiscarded .favicon {
+	filter: none;
 }
 
 /* address bar */
@@ -102,6 +106,11 @@ div#header {
 /* text in selected tabs */
 :not(.ui-transparent-tabs).color-behind-tabs-off .tab-position .tab.marked > .tab-header {
 	color: #0f0f0f;
+}
+
+/* unloaded tab headers */
+.tab.isdiscarded > .tab-header {
+	color: #928374;
 }
 
 /* border for grouping tab stacks together */
