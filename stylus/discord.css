@@ -22,8 +22,9 @@
 	--shell-background-yellow: hsl(60, 10%, 20%);
 	--shell-background-orange: hsl(26, 10%, 20%);
 	--shell-background-pink: hsl(330, 10%, 20%);
-	--shell-background-lighter-pink: hsl(330, 10%, 23%);
 	--shell-background-red: hsl(0, 10%, 20%);
+	--shell-background-lighter-yellow: hsl(60, 10%, 23%);
+	--shell-background-lighter-pink: hsl(330, 10%, 23%);
 }
 
 .theme-dark {
@@ -798,17 +799,17 @@ div.blockquoteContainer_f24d1f {
 
 /* vertical line that indicates a > */
 .blockquoteDivider__96157 {
-	background-color: var(--shell-pink);
+	background-color: var(--shell-yellow);
 }
 
 /* blockquote inside of chat */
 div.slateBlockquoteContainer_c8209b > blockquote {
-	background-color: var(--shell-background-lighter-pink);
+	background-color: var(--shell-background-lighter-yellow);
 }
 
 /* blockquote when in chat, not in inputbox */
 div.blockquoteContainer_f24d1f:not(.slateBlockquoteContainer_c8209b) > blockquote {
-	background-color: var(--shell-background-pink);
+	background-color: var(--shell-background-yellow);
 }
 
 blockquote {
