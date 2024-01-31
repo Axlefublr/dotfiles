@@ -1,6 +1,5 @@
 /*starts with*/
 /*https://studio.youtube.com/live_chat?is_popout*/
-
 :root {
 	--shell-yellow: #ffd75f;
 	--shell-pink: #ffafd7;
@@ -24,7 +23,8 @@ html[dark],
 	--yt-live-chat-secondary-text-color: var(--shell-yellow);
 }
 
-html[darker-dark-theme][dark], [darker-dark-theme] [dark] {
+html[darker-dark-theme][dark],
+[darker-dark-theme] [dark] {
 	--yt-spec-text-primary: var(--gruvbox-white);
 }
 
@@ -115,16 +115,11 @@ yt-live-chat-message-input-renderer[updated-input-visuals] #input-container.yt-l
 yt-live-chat-message-input-renderer[updated-input-visuals] #picker-buttons.yt-live-chat-message-input-renderer yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer {
 	margin-left: 0;
 }
-yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer>#button.yt-live-chat-icon-toggle-button-renderer {
+yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer > #button.yt-live-chat-icon-toggle-button-renderer {
 	background-color: unset;
 }
 
 /* bottom bar that includes inputbox among ඞ other things */
 yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
-	padding: 0px 4px 2px 0px;
-}
-
-/* positioning of the + start poll button */
-yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer>#button.yt-live-chat-icon-toggle-button-renderer {
-	padding: 5px 5px 4px 4px;
+	padding: 1px 0px 9px 0px;
 }
