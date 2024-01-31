@@ -110,6 +110,7 @@
 	--modal-footer-background: var(--gruvbox-darker-background);
 	--control-brand-foreground: var(--shell-yellow);
 	--info-warning-foreground: var(--shell-yellow);
+	--embed-title: var(--shell-yellow);
 }
 
 /* chat input box */
