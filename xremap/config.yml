@@ -462,7 +462,7 @@ keymap:
   - remap:
       CapsLock-t: tab
       CapsLock-Backspace: delete
-      CapsLock-a: delete
+      CapsLock-r: delete
 
       CapsLock-h: left
       CapsLock-j: down
