@@ -10,9 +10,9 @@ alias --save note 'printf "\n$argv" >> ~/prog/noties/tasks.txt' > /dev/null
 alias --save vcl 'xclip -selection clipboard -o > /tmp/bibren ; nvim -n /tmp/bibren ; cat /tmp/bibren | xclip -r -selection clipboard' > /dev/null
 alias --save vcll 'truncate -s 0 /tmp/bibren ; nvim -n /tmp/bibren ; cat /tmp/bibren | xclip -r -selection clipboard' > /dev/null
 alias --save toco 'touch $argv && code $argv' > /dev/null
-alias --save octogit-set 'octogit --color-all-commits FFD75F \
-	--color-all-staged 87FF5F \
-	--color-all-unstaged 00D7FF' > /dev/null
+alias --save octogit-set "octogit --color-all-commits $color_yellow \
+	--color-all-staged $color_green \
+	--color-all-unstaged $color_cyan" > /dev/null
 alias --save etg 'shuf -n 1 ~/prog/noties/etg-actives.txt' > /dev/null
 alias --save icat 'kitten icat --align left' > /dev/null
 alias --save logout 'qdbus org.kde.ksmserver /KSMServer logout 0 0 0' > /dev/null
