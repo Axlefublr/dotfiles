@@ -1,3 +1,15 @@
+* {
+	--border-radius: 14px;
+}
+
+.tab-position .tab .tab-header {
+	flex: 0 0 30px;
+}
+
+.tabs-bottom#browser .tab-position .tab.active {
+	padding: unset;
+}
+
 #titlebar button.vivaldi {
 	display: none;
 }
@@ -51,6 +63,11 @@ div#header {
 	border-bottom-right-radius: unset;
 }
 
+.tabs-bottom .tab-position .tab:not(.active),
+.tabs-bottom .tab-position .tab.active {
+	margin-top: 1px;
+}
+
 /* hovered over tab */
 .color-behind-tabs-off .tab-position .tab:hover:not(.active) {
 	background-color: hsl(0, 1%, 26%);
@@ -59,20 +76,21 @@ div#header {
 .tabs-bottom .tab-position .tab:not(.tab-in-accordion, .tab-accordion),
 .tabs-bottom .tab-position .tab.tab-in-accordion,
 .tabs-bottom .tab-position .tab.tab-accordion {
-	border-radius: 14px;
+	border-radius: var(--border-radius);
 	font-size: 13px;
 }
 .tabs-bottom .tab-position .tab.tab-accordion {
-	border-radius: 14px 0 0 0;
+	border-radius: var(--border-radius) 0 0 0;
 }
 .tabs-bottom .tab-position .tab.tab-in-accordion {
 	border-radius: unset;
 }
 .tabs-bottom .tab-position .tab.tab-first-in-group {
-	border-top-left-radius: 14px;
+	border-top-left-radius: var(--border-radius);
 }
 .tabs-bottom .tab-position .tab.tab-last-in-group {
-	border-top-right-radius: 14px;
+	border-top-right-radius: var(--border-radius);
+}
 }
 
 /* border for grouping tab stacks together */
@@ -133,4 +151,8 @@ div#header {
 
 .toolbar-extensions > .button-toolbar > button.ToolbarButton-Button[name="Extensions"] {
 	border-radius: 10px 0 0 10px;
+}
+
+svg.svg-tab-selection {
+	display: none;
 }
