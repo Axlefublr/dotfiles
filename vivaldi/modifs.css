@@ -2,8 +2,12 @@
 	--border-radius: 14px;
 }
 
+#browser.linux, #browser.linux ~ div, #browser.linux button, #browser.linux input, #browser.linux select, #browser.linux textarea {
+	font-family: Ubuntu Nerd Font, Cantarell, 'Noto Sans', Helvetica, system-ui, sans-serif;
+}
+
 .tab-position .tab .tab-header {
-	flex: 0 0 29px;
+	flex: 0 0 31px;
 }
 
 .tabs-bottom#browser .tab-position .tab.active {
@@ -45,10 +49,33 @@ div#header {
 	display: none;
 }
 
-/* Small left padding on the left of the workspaces button */
-/* #app div:not(.draggable-button) > .button-toolbar.workspace-popup button {
-	padding: 0 !important;
-} */
+/* positioning of the start page searcher */
+.SpeedDialView-Head {
+	margin: calc(50vh - 33px) auto;
+}
+/* start page searcher holder */
+.on-speeddial {
+	min-width: 50vw;
+}
+/* start page searcher inputbox */
+.sdwrapper .iconmenu-container.SearchField {
+	font-size: 18px;
+	height: 2em;
+}
+.color-behind-tabs-off .SearchField:focus-within {
+	outline: 2px solid transparent;
+}
+.color-behind-tabs-off .SearchField:not(:focus-within) {
+	outline: 2px solid #ffd75f;
+}
+/* each div holding search results */
+.OmniLinkItem {
+	--item-height: 1.7em;
+}
+/* a singular search result */
+.OmniLinkItem-Url {
+	height: 1.2em;
+}
 
 /* Thin line on the top of the bottom tab bar */
 .address-top #tabs-tabbar-container.bottom, .address-top-off #tabs-tabbar-container.bottom, .address-bottom-off #tabs-tabbar-container.bottom {
