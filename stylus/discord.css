@@ -15,6 +15,8 @@
 	--shell-red: #ff0f37;
 	--shell-yellow: #ffd75f;
 	--shell-orange: #ff8700;
+	--shell-cyan: #00D7FF;
+	--shell-grey: #878787;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
@@ -856,5 +858,18 @@ blockquote {
 div.videoButton__1a553 > svg > path,
 /* volume button */
 div > div > div.videoControls__96149 > div.flex__909d4 > div > button > div > svg > path {
-	fill: #d4be98;
+	fill: var(--gruvbox-white);
+}
+
+rect[mask="url(#svg-mask-status-dnd)"] {
+	fill: var(--shell-red) !important;
+}
+/* rect[mask^="url(#svg-mask-status-online"] {
+	fill: var(--shell-cyan) !important;
+} */
+rect[mask="url(#svg-mask-status-offline)"] {
+	fill: var(--shell-grey) !important;
+}
+rect[mask="url(#svg-mask-status-idle)"] {
+	fill: var(--shell-yellow) !important;
 }
