@@ -1,3 +1,7 @@
+* {
+	--codeblock-margin: 10px;
+}
+
 .card {
 	font-family: Ubuntu Nerd Font;
 	font-size: 22px;
@@ -48,6 +52,18 @@ hr#answer {
 	background-color: #242323;
 	border-radius: 5px;
 	padding: 7px;
+}
+
+.codeblock:has(left), .left {
+	text-align: left;
+}
+
+.above {
+	margin-top: var(--codeblock-margin);
+}
+
+.below {
+	margin-bottom: var(--codeblock-margin);
 }
 
 code {
