@@ -91,6 +91,17 @@ div#header {
 .tabs-bottom .tab-position .tab.tab-last-in-group {
 	border-top-right-radius: var(--border-radius);
 }
+
+/* selected tabs */
+:not(.ui-transparent-tabs).color-behind-tabs-off .tab-position .tab.marked {
+	background-color: #ffd75f;
+}
+#browser .tab-position .tab.active.marked {
+	background-color: #ffafd7;
+}
+/* text in selected tabs */
+:not(.ui-transparent-tabs).color-behind-tabs-off .tab-position .tab.marked > .tab-header {
+	color: #0f0f0f;
 }
 
 /* border for grouping tab stacks together */
