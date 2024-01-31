@@ -77,6 +77,28 @@ div#header {
 	height: 1.2em;
 }
 
+/* panel */
+#panels-container:not(.switcher) > #panels > .panel-group {
+	min-width: 40vw;
+}
+#panels-container.icons {
+	display: none;
+}
+#panels-container {
+	width: 0 !important;
+}
+#panels-container > #panels > #switch {
+	display: none;
+}
+#panels-container > #panels > .panel-group {
+	left: 0 !important;
+}
+
+/* history results */
+.ReactVirtualized__Grid.ReactVirtualized__List {
+	font-size: 14px;
+}
+
 /* Thin line on the top of the bottom tab bar */
 .address-top #tabs-tabbar-container.bottom, .address-top-off #tabs-tabbar-container.bottom, .address-bottom-off #tabs-tabbar-container.bottom {
 	border-top-width: 0;
