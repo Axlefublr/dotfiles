@@ -50,7 +50,7 @@ function rust-release
 
 	rust-ci
 	indeed .gitignore release-notes.txt
-	cargo mommy +nightly fmt
+	cargo +nightly mommy fmt
 
 	git add . &&
 	git commit -m $taggedVersion &&
@@ -85,7 +85,7 @@ function rust-fmt --description 'Bring in format config and format with it'
 		return 1
 	end
 	cp -f ~/prog/dotfiles/rust/rustfmt.toml ./.rustfmt.toml &&
-	cargo mommy +nightly fmt
+	cargo +nightly mommy fmt
 end
 funcsave rust-fmt > /dev/null
 
