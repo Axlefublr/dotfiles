@@ -14,7 +14,7 @@
 	--shell-pink: #ffafd7;
 	--shell-red: #ff1a29;
 	--shell-yellow: #ffd75f;
-	--shell-orange: #ff8700;
+	--shell-orange: #ff9f1a;
 	--shell-cyan: #00D7FF;
 	--shell-grey: #878787;
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
@@ -22,7 +22,7 @@
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
 	--gruvbox-darkerest-background: hsl(0, 1%, 13%);
 	--shell-background-yellow: hsl(60, 10%, 20%);
-	--shell-background-orange: hsl(26, 10%, 20%);
+	--shell-background-orange: hsl(35, 10%, 20%);
 	--shell-background-pink: hsl(330, 10%, 20%);
 	--shell-background-red: hsl(0, 10%, 20%);
 	--shell-background-lighter-yellow: hsl(60, 10%, 23%);
