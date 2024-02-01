@@ -123,3 +123,8 @@ yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-mes
 yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
 	padding: 1px 0px 9px 0px;
 }
+
+/* scroll down button */
+[icon="down_arrow"] > yt-icon-shape > icon-shape > div {
+	fill: var(--smooth-black) !important;
+}
