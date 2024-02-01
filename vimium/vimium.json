@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "1/27/2024, 12:03:35 AM",
-	"time": 1706285015396,
+	"@time": "2/2/2024, 4:07:02 AM",
+	"time": 1706818022046,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "linux",
@@ -79,7 +79,7 @@
 		"map yt copyCurrentTitle",
 		"map I LinkHints.activateEdit",
 		"map M Marks.activateGotoMode",
-		"map o visitPreviousTab acrossWindows",
+		"map o visitPreviousTab",
 		""
 	],
 	"keyupTime": 50,
@@ -135,6 +135,9 @@
 		"/* frame around the gf / gF frames */",
 		".One {",
 		"\tborder-color: #ffd75f;",
+		"}",
+		".Frame {",
+		"\tborder: 5px solid #ffd75f;",
 		"}",
 		"",
 		"/* #find */",
