@@ -146,6 +146,10 @@
 },
 // other
 {
+  "key": "alt+7",
+  "command": "timeline.focus"
+},
+{
   "key": "F5",
   "command": "extension.updateCustomCSS"
 },
