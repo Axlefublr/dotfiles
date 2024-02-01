@@ -22,7 +22,7 @@ set -g color_grey        878787
 set -g color_yellow      FFD75F
 set -g color_green       87FF5F
 set -g color_cyan        00D7FF
-set -g color_red         ff0f37
+set -g color_red         ff1a29
 set -g color_orange      FF8700
 set -g color_redder_pink FF8787
 set -g color_white       D4BE98
