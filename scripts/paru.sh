@@ -11,4 +11,5 @@ paru mullvad-vpn-bin
 paru xremap-x11-bin
 paru gromit-mpx
 paru visual-studio-code-bin
-paru spicetify-cli
+# paru spicetify-cli
+paru tgpt-bin
