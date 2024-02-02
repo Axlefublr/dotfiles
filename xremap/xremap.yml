@@ -368,12 +368,11 @@ keymap:
   - name: Gromit
     exact_match: true
     remap:
-      Super-f: { launch: [gromit-mpx, -t] }
-      Super-Alt-f: { launch: [gromit-mpx, -c] }
-      Super-g: { launch: [gromit-mpx, -t, -c] }
-      Super-Alt-g: { launch: [gromit-mpx, --visibility] }
-      CapsLock-v: { launch: [gromit-mpx, --undo] }
-      CapsLock-c: { launch: [gromit-mpx, --redo] }
+      Super-Btn_Side: { launch: [gromit-mpx, --toggle] }
+      Super-Btn_Extra: { launch: [gromit-mpx, --clear] }
+      Super-Alt-Btn_Side: { launch: [gromit-mpx, --visibility] }
+      CapsLock-Btn_Side: { launch: [gromit-mpx, --undo] }
+      CapsLock-Btn_Extra: { launch: [gromit-mpx, --redo] }
 
   - name: Edit clipboard
     remap:
