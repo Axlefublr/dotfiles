@@ -44,7 +44,7 @@ funcsave codef > /dev/null
 
 function xrestart
 	killall xremap
-	xremap --mouse --watch ~/prog/dotfiles/xremap/config.yml &> /tmp/log/xremap.txt & disown
+	xremap --mouse --watch ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
 end
 funcsave xrestart > /dev/null
 

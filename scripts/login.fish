@@ -2,7 +2,7 @@
 
 mkdir -p /tmp/log
 
-xremap --mouse --watch ~/prog/dotfiles/xremap/config.yml &> /tmp/log/xremap.txt & disown
+xremap --mouse --watch ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
 ydotoold &> /tmp/log/ydotoold.txt & disown
 gromit-mpx -k "none" -u "none" &> /tmp/log/gromit-mpx.txt & disown
 ollama serve &> /tmp/log/ollama.txt & disown
