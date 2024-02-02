@@ -15,10 +15,20 @@ modmap:
       only: /Terraria/
 
 keymap:
-  - name: Vim mode
-    mode: vim
+
+  - name: Mouse mode gromit overlay
+    mode: overlay
+    remap:
+      Space: [ launch: [gromit-mpx, --clear], set_mode: mouse ]
+
+  - name: Mouse mode
+    mode: [mouse, overlay]
     remap:
       CapsLock-Semicolon: { set_mode: default }
+      Space: [
+        launch: [gromit-overlay.fish],
+        set_mode: overlay
+      ]
 
       q: { launch: [xdotool, mousemove, '128',  '120']}
       w: { launch: [xdotool, mousemove, '544',  '120']}
@@ -221,7 +231,7 @@ keymap:
   - name: Default mode
     mode: default
     remap:
-      CapsLock-Semicolon: { set_mode: vim }
+      CapsLock-Semicolon: { set_mode: mouse }
 
   - name: Global chords
     remap:
@@ -361,6 +371,9 @@ keymap:
       Super-f: { launch: [gromit-mpx, -t] }
       Super-Alt-f: { launch: [gromit-mpx, -c] }
       Super-g: { launch: [gromit-mpx, -t, -c] }
+      Super-Alt-g: { launch: [gromit-mpx, --visibility] }
+      CapsLock-v: { launch: [gromit-mpx, --undo] }
+      CapsLock-c: { launch: [gromit-mpx, --redo] }
 
   - name: Edit clipboard
     remap:
