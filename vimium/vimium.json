@@ -79,7 +79,6 @@
 		"map yt copyCurrentTitle",
 		"map I LinkHints.activateEdit",
 		"map M Marks.activateGotoMode",
-		"map o visitPreviousTab",
 		""
 	],
 	"keyupTime": 50,
