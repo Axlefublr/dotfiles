@@ -107,7 +107,7 @@ funcsave bak > /dev/null
 
 function loopuntil
 	set -l counter 0
-	while not test (eval $argv[1])
+	while not eval $argv[1]
 		set counter (math $counter + 1)
 		if set -q argv[2]
 			sleep $argv[2]
