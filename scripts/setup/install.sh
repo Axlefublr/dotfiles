@@ -65,3 +65,4 @@ sudo pacman -S --noconfirm pastel
 sudo pacman -S --noconfirm postgresql
 sudo pacman -S --noconfirm ufw
 sudo pacman -S --noconfirm go
+sudo pacman -S --noconfirm python-pillow
