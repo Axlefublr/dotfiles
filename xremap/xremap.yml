@@ -237,7 +237,7 @@ keymap:
     remap:
       CapsLock-Alt-Semicolon:
         remap:
-          e: { launch: [ loago, do, eat ]}
+          e: { launch: [sh, -c, "loago do eat ; notify-send -t 1000 -a loago 'ate!'"]}
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
           i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
           k: { launch: [screenkey] }
@@ -368,11 +368,11 @@ keymap:
   - name: Gromit
     exact_match: true
     remap:
-      Super-Btn_Side: { launch: [gromit-mpx, --toggle] }
-      Super-Btn_Extra: { launch: [gromit-mpx, --clear] }
-      Super-Alt-Btn_Side: { launch: [gromit-mpx, --visibility] }
-      CapsLock-Btn_Side: { launch: [gromit-mpx, --undo] }
-      CapsLock-Btn_Extra: { launch: [gromit-mpx, --redo] }
+      Super-f: { launch: [gromit-mpx, --toggle] }
+      Super-Alt-f: { launch: [gromit-mpx, --clear] }
+      Super-Shift-f: { launch: [gromit-mpx, --visibility] }
+      CapsLock-v: { launch: [gromit-mpx, --undo] }
+      CapsLock-c: { launch: [gromit-mpx, --redo] }
 
   - name: Edit clipboard
     remap:
