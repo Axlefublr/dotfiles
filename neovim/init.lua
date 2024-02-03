@@ -7,28 +7,19 @@ THROWAWAY_REGISTER = 'o'
 THROWAWAY_MARK = 'I'
 
 require('options')
-require('functions')
-require('fixes')
+require('global-functions')
+require('blob')
 
 if vim.g.vscode then
-	require('vscode/functions')
-	require('vscode/mappings')
+	require('vscode/api')
+	require('vscode/only-vscode')
 else
-	require('nvim')
+	require('only-pure')
 end
 
 require('remaps')
-require('registers/registers')
-require('registers/text-objects')
-require('registers/brackets')
-require('features')
-require('big/functions')
-require('big/mappings')
-require('registers/killring')
-require('registers/numbered')
 require('plugins/plugins')
-require('plugins/configuration')
-require('plugins/keymap')
+require('plugins/remaps')
 
 -- When I use my hotkeys to open some output I see in my kitty terminal,
 -- I'm already looking at some place I want to (usually) copy.
