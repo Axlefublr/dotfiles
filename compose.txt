@@ -5,6 +5,7 @@
 <Multi_key> <p> <l> <e>: "🥺"
 <Multi_key> <s> <k> <u>: "💀"
 <Multi_key> <u> <g> <h>: "😩"
+<Multi_key> <f> <i> <r>: "🔥"
 
 # Extra
 
