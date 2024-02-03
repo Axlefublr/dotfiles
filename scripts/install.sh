@@ -64,3 +64,4 @@ sudo pacman -S --noconfirm rustup
 sudo pacman -S --noconfirm pastel
 sudo pacman -S --noconfirm postgresql
 sudo pacman -S --noconfirm ufw
+sudo pacman -S --noconfirm go
