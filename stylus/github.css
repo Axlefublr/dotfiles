@@ -4,7 +4,7 @@
 
 [data-color-mode=light][data-light-theme=dark], [data-color-mode=light][data-light-theme=dark]::selection, [data-color-mode=dark][data-dark-theme=dark], [data-color-mode=dark][data-dark-theme=dark]::selection, ::backdrop, [data-color-mode=light][data-light-theme=dark] ::backdrop, [data-color-mode=dark][data-dark-theme=dark] ::backdrop {
 	--shell-pink: #ffafd7;
-	--shell-green: #3dff47;
+	--shell-green: #87ff5f;
 	--shell-purple: #af87ff;
 	--shell-red: #ff2930;
 	--shell-yellow: #ffd75f;
