@@ -30,7 +30,7 @@ function rust-release
 		return 1
 	end
 
-	if test (rg '^description \= ""$' Cargo.toml)
+	if rg -q '^description \= ""$' Cargo.toml
 		echo 'no description in Cargo.toml'
 		return 1
 	end
@@ -43,7 +43,7 @@ function rust-release
 		return 1
 	end
 
-	if not test (rg -e "^version = \"$taggedVersion\"" Cargo.toml)
+	if not rg -q "^version = \"$taggedVersion\"" Cargo.toml
 		echo "you didn't update the version in Cargo.toml"
 		return 1
 	end
@@ -67,7 +67,7 @@ function rust-publish
 		echo "you're not in repo root"
 		return 1
 	end
-	if test (rg '^description \= ""$' Cargo.toml | count) -ge 1
+	if rg -q '^description \= ""$' Cargo.toml
 		echo 'no description in Cargo.toml'
 		return 1
 	end

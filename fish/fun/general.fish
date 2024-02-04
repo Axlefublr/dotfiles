@@ -17,14 +17,16 @@ funcsave tg > /dev/null
 
 function new --description='Creates new files or directories and all required parent directories'
 	for arg in $argv
-		if string match -rq '/$' -- $arg
-			mkdir -p $arg
+		if string match -rq '/$' -- "$arg"
+			mkdir -p "$arg"
 		else
-			set -l dir (string match -rg '(.*)/.+?$' -- $arg)
-			and mkdir -p $dir
+			set -l dir (string match -rg '(.*)/.+?$' -- "$arg")
+			and mkdir -p "$dir"
 
-			touch $arg
+			touch "$arg"
 		end
+
+		echo (realpath "$arg")
 	end
 end
 funcsave new > /dev/null

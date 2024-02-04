@@ -81,7 +81,7 @@ function fish_prompt
 	else
 		printf '\n'
 	end
-	if test (git rev-parse --is-inside-work-tree 2> /dev/null)
+	if git rev-parse --is-inside-work-tree &> /dev/null
 		set -l curr_branch (git branch --show-current 2> /dev/null)
 		set_color -o $color_purple
 		if test $curr_branch
