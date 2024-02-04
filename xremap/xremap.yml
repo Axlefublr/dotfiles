@@ -397,15 +397,8 @@ keymap:
 
   - name: Pick unicode
     remap:
-      CapsLock-m:
-        {
-          launch:
-            [
-              sh,
-              -c,
-              'kitty -T emoji-picker --start-as maximized sh -c "kitty +kitten unicode_input --tab code > /tmp/unicode_input" ; cat /tmp/unicode_input | xclip -r -selection clipboard',
-            ],
-        }
+      CapsLock-m: { launch: [ fish, -c, 'emoji-picker-clipboard code' ] }
+      CapsLock-Alt-m: { launch: [ fish, -c, 'emoji-picker-clipboard name' ] }
 
   - name: Float image in clipboard
     exact_match: true

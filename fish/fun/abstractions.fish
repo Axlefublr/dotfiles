@@ -44,3 +44,11 @@ function wm-decrease-master-windows
 	qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut decrease_master_win_count
 end
 funcsave wm-decrease-master-windows > /dev/null
+
+function emoji-picker-clipboard
+	kitty -T emoji-picker --start-as maximized sh -c "kitty +kitten unicode_input --tab $argv[1] > /tmp/unicode_input"
+	if test -s /tmp/unicode_input
+		cat /tmp/unicode_input | xclip -r -selection clipboard
+	end
+end
+funcsave emoji-picker-clipboard > /dev/null
