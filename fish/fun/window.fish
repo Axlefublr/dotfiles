@@ -1,12 +1,12 @@
 #!/usr/bin/env fish
 
 function winwaitname
-	loopuntil "xdotool search --onlyvisible --name $argv[1] &> /dev/null" $argv[2..]
+	loopuntil "xdotool search --onlyvisible --name '$argv[1]' &> /dev/null" $argv[2..]
 end
 funcsave winwaitname > /dev/null
 
 function winwaitclass
-	loopuntil "xdotool search --onlyvisible --class $argv[1] &> /dev/null" $argv[2..]
+	loopuntil "xdotool search --onlyvisible --class '$argv[1]' &> /dev/null" $argv[2..]
 end
 funcsave winwaitclass > /dev/null
 
