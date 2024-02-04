@@ -5,18 +5,39 @@ mkdir -p /tmp/log
 xremap --mouse --watch ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
 ydotoold &> /tmp/log/ydotoold.txt & disown
 gromit-mpx -k "none" -u "none" &> /tmp/log/gromit-mpx.txt & disown
-ollama serve &> /tmp/log/ollama.txt & disown
+# ollama serve &> /tmp/log/ollama.txt & disown
 
 kitty --hold kitten @set-window-title timerkitty & disown
 kitty -T meow & disown
 
-winwaitclass code 1 0 10
+winwaitclass code 0.5 0 20
+kitty -d ~/prog/dotfiles & disown
+winwaitname 'dotfiles' 0.5 0 20
+wmctrl -r 'dotfiles' -t 0
+wmctrl -s 0
+wm-rotate
+wm-rotate
+for __ in (seq 1 5)
+	wm-increase-master-window-size
+end
+sleep 1
+
 winmoveall code 4
-winwaitclass vivaldi-stable 1 0 10
+wmctrl -s 4
+wm-rotate
+wm-rotate
+sleep 1
+
+winwaitclass vivaldi-stable 0.5 0 20
 winmoveall vivaldi-stable 1
-winwaitname 'Discord' 1 0 10
+winwaitname 'Discord' 0.5 0 20
 wmctrl -r 'Discord' -t 8
-winwaitname 'Watch later' 1 0 10
+winwaitname 'Watch later' 0.5 0 20
 wmctrl -r 'Watch later' -t 10
-loopuntil is-internet 1 0 60
+
+wmctrl -s 7
+wm-decrease-master-windows
+sleep 1
+
+loopuntil is-internet 0.5 0 60
 spotify-launcher -v &> /tmp/log/spotify.txt & disown

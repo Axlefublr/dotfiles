@@ -330,16 +330,16 @@ keymap:
       Alt-c: [ tab, tab, tab, tab, tab, enter ]
       Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
       Alt-d: [ ctrl-d, { launch: [
-          fish, -c, "winwaitname '(Choose|Change) Deck' 0 0 100 ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
+          fish, -c, "winwaitname '(Choose|Change) Deck' 0 0 100 ; wm-float"
         ] }]
       Alt-n: [ ctrl-n, { launch: [
-          fish, -c, "winwaitname 'Choose Note Type' 0 0 100 ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
+          fish, -c, "winwaitname 'Choose Note Type' 0 0 100 ; wm-float"
         ] } ]
       Alt-Slash: [ slash, { launch: [
-          fish, -c, "winwaitname 'Study Deck' 0 0 100 ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
+          fish, -c, "winwaitname 'Study Deck' 0 0 100 ; wm-float"
         ] } ]
       Alt-o: [ ctrl-shift-n, { launch: [
-          fish, -c, "winwaitname 'Note Types' 0 0 100 ; qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating"
+          fish, -c, "winwaitname 'Note Types' 0 0 100 ; wm-float"
         ] } ]
 
   - name: Spotify
@@ -435,7 +435,7 @@ keymap:
       CapsLock-7: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_tile_layout" ]}
       CapsLock-8: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_monocle_layout" ] }
       CapsLock-9: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_spiral_layout" ]}
-      CapsLock-0: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_quarter_layout" ]}
+      CapsLock-0: { launch: [ sh, -c, "wm-layout-quarter" ]}
 
   - name: System
     remap:
