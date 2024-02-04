@@ -6,6 +6,7 @@
 <Multi_key> <s> <k> <u>: "💀"
 <Multi_key> <u> <g> <h>: "😩"
 <Multi_key> <f> <i> <r>: "🔥"
+<Multi_key> <r> <u> <g>: "🤷‍♀️"
 
 # Extra
 
@@ -45,10 +46,15 @@
 <Multi_key> <a> <r> <l> <k>: "↗"
 <Multi_key> <a> <r> <k> <l>: "↗"
 
-<Multi_key> <a> <r> <h> <l>: "↔"
-<Multi_key> <a> <r> <l> <h>: "↔"
-<Multi_key> <a> <r> <j> <k>: "↕"
-<Multi_key> <a> <r> <k> <j>: "↕"
+<Multi_key> <a> <r> <H> <L>: "↔"
+<Multi_key> <a> <r> <L> <H>: "↔"
+<Multi_key> <a> <r> <J> <K>: "↕"
+<Multi_key> <a> <r> <K> <J>: "↕"
+
+<Multi_key> <a> <r> <l> <h>: "⇄"
+<Multi_key> <a> <r> <h> <l>: "⇆"
+<Multi_key> <a> <r> <j> <k>: "⇵"
+<Multi_key> <a> <r> <k> <j>: "⇅"
 
 # Math
 
