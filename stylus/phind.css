@@ -1,0 +1,12 @@
+/* www.phind.com
+ * urls on the domain
+ */
+
+body > .fade.show {
+	&.modal-backdrop {
+		display: none;
+	}
+	&.modal {
+		display: none !important;
+	}
+}
