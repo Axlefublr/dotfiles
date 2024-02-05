@@ -127,8 +127,6 @@ div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-li
 .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 /* "Chat..." */
 #label.yt-live-chat-text-input-field-renderer,
-/* time duration in player */
-.ytp-time-current, .ytp-time-separator, .ytp-time-duration,
 .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
 	color: var(--gruvbox-white);
 }
@@ -171,7 +169,9 @@ icon-shape > div {
 /* "Manage" blue button subscriptions page */
 .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text,
 /* "Show More" button below recommendations */
-.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline,
+/* time duration in player */
+.ytp-time-current, .ytp-time-separator, .ytp-time-duration {
 	color: var(--shell-pink);
 }
 
@@ -191,7 +191,7 @@ ytd-author-comment-badge-renderer {
 .ytp-button .ytp-svg-fill,
 /* screenshot current frame in player button from the youtube extension */
 #ytp-efyt-screenshot{
-	fill: var(--gruvbox-white) !important;
+	fill: var(--shell-pink) !important;
 }
 
 /* like button */
@@ -328,4 +328,11 @@ yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
 /* scrollbar of the left side preview of the playlist */
 .immersive-header-content.ytd-playlist-header-renderer {
 	overflow-y: hidden;
+}
+
+/* shadows around player elements */
+.ytp-svg-shadow {
+	stroke: #0f0f0f;
+	stroke-opacity: 0.5;
+	stroke-width: 2px;
 }
