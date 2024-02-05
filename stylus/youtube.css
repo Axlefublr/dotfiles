@@ -1,0 +1,263 @@
+/* domain
+ * youtube.com
+ * studio.youtube.com
+ */
+
+:root {
+	--shell-pink: #ffafd7;
+	--shell-green: #3dff47;
+	--shell-purple: #af87ff;
+	--shell-red: #ff2930;
+	--shell-yellow: #ffd75f;
+	--smooth-black: #0f0f0f;
+
+	--shell-background-pink: hsl(330, 10%, 20%);
+
+	--gruvbox-white: #d4be98;
+	--gruvbox-grey: #928374;
+
+	--gruvbox-background: hsl(0, 1%, 16%);
+	--gruvbox-darker-background: hsl(0, 1%, 14%);
+	--gruvbox-darkerest-background: hsl(0, 1%, 13%);
+
+	--shell-pink-ten: hsla(330, 100%, 84%, 0.1);
+	--shell-pink-thirty: hsla(330, 100%, 84%, 0.3);
+}
+
+html {
+	--yt-deprecated-blue: var(--shell-yellow);
+	--yt-live-chat-author-chip-owner-background-color: var(--shell-yellow);
+	--yt-spec-base-background: var(--gruvbox-background) !important;
+}
+
+html[dark],
+[dark],
+html[darker-dark-theme][dark],
+[darker-dark-theme] [dark] {
+	--yt-spec-general-background-b: var(--gruvbox-background);
+	--yt-live-chat-moderator-color: var(--shell-pink);
+	--yt-live-chat-secondary-text-color: var(--shell-yellow);
+	--yt-spec-additive-background: var(--shell-pink-ten);
+	--yt-spec-outline: var(--shell-pink-thirty);
+	--yt-spec-button-chip-background-hover: var(--shell-pink-thirty);
+	--yt-spec-badge-chip-background: var(--shell-background-pink);
+	--yt-spec-base-background: var(--gruvbox-background);
+	--yt-spec-raised-background: var(--gruvbox-darkerest-background);
+	--ytd-searchbox-background: var(--gruvbox-darker-background);
+	--ytd-searchbox-text-color: var(--gruvbox-white);
+	--yt-spec-text-primary: var(--gruvbox-white);
+	--yt-spec-static-brand-white: var(--gruvbox-white);
+	--yt-spec-text-secondary: var(--gruvbox-grey);
+	--yt-spec-text-disabled: var(--gruvbox-grey);
+	--yt-spec-icon-disabled: var(--gruvbox-grey);
+	/* 10 views no videos updated today on playlist cover */
+	/* --yt-spec-static-overlay-text-secondary: var(--gruvbox-grey); */
+	--yt-spec-icon-inactive: var(--shell-pink);
+	--yt-spec-static-overlay-background-brand: var(--shell-pink);
+	--yt-spec-themed-blue: var(--shell-pink);
+	/* watch later your_username on playlist cover */
+	/* --yt-spec-static-overlay-text-primary: var(--shell-pink); */
+	--yt-spec-static-brand-red: var(--shell-red);
+}
+
+/* switcher header */
+#header.style-scope.ytd-account-section-list-renderer,
+/* pre-switcher header */
+#contentWrapper > ytd-multi-page-menu-renderer > #header,
+/* undeletable non-business channel */
+#contents > ytd-account-item-renderer:nth-child(1),
+/* special channel name in selector */
+#contents > ytd-account-item-renderer:nth-child(5) yt-formatted-string,
+/* pfps in switcher */
+#contentIcon,
+/* pfps in notifications */
+yt-img-shadow#avatar,
+/* blue notification markers in notification popout */
+div#new.ytd-notification-renderer,
+/* sign out */
+yt-multi-page-menu-section-renderer:first-of-type
+	> #items
+	> ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(3),
+/* shorts in right hand side watch later */
+ytd-reel-shelf-renderer.style-scope.ytd-item-section-renderer,
+/* "Play all" and "Shuffle" buttons in a playlist */
+.play-menu.spaced-row.wide-screen-form.style-scope.ytd-playlist-header-renderer,
+#reaction-control-panel,
+/* thing that says random bs with the yt icon inside of the chat */
+yt-live-chat-viewer-engagement-message-renderer,
+/* top chat / live chat header */
+yt-live-chat-header-renderer,
+/* div with buttons under chat input box */
+#buttons.yt-live-chat-message-input-renderer,
+/* pfp in chat input */
+#avatar.yt-live-chat-message-input-renderer,
+#emoji-picker-button.style-scope.yt-live-chat-message-input-renderer,
+/* my nickname in chat input box */
+yt-live-chat-author-chip.style-scope.yt-live-chat-message-input-renderer,
+/* viewer count */
+.value.viewers.style-scope.ytls-broadcast-metadata,
+/* yt shorts */
+ytd-rich-shelf-renderer,
+/* channel name on the left */
+#entity-name,
+/* profile picture on the left
+alt text is displayed without wpcc */
+#left-nav > div.thumbnail-wrapper.thumbnail-wrapper-channel.style-scope.ytcp-navigation-drawer.style-scope.ytcp-navigation-drawer > ytcp-animatable > img,
+/* entire header of the before switcher menu */
+#header.style-scope.ytd-multi-page-menu-renderer,
+/* sign out in switcher */
+#items.style-scope.yt-multi-page-menu-section-renderer > ytd-compact-link-renderer:nth-child(4),
+/* switcher header */
+#header.style-scope.ytd-account-section-list-renderer,
+/* first undeletable channel in switcher */
+#contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(1),
+/* special channel */
+#contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(5) yt-formatted-string,
+div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-live-chat-renderer#chat-messages:not(.iron-selected)) {
+	display: none;
+}
+
+/* "subscribed" on with bell button */
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+/* "Chat..." */
+#label.yt-live-chat-text-input-field-renderer {
+	color: var(--gruvbox-white);
+}
+
+/* search icon to the left of the search bar */
+icon-shape > div {
+	fill: var(--gruvbox-white) !important;
+}
+
+/* × button and mic button to the right of the search bar */
+.yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill {
+	background-color: var(--gruvbox-white);
+}
+
+/* player background */
+.html5-video-player:not(.efyt-black-bars), .html5-video-player.unstarted-mode:not(.efyt-black-bars) {
+	background-color: var(--gruvbox-background);
+}
+
+/* unselected sections on a channel */
+.yt-tab-shape-wiz__tab {
+	color: var(--gruvbox-grey);
+}
+
+/* links in I think bio */
+.yt-core-attributed-string__link--call-to-action-color,
+.yt-core-attributed-string--link-inherit-color.yt-core-attributed-string__link--call-to-action-color,
+/* selected section on a channel */
+.yt-tab-shape-wiz__tab--tab-selected,
+/* "Manage" blue button subscriptions page */
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+	color: var(--shell-pink);
+}
+
+/* underline under selected section on a channel */
+.yt-tab-group-shape-wiz__slider {
+	background-color: var(--shell-pink);
+}
+
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover {
+	background-color: var(--shell-background-pink);
+}
+
+/* mic button right to the search */
+.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text:hover,
+/* grid button in subscriptions page */
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover {
+	background-color: var(--shell-pink-thirty);
+}
+
+/* focused search box */
+ytd-searchbox[has-focus] #container.ytd-searchbox {
+	border: 1px solid var(--shell-pink);
+}
+
+/* "live now" text */
+.badge-style-type-live-now-alternate path {
+	fill: var(--smooth-black);
+}
+.badge-style-type-live-now-alternate > p {
+	color: var(--smooth-black);
+}
+
+/* scroll down button */
+[icon="down_arrow"] > yt-icon-shape > icon-shape > div {
+	fill: var(--smooth-black) !important;
+}
+
+/* each singular notification */
+ytd-notification-renderer {
+	padding: 16px;
+}
+
+/* :active sidebar (the one you don't pull out) buttons, like subscriptions */
+yt-interaction.down .fill.yt-interaction {
+	opacity: 0;
+}
+
+/* gradient on watch later preview */
+div.immersive-header-gradient {
+	background: unset;
+}
+
+/* place for chat */
+div#item-offset.style-scope.yt-live-chat-item-list-renderer {
+	min-height: 10px !important;
+	min-width: 10px !important;
+}
+
+/* down arrow that appears when you have stuff to scroll down to */
+yt-icon-button.yt-live-chat-item-list-renderer {
+	background-color: var(--shell-yellow);
+	color: var(--smooth-black);
+}
+
+/* place for chat, scrollable area */
+yt-live-chat-app {
+	min-width: 10px !important;
+	min-height: 10px !important;
+}
+
+/* thingy that holds my side of chat input */
+yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 11px;
+	padding-top: 3px;
+}
+
+/* each singular chat message container */
+yt-live-chat-text-message-renderer {
+	padding: 4px 11px;
+}
+
+/* each singular chat message pfp container */
+#author-photo.yt-live-chat-text-message-renderer {
+	margin-right: 9px;
+}
+
+/* background color of chat input box */
+yt-live-chat-message-input-renderer[updated-input-visuals] #input-container.yt-live-chat-message-input-renderer {
+	background-color: unset;
+}
+
+/* start poll + button */
+yt-live-chat-message-input-renderer[updated-input-visuals] #picker-buttons.yt-live-chat-message-input-renderer yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer {
+	margin-left: 0;
+}
+yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer > #button.yt-live-chat-icon-toggle-button-renderer {
+	background-color: unset;
+}
+
+/* bottom bar that includes inputbox among ඞ other things */
+yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
+	padding: 1px 0px 9px 0px;
+}
+
+/* scrollbar of the left side preview of the playlist */
+.immersive-header-content.ytd-playlist-header-renderer {
+	overflow-y: hidden;
+}
