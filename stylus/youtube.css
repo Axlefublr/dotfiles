@@ -36,6 +36,7 @@ html[darker-dark-theme][dark],
 [darker-dark-theme] [dark] {
 	--yt-spec-general-background-b: var(--gruvbox-background);
 	--yt-live-chat-moderator-color: var(--shell-pink);
+	--yt-spec-call-to-action: var(--shell-pink);
 	--yt-live-chat-secondary-text-color: var(--shell-yellow);
 	--yt-spec-additive-background: var(--shell-pink-ten);
 	--yt-spec-outline: var(--shell-pink-thirty);
@@ -45,6 +46,7 @@ html[darker-dark-theme][dark],
 	--yt-spec-raised-background: var(--gruvbox-darkerest-background);
 	--ytd-searchbox-background: var(--gruvbox-darker-background);
 	--ytd-searchbox-text-color: var(--gruvbox-white);
+	--ytd-searchbox-legacy-button-color: var(--gruvbox-darker-background);
 	--yt-spec-text-primary: var(--gruvbox-white);
 	--yt-spec-static-brand-white: var(--gruvbox-white);
 	--yt-spec-text-secondary: var(--gruvbox-grey);
@@ -113,15 +115,27 @@ alt text is displayed without wpcc */
 #contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(1),
 /* special channel */
 #contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(5) yt-formatted-string,
-div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-live-chat-renderer#chat-messages:not(.iron-selected)) {
+div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-live-chat-renderer#chat-messages:not(.iron-selected)),
+/* player gradient */
+.ytp-gradient-bottom,
+/* border around hearted comment */
+#hearted-border.ytd-creator-heart-renderer {
 	display: none;
 }
 
 /* "subscribed" on with bell button */
 .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 /* "Chat..." */
-#label.yt-live-chat-text-input-field-renderer {
+#label.yt-live-chat-text-input-field-renderer,
+/* time duration in player */
+.ytp-time-current, .ytp-time-separator, .ytp-time-duration,
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
 	color: var(--gruvbox-white);
+}
+
+/* description text */
+.yt-core-attributed-string--link-inherit-color {
+	color: var(--gruvbox-white) !important;
 }
 
 /* search icon to the left of the search bar */
@@ -134,9 +148,14 @@ icon-shape > div {
 	background-color: var(--gruvbox-white);
 }
 
+/* mic button background */
+#voice-search-button.ytd-masthead {
+	background-color: var(--gruvbox-background);
+}
+
 /* player background */
 .html5-video-player:not(.efyt-black-bars), .html5-video-player.unstarted-mode:not(.efyt-black-bars) {
-	background-color: var(--gruvbox-background);
+	background-color: var(--gruvbox-darker-background);
 }
 
 /* unselected sections on a channel */
@@ -150,24 +169,63 @@ icon-shape > div {
 /* selected section on a channel */
 .yt-tab-shape-wiz__tab--tab-selected,
 /* "Manage" blue button subscriptions page */
-.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text,
+/* "Show More" button below recommendations */
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
 	color: var(--shell-pink);
 }
 
 /* underline under selected section on a channel */
-.yt-tab-group-shape-wiz__slider {
+.yt-tab-group-shape-wiz__slider,
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled:hover,
+/* watched red line */
+.ytp-swatch-background-color,
+/* channel owner nickname badge */
+ytd-author-comment-badge-renderer {
 	background-color: var(--shell-pink);
 }
 
-.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover {
+/* player buttons */
+.ytp-button > svg > path,
+.ytp-button .ytp-svg-fill,
+/* screenshot current frame in player button from the youtube extension */
+#ytp-efyt-screenshot{
+	fill: var(--gruvbox-white) !important;
+}
+
+/* like button */
+button[aria-pressed="false"] [animated-icon-type="LIKE"] path{
+	stroke: var(--gruvbox-white) !important;
+}
+button[aria-pressed="true"] [animated-icon-type="LIKE"] path {
+	fill: var(--shell-pink);
+	stroke: var(--shell-pink);
+}
+
+.ytd-comment-action-buttons-renderer [aria-label="Unlike"] path,
+#hearted.ytd-creator-heart-renderer path {
+	fill: var(--shell-pink);
+}
+
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover,
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline:hover,
+/* background color of video interaction buttons *under* the player */
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
 	background-color: var(--shell-background-pink);
 }
 
 /* mic button right to the search */
 .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text:hover,
 /* grid button in subscriptions page */
-.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover {
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover,
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover,
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline:hover {
 	background-color: var(--shell-pink-thirty);
+}
+
+#more-replies-icon .yt-spec-button-shape-next__icon path {
+	fill: var(--shell-pink) !important;
 }
 
 /* focused search box */
@@ -183,9 +241,19 @@ ytd-searchbox[has-focus] #container.ytd-searchbox {
 	color: var(--smooth-black);
 }
 
+/* name of owner of channel in comment badge */
+#name.ytd-author-comment-badge-renderer {
+	color: var(--smooth-black);
+}
+
 /* scroll down button */
 [icon="down_arrow"] > yt-icon-shape > icon-shape > div {
 	fill: var(--smooth-black) !important;
+}
+
+#search-icon-legacy.ytd-searchbox,
+#container.ytd-searchbox {
+	border: none;
 }
 
 /* each singular notification */
