@@ -104,22 +104,6 @@ require("dial.config").augends:register_group{
 			case = "upper"
 		},
 		augend.semver.alias.semver,
-		augend.constant.alias.bool,
-		augend.constant.new{
-			elements = {"and", "or"},
-			word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
-			cyclic = true,
-		},
-		augend.constant.new{
-			elements = {"AND", "OR"},
-			word = true,
-			cyclic = true,
-		},
-		augend.constant.new{
-			elements = {"&&", "||"},
-			word = false,
-			cyclic = true,
-		},
 		augend.date.new {
 			pattern = "%y.%m.%d",
 			default_kind = "day",
@@ -145,32 +129,30 @@ require("dial.config").augends:register_group{
 			word = true,
 			cyclic = true
 		},
+	},
+	toggles = {
+		augend.constant.alias.bool,
+		augend.constant.new{
+			elements = {"and", "or"},
+			word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
+			cyclic = true,
+		},
+		augend.constant.new{
+			elements = {"AND", "OR"},
+			word = true,
+			cyclic = true,
+		},
+		augend.constant.new{
+			elements = {"&&", "||"},
+			word = false,
+			cyclic = true,
+		},
+	},
+	visual = {
+		augend.integer.alias.decimal_int,
+		augend.integer.alias.hex,
+		augend.integer.alias.octal,
 		augend.constant.alias.alpha,
 		augend.constant.alias.Alpha,
-	},
+	}
 }
-
-vim.keymap.set("n", "<C-a>", function()
-	require("dial.map").manipulate("increment", "normal")
-end)
-vim.keymap.set("n", "<C-x>", function()
-	require("dial.map").manipulate("decrement", "normal")
-end)
-vim.keymap.set("n", "g<C-a>", function()
-	require("dial.map").manipulate("increment", "gnormal")
-end)
-vim.keymap.set("n", "g<C-x>", function()
-	require("dial.map").manipulate("decrement", "gnormal")
-end)
-vim.keymap.set("v", "<C-a>", function()
-	require("dial.map").manipulate("increment", "visual")
-end)
-vim.keymap.set("v", "<C-x>", function()
-	require("dial.map").manipulate("decrement", "visual")
-end)
-vim.keymap.set("v", "g<C-a>", function()
-	require("dial.map").manipulate("increment", "gvisual")
-end)
-vim.keymap.set("v", "g<C-x>", function()
-	require("dial.map").manipulate("decrement", "gvisual")
-end)
