@@ -7,6 +7,7 @@ abbr --set-cursor -a ghic 'gh issue create -t "%"'
 abbr --set-cursor -a diff 'diff -u % | diff-so-fancy'
 abbr --set-cursor -a math 'math \'%\''
 abbr --set-cursor -a rmfn 'rm -fr ~/.config/fish/functions/%.fish'
+abbr --set-cursor -a dnrp 'dotnet run --project % --'
 
 abbr --set-cursor -a gamm 'git add . &&
 	git commit -am "%"'
