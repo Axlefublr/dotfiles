@@ -79,6 +79,11 @@ ytd-reel-shelf-renderer.style-scope.ytd-item-section-renderer,
 	display: none;
 }
 
+/* player background */
+.html5-video-player:not(.efyt-black-bars), .html5-video-player.unstarted-mode:not(.efyt-black-bars) {
+	background-color: var(--gruvbox-background);
+}
+
 /* each singular notification */
 ytd-notification-renderer {
 	padding: 16px;
