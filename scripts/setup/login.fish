@@ -35,6 +35,10 @@ wmctrl -r 'Discord' -t 8
 winwaitname 'Watch later' 0.5 0 20
 wmctrl -r 'Watch later' -t 10
 
+wmctrl -s 6
+wm-decrease-master-windows
+sleep 1
+
 wmctrl -s 7
 wm-decrease-master-windows
 sleep 1
