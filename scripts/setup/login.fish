@@ -32,8 +32,8 @@ winwaitclass vivaldi-stable 0.5 0 20
 winmoveall vivaldi-stable 1
 winwaitname 'Discord' 0.5 0 20
 wmctrl -r 'Discord' -t 8
-winwaitname 'Watch later' 0.5 0 20
-wmctrl -r 'Watch later' -t 10
+winwaitname 'YouTube' 0.5 0 20
+wmctrl -r 'YouTube' -t 10
 
 wmctrl -s 6
 wm-decrease-master-windows
