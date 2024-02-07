@@ -18,6 +18,7 @@ alias --save icat 'kitten icat --align left' > /dev/null
 alias --save logout 'qdbus org.kde.ksmserver /KSMServer logout 0 0 0' > /dev/null
 alias --save woman 'man' > /dev/null # lol and even lmao
 alias --save tgpt 'tgpt -q --provider phind' > /dev/null
+alias --save yt-dlp 'yt-dlp $argv ; bell' > /dev/null
 
 function mkcd
 	mkdir -p $argv && z $argv
