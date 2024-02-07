@@ -34,6 +34,7 @@ html[dark],
 [dark],
 html[darker-dark-theme][dark],
 [darker-dark-theme] [dark] {
+	--yt-spec-static-overlay-text-primary: var(--gruvbox-white);
 	--yt-spec-general-background-b: var(--gruvbox-background);
 	--yt-live-chat-moderator-color: var(--shell-pink);
 	--yt-spec-call-to-action: var(--shell-pink);
@@ -52,6 +53,7 @@ html[darker-dark-theme][dark],
 	--yt-spec-text-secondary: var(--gruvbox-grey);
 	--yt-spec-text-disabled: var(--gruvbox-grey);
 	--yt-spec-icon-disabled: var(--gruvbox-grey);
+	--yt-spec-static-overlay-text-secondary: var(--gruvbox-grey);
 	/* 10 views no videos updated today on playlist cover */
 	/* --yt-spec-static-overlay-text-secondary: var(--gruvbox-grey); */
 	--yt-spec-icon-inactive: var(--shell-pink);
@@ -119,7 +121,9 @@ div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-li
 /* player gradient */
 .ytp-gradient-bottom,
 /* border around hearted comment */
-#hearted-border.ytd-creator-heart-renderer {
+#hearted-border.ytd-creator-heart-renderer,
+/* blurred background image in playlist header */
+.blurred-image.ytd-playlist-header-renderer {
 	display: none;
 }
 
@@ -151,9 +155,15 @@ icon-shape > div {
 	background-color: var(--gruvbox-background);
 }
 
+/* super behind background of playlist header */
+.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
+	background-color: var(--gruvbox-background) !important;
+}
+
 /* player background */
-.html5-video-player:not(.efyt-black-bars), .html5-video-player.unstarted-mode:not(.efyt-black-bars) {
-	background-color: var(--gruvbox-darker-background);
+.html5-video-player:not(.efyt-black-bars), .html5-video-player.unstarted-mode:not(.efyt-black-bars),
+.html5-video-player.ytp-autonav-endscreen-cancelled-state.ended-mode{
+	background-color: var(--gruvbox-darkerest-background);
 }
 
 /* unselected sections on a channel */
@@ -333,6 +343,10 @@ yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
 /* shadows around player elements */
 .ytp-svg-shadow {
 	stroke: #0f0f0f;
-	stroke-opacity: 0.5;
+	stroke-opacity: 0.8;
 	stroke-width: 2px;
+}
+
+.immersive-header-gradient.style-scope.ytd-playlist-header-renderer {
+	background: unset !important;
 }
