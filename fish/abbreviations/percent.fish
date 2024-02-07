@@ -15,8 +15,5 @@ abbr --set-cursor -a gammp 'git add . &&
 	git commit -am "%" &&
 	git push'
 
-abbr --set-cursor -a alarmb 'alarm %
-	bell'
-
 abbr --set-cursor -a slurr 'systemctl --user daemon-reload
 	systemctl --user restart %.timer'

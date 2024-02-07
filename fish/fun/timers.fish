@@ -32,6 +32,7 @@ function alarm
 		sleep 0.1
 	end
 	sleep 0.5
+	bell
 end
 funcsave alarm > /dev/null
 
