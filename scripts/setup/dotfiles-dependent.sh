@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+# X
+ln -sf ~/prog/dotfiles/.Xresources ~/.Xresources
+xrdb -merge ~/.Xresources
+
 # Neovim
 mkdir -p ~/.config/nvim
 ln -sf ~/prog/dotfiles/neovim/init.lua ~/.config/nvim/init.lua
@@ -57,6 +61,11 @@ ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
 
 # Custom compose
 ln -sf ~/prog/dotfiles/compose.txt ~/.XCompose
+
+# Awesome wm
+mkdir -p ~/.config/awesome
+ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
+ln -sf ~/prog/dotfiles/awesome/theme.lua ~/.config/awesome/theme.lua
 
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
