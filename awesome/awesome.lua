@@ -208,14 +208,14 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Add widgets to the wibox
 	s.mywibox:setup {
 		layout = wibox.layout.align.horizontal,
-		{   -- Left widgets
+		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
 			mylauncher,
 			s.mytaglist,
 			s.mypromptbox,
 		},
-		s.mytasklist,   -- Middle widget
-		{               -- Right widgets
+		s.mytasklist, -- Middle widget
+		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			mykeyboardlayout,
 			wibox.widget.systray(),
@@ -233,6 +233,23 @@ root.buttons(gears.table.join(
 	awful.button({}, 5, awful.tag.viewprev)
 ))
 -- }}}
+
+local activate_tag = function(index)
+	local screen = awful.screen.focused()
+	local tag = screen.tags[index]
+	if tag then
+		tag:view_only()
+	end
+end
+
+local move_window_to_tag = function(index)
+	if client.focus then
+		local tag = client.focus.screen.tags[index]
+		if tag then
+			client.focus:move_to_tag(tag)
+		end
+	end
+end
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -332,7 +349,59 @@ globalkeys = gears.table.join(
 		{ description = "lua execute prompt", group = "awesome" }),
 	-- Menubar
 	awful.key({ modkey }, "p", function() menubar.show() end,
-		{ description = "show the menubar", group = "launcher" })
+		{ description = "show the menubar", group = "launcher" }),
+
+	-- Activate tags
+	awful.key({ modkey }, "u", function() activate_tag(1) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey }, "i", function() activate_tag(2) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey }, "o", function() activate_tag(3) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey }, "p", function() activate_tag(4) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey }, "m", function() activate_tag(5) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey }, ",", function() activate_tag(6) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey }, ".", function() activate_tag(7) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey }, "/", function() activate_tag(8) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, "u", function() activate_tag(9) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, "i", function() activate_tag(10) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, "o", function() activate_tag(11) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, "p", function() activate_tag(12) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, "m", function() activate_tag(13) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, ",", function() activate_tag(14) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, ".", function() activate_tag(15) end, { description = "activate tag", group = "tag" }),
+	awful.key({ modkey, "Mod1" }, "/", function() activate_tag(16) end, { description = "activate tag", group = "tag" }),
+
+	-- Move window to tag
+	awful.key({ modkey, "Control" }, "u", function() move_window_to_tag(1) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control" }, "i", function() move_window_to_tag(2) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control" }, "o", function() move_window_to_tag(3) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control" }, "p", function() move_window_to_tag(4) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control" }, "m", function() move_window_to_tag(5) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control" }, ",", function() move_window_to_tag(6) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control" }, ".", function() move_window_to_tag(7) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control" }, "/", function() move_window_to_tag(8) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, "u", function() move_window_to_tag(9) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, "i", function() move_window_to_tag(10) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, "o", function() move_window_to_tag(11) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, "p", function() move_window_to_tag(12) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, "m", function() move_window_to_tag(13) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, ",", function() move_window_to_tag(14) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, ".", function() move_window_to_tag(15) end,
+		{ description = "move window", group = "tag" }),
+	awful.key({ modkey, "Control", "Mod1" }, "/", function() move_window_to_tag(16) end,
+		{ description = "move window", group = "tag" })
 )
 
 clientkeys = gears.table.join(
@@ -385,15 +454,15 @@ clientkeys = gears.table.join(
 for i = 1, 9 do
 	globalkeys = gears.table.join(globalkeys,
 		-- View tag only.
-		awful.key({ modkey }, "#" .. i + 9,
-			function()
-				local screen = awful.screen.focused()
-				local tag = screen.tags[i]
-				if tag then
-					tag:view_only()
-				end
-			end,
-			{ description = "view tag #" .. i, group = "tag" }),
+		-- awful.key({ modkey }, "#" .. i + 9,
+		-- function()
+		-- 	local screen = awful.screen.focused()
+		-- 	local tag = screen.tags[i]
+		-- 	if tag then
+		-- 		tag:view_only()
+		-- 	end
+		-- end,
+		-- 	{ description = "view tag #" .. i, group = "tag" }),
 		-- Toggle tag display.
 		awful.key({ modkey, "Control" }, "#" .. i + 9,
 			function()
@@ -405,16 +474,16 @@ for i = 1, 9 do
 			end,
 			{ description = "toggle tag #" .. i, group = "tag" }),
 		-- Move client to tag.
-		awful.key({ modkey, "Shift" }, "#" .. i + 9,
-			function()
-				if client.focus then
-					local tag = client.focus.screen.tags[i]
-					if tag then
-						client.focus:move_to_tag(tag)
-					end
-				end
-			end,
-			{ description = "move focused client to tag #" .. i, group = "tag" }),
+		-- awful.key({ modkey, "Shift" }, "#" .. i + 9,
+		-- 	function()
+		-- 		if client.focus then
+		-- 			local tag = client.focus.screen.tags[i]
+		-- 			if tag then
+		-- 				client.focus:move_to_tag(tag)
+		-- 			end
+		-- 		end
+		-- 	end,
+		-- 	{ description = "move focused client to tag #" .. i, group = "tag" }),
 		-- Toggle tag on focused client.
 		awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
 			function()
@@ -493,7 +562,7 @@ awful.rules.rules = {
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
 				"ConfigManager", -- Thunderbird's about:config.
-				"pop-up",      -- e.g. Google Chrome's (detached) Developer Tools.
+				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			}
 		},
 		properties = { floating = true }
@@ -503,7 +572,7 @@ awful.rules.rules = {
 	{
 		rule_any = { type = { "normal", "dialog" }
 		},
-		properties = { titlebars_enabled = true }
+		properties = { titlebars_enabled = false }
 	},
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
@@ -542,20 +611,20 @@ client.connect_signal("request::titlebars", function(c)
 	)
 
 	awful.titlebar(c):setup {
-		{   -- Left
+		{ -- Left
 			awful.titlebar.widget.iconwidget(c),
 			buttons = buttons,
 			layout  = wibox.layout.fixed.horizontal
 		},
-		{       -- Middle
-			{    -- Title
+		{ -- Middle
+			{ -- Title
 				align  = "center",
 				widget = awful.titlebar.widget.titlewidget(c)
 			},
 			buttons = buttons,
 			layout  = wibox.layout.flex.horizontal
 		},
-		{   -- Right
+		{ -- Right
 			awful.titlebar.widget.floatingbutton(c),
 			awful.titlebar.widget.maximizedbutton(c),
 			awful.titlebar.widget.stickybutton(c),
