@@ -1,0 +1,21 @@
+{
+	"Lua.diagnostics.globals": [
+		"vim",
+		"client",
+		"root",
+		"awesome",
+		"screen",
+		"clientbuttons",
+		"globalkeys",
+		"clientkeys",
+		"mytextclock",
+		"mykeyboardlayout",
+		"mylauncher",
+		"mymainmenu",
+		"myawesomemenu",
+		"modkey",
+		"editor_cmd",
+		"editor",
+		"terminal"
+	]
+}
