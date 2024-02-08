@@ -13,22 +13,24 @@ local theme = {}
 
 theme.font          = "Ubuntu Nerd Font"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
+theme.bg_normal     = "#292828"
+theme.bg_focus      = "#343232"
+theme.bg_urgent     = "#ffafd7"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
+theme.fg_normal     = "#928374"
+theme.fg_focus      = "#d4be98"
+theme.fg_urgent     = "#0f0f0f"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.useless_gap   = dpi(2)
+theme.border_width  = dpi(2)
+theme.border_normal = "#292828"
+theme.border_focus  = "#ffafd7"
 theme.border_marked = "#91231c"
+
+theme.prompt_font = "JetBrainsMono NF"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -46,10 +48,10 @@ theme.border_marked = "#91231c"
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    taglist_square_size, theme.fg_normal
+	taglist_square_size, theme.fg_normal
 )
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    taglist_square_size, theme.fg_normal
+	taglist_square_size, theme.fg_normal
 )
 
 -- Variables set for theming notifications:
@@ -119,7 +121,7 @@ theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, theme.bg_focus, theme.fg_focus
+	theme.menu_height, theme.bg_focus, theme.fg_focus
 )
 
 -- Define the icon theme for application icons. If not set then the icons
