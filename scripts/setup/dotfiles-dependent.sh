@@ -23,7 +23,7 @@ ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
 
 # Ranger file explorer
 ranger --copy-config all
-ln -sf ~/prog/dotfiles/ranger/rc.conf ~/.config/ranger/rc.conf
+ln -sf ~/prog/dotfiles/ranger/ranger.conf ~/.config/ranger/rc.conf
 ln -sf ~/prog/dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
 
 # Vscode
