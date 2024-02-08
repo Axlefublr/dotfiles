@@ -359,7 +359,7 @@ keymap:
 
   - name: Kde Compose key
     remap:
-      CapsLock-Apostrophe: CapsLock
+      CapsLock-Apostrophe: Insert
 
   - name: Close / kill focused process
     remap:
@@ -433,13 +433,7 @@ keymap:
 
   - name: System
     remap:
-      Sysrq: { launch: [sh, -c, "qdbus org.kde.ksmserver /KSMServer logout 0 0 0"]} # Printscreen
-      Shift-Sysrq: { launch: [poweroff] }
-      ScrollLock: { launch: [reboot] }
-      Pause: { launch: [systemctl, suspend] }
-      Shift-Pause: { launch: [xset, dpms, force, 'off'] }
-
-      CapsLock-Alt-6: { launch: [sh, -c, "qdbus org.kde.ksmserver /KSMServer logout 0 0 0"]}
+      CapsLock-Alt-6: { launch: [fish, -c, "wm-logout"]}
       CapsLock-Shift-Alt-6: { launch: [poweroff] }
       CapsLock-Shift-Alt-8: { launch: [reboot] }
       CapsLock-Alt-8: { launch: [kitty, -T, uboot, fish, -c, uboot] }
