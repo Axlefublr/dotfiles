@@ -37,11 +37,11 @@ function vf
 end
 funcsave vf > /dev/null
 
-function codef
+function cf
 	commandline "code "(fzf)
 	commandline -f execute
 end
-funcsave codef > /dev/null
+funcsave cf > /dev/null
 
 function xrestart
 	killall xremap
