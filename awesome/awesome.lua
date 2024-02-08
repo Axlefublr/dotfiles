@@ -100,6 +100,7 @@ mymainmenu = awful.menu({
 	}
 })
 
+-- Wibar widget definitions
 mylauncher = awful.widget.launcher({
 	image = beautiful.awesome_icon,
 	menu = mymainmenu

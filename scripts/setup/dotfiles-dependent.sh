@@ -3,6 +3,7 @@
 # X
 ln -sf ~/prog/dotfiles/.Xresources ~/.Xresources
 xrdb -merge ~/.Xresources
+ln -sf ~/prog/dotfiles/.xinitrc ~/.xinitrc
 
 # Neovim
 mkdir -p ~/.config/nvim
