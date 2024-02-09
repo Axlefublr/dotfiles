@@ -69,4 +69,7 @@ sudo pacman -S --noconfirm go
 sudo pacman -S --noconfirm python-pillow
 sudo pacman -S --noconfirm awesome
 sudo pacman -S --noconfirm xorg-xev
+sudo pacman -S --noconfirm python3
+sudo pacman -S --noconfirm python-pip
+sudo pacman -S --noconfirm python-pipx
 sudo pacman -S --noconfirm sddm
