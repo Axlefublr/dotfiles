@@ -1,9 +1,8 @@
 #!/usr/bin/bash
 
 # X
-ln -sf ~/prog/dotfiles/.Xresources ~/.Xresources
-xrdb -merge ~/.Xresources
-ln -sf ~/prog/dotfiles/.xinitrc ~/.xinitrc
+cp -f ~/prog/dotfiles/x11/.Xresources ~/.Xresources
+ln -sf ~/prog/dotfiles/x11/.xinitrc ~/.xinitrc
 
 # Neovim
 mkdir -p ~/.config/nvim
