@@ -7,10 +7,10 @@ ydotoold &> /tmp/log/ydotoold.txt & disown
 gromit-mpx -k "none" -u "none" &> /tmp/log/gromit-mpx.txt & disown
 # ollama serve &> /tmp/log/ollama.txt & disown
 
-vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
+# vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
 code &> /tmp/log/vscode.txt & disown
-kitty --hold kitten @set-window-title timerkitty & disown
-kitty -T meow & disown
+# kitty --hold kitten @set-window-title timerkitty & disown
+# kitty -T meow & disown
 
 # winwaitclass code 0.5 0 20
 kitty -d ~/prog/dotfiles & disown
@@ -44,9 +44,6 @@ kitty -d ~/prog/dotfiles & disown
 # wmctrl -s 7
 # wm-decrease-master-windows
 # sleep 1
-
-xset r rate 170 40
-xmodmap ~/prog/dotfiles/xmodmap.txt
 
 loopuntil is-internet 0.5 0 60
 spotify-launcher -v &> /tmp/log/spotify.txt & disown

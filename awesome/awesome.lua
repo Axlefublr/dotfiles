@@ -751,4 +751,19 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.spawn.once("/home/axlefublr/prog/dotfiles/scripts/setup/login.fish")
+-- Autostart
+awful.spawn.once("vivaldi-stable --force-dark-mode", {
+	-- maximized = false
+}, function(c) c:move_to_tag(screen.primary.tags[2]) end)
+awful.spawn.once("kitty -T meow", {
+	tag = screen.primary.tags[3]
+})
+awful.spawn.once("kitty --hold kitten @set-window-title timerkitty", {
+	tag = screen.primary.tags[11]
+})
+awful.spawn.once("kitty -d ~/Videos/Content ranger", {
+	tag = screen.primary.tags[15]
+})
+awful.spawn.once("anki", {}, function(c) c:move_to_tag(screen.primary.tags[8]) end)
+
+awful.spawn.once("/home/axlefublr/prog/dotfiles/scripts/setup/login.fish", {})
