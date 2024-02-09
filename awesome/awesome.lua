@@ -64,7 +64,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
--- Table of layouts to cover with awful.layout.inc, order matters.
+-- Layouts table to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	-- awful.layout.suit.floating,
 	awful.layout.suit.tile,
@@ -297,7 +297,7 @@ awful.screen.connect_for_each_screen(function(s)
 			s.mypromptbox,
 		},
 		s.mytasklist, -- Middle widget
-		{ -- Right widgets
+		{         -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			mykeyboardlayout,
 			wibox.widget.systray(),
@@ -485,22 +485,22 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-	awful.key({ modkey, }, "f",
-		function(c)
-			c.fullscreen = not c.fullscreen
-			c:raise()
-		end,
-		{ description = "toggle fullscreen", group = "client" }),
+-- awful.key({ modkey, }, "f",
+-- 	function(c)
+-- 		c.fullscreen = not c.fullscreen
+-- 		c:raise()
+-- 	end,
+-- 	{ description = "toggle fullscreen", group = "client" }),
 	awful.key({ modkey, "Shift" }, "c", function(c) c:kill() end,
 		{ description = "close", group = "client" }),
-	awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
-		{ description = "toggle floating", group = "client" }),
+-- awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
+-- 	{ description = "toggle floating", group = "client" }),
 	awful.key({ modkey, "Control" }, "Return", function(c) c:swap(awful.client.getmaster()) end,
 		{ description = "move to master", group = "client" }),
-	awful.key({ modkey, }, "o", function(c) c:move_to_screen() end,
-		{ description = "move to screen", group = "client" }),
-	awful.key({ modkey, }, "t", function(c) c.ontop = not c.ontop end,
-		{ description = "toggle keep on top", group = "client" }),
+	-- awful.key({ modkey, }, "o", function(c) c:move_to_screen() end,
+	-- 	{ description = "move to screen", group = "client" }),
+	-- awful.key({ modkey, }, "t", function(c) c.ontop = not c.ontop end,
+	-- 	{ description = "toggle keep on top", group = "client" }),
 	awful.key({ modkey, }, "n",
 		function(c)
 			-- The client currently has the input focus, so it cannot be
@@ -508,12 +508,12 @@ clientkeys = gears.table.join(
 			c.minimized = true
 		end,
 		{ description = "minimize", group = "client" }),
-	awful.key({ modkey, }, "m",
-		function(c)
-			c.maximized = not c.maximized
-			c:raise()
-		end,
-		{ description = "(un)maximize", group = "client" }),
+	-- awful.key({ modkey, }, "m",
+	-- 	function(c)
+	-- 		c.maximized = not c.maximized
+	-- 		c:raise()
+	-- 	end,
+	-- 	{ description = "(un)maximize", group = "client" }),
 	awful.key({ modkey, "Control" }, "m",
 		function(c)
 			c.maximized_vertical = not c.maximized_vertical
@@ -626,7 +626,7 @@ awful.rules.rules = {
 				"Arandr",
 				"Blueman-manager",
 				"Gpick",
-				"Kruler",
+				"kruler",
 				"MessageWin", -- kalarm.
 				"Sxiv",
 				"Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.

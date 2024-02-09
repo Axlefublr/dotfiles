@@ -238,11 +238,16 @@ keymap:
       CapsLock-Alt-Semicolon:
         remap:
           e: { launch: [sh, -c, "loago do eat ; notify-send -t 1000 -a loago 'ate!'"]}
-          r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
+          r: { launch: [fish, -c, xrestart]}
+          shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
           i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
           k: { launch: [screenkey] }
           Shift-k: { launch: [killall, screenkey] }
+          l: { launch: [fish, -c, wm-toggle-float]}
+          t: { launch: [fish, -c, wm-toggle-on-top]}
+          m: { launch: [fish, -c, wm-toggle-maximized]}
+          f: { launch: [fish, -c, wm-toggle-fullscreen]}
 
   - name: Clipboard Manager
     remap:
@@ -330,18 +335,18 @@ keymap:
     remap:
       Alt-c: [ tab, tab, tab, tab, tab, enter ]
       Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
-      Alt-d: [ ctrl-d, { launch: [
-          fish, -c, "winwaitname '(Choose|Change) Deck' 0 0 100 ; wm-float"
-        ] }]
-      Alt-n: [ ctrl-n, { launch: [
-          fish, -c, "winwaitname 'Choose Note Type' 0 0 100 ; wm-float"
-        ] } ]
-      Alt-Slash: [ slash, { launch: [
-          fish, -c, "winwaitname 'Study Deck' 0 0 100 ; wm-float"
-        ] } ]
-      Alt-o: [ ctrl-shift-n, { launch: [
-          fish, -c, "winwaitname 'Note Types' 0 0 100 ; wm-float"
-        ] } ]
+      # Alt-d: [ ctrl-d, { launch: [
+      #     fish, -c, "winwaitname '(Choose|Change) Deck' 0 0 100 ; wm-float"
+      #   ] }]
+      # Alt-n: [ ctrl-n, { launch: [
+      #     fish, -c, "winwaitname 'Choose Note Type' 0 0 100 ; wm-float"
+      #   ] } ]
+      # Alt-Slash: [ slash, { launch: [
+      #     fish, -c, "winwaitname 'Study Deck' 0 0 100 ; wm-float"
+      #   ] } ]
+      # Alt-o: [ ctrl-shift-n, { launch: [
+      #     fish, -c, "winwaitname 'Note Types' 0 0 100 ; wm-float"
+      #   ] } ]
 
   - name: Spotify
     exact_match: true

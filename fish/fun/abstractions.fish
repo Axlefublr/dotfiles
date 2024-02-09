@@ -1,5 +1,11 @@
 #!/usr/bin/env fish
 
+alias --save wm-logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
+alias --save wm-toggle-float "awesome-client 'require(\'awful\').client.floating.toggle()'" > /dev/null
+alias --save wm-toggle-on-top "awesome-client 'client.focus.ontop = not client.focus.ontop'" > /dev/null
+alias --save wm-toggle-maximized "awesome-client 'client.focus.maximized = not client.focus.maximized'" > /dev/null
+alias --save wm-toggle-fullscreen "awesome-client 'client.focus.fullscreen = not client.focus.fullscreen'" > /dev/null
+
 function is-internet
 	set -l response (nmcli networking connectivity)
 	if test $response = 'full'
@@ -14,36 +20,6 @@ function is-internet
 	end
 end
 funcsave is-internet > /dev/null
-
-function wm-rotate
-	qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut rotate
-end
-funcsave wm-rotate > /dev/null
-
-function wm-float
-	qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_window_floating
-end
-funcsave wm-float > /dev/null
-
-function wm-increase-window-width
-	qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut increase_window_width
-end
-funcsave wm-increase-window-width > /dev/null
-
-function wm-increase-master-window-size
-	qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut increase_master_size
-end
-funcsave wm-increase-master-window-size > /dev/null
-
-function wm-layout-quarter
-	qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_quarter_layout
-end
-funcsave wm-layout-quarter > /dev/null
-
-function wm-decrease-master-windows
-	qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut decrease_master_win_count
-end
-funcsave wm-decrease-master-windows > /dev/null
 
 function emoji-picker-clipboard
 	kitty -T emoji-picker --start-as maximized sh -c "kitty +kitten unicode_input --tab $argv[1] > /tmp/unicode_input"
