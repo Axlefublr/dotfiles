@@ -672,12 +672,8 @@ awful.rules.rules = {
 		properties = { tag = "," }
 	},
 	{
-		rule = { class = "Vivaldi-stable", name = "Discord" },
-		properties = { tag = "m" }
-	},
-	{
-		rule = { class = "Vivaldi-stable", name = "YouTube" },
-		properties = { tag = "." }
+		rule = { class = "Vivaldi-stable" },
+		properties = { tag = "i" }
 	}
 }
 -- }}}
