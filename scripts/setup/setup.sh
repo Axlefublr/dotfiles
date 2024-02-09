@@ -6,5 +6,5 @@ mkdir -p ~/.local/share/magazine
 mkdir -p ~/.local/share/minigun
 
 sudo loginctl enable-linger $USER
-
-go install github.com/maaslalani/glyphs@main
+sudo systemctl enable sddm
+sudo systemctl start sddm
