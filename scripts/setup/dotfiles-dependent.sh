@@ -58,6 +58,11 @@ ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
 # Custom compose
 ln -sf ~/prog/dotfiles/compose.txt ~/.XCompose
 
+# Xremap
+sudo usermod -aG input $USER
+sudo usermod -aG video $USER
+echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
+
 # Awesome wm
 mkdir -p ~/.config/awesome
 ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
