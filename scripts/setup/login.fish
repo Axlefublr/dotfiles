@@ -48,6 +48,4 @@ kitty -d ~/prog/dotfiles & disown
 loopuntil is-internet 0.5 0 60
 spotify-launcher -v &> /tmp/log/spotify.txt & disown
 
-sleep 10
-xset r rate 170 40 &> /tmp/log/xset.txt
-xmodmap ~/prog/dotfiles/xmodmap.txt &> /tmp/log/xmodmap.txt
+xmodmap ~/prog/dotfiles/x11/xmodmap.txt >> /tmp/log/xmodmap.txt
