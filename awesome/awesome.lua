@@ -502,7 +502,7 @@ clientkeys = gears.table.join(
 -- awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
 -- 	{ description = "toggle floating", group = "client" }),
 	awful.key({ modkey }, "Return", function(c) c:swap(awful.client.getmaster()) end,
-		{ description = "move to master", group = "client" }),
+		{ description = "move to master", group = "client" })
 	-- awful.key({ modkey, }, "o", function(c) c:move_to_screen() end,
 	-- 	{ description = "move to screen", group = "client" }),
 	-- awful.key({ modkey, }, "t", function(c) c.ontop = not c.ontop end,
@@ -550,15 +550,15 @@ for i = 1, 9 do
 		-- end,
 		-- 	{ description = "view tag #" .. i, group = "tag" }),
 		-- Toggle tag display.
-		awful.key({ modkey, "Control" }, "#" .. i + 9,
-			function()
-				local screen = awful.screen.focused()
-				local tag = screen.tags[i]
-				if tag then
-					awful.tag.viewtoggle(tag)
-				end
-			end,
-			{ description = "toggle tag #" .. i, group = "tag" }),
+		-- awful.key({ modkey, "Control" }, "#" .. i + 9,
+		-- 	function()
+		-- 		local screen = awful.screen.focused()
+		-- 		local tag = screen.tags[i]
+		-- 		if tag then
+		-- 			awful.tag.viewtoggle(tag)
+		-- 		end
+		-- 	end,
+		-- 	{ description = "toggle tag #" .. i, group = "tag" }),
 		-- Move client to tag.
 		-- awful.key({ modkey, "Shift" }, "#" .. i + 9,
 		-- 	function()
