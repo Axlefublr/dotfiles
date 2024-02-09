@@ -1,1 +1,0 @@
-setxkbmap -option compose:capslock

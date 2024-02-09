@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 sudo pacman -Syu --noconfirm paru
+sudo pacman -S --noconfirm vivaldi
 sudo pacman -S --noconfirm tree
 sudo pacman -S --noconfirm fzf
 sudo pacman -S --noconfirm hyfetch
@@ -67,3 +68,4 @@ sudo pacman -S --noconfirm ufw
 sudo pacman -S --noconfirm go
 sudo pacman -S --noconfirm python-pillow
 sudo pacman -S --noconfirm awesome
+sudo pacman -S --noconfirm xorg-xev
