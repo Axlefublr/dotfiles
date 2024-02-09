@@ -2,13 +2,13 @@
 
 mkdir -p /tmp/log
 
-xremap --mouse --watch ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
-ydotoold &> /tmp/log/ydotoold.txt & disown
-gromit-mpx -k "none" -u "none" &> /tmp/log/gromit-mpx.txt & disown
-# ollama serve &> /tmp/log/ollama.txt & disown
+xremap --mouse ~/prog/dotfiles/xremap/xremap.yml >> /tmp/log/xremap.txt & disown
+ydotoold >> /tmp/log/ydotoold.txt & disown
+gromit-mpx -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
+# ollama serve >> /tmp/log/ollama.txt & disown
 
-# vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
-code &> /tmp/log/vscode.txt & disown
+# vivaldi-stable --force-dark-mode >> /tmp/log/vivaldi.txt & disown
+code >> /tmp/log/vscode.txt & disown
 # kitty --hold kitten @set-window-title timerkitty & disown
 # kitty -T meow & disown
 
@@ -46,6 +46,6 @@ kitty -d ~/prog/dotfiles & disown
 # sleep 1
 
 loopuntil is-internet 0.5 0 60
-spotify-launcher -v &> /tmp/log/spotify.txt & disown
+spotify-launcher -v >> /tmp/log/spotify.txt & disown
 
 xmodmap ~/prog/dotfiles/x11/xmodmap.txt >> /tmp/log/xmodmap.txt

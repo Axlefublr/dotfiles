@@ -45,19 +45,19 @@ funcsave cf > /dev/null
 
 function xrestart
 	killall xremap
-	xremap --mouse --watch ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
+	xremap --mouse ~/prog/dotfiles/xremap/xremap.yml >> /tmp/log/xremap.txt & disown
 end
 funcsave xrestart > /dev/null
 
 function grostart
 	killall gromit-mpx
-	gromit-mpx -k "none" -u "none" &> /tmp/log/gromit-mpx.txt & disown
+	gromit-mpx -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
 end
 funcsave grostart > /dev/null
 
 function ollamastart
 	killall ollama
-	ollama serve &> /tmp/log/ollama.txt & disown
+	ollama serve >> /tmp/log/ollama.txt & disown
 end
 funcsave ollamastart > /dev/null
 
