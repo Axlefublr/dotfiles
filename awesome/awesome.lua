@@ -610,7 +610,9 @@ awful.rules.rules = {
 			keys = clientkeys,
 			buttons = clientbuttons,
 			screen = awful.screen.preferred,
-			placement = awful.placement.no_overlap + awful.placement.no_offscreen
+			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+			floating = false,
+			maximized = false
 		}
 	},
 
@@ -649,15 +651,28 @@ awful.rules.rules = {
 	},
 
 	-- Add titlebars to normal clients and dialogs
-	{
-		rule_any = { type = { "normal", "dialog" }
-		},
-		properties = { titlebars_enabled = false }
-	},
+	-- {
+	-- 	rule_any = { type = { "normal", "dialog" }
+	-- 	},
+	-- 	properties = { titlebars_enabled = true }
+	-- },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
 	--   properties = { screen = 1, tag = "2" } },
+
+	{
+		rule = { class = "Spotify" },
+		properties = { tag = "," }
+	},
+	{
+		rule = { class = "Vivaldi-stable", name = "Discord" },
+		properties = { tag = "m" }
+	},
+	{
+		rule = { class = "Vivaldi-stable", name = "YouTube" },
+		properties = { tag = "." }
+	}
 }
 -- }}}
 
@@ -674,11 +689,11 @@ client.connect_signal("manage", function(c)
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
 	end
-	if not awesome.startup then
-		awful.client.setslave(c)
-		c.maximized = false
-		c.floating = false
-	end
+	-- if not awesome.startup then
+	-- 	awful.client.setslave(c)
+	-- 	c.maximized = false
+	-- 	c.floating = false
+	-- end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
