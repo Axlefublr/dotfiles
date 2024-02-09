@@ -48,10 +48,6 @@ ln -sf ~/prog/dotfiles/bacon/prefs.toml ~/.config/bacon/prefs.toml
 # Yt-dlp
 ln -sf ~/prog/dotfiles/yt-dlp.conf ~/yt-dlp.conf
 
-# Crontab
-crontab -e
-# @monthly ~/prog/dotfiles/scripts/crontab/monthly.fish
-
 # Less
 sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
 
