@@ -32,6 +32,9 @@ theme.border_marked = "#91231c"
 
 theme.prompt_font = "JetBrainsMono NF"
 
+theme.taglist_fg_focus = "#0f0f0f"
+theme.taglist_bg_focus = "#ffd75f"
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
