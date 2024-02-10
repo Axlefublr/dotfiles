@@ -1,0 +1,193 @@
+function Update_volume_widget()
+	awful.spawn.easy_async_with_shell("get-volume", function(stdout)
+		Volume_widget:set_text(" " .. stdout:gsub("[\r\n]*$", "") .. "% ")
+	end)
+end
+
+mymainmenu = awful.menu({
+	items = {
+		{ "restart",  awesome.restart },
+		{ "quit",     function() awesome.quit() end },
+		{ "terminal", terminal }
+	}
+})
+
+mykeyboardlayout = awful.widget.keyboardlayout()
+
+mytextclock = wibox.widget.textclock(" %A %y.%m.%d %H:%M:%S ", 1)
+mytextclock.font = "JetBrainsMono NF"
+
+Volume_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = "JetBrainsMono NF"
+}
+Update_volume_widget()
+
+Taglist_buttons = gears.table.join(
+	awful.button({}, 1, function(tag) tag:view_only() end),
+	awful.button({}, 3, awful.tag.viewtoggle),
+	awful.button({}, 5, function(tag) awful.tag.viewnext(tag.screen) end),
+	awful.button({}, 4, function(tag) awful.tag.viewprev(tag.screen) end)
+)
+
+Tasklist_buttons = gears.table.join(
+	awful.button({}, 1, function(client)
+		if client == client.focus then
+			client.minimized = true
+		else
+			client:emit_signal(
+				"request::activate",
+				"tasklist",
+				{ raise = true }
+			)
+		end
+	end),
+	awful.button({}, 5, function()
+		awful.client.focus.byidx(1)
+	end),
+	awful.button({}, 4, function()
+		awful.client.focus.byidx(-1)
+	end))
+
+function Set_wallpaper(s)
+	-- Wallpaper
+	if beautiful.wallpaper then
+		local wallpaper = beautiful.wallpaper
+		-- If wallpaper is a function, call it with the screen
+		if type(wallpaper) == "function" then
+			wallpaper = wallpaper(s)
+		end
+		gears.wallpaper.maximized(wallpaper, s, true)
+	end
+end
+
+awful.screen.connect_for_each_screen(function(screen)
+	Set_wallpaper(screen)
+
+	-- Tag definition
+	awful.tag.add("u", {
+		layout              = awful.layout.suit.tile.left,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.74,
+		selected            = true,
+	})
+	awful.tag.add("i", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("o", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("p", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("m", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add(",", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add(".", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("/", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("U", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("I", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("O", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("P", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("M", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("<", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add(">", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+	awful.tag.add("?", {
+		layout              = awful.layout.suit.tile,
+		master_fill_policy  = "expand",
+		master_width_factor = 0.5,
+	})
+
+	screen.mypromptbox = awful.widget.prompt()
+
+	screen.mylayoutbox = awful.widget.layoutbox(screen)
+	screen.mylayoutbox:buttons(gears.table.join(
+		awful.button({}, 1, function() awful.layout.inc(1) end),
+		awful.button({}, 3, function() awful.layout.inc(-1) end),
+		awful.button({}, 4, function() awful.layout.inc(1) end),
+		awful.button({}, 5, function() awful.layout.inc(-1) end)))
+
+	screen.mytaglist = awful.widget.taglist {
+		screen  = screen,
+		filter  = awful.widget.taglist.filter.all,
+		buttons = Taglist_buttons
+	}
+
+	screen.mytasklist = awful.widget.tasklist {
+		screen  = screen,
+		filter  = awful.widget.tasklist.filter.currenttags,
+		buttons = Tasklist_buttons
+	}
+
+	screen.mywibox = awful.wibar({ position = "top", screen = screen })
+
+	screen.mywibox:setup {
+		layout = wibox.layout.align.horizontal,
+		-- Left widgets
+		{
+			layout = wibox.layout.fixed.horizontal,
+			mytextclock,
+			Volume_widget,
+			mykeyboardlayout,
+			screen.mypromptbox,
+		},
+		screen.mytasklist, -- Middle widget
+		-- Right widgets
+		{
+			layout = wibox.layout.fixed.horizontal,
+			wibox.widget.systray(),
+			screen.mytaglist,
+			screen.mylayoutbox,
+		},
+	}
+end)

@@ -66,7 +66,7 @@ echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d
 # Awesome wm
 mkdir -p ~/.config/awesome
 ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
-ln -sf ~/prog/dotfiles/awesome/theme.lua ~/.config/awesome/theme.lua
+ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
 
 # Twemoji
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf

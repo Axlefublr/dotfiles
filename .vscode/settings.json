@@ -16,6 +16,13 @@
 		"modkey",
 		"editor_cmd",
 		"editor",
-		"terminal"
+		"terminal",
+		"awful",
+		"gears",
+		"wibox",
+		"beautiful",
+		"naughty",
+		"menubar",
+		"hotkeys_popup"
 	]
 }
