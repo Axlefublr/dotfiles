@@ -14,13 +14,13 @@ local theme = {}
 theme.font          = "Ubuntu NF"
 
 theme.bg_normal     = "#292828"
-theme.bg_focus      = "#343232"
+theme.bg_focus      = "#292828"
 theme.bg_urgent     = "#ffafd7"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#928374"
-theme.fg_focus      = "#d4be98"
+theme.fg_normal     = "#d4be98"
+theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#0f0f0f"
 theme.fg_minimize   = "#ffffff"
 
