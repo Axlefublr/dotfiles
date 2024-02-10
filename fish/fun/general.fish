@@ -152,7 +152,11 @@ funcsave bak > /dev/null
 
 function loopuntil
 	set -l counter 0
-	while not eval $argv[1]
+	while true
+		set output (eval $argv[1])
+		if test $status -eq 0
+			break
+		end
 		set counter (math $counter + 1)
 		if set -q argv[2]
 			sleep $argv[2]
@@ -165,6 +169,9 @@ function loopuntil
 	end
 	if set -q argv[3]
 		sleep $argv[3]
+	end
+	for line in $output
+		echo $line
 	end
 end
 funcsave loopuntil > /dev/null
