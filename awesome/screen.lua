@@ -1,6 +1,14 @@
-function Update_volume_widget()
+function Widget_update_muteness()
+	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
+		local stdout = stdout:gsub("[\r\n]*$", "")
+		Muteness_widget:set_text(stdout .. " ")
+	end)
+end
+
+function Widget_update_volume()
 	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
-		Volume_widget:set_text(" " .. stdout:gsub("[\r\n]*$", "") .. "% ")
+		local stdout = stdout:gsub("[\r\n]*$", "")
+		Volume_widget:set_text(stdout .. "% ")
 	end)
 end
 
@@ -17,12 +25,19 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock(" %A %y.%m.%d %H:%M:%S ", 1)
 mytextclock.font = "JetBrainsMono NF"
 
+Muteness_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = "JetBrainsMono NF"
+}
+Widget_update_muteness()
+
 Volume_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
 	font = "JetBrainsMono NF"
 }
-Update_volume_widget()
+Widget_update_volume()
 
 Taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
@@ -177,6 +192,7 @@ awful.screen.connect_for_each_screen(function(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
+			Muteness_widget,
 			Volume_widget,
 			mykeyboardlayout,
 			screen.mypromptbox,
