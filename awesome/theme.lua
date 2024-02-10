@@ -14,20 +14,20 @@ local theme = {}
 theme.font          = "Ubuntu NF"
 
 theme.bg_normal     = "#292828"
-theme.bg_focus      = "#292828"
+theme.bg_focus      = "#212121"
 theme.bg_urgent     = "#ffafd7"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#d4be98"
-theme.fg_focus      = "#ffffff"
+theme.fg_focus      = "#d4be98"
 theme.fg_urgent     = "#0f0f0f"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(2)
-theme.border_width  = dpi(0)
+theme.border_width  = dpi(2)
 theme.border_normal = "#292828"
-theme.border_focus  = "#ffafd7"
+theme.border_focus  = "#ffd75f"
 theme.border_marked = "#91231c"
 
 theme.prompt_font = "JetBrainsMono NF"
@@ -102,7 +102,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "/home/axlefublr/Pictures/Tree/Themes/pixel-pink-sun.png"
+theme.wallpaper = "/home/axlefublr/Pictures/Tree/Themes/deer.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
