@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+mkdir -p ~/.config/systemd/user
 ln -sf ~/prog/dotfiles/scripts/systemd/services/* ~/.config/systemd/user
 ln -sf ~/prog/dotfiles/scripts/systemd/timers/* ~/.config/systemd/user
 
