@@ -36,14 +36,14 @@ function move_all
 end
 funcsave move_all > /dev/null
 
-function minigun-save
+function minigun_save
 	set -l coords (xdotool getmouselocation | string match -gr '\\w:(\\d+) \\w:(\\d+)')
 	printf $coords[1]' '$coords[2] > ~/.local/share/minigun/$argv[1]
 end
-funcsave minigun-save > /dev/null
+funcsave minigun_save > /dev/null
 
-function minigun-apply
+function minigun_apply
 	set -l coords (cat ~/.local/share/minigun/$argv[1] | string split ' ')
 	xdotool mousemove $coords[1] $coords[2]
 end
-funcsave minigun-apply > /dev/null
+funcsave minigun_apply > /dev/null

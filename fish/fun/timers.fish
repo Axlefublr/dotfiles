@@ -69,7 +69,7 @@ function doti
 end
 funcsave doti > /dev/null
 
-function yeared-parse
+function yeared_parse
 	for line in (cat ~/prog/info/events/anniversaries.txt | string split '\n')
 		set -l match (string match -gr '(\\d+).(\\d+.\\d+) — (.*)' $line)
 		set -l year $match[1]
@@ -82,9 +82,9 @@ function yeared-parse
 		kitty -T task holup "$year years ago: $description" &
 	end
 end
-funcsave yeared-parse > /dev/null
+funcsave yeared_parse > /dev/null
 
-function yearless-parse
+function yearless_parse
 	for line in (cat ~/prog/info/events/yearly.txt | string split '\n')
 		set -l match (string match -gr '(\\d+.\\d+) — (.*)' $line)
 		set -l date $match[1]
@@ -95,4 +95,4 @@ function yearless-parse
 		kitty -T task holup "$description" &
 	end
 end
-funcsave yearless-parse > /dev/null
+funcsave yearless_parse > /dev/null

@@ -1,5 +1,5 @@
 function Update_volume_widget()
-	awful.spawn.easy_async_with_shell("get-volume", function(stdout)
+	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
 		Volume_widget:set_text(" " .. stdout:gsub("[\r\n]*$", "") .. "% ")
 	end)
 end

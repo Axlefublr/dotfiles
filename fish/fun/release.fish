@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-function rust-release
+function rust_release
 	if not set -q argv[1]
 		echo 'set the version'
 		return 1
@@ -48,7 +48,7 @@ function rust-release
 		return 1
 	end
 
-	rust-ci
+	rust_ci
 	indeed .gitignore release-notes.txt
 	cargo +nightly mommy fmt
 
@@ -60,9 +60,9 @@ function rust-release
 	truncate -s 0 release-notes.txt
 	cargo mommy publish
 end
-funcsave rust-release > /dev/null
+funcsave rust_release > /dev/null
 
-function rust-publish
+function rust_publish
 	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
@@ -77,9 +77,9 @@ function rust-publish
 	end
 	cargo mommy publish
 end
-funcsave rust-publish > /dev/null
+funcsave rust_publish > /dev/null
 
-function rust-fmt --description 'Bring in format config and format with it'
+function rust_fmt --description 'Bring in format config and format with it'
 	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
@@ -87,9 +87,9 @@ function rust-fmt --description 'Bring in format config and format with it'
 	cp -f ~/prog/dotfiles/rust/rustfmt.toml ./.rustfmt.toml &&
 	cargo +nightly mommy fmt
 end
-funcsave rust-fmt > /dev/null
+funcsave rust_fmt > /dev/null
 
-function rust-ci --description 'Bring in on tag push github action'
+function rust_ci --description 'Bring in on tag push github action'
 	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
@@ -98,9 +98,9 @@ function rust-ci --description 'Bring in on tag push github action'
 	cp -f ~/prog/dotfiles/ghactions/rust.yml ./.github/workflows/ci.yml &&
 	sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
 end
-funcsave rust-ci > /dev/null
+funcsave rust_ci > /dev/null
 
-function rust-bin
+function rust_bin
 	if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
 		echo "you're not in repo root"
 		return 1
@@ -116,17 +116,17 @@ function rust-bin
 		cd $prevdir
 	end
 end
-funcsave rust-bin > /dev/null
+funcsave rust_bin > /dev/null
 
-function rust-init
+function rust_init
 	cargo mommy init
 	cp -f ~/prog/dotfiles/rust/metadata.toml ./Cargo.toml
 	sd '%project_name%' (basename $PWD) Cargo.toml
 	touch README.md
 	touch release-notes.txt
 	indeed .gitignore release-notes.txt
-	rust-ci
+	rust_ci
 	git add . &&
 	git commit -m "first commit"
 end
-funcsave rust-init > /dev/null
+funcsave rust_init > /dev/null

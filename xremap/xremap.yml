@@ -140,93 +140,93 @@ keymap:
       Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
       Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
 
-      Key_1: { launch: [ fish, -c, "minigun-apply 1" ] }
-      Key_2: { launch: [ fish, -c, "minigun-apply 2" ] }
-      Key_3: { launch: [ fish, -c, "minigun-apply 3" ] }
-      Key_4: { launch: [ fish, -c, "minigun-apply 4" ] }
-      Key_5: { launch: [ fish, -c, "minigun-apply 5" ] }
-      Key_6: { launch: [ fish, -c, "minigun-apply 6" ] }
-      Key_7: { launch: [ fish, -c, "minigun-apply 7" ] }
-      Key_8: { launch: [ fish, -c, "minigun-apply 8" ] }
-      Key_9: { launch: [ fish, -c, "minigun-apply 9" ] }
-      Key_0: { launch: [ fish, -c, "minigun-apply 0" ] }
+      Key_1: { launch: [ fish, -c, "minigun_apply 1" ] }
+      Key_2: { launch: [ fish, -c, "minigun_apply 2" ] }
+      Key_3: { launch: [ fish, -c, "minigun_apply 3" ] }
+      Key_4: { launch: [ fish, -c, "minigun_apply 4" ] }
+      Key_5: { launch: [ fish, -c, "minigun_apply 5" ] }
+      Key_6: { launch: [ fish, -c, "minigun_apply 6" ] }
+      Key_7: { launch: [ fish, -c, "minigun_apply 7" ] }
+      Key_8: { launch: [ fish, -c, "minigun_apply 8" ] }
+      Key_9: { launch: [ fish, -c, "minigun_apply 9" ] }
+      Key_0: { launch: [ fish, -c, "minigun_apply 0" ] }
 
       Semicolon:
         remap:
-          q: { launch: [ fish, -c, "minigun-save q" ] }
-          w: { launch: [ fish, -c, "minigun-save w" ] }
-          e: { launch: [ fish, -c, "minigun-save e" ] }
-          r: { launch: [ fish, -c, "minigun-save r" ] }
-          t: { launch: [ fish, -c, "minigun-save t" ] }
-          'y': { launch: [ fish, -c, "minigun-save y" ] }
-          u: { launch: [ fish, -c, "minigun-save u" ] }
-          i: { launch: [ fish, -c, "minigun-save i" ] }
-          o: { launch: [ fish, -c, "minigun-save o" ] }
-          p: { launch: [ fish, -c, "minigun-save p" ] }
-          a: { launch: [ fish, -c, "minigun-save a" ] }
-          s: { launch: [ fish, -c, "minigun-save s" ] }
-          d: { launch: [ fish, -c, "minigun-save d" ] }
-          f: { launch: [ fish, -c, "minigun-save f" ] }
-          g: { launch: [ fish, -c, "minigun-save g" ] }
-          h: { launch: [ fish, -c, "minigun-save h" ] }
-          j: { launch: [ fish, -c, "minigun-save j" ] }
-          k: { launch: [ fish, -c, "minigun-save k" ] }
-          l: { launch: [ fish, -c, "minigun-save l" ] }
-          z: { launch: [ fish, -c, "minigun-save z" ] }
-          x: { launch: [ fish, -c, "minigun-save x" ] }
-          c: { launch: [ fish, -c, "minigun-save c" ] }
-          v: { launch: [ fish, -c, "minigun-save v" ] }
-          b: { launch: [ fish, -c, "minigun-save b" ] }
-          'n': { launch: [ fish, -c, "minigun-save n" ] }
-          m: { launch: [ fish, -c, "minigun-save m" ] }
-          Key_1: { launch: [ fish, -c, "minigun-save 1" ] }
-          Key_2: { launch: [ fish, -c, "minigun-save 2" ] }
-          Key_3: { launch: [ fish, -c, "minigun-save 3" ] }
-          Key_4: { launch: [ fish, -c, "minigun-save 4" ] }
-          Key_5: { launch: [ fish, -c, "minigun-save 5" ] }
-          Key_6: { launch: [ fish, -c, "minigun-save 6" ] }
-          Key_7: { launch: [ fish, -c, "minigun-save 7" ] }
-          Key_8: { launch: [ fish, -c, "minigun-save 8" ] }
-          Key_9: { launch: [ fish, -c, "minigun-save 9" ] }
-          Key_0: { launch: [ fish, -c, "minigun-save 0" ] }
+          q: { launch: [ fish, -c, "minigun_save q" ] }
+          w: { launch: [ fish, -c, "minigun_save w" ] }
+          e: { launch: [ fish, -c, "minigun_save e" ] }
+          r: { launch: [ fish, -c, "minigun_save r" ] }
+          t: { launch: [ fish, -c, "minigun_save t" ] }
+          'y': { launch: [ fish, -c, "minigun_save y" ] }
+          u: { launch: [ fish, -c, "minigun_save u" ] }
+          i: { launch: [ fish, -c, "minigun_save i" ] }
+          o: { launch: [ fish, -c, "minigun_save o" ] }
+          p: { launch: [ fish, -c, "minigun_save p" ] }
+          a: { launch: [ fish, -c, "minigun_save a" ] }
+          s: { launch: [ fish, -c, "minigun_save s" ] }
+          d: { launch: [ fish, -c, "minigun_save d" ] }
+          f: { launch: [ fish, -c, "minigun_save f" ] }
+          g: { launch: [ fish, -c, "minigun_save g" ] }
+          h: { launch: [ fish, -c, "minigun_save h" ] }
+          j: { launch: [ fish, -c, "minigun_save j" ] }
+          k: { launch: [ fish, -c, "minigun_save k" ] }
+          l: { launch: [ fish, -c, "minigun_save l" ] }
+          z: { launch: [ fish, -c, "minigun_save z" ] }
+          x: { launch: [ fish, -c, "minigun_save x" ] }
+          c: { launch: [ fish, -c, "minigun_save c" ] }
+          v: { launch: [ fish, -c, "minigun_save v" ] }
+          b: { launch: [ fish, -c, "minigun_save b" ] }
+          'n': { launch: [ fish, -c, "minigun_save n" ] }
+          m: { launch: [ fish, -c, "minigun_save m" ] }
+          Key_1: { launch: [ fish, -c, "minigun_save 1" ] }
+          Key_2: { launch: [ fish, -c, "minigun_save 2" ] }
+          Key_3: { launch: [ fish, -c, "minigun_save 3" ] }
+          Key_4: { launch: [ fish, -c, "minigun_save 4" ] }
+          Key_5: { launch: [ fish, -c, "minigun_save 5" ] }
+          Key_6: { launch: [ fish, -c, "minigun_save 6" ] }
+          Key_7: { launch: [ fish, -c, "minigun_save 7" ] }
+          Key_8: { launch: [ fish, -c, "minigun_save 8" ] }
+          Key_9: { launch: [ fish, -c, "minigun_save 9" ] }
+          Key_0: { launch: [ fish, -c, "minigun_save 0" ] }
       Apostrophe:
         remap:
-          q: { launch: [ fish, -c, "minigun-apply q" ] }
-          w: { launch: [ fish, -c, "minigun-apply w" ] }
-          e: { launch: [ fish, -c, "minigun-apply e" ] }
-          r: { launch: [ fish, -c, "minigun-apply r" ] }
-          t: { launch: [ fish, -c, "minigun-apply t" ] }
-          'y': { launch: [ fish, -c, "minigun-apply y" ] }
-          u: { launch: [ fish, -c, "minigun-apply u" ] }
-          i: { launch: [ fish, -c, "minigun-apply i" ] }
-          o: { launch: [ fish, -c, "minigun-apply o" ] }
-          p: { launch: [ fish, -c, "minigun-apply p" ] }
-          a: { launch: [ fish, -c, "minigun-apply a" ] }
-          s: { launch: [ fish, -c, "minigun-apply s" ] }
-          d: { launch: [ fish, -c, "minigun-apply d" ] }
-          f: { launch: [ fish, -c, "minigun-apply f" ] }
-          g: { launch: [ fish, -c, "minigun-apply g" ] }
-          h: { launch: [ fish, -c, "minigun-apply h" ] }
-          j: { launch: [ fish, -c, "minigun-apply j" ] }
-          k: { launch: [ fish, -c, "minigun-apply k" ] }
-          l: { launch: [ fish, -c, "minigun-apply l" ] }
-          z: { launch: [ fish, -c, "minigun-apply z" ] }
-          x: { launch: [ fish, -c, "minigun-apply x" ] }
-          c: { launch: [ fish, -c, "minigun-apply c" ] }
-          v: { launch: [ fish, -c, "minigun-apply v" ] }
-          b: { launch: [ fish, -c, "minigun-apply b" ] }
-          'n': { launch: [ fish, -c, "minigun-apply n" ] }
-          m: { launch: [ fish, -c, "minigun-apply m" ] }
-          Key_1: { launch: [ fish, -c, "minigun-apply 1" ] }
-          Key_2: { launch: [ fish, -c, "minigun-apply 2" ] }
-          Key_3: { launch: [ fish, -c, "minigun-apply 3" ] }
-          Key_4: { launch: [ fish, -c, "minigun-apply 4" ] }
-          Key_5: { launch: [ fish, -c, "minigun-apply 5" ] }
-          Key_6: { launch: [ fish, -c, "minigun-apply 6" ] }
-          Key_7: { launch: [ fish, -c, "minigun-apply 7" ] }
-          Key_8: { launch: [ fish, -c, "minigun-apply 8" ] }
-          Key_9: { launch: [ fish, -c, "minigun-apply 9" ] }
-          Key_0: { launch: [ fish, -c, "minigun-apply 0" ] }
+          q: { launch: [ fish, -c, "minigun_apply q" ] }
+          w: { launch: [ fish, -c, "minigun_apply w" ] }
+          e: { launch: [ fish, -c, "minigun_apply e" ] }
+          r: { launch: [ fish, -c, "minigun_apply r" ] }
+          t: { launch: [ fish, -c, "minigun_apply t" ] }
+          'y': { launch: [ fish, -c, "minigun_apply y" ] }
+          u: { launch: [ fish, -c, "minigun_apply u" ] }
+          i: { launch: [ fish, -c, "minigun_apply i" ] }
+          o: { launch: [ fish, -c, "minigun_apply o" ] }
+          p: { launch: [ fish, -c, "minigun_apply p" ] }
+          a: { launch: [ fish, -c, "minigun_apply a" ] }
+          s: { launch: [ fish, -c, "minigun_apply s" ] }
+          d: { launch: [ fish, -c, "minigun_apply d" ] }
+          f: { launch: [ fish, -c, "minigun_apply f" ] }
+          g: { launch: [ fish, -c, "minigun_apply g" ] }
+          h: { launch: [ fish, -c, "minigun_apply h" ] }
+          j: { launch: [ fish, -c, "minigun_apply j" ] }
+          k: { launch: [ fish, -c, "minigun_apply k" ] }
+          l: { launch: [ fish, -c, "minigun_apply l" ] }
+          z: { launch: [ fish, -c, "minigun_apply z" ] }
+          x: { launch: [ fish, -c, "minigun_apply x" ] }
+          c: { launch: [ fish, -c, "minigun_apply c" ] }
+          v: { launch: [ fish, -c, "minigun_apply v" ] }
+          b: { launch: [ fish, -c, "minigun_apply b" ] }
+          'n': { launch: [ fish, -c, "minigun_apply n" ] }
+          m: { launch: [ fish, -c, "minigun_apply m" ] }
+          Key_1: { launch: [ fish, -c, "minigun_apply 1" ] }
+          Key_2: { launch: [ fish, -c, "minigun_apply 2" ] }
+          Key_3: { launch: [ fish, -c, "minigun_apply 3" ] }
+          Key_4: { launch: [ fish, -c, "minigun_apply 4" ] }
+          Key_5: { launch: [ fish, -c, "minigun_apply 5" ] }
+          Key_6: { launch: [ fish, -c, "minigun_apply 6" ] }
+          Key_7: { launch: [ fish, -c, "minigun_apply 7" ] }
+          Key_8: { launch: [ fish, -c, "minigun_apply 8" ] }
+          Key_9: { launch: [ fish, -c, "minigun_apply 9" ] }
+          Key_0: { launch: [ fish, -c, "minigun_apply 0" ] }
 
   - name: Default mode
     mode: default
@@ -244,11 +244,11 @@ keymap:
           i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
           k: { launch: [screenkey] }
           Shift-k: { launch: [killall, screenkey] }
-          l: { launch: [fish, -c, wm-toggle-float]}
-          t: { launch: [fish, -c, wm-toggle-on-top]}
-          m: { launch: [fish, -c, wm-toggle-maximized]}
-          f: { launch: [fish, -c, wm-toggle-fullscreen]}
-          Shift-l: { launch: [fish, -c, "wm-logout"]}
+          l: { launch: [fish, -c, wm_toggle_float]}
+          t: { launch: [fish, -c, wm_toggle_on_top]}
+          m: { launch: [fish, -c, wm_toggle_maximized]}
+          f: { launch: [fish, -c, wm_toggle_fullscreen]}
+          Shift-l: { launch: [fish, -c, "wm_logout"]}
           Shift-p: { launch: [poweroff] }
           Shift-b: { launch: [reboot] }
           Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
@@ -409,8 +409,8 @@ keymap:
 
   - name: Pick unicode
     remap:
-      CapsLock-m: { launch: [ fish, -c, 'emoji-picker-clipboard code' ] }
-      CapsLock-Alt-m: { launch: [ fish, -c, 'emoji-picker-clipboard name' ] }
+      CapsLock-m: { launch: [ fish, -c, 'emoji_picker_clipboard code' ] }
+      CapsLock-Alt-m: { launch: [ fish, -c, 'emoji_picker_clipboard name' ] }
 
   - name: Float image in clipboard
     exact_match: true
