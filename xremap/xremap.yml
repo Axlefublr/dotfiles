@@ -237,8 +237,8 @@ keymap:
     remap:
       CapsLock-Alt-Semicolon:
         remap:
-          e: { launch: [sh, -c, "loago do eat ; notify-send -t 1000 -a loago 'ate!'"]}
-          r: { launch: [fish, -c, xrestart]}
+          e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!'"]}
+          r: { launch: [fish, -c, xrestartwaaa]}
           shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
           i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
@@ -370,7 +370,7 @@ keymap:
 
   - name: Kde Compose key
     remap:
-      CapsLock-Apostrophe: Insert
+      CapsLock-Apostrophe: CapsLock
 
   - name: Close / kill focused process
     remap:

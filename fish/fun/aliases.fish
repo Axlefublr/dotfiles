@@ -50,6 +50,22 @@ function xrestart
 end
 funcsave xrestart > /dev/null
 
+function xwaaa
+	xset r rate 170 40 >> /tmp/log/xset.txt
+	xset s off -dpms >> /tmp/log/xset.txt
+	setxkbmap -option "shift:both_capslock" >> /tmp/log/setxkbmap.txt
+	setxkbmap -option "compose:caps" >> /tmp/log/setxkbmap.txt
+end
+funcsave xwaaa > /dev/null
+
+function xrestartwaaa
+	xrestart
+	sleep 3
+	xwaaa
+	notify-send -t 2000 'restarted xremap'
+end
+funcsave xrestartwaaa > /dev/null
+
 function grostart
 	killall gromit-mpx
 	gromit-mpx -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown

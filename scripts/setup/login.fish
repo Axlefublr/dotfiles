@@ -46,8 +46,5 @@ spotify-launcher -v >> /tmp/log/spotify.txt & disown
 set spotify (win_wait 'spotify\.Spotify')
 move_all 6 $spotify
 
-sleep 10
-xset r rate 170 40 >> /tmp/log/xset.txt
-xset s off -dpms >> /tmp/log/xset.txt
-xmodmap ~/prog/dotfiles/x11/xmodmap.txt >> /tmp/log/xmodmap.txt
-setxkbmap -option "shift:both_capslock"
+sleep 3
+xwaaa
