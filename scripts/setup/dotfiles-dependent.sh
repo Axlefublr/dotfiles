@@ -68,6 +68,9 @@ mkdir -p ~/.config/awesome
 ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
 ln -sf ~/prog/dotfiles/awesome/theme.lua ~/.config/awesome/theme.lua
 
+# Twemoji
+sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql
