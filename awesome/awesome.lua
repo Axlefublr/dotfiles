@@ -666,44 +666,19 @@ awful.rules.rules = {
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
 	--   properties = { screen = 1, tag = "2" } },
-
-	{
-		rule = { class = "Spotify" },
-		properties = { tag = "," }
-	},
-	{
-		rule = { class = "Vivaldi-stable" },
-		properties = { tag = "i" }
-	}
 }
 -- }}}
 
--- {{{ Signals
+-- Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
-	-- Set the windows at the slave,
-	-- i.e. put it at the end of others instead of setting it master.
+	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(c) end
+end)
 
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
-
--- Autostart
-awful.spawn.once("vivaldi-stable --force-dark-mode", {
-	-- maximized = false
-}, function(c) c:move_to_tag(screen.primary.tags[2]) end)
-awful.spawn.once("kitty -T meow", {
-	tag = screen.primary.tags[3]
-})
-awful.spawn.once("kitty --hold kitten @set-window-title timerkitty", {
-	tag = screen.primary.tags[11]
-})
-awful.spawn.once("kitty -d ~/Videos/Content ranger", {
-	tag = screen.primary.tags[15]
-})
-awful.spawn.once("anki", {}, function(c) c:move_to_tag(screen.primary.tags[8]) end)
 
 awful.spawn.once("/home/axlefublr/prog/dotfiles/scripts/setup/login.fish", {})

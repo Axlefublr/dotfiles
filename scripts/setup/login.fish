@@ -1,31 +1,52 @@
 #!/usr/bin/env fish
 
-mkdir -p /tmp/log
+if test -d /tmp/log
+	return 1
+else
+	mkdir -p /tmp/log
+end
 
 xremap --mouse ~/prog/dotfiles/xremap/xremap.yml >> /tmp/log/xremap.txt & disown
 ydotoold >> /tmp/log/ydotoold.txt & disown
 gromit-mpx -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
 # ollama serve >> /tmp/log/ollama.txt & disown
 
-vivaldi-stable --force-dark-mode >> /tmp/log/vivaldi.txt & disown
+kitty -T meow & disown
+set kitty (win_wait 'kitty — meow$' 0.1 0 50)
+move_all 3 $kitty
+
+kitty --hold kitten @set-window-title timerkitty & disown
+set kitty (win_wait 'kitty — timerkitty$' 0.1 0 50)
+move_all 11 $kitty
+
+kitty -d ~/Videos/Content ranger & disown
+set kitty (win_wait 'kitty — ranger$' 0.1 0 50)
+move_all 15 $kitty
+
 code >> /tmp/log/vscode.txt & disown
-
-winwaitclass code 0.5 0 20
+win_wait 'code\.Code — main - vscode' 0.1 0 50
 kitty -d ~/prog/dotfiles & disown
-# winmoveall code 4
-# wmctrl -s 4
+set other_vscodes (win_wait_except 'main - vscode' 'code.Code' 0.1 0 50)
+move_all 9 $other_vscodes
 
-winwaitclass vivaldi-stable 0.5 0 20
-winmoveall vivaldi-stable 1
-winwaitname 'Discord' 0.5 0 20
-wmctrl -r 'Discord' -t 8
-winwaitname 'YouTube' 0.5 0 20
-wmctrl -r 'YouTube' -t 10
+vivaldi-stable --force-dark-mode >> /tmp/log/vivaldi.txt & disown
+set vivaldis (win_wait 'Vivaldi-stable' 0.5 0 20)
+move_all 2 $vivaldis
+set discord (win_wait 'Vivaldi-stable — .*Discord' 0.1 0 50)
+move_all 5 $discord
+set youtube (win_wait 'Vivaldi-stable — .*YouTube' 0.1 0 50)
+move_all 7 $youtube
+
+anki >> /tmp/log/anki.txt & disown
+set ankis (win_wait 'anki\.Anki' 0.1 0 50)
+move_all 8 $ankis
 
 loopuntil is-internet 0.5 0 60
 spotify-launcher -v >> /tmp/log/spotify.txt & disown
+set spotify (win_wait 'spotify\.Spotify')
+move_all 6 $spotify
 
 sleep 10
 xset r rate 170 40 >> /tmp/log/xset.txt
-xset s off >> /tmp/log/xset.txt
+xset s off -dpms >> /tmp/log/xset.txt
 xmodmap ~/prog/dotfiles/x11/xmodmap.txt >> /tmp/log/xmodmap.txt
