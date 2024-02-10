@@ -72,3 +72,4 @@ sudo pacman -S --noconfirm python3
 sudo pacman -S --noconfirm python-pip
 sudo pacman -S --noconfirm python-pipx
 sudo pacman -S --noconfirm sddm
+sudo pacman -S --noconfirm termdown
