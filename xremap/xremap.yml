@@ -444,8 +444,8 @@ keymap:
 
   - name: System & Media
     remap:
-      CapsLock-Alt-s: { launch: [fish, -c, 'volume_set -5% ; widget_update_volume'] }
-      CapsLock-Alt-d: { launch: [fish, -c, 'volume_set +5% ; widget_update_volume'] }
+      CapsLock-Alt-s: { launch: [fish, -c, 'set_volume -5% ; widget_update_volume'] }
+      CapsLock-Alt-d: { launch: [fish, -c, 'set_volume +5% ; widget_update_volume'] }
 
       CapsLock-Shift-s: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
       CapsLock-Shift-d: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
@@ -453,10 +453,10 @@ keymap:
       CapsLock-Alt-w: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
       CapsLock-Alt-e: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
 
-      CapsLock-Shift-w: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, decrease_microphone_volume] }
-      CapsLock-Shift-e: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, increase_microphone_volume] }
+      CapsLock-Shift-w: { launch: [fish, -c, 'set_mic_volume -5% ; widget_update_mic_volume'] }
+      CapsLock-Shift-e: { launch: [fish, -c, 'set_mic_volume +5% ; widget_update_mic_volume'] }
 
-      CapsLock-Alt-r: { launch: [qdbus, org.kde.kglobalaccel, /component/kmix, invokeShortcut, mic_mute] }
+      CapsLock-Alt-r: { launch: [fish, -c, 'toggle_mic_mute ; widget_update_mic_muteness'] }
       CapsLock-Shift-r: { launch: [fish, -c, 'toggle_mute ; widget_update_muteness'] }
 
       CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }

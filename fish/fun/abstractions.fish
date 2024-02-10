@@ -6,12 +6,30 @@ alias --save wm_toggle_on_top "awesome-client 'client.focus.ontop = not client.f
 alias --save wm_toggle_maximized "awesome-client 'client.focus.maximized = not client.focus.maximized'" > /dev/null
 alias --save wm_toggle_fullscreen "awesome-client 'client.focus.fullscreen = not client.focus.fullscreen'" > /dev/null
 
-alias --save volume_set 'pactl set-sink-volume @DEFAULT_SINK@' > /dev/null
+alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@' > /dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle' > /dev/null
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 
+alias --save set_mic_volume 'pactl set-source-volume @DEFAULT_SOURCE@' > /dev/null
+alias --save toggle_mute_mic 'pactl set-source-mute @DEFAULT_SOURCE@ toggle' > /dev/null
+alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
+
 alias --save widget_update_volume 'awesome-client \'Widget_update_volume()\'' > /dev/null
 alias --save widget_update_muteness 'awesome-client \'Widget_update_muteness()\'' > /dev/null
+alias --save widget_update_mic_volume 'awesome-client \'Widget_update_mic_volume()\'' > /dev/null
+alias --save widget_update_mic_muteness 'awesome-client \'Widget_update_mic_muteness()\'' > /dev/null
+
+function get_mic_mute
+	set output (pactl get-source-mute @DEFAULT_SOURCE@)
+	if string match -r 'Mute: no' $output &> /dev/null
+		printf ''
+	else if string match -r 'Mute: yes' $output &> /dev/null
+		printf ''
+	else
+		printf 'ඞ'
+	end
+end
+funcsave get_mic_mute > /dev/null
 
 function get_mute
 	set output (pactl get-sink-mute @DEFAULT_SINK@)
