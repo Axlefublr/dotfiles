@@ -235,7 +235,7 @@ keymap:
 
   - name: Global chord hotkeys
     remap:
-      CapsLock-Alt-Semicolon:
+      CapsLock-Semicolon:
         remap:
           e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!'"]}
           r: { launch: [fish, -c, xrestartwaaa]}
@@ -370,7 +370,7 @@ keymap:
 
   - name: Compose key
     remap:
-      CapsLock-Apostrophe: ScrollLock
+      CapsLock-n: ScrollLock
 
   - name: Toggle capslock
     remap:
