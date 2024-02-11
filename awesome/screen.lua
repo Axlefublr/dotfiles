@@ -265,5 +265,5 @@ gears.timer.start_new(1, function()
 	Widget_update_muteness()
 	Widget_update_volume()
 	Widget_update_layout()
-	return true
+	return false
 end)
