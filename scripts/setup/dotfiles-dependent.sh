@@ -68,6 +68,10 @@ mkdir -p ~/.config/awesome
 ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
 ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
 
+# Picom
+mkdir -p ~/.config/picom
+ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
+
 # Twemoji
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 

@@ -71,9 +71,15 @@ funcsave xrestartwaaa > /dev/null
 
 function grostart
 	killall gromit-mpx
-	gromit-mpx -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
+	gromit-mpx -o 1 -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
 end
 funcsave grostart > /dev/null
+
+function picomstart
+	killall picom
+	picom >> /tmp/log/picom.txt & disown
+end
+funcsave picomstart > /dev/null
 
 function ollamastart
 	killall ollama
