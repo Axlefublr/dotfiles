@@ -155,6 +155,11 @@ function loopuntil
 	while true
 		set output (eval $argv[1])
 		if test $status -eq 0
+			if set -q argv[3] && test $argv[3] -ne 0
+				sleep $argv[3]
+				set argv[3] 0
+				continue
+			end
 			break
 		end
 		set counter (math $counter + 1)
@@ -166,9 +171,6 @@ function loopuntil
 				return 1
 			end
 		end
-	end
-	if set -q argv[3]
-		sleep $argv[3]
 	end
 	for line in $output
 		echo $line
