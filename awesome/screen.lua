@@ -22,7 +22,7 @@ end
 function Widget_update_volume()
 	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
 		local stdout = Rtrim(stdout)
-		Volume_widget:set_text(stdout .. "% ")
+		Volume_widget:set_text(stdout .. "%")
 	end)
 end
 
@@ -38,7 +38,7 @@ function Widget_update_layout()
 			else
 				Layout_background_widget.fg = beautiful.white
 				Layout_background_widget.bg = beautiful.background
-				Layout_widget:set_text(" " .. layout:lower() .. " ")
+				Layout_widget:set_text(layout:lower())
 			end
 		end)
 	end)
@@ -51,6 +51,12 @@ mymainmenu = awful.menu({
 		{ "terminal", terminal }
 	}
 })
+
+Padding_widget = wibox.widget {
+	text = " ",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
 
 mytextclock = wibox.widget.textclock(" %A %y.%m.%d %H:%M:%S", 1)
 mytextclock.font = beautiful.code_font
@@ -211,7 +217,8 @@ awful.screen.connect_for_each_screen(function(screen)
 		master_width_factor = 0.5,
 	})
 
-	screen.mypromptbox = awful.widget.prompt()
+	screen.prompt_widget = awful.widget.prompt()
+	screen.prompt_margin_widget = wibox.container.margin(screen.prompt_widget, 7, 7, 0, 0)
 
 	screen.mylayoutbox = awful.widget.layoutbox(screen)
 	screen.mylayoutbox:buttons(gears.table.join(
@@ -240,18 +247,21 @@ awful.screen.connect_for_each_screen(function(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
+			Padding_widget,
 			Layout_background_widget,
+			Padding_widget,
 			-- Layout_widget,
 			Mic_muteness_widget,
 			Mic_volume_widget,
 			Muteness_widget,
 			Volume_widget,
-			screen.mypromptbox,
+			screen.prompt_margin_widget,
 		},
 		screen.mytasklist, -- Middle widget
 		-- Right widgets
 		{
 			layout = wibox.layout.fixed.horizontal,
+			Padding_widget,
 			wibox.widget.systray(),
 			screen.mytaglist,
 			screen.mylayoutbox,
