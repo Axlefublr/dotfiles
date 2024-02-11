@@ -20,6 +20,7 @@ theme.lighter       = "#313030"
 theme.pink          = "#ffafd7"
 theme.yellow        = "#ffd75f"
 theme.black         = "#0f0f0f"
+theme.red           = "#ff2930"
 
 theme.bg_normal     = theme.background
 theme.bg_focus      = theme.darkerest

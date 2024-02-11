@@ -1,7 +1,13 @@
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell("get_mic_mute", function(stdout)
 		local stdout = Rtrim(stdout)
-		Mic_muteness_widget:set_text(stdout .. " ")
+		if stdout == "yes" then
+			Mic_muteness_background_widget.fg = beautiful.red
+			Mic_muteness_widget:set_text(" ")
+		elseif stdout == "no" then
+			Mic_muteness_background_widget.fg = beautiful.white
+			Mic_muteness_widget:set_text(" ")
+		end
 	end)
 end
 
@@ -15,14 +21,20 @@ end
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
 		local stdout = Rtrim(stdout)
-		Muteness_widget:set_text(stdout .. " ")
+		if stdout == "yes" then
+			Muteness_background_widget.fg = beautiful.red
+			Muteness_widget:set_text(" ")
+		elseif stdout == "no" then
+			Muteness_background_widget.fg = beautiful.white
+			Muteness_widget:set_text(" ")
+		end
 	end)
 end
 
 function Widget_update_volume()
 	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
 		local stdout = Rtrim(stdout)
-		Volume_widget:set_text(stdout .. "%")
+		Volume_widget:set_text(stdout .. "% ")
 	end)
 end
 
@@ -41,6 +53,24 @@ function Widget_update_layout()
 				Layout_widget:set_text(layout:lower())
 			end
 		end)
+	end)
+end
+
+function Widget_update_wifi()
+	awful.spawn.easy_async_with_shell("get_internet", function(stdout)
+		local stdout = Rtrim(stdout)
+		if stdout == 'none' then
+			Wifi_background_widget.fg = beautiful.red
+			Wifi_widget:set_text("󰖪 ")
+		elseif stdout == 'limited' then
+			Wifi_background_widget.fg = beautiful.yellow
+			Wifi_widget:set_text("󰤟 ")
+		elseif stdout == 'full' then
+			Wifi_background_widget.fg = beautiful.white
+			Wifi_widget:set_text("󰖩 ")
+		else
+			Wifi_widget:set_text("")
+		end
 	end)
 end
 
@@ -74,6 +104,7 @@ Mic_muteness_widget = wibox.widget {
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
+Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
 
 Mic_volume_widget = wibox.widget {
 	text = "",
@@ -86,12 +117,21 @@ Muteness_widget = wibox.widget {
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
+Muteness_background_widget = wibox.container.background(Muteness_widget)
 
 Volume_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
+
+Wifi_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Wifi_background_widget = wibox.container.background(Wifi_widget)
+Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 5, 0, 0)
 
 Taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
@@ -246,15 +286,10 @@ awful.screen.connect_for_each_screen(function(screen)
 		-- Left widgets
 		{
 			layout = wibox.layout.fixed.horizontal,
+			screen.mylayoutbox,
+			screen.mytaglist,
 			mytextclock,
-			Padding_widget,
-			Layout_background_widget,
-			Padding_widget,
-			-- Layout_widget,
-			Mic_muteness_widget,
-			Mic_volume_widget,
-			Muteness_widget,
-			Volume_widget,
+			wibox.widget.systray(),
 			screen.prompt_margin_widget,
 		},
 		screen.mytasklist, -- Middle widget
@@ -262,14 +297,18 @@ awful.screen.connect_for_each_screen(function(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			Padding_widget,
-			wibox.widget.systray(),
-			screen.mytaglist,
-			screen.mylayoutbox,
+			Layout_background_widget,
+			Padding_widget,
+			Wifi_margin_widget,
+			Mic_muteness_background_widget,
+			Mic_volume_widget,
+			Muteness_background_widget,
+			Volume_widget,
 		},
 	}
 end)
 
-local update_guis = function()
+local run_once = function()
 	Widget_update_mic_muteness()
 	Widget_update_mic_volume()
 	Widget_update_muteness()
@@ -277,5 +316,10 @@ local update_guis = function()
 	Widget_update_layout()
 	return false
 end
-gears.timer.start_new(1, update_guis)
-gears.timer.start_new(20, update_guis)
+local run_secondly = function()
+	Widget_update_wifi()
+	return true
+end
+gears.timer.start_new(1, run_once)
+gears.timer.start_new(1, run_secondly)
+gears.timer.start_new(20, run_once)

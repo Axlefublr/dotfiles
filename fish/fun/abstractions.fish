@@ -15,36 +15,15 @@ alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle' > /
 alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 
 alias --save toggle_layout 'xkblayout-state set +1' > /dev/null
+alias --save get_internet 'nmcli networking connectivity' > /dev/null
+alias --save get_mic_mute 'pactl get-source-mute @DEFAULT_SOURCE@ | string match -gr "Mute: (no|yes)"' > /dev/null
+alias --save get_mute 'pactl get-sink-mute @DEFAULT_SINK@ | string match -gr "Mute: (no|yes)"' > /dev/null
 
 alias --save widget_update_volume 'awesome-client \'Widget_update_volume()\'' > /dev/null
 alias --save widget_update_muteness 'awesome-client \'Widget_update_muteness()\'' > /dev/null
 alias --save widget_update_mic_volume 'awesome-client \'Widget_update_mic_volume()\'' > /dev/null
 alias --save widget_update_mic_muteness 'awesome-client \'Widget_update_mic_muteness()\'' > /dev/null
 alias --save widget_update_layout 'awesome-client \'Widget_update_layout()\'' > /dev/null
-
-function get_mic_mute
-	set output (pactl get-source-mute @DEFAULT_SOURCE@)
-	if string match -r 'Mute: no' $output &> /dev/null
-		printf ''
-	else if string match -r 'Mute: yes' $output &> /dev/null
-		printf ''
-	else
-		printf ''
-	end
-end
-funcsave get_mic_mute > /dev/null
-
-function get_mute
-	set output (pactl get-sink-mute @DEFAULT_SINK@)
-	if string match -r 'Mute: no' $output &> /dev/null
-		printf ''
-	else if string match -r 'Mute: yes' $output &> /dev/null
-		printf ''
-	else
-		printf ''
-	end
-end
-funcsave get_mute > /dev/null
 
 function get_layout
 	set layout (xkblayout-state print '%n')
