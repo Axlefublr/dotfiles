@@ -12,28 +12,36 @@ local themes_path = gfs.get_themes_dir()
 local theme = {}
 
 theme.font          = "Ubuntu NF"
+theme.code_font     = "JetBrainsMonoNL NF"
+theme.background    = "#292828"
+theme.white         = "#d4be98"
+theme.darkerest     = "#212121"
+theme.lighter       = "#313030"
+theme.pink          = "#ffafd7"
+theme.yellow        = "#ffd75f"
+theme.black         = "#0f0f0f"
 
-theme.bg_normal     = "#292828"
-theme.bg_focus      = "#212121"
-theme.bg_urgent     = "#ffafd7"
-theme.bg_minimize   = "#444444"
+theme.bg_normal     = theme.background
+theme.bg_focus      = theme.darkerest
+theme.bg_urgent     = theme.pink
+theme.bg_minimize   = theme.lighter
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#d4be98"
-theme.fg_focus      = "#d4be98"
-theme.fg_urgent     = "#0f0f0f"
-theme.fg_minimize   = "#ffffff"
+theme.fg_normal     = theme.white
+theme.fg_focus      = theme.white
+theme.fg_urgent     = theme.black
+theme.fg_minimize   = theme.white
 
 theme.useless_gap   = dpi(2)
 theme.border_width  = dpi(2)
-theme.border_normal = "#292828"
-theme.border_focus  = "#ffd75f"
-theme.border_marked = "#91231c"
+theme.border_normal = theme.background
+theme.border_focus  = theme.yellow
+theme.border_marked = theme.pink
 
-theme.prompt_font = "JetBrainsMono NF"
+theme.prompt_font = theme.code_font
 
-theme.taglist_fg_focus = "#0f0f0f"
-theme.taglist_bg_focus = "#ffd75f"
+theme.taglist_fg_focus = theme.black
+theme.taglist_bg_focus = theme.yellow
 
 -- There are other variable sets
 -- overriding the default one when

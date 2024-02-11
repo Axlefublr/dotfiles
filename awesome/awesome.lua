@@ -47,6 +47,10 @@ do
 end
 -- }}}
 
+function Rtrim(string)
+	return string:gsub("[\r\n]*$", "")
+end
+
 beautiful.init("/home/axlefublr/.config/awesome/theme.lua")
 beautiful.gap_single_client = false
 

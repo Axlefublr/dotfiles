@@ -1,35 +1,46 @@
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell("get_mic_mute", function(stdout)
-		local stdout = stdout:gsub("[\r\n]*$", "")
+		local stdout = Rtrim(stdout)
 		Mic_muteness_widget:set_text(stdout .. " ")
 	end)
 end
 
 function Widget_update_mic_volume()
 	awful.spawn.easy_async_with_shell("get_mic_volume", function(stdout)
-		local stdout = stdout:gsub("[\r\n]*$", "")
+		local stdout = Rtrim(stdout)
 		Mic_volume_widget:set_text(stdout .. "% ")
 	end)
 end
 
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
-		local stdout = stdout:gsub("[\r\n]*$", "")
+		local stdout = Rtrim(stdout)
 		Muteness_widget:set_text(stdout .. " ")
 	end)
 end
 
 function Widget_update_volume()
 	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
-		local stdout = stdout:gsub("[\r\n]*$", "")
+		local stdout = Rtrim(stdout)
 		Volume_widget:set_text(stdout .. "% ")
 	end)
 end
 
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
-		local stdout = stdout:gsub("[\r\n]*$", "")
-		Layout_widget:set_text(stdout .. ' ')
+		local layout = Rtrim(stdout)
+		awful.spawn.easy_async_with_shell("get_capslock", function(stdout)
+			local capslock = Rtrim(stdout)
+			if capslock == 'on' then
+				Layout_background_widget.fg = beautiful.black
+				Layout_background_widget.bg = beautiful.yellow
+				Layout_widget:set_text(" " .. layout:upper() .. " ")
+			else
+				Layout_background_widget.fg = beautiful.white
+				Layout_background_widget.bg = beautiful.background
+				Layout_widget:set_text(" " .. layout:lower() .. " ")
+			end
+		end)
 	end)
 end
 
@@ -41,37 +52,39 @@ mymainmenu = awful.menu({
 	}
 })
 
-mytextclock = wibox.widget.textclock(" %A %y.%m.%d %H:%M:%S ", 1)
-mytextclock.font = "JetBrainsMono NF"
+mytextclock = wibox.widget.textclock(" %A %y.%m.%d %H:%M:%S", 1)
+mytextclock.font = beautiful.code_font
 
 Layout_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = "JetBrainsMono NF"
+	font = beautiful.code_font
 }
+
+Layout_background_widget = wibox.container.background(Layout_widget)
 
 Mic_muteness_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = "JetBrainsMono NF"
+	font = beautiful.code_font
 }
 
 Mic_volume_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = "JetBrainsMono NF"
+	font = beautiful.code_font
 }
 
 Muteness_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = "JetBrainsMono NF"
+	font = beautiful.code_font
 }
 
 Volume_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = "JetBrainsMono NF"
+	font = beautiful.code_font
 }
 
 Taglist_buttons = gears.table.join(
@@ -227,7 +240,8 @@ awful.screen.connect_for_each_screen(function(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
-			Layout_widget,
+			Layout_background_widget,
+			-- Layout_widget,
 			Mic_muteness_widget,
 			Mic_volume_widget,
 			Muteness_widget,
@@ -245,7 +259,7 @@ awful.screen.connect_for_each_screen(function(screen)
 	}
 end)
 
-gears.timer.start_new(5, function()
+gears.timer.start_new(1, function()
 	Widget_update_mic_muteness()
 	Widget_update_mic_volume()
 	Widget_update_muteness()

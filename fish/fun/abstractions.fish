@@ -48,19 +48,10 @@ funcsave get_mute > /dev/null
 
 function get_layout
 	set layout (xkblayout-state print '%n')
-	set capslock (get_capslock)
 	if test $layout = 'English'
-		if test $capslock = 'on'
-			printf 'ENG'
-		else if test $capslock = 'off'
-			printf 'eng'
-		end
+		printf 'eng'
 	else if test $layout = 'Russian'
-		if test $capslock = 'on'
-			printf 'RUS'
-		else if test $capslock = 'off'
-			printf 'rus'
-		end
+		printf 'rus'
 	end
 end
 funcsave get_layout > /dev/null
