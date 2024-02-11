@@ -11,13 +11,16 @@ alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle' > /dev/null
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 
 alias --save set_mic_volume 'pactl set-source-volume @DEFAULT_SOURCE@' > /dev/null
-alias --save toggle_mute_mic 'pactl set-source-mute @DEFAULT_SOURCE@ toggle' > /dev/null
+alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle' > /dev/null
 alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
+
+alias --save toggle_layout 'xkblayout-state set +1' > /dev/null
 
 alias --save widget_update_volume 'awesome-client \'Widget_update_volume()\'' > /dev/null
 alias --save widget_update_muteness 'awesome-client \'Widget_update_muteness()\'' > /dev/null
 alias --save widget_update_mic_volume 'awesome-client \'Widget_update_mic_volume()\'' > /dev/null
 alias --save widget_update_mic_muteness 'awesome-client \'Widget_update_mic_muteness()\'' > /dev/null
+alias --save widget_update_layout 'awesome-client \'Widget_update_layout()\'' > /dev/null
 
 function get_mic_mute
 	set output (pactl get-source-mute @DEFAULT_SOURCE@)
@@ -26,7 +29,7 @@ function get_mic_mute
 	else if string match -r 'Mute: yes' $output &> /dev/null
 		printf ''
 	else
-		printf 'ඞ'
+		printf ''
 	end
 end
 funcsave get_mic_mute > /dev/null
@@ -38,10 +41,34 @@ function get_mute
 	else if string match -r 'Mute: yes' $output &> /dev/null
 		printf ''
 	else
-		printf 'ඞ'
+		printf ''
 	end
 end
 funcsave get_mute > /dev/null
+
+function get_layout
+	set layout (xkblayout-state print '%n')
+	set capslock (get_capslock)
+	if test $layout = 'English'
+		if test $capslock = 'on'
+			printf 'ENG'
+		else if test $capslock = 'off'
+			printf 'eng'
+		end
+	else if test $layout = 'Russian'
+		if test $capslock = 'on'
+			printf 'RUS'
+		else if test $capslock = 'off'
+			printf 'rus'
+		end
+	end
+end
+funcsave get_layout > /dev/null
+
+function get_capslock
+	xset -q | string match -gr 'Caps Lock:\\s* (off|on)'
+end
+funcsave get_capslock > /dev/null
 
 function is_internet
 	set -l response (nmcli networking connectivity)

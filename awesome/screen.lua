@@ -26,6 +26,13 @@ function Widget_update_volume()
 	end)
 end
 
+function Widget_update_layout()
+	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
+		local stdout = stdout:gsub("[\r\n]*$", "")
+		Layout_widget:set_text(stdout .. ' ')
+	end)
+end
+
 mymainmenu = awful.menu({
 	items = {
 		{ "restart",  awesome.restart },
@@ -34,38 +41,38 @@ mymainmenu = awful.menu({
 	}
 })
 
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 mytextclock = wibox.widget.textclock(" %A %y.%m.%d %H:%M:%S ", 1)
 mytextclock.font = "JetBrainsMono NF"
+
+Layout_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = "JetBrainsMono NF"
+}
 
 Mic_muteness_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
 	font = "JetBrainsMono NF"
 }
-Widget_update_mic_muteness()
 
 Mic_volume_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
 	font = "JetBrainsMono NF"
 }
-Widget_update_mic_volume()
 
 Muteness_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
 	font = "JetBrainsMono NF"
 }
-Widget_update_muteness()
 
 Volume_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
 	font = "JetBrainsMono NF"
 }
-Widget_update_volume()
 
 Taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
@@ -220,11 +227,11 @@ awful.screen.connect_for_each_screen(function(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
+			Layout_widget,
 			Mic_muteness_widget,
 			Mic_volume_widget,
 			Muteness_widget,
 			Volume_widget,
-			mykeyboardlayout,
 			screen.mypromptbox,
 		},
 		screen.mytasklist, -- Middle widget
@@ -236,4 +243,13 @@ awful.screen.connect_for_each_screen(function(screen)
 			screen.mylayoutbox,
 		},
 	}
+end)
+
+gears.timer.start_new(5, function()
+	Widget_update_mic_muteness()
+	Widget_update_mic_volume()
+	Widget_update_muteness()
+	Widget_update_volume()
+	Widget_update_layout()
+	return true
 end)

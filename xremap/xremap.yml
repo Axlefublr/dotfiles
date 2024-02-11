@@ -368,9 +368,17 @@ keymap:
     remap:
       Ctrl-Backspace: ctrl-w
 
-  - name: Kde Compose key
+  - name: Compose key
     remap:
-      CapsLock-Apostrophe: CapsLock
+      CapsLock-Apostrophe: ScrollLock
+
+  - name: Toggle capslock
+    remap:
+      CapsLock-Space: [CapsLock, { launch: [fish, -c, widget_update_layout] }]
+
+  - name: Switch layout
+    remap:
+      Super-Space: { launch: [fish, -c, "toggle_layout ; widget_update_layout"] }
 
   - name: Close / kill focused process
     remap:

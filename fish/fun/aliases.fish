@@ -52,9 +52,7 @@ funcsave xrestart > /dev/null
 
 function xwaaa
 	xset r rate 170 40 >> /tmp/log/xset.txt
-	xset s off -dpms >> /tmp/log/xset.txt
-	setxkbmap -option "shift:both_capslock" >> /tmp/log/setxkbmap.txt
-	setxkbmap -option "compose:caps" >> /tmp/log/setxkbmap.txt
+	setxkbmap -layout us,ru -option "compose:sclk" >> /tmp/log/setxkbmap.txt
 end
 funcsave xwaaa > /dev/null
 
