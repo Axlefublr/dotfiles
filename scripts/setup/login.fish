@@ -14,16 +14,8 @@ xset s off -dpms >> /tmp/log/xset.txt
 redshift -O 5500 >> /tmp/log/redshift.txt
 
 kitty -T meow & disown
-set kitty (win_wait 'kitty — meow$' 0.1 0 50)
-move_all 3 $kitty
-
-kitty --hold kitten @set-window-title timerkitty & disown
-set kitty (win_wait 'kitty — timerkitty$' 0.1 0 50)
-move_all 11 $kitty
-
-kitty -d ~/Videos/Content ranger & disown
-set kitty (win_wait 'kitty — ranger$' 0.1 0 50)
-move_all 15 $kitty
+kitty -T timer & disown
+kitty -T content -d ~/Videos/Content ranger & disown
 
 code >> /tmp/log/vscode.txt & disown
 win_wait 'code\.Code — main - vscode' 0.1 0 50
@@ -45,8 +37,6 @@ move_all 8 $ankis
 
 loopuntil is_internet 0.5 0 60
 spotify-launcher -v >> /tmp/log/spotify.txt & disown
-set spotify (win_wait 'spotify\.Spotify')
-move_all 6 $spotify
 
-sleep 3
+sleep 10
 xwaaa

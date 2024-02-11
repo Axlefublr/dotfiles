@@ -259,11 +259,13 @@ awful.screen.connect_for_each_screen(function(screen)
 	}
 end)
 
-gears.timer.start_new(1, function()
+local update_guis = function()
 	Widget_update_mic_muteness()
 	Widget_update_mic_volume()
 	Widget_update_muteness()
 	Widget_update_volume()
 	Widget_update_layout()
 	return false
-end)
+end
+gears.timer.start_new(1, update_guis)
+gears.timer.start_new(20, update_guis)
