@@ -235,7 +235,7 @@ keymap:
 
   - name: Global chord hotkeys
     remap:
-      CapsLock-Semicolon:
+      CapsLock-Apostrophe:
         remap:
           e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!'"]}
           r: { launch: [fish, -c, xrestartwaaa]}
@@ -442,13 +442,23 @@ keymap:
     remap:
       CapsLock-g: { launch: [qdbus, org.kde.kglobalaccel, /component/kwin, invokeShortcut, "Window Fullscreen"]}
 
-  - name: Bismuth layouts
+  - name: Layouts
     remap:
-      CapsLock-6: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_three_column_layout" ] }
-      CapsLock-7: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_tile_layout" ]}
-      CapsLock-8: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_monocle_layout" ] }
-      CapsLock-9: { launch: [ sh, -c, "qdbus org.kde.kglobalaccel /component/bismuth invokeShortcut toggle_spiral_layout" ]}
-      CapsLock-0: { launch: [ sh, -c, "wm-layout-quarter" ]}
+      Super-Apostrophe:
+        remap:
+          h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
+          j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
+          k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
+          l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
+
+          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
+          i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
+          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
+          p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
+
+          m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
+          Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
+          Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
 
   - name: System & Media
     remap:
