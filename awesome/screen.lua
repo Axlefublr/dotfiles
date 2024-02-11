@@ -88,7 +88,7 @@ Padding_widget = wibox.widget {
 	font = beautiful.code_font
 }
 
-mytextclock = wibox.widget.textclock(" %A %y.%m.%d %H:%M:%S", 1)
+mytextclock = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
 mytextclock.font = beautiful.code_font
 
 Layout_widget = wibox.widget {
@@ -288,7 +288,6 @@ awful.screen.connect_for_each_screen(function(screen)
 			layout = wibox.layout.fixed.horizontal,
 			screen.mylayoutbox,
 			screen.mytaglist,
-			mytextclock,
 			wibox.widget.systray(),
 			screen.prompt_margin_widget,
 		},
@@ -304,6 +303,7 @@ awful.screen.connect_for_each_screen(function(screen)
 			Mic_volume_widget,
 			Muteness_background_widget,
 			Volume_widget,
+			mytextclock,
 		},
 	}
 end)
