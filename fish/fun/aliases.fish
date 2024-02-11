@@ -19,7 +19,12 @@ alias --save logout 'qdbus org.kde.ksmserver /KSMServer logout 0 0 0' > /dev/nul
 alias --save woman 'man' > /dev/null # lol and even lmao
 alias --save tgpt 'tgpt -q --provider phind' > /dev/null
 alias --save yt-dlp 'yt-dlp $argv ; bell' > /dev/null
-alias --save zr 'z $argv && ranger' > /dev/null
+
+function zr
+	z $argv
+	ranger
+end
+funcsave zr > /dev/null
 
 function mkcd
 	mkdir -p $argv && z $argv
@@ -51,7 +56,7 @@ end
 funcsave xrestart > /dev/null
 
 function xwaaa
-	xset r rate 170 40 >> /tmp/log/xset.txt
+	xset r rate 170 35 >> /tmp/log/xset.txt
 	setxkbmap -layout us,ru -option "compose:sclk" >> /tmp/log/setxkbmap.txt
 end
 funcsave xwaaa > /dev/null
