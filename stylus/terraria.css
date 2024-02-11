@@ -1,4 +1,8 @@
+/* terraria.wiki.gg
+ * domain
+ */
+
 /* Aside with "you might be searching for this" */
-body > div.main-container > div.resizable-container > div.page.has-right-rail > aside {
+aside {
 	display: none;
 }
