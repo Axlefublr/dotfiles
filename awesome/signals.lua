@@ -1,5 +1,15 @@
 screen.connect_signal("property::geometry", Set_wallpaper)
 
+client.connect_signal("property::urgent", function(client)
+	if client.class == "Spotify" or (
+		client.class == "kitty" and (
+			client.name == "content" or client.name == "meow" or client.name == "timer"
+		)
+	) then
+		client.urgent = false
+	end
+end)
+
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(client)
 	-- New windows are extra, not main

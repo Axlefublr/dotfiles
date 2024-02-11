@@ -25,7 +25,27 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = "Spotify" },
+		properties = { tag = screen.primary.tags[6]}
+	},
+
+	{
 		rule = { class = "kitty", name = "task" },
 		properties = { tag = screen.primary.tags[12] }
-	}
+	},
+
+	{
+		rule = { class = "kitty", name = "meow" },
+		properties = { tag = screen.primary.tags[3] }
+	},
+
+	{
+		rule = { class = "kitty", name = "timer" },
+		properties = { tag = screen.primary.tags[11] }
+	},
+
+	{
+		rule = { class = "kitty", name = "content" },
+		properties = { tag = screen.primary.tags[15] }
+	},
 }
