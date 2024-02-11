@@ -11,8 +11,8 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "Ubuntu NF"
-theme.code_font     = "JetBrainsMonoNL NF"
+theme.font          = "Ubuntu NF 13"
+theme.code_font     = "JetBrainsMonoNL NF 13"
 theme.background    = "#292828"
 theme.white         = "#d4be98"
 theme.darkerest     = "#212121"
@@ -32,8 +32,8 @@ theme.fg_focus      = theme.white
 theme.fg_urgent     = theme.black
 theme.fg_minimize   = theme.white
 
-theme.useless_gap   = dpi(2)
-theme.border_width  = dpi(2)
+theme.useless_gap   = dpi(4)
+theme.border_width  = dpi(1)
 theme.border_normal = theme.background
 theme.border_focus  = theme.yellow
 theme.border_marked = theme.pink
