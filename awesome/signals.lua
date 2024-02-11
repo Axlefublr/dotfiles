@@ -31,20 +31,21 @@ awful.tag.attached_connect_signal(screen.primary, "property::layout", function (
 end)
 
 client.connect_signal("focus", function(client)
-	local tag = client.first_tag
-	if #tag:clients() == 1 then
+	local current_tag = screen.primary.selected_tag
+
+	if not current_tag then
+		return
+	end
+	local clients_on_tag = current_tag:clients()
+	if #clients_on_tag == 1 and clients_on_tag[1] == client then
 		client.border_width = 0
 	else
 		client.border_width = beautiful.border_width
 		client.border_color = beautiful.border_focus
 	end
 end)
+
 client.connect_signal("unfocus", function(client)
-	local tag = client.first_tag
-	if #tag:clients() == 1 then
-		client.border_width = 0
-	else
-		client.border_width = beautiful.border_width
-		client.border_color = beautiful.border_normal
-	end
+	client.border_width = beautiful.border_width
+	client.border_color = beautiful.border_normal
 end)
