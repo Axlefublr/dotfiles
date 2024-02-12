@@ -10,6 +10,22 @@ client.connect_signal("property::urgent", function(client)
 	end
 end)
 
+client.connect_signal("property::name", function(client)
+	if string.match(client.name, '^xzoom') then
+		client.ontop = true
+		client.floating = true
+		client.border_width = 0
+
+		local screen_geometry = client.screen.geometry
+		client:geometry({
+			x = screen_geometry.x,
+			y = screen_geometry.height - 500,
+			width = 500,
+			height = 500
+		})
+	end
+end)
+
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(client)
 	-- New windows are extra, not main

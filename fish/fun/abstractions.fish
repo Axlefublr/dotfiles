@@ -24,6 +24,40 @@ alias --save widget_update_muteness 'awesome-client \'Widget_update_muteness()\'
 alias --save widget_update_mic_volume 'awesome-client \'Widget_update_mic_volume()\'' > /dev/null
 alias --save widget_update_mic_muteness 'awesome-client \'Widget_update_mic_muteness()\'' > /dev/null
 alias --save widget_update_layout 'awesome-client \'Widget_update_layout()\'' > /dev/null
+alias --save widget_disable_compositor 'awesome-client \'Widget_disable_compositor()\'' > /dev/null
+alias --save widget_enable_compositor 'awesome-client \'Widget_enable_compositor()\'' > /dev/null
+
+function enable_compositor
+	picom >> /tmp/log/picom.txt & disown
+	widget_enable_compositor
+end
+funcsave enable_compositor > /dev/null
+
+function disable_compositor
+	killall picom
+	widget_disable_compositor
+end
+funcsave disable_compositor > /dev/null
+
+function toggle_compositor
+	if pgrep -x picom
+		disable_compositor
+	else
+		enable_compositor
+	end
+end
+funcsave toggle_compositor > /dev/null
+
+function toggle_xzoom
+	if pgrep -x xzoom
+		killall xzoom
+		enable_compositor
+	else
+		disable_compositor
+		xzoom -mag 3
+	end
+end
+funcsave toggle_xzoom > /dev/null
 
 function get_layout
 	set layout (xkblayout-state print '%n')

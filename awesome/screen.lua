@@ -74,6 +74,16 @@ function Widget_update_wifi()
 	end)
 end
 
+function Widget_disable_compositor()
+	Compositor_background_widget.fg = beautiful.red
+	Compositor_widget:set_text("󰓦 ")
+end
+
+function Widget_enable_compositor()
+	Compositor_background_widget.fg = beautiful.white
+	Compositor_widget:set_text("")
+end
+
 mymainmenu = awful.menu({
 	items = {
 		{ "restart",  awesome.restart },
@@ -132,6 +142,13 @@ Wifi_widget = wibox.widget {
 }
 Wifi_background_widget = wibox.container.background(Wifi_widget)
 Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 5, 0, 0)
+
+Compositor_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Compositor_background_widget = wibox.container.background(Compositor_widget)
 
 Taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
@@ -217,6 +234,7 @@ awful.screen.connect_for_each_screen(function(screen)
 			Padding_widget,
 			Layout_background_widget,
 			Padding_widget,
+			Compositor_background_widget,
 			Wifi_margin_widget,
 			Mic_muteness_background_widget,
 			Mic_volume_widget,

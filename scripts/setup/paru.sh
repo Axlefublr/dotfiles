@@ -13,3 +13,4 @@ paru visual-studio-code-bin
 paru tgpt-bin
 paru nvim-packer-git
 paru xkblayout-state-git
+paru xzoom

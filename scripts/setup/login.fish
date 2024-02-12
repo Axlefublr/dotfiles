@@ -10,6 +10,7 @@ xremap --mouse ~/prog/dotfiles/xremap/xremap.yml >> /tmp/log/xremap.txt & disown
 ydotoold >> /tmp/log/ydotoold.txt & disown
 # gromit-mpx -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
 # ollama serve >> /tmp/log/ollama.txt & disown
+picom >> /tmp/log/picom.txt & disown
 xset s off -dpms >> /tmp/log/xset.txt
 redshift -O 5500 >> /tmp/log/redshift.txt
 

@@ -380,6 +380,10 @@ keymap:
     remap:
       Super-Space: { launch: [fish, -c, "toggle_layout ; widget_update_layout"] }
 
+  - name: Toggle compositor
+    remap:
+      Super-x: { launch: [fish, -c, toggle_compositor] }
+
   - name: Close / kill focused process
     remap:
       CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
@@ -393,6 +397,11 @@ keymap:
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
       CapsLock-v: { launch: [gromit-mpx, --undo] }
       CapsLock-c: { launch: [gromit-mpx, --redo] }
+
+  - name: Zoom
+    exact_match: true
+    remap:
+      Super-v: { launch: [fish, -c, 'toggle_xzoom'] }
 
   - name: Edit clipboard
     remap:
@@ -437,10 +446,6 @@ keymap:
     remap:
       CapsLock-Slash: { launch: [kitty, -d, '~'] }
       CapsLock-Alt-Slash: { launch: [kitty, -d, '~', -T, temporary-terminal, -o, 'background=#1a1919'] }
-
-  - name: Toggle fullscreen
-    remap:
-      CapsLock-g: { launch: [qdbus, org.kde.kglobalaccel, /component/kwin, invokeShortcut, "Window Fullscreen"]}
 
   - name: Layouts
     remap:
