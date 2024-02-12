@@ -32,7 +32,14 @@ root.buttons(gears.table.join(
 
 clientbuttons = gears.table.join(
 	awful.button({}, 1, function(client)
-		client:emit_signal("request::activate", "mouse_click", { raise = true })
+		if client.class == "Display" then
+			awful.mouse.client.move(client)
+		end
+	end),
+	awful.button({}, 3, function(client)
+		if client.class == "Display" then
+			client:kill()
+		end
 	end),
 	awful.button({ modkey }, 1, function(client)
 		client:emit_signal("request::activate", "mouse_click", { raise = true })
