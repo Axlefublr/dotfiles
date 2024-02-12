@@ -85,25 +85,25 @@ keymap:
       Shift-Ctrl-d: { launch: [xdotool, mousemove, '1168', '750']}
       Shift-Ctrl-f: { launch: [xdotool, mousemove, '1584', '750']}
 
-      h: { launch: [ydotool, mousemove, '--', '-26', '0']}
-      l: { launch: [ydotool, mousemove, '--', '26', '0']}
-      j: { launch: [ydotool, mousemove, '--', '0', '26']}
-      k: { launch: [ydotool, mousemove, '--', '0', '-26']}
+      h: { launch: [xdotool, mousemove_relative, '--', '-26', '0']}
+      l: { launch: [xdotool, mousemove_relative, '--', '26', '0']}
+      j: { launch: [xdotool, mousemove_relative, '--', '0', '26']}
+      k: { launch: [xdotool, mousemove_relative, '--', '0', '-26']}
 
-      Shift-h: { launch: [ydotool, mousemove, '--', '-52', '0']}
-      Shift-l: { launch: [ydotool, mousemove, '--', '52', '0']}
-      Shift-j: { launch: [ydotool, mousemove, '--', '0', '52']}
-      Shift-k: { launch: [ydotool, mousemove, '--', '0', '-52']}
+      Shift-h: { launch: [xdotool, mousemove_relative, '--', '-104', '0']}
+      Shift-l: { launch: [xdotool, mousemove_relative, '--', '104', '0']}
+      Shift-j: { launch: [xdotool, mousemove_relative, '--', '0', '104']}
+      Shift-k: { launch: [xdotool, mousemove_relative, '--', '0', '-104']}
 
-      Alt-h: { launch: [ydotool, mousemove, '--', '-13', '0']}
-      Alt-l: { launch: [ydotool, mousemove, '--', '13', '0']}
-      Alt-j: { launch: [ydotool, mousemove, '--', '0', '13']}
-      Alt-k: { launch: [ydotool, mousemove, '--', '0', '-13']}
+      Alt-h: { launch: [xdotool, mousemove_relative, '--', '-26', '0']}
+      Alt-l: { launch: [xdotool, mousemove_relative, '--', '26', '0']}
+      Alt-j: { launch: [xdotool, mousemove_relative, '--', '0', '26']}
+      Alt-k: { launch: [xdotool, mousemove_relative, '--', '0', '-26']}
 
-      Ctrl-h: { launch: [ydotool, mousemove, '--', '-6.5', '0']}
-      Ctrl-l: { launch: [ydotool, mousemove, '--', '6.5', '0']}
-      Ctrl-j: { launch: [ydotool, mousemove, '--', '0', '6.5']}
-      Ctrl-k: { launch: [ydotool, mousemove, '--', '0', '-6.5']}
+      Ctrl-h: { launch: [xdotool, mousemove_relative, '--', '-13', '0']}
+      Ctrl-l: { launch: [xdotool, mousemove_relative, '--', '13', '0']}
+      Ctrl-j: { launch: [xdotool, mousemove_relative, '--', '0', '13']}
+      Ctrl-k: { launch: [xdotool, mousemove_relative, '--', '0', '-13']}
 
       u: { launch: ["ydotool", "click", "c0"] } # c0 — left click
       i: { launch: ["ydotool", "click", "c2"] } # c2 — middle click
@@ -235,7 +235,7 @@ keymap:
 
   - name: Global chord hotkeys
     remap:
-      CapsLock-Apostrophe:
+      Super-Alt-Semicolon:
         remap:
           e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!'"]}
           r: { launch: [fish, -c, xrestartwaaa]}
@@ -370,7 +370,7 @@ keymap:
 
   - name: Compose key
     remap:
-      CapsLock-n: ScrollLock
+      CapsLock-Apostrophe: ScrollLock
 
   - name: Toggle capslock
     remap:
