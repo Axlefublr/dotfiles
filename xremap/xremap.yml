@@ -395,6 +395,8 @@ keymap:
       Super-s: { launch: [fish, -c, "scrot -s - | xclip -selection clipboard -t image/png"] }
       Super-Alt-s: { launch: [fish, -c, "scrot -u - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took window'"] }
       Super-Shift-s: { launch: [fish, -c, "scrot - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took screen'"] }
+      Super-w: { launch: [fish, -c, "scrot -s - | display"] }
+      Super-Alt-w: { launch: [ fish, -c, "xclip -selection clipboard -t image/png -o 2> /dev/null | display", ], }
 
   - name: Gromit
     exact_match: true
@@ -435,19 +437,6 @@ keymap:
     remap:
       CapsLock-m: { launch: [ fish, -c, 'emoji_picker_clipboard code' ] }
       CapsLock-Alt-m: { launch: [ fish, -c, 'emoji_picker_clipboard name' ] }
-
-  - name: Float image in clipboard
-    exact_match: true
-    remap:
-      Super-w:
-        {
-          launch:
-            [
-              fish,
-              -c,
-              "xclip -selection clipboard -t image/png -o 2>/dev/null | display",
-            ],
-        }
 
   - name: Kitty
     remap:
