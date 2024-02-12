@@ -389,6 +389,13 @@ keymap:
       CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
       CapsLock-Shift-q: { launch: [xdotool, getwindowfocus, windowkill] }
 
+  - name: Screenshot
+    exact_match: true
+    remap:
+      Super-s: { launch: [fish, -c, "scrot -s - | xclip -selection clipboard -t image/png"] }
+      Super-Alt-s: { launch: [fish, -c, "scrot -u - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took window'"] }
+      Super-Shift-s: { launch: [fish, -c, "scrot - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took screen'"] }
+
   - name: Gromit
     exact_match: true
     remap:

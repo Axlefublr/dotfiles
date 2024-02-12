@@ -174,3 +174,7 @@ Map("n", "'e", Killring_pop)
 Map({"n", "v"}, ",z", Killring_kill)
 Map({"n", "v"}, "'t", Killring_compile)
 Map({"n", "v"}, "'T", Killring_compile_reversed)
+
+Map("n", "zck", "ikitty: ")
+Map("n", "zcx", "ixremap: ")
+Map("n", "zca", "iawesome: ")

@@ -19,6 +19,7 @@ alias --save logout 'qdbus org.kde.ksmserver /KSMServer logout 0 0 0' > /dev/nul
 alias --save woman 'man' > /dev/null # lol and even lmao
 alias --save tgpt 'tgpt -q --provider phind' > /dev/null
 alias --save yt-dlp 'yt-dlp $argv ; bell' > /dev/null
+alias --save scrot 'scrot -i -l color=#ffafd7,mode=edge,width=2' > /dev/null
 
 function zr
 	z $argv
@@ -92,3 +93,8 @@ function rename
 	mv _$argv[1] $argv[2]
 end
 funcsave rename > /dev/null
+
+function imgs
+	xclip -selection clipboard -o > $argv[1].png
+end
+funcsave imgs > /dev/null

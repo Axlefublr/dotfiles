@@ -18,15 +18,19 @@ awful.rules.rules = {
 	{
 		rule_any = {
 			class = {
-				"kruler"
+				"kruler",
+				"Display"
 			}
 		},
-		properties = { floating = true }
+		properties = {
+			floating = true,
+			ontop = true
+		}
 	},
 
 	{
 		rule = { class = "Spotify" },
-		properties = { tag = screen.primary.tags[6]}
+		properties = { tag = screen.primary.tags[6] }
 	},
 
 	{
