@@ -382,7 +382,7 @@ keymap:
 
   - name: Toggle compositor
     remap:
-      Super-x: { launch: [fish, -c, toggle_compositor] }
+      Super-6: { launch: [fish, -c, toggle_compositor] }
 
   - name: Close / kill focused process
     remap:
