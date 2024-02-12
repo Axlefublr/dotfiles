@@ -1,5 +1,9 @@
 screen.connect_signal("property::geometry", Set_wallpaper)
 
+client.connect_signal("mouse::enter", function(client)
+	client:emit_signal("request::activate", "mouse_enter", { raise = false })
+end)
+
 client.connect_signal("property::urgent", function(client)
 	if client.class == "Spotify" then
 		client.urgent = false
