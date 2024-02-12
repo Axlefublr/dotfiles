@@ -23,6 +23,8 @@ client.connect_signal("property::name", function(client)
 			width = 500,
 			height = 500
 		})
+	elseif client.class == "Anki" and string.match(client.name, "^Browse") then
+		Move_window_to_tag(16)
 	end
 end)
 

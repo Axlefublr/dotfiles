@@ -6,7 +6,7 @@ local activate_tag = function(index)
 	end
 end
 
-local move_window_to_tag = function(index)
+Move_window_to_tag = function(index)
 	if client.focus then
 		local tag = client.focus.screen.tags[index]
 		if tag then
@@ -101,22 +101,22 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Mod1" }, "/", function() activate_tag(16) end),
 
 	-- Move window to tag
-	awful.key({ modkey, "Control" }, "u", function() move_window_to_tag(1) end),
-	awful.key({ modkey, "Control" }, "i", function() move_window_to_tag(2) end),
-	awful.key({ modkey, "Control" }, "o", function() move_window_to_tag(3) end),
-	awful.key({ modkey, "Control" }, "p", function() move_window_to_tag(4) end),
-	awful.key({ modkey, "Control" }, "m", function() move_window_to_tag(5) end),
-	awful.key({ modkey, "Control" }, ",", function() move_window_to_tag(6) end),
-	awful.key({ modkey, "Control" }, ".", function() move_window_to_tag(7) end),
-	awful.key({ modkey, "Control" }, "/", function() move_window_to_tag(8) end),
-	awful.key({ modkey, "Control", "Mod1" }, "u", function() move_window_to_tag(9) end),
-	awful.key({ modkey, "Control", "Mod1" }, "i", function() move_window_to_tag(10) end),
-	awful.key({ modkey, "Control", "Mod1" }, "o", function() move_window_to_tag(11) end),
-	awful.key({ modkey, "Control", "Mod1" }, "p", function() move_window_to_tag(12) end),
-	awful.key({ modkey, "Control", "Mod1" }, "m", function() move_window_to_tag(13) end),
-	awful.key({ modkey, "Control", "Mod1" }, ",", function() move_window_to_tag(14) end),
-	awful.key({ modkey, "Control", "Mod1" }, ".", function() move_window_to_tag(15) end),
-	awful.key({ modkey, "Control", "Mod1" }, "/", function() move_window_to_tag(16) end),
+	awful.key({ modkey, "Control" }, "u", function() Move_window_to_tag(1) end),
+	awful.key({ modkey, "Control" }, "i", function() Move_window_to_tag(2) end),
+	awful.key({ modkey, "Control" }, "o", function() Move_window_to_tag(3) end),
+	awful.key({ modkey, "Control" }, "p", function() Move_window_to_tag(4) end),
+	awful.key({ modkey, "Control" }, "m", function() Move_window_to_tag(5) end),
+	awful.key({ modkey, "Control" }, ",", function() Move_window_to_tag(6) end),
+	awful.key({ modkey, "Control" }, ".", function() Move_window_to_tag(7) end),
+	awful.key({ modkey, "Control" }, "/", function() Move_window_to_tag(8) end),
+	awful.key({ modkey, "Control", "Mod1" }, "u", function() Move_window_to_tag(9) end),
+	awful.key({ modkey, "Control", "Mod1" }, "i", function() Move_window_to_tag(10) end),
+	awful.key({ modkey, "Control", "Mod1" }, "o", function() Move_window_to_tag(11) end),
+	awful.key({ modkey, "Control", "Mod1" }, "p", function() Move_window_to_tag(12) end),
+	awful.key({ modkey, "Control", "Mod1" }, "m", function() Move_window_to_tag(13) end),
+	awful.key({ modkey, "Control", "Mod1" }, ",", function() Move_window_to_tag(14) end),
+	awful.key({ modkey, "Control", "Mod1" }, ".", function() Move_window_to_tag(15) end),
+	awful.key({ modkey, "Control", "Mod1" }, "/", function() Move_window_to_tag(16) end),
 
 	awful.key({ modkey, "Shift" }, "u", function() toggle_window_on_tag(1) end),
 	awful.key({ modkey, "Shift" }, "i", function() toggle_window_on_tag(2) end),

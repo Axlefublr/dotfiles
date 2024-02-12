@@ -10,3 +10,5 @@ git config --global interactive.singleKey true
 git config --global pull.ff only
 git config --global commit.verbose true
 git config --global checkout.defaultRemote origin
+git config --global rerere.enabled true
+git config --global branch.sort -committerdate
