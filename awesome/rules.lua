@@ -36,16 +36,25 @@ awful.rules.rules = {
 
 	{
 		rule = { class = "kitty", name = "meow" },
-		properties = { tag = screen.primary.tags[3] }
+		properties = {
+			tag = screen.primary.tags[3],
+			urgent = false
+		}
 	},
 
 	{
 		rule = { class = "kitty", name = "timer" },
-		properties = { tag = screen.primary.tags[11] }
+		properties = {
+			tag = screen.primary.tags[11],
+			urgent = false
+		}
 	},
 
 	{
 		rule = { class = "kitty", name = "content" },
-		properties = { tag = screen.primary.tags[15] }
+		properties = {
+			tag = screen.primary.tags[15],
+			urgent = false
+		}
 	},
 }
