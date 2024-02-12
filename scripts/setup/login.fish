@@ -12,7 +12,7 @@ ydotoold >> /tmp/log/ydotoold.txt & disown
 # ollama serve >> /tmp/log/ollama.txt & disown
 picom >> /tmp/log/picom.txt & disown
 xset s off -dpms >> /tmp/log/xset.txt
-redshift -O 5500 >> /tmp/log/redshift.txt
+redshift -O 5600 >> /tmp/log/redshift.txt
 
 kitty -T meow & disown
 kitty -T timer & disown

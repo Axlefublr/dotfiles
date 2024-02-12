@@ -246,15 +246,15 @@ awful.screen.connect_for_each_screen(function(screen)
 end)
 
 local run_once = function()
+	return false
+end
+local run_secondly = function()
+	Widget_update_wifi()
 	Widget_update_mic_muteness()
 	Widget_update_mic_volume()
 	Widget_update_muteness()
 	Widget_update_volume()
 	Widget_update_layout()
-	return false
-end
-local run_secondly = function()
-	Widget_update_wifi()
 	return true
 end
 gears.timer.start_new(1, run_once)
