@@ -61,6 +61,8 @@ end)
 client.connect_signal("focus", function(client)
 	local current_tag = screen.primary.selected_tag
 
+	Title_widget:set_text(client.class .. ": " .. client.name)
+
 	if not current_tag then
 		return
 	end

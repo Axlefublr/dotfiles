@@ -150,31 +150,18 @@ Compositor_widget = wibox.widget {
 }
 Compositor_background_widget = wibox.container.background(Compositor_widget)
 
+Title_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	align = "center",
+}
+
 Taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
 	awful.button({}, 3, awful.tag.viewtoggle),
 	awful.button({}, 5, function(tag) awful.tag.viewnext(tag.screen) end),
 	awful.button({}, 4, function(tag) awful.tag.viewprev(tag.screen) end)
 )
-
-Tasklist_buttons = gears.table.join(
-	awful.button({}, 1, function(client)
-		if client == client.focus then
-			client.minimized = true
-		else
-			client:emit_signal(
-				"request::activate",
-				"tasklist",
-				{ raise = true }
-			)
-		end
-	end),
-	awful.button({}, 5, function()
-		awful.client.focus.byidx(1)
-	end),
-	awful.button({}, 4, function()
-		awful.client.focus.byidx(-1)
-	end))
 
 function Set_wallpaper(s)
 	-- Wallpaper
@@ -209,12 +196,6 @@ awful.screen.connect_for_each_screen(function(screen)
 		buttons = Taglist_buttons
 	}
 
-	screen.mytasklist = awful.widget.tasklist {
-		screen  = screen,
-		filter  = awful.widget.tasklist.filter.currenttags,
-		buttons = Tasklist_buttons
-	}
-
 	screen.mywibox = awful.wibar({ position = "top", screen = screen })
 
 	screen.mywibox:setup {
@@ -227,7 +208,7 @@ awful.screen.connect_for_each_screen(function(screen)
 			wibox.widget.systray(),
 			screen.prompt_margin_widget,
 		},
-		screen.mytasklist, -- Middle widget
+		Title_widget,
 		-- Right widgets
 		{
 			layout = wibox.layout.fixed.horizontal,
