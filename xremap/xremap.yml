@@ -234,8 +234,9 @@ keymap:
       CapsLock-Semicolon: { set_mode: mouse }
 
   - name: Global chord hotkeys
+    exact_match: true
     remap:
-      Super-Alt-Semicolon:
+      Super-Semicolon:
         remap:
           e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!'"]}
           r: { launch: [fish, -c, xrestartwaaa]}
