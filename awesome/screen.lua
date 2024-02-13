@@ -139,6 +139,33 @@ function Widget_update_compositor()
 	end)
 end
 
+Xremap_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Xremap_background_widget = wibox.container.background(Xremap_widget)
+Xremap_background_widget.fg = beautiful.red
+Xremap_margin_widget = wibox.container.margin(Xremap_background_widget, 0, 4, 0, 0)
+function Widget_disable_xremap()
+	Xremap_widget:set_text("󰌌 ")
+	Xremap_margin_widget.right = 4
+end
+function Widget_enable_xremap()
+	Xremap_widget:set_text("")
+	Xremap_margin_widget.right = 0
+end
+function Widget_update_xremap()
+	awful.spawn.easy_async_with_shell("is_xremap", function(stdout)
+		local stdout = Rtrim(stdout)
+		if stdout == 'enabled' then
+			Widget_enable_xremap()
+		elseif stdout == 'disabled' then
+			Widget_disable_xremap()
+		end
+	end)
+end
+
 Ontop_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
@@ -294,6 +321,7 @@ screen.primary.wibox_widget:setup {
 		Padding_widget,
 		Layout_background_widget,
 		Padding_widget,
+		Xremap_margin_widget,
 		Compositor_background_widget,
 		Wifi_margin_widget,
 		Mic_muteness_margin_widget,
@@ -308,6 +336,7 @@ local run_once = function()
 	return false
 end
 local run_secondly = function()
+	Widget_update_xremap()
 	Widget_update_compositor()
 	Widget_update_wifi()
 	Widget_update_mic_muteness()

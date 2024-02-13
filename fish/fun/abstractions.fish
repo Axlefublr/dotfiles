@@ -52,6 +52,15 @@ function is_compositor
 end
 funcsave is_compositor > /dev/null
 
+function is_xremap
+	if pgrep -x xremap &> /dev/null
+		printf 'enabled'
+	else
+		printf 'disabled'
+	end
+end
+funcsave is_xremap > /dev/null
+
 function toggle_compositor
 	if pgrep -x picom
 		disable_compositor
