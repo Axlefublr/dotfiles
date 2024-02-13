@@ -36,6 +36,14 @@ function Activate_recentest_notification()
 	end
 end
 
+function Ignore_all_urgencies()
+	for _, client in ipairs(client.get()) do
+		if client.urgent then
+			client.urgent = false
+		end
+	end
+end
+
 -- Buttons
 root.buttons(gears.table.join(
 	awful.button({}, 3, function() mymainmenu:toggle() end)
@@ -81,6 +89,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Mod1" }, "h", function() awful.client.swap.byidx(-1) end),
 
 	awful.key({ modkey, }, "c", awful.client.urgent.jumpto),
+	awful.key({ modkey, "Mod1" }, "c", Ignore_all_urgencies),
 
 	awful.key({ modkey, }, "k", function() awful.tag.incmwfact(0.02) end),
 	awful.key({ modkey, }, "j", function() awful.tag.incmwfact(-0.02) end),
