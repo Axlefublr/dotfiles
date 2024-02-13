@@ -1,3 +1,26 @@
+mymainmenu = awful.menu({
+	items = {
+		{ "restart",  awesome.restart },
+		{ "quit",     function() awesome.quit() end },
+		{ "terminal", terminal }
+	}
+})
+
+Padding_widget = wibox.widget {
+	text = " ",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+
+mytextclock = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
+mytextclock.font = beautiful.code_font
+
+Mic_muteness_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell("get_mic_mute", function(stdout)
 		local stdout = Rtrim(stdout)
@@ -11,6 +34,11 @@ function Widget_update_mic_muteness()
 	end)
 end
 
+Mic_volume_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
 function Widget_update_mic_volume()
 	awful.spawn.easy_async_with_shell("get_mic_volume", function(stdout)
 		local stdout = Rtrim(stdout)
@@ -18,6 +46,12 @@ function Widget_update_mic_volume()
 	end)
 end
 
+Muteness_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Muteness_background_widget = wibox.container.background(Muteness_widget)
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
 		local stdout = Rtrim(stdout)
@@ -31,6 +65,11 @@ function Widget_update_muteness()
 	end)
 end
 
+Volume_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
 function Widget_update_volume()
 	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
 		local stdout = Rtrim(stdout)
@@ -38,6 +77,12 @@ function Widget_update_volume()
 	end)
 end
 
+Layout_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Layout_background_widget = wibox.container.background(Layout_widget)
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
 		local layout = Rtrim(stdout)
@@ -56,6 +101,13 @@ function Widget_update_layout()
 	end)
 end
 
+Wifi_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Wifi_background_widget = wibox.container.background(Wifi_widget)
+Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 5, 0, 0)
 function Widget_update_wifi()
 	awful.spawn.easy_async_with_shell("get_internet", function(stdout)
 		local stdout = Rtrim(stdout)
@@ -74,11 +126,16 @@ function Widget_update_wifi()
 	end)
 end
 
+Compositor_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Compositor_background_widget = wibox.container.background(Compositor_widget)
 function Widget_disable_compositor()
 	Compositor_background_widget.fg = beautiful.red
 	Compositor_widget:set_text("󰓦 ")
 end
-
 function Widget_enable_compositor()
 	Compositor_background_widget.fg = beautiful.white
 	Compositor_widget:set_text("")
