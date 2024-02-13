@@ -16,7 +16,7 @@ Text_clock_widget = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
 Text_clock_widget.font = beautiful.code_font
 
 Mic_muteness_widget = wibox.widget {
-	text = "",
+	text = " ",
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
@@ -26,10 +26,8 @@ function Widget_update_mic_muteness()
 		local stdout = Rtrim(stdout)
 		if stdout == "yes" then
 			Mic_muteness_background_widget.fg = beautiful.red
-			Mic_muteness_widget:set_text(" ")
 		elseif stdout == "no" then
 			Mic_muteness_background_widget.fg = beautiful.white
-			Mic_muteness_widget:set_text(" ")
 		end
 	end)
 end
@@ -47,7 +45,7 @@ function Widget_update_mic_volume()
 end
 
 Muteness_widget = wibox.widget {
-	text = "",
+	text = " ",
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
@@ -57,10 +55,8 @@ function Widget_update_muteness()
 		local stdout = Rtrim(stdout)
 		if stdout == "yes" then
 			Muteness_background_widget.fg = beautiful.red
-			Muteness_widget:set_text(" ")
 		elseif stdout == "no" then
 			Muteness_background_widget.fg = beautiful.white
-			Muteness_widget:set_text(" ")
 		end
 	end)
 end
@@ -102,7 +98,7 @@ function Widget_update_layout()
 end
 
 Wifi_widget = wibox.widget {
-	text = "",
+	text = "󰖩 ",
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
@@ -113,15 +109,10 @@ function Widget_update_wifi()
 		local stdout = Rtrim(stdout)
 		if stdout == 'none' then
 			Wifi_background_widget.fg = beautiful.red
-			Wifi_widget:set_text("󰖪 ")
 		elseif stdout == 'limited' then
 			Wifi_background_widget.fg = beautiful.yellow
-			Wifi_widget:set_text("󰤟 ")
 		elseif stdout == 'full' then
 			Wifi_background_widget.fg = beautiful.white
-			Wifi_widget:set_text("󰖩 ")
-		else
-			Wifi_widget:set_text("")
 		end
 	end)
 end
