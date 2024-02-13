@@ -256,7 +256,7 @@ keymap:
           Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
           Shift-s: { launch: [systemctl, suspend] }
           Shift-c: { launch: [xset, dpms, force, 'off'] }
-          Super-Alt-Semicolon: { launch: [fish, -c, prompt_ignore_output] }
+          Super-Apostrophe: { launch: [fish, -c, prompt_ignore_output] }
 
   - name: Clipboard Manager
     remap:
@@ -380,7 +380,7 @@ keymap:
     remap:
       CapsLock-Space: [CapsLock, { launch: [fish, -c, widget_update_layout] }]
 
-  - name: Switch layout
+  - name: Switch keyboard layout
     exact_match: true
     remap:
       Super-Space: { launch: [fish, -c, "toggle_layout ; widget_update_layout"] }
@@ -455,7 +455,7 @@ keymap:
 
   - name: Layouts
     remap:
-      Super-Apostrophe:
+      Super-Alt-Semicolon:
         remap:
           h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
           j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
