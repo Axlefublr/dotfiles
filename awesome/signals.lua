@@ -4,18 +4,28 @@ function Adjust_borders(client)
 		return
 	end
 	local clients = tag:clients()
-	local non_max = 0
+	local non_weirds = 0
 	for _, other_client in ipairs(clients) do
-		if other_client ~= client and not other_client.maximized then
-			non_max = non_max + 1
+		if other_client ~= client and not (other_client.maximized or other_client.floating) then
+			non_weirds = non_weirds + 1
 		end
 	end
 	if client.maximized
 		or tag.layout.name == "max"
-		or non_max == 0 then
+		or non_weirds == 0 then
 		client.border_width = 0
 	else
 		client.border_width = beautiful.border_width
+	end
+end
+
+function Adjust_all_borders(tag)
+	local tag = tag or screen.primary.selected_tag
+	if not tag then
+		return
+	end
+	for _, client in ipairs(tag:clients()) do
+		Adjust_borders(client)
 	end
 end
 
@@ -53,31 +63,19 @@ end)
 client.connect_signal("manage", function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
-
-	local tag = screen.primary.selected_tag
-	if not tag then
-		return
-	end
-	local clients = tag:clients()
-	for _, tag_client in ipairs(clients) do
-		Adjust_borders(tag_client)
-	end
+	Adjust_all_borders()
 end)
 
 client.connect_signal("property::maximized", function(client)
-	local tag = screen.primary.selected_tag
-	if not tag then
-		return
-	end
-	for _, client in ipairs(tag:clients()) do
-		Adjust_borders(client)
-	end
+	Adjust_all_borders()
+end)
+
+client.connect_signal("property::floating", function(client)
+	Adjust_all_borders()
 end)
 
 awful.tag.attached_connect_signal(screen.primary, "property::layout", function (tag)
-	for _, client in ipairs(tag:clients()) do
-		Adjust_borders(client)
-	end
+	Adjust_all_borders(tag)
 end)
 
 client.connect_signal("focus", function(client)
