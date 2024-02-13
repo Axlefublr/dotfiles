@@ -1,3 +1,24 @@
+function Adjust_borders(client)
+	local tag = screen.primary.selected_tag
+	if not tag then
+		return
+	end
+	local clients = tag:clients()
+	local non_max = 0
+	for _, other_client in ipairs(clients) do
+		if other_client ~= client and not other_client.maximized then
+			non_max = non_max + 1
+		end
+	end
+	if client.maximized
+		or tag.layout.name == "max"
+		or non_max == 0 then
+		client.border_width = 0
+	else
+		client.border_width = beautiful.border_width
+	end
+end
+
 screen.connect_signal("property::geometry", Set_wallpaper)
 
 client.connect_signal("mouse::enter", function(client)
@@ -32,50 +53,40 @@ end)
 client.connect_signal("manage", function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
-	local current_layout = awful.layout.getname(awful.layout.get(client.screen))
-	if current_layout == "max" then
-		client.border_width = 0
-	else
-		client.border_width = beautiful.border_width
+
+	local tag = screen.primary.selected_tag
+	if not tag then
+		return
+	end
+	local clients = tag:clients()
+	for _, tag_client in ipairs(clients) do
+		Adjust_borders(tag_client)
 	end
 end)
 
 client.connect_signal("property::maximized", function(client)
-	if client.maximized then
-		client.border_width = 0
-	else
-		client.border_width = beautiful.border_width
+	local tag = screen.primary.selected_tag
+	if not tag then
+		return
+	end
+	for _, client in ipairs(tag:clients()) do
+		Adjust_borders(client)
 	end
 end)
 
 awful.tag.attached_connect_signal(screen.primary, "property::layout", function (tag)
 	for _, client in ipairs(tag:clients()) do
-		if tag.layout.name == "max" or client.maximized then
-			client.border_width = 0
-		else
-			client.border_width = beautiful.border_width
-		end
+		Adjust_borders(client)
 	end
 end)
 
 client.connect_signal("focus", function(client)
-	local current_tag = screen.primary.selected_tag
+	Title_widget:set_text((client.class or "") .. ": " .. (client.name or ""))
 
-	Title_widget:set_text(client.class .. ": " .. client.name)
-
-	if not current_tag then
-		return
-	end
-	local clients_on_tag = current_tag:clients()
-	if #clients_on_tag == 1 and clients_on_tag[1] == client then
-		client.border_width = 0
-	else
-		client.border_width = beautiful.border_width
-		client.border_color = beautiful.border_focus
-	end
+	Adjust_borders(client)
+	client.border_color = beautiful.border_focus
 end)
 
 client.connect_signal("unfocus", function(client)
-	client.border_width = beautiful.border_width
 	client.border_color = beautiful.border_normal
 end)
