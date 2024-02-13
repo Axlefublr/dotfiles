@@ -267,7 +267,7 @@ screen.primary.wibox_widget:setup {
 	-- Right widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
-		wibox.widget.systray(),
+		-- wibox.widget.systray(),
 		Padding_widget,
 		Layout_background_widget,
 		Padding_widget,
