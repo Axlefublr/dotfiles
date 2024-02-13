@@ -250,8 +250,8 @@ screen.primary.layout_box_widget:buttons(gears.table.join(
 
 screen.primary.tag_list_widget = awful.widget.taglist {
 	screen  = screen.primary,
-	filter  = awful.widget.taglist.filter.all,
-	buttons = Taglist_buttons
+	filter  = awful.widget.taglist.filter.noempty,
+	buttons = Taglist_buttons,
 }
 
 screen.primary.wibox_widget = awful.wibar({ position = "top", screen = screen.primary })
