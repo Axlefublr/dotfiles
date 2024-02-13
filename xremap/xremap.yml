@@ -259,6 +259,7 @@ keymap:
 
   - name: Clipboard Manager
     remap:
+      Super-Alt-Apostrophe: { launch: [fish, -c, clipmenu] }
       CapsLock-Alt-Comma:
         remap:
           q: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/q" ] }
