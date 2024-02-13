@@ -69,8 +69,9 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 )
 
 -- Variables set for theming notifications:
--- notification_font
--- notification_[bg|fg]
+theme.notification_font = "Ubuntu NF 16"
+theme.notification_bg = theme.darkerest
+theme.notification_border_color = theme.border_focus
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
@@ -80,11 +81,6 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
-
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
 
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path.."default/titlebar/close_normal.png"
