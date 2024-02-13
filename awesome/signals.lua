@@ -67,11 +67,21 @@ client.connect_signal("manage", function(client)
 end)
 
 client.connect_signal("property::maximized", function(client)
+	Widget_update_maximized(client)
 	Adjust_all_borders()
 end)
 
 client.connect_signal("property::floating", function(client)
+	Widget_update_floating(client)
 	Adjust_all_borders()
+end)
+
+client.connect_signal("property::ontop", function(client)
+	Widget_update_ontop(client)
+end)
+
+client.connect_signal("property::sticky", function(client)
+	Widget_update_sticky(client)
 end)
 
 awful.tag.attached_connect_signal(screen.primary, "property::layout", function (tag)
@@ -80,6 +90,10 @@ end)
 
 client.connect_signal("focus", function(client)
 	Title_widget:set_text((client.class or "") .. ": " .. (client.name or ""))
+	Widget_update_ontop(client)
+	Widget_update_maximized(client)
+	Widget_update_sticky(client)
+	Widget_update_floating(client)
 
 	Adjust_borders(client)
 	client.border_color = beautiful.border_focus

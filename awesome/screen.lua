@@ -141,76 +141,77 @@ function Widget_enable_compositor()
 	Compositor_widget:set_text("")
 end
 
-mymainmenu = awful.menu({
-	items = {
-		{ "restart",  awesome.restart },
-		{ "quit",     function() awesome.quit() end },
-		{ "terminal", terminal }
-	}
-})
-
-Padding_widget = wibox.widget {
-	text = " ",
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font
-}
-
-mytextclock = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
-mytextclock.font = beautiful.code_font
-
-Layout_widget = wibox.widget {
+Ontop_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font
+	align = "right"
 }
+Ontop_state_background_widget = wibox.container.background(Ontop_state_widget)
+Ontop_state_background_widget.fg = beautiful.red
+function Widget_update_ontop(client)
+	if client.ontop then
+		Ontop_state_widget:set_text(" ")
+	else
+		Ontop_state_widget:set_text("")
+	end
+end
 
-Layout_background_widget = wibox.container.background(Layout_widget)
-
-Mic_muteness_widget = wibox.widget {
+Maximized_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font
+	align = "right"
 }
-Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
+Maximized_state_background_widget = wibox.container.background(Maximized_state_widget)
+Maximized_state_background_widget.fg = beautiful.yellow
+function Widget_update_maximized(client)
+	if client.maximized then
+		Maximized_state_widget:set_text(" ")
+	else
+		Maximized_state_widget:set_text("")
+	end
+end
 
-Mic_volume_widget = wibox.widget {
+Sticky_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font
+	align = "right"
 }
+Sticky_state_background_widget = wibox.container.background(Sticky_state_widget)
+Sticky_state_background_widget.fg = beautiful.green
+function Widget_update_sticky(client)
+	if client.sticky then
+		Sticky_state_widget:set_text("󰹧 ")
+	else
+		Sticky_state_widget:set_text("")
+	end
+end
 
-Muteness_widget = wibox.widget {
+Floating_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font
+	align = "right"
 }
-Muteness_background_widget = wibox.container.background(Muteness_widget)
-
-Volume_widget = wibox.widget {
-	text = "",
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font
-}
-
-Wifi_widget = wibox.widget {
-	text = "",
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font
-}
-Wifi_background_widget = wibox.container.background(Wifi_widget)
-Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 5, 0, 0)
-
-Compositor_widget = wibox.widget {
-	text = "",
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font
-}
-Compositor_background_widget = wibox.container.background(Compositor_widget)
+Floating_state_background_widget = wibox.container.background(Floating_state_widget)
+Floating_state_background_widget.fg = beautiful.cyan
+function Widget_update_floating(client)
+	if client.floating then
+		Floating_state_widget:set_text(" ")
+	else
+		Floating_state_widget:set_text("")
+	end
+end
 
 Title_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	align = "center",
+}
+
+Titlebar_layout_widget = wibox.widget {
+	Ontop_state_background_widget,
+	Maximized_state_background_widget,
+	Floating_state_background_widget,
+	Title_widget,
+	layout = wibox.layout.fixed.horizontal
 }
 
 Taglist_buttons = gears.table.join(
@@ -265,7 +266,7 @@ awful.screen.connect_for_each_screen(function(screen)
 			wibox.widget.systray(),
 			screen.prompt_margin_widget,
 		},
-		Title_widget,
+		Titlebar_layout_widget,
 		-- Right widgets
 		{
 			layout = wibox.layout.fixed.horizontal,

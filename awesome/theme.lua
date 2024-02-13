@@ -21,6 +21,8 @@ theme.pink          = "#ffafd7"
 theme.yellow        = "#ffd75f"
 theme.black         = "#0f0f0f"
 theme.red           = "#ff2930"
+theme.cyan          = "#00d7ff"
+theme.green         = "#87ff5f"
 
 theme.bg_normal     = theme.background
 theme.bg_focus      = theme.darkerest
