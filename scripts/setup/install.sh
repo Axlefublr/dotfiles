@@ -78,3 +78,4 @@ sudo pacman -S --noconfirm picom
 sudo pacman -S --noconfirm kruler
 sudo pacman -S --noconfirm clipmenu
 sudo pacman -S --noconfirm obs-studio
+sudo pacman -S --noconfirm gimp

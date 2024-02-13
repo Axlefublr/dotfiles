@@ -236,6 +236,12 @@ Set_wallpaper(screen.primary)
 
 require('tags')
 
+function Prompt_ignore_output()
+	Ignore_command_output = true
+	screen.primary.prompt_widget:run()
+end
+
+Ignore_command_output = false
 screen.primary.prompt_widget = awful.widget.prompt({
 	prompt = "󰼁 ",
 	with_shell = true,
@@ -243,6 +249,10 @@ screen.primary.prompt_widget = awful.widget.prompt({
 	bg_cursor = beautiful.yellow,
 	exe_callback = function(command)
 		awful.spawn.easy_async_with_shell(command, function(stdout)
+			if Ignore_command_output then
+				Ignore_command_output = false
+				return
+			end
 			local stdout = Rtrim(stdout)
 			if #stdout > 0 then
 				naughty.notify({ text = stdout, timeout = 0, font = beautiful.notification_code_font })

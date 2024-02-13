@@ -256,6 +256,7 @@ keymap:
           Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
           Shift-s: { launch: [systemctl, suspend] }
           Shift-c: { launch: [xset, dpms, force, 'off'] }
+          Super-Alt-Semicolon: { launch: [fish, -c, prompt_ignore_output] }
 
   - name: Clipboard Manager
     remap:
@@ -451,7 +452,6 @@ keymap:
   - name: Kitty
     remap:
       CapsLock-Slash: { launch: [kitty, -d, '~'] }
-      CapsLock-Alt-Slash: { launch: [kitty, -d, '~', -T, temporary-terminal, -o, 'background=#1a1919'] }
 
   - name: Layouts
     remap:

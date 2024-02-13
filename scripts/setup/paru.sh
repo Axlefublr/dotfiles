@@ -1,16 +1,16 @@
 #!/usr/bin/bash
 
-paru ttf-twemoji
-paru ascii-image-converter
-paru nodejs-mapscii
-paru unimatrix-git
-paru zoom
-paru anki-bin
-paru mullvad-vpn-bin
-paru xremap-x11-bin
-paru gromit-mpx
-paru visual-studio-code-bin
-paru tgpt-bin
-paru nvim-packer-git
-paru xkblayout-state-git
-paru xzoom
+paru -a ttf-twemoji
+paru -a ascii-image-converter
+paru -a nodejs-mapscii
+paru -a unimatrix-git
+paru -a zoom
+paru -a anki-bin
+paru -a mullvad-vpn-bin
+paru -a xremap-x11-bin
+paru -a gromit-mpx
+paru -a visual-studio-code-bin
+paru -a tgpt-bin
+paru -a nvim-packer-git
+paru -a xkblayout-state-git
+paru -a xzoom

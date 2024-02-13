@@ -8,6 +8,7 @@ alias --save wm_toggle_fullscreen "awesome-client 'client.focus.fullscreen = not
 alias --save wm_toggle_sticky "awesome-client 'client.focus.sticky = not client.focus.sticky'" > /dev/null
 
 alias --save clear_all_notifications "awesome-client 'naughty.destroy_all_notifications()'" > /dev/null
+alias --save prompt_ignore_output "awesome-client 'Prompt_ignore_output()'" > /dev/null
 
 alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@' > /dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle' > /dev/null
