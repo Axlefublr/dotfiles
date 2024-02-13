@@ -236,7 +236,20 @@ Set_wallpaper(screen.primary)
 
 require('tags')
 
-screen.primary.prompt_widget = awful.widget.prompt()
+screen.primary.prompt_widget = awful.widget.prompt({
+	prompt = "󰼁 ",
+	with_shell = true,
+	fg_cursor = beautiful.black,
+	bg_cursor = beautiful.yellow,
+	exe_callback = function(command)
+		awful.spawn.easy_async_with_shell(command, function(stdout)
+			local stdout = Rtrim(stdout)
+			if #stdout > 0 then
+				naughty.notify({ text = stdout, timeout = 0, font = beautiful.notification_code_font })
+			end
+		end)
+	end
+})
 screen.primary.prompt_margin_widget = wibox.container.margin(screen.primary.prompt_widget, 7, 7, 0, 0)
 
 screen.primary.layout_box_widget = awful.widget.layoutbox(screen.primary)

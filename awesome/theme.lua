@@ -62,6 +62,7 @@ theme.taglist_font     = theme.code_font
 
 -- Variables set for theming notifications:
 theme.notification_font = "Ubuntu NF 16"
+theme.notification_code_font = "JetBrainsMonoNL NF 16"
 theme.notification_bg = theme.darkerest
 theme.notification_border_color = theme.border_focus
 -- notification_[width|height|margin]
