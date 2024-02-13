@@ -100,5 +100,6 @@ client.connect_signal("focus", function(client)
 end)
 
 client.connect_signal("unfocus", function(client)
+	Title_widget:set_text("")
 	client.border_color = beautiful.border_normal
 end)
