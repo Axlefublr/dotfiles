@@ -54,6 +54,8 @@ end
 beautiful.init("/home/axlefublr/.config/awesome/theme.lua")
 beautiful.gap_single_client = false
 
+naughty.config.defaults.position = "bottom_right"
+
 terminal = "kitty"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor

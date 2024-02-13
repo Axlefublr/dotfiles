@@ -249,6 +249,8 @@ keymap:
           m: { launch: [fish, -c, wm_toggle_maximized] }
           f: { launch: [fish, -c, wm_toggle_fullscreen] }
           s: { launch: [fish, -c, wm_toggle_sticky] }
+          c: { launch: [fish, -c, toggle_compositor] }
+          'n': { launch: [fish, -c, activate_recentest_notification] }
           Shift-l: { launch: [fish, -c, "wm_logout"]}
           Shift-p: { launch: [poweroff] }
           Shift-b: { launch: [reboot] }
@@ -378,12 +380,14 @@ keymap:
       CapsLock-Space: [CapsLock, { launch: [fish, -c, widget_update_layout] }]
 
   - name: Switch layout
+    exact_match: true
     remap:
       Super-Space: { launch: [fish, -c, "toggle_layout ; widget_update_layout"] }
 
-  - name: Toggle compositor
+  - name: Notifications
+    exact_match: true
     remap:
-      Super-6: { launch: [fish, -c, toggle_compositor] }
+      Super-Ctrl-Space: { launch: [fish, -c, clear_all_notifications] }
 
   - name: Close / kill focused process
     remap:

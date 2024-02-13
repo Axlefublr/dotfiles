@@ -7,6 +7,9 @@ alias --save wm_toggle_maximized "awesome-client 'client.focus.maximized = not c
 alias --save wm_toggle_fullscreen "awesome-client 'client.focus.fullscreen = not client.focus.fullscreen'" > /dev/null
 alias --save wm_toggle_sticky "awesome-client 'client.focus.sticky = not client.focus.sticky'" > /dev/null
 
+alias --save clear_all_notifications "awesome-client 'naughty.destroy_all_notifications()'" > /dev/null
+alias --save activate_recentest_notification "awesome-client 'Activate_recentest_notification()'" > /dev/null
+
 alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@' > /dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle' > /dev/null
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
