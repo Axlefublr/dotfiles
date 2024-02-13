@@ -209,6 +209,7 @@ Title_widget = wibox.widget {
 Titlebar_layout_widget = wibox.widget {
 	Ontop_state_background_widget,
 	Maximized_state_background_widget,
+	Sticky_state_background_widget,
 	Floating_state_background_widget,
 	Title_widget,
 	layout = wibox.layout.fixed.horizontal

@@ -244,10 +244,11 @@ keymap:
           i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
           k: { launch: [screenkey] }
           Shift-k: { launch: [killall, screenkey] }
-          l: { launch: [fish, -c, wm_toggle_float]}
-          t: { launch: [fish, -c, wm_toggle_on_top]}
-          m: { launch: [fish, -c, wm_toggle_maximized]}
-          f: { launch: [fish, -c, wm_toggle_fullscreen]}
+          l: { launch: [fish, -c, wm_toggle_float] }
+          t: { launch: [fish, -c, wm_toggle_on_top] }
+          m: { launch: [fish, -c, wm_toggle_maximized] }
+          f: { launch: [fish, -c, wm_toggle_fullscreen] }
+          s: { launch: [fish, -c, wm_toggle_sticky] }
           Shift-l: { launch: [fish, -c, "wm_logout"]}
           Shift-p: { launch: [poweroff] }
           Shift-b: { launch: [reboot] }

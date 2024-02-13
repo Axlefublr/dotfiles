@@ -5,6 +5,7 @@ alias --save wm_toggle_float "awesome-client 'require(\'awful\').client.floating
 alias --save wm_toggle_on_top "awesome-client 'client.focus.ontop = not client.focus.ontop'" > /dev/null
 alias --save wm_toggle_maximized "awesome-client 'client.focus.maximized = not client.focus.maximized'" > /dev/null
 alias --save wm_toggle_fullscreen "awesome-client 'client.focus.fullscreen = not client.focus.fullscreen'" > /dev/null
+alias --save wm_toggle_sticky "awesome-client 'client.focus.sticky = not client.focus.sticky'" > /dev/null
 
 alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@' > /dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle' > /dev/null
