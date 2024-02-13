@@ -21,6 +21,7 @@ Mic_muteness_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
+Mic_muteness_margin_widget = wibox.container.margin(Mic_muteness_background_widget, 0, -8, 0, 0)
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell("get_mic_mute", function(stdout)
 		local stdout = Rtrim(stdout)
@@ -50,6 +51,7 @@ Muteness_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Muteness_background_widget = wibox.container.background(Muteness_widget)
+Muteness_margin_widget = wibox.container.margin(Muteness_background_widget, 0, -1, 0, 0)
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
 		local stdout = Rtrim(stdout)
@@ -266,9 +268,9 @@ screen.primary.wibox_widget:setup {
 		Padding_widget,
 		Compositor_background_widget,
 		Wifi_margin_widget,
-		Mic_muteness_background_widget,
+		Mic_muteness_margin_widget,
 		Mic_volume_widget,
-		Muteness_background_widget,
+		Muteness_margin_widget,
 		Volume_widget,
 		Text_clock_widget,
 	},

@@ -45,6 +45,7 @@ theme.prompt_font = theme.code_font
 
 theme.taglist_fg_focus = theme.black
 theme.taglist_bg_focus = theme.yellow
+theme.taglist_font     = theme.code_font
 
 -- There are other variable sets
 -- overriding the default one when
