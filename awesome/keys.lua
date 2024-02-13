@@ -24,18 +24,6 @@ local toggle_window_on_tag = function(index)
 	end
 end
 
-function Activate_recentest_notification()
-	local notifications = naughty.active
-	if #notifications > 0 and notifications[#notifications].actions then
-		for _, action in pairs(notifications[#notifications].actions) do
-			if action.name then
-				action.invoke()
-				break
-			end
-		end
-	end
-end
-
 function Ignore_all_urgencies()
 	for _, client in ipairs(client.get()) do
 		if client.urgent then

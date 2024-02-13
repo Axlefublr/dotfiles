@@ -250,7 +250,6 @@ keymap:
           m: { launch: [fish, -c, wm_toggle_maximized] }
           f: { launch: [fish, -c, wm_toggle_fullscreen] }
           s: { launch: [fish, -c, wm_toggle_sticky] }
-          'n': { launch: [fish, -c, activate_recentest_notification] }
           Shift-l: { launch: [fish, -c, "wm_logout"]}
           Shift-p: { launch: [poweroff] }
           Shift-b: { launch: [reboot] }
@@ -393,7 +392,7 @@ keymap:
   - name: Notifications
     exact_match: true
     remap:
-      Super-Ctrl-Space: { launch: [fish, -c, clear_all_notifications] }
+      Super-n: { launch: [fish, -c, clear_all_notifications] }
 
   - name: Close / kill focused process
     remap:
