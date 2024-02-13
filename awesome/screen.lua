@@ -12,8 +12,8 @@ Padding_widget = wibox.widget {
 	font = beautiful.code_font
 }
 
-mytextclock = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
-mytextclock.font = beautiful.code_font
+Text_clock_widget = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
+Text_clock_widget.font = beautiful.code_font
 
 Mic_muteness_widget = wibox.widget {
 	text = "",
@@ -144,7 +144,7 @@ end
 Ontop_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	align = "right"
+	font = beautiful.code_font
 }
 Ontop_state_background_widget = wibox.container.background(Ontop_state_widget)
 Ontop_state_background_widget.fg = beautiful.red
@@ -159,7 +159,7 @@ end
 Maximized_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	align = "right"
+	font = beautiful.code_font
 }
 Maximized_state_background_widget = wibox.container.background(Maximized_state_widget)
 Maximized_state_background_widget.fg = beautiful.yellow
@@ -174,7 +174,7 @@ end
 Sticky_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	align = "right"
+	font = beautiful.code_font
 }
 Sticky_state_background_widget = wibox.container.background(Sticky_state_widget)
 Sticky_state_background_widget.fg = beautiful.green
@@ -189,7 +189,7 @@ end
 Floating_state_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
-	align = "right"
+	font = beautiful.code_font
 }
 Floating_state_background_widget = wibox.container.background(Floating_state_widget)
 Floating_state_background_widget.fg = beautiful.cyan
@@ -233,56 +233,54 @@ function Set_wallpaper(s)
 	end
 end
 
-awful.screen.connect_for_each_screen(function(screen)
-	Set_wallpaper(screen)
+Set_wallpaper(screen.primary)
 
-	require('tags')
+require('tags')
 
-	screen.prompt_widget = awful.widget.prompt()
-	screen.prompt_margin_widget = wibox.container.margin(screen.prompt_widget, 7, 7, 0, 0)
+screen.primary.prompt_widget = awful.widget.prompt()
+screen.primary.prompt_margin_widget = wibox.container.margin(screen.primary.prompt_widget, 7, 7, 0, 0)
 
-	screen.mylayoutbox = awful.widget.layoutbox(screen)
-	screen.mylayoutbox:buttons(gears.table.join(
-		awful.button({}, 1, function() awful.layout.inc(1) end),
-		awful.button({}, 3, function() awful.layout.inc(-1) end),
-		awful.button({}, 4, function() awful.layout.inc(1) end),
-		awful.button({}, 5, function() awful.layout.inc(-1) end)))
+screen.primary.layout_box_widget = awful.widget.layoutbox(screen.primary)
+screen.primary.layout_box_widget:buttons(gears.table.join(
+	awful.button({}, 1, function() awful.layout.inc(1) end),
+	awful.button({}, 3, function() awful.layout.inc(-1) end),
+	awful.button({}, 4, function() awful.layout.inc(1) end),
+	awful.button({}, 5, function() awful.layout.inc(-1) end)))
 
-	screen.mytaglist = awful.widget.taglist {
-		screen  = screen,
-		filter  = awful.widget.taglist.filter.all,
-		buttons = Taglist_buttons
-	}
+screen.primary.tag_list_widget = awful.widget.taglist {
+	screen  = screen.primary,
+	filter  = awful.widget.taglist.filter.all,
+	buttons = Taglist_buttons
+}
 
-	screen.mywibox = awful.wibar({ position = "top", screen = screen })
+screen.primary.wibox_widget = awful.wibar({ position = "top", screen = screen.primary })
 
-	screen.mywibox:setup {
-		layout = wibox.layout.align.horizontal,
-		-- Left widgets
-		{
-			layout = wibox.layout.fixed.horizontal,
-			screen.mylayoutbox,
-			screen.mytaglist,
-			wibox.widget.systray(),
-			screen.prompt_margin_widget,
-		},
-		Titlebar_layout_widget,
-		-- Right widgets
-		{
-			layout = wibox.layout.fixed.horizontal,
-			Padding_widget,
-			Layout_background_widget,
-			Padding_widget,
-			Compositor_background_widget,
-			Wifi_margin_widget,
-			Mic_muteness_background_widget,
-			Mic_volume_widget,
-			Muteness_background_widget,
-			Volume_widget,
-			mytextclock,
-		},
-	}
-end)
+screen.primary.wibox_widget:setup {
+	layout = wibox.layout.align.horizontal,
+	-- Left widgets
+	{
+		layout = wibox.layout.fixed.horizontal,
+		screen.primary.layout_box_widget,
+		screen.primary.tag_list_widget,
+		screen.primary.prompt_margin_widget,
+	},
+	Titlebar_layout_widget,
+	-- Right widgets
+	{
+		layout = wibox.layout.fixed.horizontal,
+		wibox.widget.systray(),
+		Padding_widget,
+		Layout_background_widget,
+		Padding_widget,
+		Compositor_background_widget,
+		Wifi_margin_widget,
+		Mic_muteness_background_widget,
+		Mic_volume_widget,
+		Muteness_background_widget,
+		Volume_widget,
+		Text_clock_widget,
+	},
+}
 
 local run_once = function()
 	return false
