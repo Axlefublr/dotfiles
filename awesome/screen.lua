@@ -125,13 +125,18 @@ Compositor_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Compositor_background_widget = wibox.container.background(Compositor_widget)
-function Widget_disable_compositor()
-	Compositor_background_widget.fg = beautiful.red
-	Compositor_widget:set_text("󰓦 ")
-end
-function Widget_enable_compositor()
-	Compositor_background_widget.fg = beautiful.white
-	Compositor_widget:set_text("")
+Compositor_background_widget.fg = beautiful.red
+function Widget_disable_compositor() Compositor_widget:set_text("󰓦 ") end
+function Widget_enable_compositor() Compositor_widget:set_text("") end
+function Widget_update_compositor()
+	awful.spawn.easy_async_with_shell("is_compositor", function(stdout)
+		local stdout = Rtrim(stdout)
+		if stdout == 'enabled' then
+			Widget_enable_compositor()
+		elseif stdout == 'disabled' then
+			Widget_disable_compositor()
+		end
+	end)
 end
 
 Ontop_state_widget = wibox.widget {
@@ -280,6 +285,7 @@ local run_once = function()
 	return false
 end
 local run_secondly = function()
+	Widget_update_compositor()
 	Widget_update_wifi()
 	Widget_update_mic_muteness()
 	Widget_update_mic_volume()

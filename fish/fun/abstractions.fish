@@ -43,6 +43,15 @@ function disable_compositor
 end
 funcsave disable_compositor > /dev/null
 
+function is_compositor
+	if pgrep -x picom &> /dev/null
+		printf 'enabled'
+	else
+		printf 'disabled'
+	end
+end
+funcsave is_compositor > /dev/null
+
 function toggle_compositor
 	if pgrep -x picom
 		disable_compositor
