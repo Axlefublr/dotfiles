@@ -90,7 +90,15 @@ awful.tag.attached_connect_signal(screen.primary, "property::layout", function (
 end)
 
 client.connect_signal("focus", function(client)
-	Title_widget:set_text((client.class or "") .. ": " .. (client.name or ""))
+	Title_margin_widget.left = 5
+	local title = ''
+	if client.class then
+		title = client.class .. ': '
+	end
+	if client.name then
+		title = title .. client.name
+	end
+	Title_widget:set_text(title)
 	Widget_update_ontop(client)
 	Widget_update_maximized(client)
 	Widget_update_sticky(client)
@@ -102,5 +110,6 @@ end)
 
 client.connect_signal("unfocus", function(client)
 	Title_widget:set_text("")
+	Title_margin_widget.left = 0
 	client.border_color = beautiful.border_normal
 end)
