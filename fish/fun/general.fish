@@ -177,3 +177,15 @@ function loopuntil
 	end
 end
 funcsave loopuntil > /dev/null
+
+function fn_clear
+	set list (cat ~/prog/dotfiles/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
+	for file in ~/.config/fish/functions/*.fish
+		set function_name (basename $file '.fish')
+		if not contains $function_name $list
+			rm $file
+			echo 'cleared: '$function_name
+		end
+	end
+end
+funcsave fn_clear > /dev/null
