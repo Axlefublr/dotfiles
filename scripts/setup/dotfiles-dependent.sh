@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # X
-cp -f ~/prog/dotfiles/x11/.Xresources ~/.Xresources
+ln -f ~/prog/dotfiles/x11/.Xresources ~/.Xresources
 ln -sf ~/prog/dotfiles/x11/.xinitrc ~/.xinitrc
 
 # Neovim

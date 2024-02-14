@@ -14,3 +14,4 @@ paru --noconfirm -aS tgpt-bin
 paru --noconfirm -aS nvim-packer-git
 paru --noconfirm -aS xkblayout-state-git
 paru --noconfirm -aS xzoom
+paru --noconfirm -aS bibata-cursor-theme-bin
