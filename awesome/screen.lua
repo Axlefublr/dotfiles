@@ -76,7 +76,8 @@ Layout_widget = wibox.widget {
 }
 Layout_background_widget = wibox.container.background(Layout_widget)
 Layout_margin_widget = wibox.container.margin(Layout_background_widget)
-Layout_margin_widget.right = 10
+Layout_margin_widget.right = 12
+Layout_margin_widget.left = 2
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
 		local layout = Trim_newlines(stdout)
@@ -106,7 +107,7 @@ Wifi_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Wifi_background_widget = wibox.container.background(Wifi_widget)
-Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 4, 0, 0)
+Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 0, 0, 0)
 function Widget_update_wifi()
 	awful.spawn.easy_async_with_shell("get_internet", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -379,11 +380,11 @@ screen.primary.wibox_widget:setup {
 	{
 		layout = wibox.layout.fixed.horizontal,
 		-- wibox.widget.systray(),
-		Layout_margin_widget,
 		Xremap_margin_widget,
 		Gromit_margin_widget,
 		Compositor_margin_widget,
 		Wifi_margin_widget,
+		Layout_margin_widget,
 		Mic_muteness_margin_widget,
 		Mic_volume_widget,
 		Muteness_margin_widget,
