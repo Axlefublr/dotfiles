@@ -45,6 +45,7 @@ client.connect_signal("property::name", function(client)
 	if string.match(client.name, '^xzoom') then
 		client.ontop = true
 		client.floating = true
+		client.sticky = true
 		client.border_width = 0
 
 		local screen_geometry = client.screen.geometry

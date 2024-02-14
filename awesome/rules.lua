@@ -20,6 +20,9 @@ awful.rules.rules = {
 			class = {
 				"kruler",
 				"Display"
+			},
+			name = {
+				"Picture in picture"
 			}
 		},
 		properties = {
