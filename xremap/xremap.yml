@@ -241,6 +241,7 @@ keymap:
           e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!'"]}
           r: { launch: [fish, -c, xrestartwaaa]}
           shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
+          g: { launch: [fish, -c, grostart] }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
           i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
           k: { launch: [screenkey] }
