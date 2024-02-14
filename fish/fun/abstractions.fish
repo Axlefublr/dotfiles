@@ -2,8 +2,9 @@
 
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
 alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Widget_update_layout()"' > /dev/null
-alias --save get_internet 'nmcli networking connectivity' > /dev/null
 alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
+alias --save get_internet 'nmcli networking connectivity' > /dev/null
+alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
 
 alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@ $argv ; awesome-client "Widget_update_volume()"' > /dev/null
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
@@ -45,16 +46,6 @@ function run_xzoom
 	picom &> /tmp/log/picom.txt & disown
 end
 funcsave run_xzoom > /dev/null
-
-function get_layout
-	set layout (xkblayout-state print '%n')
-	if test $layout = 'English'
-		printf 'eng'
-	else if test $layout = 'Russian'
-		printf 'rus'
-	end
-end
-funcsave get_layout > /dev/null
 
 function is_internet
 	set -l response (nmcli networking connectivity)

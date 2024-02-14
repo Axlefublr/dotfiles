@@ -80,6 +80,11 @@ Layout_margin_widget.right = 10
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
 		local layout = Trim_newlines(stdout)
+		if layout == 'English' then
+			layout = 'eng'
+		elseif layout == 'Russian' then
+			layout = 'rus'
+		end
 		awful.spawn.easy_async_with_shell("get_capslock", function(stdout)
 			local capslock = Trim_newlines(stdout)
 			if capslock == 'on' then
