@@ -421,7 +421,7 @@ keymap:
   - name: Zoom
     exact_match: true
     remap:
-      Super-v: { launch: [fish, -c, 'toggle_xzoom'] }
+      Super-v: { launch: [fish, -c, 'run_xzoom'] }
 
   - name: Edit clipboard
     remap:

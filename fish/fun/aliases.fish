@@ -74,7 +74,7 @@ funcsave xrestartwaaa > /dev/null
 
 function grostart
 	killall gromit-mpx
-	gromit-mpx -o 1 -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
+	gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
 end
 funcsave grostart > /dev/null
 

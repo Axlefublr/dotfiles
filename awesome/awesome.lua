@@ -47,8 +47,9 @@ do
 end
 -- }}}
 
-function Rtrim(string)
-	return string:gsub("[\r\n]*$", "")
+function Trim_newlines(string)
+	string = string:gsub("[\r\n]*$", "")
+	return string:gsub("^[\r\n]*", "")
 end
 
 beautiful.init("/home/axlefublr/.config/awesome/theme.lua")

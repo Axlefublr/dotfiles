@@ -6,26 +6,26 @@ else
 	mkdir -p /tmp/log
 end
 
-xremap --mouse ~/prog/dotfiles/xremap/xremap.yml >> /tmp/log/xremap.txt & disown
-ydotoold >> /tmp/log/ydotoold.txt & disown
-gromit-mpx -k "none" -u "none" >> /tmp/log/gromit-mpx.txt & disown
-# ollama serve >> /tmp/log/ollama.txt & disown
-picom >> /tmp/log/picom.txt & disown
-clipmenud >> /tmp/log/clipmenu.txt & disown
-xset s off -dpms >> /tmp/log/xset.txt
-redshift -O 5600 >> /tmp/log/redshift.txt
+xremap --mouse ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
+ydotoold &> /tmp/log/ydotoold.txt & disown
+# ollama serve &> /tmp/log/ollama.txt & disown
+picom &> /tmp/log/picom.txt & disown
+gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
+clipmenud &> /tmp/log/clipmenu.txt & disown
+xset s off -dpms &> /tmp/log/xset.txt
+redshift -O 5600 &> /tmp/log/redshift.txt
 
 kitty -T meow & disown
 kitty -T timer & disown
 kitty -T content -d ~/Videos/Content ranger & disown
 
-code >> /tmp/log/vscode.txt & disown
+code &> /tmp/log/vscode.txt & disown
 win_wait 'code\.Code — main - vscode' 0.1 0 50
 kitty -d ~/prog/dotfiles & disown
 set other_vscodes (win_wait_except 'main - vscode' 'code.Code' 0.1 0 50)
 move_all 9 $other_vscodes
 
-vivaldi-stable --force-dark-mode >> /tmp/log/vivaldi.txt & disown
+vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
 move_all 2 $vivaldis
 set discord (win_wait 'Vivaldi-stable — .*Discord' 0.1 0 50)
@@ -33,12 +33,14 @@ move_all 5 $discord
 set youtube (win_wait 'Vivaldi-stable — .*YouTube' 0.1 0 50)
 move_all 7 $youtube
 
-anki >> /tmp/log/anki.txt & disown
+anki &> /tmp/log/anki.txt & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
 loopuntil is_internet 0.5 0 60
-spotify-launcher -v >> /tmp/log/spotify.txt & disown
+spotify-launcher -v &> /tmp/log/spotify.txt & disown
 
 sleep 10
 xwaaa
+
+notify-send -t 2000 'logged in'

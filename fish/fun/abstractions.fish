@@ -81,6 +81,19 @@ function toggle_xzoom
 end
 funcsave toggle_xzoom > /dev/null
 
+function run_xzoom
+	if pgrep -x xzoom
+		notify-send -t 2000 'xzoom already running'
+		return 1
+	end
+	killall gromit-mpx
+	killall picom
+	xzoom -mag 3
+	gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
+	picom &> /tmp/log/picom.txt & disown
+end
+funcsave run_xzoom > /dev/null
+
 function get_layout
 	set layout (xkblayout-state print '%n')
 	if test $layout = 'English'
