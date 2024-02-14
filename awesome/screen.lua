@@ -24,7 +24,7 @@ Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
 Mic_muteness_margin_widget = wibox.container.margin(Mic_muteness_background_widget, 0, -7, 0, 0)
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell("get_mic_mute", function(stdout)
-		local stdout = Rtrim(stdout)
+		local stdout = Trim_newlines(stdout)
 		if stdout == "yes" then
 			Mic_muteness_background_widget.fg = beautiful.red
 		elseif stdout == "no" then
@@ -40,7 +40,7 @@ Mic_volume_widget = wibox.widget {
 }
 function Widget_update_mic_volume()
 	awful.spawn.easy_async_with_shell("get_mic_volume", function(stdout)
-		local stdout = Rtrim(stdout)
+		local stdout = Trim_newlines(stdout)
 		Mic_volume_widget:set_text(stdout .. "% ")
 	end)
 end
@@ -54,7 +54,7 @@ Muteness_background_widget = wibox.container.background(Muteness_widget)
 Muteness_margin_widget = wibox.container.margin(Muteness_background_widget, 0, 0, 0, 0)
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
-		local stdout = Rtrim(stdout)
+		local stdout = Trim_newlines(stdout)
 		if stdout == "yes" then
 			Muteness_background_widget.fg = beautiful.red
 		elseif stdout == "no" then
@@ -70,7 +70,7 @@ Volume_widget = wibox.widget {
 }
 function Widget_update_volume()
 	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
-		local stdout = Rtrim(stdout)
+		local stdout = Trim_newlines(stdout)
 		Volume_widget:set_text(stdout .. "% ")
 	end)
 end
@@ -83,9 +83,9 @@ Layout_widget = wibox.widget {
 Layout_background_widget = wibox.container.background(Layout_widget)
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
-		local layout = Rtrim(stdout)
+		local layout = Trim_newlines(stdout)
 		awful.spawn.easy_async_with_shell("get_capslock", function(stdout)
-			local capslock = Rtrim(stdout)
+			local capslock = Trim_newlines(stdout)
 			if capslock == 'on' then
 				Layout_background_widget.fg = beautiful.black
 				Layout_background_widget.bg = beautiful.yellow
@@ -108,7 +108,7 @@ Wifi_background_widget = wibox.container.background(Wifi_widget)
 Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 5, 0, 0)
 function Widget_update_wifi()
 	awful.spawn.easy_async_with_shell("get_internet", function(stdout)
-		local stdout = Rtrim(stdout)
+		local stdout = Trim_newlines(stdout)
 		if stdout == 'none' then
 			Wifi_background_widget.fg = beautiful.red
 		elseif stdout == 'limited' then
@@ -125,16 +125,50 @@ Compositor_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Compositor_background_widget = wibox.container.background(Compositor_widget)
-Compositor_background_widget.fg = beautiful.red
-function Widget_disable_compositor() Compositor_widget:set_text("󰓦 ") end
-function Widget_enable_compositor() Compositor_widget:set_text("") end
+Compositor_background_widget.fg = beautiful.pink
+Compositor_margin_widget = wibox.container.margin(Compositor_background_widget, 0, 2, 0, 0)
+function Widget_disable_compositor()
+	Compositor_margin_widget.right = 2
+	Compositor_widget:set_text("󱕅 ")
+end
+function Widget_enable_compositor()
+	Compositor_margin_widget.right = 0
+	Compositor_widget:set_text("")
+end
 function Widget_update_compositor()
-	awful.spawn.easy_async_with_shell("is_compositor", function(stdout)
-		local stdout = Rtrim(stdout)
-		if stdout == 'enabled' then
+	awful.spawn.easy_async_with_shell("pgrep -x picom", function(stdout)
+		local stdout = Trim_newlines(stdout)
+		if #stdout > 0 then
 			Widget_enable_compositor()
-		elseif stdout == 'disabled' then
+		else
 			Widget_disable_compositor()
+		end
+	end)
+end
+
+Gromit_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Gromit_background_widget = wibox.container.background(Gromit_widget)
+Gromit_background_widget.fg = beautiful.pink
+Gromit_margin_widget = wibox.container.margin(Gromit_background_widget, 0, 4, 0, 0)
+function Widget_disable_gromit()
+	Gromit_margin_widget.right = 4
+	Gromit_widget:set_text(" ")
+end
+function Widget_enable_gromit()
+	Gromit_margin_widget.right = 0
+	Gromit_widget:set_text("")
+end
+function Widget_update_gromit()
+	awful.spawn.easy_async_with_shell("pgrep -x gromit-mpx", function(stdout)
+		local stdout = Trim_newlines(stdout)
+		if #stdout > 0 then
+			Widget_enable_gromit()
+		else
+			Widget_disable_gromit()
 		end
 	end)
 end
@@ -145,22 +179,22 @@ Xremap_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Xremap_background_widget = wibox.container.background(Xremap_widget)
-Xremap_background_widget.fg = beautiful.red
-Xremap_margin_widget = wibox.container.margin(Xremap_background_widget, 0, 4, 0, 0)
+Xremap_background_widget.fg = beautiful.pink
+Xremap_margin_widget = wibox.container.margin(Xremap_background_widget, 0, 3, 0, 0)
 function Widget_disable_xremap()
-	Xremap_widget:set_text("󰌌 ")
-	Xremap_margin_widget.right = 4
+	Xremap_margin_widget.right = 3
+	Xremap_widget:set_text("󱇪 ")
 end
 function Widget_enable_xremap()
-	Xremap_widget:set_text("")
 	Xremap_margin_widget.right = 0
+	Xremap_widget:set_text("")
 end
 function Widget_update_xremap()
-	awful.spawn.easy_async_with_shell("is_xremap", function(stdout)
-		local stdout = Rtrim(stdout)
-		if stdout == 'enabled' then
+	awful.spawn.easy_async_with_shell("pgrep -x xremap", function(stdout)
+		local stdout = Trim_newlines(stdout)
+		if #stdout > 0 then
 			Widget_enable_xremap()
-		elseif stdout == 'disabled' then
+		else
 			Widget_disable_xremap()
 		end
 	end)
@@ -280,7 +314,7 @@ screen.primary.prompt_widget = awful.widget.prompt({
 				Ignore_command_output = false
 				return
 			end
-			local stdout = Rtrim(stdout)
+			local stdout = Trim_newlines(stdout)
 			if #stdout > 0 then
 				naughty.notify({ text = stdout, timeout = 0, font = beautiful.notification_code_font })
 			end
@@ -322,7 +356,8 @@ screen.primary.wibox_widget:setup {
 		Layout_background_widget,
 		Padding_widget,
 		Xremap_margin_widget,
-		Compositor_background_widget,
+		Gromit_margin_widget,
+		Compositor_margin_widget,
 		Wifi_margin_widget,
 		Mic_muteness_margin_widget,
 		Mic_volume_widget,
@@ -336,14 +371,15 @@ local run_once = function()
 	return false
 end
 local run_secondly = function()
+	Widget_update_layout()
 	Widget_update_xremap()
+	Widget_update_gromit()
 	Widget_update_compositor()
 	Widget_update_wifi()
 	Widget_update_mic_muteness()
 	Widget_update_mic_volume()
 	Widget_update_muteness()
 	Widget_update_volume()
-	Widget_update_layout()
 	return true
 end
 gears.timer.start_new(1, run_once)
