@@ -245,18 +245,18 @@ keymap:
           i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
           k: { launch: [screenkey] }
           Shift-k: { launch: [killall, screenkey] }
-          l: { launch: [fish, -c, wm_toggle_float] }
-          t: { launch: [fish, -c, wm_toggle_on_top] }
-          m: { launch: [fish, -c, wm_toggle_maximized] }
-          f: { launch: [fish, -c, wm_toggle_fullscreen] }
-          s: { launch: [fish, -c, wm_toggle_sticky] }
-          Shift-l: { launch: [fish, -c, "wm_logout"]}
+          l: { launch: [awesome-client, awful.client.floating.toggle()] }
+          t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+          m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+          f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
+          s: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+          Shift-l: { launch: [fish, -c, "logout"]}
           Shift-p: { launch: [poweroff] }
           Shift-b: { launch: [reboot] }
           Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
           Shift-s: { launch: [systemctl, suspend] }
           Shift-c: { launch: [xset, dpms, force, 'off'] }
-          Super-Apostrophe: { launch: [fish, -c, prompt_ignore_output] }
+          Super-Apostrophe: { launch: [awesome-client, Prompt_ignore_output()] }
 
   - name: Clipboard Manager
     remap:
@@ -377,13 +377,14 @@ keymap:
       CapsLock-Apostrophe: ScrollLock
 
   - name: Toggle capslock
+    exact_match: true
     remap:
-      CapsLock-Space: [CapsLock, { launch: [fish, -c, widget_update_layout] }]
+      CapsLock-Space: [CapsLock, { launch: [awesome-client, Widget_update_layout()] }]
 
   - name: Switch keyboard layout
     exact_match: true
     remap:
-      Super-Space: { launch: [fish, -c, "toggle_layout ; widget_update_layout"] }
+      Super-Space: { launch: [fish, -c, toggle_layout] }
 
   - name: Compositor
     exact_match: true
@@ -393,7 +394,7 @@ keymap:
   - name: Notifications
     exact_match: true
     remap:
-      Super-n: { launch: [fish, -c, clear_all_notifications] }
+      Super-n: { launch: [awesome-client, naughty.destroy_all_notifications()] }
 
   - name: Close / kill focused process
     remap:
@@ -473,27 +474,25 @@ keymap:
 
   - name: System & Media
     remap:
-      CapsLock-Alt-s: { launch: [fish, -c, 'set_volume -5% ; widget_update_volume'] }
-      CapsLock-Alt-d: { launch: [fish, -c, 'set_volume +5% ; widget_update_volume'] }
+      CapsLock-Alt-s: { launch: [fish, -c, 'set_volume -5%'] }
+      CapsLock-Alt-d: { launch: [fish, -c, 'set_volume +5%'] }
 
-      CapsLock-Shift-s: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
-      CapsLock-Shift-d: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
+      # CapsLock-Shift-s: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
+      # CapsLock-Shift-d: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
 
-      CapsLock-Alt-w: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
-      CapsLock-Alt-e: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
+      # CapsLock-Alt-w: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
+      # CapsLock-Alt-e: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
 
-      CapsLock-Shift-w: { launch: [fish, -c, 'set_mic_volume -5% ; widget_update_mic_volume'] }
-      CapsLock-Shift-e: { launch: [fish, -c, 'set_mic_volume +5% ; widget_update_mic_volume'] }
+      CapsLock-Shift-w: { launch: [fish, -c, 'set_mic_volume -5%'] }
+      CapsLock-Shift-e: { launch: [fish, -c, 'set_mic_volume +5%'] }
 
-      CapsLock-Alt-r: { launch: [fish, -c, 'toggle_mic_mute ; widget_update_mic_muteness'] }
-      CapsLock-Shift-r: { launch: [fish, -c, 'toggle_mute ; widget_update_muteness'] }
+      CapsLock-Alt-r: { launch: [fish, -c, 'toggle_mic_mute'] }
+      CapsLock-Shift-r: { launch: [fish, -c, 'toggle_mute'] }
 
-      CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
+      # CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
 
-      CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
-      CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }
-      CapsLock-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/kwin, invokeShortcut, "Decrease Opacity"] }
-      CapsLock-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/kwin, invokeShortcut, "Increase Opacity"] }
+      # CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
+      # CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }
 
   - remap:
       CapsLock-t: tab
