@@ -37,9 +37,11 @@ anki &> /tmp/log/anki.txt & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
+notify-send -t 2000 'spotify'
 loopuntil is_internet 0.5 0 60
 spotify-launcher -v &> /tmp/log/spotify.txt & disown
 
+notify-sent -t 2000 'xwaaa'
 sleep 10
 xwaaa
 

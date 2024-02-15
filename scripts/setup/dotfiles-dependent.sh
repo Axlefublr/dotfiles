@@ -1,8 +1,9 @@
 #!/usr/bin/bash
 
 # X
-ln -f ~/prog/dotfiles/x11/.Xresources ~/.Xresources
-ln -sf ~/prog/dotfiles/x11/.xinitrc ~/.xinitrc
+ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
+ln -sf ~/prog/dotfiles/x11/xinitrc ~/.xinitrc
+ln -sf ~/prog/dotfiles/x11/gtk3.ini ~/.config/gtk-3.0/settings.ini
 
 # Neovim
 mkdir -p ~/.config/nvim
