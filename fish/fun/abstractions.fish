@@ -3,7 +3,7 @@
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
 alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Widget_update_layout()"' > /dev/null
 alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
-alias --save get_internet 'nmcli networking connectivity' > /dev/null
+alias --save get_internet 'nmcli networking connectivity check' > /dev/null
 alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
 
 alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@ $argv ; awesome-client "Widget_update_volume()"' > /dev/null
@@ -17,8 +17,8 @@ alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle $arg
 alias --save get_mic_mute 'pactl get-source-mute @DEFAULT_SOURCE@ | string match -gr "Mute: (no|yes)"' > /dev/null
 
 function toggle_compositor
-	if pgrep -x picom
-		if pgrep -x gromit-mpx
+	if pidof picom
+		if pidof gromit-mpx
 			killall gromit-mpx
 		end
 		killall picom
@@ -26,7 +26,7 @@ function toggle_compositor
 	else
 		picom &> /tmp/log/picom.txt & disown
 		awesome-client 'Widget_enable_compositor()'
-		if pgrep -x gromit-mpx
+		if pidof gromit-mpx
 			killall gromit-mpx
 		end
 		gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
@@ -35,7 +35,7 @@ end
 funcsave toggle_compositor > /dev/null
 
 function run_xzoom
-	if pgrep -x xzoom
+	if pidof xzoom
 		notify-send -t 2000 'xzoom already running'
 		return 1
 	end
@@ -48,7 +48,7 @@ end
 funcsave run_xzoom > /dev/null
 
 function is_internet
-	set -l response (nmcli networking connectivity)
+	set -l response (nmcli networking connectivity check)
 	if test $response = 'full'
 		return 0
 	else if test $response = 'none'

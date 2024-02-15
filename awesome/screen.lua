@@ -138,7 +138,7 @@ function Widget_enable_compositor()
 	Compositor_widget:set_text("")
 end
 function Widget_update_compositor()
-	awful.spawn.easy_async_with_shell("pgrep -x picom", function(stdout)
+	awful.spawn.easy_async_with_shell("pidof picom", function(stdout)
 		local stdout = Trim_newlines(stdout)
 		if #stdout > 0 then
 			Widget_enable_compositor()
@@ -165,7 +165,7 @@ function Widget_enable_gromit()
 	Gromit_widget:set_text("")
 end
 function Widget_update_gromit()
-	awful.spawn.easy_async_with_shell("pgrep -x gromit-mpx", function(stdout)
+	awful.spawn.easy_async_with_shell("pidof gromit-mpx", function(stdout)
 		local stdout = Trim_newlines(stdout)
 		if #stdout > 0 then
 			Widget_enable_gromit()
@@ -192,7 +192,7 @@ function Widget_enable_xremap()
 	Xremap_widget:set_text("")
 end
 function Widget_update_xremap()
-	awful.spawn.easy_async_with_shell("pgrep -x xremap", function(stdout)
+	awful.spawn.easy_async_with_shell("pidof xremap", function(stdout)
 		local stdout = Trim_newlines(stdout)
 		if #stdout > 0 then
 			Widget_enable_xremap()
