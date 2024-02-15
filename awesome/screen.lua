@@ -316,6 +316,20 @@ Title_widget = wibox.widget {
 }
 Title_margin_widget = wibox.container.margin(Title_widget)
 Title_margin_widget.left = 0
+function Widget_enable_title(passed_client)
+	if passed_client ~= client.focus then
+		return
+	end
+	Title_margin_widget.left = 5
+	local title = ''
+	if passed_client.class then
+		title = passed_client.class .. ': '
+	end
+	if passed_client.name then
+		title = title .. passed_client.name
+	end
+	Title_widget:set_text(title)
+end
 
 Titlebar_layout_widget = wibox.widget {
 	Stated_margin_widget,
@@ -454,6 +468,7 @@ gears.timer.start_new(0.2, perioded)
 
 local minutely = function()
 	Widget_update_hunger()
+	return true
 end
 gears.timer.start_new(60, minutely)
 

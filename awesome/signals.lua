@@ -42,6 +42,7 @@ client.connect_signal("property::urgent", function(client)
 end)
 
 client.connect_signal("property::name", function(client)
+	Widget_enable_title(client)
 	if string.match(client.name, '^xzoom') then
 		client.ontop = true
 		client.floating = true
@@ -90,15 +91,7 @@ awful.tag.attached_connect_signal(screen.primary, "property::layout", function (
 end)
 
 client.connect_signal("focus", function(client)
-	Title_margin_widget.left = 5
-	local title = ''
-	if client.class then
-		title = client.class .. ': '
-	end
-	if client.name then
-		title = title .. client.name
-	end
-	Title_widget:set_text(title)
+	Widget_enable_title(client)
 	Widget_update_ontop(client)
 	Widget_update_maximized(client)
 	Widget_update_sticky(client)
