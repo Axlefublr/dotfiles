@@ -393,21 +393,32 @@ screen.primary.wibox_widget:setup {
 	},
 }
 
-local run_once = function()
-	return false
-end
-local run_secondly = function()
-	Widget_update_layout()
-	Widget_update_xremap()
-	Widget_update_gromit()
-	Widget_update_compositor()
-	Widget_update_wifi()
-	Widget_update_mic_muteness()
-	Widget_update_mic_volume()
-	Widget_update_muteness()
-	Widget_update_volume()
+local widget_updaters = {
+	Widget_update_xremap,
+	Widget_update_gromit,
+	Widget_update_compositor,
+	Widget_update_wifi,
+	Widget_update_mic_muteness,
+	Widget_update_mic_volume,
+	Widget_update_volume,
+	Widget_update_muteness
+}
+
+Timer_counter = 0
+local perioded = function()
+	Timer_counter = Timer_counter + 1
+	widget_updaters[Timer_counter]()
+	if Timer_counter >= #widget_updaters then
+		Timer_counter = 0
+	end
 	return true
 end
-gears.timer.start_new(1, run_once)
-gears.timer.start_new(1, run_secondly)
+
+gears.timer.start_new(0.2, perioded)
+
+local run_once = function()
+	Widget_update_layout()
+	return false
+end
+gears.timer.start_new(0, run_once)
 gears.timer.start_new(20, run_once)

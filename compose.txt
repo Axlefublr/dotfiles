@@ -7,6 +7,7 @@
 <Multi_key> <u> <g> <h>: "😩"
 <Multi_key> <f> <i> <r>: "🔥"
 <Multi_key> <r> <u> <g>: "🤷‍♀️"
+<Multi_key> <h> <e> <d>: "🗣️"
 
 # Extra
 
