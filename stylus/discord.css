@@ -67,7 +67,7 @@
 	--background-modifier-hover: var(--gruvbox-lighter-background);
 	--background-modifier-accent: var(--gruvbox-lighter-background);
 	--background-message-highlight: var(--shell-background-yellow);
-	--background-message-hover: var(--gruvbox-lighter-background);
+	--background-message-hover: var(--shell-background-orange);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background); /* left side server list */
 	--background-secondary: var(--gruvbox-darker-background); /* channels / people */
@@ -854,9 +854,4 @@ rect[mask="url(#svg-mask-status-offline)"] {
 }
 rect[mask="url(#svg-mask-status-idle)"] {
 	fill: var(--shell-yellow) !important;
-}
-
-/* hovered message that's also a mention */
-.theme-dark.mouse-mode.full-motion .message__80c10:hover {
-	background: var(--shell-background-orange);
 }
