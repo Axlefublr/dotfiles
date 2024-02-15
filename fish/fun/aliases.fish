@@ -54,13 +54,13 @@ funcsave cf > /dev/null
 
 function xrestart
 	killall xremap
-	xremap --mouse ~/prog/dotfiles/xremap/xremap.yml >> /tmp/log/xremap.txt & disown
+	xremap --mouse ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
 end
 funcsave xrestart > /dev/null
 
 function xwaaa
-	xset r rate 170 30 >> /tmp/log/xset.txt
-	setxkbmap -layout us,ru -option "compose:sclk" >> /tmp/log/setxkbmap.txt
+	xset r rate 170 30 &> /tmp/log/xset.txt
+	setxkbmap -layout us,ru -option "compose:sclk" &> /tmp/log/setxkbmap.txt
 end
 funcsave xwaaa > /dev/null
 
@@ -80,13 +80,13 @@ funcsave grostart > /dev/null
 
 function picomstart
 	killall picom
-	picom >> /tmp/log/picom.txt & disown
+	picom &> /tmp/log/picom.txt & disown
 end
 funcsave picomstart > /dev/null
 
 function ollamastart
 	killall ollama
-	ollama serve >> /tmp/log/ollama.txt & disown
+	ollama serve &> /tmp/log/ollama.txt & disown
 end
 funcsave ollamastart > /dev/null
 

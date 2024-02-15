@@ -260,8 +260,9 @@ keymap:
           Super-Apostrophe: { launch: [awesome-client, Prompt_ignore_output()] }
 
   - name: Clipboard Manager
+    exact_match: true
     remap:
-      Super-Alt-Apostrophe: { launch: [fish, -c, clipmenu] }
+      Super-Apostrophe: { launch: [fish, -c, clipmenu] }
       CapsLock-Alt-Comma:
         remap:
           q: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/q" ] }
@@ -456,8 +457,9 @@ keymap:
       CapsLock-Slash: { launch: [kitty, -d, '~'] }
 
   - name: Layouts
+    exact_match: true
     remap:
-      Super-Alt-Semicolon:
+      Super-k:
         remap:
           h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
           j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }

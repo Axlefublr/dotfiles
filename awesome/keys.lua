@@ -79,8 +79,8 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, }, "c", awful.client.urgent.jumpto),
 	awful.key({ modkey, "Mod1" }, "c", Ignore_all_urgencies),
 
-	awful.key({ modkey, }, "k", function() awful.tag.incmwfact(0.02) end),
-	awful.key({ modkey, }, "j", function() awful.tag.incmwfact(-0.02) end),
+	awful.key({ modkey, "Mod1" }, "k", function() awful.tag.incmwfact(0.02) end),
+	awful.key({ modkey, "Mod1" }, "j", function() awful.tag.incmwfact(-0.02) end),
 
 	awful.key({ modkey }, "]", function() awful.tag.incnmaster(1, nil, true) end),
 	awful.key({ modkey }, "[", function() awful.tag.incnmaster(-1, nil, true) end),
@@ -88,7 +88,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Mod1" }, "]", function() awful.tag.incncol(1, nil, true) end),
 	awful.key({ modkey, "Mod1" }, "[", function() awful.tag.incncol(-1, nil, true) end),
 
-	awful.key({ modkey, }, "'", Run_prompt),
+	awful.key({ modkey, }, "j", Run_prompt),
 
 	-- Activate tags
 	awful.key({ modkey }, "u", function() activate_tag(1) end),

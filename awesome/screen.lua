@@ -11,6 +11,20 @@ mymainmenu = awful.menu({
 Text_clock_widget = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
 Text_clock_widget.font = beautiful.code_font
 
+Loago_widget = wibox.widget {
+	text = "fscrub⁴",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Loago_margin_widget = wibox.container.margin(Loago_widget)
+Loago_margin_widget.right = Between_margin - 3
+
+function Widget_update_loago()
+	awful.spawn.easy_async_with_shell("get_oldest_task", function(stdout)
+		Loago_widget:set_text(stdout)
+	end)
+end
+
 Mic_muteness_widget = wibox.widget {
 	text = " ",
 	widget = wibox.widget.textbox,
@@ -19,7 +33,7 @@ Mic_muteness_widget = wibox.widget {
 Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
 Mic_muteness_margin_widget = wibox.container.margin(Mic_muteness_background_widget)
 Mic_muteness_margin_widget.right = -6
-Mic_muteness_margin_widget.left = Between_margin + 5
+Mic_muteness_margin_widget.left = Between_margin + 6
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell("get_mic_mute", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -50,7 +64,7 @@ Muteness_widget = wibox.widget {
 }
 Muteness_background_widget = wibox.container.background(Muteness_widget)
 Muteness_margin_widget = wibox.container.margin(Muteness_background_widget)
-Muteness_margin_widget.left = Between_margin + 3
+Muteness_margin_widget.left = Between_margin + 4
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -83,7 +97,7 @@ Layout_widget = wibox.widget {
 }
 Layout_background_widget = wibox.container.background(Layout_widget)
 Layout_margin_widget = wibox.container.margin(Layout_background_widget)
-Layout_margin_widget.right = Between_margin + 3
+Layout_margin_widget.right = Between_margin + 4
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
 		local layout = Trim_newlines(stdout)
@@ -114,7 +128,7 @@ Wifi_widget = wibox.widget {
 }
 Wifi_background_widget = wibox.container.background(Wifi_widget)
 Wifi_margin_widget = wibox.container.margin(Wifi_background_widget)
-Wifi_margin_widget.right = Between_margin
+Wifi_margin_widget.right = Between_margin - 2
 function Widget_update_wifi()
 	awful.spawn.easy_async_with_shell("get_internet", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -439,11 +453,12 @@ screen.primary.wibox_widget:setup {
 		Mic_volume_widget,
 		Muteness_margin_widget,
 		Volume_margin_widget,
+		Loago_margin_widget,
 		Text_clock_widget,
 	},
 }
 
-local widget_updaters = {
+local minutely_updaters = {
 	Widget_update_xremap,
 	Widget_update_gromit,
 	Widget_update_compositor,
@@ -454,20 +469,29 @@ local widget_updaters = {
 	Widget_update_muteness
 }
 
-Timer_counter = 0
+Minutely_counter = 0
 local perioded = function()
-	Timer_counter = Timer_counter + 1
-	widget_updaters[Timer_counter]()
-	if Timer_counter >= #widget_updaters then
-		Timer_counter = 0
+	Minutely_counter = Minutely_counter + 1
+	minutely_updaters[Minutely_counter]()
+	if Minutely_counter >= #minutely_updaters then
+		Minutely_counter = 0
 	end
 	return true
 end
-
 gears.timer.start_new(0.2, perioded)
 
+local minutely_updaters = {
+	Widget_update_hunger,
+	Widget_update_loago
+}
+
+Minutely_counter = 0
 local minutely = function()
-	Widget_update_hunger()
+	Minutely_counter = Minutely_counter + 1
+	minutely_updaters[Minutely_counter]()
+	if Minutely_counter >= #minutely_updaters then
+		Minutely_counter = 0
+	end
 	return true
 end
 gears.timer.start_new(60, minutely)
