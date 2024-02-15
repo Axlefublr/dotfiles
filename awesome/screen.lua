@@ -1,3 +1,5 @@
+Between_margin = 12
+
 mymainmenu = awful.menu({
 	items = {
 		{ "restart",  awesome.restart },
@@ -15,7 +17,9 @@ Mic_muteness_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
-Mic_muteness_margin_widget = wibox.container.margin(Mic_muteness_background_widget, 6, -3, 0, 0)
+Mic_muteness_margin_widget = wibox.container.margin(Mic_muteness_background_widget)
+Mic_muteness_margin_widget.right = -6
+Mic_muteness_margin_widget.left = Between_margin + 5
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell("get_mic_mute", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -45,7 +49,8 @@ Muteness_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Muteness_background_widget = wibox.container.background(Muteness_widget)
-Muteness_margin_widget = wibox.container.margin(Muteness_background_widget, 5, 5, 0, 0)
+Muteness_margin_widget = wibox.container.margin(Muteness_background_widget)
+Muteness_margin_widget.left = Between_margin + 3
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell("get_mute", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -62,6 +67,8 @@ Volume_widget = wibox.widget {
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
+Volume_margin_widget = wibox.container.margin(Volume_widget)
+Volume_margin_widget.right = Between_margin
 function Widget_update_volume()
 	awful.spawn.easy_async_with_shell("get_volume", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -76,8 +83,7 @@ Layout_widget = wibox.widget {
 }
 Layout_background_widget = wibox.container.background(Layout_widget)
 Layout_margin_widget = wibox.container.margin(Layout_background_widget)
-Layout_margin_widget.right = 9
-Layout_margin_widget.left = 2
+Layout_margin_widget.right = Between_margin + 3
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
 		local layout = Trim_newlines(stdout)
@@ -107,7 +113,8 @@ Wifi_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Wifi_background_widget = wibox.container.background(Wifi_widget)
-Wifi_margin_widget = wibox.container.margin(Wifi_background_widget, 0, 0, 0, 0)
+Wifi_margin_widget = wibox.container.margin(Wifi_background_widget)
+Wifi_margin_widget.right = Between_margin
 function Widget_update_wifi()
 	awful.spawn.easy_async_with_shell("get_internet", function(stdout)
 		local stdout = Trim_newlines(stdout)
@@ -127,7 +134,6 @@ Compositor_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Compositor_background_widget = wibox.container.background(Compositor_widget)
-Compositor_background_widget.fg = beautiful.pink
 Compositor_margin_widget = wibox.container.margin(Compositor_background_widget)
 function Widget_disable_compositor()
 	Compositor_margin_widget.right = 0
@@ -154,7 +160,6 @@ Gromit_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Gromit_background_widget = wibox.container.background(Gromit_widget)
-Gromit_background_widget.fg = beautiful.pink
 Gromit_margin_widget = wibox.container.margin(Gromit_background_widget)
 function Widget_disable_gromit()
 	Gromit_margin_widget.right = 4
@@ -181,7 +186,6 @@ Xremap_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Xremap_background_widget = wibox.container.background(Xremap_widget)
-Xremap_background_widget.fg = beautiful.pink
 Xremap_margin_widget = wibox.container.margin(Xremap_background_widget)
 function Widget_disable_xremap()
 	Xremap_margin_widget.right = 4
@@ -201,6 +205,26 @@ function Widget_update_xremap()
 		end
 	end)
 end
+
+Meat_widget = wibox.widget {
+	text = ' ',
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Meat_margin_widget = wibox.container.margin(Meat_widget)
+Meat_margin_widget.right = 0
+Hunger_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Hunger_margin_widget = wibox.container.margin(Hunger_widget)
+function Widget_update_hunger()
+	awful.spawn.easy_async_with_shell("get_hunger", function(stdout)
+		Hunger_widget:set_text(stdout)
+	end)
+end
+
 
 Ontop_state_widget = wibox.widget {
 	text = "",
@@ -366,6 +390,7 @@ screen.primary.tag_list_widget = awful.widget.taglist {
 
 screen.primary.wibox_widget = awful.wibar({ position = "top", screen = screen.primary })
 
+-- awgts (All widgets)
 screen.primary.wibox_widget:setup {
 	layout = wibox.layout.align.horizontal,
 	-- Left widgets
@@ -385,10 +410,12 @@ screen.primary.wibox_widget:setup {
 		Gromit_margin_widget,
 		Compositor_margin_widget,
 		Wifi_margin_widget,
-		Mic_volume_widget,
+		Meat_margin_widget,
+		Hunger_margin_widget,
 		Mic_muteness_margin_widget,
-		Volume_widget,
+		Mic_volume_widget,
 		Muteness_margin_widget,
+		Volume_margin_widget,
 		Text_clock_widget,
 	},
 }
@@ -416,8 +443,14 @@ end
 
 gears.timer.start_new(0.2, perioded)
 
+local minutely = function()
+	Widget_update_hunger()
+end
+gears.timer.start_new(60, minutely)
+
 local run_once = function()
 	Widget_update_layout()
+	minutely()
 	return false
 end
 gears.timer.start_new(0, run_once)

@@ -69,3 +69,9 @@ function emoji_picker_clipboard
 	end
 end
 funcsave emoji_picker_clipboard > /dev/null
+
+function get_hunger
+	set times (loago list -m eat | string match -gr 'eat — \\d+d (\\d+)h (\\d+)m')
+	printf $times[1]':'$times[2]
+end
+funcsave get_hunger > /dev/null
