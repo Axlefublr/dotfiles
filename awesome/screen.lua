@@ -213,12 +213,21 @@ Meat_widget = wibox.widget {
 }
 Meat_margin_widget = wibox.container.margin(Meat_widget)
 Meat_margin_widget.right = 0
+
 Hunger_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
+Hunger_widget:buttons(gears.table.join(
+	awful.button({}, 1, function()
+		awful.spawn.easy_async_with_shell("loago do eat", function()
+			Widget_update_hunger()
+		end)
+	end)
+))
 Hunger_margin_widget = wibox.container.margin(Hunger_widget)
+
 function Widget_update_hunger()
 	awful.spawn.easy_async_with_shell("get_hunger", function(stdout)
 		Hunger_widget:set_text(stdout)
