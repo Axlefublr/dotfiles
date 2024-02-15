@@ -855,3 +855,8 @@ rect[mask="url(#svg-mask-status-offline)"] {
 rect[mask="url(#svg-mask-status-idle)"] {
 	fill: var(--shell-yellow) !important;
 }
+
+/* hovered message that's also a mention */
+.theme-dark.mouse-mode.full-motion .message__80c10:hover {
+	background: var(--shell-background-orange);
+}
