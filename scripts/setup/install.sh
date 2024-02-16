@@ -1,6 +1,13 @@
 #!/usr/bin/bash
 
-sudo pacman -Syu --noconfirm paru
+sudo pacman -Syu
+
+# Themes
+sudo pacman -S --noconfirm breeze-icons
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
+sudo pacman -S --noconfirm ttf-ubuntu-nerd
+
+sudo pacman -S --noconfirm paru
 sudo pacman -S --noconfirm vivaldi
 sudo pacman -S --noconfirm tree
 sudo pacman -S --noconfirm fzf
@@ -11,8 +18,6 @@ sudo pacman -S --noconfirm cowsay
 sudo pacman -S --noconfirm libssl-dev
 sudo pacman -S --noconfirm curl
 sudo pacman -S --noconfirm xclip
-sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
-sudo pacman -S --noconfirm ttf-ubuntu-nerd
 sudo pacman -S --noconfirm github-cli
 sudo pacman -S --noconfirm dotnet-runtime dotnet-sdk aspnet-runtime
 sudo pacman -S --noconfirm spotify-launcher

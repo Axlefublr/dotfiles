@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
+# Themes
 paru --noconfirm -aS ttf-twemoji
+
 paru --noconfirm -aS ascii-image-converter
 paru --noconfirm -aS nodejs-mapscii
 paru --noconfirm -aS unimatrix-git
@@ -14,4 +16,3 @@ paru --noconfirm -aS tgpt-bin
 paru --noconfirm -aS nvim-packer-git
 paru --noconfirm -aS xkblayout-state-git
 paru --noconfirm -aS xzoom
-paru --noconfirm -aS bibata-cursor-theme-bin
