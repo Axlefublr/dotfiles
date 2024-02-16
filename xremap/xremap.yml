@@ -475,8 +475,6 @@ keymap:
           Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
 
-          Semicolon: { launch: [awesome-client, 'client.focus:swap(awful.client.getmaster())']}
-
   - name: System & Media
     remap:
       CapsLock-Alt-s: { launch: [fish, -c, 'set_volume -5%'] }
