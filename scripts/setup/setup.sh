@@ -6,5 +6,9 @@ mkdir -p ~/.local/share/magazine
 mkdir -p ~/.local/share/minigun
 
 sudo loginctl enable-linger $USER
+
 sudo systemctl enable sddm
 sudo systemctl start sddm
+
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service

@@ -3,7 +3,7 @@
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
 alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Widget_update_layout()"' > /dev/null
 alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
-alias --save get_internet 'nmcli networking connectivity check' > /dev/null
+alias --save get_internet_connection 'nmcli networking connectivity check' > /dev/null
 alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
 
 alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@ $argv ; awesome-client "Widget_update_volume()"' > /dev/null
@@ -15,6 +15,18 @@ alias --save set_mic_volume 'pactl set-source-volume @DEFAULT_SOURCE@ $argv ; aw
 alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle $argv ; awesome-client "Widget_update_mic_muteness()"' > /dev/null
 alias --save get_mic_mute 'pactl get-source-mute @DEFAULT_SOURCE@ | string match -gr "Mute: (no|yes)"' > /dev/null
+
+function get_bluetooth
+	bluetoothctl show | string match -gr 'Powered: (no|yes)'
+end
+funcsave get_bluetooth > /dev/null
+
+function get_bluetooth_connected
+	for device in (bluetoothctl devices | string match -gr 'Device (\\S+) [^-]+$')
+		bluetoothctl info $device | rg 'Connected: yes'
+	end
+end
+funcsave get_bluetooth_connected > /dev/null
 
 function toggle_compositor
 	if pidof picom

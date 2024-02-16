@@ -121,6 +121,34 @@ function Widget_update_layout()
 	end)
 end
 
+Bluetooth_widget = wibox.widget {
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Bluetooth_background_widget = wibox.container.background(Bluetooth_widget)
+Bluetooth_margin_widget = wibox.container.margin(Bluetooth_background_widget)
+function Widget_update_bluetooth()
+	awful.spawn.easy_async_with_shell('get_bluetooth', function(stdout)
+		local stdout = Trim_newlines(stdout)
+		if stdout == 'yes' then
+			Bluetooth_widget:set_text('')
+			Bluetooth_margin_widget.right = Between_margin - 1
+			awful.spawn.easy_async_with_shell('get_bluetooth_connected', function(is_connected)
+				if #is_connected > 0 then
+					Bluetooth_background_widget.fg = beautiful.cyan
+				else
+					Bluetooth_background_widget.fg = beautiful.white
+				end
+			end)
+		elseif stdout == 'no' then
+			Bluetooth_widget:set_text('')
+			Bluetooth_margin_widget.right = 0
+			Bluetooth_background_widget.fg = beautiful.white
+		end
+	end)
+end
+
 Wifi_widget = wibox.widget {
 	text = "󰖩 ",
 	widget = wibox.widget.textbox,
@@ -130,7 +158,7 @@ Wifi_background_widget = wibox.container.background(Wifi_widget)
 Wifi_margin_widget = wibox.container.margin(Wifi_background_widget)
 Wifi_margin_widget.right = Between_margin - 2
 function Widget_update_wifi()
-	awful.spawn.easy_async_with_shell("get_internet", function(stdout)
+	awful.spawn.easy_async_with_shell("get_internet_connection", function(stdout)
 		local stdout = Trim_newlines(stdout)
 		if stdout == 'none' then
 			Wifi_background_widget.fg = beautiful.red
@@ -463,6 +491,7 @@ screen.primary.wibox_widget:setup {
 		Gromit_margin_widget,
 		Compositor_margin_widget,
 		Water_margin_widget,
+		Bluetooth_margin_widget,
 		Wifi_margin_widget,
 		Meat_margin_widget,
 		Hunger_margin_widget,
@@ -479,6 +508,7 @@ local frequent_updaters = {
 	Widget_update_xremap,
 	Widget_update_gromit,
 	Widget_update_compositor,
+	Widget_update_bluetooth,
 	Widget_update_wifi,
 	Widget_update_mic_muteness,
 	Widget_update_mic_volume,
