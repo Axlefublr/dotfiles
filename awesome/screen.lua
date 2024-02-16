@@ -458,7 +458,7 @@ screen.primary.wibox_widget:setup {
 	},
 }
 
-local minutely_updaters = {
+local frequent_updaters = {
 	Widget_update_xremap,
 	Widget_update_gromit,
 	Widget_update_compositor,
@@ -469,16 +469,16 @@ local minutely_updaters = {
 	Widget_update_muteness
 }
 
-Minutely_counter = 0
-local perioded = function()
-	Minutely_counter = Minutely_counter + 1
-	minutely_updaters[Minutely_counter]()
-	if Minutely_counter >= #minutely_updaters then
-		Minutely_counter = 0
+Frequent_counter = 0
+local frequent = function()
+	Frequent_counter = Frequent_counter + 1
+	frequent_updaters[Frequent_counter]()
+	if Frequent_counter >= #frequent_updaters then
+		Frequent_counter = 0
 	end
 	return true
 end
-gears.timer.start_new(0.2, perioded)
+gears.timer.start_new(0.2, frequent)
 
 local minutely_updaters = {
 	Widget_update_hunger,
@@ -494,7 +494,7 @@ local minutely = function()
 	end
 	return true
 end
-gears.timer.start_new(60, minutely)
+gears.timer.start_new(30, minutely)
 
 local run_once = function()
 	Widget_update_layout()

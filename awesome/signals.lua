@@ -66,6 +66,8 @@ client.connect_signal("manage", function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
 	Adjust_all_borders()
+	if client.class ~= 'Gimp' then return end
+	client.size_hints.min_width = 0
 end)
 
 client.connect_signal("property::maximized", function(client)
