@@ -28,7 +28,7 @@ move_all 9 $other_vscodes
 vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
 move_all 2 $vivaldis
-set discord (win_wait 'Vivaldi-stable — .*Discord' 0.1 0 50)
+set discord (win_wait 'Vivaldi-stable — .*(Discord|Mastodon|Messenger)' 0.1 0 50)
 move_all 5 $discord
 set youtube (win_wait 'Vivaldi-stable — .*YouTube' 0.1 0 50)
 move_all 7 $youtube
