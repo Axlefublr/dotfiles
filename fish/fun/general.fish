@@ -34,6 +34,7 @@ funcsave new > /dev/null
 function abbrad
 	abbr -a $argv
 	echo "abbr -a $argv[1] '$argv[2..]'" >> ~/prog/dotfiles/fish/abbreviations/abbreviations.fish
+	echo "alias --save $argv[1] '$argv[2..]' > /dev/null" >> ~/prog/dotfiles/fish/fun/fallbacks.fish
 end
 funcsave abbrad > /dev/null
 
