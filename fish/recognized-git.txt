@@ -3,7 +3,7 @@
 ~/prog/binaries
 ~/prog/noties
 ~/prog/job
-~/Pictures/Tree
-~/Pictures/Tools
+~/Pictures/tree
+~/Pictures/tools
 ~/.local/share/floral_barrel
 ~/.local/share/alien_temple

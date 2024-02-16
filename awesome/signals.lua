@@ -71,8 +71,9 @@ client.connect_signal("manage", function(client)
 	if not awesome.startup then awful.client.setslave(client) end
 	Adjust_all_borders()
 	on_maybe_name(client)
-	if client.class ~= 'Gimp' then return end
-	client.size_hints.min_width = 0
+	if client.class == 'Gimp' then
+		client.size_hints.min_width = 0
+	end
 end)
 
 client.connect_signal("property::maximized", function(client)

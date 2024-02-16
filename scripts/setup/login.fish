@@ -17,7 +17,7 @@ redshift -O 5600 &> /tmp/log/redshift.txt
 
 kitty -T meow & disown
 kitty -T timer & disown
-kitty -T content -d ~/Videos/Content ranger & disown
+kitty -T content -d ~/Videos/content ranger & disown
 
 code &> /tmp/log/vscode.txt & disown
 win_wait 'code\.Code — main - vscode' 0.1 0 50

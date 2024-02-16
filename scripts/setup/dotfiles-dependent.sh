@@ -95,7 +95,7 @@ psql -U postgres
 # ALTER USER postgres PASSWORD 'password';
 # \pset null 󰟢
 # \q
-cd ~/Documents
+cd ~/documents
 curl -O https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
 unzip dvdrental.zip
 rm -fr dvdrental.zip

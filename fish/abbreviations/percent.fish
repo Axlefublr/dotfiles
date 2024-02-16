@@ -1,7 +1,7 @@
 abbr --set-cursor -a gmm 'git commit -m "%"'
 abbr --set-cursor -a tgg 'tgpt "%"'
 abbr --set-cursor -a ytv 'yt-dlp -o \'%.%(ext)s\' \'\''
-abbr --set-cursor -a ytvy 'yt-dlp -o \'/home/axlefublr/Videos/Content/Youtube/%.%(ext)s\' \'\''
+abbr --set-cursor -a ytvy 'yt-dlp -o \'/home/axlefublr/Videos/content/Youtube/%.%(ext)s\' \'\''
 abbr --set-cursor -a yta 'yt-dlp -x --audio-format mp3 -o \'%.%(ext)s\' \'\''
 abbr --set-cursor -a ghic 'gh issue create -t "%"'
 abbr --set-cursor -a diff 'diff -u % | diff-so-fancy'
