@@ -396,7 +396,7 @@ keymap:
   - name: Notifications
     exact_match: true
     remap:
-      Super-n: { launch: [awesome-client, naughty.destroy_all_notifications()] }
+      Super-n: { launch: [awesome-client, ] }
 
   - name: Close / kill focused process
     remap:

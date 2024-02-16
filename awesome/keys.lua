@@ -78,6 +78,7 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey, }, "c", awful.client.urgent.jumpto),
 	awful.key({ modkey, "Mod1" }, "c", Ignore_all_urgencies),
+	awful.key({"Shift"}, "Escape", function() naughty.destroy_all_notifications() end),
 
 	awful.key({ modkey, "Mod1" }, "k", function() awful.tag.incmwfact(0.02) end),
 	awful.key({ modkey, "Mod1" }, "j", function() awful.tag.incmwfact(-0.02) end),
