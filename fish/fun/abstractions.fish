@@ -6,15 +6,25 @@ alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/nu
 alias --save get_internet_connection 'nmcli networking connectivity check' > /dev/null
 alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
 
-alias --save set_volume 'pactl set-sink-volume @DEFAULT_SINK@ $argv ; awesome-client "Widget_update_volume()"' > /dev/null
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle $argv ; awesome-client "Widget_update_muteness()"' > /dev/null
 alias --save get_mute 'pactl get-sink-mute @DEFAULT_SINK@ | string match -gr "Mute: (no|yes)"' > /dev/null
 
-alias --save set_mic_volume 'pactl set-source-volume @DEFAULT_SOURCE@ $argv ; awesome-client "Widget_update_mic_volume()"' > /dev/null
 alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle $argv ; awesome-client "Widget_update_mic_muteness()"' > /dev/null
 alias --save get_mic_mute 'pactl get-source-mute @DEFAULT_SOURCE@ | string match -gr "Mute: (no|yes)"' > /dev/null
+
+function set_volume
+	pactl set-sink-volume @DEFAULT_SINK@ $argv
+	awesome-client 'Widget_update_volume()'
+end
+funcsave set_volume > /dev/null
+
+function set_mic_volume
+	pactl set-source-volume @DEFAULT_SOURCE@ $argv
+	awesome-client 'Widget_update_mic_volume()'
+end
+funcsave set_mic_volume > /dev/null
 
 function get_bluetooth
 	bluetoothctl show | string match -gr 'Powered: (no|yes)'
