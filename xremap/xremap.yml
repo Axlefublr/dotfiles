@@ -48,6 +48,8 @@ keymap:
       v: { launch: [xdotool, mousemove, '1376', '960']}
       b: { launch: [xdotool, mousemove, '1792', '960']}
 
+      p: { launch: [xdotool, mousemove, '0', '1080']}
+
       Shift-q: { launch: [xdotool, mousemove, '336',  '120']}
       Shift-w: { launch: [xdotool, mousemove, '752',  '120']}
       Shift-e: { launch: [xdotool, mousemove, '1168', '120']}
@@ -85,10 +87,10 @@ keymap:
       Shift-Ctrl-d: { launch: [xdotool, mousemove, '1168', '750']}
       Shift-Ctrl-f: { launch: [xdotool, mousemove, '1584', '750']}
 
-      h: { launch: [xdotool, mousemove_relative, '--', '-26', '0']}
-      l: { launch: [xdotool, mousemove_relative, '--', '26', '0']}
-      j: { launch: [xdotool, mousemove_relative, '--', '0', '26']}
-      k: { launch: [xdotool, mousemove_relative, '--', '0', '-26']}
+      h: { launch: [xdotool, mousemove_relative, '--', '-52', '0']}
+      l: { launch: [xdotool, mousemove_relative, '--', '52', '0']}
+      j: { launch: [xdotool, mousemove_relative, '--', '0', '52']}
+      k: { launch: [xdotool, mousemove_relative, '--', '0', '-52']}
 
       Shift-h: { launch: [xdotool, mousemove_relative, '--', '-104', '0']}
       Shift-l: { launch: [xdotool, mousemove_relative, '--', '104', '0']}
@@ -151,7 +153,7 @@ keymap:
       Key_9: { launch: [ fish, -c, "minigun_apply 9" ] }
       Key_0: { launch: [ fish, -c, "minigun_apply 0" ] }
 
-      Semicolon:
+      Apostrophe:
         remap:
           q: { launch: [ fish, -c, "minigun_save q" ] }
           w: { launch: [ fish, -c, "minigun_save w" ] }
@@ -189,7 +191,7 @@ keymap:
           Key_8: { launch: [ fish, -c, "minigun_save 8" ] }
           Key_9: { launch: [ fish, -c, "minigun_save 9" ] }
           Key_0: { launch: [ fish, -c, "minigun_save 0" ] }
-      Apostrophe:
+      Semicolon:
         remap:
           q: { launch: [ fish, -c, "minigun_apply q" ] }
           w: { launch: [ fish, -c, "minigun_apply w" ] }
