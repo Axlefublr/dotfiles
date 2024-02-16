@@ -29,6 +29,12 @@ function zr
 end
 funcsave zr > /dev/null
 
+function zl
+	z $argv
+	ls
+end
+funcsave zl > /dev/null
+
 function mkcd
 	mkdir -p $argv && z $argv
 end
