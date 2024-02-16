@@ -29,21 +29,8 @@ function Adjust_all_borders(tag)
 	end
 end
 
-screen.connect_signal("property::geometry", Set_wallpaper)
-
-client.connect_signal("mouse::enter", function(client)
-	client:emit_signal("request::activate", "mouse_enter", { raise = true })
-end)
-
-client.connect_signal("property::urgent", function(client)
-	if client.class == "Spotify" then
-		client.urgent = false
-	end
-end)
-
-client.connect_signal("property::name", function(client)
-	Widget_enable_title(client)
-	if string.match(client.name, '^xzoom') then
+local function on_maybe_name(client)
+	if client.name and string.match(client.name, '^xzoom') then
 		client.ontop = true
 		client.floating = true
 		client.sticky = true
@@ -59,6 +46,23 @@ client.connect_signal("property::name", function(client)
 	elseif client.class == "Anki" and string.match(client.name, "^Browse") then
 		Move_window_to_tag(16)
 	end
+end
+
+screen.connect_signal("property::geometry", Set_wallpaper)
+
+client.connect_signal("mouse::enter", function(client)
+	client:emit_signal("request::activate", "mouse_enter", { raise = true })
+end)
+
+client.connect_signal("property::urgent", function(client)
+	if client.class == "Spotify" then
+		client.urgent = false
+	end
+end)
+
+client.connect_signal("property::name", function(client)
+	Widget_enable_title(client)
+	on_maybe_name(client)
 end)
 
 -- Signal function to execute when a new client appears.
@@ -66,6 +70,7 @@ client.connect_signal("manage", function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
 	Adjust_all_borders()
+	on_maybe_name(client)
 	if client.class ~= 'Gimp' then return end
 	client.size_hints.min_width = 0
 end)

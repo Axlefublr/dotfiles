@@ -6,7 +6,7 @@ local activate_tag = function(index)
 	end
 end
 
-Move_window_to_tag = function(index)
+function Move_window_to_tag(index)
 	if client.focus then
 		local tag = client.focus.screen.tags[index]
 		if tag then

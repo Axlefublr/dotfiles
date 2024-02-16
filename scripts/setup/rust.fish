@@ -9,6 +9,5 @@ rustup toolchain install nightly
 
 cargo binstall -y cargo-quickinstall
 cargo binstall -y cargo-info
-cargo binstall -y watchexec-cli
 cargo binstall -y irust
 cargo binstall -y cargo-mommy
