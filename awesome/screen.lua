@@ -248,6 +248,22 @@ function Widget_update_hunger()
 	end)
 end
 
+Water_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Water_background_widget = wibox.container.background(Water_widget)
+Water_background_widget.fg = beautiful.cyan
+Water_margin_widget = wibox.container.margin(Water_background_widget)
+function Widget_enable_water()
+	Water_margin_widget.right = -4
+	Water_widget:set_text("󰖌 ")
+end
+function Widget_disable_water()
+	Water_margin_widget.right = 0
+	Water_widget:set_text("")
+end
 
 Ontop_state_widget = wibox.widget {
 	text = "",
@@ -446,6 +462,7 @@ screen.primary.wibox_widget:setup {
 		Xremap_margin_widget,
 		Gromit_margin_widget,
 		Compositor_margin_widget,
+		Water_margin_widget,
 		Wifi_margin_widget,
 		Meat_margin_widget,
 		Hunger_margin_widget,
@@ -480,25 +497,10 @@ local frequent = function()
 end
 gears.timer.start_new(0.2, frequent)
 
-local minutely_updaters = {
-	Widget_update_hunger,
-	Widget_update_loago
-}
-
-Minutely_counter = 0
-local minutely = function()
-	Minutely_counter = Minutely_counter + 1
-	minutely_updaters[Minutely_counter]()
-	if Minutely_counter >= #minutely_updaters then
-		Minutely_counter = 0
-	end
-	return true
-end
-gears.timer.start_new(30, minutely)
-
 local run_once = function()
 	Widget_update_layout()
-	minutely()
+	Widget_update_hunger()
+	Widget_update_loago()
 	return false
 end
 gears.timer.start_new(0, run_once)

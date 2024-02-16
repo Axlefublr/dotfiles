@@ -29,3 +29,9 @@ systemctl --user start 27.timer
 
 systemctl --user enable 18.timer
 systemctl --user start 18.timer
+
+systemctl --user enable ten-minutes.timer
+systemctl --user start ten-minutes.timer
+
+systemctl --user enable minute.timer
+systemctl --user start minute.timer
