@@ -366,7 +366,7 @@ function Widget_update_floating(client)
 end
 
 Stated_margin_widget = wibox.container.margin()
-Stated_margin_widget.left = 10
+Stated_margin_widget.left = 0
 
 Title_widget = wibox.widget {
 	text = "",
@@ -378,7 +378,7 @@ function Widget_enable_title(passed_client)
 	if passed_client ~= client.focus then
 		return
 	end
-	Title_margin_widget.left = 5
+	Title_margin_widget.left = 0
 	local title = ''
 	if passed_client.class then
 		title = passed_client.class .. ': '
@@ -389,7 +389,16 @@ function Widget_enable_title(passed_client)
 	Title_widget:set_text(title)
 end
 
+Icon_widget = awful.widget.clienticon(awful.client.focus)
+Icon_widget.forced_height = 36
+Icon_widget.forced_width = 36
+Icon_margin_widget = wibox.container.margin(Icon_widget)
+Icon_margin_widget.top = 5
+Icon_margin_widget.left = 3
+Icon_margin_widget.right = 7
+
 Titlebar_layout_widget = wibox.widget {
+	Icon_margin_widget,
 	Stated_margin_widget,
 	Ontop_state_margin_widget,
 	Maximized_state_margin_widget,
@@ -448,7 +457,7 @@ screen.primary.prompt_widget = awful.widget.prompt({
 screen.primary.prompt_margin_widget = wibox.container.margin(screen.primary.prompt_widget)
 function Run_prompt()
 	screen.primary.prompt_margin_widget.left = 8
-	screen.primary.prompt_margin_widget.right = 8
+	screen.primary.prompt_margin_widget.right = 10
 	screen.primary.prompt_widget:run()
 end
 function Prompt_ignore_output()

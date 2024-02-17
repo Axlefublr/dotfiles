@@ -86,3 +86,4 @@ sudo pacman -S --noconfirm obs-studio
 sudo pacman -S --noconfirm gimp
 sudo pacman -S --noconfirm rofi
 sudo pacman -S --noconfirm bat
+sudo pacman -S --noconfirm trash-cli

@@ -37,6 +37,16 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = "Gimp" },
+		properties = { tag = screen.primary.tags[14]}
+	},
+
+	{
+		rule = { class = "obs" },
+		properties = { tag = screen.primary.tags[13]}
+	},
+
+	{
 		rule = { class = "kitty", name = "task" },
 		properties = { tag = screen.primary.tags[12] }
 	},
@@ -63,5 +73,10 @@ awful.rules.rules = {
 			tag = screen.primary.tags[15],
 			urgent = false
 		}
+	},
+
+	{
+		rule = { class = "kitty", name = "uboot" },
+		properties = { tag = screen.primary.tags[14] }
 	},
 }

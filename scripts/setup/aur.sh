@@ -2,6 +2,9 @@
 
 # Themes
 paru --noconfirm -aS ttf-twemoji
+paru --noconfirm -aS ttf-comfortaa
+paru --noconfirm -aS graphite-cursor-theme-git
+paru --noconfirm -aS phinger-cursors
 
 paru --noconfirm -aS ascii-image-converter
 paru --noconfirm -aS nodejs-mapscii
