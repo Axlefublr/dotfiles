@@ -215,3 +215,8 @@ function ix
 	awesome-client 'Widget_update_note()'
 end
 funcsave ix > /dev/null
+
+function s
+	set -g s (realpath $argv)
+end
+funcsave s > /dev/null
