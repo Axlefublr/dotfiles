@@ -98,6 +98,7 @@ Layout_widget = wibox.widget {
 Layout_background_widget = wibox.container.background(Layout_widget)
 Layout_margin_widget = wibox.container.margin(Layout_background_widget)
 Layout_margin_widget.right = Between_margin + 4
+Layout_margin_widget.left = Between_margin + 4
 function Widget_update_layout()
 	awful.spawn.easy_async_with_shell("get_layout", function(stdout)
 		local layout = Trim_newlines(stdout)
@@ -291,6 +292,24 @@ end
 function Widget_disable_water()
 	Water_margin_widget.right = 0
 	Water_widget:set_text("")
+end
+
+Note_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Note_margin_widget = wibox.container.margin(Note_widget)
+function Widget_update_note()
+	awful.spawn.easy_async_with_shell("cat ~/.local/share/notie", function(stdout)
+		local stdout = Trim_newlines(stdout)
+		if #stdout == 0 then
+			Note_margin_widget.left = 0
+		else
+			Note_margin_widget.left = Between_margin
+		end
+		Note_widget:set_text(stdout)
+	end)
 end
 
 Ontop_state_widget = wibox.widget {
@@ -495,6 +514,7 @@ screen.primary.wibox_widget:setup {
 	{
 		layout = wibox.layout.fixed.horizontal,
 		-- wibox.widget.systray(),
+		Note_margin_widget,
 		Layout_margin_widget,
 		Xremap_margin_widget,
 		Gromit_margin_widget,
@@ -540,6 +560,7 @@ local run_once = function()
 	Widget_update_layout()
 	Widget_update_hunger()
 	Widget_update_loago()
+	Widget_update_note()
 	return false
 end
 gears.timer.start_new(0, run_once)

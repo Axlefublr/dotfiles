@@ -245,7 +245,6 @@ keymap:
           shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
           g: { launch: [fish, -c, grostart] }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
-          i: { launch: [sh, -c, "kitty --detach --hold -T infoterm holup"] }
           k: { launch: [screenkey] }
           Shift-k: { launch: [killall, screenkey] }
           l: { launch: [awesome-client, awful.client.floating.toggle()] }

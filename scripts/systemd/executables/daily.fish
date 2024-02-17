@@ -3,11 +3,13 @@
 clorange days increment
 clorange megafon increment
 
+trash-empty -f 30
+
 yeared_parse
 yearless_parse
 
 if test (math (clorange megafon show) % 30) -eq 0
-	kitty -T task holup 'megafon (504) tomorrow'
+	kitty -T task holup 'megafon (504) tomorrow' &
 end
 
 wait

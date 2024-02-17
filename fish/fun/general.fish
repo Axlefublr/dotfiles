@@ -190,3 +190,28 @@ function fn_clear
 	end
 end
 funcsave fn_clear > /dev/null
+
+function i
+	printf "$argv" > ~/.local/share/notie
+	awesome-client 'Widget_update_note()'
+end
+funcsave i > /dev/null
+
+function iv
+	kitty -T "note editor" nvim ~/.local/share/notie
+	awesome-client 'Widget_update_note()'
+end
+funcsave iv > /dev/null
+
+function ic
+	xclip -selection clipboard -o > ~/.local/share/notie
+	awesome-client 'Widget_update_note()'
+end
+funcsave ic > /dev/null
+
+function ix
+	cat ~/.local/share/notie | xclip -r -selection clipboard
+	truncate -s 0 ~/.local/share/notie
+	awesome-client 'Widget_update_note()'
+end
+funcsave ix > /dev/null
