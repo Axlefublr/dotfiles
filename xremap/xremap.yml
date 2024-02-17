@@ -259,7 +259,7 @@ keymap:
           Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
           Shift-s: { launch: [systemctl, suspend] }
           Shift-c: { launch: [xset, dpms, force, 'off'] }
-          Super-Apostrophe: { launch: [awesome-client, Prompt_ignore_output()] }
+          Super-j: { launch: [awesome-client, Prompt_ignore_output()] }
 
   - name: Clipboard Manager
     exact_match: true
