@@ -151,23 +151,32 @@ function Widget_update_bluetooth()
 end
 
 Wifi_widget = wibox.widget {
-	text = "󰖩 ",
+	text = '',
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
 Wifi_background_widget = wibox.container.background(Wifi_widget)
 Wifi_margin_widget = wibox.container.margin(Wifi_background_widget)
-Wifi_margin_widget.right = Between_margin - 2
 function Widget_update_wifi()
-	awful.spawn.easy_async_with_shell("get_internet_connection", function(stdout)
-		local stdout = Trim_newlines(stdout)
-		if stdout == 'none' then
-			Wifi_background_widget.fg = beautiful.red
-		elseif stdout == 'limited' then
-			Wifi_background_widget.fg = beautiful.yellow
-		elseif stdout == 'full' then
-			Wifi_background_widget.fg = beautiful.white
+	awful.spawn.easy_async_with_shell("get_internet", function(is_internet)
+		local is_internet = Trim_newlines(is_internet)
+		if is_internet == 'disabled' then
+			Wifi_margin_widget.right = 0
+			Wifi_widget:set_text('')
+			return
 		end
+		Wifi_margin_widget.right = Between_margin - 2
+		Wifi_widget:set_text('󰖩 ')
+		awful.spawn.easy_async_with_shell("get_internet_connection", function(stdout)
+			local stdout = Trim_newlines(stdout)
+			if stdout == 'none' then
+				Wifi_background_widget.fg = beautiful.red
+			elseif stdout == 'limited' then
+				Wifi_background_widget.fg = beautiful.yellow
+			elseif stdout == 'full' then
+				Wifi_background_widget.fg = beautiful.white
+			end
+		end)
 	end)
 end
 

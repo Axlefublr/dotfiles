@@ -3,6 +3,7 @@
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
 alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Widget_update_layout()"' > /dev/null
 alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
+alias --save get_internet 'nmcli radio wifi' > /dev/null
 alias --save get_internet_connection 'nmcli networking connectivity check' > /dev/null
 alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
 
@@ -105,7 +106,7 @@ end
 funcsave get_hunger > /dev/null
 
 function get_oldest_task
-	set matches (loago list | tail -n 1 | string match -gr '(\\S+) — (\\d+)')
+	set matches (loago list | rg -v 'eat|green|white|filter' | tail -n 1 | string match -gr '(\\S+) — (\\d+)')
 	set name $matches[1]
 	set days $matches[2]
 	set formatted_days ''
