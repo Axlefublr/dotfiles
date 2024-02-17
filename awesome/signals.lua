@@ -104,7 +104,7 @@ client.connect_signal("focus", function(client)
 	Widget_update_maximized(client)
 	Widget_update_sticky(client)
 	Widget_update_floating(client)
-	Icon_widget.client = client
+	Widget_enable_icon(client)
 
 	Adjust_borders(client)
 	client.border_color = beautiful.border_focus
@@ -113,6 +113,6 @@ end)
 client.connect_signal("unfocus", function(client)
 	Title_widget:set_text("")
 	Title_margin_widget.left = 0
-	Icon_widget.client = nil
+	Widget_disable_icon()
 	client.border_color = beautiful.border_normal
 end)

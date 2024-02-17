@@ -412,9 +412,18 @@ Icon_widget = awful.widget.clienticon(awful.client.focus)
 Icon_widget.forced_height = 36
 Icon_widget.forced_width = 36
 Icon_margin_widget = wibox.container.margin(Icon_widget)
-Icon_margin_widget.top = 5
-Icon_margin_widget.left = 3
-Icon_margin_widget.right = 7
+function Widget_enable_icon(client)
+	Icon_widget.client = client
+	Icon_margin_widget.top = 5
+	Icon_margin_widget.left = 7
+	Icon_margin_widget.right = 7
+end
+function Widget_disable_icon()
+	Icon_widget.client = nil
+	Icon_margin_widget.top = 0
+	Icon_margin_widget.left = 0
+	Icon_margin_widget.right = 0
+end
 
 Titlebar_layout_widget = wibox.widget {
 	Icon_margin_widget,

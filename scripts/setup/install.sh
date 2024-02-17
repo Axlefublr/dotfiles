@@ -6,6 +6,7 @@ sudo pacman -Syu
 sudo pacman -S --noconfirm breeze-icons
 sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
 sudo pacman -S --noconfirm ttf-ubuntu-nerd
+sudo pacman -S --noconfirm lxappearance
 
 sudo pacman -S --noconfirm paru
 sudo pacman -S --noconfirm vivaldi
