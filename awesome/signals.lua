@@ -96,6 +96,19 @@ end)
 
 awful.tag.attached_connect_signal(screen.primary, "property::layout", function (tag)
 	Adjust_all_borders(tag)
+	Widget_update_malumn(tag)
+end)
+
+awful.tag.attached_connect_signal(screen.primary, "property::master_count", function (tag)
+	Widget_update_malumn(tag)
+end)
+
+awful.tag.attached_connect_signal(screen.primary, "property::column_count", function (tag)
+	Widget_update_malumn(tag)
+end)
+
+awful.tag.attached_connect_signal(screen.primary, "property::selected", function (tag)
+	Widget_update_malumn(tag)
 end)
 
 client.connect_signal("focus", function(client)

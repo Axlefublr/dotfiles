@@ -294,6 +294,21 @@ function Widget_disable_water()
 	Water_widget:set_text("")
 end
 
+Malumn_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Malumn_margin_widget = wibox.container.margin(Malumn_widget)
+Malumn_margin_widget.left = 5
+Malumn_margin_widget.right = 7
+function Widget_update_malumn(tag)
+	Malumn_widget:set_text(tag.master_count .. '/' .. tag.column_count)
+end
+function Widget_disable_malumn()
+	Malumn_widget:set_text('?/?')
+end
+
 Note_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
@@ -408,7 +423,7 @@ function Widget_enable_title(passed_client)
 	Title_widget:set_text(title)
 end
 
-Icon_widget = awful.widget.clienticon(awful.client.focus)
+Icon_widget = awful.widget.clienticon(awful.client.focus or nil)
 Icon_widget.forced_height = 36
 Icon_widget.forced_width = 36
 Icon_margin_widget = wibox.container.margin(Icon_widget)
@@ -515,6 +530,7 @@ screen.primary.wibox_widget:setup {
 	{
 		layout = wibox.layout.fixed.horizontal,
 		screen.primary.layout_box_widget,
+		Malumn_margin_widget,
 		screen.primary.tag_list_widget,
 		screen.primary.prompt_margin_widget,
 	},
@@ -570,6 +586,7 @@ local run_once = function()
 	Widget_update_hunger()
 	Widget_update_loago()
 	Widget_update_note()
+	Widget_update_malumn(screen.primary.selected_tag)
 	return false
 end
 gears.timer.start_new(0, run_once)
