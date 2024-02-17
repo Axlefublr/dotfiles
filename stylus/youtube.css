@@ -145,6 +145,10 @@ icon-shape > div {
 	fill: var(--gruvbox-white) !important;
 }
 
+yt-live-chat-author-badge-renderer div {
+	fill: var(--shell-pink) !important;
+}
+
 /* × button and mic button to the right of the search bar */
 .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill {
 	background-color: var(--gruvbox-white);
@@ -321,8 +325,10 @@ yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-mes
 }
 
 /* bottom bar that includes inputbox among ඞ other things */
-yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
-	padding: 1px 0px 9px 0px;
+yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer,
+/* live chat / top chat */
+yt-live-chat-header-renderer {
+	padding: 0;
 }
 
 /* scrollbar of the left side preview of the playlist */
@@ -335,6 +341,14 @@ yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
 	stroke: #0f0f0f;
 	stroke-opacity: 0.5;
 	stroke-width: 2px;
+}
+
+/* youtube chat header */
+[aria-label="Live Chat mode selection"] > #label-text {
+	font-size: 14px;
+}
+yt-live-chat-header-renderer {
+	height: 22px;
 }
 
 .immersive-header-gradient.style-scope.ytd-playlist-header-renderer {
