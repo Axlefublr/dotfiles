@@ -22,8 +22,8 @@ alias --save scrot 'scrot -i -l color=#ffafd7,mode=edge,width=2' > /dev/null
 alias --save dmenu "dmenu -fn 'JetBrainsMonoNL NF:size=16' -nb '#292828' -nf '#d4be98' -sb '#ffd75f' -sf '#0f0f0f' -l 10" > /dev/null
 alias --save clipmenu "clipmenu -fn 'JetBrainsMonoNL NF:size=16' -nb '#292828' -nf '#d4be98' -sb '#ffd75f' -sf '#0f0f0f' -l 10" > /dev/null
 alias --save suspend 'systemctl suspend' > /dev/null
-alias --save l 'printf "\e[H\e[22J"' > /dev/null # scroll everything into scrollback buffer; named this way for quick usability
-alias --save screenkey 'screenkey --no-systray -p bottom -s small --key-mode raw --bak-mode full --mods-mod normal --font "JetBrainsMonoNL Nerd Font" --font-color "#d4be98" --bg-color "#1a1919" --opacity 0.7 --compr-cnt 3 --mouse -g 1920x1080+0+115' > /dev/null
+alias --save clx 'printf "\e[H\e[22J"' > /dev/null
+alias --save screenkey 'screenkey --no-systray -p bottom -s small --key-mode translated --bak-mode full --mods-mod normal --font "JetBrainsMonoNL Nerd Font" --font-color "#d4be98" --bg-color "#1a1919" --opacity 0.7 --compr-cnt 3 --mouse -g 1920x1080+0+115' > /dev/null
 
 function lod
 	loago do $argv
@@ -31,26 +31,34 @@ function lod
 end
 funcsave lod > /dev/null
 
-function zr
+function d
 	z $argv
+	clx
+end
+funcsave d > /dev/null
+
+function dr
+	z $argv
+	clx
 	ranger
 end
-funcsave zr > /dev/null
+funcsave dr > /dev/null
 
-function zl
+function dl
 	z $argv
 	ls
 end
-funcsave zl > /dev/null
+funcsave dl > /dev/null
 
 function mkcd
-	mkdir -p $argv && z $argv
+	mkdir -p $argv && z $argv && clx
 end
 funcsave mkcd > /dev/null
 
 function ghrclc
 	gh repo clone $argv &&
-	cd (path basename $argv)
+	cd (path basename $argv) &&
+	clx
 end
 funcsave ghrclc > /dev/null
 
@@ -83,6 +91,7 @@ function xrestartwaaa
 	sleep 3
 	xwaaa
 	notify-send -t 2000 'restarted xremap'
+	clx
 end
 funcsave xrestartwaaa > /dev/null
 

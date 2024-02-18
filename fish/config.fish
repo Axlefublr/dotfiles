@@ -82,6 +82,7 @@ bind -M default "'qp" 'commandline -i (xclip -selection clipboard -o)'
 
 bind -M insert \c] execute
 bind -M default K execute
+bind -M insert \c] 'commandline -a " && clx" ; commandline -f execute'
 
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
@@ -89,7 +90,6 @@ bind -M default \; repeat-jump
 bind -M default '"' accept-autosuggestion
 
 bind -M insert \ed 'clear -x'
-bind -M insert \ev 'ranger ; commandline -f repaint'
 bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
 bind -M insert \en list_current_token
 bind -M insert \e\; expand-abbr accept-autosuggestion

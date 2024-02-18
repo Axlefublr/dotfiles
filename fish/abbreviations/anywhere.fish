@@ -8,3 +8,4 @@ abbr -a ,ar --position anywhere -- '&> /dev/null'
 abbr -a ,h --position anywhere -- $HOME/
 abbr -a ,ds --position anywhere -- '&> /dev/null & disown'
 abbr -a ,dsr --position anywhere --set-cursor -- '&> % & disown'
+abbr -a ,f --position anywhere -- '&& clx'
