@@ -245,7 +245,7 @@ keymap:
           shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
           g: { launch: [fish, -c, grostart] }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
-          k: { launch: [screenkey] }
+          k: { launch: [fish, -c, screenkey] }
           Shift-k: { launch: [killall, screenkey] }
           l: { launch: [awesome-client, awful.client.floating.toggle()] }
           t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
