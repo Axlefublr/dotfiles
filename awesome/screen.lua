@@ -292,7 +292,6 @@ Water_widget = wibox.widget {
 	font = beautiful.code_font
 }
 Water_background_widget = wibox.container.background(Water_widget)
-Water_background_widget.fg = beautiful.cyan
 Water_margin_widget = wibox.container.margin(Water_background_widget)
 function Widget_enable_water()
 	Water_margin_widget.right = -4

@@ -10,3 +10,4 @@ alias --save sv 'set_volume' > /dev/null
 alias --save smv 'set_mic_volume' > /dev/null
 alias --save pik 'pikaur' > /dev/null
 alias --save iiv 'nvim ~/.local/share/notie' > /dev/null
+alias --save at 'alien_temple' > /dev/null

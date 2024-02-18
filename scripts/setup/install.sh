@@ -89,3 +89,4 @@ sudo pacman -S --noconfirm gimp
 sudo pacman -S --noconfirm rofi
 sudo pacman -S --noconfirm bat
 sudo pacman -S --noconfirm trash-cli
+sudo pacman -S --noconfirm speedtest-cli
