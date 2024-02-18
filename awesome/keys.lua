@@ -73,6 +73,9 @@ globalkeys = gears.table.join(
 		end
 	),
 
+	awful.key({ modkey, "Control" }, "l", function() awful.client.swap.byidx(1) end),
+	awful.key({ modkey, "Control" }, "h", function() awful.client.swap.byidx(-1) end),
+
 	awful.key({ modkey, "Mod1" }, "l", function()
 		awful.client.swap.byidx(1)
 		awful.client.focus.byidx(-1)
