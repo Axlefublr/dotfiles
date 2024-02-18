@@ -58,6 +58,7 @@ client.connect_signal("property::urgent", function(client)
 	if client.class == "Spotify" then
 		client.urgent = false
 	end
+	client.border_color = beautiful.pink
 end)
 
 client.connect_signal("property::name", function(client)
