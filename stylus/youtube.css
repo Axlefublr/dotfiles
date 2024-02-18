@@ -118,8 +118,6 @@ alt text is displayed without wpcc */
 /* special channel */
 #contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(5) yt-formatted-string,
 div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-live-chat-renderer#chat-messages:not(.iron-selected)),
-/* player gradient */
-.ytp-gradient-bottom,
 /* border around hearted comment */
 #hearted-border.ytd-creator-heart-renderer,
 /* blurred background image in playlist header */
@@ -334,13 +332,6 @@ yt-live-chat-header-renderer {
 /* scrollbar of the left side preview of the playlist */
 .immersive-header-content.ytd-playlist-header-renderer {
 	overflow-y: hidden;
-}
-
-/* shadows around player elements */
-.ytp-svg-shadow {
-	stroke: #0f0f0f;
-	stroke-opacity: 0.5;
-	stroke-width: 2px;
 }
 
 /* youtube chat header */
