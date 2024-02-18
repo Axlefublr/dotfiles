@@ -23,6 +23,12 @@ alias --save dmenu "dmenu -fn 'JetBrainsMonoNL NF:size=16' -nb '#292828' -nf '#d
 alias --save clipmenu "clipmenu -fn 'JetBrainsMonoNL NF:size=16' -nb '#292828' -nf '#d4be98' -sb '#ffd75f' -sf '#0f0f0f' -l 10" > /dev/null
 alias --save suspend 'systemctl suspend' > /dev/null
 
+function lod
+	loago do $argv
+	awesome-client 'Widget_update_loago()'
+end
+funcsave lod > /dev/null
+
 function zr
 	z $argv
 	ranger
