@@ -31,7 +31,7 @@ sudo pacman -S --noconfirm ranger
 sudo pacman -S --noconfirm tokei
 sudo pacman -S --noconfirm zoxide
 sudo pacman -S --noconfirm sd
-sudo pacman -S --noconfirm screenkey slop
+sudo pacman -S --noconfirm screenkey
 sudo pacman -S --noconfirm kid3
 sudo pacman -S --noconfirm kwalletmanager
 sudo pacman -S --noconfirm packagekit-qt5
