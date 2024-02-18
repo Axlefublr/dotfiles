@@ -197,6 +197,13 @@ function i
 end
 funcsave i > /dev/null
 
+function ir
+	printf '\n'(cat ~/.local/share/notie) >> ~/prog/noties/tasks.txt
+	printf "$argv" > ~/.local/share/notie
+	awesome-client 'Widget_update_note()'
+end
+funcsave ir > /dev/null
+
 function iv
 	kitty -T "note editor" nvim ~/.local/share/notie
 	awesome-client 'Widget_update_note()'
