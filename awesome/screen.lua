@@ -567,6 +567,7 @@ screen.primary.wibox_widget:setup {
 }
 
 local frequent_updaters = {
+	Widget_update_layout,
 	Widget_update_xremap,
 	Widget_update_gromit,
 	Widget_update_compositor,
@@ -590,7 +591,6 @@ end
 gears.timer.start_new(0.2, frequent)
 
 local run_once = function()
-	Widget_update_layout()
 	Widget_update_hunger()
 	Widget_update_loago()
 	Widget_update_note()
