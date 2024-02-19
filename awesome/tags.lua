@@ -71,7 +71,7 @@ awful.tag.add("<", {
 	master_width_factor = 0.5,
 })
 awful.tag.add(">", {
-	layout              = awful.layout.suit.fair,
+	layout              = awful.layout.suit.max,
 	master_fill_policy  = "expand",
 	master_width_factor = 0.5,
 })
