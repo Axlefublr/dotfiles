@@ -433,10 +433,6 @@
   "when": "neovim.mode != 'insert'"
 },
 {
-  "key": "shift+alt+'",
-  "command": "workbench.action.openView"
-},
-{
   "key": "f2",
   "command": "codesnap.start",
   "when": "!filesExplorerFocus"
@@ -451,7 +447,7 @@
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 },
 {
-  "key": "shift+alt+s",
+  "key": "shift+alt+;",
   "command": "acceptAlternativeSelectedSuggestion",
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 },
@@ -607,12 +603,12 @@
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 },
 {
-  "key": "alt+s",
+  "key": "alt+;",
   "command": "editor.action.inlineSuggest.commit",
   "when": "editorTextFocus && neovim.mode == 'insert' && inlineSuggestionVisible"
 },
 {
-  "key": "alt+s",
+  "key": "alt+;",
   "command": "acceptSelectedSuggestion",
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inlineSuggestionVisible"
 },
@@ -622,7 +618,7 @@
   "when": "neovim.mode != 'insert' && breadcrumbsVisible"
 },
 {
-  "key": "alt+s",
+  "key": "alt+;",
   "command": "acceptSelectedCodeAction",
   "when": "actionWidgetVisible || codeActionMenuVisible"
 },
@@ -1222,11 +1218,6 @@
   "key": "alt+l",
   "command": "editor.action.inlineSuggest.trigger",
   "when": "textInputFocus && neovim.mode == 'insert' && !inlineSuggestionVisible && !inSnippetMode"
-},
-{
-  "key": "alt+'",
-  "command": "editor.action.inlineSuggest.acceptNextWord",
-  "when": "inlineSuggestionVisible && neovim.mode == 'insert'"
 },
 {
   "key": "ctrl+c",

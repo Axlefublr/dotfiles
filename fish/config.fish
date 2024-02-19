@@ -95,7 +95,7 @@ bind -M insert -k f4 'commandline ""'
 bind -M insert \ed 'clear -x'
 bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
 bind -M insert \eu list_current_token
-bind -M insert \eS forward-word
-bind -M insert \es accept-autosuggestion
-bind -M default \eS forward-word
-bind -M default \es accept-autosuggestion
+bind -M insert \e: forward-word
+bind -M insert \e\; accept-autosuggestion
+bind -M default \e\: forward-word
+bind -M default \e\; accept-autosuggestion
