@@ -89,6 +89,7 @@ bind -M default \; repeat-jump
 
 bind -M insert \ed 'clear -x'
 bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
+bind -M insert \eu list_current_token
 bind -M insert \eS forward-word
 bind -M insert \es accept-autosuggestion
 bind -M default \eS forward-word
