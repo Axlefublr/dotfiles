@@ -99,7 +99,7 @@ theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = 'Breeze Dark'
+theme.icon_theme = nil
 
 return theme
 

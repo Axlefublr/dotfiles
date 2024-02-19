@@ -420,7 +420,7 @@ function Widget_enable_title(passed_client)
 	if passed_client ~= client.focus then
 		return
 	end
-	Title_margin_widget.left = 0
+	Title_margin_widget.left = Between_margin
 	local title = ''
 	if passed_client.class then
 		title = passed_client.class .. ': '
@@ -431,25 +431,7 @@ function Widget_enable_title(passed_client)
 	Title_widget:set_text(title)
 end
 
-Icon_widget = awful.widget.clienticon(awful.client.focus or nil)
-Icon_widget.forced_height = 36
-Icon_widget.forced_width = 36
-Icon_margin_widget = wibox.container.margin(Icon_widget)
-function Widget_enable_icon(client)
-	Icon_widget.client = client
-	Icon_margin_widget.top = 5
-	Icon_margin_widget.left = 7
-	Icon_margin_widget.right = 7
-end
-function Widget_disable_icon()
-	Icon_widget.client = nil
-	Icon_margin_widget.top = 0
-	Icon_margin_widget.left = 0
-	Icon_margin_widget.right = 0
-end
-
 Titlebar_layout_widget = wibox.widget {
-	Icon_margin_widget,
 	Stated_margin_widget,
 	Ontop_state_margin_widget,
 	Maximized_state_margin_widget,
@@ -546,6 +528,7 @@ screen.primary.wibox_widget:setup {
 	-- Right widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
+		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
 		Note_margin_widget,
 		Layout_margin_widget,

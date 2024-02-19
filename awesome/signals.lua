@@ -43,8 +43,6 @@ local function on_maybe_name(client)
 			width = 500,
 			height = 500
 		})
-	elseif client.class == "Anki" and string.match(client.name, "^Browse") then
-		Move_window_to_tag(16)
 	end
 end
 
@@ -64,6 +62,9 @@ end)
 client.connect_signal("property::name", function(client)
 	Widget_enable_title(client)
 	on_maybe_name(client)
+	if client.class == "Anki" and string.match(client.name, "^Browse") then
+		Move_window_to_tag(16)
+	end
 end)
 
 -- Signal function to execute when a new client appears.
@@ -72,9 +73,6 @@ client.connect_signal("manage", function(client)
 	if not awesome.startup then awful.client.setslave(client) end
 	Adjust_all_borders()
 	on_maybe_name(client)
-	if client.class == 'Gimp' then
-		client.size_hints.min_width = 0
-	end
 end)
 
 client.connect_signal("property::maximized", function(client)
@@ -118,7 +116,6 @@ client.connect_signal("focus", function(client)
 	Widget_update_maximized(client)
 	Widget_update_sticky(client)
 	Widget_update_floating(client)
-	Widget_enable_icon(client)
 
 	Adjust_borders(client)
 	client.border_color = beautiful.border_focus
@@ -127,6 +124,5 @@ end)
 client.connect_signal("unfocus", function(client)
 	Title_widget:set_text("")
 	Title_margin_widget.left = 0
-	Widget_disable_icon()
 	client.border_color = beautiful.border_normal
 end)

@@ -15,6 +15,7 @@ set -gx MANPAGER 'nvim +Man!'
 set -gx LESSKEYIN '/opt/lesskey'
 set -gx CARGO_MOMMYS_MOODS 'chill/thirsty'
 set -gx XMODIFIERS @im=none
+set -gx QT_QPA_PLATFORMTHEME qt5ct
 
 set -g color_pink        FFAFD7
 set -g color_purple      AF87FF
