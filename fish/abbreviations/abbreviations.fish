@@ -172,7 +172,7 @@ abbr -a slur 'systemctl --user daemon-reload'
 abbr -a slus 'systemctl --user status'
 abbr -a slup 'systemctl --user stop'
 
-abbr -a u 'z -'
+abbr -a u 'z - && clx'
 abbr -a v 'nvim'
 abbr -a c 'code'
 abbr -a fp 'fish -P'

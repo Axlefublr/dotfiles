@@ -31,25 +31,6 @@ function lod
 end
 funcsave lod > /dev/null
 
-function d
-	z $argv
-	clx
-end
-funcsave d > /dev/null
-
-function dr
-	z $argv
-	clx
-	ranger
-end
-funcsave dr > /dev/null
-
-function dl
-	z $argv
-	ls
-end
-funcsave dl > /dev/null
-
 function mkcd
 	mkdir -p $argv && z $argv && clx
 end
