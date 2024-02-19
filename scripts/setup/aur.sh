@@ -3,10 +3,9 @@
 # Themes
 paru --noconfirm -aS ttf-twemoji
 paru --noconfirm -aS ttf-comfortaa
-paru --noconfirm -aS graphite-cursor-theme-git
-paru --noconfirm -aS phinger-cursors
-paru --noconfirm -aS gruvbox-material-gtk-theme-git
-paru --noconfirm -aS zafiro-icon-theme-git
+paru --noconfirm -aS qt5-styleplugins
+# Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
+# Gruvbox Dark BL — https://www.gnome-look.org/p/1681313
 
 paru --noconfirm -aS ascii-image-converter
 paru --noconfirm -aS nodejs-mapscii

@@ -302,6 +302,25 @@ function Widget_disable_water()
 	Water_widget:set_text("")
 end
 
+Clients_widget = wibox.widget {
+	text = "",
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+}
+Clients_background_widget = wibox.container.background(Clients_widget)
+Clients_background_widget.fg = beautiful.yellow
+Clients_margin_widget = wibox.container.margin(Clients_background_widget)
+function Widget_update_clients(tag)
+	local clients = #tag:clients()
+	if clients <= 1 then
+		Clients_widget:set_text("")
+		Clients_margin_widget.right = 0
+	else
+		Clients_widget:set_text(clients)
+		Clients_margin_widget.right = Between_margin
+	end
+end
+
 Malumn_widget = wibox.widget {
 	text = "",
 	widget = wibox.widget.textbox,
@@ -420,7 +439,7 @@ function Widget_enable_title(passed_client)
 	if passed_client ~= client.focus then
 		return
 	end
-	Title_margin_widget.left = Between_margin
+	screen.primary.tag_list_margin_widget.right = Between_margin
 	local title = ''
 	if passed_client.class then
 		title = passed_client.class .. ': '
@@ -429,6 +448,11 @@ function Widget_enable_title(passed_client)
 		title = title .. passed_client.name
 	end
 	Title_widget:set_text(title)
+end
+function Widget_disable_title()
+	Title_widget:set_text("")
+	Title_margin_widget.left = 0
+	screen.primary.tag_list_margin_widget.right = 0
 end
 
 Titlebar_layout_widget = wibox.widget {
@@ -510,6 +534,7 @@ screen.primary.tag_list_widget = awful.widget.taglist {
 	filter  = awful.widget.taglist.filter.noempty,
 	buttons = Taglist_buttons,
 }
+screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.tag_list_widget)
 
 screen.primary.wibox_widget = awful.wibar({ position = "top", screen = screen.primary })
 
@@ -521,8 +546,9 @@ screen.primary.wibox_widget:setup {
 		layout = wibox.layout.fixed.horizontal,
 		screen.primary.layout_box_widget,
 		Malumn_margin_widget,
-		screen.primary.tag_list_widget,
+		screen.primary.tag_list_margin_widget,
 		screen.primary.prompt_margin_widget,
+		Clients_margin_widget,
 	},
 	Titlebar_layout_widget,
 	-- Right widgets

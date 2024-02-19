@@ -11,8 +11,8 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "Ubuntu NF 12"
-theme.code_font     = "JetBrainsMonoNL NF 12"
+theme.font          = "Ubuntu NF 13"
+theme.code_font     = "JetBrainsMonoNL NF 13"
 theme.background    = "#292828"
 theme.white         = "#d4be98"
 theme.darkerest     = "#212121"
@@ -102,5 +102,3 @@ theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
 theme.icon_theme = nil
 
 return theme
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

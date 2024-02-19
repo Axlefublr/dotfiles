@@ -73,6 +73,11 @@ client.connect_signal("manage", function(client)
 	if not awesome.startup then awful.client.setslave(client) end
 	Adjust_all_borders()
 	on_maybe_name(client)
+	Widget_update_clients(screen.primary.selected_tag)
+end)
+
+client.connect_signal("unmanage", function(client)
+	Widget_update_clients(screen.primary.selected_tag)
 end)
 
 client.connect_signal("property::maximized", function(client)
@@ -108,6 +113,7 @@ end)
 
 awful.tag.attached_connect_signal(screen.primary, "property::selected", function (tag)
 	Widget_update_malumn(tag)
+	Widget_update_clients(tag)
 end)
 
 client.connect_signal("focus", function(client)
@@ -122,7 +128,5 @@ client.connect_signal("focus", function(client)
 end)
 
 client.connect_signal("unfocus", function(client)
-	Title_widget:set_text("")
-	Title_margin_widget.left = 0
 	client.border_color = beautiful.border_normal
 end)
