@@ -89,6 +89,7 @@ bind -M default \; repeat-jump
 bind -M insert -k f1 'commandline -f expand-abbr ; commandline -a " && clx" ; commandline -f execute'
 bind -M insert -k f2 expand-abbr insert-line-under
 bind -M insert -k f3 accept-autosuggestion execute
+bind -M insert -k f4 'commandline ""'
 
 bind -M insert \ed 'clear -x'
 bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
