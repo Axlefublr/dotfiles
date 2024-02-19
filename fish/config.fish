@@ -78,19 +78,18 @@ bind -M default x begin-selection kill-selection end-selection repaint-mode
 bind -M default -m insert cie 'commandline ""'
 bind -M default die 'commandline ""'
 bind -M default yie 'commandline | xclip -r -selection clipboard'
-bind -M default "'qp" 'commandline -i (xclip -selection clipboard -o)'
 
 bind -M insert \c] execute
 bind -M default K execute
-bind -M insert \c] 'commandline -a " && clx" ; commandline -f execute'
 
 bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default \; repeat-jump
-bind -M default '"' accept-autosuggestion
+
 
 bind -M insert \ed 'clear -x'
 bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
-bind -M insert \en list_current_token
-bind -M insert \e\; expand-abbr accept-autosuggestion
-bind -M insert \e\' forward-word
+bind -M insert \eS forward-word
+bind -M insert \es accept-autosuggestion
+bind -M default \eS forward-word
+bind -M default \es accept-autosuggestion

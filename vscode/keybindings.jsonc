@@ -451,7 +451,7 @@
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 },
 {
-  "key": "shift+alt+;",
+  "key": "shift+alt+s",
   "command": "acceptAlternativeSelectedSuggestion",
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 },
@@ -607,12 +607,12 @@
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 },
 {
-  "key": "alt+;",
+  "key": "alt+s",
   "command": "editor.action.inlineSuggest.commit",
   "when": "editorTextFocus && neovim.mode == 'insert' && inlineSuggestionVisible"
 },
 {
-  "key": "alt+;",
+  "key": "alt+s",
   "command": "acceptSelectedSuggestion",
   "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus && !inlineSuggestionVisible"
 },
@@ -622,7 +622,7 @@
   "when": "neovim.mode != 'insert' && breadcrumbsVisible"
 },
 {
-  "key": "alt+;",
+  "key": "alt+s",
   "command": "acceptSelectedCodeAction",
   "when": "actionWidgetVisible || codeActionMenuVisible"
 },
