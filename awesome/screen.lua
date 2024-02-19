@@ -588,7 +588,7 @@ local frequent = function()
 	end
 	return true
 end
-gears.timer.start_new(0.1, frequent)
+gears.timer.start_new(0.15, frequent)
 
 local run_once = function()
 	Widget_update_hunger()
