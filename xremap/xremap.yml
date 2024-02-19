@@ -259,6 +259,7 @@ keymap:
           Shift-s: { launch: [systemctl, suspend] }
           Shift-c: { launch: [xset, dpms, force, 'off'] }
           Super-j: { launch: [awesome-client, Prompt_ignore_output()] }
+          'y': { launch: [fish, -c, install_yt_video] }
 
   - name: Clipboard Manager
     exact_match: true
