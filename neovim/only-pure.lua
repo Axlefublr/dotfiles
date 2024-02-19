@@ -9,7 +9,7 @@ local function closeEditor()
 	end
 end
 Map("n", "K", closeEditor)
-Map("i", "<C-]>", closeEditor)
+Map("i", "<f1>", closeEditor)
 
 local function close_without_saving()
 	Cmd("q!")
