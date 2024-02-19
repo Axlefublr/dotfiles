@@ -12,3 +12,7 @@ sudo systemctl start sddm
 
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
+
+# xdg-mime query filetype
+xdg-mime default mpv.desktop video/webm
+xdg-mime default mpv.desktop video/mp4

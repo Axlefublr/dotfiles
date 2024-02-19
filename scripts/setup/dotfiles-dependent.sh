@@ -75,6 +75,10 @@ ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
 # Twemoji
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 
+# Mpv
+mkdir -p ~/.config/mpv
+ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql
