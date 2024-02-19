@@ -308,19 +308,40 @@ Clients_widget = wibox.widget {
 	font = 'JetBrainsMonoNL NF bold 15'
 }
 Clients_background_widget = wibox.container.background(Clients_widget)
-Clients_background_widget.fg = beautiful.white
+Clients_background_widget.bg = beautiful.yellow
+Clients_background_widget.fg = beautiful.black
 Clients_margin_widget = wibox.container.margin(Clients_background_widget)
 function Widget_update_clients(tag)
-	local clients = #tag:clients()
-	if clients <= 1 then
-		Clients_widget:set_text("")
-		Clients_margin_widget.right = 0
+	local clients = tag:clients()
+
+	if #clients <= 1 then
+		Widget_disable_clients()
+		return
+	end
+
+	local activate_widget = false
+	if tag.layout.name == 'max' then
+		activate_widget = true
+	else
+		for _, client in ipairs(clients) do
+			if client.maximized then
+				activate_widget = true
+				break
+			end
+		end
+	end
+	if activate_widget then
+		Clients_widget:set_text(' ' .. #clients .. ' ')
+		Clients_margin_widget.right = Between_margin
 		Clients_margin_widget.left = 0
 	else
-		Clients_widget:set_text(clients)
-		Clients_margin_widget.right = 5
-		Clients_margin_widget.left = 7
+		Widget_disable_clients()
 	end
+end
+function Widget_disable_clients()
+	Clients_widget:set_text("")
+	Clients_margin_widget.right = 0
+	Clients_margin_widget.left = 0
 end
 
 Malumn_widget = wibox.widget {
@@ -546,11 +567,11 @@ screen.primary.wibox_widget:setup {
 	-- Left widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
-		Clients_margin_widget,
 		screen.primary.layout_box_widget,
 		Malumn_margin_widget,
 		screen.primary.tag_list_margin_widget,
 		screen.primary.prompt_margin_widget,
+		Clients_margin_widget,
 	},
 	Titlebar_layout_widget,
 	-- Right widgets
