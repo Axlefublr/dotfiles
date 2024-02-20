@@ -534,8 +534,8 @@ screen.primary.prompt_widget = awful.widget.prompt({
 })
 screen.primary.prompt_margin_widget = wibox.container.margin(screen.primary.prompt_widget)
 function Run_prompt()
-	screen.primary.prompt_margin_widget.left = 8
-	screen.primary.prompt_margin_widget.right = 10
+	screen.primary.prompt_margin_widget.left = 0
+	screen.primary.prompt_margin_widget.right = 16
 	screen.primary.prompt_widget:run()
 end
 function Prompt_ignore_output()
