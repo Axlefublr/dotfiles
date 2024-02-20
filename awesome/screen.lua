@@ -12,7 +12,7 @@ Text_clock_widget = wibox.widget.textclock("%A %y.%m.%d %H:%M:%S ", 1)
 Text_clock_widget.font = beautiful.code_font
 
 Loago_widget = wibox.widget {
-	text = "fscrub⁴",
+	text = "",
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font
 }
@@ -332,16 +332,12 @@ function Widget_update_clients(tag)
 	end
 	if activate_widget then
 		Clients_widget:set_text(' ' .. #clients .. ' ')
-		Clients_margin_widget.right = Between_margin
-		Clients_margin_widget.left = 0
 	else
 		Widget_disable_clients()
 	end
 end
 function Widget_disable_clients()
 	Clients_widget:set_text("")
-	Clients_margin_widget.right = 0
-	Clients_margin_widget.left = 0
 end
 
 Malumn_widget = wibox.widget {
@@ -369,8 +365,10 @@ function Widget_update_note()
 	awful.spawn.easy_async_with_shell("cat ~/.local/share/notie", function(stdout)
 		local stdout = Trim_newlines(stdout)
 		if #stdout == 0 then
+			Note_margin_widget.right = 0
 			Note_margin_widget.left = 0
 		else
+			Note_margin_widget.right = Between_margin
 			Note_margin_widget.left = Between_margin
 		end
 		Note_widget:set_text(stdout)
@@ -567,11 +565,11 @@ screen.primary.wibox_widget:setup {
 	-- Left widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
+		Note_margin_widget,
 		screen.primary.layout_box_widget,
 		Malumn_margin_widget,
 		screen.primary.tag_list_margin_widget,
 		screen.primary.prompt_margin_widget,
-		Clients_margin_widget,
 	},
 	Titlebar_layout_widget,
 	-- Right widgets
@@ -579,7 +577,6 @@ screen.primary.wibox_widget:setup {
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
-		Note_margin_widget,
 		Layout_margin_widget,
 		Xremap_margin_widget,
 		Gromit_margin_widget,
@@ -595,6 +592,7 @@ screen.primary.wibox_widget:setup {
 		Volume_margin_widget,
 		Loago_margin_widget,
 		Text_clock_widget,
+		Clients_margin_widget,
 	},
 }
 

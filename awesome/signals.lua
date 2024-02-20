@@ -62,17 +62,17 @@ end)
 client.connect_signal("property::name", function(client)
 	Widget_enable_title(client)
 	on_maybe_name(client)
-	if client.class == "Anki" and string.match(client.name, "^Browse") then
-		Move_window_to_tag(16)
-	end
 end)
 
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
-	Adjust_all_borders()
 	on_maybe_name(client)
+	if client.class == "Anki" and string.match(client.name, "^Browse") then
+		Move_window_to_tag(16)
+	end
+	Adjust_all_borders()
 	Widget_update_clients(screen.primary.selected_tag)
 end)
 
