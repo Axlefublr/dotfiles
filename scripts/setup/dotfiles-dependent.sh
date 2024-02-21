@@ -2,7 +2,16 @@
 
 # X
 ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
-ln -sf ~/prog/dotfiles/x11/gtk3.ini ~/.config/gtk-3.0/settings.ini
+ln -sf ~/prog/dotfiles/compose.txt ~/.XCompose
+
+# Paru
+mkdir -p ~/.config/paru
+ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
+
+# Xremap
+sudo usermod -aG input $USER
+sudo usermod -aG video $USER
+echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
 
 # Neovim
 mkdir -p ~/.config/nvim
@@ -21,11 +30,6 @@ mkdir -p ~/.config/kitty
 ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
 
-# Ranger file explorer
-ranger --copy-config all
-ln -sf ~/prog/dotfiles/ranger/ranger.conf ~/.config/ranger/rc.conf
-ln -sf ~/prog/dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
-
 # Vscode
 mkdir -p ~/.config/Code/User
 ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
@@ -33,6 +37,20 @@ ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.
 # Needed for the CSS & JS extension
 sudo chown -R $(whoami) $(which code)
 sudo chown -R $(whoami) /opt/visual-studio-code
+
+# Awesome wm
+mkdir -p ~/.config/awesome
+ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
+ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
+
+# Ranger file explorer
+ranger --copy-config all
+ln -sf ~/prog/dotfiles/ranger/ranger.conf ~/.config/ranger/rc.conf
+ln -sf ~/prog/dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
+
+# Picom
+mkdir -p ~/.config/picom
+ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
 
 # Gromit-mpx
 ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
@@ -50,27 +68,6 @@ ln -sf ~/prog/dotfiles/yt-dlp.conf ~/yt-dlp.conf
 
 # Less
 sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
-
-# Paru
-mkdir -p ~/.config/paru
-ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
-
-# Custom compose
-ln -sf ~/prog/dotfiles/compose.txt ~/.XCompose
-
-# Xremap
-sudo usermod -aG input $USER
-sudo usermod -aG video $USER
-echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
-
-# Awesome wm
-mkdir -p ~/.config/awesome
-ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
-ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
-
-# Picom
-mkdir -p ~/.config/picom
-ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
 
 # Twemoji
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
