@@ -1,0 +1,126 @@
+configuration {
+	modes: [drun];
+	show-icons: true;
+	terminal: "kitty";
+	icon-theme: "Papirus";
+	drun-match-fields: [name, exec, filebrowser];
+	drun-display-format: "{name}";
+	case-sensitive: false;
+	cycle: true;
+	matching: "fuzzy";
+	dpi: 126;
+	scroll-method: 1;
+	max-history-size: 50;
+	matching-negate-char: '\'';
+	steal-focus: true;
+
+	kb-primary-paste: "";
+	kb-toggle-case-sensitivity: "";
+
+	kb-clear-line: "Control+Alt+u";
+	kb-secondary-paste: "Control+v";
+	kb-move-front: "Control+a,Home";
+	kb-move-end: "Control+e,End";
+	kb-remove-word-back: "Control+w,Control+BackSpace";
+	kb-remove-word-forward: "Control+Delete";
+	kb-accept-entry: "Return";
+	kb-row-first: "Control+Home";
+	kb-row-last: "Control+End";
+	kb-row-select: "Alt+[47]"; // 47 is ; on qwerty
+
+	kb-select-1: "Control+1";
+	kb-select-2: "Control+2";
+	kb-select-3: "Control+3";
+	kb-select-4: "Control+4";
+	kb-select-5: "Control+5";
+	kb-select-6: "Control+6";
+	kb-select-7: "Control+7";
+	kb-select-8: "Control+8";
+	kb-select-9: "Control+9";
+	kb-select-10: "Control+0";
+
+	timeout {
+		action: "kb-cancel";
+		delay:  0;
+	}
+	filebrowser {
+		directory: "/home/axlefublr";
+		directories-first: true;
+		sorting-method:    "name";
+	}
+}
+@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
+* {
+	yellow: #ffd75f;
+	white: #d4be98;
+	darkness: #1a1919;
+	black: #0f0f0f;
+
+	highlight: underline;
+	scrollbar: false;
+
+	foreground: var(white);
+	background: var(darkness);
+
+	normal-background: var(background);
+	normal-foreground: var(white);
+
+	alternate-normal-background: var(background);
+	alternate-normal-foreground: var(white);
+
+	selected-normal-foreground: var(black);
+	selected-normal-background: var(yellow);
+
+	separatorcolor: var(yellow);
+}
+window {
+	font: "JetBrainsMonoNL NF 16";
+	width: 60%;
+	border: 0;
+	location: center;
+	// y-offset: 48px;
+	padding: 5;
+	border-radius: 10px;
+}
+message {
+	padding:      10px ;
+	border-color: var(separatorcolor);
+	border:       2px 0px 0px ;
+}
+listview {
+	border: 0;
+	padding: 0;
+	spacing: 0;
+	fixed-height: false;
+	dynamic: true;
+	lines: 8;
+	require-input: false;
+}
+element {
+	children: [element-icon, element-text];
+	spacing: 10px;
+	padding: 0;
+}
+inputbar {
+	padding: 10px;
+	children: [/*prompt,*/ entry];
+}
+entry {
+	text-color: var(white);
+	horizontal-align: 0.5;
+	blink: false;
+}
+textbox-prompt-sep {
+	str: ":";
+	margin: 0;
+}
+element-text {
+	vertical-align: 0.5;
+	highlight: underline #ffd75f;
+}
+element-text selected {
+	highlight: underline bold #0f0f0f;
+}
+element-icon {
+	size: 1.5em;
+}

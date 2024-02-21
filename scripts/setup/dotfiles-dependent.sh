@@ -79,6 +79,11 @@ sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/7
 mkdir -p ~/.config/mpv
 ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
 
+# Rofi
+mkdir -p ~/.config/rofi
+ln -sf ~/prog/dotfiles/rofi/rofi.rasi ~/.config/rofi/config.rasi
+sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql
