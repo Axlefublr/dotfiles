@@ -10,10 +10,10 @@ abbr -a gl    'git log'
 abbr -a glo   'git log --oneline'
 abbr -a ga    'git add'
 abbr -a gap   'git add -p'
-abbr -a gm    'git commit && clx'
-abbr -a gmn   'git commit -a && clx'
-abbr -a gma   'git commit --amend && clx'
-abbr -a gman  'git commit --amend --no-edit && clx'
+abbr -a gm    'git commit > /dev/null'
+abbr -a gmn   'git commit -a > /dev/null'
+abbr -a gma   'git commit --amend > /dev/null'
+abbr -a gman  'git commit --amend --no-edit > /dev/null'
 abbr -a gp    'git push && clx'
 abbr -a gpo   'git push origin'
 abbr -a grs   'git reset'
@@ -49,18 +49,16 @@ abbr -a gui   'git update-index'
 abbr -a gmap 'git commit --amend &&
 	git push &&
 	clx'
-abbr -a gmanp 'git commit --amend - &&-no-edit
+abbr -a gmanp 'git commit --amend --no-edit &&
 	git push &&
 	clx'
 abbr -a gmp 'git commit &&
 	git push &&
 	clx'
 abbr -a gam 'git add . &&
-	git commit -a &&
-	clx'
+	git commit -a > /dev/null'
 abbr -a gamn 'git add . &&
-	git commit -a --no-edit &&
-	clx'
+	git commit -a --no-edit > /dev/null'
 abbr -a gamp 'git add . &&
 	git commit -a &&
 	git push &&
@@ -78,8 +76,7 @@ abbr -a gamanpf 'git add . &&
 	git push -f &&
 	clx'
 abbr -a gaman 'git add . &&
-	git commit -a --amend --no-edit &&
-	clx'
+	git commit -a --amend --no-edit > /dev/null'
 abbr -a gcr 'git add . &&
 	git commit -m "first commit" &&
 	git push -u origin main &&
@@ -209,3 +206,4 @@ abbr -a sv 'set_volume'
 abbr -a smv 'set_mic_volume'
 abbr -a pik 'pikaur'
 abbr -a iiv 'nvim ~/.local/share/notie'
+abbr -a real 'realpath'
