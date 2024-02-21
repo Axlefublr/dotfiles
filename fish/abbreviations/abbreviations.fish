@@ -10,12 +10,11 @@ abbr -a gl    'git log'
 abbr -a glo   'git log --oneline'
 abbr -a ga    'git add'
 abbr -a gap   'git add -p'
-abbr -a gm    'git commit > /dev/null'
-abbr -a gmn   'git commit -a > /dev/null'
-abbr -a gma   'git commit --amend > /dev/null'
-abbr -a gman  'git commit --amend --no-edit > /dev/null'
-abbr -a gp    'git push && clx'
-abbr -a gpo   'git push origin'
+abbr -a gm    'git commit -q'
+abbr -a gmn   'git commit -qa'
+abbr -a gma   'git commit -q --amend'
+abbr -a gman  'git commit -q --amend --no-edit'
+abbr -a gp    'git push -q && clx'
 abbr -a grs   'git reset'
 abbr -a grsH  'git reset HEAD'
 abbr -a grsh  'git reset --hard'
@@ -47,39 +46,39 @@ abbr -a grp   'git rev-parse'
 abbr -a gui   'git update-index'
 
 abbr -a gmap 'git commit --amend &&
-	git push &&
+	git push -q &&
 	clx'
 abbr -a gmanp 'git commit --amend --no-edit &&
-	git push &&
+	git push -q &&
 	clx'
 abbr -a gmp 'git commit &&
-	git push &&
+	git push -q &&
 	clx'
 abbr -a gam 'git add . &&
-	git commit -a > /dev/null'
+	git commit -qa'
 abbr -a gamn 'git add . &&
-	git commit -a --no-edit > /dev/null'
+	git commit -qa --no-edit'
 abbr -a gamp 'git add . &&
-	git commit -a &&
-	git push &&
+	git commit -qa &&
+	git push -q &&
 	clx'
 abbr -a gamap 'git add . &&
-	git commit -a --amend &&
-	git push &&
+	git commit -qa --amend &&
+	git push -q &&
 	clx'
 abbr -a gamanp 'git add . &&
-	git commit -a --amend --no-edit &&
-	git push &&
+	git commit -qa --amend --no-edit &&
+	git push -q &&
 	clx'
 abbr -a gamanpf 'git add . &&
-	git commit -a --amend --no-edit &&
-	git push -f &&
+	git commit -qa --amend --no-edit &&
+	git push -qf &&
 	clx'
 abbr -a gaman 'git add . &&
-	git commit -a --amend --no-edit > /dev/null'
+	git commit -qa --amend --no-edit > /dev/null'
 abbr -a gcr 'git add . &&
-	git commit -m "first commit" &&
-	git push -u origin main &&
+	git commit -qm "first commit" &&
+	git push -qu origin main &&
 	clx'
 
 abbr -a dn   'dotnet'

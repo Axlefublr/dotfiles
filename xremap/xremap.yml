@@ -235,31 +235,6 @@ keymap:
     remap:
       CapsLock-Semicolon: { set_mode: mouse }
 
-  - name: Global chord hotkeys
-    exact_match: true
-    remap:
-      Super-Semicolon:
-        remap:
-          e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'"]}
-          r: { launch: [fish, -c, xrestartwaaa]}
-          shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
-          g: { launch: [fish, -c, grostart] }
-          u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
-          l: { launch: [awesome-client, awful.client.floating.toggle()] }
-          t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-          m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-          f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
-          s: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
-          Shift-l: { launch: [fish, -c, "logout"]}
-          Shift-p: { launch: [poweroff] }
-          Shift-b: { launch: [reboot] }
-          Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
-          Shift-s: { launch: [systemctl, suspend] }
-          Shift-c: { launch: [xset, dpms, force, 'off'] }
-          Super-j: { launch: [fish, -c, runner] }
-          'y': { launch: [fish, -c, install_yt_video] }
-          a: { launch: [fish, -c, 'install_yt_video asmr/'] }
-
   - name: Clipboard Manager
     exact_match: true
     remap:
@@ -341,6 +316,31 @@ keymap:
           Key_9: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/9" ] }
           Key_0: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/0" ] }
 
+  - name: Global chord hotkeys
+    exact_match: true
+    remap:
+      Super-Semicolon:
+        remap:
+          e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'"]}
+          r: { launch: [fish, -c, xrestartwaaa]}
+          shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
+          g: { launch: [fish, -c, grostart] }
+          u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
+          l: { launch: [awesome-client, awful.client.floating.toggle()] }
+          t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+          m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+          f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
+          s: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+          Shift-l: { launch: [fish, -c, "logout"]}
+          Shift-p: { launch: [poweroff] }
+          Shift-b: { launch: [reboot] }
+          Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
+          Shift-s: { launch: [systemctl, suspend] }
+          Shift-c: { launch: [xset, dpms, force, 'off'] }
+          Super-j: { launch: [fish, -c, runner] }
+          'y': { launch: [fish, -c, install_yt_video] }
+          a: { launch: [fish, -c, 'install_yt_video asmr/'] }
+
   - name: Layouts
     exact_match: true
     remap:
@@ -382,64 +382,6 @@ keymap:
       # CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
       # CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }
 
-  - name: 'Anki'
-    exact_match: true
-    application:
-      only: Anki
-    remap:
-      Alt-c: [ tab, tab, tab, tab, tab, enter ]
-      Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
-      # Alt-d: [ ctrl-d, { launch: [
-      #     fish, -c, "winwaitname '(Choose|Change) Deck' 0 0 100 ; wm-float"
-      #   ] }]
-      # Alt-n: [ ctrl-n, { launch: [
-      #     fish, -c, "winwaitname 'Choose Note Type' 0 0 100 ; wm-float"
-      #   ] } ]
-      # Alt-Slash: [ slash, { launch: [
-      #     fish, -c, "winwaitname 'Study Deck' 0 0 100 ; wm-float"
-      #   ] } ]
-      # Alt-o: [ ctrl-shift-n, { launch: [
-      #     fish, -c, "winwaitname 'Note Types' 0 0 100 ; wm-float"
-      #   ] } ]
-
-  - name: Spotify
-    exact_match: true
-    application:
-      only: Spotify
-    remap:
-      Alt-j: { launch: [sh, -c, "xdotool mousemove 58 1025 ; ydotool click c1"] }
-
-  - name: Kitty
-    exact_match: true
-    application:
-      only: kitty
-    remap:
-      Ctrl-Backspace: ctrl-w
-
-  - name: Compose key
-    remap:
-      CapsLock-Apostrophe: ScrollLock
-
-  - name: Toggle capslock
-    exact_match: true
-    remap:
-      CapsLock-Space: [CapsLock, { launch: [awesome-client, Widget_update_layout()] }]
-
-  - name: Switch keyboard layout
-    exact_match: true
-    remap:
-      Super-Space: { launch: [fish, -c, toggle_layout] }
-
-  - name: Compositor
-    exact_match: true
-    remap:
-      Super-6: { launch: [fish, -c, toggle_compositor] }
-
-  - name: Close / kill focused process
-    remap:
-      CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
-      CapsLock-Shift-q: { launch: [xdotool, getwindowfocus, windowkill] }
-
   - name: Screenshot
     exact_match: true
     remap:
@@ -458,48 +400,57 @@ keymap:
       CapsLock-v: { launch: [gromit-mpx, --undo] }
       CapsLock-c: { launch: [gromit-mpx, --redo] }
 
-  - name: Zoom
+  - name: 'Anki'
     exact_match: true
+    application:
+      only: Anki
     remap:
-      Super-v: { launch: [fish, -c, 'run_xzoom'] }
+      Alt-c: [ tab, tab, tab, tab, tab, enter ]
+      Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
 
-  - name: Edit clipboard
+  - name: Spotify
+    exact_match: true
+    application:
+      only: Spotify
     remap:
-      CapsLock-Dot:
-        {
-          launch:
-            [
-              sh,
-              -c,
-              "xclip -selection clipboard -o > /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard",
-            ],
-        }
-      CapsLock-Alt-Dot:
-        {
-          launch:
-            [
-              sh,
-              -c,
-              "truncate -s 0 /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard",
-            ],
-        }
-
-  - name: Pick unicode
-    remap:
-      CapsLock-m: { launch: [ fish, -c, 'emoji_picker_clipboard code' ] }
-      CapsLock-Alt-m: { launch: [ fish, -c, 'emoji_picker_clipboard name' ] }
+      Alt-j: { launch: [sh, -c, "xdotool mousemove 58 1025 ; ydotool click c1"] }
 
   - name: Kitty
+    exact_match: true
+    application:
+      only: kitty
     remap:
-      CapsLock-Slash: { launch: [kitty, -d, '~'] }
+      Ctrl-Backspace: ctrl-w
 
-  - name: Rofi
+  - name: Compose key
+    exact_match: true
     remap:
+      CapsLock-Apostrophe: ScrollLock
+
+  - name: Toggle capslock
+    exact_match: true
+    remap:
+      CapsLock-Space: [CapsLock, { launch: [awesome-client, Widget_update_layout()] }]
+
+  - name: Other
+    exact_match: true
+    remap:
+      Super-Space: { launch: [fish, -c, toggle_layout] }
+      Super-6: { launch: [fish, -c, toggle_compositor] }
+      CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
+      CapsLock-Shift-q: { launch: [xdotool, getwindowfocus, windowkill] }
+      Super-v: { launch: [fish, -c, 'run_xzoom'] }
+      CapsLock-Dot: { launch: [ sh, -c, "xclip -selection clipboard -o > /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard", ], }
+      CapsLock-Alt-Dot: { launch: [ sh, -c, "truncate -s 0 /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard", ], }
+      CapsLock-m: { launch: [ fish, -c, 'emoji_picker_clipboard code' ] }
+      CapsLock-Alt-m: { launch: [ fish, -c, 'emoji_picker_clipboard name' ] }
+      CapsLock-Slash: { launch: [kitty, -d, '~'] }
       Super-y: { launch: [rofi, -show, drun] }
       Super-j: { launch: [fish, -c, 'runner show']}
       Super-Alt-y: { launch: [fish, -c, runner_kill] }
 
-  - remap:
+  - name: Direct
+    remap:
       CapsLock-t: tab
       CapsLock-Backspace: delete
       CapsLock-r: delete
