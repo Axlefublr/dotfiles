@@ -397,8 +397,6 @@ keymap:
       Super-f: { launch: [gromit-mpx, --toggle] }
       Super-Alt-f: { launch: [gromit-mpx, --clear] }
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
-      CapsLock-v: { launch: [gromit-mpx, --undo] }
-      CapsLock-c: { launch: [gromit-mpx, --redo] }
 
   - name: 'Anki'
     exact_match: true
