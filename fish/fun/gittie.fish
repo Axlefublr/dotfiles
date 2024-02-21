@@ -6,7 +6,7 @@ function gsa
 		return 1
 	end
 	set -l prevDir (pwd)
-	set -l directories (cat ~/prog/dotfiles/fish/recognized-git.txt | string split '\n')
+	set -l directories (cat ~/prog/dotfiles/data/recognized-git.txt | string split '\n')
 
 	for dir in $directories
 
@@ -44,7 +44,7 @@ funcsave gsah > /dev/null
 
 function gpp
 	set -l prevDir (pwd)
-	set -l directories (cat ~/prog/dotfiles/fish/recognized-git.txt | string split '\n')
+	set -l directories (cat ~/prog/dotfiles/data/recognized-git.txt | string split '\n')
 
 	for dir in $directories
 
