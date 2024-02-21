@@ -258,7 +258,7 @@ keymap:
           Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
           Shift-s: { launch: [systemctl, suspend] }
           Shift-c: { launch: [xset, dpms, force, 'off'] }
-          Super-j: { launch: [awesome-client, Prompt_ignore_output()] }
+          Super-j: { launch: [fish, -c, runner] }
           'y': { launch: [fish, -c, install_yt_video] }
           a: { launch: [fish, -c, 'install_yt_video asmr/'] }
 
@@ -454,9 +454,10 @@ keymap:
     remap:
       CapsLock-Slash: { launch: [kitty, -d, '~'] }
 
-  - name: Drun
+  - name: Rofi
     remap:
       Super-y: { launch: [rofi, -show, drun] }
+      Super-j: { launch: [fish, -c, 'runner show']}
 
   - name: Layouts
     exact_match: true

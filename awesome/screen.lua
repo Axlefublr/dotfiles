@@ -509,40 +509,6 @@ Set_wallpaper(screen.primary)
 
 require('tags')
 
-Ignore_command_output = false
-screen.primary.prompt_widget = awful.widget.prompt({
-	prompt = "󰼁 ",
-	with_shell = true,
-	fg_cursor = beautiful.black,
-	bg_cursor = beautiful.yellow,
-	done_callback = function()
-		screen.primary.prompt_margin_widget.left = 0
-		screen.primary.prompt_margin_widget.right = 0
-	end,
-	exe_callback = function(command)
-		awful.spawn.easy_async_with_shell(command, function(stdout)
-			if Ignore_command_output then
-				Ignore_command_output = false
-				return
-			end
-			local stdout = Trim_newlines(stdout)
-			if #stdout > 0 then
-				naughty.notify({ text = stdout, timeout = 0, font = beautiful.notification_code_font })
-			end
-		end)
-	end
-})
-screen.primary.prompt_margin_widget = wibox.container.margin(screen.primary.prompt_widget)
-function Run_prompt()
-	screen.primary.prompt_margin_widget.left = 0
-	screen.primary.prompt_margin_widget.right = 16
-	screen.primary.prompt_widget:run()
-end
-function Prompt_ignore_output()
-	Ignore_command_output = true
-	Run_prompt()
-end
-
 screen.primary.layout_box_widget = awful.widget.layoutbox(screen.primary)
 screen.primary.layout_box_widget:buttons(gears.table.join(
 	awful.button({}, 1, function() awful.layout.inc(1) end),
@@ -569,7 +535,6 @@ screen.primary.wibox_widget:setup {
 		screen.primary.layout_box_widget,
 		Malumn_margin_widget,
 		screen.primary.tag_list_margin_widget,
-		screen.primary.prompt_margin_widget,
 	},
 	Titlebar_layout_widget,
 	-- Right widgets

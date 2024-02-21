@@ -98,8 +98,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Mod1" }, "]", function() awful.tag.incncol(1, nil, true) end),
 	awful.key({ modkey, "Mod1" }, "[", function() awful.tag.incncol(-1, nil, true) end),
 
-	awful.key({ modkey, }, "j", Run_prompt),
-
 	-- Activate tags
 	awful.key({ modkey }, "u", function() activate_tag(1) end),
 	awful.key({ modkey }, "i", function() activate_tag(2) end),

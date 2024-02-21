@@ -227,3 +227,12 @@ function s
 	set -g s (realpath $argv)
 end
 funcsave s > /dev/null
+
+function runner
+	if set -q argv[1]
+		notify-send -t 0 (eval (rofi -dmenu 2> /dev/null | string collect) | string collect)
+	else
+		eval (rofi -dmenu 2> /dev/null | string collect)
+	end
+end
+funcsave runner > /dev/null

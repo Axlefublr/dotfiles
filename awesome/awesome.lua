@@ -47,11 +47,6 @@ do
 end
 -- }}}
 
-function Trim_newlines(string)
-	string = string:gsub("[\r\n]*$", "")
-	return string:gsub("^[\r\n]*", "")
-end
-
 beautiful.init("/home/axlefublr/.config/awesome/theme.lua")
 beautiful.gap_single_client = false
 
@@ -63,6 +58,11 @@ terminal = "kitty"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
+
+function Trim_newlines(string)
+	string = string:gsub("[\r\n]*$", "")
+	return string:gsub("^[\r\n]*", "")
+end
 
 require('layouts')
 require('screen')
