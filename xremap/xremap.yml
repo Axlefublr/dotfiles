@@ -357,6 +357,12 @@ keymap:
           Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
 
+          f: { launch: [fish, -c, runner_note] }
+          d: { launch: [fish, -c, runner_wote] }
+          Shift-d: { launch: [fish, -c, 'runner_wote replace'] }
+          Alt-d: { launch: [fish, -c, wote_steal] }
+          Control-d: { launch: [fish, -c, wote_edit] }
+
   - name: System & Media
     remap:
       CapsLock-Alt-s: { launch: [fish, -c, 'set_volume -5%'] }

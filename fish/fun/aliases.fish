@@ -6,7 +6,6 @@ alias --save less 'less --use-color -R' > /dev/null
 alias --save termdown 'termdown -W -f roman' > /dev/null
 alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git -I bin -I obj -I target -I .vscode' > /dev/null
 alias --save bell 'printf \a' > /dev/null
-alias --save note 'printf "\n$argv" >> ~/prog/noties/tasks.txt' > /dev/null
 alias --save vcl 'xclip -selection clipboard -o > /tmp/bibren ; nvim -n /tmp/bibren ; cat /tmp/bibren | xclip -r -selection clipboard' > /dev/null
 alias --save vcll 'truncate -s 0 /tmp/bibren ; nvim -n /tmp/bibren ; cat /tmp/bibren | xclip -r -selection clipboard' > /dev/null
 alias --save toco 'touch $argv && code $argv' > /dev/null

@@ -191,38 +191,6 @@ function fn_clear
 end
 funcsave fn_clear > /dev/null
 
-function i
-	printf "$argv" > ~/.local/share/notie
-	awesome-client 'Widget_update_note()'
-end
-funcsave i > /dev/null
-
-function ir
-	printf '\n'(cat ~/.local/share/notie) >> ~/prog/noties/tasks.txt
-	printf "$argv" > ~/.local/share/notie
-	awesome-client 'Widget_update_note()'
-end
-funcsave ir > /dev/null
-
-function iv
-	kitty -T "note editor" nvim ~/.local/share/notie
-	awesome-client 'Widget_update_note()'
-end
-funcsave iv > /dev/null
-
-function ic
-	xclip -selection clipboard -o > ~/.local/share/notie
-	awesome-client 'Widget_update_note()'
-end
-funcsave ic > /dev/null
-
-function ix
-	cat ~/.local/share/notie | xclip -r -selection clipboard
-	truncate -s 0 ~/.local/share/notie
-	awesome-client 'Widget_update_note()'
-end
-funcsave ix > /dev/null
-
 function s
 	set -g s (realpath $argv)
 end
@@ -245,3 +213,42 @@ function runner_kill
 	end
 end
 funcsave runner_kill > /dev/null
+
+function runner_note
+	set input (rofi -dmenu 2> /dev/null | string collect)
+	indeed -- ~/prog/noties/tasks.txt $input
+end
+funcsave runner_note > /dev/null
+
+function runner_wote
+	set result (rofi -dmenu 2> /dev/null ; echo $status)
+	if test $result[-1] -ne 0
+		return 1
+	end
+	if set -q argv[1]
+		indeed -- ~/prog/noties/tasks.txt (cat ~/.local/share/notie)
+		truncate -s 0 ~/.local/share/notie
+	end
+	set -e result[-1]
+	set result (string collect $result)
+	if test -n $result
+		indeed -- ~/.local/share/notie $result
+	else
+		truncate -s 0 ~/.local/share/notie
+	end
+	awesome-client 'Widget_update_note()'
+end
+funcsave runner_wote > /dev/null
+
+function wote_edit
+	kitty -T "note editor" nvim ~/.local/share/notie
+	awesome-client 'Widget_update_note()'
+end
+funcsave wote_edit > /dev/null
+
+function wote_steal
+	cat ~/.local/share/notie | xclip -r -selection clipboard
+	truncate -s 0 ~/.local/share/notie
+	awesome-client 'Widget_update_note()'
+end
+funcsave wote_steal > /dev/null
