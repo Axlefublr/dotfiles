@@ -106,6 +106,11 @@ end
 funcsave imgs > /dev/null
 
 function install_yt_video
-	kitty -T content yt-dlp -o '/home/axlefublr/Videos/content/youtube/%(title)s.%(ext)s' (xclip -selection clipboard -o)
+	if set -q argv[1]
+		set extra $argv[1]
+	else
+		set extra ''
+	end
+	kitty -T content yt-dlp -o '/home/axlefublr/Videos/content/youtube/'$extra'%(title)s.%(ext)s' (xclip -selection clipboard -o)
 end
 funcsave install_yt_video > /dev/null

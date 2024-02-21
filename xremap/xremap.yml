@@ -260,6 +260,7 @@ keymap:
           Shift-c: { launch: [xset, dpms, force, 'off'] }
           Super-j: { launch: [awesome-client, Prompt_ignore_output()] }
           'y': { launch: [fish, -c, install_yt_video] }
+          a: { launch: [fish, -c, 'install_yt_video asmr/'] }
 
   - name: Clipboard Manager
     exact_match: true

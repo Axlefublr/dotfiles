@@ -135,7 +135,7 @@ client.connect_signal("focus", function(client)
 	Widget_update_floating(client)
 
 	-- this shouldn't be needed, but kept as a safety measure for when I'm bad at logic in the other signals updating all borders
-	-- Adjust_borders(client)
+	Adjust_borders(client)
 	client.border_color = beautiful.border_focus
 end)
 
