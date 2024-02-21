@@ -84,6 +84,9 @@ mkdir -p ~/.config/rofi
 ln -sf ~/prog/dotfiles/rofi/rofi.rasi ~/.config/rofi/config.rasi
 sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 
+# Screenkey
+sudo ln -sf ~/prog/dotfiles/desktop/screenkey.desktop /usr/share/applications
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql

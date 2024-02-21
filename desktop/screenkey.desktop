@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Screenkey
+Comment=Screencast your keys
+Exec=fish -c screenkey
+Icon=preferences-desktop-keyboard-shortcuts
+Categories=Utility;
