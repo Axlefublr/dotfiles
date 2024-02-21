@@ -236,3 +236,11 @@ function runner
 	end
 end
 funcsave runner > /dev/null
+
+function runner_kill
+	set selected (ps -eo pid,command | zat --start 2 | string trim --left | rofi-multi-select 2> /dev/null)
+	for line in $selected
+		kill (string match -gr '^(\\d+)' $line)
+	end
+end
+funcsave runner_kill > /dev/null

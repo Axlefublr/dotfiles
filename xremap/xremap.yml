@@ -245,8 +245,6 @@ keymap:
           shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
           g: { launch: [fish, -c, grostart] }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
-          k: { launch: [fish, -c, screenkey] }
-          Shift-k: { launch: [killall, screenkey] }
           l: { launch: [awesome-client, awful.client.floating.toggle()] }
           t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
           m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
@@ -342,6 +340,47 @@ keymap:
           Key_8: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/8" ] }
           Key_9: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/9" ] }
           Key_0: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/0" ] }
+
+  - name: Layouts
+    exact_match: true
+    remap:
+      Super-k:
+        remap:
+          h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
+          j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
+          k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
+          l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
+
+          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
+          i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
+          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
+          p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
+
+          m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
+          Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
+          Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+
+  - name: System & Media
+    remap:
+      CapsLock-Alt-s: { launch: [fish, -c, 'set_volume -5%'] }
+      CapsLock-Alt-d: { launch: [fish, -c, 'set_volume +5%'] }
+
+      # CapsLock-Shift-s: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
+      # CapsLock-Shift-d: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
+
+      # CapsLock-Alt-w: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
+      # CapsLock-Alt-e: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
+
+      CapsLock-Shift-w: { launch: [fish, -c, 'set_mic_volume -5%'] }
+      CapsLock-Shift-e: { launch: [fish, -c, 'set_mic_volume +5%'] }
+
+      CapsLock-Alt-r: { launch: [fish, -c, 'toggle_mic_mute'] }
+      CapsLock-Shift-r: { launch: [fish, -c, 'toggle_mute'] }
+
+      # CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
+
+      # CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
+      # CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }
 
   - name: 'Anki'
     exact_match: true
@@ -458,47 +497,7 @@ keymap:
     remap:
       Super-y: { launch: [rofi, -show, drun] }
       Super-j: { launch: [fish, -c, 'runner show']}
-
-  - name: Layouts
-    exact_match: true
-    remap:
-      Super-k:
-        remap:
-          h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
-          j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
-          k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
-          l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
-
-          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
-          i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
-          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
-          p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
-
-          m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
-          Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
-          Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
-
-  - name: System & Media
-    remap:
-      CapsLock-Alt-s: { launch: [fish, -c, 'set_volume -5%'] }
-      CapsLock-Alt-d: { launch: [fish, -c, 'set_volume +5%'] }
-
-      # CapsLock-Shift-s: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
-      # CapsLock-Shift-d: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
-
-      # CapsLock-Alt-w: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
-      # CapsLock-Alt-e: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
-
-      CapsLock-Shift-w: { launch: [fish, -c, 'set_mic_volume -5%'] }
-      CapsLock-Shift-e: { launch: [fish, -c, 'set_mic_volume +5%'] }
-
-      CapsLock-Alt-r: { launch: [fish, -c, 'toggle_mic_mute'] }
-      CapsLock-Shift-r: { launch: [fish, -c, 'toggle_mute'] }
-
-      # CapsLock-Alt-f: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
-
-      # CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
-      # CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }
+      Super-Alt-y: { launch: [fish, -c, runner_kill] }
 
   - remap:
       CapsLock-t: tab

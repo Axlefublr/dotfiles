@@ -7,7 +7,7 @@ configuration {
 	drun-display-format: "{name}";
 	case-sensitive: false;
 	cycle: true;
-	matching: "fuzzy";
+	matching: "normal";
 	dpi: 126;
 	scroll-method: 1;
 	max-history-size: 50;
