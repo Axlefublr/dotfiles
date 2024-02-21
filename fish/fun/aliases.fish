@@ -73,7 +73,6 @@ function xrestartwaaa
 	sleep 3
 	xwaaa
 	notify-send -t 2000 'restarted xremap'
-	clx
 end
 funcsave xrestartwaaa > /dev/null
 

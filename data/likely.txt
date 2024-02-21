@@ -1,0 +1,4 @@
+awesome-client 'awesome.restart()'
+xrestartwaaa
+grostart
+picomstart

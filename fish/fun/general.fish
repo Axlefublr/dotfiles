@@ -229,10 +229,11 @@ end
 funcsave s > /dev/null
 
 function runner
+	set cmd (rofi -input ~/prog/dotfiles/data/likely.txt -dmenu 2> /dev/null | string collect)
 	if set -q argv[1]
-		notify-send -t 0 (eval (rofi -dmenu 2> /dev/null | string collect) | string collect)
+		notify-send -t 0 (eval $cmd | string collect)
 	else
-		eval (rofi -dmenu 2> /dev/null | string collect)
+		eval $cmd
 	end
 end
 funcsave runner > /dev/null

@@ -322,9 +322,6 @@ keymap:
       Super-Semicolon:
         remap:
           e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'"]}
-          r: { launch: [fish, -c, xrestartwaaa]}
-          shift-r: { launch: [sh, -c, "awesome-client 'awesome.restart()'"]}
-          g: { launch: [fish, -c, grostart] }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
           l: { launch: [awesome-client, awful.client.floating.toggle()] }
           t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
@@ -442,10 +439,9 @@ keymap:
       CapsLock-Alt-Dot: { launch: [ sh, -c, "truncate -s 0 /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard", ], }
       CapsLock-m: { launch: [ fish, -c, 'emoji_picker_clipboard code' ] }
       CapsLock-Alt-m: { launch: [ fish, -c, 'emoji_picker_clipboard name' ] }
-      CapsLock-Slash: { launch: [kitty, -d, '~'] }
-      Super-y: { launch: [rofi, -show, drun] }
       Super-j: { launch: [fish, -c, 'runner show']}
-      Super-Alt-y: { launch: [fish, -c, runner_kill] }
+      CapsLock-Slash: { launch: [rofi, -show, drun] }
+      CapsLock-Alt-Slash: { launch: [fish, -c, runner_kill] }
 
   - name: Direct
     remap:
