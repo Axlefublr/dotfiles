@@ -396,11 +396,6 @@ keymap:
     remap:
       Super-6: { launch: [fish, -c, toggle_compositor] }
 
-  - name: Notifications
-    exact_match: true
-    remap:
-      Super-n: { launch: [awesome-client, ] }
-
   - name: Close / kill focused process
     remap:
       CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
@@ -458,6 +453,10 @@ keymap:
   - name: Kitty
     remap:
       CapsLock-Slash: { launch: [kitty, -d, '~'] }
+
+  - name: Drun
+    remap:
+      Super-y: { launch: [rofi, -show, drun] }
 
   - name: Layouts
     exact_match: true

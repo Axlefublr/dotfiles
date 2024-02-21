@@ -113,5 +113,6 @@ function install_yt_video
 		set extra ''
 	end
 	kitty -T content yt-dlp -o '/home/axlefublr/Videos/content/youtube/'$extra'%(title)s.%(ext)s' (xclip -selection clipboard -o)
+	sleep 5
 end
 funcsave install_yt_video > /dev/null
