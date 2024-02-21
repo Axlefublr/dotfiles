@@ -24,6 +24,7 @@ alias --save clipmenu "clipmenu -fn 'JetBrainsMonoNL NF:size=16' -nb '#292828' -
 alias --save suspend 'systemctl suspend' > /dev/null
 alias --save clx 'printf "\e[H\e[22J"' > /dev/null
 alias --save screenkey 'screenkey --no-systray -p bottom -s small --key-mode translated --bak-mode full --mods-mod normal --font "JetBrainsMonoNL Nerd Font" --font-color "#d4be98" --bg-color "#1a1919" --opacity 0.7 --compr-cnt 3 --mouse -g 1920x1080+0+115' > /dev/null
+alias --save rofi-multi-select 'rofi -dmenu -multi-select -ballot-selected-str " " -ballot-unselected-str "  "'
 
 function lod
 	loago do $argv

@@ -24,9 +24,12 @@ configuration {
 	kb-remove-word-back: "Control+w,Control+BackSpace";
 	kb-remove-word-forward: "Control+Delete";
 	kb-accept-entry: "Return";
+	kb-accept-alt: "Alt+l";
 	kb-row-first: "Control+Home";
 	kb-row-last: "Control+End";
 	kb-row-select: "Alt+[47]"; // 47 is ; on qwerty
+	kb-row-up: "Up,Control+p,Alt+k";
+	kb-row-down: "Down,Control+n,Alt+j";
 
 	kb-select-1: "Control+1";
 	kb-select-2: "Control+2";
@@ -49,6 +52,7 @@ configuration {
 		sorting-method:    "name";
 	}
 }
+
 @theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
 * {
 	yellow: #ffd75f;
@@ -97,8 +101,8 @@ listview {
 	require-input: false;
 }
 element {
-	children: [element-icon, element-text];
-	spacing: 10px;
+	children: [element-text, element-icon];
+	spacing: 0;
 	padding: 0;
 }
 inputbar {
@@ -117,6 +121,7 @@ textbox-prompt-sep {
 element-text {
 	vertical-align: 0.5;
 	highlight: underline #ffd75f;
+	padding: 0 15px 0;
 }
 element-text selected {
 	highlight: underline bold #0f0f0f;

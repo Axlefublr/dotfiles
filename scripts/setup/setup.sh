@@ -16,3 +16,4 @@ sudo systemctl start bluetooth.service
 # xdg-mime query filetype
 xdg-mime default mpv.desktop video/webm
 xdg-mime default mpv.desktop video/mp4
+xdg-mime default mpv.desktop video/x-matroska
