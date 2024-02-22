@@ -69,10 +69,12 @@ awful.rules.rules = {
 
 	{
 		rule = { class = "kitty", name = "content" },
-		properties = {
-			tag = screen.primary.tags[15],
-			urgent = false
-		}
+		properties = { tag = screen.primary.tags[15], }
+	},
+
+	{
+		rule = { class = "kitty", name = "link-download" },
+		properties = { tag = screen.primary.tags[12], }
 	},
 
 	{
