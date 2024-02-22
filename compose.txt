@@ -8,6 +8,7 @@
 <Multi_key> <f> <i> <r>: "🔥"
 <Multi_key> <r> <u> <g>: "🤷‍♀️"
 <Multi_key> <h> <e> <d>: "🗣️"
+<Multi_key> <w> <r> <t>: "✍️"
 
 # Extra
 
