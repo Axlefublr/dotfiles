@@ -17,6 +17,7 @@ Map("", "zm", "@")
 Map("", "zM", "@@")
 Map("", "_", function() FeedKeysInt(vim.v.count1 .. "k$") end)
 Map("", "gm", function() FeedKeys(vim.v.count * 10 .. "gM") end) -- cuts down precision of gM to 10s
+vim.keymap.set({'n', 'v'}, '<A-/>', '<c-^>')
 
 Map("v", "u", "<Esc>u")
 Map("v", "&", ":s`\\V")
