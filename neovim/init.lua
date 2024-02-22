@@ -18,8 +18,7 @@ else
 end
 
 require('remaps')
-require('plugins/plugins')
-require('plugins/remaps')
+require('plugins')
 
 -- When I use my hotkeys to open some output I see in my kitty terminal,
 -- I'm already looking at some place I want to (usually) copy.

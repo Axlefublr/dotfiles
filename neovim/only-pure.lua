@@ -1,5 +1,3 @@
-Cmd("colorscheme gruvbox-material")
-
 local function closeEditor()
 	local bufnr = vim.api.nvim_get_current_buf()
 	if vim.api.nvim_buf_get_name(bufnr) == '' then
