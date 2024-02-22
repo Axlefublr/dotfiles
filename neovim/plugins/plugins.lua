@@ -147,6 +147,11 @@ require("dial.config").augends:register_group{
 			word = false,
 			cyclic = true,
 		},
+		augend.constant.new{
+			elements = {"yes", "no"},
+			word = false,
+			cyclic = true,
+		},
 	},
 	visual = {
 		augend.integer.alias.decimal_int,
