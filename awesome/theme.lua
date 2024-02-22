@@ -75,7 +75,7 @@ theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 
-theme.wallpaper = "/home/axlefublr/Pictures/tree/themes/deer.jpg"
+theme.wallpaper = "/home/axlefublr/Pictures/tree/themes/cyberpunk-something.jpg"
 
 theme.layout_icon_path = '/home/axlefublr/Pictures/tree/logos/awesome-layouts/'
 
