@@ -49,7 +49,7 @@ configuration {
 	filebrowser {
 		directory: "/home/axlefublr";
 		directories-first: true;
-		sorting-method:    "name";
+		sorting-method: "name";
 	}
 }
 
