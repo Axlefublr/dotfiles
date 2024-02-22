@@ -192,16 +192,6 @@
   "command": "workbench.action.openGlobalKeybindings"
 },
 {
-  "key": "capslock",
-  "command": "hideSuggestWidget",
-  "when": "suggestWidgetVisible"
-},
-{
-  "key": "capslock",
-  "command": "hideCodeActionWidget",
-  "when": "actionWidgetVisible || codeActionMenuVisible"
-},
-{
   "key": "escape",
   "command": "hideCodeActionWidget",
   "when": "actionWidgetVisible || codeActionMenuVisible"
@@ -471,16 +461,6 @@
 {
   "key": "ctrl+alt+9",
   "command": "workbench.action.debug.restart"
-},
-{
-  "key": "capslock",
-  "command": "cancelRenameInput",
-  "when": "editorFocus && renameInputVisible"
-},
-{
-  "key": "capslock",
-  "command": "breadcrumbs.selectEditor",
-  "when": "breadcrumbsActive && breadcrumbsVisible"
 },
 {
   "key": "shift+alt+] ]",
@@ -823,11 +803,6 @@
   "when": "inKeybindings && keybindingFocus && whenFocus"
 },
 {
-  "key": "capslock",
-  "command": "keybindings.editor.rejectWhenExpression",
-  "when": "inKeybindings && keybindingFocus && whenFocus"
-},
-{
   "key": "ctrl+shift+k",
   "command": "workbench.action.moveEditorToAboveGroup"
 },
@@ -943,11 +918,6 @@
   "key": "j",
   "command": "editor.action.scrollDownHover",
   "when": "editorHoverFocused"
-},
-{
-  "key": "capslock",
-  "command": "closeReferenceSearch",
-  "when": "referenceSearchVisible && !config.editor.stablePeek"
 },
 {
   "key": "ctrl+; v",
@@ -1142,11 +1112,6 @@
   "when": "editorHoverFocused"
 },
 {
-  "key": "capslock",
-  "command": "editor.action.escapeFocusHover",
-  "when": "editorHoverFocused"
-},
-{
   "key": "l",
   "command": "list.toggleExpand",
   "when": "listFocus && !inputFocus"
@@ -1167,22 +1132,12 @@
   "when": "editorTextFocus && neovim.init && !markersNavigationVisible"
 },
 {
-  "key": "capslock",
-  "command": "vscode-neovim.escape",
-  "when": "editorTextFocus && neovim.init && !markersNavigationVisible"
-},
-{
   "key": "ctrl+/",
   "command": "workbench.action.focusOtherSideEditor"
 },
 {
   "key": "alt+x",
   "command": "scrollLineUp"
-},
-{
-  "key": "capslock",
-  "command": "closeMarkersNavigation",
-  "when": "editorFocus && markersNavigationVisible"
 },
 {
   "key": "y y",
