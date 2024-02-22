@@ -350,11 +350,11 @@
   "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus && neovim.mode == 'insert'"
 },
 {
-  "key": "ctrl+; ,",
+  "key": "ctrl+,",
   "command": "workbench.action.closeEditorsToTheLeft"
 },
 {
-  "key": "ctrl+; .",
+  "key": "ctrl+.",
   "command": "workbench.action.closeEditorsToTheRight"
 },
 {
