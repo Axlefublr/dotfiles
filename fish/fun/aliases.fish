@@ -54,11 +54,12 @@ function j
 end
 funcsave j > /dev/null
 
-function vf
+function f
+	clx
 	commandline "nvim "(fzf)
 	commandline -f execute
 end
-funcsave vf > /dev/null
+funcsave f > /dev/null
 
 function cf
 	commandline "code "(fzf)
@@ -122,6 +123,5 @@ function install_yt_video
 		set extra ''
 	end
 	kitty -T link-download yt-dlp -o '/home/axlefublr/Videos/content/youtube/'$extra'%(title)s.%(ext)s' (xclip -selection clipboard -o)
-	sleep 5
 end
 funcsave install_yt_video > /dev/null
