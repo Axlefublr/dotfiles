@@ -185,6 +185,10 @@ vim.keymap.set({"n", "v"}, ",z", Killring_kill)
 vim.keymap.set({"n", "v"}, "'t", Killring_compile)
 vim.keymap.set({"n", "v"}, "'T", Killring_compile_reversed)
 
+vim.keymap.set('n', ',jt', '<cmd>e ~/prog/noties/notes.txt<cr>')
+vim.keymap.set('n', ',je', '<cmd>e ~/prog/noties/temp.txt<cr>')
+vim.keymap.set('n', ',jw', '<cmd>e ~/prog/noties/links.jsonc<cr>')
+
 vim.keymap.set("n", "zck", "ikitty: ")
 vim.keymap.set("n", "zcx", "ixremap: ")
 vim.keymap.set("n", "zca", "iawesome: ")
