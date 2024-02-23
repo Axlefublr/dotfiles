@@ -43,7 +43,7 @@ function ghrclc
 end
 funcsave ghrclc > /dev/null
 
-function j
+function ,ja
 	set file (fd -t f . ~/prog/dotfiles ~/prog/info ~/prog/noties | sd "^$HOME/prog/" '' | fzf)
 	if test -z $file
 		return 1
@@ -52,14 +52,14 @@ function j
 	commandline "nvim $HOME/prog/$file"
 	commandline -f execute
 end
-funcsave j > /dev/null
+funcsave ,ja > /dev/null
 
-function f
+function ,jf
 	clx
 	commandline "nvim "(fzf)
 	commandline -f execute
 end
-funcsave f > /dev/null
+funcsave ,jf > /dev/null
 
 function cf
 	commandline "code "(fzf)
