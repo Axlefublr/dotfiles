@@ -14,6 +14,9 @@ local function close_without_saving()
 end
 vim.keymap.set('n', ',K', close_without_saving)
 
-local function save_vim() Cmd("w") end
-Map("", "U", save_vim)
-Map("", "<Space>", save_vim)
+local function save_vim()
+	Remove_highlighting()
+	vim.cmd('w')
+end
+vim.keymap.set('', 'U', save_vim)
+vim.keymap.set('', '<Space>', save_vim)
