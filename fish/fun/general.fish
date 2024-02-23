@@ -216,7 +216,7 @@ funcsave runner_kill > /dev/null
 
 function runner_note
 	set input (rofi -dmenu 2> /dev/null | string collect)
-	indeed -- ~/prog/noties/tasks.txt $input
+	indeed -- ~/prog/noties/notes.txt $input
 end
 funcsave runner_note > /dev/null
 
@@ -226,7 +226,7 @@ function runner_wote
 		return 1
 	end
 	if set -q argv[1]
-		indeed -- ~/prog/noties/tasks.txt (cat ~/.local/share/notie)
+		indeed -- ~/prog/noties/notes.txt (cat ~/.local/share/notie)
 		truncate -s 0 ~/.local/share/notie
 	end
 	set -e result[-1]
