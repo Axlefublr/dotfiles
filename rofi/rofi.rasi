@@ -83,11 +83,11 @@ window {
 	border: 0;
 	location: north;
 	y-offset: 48px;
-	padding: 5;
-	border-radius: 10px;
+	padding: 2px;
+	border-radius: 0 0 10px 10px;
 }
 message {
-	padding:      10px ;
+	padding:      7px ;
 	border-color: var(separatorcolor);
 	border:       2px 0px 0px ;
 }
@@ -97,7 +97,7 @@ listview {
 	spacing: 0;
 	fixed-height: false;
 	dynamic: true;
-	lines: 8;
+	lines: 10;
 	require-input: false;
 }
 element {
@@ -106,7 +106,7 @@ element {
 	padding: 0;
 }
 inputbar {
-	padding: 10px;
+	padding: 7px;
 	children: [/*prompt,*/ entry];
 }
 entry {
@@ -121,11 +121,11 @@ textbox-prompt-sep {
 element-text {
 	vertical-align: 0.5;
 	highlight: underline #ffd75f;
-	padding: 0 15px 0;
+	padding: 0 7px 0;
 }
 element-text selected {
 	highlight: underline bold #0f0f0f;
 }
 element-icon {
-	size: 1.5em;
+	size: 1.3em;
 }
