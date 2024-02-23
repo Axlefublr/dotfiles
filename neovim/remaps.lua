@@ -76,8 +76,8 @@ vim.keymap.set('n', ',as', '<c-w><')
 vim.keymap.set('n', ',ag', '<c-w>>')
 vim.keymap.set('n', ',af', '<c-w>-')
 vim.keymap.set('n', ',ad', '<c-w>+')
-vim.keymap.set('n', ',aG', '<c-w>|')
-vim.keymap.set('n', ',aD', '<c-w>_')
+vim.keymap.set('n', ',av', '<c-w>|')
+vim.keymap.set('n', ',ac', '<c-w>_')
 
 vim.keymap.set("n", "gJ", "j0d^kgJ") -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 vim.keymap.set("n", ",dl", 'dil\'_dd', { remap = true }) -- Take the contents of the line, but delete the line too
