@@ -103,6 +103,12 @@ require('lazy').setup({
 				wrap_results = true,
 				layout_strategy = 'horizontal',
 				layout_config = { height = 0.99, width = 0.99 },
+				mappings = {
+					n = {
+						[',aj'] = 'select_horizontal',
+						[',al'] = 'select_vertical',
+					}
+				}
 			},
 			extensions = {
 				fzf = {
