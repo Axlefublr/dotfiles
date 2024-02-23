@@ -1,4 +1,4 @@
-awesome-client 'awesome.restart()'
+awart
 xrestartwaaa
 grostart
 picomstart
