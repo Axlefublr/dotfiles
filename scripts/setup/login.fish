@@ -22,7 +22,7 @@ kitty -T content -d ~/Videos/content ranger & disown
 # code &> /tmp/log/vscode.txt & disown
 # win_wait 'code\.Code — main - vscode' 0.1 0 50
 kitty -d ~/prog/dotfiles & disown
-kitty -d ~/prog/dotfiles & disown
+kitty --hold -d ~/prog/dotfiles nvim
 # set other_vscodes (win_wait_except 'main - vscode' 'code.Code' 0.1 0 50)
 # move_all 9 $other_vscodes
 
