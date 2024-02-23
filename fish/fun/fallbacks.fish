@@ -13,3 +13,4 @@ alias --save at 'alien_temple' > /dev/null
 alias --save xpc 'xclip -selection clipboard -o' > /dev/null
 alias --save xcp 'xclip -r -selection clipboard' > /dev/null
 alias --save real 'realpath' > /dev/null
+alias --save jt 'nvim ~/prog/noties/tasks.txt' > /dev/null

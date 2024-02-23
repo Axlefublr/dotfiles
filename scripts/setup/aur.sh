@@ -17,6 +17,5 @@ paru --noconfirm -aS xremap-x11-bin
 paru --noconfirm -aS gromit-mpx
 paru --noconfirm -aS visual-studio-code-bin
 paru --noconfirm -aS tgpt-bin
-paru --noconfirm -aS nvim-packer-git
 paru --noconfirm -aS xkblayout-state-git
 paru --noconfirm -aS xzoom
