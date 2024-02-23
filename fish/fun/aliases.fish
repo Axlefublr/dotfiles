@@ -44,24 +44,6 @@ function ghrclc
 end
 funcsave ghrclc > /dev/null
 
-function ,ja
-	set file (fd -t f . ~/prog/dotfiles ~/prog/info ~/prog/noties | sd "^$HOME/prog/" '' | fzf)
-	if test -z $file
-		return 1
-	end
-	clx
-	commandline "nvim $HOME/prog/$file"
-	commandline -f execute
-end
-funcsave ,ja > /dev/null
-
-function ,jf
-	clx
-	commandline "nvim "(fzf)
-	commandline -f execute
-end
-funcsave ,jf > /dev/null
-
 function cf
 	commandline "code "(fzf)
 	commandline -f execute

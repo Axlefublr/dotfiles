@@ -17,6 +17,7 @@ vim.keymap.set("", "zm", "@")
 vim.keymap.set("", "zM", "@@")
 vim.keymap.set("", "_", function() FeedKeysInt(vim.v.count1 .. "k$") end)
 vim.keymap.set("", "gm", function() FeedKeys(vim.v.count * 10 .. "gM") end) -- cuts down precision of gM to 10s
+
 vim.keymap.set({'n', 'v'}, '<A-/>', '<c-^>')
 
 vim.keymap.set("v", "u", "<Esc>u")
@@ -59,7 +60,10 @@ vim.keymap.set("n", ",p", "Pv`[o`]do<c-r><c-p>\"<esc>") -- Paste a characterwise
 vim.keymap.set("n", ",P", "Pv`[o`]dO<c-r><c-p>\"<esc>") -- Paste a characterwise register on a new line
 vim.keymap.set("n", ",m", "?\\V$0<cr>cgn")
 vim.keymap.set("n", "@", function() FeedKeysInt("yl" .. vim.v.count1 .. "p") end) -- multiply character
-vim.keymap.set("n", "<Esc>", function() Remove_highlighting() FeedKeysInt("<Esc>") end)
+vim.keymap.set("n", "<Esc>", function()
+	Remove_highlighting()
+	FeedKeysInt("<Esc>")
+end)
 vim.keymap.set("n", "J", function()
 	for i = 1, vim.v.count1 do
 		FeedKeys("J")

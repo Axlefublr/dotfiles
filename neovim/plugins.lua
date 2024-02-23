@@ -29,7 +29,7 @@ require('lazy').setup({
 	},
 	{
 		"vim-scripts/ReplaceWithRegister",
-		init = function()
+		config = function()
 			vim.keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine")
 		end
 	},
@@ -49,6 +49,17 @@ require('lazy').setup({
 		branch = '0.1.x',
 		dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' },
 		opts = {
+			defaults = {
+				prompt_prefix = '󱕅 ',
+				selection_caret = '󱕅 ',
+				multi_icon = ' ',
+				initial_mode = 'insert',
+				results_title = false,
+				prompt_title = false,
+				wrap_results = true,
+				layout_strategy = 'horizontal',
+				layout_config = { height = 0.99, width = 0.99 },
+			},
 			extensions = {
 				fzf = {
 					fuzzy = true,                    -- false will only do exact matching
@@ -61,10 +72,34 @@ require('lazy').setup({
 		init = function()
 			require('telescope').load_extension('fzf')
 			local builtin = require('telescope.builtin')
-			vim.keymap.set('n', ',jf', builtin.find_files, {})
+			vim.keymap.set('n', ',jf', '<cmd>lua require("telescope.builtin").find_files({' ..
+				'hidden = true' ..
+			'})<cr>', {})
+			vim.keymap.set('n', ',jF', '<cmd>lua require("telescope.builtin").find_files({' ..
+				'hidden = true,' ..
+				'search_dirs = {' ..
+					'"~/prog/dotfiles",' ..
+					'"~/prog/noties",' ..
+					'"~/prog/info",' ..
+					'"~/prog/job",' ..
+					'"~/.local/share/alien_temple",' ..
+					'"~/.local/share/floral_barrel",' ..
+				'}' ..
+			'})<cr>', {})
 			vim.keymap.set('n', ',jd', builtin.live_grep, {})
-			vim.keymap.set('n', ',js', builtin.buffers, {})
+			vim.keymap.set('n', ',jD', '<cmd>lua require("telescope.builtin").live_grep({' ..
+				'search_dirs = {' ..
+					'"~/prog/dotfiles",' ..
+					'"~/prog/noties",' ..
+					'"~/prog/info",' ..
+					'"~/prog/job",' ..
+					'"~/.local/share/alien_temple",' ..
+					'"~/.local/share/floral_barrel",' ..
+				'}' ..
+			'})<cr>', {})
 			vim.keymap.set('n', ',jh', builtin.help_tags, {})
+			vim.keymap.set('n', ',ja', builtin.treesitter, {})
+			vim.keymap.set('n', ',js', builtin.current_buffer_fuzzy_find, {})
 		end
 	},
 	{
@@ -87,7 +122,7 @@ require('lazy').setup({
 	},
 	{
 		"monaqa/dial.nvim",
-		init = function()
+		config = function()
 			local augend = require("dial.augend")
 			require("dial.config").augends:register_group{
 				default = {

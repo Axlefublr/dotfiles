@@ -25,10 +25,7 @@ keymap:
     mode: [mouse, overlay]
     remap:
       CapsLock-Semicolon: { set_mode: default }
-      Space: [
-        launch: [gromit-overlay.fish],
-        set_mode: overlay
-      ]
+      Space: [ launch: [gromit-overlay.fish], set_mode: overlay ]
 
       q: { launch: [xdotool, mousemove, '128',  '120']}
       w: { launch: [xdotool, mousemove, '544',  '120']}
