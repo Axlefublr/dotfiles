@@ -19,11 +19,12 @@ kitty -T meow & disown
 kitty -T timer & disown
 kitty -T content -d ~/Videos/content ranger & disown
 
-code &> /tmp/log/vscode.txt & disown
-win_wait 'code\.Code — main - vscode' 0.1 0 50
+# code &> /tmp/log/vscode.txt & disown
+# win_wait 'code\.Code — main - vscode' 0.1 0 50
 kitty -d ~/prog/dotfiles & disown
-set other_vscodes (win_wait_except 'main - vscode' 'code.Code' 0.1 0 50)
-move_all 9 $other_vscodes
+kitty -d ~/prog/dotfiles & disown
+# set other_vscodes (win_wait_except 'main - vscode' 'code.Code' 0.1 0 50)
+# move_all 9 $other_vscodes
 
 vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
