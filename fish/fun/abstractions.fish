@@ -106,7 +106,7 @@ end
 funcsave get_hunger > /dev/null
 
 function get_oldest_task
-	set matches (loago list | rg -v 'eat|green|white|filter|razor' | tail -n 1 | string match -gr '(\\S+)\\s+—\\s+(\\d+)')
+	set matches (loago list | rg -v 'eat|green|white|filter|razor' | tail -n 3 | shuf -n 1 | string match -gr '(\\S+)\\s+—\\s+(\\d+)')
 	set name $matches[1]
 	set days $matches[2]
 	set formatted_days ''
