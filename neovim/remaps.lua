@@ -107,10 +107,15 @@ vim.keymap.set("", "'w", '"0')
 vim.keymap.set("", "'i", '"_')
 vim.keymap.set("", "';", '":')
 
-vim.keymap.set("!", "<C-v>", "<C-r><C-p>+")
-vim.keymap.set("!", "<C-r>w", "<C-r><C-p>0")
-vim.keymap.set("!", "<C-r>;", "<C-r><C-p>:")
-vim.keymap.set("!", "<C-b>", '<C-r><C-p>"')
+vim.keymap.set("i", "<C-v>", "<C-r><C-p>+")
+vim.keymap.set("i", "<C-r>w", "<C-r><C-p>0")
+vim.keymap.set("i", "<C-r><cr>", "<C-r><C-p>:")
+vim.keymap.set("i", "<C-b>", '<C-r><C-p>"')
+
+vim.keymap.set("c", "<C-v>", "<C-r>+")
+vim.keymap.set("c", "<C-r>w", "<C-r>0")
+vim.keymap.set("c", "<C-r><cr>", "<C-r>:")
+vim.keymap.set("c", "<C-b>", '<C-r>"')
 
 -- text objects
 
