@@ -15,6 +15,9 @@ vim.keymap.set('', '_', function() FeedKeysInt(vim.v.count1 .. 'k$') end)
 vim.keymap.set('', 'gm', function() FeedKeys(vim.v.count * 10 .. 'gM') end) -- cuts down precision of gM to 10s
 vim.keymap.set('', ',v', '<c-v>')
 
+vim.keymap.set('', 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)
+vim.keymap.set('', 'L', function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end)
+
 vim.keymap.set({'n', 'v'}, '<A-/>', '<c-^>')
 
 vim.keymap.set('v', 'u', '<Esc>u')

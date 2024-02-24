@@ -212,3 +212,21 @@ function Numbered_set(index)
 	numbered[index] = register_contents
 	print('stabbed')
 end
+
+function Get_vertical_line_diff(is_top)
+	local winid = vim.api.nvim_get_current_win()
+	local function get_visible_lines()
+		local compared_line = 0
+		if is_top then
+			compared_line = vim.fn.line('w0')
+		else
+			compared_line = vim.fn.line('w$')
+		end
+		local current_line = vim.api.nvim_win_get_cursor(0)[1]
+		local line_count = math.abs(compared_line - current_line)
+		return line_count
+	end
+	local line_count = vim.api.nvim_win_call(winid, get_visible_lines)
+	return line_count
+end
+
