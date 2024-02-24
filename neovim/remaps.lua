@@ -1,7 +1,3 @@
-vim.keymap.set('', '<C-d>', '6+')
-vim.keymap.set('', '<C-u>', '6-')
-vim.keymap.set('', '<C-f>', '10+')
-vim.keymap.set('', '<C-b>', '10-')
 vim.keymap.set('', '<cr>', ':')
 vim.keymap.set('', "'", '"')
 vim.keymap.set('', ':', ',')
