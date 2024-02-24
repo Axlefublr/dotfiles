@@ -29,12 +29,12 @@ require('plugins')
 -- If you suddenly occupy 2 (or however many) columns that were used prior,
 -- the wrapping efforts go to shit and the kitty+nvim hotkeys become unreasonable to use,
 -- making me have to resort to worse, built in kitty scrolling
-if os.getenv("KITTY_PIPE_DATA") ~= nil then
+if os.getenv('KITTY_PIPE_DATA') ~= nil then
 	vim.opt.number = false
 	vim.opt.relativenumber = false
 end
 
-local group = vim.api.nvim_create_augroup("KeepCentered", { clear = true })
+local group = vim.api.nvim_create_augroup('KeepCentered', { clear = true })
 vim.api.nvim_create_autocmd('CursorMoved', { command = 'normal! zz', group = group })
 
-print("nvim loaded")
+print('nvim loaded')

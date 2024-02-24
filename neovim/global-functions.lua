@@ -2,12 +2,12 @@ local killring = setmetatable({}, {__index = table})
 local numbered = setmetatable({'', '', '', '', '', '', '', '', '', ''}, {__index = table})
 
 function FeedKeys(keys)
-	vim.api.nvim_feedkeys(keys, "n", false)
+	vim.api.nvim_feedkeys(keys, 'n', false)
 end
 
 function FeedKeysInt(keys)
 	local feedable_keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-	vim.api.nvim_feedkeys(feedable_keys, "n", true)
+	vim.api.nvim_feedkeys(feedable_keys, 'n', true)
 end
 
 function EscapeForLiteralSearch(input)
@@ -18,7 +18,7 @@ function EscapeForLiteralSearch(input)
 end
 
 function EscapeFromLiteralSearch(input)
-	if string.sub(input, 1, 2) ~= "\\V" then return input end
+	if string.sub(input, 1, 2) ~= '\\V' then return input end
 	input = string.sub(input, 3)
 	input = string.gsub(input, '\\/', '/')
 	input = string.gsub(input, '\\\\', '\\')
@@ -31,7 +31,7 @@ function EscapeFromRegexSearch(input)
 end
 
 function GetChar(prompt)
-	vim.api.nvim_echo({ { prompt, "Input" } }, true, {})
+	vim.api.nvim_echo({ { prompt, 'Input' } }, true, {})
 	local char = vim.fn.getcharstr()
 	-- That's the escape character (<Esc>). Not sure how to specify it smarter
 	-- In other words, if you pressed escape, we return nil
@@ -54,22 +54,22 @@ function Validate_register(register)
 end
 
 function GetBool(message)
-	local char = GetChar(message .. " (f/d):")
+	local char = GetChar(message .. ' (f/d):')
 	local bool
 	if char == 'f' then
 		bool = true
 	elseif char == 'd' then
 		bool = false
 	else
-		print("press f for true, d for false")
+		print('press f for true, d for false')
 		return nil
 	end
 	return bool
 end
 
-function Remove_highlighting() vim.cmd("noh") end
+function Remove_highlighting() vim.cmd('noh') end
 
-function Toggle_highlight_search() vim.cmd("set hlsearch!") end
+function Toggle_highlight_search() vim.cmd('set hlsearch!') end
 
 function ReverseTable(table)
 	local reversed = setmetatable({}, { __index = table })
@@ -87,7 +87,7 @@ function TrimFinalNewlines()
 
 	local last_non_blank = total_lines
 	for i = total_lines, 1, -1 do
-		if not string.match(vim.fn.getline(i), "^%s*$") then
+		if not string.match(vim.fn.getline(i), '^%s*$') then
 			last_non_blank = i
 			break
 		end
@@ -109,7 +109,7 @@ function Search_for_selection(direction, death)
 end
 
 function Search_for_register(direction, death)
-	local char = GetChar("register: ")
+	local char = GetChar('register: ')
 	if not char then return end
 	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
@@ -118,7 +118,7 @@ function Search_for_register(direction, death)
 end
 
 function Move_default_to_other()
-	local char = GetChar("register: ")
+	local char = GetChar('register: ')
 	if not char then return end
 	local register = Validate_register(char)
 	local default_contents = vim.fn.getreg('"')
@@ -137,53 +137,53 @@ end
 function Killring_push_tail()
 	local register_contents = vim.fn.getreg('"')
 	if register_contents == '' then
-		print("default register is empty")
+		print('default register is empty')
 		return
 	end
 	killring:insert(1, register_contents)
-	print("pushed")
+	print('pushed')
 end
 
 function Killring_push()
 	local register_contents = vim.fn.getreg('"')
 	if register_contents == '' then
-		print("default register is empty")
+		print('default register is empty')
 		return
 	end
 	killring:insert(register_contents)
-	print("pushed")
+	print('pushed')
 end
 
 function Killring_pop_tail()
 	if #killring <= 0 then
-		print("killring empty")
+		print('killring empty')
 		return
 	end
 	local first_index = killring:remove(1)
 	vim.fn.setreg('"', first_index)
-	print("got tail")
+	print('got tail')
 end
 
 function Killring_pop()
 	if #killring <= 0 then
-		print("killring empty")
+		print('killring empty')
 		return
 	end
 	local first_index = killring:remove(#killring)
 	vim.fn.setreg('"', first_index)
-	print("got nose")
+	print('got nose')
 end
 
 function Killring_kill()
 	killring = setmetatable({}, { __index = table })
-	print("ring killed")
+	print('ring killed')
 end
 
 function Killring_compile()
 	local compiled_killring = killring:concat('')
 	vim.fn.setreg('"', compiled_killring)
 	killring = setmetatable({}, { __index = table })
-	print("killring compiled")
+	print('killring compiled')
 end
 
 function Killring_compile_reversed()
@@ -191,7 +191,7 @@ function Killring_compile_reversed()
 	local compiled_killring = reversed_killring:concat('')
 	vim.fn.setreg('"', compiled_killring)
 	killring = setmetatable({}, { __index = table })
-	print("killring compiled in reverse")
+	print('killring compiled in reverse')
 end
 
 function Numbered_get(index)
@@ -200,15 +200,15 @@ function Numbered_get(index)
 		return
 	end
 	vim.fn.setreg('"', numbered[index])
-	print("grabbed")
+	print('grabbed')
 end
 
 function Numbered_set(index)
 	local register_contents = vim.fn.getreg('"')
 	if register_contents == '' then
-		print("default register empty")
+		print('default register empty')
 		return
 	end
 	numbered[index] = register_contents
-	print("stabbed")
+	print('stabbed')
 end

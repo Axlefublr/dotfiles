@@ -1,11 +1,3 @@
--- Mark fix
-for c = string.byte("a"), string.byte("z") do
-	local char = string.char(c)
-	local upper_char = string.upper(char)
-	vim.keymap.set("n", "m" .. char, "m" .. upper_char)
-	vim.keymap.set("n", "M" .. char, "`" .. upper_char)
-end
-
 -- Russian layout support
 local ru_keys = {
 	'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ',
