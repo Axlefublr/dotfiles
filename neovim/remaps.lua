@@ -13,6 +13,7 @@ vim.keymap.set('', 'zm', '@')
 vim.keymap.set('', 'zM', '@@')
 vim.keymap.set('', '_', function() FeedKeysInt(vim.v.count1 .. 'k$') end)
 vim.keymap.set('', 'gm', function() FeedKeys(vim.v.count * 10 .. 'gM') end) -- cuts down precision of gM to 10s
+vim.keymap.set('', ',v', '<c-v>')
 
 vim.keymap.set({'n', 'v'}, '<A-/>', '<c-^>')
 
