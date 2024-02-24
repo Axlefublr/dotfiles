@@ -3,7 +3,7 @@
 clorange days increment
 clorange megafon increment
 
-trash-empty -f 30
+trash-empty -f 7
 
 yeared_parse
 yearless_parse
