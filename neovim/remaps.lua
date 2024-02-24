@@ -155,22 +155,22 @@ vim.keymap.set("v", "im", "iiok", { remap = true })
 vim.keymap.set("v", "am", "iijok", { remap = true })
 vim.keymap.set("v", "iM", "iio2k", { remap = true })
 vim.keymap.set("v", "aM", "iijo2k", { remap = true })
-vim.keymap.set("o", "im", function() Cmd("normal viiok") end)
-vim.keymap.set("o", "am", function() Cmd("normal viijok") end)
-vim.keymap.set("o", "iM", function() Cmd("normal viio2k") end)
-vim.keymap.set("o", "aM", function() Cmd("normal viijo2k") end)
+vim.keymap.set("o", "im", function() vim.cmd("normal viiok") end)
+vim.keymap.set("o", "am", function() vim.cmd("normal viijok") end)
+vim.keymap.set("o", "iM", function() vim.cmd("normal viio2k") end)
+vim.keymap.set("o", "aM", function() vim.cmd("normal viijo2k") end)
 
 -- Percent sign %
 vim.keymap.set("v", "i%", "T%ot%")
 vim.keymap.set("v", "a%", "F%of%")
-vim.keymap.set("o", "i%", function() Cmd("normal vT%ot%") end)
-vim.keymap.set("o", "a%", function() Cmd("normal vF%of%") end)
+vim.keymap.set("o", "i%", function() vim.cmd("normal vT%ot%") end)
+vim.keymap.set("o", "a%", function() vim.cmd("normal vF%of%") end)
 
 -- Exclusive previous / next blank line
 vim.keymap.set({"n", "v"}, "]}", "}k")
 vim.keymap.set({"n", "v"}, "[{", "{j")
-vim.keymap.set("o", "]}", function() Cmd("normal V}k") end)
-vim.keymap.set("o", "[{", function() Cmd("normal V{j") end)
+vim.keymap.set("o", "]}", function() vim.cmd("normal V}k") end)
+vim.keymap.set("o", "[{", function() vim.cmd("normal V{j") end)
 
 -- Last operated on text
 vim.keymap.set("v", "io", "`[o`]")

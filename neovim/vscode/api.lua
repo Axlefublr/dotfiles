@@ -1,15 +1,15 @@
-function Center_screen() Cmd("call <SNR>3_reveal('center', 0)") end
+function Center_screen() vim.cmd("call <SNR>3_reveal('center', 0)") end
 
-function Top_screen() Cmd("call <SNR>3_reveal('top', 0)") end
+function Top_screen() vim.cmd("call <SNR>3_reveal('top', 0)") end
 
-function Bottom_screen() Cmd("call <SNR>3_reveal('bottom', 0)") end
+function Bottom_screen() vim.cmd("call <SNR>3_reveal('bottom', 0)") end
 
 function Move_to_top_screen()
-	Cmd("call <SNR>3_moveCursor('top')")
+	vim.cmd("call <SNR>3_moveCursor('top')")
 end
 
 function Move_to_bottom_screen()
-	Cmd("call <SNR>3_moveCursor('bottom')")
+	vim.cmd("call <SNR>3_moveCursor('bottom')")
 end
 
 function Scroll_line_down() VSCodeCall("scrollLineDown") end

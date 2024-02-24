@@ -67,9 +67,9 @@ function GetBool(message)
 	return bool
 end
 
-function Remove_highlighting() Cmd("noh") end
+function Remove_highlighting() vim.cmd("noh") end
 
-function Toggle_highlight_search() Cmd("set hlsearch!") end
+function Toggle_highlight_search() vim.cmd("set hlsearch!") end
 
 function ReverseTable(table)
 	local reversed = setmetatable({}, { __index = table })

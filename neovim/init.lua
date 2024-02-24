@@ -1,5 +1,3 @@
-Map = vim.keymap.set
-Cmd = vim.cmd
 VSCodeNotify = vim.fn.VSCodeNotify
 VSCodeCall = vim.fn.VSCodeCall
 
