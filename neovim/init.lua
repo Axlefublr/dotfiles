@@ -34,7 +34,13 @@ if os.getenv('KITTY_PIPE_DATA') ~= nil then
 	vim.opt.relativenumber = false
 end
 
-local group = vim.api.nvim_create_augroup('KeepCentered', { clear = true })
-vim.api.nvim_create_autocmd('CursorMoved', { command = 'normal! zz', group = group })
+vim.api.nvim_create_autocmd('CursorMoved', {
+	command = 'normal! zz'
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+	pattern = { '*.XCompose' },
+	command = 'setfiletype xcompose'
+})
 
 print('nvim loaded')
