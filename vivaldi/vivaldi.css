@@ -79,7 +79,7 @@ div#header {
 
 /* panel */
 #panels-container:not(.switcher) > #panels > .panel-group {
-	min-width: 40vw;
+	/* min-width: 40vw; */
 }
 #panels-container.icons {
 	display: none;
