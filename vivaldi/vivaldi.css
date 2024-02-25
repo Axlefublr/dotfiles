@@ -43,6 +43,9 @@ div.startpage > nav.startpage-navigation.toolbar-medium {
 	height: 29px;
 	padding-top: 0px;
 }
+#tabs-tabbar-container.bottom {
+	padding: 0;
+}
 
 /* Ugly ahhh title bar when you hide ui */
 div#header {
