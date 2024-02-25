@@ -27,3 +27,4 @@ vim.opt.splitbelow           = true
 vim.opt.splitright           = true
 vim.opt.virtualedit          = 'block'
 vim.opt.inccommand           = 'split'
+vim.opt.signcolumn           = 'no'

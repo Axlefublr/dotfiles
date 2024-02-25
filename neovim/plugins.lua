@@ -72,7 +72,8 @@ require('lazy').setup({
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
-			}, indent = {
+			},
+			indent = {
 				enable = true,
 			},
 			incremental_selection = {
@@ -323,10 +324,10 @@ require('lazy').setup({
 			},
 			extensions = {
 				fzf = {
-					fuzzy = true,                    -- false will only do exact matching
-					override_generic_sorter = true,  -- override the generic sorter
-					override_file_sorter = true,     -- override the file sorter
-					case_mode = 'smart_case',        -- or 'ignore_case' or 'respect_case' (the default case_mode is 'smart_case')
+					fuzzy = true,         -- false will only do exact matching
+					override_generic_sorter = true, -- override the generic sorter
+					override_file_sorter = true, -- override the file sorter
+					case_mode = 'smart_case', -- or 'ignore_case' or 'respect_case' (the default case_mode is 'smart_case')
 				}
 			}
 		},
@@ -337,25 +338,25 @@ require('lazy').setup({
 			vim.keymap.set('n', ',jF', '<cmd>lua require("telescope.builtin").find_files({' ..
 				'hidden = true,' ..
 				'search_dirs = {' ..
-					'"~/prog/dotfiles",' ..
-					'"~/prog/noties",' ..
-					'"~/prog/info",' ..
-					'"~/prog/job",' ..
-					'"~/.local/share/alien_temple",' ..
-					'"~/.local/share/floral_barrel",' ..
+				'"~/prog/dotfiles",' ..
+				'"~/prog/noties",' ..
+				'"~/prog/info",' ..
+				'"~/prog/job",' ..
+				'"~/.local/share/alien_temple",' ..
+				'"~/.local/share/floral_barrel",' ..
 				'}' ..
-			'})<cr>', {})
+				'})<cr>', {})
 			vim.keymap.set('n', ',jd', builtin.live_grep, {})
 			vim.keymap.set('n', ',jD', '<cmd>lua require("telescope.builtin").live_grep({' ..
 				'search_dirs = {' ..
-					'"~/prog/dotfiles",' ..
-					'"~/prog/noties",' ..
-					'"~/prog/info",' ..
-					'"~/prog/job",' ..
-					'"~/.local/share/alien_temple",' ..
-					'"~/.local/share/floral_barrel",' ..
+				'"~/prog/dotfiles",' ..
+				'"~/prog/noties",' ..
+				'"~/prog/info",' ..
+				'"~/prog/job",' ..
+				'"~/.local/share/alien_temple",' ..
+				'"~/.local/share/floral_barrel",' ..
 				'}' ..
-			'})<cr>', {})
+				'})<cr>', {})
 			vim.keymap.set('n', ',jh', builtin.help_tags, {})
 			vim.keymap.set('n', ',jt', builtin.treesitter, {})
 			vim.keymap.set('n', ',js', builtin.current_buffer_fuzzy_find, {})
@@ -391,22 +392,22 @@ require('lazy').setup({
 		opts = {
 			case_sensitive = false,
 			max_phase_one_targets = 1,
-			equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', '\'э', 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю'},
+			equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', '\'э', 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю' },
 			labels = { 'f', 'j', 'd', 'k', 's', 'l', 'a', 'e', 'i', 'w', 'o', 'g', 'h', 'r', 'u', 'x', 'c', 'z', '/', 'v', 'm', 't', 'y', 'q', 'p' },
 			safe_labels = {},
 		},
 		init = function()
-			vim.keymap.set({'n', 'x', 'o'}, 'q', '<Plug>(leap-forward-to)')
-			vim.keymap.set({'n', 'x', 'o'}, 'Q', '<Plug>(leap-backward-to)')
-			vim.keymap.set({'n', 'x', 'o'}, ',q', '<Plug>(leap-forward-till)')
-			vim.keymap.set({'n', 'x', 'o'}, ',Q', '<Plug>(leap-backward-till)')
+			vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)')
+			vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)')
+			vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)')
+			vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)')
 		end
 	},
 	{
 		'monaqa/dial.nvim',
 		config = function()
 			local augend = require('dial.augend')
-			require('dial.config').augends:register_group{
+			require('dial.config').augends:register_group {
 				default = {
 					augend.integer.alias.decimal_int,
 					augend.integer.alias.hex,
@@ -444,23 +445,23 @@ require('lazy').setup({
 				},
 				toggles = {
 					augend.constant.alias.bool,
-					augend.constant.new{
-						elements = {'and', 'or'},
+					augend.constant.new {
+						elements = { 'and', 'or' },
 						word = true, -- if false, 'sand' is incremented into 'sor', 'doctor' into 'doctand', etc.
 						cyclic = true,
 					},
-					augend.constant.new{
-						elements = {'AND', 'OR'},
+					augend.constant.new {
+						elements = { 'AND', 'OR' },
 						word = true,
 						cyclic = true,
 					},
-					augend.constant.new{
-						elements = {'&&', '||'},
+					augend.constant.new {
+						elements = { '&&', '||' },
 						word = false,
 						cyclic = true,
 					},
-					augend.constant.new{
-						elements = {'yes', 'no'},
+					augend.constant.new {
+						elements = { 'yes', 'no' },
 						word = false,
 						cyclic = true,
 					},
@@ -508,7 +509,7 @@ require('lazy').setup({
 					section_separators = { left = '', right = '' },
 					disabled_filetypes = {
 						statusline = {},
-					winbar = {},
+						winbar = {},
 					},
 					ignore_focus = {},
 					always_divide_middle = true,
@@ -643,7 +644,7 @@ require('lazy').setup({
 				end
 				local openCommand = string.format("%s '%s' >/dev/null 2>&1", opener, url)
 				os.execute(openCommand)
-				end, { desc = 'Smart URL Opener' })
+			end, { desc = 'Smart URL Opener' })
 
 			vim.keymap.set('n', 'dsi', function()
 				-- select inner indentation
@@ -661,7 +662,7 @@ require('lazy').setup({
 				local startBorderLn = vim.api.nvim_buf_get_mark(0, '<')[1] - 1
 				vim.cmd(tostring(endBorderLn) .. ' delete') -- delete end first so line index is not shifted
 				vim.cmd(tostring(startBorderLn) .. ' delete')
-				end, { desc = 'Delete surrounding indentation' })
+			end, { desc = 'Delete surrounding indentation' })
 		end
 	},
 	{
@@ -675,6 +676,42 @@ require('lazy').setup({
 			map_c_w = true,
 			enable_check_bracket_line = true
 		},
+	},
+	{
+		'neovim/nvim-lspconfig',
+		config = function()
+			require('lspconfig').lua_ls.setup({})
+			vim.keymap.set('n', ',ll', vim.diagnostic.open_float)
+			vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+			vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+			vim.api.nvim_create_autocmd('LspAttach', {
+				callback = function(ev)
+					-- Enable completion triggered by <c-x><c-o>
+					vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+					-- See `:help vim.lsp.*` for documentation on any of the below functions
+					local opts = { buffer = ev.buf }
+					vim.keymap.set('n', ',la', vim.lsp.buf.declaration, opts)
+					vim.keymap.set('n', ',le', vim.lsp.buf.hover, opts)
+					vim.keymap.set('n', ',ls', vim.lsp.buf.signature_help, opts)
+					vim.keymap.set('n', ',lw', vim.lsp.buf.rename, opts)
+					vim.keymap.set({ 'n', 'v' }, ',lc', vim.lsp.buf.code_action, opts)
+					vim.keymap.set('n', ',lf', function() vim.lsp.buf.format { async = true } end, opts)
+				end,
+			})
+		end
+	},
+	{
+		'williamboman/mason.nvim',
+		dependencies = 'neovim/nvim-lspconfig',
+		config = true
+	},
+	{
+		'williamboman/mason-lspconfig.nvim',
+		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
+		opts = {
+			ensure_installed = { 'lua_ls' }
+		}
 	}
 })
 vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = '#0f0f0f', bg = '#ffafd7' })

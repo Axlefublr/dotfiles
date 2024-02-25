@@ -1,5 +1,5 @@
-local killring = setmetatable({}, {__index = table})
-local numbered = setmetatable({'', '', '', '', '', '', '', '', '', ''}, {__index = table})
+local killring = setmetatable({}, { __index = table })
+local numbered = setmetatable({ '', '', '', '', '', '', '', '', '', '' }, { __index = table })
 
 function FeedKeys(keys)
 	vim.api.nvim_feedkeys(keys, 'n', false)
@@ -229,4 +229,3 @@ function Get_vertical_line_diff(is_top)
 	local line_count = vim.api.nvim_win_call(winid, get_visible_lines)
 	return line_count
 end
-
