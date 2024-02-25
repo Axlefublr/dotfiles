@@ -47,7 +47,7 @@ require('lazy').setup({
 	},
 	{
 		'bkad/CamelCaseMotion',
-		config = function()
+		init = function()
 			vim.g.camelcasemotion_key = '<leader>'
 		end
 	},
@@ -101,12 +101,86 @@ require('lazy').setup({
 				results_title = false,
 				prompt_title = false,
 				wrap_results = true,
-				layout_strategy = 'horizontal',
-				layout_config = { height = 0.99, width = 0.99 },
+				layout_strategy = 'flex',
+				layout_config = {
+					height = 0.99,
+					width = 0.99,
+					preview_cutoff = 5
+				},
 				mappings = {
 					n = {
 						[',aj'] = 'select_horizontal',
 						[',al'] = 'select_vertical',
+						['H'] = 'preview_scrolling_up',
+						['L'] = 'preview_scrolling_down',
+					},
+					i = {
+						['<a-j>'] = 'move_selection_next',
+						['<a-k>'] = 'move_selection_previous',
+					}
+				}
+			},
+			pickers = {
+				find_files = {
+					hidden = true
+				},
+				git_branches = {
+					mappings = {
+						n = {
+							[',n'] = 'git_create_branch',
+							[',d'] = 'git_delete_branch',
+							[',m'] = 'git_merge_branch',
+							[',r'] = 'git_rebase_branch',
+						}
+					}
+				},
+				command_history = {
+					mappings = {
+						n = {
+							[',e'] = 'edit_command_line'
+						}
+					}
+				},
+				jumplist = {
+					show_line = false
+				},
+				registers = {
+					mappings = {
+						n = {
+							[',e'] = 'edit_register'
+						}
+					}
+				},
+				lsp_references = {
+					show_line = false
+				},
+				lsp_incoming_calls = {
+					show_line = false
+				},
+				lsp_outgoing_calls = {
+					show_line = false
+				},
+				lsp_definitions = {
+					show_line = false
+				},
+				lsp_type_definitions = {
+					show_line = false
+				},
+				lsp_implementations = {
+					show_line = false
+				},
+				lsp_document_symbols = {
+					mappings = {
+						i = {
+							['<a-l>'] = 'complete_tag'
+						}
+					}
+				},
+				lsp_workspace_symbols = {
+					mappings = {
+						i = {
+							['<a-l>'] = 'complete_tag'
+						}
 					}
 				}
 			},
@@ -122,9 +196,7 @@ require('lazy').setup({
 		init = function()
 			require('telescope').load_extension('fzf')
 			local builtin = require('telescope.builtin')
-			vim.keymap.set('n', ',jf', '<cmd>lua require("telescope.builtin").find_files({' ..
-				'hidden = true' ..
-			'})<cr>', {})
+			vim.keymap.set('n', ',jf', builtin.find_files, {})
 			vim.keymap.set('n', ',jF', '<cmd>lua require("telescope.builtin").find_files({' ..
 				'hidden = true,' ..
 				'search_dirs = {' ..
@@ -148,8 +220,33 @@ require('lazy').setup({
 				'}' ..
 			'})<cr>', {})
 			vim.keymap.set('n', ',jh', builtin.help_tags, {})
-			vim.keymap.set('n', ',ja', builtin.treesitter, {})
+			vim.keymap.set('n', ',jt', builtin.treesitter, {})
 			vim.keymap.set('n', ',js', builtin.current_buffer_fuzzy_find, {})
+			vim.keymap.set('n', ',jc', builtin.git_bcommits, {})
+			vim.keymap.set('n', ',jx', builtin.git_branches, {})
+			vim.keymap.set('n', ',je', builtin.git_status, {})
+			vim.keymap.set('n', ',jr', builtin.git_stash, {})
+			vim.keymap.set('n', ',j\\', builtin.builtin, {})
+			vim.keymap.set('n', ',ja', builtin.buffers, {})
+			vim.keymap.set('n', ',jA', builtin.oldfiles, {})
+			vim.keymap.set('n', ',j<cr>', builtin.commands, {})
+			vim.keymap.set('n', ',jy', builtin.command_history, {})
+			vim.keymap.set('n', ',jm', builtin.man_pages, {})
+			vim.keymap.set('n', ',jl', builtin.marks, {})
+			vim.keymap.set('n', ',jo', builtin.jumplist, {})
+			vim.keymap.set('n', ",j'", builtin.registers, {})
+			vim.keymap.set('n', ',jH', builtin.highlights, {})
+			vim.keymap.set('n', ',jY', builtin.filetypes, {})
+			vim.keymap.set('n', ',j;', builtin.reloader, {})
+
+			vim.keymap.set('n', ',lr', builtin.lsp_references, {})
+			vim.keymap.set('n', ',li', builtin.lsp_incoming_calls, {})
+			vim.keymap.set('n', ',lo', builtin.lsp_outgoing_calls, {})
+			vim.keymap.set('n', ',ld', builtin.lsp_definitions, {})
+			vim.keymap.set('n', ',lt', builtin.lsp_type_definitions, {})
+			vim.keymap.set('n', ',lm', builtin.lsp_implementations, {})
+			vim.keymap.set('n', ',ll', builtin.lsp_document_symbols, {})
+			vim.keymap.set('n', ',lL', builtin.lsp_workspace_symbols, {})
 		end
 	},
 	{
