@@ -211,6 +211,13 @@ require('lazy').setup({
 			vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
 			vim.opt.foldenable = false
 			require('nvim-treesitter.install').prefer_git = true
+			local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+			vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+			vim.keymap.set({ "n", "x", "o" }, ":", ts_repeat_move.repeat_last_move_opposite)
+			vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+			vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+			vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+			vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 		end
 	},
 	{
@@ -249,7 +256,6 @@ require('lazy').setup({
 						['<c-u>'] = false
 					}
 				}
-			}
 			},
 			pickers = {
 				find_files = {
@@ -258,11 +264,12 @@ require('lazy').setup({
 				git_branches = {
 					mappings = {
 						n = {
-							[',n'] = 'git_create_branch',
+							[',c'] = 'git_create_branch',
 							[',d'] = 'git_delete_branch',
 							[',m'] = 'git_merge_branch',
 							[',r'] = 'git_rebase_branch',
 						},
+					}
 				},
 				command_history = {
 					mappings = {
@@ -657,6 +664,18 @@ require('lazy').setup({
 				end, { desc = 'Delete surrounding indentation' })
 		end
 	},
+	{
+		'windwp/nvim-autopairs',
+		event = 'InsertEnter',
+		opts = {
+			disable_in_visualblock = false,
+			disable_in_replace_mode = true,
+			ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
+			check_ts = true,
+			map_c_w = true,
+			enable_check_bracket_line = true
+		},
+	}
 })
 vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = '#0f0f0f', bg = '#ffafd7' })
 vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = '#0f0f0f', bg = '#ffd75f' })
