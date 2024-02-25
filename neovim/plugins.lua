@@ -117,6 +117,8 @@ require('lazy').setup({
 					i = {
 						['<a-j>'] = 'move_selection_next',
 						['<a-k>'] = 'move_selection_previous',
+						['<c-u>'] = false
+					}
 					}
 				}
 			},
@@ -131,8 +133,7 @@ require('lazy').setup({
 							[',d'] = 'git_delete_branch',
 							[',m'] = 'git_merge_branch',
 							[',r'] = 'git_rebase_branch',
-						}
-					}
+						},
 				},
 				command_history = {
 					mappings = {
