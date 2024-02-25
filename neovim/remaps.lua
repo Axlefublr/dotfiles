@@ -179,9 +179,6 @@ vim.keymap.set({'n', 'v'}, '[{', '{j')
 vim.keymap.set('o', ']}', function() vim.cmd('normal V}k') end)
 vim.keymap.set('o', '[{', function() vim.cmd('normal V{j') end)
 
--- Last operated on text
-vim.keymap.set('v', 'io', '`[o`]')
-
 -- big
 
 vim.keymap.set({'n', 'v'}, "'1", function() Numbered_get(1) end)

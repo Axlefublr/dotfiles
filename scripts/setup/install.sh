@@ -91,3 +91,4 @@ sudo pacman -S --noconfirm bat
 sudo pacman -S --noconfirm trash-cli
 sudo pacman -S --noconfirm speedtest-cli
 sudo pacman -S --noconfirm mpv
+sudo pacman -S --noconfirm tree-sitter-cli
