@@ -1,6 +1,7 @@
 abbr --set-cursor -a z 'z % && clx'
 abbr --set-cursor -a zr 'z % && clx && ranger'
 abbr --set-cursor -a zl 'z % && ls -A'
+abbr --set-cursor -a gm 'git commit % && clx'
 abbr --set-cursor -a gmm 'git commit -m "%" && clx'
 abbr --set-cursor -a tgg 'clx && tgpt "%"'
 abbr --set-cursor -a ytv 'yt-dlp -o \'%.%(ext)s\' \'\''
