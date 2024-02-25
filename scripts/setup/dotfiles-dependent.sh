@@ -2,7 +2,7 @@
 
 # X
 ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
-ln -sf ~/prog/dotfiles/compose.txt ~/.XCompose
+ln -sf ~/prog/dotfiles/x11/.XCompose ~/.XCompose
 
 # Paru
 mkdir -p ~/.config/paru
