@@ -1,8 +1,11 @@
 #!/usr/bin/env fish
 
+alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
+alias --save ukboot 'kitty -T uboot fish -c uboot' > /dev/null
+alias --save screen_off 'xset dpms force "off"' > /dev/null
+
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
 alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Widget_update_layout()"' > /dev/null
-alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
 alias --save get_internet 'nmcli radio wifi' > /dev/null
 alias --save get_internet_connection 'nmcli networking connectivity check' > /dev/null
 alias --save get_layout 'xkblayout-state print "%n"' > /dev/null

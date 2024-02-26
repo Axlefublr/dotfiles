@@ -332,12 +332,7 @@ keymap:
           m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
           f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
           s: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
-          Shift-l: { launch: [fish, -c, 'logout'] }
-          Shift-p: { launch: [poweroff] }
-          Shift-b: { launch: [reboot] }
-          Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
-          Shift-s: { launch: [systemctl, suspend] }
-          Shift-c: { launch: [xset, dpms, force, 'off'] }
+
           Super-j: { launch: [fish, -c, runner] }
           'y': { launch: [fish, -c, install_yt_video] }
           a: { launch: [fish, -c, 'install_yt_video asmr/'] }
