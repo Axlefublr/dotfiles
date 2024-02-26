@@ -252,7 +252,8 @@ require('lazy').setup({
 						['L'] = 'preview_scrolling_down',
 					},
 					i = {
-						['<c-u>'] = false
+						['<c-u>'] = false,
+						['<a-h>'] = 'close'
 					}
 				}
 			},
