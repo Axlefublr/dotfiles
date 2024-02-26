@@ -1,5 +1,9 @@
 {
     "diagnostics.globals": [
-        "vim"
+        "vim",
+        "client",
+        "root",
+        "screen",
+        "awesome"
     ]
 }
