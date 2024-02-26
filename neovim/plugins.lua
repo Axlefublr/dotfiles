@@ -288,6 +288,13 @@ require('lazy').setup({
 						}
 					}
 				},
+				diagnostics = {
+					mappings = {
+						i = {
+							['<a-l>'] = 'complete_tag'
+						}
+					}
+				},
 				lsp_references = {
 					show_line = false
 				},
@@ -375,6 +382,8 @@ require('lazy').setup({
 			vim.keymap.set('n', ',jH', builtin.highlights, {})
 			vim.keymap.set('n', ',jY', builtin.filetypes, {})
 			vim.keymap.set('n', ',j;', builtin.reloader, {})
+			vim.keymap.set('n', ',jq', function() builtin.diagnostics({ bufnr = 0 }) end, {})
+			vim.keymap.set('n', ',jQ', builtin.diagnostics, {})
 
 			vim.keymap.set('n', ',lr', builtin.lsp_references, {})
 			vim.keymap.set('n', ',li', builtin.lsp_incoming_calls, {})
