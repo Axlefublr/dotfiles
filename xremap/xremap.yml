@@ -366,6 +366,7 @@ keymap:
           Shift-d: { launch: [fish, -c, 'runner_wote replace'] }
           Alt-d: { launch: [fish, -c, wote_steal] }
           Control-d: { launch: [fish, -c, wote_edit] }
+          t: { launch: [fish, -c, runner_math] }
 
   - name: System & Media
     remap:

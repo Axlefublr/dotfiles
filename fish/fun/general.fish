@@ -240,6 +240,21 @@ function runner_wote
 end
 funcsave runner_wote > /dev/null
 
+function runner_math
+	set result (rofi -dmenu 2> /dev/null ; echo $status)
+	if test $result[-1] -ne 0
+		return 1
+	end
+	set -e result[-1]
+	set result (string collect $result)
+	if test -n $result
+		indeed -- ~/prog/noties/notes.txt (cat ~/.local/share/notie)
+		math "$result" 2> /dev/null > ~/.local/share/notie
+		awesome-client 'Widget_update_note()'
+	end
+end
+funcsave runner_math > /dev/null
+
 function wote_edit
 	kitty -T "note editor" nvim ~/.local/share/notie
 	awesome-client 'Widget_update_note()'
