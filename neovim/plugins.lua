@@ -23,50 +23,61 @@ require('lazy').setup({
 	'kyazdani42/nvim-web-devicons',
 	{
 		'wellle/targets.vim',
-		init = function()
-			vim.g.targets_nl = 'nh'
-		end
+		init = function() vim.g.targets_nl = 'nh' end,
 	},
 	{
 		'vim-scripts/ReplaceWithRegister',
-		config = function()
-			vim.keymap.set('n', 'grr', '<Plug>ReplaceWithRegisterLine')
-		end
+		config = function() vim.keymap.set('n', 'grr', '<Plug>ReplaceWithRegisterLine') end,
 	},
 	{
 		'junegunn/vim-easy-align',
-		config = function()
-			vim.keymap.set('', 'ga', '<Plug>(EasyAlign)')
-		end
+		config = function() vim.keymap.set('', 'ga', '<Plug>(EasyAlign)') end,
 	},
 	{
 		'sainnhe/gruvbox-material',
-		config = function()
-			vim.cmd.colorscheme('gruvbox-material')
-		end
+		config = function() vim.cmd.colorscheme('gruvbox-material') end,
 	},
 	{
 		'bkad/CamelCaseMotion',
-		init = function()
-			vim.g.camelcasemotion_key = '<leader>'
-		end
+		init = function() vim.g.camelcasemotion_key = '<leader>' end,
 	},
 	{
 		'kylechui/nvim-surround',
 		version = '*',
 		event = 'VeryLazy',
-		config = true
+		config = true,
 	},
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',
-		build = 'make'
+		build = 'make',
 	},
 	{
 		'nvim-treesitter/nvim-treesitter',
 		main = 'nvim-treesitter.configs',
 		build = ':TSUpdate',
 		opts = {
-			ensure_installed = { 'lua', 'rust', 'fish', 'rasi', 'c', 'vim', 'vimdoc', 'query', 'c_sharp', 'css', 'diff', 'gitcommit', 'gitignore', 'html', 'json', 'jsonc', 'markdown', 'toml', 'xcompose', 'yaml' },
+			ensure_installed = {
+				'lua',
+				'rust',
+				'fish',
+				'rasi',
+				'c',
+				'vim',
+				'vimdoc',
+				'query',
+				'c_sharp',
+				'css',
+				'diff',
+				'gitcommit',
+				'gitignore',
+				'html',
+				'json',
+				'jsonc',
+				'markdown',
+				'toml',
+				'xcompose',
+				'yaml',
+			},
 			auto_install = true,
 
 			highlight = {
@@ -155,7 +166,7 @@ require('lazy').setup({
 						['[[O'] = '@loop.outer',
 						['[[t'] = '@return.inner',
 						['[[T'] = '@return.outer',
-					}
+					},
 				},
 				move = {
 					enable = true,
@@ -204,26 +215,26 @@ require('lazy').setup({
 						['[O'] = '@loop.outer',
 						['[T'] = '@return.outer',
 					},
-				}
-			}
+				},
+			},
 		},
 		init = function()
 			vim.opt.foldmethod = 'expr'
-			vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
+			vim.cmd([[set foldexpr=nvim_treesitter#foldexpr()]])
 			vim.opt.foldenable = false
 			require('nvim-treesitter.install').prefer_git = true
-			local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
-			vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-			vim.keymap.set({ "n", "x", "o" }, ":", ts_repeat_move.repeat_last_move_opposite)
-			vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
-			vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
-			vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
-			vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
-		end
+			local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
+			vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move)
+			vim.keymap.set({ 'n', 'x', 'o' }, ':', ts_repeat_move.repeat_last_move_opposite)
+			vim.keymap.set({ 'n', 'x', 'o' }, 'f', ts_repeat_move.builtin_f)
+			vim.keymap.set({ 'n', 'x', 'o' }, 'F', ts_repeat_move.builtin_F)
+			vim.keymap.set({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t)
+			vim.keymap.set({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T)
+		end,
 	},
 	{
 		'nvim-treesitter/nvim-treesitter-textobjects',
-		dependencies = 'nvim-treesitter'
+		dependencies = 'nvim-treesitter',
 	},
 	{
 		'nvim-telescope/telescope.nvim',
@@ -242,7 +253,7 @@ require('lazy').setup({
 				layout_config = {
 					height = 0.99,
 					width = 0.99,
-					preview_cutoff = 5
+					preview_cutoff = 5,
 				},
 				mappings = {
 					n = {
@@ -253,13 +264,13 @@ require('lazy').setup({
 					},
 					i = {
 						['<c-u>'] = false,
-						['<a-h>'] = 'close'
-					}
-				}
+						['<a-h>'] = 'close',
+					},
+				},
 			},
 			pickers = {
 				find_files = {
-					hidden = true
+					hidden = true,
 				},
 				git_branches = {
 					mappings = {
@@ -269,100 +280,110 @@ require('lazy').setup({
 							[',m'] = 'git_merge_branch',
 							[',r'] = 'git_rebase_branch',
 						},
-					}
+					},
 				},
 				command_history = {
 					mappings = {
 						n = {
-							[',e'] = 'edit_command_line'
-						}
-					}
+							[',e'] = 'edit_command_line',
+						},
+					},
 				},
 				jumplist = {
-					show_line = false
+					show_line = false,
 				},
 				registers = {
 					mappings = {
 						n = {
-							[',e'] = 'edit_register'
-						}
-					}
+							[',e'] = 'edit_register',
+						},
+					},
 				},
 				diagnostics = {
 					mappings = {
 						i = {
-							['<a-l>'] = 'complete_tag'
-						}
-					}
+							['<a-l>'] = 'complete_tag',
+						},
+					},
 				},
 				lsp_references = {
-					show_line = false
+					show_line = false,
 				},
 				lsp_incoming_calls = {
-					show_line = false
+					show_line = false,
 				},
 				lsp_outgoing_calls = {
-					show_line = false
+					show_line = false,
 				},
 				lsp_definitions = {
-					show_line = false
+					show_line = false,
 				},
 				lsp_type_definitions = {
-					show_line = false
+					show_line = false,
 				},
 				lsp_implementations = {
-					show_line = false
+					show_line = false,
 				},
 				lsp_document_symbols = {
 					mappings = {
 						i = {
-							['<a-l>'] = 'complete_tag'
-						}
-					}
+							['<a-l>'] = 'complete_tag',
+						},
+					},
 				},
 				lsp_workspace_symbols = {
 					mappings = {
 						i = {
-							['<a-l>'] = 'complete_tag'
-						}
-					}
-				}
+							['<a-l>'] = 'complete_tag',
+						},
+					},
+				},
 			},
 			extensions = {
 				fzf = {
-					fuzzy = true,         -- false will only do exact matching
+					fuzzy = true, -- false will only do exact matching
 					override_generic_sorter = true, -- override the generic sorter
 					override_file_sorter = true, -- override the file sorter
 					case_mode = 'smart_case', -- or 'ignore_case' or 'respect_case' (the default case_mode is 'smart_case')
-				}
-			}
+				},
+			},
 		},
 		init = function()
 			require('telescope').load_extension('fzf')
 			local builtin = require('telescope.builtin')
 			vim.keymap.set('n', ',jf', builtin.find_files, {})
-			vim.keymap.set('n', ',jF', '<cmd>lua require("telescope.builtin").find_files({' ..
-				'hidden = true,' ..
-				'search_dirs = {' ..
-				'"~/prog/dotfiles",' ..
-				'"~/prog/noties",' ..
-				'"~/prog/info",' ..
-				'"~/prog/job",' ..
-				'"~/.local/share/alien_temple",' ..
-				'"~/.local/share/floral_barrel",' ..
-				'}' ..
-				'})<cr>', {})
+			vim.keymap.set(
+				'n',
+				',jF',
+				'<cmd>lua require("telescope.builtin").find_files({'
+					.. 'hidden = true,'
+					.. 'search_dirs = {'
+					.. '"~/prog/dotfiles",'
+					.. '"~/prog/noties",'
+					.. '"~/prog/info",'
+					.. '"~/prog/job",'
+					.. '"~/.local/share/alien_temple",'
+					.. '"~/.local/share/floral_barrel",'
+					.. '}'
+					.. '})<cr>',
+				{}
+			)
 			vim.keymap.set('n', ',jd', builtin.live_grep, {})
-			vim.keymap.set('n', ',jD', '<cmd>lua require("telescope.builtin").live_grep({' ..
-				'search_dirs = {' ..
-				'"~/prog/dotfiles",' ..
-				'"~/prog/noties",' ..
-				'"~/prog/info",' ..
-				'"~/prog/job",' ..
-				'"~/.local/share/alien_temple",' ..
-				'"~/.local/share/floral_barrel",' ..
-				'}' ..
-				'})<cr>', {})
+			vim.keymap.set(
+				'n',
+				',jD',
+				'<cmd>lua require("telescope.builtin").live_grep({'
+					.. 'search_dirs = {'
+					.. '"~/prog/dotfiles",'
+					.. '"~/prog/noties",'
+					.. '"~/prog/info",'
+					.. '"~/prog/job",'
+					.. '"~/.local/share/alien_temple",'
+					.. '"~/.local/share/floral_barrel",'
+					.. '}'
+					.. '})<cr>',
+				{}
+			)
 			vim.keymap.set('n', ',jh', builtin.help_tags, {})
 			vim.keymap.set('n', ',jt', builtin.treesitter, {})
 			vim.keymap.set('n', ',js', builtin.current_buffer_fuzzy_find, {})
@@ -393,15 +414,75 @@ require('lazy').setup({
 			vim.keymap.set('n', ',lm', builtin.lsp_implementations, {})
 			vim.keymap.set('n', ',ll', builtin.lsp_document_symbols, {})
 			vim.keymap.set('n', ',lL', builtin.lsp_workspace_symbols, {})
-		end
+		end,
 	},
 	{
 		'ggandor/leap.nvim',
 		opts = {
 			case_sensitive = false,
 			max_phase_one_targets = 1,
-			equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', '\'э', 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю' },
-			labels = { 'f', 'j', 'd', 'k', 's', 'l', 'a', 'e', 'i', 'w', 'o', 'g', 'h', 'r', 'u', 'x', 'c', 'z', '/', 'v', 'm', 't', 'y', 'q', 'p' },
+			equivalence_classes = {
+				' \t\n\r',
+				'qй',
+				'wц',
+				'eу',
+				'rк',
+				'tе',
+				'yн',
+				'uг',
+				'iш',
+				'oщ',
+				'pз',
+				'[х',
+				']ъ',
+				'aф',
+				'sы',
+				'dв',
+				'fа',
+				'gп',
+				'hр',
+				'jо',
+				'kл',
+				'lд',
+				';ж',
+				"'э",
+				'zя',
+				'xч',
+				'cс',
+				'vм',
+				'bи',
+				'nт',
+				'mь',
+				',б',
+				'.ю',
+			},
+			labels = {
+				'f',
+				'j',
+				'd',
+				'k',
+				's',
+				'l',
+				'a',
+				'e',
+				'i',
+				'w',
+				'o',
+				'g',
+				'h',
+				'r',
+				'u',
+				'x',
+				'c',
+				'z',
+				'/',
+				'v',
+				'm',
+				't',
+				'y',
+				'q',
+				'p',
+			},
 			safe_labels = {},
 		},
 		init = function()
@@ -409,70 +490,99 @@ require('lazy').setup({
 			vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)')
 			vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)')
 			vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)')
-		end
+		end,
 	},
 	{
 		'monaqa/dial.nvim',
 		config = function()
 			local augend = require('dial.augend')
-			require('dial.config').augends:register_group {
+			require('dial.config').augends:register_group({
 				default = {
 					augend.integer.alias.decimal_int,
 					augend.integer.alias.hex,
 					augend.integer.alias.octal,
 					augend.integer.alias.binary,
-					augend.hexcolor.new {
-						case = 'upper'
-					},
+					augend.hexcolor.new({
+						case = 'upper',
+					}),
 					augend.semver.alias.semver,
-					augend.date.new {
+					augend.date.new({
 						pattern = '%y.%m.%d',
 						default_kind = 'day',
 						only_valid = true,
-					},
+					}),
 					augend.date.alias['%H:%M'],
-					augend.date.new {
+					augend.date.new({
 						pattern = '%B', -- titlecased month names
 						default_kind = 'day',
-					},
-					augend.constant.new {
-						elements = { 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' },
+					}),
+					augend.constant.new({
+						elements = {
+							'january',
+							'february',
+							'march',
+							'april',
+							'may',
+							'june',
+							'july',
+							'august',
+							'september',
+							'october',
+							'november',
+							'december',
+						},
 						word = true,
-						cyclic = true
-					},
-					augend.constant.new {
-						elements = { 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' },
+						cyclic = true,
+					}),
+					augend.constant.new({
+						elements = {
+							'Monday',
+							'Tuesday',
+							'Wednesday',
+							'Thursday',
+							'Friday',
+							'Saturday',
+							'Sunday',
+						},
 						word = true,
-						cyclic = true
-					},
-					augend.constant.new {
-						elements = { 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' },
+						cyclic = true,
+					}),
+					augend.constant.new({
+						elements = {
+							'monday',
+							'tuesday',
+							'wednesday',
+							'thursday',
+							'friday',
+							'saturday',
+							'sunday',
+						},
 						word = true,
-						cyclic = true
-					},
+						cyclic = true,
+					}),
 				},
 				toggles = {
 					augend.constant.alias.bool,
-					augend.constant.new {
+					augend.constant.new({
 						elements = { 'and', 'or' },
 						word = true, -- if false, 'sand' is incremented into 'sor', 'doctor' into 'doctand', etc.
 						cyclic = true,
-					},
-					augend.constant.new {
+					}),
+					augend.constant.new({
 						elements = { 'AND', 'OR' },
 						word = true,
 						cyclic = true,
-					},
-					augend.constant.new {
+					}),
+					augend.constant.new({
 						elements = { '&&', '||' },
 						word = false,
 						cyclic = true,
-					},
-					augend.constant.new {
+					}),
+					augend.constant.new({
 						elements = { 'yes', 'no' },
 						word = false,
 						cyclic = true,
-					},
+					}),
 				},
 				visual = {
 					augend.integer.alias.decimal_int,
@@ -480,30 +590,68 @@ require('lazy').setup({
 					augend.integer.alias.octal,
 					augend.constant.alias.alpha,
 					augend.constant.alias.Alpha,
-				}
-			}
+				},
+			})
 
-			vim.keymap.set('n', '<C-a>', function()
-				require('dial.map').manipulate('increment', 'normal')
-			end)
-			vim.keymap.set('n', '<C-x>', function()
-				require('dial.map').manipulate('decrement', 'normal')
-			end)
-			vim.keymap.set('n', 'g<C-a>', function()
-				require('dial.map').manipulate('increment', 'gnormal')
-			end)
-			vim.keymap.set('n', 'g<C-x>', function()
-				require('dial.map').manipulate('decrement', 'gnormal')
-			end)
+			vim.keymap.set(
+				'n',
+				'<C-a>',
+				function() require('dial.map').manipulate('increment', 'normal') end
+			)
+			vim.keymap.set(
+				'n',
+				'<C-x>',
+				function() require('dial.map').manipulate('decrement', 'normal') end
+			)
+			vim.keymap.set(
+				'n',
+				'g<C-a>',
+				function() require('dial.map').manipulate('increment', 'gnormal') end
+			)
+			vim.keymap.set(
+				'n',
+				'g<C-x>',
+				function() require('dial.map').manipulate('decrement', 'gnormal') end
+			)
 
-			vim.keymap.set('v', '<c-a>', require('dial.map').inc_visual('visual'), { noremap = true })
-			vim.keymap.set('v', '<c-x>', require('dial.map').dec_visual('visual'), { noremap = true })
-			vim.keymap.set('v', 'g<c-a>', require('dial.map').inc_gvisual('visual'), { noremap = true })
-			vim.keymap.set('v', 'g<c-x>', require('dial.map').dec_visual('visual'), { noremap = true })
+			vim.keymap.set(
+				'v',
+				'<c-a>',
+				require('dial.map').inc_visual('visual'),
+				{ noremap = true }
+			)
+			vim.keymap.set(
+				'v',
+				'<c-x>',
+				require('dial.map').dec_visual('visual'),
+				{ noremap = true }
+			)
+			vim.keymap.set(
+				'v',
+				'g<c-a>',
+				require('dial.map').inc_gvisual('visual'),
+				{ noremap = true }
+			)
+			vim.keymap.set(
+				'v',
+				'g<c-x>',
+				require('dial.map').dec_visual('visual'),
+				{ noremap = true }
+			)
 
-			vim.keymap.set('n', ',dj', require('dial.map').inc_normal('toggles'), { noremap = true })
-			vim.keymap.set('v', ',dj', require('dial.map').inc_visual('toggles'), { noremap = true })
-		end
+			vim.keymap.set(
+				'n',
+				',dj',
+				require('dial.map').inc_normal('toggles'),
+				{ noremap = true }
+			)
+			vim.keymap.set(
+				'v',
+				',dj',
+				require('dial.map').inc_visual('toggles'),
+				{ noremap = true }
+			)
+		end,
 	},
 	{
 		'nvim-lualine/lualine.nvim',
@@ -526,7 +674,7 @@ require('lazy').setup({
 						statusline = 1000,
 						tabline = 1000,
 						winbar = 1000,
-					}
+					},
 				},
 				sections = {
 					lualine_a = { 'mode' },
@@ -534,7 +682,7 @@ require('lazy').setup({
 					lualine_c = { 'filename' },
 					lualine_x = { 'encoding', 'fileformat', 'filetype' },
 					lualine_y = { 'progress' },
-					lualine_z = { 'location' }
+					lualine_z = { 'location' },
 				},
 				inactive_sections = {
 					lualine_a = {},
@@ -542,14 +690,14 @@ require('lazy').setup({
 					lualine_c = { 'filename' },
 					lualine_x = { 'location' },
 					lualine_y = {},
-					lualine_z = {}
+					lualine_z = {},
 				},
 				tabline = {},
 				winbar = {},
 				inactive_winbar = {},
-				extensions = {}
+				extensions = {},
 			})
-		end
+		end,
 	},
 	{
 		'chrisgrieser/nvim-various-textobjs',
@@ -563,33 +711,93 @@ require('lazy').setup({
 				-- use suggested keymaps (see overview table in README)
 				useDefaultKeymaps = false,
 			})
-			vim.keymap.set({ 'o', 'x' }, 'ii', '<cmd>lua require("various-textobjs").indentation(true, true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'ai', '<cmd>lua require("various-textobjs").indentation(false, true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'iI', '<cmd>lua require("various-textobjs").indentation(true, true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'aI', '<cmd>lua require("various-textobjs").indentation(false, false)<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'ii',
+				'<cmd>lua require("various-textobjs").indentation(true, true)<CR>'
+			)
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'ai',
+				'<cmd>lua require("various-textobjs").indentation(false, true)<CR>'
+			)
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'iI',
+				'<cmd>lua require("various-textobjs").indentation(true, true)<CR>'
+			)
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'aI',
+				'<cmd>lua require("various-textobjs").indentation(false, false)<CR>'
+			)
 
-			vim.keymap.set({ 'o', 'x' }, 'R', '<cmd>lua require("various-textobjs").restOfIndentation()<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'R',
+				'<cmd>lua require("various-textobjs").restOfIndentation()<CR>'
+			)
 
-			vim.keymap.set({ 'o', 'x' }, 'iS', '<cmd>lua require("various-textobjs").subword(true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'aS', '<cmd>lua require("various-textobjs").subword(false)<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'iS',
+				'<cmd>lua require("various-textobjs").subword(true)<CR>'
+			)
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'aS',
+				'<cmd>lua require("various-textobjs").subword(false)<CR>'
+			)
 
-			vim.keymap.set({ 'o', 'x' }, 'ie', '<cmd>lua require("various-textobjs").entireBuffer()<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'ie',
+				'<cmd>lua require("various-textobjs").entireBuffer()<CR>'
+			)
 
 			vim.keymap.set({ 'o', 'x' }, '.', '<cmd>lua require("various-textobjs").nearEoL()<CR>')
 
-			vim.keymap.set({ 'o', 'x' }, 'iv', '<cmd>lua require("various-textobjs").value(true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'av', '<cmd>lua require("various-textobjs").value(false)<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'iv',
+				'<cmd>lua require("various-textobjs").value(true)<CR>'
+			)
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'av',
+				'<cmd>lua require("various-textobjs").value(false)<CR>'
+			)
 
 			vim.keymap.set({ 'o', 'x' }, 'ik', '<cmd>lua require("various-textobjs").key(true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'ak', '<cmd>lua require("various-textobjs").key(false)<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'ak',
+				'<cmd>lua require("various-textobjs").key(false)<CR>'
+			)
 
-			vim.keymap.set({ 'o', 'x' }, 'iu', '<cmd>lua require("various-textobjs").number(true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'au', '<cmd>lua require("various-textobjs").number(false)<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'iu',
+				'<cmd>lua require("various-textobjs").number(true)<CR>'
+			)
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'au',
+				'<cmd>lua require("various-textobjs").number(false)<CR>'
+			)
 
 			vim.keymap.set({ 'o', 'x' }, 'gl', '<cmd>lua require("various-textobjs").url()<CR>')
 
-			vim.keymap.set({ 'o', 'x' }, 'il', '<cmd>lua require("various-textobjs").lineCharacterwise(true)<CR>')
-			vim.keymap.set({ 'o', 'x' }, 'al', '<cmd>lua require("various-textobjs").lineCharacterwise(false)<CR>')
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'il',
+				'<cmd>lua require("various-textobjs").lineCharacterwise(true)<CR>'
+			)
+			vim.keymap.set(
+				{ 'o', 'x' },
+				'al',
+				'<cmd>lua require("various-textobjs").lineCharacterwise(false)<CR>'
+			)
 
 			vim.keymap.set(
 				{ 'o', 'x' },
@@ -626,7 +834,7 @@ require('lazy').setup({
 
 			vim.keymap.set('n', 'gx', function()
 				-- select URL
-				require("various-textobjs").url()
+				require('various-textobjs').url()
 
 				-- plugin only switches to visual mode when textobj found
 				local foundURL = vim.fn.mode():find('v')
@@ -638,7 +846,7 @@ require('lazy').setup({
 				end
 
 				-- retrieve URL with the z-register as intermediary
-				vim.cmd.normal { '"zy', bang = true }
+				vim.cmd.normal({ '"zy', bang = true })
 				local url = vim.fn.getreg('z')
 
 				-- open with the OS-specific shell command
@@ -663,7 +871,7 @@ require('lazy').setup({
 				if notOnIndentedLine then return end
 
 				-- dedent indentation
-				vim.cmd.normal { '<', bang = true }
+				vim.cmd.normal({ '<', bang = true })
 
 				-- delete surrounding lines
 				local endBorderLn = vim.api.nvim_buf_get_mark(0, '>')[1] + 1
@@ -671,7 +879,7 @@ require('lazy').setup({
 				vim.cmd(tostring(endBorderLn) .. ' delete') -- delete end first so line index is not shifted
 				vim.cmd(tostring(startBorderLn) .. ' delete')
 			end, { desc = 'Delete surrounding indentation' })
-		end
+		end,
 	},
 	{
 		'windwp/nvim-autopairs',
@@ -682,13 +890,20 @@ require('lazy').setup({
 			ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
 			check_ts = true,
 			map_c_w = true,
-			enable_check_bracket_line = true
+			enable_check_bracket_line = true,
 		},
 	},
 	{
 		'neovim/nvim-lspconfig',
 		config = function()
+			require('lspconfig').rust_analyzer.setup({})
 			require('lspconfig').lua_ls.setup({})
+			require('lspconfig').omnisharp.setup({})
+			require('lspconfig').cssls.setup({})
+			require('lspconfig').html.setup({})
+			require('lspconfig').jsonls.setup({})
+			require('lspconfig').marksman.setup({})
+			require('lspconfig').hydra_lsp.setup({})
 			vim.api.nvim_create_autocmd('LspAttach', {
 				callback = function(ev)
 					-- Enable completion triggered by <c-x><c-o>
@@ -705,35 +920,77 @@ require('lazy').setup({
 					vim.keymap.set('n', ',ls', vim.lsp.buf.signature_help, opts)
 					vim.keymap.set('n', ',lw', vim.lsp.buf.rename, opts)
 					vim.keymap.set({ 'n', 'v' }, ',lc', vim.lsp.buf.code_action, opts)
-					vim.keymap.set('n', ',lf', function() vim.lsp.buf.format { async = true } end, opts)
+					vim.keymap.set(
+						'n',
+						',lf',
+						function() vim.lsp.buf.format({ async = true }) end,
+						opts
+					)
 				end,
 			})
-		end
+		end,
 	},
 	{
 		'williamboman/mason.nvim',
 		dependencies = 'neovim/nvim-lspconfig',
-		config = true
+		config = true,
 	},
 	{
 		'williamboman/mason-lspconfig.nvim',
 		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
 		opts = {
-			ensure_installed = { 'lua_ls', 'rust_analyzer', 'omnisharp', 'cssls', 'html', 'jsonls', 'marksman', 'hydra_lsp', }
-		}
+			ensure_installed = {},
+			automatic_installation = true
+		},
 	},
 	{
 		'nvimtools/none-ls.nvim',
-		main = 'null-ls',
-		config = true,
-		dependencies = 'plenary.nvim'
+		-- main = 'null-ls',
+		dependencies = 'plenary.nvim',
+		config = function()
+			require('null-ls').setup({
+				sources = {
+					require('null-ls').builtins.formatting.stylua.with({
+						extra_args = {
+							'--call-parentheses',
+							'Always',
+							'--collapse-simple-statement',
+							'Always',
+							'--column-width',
+							'100',
+							'--indent-type',
+							'Tabs',
+							'--line-endings',
+							'Unix',
+							'--quote-style',
+							'AutoPreferSingle',
+						},
+					}),
+					require('null-ls').builtins.formatting.prettier.with({
+						extra_args = {
+							-- '--no-bracket-spacing',
+							'--print-width',
+							'100',
+							'--single-quote',
+							'--use-tabs',
+						},
+						filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'css', 'scss', 'less', 'html', 'json', 'jsonc', 'yaml', 'graphql', 'handlebars' }
+					}),
+					require('null-ls').builtins.diagnostics.fish,
+					-- require('null-ls').builtins.diagnostics.commitlint,
+					-- require('null-ls').builtins.diagnostics.gitlint,
+					require('null-ls').builtins.formatting.fish_indent,
+					require('null-ls').builtins.hover.dictionary,
+				},
+			})
+		end,
 	},
 	{
 		'jay-babu/mason-null-ls.nvim',
 		event = { 'BufReadPre', 'BufNewFile' },
 		dependencies = { 'mason.nvim', 'none-ls.nvim' },
 		opts = {
-			ensure_installed = { 'stylua', 'fish_indent' },
+			automatic_installation = true,
 			handlers = {},
 			methods = {
 				diagnostics = true,
@@ -741,9 +998,9 @@ require('lazy').setup({
 				code_actions = true,
 				completion = true,
 				hover = true,
-			}
-		}
-	}
+			},
+		},
+	},
 })
 vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = '#0f0f0f', bg = '#ffafd7' })
 vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = '#0f0f0f', bg = '#ffd75f' })
