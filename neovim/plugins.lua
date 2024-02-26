@@ -252,8 +252,6 @@ require('lazy').setup({
 						['L'] = 'preview_scrolling_down',
 					},
 					i = {
-						['<a-j>'] = 'move_selection_next',
-						['<a-k>'] = 'move_selection_previous',
 						['<c-u>'] = false
 					}
 				}
@@ -681,14 +679,14 @@ require('lazy').setup({
 		'neovim/nvim-lspconfig',
 		config = function()
 			require('lspconfig').lua_ls.setup({})
-			vim.keymap.set('n', ',ll', vim.diagnostic.open_float)
-			vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-			vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 			vim.api.nvim_create_autocmd('LspAttach', {
 				callback = function(ev)
 					-- Enable completion triggered by <c-x><c-o>
 					vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+					vim.keymap.set('n', ',lg', vim.diagnostic.open_float)
+					vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+					vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = ev.buf }
 					vim.keymap.set('n', ',la', vim.lsp.buf.declaration, opts)
@@ -710,7 +708,29 @@ require('lazy').setup({
 		'williamboman/mason-lspconfig.nvim',
 		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
 		opts = {
-			ensure_installed = { 'lua_ls' }
+			ensure_installed = { 'lua_ls', 'rust_analyzer', 'omnisharp', 'cssls', 'html', 'jsonls', 'marksman', 'hydra_lsp', }
+		}
+	},
+	{
+		'nvimtools/none-ls.nvim',
+		main = 'null-ls',
+		config = true,
+		dependencies = 'plenary.nvim'
+	},
+	{
+		'jay-babu/mason-null-ls.nvim',
+		event = { 'BufReadPre', 'BufNewFile' },
+		dependencies = { 'mason.nvim', 'none-ls.nvim' },
+		opts = {
+			ensure_installed = { 'stylua', 'fish_indent' },
+			handlers = {},
+			methods = {
+				diagnostics = true,
+				formatting = true,
+				code_actions = true,
+				completion = true,
+				hover = true,
+			}
 		}
 	}
 })

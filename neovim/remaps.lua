@@ -30,9 +30,6 @@ vim.keymap.set('i', '<C-k>', '<C-o>O')
 vim.keymap.set('i', '<C-h>', '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
 vim.keymap.set('i', '<a-o>', '<c-o>')
 
-vim.keymap.set('!', '<a-j>', '<c-n>')
-vim.keymap.set('!', '<a-k>', '<c-p>')
-
 vim.keymap.set('o', '{', 'V{')
 vim.keymap.set('o', '}', 'V}')
 vim.keymap.set('o', '+', 'v+')
