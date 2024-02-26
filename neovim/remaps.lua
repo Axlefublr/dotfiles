@@ -24,7 +24,7 @@ vim.keymap.set('v', 'u', '<Esc>u')
 vim.keymap.set('v', '&', ':s`\\V')
 vim.keymap.set('v', '@@', function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end) -- multiply selection
 
-vim.keymap.set('i', '<a-l>', '<C-x><C-l>')
+vim.keymap.set('i', '<c-l>', '<C-x><C-l>')
 vim.keymap.set('i', '<C-k>', '<C-o>O')
 -- vim.keymap.set('i', '<C-j>', '<C-o>o')
 vim.keymap.set('i', '<C-h>', '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line

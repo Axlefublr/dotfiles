@@ -299,13 +299,6 @@ require('lazy').setup({
 						},
 					},
 				},
-				diagnostics = {
-					mappings = {
-						i = {
-							['<a-l>'] = 'complete_tag',
-						},
-					},
-				},
 				lsp_references = {
 					show_line = false,
 				},
@@ -323,20 +316,6 @@ require('lazy').setup({
 				},
 				lsp_implementations = {
 					show_line = false,
-				},
-				lsp_document_symbols = {
-					mappings = {
-						i = {
-							['<a-l>'] = 'complete_tag',
-						},
-					},
-				},
-				lsp_workspace_symbols = {
-					mappings = {
-						i = {
-							['<a-l>'] = 'complete_tag',
-						},
-					},
 				},
 			},
 			extensions = {
