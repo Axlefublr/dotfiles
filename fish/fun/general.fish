@@ -267,3 +267,20 @@ function wote_steal
 	awesome-client 'Widget_update_note()'
 end
 funcsave wote_steal > /dev/null
+
+function runner_symbol
+	set result (rofi -dmenu 2> /dev/null ; echo $status)
+	if test $result[-1] -ne 0
+		return 1
+	end
+	set -e result[-1]
+	if test -z $result
+		return 1
+	end
+	set output ''
+	for code in (string split ' ' $result)
+		set output $output'\U'(string pad --char 0 --width 8 $code)
+	end
+	printf $output 2> /dev/null | xclip -r -selection clipboard
+end
+funcsave runner_symbol > /dev/null

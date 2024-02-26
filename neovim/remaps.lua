@@ -18,7 +18,7 @@ vim.keymap.set('', ',v', '<c-v>')
 vim.keymap.set('', 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)
 vim.keymap.set('', 'L', function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end)
 
-vim.keymap.set({'n', 'v'}, '<A-/>', '<c-^>')
+vim.keymap.set({ 'n', 'v' }, '<A-/>', '<c-^>')
 
 vim.keymap.set('v', 'u', '<Esc>u')
 vim.keymap.set('v', '&', ':s`\\V')
@@ -90,29 +90,29 @@ vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
 
 vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
-vim.keymap.set('n', ',dl', 'dil\'_dd', { remap = true }) -- Take the contents of the line, but delete the line too
+vim.keymap.set('n', ',dl', "dil'_dd", { remap = true }) -- Take the contents of the line, but delete the line too
 vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
 vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
 vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
-vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>\"<esc>') -- Paste a characterwise register on a new line
-vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>\"<esc>') -- Paste a characterwise register on a new line
+vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
+vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
 vim.keymap.set('n', '@', function() FeedKeysInt('yl' .. vim.v.count1 .. 'p') end) -- multiply character
 vim.keymap.set('n', '<Esc>', function()
 	Remove_highlighting()
 	FeedKeysInt('<Esc>')
 end)
 vim.keymap.set('n', 'J', function()
-	for i = 1, vim.v.count1 do
+	for _ = 1, vim.v.count1 do
 		FeedKeys('J')
 	end
 end)
 vim.keymap.set('n', '.', function()
-	for i = 1, vim.v.count1 do
+	for _ = 1, vim.v.count1 do
 		FeedKeys('.')
 	end
 end)
 vim.keymap.set('n', 'du', function()
-	for i = 1, vim.v.count1 do
+	for _ = 1, vim.v.count1 do
 		FeedKeys('dd')
 	end
 end)
@@ -177,34 +177,34 @@ vim.keymap.set('o', 'i%', function() vim.cmd('normal vT%ot%') end)
 vim.keymap.set('o', 'a%', function() vim.cmd('normal vF%of%') end)
 
 -- Exclusive previous / next blank line
-vim.keymap.set({'n', 'v'}, ']}', '}k')
-vim.keymap.set({'n', 'v'}, '[{', '{j')
+vim.keymap.set({ 'n', 'v' }, ']}', '}k')
+vim.keymap.set({ 'n', 'v' }, '[{', '{j')
 vim.keymap.set('o', ']}', function() vim.cmd('normal V}k') end)
 vim.keymap.set('o', '[{', function() vim.cmd('normal V{j') end)
 
 -- big
 
-vim.keymap.set({'n', 'v'}, "'1", function() Numbered_get(1) end)
-vim.keymap.set({'n', 'v'}, "'2", function() Numbered_get(2) end)
-vim.keymap.set({'n', 'v'}, "'3", function() Numbered_get(3) end)
-vim.keymap.set({'n', 'v'}, "'4", function() Numbered_get(4) end)
-vim.keymap.set({'n', 'v'}, "'5", function() Numbered_get(5) end)
-vim.keymap.set({'n', 'v'}, "'6", function() Numbered_get(6) end)
-vim.keymap.set({'n', 'v'}, "'7", function() Numbered_get(7) end)
-vim.keymap.set({'n', 'v'}, "'8", function() Numbered_get(8) end)
-vim.keymap.set({'n', 'v'}, "'9", function() Numbered_get(9) end)
-vim.keymap.set({'n', 'v'}, "'0", function() Numbered_get(10) end)
+vim.keymap.set({ 'n', 'v' }, "'1", function() Numbered_get(1) end)
+vim.keymap.set({ 'n', 'v' }, "'2", function() Numbered_get(2) end)
+vim.keymap.set({ 'n', 'v' }, "'3", function() Numbered_get(3) end)
+vim.keymap.set({ 'n', 'v' }, "'4", function() Numbered_get(4) end)
+vim.keymap.set({ 'n', 'v' }, "'5", function() Numbered_get(5) end)
+vim.keymap.set({ 'n', 'v' }, "'6", function() Numbered_get(6) end)
+vim.keymap.set({ 'n', 'v' }, "'7", function() Numbered_get(7) end)
+vim.keymap.set({ 'n', 'v' }, "'8", function() Numbered_get(8) end)
+vim.keymap.set({ 'n', 'v' }, "'9", function() Numbered_get(9) end)
+vim.keymap.set({ 'n', 'v' }, "'0", function() Numbered_get(10) end)
 
-vim.keymap.set({'n', 'v'}, ",1", function() Numbered_set(1) end)
-vim.keymap.set({'n', 'v'}, ",2", function() Numbered_set(2) end)
-vim.keymap.set({'n', 'v'}, ",3", function() Numbered_set(3) end)
-vim.keymap.set({'n', 'v'}, ",4", function() Numbered_set(4) end)
-vim.keymap.set({'n', 'v'}, ",5", function() Numbered_set(5) end)
-vim.keymap.set({'n', 'v'}, ",6", function() Numbered_set(6) end)
-vim.keymap.set({'n', 'v'}, ",7", function() Numbered_set(7) end)
-vim.keymap.set({'n', 'v'}, ",8", function() Numbered_set(8) end)
-vim.keymap.set({'n', 'v'}, ",9", function() Numbered_set(9) end)
-vim.keymap.set({'n', 'v'}, ",0", function() Numbered_set(10) end)
+vim.keymap.set({ 'n', 'v' }, ',1', function() Numbered_set(1) end)
+vim.keymap.set({ 'n', 'v' }, ',2', function() Numbered_set(2) end)
+vim.keymap.set({ 'n', 'v' }, ',3', function() Numbered_set(3) end)
+vim.keymap.set({ 'n', 'v' }, ',4', function() Numbered_set(4) end)
+vim.keymap.set({ 'n', 'v' }, ',5', function() Numbered_set(5) end)
+vim.keymap.set({ 'n', 'v' }, ',6', function() Numbered_set(6) end)
+vim.keymap.set({ 'n', 'v' }, ',7', function() Numbered_set(7) end)
+vim.keymap.set({ 'n', 'v' }, ',8', function() Numbered_set(8) end)
+vim.keymap.set({ 'n', 'v' }, ',9', function() Numbered_set(9) end)
+vim.keymap.set({ 'n', 'v' }, ',0', function() Numbered_set(10) end)
 
 vim.keymap.set('', ',f', function() Search_for_register('/', '') end)
 vim.keymap.set('', ',F', function() Search_for_register('?', '') end)
@@ -219,9 +219,9 @@ vim.keymap.set('n', "'R", Killring_push_tail)
 vim.keymap.set('n', "'r", Killring_push)
 vim.keymap.set('n', "'E", Killring_pop_tail)
 vim.keymap.set('n', "'e", Killring_pop)
-vim.keymap.set({'n', 'v'}, ',z', Killring_kill)
-vim.keymap.set({'n', 'v'}, "'t", Killring_compile)
-vim.keymap.set({'n', 'v'}, "'T", Killring_compile_reversed)
+vim.keymap.set({ 'n', 'v' }, ',z', Killring_kill)
+vim.keymap.set({ 'n', 'v' }, "'t", Killring_compile)
+vim.keymap.set({ 'n', 'v' }, "'T", Killring_compile_reversed)
 
 vim.keymap.set('n', 'zck', 'ikitty: ')
 vim.keymap.set('n', 'zcx', 'ixremap: ')
