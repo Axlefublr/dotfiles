@@ -242,7 +242,7 @@ require('lazy').setup({
 		dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' },
 		opts = {
 			defaults = {
-				prompt_prefix = '󱕅 ',
+				prompt_prefix = '',
 				selection_caret = '󱕅 ',
 				multi_icon = ' ',
 				initial_mode = 'insert',
@@ -254,6 +254,12 @@ require('lazy').setup({
 					height = 0.99,
 					width = 0.99,
 					preview_cutoff = 5,
+					horizontal = {
+						preview_width = 40
+					},
+					vertical = {
+						preview_height = 6
+					}
 				},
 				mappings = {
 					n = {
