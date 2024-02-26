@@ -15,98 +15,97 @@ modmap:
       only: /Terraria/
 
 keymap:
-
   - name: Mouse mode gromit overlay
     mode: overlay
     remap:
-      Space: [ launch: [gromit-mpx, --clear], set_mode: mouse ]
+      Space: [launch: [gromit-mpx, --clear], set_mode: mouse]
 
   - name: Mouse mode
     mode: [mouse, overlay]
     remap:
       CapsLock-Semicolon: { set_mode: default }
-      Space: [ launch: [gromit-overlay.fish], set_mode: overlay ]
+      Space: [launch: [gromit-overlay.fish], set_mode: overlay]
 
-      q: { launch: [xdotool, mousemove, '128',  '120']}
-      w: { launch: [xdotool, mousemove, '544',  '120']}
-      e: { launch: [xdotool, mousemove, '960',  '120']}
-      r: { launch: [xdotool, mousemove, '1376', '120']}
-      t: { launch: [xdotool, mousemove, '1792', '120']}
+      q: { launch: [xdotool, mousemove, '128', '120'] }
+      w: { launch: [xdotool, mousemove, '544', '120'] }
+      e: { launch: [xdotool, mousemove, '960', '120'] }
+      r: { launch: [xdotool, mousemove, '1376', '120'] }
+      t: { launch: [xdotool, mousemove, '1792', '120'] }
 
-      a: { launch: [xdotool, mousemove, '128',  '540']}
-      s: { launch: [xdotool, mousemove, '544',  '540']}
-      d: { launch: [xdotool, mousemove, '960',  '540']}
-      f: { launch: [xdotool, mousemove, '1376', '540']}
-      g: { launch: [xdotool, mousemove, '1792', '540']}
+      a: { launch: [xdotool, mousemove, '128', '540'] }
+      s: { launch: [xdotool, mousemove, '544', '540'] }
+      d: { launch: [xdotool, mousemove, '960', '540'] }
+      f: { launch: [xdotool, mousemove, '1376', '540'] }
+      g: { launch: [xdotool, mousemove, '1792', '540'] }
 
-      z: { launch: [xdotool, mousemove, '128',  '960']}
-      x: { launch: [xdotool, mousemove, '544',  '960']}
-      c: { launch: [xdotool, mousemove, '960',  '960']}
-      v: { launch: [xdotool, mousemove, '1376', '960']}
-      b: { launch: [xdotool, mousemove, '1792', '960']}
+      z: { launch: [xdotool, mousemove, '128', '960'] }
+      x: { launch: [xdotool, mousemove, '544', '960'] }
+      c: { launch: [xdotool, mousemove, '960', '960'] }
+      v: { launch: [xdotool, mousemove, '1376', '960'] }
+      b: { launch: [xdotool, mousemove, '1792', '960'] }
 
-      p: { launch: [xdotool, mousemove, '0', '1080']}
+      p: { launch: [xdotool, mousemove, '0', '1080'] }
 
-      Shift-q: { launch: [xdotool, mousemove, '336',  '120']}
-      Shift-w: { launch: [xdotool, mousemove, '752',  '120']}
-      Shift-e: { launch: [xdotool, mousemove, '1168', '120']}
-      Shift-r: { launch: [xdotool, mousemove, '1584', '120']}
+      Shift-q: { launch: [xdotool, mousemove, '336', '120'] }
+      Shift-w: { launch: [xdotool, mousemove, '752', '120'] }
+      Shift-e: { launch: [xdotool, mousemove, '1168', '120'] }
+      Shift-r: { launch: [xdotool, mousemove, '1584', '120'] }
 
-      Shift-a: { launch: [xdotool, mousemove, '336',  '540']}
-      Shift-s: { launch: [xdotool, mousemove, '752',  '540']}
-      Shift-d: { launch: [xdotool, mousemove, '1168', '540']}
-      Shift-f: { launch: [xdotool, mousemove, '1584', '540']}
+      Shift-a: { launch: [xdotool, mousemove, '336', '540'] }
+      Shift-s: { launch: [xdotool, mousemove, '752', '540'] }
+      Shift-d: { launch: [xdotool, mousemove, '1168', '540'] }
+      Shift-f: { launch: [xdotool, mousemove, '1584', '540'] }
 
-      Shift-z: { launch: [xdotool, mousemove, '336',  '960']}
-      Shift-x: { launch: [xdotool, mousemove, '752',  '960']}
-      Shift-c: { launch: [xdotool, mousemove, '1168', '960']}
-      Shift-v: { launch: [xdotool, mousemove, '1584', '960']}
+      Shift-z: { launch: [xdotool, mousemove, '336', '960'] }
+      Shift-x: { launch: [xdotool, mousemove, '752', '960'] }
+      Shift-c: { launch: [xdotool, mousemove, '1168', '960'] }
+      Shift-v: { launch: [xdotool, mousemove, '1584', '960'] }
 
-      Ctrl-q: { launch: [xdotool, mousemove, '128',  '330']}
-      Ctrl-w: { launch: [xdotool, mousemove, '544',  '330']}
-      Ctrl-e: { launch: [xdotool, mousemove, '960',  '330']}
-      Ctrl-r: { launch: [xdotool, mousemove, '1376', '330']}
-      Ctrl-t: { launch: [xdotool, mousemove, '1792', '330']}
+      Ctrl-q: { launch: [xdotool, mousemove, '128', '330'] }
+      Ctrl-w: { launch: [xdotool, mousemove, '544', '330'] }
+      Ctrl-e: { launch: [xdotool, mousemove, '960', '330'] }
+      Ctrl-r: { launch: [xdotool, mousemove, '1376', '330'] }
+      Ctrl-t: { launch: [xdotool, mousemove, '1792', '330'] }
 
-      Ctrl-a: { launch: [xdotool, mousemove, '128',  '750']}
-      Ctrl-s: { launch: [xdotool, mousemove, '544',  '750']}
-      Ctrl-d: { launch: [xdotool, mousemove, '960',  '750']}
-      Ctrl-f: { launch: [xdotool, mousemove, '1376', '750']}
-      Ctrl-g: { launch: [xdotool, mousemove, '1792', '750']}
+      Ctrl-a: { launch: [xdotool, mousemove, '128', '750'] }
+      Ctrl-s: { launch: [xdotool, mousemove, '544', '750'] }
+      Ctrl-d: { launch: [xdotool, mousemove, '960', '750'] }
+      Ctrl-f: { launch: [xdotool, mousemove, '1376', '750'] }
+      Ctrl-g: { launch: [xdotool, mousemove, '1792', '750'] }
 
-      Shift-Ctrl-q: { launch: [xdotool, mousemove, '336',  '330']}
-      Shift-Ctrl-w: { launch: [xdotool, mousemove, '752',  '330']}
-      Shift-Ctrl-e: { launch: [xdotool, mousemove, '1168', '330']}
-      Shift-Ctrl-r: { launch: [xdotool, mousemove, '1584', '330']}
+      Shift-Ctrl-q: { launch: [xdotool, mousemove, '336', '330'] }
+      Shift-Ctrl-w: { launch: [xdotool, mousemove, '752', '330'] }
+      Shift-Ctrl-e: { launch: [xdotool, mousemove, '1168', '330'] }
+      Shift-Ctrl-r: { launch: [xdotool, mousemove, '1584', '330'] }
 
-      Shift-Ctrl-a: { launch: [xdotool, mousemove, '336',  '750']}
-      Shift-Ctrl-s: { launch: [xdotool, mousemove, '752',  '750']}
-      Shift-Ctrl-d: { launch: [xdotool, mousemove, '1168', '750']}
-      Shift-Ctrl-f: { launch: [xdotool, mousemove, '1584', '750']}
+      Shift-Ctrl-a: { launch: [xdotool, mousemove, '336', '750'] }
+      Shift-Ctrl-s: { launch: [xdotool, mousemove, '752', '750'] }
+      Shift-Ctrl-d: { launch: [xdotool, mousemove, '1168', '750'] }
+      Shift-Ctrl-f: { launch: [xdotool, mousemove, '1584', '750'] }
 
-      h: { launch: [xdotool, mousemove_relative, '--', '-52', '0']}
-      l: { launch: [xdotool, mousemove_relative, '--', '52', '0']}
-      j: { launch: [xdotool, mousemove_relative, '--', '0', '52']}
-      k: { launch: [xdotool, mousemove_relative, '--', '0', '-52']}
+      h: { launch: [xdotool, mousemove_relative, '--', '-52', '0'] }
+      l: { launch: [xdotool, mousemove_relative, '--', '52', '0'] }
+      j: { launch: [xdotool, mousemove_relative, '--', '0', '52'] }
+      k: { launch: [xdotool, mousemove_relative, '--', '0', '-52'] }
 
-      Shift-h: { launch: [xdotool, mousemove_relative, '--', '-104', '0']}
-      Shift-l: { launch: [xdotool, mousemove_relative, '--', '104', '0']}
-      Shift-j: { launch: [xdotool, mousemove_relative, '--', '0', '104']}
-      Shift-k: { launch: [xdotool, mousemove_relative, '--', '0', '-104']}
+      Shift-h: { launch: [xdotool, mousemove_relative, '--', '-104', '0'] }
+      Shift-l: { launch: [xdotool, mousemove_relative, '--', '104', '0'] }
+      Shift-j: { launch: [xdotool, mousemove_relative, '--', '0', '104'] }
+      Shift-k: { launch: [xdotool, mousemove_relative, '--', '0', '-104'] }
 
-      Alt-h: { launch: [xdotool, mousemove_relative, '--', '-26', '0']}
-      Alt-l: { launch: [xdotool, mousemove_relative, '--', '26', '0']}
-      Alt-j: { launch: [xdotool, mousemove_relative, '--', '0', '26']}
-      Alt-k: { launch: [xdotool, mousemove_relative, '--', '0', '-26']}
+      Alt-h: { launch: [xdotool, mousemove_relative, '--', '-26', '0'] }
+      Alt-l: { launch: [xdotool, mousemove_relative, '--', '26', '0'] }
+      Alt-j: { launch: [xdotool, mousemove_relative, '--', '0', '26'] }
+      Alt-k: { launch: [xdotool, mousemove_relative, '--', '0', '-26'] }
 
-      Ctrl-h: { launch: [xdotool, mousemove_relative, '--', '-13', '0']}
-      Ctrl-l: { launch: [xdotool, mousemove_relative, '--', '13', '0']}
-      Ctrl-j: { launch: [xdotool, mousemove_relative, '--', '0', '13']}
-      Ctrl-k: { launch: [xdotool, mousemove_relative, '--', '0', '-13']}
+      Ctrl-h: { launch: [xdotool, mousemove_relative, '--', '-13', '0'] }
+      Ctrl-l: { launch: [xdotool, mousemove_relative, '--', '13', '0'] }
+      Ctrl-j: { launch: [xdotool, mousemove_relative, '--', '0', '13'] }
+      Ctrl-k: { launch: [xdotool, mousemove_relative, '--', '0', '-13'] }
 
-      u: { launch: ["ydotool", "click", "c0"] } # c0 — left click
-      i: { launch: ["ydotool", "click", "c2"] } # c2 — middle click
-      o: { launch: ["ydotool", "click", "c1"] } # c1 — right click
+      u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
+      i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
+      o: { launch: ['ydotool', 'click', 'c1'] } # c1 — right click
 
       # CapsLock-u: { launch: ["xdotool", "mousedown", "1"] }
       # CapsLock-i: { launch: ["xdotool", "mousedown", "2"] }
@@ -115,12 +114,12 @@ keymap:
       # CapsLock-8: { launch: ["xdotool", "mouseup", "2"] }
       # CapsLock-9: { launch: ["xdotool", "mouseup", "3"] }
 
-      CapsLock-u: { launch: ["ydotool", "click", "40"] }
-      CapsLock-i: { launch: ["ydotool", "click", "42"] }
-      CapsLock-o: { launch: ["ydotool", "click", "41"] }
-      CapsLock-7: { launch: ["ydotool", "click", "80"] }
-      CapsLock-8: { launch: ["ydotool", "click", "82"] }
-      CapsLock-9: { launch: ["ydotool", "click", "81"] }
+      CapsLock-u: { launch: ['ydotool', 'click', '40'] }
+      CapsLock-i: { launch: ['ydotool', 'click', '42'] }
+      CapsLock-o: { launch: ['ydotool', 'click', '41'] }
+      CapsLock-7: { launch: ['ydotool', 'click', '80'] }
+      CapsLock-8: { launch: ['ydotool', 'click', '82'] }
+      CapsLock-9: { launch: ['ydotool', 'click', '81'] }
 
       # Holds down and up a modifier (the one aside from capslock):
       # j — down event
@@ -129,103 +128,103 @@ keymap:
       CapsLock-Super-k: { launch: [ydotool, key, '125:0'] }
       CapsLock-Shift-j: { launch: [ydotool, key, '42:1'] }
       CapsLock-Shift-k: { launch: [ydotool, key, '42:0'] }
-      CapsLock-Alt-j:   { launch: [ydotool, key, '56:1'] }
-      CapsLock-Alt-k:   { launch: [ydotool, key, '56:0'] }
-      CapsLock-Ctrl-j:  { launch: [ydotool, key, '29:1'] }
-      CapsLock-Ctrl-k:  { launch: [ydotool, key, '29:0'] }
+      CapsLock-Alt-j: { launch: [ydotool, key, '56:1'] }
+      CapsLock-Alt-k: { launch: [ydotool, key, '56:0'] }
+      CapsLock-Ctrl-j: { launch: [ydotool, key, '29:1'] }
+      CapsLock-Ctrl-k: { launch: [ydotool, key, '29:0'] }
 
-      m: { launch: ["ydotool", "mousemove", "-w", "--", "-1", "0"] } # left
-      Comma: { launch: ["ydotool", "mousemove", "-w", "--", "0", "1"] } # up
-      Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
-      Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
+      m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
+      Comma: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '1'] } # up
+      Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
+      Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
-      Key_1: { launch: [ fish, -c, "minigun_apply 1" ] }
-      Key_2: { launch: [ fish, -c, "minigun_apply 2" ] }
-      Key_3: { launch: [ fish, -c, "minigun_apply 3" ] }
-      Key_4: { launch: [ fish, -c, "minigun_apply 4" ] }
-      Key_5: { launch: [ fish, -c, "minigun_apply 5" ] }
-      Key_6: { launch: [ fish, -c, "minigun_apply 6" ] }
-      Key_7: { launch: [ fish, -c, "minigun_apply 7" ] }
-      Key_8: { launch: [ fish, -c, "minigun_apply 8" ] }
-      Key_9: { launch: [ fish, -c, "minigun_apply 9" ] }
-      Key_0: { launch: [ fish, -c, "minigun_apply 0" ] }
+      Key_1: { launch: [fish, -c, 'minigun_apply 1'] }
+      Key_2: { launch: [fish, -c, 'minigun_apply 2'] }
+      Key_3: { launch: [fish, -c, 'minigun_apply 3'] }
+      Key_4: { launch: [fish, -c, 'minigun_apply 4'] }
+      Key_5: { launch: [fish, -c, 'minigun_apply 5'] }
+      Key_6: { launch: [fish, -c, 'minigun_apply 6'] }
+      Key_7: { launch: [fish, -c, 'minigun_apply 7'] }
+      Key_8: { launch: [fish, -c, 'minigun_apply 8'] }
+      Key_9: { launch: [fish, -c, 'minigun_apply 9'] }
+      Key_0: { launch: [fish, -c, 'minigun_apply 0'] }
 
       Apostrophe:
         remap:
-          q: { launch: [ fish, -c, "minigun_save q" ] }
-          w: { launch: [ fish, -c, "minigun_save w" ] }
-          e: { launch: [ fish, -c, "minigun_save e" ] }
-          r: { launch: [ fish, -c, "minigun_save r" ] }
-          t: { launch: [ fish, -c, "minigun_save t" ] }
-          'y': { launch: [ fish, -c, "minigun_save y" ] }
-          u: { launch: [ fish, -c, "minigun_save u" ] }
-          i: { launch: [ fish, -c, "minigun_save i" ] }
-          o: { launch: [ fish, -c, "minigun_save o" ] }
-          p: { launch: [ fish, -c, "minigun_save p" ] }
-          a: { launch: [ fish, -c, "minigun_save a" ] }
-          s: { launch: [ fish, -c, "minigun_save s" ] }
-          d: { launch: [ fish, -c, "minigun_save d" ] }
-          f: { launch: [ fish, -c, "minigun_save f" ] }
-          g: { launch: [ fish, -c, "minigun_save g" ] }
-          h: { launch: [ fish, -c, "minigun_save h" ] }
-          j: { launch: [ fish, -c, "minigun_save j" ] }
-          k: { launch: [ fish, -c, "minigun_save k" ] }
-          l: { launch: [ fish, -c, "minigun_save l" ] }
-          z: { launch: [ fish, -c, "minigun_save z" ] }
-          x: { launch: [ fish, -c, "minigun_save x" ] }
-          c: { launch: [ fish, -c, "minigun_save c" ] }
-          v: { launch: [ fish, -c, "minigun_save v" ] }
-          b: { launch: [ fish, -c, "minigun_save b" ] }
-          'n': { launch: [ fish, -c, "minigun_save n" ] }
-          m: { launch: [ fish, -c, "minigun_save m" ] }
-          Key_1: { launch: [ fish, -c, "minigun_save 1" ] }
-          Key_2: { launch: [ fish, -c, "minigun_save 2" ] }
-          Key_3: { launch: [ fish, -c, "minigun_save 3" ] }
-          Key_4: { launch: [ fish, -c, "minigun_save 4" ] }
-          Key_5: { launch: [ fish, -c, "minigun_save 5" ] }
-          Key_6: { launch: [ fish, -c, "minigun_save 6" ] }
-          Key_7: { launch: [ fish, -c, "minigun_save 7" ] }
-          Key_8: { launch: [ fish, -c, "minigun_save 8" ] }
-          Key_9: { launch: [ fish, -c, "minigun_save 9" ] }
-          Key_0: { launch: [ fish, -c, "minigun_save 0" ] }
+          q: { launch: [fish, -c, 'minigun_save q'] }
+          w: { launch: [fish, -c, 'minigun_save w'] }
+          e: { launch: [fish, -c, 'minigun_save e'] }
+          r: { launch: [fish, -c, 'minigun_save r'] }
+          t: { launch: [fish, -c, 'minigun_save t'] }
+          'y': { launch: [fish, -c, 'minigun_save y'] }
+          u: { launch: [fish, -c, 'minigun_save u'] }
+          i: { launch: [fish, -c, 'minigun_save i'] }
+          o: { launch: [fish, -c, 'minigun_save o'] }
+          p: { launch: [fish, -c, 'minigun_save p'] }
+          a: { launch: [fish, -c, 'minigun_save a'] }
+          s: { launch: [fish, -c, 'minigun_save s'] }
+          d: { launch: [fish, -c, 'minigun_save d'] }
+          f: { launch: [fish, -c, 'minigun_save f'] }
+          g: { launch: [fish, -c, 'minigun_save g'] }
+          h: { launch: [fish, -c, 'minigun_save h'] }
+          j: { launch: [fish, -c, 'minigun_save j'] }
+          k: { launch: [fish, -c, 'minigun_save k'] }
+          l: { launch: [fish, -c, 'minigun_save l'] }
+          z: { launch: [fish, -c, 'minigun_save z'] }
+          x: { launch: [fish, -c, 'minigun_save x'] }
+          c: { launch: [fish, -c, 'minigun_save c'] }
+          v: { launch: [fish, -c, 'minigun_save v'] }
+          b: { launch: [fish, -c, 'minigun_save b'] }
+          'n': { launch: [fish, -c, 'minigun_save n'] }
+          m: { launch: [fish, -c, 'minigun_save m'] }
+          Key_1: { launch: [fish, -c, 'minigun_save 1'] }
+          Key_2: { launch: [fish, -c, 'minigun_save 2'] }
+          Key_3: { launch: [fish, -c, 'minigun_save 3'] }
+          Key_4: { launch: [fish, -c, 'minigun_save 4'] }
+          Key_5: { launch: [fish, -c, 'minigun_save 5'] }
+          Key_6: { launch: [fish, -c, 'minigun_save 6'] }
+          Key_7: { launch: [fish, -c, 'minigun_save 7'] }
+          Key_8: { launch: [fish, -c, 'minigun_save 8'] }
+          Key_9: { launch: [fish, -c, 'minigun_save 9'] }
+          Key_0: { launch: [fish, -c, 'minigun_save 0'] }
       Semicolon:
         remap:
-          q: { launch: [ fish, -c, "minigun_apply q" ] }
-          w: { launch: [ fish, -c, "minigun_apply w" ] }
-          e: { launch: [ fish, -c, "minigun_apply e" ] }
-          r: { launch: [ fish, -c, "minigun_apply r" ] }
-          t: { launch: [ fish, -c, "minigun_apply t" ] }
-          'y': { launch: [ fish, -c, "minigun_apply y" ] }
-          u: { launch: [ fish, -c, "minigun_apply u" ] }
-          i: { launch: [ fish, -c, "minigun_apply i" ] }
-          o: { launch: [ fish, -c, "minigun_apply o" ] }
-          p: { launch: [ fish, -c, "minigun_apply p" ] }
-          a: { launch: [ fish, -c, "minigun_apply a" ] }
-          s: { launch: [ fish, -c, "minigun_apply s" ] }
-          d: { launch: [ fish, -c, "minigun_apply d" ] }
-          f: { launch: [ fish, -c, "minigun_apply f" ] }
-          g: { launch: [ fish, -c, "minigun_apply g" ] }
-          h: { launch: [ fish, -c, "minigun_apply h" ] }
-          j: { launch: [ fish, -c, "minigun_apply j" ] }
-          k: { launch: [ fish, -c, "minigun_apply k" ] }
-          l: { launch: [ fish, -c, "minigun_apply l" ] }
-          z: { launch: [ fish, -c, "minigun_apply z" ] }
-          x: { launch: [ fish, -c, "minigun_apply x" ] }
-          c: { launch: [ fish, -c, "minigun_apply c" ] }
-          v: { launch: [ fish, -c, "minigun_apply v" ] }
-          b: { launch: [ fish, -c, "minigun_apply b" ] }
-          'n': { launch: [ fish, -c, "minigun_apply n" ] }
-          m: { launch: [ fish, -c, "minigun_apply m" ] }
-          Key_1: { launch: [ fish, -c, "minigun_apply 1" ] }
-          Key_2: { launch: [ fish, -c, "minigun_apply 2" ] }
-          Key_3: { launch: [ fish, -c, "minigun_apply 3" ] }
-          Key_4: { launch: [ fish, -c, "minigun_apply 4" ] }
-          Key_5: { launch: [ fish, -c, "minigun_apply 5" ] }
-          Key_6: { launch: [ fish, -c, "minigun_apply 6" ] }
-          Key_7: { launch: [ fish, -c, "minigun_apply 7" ] }
-          Key_8: { launch: [ fish, -c, "minigun_apply 8" ] }
-          Key_9: { launch: [ fish, -c, "minigun_apply 9" ] }
-          Key_0: { launch: [ fish, -c, "minigun_apply 0" ] }
+          q: { launch: [fish, -c, 'minigun_apply q'] }
+          w: { launch: [fish, -c, 'minigun_apply w'] }
+          e: { launch: [fish, -c, 'minigun_apply e'] }
+          r: { launch: [fish, -c, 'minigun_apply r'] }
+          t: { launch: [fish, -c, 'minigun_apply t'] }
+          'y': { launch: [fish, -c, 'minigun_apply y'] }
+          u: { launch: [fish, -c, 'minigun_apply u'] }
+          i: { launch: [fish, -c, 'minigun_apply i'] }
+          o: { launch: [fish, -c, 'minigun_apply o'] }
+          p: { launch: [fish, -c, 'minigun_apply p'] }
+          a: { launch: [fish, -c, 'minigun_apply a'] }
+          s: { launch: [fish, -c, 'minigun_apply s'] }
+          d: { launch: [fish, -c, 'minigun_apply d'] }
+          f: { launch: [fish, -c, 'minigun_apply f'] }
+          g: { launch: [fish, -c, 'minigun_apply g'] }
+          h: { launch: [fish, -c, 'minigun_apply h'] }
+          j: { launch: [fish, -c, 'minigun_apply j'] }
+          k: { launch: [fish, -c, 'minigun_apply k'] }
+          l: { launch: [fish, -c, 'minigun_apply l'] }
+          z: { launch: [fish, -c, 'minigun_apply z'] }
+          x: { launch: [fish, -c, 'minigun_apply x'] }
+          c: { launch: [fish, -c, 'minigun_apply c'] }
+          v: { launch: [fish, -c, 'minigun_apply v'] }
+          b: { launch: [fish, -c, 'minigun_apply b'] }
+          'n': { launch: [fish, -c, 'minigun_apply n'] }
+          m: { launch: [fish, -c, 'minigun_apply m'] }
+          Key_1: { launch: [fish, -c, 'minigun_apply 1'] }
+          Key_2: { launch: [fish, -c, 'minigun_apply 2'] }
+          Key_3: { launch: [fish, -c, 'minigun_apply 3'] }
+          Key_4: { launch: [fish, -c, 'minigun_apply 4'] }
+          Key_5: { launch: [fish, -c, 'minigun_apply 5'] }
+          Key_6: { launch: [fish, -c, 'minigun_apply 6'] }
+          Key_7: { launch: [fish, -c, 'minigun_apply 7'] }
+          Key_8: { launch: [fish, -c, 'minigun_apply 8'] }
+          Key_9: { launch: [fish, -c, 'minigun_apply 9'] }
+          Key_0: { launch: [fish, -c, 'minigun_apply 0'] }
 
   - name: Default mode
     mode: default
@@ -238,94 +237,102 @@ keymap:
       Super-Apostrophe: { launch: [fish, -c, clipmenu] }
       CapsLock-Alt-Comma:
         remap:
-          q: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/q" ] }
-          w: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/w" ] }
-          e: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/e" ] }
-          r: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/r" ] }
-          t: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/t" ] }
-          'y': { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/y" ] }
-          u: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/u" ] }
-          i: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/i" ] }
-          o: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/o" ] }
-          p: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/p" ] }
-          a: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/a" ] }
-          s: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/s" ] }
-          d: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/d" ] }
-          f: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/f" ] }
-          g: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/g" ] }
-          h: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/h" ] }
-          j: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/j" ] }
-          k: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/k" ] }
-          l: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/l" ] }
-          z: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/z" ] }
-          x: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/x" ] }
-          c: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/c" ] }
-          v: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/v" ] }
-          b: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/b" ] }
-          'n': { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/n" ] }
-          m: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/m" ] }
-          Key_1: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/1" ] }
-          Key_2: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/2" ] }
-          Key_3: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/3" ] }
-          Key_4: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/4" ] }
-          Key_5: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/5" ] }
-          Key_6: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/6" ] }
-          Key_7: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/7" ] }
-          Key_8: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/8" ] }
-          Key_9: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/9" ] }
-          Key_0: { launch: [ sh, -c, "xclip -selection clipboard -o > ~/.local/share/magazine/0" ] }
+          q: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/q'] }
+          w: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/w'] }
+          e: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/e'] }
+          r: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/r'] }
+          t: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/t'] }
+          'y': { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/y'] }
+          u: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/u'] }
+          i: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/i'] }
+          o: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/o'] }
+          p: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/p'] }
+          a: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/a'] }
+          s: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/s'] }
+          d: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/d'] }
+          f: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/f'] }
+          g: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/g'] }
+          h: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/h'] }
+          j: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/j'] }
+          k: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/k'] }
+          l: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/l'] }
+          z: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/z'] }
+          x: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/x'] }
+          c: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/c'] }
+          v: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/v'] }
+          b: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/b'] }
+          'n': { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/n'] }
+          m: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/m'] }
+          Key_1: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/1'] }
+          Key_2: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/2'] }
+          Key_3: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/3'] }
+          Key_4: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/4'] }
+          Key_5: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/5'] }
+          Key_6: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/6'] }
+          Key_7: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/7'] }
+          Key_8: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/8'] }
+          Key_9: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/9'] }
+          Key_0: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/0'] }
       CapsLock-Comma:
         remap:
-          q: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/q" ] }
-          w: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/w" ] }
-          e: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/e" ] }
-          r: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/r" ] }
-          t: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/t" ] }
-          'y': { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/y" ] }
-          u: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/u" ] }
-          i: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/i" ] }
-          o: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/o" ] }
-          p: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/p" ] }
-          a: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/a" ] }
-          s: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/s" ] }
-          d: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/d" ] }
-          f: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/f" ] }
-          g: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/g" ] }
-          h: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/h" ] }
-          j: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/j" ] }
-          k: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/k" ] }
-          l: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/l" ] }
-          z: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/z" ] }
-          x: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/x" ] }
-          c: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/c" ] }
-          v: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/v" ] }
-          b: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/b" ] }
-          'n': { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/n" ] }
-          m: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/m" ] }
-          Key_1: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/1" ] }
-          Key_2: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/2" ] }
-          Key_3: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/3" ] }
-          Key_4: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/4" ] }
-          Key_5: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/5" ] }
-          Key_6: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/6" ] }
-          Key_7: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/7" ] }
-          Key_8: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/8" ] }
-          Key_9: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/9" ] }
-          Key_0: { launch: [ sh, -c, "xclip -selection clipboard ~/.local/share/magazine/0" ] }
+          q: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/q'] }
+          w: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/w'] }
+          e: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/e'] }
+          r: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/r'] }
+          t: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/t'] }
+          'y': { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/y'] }
+          u: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/u'] }
+          i: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/i'] }
+          o: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/o'] }
+          p: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/p'] }
+          a: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/a'] }
+          s: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/s'] }
+          d: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/d'] }
+          f: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/f'] }
+          g: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/g'] }
+          h: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/h'] }
+          j: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/j'] }
+          k: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/k'] }
+          l: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/l'] }
+          z: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/z'] }
+          x: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/x'] }
+          c: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/c'] }
+          v: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/v'] }
+          b: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/b'] }
+          'n': { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/n'] }
+          m: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/m'] }
+          Key_1: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/1'] }
+          Key_2: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/2'] }
+          Key_3: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/3'] }
+          Key_4: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/4'] }
+          Key_5: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/5'] }
+          Key_6: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/6'] }
+          Key_7: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/7'] }
+          Key_8: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/8'] }
+          Key_9: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/9'] }
+          Key_0: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/0'] }
 
   - name: Global chord hotkeys
     exact_match: true
     remap:
       Super-Semicolon:
         remap:
-          e: { launch: [sh, -c, "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'"]}
+          e:
+            {
+              launch:
+                [
+                  sh,
+                  -c,
+                  "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'",
+                ],
+            }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
           l: { launch: [awesome-client, awful.client.floating.toggle()] }
           t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
           m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
           f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
           s: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
-          Shift-l: { launch: [fish, -c, "logout"]}
+          Shift-l: { launch: [fish, -c, 'logout'] }
           Shift-p: { launch: [poweroff] }
           Shift-b: { launch: [reboot] }
           Shift-u: { launch: [kitty, -T, uboot, fish, -c, uboot] }
@@ -385,11 +392,28 @@ keymap:
   - name: Screenshot
     exact_match: true
     remap:
-      Super-s: { launch: [fish, -c, "scrot -s - | xclip -selection clipboard -t image/png"] }
-      Super-Alt-s: { launch: [fish, -c, "scrot -u - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took window'"] }
-      Super-Shift-s: { launch: [fish, -c, "scrot - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took screen'"] }
-      Super-w: { launch: [fish, -c, "scrot -s - | display"] }
-      Super-Alt-w: { launch: [ fish, -c, "xclip -selection clipboard -t image/png -o 2> /dev/null | display", ], }
+      Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
+      Super-Alt-s:
+        {
+          launch:
+            [
+              fish,
+              -c,
+              "scrot -u - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took window'",
+            ],
+        }
+      Super-Shift-s:
+        {
+          launch:
+            [
+              fish,
+              -c,
+              "scrot - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took screen'",
+            ],
+        }
+      Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
+      Super-Alt-w:
+        { launch: [fish, -c, 'xclip -selection clipboard -t image/png -o 2> /dev/null | display'] }
 
   - name: Gromit
     exact_match: true
@@ -403,15 +427,15 @@ keymap:
     application:
       only: Anki
     remap:
-      Alt-c: [ tab, tab, tab, tab, tab, enter ]
-      Shift-Alt-c: [ shift-tab, shift-tab, shift-tab, shift-tab, shift-tab ]
+      Alt-c: [tab, tab, tab, tab, tab, enter]
+      Shift-Alt-c: [shift-tab, shift-tab, shift-tab, shift-tab, shift-tab]
 
   - name: Spotify
     exact_match: true
     application:
       only: Spotify
     remap:
-      Alt-j: { launch: [sh, -c, "xdotool mousemove 58 1025 ; ydotool click c1"] }
+      Alt-j: { launch: [sh, -c, 'xdotool mousemove 58 1025 ; ydotool click c1'] }
 
   - name: Kitty
     exact_match: true
@@ -438,11 +462,27 @@ keymap:
       CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
       CapsLock-Shift-q: { launch: [xdotool, getwindowfocus, windowkill] }
       Super-v: { launch: [fish, -c, 'run_xzoom'] }
-      CapsLock-Dot: { launch: [ sh, -c, "xclip -selection clipboard -o > /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard", ], }
-      CapsLock-Alt-Dot: { launch: [ sh, -c, "truncate -s 0 /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard", ], }
-      CapsLock-m: { launch: [ fish, -c, 'emoji_picker_clipboard code' ] }
-      CapsLock-Alt-m: { launch: [ fish, -c, 'emoji_picker_clipboard name' ] }
-      Super-j: { launch: [fish, -c, 'runner show']}
+      CapsLock-Dot:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'xclip -selection clipboard -o > /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard',
+            ],
+        }
+      CapsLock-Alt-Dot:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'truncate -s 0 /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard',
+            ],
+        }
+      CapsLock-m: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
+      CapsLock-Alt-m: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
+      Super-j: { launch: [fish, -c, 'runner show'] }
       CapsLock-Slash: { launch: [rofi, -show, drun] }
       CapsLock-Alt-Slash: { launch: [fish, -c, runner_kill] }
 
