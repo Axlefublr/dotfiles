@@ -1,20 +1,10 @@
-VSCodeNotify = vim.fn.VSCodeNotify
-VSCodeCall = vim.fn.VSCodeCall
-
 THROWAWAY_REGISTER = 'o'
 THROWAWAY_MARK = 'I'
 
 require('options')
 require('global-functions')
 require('blob')
-
-if vim.g.vscode then
-	require('vscode/api')
-	require('vscode/only-vscode')
-else
-	require('only-pure')
-end
-
+require('only-pure')
 require('remaps')
 require('plugins')
 
