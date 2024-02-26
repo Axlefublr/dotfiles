@@ -17,8 +17,6 @@ echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d
 mkdir -p ~/.config/nvim
 ln -sf ~/prog/dotfiles/neovim/init.lua ~/.config/nvim/init.lua
 ln -sf ~/prog/dotfiles/neovim ~/.config/nvim/lua
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-	~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Fish shell
 chsh -s /usr/bin/fish
@@ -31,12 +29,12 @@ ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
 
 # Vscode
-mkdir -p ~/.config/Code/User
-ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
-ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
+# mkdir -p ~/.config/Code/User
+# ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
+# ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
 # Needed for the CSS & JS extension
-sudo chown -R $(whoami) $(which code)
-sudo chown -R $(whoami) /opt/visual-studio-code
+# sudo chown -R $(whoami) $(which code)
+# sudo chown -R $(whoami) /opt/visual-studio-code
 
 # Awesome wm
 mkdir -p ~/.config/awesome
