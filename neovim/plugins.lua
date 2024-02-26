@@ -694,6 +694,7 @@ require('lazy').setup({
 					-- Enable completion triggered by <c-x><c-o>
 					vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+					vim.keymap.set('i', '<a-;>', '<c-x><c-o>')
 					vim.keymap.set('n', ',lg', vim.diagnostic.open_float)
 					vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 					vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
