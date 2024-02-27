@@ -1,7 +1,4 @@
-abbr --set-cursor -a z 'z % && clx'
-abbr --set-cursor -a zr 'z % && clx && ranger'
-abbr --set-cursor -a zl 'z % && ls -A'
-abbr --set-cursor -a gm 'git commit % && clx'
+abbr --set-cursor -a z 'z %'
 abbr --set-cursor -a gmm 'git commit -m "%" && clx'
 abbr --set-cursor -a tgg 'clx && tgpt "%"'
 abbr --set-cursor -a ytv 'yt-dlp -o \'%.%(ext)s\' \'\''
@@ -13,7 +10,6 @@ abbr --set-cursor -a math 'math \'%\''
 abbr --set-cursor -a rmfn 'rm -fr ~/.config/fish/functions/%.fish'
 abbr --set-cursor -a dnrp 'dotnet run --project % --'
 abbr --set-cursor -a awl 'awesome-client \'%\''
-abbr --set-cursor -a v 'nvim % && clx'
 
 abbr --set-cursor -a gamm 'git add . &&
 	git commit -am "%" &&
