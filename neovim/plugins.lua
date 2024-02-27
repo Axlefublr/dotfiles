@@ -331,10 +331,22 @@ require('lazy').setup({
 					override_file_sorter = true, -- override the file sorter
 					case_mode = 'smart_case', -- or 'ignore_case' or 'respect_case' (the default case_mode is 'smart_case')
 				},
+				zoxide = {
+					prompt_title = 'zoxide',
+					mappings = {
+						['<c-s>'] = false,
+						['<c-v>'] = false,
+						['<c-e>'] = false,
+						['<c-b>'] = false,
+						['<c-f>'] = false,
+						['<c-t>'] = false,
+					}
+				}
 			},
 		},
 		init = function()
 			require('telescope').load_extension('fzf')
+			require('telescope').load_extension('zoxide')
 			local builtin = require('telescope.builtin')
 			vim.keymap.set('n', ',jf', builtin.find_files, {})
 			vim.keymap.set(
@@ -399,7 +411,14 @@ require('lazy').setup({
 			vim.keymap.set('n', ',lm', builtin.lsp_implementations, {})
 			vim.keymap.set('n', ',ll', builtin.lsp_document_symbols, {})
 			vim.keymap.set('n', ',lL', builtin.lsp_workspace_symbols, {})
+
+			vim.keymap.set('n', ',jz', require("telescope").extensions.zoxide.list ,{})
 		end,
+	},
+	'nvim-lua/popup.nvim',
+	{
+		'jvgrootveld/telescope-zoxide',
+		dependencies = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' }
 	},
 	{
 		'ggandor/leap.nvim',
