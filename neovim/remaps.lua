@@ -1,3 +1,20 @@
+local function close_without_saving()
+	vim.cmd('q!')
+end
+local function close_editor()
+	local bufnr = vim.api.nvim_get_current_buf()
+	if vim.api.nvim_buf_get_name(bufnr) == '' then
+		close_without_saving()
+	else
+		vim.cmd('x')
+	end
+end
+local function save_vim()
+	Remove_highlighting()
+	vim.cmd('w')
+end
+
+vim.keymap.set('', '<Space>', save_vim)
 vim.keymap.set('', '<cr>', ':')
 vim.keymap.set('', "'", '"')
 vim.keymap.set('', ':', ',')
@@ -29,12 +46,15 @@ vim.keymap.set('i', '<C-k>', '<C-o>O')
 -- vim.keymap.set('i', '<C-j>', '<C-o>o')
 vim.keymap.set('i', '<C-h>', '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
 vim.keymap.set('i', '<a-o>', '<c-o>')
+vim.keymap.set('i', '<f1>', close_editor) -- f1 ends up being alt+enter for me
 
 vim.keymap.set('o', '{', 'V{')
 vim.keymap.set('o', '}', 'V}')
 vim.keymap.set('o', '+', 'v+')
 vim.keymap.set('o', '-', 'v-')
 
+vim.keymap.set('n', ',K', close_without_saving)
+vim.keymap.set('n', 'K', close_editor)
 vim.keymap.set('n', '<a-o>', '<c-o>')
 vim.keymap.set('n', '<a-i>', '<c-i>')
 vim.keymap.set('n', ',m', '`')
@@ -90,7 +110,6 @@ vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
 
 vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
-vim.keymap.set('n', ',dl', "dil'_dd", { remap = true }) -- Take the contents of the line, but delete the line too
 vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
 vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
 vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
@@ -159,16 +178,6 @@ vim.keymap.set('c', "<a-'>'", '<C-r>"')
 vim.keymap.set('c', "<a-'><cr>", '<C-r>:')
 
 -- text objects
-
--- Code block
-vim.keymap.set('v', 'im', 'iiok', { remap = true })
-vim.keymap.set('v', 'am', 'iijok', { remap = true })
-vim.keymap.set('v', 'iM', 'iio2k', { remap = true })
-vim.keymap.set('v', 'aM', 'iijo2k', { remap = true })
-vim.keymap.set('o', 'im', function() vim.cmd('normal viiok') end)
-vim.keymap.set('o', 'am', function() vim.cmd('normal viijok') end)
-vim.keymap.set('o', 'iM', function() vim.cmd('normal viio2k') end)
-vim.keymap.set('o', 'aM', function() vim.cmd('normal viijo2k') end)
 
 -- Percent sign %
 vim.keymap.set('v', 'i%', 'T%ot%')

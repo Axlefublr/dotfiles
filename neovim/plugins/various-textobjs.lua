@@ -179,6 +179,19 @@ return {
 				vim.cmd(tostring(endBorderLn) .. ' delete') -- delete end first so line index is not shifted
 				vim.cmd(tostring(startBorderLn) .. ' delete')
 			end, { desc = 'Delete surrounding indentation' })
+
+			vim.keymap.set('n', ',dl', "dil'_dd", { remap = true }) -- Take the contents of the line, but delete the line too
+
+			-- Code block
+			vim.keymap.set('v', 'im', 'iiok', { remap = true })
+			vim.keymap.set('v', 'am', 'iijok', { remap = true })
+			vim.keymap.set('v', 'iM', 'iio2k', { remap = true })
+			vim.keymap.set('v', 'aM', 'iijo2k', { remap = true })
+			vim.keymap.set('o', 'im', function() vim.cmd('normal viiok') end)
+			vim.keymap.set('o', 'am', function() vim.cmd('normal viijok') end)
+			vim.keymap.set('o', 'iM', function() vim.cmd('normal viio2k') end)
+			vim.keymap.set('o', 'aM', function() vim.cmd('normal viijo2k') end)
+
 		end,
 	},
 }
