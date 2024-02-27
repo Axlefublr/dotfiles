@@ -29,7 +29,11 @@ root.buttons(gears.table.join(awful.button({}, 3, function() My_main_menu:toggle
 
 Client_buttons = gears.table.join(
 	awful.button({}, 1, function(client)
-		if client.class == 'Display' then awful.mouse.client.move(client) end
+		if client.class == 'Display' then
+			awful.mouse.client.move(client)
+		else
+			client:emit_signal('request::activate', 'mouse_click', { raise = false })
+		end
 	end),
 	awful.button({}, 3, function(client)
 		if client.class == 'Display' then client:kill() end
@@ -48,7 +52,6 @@ Client_buttons = gears.table.join(
 Global_keys = gears.table.join(
 	awful.key({ modkey }, 'l', function() awful.client.focus.byidx(1) end),
 	awful.key({ modkey }, 'h', function() awful.client.focus.byidx(-1) end),
-
 	awful.key({ modkey, 'Control' }, 'l', function() awful.client.swap.byidx(1) end),
 	awful.key({ modkey, 'Control' }, 'h', function() awful.client.swap.byidx(-1) end),
 	awful.key({ modkey, 'Mod1' }, 'l', function()
@@ -62,7 +65,9 @@ Global_keys = gears.table.join(
 
 	awful.key({ modkey }, 'c', awful.client.urgent.jumpto),
 	awful.key({ modkey, 'Mod1' }, 'c', Ignore_all_urgencies),
-	awful.key({ 'Shift' }, 'Escape', function() if not naughty.is_suspended() then naughty.destroy_all_notifications() end end),
+	awful.key({ 'Shift' }, 'Escape', function()
+		if not naughty.is_suspended() then naughty.destroy_all_notifications() end
+	end),
 	awful.key({ modkey }, '4', function()
 		naughty.toggle()
 		Widget_update_dnd()
