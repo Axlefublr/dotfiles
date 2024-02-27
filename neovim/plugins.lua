@@ -255,11 +255,11 @@ require('lazy').setup({
 					width = 0.99,
 					preview_cutoff = 5,
 					horizontal = {
-						preview_width = 40
+						preview_width = 40,
 					},
 					vertical = {
-						preview_height = 6
-					}
+						preview_height = 6,
+					},
 				},
 				mappings = {
 					n = {
@@ -326,7 +326,7 @@ require('lazy').setup({
 			},
 			extensions = {
 				fzf = {
-					fuzzy = true, -- false will only do exact matching
+					fuzzy = true,         -- false will only do exact matching
 					override_generic_sorter = true, -- override the generic sorter
 					override_file_sorter = true, -- override the file sorter
 					case_mode = 'smart_case', -- or 'ignore_case' or 'respect_case' (the default case_mode is 'smart_case')
@@ -340,8 +340,8 @@ require('lazy').setup({
 						['<c-b>'] = false,
 						['<c-f>'] = false,
 						['<c-t>'] = false,
-					}
-				}
+					},
+				},
 			},
 		},
 		init = function()
@@ -353,16 +353,16 @@ require('lazy').setup({
 				'n',
 				',jF',
 				'<cmd>lua require("telescope.builtin").find_files({'
-					.. 'hidden = true,'
-					.. 'search_dirs = {'
-					.. '"~/prog/dotfiles",'
-					.. '"~/prog/noties",'
-					.. '"~/prog/info",'
-					.. '"~/prog/job",'
-					.. '"~/.local/share/alien_temple",'
-					.. '"~/.local/share/floral_barrel",'
-					.. '}'
-					.. '})<cr>',
+				.. 'hidden = true,'
+				.. 'search_dirs = {'
+				.. '"~/prog/dotfiles",'
+				.. '"~/prog/noties",'
+				.. '"~/prog/info",'
+				.. '"~/prog/job",'
+				.. '"~/.local/share/alien_temple",'
+				.. '"~/.local/share/floral_barrel",'
+				.. '}'
+				.. '})<cr>',
 				{}
 			)
 			vim.keymap.set('n', ',jd', builtin.live_grep, {})
@@ -370,15 +370,15 @@ require('lazy').setup({
 				'n',
 				',jD',
 				'<cmd>lua require("telescope.builtin").live_grep({'
-					.. 'search_dirs = {'
-					.. '"~/prog/dotfiles",'
-					.. '"~/prog/noties",'
-					.. '"~/prog/info",'
-					.. '"~/prog/job",'
-					.. '"~/.local/share/alien_temple",'
-					.. '"~/.local/share/floral_barrel",'
-					.. '}'
-					.. '})<cr>',
+				.. 'search_dirs = {'
+				.. '"~/prog/dotfiles",'
+				.. '"~/prog/noties",'
+				.. '"~/prog/info",'
+				.. '"~/prog/job",'
+				.. '"~/.local/share/alien_temple",'
+				.. '"~/.local/share/floral_barrel",'
+				.. '}'
+				.. '})<cr>',
 				{}
 			)
 			vim.keymap.set('n', ',jh', builtin.help_tags, {})
@@ -412,13 +412,17 @@ require('lazy').setup({
 			vim.keymap.set('n', ',ll', builtin.lsp_document_symbols, {})
 			vim.keymap.set('n', ',lL', builtin.lsp_workspace_symbols, {})
 
-			vim.keymap.set('n', ',jz', require("telescope").extensions.zoxide.list ,{})
+			vim.keymap.set('n', ',jz', require('telescope').extensions.zoxide.list, {})
 		end,
 	},
 	'nvim-lua/popup.nvim',
 	{
 		'jvgrootveld/telescope-zoxide',
-		dependencies = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' }
+		dependencies = {
+			'nvim-lua/popup.nvim',
+			'nvim-lua/plenary.nvim',
+			'nvim-telescope/telescope.nvim',
+		},
 	},
 	{
 		'ggandor/leap.nvim',
@@ -900,7 +904,83 @@ require('lazy').setup({
 	{
 		'neovim/nvim-lspconfig',
 		config = function()
-			require('lspconfig').rust_analyzer.setup({})
+			require('lspconfig').rust_analyzer.setup({
+				settings = {
+					['rust-analyzer'] = {
+						cargo = {
+							allFeatures = true,
+						},
+						check = {
+							command = 'clippy',
+						},
+						completion = {
+							fullFunctionSignatures = {
+								enable = true,
+							},
+						},
+						procMacro = {
+							enable = true,
+						},
+						inlayHints = {
+							bindingModeHints = { enable = true },
+							closingBraceHints = { minLines = 11 },
+							closureCaptureHints = { enable = true },
+							closureReturnTypeHints = { enable = 'with_block' },
+							closureStyle = 'rust_analyzer',
+							discriminantHints = { enable = 'fieldless' },
+							parameterHints = { enable = true },
+							rangeExclusiveHints = { enable = true },
+							renderColons = false,
+							typeHints = {
+								enable = true,
+								hideClosureInitialization = false,
+								hideNamedConstructor = false,
+							},
+							maxLength = nil,
+							expressionAdjustmentHints = {
+								enable = 'reborrow',
+								hideOutsideUnsafe = false,
+								mode = 'prefer_prefix',
+							},
+							lifetimeElisionHints = {
+								enable = 'skip_trivial',
+								useParameterNames = false,
+							},
+						},
+						lens = {
+							run = { enable = false },
+						},
+						semanticHighlighting = {
+							operator = {
+								specialization = { enable = true },
+							},
+							punctuation = {
+								enable = true,
+								separate = {
+									macro = {
+										bang = true,
+									},
+								},
+								specialization = { enable = true },
+							},
+						},
+						typing = {
+							autoClosingAngleBrackets = { enable = true },
+						},
+						workspace = {
+							symbol = {
+								search = {
+									kind = 'all_symbols',
+									limit = 128,
+								},
+							},
+						},
+						signatureInfo = {
+							documentation = { enable = false }
+						}
+					},
+				},
+			})
 			require('lspconfig').lua_ls.setup({})
 			require('lspconfig').omnisharp.setup({})
 			require('lspconfig').cssls.setup({})
@@ -944,7 +1024,7 @@ require('lazy').setup({
 		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
 		opts = {
 			ensure_installed = {},
-			automatic_installation = true
+			automatic_installation = true,
 		},
 	},
 	{
@@ -978,7 +1058,22 @@ require('lazy').setup({
 							'--single-quote',
 							'--use-tabs',
 						},
-						filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'css', 'scss', 'less', 'html', 'json', 'jsonc', 'yaml', 'graphql', 'handlebars' }
+						filetypes = {
+							'javascript',
+							'javascriptreact',
+							'typescript',
+							'typescriptreact',
+							'vue',
+							'css',
+							'scss',
+							'less',
+							'html',
+							'json',
+							'jsonc',
+							'yaml',
+							'graphql',
+							'handlebars',
+						},
 					}),
 					require('null-ls').builtins.diagnostics.fish,
 					-- require('null-ls').builtins.diagnostics.commitlint,
