@@ -38,8 +38,7 @@ if os.getenv('KITTY_PIPE_DATA') ~= nil then
 end
 
 vim.cmd('packadd! matchit')
-vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = '#0f0f0f', bg = '#ffafd7' })
-vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = '#0f0f0f', bg = '#ffd75f' })
+
 vim.api.nvim_create_autocmd('CursorMoved', {
 	command = 'normal! zz'
 })

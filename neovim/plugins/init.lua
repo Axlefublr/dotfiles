@@ -2,10 +2,8 @@ return {
 	'kana/vim-textobj-user',
 	'tpope/vim-repeat',
 	'adelarsq/vim-matchit',
-	'nvim-lua/plenary.nvim',
 	'farmergreg/vim-lastplace',
 	'xiyaowong/transparent.nvim',
-	'kyazdani42/nvim-web-devicons',
 	{
 		'wellle/targets.vim',
 		init = function() vim.g.targets_nl = 'nh' end,

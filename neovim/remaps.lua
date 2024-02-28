@@ -45,7 +45,6 @@ vim.keymap.set('i', '<c-l>', '<C-x><C-l>')
 vim.keymap.set('i', '<C-k>', '<C-o>O')
 -- vim.keymap.set('i', '<C-j>', '<C-o>o')
 vim.keymap.set('i', '<C-h>', '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
-vim.keymap.set('i', '<a-o>', '<c-o>')
 vim.keymap.set('i', '<f1>', close_editor) -- f1 ends up being alt+enter for me
 
 vim.keymap.set('o', '{', 'V{')
@@ -55,8 +54,6 @@ vim.keymap.set('o', '-', 'v-')
 
 vim.keymap.set('n', ',K', close_without_saving)
 vim.keymap.set('n', 'K', close_editor)
-vim.keymap.set('n', '<a-o>', '<c-o>')
-vim.keymap.set('n', '<a-i>', '<c-i>')
 vim.keymap.set('n', ',m', '`')
 vim.keymap.set('n', '<C-k>', 'O<Esc>')
 vim.keymap.set('n', '<C-j>', 'o<Esc>')
@@ -248,3 +245,5 @@ vim.keymap.set('n', '"l', '<cmd>edit ~/prog/noties/temp.txt<cr>')
 vim.keymap.set('n', '"k', '<cmd>edit ~/prog/noties/links.jsonc<cr>')
 vim.keymap.set('n', '"w', '<cmd>edit ~/prog/noties/wishlist.txt<cr>')
 vim.keymap.set('n', '"i', '<cmd>edit ~/prog/noties/info.txt<cr>')
+vim.keymap.set('n', '"g', '<cmd>edit ~/prog/noties/persistent.txt<cr>')
+vim.keymap.set('n', '"d', '<cmd>edit ~/prog/noties/diary.md<cr>')

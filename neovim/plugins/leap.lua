@@ -73,6 +73,14 @@ return {
 			vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)')
 			vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)')
 			vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)')
+
+			vim.api.nvim_create_autocmd('User', {
+				pattern = 'LeapEnter',
+				callback = function()
+					vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = '#0f0f0f', bg = '#ffafd7' })
+					vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = '#0f0f0f', bg = '#ffd75f' })
+				end,
+			})
 		end,
 	},
 }
