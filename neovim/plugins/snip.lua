@@ -65,13 +65,6 @@ return {
 						select = true,
 						behavior = cmp.ConfirmBehavior.Insert,
 					}),
-					['<a-i>'] = function()
-						if cmp.visible_docs() then
-							cmp.close_docs()
-						else
-							cmp.open_docs()
-						end
-					end,
 				}),
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
