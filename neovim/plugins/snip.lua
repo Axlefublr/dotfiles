@@ -40,14 +40,26 @@ return {
 					-- documentation = cmp.config.window.bordered(),
 				},
 				view = {
-				  docs = {
-					 auto_open = false
-				  }
+					docs = {
+						auto_open = false,
+					},
 				},
 				mapping = cmp.mapping.preset.insert({
-					['<a-o>'] = cmp.mapping.abort(),
-					['<f5>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
-					['<a-;>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+					['<a-o>'] = function(_)
+						if cmp.visible() then
+							cmp.abort()
+						else
+							cmp.complete()
+						end
+					end,
+					['<f5>'] = cmp.mapping.confirm({
+						select = true,
+						behavior = cmp.ConfirmBehavior.Replace,
+					}),
+					['<a-;>'] = cmp.mapping.confirm({
+						select = true,
+						behavior = cmp.ConfirmBehavior.Insert,
+					}),
 				}),
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
@@ -56,7 +68,7 @@ return {
 			})
 
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
-			local servers = { 'lua_ls', 'rust_analyzer' }
+			local servers = { 'lua_ls', 'rust_analyzer', 'omnisharp', 'cssls', 'html', 'jsonls', 'marksman', 'hydra_lsp', }
 			for _, server in ipairs(servers) do
 				require('lspconfig')[server].setup({
 					capabilities = capabilities,

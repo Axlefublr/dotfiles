@@ -81,6 +81,9 @@ return {
 						},
 					},
 				},
+				loclist = {
+					show_line = false,
+				},
 				lsp_references = {
 					show_line = false,
 				},
