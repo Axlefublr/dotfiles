@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "2/2/2024, 4:07:02 AM",
-	"time": 1706818022046,
+	"@time": "2/28/2024, 8:08:33 PM",
+	"time": 1709122113578,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "linux",
@@ -78,7 +78,7 @@
 		"",
 		"map yt copyCurrentTitle",
 		"map I LinkHints.activateEdit",
-		"map M Marks.activateGotoMode",
+		"map ,m Marks.activateGotoMode",
 		""
 	],
 	"keyupTime": 50,
