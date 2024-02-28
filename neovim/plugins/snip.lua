@@ -32,12 +32,17 @@ return {
 		config = function()
 			local cmp = require('cmp')
 			cmp.setup({
+				performance = {
+					throttle = 0,
+				},
 				snippet = {
 					expand = function(args) require('luasnip').lsp_expand(args.body) end,
 				},
 				window = {
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered(),
+					completion = {
+						scrolloff = 99,
+						scrollbar = false,
+					},
 				},
 				view = {
 					docs = {
@@ -60,6 +65,13 @@ return {
 						select = true,
 						behavior = cmp.ConfirmBehavior.Insert,
 					}),
+					['<a-i>'] = function()
+						if cmp.visible_docs() then
+							cmp.close_docs()
+						else
+							cmp.open_docs()
+						end
+					end,
 				}),
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
@@ -68,7 +80,16 @@ return {
 			})
 
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
-			local servers = { 'lua_ls', 'rust_analyzer', 'omnisharp', 'cssls', 'html', 'jsonls', 'marksman', 'hydra_lsp', }
+			local servers = {
+				'lua_ls',
+				'rust_analyzer',
+				'omnisharp',
+				'cssls',
+				'html',
+				'jsonls',
+				'marksman',
+				'hydra_lsp',
+			}
 			for _, server in ipairs(servers) do
 				require('lspconfig')[server].setup({
 					capabilities = capabilities,
