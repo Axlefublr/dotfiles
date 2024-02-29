@@ -68,6 +68,8 @@ return {
 						['ao'] = '@loop.outer',
 						['it'] = '@return.inner',
 						['at'] = '@return.outer',
+						['ix'] = '@class.inner',
+						['ax'] = '@class.outer',
 					},
 					selection_modes = {
 						-- ['@function.outer'] = '<c-v>'
@@ -94,6 +96,8 @@ return {
 						[']]O'] = '@loop.outer',
 						[']]t'] = '@return.inner',
 						[']]T'] = '@return.outer',
+						[']]x'] = '@class.inner',
+						[']]X'] = '@class.outer',
 					},
 					swap_previous = {
 						['[[f'] = '@function.inner',
@@ -114,6 +118,8 @@ return {
 						['[[O'] = '@loop.outer',
 						['[[t'] = '@return.inner',
 						['[[T'] = '@return.outer',
+						['[[x'] = '@class.inner',
+						['[[X'] = '@class.outer',
 					},
 				},
 				move = {
@@ -129,6 +135,7 @@ return {
 						[']r'] = '@conditional.outer',
 						[']o'] = '@loop.outer',
 						[']t'] = '@return.outer',
+						[']x'] = '@class.outer',
 					},
 					goto_next_end = {
 						[']F'] = '@function.outer',
@@ -140,6 +147,7 @@ return {
 						[']R'] = '@conditional.outer',
 						[']O'] = '@loop.outer',
 						[']T'] = '@return.outer',
+						[']X'] = '@class.outer',
 					},
 					goto_previous_start = {
 						['[f'] = '@function.outer',
@@ -151,6 +159,7 @@ return {
 						['[r'] = '@conditional.outer',
 						['[o'] = '@loop.outer',
 						['[t'] = '@return.outer',
+						['[x'] = '@class.outer',
 					},
 					goto_previous_end = {
 						['[F'] = '@function.outer',
@@ -162,6 +171,7 @@ return {
 						['[R'] = '@conditional.outer',
 						['[O'] = '@loop.outer',
 						['[T'] = '@return.outer',
+						['[X'] = '@class.outer',
 					},
 				},
 			},
