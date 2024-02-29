@@ -2,7 +2,8 @@ return {
 	{
 		'lewis6991/gitsigns.nvim',
 		config = function()
-			require('gitsigns').setup({
+			local gs = require('gitsigns')
+			gs.setup({
 				signs = {
 					add = { text = '│' },
 					change = { text = '│' },
@@ -45,6 +46,15 @@ return {
 					enable = false,
 				},
 			})
+
+			local function schedule_repeat(func)
+				for _ = 1, vim.v.count1 do
+					vim.schedule(func)
+				end
+			end
+
+			vim.keymap.set('n', ']e', function() schedule_repeat(gs.next_hunk) end)
+			vim.keymap.set('n', '[e', function() schedule_repeat(gs.prev_hunk) end)
 		end,
 	},
 }
