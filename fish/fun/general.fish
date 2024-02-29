@@ -198,6 +198,9 @@ funcsave s > /dev/null
 
 function runner
 	set cmd (rofi -input ~/prog/dotfiles/data/likely.txt -dmenu 2> /dev/null | string collect)
+	if string match -rq '^loago do ' $cmd
+		awesome-client 'Widget_update_loago()'
+	end
 	if set -q argv[1]
 		notify-send -t 0 (eval $cmd | string collect)
 	else

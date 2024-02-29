@@ -26,12 +26,6 @@ alias --save screenkey 'screenkey --no-systray -p bottom -s small --key-mode tra
 alias --save rofi-multi-select 'rofi -dmenu -multi-select -ballot-selected-str " " -ballot-unselected-str "  "' > /dev/null
 alias --save awart 'awesome-client "awesome.restart()"' > /dev/null
 
-function lod
-	loago do $argv
-	awesome-client 'Widget_update_loago()'
-end
-funcsave lod > /dev/null
-
 function mkcd
 	mkdir -p $argv && z $argv && clx
 end
