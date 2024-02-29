@@ -43,22 +43,22 @@ return {
 					},
 					lualine_x = {
 						{
+							'filetype',
+							padding = 1
+						},
+						{
 							'encoding',
 							padding = 0
 						},
 						{
 							'fileformat',
-							padding = { left = 1, right = 0 },
+							padding = 1,
 							symbols = {
 								unix = 'cr',
-								dos = 'crlf',
+								dos = 'cl',
 								mac = 'lf'
 							}
 						},
-						{
-							'filetype',
-							padding = 1
-						}
 					},
 					lualine_y = {
 						{
