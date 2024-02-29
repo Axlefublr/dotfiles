@@ -27,12 +27,12 @@ return {
 							end
 						}
 					},
-					lualine_b = { 'diagnostics' },
+					lualine_b = { 'diff', 'diagnostics' },
 					lualine_c = {
 						{
 							'filename',
 							path = 3, -- absolute path with ~ instead of $HOME
-							shorting_target = 40, -- shorten path to leave [blank] spaces for everything else
+							shorting_target = 35, -- shorten path to leave [blank] spaces for everything else
 							symbols = {
 								modified = '!!!',
 								readonly = ' ',

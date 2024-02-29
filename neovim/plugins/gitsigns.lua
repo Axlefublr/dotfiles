@@ -55,6 +55,29 @@ return {
 
 			vim.keymap.set('n', ']e', function() schedule_repeat(gs.next_hunk) end)
 			vim.keymap.set('n', '[e', function() schedule_repeat(gs.prev_hunk) end)
+
+			vim.keymap.set('n', ',gj', gs.stage_hunk)
+			vim.keymap.set('n', ',gk', gs.undo_stage_hunk)
+			vim.keymap.set(
+				'v',
+				',gj',
+				function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
+			)
+			vim.keymap.set('n', ',gJ', gs.stage_buffer)
+
+			vim.keymap.set('n', ',gr', gs.reset_hunk)
+			vim.keymap.set(
+				'v',
+				',gr',
+				function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
+			)
+			vim.keymap.set('n', ',gR', gs.reset_buffer)
+
+			vim.keymap.set('n', ',gi', gs.preview_hunk_inline)
+			vim.keymap.set('n', ',gI', function()
+				gs.preview_hunk()
+				gs.preview_hunk()
+			end)
 		end,
 	},
 }
