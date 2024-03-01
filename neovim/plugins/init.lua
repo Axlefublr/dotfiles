@@ -17,10 +17,6 @@ return {
 		config = function() vim.keymap.set('', 'ga', '<Plug>(EasyAlign)') end,
 	},
 	{
-		'sainnhe/gruvbox-material',
-		config = function() vim.cmd.colorscheme('gruvbox-material') end,
-	},
-	{
 		'bkad/CamelCaseMotion',
 		init = function() vim.g.camelcasemotion_key = '<leader>' end,
 	},

@@ -1,6 +1,9 @@
 local rust_analyzer_configuration = {
 	settings = {
 		['rust-analyzer'] = {
+			assist = {
+				expressionFillDefault = 'default'
+			},
 			cargo = {
 				allFeatures = true,
 			},
@@ -101,6 +104,7 @@ return {
 			require('lspconfig').jsonls.setup({})
 			require('lspconfig').marksman.setup({})
 			require('lspconfig').hydra_lsp.setup({})
+
 			vim.api.nvim_create_autocmd('LspAttach', {
 				callback = function(ev)
 					-- Enable completion triggered by <c-x><c-o>
