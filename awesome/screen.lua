@@ -487,8 +487,8 @@ function Widget_enable_title(passed_client)
 	if passed_client ~= client.focus then return end
 	screen.primary.tag_list_margin_widget.right = Between_margin
 	local title = ''
-	if passed_client.class then title = passed_client.class .. ': ' end
-	if passed_client.name then title = title .. passed_client.name end
+	if passed_client.class then title = Trim_newlines(passed_client.class) .. ': ' end
+	if passed_client.name then title = title .. Trim_newlines(passed_client.name) end
 	Title_widget:set_text(title)
 end
 
