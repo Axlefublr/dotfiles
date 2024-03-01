@@ -327,11 +327,6 @@ keymap:
                 ],
             }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
-          l: { launch: [awesome-client, awful.client.floating.toggle()] }
-          t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-          m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-          f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
-          s: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
 
           Super-j: { launch: [fish, -c, runner] }
           'y': { launch: [fish, -c, install_yt_video] }
@@ -355,6 +350,12 @@ keymap:
           m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
           Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+
+          s: { launch: [awesome-client, awful.client.floating.toggle()] }
+          t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+          g: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+          f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
+          d: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
 
           f: { launch: [fish, -c, runner_note] }
           d: { launch: [fish, -c, runner_wote] }
