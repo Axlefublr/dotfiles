@@ -21,6 +21,7 @@ if vim.g.neovide then
 	vim.g.neovide_hide_mouse_when_typing = true
 	vim.g.neovide_cursor_animation_length = 0.06
 	vim.g.neovide_cursor_trail_size = 0.3
+	vim.g.neovide_padding_left = 10
 end
 require('options')
 require('global-functions')
