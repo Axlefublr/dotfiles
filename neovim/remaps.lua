@@ -1,20 +1,25 @@
 local function close_without_saving()
 	vim.cmd('q!')
 end
-local function close_editor()
-	local bufnr = vim.api.nvim_get_current_buf()
-	if vim.api.nvim_buf_get_name(bufnr) == '' then
+local function close_try_save()
+	if Is_readonly() or Get_buffer_name() == '' then
 		close_without_saving()
 	else
 		vim.cmd('x')
 	end
 end
-local function save_vim()
+local function save()
 	Remove_highlighting()
-	vim.cmd('w')
+	if Is_readonly() or Get_buffer_name() == '' then
+		return 1
+	end
+	vim.cmd('write')
 end
+vim.keymap.set('', '<Space>', save)
+vim.keymap.set('i', '<f1>', close_try_save) -- f1 ends up being alt+enter for me
+vim.keymap.set('n', ',K', close_without_saving)
+vim.keymap.set('n', 'K', close_try_save)
 
-vim.keymap.set('', '<Space>', save_vim)
 vim.keymap.set('', '<cr>', ':')
 vim.keymap.set('', "'", '"')
 vim.keymap.set('', ':', ',')
@@ -45,15 +50,12 @@ vim.keymap.set('i', '<c-l>', '<C-x><C-l>')
 vim.keymap.set('i', '<C-k>', '<C-o>O')
 -- vim.keymap.set('i', '<C-j>', '<C-o>o')
 vim.keymap.set('i', '<C-h>', '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
-vim.keymap.set('i', '<f1>', close_editor) -- f1 ends up being alt+enter for me
 
 vim.keymap.set('o', '{', 'V{')
 vim.keymap.set('o', '}', 'V}')
 vim.keymap.set('o', '+', 'v+')
 vim.keymap.set('o', '-', 'v-')
 
-vim.keymap.set('n', ',K', close_without_saving)
-vim.keymap.set('n', 'K', close_editor)
 vim.keymap.set('n', ',m', '`')
 vim.keymap.set('n', '<C-k>', 'O<Esc>')
 vim.keymap.set('n', '<C-j>', 'o<Esc>')

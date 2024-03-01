@@ -1,9 +1,7 @@
 local killring = setmetatable({}, { __index = table })
 local numbered = setmetatable({ '', '', '', '', '', '', '', '', '', '' }, { __index = table })
 
-function FeedKeys(keys)
-	vim.api.nvim_feedkeys(keys, 'n', false)
-end
+function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
 function FeedKeysInt(keys)
 	local feedable_keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
@@ -35,9 +33,7 @@ function GetChar(prompt)
 	local char = vim.fn.getcharstr()
 	-- That's the escape character (<Esc>). Not sure how to specify it smarter
 	-- In other words, if you pressed escape, we return nil
-	if char == '' then
-		char = nil
-	end
+	if char == '' then char = nil end
 	return char
 end
 
@@ -228,4 +224,14 @@ function Get_vertical_line_diff(is_top)
 	end
 	local line_count = vim.api.nvim_win_call(winid, get_visible_lines)
 	return line_count
+end
+
+function Is_readonly()
+	local current_buffer = vim.api.nvim_win_get_buf(0)
+	return vim.bo[current_buffer].readonly
+end
+
+function Get_buffer_name()
+	local current_buffer = vim.api.nvim_get_current_buf()
+	return vim.api.nvim_buf_get_name(current_buffer)
 end
