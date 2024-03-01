@@ -1,6 +1,5 @@
 #!/usr/bin/env fish
 
-awesome-client 'Widget_update_loago()'
 awesome-client 'Water_background_widget.fg = "#ff2930"'
 awesome-client 'Widget_enable_water()'
 sleep 1.5
