@@ -45,39 +45,57 @@ return {
 				yadm = {
 					enable = false,
 				},
+				diff_opts = {
+					vertical = true,
+				},
+				on_attach = function(buffer_number)
+					local function map(mode, trigger, result, opts)
+						opts = opts or {}
+						opts.buffer = buffer_number
+						vim.keymap.set(mode, trigger, result, opts)
+					end
+
+					local function schedule_repeat(func)
+						for _ = 1, vim.v.count1 do
+							vim.schedule(func)
+						end
+					end
+
+					map('n', ']e', function() schedule_repeat(gs.next_hunk) end)
+					map('n', '[e', function() schedule_repeat(gs.prev_hunk) end)
+
+					map('n', ',cj', gs.stage_hunk)
+					map('n', ',ck', gs.undo_stage_hunk)
+					map(
+						'v',
+						',cj',
+						function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
+					)
+					map('n', ',cJ', gs.stage_buffer)
+					map('n', ',cK', gs.reset_buffer_index)
+
+					map('n', ',cr', gs.reset_hunk)
+					map(
+						'v',
+						',cr',
+						function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
+					)
+					map('n', ',cR', gs.reset_buffer)
+
+					map('n', ',ci', gs.preview_hunk_inline)
+					map(
+						'n',
+						',cI',
+						function() -- calling it twice makes the floating window take focus, rather than disappear on my next move
+							gs.preview_hunk()
+							gs.preview_hunk()
+						end
+					)
+
+					map('n', ',cs', ':Gitsigns show ')
+					map('n', ',cd', ':Gitsigns diffthis ')
+				end,
 			})
-
-			local function schedule_repeat(func)
-				for _ = 1, vim.v.count1 do
-					vim.schedule(func)
-				end
-			end
-
-			vim.keymap.set('n', ']e', function() schedule_repeat(gs.next_hunk) end)
-			vim.keymap.set('n', '[e', function() schedule_repeat(gs.prev_hunk) end)
-
-			vim.keymap.set('n', ',gj', gs.stage_hunk)
-			vim.keymap.set('n', ',gk', gs.undo_stage_hunk)
-			vim.keymap.set(
-				'v',
-				',gj',
-				function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
-			)
-			vim.keymap.set('n', ',gJ', gs.stage_buffer)
-
-			vim.keymap.set('n', ',gr', gs.reset_hunk)
-			vim.keymap.set(
-				'v',
-				',gr',
-				function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
-			)
-			vim.keymap.set('n', ',gR', gs.reset_buffer)
-
-			vim.keymap.set('n', ',gi', gs.preview_hunk_inline)
-			vim.keymap.set('n', ',gI', function()
-				gs.preview_hunk()
-				gs.preview_hunk()
-			end)
 		end,
 	},
 }
