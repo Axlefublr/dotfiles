@@ -6,9 +6,22 @@ alias --save screen_off 'xset dpms force "off"' > /dev/null
 
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
 alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Widget_update_layout()"' > /dev/null
+alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
+
 alias --save get_internet 'nmcli radio wifi' > /dev/null
 alias --save get_internet_connection 'nmcli networking connectivity check' > /dev/null
-alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
+alias --save disable_internet 'nmcli radio wifi off' > /dev/null
+alias --save enable_internet 'nmcli radio wifi on' > /dev/null
+function toggle_internet
+	if test (get_internet) = 'enabled'
+		disable_internet
+		awesome-client 'Widget_disable_wifi()'
+	else
+		enable_internet
+		awesome-client 'Widget_enable_wifi()'
+	end
+end
+funcsave toggle_internet > /dev/null
 
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle $argv ; awesome-client "Widget_update_muteness()"' > /dev/null

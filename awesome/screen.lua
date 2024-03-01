@@ -2,8 +2,8 @@ Between_margin = 12
 
 My_main_menu = awful.menu({
 	items = {
-		{ 'restart', awesome.restart },
-		{ 'quit', function() awesome.quit() end },
+		{ 'restart',  awesome.restart },
+		{ 'quit',     function() awesome.quit() end },
 		{ 'terminal', terminal },
 	},
 })
@@ -158,16 +158,24 @@ Wifi_widget = wibox.widget({
 })
 Wifi_background_widget = wibox.container.background(Wifi_widget)
 Wifi_margin_widget = wibox.container.margin(Wifi_background_widget)
+function Widget_disable_wifi()
+	Wifi_margin_widget.right = 0
+	Wifi_widget:set_text('')
+end
+
+function Widget_enable_wifi()
+	Wifi_margin_widget.right = Between_margin - 2
+	Wifi_widget:set_text('󰖩 ')
+end
+
 function Widget_update_wifi()
 	awful.spawn.easy_async_with_shell('get_internet', function(stdout)
 		local is_internet = Trim_newlines(stdout)
 		if is_internet == 'disabled' then
-			Wifi_margin_widget.right = 0
-			Wifi_widget:set_text('')
+			Widget_disable_wifi()
 			return
 		end
-		Wifi_margin_widget.right = Between_margin - 2
-		Wifi_widget:set_text('󰖩 ')
+		Widget_enable_wifi()
 		awful.spawn.easy_async_with_shell('get_internet_connection', function(_connection_strength)
 			local connection_strength = Trim_newlines(_connection_strength)
 			if connection_strength == 'none' then
