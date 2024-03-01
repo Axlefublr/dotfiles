@@ -15,7 +15,6 @@ sudo pacman -S --noconfirm vivaldi
 sudo pacman -S --noconfirm tree
 sudo pacman -S --noconfirm fzf
 sudo pacman -S --noconfirm hyfetch
-sudo pacman -S --noconfirm ncdu
 sudo pacman -S --noconfirm cmatrix
 sudo pacman -S --noconfirm cowsay
 sudo pacman -S --noconfirm libssl-dev
