@@ -10,10 +10,7 @@ local function close_try_save()
 end
 local function save()
 	Remove_highlighting()
-	if Is_readonly() or Get_buffer_name() == '' then
-		return 1
-	end
-	vim.cmd('write')
+	Save()
 end
 vim.keymap.set('', '<Space>', save)
 vim.keymap.set('i', '<f1>', close_try_save) -- f1 ends up being alt+enter for me
