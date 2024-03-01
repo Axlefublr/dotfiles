@@ -31,7 +31,7 @@ return {
 					width = 0.99,
 					preview_cutoff = 5,
 					horizontal = {
-						preview_width = 40,
+						preview_width = 45,
 					},
 					vertical = {
 						preview_height = 6,
