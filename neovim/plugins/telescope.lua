@@ -84,6 +84,9 @@ return {
 				loclist = {
 					show_line = false,
 				},
+				git_files = {
+					show_untracked = true
+				},
 				lsp_references = {
 					show_line = false,
 				},
@@ -181,6 +184,7 @@ return {
 			vim.keymap.set('n', ',j;', builtin.reloader, {})
 			vim.keymap.set('n', ',jq', function() builtin.diagnostics({ bufnr = 0 }) end, {})
 			vim.keymap.set('n', ',jQ', builtin.diagnostics, {})
+			vim.keymap.set('n', ',jj', builtin.git_files, {})
 
 			vim.keymap.set('n', ',lr', builtin.lsp_references, {})
 			vim.keymap.set('n', ',li', builtin.lsp_incoming_calls, {})
