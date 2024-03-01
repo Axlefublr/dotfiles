@@ -37,7 +37,6 @@ sudo pacman -S --noconfirm kwalletmanager
 sudo pacman -S --noconfirm packagekit-qt5
 sudo pacman -S --noconfirm espeak-ng
 sudo pacman -S --noconfirm imagemagick
-sudo pacman -S --noconfirm btop
 sudo pacman -S --noconfirm lolcat
 sudo pacman -S --noconfirm kruler
 sudo pacman -S --noconfirm filezilla
