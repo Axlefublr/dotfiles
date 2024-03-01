@@ -8,9 +8,7 @@ alias --save bl 'bluetoothctl' > /dev/null
 alias --save sv 'set_volume' > /dev/null
 alias --save smv 'set_mic_volume' > /dev/null
 alias --save pik 'pikaur' > /dev/null
-alias --save iiv 'nvim ~/.local/share/notie' > /dev/null
 alias --save at 'alien_temple' > /dev/null
 alias --save xpc 'xclip -selection clipboard -o' > /dev/null
 alias --save xcp 'xclip -r -selection clipboard' > /dev/null
 alias --save real 'realpath' > /dev/null
-alias --save f 'nvim ~/prog/noties/notes.txt && clx' > /dev/null

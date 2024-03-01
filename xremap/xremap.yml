@@ -434,9 +434,18 @@ keymap:
   - name: Kitty
     exact_match: true
     application:
-      only: kitty
+      only: [kitty, neovide]
     remap:
       Ctrl-Backspace: ctrl-w
+      Alt-j: ctrl-n
+      Alt-k: ctrl-p
+      Alt-Enter: f1
+      Ctrl-Enter: f2
+      Shift-Alt-Enter: f3
+      Ctrl-Shift-Enter: f3
+      Shift-Alt-Semicolon: f5
+      Ctrl-Alt-u: f4
+      Shift-Enter: Enter
 
   - name: Compose key
     exact_match: true

@@ -172,6 +172,8 @@ abbr -a slus 'systemctl --user status'
 abbr -a slup 'systemctl --user stop'
 
 abbr -a v 'nvim'
+abbr -a f 'neovide'
+
 abbr -a u 'z - && clx'
 abbr -a c 'code'
 abbr -a fp 'fish -P'
@@ -207,4 +209,3 @@ abbr -a sv 'set_volume'
 abbr -a smv 'set_mic_volume'
 abbr -a pik 'pikaur'
 abbr -a real 'realpath'
-abbr -a f 'nvim ~/prog/noties/notes.txt && clx'

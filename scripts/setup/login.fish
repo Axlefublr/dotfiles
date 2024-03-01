@@ -19,8 +19,8 @@ kitty -T meow & disown
 kitty -T timer & disown
 kitty -T content -d ~/Videos/content ranger & disown
 
-kitty -T neovim --hold -d ~/prog/dotfiles nvim & disown
-win_wait 'kitty — neovim$' 0.5 0 200
+neosrv
+win_wait 'neovide — Neovide' 0.5 0 200
 kitty -T terminal -d ~/prog/dotfiles & disown
 
 vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown

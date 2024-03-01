@@ -14,6 +14,14 @@ Colors = {
 THROWAWAY_REGISTER = 'o'
 THROWAWAY_MARK = 'I'
 
+if vim.g.neovide then
+	vim.o.guifont = 'JetBrainsMono Nerd Font:h17'
+	vim.g.neovide_scroll_animation_length = 0.1
+	vim.g.neovide_scroll_animation_far_lines = 5
+	vim.g.neovide_hide_mouse_when_typing = true
+	vim.g.neovide_cursor_animation_length = 0.06
+	vim.g.neovide_cursor_trail_size = 0.3
+end
 require('options')
 require('global-functions')
 require('blob')
@@ -53,12 +61,12 @@ end
 vim.cmd('packadd! matchit')
 
 vim.api.nvim_create_autocmd('CursorMoved', {
-	command = 'normal! zz'
+	command = 'normal! zz',
 })
 
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 	pattern = { '*.XCompose' },
-	command = 'setfiletype xcompose'
+	command = 'setfiletype xcompose',
 })
 
 print('nvim loaded')

@@ -90,3 +90,5 @@ sudo pacman -S --noconfirm trash-cli
 sudo pacman -S --noconfirm speedtest-cli
 sudo pacman -S --noconfirm mpv
 sudo pacman -S --noconfirm tree-sitter-cli
+sudo pacman -S --noconfirm dust
+sudo pacman -S --noconfirm neovide
