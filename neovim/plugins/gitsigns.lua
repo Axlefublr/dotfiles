@@ -20,7 +20,7 @@ return {
 					follow_files = true,
 				},
 				auto_attach = true,
-				attach_to_untracked = false,
+				attach_to_untracked = true,
 				current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
 				current_line_blame_opts = {
 					virt_text = true,
@@ -48,10 +48,12 @@ return {
 				diff_opts = {
 					vertical = true,
 				},
-				on_attach = function(buffer_number)
+				on_attach = function()
+					local pkg = package.loaded.gitsigns
+
 					local function map(mode, trigger, result, opts)
 						opts = opts or {}
-						opts.buffer = buffer_number
+						opts.buffer = true
 						vim.keymap.set(mode, trigger, result, opts)
 					end
 
@@ -61,34 +63,34 @@ return {
 						end
 					end
 
-					map('n', ']e', function() schedule_repeat(gs.next_hunk) end)
-					map('n', '[e', function() schedule_repeat(gs.prev_hunk) end)
+					map('n', ']e', function() schedule_repeat(pkg.next_hunk) end)
+					map('n', '[e', function() schedule_repeat(pkg.prev_hunk) end)
 
-					map('n', ',cj', gs.stage_hunk)
-					map('n', ',ck', gs.undo_stage_hunk)
+					map('n', ',cj', pkg.stage_hunk)
+					map('n', ',ck', pkg.undo_stage_hunk)
 					map(
 						'v',
 						',cj',
-						function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
+						function() pkg.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
 					)
-					map('n', ',cJ', gs.stage_buffer)
-					map('n', ',cK', gs.reset_buffer_index)
+					map('n', ',cJ', pkg.stage_buffer)
+					map('n', ',cK', pkg.reset_buffer_index)
 
-					map('n', ',cr', gs.reset_hunk)
+					map('n', ',cr', pkg.reset_hunk)
 					map(
 						'v',
 						',cr',
-						function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
+						function() pkg.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
 					)
-					map('n', ',cR', gs.reset_buffer)
+					map('n', ',cR', pkg.reset_buffer)
 
-					map('n', ',ci', gs.preview_hunk_inline)
+					map('n', ',ci', pkg.preview_hunk_inline)
 					map(
 						'n',
 						',cI',
 						function() -- calling it twice makes the floating window take focus, rather than disappear on my next move
-							gs.preview_hunk()
-							gs.preview_hunk()
+							pkg.preview_hunk()
+							pkg.preview_hunk()
 						end
 					)
 
