@@ -322,7 +322,7 @@ keymap:
 
           Super-j: { launch: [fish, -c, runner] }
           'y': { launch: [fish, -c, install_yt_video] }
-          a: { launch: [fish, -c, 'install_yt_video asmr/'] }
+          Shift-y: { launch: [fish, -c, 'install_yt_video asmr/'] }
 
           j: { launch: [fish, -c, runner_note] }
           k: { launch: [fish, -c, runner_wote] }
