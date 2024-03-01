@@ -77,8 +77,8 @@ return {
 			vim.api.nvim_create_autocmd('User', {
 				pattern = 'LeapEnter',
 				callback = function()
-					vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = '#0f0f0f', bg = '#ffafd7' })
-					vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = '#0f0f0f', bg = '#ffd75f' })
+					vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = Colors.black, bg = Colors.shell_pink })
+					vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = Colors.black, bg = Colors.shell_yellow })
 				end,
 			})
 		end,

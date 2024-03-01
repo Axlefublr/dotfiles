@@ -1,3 +1,16 @@
+Colors = {
+	shell_pink = '#ffafd7',
+	shell_yellow = '#ffd75f',
+
+	black = '#0f0f0f',
+	grey = '#928374',
+	yellow = '#d8a657',
+	white = '#d4be98',
+	orange = '#e78a4e',
+	cyan = '#7daea3',
+	mint = '#89b482',
+}
+
 THROWAWAY_REGISTER = 'o'
 THROWAWAY_MARK = 'I'
 
