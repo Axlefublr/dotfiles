@@ -379,8 +379,8 @@ keymap:
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
 
-      CapsLock-Alt-x: { launch: [fish, -c, 'media_volume 0.05-'] }
-      CapsLock-Alt-v: { launch: [fish, -c, 'media_volume 0.05+'] }
+      CapsLock-Alt-x: { launch: [fish, -c, 'set_media_volume 0.05-'] }
+      CapsLock-Alt-v: { launch: [fish, -c, 'set_media_volume 0.05+'] }
 
       CapsLock-x: { launch: [fish, -c, media_prev] }
       CapsLock-v: { launch: [fish, -c, media_next] }

@@ -2,50 +2,53 @@
 -- Default awesome theme --
 ---------------------------
 
-local theme_assets = require("beautiful.theme_assets")
-local xresources = require("beautiful.xresources")
+local theme_assets = require('beautiful.theme_assets')
+local xresources = require('beautiful.xresources')
 local dpi = xresources.apply_dpi
 
-local gfs = require("gears.filesystem")
+local gfs = require('gears.filesystem')
 local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "Ubuntu NF 13"
-theme.code_font     = "JetBrainsMonoNL NF 13"
-theme.background    = "#292828"
-theme.white         = "#d4be98"
-theme.darkerest     = "#212121"
-theme.lighter       = "#313030"
-theme.pink          = "#ffafd7"
-theme.yellow        = "#ffd75f"
-theme.black         = "#0f0f0f"
-theme.red           = "#ff2930"
-theme.cyan          = "#00d7ff"
-theme.green         = "#87ff5f"
+theme.ubuntu_font = 'Ubuntu NF'
+theme.jetbrains_font = 'JetBrainsMonoNL Nerd Font'
 
-theme.bg_normal     = theme.background
-theme.bg_focus      = theme.darkerest
-theme.bg_urgent     = theme.pink
-theme.bg_minimize   = theme.lighter
-theme.bg_systray    = theme.bg_normal
+theme.font = theme.ubuntu_font .. ' 12'
+theme.code_font = theme.jetbrains_font .. ' 13'
+theme.background = '#292828'
+theme.white = '#d4be98'
+theme.darkerest = '#212121'
+theme.lighter = '#313030'
+theme.pink = '#ffafd7'
+theme.yellow = '#ffd75f'
+theme.black = '#0f0f0f'
+theme.red = '#ff2930'
+theme.cyan = '#00d7ff'
+theme.green = '#87ff5f'
 
-theme.fg_normal     = theme.white
-theme.fg_focus      = theme.white
-theme.fg_urgent     = theme.black
-theme.fg_minimize   = theme.white
+theme.bg_normal = theme.background
+theme.bg_focus = theme.darkerest
+theme.bg_urgent = theme.pink
+theme.bg_minimize = theme.lighter
+theme.bg_systray = theme.bg_normal
 
-theme.useless_gap   = dpi(5)
-theme.border_width  = dpi(2)
+theme.fg_normal = theme.white
+theme.fg_focus = theme.white
+theme.fg_urgent = theme.black
+theme.fg_minimize = theme.white
+
+theme.useless_gap = dpi(5)
+theme.border_width = dpi(2)
 theme.border_normal = theme.background
-theme.border_focus  = theme.yellow
+theme.border_focus = theme.yellow
 theme.border_marked = theme.pink
 
 theme.prompt_font = theme.code_font
 
 theme.taglist_fg_focus = theme.black
 theme.taglist_bg_focus = theme.yellow
-theme.taglist_font     = theme.code_font
+theme.taglist_font = theme.code_font
 
 -- There are other variable sets
 -- overriding the default one when
@@ -61,7 +64,7 @@ theme.taglist_font     = theme.code_font
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Variables set for theming notifications:
-theme.notification_code_font = "JetBrainsMonoNL NF 16"
+theme.notification_code_font = 'JetBrainsMonoNL NF 16'
 theme.notification_font = theme.notification_code_font
 theme.notification_bg = theme.darkerest
 theme.notification_border_color = theme.border_focus
@@ -71,31 +74,31 @@ theme.notification_border_color = theme.border_focus
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path.."default/submenu.png"
+theme.menu_submenu_icon = themes_path .. 'default/submenu.png'
 theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_width = dpi(100)
 
-theme.wallpaper = "/home/axlefublr/Pictures/tree/themes/cyberpunk-something.jpg"
+theme.wallpaper = '/home/axlefublr/Pictures/tree/themes/cyberpunk-something.jpg'
 
 theme.layout_icon_path = '/home/axlefublr/Pictures/tree/logos/awesome-layouts/'
 
-theme.layout_fairh      = theme.layout_icon_path .. 'fairhw.png'
-theme.layout_fairv      = theme.layout_icon_path .. 'fairvw.png'
-theme.layout_max        = theme.layout_icon_path .. 'maxw.png'
+theme.layout_fairh = theme.layout_icon_path .. 'fairhw.png'
+theme.layout_fairv = theme.layout_icon_path .. 'fairvw.png'
+theme.layout_max = theme.layout_icon_path .. 'maxw.png'
 theme.layout_tilebottom = theme.layout_icon_path .. 'tilebottomw.png'
-theme.layout_tileleft   = theme.layout_icon_path .. 'tileleftw.png'
-theme.layout_tile       = theme.layout_icon_path .. 'tilew.png'
-theme.layout_tiletop    = theme.layout_icon_path .. 'tiletopw.png'
-theme.layout_cornernw   = theme.layout_icon_path .. 'cornernww.png'
-theme.layout_cornerne   = theme.layout_icon_path .. 'cornernew.png'
-theme.layout_cornersw   = theme.layout_icon_path .. 'cornersww.png'
-theme.layout_cornerse   = theme.layout_icon_path .. 'cornersew.png'
+theme.layout_tileleft = theme.layout_icon_path .. 'tileleftw.png'
+theme.layout_tile = theme.layout_icon_path .. 'tilew.png'
+theme.layout_tiletop = theme.layout_icon_path .. 'tiletopw.png'
+theme.layout_cornernw = theme.layout_icon_path .. 'cornernww.png'
+theme.layout_cornerne = theme.layout_icon_path .. 'cornernew.png'
+theme.layout_cornersw = theme.layout_icon_path .. 'cornersww.png'
+theme.layout_cornerse = theme.layout_icon_path .. 'cornersew.png'
 
-theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
-theme.layout_magnifier = themes_path.."default/layouts/magnifierw.png"
-theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
-theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
-theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
+theme.layout_floating = themes_path .. 'default/layouts/floatingw.png'
+theme.layout_magnifier = themes_path .. 'default/layouts/magnifierw.png'
+theme.layout_fullscreen = themes_path .. 'default/layouts/fullscreenw.png'
+theme.layout_spiral = themes_path .. 'default/layouts/spiralw.png'
+theme.layout_dwindle = themes_path .. 'default/layouts/dwindlew.png'
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

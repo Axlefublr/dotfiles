@@ -1,5 +1,5 @@
 awful.tag.add("u", {
-	layout              = awful.layout.suit.tile.left,
+	layout              = awful.layout.suit.max,
 	master_fill_policy  = "expand",
 	master_width_factor = 0.74,
 	selected            = true,

@@ -23,12 +23,27 @@ function toggle_internet
 end
 funcsave toggle_internet > /dev/null
 
-alias --save toggle_media 'playerctl play-pause' > /dev/null
+alias --save media_state 'playerctl status' > /dev/null
 alias --save media_next 'playerctl next' > /dev/null
 alias --save media_prev 'playerctl previous' > /dev/null
-alias --save media_volume 'playerctl volume' > /dev/null
 alias --save media_position 'playerctl position' > /dev/null
 alias --save ms 'media_position' > /dev/null
+function get_media_volume
+	math "round($(playerctl volume) * 100)"
+end
+funcsave get_media_volume > /dev/null
+
+function set_media_volume
+	playerctl volume "$argv"
+	awesome-client 'Widget_update_media_volume()'
+end
+funcsave set_media_volume > /dev/null
+
+function toggle_media
+	playerctl play-pause
+	awesome-client 'Widget_update_media_state()'
+end
+funcsave toggle_media > /dev/null
 
 function ml
 	media_position "$argv-"

@@ -34,7 +34,7 @@ Mic_muteness_widget = wibox.widget({
 Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
 Mic_muteness_margin_widget = wibox.container.margin(Mic_muteness_background_widget)
 Mic_muteness_margin_widget.right = -6
-Mic_muteness_margin_widget.left = Between_margin + 6
+Mic_muteness_margin_widget.left = Between_margin + 5
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell('get_mic_mute', function(stdout)
 		local output = Trim_newlines(stdout)
@@ -88,6 +88,42 @@ function Widget_update_volume()
 	awful.spawn.easy_async_with_shell('get_volume', function(stdout)
 		local output = Trim_newlines(stdout)
 		Volume_widget:set_text(output)
+	end)
+end
+
+Media_state_widget = wibox.widget({
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.jetbrains_font .. ' 15',
+})
+Media_state_margin_widget = wibox.container.margin(Media_state_widget)
+Media_state_margin_widget.left = Between_margin + 4
+function Widget_update_media_state()
+	awful.spawn.easy_async_with_shell('media_state', function(stdout)
+		local output = Trim_newlines(stdout)
+		if output == 'Paused' then
+			Media_state_widget:set_text('󰏤')
+		elseif output == 'Playing' then
+			Media_state_widget:set_text('󰐊')
+		elseif output == 'Stopped' then
+			Media_state_widget:set_text('󰓛')
+		else
+			Media_state_widget:set_text(output) -- in case there are more statuses I don't know of
+		end
+	end)
+end
+
+Media_volume_widget = wibox.widget({
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font,
+})
+Media_volume_margin_widget = wibox.container.margin(Media_volume_widget)
+Media_volume_margin_widget.left = Between_margin - 4
+function Widget_update_media_volume()
+	awful.spawn.easy_async_with_shell('get_media_volume', function(stdout)
+		local output = Trim_newlines(stdout)
+		Media_volume_widget:set_text(output)
 	end)
 end
 
@@ -583,6 +619,8 @@ screen.primary.wibox_widget:setup({
 		Wifi_margin_widget,
 		Meat_margin_widget,
 		Hunger_margin_widget,
+		Media_state_margin_widget,
+		Media_volume_margin_widget,
 		Mic_muteness_margin_widget,
 		Mic_volume_widget,
 		Muteness_margin_widget,
@@ -600,6 +638,8 @@ local frequent_updaters = {
 	Widget_update_compositor,
 	Widget_update_bluetooth,
 	Widget_update_wifi,
+	Widget_update_media_state,
+	Widget_update_media_volume,
 	Widget_update_mic_muteness,
 	Widget_update_mic_volume,
 	Widget_update_volume,
