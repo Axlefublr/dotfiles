@@ -612,6 +612,7 @@ Tile_widget = wibox.widget({
 	font = beautiful.code_font,
 })
 Tile_margin_widget = wibox.container.margin(Tile_widget)
+Tile_margin_widget.right = Between_margin
 function Widget_update_tile(tag)
 	local layout_name = tag.layout.name
 	if layout_name == 'tile' then
@@ -679,10 +680,8 @@ screen.primary.wibox_widget:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
-		Malumn_margin_widget,
-		Clients_margin_widget,
-		Tile_margin_widget,
 		Layout_margin_widget,
+		Clients_margin_widget,
 		Xremap_margin_widget,
 		Gromit_margin_widget,
 		Compositor_margin_widget,
@@ -698,6 +697,8 @@ screen.primary.wibox_widget:setup({
 		Mic_volume_widget,
 		Muteness_margin_widget,
 		Volume_margin_widget,
+		Tile_margin_widget,
+		Malumn_margin_widget,
 	},
 })
 
