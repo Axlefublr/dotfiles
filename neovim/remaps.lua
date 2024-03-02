@@ -1,6 +1,4 @@
-local function close_without_saving()
-	vim.cmd('q!')
-end
+local function close_without_saving() vim.cmd('q!') end
 local function close_try_save()
 	if Is_readonly() or Get_buffer_name() == '' then
 		close_without_saving()
