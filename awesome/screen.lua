@@ -650,13 +650,13 @@ screen.primary.tag_list_margin_widget.right = Between_margin
 local wibar_height = 35
 local wibar_bg = beautiful.darker
 screen.primary.extra_wibox_widget = awful.wibar({
-	position = 'top',
+	position = 'bottom',
 	screen = screen.primary,
 	height = wibar_height,
 	bg = wibar_bg
 })
 screen.primary.wibox_widget = awful.wibar({
-	position = 'bottom',
+	position = 'top',
 	screen = screen.primary,
 	height = wibar_height,
 	bg = wibar_bg
