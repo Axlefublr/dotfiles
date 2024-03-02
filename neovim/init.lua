@@ -22,8 +22,10 @@ if vim.g.neovide then
 	vim.g.neovide_cursor_animation_length = 0.07
 	vim.g.neovide_cursor_trail_size = 0.4
 	vim.g.neovide_padding_left = 10
-	vim.keymap.set({'n', 'v'}, ',a;', ':lua vim.g.neovide_scale_factor = 0.')
-	vim.keymap.set({'n', 'v'}, ',a:', ':lua vim.g.neovide_scale_factor = 1')
+	local default_scale = 0.9
+	vim.g.neovide_scale_factor = default_scale
+	vim.keymap.set({'n', 'v'}, ',a\'', ':lua vim.g.neovide_scale_factor = 0.')
+	vim.keymap.set({'n', 'v'}, ',a"', ':lua vim.g.neovide_scale_factor = 1')
 end
 require('options')
 require('global-functions')

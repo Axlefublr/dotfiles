@@ -34,7 +34,7 @@ return {
 						preview_width = 45,
 					},
 					vertical = {
-						preview_height = 6,
+						preview_height = 10,
 					},
 				},
 				mappings = {
