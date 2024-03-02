@@ -499,7 +499,7 @@ keymap:
     remap:
       CapsLock-f: tab
       CapsLock-Backspace: delete
-      CapsLock-r: delete
+      CapsLock-t: delete
 
       CapsLock-h: left
       CapsLock-j: down
@@ -514,3 +514,4 @@ keymap:
       CapsLock-Alt-s: ctrl-x
       CapsLock-d: ctrl-v
       CapsLock-Alt-d: ctrl-shift-v
+      CapsLock-r: ctrl-a
