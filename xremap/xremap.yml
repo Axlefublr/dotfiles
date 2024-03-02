@@ -317,7 +317,15 @@ keymap:
     remap:
       Super-Semicolon:
         remap:
-          e: { launch: [ sh, -c, "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'", ], }
+          e:
+            {
+              launch:
+                [
+                  sh,
+                  -c,
+                  "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'",
+                ],
+            }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
 
           Super-j: { launch: [fish, -c, runner] }
@@ -362,11 +370,11 @@ keymap:
 
   - name: System & Media
     remap:
-      CapsLock-s: { launch: [fish, -c, 'set_volume -5%'] }
-      CapsLock-d: { launch: [fish, -c, 'set_volume +5%'] }
+      CapsLock-w: { launch: [fish, -c, 'set_volume -5%'] }
+      CapsLock-e: { launch: [fish, -c, 'set_volume +5%'] }
 
-      CapsLock-Alt-s: { launch: [fish, -c, 'set_mic_volume -5%'] }
-      CapsLock-Alt-d: { launch: [fish, -c, 'set_mic_volume +5%'] }
+      CapsLock-Alt-w: { launch: [fish, -c, 'set_mic_volume -5%'] }
+      CapsLock-Alt-e: { launch: [fish, -c, 'set_mic_volume +5%'] }
 
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
@@ -502,8 +510,7 @@ keymap:
       CapsLock-u: pageup
       CapsLock-p: pagedown
 
-      CapsLock-w: ctrl-c
-      CapsLock-Alt-w: ctrl-x
-      CapsLock-e: ctrl-v
-      CapsLock-Alt-e: ctrl-shift-v
-      CapsLock-t: ctrl-a
+      CapsLock-s: ctrl-c
+      CapsLock-Alt-s: ctrl-x
+      CapsLock-d: ctrl-v
+      CapsLock-Alt-d: ctrl-shift-v
