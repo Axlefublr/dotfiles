@@ -84,4 +84,16 @@ return {
 			post_hook = nil,
 		},
 	},
+	{ 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
+	{
+		'nmac427/guess-indent.nvim',
+		opts = {
+			buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
+				'help',
+				'nofile',
+				'terminal',
+				'prompt',
+			},
+		},
+	},
 }
