@@ -51,7 +51,7 @@ end
 funcsave xrestart > /dev/null
 
 function xwaaa
-	xset r rate 170 30 &> /tmp/log/xset.txt
+	xset r rate 170 35 &> /tmp/log/xset.txt
 	setxkbmap -layout us,ru -option "compose:sclk" &> /tmp/log/setxkbmap.txt
 end
 funcsave xwaaa > /dev/null

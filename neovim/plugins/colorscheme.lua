@@ -6,6 +6,7 @@ local highlight_modifications = function()
 	vim.api.nvim_set_hl(0, '@number.lua', { fg = Colors.orange })
 	vim.api.nvim_set_hl(0, '@boolean.lua', { fg = Colors.cyan, italic = true })
 	vim.api.nvim_set_hl(0, '@lsp.type.property.lua', { fg = Colors.mint })
+	vim.api.nvim_set_hl(0, '@lsp.type.comment.lua', { fg = Colors.grey })
 	vim.api.nvim_set_hl(0, '@variable.member.lua', { fg = Colors.mint })
 	vim.api.nvim_set_hl(0, '@string.escape.lua', { fg = Colors.grey })
 
