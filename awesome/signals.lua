@@ -106,6 +106,7 @@ awful.tag.attached_connect_signal(screen.primary, 'property::layout', function(t
 	Adjust_all_borders(tag) -- because of the 'max' layout
 	Widget_update_malumn(tag)
 	Widget_update_clients(tag)
+	Widget_update_tile(tag)
 end)
 
 awful.tag.attached_connect_signal(
@@ -123,6 +124,7 @@ awful.tag.attached_connect_signal(
 awful.tag.attached_connect_signal(screen.primary, 'property::selected', function(tag)
 	Widget_update_malumn(tag)
 	Widget_update_clients(tag)
+	Widget_update_tile(tag)
 end)
 
 client.connect_signal('focus', function(client)

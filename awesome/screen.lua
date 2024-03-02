@@ -380,7 +380,7 @@ end
 Clients_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.jetbrains_font .. ' 15',
+	font = beautiful.code_font,
 })
 Clients_background_widget = wibox.container.background(Clients_widget)
 Clients_margin_widget = wibox.container.margin(Clients_background_widget)
@@ -419,15 +419,13 @@ end
 Malumn_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.jetbrains_font .. ' 15',
+	font = beautiful.code_font,
 })
 Malumn_margin_widget = wibox.container.margin(Malumn_widget)
-Malumn_margin_widget.left = Between_margin
 Malumn_margin_widget.right = Between_margin
 function Widget_update_malumn(tag)
 	Malumn_widget:set_text(tag.master_count .. '/' .. tag.column_count)
 end
-
 function Widget_disable_malumn() Malumn_widget:set_text('?/?') end
 
 Note_widget = wibox.widget({
@@ -608,6 +606,17 @@ screen.primary.layout_box_widget:buttons(
 	)
 )
 
+Tile_widget = wibox.widget({
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font,
+})
+Tile_margin_widget = wibox.container.margin(Tile_widget)
+Tile_margin_widget.right = Between_margin
+function Widget_update_tile(tag)
+	Tile_widget:set_text(tag.layout.name)
+end
+
 screen.primary.tag_list_widget = awful.widget.taglist({
 	screen = screen.primary,
 	filter = awful.widget.taglist.filter.noempty,
@@ -616,18 +625,19 @@ screen.primary.tag_list_widget = awful.widget.taglist({
 screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.tag_list_widget)
 screen.primary.tag_list_margin_widget.right = Between_margin
 
+local wibar_height = 31
+local wibar_bg = beautiful.darkerest
 screen.primary.extra_wibox_widget = awful.wibar({
 	position = 'top',
 	screen = screen.primary,
-	height = 38,
-	-- bg = beautiful.darkerest,
+	height = wibar_height,
+	bg = wibar_bg
 })
 screen.primary.wibox_widget = awful.wibar({
-	position = 'top',
+	position = 'bottom',
 	screen = screen.primary,
-	height = 38
-	-- bg
-	-- fg
+	height = wibar_height,
+	bg = wibar_bg
 })
 
 -- awgts (All widgets)
@@ -636,10 +646,11 @@ screen.primary.wibox_widget:setup({
 	-- Left widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
-		screen.primary.layout_box_widget,
+		-- screen.primary.layout_box_widget,
+		screen.primary.tag_list_margin_widget,
 		Malumn_margin_widget,
 		Clients_margin_widget,
-		screen.primary.tag_list_margin_widget,
+		Tile_margin_widget,
 		Window_state_layout_widget
 	},
 	nil,
@@ -720,6 +731,7 @@ local run_once = function()
 	Widget_update_note()
 	Widget_update_malumn(screen.primary.selected_tag)
 	Widget_update_dnd()
+	Widget_update_tile(screen.primary.selected_tag)
 	return false
 end
 gears.timer.start_new(0, run_once)
