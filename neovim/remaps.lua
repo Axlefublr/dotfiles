@@ -135,19 +135,6 @@ end)
 
 -- registers
 
-vim.keymap.set('', 'S', '"_S')
-vim.keymap.set('', 's', '"_s')
-vim.keymap.set('', "'qS", '"+S')
-vim.keymap.set('', "'qs", '"+s')
-vim.keymap.set('', "''S", 'S')
-vim.keymap.set('', "''s", 's')
-vim.keymap.set('', 'C', '"_C')
-vim.keymap.set('', 'c', '"_c')
-vim.keymap.set('', "'qC", '"+C')
-vim.keymap.set('', "'qc", '"+c')
-vim.keymap.set('', "''C", 'C')
-vim.keymap.set('', "''c", 'c')
-
 vim.keymap.set('', ',m[', '`[')
 vim.keymap.set('', ',m]', '`]')
 vim.keymap.set('', ',m.', '`>')
