@@ -10,7 +10,7 @@ My_main_menu = awful.menu({
 	},
 })
 
-Text_clock_widget = wibox.widget.textclock('%A %y.%m.%d %H:%M:%S ', 1)
+Text_clock_widget = wibox.widget.textclock(' %A %y.%m.%d %H:%M:%S ', 1)
 Text_clock_widget.font = beautiful.code_font
 
 Loago_widget = wibox.widget({
@@ -626,7 +626,7 @@ screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.ta
 screen.primary.tag_list_margin_widget.right = Between_margin
 
 local wibar_height = 31
-local wibar_bg = beautiful.darkerest
+local wibar_bg = beautiful.darker
 screen.primary.extra_wibox_widget = awful.wibar({
 	position = 'top',
 	screen = screen.primary,
@@ -647,6 +647,7 @@ screen.primary.wibox_widget:setup({
 	{
 		layout = wibox.layout.fixed.horizontal,
 		-- screen.primary.layout_box_widget,
+		Text_clock_widget,
 		screen.primary.tag_list_margin_widget,
 		Malumn_margin_widget,
 		Clients_margin_widget,
@@ -676,7 +677,6 @@ screen.primary.wibox_widget:setup({
 		Muteness_margin_widget,
 		Volume_margin_widget,
 		Loago_margin_widget,
-		Text_clock_widget,
 	},
 })
 
