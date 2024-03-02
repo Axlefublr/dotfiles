@@ -35,12 +35,12 @@ local opts = {
 	diff_opts = {
 		vertical = true,
 	},
-	on_attach = function()
+	on_attach = function(bufnr)
 		local pkg = package.loaded.gitsigns
 
 		local function map(mode, trigger, result, opts)
 			opts = opts or {}
-			opts.buffer = true
+			opts.buffer = bufnr
 			vim.keymap.set(mode, trigger, result, opts)
 		end
 
