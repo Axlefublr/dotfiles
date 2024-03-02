@@ -72,6 +72,11 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 	command = 'setfiletype xcompose',
 })
 
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+	pattern = { '*.rasi' },
+	command = 'setfiletype rasi',
+})
+
 -- vim.api.nvim_create_autocmd('BufLeave', {
 -- 	callback = Save,
 -- })

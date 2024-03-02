@@ -82,7 +82,7 @@ window {
 	width: 60%;
 	border: 0;
 	location: north;
-	y-offset: 48px;
+	y-offset: 35px;
 	padding: 2px;
 	border-radius: 0 0 10px 10px;
 }
