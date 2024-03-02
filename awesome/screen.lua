@@ -647,7 +647,7 @@ screen.primary.tag_list_widget = awful.widget.taglist({
 screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.tag_list_widget)
 screen.primary.tag_list_margin_widget.right = Between_margin
 
-local wibar_height = 31
+local wibar_height = 35
 local wibar_bg = beautiful.darker
 screen.primary.extra_wibox_widget = awful.wibar({
 	position = 'top',
