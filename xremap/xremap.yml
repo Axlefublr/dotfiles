@@ -385,7 +385,7 @@ keymap:
       # CapsLock-x: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
       # CapsLock-v: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
 
-      # CapsLock-g: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
+      # CapsLock-t: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
 
       # CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
       # CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }
@@ -499,7 +499,7 @@ keymap:
     remap:
       CapsLock-f: tab
       CapsLock-Backspace: delete
-      CapsLock-t: delete
+      CapsLock-r: delete
 
       CapsLock-h: left
       CapsLock-j: down
@@ -514,5 +514,5 @@ keymap:
       CapsLock-Alt-s: ctrl-x
       CapsLock-d: ctrl-v
       CapsLock-Alt-d: ctrl-shift-v
-      CapsLock-r: ctrl-a
+      CapsLock-g: ctrl-a
       CapsLock-q: enter
