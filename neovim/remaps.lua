@@ -11,6 +11,7 @@ end
 local function save()
 	Remove_highlighting()
 	Save()
+	require('lualine').refresh()
 end
 vim.keymap.set('', '<Space>', save)
 vim.keymap.set('i', '<f1>', close_try_save) -- f1 ends up being alt+enter for me
