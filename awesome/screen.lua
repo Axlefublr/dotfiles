@@ -612,9 +612,30 @@ Tile_widget = wibox.widget({
 	font = beautiful.code_font,
 })
 Tile_margin_widget = wibox.container.margin(Tile_widget)
-Tile_margin_widget.right = Between_margin
 function Widget_update_tile(tag)
-	Tile_widget:set_text(tag.layout.name)
+	local layout_name = tag.layout.name
+	if layout_name == 'tile' then
+		layout_name = 'right'
+	elseif layout_name == 'tileleft' then
+		layout_name = 'left'
+	elseif layout_name == 'tilebottom' then
+		layout_name = 'bottom'
+	elseif layout_name == 'tiletop' then
+		layout_name = 'top'
+	elseif layout_name == 'cornernw' then
+		layout_name = 'left-top'
+	elseif layout_name == 'cornerne' then
+		layout_name = 'right-top'
+	elseif layout_name == 'cornersw' then
+		layout_name = 'left-bottom'
+	elseif layout_name == 'cornerse' then
+		layout_name = 'right-bottom'
+	elseif layout_name == 'fairv' then
+		layout_name = 'vert'
+	elseif layout_name == 'fairh' then
+		layout_name = 'hori'
+	end
+	Tile_widget:set_text(layout_name)
 end
 
 screen.primary.tag_list_widget = awful.widget.taglist({
@@ -649,9 +670,7 @@ screen.primary.wibox_widget:setup({
 		-- screen.primary.layout_box_widget,
 		Text_clock_widget,
 		screen.primary.tag_list_margin_widget,
-		Malumn_margin_widget,
-		Clients_margin_widget,
-		Tile_margin_widget,
+		Loago_margin_widget,
 		Window_state_layout_widget
 	},
 	nil,
@@ -660,6 +679,9 @@ screen.primary.wibox_widget:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
+		Malumn_margin_widget,
+		Clients_margin_widget,
+		Tile_margin_widget,
 		Layout_margin_widget,
 		Xremap_margin_widget,
 		Gromit_margin_widget,
@@ -676,7 +698,6 @@ screen.primary.wibox_widget:setup({
 		Mic_volume_widget,
 		Muteness_margin_widget,
 		Volume_margin_widget,
-		Loago_margin_widget,
 	},
 })
 
