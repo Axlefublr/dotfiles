@@ -84,7 +84,6 @@ return {
 			post_hook = nil,
 		},
 	},
-	{ 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 	{
 		'nmac427/guess-indent.nvim',
 		opts = {
