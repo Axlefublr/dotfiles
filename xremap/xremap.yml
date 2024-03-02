@@ -379,13 +379,13 @@ keymap:
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
 
-      # CapsLock-Alt-x: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumedown] }
-      # CapsLock-Alt-v: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, mediavolumeup] }
+      CapsLock-Alt-x: { launch: [fish, -c, 'media_volume 0.05-'] }
+      CapsLock-Alt-v: { launch: [fish, -c, 'media_volume 0.05+'] }
 
-      # CapsLock-x: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, previousmedia] }
-      # CapsLock-v: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, nextmedia] }
+      CapsLock-x: { launch: [fish, -c, media_prev] }
+      CapsLock-v: { launch: [fish, -c, media_next] }
 
-      # CapsLock-t: { launch: [qdbus, org.kde.kglobalaccel, /component/mediacontrol, invokeShortcut, playpausemedia] }
+      CapsLock-t: { launch: [fish, -c, toggle_media] }
 
       # CapsLock-Alt-LeftBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Decrease Screen Brightness"] }
       # CapsLock-Alt-RightBrace: { launch: [qdbus, org.kde.kglobalaccel, /component/org_kde_powerdevil, invokeShortcut, "Increase Screen Brightness"] }

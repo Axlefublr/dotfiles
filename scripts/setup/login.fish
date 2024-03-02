@@ -14,6 +14,7 @@ gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
 clipmenud &> /tmp/log/clipmenu.txt & disown
 xset s off -dpms &> /tmp/log/xset.txt
 redshift -O 5700 &> /tmp/log/redshift.txt
+playerctld daemon &> /tmp/log/playerctl.txt
 
 kitty -T meow & disown
 kitty -T timer & disown

@@ -23,6 +23,23 @@ function toggle_internet
 end
 funcsave toggle_internet > /dev/null
 
+alias --save toggle_media 'playerctl play-pause' > /dev/null
+alias --save media_next 'playerctl next' > /dev/null
+alias --save media_prev 'playerctl previous' > /dev/null
+alias --save media_volume 'playerctl volume' > /dev/null
+alias --save media_position 'playerctl position' > /dev/null
+alias --save ms 'media_position' > /dev/null
+
+function ml
+	media_position "$argv-"
+end
+funcsave ml > /dev/null
+
+function mm
+	media_position "$argv+"
+end
+funcsave ml > /dev/null
+
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle $argv ; awesome-client "Widget_update_muteness()"' > /dev/null
 alias --save get_mute 'pactl get-sink-mute @DEFAULT_SINK@ | string match -gr "Mute: (no|yes)"' > /dev/null
