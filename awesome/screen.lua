@@ -1,4 +1,6 @@
 Between_margin = 12
+Between_widget = wibox.container.margin()
+Between_widget.right = Between_margin
 
 My_main_menu = awful.menu({
 	items = {
@@ -378,7 +380,7 @@ end
 Clients_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = 'JetBrainsMonoNL NF bold 15',
+	font = beautiful.jetbrains_font .. ' bold 15',
 })
 Clients_background_widget = wibox.container.background(Clients_widget)
 Clients_background_widget.bg = beautiful.yellow
@@ -524,22 +526,24 @@ Stated_margin_widget.left = 0
 Title_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
+	font = beautiful.code_font
 })
 Title_margin_widget = wibox.container.margin(Title_widget)
 Title_margin_widget.left = 0
+Title_margin_widget.right = 0
 function Widget_enable_title(passed_client)
 	if passed_client ~= client.focus then return end
-	screen.primary.tag_list_margin_widget.right = Between_margin
 	local title = ''
 	if passed_client.class then title = Trim_newlines(passed_client.class) .. ': ' end
 	if passed_client.name then title = title .. Trim_newlines(passed_client.name) end
+	Title_margin_widget.left = Between_margin
+	Title_margin_widget.right = Between_margin
 	Title_widget:set_text(title)
 end
-
 function Widget_disable_title()
 	Title_widget:set_text('')
 	Title_margin_widget.left = 0
-	screen.primary.tag_list_margin_widget.right = 0
+	Title_margin_widget.right = 0
 end
 
 Titlebar_layout_widget = wibox.widget({
@@ -551,6 +555,26 @@ Titlebar_layout_widget = wibox.widget({
 	Title_margin_widget,
 	layout = wibox.layout.fixed.horizontal,
 })
+
+Media_title_widget = wibox.widget({
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font
+})
+Media_title_margin_widget = wibox.container.margin(Media_title_widget)
+function Widget_update_media_title()
+	awful.spawn.easy_async_with_shell('get_media_title', function(stdout)
+		local title = Trim_newlines(stdout)
+		if #title == 0 then
+			Media_title_margin_widget.right = 0
+			Media_title_margin_widget.left = 0
+		else
+			Media_title_margin_widget.right = Between_margin
+			Media_title_margin_widget.left = Between_margin
+		end
+		Media_title_widget:set_text(title)
+	end)
+end
 
 Taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
@@ -590,7 +614,19 @@ screen.primary.tag_list_widget = awful.widget.taglist({
 })
 screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.tag_list_widget)
 
-screen.primary.wibox_widget = awful.wibar({ position = 'top', screen = screen.primary })
+screen.primary.extra_wibox_widget = awful.wibar({
+	position = 'top',
+	screen = screen.primary,
+	height = 38,
+	-- bg = beautiful.darkerest,
+})
+screen.primary.wibox_widget = awful.wibar({
+	position = 'top',
+	screen = screen.primary,
+	height = 38
+	-- bg
+	-- fg
+})
 
 -- awgts (All widgets)
 screen.primary.wibox_widget:setup({
@@ -598,12 +634,11 @@ screen.primary.wibox_widget:setup({
 	-- Left widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
-		Note_margin_widget,
 		screen.primary.layout_box_widget,
 		Malumn_margin_widget,
 		screen.primary.tag_list_margin_widget,
 	},
-	Titlebar_layout_widget,
+	nil,
 	-- Right widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
@@ -631,6 +666,26 @@ screen.primary.wibox_widget:setup({
 	},
 })
 
+local right_layout = wibox.layout.align.horizontal()
+right_layout.third = Titlebar_layout_widget
+
+screen.primary.extra_wibox_widget:setup({
+	layout = wibox.layout.align.horizontal,
+	expand = 'outside',
+	{
+		layout = wibox.layout.flex.horizontal,
+		Media_title_margin_widget
+	},
+	{
+		layout = wibox.layout.flex.horizontal,
+		Note_margin_widget,
+	},
+	{
+		layout = wibox.layout.flex.horizontal,
+		right_layout
+	}
+})
+
 local frequent_updaters = {
 	Widget_update_layout,
 	Widget_update_xremap,
@@ -644,6 +699,7 @@ local frequent_updaters = {
 	Widget_update_mic_volume,
 	Widget_update_volume,
 	Widget_update_muteness,
+	Widget_update_media_title,
 }
 
 Frequent_counter = 0

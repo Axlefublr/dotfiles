@@ -234,10 +234,9 @@ function runner_wote
 	end
 	set -e result[-1]
 	set result (string collect $result)
+	truncate -s 0 ~/.local/share/notie
 	if test -n $result
 		indeed -- ~/.local/share/notie $result
-	else
-		truncate -s 0 ~/.local/share/notie
 	end
 	awesome-client 'Widget_update_note()'
 end

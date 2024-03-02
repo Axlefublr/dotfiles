@@ -14,10 +14,11 @@ local theme = {}
 theme.ubuntu_font = 'Ubuntu NF'
 theme.jetbrains_font = 'JetBrainsMonoNL Nerd Font'
 
-theme.font = theme.ubuntu_font .. ' 12'
+theme.font = theme.ubuntu_font .. ' 13'
 theme.code_font = theme.jetbrains_font .. ' 13'
 theme.background = '#292828'
 theme.white = '#d4be98'
+theme.darker = '#242323'
 theme.darkerest = '#212121'
 theme.lighter = '#313030'
 theme.pink = '#ffafd7'

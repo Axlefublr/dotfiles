@@ -45,6 +45,11 @@ function toggle_media
 end
 funcsave toggle_media > /dev/null
 
+function get_media_title
+	playerctl metadata --format '{{playerName}} ({{duration(position)}}): {{artist}} — {{title}}' 2> /dev/null
+end
+funcsave get_media_title > /dev/null
+
 function ml
 	media_position "$argv-"
 end
