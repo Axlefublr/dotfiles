@@ -380,11 +380,9 @@ end
 Clients_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.jetbrains_font .. ' bold 15',
+	font = beautiful.jetbrains_font .. ' 15',
 })
 Clients_background_widget = wibox.container.background(Clients_widget)
-Clients_background_widget.bg = beautiful.yellow
-Clients_background_widget.fg = beautiful.black
 Clients_margin_widget = wibox.container.margin(Clients_background_widget)
 function Widget_update_clients(tag)
 	local clients = tag:clients()
@@ -406,22 +404,26 @@ function Widget_update_clients(tag)
 		end
 	end
 	if activate_widget then
-		Clients_widget:set_text(' ' .. #clients .. ' ')
+		Clients_widget:set_text(#clients)
+		Clients_margin_widget.right = Between_margin
 	else
 		Widget_disable_clients()
 	end
 end
 
-function Widget_disable_clients() Clients_widget:set_text('') end
+function Widget_disable_clients()
+	Clients_widget:set_text('')
+	Clients_margin_widget.right = 0
+end
 
 Malumn_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
+	font = beautiful.jetbrains_font .. ' 15',
 })
 Malumn_margin_widget = wibox.container.margin(Malumn_widget)
-Malumn_margin_widget.left = 5
-Malumn_margin_widget.right = 7
+Malumn_margin_widget.left = Between_margin
+Malumn_margin_widget.right = Between_margin
 function Widget_update_malumn(tag)
 	Malumn_widget:set_text(tag.master_count .. '/' .. tag.column_count)
 end
@@ -546,13 +548,12 @@ function Widget_disable_title()
 	Title_margin_widget.right = 0
 end
 
-Titlebar_layout_widget = wibox.widget({
+Window_state_layout_widget = wibox.widget({
 	Stated_margin_widget,
 	Ontop_state_margin_widget,
 	Maximized_state_margin_widget,
 	Sticky_state_margin_widget,
 	Floating_state_margin_widget,
-	Title_margin_widget,
 	layout = wibox.layout.fixed.horizontal,
 })
 
@@ -613,6 +614,7 @@ screen.primary.tag_list_widget = awful.widget.taglist({
 	buttons = Taglist_buttons,
 })
 screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.tag_list_widget)
+screen.primary.tag_list_margin_widget.right = Between_margin
 
 screen.primary.extra_wibox_widget = awful.wibar({
 	position = 'top',
@@ -636,7 +638,9 @@ screen.primary.wibox_widget:setup({
 		layout = wibox.layout.fixed.horizontal,
 		screen.primary.layout_box_widget,
 		Malumn_margin_widget,
+		Clients_margin_widget,
 		screen.primary.tag_list_margin_widget,
+		Window_state_layout_widget
 	},
 	nil,
 	-- Right widgets
@@ -662,12 +666,11 @@ screen.primary.wibox_widget:setup({
 		Volume_margin_widget,
 		Loago_margin_widget,
 		Text_clock_widget,
-		Clients_margin_widget,
 	},
 })
 
 local right_layout = wibox.layout.align.horizontal()
-right_layout.third = Titlebar_layout_widget
+right_layout.third = Title_margin_widget
 
 screen.primary.extra_wibox_widget:setup({
 	layout = wibox.layout.align.horizontal,
