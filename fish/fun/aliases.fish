@@ -19,7 +19,6 @@ alias --save tgpt 'tgpt -q --provider phind' > /dev/null
 alias --save yt-dlp 'yt-dlp $argv ; bell' > /dev/null
 alias --save scrot 'scrot -i -l color=#ffafd7,mode=edge,width=2' > /dev/null
 alias --save dmenu "dmenu -fn 'JetBrainsMonoNL NF:size=16' -nb '#292828' -nf '#d4be98' -sb '#ffd75f' -sf '#0f0f0f' -l 10" > /dev/null
-alias --save clipmenu "clipmenu -fn 'JetBrainsMonoNL NF:size=16' -nb '#292828' -nf '#d4be98' -sb '#ffd75f' -sf '#0f0f0f' -l 10" > /dev/null
 alias --save suspend 'systemctl suspend' > /dev/null
 alias --save clx 'printf "\e[H\e[22J"' > /dev/null
 alias --save screenkey 'screenkey --no-systray --position top --font-size small --key-mode translated --bak-mode full --mods-mod normal --font "JetBrainsMonoNL Nerd Font" --font-color "#d4be98" --bg-color "#1a1919" --opacity 0.7 --compr-cnt 3 --mouse -g 500x1080+1420-73' > /dev/null
