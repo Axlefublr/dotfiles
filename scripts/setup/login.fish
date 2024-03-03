@@ -20,7 +20,7 @@ kitty -T meow & disown
 kitty -T timer & disown
 kitty -T content -d ~/Videos/content ranger & disown
 
-neosrv
+neovide
 win_wait 'neovide — Neovide' 0.5 0 200
 kitty -T terminal -d ~/prog/dotfiles & disown
 

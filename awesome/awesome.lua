@@ -48,7 +48,7 @@ end
 -- }}}
 
 beautiful.init("/home/axlefublr/.config/awesome/theme.lua")
-beautiful.gap_single_client = false
+beautiful.gap_single_client = true
 
 naughty.config.defaults.position = "bottom_right"
 naughty.config.presets.critical.bg = beautiful.darkerest
