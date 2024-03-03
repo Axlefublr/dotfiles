@@ -95,4 +95,27 @@ return {
 			},
 		},
 	},
+	{
+		'ThePrimeagen/harpoon',
+		branch = 'harpoon2',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		config = function ()
+			local harpoon = require('harpoon')
+			harpoon:setup()
+
+			vim.keymap.set('n', ',aM', function() harpoon:list():prepend() end)
+			vim.keymap.set('n', ',am', function() harpoon:list():append() end)
+			vim.keymap.set('n', '""', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+			vim.keymap.set('n', '"a', function() harpoon:list():select(1) end)
+			vim.keymap.set('n', '"s', function() harpoon:list():select(2) end)
+			vim.keymap.set('n', '"d', function() harpoon:list():select(3) end)
+			vim.keymap.set('n', '"f', function() harpoon:list():select(4) end)
+			vim.keymap.set('n', '"g', function() harpoon:list():select(5) end)
+			vim.keymap.set('n', '"z', function() harpoon:list():select(6) end)
+			vim.keymap.set('n', '"x', function() harpoon:list():select(7) end)
+			vim.keymap.set('n', '"c', function() harpoon:list():select(8) end)
+			vim.keymap.set('n', '"v', function() harpoon:list():select(9) end)
+		end
+	},
 }
