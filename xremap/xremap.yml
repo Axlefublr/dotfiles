@@ -472,7 +472,7 @@ keymap:
       Super-6: { launch: [fish, -c, toggle_compositor] }
       CapsLock-Esc: { launch: [wmctrl, -c, ':ACTIVE:'] }
       CapsLock-Alt-Esc: { launch: [xdotool, getwindowfocus, windowkill] }
-      Super-v: { launch: [fish, -c, 'run_xzoom'] }
+      Super-v: { launch: [boomer] }
       CapsLock-Dot:
         {
           launch:

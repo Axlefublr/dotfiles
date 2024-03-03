@@ -82,6 +82,13 @@ sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 # Screenkey
 sudo ln -sf ~/prog/dotfiles/desktop/screenkey.desktop /usr/share/applications
 
+# Tsoding/boomer
+cd ~/prog
+git clone https://github.com/tsoding/boomer
+cd boomer
+nimble build
+ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql

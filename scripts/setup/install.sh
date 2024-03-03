@@ -93,3 +93,4 @@ sudo pacman -S --noconfirm tree-sitter-cli
 sudo pacman -S --noconfirm dust
 sudo pacman -S --noconfirm neovide
 sudo pacman -S --noconfirm playerctl
+sudo pacman -S --noconfirm nim

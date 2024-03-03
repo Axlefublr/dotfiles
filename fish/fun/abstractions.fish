@@ -110,19 +110,6 @@ function toggle_compositor
 end
 funcsave toggle_compositor > /dev/null
 
-function run_xzoom
-	if pidof xzoom
-		notify-send -t 2000 'xzoom already running'
-		return 1
-	end
-	killall gromit-mpx
-	killall picom
-	xzoom -mag 3
-	gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
-	picom &> /tmp/log/picom.txt & disown
-end
-funcsave run_xzoom > /dev/null
-
 function is_internet
 	set -l response (nmcli networking connectivity check)
 	if test $response = 'full'

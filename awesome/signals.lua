@@ -1,20 +1,3 @@
-local function on_maybe_name(client)
-	if client.name and string.match(client.name, '^xzoom') then
-		client.ontop = true
-		client.floating = true
-		client.sticky = true
-		client.border_width = 0
-
-		local screen_geometry = client.screen.geometry
-		client:geometry({
-			x = screen_geometry.x,
-			y = screen_geometry.height - 500,
-			width = 500,
-			height = 500,
-		})
-	end
-end
-
 screen.connect_signal('property::geometry', Set_wallpaper)
 
 -- client.connect_signal("mouse::enter", function(client)
@@ -27,14 +10,12 @@ client.connect_signal('property::urgent', function(client)
 end)
 
 client.connect_signal('property::name', function(client)
-	on_maybe_name(client)
 end)
 
 -- Signal function to execute when a new client appears.
 client.connect_signal('manage', function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
-	on_maybe_name(client)
 	if client.class == 'Anki' and string.match(client.name, '^Browse') then
 		Move_window_to_tag(16)
 	end
