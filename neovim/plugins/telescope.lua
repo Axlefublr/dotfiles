@@ -45,6 +45,8 @@ return {
 						['L'] = 'preview_scrolling_down',
 					},
 					i = {
+						['<a-f>'] = 'select_horizontal',
+						['<a-s>'] = 'select_vertical',
 						['<c-u>'] = false,
 						['<a-h>'] = 'close',
 					},
