@@ -100,6 +100,7 @@ Media_state_widget = wibox.widget({
 })
 Media_state_margin_widget = wibox.container.margin(Media_state_widget)
 Media_state_margin_widget.left = Between_margin + 4
+Media_state_margin_widget.right = -2
 function Widget_update_media_state()
 	awful.spawn.easy_async_with_shell('media_state', function(stdout)
 		local output = Trim_newlines(stdout)
@@ -377,6 +378,28 @@ function Widget_disable_water()
 	Water_widget:set_text('')
 end
 
+Media_note_widget = wibox.widget({
+	text = '󰝚 ',
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font,
+})
+Media_note_margin_widget = wibox.container.margin(Media_note_widget)
+Media_note_margin_widget.left = Between_margin + 3
+Media_note_margin_widget.right = -2
+
+Media_time_widget = wibox.widget({
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.code_font,
+})
+Media_time_margin_widget = wibox.container.margin(Media_time_widget)
+function Widget_update_media_time()
+	awful.spawn.easy_async_with_shell('get_media_time', function (output)
+		local media_time = Trim_newlines(output)
+		Media_time_widget:set_text(media_time)
+	end)
+end
+
 Clients_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
@@ -642,6 +665,8 @@ screen.primary.wibox_widget:setup({
 		Wifi_margin_widget,
 		Meat_margin_widget,
 		Hunger_margin_widget,
+		Media_note_margin_widget,
+		Media_time_margin_widget,
 		Media_state_margin_widget,
 		Media_volume_margin_widget,
 		Mic_muteness_margin_widget,
@@ -661,6 +686,7 @@ local frequent_updaters = {
 	-- Widget_update_compositor,
 	Widget_update_bluetooth,
 	Widget_update_wifi,
+	Widget_update_media_time,
 	Widget_update_media_state,
 	Widget_update_media_volume,
 	Widget_update_mic_muteness,
