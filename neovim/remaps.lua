@@ -1,19 +1,22 @@
 local function close_without_saving() vim.cmd('q!') end
-local function close_try_save()
-	if Is_readonly() or Get_buffer_name() == '' then
-		close_without_saving()
-	else
-		vim.cmd('x')
-	end
+local function trim_trailing_whitespace() pcall(vim.cmd, '%s`\\v\\s+$') end
+local function write()
+	pcall(vim.cmd, 'write')
 end
-local function trim_trailing_whitespace()
-	vim.cmd('%s`\\v\\s+$')
+function Write_if_modified()
+	if vim.bo.modified then
+		write()
+	end
 end
 local function save()
 	trim_trailing_whitespace()
 	Remove_highlighting()
-	Save()
+	Write_if_modified()
 	require('lualine').refresh()
+end
+local function close_try_save()
+	Write_if_modified()
+	close_without_saving()
 end
 vim.keymap.set('', '<Space>', save)
 vim.keymap.set('i', '<f1>', close_try_save) -- f1 ends up being alt+enter for me

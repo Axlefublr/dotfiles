@@ -79,8 +79,8 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 	command = 'setfiletype rasi',
 })
 
--- vim.api.nvim_create_autocmd('BufLeave', {
--- 	callback = Save,
--- })
+vim.api.nvim_create_autocmd('BufLeave', {
+	callback = Write_if_modified,
+})
 
 print('nvim loaded')

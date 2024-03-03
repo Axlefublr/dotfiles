@@ -235,10 +235,3 @@ function Get_buffer_name()
 	local current_buffer = vim.api.nvim_get_current_buf()
 	return vim.api.nvim_buf_get_name(current_buffer)
 end
-
-function Save()
-	if Is_readonly() or Get_buffer_name() == '' then
-		return 1
-	end
-	vim.cmd('write')
-end
