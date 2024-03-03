@@ -120,7 +120,7 @@ function uboot
 	if test $response = "r"
 		reboot
 	else if test $response = "l"
-		qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+		logout
 	else if test $response = "s"
 		poweroff
 	end

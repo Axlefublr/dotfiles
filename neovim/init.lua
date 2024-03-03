@@ -9,6 +9,7 @@ Colors = {
 	orange = '#e78a4e',
 	cyan = '#7daea3',
 	mint = '#89b482',
+	purple = '#d3869b'
 }
 
 THROWAWAY_REGISTER = 'o'

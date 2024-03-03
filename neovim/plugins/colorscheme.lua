@@ -15,6 +15,13 @@ local highlight_modifications = function()
 	vim.api.nvim_set_hl(0, '@property.yaml', { fg = Colors.mint })
 	vim.api.nvim_set_hl(0, '@punctuation.delimiter.yaml', { fg = Colors.white })
 	vim.api.nvim_set_hl(0, '@boolean.yaml', { fg = Colors.cyan, italic = true })
+
+	vim.api.nvim_set_hl(0, '@string.fish', { fg = Colors.yellow } )
+	vim.api.nvim_set_hl(0, '@number.fish', { fg = Colors.orange } )
+	vim.api.nvim_set_hl(0, '@boolean.fish', { fg = Colors.cyan, italic = true } )
+	vim.api.nvim_set_hl(0, '@constant.fish', { fg = Colors.purple } )
+	vim.api.nvim_set_hl(0, '@variable.fish', { fg = Colors.purple } )
+	vim.api.nvim_set_hl(0, '@string.escape.fish', { fg = Colors.grey } )
 end
 
 return {
