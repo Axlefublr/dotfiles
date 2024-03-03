@@ -27,7 +27,6 @@ client.connect_signal('property::urgent', function(client)
 end)
 
 client.connect_signal('property::name', function(client)
-	Widget_enable_title(client)
 	on_maybe_name(client)
 end)
 
@@ -84,7 +83,6 @@ awful.tag.attached_connect_signal(screen.primary, 'property::selected', function
 end)
 
 client.connect_signal('focus', function(client)
-	Widget_enable_title(client)
 	Widget_update_ontop(client)
 	Widget_update_maximized(client)
 	Widget_update_sticky(client)

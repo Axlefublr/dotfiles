@@ -523,29 +523,6 @@ end
 Stated_margin_widget = wibox.container.margin()
 Stated_margin_widget.left = 0
 
-Title_widget = wibox.widget({
-	text = '',
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font
-})
-Title_margin_widget = wibox.container.margin(Title_widget)
-Title_margin_widget.left = 0
-Title_margin_widget.right = 0
-function Widget_enable_title(passed_client)
-	if passed_client ~= client.focus then return end
-	local title = ''
-	if passed_client.class then title = Trim_newlines(passed_client.class) .. ': ' end
-	if passed_client.name then title = title .. Trim_newlines(passed_client.name) end
-	Title_margin_widget.left = Between_margin
-	Title_margin_widget.right = Between_margin
-	Title_widget:set_text(title)
-end
-function Widget_disable_title()
-	Title_widget:set_text('')
-	Title_margin_widget.left = 0
-	Title_margin_widget.right = 0
-end
-
 Window_state_layout_widget = wibox.widget({
 	Stated_margin_widget,
 	Ontop_state_margin_widget,
@@ -554,26 +531,6 @@ Window_state_layout_widget = wibox.widget({
 	Floating_state_margin_widget,
 	layout = wibox.layout.fixed.horizontal,
 })
-
-Media_title_widget = wibox.widget({
-	text = '',
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font
-})
-Media_title_margin_widget = wibox.container.margin(Media_title_widget)
-function Widget_update_media_title()
-	awful.spawn.easy_async_with_shell('get_media_title', function(stdout)
-		local title = Trim_newlines(stdout)
-		if #title == 0 then
-			Media_title_margin_widget.right = 0
-			Media_title_margin_widget.left = 0
-		else
-			Media_title_margin_widget.right = Between_margin
-			Media_title_margin_widget.left = Between_margin
-		end
-		Media_title_widget:set_text(title)
-	end)
-end
 
 Taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
@@ -699,9 +656,9 @@ screen.primary.wibox_widget:setup({
 
 local frequent_updaters = {
 	Widget_update_layout,
-	Widget_update_xremap,
-	Widget_update_gromit,
-	Widget_update_compositor,
+	-- Widget_update_xremap,
+	-- Widget_update_gromit,
+	-- Widget_update_compositor,
 	Widget_update_bluetooth,
 	Widget_update_wifi,
 	Widget_update_media_state,
@@ -710,7 +667,6 @@ local frequent_updaters = {
 	Widget_update_mic_volume,
 	Widget_update_volume,
 	Widget_update_muteness,
-	Widget_update_media_title,
 }
 
 Frequent_counter = 0
