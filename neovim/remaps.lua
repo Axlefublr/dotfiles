@@ -6,7 +6,11 @@ local function close_try_save()
 		vim.cmd('x')
 	end
 end
+local function trim_trailing_whitespace()
+	vim.cmd('%s`\\v\\s+$')
+end
 local function save()
+	trim_trailing_whitespace()
 	Remove_highlighting()
 	Save()
 	require('lualine').refresh()
