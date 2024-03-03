@@ -4,8 +4,8 @@ Between_widget.right = Between_margin
 
 My_main_menu = awful.menu({
 	items = {
-		{ 'restart',  awesome.restart },
-		{ 'quit',     function() awesome.quit() end },
+		{ 'restart', awesome.restart },
+		{ 'quit', function() awesome.quit() end },
 		{ 'terminal', terminal },
 	},
 })
@@ -394,7 +394,7 @@ Media_time_widget = wibox.widget({
 })
 Media_time_margin_widget = wibox.container.margin(Media_time_widget)
 function Widget_update_media_time()
-	awful.spawn.easy_async_with_shell('get_media_time', function (output)
+	awful.spawn.easy_async_with_shell('get_media_time', function(output)
 		local media_time = Trim_newlines(output)
 		Media_time_widget:set_text(media_time)
 	end)
@@ -410,30 +410,29 @@ Clients_margin_widget = wibox.container.margin(Clients_background_widget)
 function Widget_update_clients(tag)
 	local clients = tag:clients()
 
-	if #clients <= 1 then
+	if #clients == 0 then
 		Widget_disable_clients()
 		return
 	end
 
-	local activate_widget = false
-	if tag.layout.name == 'max' then
-		activate_widget = true
-	else
-		for _, client in ipairs(clients) do
-			if client.maximized then
-				activate_widget = true
-				break
-			end
+	local text = ''
+	for _, client in ipairs(clients) do
+		if client.class then
+			local truncation = client.class:sub(1, 1)
+			text = text .. truncation
+		else
+			text = text .. '?'
 		end
 	end
-	if activate_widget then
-		Clients_widget:set_text(#clients)
-		Clients_margin_widget.right = Between_margin
-	else
-		Widget_disable_clients()
-	end
-end
 
+	if text == '' then
+		Widget_disable_clients()
+		return
+	end
+
+	Clients_widget:set_text(text)
+	Clients_margin_widget.right = Between_margin
+end
 function Widget_disable_clients()
 	Clients_widget:set_text('')
 	Clients_margin_widget.right = 0
@@ -449,6 +448,7 @@ Malumn_margin_widget.right = Between_margin
 function Widget_update_malumn(tag)
 	Malumn_widget:set_text(tag.master_count .. '/' .. tag.column_count)
 end
+
 function Widget_disable_malumn() Malumn_widget:set_text('?/?') end
 
 Note_widget = wibox.widget({
@@ -633,7 +633,7 @@ screen.primary.wibox_widget = awful.wibar({
 	position = 'top',
 	screen = screen.primary,
 	height = wibar_height,
-	bg = wibar_bg
+	bg = wibar_bg,
 })
 
 -- awgts (All widgets)
@@ -647,7 +647,7 @@ screen.primary.wibox_widget:setup({
 		Text_clock_widget,
 		screen.primary.tag_list_margin_widget,
 		Loago_margin_widget,
-		Window_state_layout_widget
+		Window_state_layout_widget,
 	},
 	Note_margin_widget,
 	-- Right widgets
