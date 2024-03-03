@@ -256,62 +256,6 @@ function Widget_update_compositor()
 	end)
 end
 
-Gromit_widget = wibox.widget({
-	text = '',
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
-})
-Gromit_background_widget = wibox.container.background(Gromit_widget)
-Gromit_margin_widget = wibox.container.margin(Gromit_background_widget)
-function Widget_disable_gromit()
-	Gromit_margin_widget.right = 4
-	Gromit_widget:set_text(' ')
-end
-
-function Widget_enable_gromit()
-	Gromit_margin_widget.right = 0
-	Gromit_widget:set_text('')
-end
-
-function Widget_update_gromit()
-	awful.spawn.easy_async_with_shell('pidof gromit-mpx', function(stdout)
-		local is_gromit = Trim_newlines(stdout)
-		if #is_gromit > 0 then
-			Widget_enable_gromit()
-		else
-			Widget_disable_gromit()
-		end
-	end)
-end
-
-Xremap_widget = wibox.widget({
-	text = '',
-	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
-})
-Xremap_background_widget = wibox.container.background(Xremap_widget)
-Xremap_margin_widget = wibox.container.margin(Xremap_background_widget)
-function Widget_disable_xremap()
-	Xremap_margin_widget.right = 4
-	Xremap_widget:set_text('󱇪 ')
-end
-
-function Widget_enable_xremap()
-	Xremap_margin_widget.right = 0
-	Xremap_widget:set_text('')
-end
-
-function Widget_update_xremap()
-	awful.spawn.easy_async_with_shell('pidof xremap', function(stdout)
-		local is_xremap = Trim_newlines(stdout)
-		if #is_xremap > 0 then
-			Widget_enable_xremap()
-		else
-			Widget_disable_xremap()
-		end
-	end)
-end
-
 Dnd_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
@@ -656,8 +600,6 @@ screen.primary.wibox_widget:setup({
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
 		Layout_margin_widget,
-		Xremap_margin_widget,
-		Gromit_margin_widget,
 		Compositor_margin_widget,
 		Water_margin_widget,
 		Dnd_margin_widget,
@@ -681,9 +623,7 @@ screen.primary.wibox_widget:setup({
 
 local frequent_updaters = {
 	Widget_update_layout,
-	-- Widget_update_xremap,
-	-- Widget_update_gromit,
-	-- Widget_update_compositor,
+	Widget_update_compositor,
 	Widget_update_bluetooth,
 	Widget_update_wifi,
 	Widget_update_media_time,
