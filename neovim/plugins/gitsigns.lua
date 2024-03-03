@@ -75,6 +75,8 @@ local opts = {
 
 		map('n', ',cs', ':Gitsigns show ')
 		map('n', ',cd', ':Gitsigns diffthis ')
+
+		map({'o', 'x'}, 'id', ':<C-U>Gitsigns select_hunk<CR>')
 	end,
 }
 
