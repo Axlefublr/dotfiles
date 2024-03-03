@@ -49,6 +49,8 @@ vim.keymap.set('v', 'u', '<Esc>u')
 vim.keymap.set('v', '&', ':s`\\V')
 vim.keymap.set('v', '@@', function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end) -- multiply selection
 
+vim.keymap.set('i', '<a-,>', '<c-d>')
+vim.keymap.set('i', '<a-.>', '<c-t>')
 vim.keymap.set('i', '<c-l>', '<C-x><C-l>')
 vim.keymap.set('i', '<C-k>', '<C-o>O')
 -- vim.keymap.set('i', '<C-j>', '<C-o>o')
