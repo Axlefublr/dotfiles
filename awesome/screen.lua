@@ -648,13 +648,7 @@ screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.ta
 screen.primary.tag_list_margin_widget.right = Between_margin
 
 local wibar_height = 35
-local wibar_bg = beautiful.darker
-screen.primary.extra_wibox_widget = awful.wibar({
-	position = 'bottom',
-	screen = screen.primary,
-	height = wibar_height,
-	bg = wibar_bg
-})
+local wibar_bg = beautiful.background
 screen.primary.wibox_widget = awful.wibar({
 	position = 'top',
 	screen = screen.primary,
@@ -665,6 +659,7 @@ screen.primary.wibox_widget = awful.wibar({
 -- awgts (All widgets)
 screen.primary.wibox_widget:setup({
 	layout = wibox.layout.align.horizontal,
+	expand = 'none',
 	-- Left widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
@@ -674,14 +669,13 @@ screen.primary.wibox_widget:setup({
 		Loago_margin_widget,
 		Window_state_layout_widget
 	},
-	nil,
+	Note_margin_widget,
 	-- Right widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
 		Layout_margin_widget,
-		Clients_margin_widget,
 		Xremap_margin_widget,
 		Gromit_margin_widget,
 		Compositor_margin_widget,
@@ -699,27 +693,8 @@ screen.primary.wibox_widget:setup({
 		Volume_margin_widget,
 		Tile_margin_widget,
 		Malumn_margin_widget,
+		Clients_margin_widget,
 	},
-})
-
-local right_layout = wibox.layout.align.horizontal()
-right_layout.third = Title_margin_widget
-
-screen.primary.extra_wibox_widget:setup({
-	layout = wibox.layout.align.horizontal,
-	expand = 'outside',
-	{
-		layout = wibox.layout.flex.horizontal,
-		Media_title_margin_widget
-	},
-	{
-		layout = wibox.layout.flex.horizontal,
-		Note_margin_widget,
-	},
-	{
-		layout = wibox.layout.flex.horizontal,
-		right_layout
-	}
 })
 
 local frequent_updaters = {
