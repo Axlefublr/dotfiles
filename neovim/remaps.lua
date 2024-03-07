@@ -97,6 +97,8 @@ vim.keymap.set('n', ',ao', '<c-w>b')
 vim.keymap.set('n', ',aU', '<c-w>t<c-w>|<c-w>_')
 vim.keymap.set('n', ',aO', '<c-w>b<c-w>|<c-w>_')
 vim.keymap.set('n', ',a/', '<c-w>p')
+vim.keymap.set('n', ',ay', '<c-w>^')
+vim.keymap.set('n', ',at', '<cmd>exe "vertical normal \\<c-w>^"<cr>')
 vim.keymap.set('n', ',ar', '<c-w>r')
 vim.keymap.set('n', ',aR', '<c-w>R')
 vim.keymap.set('n', ',ax', '<c-w>x')
@@ -112,6 +114,7 @@ vim.keymap.set('n', ',aL', '<c-w>l<c-w>|')
 vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
 
+vim.keymap.set({ 'n', 'v' }, ',dc', '<cmd>echo getcwd()<cr>')
 vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
 vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
