@@ -147,7 +147,7 @@ funcsave get_hunger > /dev/null
 
 function get_oldest_task
 	clorange task-count increment
-	set oldest (loago list | rg -v 'eat|green|white|filter|razor' | tail -n 3)
+	set oldest (loago list | rg -v 'eat|green|white|filter|razor|tails' | tail -n 3)
 	set index (math "$(clorange task-count show) % 3 + 1")
 	set picked $oldest[$index]
 	set matches (string match -gr '(\\S+)\\s+—\\s+(\\d+)' $picked)

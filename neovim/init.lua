@@ -9,7 +9,8 @@ Colors = {
 	orange = '#e78a4e',
 	cyan = '#7daea3',
 	mint = '#89b482',
-	purple = '#d3869b'
+	purple = '#d3869b',
+	red = '#ea6962'
 }
 
 THROWAWAY_REGISTER = 'o'
@@ -25,8 +26,8 @@ if vim.g.neovide then
 	vim.g.neovide_padding_left = 10
 	local default_scale = 0.9
 	vim.g.neovide_scale_factor = default_scale
-	vim.keymap.set({'n', 'v'}, ',a\'', ':lua vim.g.neovide_scale_factor = 0.')
-	vim.keymap.set({'n', 'v'}, ',a"', ':lua vim.g.neovide_scale_factor = 1')
+	vim.keymap.set({ 'n', 'v' }, ",a'", ':lua vim.g.neovide_scale_factor = 0.')
+	vim.keymap.set({ 'n', 'v' }, ',a"', ':lua vim.g.neovide_scale_factor = 1')
 end
 require('options')
 require('global-functions')
@@ -80,7 +81,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 	command = 'setfiletype rasi',
 })
 
-vim.api.nvim_create_autocmd('BufLeave', {
+vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
 	callback = Write_if_modified,
 })
 

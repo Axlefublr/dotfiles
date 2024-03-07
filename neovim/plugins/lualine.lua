@@ -61,10 +61,6 @@ return {
 						},
 					},
 					lualine_y = {
-						{
-							'searchcount',
-							padding = { left = 1, right = 0 }
-						},
 						'progress'
 					},
 					lualine_z = {
@@ -75,7 +71,7 @@ return {
 						},
 						{
 							'location',
-							padding = { left = 0, right = 1 }
+							padding = { left = 1, right = 1 }
 						}
 					},
 				},
