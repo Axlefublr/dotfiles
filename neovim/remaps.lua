@@ -113,6 +113,7 @@ vim.keymap.set('n', ',aK', '<c-w>k<c-w>_')
 vim.keymap.set('n', ',aL', '<c-w>l<c-w>|')
 vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
+vim.keymap.set('n', ',am', '<cmd>enew<cr>')
 
 vim.keymap.set({ 'n', 'v' }, ',dc', '<cmd>echo getcwd()<cr>')
 vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.

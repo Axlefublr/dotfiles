@@ -31,6 +31,9 @@ local highlight_modifications = function()
 	vim.api.nvim_set_hl(0, '@constant.css', { fg = Colors.cyan } ) -- #id
 	vim.api.nvim_set_hl(0, '@attribute.css', { fg = Colors.cyan } ) -- [something="something"]
 	vim.api.nvim_set_hl(0, '@number.float.css', { fg = Colors.orange } )
+
+	vim.api.nvim_set_hl(0, 'confComment', { fg = Colors.grey })
+	vim.api.nvim_set_hl(0, 'confString', { fg = Colors.yellow })
 end
 
 return {

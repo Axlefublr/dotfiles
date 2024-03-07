@@ -1,9 +1,6 @@
 {
-    "diagnostics.globals": [
-        "vim",
-        "client",
-        "root",
-        "screen",
-        "awesome"
+    "diagnostics.disable": [
+        "lowercase-global",
+        "undefined-global"
     ]
 }
