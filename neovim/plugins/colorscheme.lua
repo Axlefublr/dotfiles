@@ -34,6 +34,12 @@ local highlight_modifications = function()
 		['@attribute.css'] = 'cyan', -- [something="something"]
 		['@number.float.css'] = 'orange',
 
+		['@property.jsonc'] = 'mint',
+		['@conceal.jsonc'] = 'white',
+
+		['@markup.italic.markdown_inline'] = { italic = true },
+		['@markup.strikethrough.markdown_inline'] = { strikethrough = true },
+
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',
 	}
