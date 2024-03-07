@@ -147,8 +147,17 @@ funcsave get_hunger > /dev/null
 
 function get_oldest_task
 	clorange task-count increment
-	set oldest (loago list | rg -v 'eat|green|white|filter|razor|tails' | tail -n 3)
-	set index (math "$(clorange task-count show) % 3 + 1")
+	set oldest (loago list | rg -v 'eat|green|white|filter|razor|tails' | tac | awk '$3>4{print}') # only get tasks done 5 or more days ago
+	set available (count $oldest)
+	if test $available -eq 0
+		printf 'done!'
+		return 0
+	end
+	set index (clorange task-count show)
+	if test $index -gt $available
+		clorange task-count set 1
+		set index 1
+	end
 	set picked $oldest[$index]
 	set matches (string match -gr '(\\S+)\\s+—\\s+(\\d+)' $picked)
 	set name $matches[1]
