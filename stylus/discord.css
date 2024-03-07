@@ -855,3 +855,8 @@ rect[mask="url(#svg-mask-status-offline)"] {
 rect[mask="url(#svg-mask-status-idle)"] {
 	fill: var(--shell-yellow) !important;
 }
+
+/* red line showing new messages */
+#---new-messages-bar {
+	display: none;
+}
