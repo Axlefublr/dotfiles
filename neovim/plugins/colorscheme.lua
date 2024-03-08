@@ -2,6 +2,7 @@ local highlight_modifications = function()
 
 	local recolors = {
 		['@string'] = 'yellow',
+		['@string.escape'] = 'grey',
 		['@comment'] = 'grey',
 		['@punctuation.delimiter'] = 'white',
 
@@ -36,9 +37,14 @@ local highlight_modifications = function()
 
 		['@property.jsonc'] = 'mint',
 		['@conceal.jsonc'] = 'white',
+		['@property.json'] = 'mint',
+		['@conceal.json'] = 'white',
 
 		['@markup.italic.markdown_inline'] = { italic = true },
 		['@markup.strikethrough.markdown_inline'] = { strikethrough = true },
+		['@markup.raw.markdown_inline'] = 'yellow', -- inline code
+		['@markup.raw.delimiter.markdown_inline'] = 'grey', -- `` of inline code
+		['@markup.raw.delimiter.markdown'] = 'grey', -- ``` of codeblocks
 
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',
