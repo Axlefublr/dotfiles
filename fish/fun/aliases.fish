@@ -25,6 +25,7 @@ alias --save screenkey 'screenkey --no-systray --position top --font-size small 
 alias --save rofi-multi-select 'rofi -dmenu -multi-select -ballot-selected-str " " -ballot-unselected-str "  "' > /dev/null
 alias --save awart 'awesome-client "awesome.restart()"' > /dev/null
 alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' > /dev/null
+alias --save dust 'dust -r' > /dev/null
 
 function mkcd
 	mkdir -p $argv && z $argv && clx

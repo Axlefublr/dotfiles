@@ -45,6 +45,8 @@ vim.keymap.set({ 'n', 'v' }, ',de', function()
 	print('copied: ' .. relative_path)
 end)
 
+vim.keymap.set('', ',!', ':r !')
+vim.keymap.set('', '!', ':!')
 vim.keymap.set('', '<cr>', ':')
 vim.keymap.set('', "'", '"')
 vim.keymap.set('', ':', ',')
@@ -135,15 +137,15 @@ vim.keymap.set('n', ',aK', '<c-w>k<c-w>_')
 vim.keymap.set('n', ',aL', '<c-w>l<c-w>|')
 vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
-vim.keymap.set('n', ',am', '<cmd>enew<cr>')
+vim.keymap.set('n', ',aq', '<cmd>enew<cr>')
 
 vim.keymap.set({ 'n', 'v' }, ',dc', '<cmd>echo getcwd()<cr>')
-vim.keymap.set('n', 'gJ', 'j0d^kgJ')                                              -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
-vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB')                                  -- Push line of code after block into block
-vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK)   -- Move line to the top
-vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK)    -- Bottom
-vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>')                            -- Paste a characterwise register on a new line
-vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>')                            -- Paste a characterwise register on a new line
+vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
+vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
+vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
+vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
+vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
+vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
 vim.keymap.set('n', '@', function() FeedKeysInt('yl' .. vim.v.count1 .. 'p') end) -- multiply character
 vim.keymap.set('n', '<Esc>', function()
 	Remove_highlighting()
@@ -262,8 +264,10 @@ vim.keymap.set('n', 'zcn', 'invim: ')
 vim.keymap.set('n', '"j', '<cmd>edit ~/prog/noties/notes.txt<cr>')
 vim.keymap.set('n', '"l', '<cmd>edit ~/prog/noties/temp.txt<cr>')
 vim.keymap.set('n', '"k', '<cmd>edit ~/prog/noties/links.jsonc<cr>')
-vim.keymap.set('n', '"w', '<cmd>edit ~/prog/noties/wishlist.txt<cr>')
+vim.keymap.set('n', '"p', '<cmd>edit ~/prog/noties/wishlist.txt<cr>')
 vim.keymap.set('n', '"i', '<cmd>edit ~/prog/noties/info.md<cr>')
 vim.keymap.set('n', '"o', '<cmd>edit ~/prog/noties/persistent.txt<cr>')
 vim.keymap.set('n', '"u', '<cmd>edit ~/prog/noties/diary.md<cr>')
-vim.keymap.set('n', '"t', '<cmd>edit ~/prog/noties/thoughts.md<cr>')
+vim.keymap.set('n', '";', '<cmd>edit ~/prog/noties/thoughts.md<cr>')
+vim.keymap.set('n', '"e', '<cmd>cd ~/prog/dotfiles<cr>')
+vim.keymap.set('n', '"t', '<cmd>cd ~/prog/noties<cr>')
