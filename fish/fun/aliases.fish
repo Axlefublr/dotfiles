@@ -24,6 +24,7 @@ alias --save clx 'printf "\e[H\e[22J"' > /dev/null
 alias --save screenkey 'screenkey --no-systray --position top --font-size small --key-mode translated --bak-mode full --mods-mod normal --font "JetBrainsMonoNL Nerd Font" --font-color "#d4be98" --bg-color "#1a1919" --opacity 0.7 --compr-cnt 3 --mouse -g 500x1080+1420-73' > /dev/null
 alias --save rofi-multi-select 'rofi -dmenu -multi-select -ballot-selected-str " " -ballot-unselected-str "  "' > /dev/null
 alias --save awart 'awesome-client "awesome.restart()"' > /dev/null
+alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' > /dev/null
 
 function mkcd
 	mkdir -p $argv && z $argv && clx
@@ -65,7 +66,7 @@ funcsave xrestartwaaa > /dev/null
 
 function grostart
 	killall gromit-mpx
-	gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
+	gromit &> /tmp/log/gromit.txt & disown
 end
 funcsave grostart > /dev/null
 

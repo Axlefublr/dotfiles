@@ -105,7 +105,7 @@ function toggle_compositor
 		if pidof gromit-mpx
 			killall gromit-mpx
 		end
-		gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
+		gromit &> /tmp/log/gromit.txt & disown
 	end
 end
 funcsave toggle_compositor > /dev/null

@@ -52,6 +52,7 @@ ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
 
 # Gromit-mpx
 ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
+sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
 
 # Rust formatting
 mkdir -p ~/.config/rustfmt
