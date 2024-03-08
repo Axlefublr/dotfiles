@@ -1,13 +1,10 @@
 local function close_without_saving() vim.cmd('q!') end
 local function trim_trailing_whitespace() pcall(vim.cmd, '%s`\\v\\s+$') end
-local function write()
-	pcall(vim.cmd, 'write')
-end
+local function write() pcall(vim.cmd, 'write') end
 function Write_if_modified()
-	if vim.bo.modified then
-		write()
-	end
+	if vim.bo.modified then write() end
 end
+
 local function save()
 	trim_trailing_whitespace()
 	Remove_highlighting()
@@ -22,6 +19,31 @@ vim.keymap.set('', '<Space>', save)
 vim.keymap.set('i', '<f1>', close_try_save) -- f1 ends up being alt+enter for me
 vim.keymap.set('n', ',K', close_without_saving)
 vim.keymap.set('n', 'K', close_try_save)
+
+local function curr_buff_full_path() return vim.api.nvim_buf_get_name(0) end
+
+vim.keymap.set({ 'n', 'v' }, ',dq', function()
+	local full_path = curr_buff_full_path()
+	vim.fn.setreg('+', full_path)
+	print('copied: ' .. full_path)
+end)
+vim.keymap.set({ 'n', 'v' }, ',dw', function()
+	local file_name = vim.fn.expand('%:t')
+	vim.fn.setreg('+', file_name)
+	print('copied: ' .. file_name)
+end)
+vim.keymap.set({ 'n', 'v' }, ',dr', function()
+	local relative_path = vim.fn.expand('%:p:.')
+	vim.fn.setreg('+', relative_path)
+	print('copied: ' .. relative_path)
+end)
+vim.keymap.set({ 'n', 'v' }, ',de', function()
+	local full_path = vim.api.nvim_buf_get_name(0)
+	local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
+	vim.fn.setreg('+', relative_path)
+	print('copied: ' .. relative_path)
+end)
 
 vim.keymap.set('', '<cr>', ':')
 vim.keymap.set('', "'", '"')
@@ -116,12 +138,12 @@ vim.keymap.set('n', ',ac', '<c-w>_')
 vim.keymap.set('n', ',am', '<cmd>enew<cr>')
 
 vim.keymap.set({ 'n', 'v' }, ',dc', '<cmd>echo getcwd()<cr>')
-vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
-vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
-vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
-vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
-vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
-vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
+vim.keymap.set('n', 'gJ', 'j0d^kgJ')                                              -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
+vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB')                                  -- Push line of code after block into block
+vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK)   -- Move line to the top
+vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK)    -- Bottom
+vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>')                            -- Paste a characterwise register on a new line
+vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>')                            -- Paste a characterwise register on a new line
 vim.keymap.set('n', '@', function() FeedKeysInt('yl' .. vim.v.count1 .. 'p') end) -- multiply character
 vim.keymap.set('n', '<Esc>', function()
 	Remove_highlighting()
@@ -241,7 +263,7 @@ vim.keymap.set('n', '"j', '<cmd>edit ~/prog/noties/notes.txt<cr>')
 vim.keymap.set('n', '"l', '<cmd>edit ~/prog/noties/temp.txt<cr>')
 vim.keymap.set('n', '"k', '<cmd>edit ~/prog/noties/links.jsonc<cr>')
 vim.keymap.set('n', '"w', '<cmd>edit ~/prog/noties/wishlist.txt<cr>')
-vim.keymap.set('n', '"i', '<cmd>edit ~/prog/noties/info.txt<cr>')
+vim.keymap.set('n', '"i', '<cmd>edit ~/prog/noties/info.md<cr>')
 vim.keymap.set('n', '"o', '<cmd>edit ~/prog/noties/persistent.txt<cr>')
 vim.keymap.set('n', '"u', '<cmd>edit ~/prog/noties/diary.md<cr>')
 vim.keymap.set('n', '"t', '<cmd>edit ~/prog/noties/thoughts.md<cr>')
