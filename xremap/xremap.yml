@@ -15,16 +15,10 @@ modmap:
       only: /Terraria/
 
 keymap:
-  - name: Mouse mode gromit overlay
-    mode: overlay
-    remap:
-      Space: [launch: [gromit-mpx, --clear], set_mode: mouse]
-
   - name: Mouse mode
-    mode: [mouse, overlay]
+    mode: [mouse]
     remap:
       CapsLock-Semicolon: { set_mode: default }
-      Space: [launch: [gromit-overlay.fish], set_mode: overlay]
 
       q: { launch: [xdotool, mousemove, '128', '120'] }
       w: { launch: [xdotool, mousemove, '544', '120'] }
