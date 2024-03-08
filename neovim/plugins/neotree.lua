@@ -70,18 +70,13 @@ return {
 					name = {
 						trailing_slash = false,
 						highlight_opened_files = false, -- Requires `enable_opened_markers = true`.
-						-- Take values in { false (no highlight), true (only loaded),
-						-- "all" (both loaded and unloaded)}. For more information,
-						-- see the `show_unloaded` config of the `buffers` source.
 						use_git_status_colors = true,
 					},
 					git_status = {
 						symbols = {
 							-- Change type
-							added = '✚', -- NOTE: you can set any of these to an empty string to not show them
-							deleted = '✖',
-							modified = '',
-							renamed = '󰕍',
+							added = '',
+							modified = '',
 							-- Status type
 							untracked = '',
 							ignored = '',
