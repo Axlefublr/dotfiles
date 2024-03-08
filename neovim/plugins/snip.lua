@@ -2,6 +2,7 @@ return {
 	{
 		'L3MON4D3/LuaSnip',
 		version = 'v2.*',
+		lazy = true,
 		build = 'make install_jsregexp',
 		config = function()
 			vim.keymap.set(
@@ -20,6 +21,7 @@ return {
 	},
 	{
 		'hrsh7th/nvim-cmp',
+		event = 'InsertEnter',
 		dependencies = {
 			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-nvim-lsp',
