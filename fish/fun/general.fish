@@ -286,3 +286,8 @@ function runner_symbol
 	printf $output 2> /dev/null | xclip -r -selection clipboard
 end
 funcsave runner_symbol > /dev/null
+
+function fbp
+	floral_barrel show list | string match -gr '(.*?)\\s+-\\s+ep\\d+\\s+-\\s+dn\\d+' | fzf
+end
+funcsave fbp > /dev/null
