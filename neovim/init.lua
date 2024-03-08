@@ -47,7 +47,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins')
+require('lazy').setup('plugins', {
+	install = {
+		colorscheme = { 'gruvbox-material' }
+	},
+	change_detection = {
+		notify = false
+	}
+})
 
 -- When I use my hotkeys to open some output I see in my kitty terminal,
 -- I'm already looking at some place I want to (usually) copy.
