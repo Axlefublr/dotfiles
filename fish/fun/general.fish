@@ -90,8 +90,7 @@ WantedBy=timers.target' > $timer
 
 	printf "
 
-systemctl --user enable $name.timer
-systemctl --user start $name.timer" >> ~/prog/dotfiles/scripts/systemd/definition.fish
+systemctl --user enable --now $name.timer" >> ~/prog/dotfiles/scripts/systemd/definition.fish
 end
 funcsave smdn > /dev/null
 
@@ -100,8 +99,7 @@ function smdr
 	rm -fr ~/prog/dotfiles/scripts/systemd/{services,timers,executables}/$name.*
 	sd "
 
-systemctl --user enable $name.timer
-systemctl --user start $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
+systemctl --user enable --now $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
 end
 funcsave smdr > /dev/null
 
