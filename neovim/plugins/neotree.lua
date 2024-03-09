@@ -4,7 +4,7 @@ return {
 		branch = 'v3.x',
 		cmd = 'Neotree',
 		keys = {
-			{ ',dt', '<cmd>Neotree<cr>' },
+			{ ',dt', '<cmd>Neotree toggle<cr>' },
 		},
 		dependencies = {
 			'nvim-lua/plenary.nvim',
