@@ -9,6 +9,7 @@ sudo pacman -S --noconfirm ttf-ubuntu-nerd
 sudo pacman -S --noconfirm lxappearance
 sudo pacman -S --noconfirm gtk-engine-murrine
 sudo pacman -S --noconfirm papirus-icon-theme
+sudo pacman -S --noconfirm otf-monaspace-nerd
 
 sudo pacman -S --noconfirm paru
 sudo pacman -S --noconfirm vivaldi

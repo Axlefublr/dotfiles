@@ -11,11 +11,12 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
+theme.font_size = ' 13'
 theme.ubuntu_font = 'Ubuntu NF'
-theme.jetbrains_font = 'JetBrainsMonoNL Nerd Font'
+theme.jetbrains_font = 'JetBrainsMonoNL NF'
 
-theme.font = theme.ubuntu_font .. ' 13'
-theme.code_font = theme.jetbrains_font .. ' 13'
+theme.font = theme.ubuntu_font .. theme.font_size
+theme.code_font = theme.jetbrains_font .. theme.font_size
 theme.background = '#292828'
 theme.white = '#d4be98'
 theme.darker = '#242323'

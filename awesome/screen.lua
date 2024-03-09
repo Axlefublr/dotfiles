@@ -16,7 +16,7 @@ Text_clock_widget.font = beautiful.code_font
 Loago_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
+	font = 'MonaspiceRn NF 14',
 })
 Loago_margin_widget = wibox.container.margin(Loago_widget)
 Loago_margin_widget.right = Between_margin - 3
@@ -133,7 +133,7 @@ end
 Layout_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
+	font = 'MonaspiceNe NF 14',
 })
 Layout_background_widget = wibox.container.background(Layout_widget)
 Layout_margin_widget = wibox.container.margin(Layout_background_widget)
@@ -347,7 +347,7 @@ end
 Clients_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
+	font = 'MonaspiceNe NF 14',
 })
 Clients_background_widget = wibox.container.background(Clients_widget)
 Clients_margin_widget = wibox.container.margin(Clients_background_widget)
@@ -398,7 +398,7 @@ function Widget_disable_malumn() Malumn_widget:set_text('?/?') end
 Note_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
+	font = 'Comfortaa' .. beautiful.font_size,
 })
 Note_margin_widget = wibox.container.margin(Note_widget)
 function Widget_update_note()
@@ -533,7 +533,7 @@ screen.primary.layout_box_widget:buttons(
 Tile_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = beautiful.code_font,
+	font = 'MonaspiceNe NF 14',
 })
 Tile_margin_widget = wibox.container.margin(Tile_widget)
 Tile_margin_widget.right = Between_margin
