@@ -89,8 +89,14 @@ return {
 				git_files = {
 					show_untracked = true
 				},
+				buffers = {
+					ignore_current_buffer = true,
+					sort_lastused = true,
+					sort_mru = true
+				},
 				lsp_references = {
 					show_line = false,
+					include_declaration = false
 				},
 				lsp_incoming_calls = {
 					show_line = false,
