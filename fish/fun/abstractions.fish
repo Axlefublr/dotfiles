@@ -162,31 +162,6 @@ function get_oldest_task
 	set matches (string match -gr '(\\S+)\\s+—\\s+(\\d+)' $picked)
 	set name $matches[1]
 	set days $matches[2]
-	set formatted_days ''
-	for digit in (string split '' $days)
-		switch $digit
-			case 0
-				set formatted_days $formatted_days⁰
-			case 1
-				set formatted_days $formatted_days¹
-			case 2
-				set formatted_days $formatted_days²
-			case 3
-				set formatted_days $formatted_days³
-			case 4
-				set formatted_days $formatted_days⁴
-			case 5
-				set formatted_days $formatted_days⁵
-			case 6
-				set formatted_days $formatted_days⁶
-			case 7
-				set formatted_days $formatted_days⁷
-			case 8
-				set formatted_days $formatted_days⁸
-			case 9
-				set formatted_days $formatted_days⁹
-		end
-	end
-	printf "$name$formatted_days"
+	printf "$name $days"
 end
 funcsave get_oldest_task > /dev/null
