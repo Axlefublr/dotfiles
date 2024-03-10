@@ -5,28 +5,25 @@ local highlight_modifications = function()
 		['@string.escape'] = 'grey',
 		['@comment'] = 'grey',
 		['@punctuation.delimiter'] = 'white',
+		['@number'] = 'orange',
+		['@operator'] = 'white',
+		['@type'] = 'cyan',
+		['@type.definition'] = 'cyan',
+		['@boolean'] = { fg = Colors.cyan, italic = true },
 
-		['@operator.lua'] = 'white',
-		['@number.lua'] = 'orange',
-		['@boolean.lua'] = { fg = Colors.cyan, italic = true },
 		['@lsp.type.property.lua'] = 'white',
 		['@lsp.type.comment.lua'] = 'grey',
 		['@variable.member.lua'] = 'white',
 		['@string.regexp.lua'] = { fg = Colors.yellow, bold = true },
 
-		['@comment.yaml'] = 'grey',
 		['@property.yaml'] = 'mint',
-		['@boolean.yaml'] = { fg = Colors.cyan, italic = true },
 
-		['@number.fish'] = 'orange',
-		['@boolean.fish'] = { fg = Colors.cyan, italic = true },
 		['@constant.fish'] = 'purple',
 		['@variable.fish'] = 'purple',
+		['@operator.fish'] = 'orange',
 
 		['@type.css'] = 'orange',
-		['@number.css'] = 'orange',
 		['@property.css'] = 'mint',
-		['@operator.css'] = 'white',
 		['@type.qualifier.css'] = 'red',
 		['@tag.attribute.css'] = 'mint',
 		['@tag.css'] = 'purple',
@@ -45,6 +42,11 @@ local highlight_modifications = function()
 		['@markup.raw.markdown_inline'] = 'yellow', -- inline code
 		['@markup.raw.delimiter.markdown_inline'] = 'grey', -- `` of inline code
 		['@markup.raw.delimiter.markdown'] = 'grey', -- ``` of codeblocks
+
+		['@punctuation.special.bash'] = 'purple',
+		['@variable.bash'] = 'purple',
+		['@constant.bash'] = { fg = 'purple', underline = true },
+		['@operator.bash'] = 'orange',
 
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',
@@ -70,6 +72,9 @@ return {
 		config = function()
 			vim.cmd.colorscheme('gruvbox-material')
 			highlight_modifications()
+			vim.api.nvim_create_autocmd('ColorScheme', {
+				callback = highlight_modifications
+			})
 		end,
 	},
 }

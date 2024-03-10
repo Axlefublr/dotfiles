@@ -347,7 +347,7 @@ end
 Clients_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = 'MonaspiceNe NF 14',
+	font = beautiful.code_font,
 })
 Clients_background_widget = wibox.container.background(Clients_widget)
 Clients_margin_widget = wibox.container.margin(Clients_background_widget)
