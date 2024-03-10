@@ -61,6 +61,8 @@ set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual block
 
 set -g small_threshold 46
+set -g head F8:5C:7D:3E:67:1F
+set -g ear 68:D6:ED:18:9A:56
 
 zoxide init fish | source
 for file in ~/prog/dotfiles/fish/abbreviations/*.fish
