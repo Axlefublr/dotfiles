@@ -27,6 +27,11 @@ alias --save awart 'awesome-client "awesome.restart()"' > /dev/null
 alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' > /dev/null
 alias --save dust 'dust -r' > /dev/null
 
+function rlc
+	realpath $argv | xclip -r -selection clipboard
+end
+funcsave rlc > /dev/null
+
 function mkcd
 	mkdir -p $argv && z $argv && clx
 end
