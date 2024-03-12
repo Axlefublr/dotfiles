@@ -39,8 +39,8 @@ return {
 				},
 				mappings = {
 					n = {
-						[',aj'] = 'select_horizontal',
-						[',al'] = 'select_vertical',
+						['<a-f>'] = 'select_horizontal',
+						['<a-s>'] = 'select_vertical',
 						['H'] = 'preview_scrolling_up',
 						['L'] = 'preview_scrolling_down',
 					},
@@ -48,7 +48,6 @@ return {
 						['<a-f>'] = 'select_horizontal',
 						['<a-s>'] = 'select_vertical',
 						['<c-u>'] = false,
-						['<a-h>'] = 'close',
 					},
 				},
 			},
