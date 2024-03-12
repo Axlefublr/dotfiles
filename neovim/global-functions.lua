@@ -96,11 +96,13 @@ end
 
 -- I call it death because that's where we end up in. Just like /e or no /e
 function Search_for_selection(direction, death)
+	local default = vim.fn.getreg('"')
 	FeedKeys('y')
 	vim.schedule(function()
 		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('"'))
 		FeedKeys(direction .. '\\V' .. escaped_selection .. death)
 		FeedKeysInt('<cr>')
+		vim.fn.setreg('"', default)
 	end)
 end
 
