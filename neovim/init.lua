@@ -26,8 +26,8 @@ if vim.g.neovide then
 	vim.g.neovide_padding_left = 10
 	local default_scale = 1.0
 	vim.g.neovide_scale_factor = default_scale
-	vim.keymap.set({ 'n', 'v' }, ",a'", ':lua vim.g.neovide_scale_factor = 0.')
-	vim.keymap.set({ 'n', 'v' }, ',a"', ':lua vim.g.neovide_scale_factor = 1')
+	vim.keymap.set({ 'n', 'x' }, ",a'", ':lua vim.g.neovide_scale_factor = 0.')
+	vim.keymap.set({ 'n', 'x' }, ',a"', ':lua vim.g.neovide_scale_factor = 1')
 end
 require('options')
 require('global-functions')

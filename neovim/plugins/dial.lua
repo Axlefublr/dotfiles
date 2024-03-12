@@ -119,25 +119,25 @@ return {
 			)
 
 			vim.keymap.set(
-				'v',
+				'x',
 				'<c-a>',
 				require('dial.map').inc_visual('visual'),
 				{ noremap = true }
 			)
 			vim.keymap.set(
-				'v',
+				'x',
 				'<c-x>',
 				require('dial.map').dec_visual('visual'),
 				{ noremap = true }
 			)
 			vim.keymap.set(
-				'v',
+				'x',
 				'g<c-a>',
 				require('dial.map').inc_gvisual('visual'),
 				{ noremap = true }
 			)
 			vim.keymap.set(
-				'v',
+				'x',
 				'g<c-x>',
 				require('dial.map').dec_visual('visual'),
 				{ noremap = true }
@@ -150,7 +150,7 @@ return {
 				{ noremap = true }
 			)
 			vim.keymap.set(
-				'v',
+				'x',
 				',dj',
 				require('dial.map').inc_visual('toggles'),
 				{ noremap = true }

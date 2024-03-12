@@ -17,6 +17,6 @@ local en_keys = {
 }
 for i = 1, #ru_keys do
 	vim.api.nvim_set_keymap('n', ru_keys[i], en_keys[i], { noremap = false })
-	vim.api.nvim_set_keymap('v', ru_keys[i], en_keys[i], { noremap = false })
+	vim.api.nvim_set_keymap('x', ru_keys[i], en_keys[i], { noremap = false })
 	vim.api.nvim_set_keymap('o', ru_keys[i], en_keys[i], { noremap = false })
 end

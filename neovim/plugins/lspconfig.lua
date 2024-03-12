@@ -119,7 +119,7 @@ return {
 					vim.keymap.set('n', ',le', vim.lsp.buf.hover, opts)
 					vim.keymap.set('n', ',ls', vim.lsp.buf.signature_help, opts)
 					vim.keymap.set('n', ',lw', vim.lsp.buf.rename, opts)
-					vim.keymap.set({ 'n', 'v' }, ',lc', vim.lsp.buf.code_action, opts)
+					vim.keymap.set({ 'n', 'x' }, ',lc', vim.lsp.buf.code_action, opts)
 					vim.keymap.set(
 						'n',
 						',lf',

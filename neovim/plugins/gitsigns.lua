@@ -55,12 +55,12 @@ local opts = {
 
 		map('n', ',cj', pkg.stage_hunk)
 		map('n', ',ck', pkg.undo_stage_hunk)
-		map('v', ',cj', function() pkg.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
+		map('x', ',cj', function() pkg.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
 		map('n', ',cJ', pkg.stage_buffer)
 		map('n', ',cK', pkg.reset_buffer_index)
 
 		map('n', ',cr', pkg.reset_hunk)
-		map('v', ',cr', function() pkg.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
+		map('x', ',cr', function() pkg.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
 		map('n', ',cR', pkg.reset_buffer)
 
 		map('n', ',ci', pkg.preview_hunk_inline)
