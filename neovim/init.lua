@@ -28,6 +28,9 @@ if vim.g.neovide then
 	vim.g.neovide_scale_factor = default_scale
 	vim.keymap.set({ 'n', 'x' }, ",a'", ':lua vim.g.neovide_scale_factor = 0.')
 	vim.keymap.set({ 'n', 'x' }, ',a"', ':lua vim.g.neovide_scale_factor = 1')
+	if vim.fn.getcwd() == os.getenv('HOME') then
+		vim.api.nvim_set_current_dir('~/prog/dotfiles')
+	end
 end
 require('options')
 require('global-functions')
