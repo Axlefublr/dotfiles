@@ -12,3 +12,4 @@ git config --global commit.verbose true
 git config --global checkout.defaultRemote origin
 git config --global rerere.enabled true
 git config --global branch.sort -committerdate
+git config --global core.editor neovide
