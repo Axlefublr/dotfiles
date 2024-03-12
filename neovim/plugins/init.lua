@@ -126,6 +126,17 @@ return {
 			vim.keymap.set('n', '"x', function() harpoon:list():select(7) end)
 			vim.keymap.set('n', '"c', function() harpoon:list():select(8) end)
 			vim.keymap.set('n', '"v', function() harpoon:list():select(9) end)
+			vim.keymap.set('n', '"b', function() harpoon:list():select(10) end)
+			vim.keymap.set('n', '"A', function() harpoon:list():select(11) end)
+			vim.keymap.set('n', '"S', function() harpoon:list():select(12) end)
+			vim.keymap.set('n', '"D', function() harpoon:list():select(13) end)
+			vim.keymap.set('n', '"F', function() harpoon:list():select(14) end)
+			vim.keymap.set('n', '"G', function() harpoon:list():select(15) end)
+			vim.keymap.set('n', '"Z', function() harpoon:list():select(16) end)
+			vim.keymap.set('n', '"X', function() harpoon:list():select(17) end)
+			vim.keymap.set('n', '"C', function() harpoon:list():select(18) end)
+			vim.keymap.set('n', '"V', function() harpoon:list():select(19) end)
+			vim.keymap.set('n', '"B', function() harpoon:list():select(20) end)
 		end,
 	},
 }
