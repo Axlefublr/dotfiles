@@ -147,8 +147,29 @@ funcsave get_hunger > /dev/null
 
 function get_oldest_task
 	clorange task-count increment
-	set oldest (loago list | rg -v 'eat|green|white|filter|razor|tails' | tac | awk '$3>4{print}') # only get tasks done 5 or more days ago
-	set available (count $oldest)
+	set oldest (loago list | rg -v 'eat' | tac) # only get tasks done 5 or more days ago
+	set filtered
+	for task in $oldest
+		set matches (string match -gr '(\\S+)\\s+— (\\d+)' $task)
+		set task_name $matches[1]
+		set task_days $matches[2]
+		if string match -qr 'filter|lamp|razor|[nt]ails|[fw]ilter|bottle|[fb]scrub' $task_name
+			if test \( $task_name = 'filter' -a $task_days -gt 45 \) \
+			-o \( $task_name = 'lamp' -a $task_days -ge 7 \) \
+			-o \( $task_name = 'razor' -a $task_days -ge 20 \) \
+			-o \( $task_name = 'nails' -a $task_days -ge 10 \) \
+			-o \( $task_name = 'wilter' -a $task_days -ge 10 \) \
+			-o \( $task_name = 'bottle' -a $task_days -ge 10 \) \
+			-o \( $task_name = 'fscrub' -a $task_days -ge 10 \) \
+			-o \( $task_name = 'bscrub' -a $task_days -ge 10 \) \
+			-o \( $task_name = 'tails' -a $task_days -ge 20 \)
+				set filtered $filtered "$task_name $task_days"
+			end
+		else if test $task_days -ge 5
+			set filtered $filtered "$task_name $task_days"
+		end
+	end
+	set available (count $filtered)
 	if test $available -eq 0
 		printf 'done!'
 		return 0
@@ -158,10 +179,7 @@ function get_oldest_task
 		clorange task-count set 1
 		set index 1
 	end
-	set picked $oldest[$index]
-	set matches (string match -gr '(\\S+)\\s+—\\s+(\\d+)' $picked)
-	set name $matches[1]
-	set days $matches[2]
-	printf "$name $days"
+	set picked $filtered[$index]
+	printf $picked
 end
 funcsave get_oldest_task > /dev/null
