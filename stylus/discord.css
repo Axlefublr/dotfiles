@@ -857,6 +857,6 @@ rect[mask="url(#svg-mask-status-idle)"] {
 }
 
 /* red line showing new messages */
-#---new-messages-bar {
-	display: none;
-}
+/* #---new-messages-bar {
+	height: 0;
+} */

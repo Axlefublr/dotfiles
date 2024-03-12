@@ -10,20 +10,18 @@ local highlight_modifications = function()
 		['@type'] = 'cyan',
 		['@type.definition'] = 'cyan',
 		['@boolean'] = { fg = Colors.cyan, italic = true },
+		['@property'] = 'mint',
 
 		['@lsp.type.property.lua'] = 'white',
 		['@lsp.type.comment.lua'] = 'grey',
 		['@variable.member.lua'] = 'white',
 		['@string.regexp.lua'] = { fg = Colors.yellow, bold = true },
 
-		['@property.yaml'] = 'mint',
-
 		['@constant.fish'] = 'purple',
 		['@variable.fish'] = 'purple',
 		['@operator.fish'] = 'orange',
 
 		['@type.css'] = 'orange',
-		['@property.css'] = 'mint',
 		['@type.qualifier.css'] = 'red',
 		['@tag.attribute.css'] = 'mint',
 		['@tag.css'] = 'purple',
@@ -32,9 +30,7 @@ local highlight_modifications = function()
 		['@attribute.css'] = 'cyan', -- [something="something"]
 		['@number.float.css'] = 'orange',
 
-		['@property.jsonc'] = 'mint',
 		['@conceal.jsonc'] = 'white',
-		['@property.json'] = 'mint',
 		['@conceal.json'] = 'white',
 
 		['@markup.italic.markdown_inline'] = { italic = true },
@@ -45,8 +41,15 @@ local highlight_modifications = function()
 
 		['@punctuation.special.bash'] = 'purple',
 		['@variable.bash'] = 'purple',
-		['@constant.bash'] = { fg = 'purple', underline = true },
+		['@constant.bash'] = { fg = 'purple', underline = false },
 		['@operator.bash'] = 'orange',
+
+		['@type.toml'] = 'red',
+
+		['@module.rasi'] = 'purple',
+		['@attribute.rasi'] = 'cyan',
+		['@punctuation.special.rasi'] = 'yellow',
+		['@type.rasi'] = 'yellow',
 
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',

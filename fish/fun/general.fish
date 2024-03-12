@@ -228,7 +228,6 @@ function runner_wote
 	end
 	if set -q argv[1]
 		indeed -- ~/prog/noties/notes.txt (cat ~/.local/share/notie)
-		truncate -s 0 ~/.local/share/notie
 	end
 	set -e result[-1]
 	set result (string collect $result)

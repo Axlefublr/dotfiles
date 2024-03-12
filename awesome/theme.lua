@@ -2,7 +2,7 @@
 -- Default awesome theme --
 ---------------------------
 
-local theme_assets = require('beautiful.theme_assets')
+-- local theme_assets = require('beautiful.theme_assets')
 local xresources = require('beautiful.xresources')
 local dpi = xresources.apply_dpi
 
@@ -66,7 +66,7 @@ theme.taglist_font = theme.code_font
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Variables set for theming notifications:
-theme.notification_code_font = 'JetBrainsMonoNL NF 16'
+theme.notification_code_font = 'MonaspiceNe NF 16'
 theme.notification_font = theme.notification_code_font
 theme.notification_bg = theme.darkerest
 theme.notification_border_color = theme.border_focus
