@@ -471,8 +471,8 @@ keymap:
     remap:
       Super-Space: { launch: [fish, -c, toggle_layout] }
       Super-6: { launch: [fish, -c, toggle_compositor] }
-      CapsLock-Esc: { launch: [wmctrl, -c, ':ACTIVE:'] }
-      CapsLock-Alt-Esc: { launch: [xdotool, getwindowfocus, windowkill] }
+      F13: { launch: [wmctrl, -c, ':ACTIVE:'] }
+      Shift-F13: { launch: [xdotool, getwindowfocus, windowkill] }
       Super-v: { launch: [boomer] }
       CapsLock-Dot:
         {
