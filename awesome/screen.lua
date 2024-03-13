@@ -1,11 +1,9 @@
-Between_margin = 12
-Between_widget = wibox.container.margin()
-Between_widget.right = Between_margin
+Between_margin = 15
 
 My_main_menu = awful.menu({
 	items = {
-		{ 'restart', awesome.restart },
-		{ 'quit', function() awesome.quit() end },
+		{ 'restart',  awesome.restart },
+		{ 'quit',     function() awesome.quit() end },
 		{ 'terminal', terminal },
 	},
 })
@@ -16,16 +14,54 @@ Text_clock_widget.font = beautiful.code_font
 Loago_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = 'Comfortaa 14',
+	font = 'Comfortaa 13',
 })
 Loago_margin_widget = wibox.container.margin(Loago_widget)
-Loago_margin_widget.right = Between_margin - 3
 
 function Widget_update_loago()
 	awful.spawn.easy_async_with_shell(
 		'get_oldest_task',
 		function(stdout) Loago_widget:set_text(stdout) end
 	)
+end
+
+Clients_widget = wibox.widget({
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.jetbrains_font .. ' 14',
+})
+Clients_background_widget = wibox.container.background(Clients_widget)
+Clients_margin_widget = wibox.container.margin(Clients_background_widget)
+function Widget_update_clients(tag)
+	local clients = tag:clients()
+
+	if #clients == 0 then
+		Widget_disable_clients()
+		return
+	end
+
+	local text = ''
+	for _, client in ipairs(clients) do
+		if client.class then
+			local truncation = client.class:sub(1, 1)
+			text = text .. truncation
+		else
+			text = text .. '?'
+		end
+	end
+
+	if text == '' then
+		Widget_disable_clients()
+		return
+	end
+
+	Clients_widget:set_text(text)
+	Clients_margin_widget.right = Between_margin
+end
+
+function Widget_disable_clients()
+	Clients_widget:set_text('')
+	Clients_margin_widget.right = 0
 end
 
 Mic_muteness_widget = wibox.widget({
@@ -36,7 +72,6 @@ Mic_muteness_widget = wibox.widget({
 Mic_muteness_background_widget = wibox.container.background(Mic_muteness_widget)
 Mic_muteness_margin_widget = wibox.container.margin(Mic_muteness_background_widget)
 Mic_muteness_margin_widget.right = -6
-Mic_muteness_margin_widget.left = Between_margin + 5
 function Widget_update_mic_muteness()
 	awful.spawn.easy_async_with_shell('get_mic_mute', function(stdout)
 		local output = Trim_newlines(stdout)
@@ -67,7 +102,7 @@ Muteness_widget = wibox.widget({
 })
 Muteness_background_widget = wibox.container.background(Muteness_widget)
 Muteness_margin_widget = wibox.container.margin(Muteness_background_widget)
-Muteness_margin_widget.left = Between_margin + 4
+Muteness_margin_widget.left = Between_margin - 2
 function Widget_update_muteness()
 	awful.spawn.easy_async_with_shell('get_mute', function(stdout)
 		local output = Trim_newlines(stdout)
@@ -85,10 +120,14 @@ Volume_widget = wibox.widget({
 	font = beautiful.code_font,
 })
 Volume_margin_widget = wibox.container.margin(Volume_widget)
-Volume_margin_widget.right = Between_margin
 function Widget_update_volume()
 	awful.spawn.easy_async_with_shell('get_volume', function(stdout)
 		local output = Trim_newlines(stdout)
+		if #output > 0 then
+			Volume_margin_widget.right = Between_margin
+		else
+			Volume_margin_widget.right = 0
+		end
 		Volume_widget:set_text(output)
 	end)
 end
@@ -99,8 +138,8 @@ Media_state_widget = wibox.widget({
 	font = beautiful.jetbrains_font .. ' 15',
 })
 Media_state_margin_widget = wibox.container.margin(Media_state_widget)
-Media_state_margin_widget.left = Between_margin + 4
-Media_state_margin_widget.right = -2
+Media_state_margin_widget.left = Between_margin
+Media_state_margin_widget.right = -5
 function Widget_update_media_state()
 	awful.spawn.easy_async_with_shell('media_state', function(stdout)
 		local output = Trim_newlines(stdout)
@@ -123,42 +162,11 @@ Media_volume_widget = wibox.widget({
 })
 Media_volume_margin_widget = wibox.container.margin(Media_volume_widget)
 Media_volume_margin_widget.left = Between_margin - 4
+Media_volume_margin_widget.right = Between_margin
 function Widget_update_media_volume()
 	awful.spawn.easy_async_with_shell('get_media_volume', function(stdout)
 		local output = Trim_newlines(stdout)
 		Media_volume_widget:set_text(output)
-	end)
-end
-
-Layout_widget = wibox.widget({
-	text = '',
-	widget = wibox.widget.textbox,
-	font = 'MonaspiceNe NF 14',
-})
-Layout_background_widget = wibox.container.background(Layout_widget)
-Layout_margin_widget = wibox.container.margin(Layout_background_widget)
-Layout_margin_widget.right = Between_margin + 4
-Layout_margin_widget.left = Between_margin + 4
-function Widget_update_layout()
-	awful.spawn.easy_async_with_shell('get_layout', function(stdout)
-		local layout = Trim_newlines(stdout)
-		if layout == 'English' then
-			layout = 'eng'
-		elseif layout == 'Russian' then
-			layout = 'rus'
-		end
-		awful.spawn.easy_async_with_shell('get_capslock', function(output)
-			local capslock = Trim_newlines(output)
-			if capslock == 'on' then
-				Layout_background_widget.fg = beautiful.yellow
-				-- Layout_background_widget.bg = beautiful.yellow
-				Layout_widget:set_text(layout:upper())
-			else
-				Layout_background_widget.fg = beautiful.white
-				-- Layout_background_widget.bg = beautiful.background
-				Layout_widget:set_text(layout:lower())
-			end
-		end)
 	end)
 end
 
@@ -203,7 +211,7 @@ function Widget_disable_wifi()
 end
 
 function Widget_enable_wifi()
-	Wifi_margin_widget.right = Between_margin - 2
+	Wifi_margin_widget.right = Between_margin - 8
 	Wifi_widget:set_text('󰖩 ')
 end
 
@@ -293,10 +301,8 @@ Hunger_widget = wibox.widget({
 	widget = wibox.widget.textbox,
 	font = beautiful.code_font,
 })
-Hunger_widget:buttons(gears.table.join(awful.button({}, 1, function()
-	awful.spawn.easy_async_with_shell('loago do eat', function() Widget_update_hunger() end)
-end)))
 Hunger_margin_widget = wibox.container.margin(Hunger_widget)
+Hunger_margin_widget.right = Between_margin
 
 function Widget_update_hunger()
 	awful.spawn.easy_async_with_shell(
@@ -344,44 +350,6 @@ function Widget_update_media_time()
 	end)
 end
 
-Clients_widget = wibox.widget({
-	text = '',
-	widget = wibox.widget.textbox,
-	font = beautiful.jetbrains_font .. ' 14',
-})
-Clients_background_widget = wibox.container.background(Clients_widget)
-Clients_margin_widget = wibox.container.margin(Clients_background_widget)
-function Widget_update_clients(tag)
-	local clients = tag:clients()
-
-	if #clients == 0 then
-		Widget_disable_clients()
-		return
-	end
-
-	local text = ''
-	for _, client in ipairs(clients) do
-		if client.class then
-			local truncation = client.class:sub(1, 1)
-			text = text .. truncation
-		else
-			text = text .. '?'
-		end
-	end
-
-	if text == '' then
-		Widget_disable_clients()
-		return
-	end
-
-	Clients_widget:set_text(text)
-	Clients_margin_widget.right = Between_margin
-end
-function Widget_disable_clients()
-	Clients_widget:set_text('')
-	Clients_margin_widget.right = 0
-end
-
 Malumn_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
@@ -425,7 +393,7 @@ Ontop_state_background_widget.fg = beautiful.red
 Ontop_state_margin_widget = wibox.container.margin(Ontop_state_background_widget)
 function Widget_update_ontop(client)
 	if client.ontop then
-		Ontop_state_margin_widget.right = 1
+		Ontop_state_margin_widget.right = 6
 		Ontop_state_widget:set_text(' ')
 	else
 		Ontop_state_margin_widget.right = 0
@@ -443,7 +411,7 @@ Maximized_state_background_widget.fg = beautiful.yellow
 Maximized_state_margin_widget = wibox.container.margin(Maximized_state_background_widget)
 function Widget_update_maximized(client)
 	if client.maximized then
-		Maximized_state_margin_widget.right = -2
+		Maximized_state_margin_widget.right = 2
 		Maximized_state_widget:set_text(' ')
 	else
 		Maximized_state_margin_widget.right = 0
@@ -461,7 +429,7 @@ Sticky_state_background_widget.fg = beautiful.green
 Sticky_state_margin_widget = wibox.container.margin(Sticky_state_background_widget)
 function Widget_update_sticky(client)
 	if client.sticky then
-		Sticky_state_margin_widget.right = -2
+		Sticky_state_margin_widget.right = 3
 		Sticky_state_widget:set_text('󰹧 ')
 	else
 		Sticky_state_margin_widget.right = 0
@@ -479,7 +447,7 @@ Floating_state_background_widget.fg = beautiful.cyan
 Floating_state_margin_widget = wibox.container.margin(Floating_state_background_widget)
 function Widget_update_floating(client)
 	if client.floating then
-		Floating_state_margin_widget.right = 0
+		Floating_state_margin_widget.right = 4
 		Floating_state_widget:set_text(' ')
 	else
 		Floating_state_margin_widget.right = 0
@@ -487,48 +455,13 @@ function Widget_update_floating(client)
 	end
 end
 
-Stated_margin_widget = wibox.container.margin()
-Stated_margin_widget.left = 0
-
 Window_state_layout_widget = wibox.widget({
-	Stated_margin_widget,
 	Ontop_state_margin_widget,
 	Maximized_state_margin_widget,
 	Sticky_state_margin_widget,
 	Floating_state_margin_widget,
 	layout = wibox.layout.fixed.horizontal,
 })
-
-Taglist_buttons = gears.table.join(
-	awful.button({}, 1, function(tag) tag:view_only() end),
-	awful.button({}, 3, awful.tag.viewtoggle),
-	awful.button({}, 5, function(tag) awful.tag.viewnext(tag.screen) end),
-	awful.button({}, 4, function(tag) awful.tag.viewprev(tag.screen) end)
-)
-
-function Set_wallpaper(s)
-	-- Wallpaper
-	if beautiful.wallpaper then
-		local wallpaper = beautiful.wallpaper
-		-- If wallpaper is a function, call it with the screen
-		if type(wallpaper) == 'function' then wallpaper = wallpaper(s) end
-		gears.wallpaper.maximized(wallpaper, s, true)
-	end
-end
-
-Set_wallpaper(screen.primary)
-
-require('tags')
-
-screen.primary.layout_box_widget = awful.widget.layoutbox(screen.primary)
-screen.primary.layout_box_widget:buttons(
-	gears.table.join(
-		awful.button({}, 1, function() awful.layout.inc(1) end),
-		awful.button({}, 3, function() awful.layout.inc(-1) end),
-		awful.button({}, 4, function() awful.layout.inc(1) end),
-		awful.button({}, 5, function() awful.layout.inc(-1) end)
-	)
-)
 
 Tile_widget = wibox.widget({
 	text = '',
@@ -563,13 +496,73 @@ function Widget_update_tile(tag)
 	Tile_widget:set_text(layout_name)
 end
 
+Layout_widget = wibox.widget({
+	text = '',
+	widget = wibox.widget.textbox,
+	font = beautiful.jetbrains_font .. ' 14',
+})
+Layout_background_widget = wibox.container.background(Layout_widget)
+Layout_margin_widget = wibox.container.margin(Layout_background_widget)
+Layout_margin_widget.right = Between_margin
+function Widget_update_layout()
+	awful.spawn.easy_async_with_shell('get_layout', function(stdout)
+		local layout = Trim_newlines(stdout)
+		if layout == 'English' then
+			layout = 'eng'
+		elseif layout == 'Russian' then
+			layout = 'rus'
+		end
+		awful.spawn.easy_async_with_shell('get_capslock', function(output)
+			local capslock = Trim_newlines(output)
+			if capslock == 'on' then
+				Layout_background_widget.fg = beautiful.yellow
+				Layout_widget:set_text(layout:upper())
+			else
+				Layout_background_widget.fg = beautiful.white
+				Layout_widget:set_text(layout:lower())
+			end
+		end)
+	end)
+end
+
+Taglist_buttons = gears.table.join(
+	awful.button({}, 1, function(tag) tag:view_only() end),
+	awful.button({}, 3, awful.tag.viewtoggle),
+	awful.button({}, 5, function(tag) awful.tag.viewnext(tag.screen) end),
+	awful.button({}, 4, function(tag) awful.tag.viewprev(tag.screen) end)
+)
+
+function Set_wallpaper(s)
+	-- Wallpaper
+	if beautiful.wallpaper then
+		local wallpaper = beautiful.wallpaper
+		-- If wallpaper is a function, call it with the screen
+		if type(wallpaper) == 'function' then wallpaper = wallpaper(s) end
+		gears.wallpaper.maximized(wallpaper, s, true)
+	end
+end
+
+Set_wallpaper(screen.primary)
+
+require('tags')
+
+screen.primary.layout_box_widget = awful.widget.layoutbox(screen.primary)
+screen.primary.layout_box_widget:buttons(
+	gears.table.join(
+		awful.button({}, 1, function() awful.layout.inc(1) end),
+		awful.button({}, 3, function() awful.layout.inc(-1) end),
+		awful.button({}, 4, function() awful.layout.inc(1) end),
+		awful.button({}, 5, function() awful.layout.inc(-1) end)
+	)
+)
+
 screen.primary.tag_list_widget = awful.widget.taglist({
 	screen = screen.primary,
 	filter = awful.widget.taglist.filter.noempty,
 	buttons = Taglist_buttons,
 })
 screen.primary.tag_list_margin_widget = wibox.container.margin(screen.primary.tag_list_widget)
-screen.primary.tag_list_margin_widget.right = Between_margin
+screen.primary.tag_list_margin_widget.right = Between_margin - 6
 
 local wibar_height = 35
 local wibar_bg = beautiful.background
@@ -591,7 +584,6 @@ screen.primary.wibox_widget:setup({
 		Text_clock_widget,
 		screen.primary.tag_list_margin_widget,
 		Loago_margin_widget,
-		Window_state_layout_widget,
 	},
 	Note_margin_widget,
 	-- Right widgets
@@ -599,25 +591,26 @@ screen.primary.wibox_widget:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
-		Layout_margin_widget,
-		Compositor_margin_widget,
-		Water_margin_widget,
-		Dnd_margin_widget,
-		Bluetooth_margin_widget,
-		Wifi_margin_widget,
-		Meat_margin_widget,
-		Hunger_margin_widget,
 		Media_note_margin_widget,
 		Media_time_margin_widget,
 		Media_state_margin_widget,
 		Media_volume_margin_widget,
+		Meat_margin_widget,
+		Hunger_margin_widget,
+		Window_state_layout_widget,
+		Clients_margin_widget,
 		Mic_muteness_margin_widget,
 		Mic_volume_widget,
 		Muteness_margin_widget,
 		Volume_margin_widget,
 		Tile_margin_widget,
 		Malumn_margin_widget,
-		Clients_margin_widget,
+		Compositor_margin_widget,
+		Water_margin_widget,
+		Dnd_margin_widget,
+		Bluetooth_margin_widget,
+		Wifi_margin_widget,
+		Layout_margin_widget,
 	},
 })
 

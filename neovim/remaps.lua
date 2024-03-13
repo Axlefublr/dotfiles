@@ -138,6 +138,8 @@ vim.keymap.set('n', ',aL', '<c-w>l<c-w>|')
 vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
 vim.keymap.set('n', ',aq', '<cmd>enew<cr>')
+vim.keymap.set('n', ',a[', '<cmd>cprev<cr>')
+vim.keymap.set('n', ',a]', '<cmd>cnext<cr>')
 
 local function move_to_blank_line(to_next)
 	local search_opts = to_next and '' or 'b'

@@ -104,6 +104,7 @@ return {
 			require('lspconfig').jsonls.setup({})
 			require('lspconfig').marksman.setup({})
 			require('lspconfig').hydra_lsp.setup({})
+			require('lspconfig').taplo.setup({})
 
 			vim.api.nvim_create_autocmd('LspAttach', {
 				callback = function(ev)

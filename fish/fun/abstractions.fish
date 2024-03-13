@@ -153,11 +153,12 @@ function get_oldest_task
 		set matches (string match -gr '(\\S+)\\s+— (\\d+)' $task)
 		set task_name $matches[1]
 		set task_days $matches[2]
-		if string match -qr 'filter|lamp|razor|[nt]ails|[fw]ilter|bottle|[fb]scrub|nose|cloths' $task_name
+		if string match -qr 'filter|lamp|[rc]azor|[nt]ails|[fw]ilter|bottle|[fb]scrub|nose|cloths' $task_name
 			if test \( $task_name = 'filter' -a $task_days -gt 45 \) \
 			-o \( $task_name = 'lamp' -a $task_days -ge 7 \) \
 			-o \( $task_name = 'nose' -a $task_days -ge 7 \) \
 			-o \( $task_name = 'cloths' -a $task_days -ge 7 \) \
+			-o \( $task_name = 'cazor' -a $task_days -ge 7 \) \
 			-o \( $task_name = 'nails' -a $task_days -ge 10 \) \
 			-o \( $task_name = 'wilter' -a $task_days -ge 10 \) \
 			-o \( $task_name = 'bottle' -a $task_days -ge 10 \) \

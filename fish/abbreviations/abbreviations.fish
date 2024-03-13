@@ -1,21 +1,21 @@
 abbr -a g     'git'
 abbr -a gd    'git diff'
 abbr -a giti  'git init'
-abbr -a gss   'clx ; git status'
-abbr -a gs    'clx ; git status -s'
+abbr -a gss   'clear -x ; git status'
+abbr -a gs    'clear -x ; git status -s'
 abbr -a gsh   'git show'
 abbr -a gsho  'git show --oneline'
 abbr -a gshos 'git show --oneline -s'
 abbr -a gl    'git log'
 abbr -a glo   'git log --oneline'
 abbr -a ga    'git add'
-abbr -a gap   'clx && git add -p'
+abbr -a gap   'clear -x && git add -p'
 abbr -a gm    'git commit'
-abbr -a gmu   'git commit -a && clx'
-abbr -a gma   'git commit --amend && clx'
-abbr -a gma   'git commit --no-edit && clx'
-abbr -a gman  'git commit --amend --no-edit && clx'
-abbr -a gp    'git push && clx'
+abbr -a gmu   'git commit -a && clear -x'
+abbr -a gma   'git commit --amend && clear -x'
+abbr -a gma   'git commit --no-edit && clear -x'
+abbr -a gman  'git commit --amend --no-edit && clear -x'
+abbr -a gp    'git push && clear -x'
 abbr -a grs   'git reset'
 abbr -a grsH  'git reset HEAD'
 abbr -a grsh  'git reset --hard'
@@ -48,42 +48,42 @@ abbr -a gui   'git update-index'
 
 abbr -a gmap 'git commit --amend &&
 	git push &&
-	clx'
+	clear -x'
 abbr -a gmanp 'git commit --amend --no-edit &&
 	git push &&
-	clx'
+	clear -x'
 abbr -a gmp 'git commit &&
 	git push &&
-	clx'
+	clear -x'
 abbr -a gam 'git add . &&
 	git commit -a &&
-	clx'
+	clear -x'
 abbr -a gamn 'git add . &&
 	git commit -a --no-edit &&
-	clx'
+	clear -x'
 abbr -a gamp 'git add . &&
 	git commit -a &&
 	git push &&
-	clx'
+	clear -x'
 abbr -a gamap 'git add . &&
 	git commit -a --amend &&
 	git push &&
-	clx'
+	clear -x'
 abbr -a gamanp 'git add . &&
 	git commit -a --amend --no-edit &&
 	git push &&
-	clx'
+	clear -x'
 abbr -a gamanpf 'git add . &&
 	git commit -a --amend --no-edit &&
 	git push -f &&
-	clx'
+	clear -x'
 abbr -a gaman 'git add . &&
 	git commit -a --amend --no-edit &&
-	clx'
+	clear -x'
 abbr -a gcr 'git add . &&
 	git commit -m "first commit" &&
 	git push -u origin main &&
-	clx'
+	clear -x'
 
 abbr -a dn   'dotnet'
 abbr -a dnn  'dotnet new'
@@ -174,10 +174,11 @@ abbr -a slus 'systemctl --user status'
 abbr -a slup 'systemctl --user stop'
 
 abbr -a v 'nvim'
-abbr -a f 'neovide && clx'
+abbr -a f 'neovide && clear -x'
 
+abbr -a ~ 'z ~ && clear -x'
 abbr -a rl 'realpath'
-abbr -a u 'z - && clx'
+abbr -a u 'z - && clear -x'
 abbr -a c 'code'
 abbr -a fp 'fish -P'
 abbr -a x 'exit'
@@ -186,7 +187,7 @@ abbr -a lo 'loago'
 abbr -a xcp 'xclip -r -selection clipboard'
 abbr -a xcpi 'xclip -selection clipboard -t image/png'
 abbr -a xpc 'xclip -selection clipboard -o'
-abbr -a jf 'source ~/.config/fish/config.fish && clx'
+abbr -a jf 'clear -x && exec fish'
 abbr -a mkd 'mkdir -p'
 abbr -a to 'touch'
 abbr -a fb 'floral_barrel'
@@ -216,3 +217,5 @@ abbr -a blch 'bluetoothctl connect $head'
 abbr -a bldh 'bluetoothctl disconnect $head'
 abbr -a blce 'bluetoothctl connect $ear'
 abbr -a blde 'bluetoothctl disconnect $ear'
+abbr -a cls 'clear'
+abbr -a clx 'clear -x'
