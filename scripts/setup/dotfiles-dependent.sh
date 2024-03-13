@@ -94,6 +94,10 @@ cd boomer
 nimble build
 ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
 
+# Zathura
+mkdir -p ~/.config/zathura
+ln -sf ~/prog/dotfiles/zathura ~/.config/zathura/zathurarc
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql
