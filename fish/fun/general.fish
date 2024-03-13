@@ -255,7 +255,7 @@ end
 funcsave runner_math > /dev/null
 
 function wote_edit
-	kitty -T "note editor" nvim ~/.local/share/notie
+	neovide ~/.local/share/notie
 	awesome-client 'Widget_update_note()'
 end
 funcsave wote_edit > /dev/null

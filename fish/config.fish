@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
-set -gx EDITOR 'nvim'
-set -gx VISUAL 'nvim'
+set -gx EDITOR 'neovide'
+set -gx VISUAL 'neovide'
 set -gx PAGER '/usr/bin/less'
 set -gx BROWSER '/usr/bin/vivaldi-stable'
 set -gx HISTSIZE 10000
@@ -95,7 +95,7 @@ bind -M insert -k f2 expand-abbr insert-line-under
 bind -M insert -k f3 accept-autosuggestion execute
 bind -M insert -k f4 'commandline ""'
 
-bind -M insert \ed 'clear -x'
+bind -M insert \ed clear-screen
 bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
 bind -M insert \eu list_current_token
 bind -M insert -k f5 forward-word

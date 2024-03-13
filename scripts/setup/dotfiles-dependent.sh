@@ -104,7 +104,7 @@ sudo systemctl start postgresql
 sudo systemctl enable postgresql
 sudo usermod -aG postgres $USER
 sudo setfacl -R -m u:axlefublr:rwx /var/lib/postgres/data
-nvim /var/lib/postgres/data/postgresql.conf # listen_addresses = '*'
+neovide /var/lib/postgres/data/postgresql.conf # listen_addresses = '*'
 sudo sed -i '/^host/s/ident/md5/' /var/lib/postgres/data/pg_hba.conf
 sudo sed -i '/^local/s/peer/trust/' /var/lib/postgres/data/pg_hba.conf
 echo "host all all 0.0.0.0/0 md5" | sudo tee -a /var/lib/postgres/data/pg_hba.conf

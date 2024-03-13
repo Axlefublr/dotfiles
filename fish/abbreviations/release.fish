@@ -1,4 +1,4 @@
 abbr -a ign 'indeed .gitignore'
 abbr -a ignc 'cat .gitignore'
-abbr -a ignv 'nvim .gitignore'
-abbr -a rlnts 'nvim release-notes.txt'
+abbr -a ignv 'neovide .gitignore'
+abbr -a rlnts 'neovide release-notes.txt'
