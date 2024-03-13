@@ -222,7 +222,8 @@ button[aria-pressed="true"] [animated-icon-type="LIKE"] path {
 /* grid button in subscriptions page */
 .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover,
 .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover,
-.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline:hover {
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline:hover,
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover {
 	background-color: var(--shell-pink-thirty);
 }
 
