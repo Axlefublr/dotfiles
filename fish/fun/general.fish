@@ -6,7 +6,7 @@ end
 funcsave prli > /dev/null
 
 function tg
-	$EDITOR /tmp/gi
+	$EDITOR /dev/shm/tg
 	set -l tempText (cat /tmp/gi)
 	if test -z "$tempText"
 		return 1

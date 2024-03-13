@@ -480,7 +480,7 @@ keymap:
             [
               sh,
               -c,
-              'xclip -selection clipboard -o > /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard',
+              'xclip -selection clipboard -o > /dev/shm/clipboard ; neovide /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
       CapsLock-Alt-Dot:
@@ -489,7 +489,7 @@ keymap:
             [
               sh,
               -c,
-              'truncate -s 0 /tmp/bibren ; kitty -T edit-clipboard nvim -n /tmp/bibren ; test -s /tmp/bibren && cat /tmp/bibren | xclip -r -selection clipboard',
+              'truncate -s 0 /dev/shm/clipboard ; neovide /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
       Super-j: { launch: [fish, -c, 'runner show'] }
