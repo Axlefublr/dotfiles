@@ -41,12 +41,16 @@ return {
 					n = {
 						['<a-f>'] = 'select_horizontal',
 						['<a-s>'] = 'select_vertical',
+						['<a-a>'] = 'smart_add_selected_to_qflist',
+						['<a-A>'] = 'smart_send_selected_to_qflist',
 						['H'] = 'preview_scrolling_up',
 						['L'] = 'preview_scrolling_down',
 					},
 					i = {
 						['<a-f>'] = 'select_horizontal',
 						['<a-s>'] = 'select_vertical',
+						['<a-a>'] = 'add_selected_to_qflist',
+						['<a-A>'] = 'send_selected_to_qflist',
 						['<c-u>'] = false,
 					},
 				},
@@ -92,6 +96,9 @@ return {
 					ignore_current_buffer = true,
 					sort_lastused = true,
 					sort_mru = true
+				},
+				quickfix = {
+					show_line = false
 				},
 				lsp_references = {
 					show_line = false,
@@ -189,6 +196,7 @@ return {
 			vim.keymap.set('n', ',jq', function() builtin.diagnostics({ bufnr = 0 }) end, {})
 			vim.keymap.set('n', ',jQ', builtin.diagnostics, {})
 			vim.keymap.set('n', ',jj', builtin.git_files, {})
+			vim.keymap.set('n', ',jk', builtin.quickfix, {})
 
 			vim.keymap.set('n', ',lr', builtin.lsp_references, {})
 			vim.keymap.set('n', ',li', builtin.lsp_incoming_calls, {})
