@@ -1,0 +1,84 @@
+[window]
+dynamic_padding = true
+decorations = 'None'
+padding = { x = 8 }
+
+[font]
+normal = { family = 'JetBrainsMono NF', style = 'Regular' }
+size = 15
+
+[colors]
+line_indicator = { foreground = '#0f0f0f', background = '#ffd75f' }
+footer_bar = { foreground = '#0f0f0f', background = '#ffd75f' }
+
+[colors.normal]
+red = '#ea6962'
+green = '#a9b665'
+yellow = '#d8a657'
+blue = '#7daea3'
+magenta = '#d3869b'
+cyan = '#89b482'
+white = '#d4be98'
+
+[colors.bright]
+red = '#ea6962'
+green = '#a9b665'
+yellow = '#d8a657'
+blue = '#7daea3'
+magenta = '#d3869b'
+cyan = '#89b482'
+white = '#d4be98'
+
+[colors.primary]
+foreground = '#d4be98'
+background = '#292828'
+
+[colors.search]
+matches = { foreground = '#0f0f0f', background = '#ffd75f' }
+focused_match = { foreground = '#0f0f0f', background = '#ffafd7' }
+
+[colors.hints]
+start = { foreground = '#0f0f0f', background = '#ffafd7' }
+end = { foreground = '#0f0f0f', background = '#ffd75f' }
+
+[bell]
+command = { program = 'notify-send', args = ['-t', '1000', 'bell'] }
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+vi_mode_style = { shape = "Block" }
+thickness = 0.3
+
+[mouse]
+hide_when_typing = true
+
+[hints]
+alphabet = 'fjdkslaeiwoghruxcz/vmtyqp'
+
+[keyboard]
+bindings = [
+	{ key = 'Space', mods = 'Control|Shift', mode = '~Search', action = 'ReceiveChar' },
+	{ key = 'Space', mods = 'Control|Shift', mode = 'Vi|~Search', action = 'ReceiveChar' },
+	{ key = ',', mode = 'Vi|~Search', action = 'ReceiveChar' },
+
+	{ key = 'k', mods = 'Control|Shift', mode = '~Alt', action = 'ScrollPageUp' },
+	{ key = 'j', mods = 'Control|Shift', mode = '~Alt', action = 'ScrollPageDown' },
+	{ key = 'k', mods = 'Shift|Alt', mode = '~Alt', action = 'ScrollHalfPageUp' },
+	{ key = 'j', mods = 'Shift|Alt', mode = '~Alt', action = 'ScrollHalfPageDown' },
+	{ key = 'k', mods = 'Control|Alt', mode = '~Alt', action = 'ScrollLineUp' },
+	{ key = 'j', mods = 'Control|Alt', mode = '~Alt', action = 'ScrollLineDown' },
+	{ key = '[', mods = 'Control|Alt', mode = '~Alt', action = 'ScrollToTop' },
+	{ key = ']', mods = 'Control|Alt', mode = '~Alt', action = 'ScrollToBottom' },
+
+	{ key = 'j', mods = 'Alt' , mode = 'Search', action = 'SearchHistoryNext' },
+	{ key = 'k', mods = 'Alt' , mode = 'Search', action = 'SearchHistoryPrevious' },
+	{ key = 'l', mods = 'Alt' , mode = 'Search', action = 'SearchFocusNext' },
+	{ key = 'h', mods = 'Alt' , mode = 'Search', action = 'SearchFocusPrevious' },
+
+	{ key = 'i', mods = 'Alt', mode = '~Search', action = 'ToggleViMode' },
+	{ key = ';', mods = 'Shift' , mode = 'Vi|~Search', action = 'InlineSearchPrevious' },
+	{ key = 'Space', mods = 'Alt' , action = 'ClearLogNotice' },
+	{ key = 'r', mods = 'Alt', action = 'CreateNewWindow' },
+]

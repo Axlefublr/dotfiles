@@ -23,6 +23,10 @@ chsh -s /usr/bin/fish
 mkdir -p ~/.config/fish
 ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
 
+# Alacritty
+mkdir -p ~/.config/alacritty
+ln -sf ~/prog/dotfiles/alacritty.toml ~/.config/alacritty.toml
+
 # Kitty terminal
 mkdir -p ~/.config/kitty
 ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf

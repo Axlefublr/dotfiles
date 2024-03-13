@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-kitty -T task holup 'tinkoff premium (200) tomorrow'
+alacritty -T task -e holup 'tinkoff premium (200) tomorrow'

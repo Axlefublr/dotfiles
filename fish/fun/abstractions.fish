@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" > /dev/null
-alias --save ukboot 'kitty -T uboot fish -c uboot' > /dev/null
+alias --save ukboot 'alacritty -T uboot -e fish -c uboot' > /dev/null
 alias --save screen_off 'xset dpms force "off"' > /dev/null
 
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
@@ -153,15 +153,17 @@ function get_oldest_task
 		set matches (string match -gr '(\\S+)\\s+— (\\d+)' $task)
 		set task_name $matches[1]
 		set task_days $matches[2]
-		if string match -qr 'filter|lamp|razor|[nt]ails|[fw]ilter|bottle|[fb]scrub' $task_name
+		if string match -qr 'filter|lamp|razor|[nt]ails|[fw]ilter|bottle|[fb]scrub|nose|cloths' $task_name
 			if test \( $task_name = 'filter' -a $task_days -gt 45 \) \
 			-o \( $task_name = 'lamp' -a $task_days -ge 7 \) \
-			-o \( $task_name = 'razor' -a $task_days -ge 20 \) \
+			-o \( $task_name = 'nose' -a $task_days -ge 7 \) \
+			-o \( $task_name = 'cloths' -a $task_days -ge 7 \) \
 			-o \( $task_name = 'nails' -a $task_days -ge 10 \) \
 			-o \( $task_name = 'wilter' -a $task_days -ge 10 \) \
 			-o \( $task_name = 'bottle' -a $task_days -ge 10 \) \
 			-o \( $task_name = 'fscrub' -a $task_days -ge 10 \) \
 			-o \( $task_name = 'bscrub' -a $task_days -ge 10 \) \
+			-o \( $task_name = 'razor' -a $task_days -ge 20 \) \
 			-o \( $task_name = 'tails' -a $task_days -ge 20 \)
 				set filtered $filtered "$task_name $task_days"
 			end

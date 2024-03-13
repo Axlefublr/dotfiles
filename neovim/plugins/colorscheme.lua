@@ -41,10 +41,11 @@ local highlight_modifications = function()
 
 		['@punctuation.special.bash'] = 'purple',
 		['@variable.bash'] = 'purple',
-		['@constant.bash'] = { fg = 'purple', underline = false },
+		['@constant.bash'] = { fg = Colors.purple, underline = true },
 		['@operator.bash'] = 'orange',
 
 		['@type.toml'] = 'red',
+		['@number.float.toml'] = 'orange',
 
 		['@module.rasi'] = 'purple',
 		['@attribute.rasi'] = 'cyan',

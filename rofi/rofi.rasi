@@ -1,7 +1,7 @@
 configuration {
 	modes: [drun];
 	show-icons: true;
-	terminal: "kitty";
+	terminal: "alacritty";
 	icon-theme: "Papirus";
 	drun-match-fields: [name, exec, filebrowser];
 	drun-display-format: "{name}";

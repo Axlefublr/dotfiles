@@ -16,13 +16,13 @@ xset s off -dpms &> /tmp/log/xset.txt
 redshift -O 5700 &> /tmp/log/redshift.txt
 playerctld daemon &> /tmp/log/playerctl.txt
 
-kitty -T meow & disown
-kitty -T timer & disown
-kitty -T content -d ~/Videos/content ranger & disown
+alacritty -T meow & disown
+alacritty -T timer & disown
+alacritty -T content -e ranger ~/Videos/content & disown
 
 neovide
 win_wait 'neovide — Neovide' 0.5 0 200
-kitty -T terminal -d ~/prog/dotfiles & disown
+alacritty -T terminal --working-directory ~/prog/dotfiles & disown
 
 vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)

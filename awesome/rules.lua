@@ -47,12 +47,12 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'kitty', name = 'task' },
+		rule = { class = 'Alacritty', name = 'task' },
 		properties = { tag = screen.primary.tags[12] },
 	},
 
 	{
-		rule = { class = 'kitty', name = 'meow' },
+		rule = { class = 'Alacritty', name = 'meow' },
 		properties = {
 			tag = screen.primary.tags[3],
 			urgent = false,
@@ -60,7 +60,7 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'kitty', name = 'timer' },
+		rule = { class = 'Alacritty', name = 'timer' },
 		properties = {
 			tag = screen.primary.tags[11],
 			urgent = false,
@@ -68,17 +68,17 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'kitty', name = 'content' },
+		rule = { class = 'Alacritty', name = 'content' },
 		properties = { tag = screen.primary.tags[15] },
 	},
 
 	{
-		rule = { class = 'kitty', name = 'link-download' },
+		rule = { class = 'Alacritty', name = 'link-download' },
 		properties = { tag = screen.primary.tags[12] },
 	},
 
 	{
-		rule = { class = 'kitty', name = 'uboot' },
+		rule = { class = 'Alacritty', name = 'uboot' },
 		properties = { tag = screen.primary.tags[14] },
 	},
 }

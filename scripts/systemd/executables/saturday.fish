@@ -1,4 +1,4 @@
 #!/usr/bin/env fish
 
-kitty -T task holup new music &
+alacritty -T task -e holup new music &
 wait

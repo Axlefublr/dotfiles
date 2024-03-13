@@ -9,7 +9,7 @@ yeared_parse
 yearless_parse
 
 if test (math (clorange megafon show) % 30) -eq 0
-	kitty -T task holup 'megafon (504) tomorrow' &
+	alacritty -T task -e holup 'megafon (504) tomorrow' &
 end
 
 wait

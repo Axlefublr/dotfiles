@@ -449,6 +449,13 @@ keymap:
       Ctrl-Alt-u: f4
       Shift-Enter: Enter
 
+  - name: Alacritty
+    exact_match: true
+    application:
+      only: [Alacritty]
+    remap:
+      Ctrl-Backspace: ctrl-w
+
   - name: Compose key
     exact_match: true
     remap:
