@@ -1,10 +1,24 @@
+local snippets = function()
+	local ls = require('luasnip')
+	local s = ls.snippet
+	local t = ls.text_node
+	local i = ls.insert_node
+
+	local lua_snippets = {
+		s('map', { t("vim.keymap.set('"), i(1), t("', '"), i(2), t("', "), i(0), t(')') }),
+	}
+	ls.add_snippets('lua', lua_snippets)
+end
+
 return {
 	{
 		'L3MON4D3/LuaSnip',
 		version = 'v2.*',
-		lazy = true,
+		lazy = 'InsertEnter',
 		build = 'make install_jsregexp',
 		config = function()
+			snippets()
+
 			vim.keymap.set(
 				{ 'i', 's' },
 				'<a-l>',
@@ -69,8 +83,8 @@ return {
 					}),
 				}),
 				sources = cmp.config.sources({
-					{ name = 'nvim_lsp' },
 					{ name = 'luasnip' },
+					{ name = 'nvim_lsp' },
 				}, { { name = 'buffer' } }),
 			})
 
