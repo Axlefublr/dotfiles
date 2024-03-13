@@ -78,7 +78,7 @@ configuration {
 	separatorcolor: var(yellow);
 }
 window {
-	font: "MonaspiceNe NF 16";
+	font: "JetBrainsMonoNL NF 16";
 	width: 60%;
 	border: 0;
 	location: north;

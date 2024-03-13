@@ -16,7 +16,7 @@ Text_clock_widget.font = beautiful.code_font
 Loago_widget = wibox.widget({
 	text = '',
 	widget = wibox.widget.textbox,
-	font = 'MonaspiceNe NF 14',
+	font = 'Comfortaa 14',
 })
 Loago_margin_widget = wibox.container.margin(Loago_widget)
 Loago_margin_widget.right = Between_margin - 3
