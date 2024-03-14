@@ -95,4 +95,9 @@ vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
 	callback = Write_if_modified,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'gitcommit',
+	command = 'startinsert'
+})
+
 print('nvim loaded')
