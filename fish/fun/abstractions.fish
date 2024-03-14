@@ -5,7 +5,7 @@ alias --save ukboot 'alacritty -T uboot -e fish -c uboot' > /dev/null
 alias --save screen_off 'xset dpms force "off"' > /dev/null
 
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" > /dev/null
-alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Widget_update_layout()"' > /dev/null
+alias --save toggle_layout 'xkblayout-state set +1 ; awesome-client "Layout_wu()"' > /dev/null
 alias --save get_layout 'xkblayout-state print "%n"' > /dev/null
 
 alias --save get_internet 'nmcli radio wifi' > /dev/null
@@ -35,13 +35,13 @@ funcsave get_media_volume > /dev/null
 
 function set_media_volume
 	playerctl volume "$argv"
-	awesome-client 'Widget_update_media_volume()'
+	awesome-client 'Media_volume_wu()'
 end
 funcsave set_media_volume > /dev/null
 
 function toggle_media
 	playerctl play-pause
-	awesome-client 'Widget_update_media_state()'
+	awesome-client 'Media_state_wu()'
 end
 funcsave toggle_media > /dev/null
 
@@ -61,22 +61,22 @@ end
 funcsave ml > /dev/null
 
 alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
-alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle $argv ; awesome-client "Widget_update_muteness()"' > /dev/null
+alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle $argv ; awesome-client "Muteness_wu()"' > /dev/null
 alias --save get_mute 'pactl get-sink-mute @DEFAULT_SINK@ | string match -gr "Mute: (no|yes)"' > /dev/null
 
 alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' > /dev/null
-alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle $argv ; awesome-client "Widget_update_mic_muteness()"' > /dev/null
+alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle $argv ; awesome-client "Mic_muteness_wu()"' > /dev/null
 alias --save get_mic_mute 'pactl get-source-mute @DEFAULT_SOURCE@ | string match -gr "Mute: (no|yes)"' > /dev/null
 
 function set_volume
 	pactl set-sink-volume @DEFAULT_SINK@ $argv
-	awesome-client 'Widget_update_volume()'
+	awesome-client 'Volume_wu()'
 end
 funcsave set_volume > /dev/null
 
 function set_mic_volume
 	pactl set-source-volume @DEFAULT_SOURCE@ $argv
-	awesome-client 'Widget_update_mic_volume()'
+	awesome-client 'Mic_volume_wu()'
 end
 funcsave set_mic_volume > /dev/null
 

@@ -78,7 +78,7 @@ function ReverseTable(table)
 	return reversed
 end
 
-function TrimFinalNewlines()
+function Trim_trailing_newlines()
 	local total_lines = vim.api.nvim_buf_line_count(0)
 
 	local last_non_blank = total_lines

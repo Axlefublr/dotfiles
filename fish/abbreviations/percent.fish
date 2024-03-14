@@ -1,5 +1,6 @@
 abbr --set-cursor -a z 'z %'
 abbr --set-cursor -a gmm 'git commit -m "%" && clear -x'
+abbr --set-cursor -a gp 'git push % && clear -x'
 abbr --set-cursor -a tgg 'clear -x && tgpt "%"'
 abbr --set-cursor -a ytv 'yt-dlp -o \'%.%(ext)s\' \'\''
 abbr --set-cursor -a ytvy 'yt-dlp -o \'/home/axlefublr/Videos/content/youtube/%.%(ext)s\' \'\''

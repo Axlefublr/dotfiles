@@ -25,7 +25,7 @@ local toggle_window_on_tag = function(index)
 end
 
 -- Buttons
-root.buttons(gears.table.join(awful.button({}, 3, function() My_main_menu:toggle() end)))
+root.buttons(gears.table.join(awful.button({}, 3, function() Menu_w:toggle() end)))
 
 Client_buttons = gears.table.join(
 	awful.button({}, 1, function(client)
@@ -70,7 +70,7 @@ Global_keys = gears.table.join(
 	end),
 	awful.key({ modkey }, '4', function()
 		naughty.toggle()
-		Widget_update_dnd()
+		Dnd_wu()
 	end),
 
 	awful.key({ modkey, 'Mod1' }, 'k', function() awful.tag.incmwfact(0.02) end),

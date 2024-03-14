@@ -20,7 +20,7 @@ alacritty -T meow & disown
 alacritty -T timer & disown
 alacritty -T content -e ranger ~/Videos/content & disown
 
-neovide
+neovide & disown
 win_wait 'neovide — Neovide' 0.5 0 200
 alacritty -T terminal --working-directory ~/prog/dotfiles & disown
 

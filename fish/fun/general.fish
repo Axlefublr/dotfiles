@@ -202,7 +202,7 @@ function runner
 		eval $cmd
 	end
 	if string match -rq '^loago do ' $cmd
-		awesome-client 'Widget_update_loago()'
+		awesome-client 'Loago_wu()'
 	end
 end
 funcsave runner > /dev/null
@@ -235,7 +235,7 @@ function runner_wote
 	if test -n $result
 		indeed -- ~/.local/share/notie $result
 	end
-	awesome-client 'Widget_update_note()'
+	awesome-client 'Note_wu()'
 end
 funcsave runner_wote > /dev/null
 
@@ -249,21 +249,21 @@ function runner_math
 	if test -n $result
 		indeed -- ~/prog/noties/notes.txt (cat ~/.local/share/notie)
 		math "$result" 2> /dev/null > ~/.local/share/notie
-		awesome-client 'Widget_update_note()'
+		awesome-client 'Note_wu()'
 	end
 end
 funcsave runner_math > /dev/null
 
 function wote_edit
 	neovide ~/.local/share/notie
-	awesome-client 'Widget_update_note()'
+	awesome-client 'Note_wu()'
 end
 funcsave wote_edit > /dev/null
 
 function wote_steal
 	cat ~/.local/share/notie | xclip -r -selection clipboard
 	truncate -s 0 ~/.local/share/notie
-	awesome-client 'Widget_update_note()'
+	awesome-client 'Note_wu()'
 end
 funcsave wote_steal > /dev/null
 

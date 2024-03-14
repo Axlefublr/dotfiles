@@ -1,6 +1,7 @@
 local snippets = function()
 	local ls = require('luasnip')
 	local s = ls.snippet
+	-- local sn = ls.snippet_node
 	local t = ls.text_node
 	local i = ls.insert_node
 
@@ -8,6 +9,13 @@ local snippets = function()
 		s('map', { t("vim.keymap.set('"), i(1), t("', '"), i(2), t("', "), i(0), t(')') }),
 	}
 	ls.add_snippets('lua', lua_snippets)
+
+	local fish_snippets = {
+		s('#!', {
+			t({ '#!/usr/bin/env fish', '', '' }) -- {} in a t is a multiline text node
+		})
+	}
+	ls.add_snippets('fish', fish_snippets)
 end
 
 return {

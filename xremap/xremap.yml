@@ -317,7 +317,7 @@ keymap:
                 [
                   sh,
                   -c,
-                  "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Widget_update_hunger()'",
+                  "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Hunger_wu()'",
                 ],
             }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
@@ -464,7 +464,7 @@ keymap:
   - name: Toggle capslock
     exact_match: true
     remap:
-      CapsLock-Space: [CapsLock, { launch: [awesome-client, Widget_update_layout()] }]
+      CapsLock-Space: [CapsLock, { launch: [awesome-client, Layout_wu()] }]
 
   - name: Other
     exact_match: true

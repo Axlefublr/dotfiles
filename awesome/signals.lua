@@ -19,55 +19,55 @@ client.connect_signal('manage', function(client)
 	if client.class == 'Anki' and string.match(client.name, '^Browse') then
 		Move_window_to_tag(16)
 	end
-	Widget_update_clients(screen.primary.selected_tag)
+	Clients_wu(screen.primary.selected_tag)
 end)
 
 client.connect_signal('unmanage', function(client)
-	Widget_update_clients(screen.primary.selected_tag)
+	Clients_wu(screen.primary.selected_tag)
 end)
 
 client.connect_signal('property::maximized', function(client)
-	Widget_update_clients(screen.primary.selected_tag)
-	Widget_update_maximized(client)
+	Clients_wu(screen.primary.selected_tag)
+	Maximized_state_wu(client)
 end)
 
 client.connect_signal('property::floating', function(client)
-	Widget_update_floating(client)
+	Floating_state_wu(client)
 end)
 
-client.connect_signal('property::ontop', function(client) Widget_update_ontop(client) end)
+client.connect_signal('property::ontop', function(client) Ontop_state_wu(client) end)
 
-client.connect_signal('property::sticky', function(client) Widget_update_sticky(client) end)
+client.connect_signal('property::sticky', function(client) Sticky_state_wu(client) end)
 
 awful.tag.attached_connect_signal(screen.primary, 'property::layout', function(tag)
-	Widget_update_malumn(tag)
-	Widget_update_clients(tag)
-	Widget_update_tile(tag)
+	Malumn_wu(tag)
+	Clients_wu(tag)
+	Tile_wu(tag)
 end)
 
 awful.tag.attached_connect_signal(
 	screen.primary,
 	'property::master_count',
-	function(tag) Widget_update_malumn(tag) end
+	function(tag) Malumn_wu(tag) end
 )
 
 awful.tag.attached_connect_signal(
 	screen.primary,
 	'property::column_count',
-	function(tag) Widget_update_malumn(tag) end
+	function(tag) Malumn_wu(tag) end
 )
 
 awful.tag.attached_connect_signal(screen.primary, 'property::selected', function(tag)
-	Widget_update_malumn(tag)
-	Widget_update_clients(tag)
-	Widget_update_tile(tag)
+	Malumn_wu(tag)
+	Clients_wu(tag)
+	Tile_wu(tag)
 end)
 
 client.connect_signal('focus', function(client)
-	Widget_update_ontop(client)
-	Widget_update_maximized(client)
-	Widget_update_sticky(client)
-	Widget_update_floating(client)
+	Ontop_state_wu(client)
+	Maximized_state_wu(client)
+	Sticky_state_wu(client)
+	Floating_state_wu(client)
 
 	client.border_color = beautiful.border_focus
 end)
