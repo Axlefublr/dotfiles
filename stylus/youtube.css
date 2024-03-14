@@ -346,3 +346,8 @@ yt-live-chat-header-renderer {
 .immersive-header-gradient.style-scope.ytd-playlist-header-renderer {
 	background: unset !important;
 }
+
+/* dropdown down arrow showing replies */
+#more-replies .yt-spec-button-shape-next__icon div {
+	fill: var(--shell-pink) !important;
+}
