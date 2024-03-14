@@ -265,7 +265,6 @@ end
 
 Media_note_w = text_widget(nil, '󰝚 ')
 Media_note_mw = wibox.container.margin(Media_note_w)
-Media_note_mw.left = between
 Media_note_mw.right = -2
 
 Media_time_w = text_widget()
@@ -493,7 +492,7 @@ Wibar_w = awful.wibar({
 
 Wibar_w:setup({
 	layout = wibox.layout.align.horizontal,
-	expand = 'none',
+	expand = 'inside',
 	-- Left widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
