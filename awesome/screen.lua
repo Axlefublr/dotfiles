@@ -49,11 +49,12 @@ end
 Clients_w = text_widget(beautiful.jetbrains_font .. ' 14')
 Clients_bw = wibox.container.background(Clients_w)
 Clients_mw = wibox.container.margin(Clients_bw)
+Clients_mw.right = between
 function Clients_wu(tag)
 	local clients = tag:clients()
 
 	if #clients == 0 then
-		Clients_wd()
+		Clients_mw.visible = false
 		return
 	end
 
@@ -68,17 +69,12 @@ function Clients_wu(tag)
 	end
 
 	if text == '' then
-		Clients_wd()
+		Clients_mw.visible = false
 		return
+	else
+		Clients_mw.visible = true
+		Clients_w:set_text(text)
 	end
-
-	Clients_w:set_text(text)
-	Clients_mw.right = between
-end
-
-function Clients_wd()
-	Clients_w:set_text('')
-	Clients_mw.right = 0
 end
 
 Mic_muteness_w = text_widget(nil, ' ')
@@ -212,24 +208,15 @@ function Compositor_wu()
 	end
 end
 
-Dnd_w = text_widget()
+Dnd_w = text_widget(nil, ' ')
 Dnd_mw = wibox.container.margin(Dnd_w)
+Dnd_mw.right = between - 6
 function Dnd_wu()
 	if naughty.is_suspended() then
-		Dnd_we()
+		Dnd_mw.visible = true
 	else
-		Dnd_wd()
+		Dnd_mw.visible = false
 	end
-end
-
-function Dnd_we()
-	Dnd_mw.right = between - 6
-	Dnd_w:set_text(' ')
-end
-
-function Dnd_wd()
-	Dnd_mw.right = 0
-	Dnd_w:set_text('')
 end
 
 Meat_w = text_widget(nil, ' ')
@@ -237,30 +224,27 @@ Meat_mw = wibox.container.margin(Meat_w)
 
 Hunger_w = text_widget()
 Hunger_mw = wibox.container.margin(Hunger_w)
+Hunger_mw.right = larger
 function Hunger_wu()
 	awful.spawn.easy_async_with_shell('get_hunger', function(stdout)
 		local time = Trim_newlines(stdout)
 		if #time > 0 then
-			Hunger_mw.right = larger
+			Hunger_mw.visible = true
+			Hunger_w:set_text(time)
 		else
-			Hunger_mw.right = 0
+			Hunger_mw.visible = false
 		end
-		Hunger_w:set_text(time)
 	end)
 end
 
-Water_w = text_widget()
+Water_w = text_widget(nil, '󰖌 ')
 Water_bw = wibox.container.background(Water_w)
 Water_mw = wibox.container.margin(Water_bw)
-function Water_we()
-	Water_mw.right = between - 8
-	Water_w:set_text('󰖌 ')
-end
+Water_mw.right = between - 13
+Water_mw.visible = false
+function Water_we() Water_mw.visible = true end
 
-function Water_wd()
-	Water_mw.right = 0
-	Water_w:set_text('')
-end
+function Water_wd() Water_mw.visible = false end
 
 Media_note_w = text_widget(nil, '󰝚 ')
 Media_note_mw = wibox.container.margin(Media_note_w)
@@ -332,72 +316,73 @@ function Malumn_wd() Malumn_w:set_text('?/?') end
 
 Note_w = text_widget('Comfortaa' .. beautiful.font_size)
 Note_mw = wibox.container.margin(Note_w)
+Note_mw.right = between
+Note_mw.left = between
+Note_mw.visible = false
 function Note_wu()
 	awful.spawn.easy_async_with_shell('cat ~/.local/share/notie | string trim', function(note)
 		if #note == 0 then
-			Note_mw.right = 0
-			Note_mw.left = 0
+			Note_mw.visible = false
 		else
-			Note_mw.right = between
-			Note_mw.left = between
+			Note_mw.visible = true
+			Note_w:set_text(note)
 		end
-		Note_w:set_text(note)
 	end)
 end
 
-Ontop_state_w = text_widget()
+Ontop_state_w = text_widget(nil, ' ')
 Ontop_state_bw = wibox.container.background(Ontop_state_w)
 Ontop_state_bw.fg = beautiful.red
 Ontop_state_mw = wibox.container.margin(Ontop_state_bw)
+Ontop_state_mw.right = 6
+Ontop_state_mw.visible = false
 function Ontop_state_wu(client)
 	if client.ontop then
-		Ontop_state_mw.right = 6
-		Ontop_state_w:set_text(' ')
+		Ontop_state_mw.visible = true
 	else
-		Ontop_state_mw.right = 0
-		Ontop_state_w:set_text('')
+		Ontop_state_mw.visible = false
 	end
 end
 
-Maximized_state_w = text_widget()
+Maximized_state_w = text_widget(nil, ' ')
 Maximized_state_bw = wibox.container.background(Maximized_state_w)
 Maximized_state_bw.fg = beautiful.yellow
 Maximized_state_mw = wibox.container.margin(Maximized_state_bw)
+Maximized_state_mw.right = 2
+Maximized_state_mw.visible = false
 function Maximized_state_wu(client)
 	if client.maximized then
-		Maximized_state_mw.right = 2
-		Maximized_state_w:set_text(' ')
+		Maximized_state_mw.visible = true
 	else
-		Maximized_state_mw.right = 0
-		Maximized_state_w:set_text('')
+		Maximized_state_mw.visible = false
 	end
 end
 
-Sticky_state_w = text_widget()
+Sticky_state_w = text_widget(nil, '󰹧 ')
 Sticky_state_bw = wibox.container.background(Sticky_state_w)
 Sticky_state_bw.fg = beautiful.green
 Sticky_state_mw = wibox.container.margin(Sticky_state_bw)
+Sticky_state_mw.right = 3
+Sticky_state_mw.visible = false
 function Sticky_state_wu(client)
 	if client.sticky then
-		Sticky_state_mw.right = 3
-		Sticky_state_w:set_text('󰹧 ')
+		Sticky_state_mw.visible = true
 	else
-		Sticky_state_mw.right = 0
-		Sticky_state_w:set_text('')
+		Sticky_state_mw.visible = false
 	end
 end
 
-Floating_state_w = text_widget()
+Floating_state_w = text_widget(nil, ' ')
 Floating_state_bw = wibox.container.background(Floating_state_w)
 Floating_state_bw.fg = beautiful.cyan
 Floating_state_mw = wibox.container.margin(Floating_state_bw)
+Floating_state_mw.right = 4
+Floating_state_mw.visible = false
 function Floating_state_wu(client)
 	if client.floating then
-		Floating_state_mw.right = 4
-		Floating_state_w:set_text(' ')
+		Floating_state_mw.visible = true
 	else
-		Floating_state_mw.right = 0
-		Floating_state_w:set_text('')
+		Floating_state_mw.visible = false
 	end
 end
 
