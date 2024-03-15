@@ -28,6 +28,21 @@ function EscapeFromRegexSearch(input)
 	return string.sub(input, 3)
 end
 
+function Trim_newlines(string)
+	string = string:gsub('[\r\n]*$', '')
+	return string:gsub('^[\r\n]*', '')
+end
+
+function Trim_trailing_newlines(string) return string:gsub('[\r\n]*$', '') end
+
+function Split_by_newlines(string)
+	local lines = {}
+	for line in string:gmatch('(.-)\n') do
+		table.insert(lines, line)
+	end
+	return lines
+end
+
 function GetChar(prompt)
 	vim.api.nvim_echo({ { prompt, 'Input' } }, true, {})
 	local char = vim.fn.getcharstr()
@@ -78,7 +93,7 @@ function ReverseTable(table)
 	return reversed
 end
 
-function Trim_trailing_newlines()
+function Trim_trailing_newlines_buffer()
 	local total_lines = vim.api.nvim_buf_line_count(0)
 
 	local last_non_blank = total_lines
@@ -154,29 +169,26 @@ function Killring_push()
 	print('pushed')
 end
 
-function Killring_pop_tail()
+function Killring_pop_tail(insert)
 	if #killring <= 0 then
 		print('killring empty')
 		return
 	end
 	local first_index = killring:remove(1)
 	vim.fn.setreg('"', first_index)
+	if insert then if insert == 'command' then FeedKeysInt('<c-r>"') else FeedKeysInt('<c-r<c-p>"') end end
 	print('got tail')
 end
 
-function Killring_pop()
+function Killring_pop(insert)
 	if #killring <= 0 then
 		print('killring empty')
 		return
 	end
 	local first_index = killring:remove(#killring)
 	vim.fn.setreg('"', first_index)
+	if insert then if insert == 'command' then FeedKeysInt('<c-r>"') else FeedKeysInt('<c-r<c-p>"') end end
 	print('got nose')
-end
-
-function Killring_kill()
-	killring = setmetatable({}, { __index = table })
-	print('ring killed')
 end
 
 function Killring_compile()
@@ -194,12 +206,13 @@ function Killring_compile_reversed()
 	print('killring compiled in reverse')
 end
 
-function Numbered_get(index)
+function Numbered_get(index, insert)
 	if numbered[index] == '' then
 		print(index .. ' is empty')
 		return
 	end
 	vim.fn.setreg('"', numbered[index])
+	if insert then if insert == 'command' then FeedKeysInt('<c-r>"') else FeedKeysInt('<c-r><c-p>"') end end
 	print('grabbed')
 end
 
