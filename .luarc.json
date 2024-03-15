@@ -1,6 +1,7 @@
 {
     "diagnostics.disable": [
         "lowercase-global",
-        "undefined-global"
+        "undefined-global",
+        "redefined-local"
     ]
 }
