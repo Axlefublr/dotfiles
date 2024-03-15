@@ -90,9 +90,7 @@ bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default \; repeat-jump
 
-bind -M insert -k f1 'commandline -f expand-abbr ; commandline -a " && clear -x" ; commandline -f execute'
 bind -M insert -k f2 expand-abbr insert-line-under
-bind -M insert -k f3 accept-autosuggestion execute
 bind -M insert -k f4 'commandline ""'
 
 bind -M insert \ed clear-screen
