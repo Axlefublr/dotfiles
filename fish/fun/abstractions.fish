@@ -114,13 +114,13 @@ alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle $arg
 alias --save get_mic_mute 'pactl get-source-mute @DEFAULT_SOURCE@ | string match -gr "Mute: (no|yes)"' >/dev/null
 
 function set_volume
-    pactl set-sink-volume @DEFAULT_SINK@ $argv
+    pactl set-sink-volume @DEFAULT_SINK@ "$argv%"
     widget_update get_volume Volume
 end
 funcsave set_volume >/dev/null
 
 function set_mic_volume
-    pactl set-source-volume @DEFAULT_SOURCE@ $argv
+    pactl set-source-volume @DEFAULT_SOURCE@ "$argv%"
     widget_update get_mic_volume Mic_volume
 end
 funcsave set_mic_volume >/dev/null
