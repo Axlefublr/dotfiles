@@ -7,6 +7,23 @@ local snippets = function()
 	local i = ls.insert_node
 	local single = function(node) return node[1] end
 
+	local all_snippets = {
+		s('wd', {
+			---@diagnostic disable-next-line: param-type-mismatch
+			f(function() return string.lower(os.date('%A')) end),
+		}),
+		s('Wd', {
+			f(function() return os.date('%A') end),
+		}),
+		s('dt', {
+			f(function() return os.date('%y.%m.%d') end),
+		}),
+		s('tm', {
+			f(function() return os.date('%H:%M') end),
+		}),
+	}
+	ls.add_snippets('all', all_snippets)
+
 	local lua_snippets = {
 		s('map', {
 			t("vim.keymap.set('"),
@@ -16,6 +33,15 @@ local snippets = function()
 			t("', "),
 			i(0),
 			t(')'),
+		}),
+		s('function inline', {
+			t('function'),
+			i(1),
+			t('('),
+			i(2),
+			t(') '),
+			i(0),
+			t(' end'),
 		}),
 	}
 	ls.add_snippets('lua', lua_snippets)
@@ -72,6 +98,8 @@ local snippets = function()
 		s('nvim', { t('nvim: ') }),
 		s('awesome', { t('awesome: ') }),
 		s('compose', { t('compose: ') }),
+		s('xremap', { t('xremap: ') }),
+		s('alacritty', { t('alacritty: ') }),
 	}
 	ls.add_snippets('gitcommit', git_commit_snippets)
 end
