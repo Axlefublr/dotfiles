@@ -45,6 +45,9 @@ vim.keymap.set({ 'n', 'x' }, ',de', function()
 	print('copied: ' .. relative_path)
 end)
 
+vim.keymap.set({ 'n', 'x' }, 'gs', '=')
+vim.keymap.set('n', 'gss', '==')
+
 vim.keymap.set('', 'U', '@@')
 vim.keymap.set('', '!', ':r !')
 vim.keymap.set('', '!!', ':!')
