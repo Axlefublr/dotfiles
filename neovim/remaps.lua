@@ -190,7 +190,7 @@ vim.keymap.set('', ',M', '``')
 
 vim.keymap.set({ 'n', 'x', 'o' }, "'q", '"+')
 vim.keymap.set({ 'n', 'x', 'o' }, "'w", '"0')
-vim.keymap.set({ 'n', 'x', 'o' }, "'i", '"_')
+vim.keymap.set({ 'n', 'x', 'o' }, "'a", '"_')
 vim.keymap.set({ 'n', 'x', 'o' }, "';", '":')
 
 vim.keymap.set('i', "<a-'>", '<C-r><C-p>')
