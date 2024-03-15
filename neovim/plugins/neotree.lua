@@ -148,8 +148,18 @@ return {
 						['y'] = 'copy_to_clipboard',
 						['x'] = 'cut_to_clipboard',
 						['p'] = 'paste_from_clipboard',
-						['c'] = 'copy', -- takes text input for destination, also accepts the config.show_path and config.insert_as options
-						['m'] = 'move', -- takes text input for destination, also accepts the config.show_path and config.insert_as options
+						['c'] = {
+							'copy',
+							config = {
+								show_path = 'absolute',
+							},
+						}, -- takes text input for destination, also accepts the config.show_path and config.insert_as options
+						['m'] = {
+							'move',
+							config = {
+								show_path = 'absolute',
+							},
+						}, -- takes text input for destination, also accepts the config.show_path and config.insert_as options
 						['?'] = 'show_help',
 					},
 				},
