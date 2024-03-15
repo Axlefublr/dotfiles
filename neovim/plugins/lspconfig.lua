@@ -2,7 +2,7 @@ local rust_analyzer_configuration = {
 	settings = {
 		['rust-analyzer'] = {
 			assist = {
-				expressionFillDefault = 'default'
+				expressionFillDefault = 'default',
 			},
 			cargo = {
 				allFeatures = true,
@@ -111,13 +111,19 @@ return {
 					-- Enable completion triggered by <c-x><c-o>
 					vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-					vim.keymap.set('n', ',lg', vim.diagnostic.open_float)
+					vim.keymap.set('n', ',lg', function()
+						vim.diagnostic.open_float()
+						vim.diagnostic.open_float()
+					end)
 					vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 					vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = ev.buf }
 					vim.keymap.set('n', ',la', vim.lsp.buf.declaration, opts)
-					vim.keymap.set('n', ',le', vim.lsp.buf.hover, opts)
+					vim.keymap.set('n', ',le', function()
+						vim.lsp.buf.hover()
+						vim.lsp.buf.hover()
+					end, opts)
 					vim.keymap.set('n', ',ls', vim.lsp.buf.signature_help, opts)
 					vim.keymap.set('n', ',lw', vim.lsp.buf.rename, opts)
 					vim.keymap.set({ 'n', 'x' }, ',lc', vim.lsp.buf.code_action, opts)
