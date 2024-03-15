@@ -84,7 +84,7 @@ return {
 					}),
 					augend.constant.new({
 						elements = { 'yes', 'no' },
-						word = false,
+						word = true,
 						cyclic = true,
 					}),
 				},

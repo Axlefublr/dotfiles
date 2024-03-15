@@ -102,6 +102,6 @@ function install_yt_video
 	else
 		set extra 'youtube/'
 	end
-	kitty -T link-download yt-dlp -o '/home/axlefublr/Videos/content/'$extra'%(title)s.%(ext)s' (xclip -selection clipboard -o)
+	alacritty -T link-download -e yt-dlp -o '/home/axlefublr/Videos/content/'$extra'%(title)s.%(ext)s' (xclip -selection clipboard -o)
 end
 funcsave install_yt_video > /dev/null

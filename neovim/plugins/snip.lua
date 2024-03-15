@@ -2,20 +2,78 @@ local snippets = function()
 	local ls = require('luasnip')
 	local s = ls.snippet
 	-- local sn = ls.snippet_node
+	local f = ls.function_node
 	local t = ls.text_node
 	local i = ls.insert_node
+	local single = function(node) return node[1] end
 
 	local lua_snippets = {
-		s('map', { t("vim.keymap.set('"), i(1), t("', '"), i(2), t("', "), i(0), t(')') }),
+		s('map', {
+			t("vim.keymap.set('"),
+			i(1),
+			t("', '"),
+			i(2),
+			t("', "),
+			i(0),
+			t(')'),
+		}),
 	}
 	ls.add_snippets('lua', lua_snippets)
 
 	local fish_snippets = {
 		s('#!', {
-			t({ '#!/usr/bin/env fish', '', '' }) -- {} in a t is a multiline text node
-		})
+			t({ '#!/usr/bin/env fish', '' }), -- {} in a t is a multiline text node
+		}),
+		s('function', {
+			t('function '),
+			i(1),
+			t({ '', '    ' }),
+			i(0),
+			t({ '', 'end' }),
+		}),
+		s('function save', {
+			t('function '),
+			i(1),
+			t({ '', '    ' }),
+			i(0),
+			t({ '', 'end', 'funcsave ' }),
+			f(single, 1),
+			t(' > /dev/null'),
+		}),
+		s('if test', {
+			t('if test '),
+			i(1),
+			t({ '', '    ' }),
+			i(0),
+			t({ '', 'end' }),
+		}),
+		s('else if test', {
+			t('else if test '),
+			i(1),
+			t({ '', '    ' }),
+		}),
+		s('funcsave', {
+			t('funcsave '),
+			i(0),
+			t(' >/dev/null'),
+		}),
+		s('while', {
+			t('while '),
+			i(1),
+			t({ '', '    ' }),
+			i(0),
+			t({ '', 'end' }),
+		}),
 	}
 	ls.add_snippets('fish', fish_snippets)
+
+	local git_commit_snippets = {
+		s('fish', { t('fish: ') }),
+		s('nvim', { t('nvim: ') }),
+		s('awesome', { t('awesome: ') }),
+		s('compose', { t('compose: ') }),
+	}
+	ls.add_snippets('gitcommit', git_commit_snippets)
 end
 
 return {
