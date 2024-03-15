@@ -3,6 +3,7 @@
 ~/prog/binaries
 ~/prog/noties
 ~/prog/job
+~/prog/backup
 ~/Pictures/tree
 ~/Pictures/tools
 ~/.local/share/floral_barrel

@@ -49,7 +49,7 @@ funcsave cf > /dev/null
 
 function xrestart
 	killall xremap
-	xremap --mouse ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
+	xremap --mouse ~/prog/dotfiles/xremap.yml &> /tmp/log/xremap.txt & disown
 end
 funcsave xrestart > /dev/null
 

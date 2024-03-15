@@ -6,7 +6,7 @@ else
 	mkdir -p /tmp/log
 end
 
-xremap --mouse ~/prog/dotfiles/xremap/xremap.yml &> /tmp/log/xremap.txt & disown
+xremap --mouse ~/prog/dotfiles/xremap.yml &> /tmp/log/xremap.txt & disown
 ydotoold &> /tmp/log/ydotoold.txt & disown
 # ollama serve &> /tmp/log/ollama.txt & disown
 picom &> /tmp/log/picom.txt & disown

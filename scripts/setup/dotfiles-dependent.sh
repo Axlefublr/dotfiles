@@ -81,7 +81,7 @@ ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
 
 # Rofi
 mkdir -p ~/.config/rofi
-ln -sf ~/prog/dotfiles/rofi/rofi.rasi ~/.config/rofi/config.rasi
+ln -sf ~/prog/dotfiles/rofi.rasi ~/.config/rofi/config.rasi
 sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 
 # Screenkey
