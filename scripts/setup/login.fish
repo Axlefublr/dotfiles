@@ -15,6 +15,9 @@ clipmenud &> /tmp/log/clipmenu.txt & disown
 xset s off -dpms &> /tmp/log/xset.txt
 redshift -O 5700 &> /tmp/log/redshift.txt
 playerctld daemon &> /tmp/log/playerctl.txt
+for script in ~/prog/dotfiles/scripts/widget_update/*.fish
+	$script & disown
+end
 
 alacritty -T meow & disown
 alacritty -T timer & disown

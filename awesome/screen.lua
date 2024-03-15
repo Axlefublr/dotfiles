@@ -98,16 +98,20 @@ end
 
 Mic_volume_w = text_widget()
 Mic_volume_mw = wibox.container.margin(Mic_volume_w)
+Mic_volume_mw.right = larger - 2
+Mic_volume_mw.visible = false
 function Mic_volume_wu()
-	awful.spawn.easy_async_with_shell('get_mic_volume', function(stdout)
-		local volume = Trim_newlines(stdout)
-		if #volume > 0 then
-			Mic_volume_mw.right = larger - 2
+	local file = io.open('/dev/shm/Mic_volume_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Mic_volume_mw.visible = true
+			Mic_volume_w:set_text(text)
 		else
-			Mic_volume_mw.right = 0
+			Mic_volume_mw.visible = false
 		end
-		Mic_volume_w:set_text(volume)
-	end)
+	end
 end
 
 Muteness_w = text_widget(nil, ' ')
@@ -126,92 +130,87 @@ end
 
 Volume_w = text_widget()
 Volume_mw = wibox.container.margin(Volume_w)
+Volume_mw.right = between
+Volume_mw.visible = false
 function Volume_wu()
-	awful.spawn.easy_async_with_shell('get_volume', function(stdout)
-		local volume = Trim_newlines(stdout)
-		if #volume > 0 then
-			Volume_mw.right = between
+	local file = io.open('/dev/shm/Volume_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Volume_mw.visible = true
+			Volume_w:set_text(text)
 		else
-			Volume_mw.right = 0
+			Volume_mw.visible = false
 		end
-		Volume_w:set_text(volume)
-	end)
+	end
 end
 
-Bluetooth_w = text_widget()
+Bluetooth_w = text_widget(nil, '')
 Bluetooth_bw = wibox.container.background(Bluetooth_w)
 Bluetooth_mw = wibox.container.margin(Bluetooth_bw)
+Bluetooth_mw.right = between - 1
+Bluetooth_mw.visible = false
 function Bluetooth_wu()
-	awful.spawn.easy_async_with_shell('get_bluetooth', function(stdout)
-		local is_on = Trim_newlines(stdout)
-		if is_on == 'yes' then
-			Bluetooth_w:set_text('')
-			Bluetooth_mw.right = between - 1
-			awful.spawn.easy_async_with_shell('get_bluetooth_connected', function(is_connected)
-				if #is_connected > 0 then
-					Bluetooth_bw.fg = beautiful.cyan
-				else
-					Bluetooth_bw.fg = beautiful.white
-				end
-			end)
-		elseif is_on == 'no' then
-			Bluetooth_w:set_text('')
-			Bluetooth_mw.right = 0
+	local file = io.open('/dev/shm/Bluetooth_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Bluetooth_mw.visible = true
+			if text == 'connected' then
+				Bluetooth_bw.fg = beautiful.cyan
+			else
+				Bluetooth_bw.fg = beautiful.white
+			end
+		else
+			Bluetooth_mw.visible = false
 		end
-	end)
+	end
 end
 
-Wifi_w = text_widget()
+Wifi_w = text_widget(nil, '󰖩 ')
 Wifi_bw = wibox.container.background(Wifi_w)
 Wifi_mw = wibox.container.margin(Wifi_bw)
+Wifi_mw.right = between - 8
+Wifi_mw.visible = false
 function Wifi_wu()
-	awful.spawn.easy_async_with_shell('get_internet', function(stdout)
-		local is_internet = Trim_newlines(stdout)
-		if is_internet == 'disabled' then
-			Wifi_wd()
-			return
-		end
-		Wifi_we()
-		awful.spawn.easy_async_with_shell('get_internet_connection', function(_connection_strength)
-			local connection_strength = Trim_newlines(_connection_strength)
-			if connection_strength == 'none' then
+	local file = io.open('/dev/shm/Wifi_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Wifi_mw.visible = true
+			if text == 'none' then
 				Wifi_bw.fg = beautiful.red
-			elseif connection_strength == 'limited' then
+			elseif text == 'limited' then
 				Wifi_bw.fg = beautiful.yellow
-			elseif connection_strength == 'full' then
+			elseif text == 'full' then
 				Wifi_bw.fg = beautiful.white
 			end
-		end)
-	end)
+		else
+			Wifi_mw.visible = false
+		end
+	end
 end
 
-function Wifi_wd()
-	Wifi_mw.right = 0
-	Wifi_w:set_text('')
-end
-
-function Wifi_we()
-	Wifi_mw.right = between - 8
-	Wifi_w:set_text('󰖩 ')
-end
-
-Compositor_w = text_widget()
+Compositor_w = text_widget(nil, '󱕅 ')
 Compositor_bw = wibox.container.background(Compositor_w)
 Compositor_mw = wibox.container.margin(Compositor_bw)
+Compositor_mw.right = between - 13
+Compositor_mw.visible = false
 function Compositor_wu()
-	awful.spawn.easy_async_with_shell('pidof picom', function(stdout)
-		local is_picom = Trim_newlines(stdout)
-		if #is_picom > 0 then
-			Compositor_we()
+	local file = io.open('/dev/shm/Compositor_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Compositor_mw.visible = true
 		else
-			Compositor_wd()
+			Compositor_mw.visible = false
 		end
-	end)
+	end
 end
-
-function Compositor_wd() Compositor_w:set_text('󱕅 ') end
-
-function Compositor_we() Compositor_w:set_text('') end
 
 Dnd_w = text_widget()
 Dnd_mw = wibox.container.margin(Dnd_w)
@@ -266,53 +265,62 @@ end
 Media_note_w = text_widget(nil, '󰝚 ')
 Media_note_mw = wibox.container.margin(Media_note_w)
 Media_note_mw.right = -2
+Media_note_mw.visible = false
 
 Media_time_w = text_widget()
 Media_time_mw = wibox.container.margin(Media_time_w)
+Media_time_mw.right = larger
+Media_time_mw.visible = false
 function Media_time_wu()
-	awful.spawn.easy_async_with_shell('get_media_time', function(output)
-		local media_time = Trim_newlines(output)
-		if #media_time > 0 then
-			Media_time_mw.right = larger
+	local file = io.open('/dev/shm/Media_time_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Media_note_mw.visible = true
+			Media_time_mw.visible = true
+			Media_time_w:set_text(text)
 		else
-			Media_time_mw.right = 0
+			Media_note_mw.visible = false
+			Media_time_w.visible = false
 		end
-		Media_time_w:set_text(media_time)
-	end)
+	end
 end
 
 Media_state_w = text_widget(beautiful.jetbrains_font .. ' 15')
 Media_state_mw = wibox.container.margin(Media_state_w)
+Media_state_mw.right = 5
+Media_state_mw.visible = false
 function Media_state_wu()
-	awful.spawn.easy_async_with_shell('media_state', function(stdout)
-		local state = Trim_newlines(stdout)
-		Media_state_mw.right = 5
-		if state == 'Paused' then
-			Media_state_w:set_text('󰏤')
-		elseif state == 'Playing' then
-			Media_state_w:set_text('󰐊')
-		elseif state == 'Stopped' then
-			Media_state_w:set_text('󰓛')
-		elseif state == '' then
-			Media_state_mw.right = 0
+	local file = io.open('/dev/shm/Media_state_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Media_state_mw.visible = true
+			Media_state_w:set_text(text)
 		else
-			Media_state_w:set_text(state) -- in case there are more statuses I don't know of
+			Media_note_mw.visible = false
 		end
-	end)
+	end
 end
 
 Media_volume_w = text_widget()
 Media_volume_mw = wibox.container.margin(Media_volume_w)
+Media_volume_mw.right = larger
+Media_volume_mw.visible = false
 function Media_volume_wu()
-	awful.spawn.easy_async_with_shell('get_media_volume', function(stdout)
-		local volume = Trim_newlines(stdout)
-		if #volume > 0 then
-			Media_volume_mw.right = larger
+	local file = io.open('/dev/shm/Media_volume_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Media_volume_mw.visible = true
+			Media_volume_w:set_text(text)
 		else
-			Media_volume_mw.right = 0
+			Media_volume_mw.visible = false
 		end
-		Media_volume_w:set_text(volume)
-	end)
+	end
 end
 
 Malumn_w = text_widget(beautiful.jetbrains_font .. ' 14')
@@ -325,8 +333,7 @@ function Malumn_wd() Malumn_w:set_text('?/?') end
 Note_w = text_widget('Comfortaa' .. beautiful.font_size)
 Note_mw = wibox.container.margin(Note_w)
 function Note_wu()
-	awful.spawn.easy_async_with_shell('cat ~/.local/share/notie', function(stdout)
-		local note = Trim_newlines(stdout)
+	awful.spawn.easy_async_with_shell('cat ~/.local/share/notie | string trim', function(note)
 		if #note == 0 then
 			Note_mw.right = 0
 			Note_mw.left = 0
@@ -435,25 +442,24 @@ Layout_w = text_widget(beautiful.jetbrains_font .. ' 14')
 Layout_bw = wibox.container.background(Layout_w)
 Layout_mw = wibox.container.margin(Layout_bw)
 Layout_mw.right = between
+Layout_mw.visible = false
 function Layout_wu()
-	awful.spawn.easy_async_with_shell('get_layout', function(stdout)
-		local layout = Trim_newlines(stdout)
-		if layout == 'English' then
-			layout = 'eng'
-		elseif layout == 'Russian' then
-			layout = 'rus'
-		end
-		awful.spawn.easy_async_with_shell('get_capslock', function(output)
-			local capslock = Trim_newlines(output)
-			if capslock == 'on' then
+	local file = io.open('/dev/shm/Layout_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Layout_mw.visible = true
+			if text == string.upper(text) then
 				Layout_bw.fg = beautiful.yellow
-				Layout_w:set_text(layout:upper())
 			else
 				Layout_bw.fg = beautiful.white
-				Layout_w:set_text(layout:lower())
 			end
-		end)
-	end)
+			Layout_w:set_text(text)
+		else
+			Layout_mw.visible = false
+		end
+	end
 end
 
 screen.primary.layout_box_widget = awful.widget.layoutbox(screen.primary)
@@ -530,30 +536,22 @@ Wibar_w:setup({
 	},
 })
 
-local frequent_updaters = {
-	Layout_wu,
-	Compositor_wu,
-	Bluetooth_wu,
-	Wifi_wu,
-	Media_time_wu,
-	Media_state_wu,
-	Media_volume_wu,
-	Mic_muteness_wu,
-	Mic_volume_wu,
-	Volume_wu,
-	Muteness_wu,
-}
-
-Frequent_counter = 0
-local frequent = function()
-	Frequent_counter = Frequent_counter + 1
-	frequent_updaters[Frequent_counter]()
-	if Frequent_counter >= #frequent_updaters then Frequent_counter = 0 end
-	return true
-end
-gears.timer.start_new(0.15, frequent)
-
 local run_once = function()
+	local frequents = {
+		'Layout',
+		'Media_time',
+		'Media_state',
+		'Media_volume',
+		'Mic_volume',
+		'Volume',
+		'Wifi',
+		'Bluetooth',
+		'Compositor',
+	}
+	for _, frequent_ in ipairs(frequents) do
+		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
+		if file then file:close() end
+	end
 	Hunger_wu()
 	Loago_wu()
 	Note_wu()
@@ -563,4 +561,3 @@ local run_once = function()
 	return false
 end
 gears.timer.start_new(0, run_once)
-gears.timer.start_new(20, run_once)
