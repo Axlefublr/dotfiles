@@ -46,10 +46,10 @@ alias --save enable_internet 'nmcli radio wifi on' >/dev/null
 function toggle_internet
     if test (get_internet) = enabled
         disable_internet
-        awesome-client 'Widget_disable_wifi()'
+        widget_update update_wifi Wifi
     else
         enable_internet
-        awesome-client 'Widget_enable_wifi()'
+        widget_update update_wifi Wifi
     end
 end
 funcsave toggle_internet >/dev/null
@@ -158,10 +158,10 @@ function toggle_compositor
             killall gromit-mpx
         end
         killall picom
-        awesome-client 'Widget_disable_compositor()'
+        widget_update update_compositor Compositor
     else
         picom &>/tmp/log/picom.txt & disown
-        awesome-client 'Widget_enable_compositor()'
+        widget_update update_compositor Compositor
         if pidof gromit-mpx
             killall gromit-mpx
         end

@@ -2,5 +2,5 @@
 
 while true
     widget_update get_volume Volume
-    sleep 0.1
+    sleep 1
 end

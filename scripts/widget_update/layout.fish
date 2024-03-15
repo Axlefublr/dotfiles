@@ -2,5 +2,5 @@
 
 while true
     widget_update update_layout Layout
-    sleep 0.1
+    sleep 1
 end

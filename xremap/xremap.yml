@@ -464,7 +464,7 @@ keymap:
   - name: Toggle capslock
     exact_match: true
     remap:
-      CapsLock-Space: [CapsLock, { launch: [awesome-client, Layout_wu()] }]
+      CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }]
 
   - name: Other
     exact_match: true

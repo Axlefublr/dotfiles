@@ -2,5 +2,5 @@
 
 while true
     widget_update get_media_volume Media_volume
-    sleep 0.1
+    sleep 1
 end
