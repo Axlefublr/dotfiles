@@ -266,3 +266,14 @@ function widget_update
     sleep 0.2
 end
 funcsave widget_update >/dev/null
+
+function update_anki
+    set due (curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "is:due" } }' 2> /dev/null | jq .result.[] 2> /dev/null | count)
+    if test -z $due
+        echo ''
+        return 0
+    else
+        echo $due
+    end
+end
+funcsave update_anki >/dev/null

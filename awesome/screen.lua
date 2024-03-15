@@ -46,6 +46,26 @@ function Loago_wu()
 	)
 end
 
+Anki_w = text_widget()
+Anki_bw = wibox.container.background(Anki_w)
+Anki_bw.fg = beautiful.red
+Anki_mw = wibox.container.margin(Anki_bw)
+Anki_mw.right = between
+Anki_mw.visible = false
+function Anki_wu()
+	local file = io.open('/dev/shm/Anki_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 and text ~= '0' then
+			Anki_mw.visible = true
+			Anki_w:set_text(text)
+		else
+			Anki_mw.visible = false
+		end
+	end
+end
+
 Clients_w = text_widget(beautiful.jetbrains_font .. ' 14')
 Clients_bw = wibox.container.background(Clients_w)
 Clients_mw = wibox.container.margin(Clients_bw)
@@ -498,6 +518,7 @@ Wibar_w:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
+		Anki_mw,
 		Media_note_mw,
 		Media_time_mw,
 		Media_state_mw,
@@ -532,6 +553,7 @@ local run_once = function()
 		'Wifi',
 		'Bluetooth',
 		'Compositor',
+		'Anki',
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
