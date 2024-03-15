@@ -61,9 +61,10 @@ funcsave xwaaa > /dev/null
 
 function xrestartwaaa
 	xrestart
+	notify-send -t 2000 'restarted xremap'
 	sleep 3
 	xwaaa
-	notify-send -t 2000 'restarted xremap'
+	notify-send -t 2000 'applied xset'
 end
 funcsave xrestartwaaa > /dev/null
 
