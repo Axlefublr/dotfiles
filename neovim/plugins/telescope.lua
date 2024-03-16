@@ -92,19 +92,19 @@ return {
 					show_line = false,
 				},
 				git_files = {
-					show_untracked = true
+					show_untracked = true,
 				},
 				buffers = {
 					ignore_current_buffer = true,
 					sort_lastused = true,
-					sort_mru = true
+					sort_mru = true,
 				},
 				quickfix = {
-					show_line = false
+					show_line = false,
 				},
 				lsp_references = {
 					show_line = false,
-					include_declaration = false
+					include_declaration = false,
 				},
 				lsp_incoming_calls = {
 					show_line = false,
@@ -124,7 +124,7 @@ return {
 			},
 			extensions = {
 				fzf = {
-					fuzzy = true, -- false will only do exact matching
+					fuzzy = true,         -- false will only do exact matching
 					override_generic_sorter = true, -- override the generic sorter
 					override_file_sorter = true, -- override the file sorter
 					case_mode = 'smart_case', -- or 'ignore_case' or 'respect_case' (the default case_mode is 'smart_case')
@@ -150,32 +150,36 @@ return {
 			vim.keymap.set(
 				'n',
 				',jF',
-				'<cmd>lua require("telescope.builtin").find_files({'
-					.. 'hidden = true,'
-					.. 'search_dirs = {'
-					.. '"~/prog/dotfiles",'
-					.. '"~/prog/noties",'
-					.. '"~/prog/job",'
-					.. '"~/.local/share/alien_temple",'
-					.. '"~/.local/share/floral_barrel",'
-					.. '}'
-					.. '})<cr>',
-				{}
+				function()
+					require('telescope.builtin').find_files({
+						hidden = true,
+						search_dirs = {
+							'~/prog/dotfiles',
+							'~/prog/noties',
+							'~/prog/job',
+							'~/prog/backup',
+							'~/.local/share/alien_temple',
+							'~/.local/share/floral_barrel',
+						},
+					})
+				end
 			)
 			vim.keymap.set('n', ',jd', builtin.live_grep, {})
 			vim.keymap.set(
 				'n',
 				',jD',
-				'<cmd>lua require("telescope.builtin").live_grep({'
-					.. 'search_dirs = {'
-					.. '"~/prog/dotfiles",'
-					.. '"~/prog/noties",'
-					.. '"~/prog/job",'
-					.. '"~/.local/share/alien_temple",'
-					.. '"~/.local/share/floral_barrel",'
-					.. '}'
-					.. '})<cr>',
-				{}
+				function()
+					require('telescope.builtin').live_grep({
+						search_dirs = {
+							'~/prog/dotfiles',
+							'~/prog/noties',
+							'~/prog/job',
+							'~/prog/backup',
+							'~/.local/share/alien_temple',
+							'~/.local/share/floral_barrel',
+						},
+					})
+				end
 			)
 			vim.keymap.set('n', ',jh', builtin.help_tags, {})
 			vim.keymap.set('n', ',jt', builtin.treesitter, {})

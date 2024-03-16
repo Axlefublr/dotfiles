@@ -96,3 +96,4 @@ sudo pacman -S --noconfirm neovide
 sudo pacman -S --noconfirm playerctl
 sudo pacman -S --noconfirm nim
 sudo pacman -S --noconfirm alacritty
+sudo pacman -S --noconfirm sysstat

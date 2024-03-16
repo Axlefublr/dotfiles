@@ -260,7 +260,7 @@ end
 Water_w = text_widget(nil, '󰖌 ')
 Water_bw = wibox.container.background(Water_w)
 Water_mw = wibox.container.margin(Water_bw)
-Water_mw.right = between - 13
+Water_mw.right = between - 19
 Water_mw.visible = false
 function Water_we() Water_mw.visible = true end
 
@@ -286,7 +286,7 @@ function Media_time_wu()
 			Media_time_w:set_text(text)
 		else
 			Media_note_mw.visible = false
-			Media_time_w.visible = false
+			Media_time_mw.visible = false
 		end
 	end
 end
@@ -327,12 +327,37 @@ function Media_volume_wu()
 	end
 end
 
-Malumn_w = text_widget(beautiful.jetbrains_font .. ' 14')
+Malumn_w = text_widget()
 Malumn_mw = wibox.container.margin(Malumn_w)
 Malumn_mw.right = between
 function Malumn_wu(tag) Malumn_w:set_text(tag.master_count .. '/' .. tag.column_count) end
 
 function Malumn_wd() Malumn_w:set_text('?/?') end
+
+Fire_w = text_widget(nil, ' ')
+Fire_mw = wibox.container.margin(Fire_w)
+Fire_mw.right = -3
+Fire_mw.visible = false
+
+Processor_w = text_widget()
+Processor_mw = wibox.container.margin(Processor_w)
+Processor_mw.right = larger
+Processor_mw.visible = false
+function Processor_wu()
+	local file = io.open('/dev/shm/Processor_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Processor_mw.visible = true
+			Fire_mw.visible = true
+			Processor_w:set_text(text)
+		else
+			Processor_mw.visible = false
+			Fire_mw.visible = false
+		end
+	end
+end
 
 Note_w = text_widget('Comfortaa' .. beautiful.font_size)
 Note_mw = wibox.container.margin(Note_w)
@@ -518,7 +543,8 @@ Wibar_w:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
-		Anki_mw,
+		Fire_mw,
+		Processor_mw,
 		Media_note_mw,
 		Media_time_mw,
 		Media_state_mw,
@@ -533,8 +559,9 @@ Wibar_w:setup({
 		Malumn_mw,
 		Window_state_lw,
 		Clients_mw,
-		Compositor_mw,
 		Water_mw,
+		Anki_mw,
+		Compositor_mw,
 		Dnd_mw,
 		Bluetooth_mw,
 		Wifi_mw,
@@ -554,6 +581,7 @@ local run_once = function()
 		'Bluetooth',
 		'Compositor',
 		'Anki',
+		'Processor'
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
