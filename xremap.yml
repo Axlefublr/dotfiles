@@ -438,7 +438,7 @@ keymap:
   - name: Neovide
     exact_match: true
     application:
-      only: neovide
+      only: [ neovide, neomax, neoline ]
     remap:
       Ctrl-Backspace: ctrl-w
       Alt-j: ctrl-n

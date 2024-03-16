@@ -47,6 +47,17 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = 'neomax' },
+		properties = {
+			floating = true,
+			x = 10,
+			y = 45,
+			width = 1894,
+			height = 1019
+		}
+	},
+
+	{
 		rule = { class = 'Alacritty', name = 'task' },
 		properties = { tag = screen.primary.tags[12] },
 	},
