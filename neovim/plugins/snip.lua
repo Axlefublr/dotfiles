@@ -90,6 +90,15 @@ local snippets = function()
 			i(0),
 			t({ '', 'end' }),
 		}),
+		s(',sr', {
+			t('>/dev/null')
+		}),
+		s(',er', {
+			t('2>/dev/null')
+		}),
+		s(',ar', {
+			t('&>/dev/null')
+		})
 	}
 	ls.add_snippets('fish', fish_snippets)
 

@@ -418,7 +418,7 @@ Maximized_state_w = text_widget(nil, ' ')
 Maximized_state_bw = wibox.container.background(Maximized_state_w)
 Maximized_state_bw.fg = beautiful.yellow
 Maximized_state_mw = wibox.container.margin(Maximized_state_bw)
-Maximized_state_mw.right = 2
+Maximized_state_mw.right = 4
 Maximized_state_mw.visible = false
 function Maximized_state_wu(client)
 	if client.maximized then
@@ -446,7 +446,7 @@ Floating_state_w = text_widget(nil, ' ')
 Floating_state_bw = wibox.container.background(Floating_state_w)
 Floating_state_bw.fg = beautiful.cyan
 Floating_state_mw = wibox.container.margin(Floating_state_bw)
-Floating_state_mw.right = 4
+Floating_state_mw.right = 6
 Floating_state_mw.visible = false
 function Floating_state_wu(client)
 	if client.floating then
