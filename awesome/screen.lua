@@ -260,7 +260,7 @@ end
 Water_w = text_widget(nil, '󰖌 ')
 Water_bw = wibox.container.background(Water_w)
 Water_mw = wibox.container.margin(Water_bw)
-Water_mw.right = between - 18
+Water_mw.right = between - 16
 Water_mw.visible = false
 function Water_we() Water_mw.visible = true end
 
@@ -334,7 +334,7 @@ function Malumn_wu(tag) Malumn_w:set_text(tag.master_count .. '/' .. tag.column_
 
 function Malumn_wd() Malumn_w:set_text('?/?') end
 
-Brain_w = text_widget(nil, ' ')
+Brain_w = text_widget(beautiful.jetbrains_font .. ' 14', ' ')
 Brain_mw = wibox.container.margin(Brain_w)
 Brain_mw.right = -6
 Brain_mw.visible = false
@@ -359,9 +359,9 @@ function Ram_wu()
 	end
 end
 
-Fire_w = text_widget(beautiful.jetbrains_font .. ' 14', '󰈸 ')
+Fire_w = text_widget(beautiful.jetbrains_font .. ' 15', '󰈸 ')
 Fire_mw = wibox.container.margin(Fire_w)
-Fire_mw.right = -9
+Fire_mw.right = -10
 Fire_mw.visible = false
 
 Processor_w = text_widget()
