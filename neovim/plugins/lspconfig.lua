@@ -1,4 +1,5 @@
 local rust_analyzer_configuration = {
+	filetypes = { 'rust' },
 	settings = {
 		['rust-analyzer'] = {
 			assist = {

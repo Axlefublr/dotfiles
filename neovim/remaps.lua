@@ -21,7 +21,6 @@ vim.keymap.set('n', ',K', close_without_saving)
 vim.keymap.set('n', 'K', close_try_save)
 
 local function curr_buff_full_path() return vim.api.nvim_buf_get_name(0) end
-
 vim.keymap.set({ 'n', 'x' }, ',dq', function()
 	local full_path = curr_buff_full_path()
 	vim.fn.setreg('+', full_path)
@@ -47,10 +46,9 @@ end)
 
 vim.keymap.set({ 'n', 'x' }, 'gs', '=')
 vim.keymap.set('n', 'gss', '==')
-
-vim.keymap.set('', 'U', '@@')
 vim.keymap.set('', '!', ':r !')
 vim.keymap.set('', '!!', ':!')
+vim.keymap.set('', 'U', '@@')
 vim.keymap.set('', '<cr>', ':')
 vim.keymap.set({ 'n', 'x', 'o' }, "'", '"')
 vim.keymap.set('', ':', ',')
@@ -63,38 +61,25 @@ vim.keymap.set('', 'zP', ']P')
 vim.keymap.set('', 'gM', 'M')
 vim.keymap.set('', 'zn', 'q')
 vim.keymap.set('', 'zm', '@')
-vim.keymap.set('', '_', function() FeedKeysInt(vim.v.count1 .. 'k$') end)
-vim.keymap.set('', 'gm', function() FeedKeys(vim.v.count * 10 .. 'gM') end) -- cuts down precision of gM to 10s
 vim.keymap.set('', ',v', '<c-v>')
-
-vim.keymap.set('', 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)
-vim.keymap.set('', 'L', function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end)
-
 vim.keymap.set({ 'n', 'x' }, '<A-/>', '<c-^>')
+vim.keymap.set('n', 'm', '`')
+vim.keymap.set('n', ',m', 'm')
+vim.keymap.set('n', 'gK', 'K')
+vim.keymap.set('n', 'Y', 'yg_')
+vim.keymap.set('n', '~', 'g~l')
 
 vim.keymap.set('x', 'u', '<Esc>u')
 vim.keymap.set('x', '&', ':s`\\V')
 vim.keymap.set('x', '@@', function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end) -- multiply selection
-
-vim.keymap.set('i', '<a-,>', '<c-d>')
-vim.keymap.set('i', '<a-.>', '<c-t>')
-vim.keymap.set('i', '<c-l>', '<C-x><C-l>')
-vim.keymap.set('i', '<C-k>', '<C-o>O')
--- vim.keymap.set('i', '<C-j>', '<C-o>o')
-vim.keymap.set('i', '<C-h>', '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
-
-vim.keymap.set('o', '{', 'V{')
-vim.keymap.set('o', '}', 'V}')
-vim.keymap.set('o', '+', 'v+')
-vim.keymap.set('o', '-', 'v-')
-
-vim.keymap.set('n', 'm', '`')
-vim.keymap.set('n', ',m', 'm')
+vim.keymap.set({ 'x', 'o', 'n' }, 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)
+vim.keymap.set({ 'x', 'o', 'n' }, 'L', function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end)
+vim.keymap.set('', '_', function() FeedKeysInt(vim.v.count1 .. 'k$') end)
+vim.keymap.set('', 'gm', function() FeedKeys(vim.v.count * 10 .. 'gM') end) -- cuts down precision of gM to 10s
+vim.keymap.set('', 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)
+vim.keymap.set('', 'L', function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end)
 vim.keymap.set('n', '<C-k>', 'O<Esc>')
 vim.keymap.set('n', '<C-j>', 'o<Esc>')
-vim.keymap.set('n', 'gK', 'K')
-vim.keymap.set('n', 'Y', 'yg_')
-vim.keymap.set('n', '~', 'g~l')
 vim.keymap.set('n', 'dp', 'ddp')
 vim.keymap.set('n', 'dP', 'ddkP')
 vim.keymap.set('n', 'yp', 'yyp')
@@ -106,6 +91,23 @@ vim.keymap.set('n', '*', function() Search_for_current_word('/', '') end)
 vim.keymap.set('n', ',*', function() Search_for_current_word('/', '/e') end)
 vim.keymap.set('n', '#', function() Search_for_current_word('?', '') end)
 vim.keymap.set('n', ',#', function() Search_for_current_word('?', '?e') end)
+vim.keymap.set('n', '[w', '<cmd>cprev<cr>')
+vim.keymap.set('n', ']w', '<cmd>cnext<cr>')
+vim.keymap.set('n', ',an', function() vim.cmd(vim.v.count1 .. 'cc') end)
+
+vim.keymap.set('i', '<a-,>', '<c-d>')
+vim.keymap.set('i', '<a-.>', '<c-t>')
+vim.keymap.set('i', '<c-l>', '<C-x><C-l>')
+vim.keymap.set('i', '<C-k>', '<C-o>O')
+-- vim.keymap.set('i', '<C-j>', '<C-o>o')
+vim.keymap.set('i', '<C-h>', '<C-o>"_S<Esc><C-o>gI<BS>') -- Delete from the current position to the last character on the previous line
+vim.keymap.set('i', '<a-s>', '<c-x>')
+vim.keymap.set('!', '<a-f>', '<c-f>')
+
+vim.keymap.set('o', '{', 'V{')
+vim.keymap.set('o', '}', 'V}')
+vim.keymap.set('o', '+', 'v+')
+vim.keymap.set('o', '-', 'v-')
 
 vim.keymap.set('n', ',aw', '<c-w>v')
 vim.keymap.set('n', ',ae', '<c-w>s')
@@ -142,10 +144,6 @@ vim.keymap.set('n', ',aL', '<c-w>l<c-w>|')
 vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
 vim.keymap.set('n', ',aq', '<cmd>enew<cr>')
-
-vim.keymap.set('n', '[w', '<cmd>cprev<cr>')
-vim.keymap.set('n', ']w', '<cmd>cnext<cr>')
-vim.keymap.set('n', ',an', function() vim.cmd(vim.v.count1 .. 'cc') end)
 
 local function move_to_blank_line(to_next)
 	local search_opts = to_next and '' or 'b'
