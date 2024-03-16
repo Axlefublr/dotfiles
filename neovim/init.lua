@@ -101,4 +101,12 @@ vim.api.nvim_create_autocmd('FileType', {
 	command = 'startinsert'
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'fish',
+	callback = function()
+		vim.b.expandtab = true
+		vim.b.shiftwidth = 4
+	end
+})
+
 print('nvim loaded')
