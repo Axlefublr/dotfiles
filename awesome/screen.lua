@@ -260,7 +260,7 @@ end
 Water_w = text_widget(nil, '󰖌 ')
 Water_bw = wibox.container.background(Water_w)
 Water_mw = wibox.container.margin(Water_bw)
-Water_mw.right = between - 19
+Water_mw.right = between - 18
 Water_mw.visible = false
 function Water_we() Water_mw.visible = true end
 
@@ -334,9 +334,34 @@ function Malumn_wu(tag) Malumn_w:set_text(tag.master_count .. '/' .. tag.column_
 
 function Malumn_wd() Malumn_w:set_text('?/?') end
 
-Fire_w = text_widget(nil, ' ')
+Brain_w = text_widget(nil, ' ')
+Brain_mw = wibox.container.margin(Brain_w)
+Brain_mw.right = -6
+Brain_mw.visible = false
+
+Ram_w = text_widget()
+Ram_mw = wibox.container.margin(Ram_w)
+Ram_mw.right = larger
+Ram_mw.visible = false
+function Ram_wu()
+	local file = io.open('/dev/shm/Ram_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Ram_mw.visible = true
+			Brain_mw.visible = true
+			Ram_w:set_text(text)
+		else
+			Ram_mw.visible = false
+			Brain_mw.visible = false
+		end
+	end
+end
+
+Fire_w = text_widget(beautiful.jetbrains_font .. ' 14', '󰈸 ')
 Fire_mw = wibox.container.margin(Fire_w)
-Fire_mw.right = -3
+Fire_mw.right = -9
 Fire_mw.visible = false
 
 Processor_w = text_widget()
@@ -543,6 +568,8 @@ Wibar_w:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
+		Brain_mw,
+		Ram_mw,
 		Fire_mw,
 		Processor_mw,
 		Media_note_mw,
@@ -581,7 +608,8 @@ local run_once = function()
 		'Bluetooth',
 		'Compositor',
 		'Anki',
-		'Processor'
+		'Processor',
+		'Ram'
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
