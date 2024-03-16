@@ -29,5 +29,5 @@ vim.opt.virtualedit          = 'block'
 vim.opt.inccommand           = 'split'
 -- vim.opt.signcolumn           = 'no'
 vim.diagnostic.config({ signs = false })
-vim.opt.listchars            = 'tab:↦ ,multispace:·,trail:·'
+vim.opt.listchars            = 'tab:↦ ,multispace:·'
 vim.opt.list                 = true
