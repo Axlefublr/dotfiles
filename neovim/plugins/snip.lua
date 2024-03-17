@@ -90,21 +90,21 @@ local snippets = function()
 			t({ '', 'end' }),
 		}),
 		s(',sr', {
-			t('>/dev/null')
+			t('>/dev/null'),
 		}),
 		s(',er', {
-			t('2>/dev/null')
+			t('2>/dev/null'),
 		}),
 		s(',ar', {
-			t('&>/dev/null')
+			t('&>/dev/null'),
 		}),
 		s('alias', {
 			t('alias --save '),
 			i(1),
 			t(" '"),
 			i(0),
-			t("' >/dev/null")
-		})
+			t("' >/dev/null"),
+		}),
 	}
 	ls.add_snippets('fish', fish_snippets)
 
@@ -117,6 +117,11 @@ local snippets = function()
 		s('alacritty', { t('alacritty: ') }),
 	}
 	ls.add_snippets('gitcommit', git_commit_snippets)
+
+	local css_snippets = {
+		s('important!', { t('important!') }),
+	}
+	ls.add_snippets('css', css_snippets)
 end
 
 return {

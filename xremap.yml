@@ -336,6 +336,7 @@ keymap:
           Control-k: { launch: [fish, -c, wote_edit] }
           m: { launch: [fish, -c, runner_math] }
           i: { launch: [fish, -c, runner_symbol] }
+          o: { launch: [fish, -c, runner_symbol_name] }
           Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
           Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
 

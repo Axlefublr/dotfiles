@@ -284,6 +284,19 @@ function runner_symbol
 end
 funcsave runner_symbol >/dev/null
 
+function runner_symbol_name
+    set result (rofi -input ~/prog/backup/unicodes.txt -sync -dmenu 2> /dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    if test -z $result
+        return 1
+    end
+    printf '\U'(string pad --char 0 --width 8 $result) 2>/dev/null | xclip -r -selection clipboard
+end
+funcsave runner_symbol_name > /dev/null
+
 function fbp
     floral_barrel show list | string match -gr '(.*?)\\s+-\\s+ep\\d+\\s+-\\s+dn\\d+' | fzf
 end

@@ -41,7 +41,7 @@ abbr -a gsw   'git switch'
 abbr -a gf    'git fetch'
 abbr -a gpu   'git pull'
 abbr -a grm   'git rm'
-abbr -a greb  'git rebase'
+abbr -a gri   'git rebase'
 abbr -a grp   'git rev-parse'
 abbr -a gui   'git update-index'
 
