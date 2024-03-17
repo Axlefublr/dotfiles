@@ -93,6 +93,8 @@ vim.keymap.set('n', '#', function() Search_for_current_word('?', '') end)
 vim.keymap.set('n', ',#', function() Search_for_current_word('?', '?e') end)
 vim.keymap.set('n', '[w', '<cmd>cprev<cr>')
 vim.keymap.set('n', ']w', '<cmd>cnext<cr>')
+vim.keymap.set('n', '[W', '<cmd>cpfile<cr>')
+vim.keymap.set('n', ']W', '<cmd>cnfile<cr>')
 vim.keymap.set('n', ',an', function() vim.cmd(vim.v.count1 .. 'cc') end)
 
 vim.keymap.set('i', '<a-,>', '<c-d>')

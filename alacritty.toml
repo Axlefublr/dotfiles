@@ -77,8 +77,8 @@ bindings = [
 	{ key = 'l', mods = 'Alt' , mode = 'Search', action = 'SearchFocusNext' },
 	{ key = 'h', mods = 'Alt' , mode = 'Search', action = 'SearchFocusPrevious' },
 
-	{ key = 'i', mods = 'Alt', mode = '~Search', action = 'ToggleViMode' },
+	{ key = 'Space', mods = 'Alt', mode = '~Search', action = 'ToggleViMode' },
 	{ key = ';', mods = 'Shift' , mode = 'Vi|~Search', action = 'InlineSearchPrevious' },
-	{ key = 'Space', mods = 'Alt' , action = 'ClearLogNotice' },
+	# { key = 'Space', mods = 'Alt' , action = 'ClearLogNotice' },
 	{ key = 'r', mods = 'Alt', action = 'CreateNewWindow' },
 ]

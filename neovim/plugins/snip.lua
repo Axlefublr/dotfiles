@@ -27,7 +27,7 @@ local snippets = function()
 	local lua_snippets = {
 		s('map', {
 			t("vim.keymap.set('"),
-			i(1),
+			i(1, 'n'),
 			t("', '"),
 			i(2),
 			t("', "),
