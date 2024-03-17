@@ -266,10 +266,23 @@ function Water_we() Water_mw.visible = true end
 
 function Water_wd() Water_mw.visible = false end
 
-Media_note_w = text_widget(nil, '󰝚 ')
-Media_note_mw = wibox.container.margin(Media_note_w)
-Media_note_mw.right = -2
-Media_note_mw.visible = false
+Media_player_w = text_widget(nil, '󰝚 ')
+Media_player_mw = wibox.container.margin(Media_player_w)
+Media_player_mw.right = -2
+Media_player_mw.visible = false
+function Media_player_wu()
+	local file = io.open('/dev/shm/Media_player_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Media_player_mw.visible = true
+			Media_player_w:set_text(text .. ' ')
+		else
+			Media_player_mw.visible = false
+		end
+	end
+end
 
 Media_time_w = text_widget()
 Media_time_mw = wibox.container.margin(Media_time_w)
@@ -281,11 +294,9 @@ function Media_time_wu()
 		local text = file:read('*a')
 		file:close()
 		if #text > 0 then
-			Media_note_mw.visible = true
 			Media_time_mw.visible = true
 			Media_time_w:set_text(text)
 		else
-			Media_note_mw.visible = false
 			Media_time_mw.visible = false
 		end
 	end
@@ -304,7 +315,7 @@ function Media_state_wu()
 			Media_state_mw.visible = true
 			Media_state_w:set_text(text)
 		else
-			Media_note_mw.visible = false
+			Media_player_mw.visible = false
 		end
 	end
 end
@@ -572,7 +583,7 @@ Wibar_w:setup({
 		Ram_mw,
 		Fire_mw,
 		Processor_mw,
-		Media_note_mw,
+		Media_player_mw,
 		Media_time_mw,
 		Media_state_mw,
 		Media_volume_mw,
@@ -609,7 +620,7 @@ local run_once = function()
 		'Compositor',
 		'Anki',
 		'Processor',
-		'Ram'
+		'Ram',
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
