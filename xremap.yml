@@ -476,18 +476,18 @@ keymap:
         {
           launch:
             [
-              sh,
+              fish,
               -c,
-              'xclip -selection clipboard -o > /dev/shm/clipboard ; neovide /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
       CapsLock-Alt-Dot:
         {
           launch:
             [
-              sh,
+              fish,
               -c,
-              'truncate -s 0 /dev/shm/clipboard ; neovide /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
       Super-j: { launch: [fish, -c, 'runner show'] }

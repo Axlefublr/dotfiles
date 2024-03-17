@@ -293,7 +293,7 @@ end
 
 Media_state_w = text_widget(beautiful.jetbrains_font .. ' 15')
 Media_state_mw = wibox.container.margin(Media_state_w)
-Media_state_mw.right = 5
+Media_state_mw.right = 6
 Media_state_mw.visible = false
 function Media_state_wu()
 	local file = io.open('/dev/shm/Media_state_f', 'r')

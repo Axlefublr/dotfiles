@@ -1,7 +1,6 @@
 local snippets = function()
 	local ls = require('luasnip')
 	local s = ls.snippet
-	-- local sn = ls.snippet_node
 	local f = ls.function_node
 	local t = ls.text_node
 	local i = ls.insert_node
@@ -98,6 +97,13 @@ local snippets = function()
 		}),
 		s(',ar', {
 			t('&>/dev/null')
+		}),
+		s('alias', {
+			t('alias --save '),
+			i(1),
+			t(" '"),
+			i(0),
+			t("' >/dev/null")
 		})
 	}
 	ls.add_snippets('fish', fish_snippets)

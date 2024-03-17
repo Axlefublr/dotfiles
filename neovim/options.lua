@@ -31,3 +31,4 @@ vim.opt.inccommand           = 'split'
 vim.diagnostic.config({ signs = false })
 vim.opt.listchars            = 'tab:↦ ,multispace:·'
 vim.opt.list                 = true
+vim.opt.shortmess            = 'finxtTIoOFS'
