@@ -9,9 +9,7 @@ function timer
 		end
 		if test $response = 'e'
 			exit
-		else if test $response = 'c' || test $response = ' ' || test $response = 'r'
-			continue
-		else if test $response = 'l'
+		else if test $response = ' '
 			clear -x
 			continue
 		else
