@@ -255,7 +255,7 @@ end
 funcsave runner_math >/dev/null
 
 function wote_edit
-    neovide ~/.local/share/notie
+    neoline ~/.local/share/notie
     awesome-client 'Note_wu()'
 end
 funcsave wote_edit >/dev/null
