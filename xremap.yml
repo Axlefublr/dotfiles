@@ -339,6 +339,45 @@ keymap:
           Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
           Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
 
+          Comma:
+            remap:
+              q: { launch: [fish, -c, 'neoline ~/.local/share/magazine/q'] }
+              w: { launch: [fish, -c, 'neoline ~/.local/share/magazine/w'] }
+              e: { launch: [fish, -c, 'neoline ~/.local/share/magazine/e'] }
+              r: { launch: [fish, -c, 'neoline ~/.local/share/magazine/r'] }
+              t: { launch: [fish, -c, 'neoline ~/.local/share/magazine/t'] }
+              'y': { launch: [fish, -c, 'neoline ~/.local/share/magazine/y'] }
+              u: { launch: [fish, -c, 'neoline ~/.local/share/magazine/u'] }
+              i: { launch: [fish, -c, 'neoline ~/.local/share/magazine/i'] }
+              o: { launch: [fish, -c, 'neoline ~/.local/share/magazine/o'] }
+              p: { launch: [fish, -c, 'neoline ~/.local/share/magazine/p'] }
+              a: { launch: [fish, -c, 'neoline ~/.local/share/magazine/a'] }
+              s: { launch: [fish, -c, 'neoline ~/.local/share/magazine/s'] }
+              d: { launch: [fish, -c, 'neoline ~/.local/share/magazine/d'] }
+              f: { launch: [fish, -c, 'neoline ~/.local/share/magazine/f'] }
+              g: { launch: [fish, -c, 'neoline ~/.local/share/magazine/g'] }
+              h: { launch: [fish, -c, 'neoline ~/.local/share/magazine/h'] }
+              j: { launch: [fish, -c, 'neoline ~/.local/share/magazine/j'] }
+              k: { launch: [fish, -c, 'neoline ~/.local/share/magazine/k'] }
+              l: { launch: [fish, -c, 'neoline ~/.local/share/magazine/l'] }
+              z: { launch: [fish, -c, 'neoline ~/.local/share/magazine/z'] }
+              x: { launch: [fish, -c, 'neoline ~/.local/share/magazine/x'] }
+              c: { launch: [fish, -c, 'neoline ~/.local/share/magazine/c'] }
+              v: { launch: [fish, -c, 'neoline ~/.local/share/magazine/v'] }
+              b: { launch: [fish, -c, 'neoline ~/.local/share/magazine/b'] }
+              'n': { launch: [fish, -c, 'neoline ~/.local/share/magazine/n'] }
+              m: { launch: [fish, -c, 'neoline ~/.local/share/magazine/m'] }
+              Key_1: { launch: [fish, -c, 'neoline ~/.local/share/magazine/1'] }
+              Key_2: { launch: [fish, -c, 'neoline ~/.local/share/magazine/2'] }
+              Key_3: { launch: [fish, -c, 'neoline ~/.local/share/magazine/3'] }
+              Key_4: { launch: [fish, -c, 'neoline ~/.local/share/magazine/4'] }
+              Key_5: { launch: [fish, -c, 'neoline ~/.local/share/magazine/5'] }
+              Key_6: { launch: [fish, -c, 'neoline ~/.local/share/magazine/6'] }
+              Key_7: { launch: [fish, -c, 'neoline ~/.local/share/magazine/7'] }
+              Key_8: { launch: [fish, -c, 'neoline ~/.local/share/magazine/8'] }
+              Key_9: { launch: [fish, -c, 'neoline ~/.local/share/magazine/9'] }
+              Key_0: { launch: [fish, -c, 'neoline ~/.local/share/magazine/0'] }
+
   - name: Layouts
     exact_match: true
     remap:
@@ -438,7 +477,7 @@ keymap:
   - name: Neovide
     exact_match: true
     application:
-      only: [ neovide, neomax, neoline ]
+      only: [neovide, neomax, neoline]
     remap:
       Ctrl-Backspace: ctrl-w
       Alt-j: ctrl-n
