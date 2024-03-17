@@ -58,6 +58,17 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = 'neoline' },
+		properties = {
+			floating = true,
+			x = 10,
+			y = 500,
+			width = 1894,
+			height = 110
+		}
+	},
+
+	{
 		rule = { class = 'Alacritty', name = 'task' },
 		properties = { tag = screen.primary.tags[12] },
 	},

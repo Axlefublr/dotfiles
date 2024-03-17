@@ -24,6 +24,7 @@ alias --save awart 'awesome-client "awesome.restart()"' >/dev/null
 alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' >/dev/null
 alias --save dust 'dust -r' >/dev/null
 alias --save neomax 'neovide --x11-wm-class-instance neomax' >/dev/null
+alias --save neoline 'neovide --x11-wm-class-instance neoline' >/dev/null
 
 function rlc
     realpath $argv | xclip -r -selection clipboard
