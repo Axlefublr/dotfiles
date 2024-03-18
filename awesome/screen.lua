@@ -45,6 +45,11 @@ function Loago_wu()
 		function(stdout) Loago_w:set_text(stdout) end
 	)
 end
+Loago_mw:buttons(
+	gears.table.join(
+		awful.button({}, 1, Loago_wu)
+	)
+)
 
 Anki_w = text_widget()
 Anki_bw = wibox.container.background(Anki_w)
@@ -621,6 +626,7 @@ local run_once = function()
 		'Anki',
 		'Processor',
 		'Ram',
+		'Media_player'
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')

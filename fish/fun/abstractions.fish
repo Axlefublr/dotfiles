@@ -219,8 +219,9 @@ function get_hunger
 end
 funcsave get_hunger >/dev/null
 
-function get_old_tasks
-    set oldest (loago list | rg -v 'eat' | tac)
+function get_oldest_task
+    clorange task-count increment
+    set oldest (loago list | rg -v 'eat' | tac) # only get tasks done 5 or more days ago
     set filtered
     for task in $oldest
         set matches (string match -gr '(\\S+)\\s+— (\\d+)' $task)
@@ -229,8 +230,8 @@ function get_old_tasks
         if string match -qr 'filter|lamp|[rc]azor|[nt]ails|[fw]ilter|bottle|[fb]scrub|nose|cloths' $task_name
             if test \( $task_name = filter -a $task_days -gt 45 \) \
                     -o \( $task_name = lamp -a $task_days -ge 7 \) \
+                    -o \( $task_name = nose -a $task_days -ge 7 \) \
                     -o \( $task_name = cazor -a $task_days -ge 7 \) \
-                    -o \( $task_name = nose -a $task_days -ge 10 \) \
                     -o \( $task_name = cloths -a $task_days -ge 10 \) \
                     -o \( $task_name = nails -a $task_days -ge 10 \) \
                     -o \( $task_name = wilter -a $task_days -ge 10 \) \
@@ -245,13 +246,7 @@ function get_old_tasks
             set filtered $filtered "$task_name $task_days"
         end
     end
-    echo $filtered
-end
-funcsave get_old_tasks > /dev/null
-
-function get_oldest_task
-    clorange task-count increment
-    set available (count (get_old_tasks))
+    set available (count $filtered)
     if test $available -eq 0
         printf 'done!'
         return 0
