@@ -97,7 +97,7 @@ return {
 	{
 		'nmac427/guess-indent.nvim',
 		opts = {
-			auto_cmd = false,
+			auto_cmd = true,
 			buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
 				'help',
 				'nofile',
