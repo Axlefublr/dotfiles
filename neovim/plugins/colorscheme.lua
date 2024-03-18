@@ -1,5 +1,4 @@
 local highlight_modifications = function()
-
 	local recolors = {
 		['@string'] = 'yellow',
 		['@string.escape'] = 'grey',
@@ -36,9 +35,9 @@ local highlight_modifications = function()
 
 		['@markup.italic.markdown_inline'] = { italic = true },
 		['@markup.strikethrough.markdown_inline'] = { strikethrough = true },
-		['@markup.raw.markdown_inline'] = 'yellow', -- inline code
+		['@markup.raw.markdown_inline'] = 'yellow',   -- inline code
 		['@markup.raw.delimiter.markdown_inline'] = 'grey', -- `` of inline code
-		['@markup.raw.delimiter.markdown'] = 'grey', -- ``` of codeblocks
+		['@markup.raw.delimiter.markdown'] = 'grey',  -- ``` of codeblocks
 
 		['@punctuation.special.bash'] = 'purple',
 		['@variable.bash'] = 'purple',
@@ -53,6 +52,31 @@ local highlight_modifications = function()
 		['@punctuation.special.rasi'] = 'yellow',
 		['@type.rasi'] = 'yellow',
 
+		['@type.qualifier.rust'] = { fg = Colors.orange, italic = true },
+		['@character.rust'] = { fg = Colors.yellow, bold = true },
+		['@variable.member.rust'] = 'white',
+		['@module.rust'] = 'white',
+		['@punctuation.special.rust'] = 'white',
+		['@lsp.type.namespace.rust'] = 'white',
+		['@lsp.type.struct.rust'] = 'cyan',
+		['@lsp.type.enum.rust'] = 'mint',
+		['@lsp.type.enumMember.rust'] = 'mint',
+		['@lsp.type.property.rust'] = 'white',
+		['@lsp.type.macro.rust'] = 'green',
+		['@lsp.type.string.rust'] = 'yellow',
+		['@lsp.typemod.property.private.rust'] = { fg = Colors.mint, underline = true },
+		-- ['@lsp.typemod.variable.constant.rust'] = { bold = true },
+		['@lsp.type.attributeBracket.rust'] = 'purple',
+		['@lsp.type.comment.rust'] = 'grey',
+		['@lsp.type.builtinType.rust'] = { fg = Colors.yellow, bold = true },
+		['@lsp.type.interface.rust'] = 'yellow',
+		['@lsp.type.operator.rust'] = 'white',
+		['@lsp.type.selfTypeKeyword.rust'] = 'purple',
+		['@lsp.type.lifetime.rust'] = { fg = Colors.orange, italic = true },
+		['@lsp.mod.controlFlow.rust'] = 'red',
+		['@lsp.mod.reference.rust'] = { italic = true },
+		['@lsp.mod.mutable.rust'] = { bold = true },
+
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',
 	}
@@ -66,7 +90,6 @@ local highlight_modifications = function()
 		end
 		vim.api.nvim_set_hl(0, highlight, color_table)
 	end
-
 end
 
 return {
@@ -78,7 +101,7 @@ return {
 			vim.cmd.colorscheme('gruvbox-material')
 			highlight_modifications()
 			vim.api.nvim_create_autocmd('ColorScheme', {
-				callback = highlight_modifications
+				callback = highlight_modifications,
 			})
 		end,
 	},
