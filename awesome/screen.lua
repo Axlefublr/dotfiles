@@ -40,16 +40,18 @@ Clock_mw.right = between
 Loago_w = text_widget('Comfortaa 13')
 Loago_mw = wibox.container.margin(Loago_w)
 function Loago_wu()
-	awful.spawn.easy_async_with_shell(
-		'get_oldest_task',
-		function(stdout) Loago_w:set_text(stdout) end
-	)
+	local file = io.open('/dev/shm/Loago_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Loago_mw.visible = true
+			Loago_w:set_text(text)
+		else
+			Loago_mw.visible = false
+		end
+	end
 end
-Loago_mw:buttons(
-	gears.table.join(
-		awful.button({}, 1, Loago_wu)
-	)
-)
 
 Anki_w = text_widget()
 Anki_bw = wibox.container.background(Anki_w)
@@ -626,14 +628,14 @@ local run_once = function()
 		'Anki',
 		'Processor',
 		'Ram',
-		'Media_player'
+		'Media_player',
+		'Loago'
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
 		if file then file:close() end
 	end
 	Hunger_wu()
-	Loago_wu()
 	Note_wu()
 	Malumn_wu(screen.primary.selected_tag)
 	Dnd_wu()

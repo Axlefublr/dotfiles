@@ -234,10 +234,10 @@ function get_oldest_task
                     -o \( $task_name = cazor -a $task_days -ge 7 \) \
                     -o \( $task_name = cloths -a $task_days -ge 10 \) \
                     -o \( $task_name = nails -a $task_days -ge 10 \) \
-                    -o \( $task_name = wilter -a $task_days -ge 10 \) \
-                    -o \( $task_name = bottle -a $task_days -ge 10 \) \
                     -o \( $task_name = fscrub -a $task_days -ge 10 \) \
                     -o \( $task_name = bscrub -a $task_days -ge 10 \) \
+                    -o \( $task_name = wilter -a $task_days -ge 15 \) \
+                    -o \( $task_name = bottle -a $task_days -ge 15 \) \
                     -o \( $task_name = razor -a $task_days -ge 20 \) \
                     -o \( $task_name = tails -a $task_days -ge 20 \)
                 set filtered $filtered "$task_name $task_days"

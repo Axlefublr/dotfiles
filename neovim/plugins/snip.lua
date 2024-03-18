@@ -115,6 +115,7 @@ local snippets = function()
 		s('compose', { t('compose: ') }),
 		s('xremap', { t('xremap: ') }),
 		s('alacritty', { t('alacritty: ') }),
+		s('stylus(youtube)', { t('stylus(youtube): ') }),
 	}
 	ls.add_snippets('gitcommit', git_commit_snippets)
 
