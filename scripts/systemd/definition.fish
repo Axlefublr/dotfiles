@@ -18,10 +18,6 @@ systemctl --user enable --now saturday.timer
 
 systemctl --user enable --now sunday.timer
 
-systemctl --user enable --now 27.timer
-
-systemctl --user enable --now 18.timer
-
 systemctl --user enable --now ten-minutes.timer
 
 systemctl --user enable --now minute.timer
