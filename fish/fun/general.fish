@@ -104,13 +104,14 @@ end
 funcsave smdr >/dev/null
 
 function uboot
-    paru
     if test (math (clorange updates show) % 5) -eq 0
         rustup update
     end
     if test (math (clorange updates show) % 3) -eq 0
         cargo mommy install-update -a
     end
+    paru
+    pacclean
     clorange updates increment
     loago do update
     bell
@@ -344,3 +345,18 @@ function edit_commandline
     commandline -f repaint
 end
 funcsave edit_commandline >/dev/null
+
+function pacclean --description 'clean pacman and paru cache' # based on https://gist.github.com/ericmurphyxyz/37baa4c9da9d3b057a522f20a9ad6eba (cool youtuber btw)
+    set aur_cache_dir "$HOME/.cache/paru/clone"
+    function aur_cache_dirs_fmt
+        fd . $HOME/.cache/paru/clone -d 1 -t d | awk '{ print "-c" $1 }'
+    end
+    set uninstalled_target (aur_cache_dirs_fmt)
+    echo $uninstalled_target[1]
+    paccache -ruvk0 $uninstalled_target
+    set installed_target (aur_cache_dirs_fmt) # we do it this way because uninstalled package directories got removed
+    paccache -qruk1
+    paccache -qrk2 -c /var/cache/pacman/pkg $installed_target
+
+end
+funcsave pacclean >/dev/null
