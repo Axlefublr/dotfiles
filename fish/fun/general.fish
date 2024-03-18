@@ -218,7 +218,7 @@ funcsave runner_kill >/dev/null
 
 function runner_note
     set input (rofi -dmenu 2> /dev/null | string collect)
-    indeed -- ~/prog/noties/notes.txt $input
+    indeed -- ~/prog/noties/notes.md $input
 end
 funcsave runner_note >/dev/null
 
@@ -228,7 +228,7 @@ function runner_wote
         return 1
     end
     if set -q argv[1]
-        indeed -- ~/prog/noties/notes.txt (cat ~/.local/share/notie)
+        indeed -- ~/prog/noties/notes.md (cat ~/.local/share/notie)
     end
     set -e result[-1]
     set result (string collect $result)
@@ -248,7 +248,7 @@ function runner_math
     set -e result[-1]
     set result (string collect $result)
     if test -n $result
-        indeed -- ~/prog/noties/notes.txt (cat ~/.local/share/notie)
+        indeed -- ~/prog/noties/notes.md (cat ~/.local/share/notie)
         math "$result" 2>/dev/null >~/.local/share/notie
         awesome-client 'Note_wu()'
     end
@@ -294,9 +294,9 @@ function runner_symbol_name
     if test -z $result
         return 1
     end
-    printf '\U'(string pad --char 0 --width 8 $result) 2>/dev/null | xclip -r -selection clipboard
+    printf '\U'(string pad --char 0 --width 8 (string split ' ' $result)[1]) 2>/dev/null | xclip -r -selection clipboard
 end
-funcsave runner_symbol_name > /dev/null
+funcsave runner_symbol_name >/dev/null
 
 function fbp
     floral_barrel show list | string match -gr '(.*?)\\s+-\\s+ep\\d+\\s+-\\s+dn\\d+' | fzf
@@ -306,7 +306,7 @@ funcsave fbp >/dev/null
 function edit_commandline
     set temp '/dev/shm/fish_edit_commandline.fish'
     truncate -s 0 $temp || touch $temp
-    set cursor_location '/dev/shm/fish_edit_commandline_cursor'
+    set cursor_location /dev/shm/fish_edit_commandline_cursor
     truncate -s 0 $cursor_location || touch $cursor_location
     commandline >$temp
 

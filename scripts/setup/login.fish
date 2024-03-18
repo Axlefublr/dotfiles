@@ -8,9 +8,9 @@ end
 
 xremap --mouse ~/prog/dotfiles/xremap.yml &> /tmp/log/xremap.txt & disown
 ydotoold &> /tmp/log/ydotoold.txt & disown
-# ollama serve &> /tmp/log/ollama.txt & disown
+ollama serve &> /tmp/log/ollama.txt & disown
 picom &> /tmp/log/picom.txt & disown
-gromit-mpx -o 1 -k "none" -u "none" &> /tmp/log/gromit.txt & disown
+gromit-mpx -o 1 -k 'none' -u 'none' &> /tmp/log/gromit.txt & disown
 clipmenud &> /tmp/log/clipmenu.txt & disown
 xset s off -dpms &> /tmp/log/xset.txt
 redshift -O 5700 &> /tmp/log/redshift.txt
