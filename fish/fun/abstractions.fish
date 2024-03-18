@@ -98,7 +98,7 @@ funcsave get_media_time >/dev/null
 function get_media_player
     playerctl metadata --format '{{playerName}}' 2>/dev/null
 end
-funcsave get_media_player > /dev/null
+funcsave get_media_player >/dev/null
 
 function ml
     media_position "$argv-"
@@ -219,34 +219,34 @@ function get_hunger
 end
 funcsave get_hunger >/dev/null
 
-function get_oldest_task
-    clorange task-count increment
-    set oldest (loago list | rg -v 'eat' | tac) # only get tasks done 5 or more days ago
-    set filtered
+function filter_mature_tasks
+    set oldest (loago list | rg -v 'eat' | awk '$3 > 4')
     for task in $oldest
-        set matches (string match -gr '(\\S+)\\s+— (\\d+)' $task)
-        set task_name $matches[1]
-        set task_days $matches[2]
-        if string match -qr 'filter|lamp|[rc]azor|[nt]ails|[fw]ilter|bottle|[fb]scrub|nose|cloths' $task_name
-            if test \( $task_name = filter -a $task_days -gt 45 \) \
-                    -o \( $task_name = lamp -a $task_days -ge 7 \) \
-                    -o \( $task_name = nose -a $task_days -ge 7 \) \
-                    -o \( $task_name = cazor -a $task_days -ge 7 \) \
-                    -o \( $task_name = cloths -a $task_days -ge 10 \) \
-                    -o \( $task_name = nails -a $task_days -ge 10 \) \
-                    -o \( $task_name = fscrub -a $task_days -ge 10 \) \
-                    -o \( $task_name = bscrub -a $task_days -ge 10 \) \
-                    -o \( $task_name = wilter -a $task_days -ge 15 \) \
-                    -o \( $task_name = bottle -a $task_days -ge 15 \) \
-                    -o \( $task_name = razor -a $task_days -ge 20 \) \
-                    -o \( $task_name = tails -a $task_days -ge 20 \)
-                set filtered $filtered "$task_name $task_days"
-            end
-        else if test $task_days -ge 5
-            set filtered $filtered "$task_name $task_days"
+        set -l match (string match -gr '^(\\S+)\\s+— (\\d+)$' $task)
+        set -l name $match[1]
+        set -l days $match[2]
+        if test \( $name = filter -a $days -gt 45 \) \
+                -o \( $name = lamp -a $days -ge 7 \) \
+                -o \( $name = nose -a $days -ge 7 \) \
+                -o \( $name = cazor -a $days -ge 7 \) \
+                -o \( $name = cloths -a $days -ge 10 \) \
+                -o \( $name = nails -a $days -ge 10 \) \
+                -o \( $name = fscrub -a $days -ge 10 \) \
+                -o \( $name = bscrub -a $days -ge 10 \) \
+                -o \( $name = wilter -a $days -ge 15 \) \
+                -o \( $name = bottle -a $days -ge 15 \) \
+                -o \( $name = razor -a $days -ge 20 \) \
+                -o \( $name = tails -a $days -ge 30 \)
+            echo $task
         end
     end
-    set available (count $filtered)
+end
+funcsave filter_mature_tasks >/dev/null
+
+function get_oldest_task
+    clorange task-count increment
+    set tasks (filter_mature_tasks)
+    set available (count $tasks)
     if test $available -eq 0
         printf 'done!'
         return 0
@@ -256,7 +256,7 @@ function get_oldest_task
         clorange task-count set 1
         set index 1
     end
-    set picked $filtered[$index]
+    set picked (string match -gr '^(\\S+)\\s+— (\\d+)$' $tasks[$index] | string join ' ')
     printf $picked
 end
 funcsave get_oldest_task >/dev/null
