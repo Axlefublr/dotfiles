@@ -351,3 +351,16 @@ yt-live-chat-header-renderer {
 #more-replies .yt-spec-button-shape-next__icon div {
 	fill: var(--shell-pink) !important;
 }
+
+/* container with history buttons */
+ytd-two-column-browse-results-renderer[page-subtype=history] ytd-browse-feed-actions-renderer.ytd-two-column-browse-results-renderer {
+	padding: 0;
+}
+ytd-browse-feed-actions-renderer.ytd-two-column-browse-results-renderer {
+	width: 250px;
+}
+
+/* container with history videos */
+ytd-two-column-browse-results-renderer[page-subtype=history][has-secondary-column-data] #primary.ytd-two-column-browse-results-renderer {
+	padding-right: 160px;
+}
