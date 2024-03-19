@@ -1,23 +1,28 @@
 return {
-	'kana/vim-textobj-user',
+	-- 'kana/vim-textobj-user',
 	'tpope/vim-repeat',
 	'adelarsq/vim-matchit',
 	'farmergreg/vim-lastplace',
 	{
 		'wellle/targets.vim',
-		init = function() vim.g.targets_nl = 'nh' end,
+		init = function() vim.g.targets_nl = 'nh' end, -- for some reason, `config` doesn't work but `init` does
 	},
 	{
 		'vim-scripts/ReplaceWithRegister',
-		config = function() vim.keymap.set('n', 'grr', '<Plug>ReplaceWithRegisterLine') end,
+		keys = {
+			{ 'grr', '<Plug>ReplaceWithRegisterLine' },
+			{ 'gr' },
+		},
 	},
 	{
 		'junegunn/vim-easy-align',
-		config = function() vim.keymap.set('', 'ga', '<Plug>(EasyAlign)') end,
+		keys = {
+			{ mode = '', 'ga', '<Plug>(EasyAlign)' },
+		},
 	},
 	{
 		'bkad/CamelCaseMotion',
-		init = function() vim.g.camelcasemotion_key = '<leader>' end,
+		init = function() vim.g.camelcasemotion_key = '<leader>' end, -- only `init` works
 	},
 	{
 		'kylechui/nvim-surround',
@@ -49,6 +54,15 @@ return {
 	},
 	{
 		'numToStr/Comment.nvim',
+		keys = {
+			{ mode = { 'n', 'x' }, 'gd' },
+			{ mode = { 'n', 'x' }, 'gh' },
+			{ 'gdd' },
+			{ 'ghh' },
+			{ 'gdo' },
+			{ 'gdO' },
+			{ 'gdl' },
+		},
 		opts = {
 			---Add a space b/w comment and the line
 			padding = true,
@@ -95,6 +109,7 @@ return {
 	},
 	{
 		'nmac427/guess-indent.nvim',
+		cmd = 'GuessIndent',
 		opts = {
 			auto_cmd = true,
 			buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
@@ -109,35 +124,33 @@ return {
 		'ThePrimeagen/harpoon',
 		branch = 'harpoon2',
 		dependencies = { 'nvim-lua/plenary.nvim' },
-		config = function()
-			local harpoon = require('harpoon')
-			harpoon:setup()
+		config = true,
+		keys = {
+			{ ',aM', function() require('harpoon'):list():prepend() end },
+			{ ',am', function() require('harpoon'):list():append() end },
+			{ '""',  function() require('harpoon').ui:toggle_quick_menu(harpoon:list()) end },
 
-			vim.keymap.set('n', ',aM', function() harpoon:list():prepend() end)
-			vim.keymap.set('n', ',am', function() harpoon:list():append() end)
-			vim.keymap.set('n', '""', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-			vim.keymap.set('n', '"a', function() harpoon:list():select(1) end)
-			vim.keymap.set('n', '"s', function() harpoon:list():select(2) end)
-			vim.keymap.set('n', '"d', function() harpoon:list():select(3) end)
-			vim.keymap.set('n', '"f', function() harpoon:list():select(4) end)
-			vim.keymap.set('n', '"g', function() harpoon:list():select(5) end)
-			vim.keymap.set('n', '"z', function() harpoon:list():select(6) end)
-			vim.keymap.set('n', '"x', function() harpoon:list():select(7) end)
-			vim.keymap.set('n', '"c', function() harpoon:list():select(8) end)
-			vim.keymap.set('n', '"v', function() harpoon:list():select(9) end)
-			vim.keymap.set('n', '"b', function() harpoon:list():select(10) end)
-			vim.keymap.set('n', '"A', function() harpoon:list():select(11) end)
-			vim.keymap.set('n', '"S', function() harpoon:list():select(12) end)
-			vim.keymap.set('n', '"D', function() harpoon:list():select(13) end)
-			vim.keymap.set('n', '"F', function() harpoon:list():select(14) end)
-			vim.keymap.set('n', '"G', function() harpoon:list():select(15) end)
-			vim.keymap.set('n', '"Z', function() harpoon:list():select(16) end)
-			vim.keymap.set('n', '"X', function() harpoon:list():select(17) end)
-			vim.keymap.set('n', '"C', function() harpoon:list():select(18) end)
-			vim.keymap.set('n', '"V', function() harpoon:list():select(19) end)
-			vim.keymap.set('n', '"B', function() harpoon:list():select(20) end)
-		end,
+			{ '"a',  function() require('harpoon'):list():select(1) end },
+			{ '"s',  function() require('harpoon'):list():select(2) end },
+			{ '"d',  function() require('harpoon'):list():select(3) end },
+			{ '"f',  function() require('harpoon'):list():select(4) end },
+			{ '"g',  function() require('harpoon'):list():select(5) end },
+			{ '"z',  function() require('harpoon'):list():select(6) end },
+			{ '"x',  function() require('harpoon'):list():select(7) end },
+			{ '"c',  function() require('harpoon'):list():select(8) end },
+			{ '"v',  function() require('harpoon'):list():select(9) end },
+			{ '"b',  function() require('harpoon'):list():select(10) end },
+			{ '"A',  function() require('harpoon'):list():select(11) end },
+			{ '"S',  function() require('harpoon'):list():select(12) end },
+			{ '"D',  function() require('harpoon'):list():select(13) end },
+			{ '"F',  function() require('harpoon'):list():select(14) end },
+			{ '"G',  function() require('harpoon'):list():select(15) end },
+			{ '"Z',  function() require('harpoon'):list():select(16) end },
+			{ '"X',  function() require('harpoon'):list():select(17) end },
+			{ '"C',  function() require('harpoon'):list():select(18) end },
+			{ '"V',  function() require('harpoon'):list():select(19) end },
+			{ '"B',  function() require('harpoon'):list():select(20) end },
+		},
 	},
 	{
 		'Wansmer/treesj',
@@ -148,10 +161,8 @@ return {
 			{ ',dK', function() require('treesj').split({ split = { recursive = true } }) end },
 		},
 		dependencies = { 'nvim-treesitter/nvim-treesitter' },
-		config = function()
-			require('treesj').setup({
-				use_default_keymaps = false,
-			})
-		end,
+		opts = {
+			use_default_keymaps = false,
+		},
 	},
 }

@@ -1,9 +1,9 @@
 return {
 	{
 		'nvimtools/none-ls.nvim',
-		-- main = 'null-ls',
+		main = 'null-ls',
 		dependencies = 'plenary.nvim',
-		config = function()
+		config = function() -- works with config function, doesn't with `opts`
 			require('null-ls').setup({
 				sources = {
 					require('null-ls').builtins.formatting.stylua.with({
