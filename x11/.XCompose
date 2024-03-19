@@ -53,6 +53,11 @@
 <Multi_key> <a> <r> <l> <k>: "↗"
 <Multi_key> <a> <r> <k> <l>: "↗"
 
+<Multi_key> <a> <r> <h> <H>: "⇐"
+<Multi_key> <a> <r> <k> <K>: "⇑"
+<Multi_key> <a> <r> <l> <L>: "⇒"
+<Multi_key> <a> <r> <j> <J>: "⇓"
+
 <Multi_key> <a> <r> <H> <L>: "↔"
 <Multi_key> <a> <r> <L> <H>: "↔"
 <Multi_key> <a> <r> <J> <K>: "↕"
