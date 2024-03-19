@@ -78,7 +78,8 @@
 		"",
 		"map yt copyCurrentTitle",
 		"map I LinkHints.activateEdit",
-		"map ,m Marks.activateGotoMode",
+		"map ,m Marks.activateCreate",
+		"map m Marks.activate",
 		""
 	],
 	"keyupTime": 50,
