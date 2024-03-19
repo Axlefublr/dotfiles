@@ -3,7 +3,6 @@ return {
 	'tpope/vim-repeat',
 	'adelarsq/vim-matchit',
 	'farmergreg/vim-lastplace',
-	'xiyaowong/transparent.nvim',
 	{
 		'wellle/targets.vim',
 		init = function() vim.g.targets_nl = 'nh' end,
