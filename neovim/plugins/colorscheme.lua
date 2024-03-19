@@ -77,6 +77,8 @@ local highlight_modifications = function()
 		['@lsp.mod.reference.rust'] = { italic = true },
 		['@lsp.mod.mutable.rust'] = { bold = true },
 
+		['@type.ini'] = 'red',
+
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',
 	}

@@ -17,3 +17,4 @@ paru --noconfirm -aS xremap-x11-bin
 paru --noconfirm -aS gromit-mpx
 paru --noconfirm -aS tgpt-bin
 paru --noconfirm -aS xkblayout-state-git
+paru --noconfirm -aS clipster

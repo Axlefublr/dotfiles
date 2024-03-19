@@ -283,3 +283,21 @@ function update_anki
     end
 end
 funcsave update_anki >/dev/null
+
+function rofi_clipboard
+    set items
+    clipster -co0n 0 | while read -z item
+        set items $items $item
+    end
+    set rofified
+    set index 0
+    for item in $items
+        set index (math $index + 1)
+        set rofified $rofified $index\ (string match -gr '^[\\t ]*([^\\n]*)$' $item)
+    end
+    string join '" "' $rofified
+    set picked (prli $rofified | rofi -dmenu)
+    set index (string match -r '^\\d+' $picked)
+    echo $items[$index] | xclip -selection clipboard -r
+end
+funcsave rofi_clipboard >/dev/null

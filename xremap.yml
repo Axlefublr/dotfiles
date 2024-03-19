@@ -228,7 +228,7 @@ keymap:
   - name: Clipboard Manager
     exact_match: true
     remap:
-      Super-Apostrophe: { launch: [fish, -c, clipmenu] }
+      Super-Apostrophe: { launch: [fish, -c, rofi_clipboard] }
       CapsLock-Alt-Comma:
         remap:
           q: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/q'] }

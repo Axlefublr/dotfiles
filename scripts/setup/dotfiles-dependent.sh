@@ -98,6 +98,10 @@ ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
 mkdir -p ~/.config/zathura
 ln -sf ~/prog/dotfiles/zathura ~/.config/zathura/zathurarc
 
+# Clipster
+mkdir -p ~/.config/clipster
+ln -sf ~/prog/dotfiles/clipster.ini ~/.config/clipster/clipster.ini
+
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
 sudo systemctl start postgresql
