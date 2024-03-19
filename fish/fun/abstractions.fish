@@ -226,6 +226,7 @@ function filter_mature_tasks
         set -l name $match[1]
         set -l days $match[2]
         if test \( $name = filter -a $days -gt 45 \) \
+                -o \( $name = towels -a $days -ge 7 \) \
                 -o \( $name = lamp -a $days -ge 7 \) \
                 -o \( $name = nose -a $days -ge 7 \) \
                 -o \( $name = cazor -a $days -ge 7 \) \
