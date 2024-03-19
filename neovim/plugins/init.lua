@@ -140,4 +140,19 @@ return {
 			vim.keymap.set('n', '"B', function() harpoon:list():select(20) end)
 		end,
 	},
+	{
+		'Wansmer/treesj',
+		keys = {
+			{ ',dj', function() require('treesj').join() end },
+			{ ',dk', function() require('treesj').split() end },
+			{ ',dJ', function() require('treesj').join({ split = { recursive = true } }) end },
+			{ ',dK', function() require('treesj').split({ split = { recursive = true } }) end },
+		},
+		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		config = function()
+			require('treesj').setup({
+				use_default_keymaps = false,
+			})
+		end,
+	},
 }
