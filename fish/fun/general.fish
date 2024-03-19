@@ -202,9 +202,6 @@ function runner
     else
         eval $cmd
     end
-    if string match -rq '^loago do ' $cmd
-        awesome-client 'Loago_wu()'
-    end
 end
 funcsave runner >/dev/null
 
@@ -254,6 +251,16 @@ function runner_math
     end
 end
 funcsave runner_math >/dev/null
+
+function runner_clipboard
+    set result (rofi -dmenu 2> /dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    string collect $result | xclip -selection clipboard -r
+end
+funcsave runner_clipboard >/dev/null
 
 function wote_edit
     neoline ~/.local/share/notie
@@ -357,6 +364,5 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
     set installed_target (aur_cache_dirs_fmt) # we do it this way because uninstalled package directories got removed
     paccache -qruk1
     paccache -qrk2 -c /var/cache/pacman/pkg $installed_target
-
 end
 funcsave pacclean >/dev/null
