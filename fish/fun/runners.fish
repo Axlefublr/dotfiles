@@ -25,16 +25,16 @@ end
 funcsave runner_note >/dev/null
 
 function runner_math
-    set result (rofi -dmenu 2> /dev/null ; echo $status)
-    if test $result[-1] -ne 0
+    set input (rofi -dmenu 2> /dev/null ; echo $status)
+    if test $input[-1] -ne 0
         return 1
     end
-    set -e result[-1]
-    set result (string collect $result)
-    if test -n $result
-        indeed -- ~/prog/noties/notes.md (cat ~/.local/share/notie)
-        math "$result" 2>/dev/null >~/.local/share/notie
-        awesome-client 'Note_wu()'
+    set -e input[-1]
+    set input (string collect $input)
+    if test -n $input
+        set result (math "$input" | string collect)
+        notify-send -t 3000 $result
+        echo $result | xclip -selection clipboard -r
     end
 end
 funcsave runner_math >/dev/null
