@@ -293,9 +293,12 @@ function rofi_clipboard
     set index 0
     for item in $items
         set index (math $index + 1)
-        set rofified $rofified $index\ (string match -gr '^[\\t ]*([^\\n]*)$' $item)
+        set -l has_newlines ''
+        if string match -qr '\\n' $item
+            set has_newlines '⏎'
+        end
+        set rofified $rofified $index\ (string match -gr '^[\\t ]*([^\\n]*).*' $item)$has_newlines
     end
-    string join '" "' $rofified
     set picked (prli $rofified | rofi -dmenu)
     set index (string match -r '^\\d+' $picked)
     echo $items[$index] | xclip -selection clipboard -r
