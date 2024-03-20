@@ -108,6 +108,7 @@ Mic_muteness_w = text_widget(nil, ' ')
 Mic_muteness_bw = wibox.container.background(Mic_muteness_w)
 Mic_muteness_mw = wibox.container.margin(Mic_muteness_bw)
 Mic_muteness_mw.right = -6
+Mic_muteness_mw.left = larger
 function Mic_muteness_wu()
 	awful.spawn.easy_async_with_shell('get_mic_mute', function(stdout)
 		local muteness = Trim_newlines(stdout)
@@ -121,7 +122,6 @@ end
 
 Mic_volume_w = text_widget()
 Mic_volume_mw = wibox.container.margin(Mic_volume_w)
-Mic_volume_mw.right = larger - 2
 Mic_volume_mw.visible = false
 function Mic_volume_wu()
 	local file = io.open('/dev/shm/Mic_volume_f', 'r')
@@ -140,6 +140,7 @@ end
 Muteness_w = text_widget(nil, ' ')
 Muteness_bw = wibox.container.background(Muteness_w)
 Muteness_mw = wibox.container.margin(Muteness_bw)
+Muteness_mw.left = larger - 2
 function Muteness_wu()
 	awful.spawn.easy_async_with_shell('get_mute', function(stdout)
 		local muteness = Trim_newlines(stdout)
@@ -153,7 +154,6 @@ end
 
 Volume_w = text_widget()
 Volume_mw = wibox.container.margin(Volume_w)
-Volume_mw.right = between
 Volume_mw.visible = false
 function Volume_wu()
 	local file = io.open('/dev/shm/Volume_f', 'r')
@@ -248,10 +248,10 @@ end
 
 Meat_w = text_widget(nil, ' ')
 Meat_mw = wibox.container.margin(Meat_w)
+Meat_mw.left = larger
 
 Hunger_w = text_widget()
 Hunger_mw = wibox.container.margin(Hunger_w)
-Hunger_mw.right = larger
 function Hunger_wu()
 	awful.spawn.easy_async_with_shell('get_hunger', function(stdout)
 		local time = Trim_newlines(stdout)
@@ -276,6 +276,7 @@ function Water_wd() Water_mw.visible = false end
 Media_player_w = text_widget(nil, '󰝚 ')
 Media_player_mw = wibox.container.margin(Media_player_w)
 Media_player_mw.right = -2
+Media_player_mw.left = larger
 Media_player_mw.visible = false
 function Media_player_wu()
 	local file = io.open('/dev/shm/Media_player_f', 'r')
@@ -293,7 +294,6 @@ end
 
 Media_time_w = text_widget()
 Media_time_mw = wibox.container.margin(Media_time_w)
-Media_time_mw.right = larger
 Media_time_mw.visible = false
 function Media_time_wu()
 	local file = io.open('/dev/shm/Media_time_f', 'r')
@@ -312,6 +312,7 @@ end
 Media_state_w = text_widget(beautiful.jetbrains_font .. ' 15')
 Media_state_mw = wibox.container.margin(Media_state_w)
 Media_state_mw.right = 6
+Media_state_mw.left = larger
 Media_state_mw.visible = false
 function Media_state_wu()
 	local file = io.open('/dev/shm/Media_state_f', 'r')
@@ -329,7 +330,6 @@ end
 
 Media_volume_w = text_widget()
 Media_volume_mw = wibox.container.margin(Media_volume_w)
-Media_volume_mw.right = larger
 Media_volume_mw.visible = false
 function Media_volume_wu()
 	local file = io.open('/dev/shm/Media_volume_f', 'r')
@@ -359,7 +359,6 @@ Brain_mw.visible = false
 
 Ram_w = text_widget()
 Ram_mw = wibox.container.margin(Ram_w)
-Ram_mw.right = larger
 Ram_mw.visible = false
 function Ram_wu()
 	local file = io.open('/dev/shm/Ram_f', 'r')
@@ -380,11 +379,11 @@ end
 Fire_w = text_widget(beautiful.jetbrains_font .. ' 15', '󰈸 ')
 Fire_mw = wibox.container.margin(Fire_w)
 Fire_mw.right = -10
+Fire_mw.left = larger
 Fire_mw.visible = false
 
 Processor_w = text_widget()
 Processor_mw = wibox.container.margin(Processor_w)
-Processor_mw.right = larger
 Processor_mw.visible = false
 function Processor_wu()
 	local file = io.open('/dev/shm/Processor_f', 'r')
@@ -485,6 +484,7 @@ Window_state_lw = wibox.widget({
 Tile_w = text_widget(beautiful.jetbrains_font .. ' 14')
 Tile_mw = wibox.container.margin(Tile_w)
 Tile_mw.right = between
+Tile_mw.left = between
 function Tile_wu(tag)
 	local layout_name = tag.layout.name
 	if layout_name == 'tile' then
