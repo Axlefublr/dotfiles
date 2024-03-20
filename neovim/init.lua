@@ -10,7 +10,7 @@ Colors = {
 	cyan = '#7daea3',
 	mint = '#89b482',
 	purple = '#d3869b',
-	red = '#ea6962'
+	red = '#ea6962',
 }
 
 THROWAWAY_REGISTER = 'o'
@@ -27,11 +27,7 @@ if vim.g.neovide then
 	vim.g.neovide_padding_left = 10
 	local default_scale = 1.0
 	vim.g.neovide_scale_factor = default_scale
-	vim.keymap.set({ 'n', 'x' }, ",a'", ':lua vim.g.neovide_scale_factor = 0.')
-	vim.keymap.set({ 'n', 'x' }, ',a"', ':lua vim.g.neovide_scale_factor = 1')
-	if vim.fn.getcwd() == os.getenv('HOME') then
-		vim.api.nvim_set_current_dir('~/prog/dotfiles')
-	end
+	if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
 end
 require('options')
 require('global-functions')
@@ -52,11 +48,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('plugins', {
 	install = {
-		colorscheme = { 'gruvbox-material' }
+		colorscheme = { 'gruvbox-material' },
 	},
 	change_detection = {
-		notify = false
-	}
+		notify = false,
+	},
 })
 
 -- When I use my hotkeys to open some output I see in my kitty terminal,
@@ -97,7 +93,7 @@ vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
 
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = 'gitcommit',
-	command = 'startinsert'
+	command = 'startinsert',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -105,7 +101,7 @@ vim.api.nvim_create_autocmd('FileType', {
 	callback = function()
 		vim.opt_local.expandtab = true
 		vim.opt_local.shiftwidth = 4
-	end
+	end,
 })
 
 print('nvim loaded')

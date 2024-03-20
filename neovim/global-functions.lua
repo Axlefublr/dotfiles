@@ -43,7 +43,7 @@ function Split_by_newlines(string)
 	return lines
 end
 
-function GetChar(prompt)
+function Get_char(prompt)
 	vim.api.nvim_echo({ { prompt, 'Input' } }, true, {})
 	local char = vim.fn.getcharstr()
 	-- That's the escape character (<Esc>). Not sure how to specify it smarter
@@ -65,7 +65,7 @@ function Validate_register(register)
 end
 
 function GetBool(message)
-	local char = GetChar(message .. ' (f/d):')
+	local char = Get_char(message .. ' (f/d):')
 	local bool
 	if char == 'f' then
 		bool = true
@@ -122,7 +122,7 @@ function Search_for_selection(direction, death)
 end
 
 function Search_for_register(direction, death)
-	local char = GetChar('register: ')
+	local char = Get_char('register: ')
 	if not char then return end
 	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
@@ -131,7 +131,7 @@ function Search_for_register(direction, death)
 end
 
 function Move_default_to_other()
-	local char = GetChar('register: ')
+	local char = Get_char('register: ')
 	if not char then return end
 	local register = Validate_register(char)
 	local default_contents = vim.fn.getreg('"')

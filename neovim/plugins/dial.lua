@@ -182,13 +182,13 @@ return {
 
 			vim.keymap.set(
 				'n',
-				',dj',
+				',d;',
 				require('dial.map').inc_normal('toggles'),
 				{ noremap = true }
 			)
 			vim.keymap.set(
 				'x',
-				',dj',
+				',d;',
 				require('dial.map').inc_visual('toggles'),
 				{ noremap = true }
 			)

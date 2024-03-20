@@ -96,3 +96,4 @@ sudo pacman -S --noconfirm playerctl
 sudo pacman -S --noconfirm nim
 sudo pacman -S --noconfirm alacritty
 sudo pacman -S --noconfirm sysstat
+sudo pacman -S --noconfirm xsel

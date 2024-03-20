@@ -38,6 +38,9 @@ local highlight_modifications = function()
 		['@markup.raw.markdown_inline'] = 'yellow',   -- inline code
 		['@markup.raw.delimiter.markdown_inline'] = 'grey', -- `` of inline code
 		['@markup.raw.delimiter.markdown'] = 'grey',  -- ``` of codeblocks
+		['@markup.quote.markdown'] = 'cyan',
+		['@markup.list.markdown'] = 'purple',
+		['@punctuation.special.markdown'] = 'purple', -- >
 
 		['@punctuation.special.bash'] = 'purple',
 		['@variable.bash'] = 'purple',
