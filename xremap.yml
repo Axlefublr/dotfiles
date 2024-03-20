@@ -229,82 +229,6 @@ keymap:
     exact_match: true
     remap:
       Super-Apostrophe: { launch: [fish, -c, rofi_clipboard] }
-      CapsLock-Alt-Comma:
-        remap:
-          q: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/q'] }
-          w: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/w'] }
-          e: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/e'] }
-          r: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/r'] }
-          t: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/t'] }
-          'y': { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/y'] }
-          u: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/u'] }
-          i: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/i'] }
-          o: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/o'] }
-          p: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/p'] }
-          a: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/a'] }
-          s: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/s'] }
-          d: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/d'] }
-          f: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/f'] }
-          g: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/g'] }
-          h: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/h'] }
-          j: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/j'] }
-          k: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/k'] }
-          l: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/l'] }
-          z: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/z'] }
-          x: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/x'] }
-          c: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/c'] }
-          v: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/v'] }
-          b: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/b'] }
-          'n': { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/n'] }
-          m: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/m'] }
-          Key_1: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/1'] }
-          Key_2: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/2'] }
-          Key_3: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/3'] }
-          Key_4: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/4'] }
-          Key_5: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/5'] }
-          Key_6: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/6'] }
-          Key_7: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/7'] }
-          Key_8: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/8'] }
-          Key_9: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/9'] }
-          Key_0: { launch: [sh, -c, 'xclip -selection clipboard -o > ~/.local/share/magazine/0'] }
-      CapsLock-Comma:
-        remap:
-          q: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/q'] }
-          w: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/w'] }
-          e: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/e'] }
-          r: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/r'] }
-          t: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/t'] }
-          'y': { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/y'] }
-          u: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/u'] }
-          i: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/i'] }
-          o: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/o'] }
-          p: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/p'] }
-          a: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/a'] }
-          s: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/s'] }
-          d: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/d'] }
-          f: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/f'] }
-          g: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/g'] }
-          h: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/h'] }
-          j: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/j'] }
-          k: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/k'] }
-          l: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/l'] }
-          z: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/z'] }
-          x: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/x'] }
-          c: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/c'] }
-          v: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/v'] }
-          b: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/b'] }
-          'n': { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/n'] }
-          m: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/m'] }
-          Key_1: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/1'] }
-          Key_2: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/2'] }
-          Key_3: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/3'] }
-          Key_4: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/4'] }
-          Key_5: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/5'] }
-          Key_6: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/6'] }
-          Key_7: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/7'] }
-          Key_8: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/8'] }
-          Key_9: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/9'] }
-          Key_0: { launch: [sh, -c, 'xclip -selection clipboard ~/.local/share/magazine/0'] }
 
   - name: Global chord hotkeys
     exact_match: true
@@ -330,10 +254,6 @@ keymap:
           f: { launch: [alacritty] }
 
           j: { launch: [fish, -c, runner_note] }
-          k: { launch: [fish, -c, runner_wote] }
-          Shift-k: { launch: [fish, -c, 'runner_wote replace'] }
-          Alt-k: { launch: [fish, -c, wote_steal] }
-          Control-k: { launch: [fish, -c, wote_edit] }
           m: { launch: [fish, -c, runner_math] }
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
@@ -343,42 +263,276 @@ keymap:
 
           Comma:
             remap:
-              q: { launch: [fish, -c, 'neoline ~/.local/share/magazine/q'] }
-              w: { launch: [fish, -c, 'neoline ~/.local/share/magazine/w'] }
-              e: { launch: [fish, -c, 'neoline ~/.local/share/magazine/e'] }
-              r: { launch: [fish, -c, 'neoline ~/.local/share/magazine/r'] }
-              t: { launch: [fish, -c, 'neoline ~/.local/share/magazine/t'] }
-              'y': { launch: [fish, -c, 'neoline ~/.local/share/magazine/y'] }
-              u: { launch: [fish, -c, 'neoline ~/.local/share/magazine/u'] }
-              i: { launch: [fish, -c, 'neoline ~/.local/share/magazine/i'] }
-              o: { launch: [fish, -c, 'neoline ~/.local/share/magazine/o'] }
-              p: { launch: [fish, -c, 'neoline ~/.local/share/magazine/p'] }
-              a: { launch: [fish, -c, 'neoline ~/.local/share/magazine/a'] }
-              s: { launch: [fish, -c, 'neoline ~/.local/share/magazine/s'] }
-              d: { launch: [fish, -c, 'neoline ~/.local/share/magazine/d'] }
-              f: { launch: [fish, -c, 'neoline ~/.local/share/magazine/f'] }
-              g: { launch: [fish, -c, 'neoline ~/.local/share/magazine/g'] }
-              h: { launch: [fish, -c, 'neoline ~/.local/share/magazine/h'] }
-              j: { launch: [fish, -c, 'neoline ~/.local/share/magazine/j'] }
-              k: { launch: [fish, -c, 'neoline ~/.local/share/magazine/k'] }
-              l: { launch: [fish, -c, 'neoline ~/.local/share/magazine/l'] }
-              z: { launch: [fish, -c, 'neoline ~/.local/share/magazine/z'] }
-              x: { launch: [fish, -c, 'neoline ~/.local/share/magazine/x'] }
-              c: { launch: [fish, -c, 'neoline ~/.local/share/magazine/c'] }
-              v: { launch: [fish, -c, 'neoline ~/.local/share/magazine/v'] }
-              b: { launch: [fish, -c, 'neoline ~/.local/share/magazine/b'] }
-              'n': { launch: [fish, -c, 'neoline ~/.local/share/magazine/n'] }
-              m: { launch: [fish, -c, 'neoline ~/.local/share/magazine/m'] }
-              Key_1: { launch: [fish, -c, 'neoline ~/.local/share/magazine/1'] }
-              Key_2: { launch: [fish, -c, 'neoline ~/.local/share/magazine/2'] }
-              Key_3: { launch: [fish, -c, 'neoline ~/.local/share/magazine/3'] }
-              Key_4: { launch: [fish, -c, 'neoline ~/.local/share/magazine/4'] }
-              Key_5: { launch: [fish, -c, 'neoline ~/.local/share/magazine/5'] }
-              Key_6: { launch: [fish, -c, 'neoline ~/.local/share/magazine/6'] }
-              Key_7: { launch: [fish, -c, 'neoline ~/.local/share/magazine/7'] }
-              Key_8: { launch: [fish, -c, 'neoline ~/.local/share/magazine/8'] }
-              Key_9: { launch: [fish, -c, 'neoline ~/.local/share/magazine/9'] }
-              Key_0: { launch: [fish, -c, 'neoline ~/.local/share/magazine/0'] }
+              q: { launch: [fish, -c, 'magazine_get q'] }
+              w: { launch: [fish, -c, 'magazine_get w'] }
+              e: { launch: [fish, -c, 'magazine_get e'] }
+              r: { launch: [fish, -c, 'magazine_get r'] }
+              t: { launch: [fish, -c, 'magazine_get t'] }
+              y: { launch: [fish, -c, 'magazine_get y'] }
+              u: { launch: [fish, -c, 'magazine_get u'] }
+              i: { launch: [fish, -c, 'magazine_get i'] }
+              o: { launch: [fish, -c, 'magazine_get o'] }
+              p: { launch: [fish, -c, 'magazine_get p'] }
+              a: { launch: [fish, -c, 'magazine_get a'] }
+              s: { launch: [fish, -c, 'magazine_get s'] }
+              d: { launch: [fish, -c, 'magazine_get d'] }
+              f: { launch: [fish, -c, 'magazine_get f'] }
+              g: { launch: [fish, -c, 'magazine_get g'] }
+              h: { launch: [fish, -c, 'magazine_get h'] }
+              j: { launch: [fish, -c, 'magazine_get j'] }
+              k: { launch: [fish, -c, 'magazine_get k'] }
+              l: { launch: [fish, -c, 'magazine_get l'] }
+              z: { launch: [fish, -c, 'magazine_get z'] }
+              x: { launch: [fish, -c, 'magazine_get x'] }
+              c: { launch: [fish, -c, 'magazine_get c'] }
+              v: { launch: [fish, -c, 'magazine_get v'] }
+              b: { launch: [fish, -c, 'magazine_get b'] }
+              n: { launch: [fish, -c, 'magazine_get n'] }
+              m: { launch: [fish, -c, 'magazine_get m'] }
+              Key_1: { launch: [fish, -c, 'magazine_get 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_get 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_get 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_get 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_get 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_get 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_get 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_get 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_get 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_get 0'] }
+
+          Shift-Comma:
+            remap:
+              q: { launch: [fish, -c, 'magazine_set q'] }
+              w: { launch: [fish, -c, 'magazine_set w'] }
+              e: { launch: [fish, -c, 'magazine_set e'] }
+              r: { launch: [fish, -c, 'magazine_set r'] }
+              t: { launch: [fish, -c, 'magazine_set t'] }
+              y: { launch: [fish, -c, 'magazine_set y'] }
+              u: { launch: [fish, -c, 'magazine_set u'] }
+              i: { launch: [fish, -c, 'magazine_set i'] }
+              o: { launch: [fish, -c, 'magazine_set o'] }
+              p: { launch: [fish, -c, 'magazine_set p'] }
+              a: { launch: [fish, -c, 'magazine_set a'] }
+              s: { launch: [fish, -c, 'magazine_set s'] }
+              d: { launch: [fish, -c, 'magazine_set d'] }
+              f: { launch: [fish, -c, 'magazine_set f'] }
+              g: { launch: [fish, -c, 'magazine_set g'] }
+              h: { launch: [fish, -c, 'magazine_set h'] }
+              j: { launch: [fish, -c, 'magazine_set j'] }
+              k: { launch: [fish, -c, 'magazine_set k'] }
+              l: { launch: [fish, -c, 'magazine_set l'] }
+              z: { launch: [fish, -c, 'magazine_set z'] }
+              x: { launch: [fish, -c, 'magazine_set x'] }
+              c: { launch: [fish, -c, 'magazine_set c'] }
+              v: { launch: [fish, -c, 'magazine_set v'] }
+              b: { launch: [fish, -c, 'magazine_set b'] }
+              n: { launch: [fish, -c, 'magazine_set n'] }
+              m: { launch: [fish, -c, 'magazine_set m'] }
+              Key_1: { launch: [fish, -c, 'magazine_set 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_set 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_set 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_set 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_set 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_set 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_set 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_set 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_set 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_set 0'] }
+
+          l:
+            remap:
+              q: { launch: [fish, -c, 'magazine_view q'] }
+              w: { launch: [fish, -c, 'magazine_view w'] }
+              e: { launch: [fish, -c, 'magazine_view e'] }
+              r: { launch: [fish, -c, 'magazine_view r'] }
+              t: { launch: [fish, -c, 'magazine_view t'] }
+              y: { launch: [fish, -c, 'magazine_view y'] }
+              u: { launch: [fish, -c, 'magazine_view u'] }
+              i: { launch: [fish, -c, 'magazine_view i'] }
+              o: { launch: [fish, -c, 'magazine_view o'] }
+              p: { launch: [fish, -c, 'magazine_view p'] }
+              a: { launch: [fish, -c, 'magazine_view a'] }
+              s: { launch: [fish, -c, 'magazine_view s'] }
+              d: { launch: [fish, -c, 'magazine_view d'] }
+              f: { launch: [fish, -c, 'magazine_view f'] }
+              g: { launch: [fish, -c, 'magazine_view g'] }
+              h: { launch: [fish, -c, 'magazine_view h'] }
+              j: { launch: [fish, -c, 'magazine_view j'] }
+              k: { launch: [fish, -c, 'magazine_view k'] }
+              l: { launch: [fish, -c, 'magazine_view l'] }
+              z: { launch: [fish, -c, 'magazine_view z'] }
+              x: { launch: [fish, -c, 'magazine_view x'] }
+              c: { launch: [fish, -c, 'magazine_view c'] }
+              v: { launch: [fish, -c, 'magazine_view v'] }
+              b: { launch: [fish, -c, 'magazine_view b'] }
+              n: { launch: [fish, -c, 'magazine_view n'] }
+              m: { launch: [fish, -c, 'magazine_view m'] }
+              Key_1: { launch: [fish, -c, 'magazine_view 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_view 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_view 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_view 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_view 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_view 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_view 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_view 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_view 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_view 0'] }
+
+          Shift-l:
+            remap:
+              q: { launch: [fish, -c, 'magazine_cut q'] }
+              w: { launch: [fish, -c, 'magazine_cut w'] }
+              e: { launch: [fish, -c, 'magazine_cut e'] }
+              r: { launch: [fish, -c, 'magazine_cut r'] }
+              t: { launch: [fish, -c, 'magazine_cut t'] }
+              y: { launch: [fish, -c, 'magazine_cut y'] }
+              u: { launch: [fish, -c, 'magazine_cut u'] }
+              i: { launch: [fish, -c, 'magazine_cut i'] }
+              o: { launch: [fish, -c, 'magazine_cut o'] }
+              p: { launch: [fish, -c, 'magazine_cut p'] }
+              a: { launch: [fish, -c, 'magazine_cut a'] }
+              s: { launch: [fish, -c, 'magazine_cut s'] }
+              d: { launch: [fish, -c, 'magazine_cut d'] }
+              f: { launch: [fish, -c, 'magazine_cut f'] }
+              g: { launch: [fish, -c, 'magazine_cut g'] }
+              h: { launch: [fish, -c, 'magazine_cut h'] }
+              j: { launch: [fish, -c, 'magazine_cut j'] }
+              k: { launch: [fish, -c, 'magazine_cut k'] }
+              l: { launch: [fish, -c, 'magazine_cut l'] }
+              z: { launch: [fish, -c, 'magazine_cut z'] }
+              x: { launch: [fish, -c, 'magazine_cut x'] }
+              c: { launch: [fish, -c, 'magazine_cut c'] }
+              v: { launch: [fish, -c, 'magazine_cut v'] }
+              b: { launch: [fish, -c, 'magazine_cut b'] }
+              n: { launch: [fish, -c, 'magazine_cut n'] }
+              m: { launch: [fish, -c, 'magazine_cut m'] }
+              Key_1: { launch: [fish, -c, 'magazine_cut 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_cut 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_cut 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_cut 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_cut 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_cut 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_cut 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_cut 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_cut 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_cut 0'] }
+
+          Alt-l:
+            remap:
+              q: { launch: [fish, -c, 'magazine_truncate q'] }
+              w: { launch: [fish, -c, 'magazine_truncate w'] }
+              e: { launch: [fish, -c, 'magazine_truncate e'] }
+              r: { launch: [fish, -c, 'magazine_truncate r'] }
+              t: { launch: [fish, -c, 'magazine_truncate t'] }
+              y: { launch: [fish, -c, 'magazine_truncate y'] }
+              u: { launch: [fish, -c, 'magazine_truncate u'] }
+              i: { launch: [fish, -c, 'magazine_truncate i'] }
+              o: { launch: [fish, -c, 'magazine_truncate o'] }
+              p: { launch: [fish, -c, 'magazine_truncate p'] }
+              a: { launch: [fish, -c, 'magazine_truncate a'] }
+              s: { launch: [fish, -c, 'magazine_truncate s'] }
+              d: { launch: [fish, -c, 'magazine_truncate d'] }
+              f: { launch: [fish, -c, 'magazine_truncate f'] }
+              g: { launch: [fish, -c, 'magazine_truncate g'] }
+              h: { launch: [fish, -c, 'magazine_truncate h'] }
+              j: { launch: [fish, -c, 'magazine_truncate j'] }
+              k: { launch: [fish, -c, 'magazine_truncate k'] }
+              l: { launch: [fish, -c, 'magazine_truncate l'] }
+              z: { launch: [fish, -c, 'magazine_truncate z'] }
+              x: { launch: [fish, -c, 'magazine_truncate x'] }
+              c: { launch: [fish, -c, 'magazine_truncate c'] }
+              v: { launch: [fish, -c, 'magazine_truncate v'] }
+              b: { launch: [fish, -c, 'magazine_truncate b'] }
+              n: { launch: [fish, -c, 'magazine_truncate n'] }
+              m: { launch: [fish, -c, 'magazine_truncate m'] }
+              Key_1: { launch: [fish, -c, 'magazine_truncate 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_truncate 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_truncate 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_truncate 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_truncate 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_truncate 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_truncate 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_truncate 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_truncate 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_truncate 0'] }
+
+          k:
+            remap:
+              q: { launch: [fish, -c, 'magazine_write q'] }
+              w: { launch: [fish, -c, 'magazine_write w'] }
+              e: { launch: [fish, -c, 'magazine_write e'] }
+              r: { launch: [fish, -c, 'magazine_write r'] }
+              t: { launch: [fish, -c, 'magazine_write t'] }
+              y: { launch: [fish, -c, 'magazine_write y'] }
+              u: { launch: [fish, -c, 'magazine_write u'] }
+              i: { launch: [fish, -c, 'magazine_write i'] }
+              o: { launch: [fish, -c, 'magazine_write o'] }
+              p: { launch: [fish, -c, 'magazine_write p'] }
+              a: { launch: [fish, -c, 'magazine_write a'] }
+              s: { launch: [fish, -c, 'magazine_write s'] }
+              d: { launch: [fish, -c, 'magazine_write d'] }
+              f: { launch: [fish, -c, 'magazine_write f'] }
+              g: { launch: [fish, -c, 'magazine_write g'] }
+              h: { launch: [fish, -c, 'magazine_write h'] }
+              j: { launch: [fish, -c, 'magazine_write j'] }
+              k: { launch: [fish, -c, 'magazine_write k'] }
+              l: { launch: [fish, -c, 'magazine_write l'] }
+              z: { launch: [fish, -c, 'magazine_write z'] }
+              x: { launch: [fish, -c, 'magazine_write x'] }
+              c: { launch: [fish, -c, 'magazine_write c'] }
+              v: { launch: [fish, -c, 'magazine_write v'] }
+              b: { launch: [fish, -c, 'magazine_write b'] }
+              n: { launch: [fish, -c, 'magazine_write n'] }
+              m: { launch: [fish, -c, 'magazine_write m'] }
+              Key_1: { launch: [fish, -c, 'magazine_write 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_write 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_write 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_write 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_write 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_write 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_write 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_write 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_write 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_write 0'] }
+
+          Shift-k:
+            remap:
+              q: { launch: [fish, -c, 'magazine_edit q'] }
+              w: { launch: [fish, -c, 'magazine_edit w'] }
+              e: { launch: [fish, -c, 'magazine_edit e'] }
+              r: { launch: [fish, -c, 'magazine_edit r'] }
+              t: { launch: [fish, -c, 'magazine_edit t'] }
+              y: { launch: [fish, -c, 'magazine_edit y'] }
+              u: { launch: [fish, -c, 'magazine_edit u'] }
+              i: { launch: [fish, -c, 'magazine_edit i'] }
+              o: { launch: [fish, -c, 'magazine_edit o'] }
+              p: { launch: [fish, -c, 'magazine_edit p'] }
+              a: { launch: [fish, -c, 'magazine_edit a'] }
+              s: { launch: [fish, -c, 'magazine_edit s'] }
+              d: { launch: [fish, -c, 'magazine_edit d'] }
+              f: { launch: [fish, -c, 'magazine_edit f'] }
+              g: { launch: [fish, -c, 'magazine_edit g'] }
+              h: { launch: [fish, -c, 'magazine_edit h'] }
+              j: { launch: [fish, -c, 'magazine_edit j'] }
+              k: { launch: [fish, -c, 'magazine_edit k'] }
+              l: { launch: [fish, -c, 'magazine_edit l'] }
+              z: { launch: [fish, -c, 'magazine_edit z'] }
+              x: { launch: [fish, -c, 'magazine_edit x'] }
+              c: { launch: [fish, -c, 'magazine_edit c'] }
+              v: { launch: [fish, -c, 'magazine_edit v'] }
+              b: { launch: [fish, -c, 'magazine_edit b'] }
+              n: { launch: [fish, -c, 'magazine_edit n'] }
+              m: { launch: [fish, -c, 'magazine_edit m'] }
+              Key_1: { launch: [fish, -c, 'magazine_edit 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_edit 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_edit 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_edit 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_edit 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_edit 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_edit 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_edit 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
 
   - name: Layouts
     exact_match: true

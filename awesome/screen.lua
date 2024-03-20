@@ -535,6 +535,36 @@ function Layout_wu()
 	end
 end
 
+Registers_w = text_widget()
+Registers_bw = wibox.container.background(Registers_w)
+Registers_bw.fg = beautiful.green
+Registers_mw = wibox.container.margin(Registers_bw)
+Registers_mw.visible = false
+Registers_mw.right = between
+function Registers_wu()
+	local widget = ''
+
+	for num = 0, 9 do
+		local filename = os.getenv('HOME') .. '/.local/share/magazine/' .. tostring(num)
+		local file = io.open(filename, 'r')
+
+		if file then
+			local size = file:seek('end') -- Check file size
+			if size > 0 then        -- If the file is not empty, add the number to widget
+				widget = widget .. num
+			end
+			file:close()
+		end
+	end
+
+	if #widget > 0 then
+		Registers_mw.visible = true
+		Registers_w:set_text(widget)
+	else
+		Registers_mw.visible = false
+	end
+end
+
 local taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
 	awful.button({}, 3, awful.tag.viewtoggle),
@@ -595,6 +625,7 @@ Wibar_w:setup({
 		Window_state_lw,
 		Clients_mw,
 		Water_mw,
+		Registers_mw,
 		Anki_mw,
 		Compositor_mw,
 		Dnd_mw,
@@ -619,12 +650,13 @@ local run_once = function()
 		'Processor',
 		'Ram',
 		'Media_player',
-		'Loago'
+		'Loago',
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
 		if file then file:close() end
 	end
+	Registers_wu()
 	Hunger_wu()
 	Note_wu()
 	Malumn_wu(screen.primary.selected_tag)
