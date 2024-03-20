@@ -535,16 +535,6 @@ function Layout_wu()
 	end
 end
 
-screen.primary.layout_box_widget = awful.widget.layoutbox(screen.primary)
-screen.primary.layout_box_widget:buttons(
-	gears.table.join(
-		awful.button({}, 1, function() awful.layout.inc(1) end),
-		awful.button({}, 3, function() awful.layout.inc(-1) end),
-		awful.button({}, 4, function() awful.layout.inc(1) end),
-		awful.button({}, 5, function() awful.layout.inc(-1) end)
-	)
-)
-
 local taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
 	awful.button({}, 3, awful.tag.viewtoggle),
