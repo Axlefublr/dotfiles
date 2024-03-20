@@ -35,7 +35,6 @@ if vim.g.neovide then
 end
 require('options')
 require('global-functions')
-require('blob')
 require('remaps')
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
