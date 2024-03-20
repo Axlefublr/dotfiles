@@ -401,22 +401,6 @@ function Processor_wu()
 	end
 end
 
-Note_w = text_widget('Comfortaa' .. beautiful.font_size)
-Note_mw = wibox.container.margin(Note_w)
-Note_mw.right = between
-Note_mw.left = between
-Note_mw.visible = false
-function Note_wu()
-	awful.spawn.easy_async_with_shell('cat ~/.local/share/notie | string trim', function(note)
-		if #note == 0 then
-			Note_mw.visible = false
-		else
-			Note_mw.visible = true
-			Note_w:set_text(note)
-		end
-	end)
-end
-
 Ontop_state_w = text_widget(nil, ' ')
 Ontop_state_bw = wibox.container.background(Ontop_state_w)
 Ontop_state_bw.fg = beautiful.red
@@ -600,7 +584,7 @@ Wibar_w:setup({
 		Taglist_mw,
 		Loago_mw,
 	},
-	Note_mw,
+	nil,
 	-- Right widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
@@ -658,7 +642,6 @@ local run_once = function()
 	end
 	Registers_wu()
 	Hunger_wu()
-	Note_wu()
 	Malumn_wu(screen.primary.selected_tag)
 	Dnd_wu()
 	Tile_wu(screen.primary.selected_tag)
