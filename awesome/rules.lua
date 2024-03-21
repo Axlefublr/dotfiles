@@ -61,10 +61,10 @@ awful.rules.rules = {
 		rule = { class = 'neoline' },
 		properties = {
 			floating = true,
-			x = 10,
-			y = 500,
-			width = 1894,
-			height = 110
+			x = 460,
+			y = 414,
+			width = 1000,
+			height = 252
 		}
 	},
 
