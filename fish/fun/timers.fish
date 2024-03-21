@@ -16,6 +16,7 @@ function timer
             break
         end
     end
+    clear -x
 end
 funcsave timer >/dev/null
 
