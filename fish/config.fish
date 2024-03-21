@@ -93,7 +93,7 @@ bind -M default \; repeat-jump
 bind -M insert -k f2 expand-abbr insert-line-under
 bind -M insert -k f4 'commandline ""'
 
-bind -M insert \ed clear-screen
+bind -M insert \ed clear-screen repaint
 bind -M default \ed clear-screen
 bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
 bind -M insert \eu list_current_token
