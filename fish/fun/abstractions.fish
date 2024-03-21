@@ -231,9 +231,9 @@ function filter_mature_tasks
                 -o \( $name = nose -a $days -ge 7 \) \
                 -o \( $name = cazor -a $days -ge 7 \) \
                 -o \( $name = cloths -a $days -ge 10 \) \
-                -o \( $name = nails -a $days -ge 10 \) \
                 -o \( $name = fscrub -a $days -ge 10 \) \
                 -o \( $name = bscrub -a $days -ge 10 \) \
+                -o \( $name = nails -a $days -ge 13 \) \
                 -o \( $name = wilter -a $days -ge 15 \) \
                 -o \( $name = bottle -a $days -ge 15 \) \
                 -o \( $name = razor -a $days -ge 20 \) \
@@ -283,24 +283,3 @@ function update_anki
     end
 end
 funcsave update_anki >/dev/null
-
-function rofi_clipboard
-    set items
-    clipster -co0n 0 | while read -z item
-        set items $items $item
-    end
-    set rofified
-    set index 0
-    for item in $items
-        set index (math $index + 1)
-        set -l has_newlines ''
-        if string match -qr '\\n' $item
-            set has_newlines '⏎'
-        end
-        set rofified $rofified $index\ (string match -gr '^[\\t ]*([^\\n]*).*' $item)$has_newlines
-    end
-    set picked (prli $rofified | rofi -dmenu)
-    set index (string match -r '^\\d+' $picked)
-    echo $items[$index] | xclip -selection clipboard -r
-end
-funcsave rofi_clipboard >/dev/null

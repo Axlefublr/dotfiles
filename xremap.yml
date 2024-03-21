@@ -228,7 +228,7 @@ keymap:
   - name: Clipboard Manager
     exact_match: true
     remap:
-      Super-Apostrophe: { launch: [fish, -c, rofi_clipboard] }
+      Super-Apostrophe: { launch: [fish, -c, runner_clipster] }
 
   - name: Global chord hotkeys
     exact_match: true
