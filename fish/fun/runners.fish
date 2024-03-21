@@ -129,7 +129,12 @@ end
 funcsave magazine_edit >/dev/null
 
 function magazine_view
-    notify-send -t 0 -- (cat ~/.local/share/magazine/$argv[1] | string collect)
+    set text (cat ~/.local/share/magazine/$argv[1] | string collect)
+    if test -z $text
+        notify-send -t 1000 "register $argv[1] is empty"
+    else
+        notify-send -t 0 -- $text
+    end
 end
 funcsave magazine_view >/dev/null
 
