@@ -524,7 +524,7 @@ Registers_bw = wibox.container.background(Registers_w)
 Registers_bw.fg = beautiful.green
 Registers_mw = wibox.container.margin(Registers_bw)
 Registers_mw.visible = false
-Registers_mw.right = between
+Registers_mw.right = between - 1
 function Registers_wu()
 	local widget = ''
 
