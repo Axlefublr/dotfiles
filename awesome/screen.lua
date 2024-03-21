@@ -556,6 +556,16 @@ local taglist_buttons = gears.table.join(
 	awful.button({}, 4, function(tag) awful.tag.viewprev(tag.screen) end)
 )
 
+Mouse_w = text_widget(nil, '󰇀')
+Mouse_bw = wibox.container.background(Mouse_w)
+Mouse_bw.fg = beautiful.purple
+Mouse_mw = wibox.container.margin(Mouse_bw)
+Mouse_mw.right = between - 2
+Mouse_mw.visible = false
+function Mouse_wd() Mouse_mw.visible = false end
+
+function Mouse_we() Mouse_mw.visible = true end
+
 Taglist_w = awful.widget.taglist({
 	screen = screen.primary,
 	filter = awful.widget.taglist.filter.noempty,
@@ -612,6 +622,7 @@ Wibar_w:setup({
 		Registers_mw,
 		Anki_mw,
 		Compositor_mw,
+		Mouse_mw,
 		Dnd_mw,
 		Bluetooth_mw,
 		Wifi_mw,

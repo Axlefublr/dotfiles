@@ -18,7 +18,7 @@ keymap:
   - name: Mouse mode
     mode: [mouse]
     remap:
-      CapsLock-Semicolon: { set_mode: default }
+      CapsLock-Semicolon: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       q: { launch: [xdotool, mousemove, '128', '120'] }
       w: { launch: [xdotool, mousemove, '544', '120'] }
@@ -223,7 +223,7 @@ keymap:
   - name: Default mode
     mode: default
     remap:
-      CapsLock-Semicolon: { set_mode: mouse }
+      CapsLock-Semicolon: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
   - name: Clipboard Manager
     exact_match: true
