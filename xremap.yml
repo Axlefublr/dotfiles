@@ -300,7 +300,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_get 9'] }
               Key_0: { launch: [fish, -c, 'magazine_get 0'] }
 
-          Shift-Comma:
+          Alt-Comma:
             remap:
               q: { launch: [fish, -c, 'magazine_set q'] }
               w: { launch: [fish, -c, 'magazine_set w'] }
@@ -495,7 +495,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_write 9'] }
               Key_0: { launch: [fish, -c, 'magazine_write 0'] }
 
-          Shift-k:
+          Alt-k:
             remap:
               q: { launch: [fish, -c, 'magazine_edit q'] }
               w: { launch: [fish, -c, 'magazine_edit w'] }
