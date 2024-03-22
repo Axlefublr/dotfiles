@@ -123,6 +123,15 @@ local snippets = function()
 		s('important!', { t('important!') }),
 	}
 	ls.add_snippets('css', css_snippets)
+
+	local rust_snippets = {
+		s('Result<(), Box<dyn Error>>', {
+			t('Result<'),
+			i(1, '()'),
+			t(', Box<dyn Error>>')
+		})
+	}
+	ls.add_snippets('rust', rust_snippets)
 end
 
 return {

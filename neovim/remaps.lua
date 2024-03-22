@@ -75,8 +75,16 @@ vim.keymap.set('n', '~', 'g~l')
 vim.keymap.set('x', 'u', '<Esc>u')
 vim.keymap.set('x', '&', ':s`\\V')
 vim.keymap.set('x', '@@', function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end) -- multiply selection
-vim.keymap.set({ 'x', 'o', 'n' }, 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)
-vim.keymap.set({ 'x', 'o', 'n' }, 'L', function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end)
+vim.keymap.set(
+	{ 'x', 'o', 'n' },
+	'H',
+	function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end
+)
+vim.keymap.set(
+	{ 'x', 'o', 'n' },
+	'L',
+	function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end
+)
 vim.keymap.set('', '_', function() FeedKeysInt(vim.v.count1 .. 'k$') end)
 vim.keymap.set('', 'gm', function() FeedKeys(vim.v.count * 10 .. 'gM') end) -- cuts down precision of gM to 10s
 vim.keymap.set('', 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)

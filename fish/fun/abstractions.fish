@@ -233,7 +233,7 @@ function filter_mature_tasks
                 -o \( $name = cloths -a $days -ge 10 \) \
                 -o \( $name = fscrub -a $days -ge 10 \) \
                 -o \( $name = bscrub -a $days -ge 10 \) \
-                -o \( $name = nails -a $days -ge 13 \) \
+                -o \( $name = nails -a $days -ge 15 \) \
                 -o \( $name = wilter -a $days -ge 15 \) \
                 -o \( $name = bottle -a $days -ge 15 \) \
                 -o \( $name = razor -a $days -ge 20 \) \
