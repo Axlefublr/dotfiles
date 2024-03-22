@@ -158,10 +158,7 @@ function magazine_write
     end
     set -e result[-1]
     set result (string collect $result)
-    truncate -s 0 ~/.local/share/magazine/$argv[1]
-    if test -n $result
-        indeed -- ~/.local/share/magazine/$argv[1] $result
-    end
+    print $result > ~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "write $argv[1]"
     update_magazine $argv[1]
 end
