@@ -638,7 +638,6 @@ keymap:
       Ctrl-Backspace: ctrl-w
       Alt-j: ctrl-n
       Alt-k: ctrl-p
-      Alt-Enter: f1
       Shift-Alt-Semicolon: f5
 
   - name: Alacritty
