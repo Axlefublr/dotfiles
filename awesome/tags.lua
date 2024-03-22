@@ -1,7 +1,7 @@
 awful.tag.add("u", {
 	layout              = awful.layout.suit.max,
 	master_fill_policy  = "expand",
-	master_width_factor = 0.74,
+	master_width_factor = 0.5,
 	selected            = true,
 })
 awful.tag.add("i", {
