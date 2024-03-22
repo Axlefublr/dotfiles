@@ -56,9 +56,9 @@ return {
 		'numToStr/Comment.nvim',
 		keys = {
 			{ mode = { 'n', 'x' }, 'gd' },
-			{ mode = { 'n', 'x' }, 'gh' },
+			{ mode = { 'n', 'x' }, 'gD' },
 			{ 'gdd' },
-			{ 'ghh' },
+			{ 'gDD' },
 			{ 'gdo' },
 			{ 'gdO' },
 			{ 'gdl' },
@@ -75,14 +75,14 @@ return {
 				---Line-comment toggle keymap
 				line = 'gdd',
 				---Block-comment toggle keymap
-				block = 'ghh',
+				block = 'gDD',
 			},
 			---LHS of operator-pending mappings in NORMAL and VISUAL mode
 			opleader = {
 				---Line-comment keymap
 				line = 'gd',
 				---Block-comment keymap
-				block = 'gh',
+				block = 'gD',
 			},
 			---LHS of extra mappings
 			extra = {
@@ -155,11 +155,7 @@ return {
 
 			vim.keymap.set('n', ',aM', function() harpoon:list():prepend() end)
 			vim.keymap.set('n', ',am', function() harpoon:list():append() end)
-			vim.keymap.set(
-				'n',
-				'""',
-				function() harpoon.ui:toggle_quick_menu(harpoon:list()) end
-			)
+			vim.keymap.set('n', '""', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 			vim.keymap.set('n', '"a', function() harpoon:list():select(1) end)
 			vim.keymap.set('n', '"s', function() harpoon:list():select(2) end)
