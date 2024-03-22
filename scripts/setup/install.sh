@@ -28,7 +28,6 @@ sudo pacman -S --noconfirm ffmpeg
 sudo pacman -S --noconfirm neovim
 sudo pacman -S --noconfirm fish
 sudo pacman -S --noconfirm kitty
-sudo pacman -S --noconfirm ranger
 sudo pacman -S --noconfirm tokei
 sudo pacman -S --noconfirm zoxide
 sudo pacman -S --noconfirm sd

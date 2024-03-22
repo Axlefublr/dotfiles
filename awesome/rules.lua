@@ -53,8 +53,8 @@ awful.rules.rules = {
 			x = 10,
 			y = 45,
 			width = 1894,
-			height = 1019
-		}
+			height = 1019,
+		},
 	},
 
 	{
@@ -64,8 +64,13 @@ awful.rules.rules = {
 			x = 460,
 			y = 414,
 			width = 1000,
-			height = 252
-		}
+			height = 252,
+		},
+	},
+
+	{
+		rule = { class = 'oil' },
+		properties = { tag = screen.primary.tags[15] },
 	},
 
 	{
@@ -87,11 +92,6 @@ awful.rules.rules = {
 			tag = screen.primary.tags[11],
 			urgent = false,
 		},
-	},
-
-	{
-		rule = { class = 'Alacritty', name = 'content' },
-		properties = { tag = screen.primary.tags[15] },
 	},
 
 	{

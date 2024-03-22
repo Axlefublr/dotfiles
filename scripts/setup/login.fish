@@ -21,7 +21,7 @@ end
 
 alacritty -T meow & disown
 alacritty -T timer & disown
-alacritty -T content -e ranger ~/Videos/content & disown
+oil ~/Videos/content & disown
 
 neovide & disown
 win_wait 'neovide — Neovide' 0.5 0 200

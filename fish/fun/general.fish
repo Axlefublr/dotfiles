@@ -256,3 +256,11 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
     paccache -qrk2 -c /var/cache/pacman/pkg $installed_target
 end
 funcsave pacclean >/dev/null
+
+function oil
+    if set -q argv[1]
+        z $argv[1]
+    end
+    neovide --x11-wm-class-instance oil -- -c 'Oil'
+end
+funcsave oil > /dev/null

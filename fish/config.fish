@@ -10,7 +10,6 @@ set -gx FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -gx _ZO_FZF_OPTS '--layout default --height 100%'
 set -gx SAVEHIST 10000
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
-set -gx RANGER_LOAD_DEFAULT_RC true
 set -gx MANPAGER 'nvim +Man!'
 set -gx LESSKEYIN '/opt/lesskey'
 set -gx CARGO_MOMMYS_MOODS 'chill/thirsty'

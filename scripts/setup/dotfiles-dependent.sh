@@ -45,11 +45,6 @@ mkdir -p ~/.config/awesome
 ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
 ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
 
-# Ranger file explorer
-ranger --copy-config all
-ln -sf ~/prog/dotfiles/ranger/ranger.conf ~/.config/ranger/rc.conf
-ln -sf ~/prog/dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
-
 # Picom
 mkdir -p ~/.config/picom
 ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
