@@ -566,6 +566,26 @@ function Mouse_wd() Mouse_mw.visible = false end
 
 function Mouse_we() Mouse_mw.visible = true end
 
+Clorange_w = text_widget()
+Clorange_bw = wibox.container.background(Clorange_w)
+Clorange_bw.fg = beautiful.purple
+Clorange_mw = wibox.container.margin(Clorange_bw)
+Clorange_mw.right = between
+Clorange_mw.visible = false
+function Clorange_wu()
+	local file = io.open('/home/axlefublr/.local/share/clorange/widget', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 and text ~= '0' then
+			Clorange_mw.visible = true
+			Clorange_w:set_text(text)
+		else
+			Clorange_mw.visible = false
+		end
+	end
+end
+
 Taglist_w = awful.widget.taglist({
 	screen = screen.primary,
 	filter = awful.widget.taglist.filter.noempty,
@@ -619,6 +639,7 @@ Wibar_w:setup({
 		Window_state_lw,
 		Clients_mw,
 		Water_mw,
+		Clorange_mw,
 		Registers_mw,
 		Anki_mw,
 		Compositor_mw,
@@ -651,6 +672,7 @@ local run_once = function()
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
 		if file then file:close() end
 	end
+	Clorange_wu()
 	Registers_wu()
 	Hunger_wu()
 	Malumn_wu(screen.primary.selected_tag)
