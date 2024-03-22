@@ -687,8 +687,8 @@ keymap:
             ],
         }
       Super-j: { launch: [fish, -c, 'runner show'] }
-      CapsLock-Slash: { launch: [rofi, -show, drun] }
-      CapsLock-Alt-Slash: { launch: [fish, -c, runner_kill] }
+      Super-Alt-Semicolon: { launch: [rofi, -show, drun] }
+      Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
 
   - name: Direct
     remap:
