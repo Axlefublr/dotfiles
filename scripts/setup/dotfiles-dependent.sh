@@ -16,6 +16,7 @@ echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d
 # Neovim
 mkdir -p ~/.config/nvim
 ln -sf ~/prog/dotfiles/neovim/init.lua ~/.config/nvim/init.lua
+ln -sf ~/prog/dotfiles/neovim/neoconf.jsonc ~/.config/nvim/neoconf.json
 ln -sf ~/prog/dotfiles/neovim ~/.config/nvim/lua
 
 # Fish shell

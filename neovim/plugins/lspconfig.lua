@@ -1,92 +1,11 @@
-local rust_analyzer_configuration = {
-	filetypes = { 'rust' },
-	settings = {
-		['rust-analyzer'] = {
-			rustfmt = {
-				extraArgs = { '+nightly' },
-			},
-			assist = {
-				expressionFillDefault = 'default',
-			},
-			cargo = {
-				allFeatures = true,
-			},
-			check = {
-				command = 'clippy',
-			},
-			completion = {
-				fullFunctionSignatures = {
-					enable = true,
-				},
-			},
-			procMacro = {
-				enable = true,
-			},
-			inlayHints = {
-				bindingModeHints = { enable = true },
-				closingBraceHints = { minLines = 11 },
-				closureCaptureHints = { enable = true },
-				closureReturnTypeHints = { enable = 'with_block' },
-				closureStyle = 'rust_analyzer',
-				discriminantHints = { enable = 'fieldless' },
-				parameterHints = { enable = true },
-				rangeExclusiveHints = { enable = true },
-				renderColons = false,
-				typeHints = {
-					enable = true,
-					hideClosureInitialization = false,
-					hideNamedConstructor = false,
-				},
-				maxLength = nil,
-				expressionAdjustmentHints = {
-					enable = 'reborrow',
-					hideOutsideUnsafe = false,
-					mode = 'prefer_prefix',
-				},
-				lifetimeElisionHints = {
-					enable = 'skip_trivial',
-					useParameterNames = false,
-				},
-			},
-			lens = {
-				run = { enable = false },
-			},
-			semanticHighlighting = {
-				operator = {
-					specialization = { enable = true },
-				},
-				punctuation = {
-					enable = true,
-					separate = {
-						macro = {
-							bang = true,
-						},
-					},
-					specialization = { enable = true },
-				},
-			},
-			typing = {
-				autoClosingAngleBrackets = { enable = true },
-			},
-			workspace = {
-				symbol = {
-					search = {
-						kind = 'all_symbols',
-						limit = 128,
-					},
-				},
-			},
-			signatureInfo = {
-				documentation = { enable = false },
-			},
-		},
-	},
-}
-
 return {
 	{
 		'williamboman/mason.nvim',
 		dependencies = 'neovim/nvim-lspconfig',
+		config = true,
+	},
+	{
+		'folke/neoconf.nvim',
 		config = true,
 	},
 	{
@@ -98,22 +17,58 @@ return {
 		},
 	},
 	{
+		'lvimuser/lsp-inlayhints.nvim',
+		opts = {
+			inlay_hints = {
+				parameter_hints = {
+					show = true,
+					prefix = '',
+					separator = ', ',
+					remove_colon_start = true,
+					remove_colon_end = true,
+				},
+				type_hints = {
+					show = true,
+					prefix = '',
+					separator = ', ',
+					remove_colon_start = true,
+					remove_colon_end = true,
+				},
+				-- separator between types and parameter hints. Note that type hints are
+				-- shown before parameter
+				labels_separator = ' ',
+				highlight = 'LspInlayHint',
+			},
+			enabled_at_startup = true,
+		},
+	},
+	{
 		'neovim/nvim-lspconfig',
+		dependencies = { 'folke/neoconf.nvim', 'lvimuser/lsp-inlayhints.nvim' },
 		config = function()
-			require('lspconfig').rust_analyzer.setup(rust_analyzer_configuration)
-			require('lspconfig').lua_ls.setup({})
-			require('lspconfig').omnisharp.setup({})
-			require('lspconfig').cssls.setup({})
-			require('lspconfig').html.setup({})
-			require('lspconfig').jsonls.setup({})
-			require('lspconfig').marksman.setup({})
-			require('lspconfig').hydra_lsp.setup({})
-			require('lspconfig').taplo.setup({})
+			local servers = {
+				rust_analyzer,
+				lua_ls,
+				omnisharp,
+				cssls,
+				html,
+				jsonls,
+				marksman,
+				hydra_lsp,
+				taplo,
+			}
+			for _, server in ipairs(servers) do
+				require('lspconfig')[server].setup({})
+			end
 
 			vim.api.nvim_create_autocmd('LspAttach', {
-				callback = function(ev)
+				callback = function(args)
 					-- Enable completion triggered by <c-x><c-o>
-					vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+					vim.bo[args.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+					require('lsp-inlayhints').on_attach(
+						vim.lsp.get_client_by_id(args.data.client_id),
+						args.buf
+					)
 
 					vim.keymap.set('n', ',lg', function()
 						vim.diagnostic.open_float()
@@ -122,7 +77,7 @@ return {
 					vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 					vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
-					local opts = { buffer = ev.buf }
+					local opts = { buffer = args.buf }
 					vim.keymap.set('n', ',la', vim.lsp.buf.declaration, opts)
 					vim.keymap.set('n', ',le', function()
 						vim.lsp.buf.hover()
