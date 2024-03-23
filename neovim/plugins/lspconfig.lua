@@ -16,35 +16,35 @@ return {
 			automatic_installation = true,
 		},
 	},
-	{
-		'lvimuser/lsp-inlayhints.nvim',
-		opts = {
-			inlay_hints = {
-				parameter_hints = {
-					show = true,
-					prefix = '',
-					separator = ', ',
-					remove_colon_start = true,
-					remove_colon_end = true,
-				},
-				type_hints = {
-					show = true,
-					prefix = '',
-					separator = ', ',
-					remove_colon_start = true,
-					remove_colon_end = true,
-				},
-				-- separator between types and parameter hints. Note that type hints are
-				-- shown before parameter
-				labels_separator = ' ',
-				highlight = 'LspInlayHint',
-			},
-			enabled_at_startup = true,
-		},
-	},
+	-- {
+	-- 	'lvimuser/lsp-inlayhints.nvim',
+	-- 	opts = {
+	-- 		inlay_hints = {
+	-- 			parameter_hints = {
+	-- 				show = true,
+	-- 				prefix = '',
+	-- 				separator = ', ',
+	-- 				remove_colon_start = true,
+	-- 				remove_colon_end = true,
+	-- 			},
+	-- 			type_hints = {
+	-- 				show = true,
+	-- 				prefix = '',
+	-- 				separator = ', ',
+	-- 				remove_colon_start = true,
+	-- 				remove_colon_end = true,
+	-- 			},
+	-- 			-- separator between types and parameter hints. Note that type hints are
+	-- 			-- shown before parameter
+	-- 			labels_separator = ' ',
+	-- 			highlight = 'LspInlayHint',
+	-- 		},
+	-- 		enabled_at_startup = true,
+	-- 	},
+	-- },
 	{
 		'neovim/nvim-lspconfig',
-		dependencies = { 'folke/neoconf.nvim', 'lvimuser/lsp-inlayhints.nvim' },
+		dependencies = { 'folke/neoconf.nvim', --[[ 'lvimuser/lsp-inlayhints.nvim' ]] },
 		config = function()
 			local servers = {
 				rust_analyzer,
@@ -65,10 +65,10 @@ return {
 				callback = function(args)
 					-- Enable completion triggered by <c-x><c-o>
 					vim.bo[args.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-					require('lsp-inlayhints').on_attach(
-						vim.lsp.get_client_by_id(args.data.client_id),
-						args.buf
-					)
+					-- require('lsp-inlayhints').on_attach(
+					-- 	vim.lsp.get_client_by_id(args.data.client_id),
+					-- 	args.buf
+					-- )
 
 					vim.keymap.set('n', ',lg', function()
 						vim.diagnostic.open_float()
