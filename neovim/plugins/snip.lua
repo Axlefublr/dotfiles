@@ -197,6 +197,13 @@ return {
 							cmp.complete()
 						end
 					end,
+					['<a-i>'] = function (_)
+						if cmp.visible_docs() then
+							cmp.close_docs()
+						else
+							cmp.open_docs()
+						end
+					end,
 					['<f5>'] = cmp.mapping.confirm({
 						select = true,
 						behavior = cmp.ConfirmBehavior.Replace,
