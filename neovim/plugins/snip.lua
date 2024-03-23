@@ -116,11 +116,12 @@ local snippets = function()
 		s('xremap', { t('xremap: ') }),
 		s('alacritty', { t('alacritty: ') }),
 		s('stylus(youtube)', { t('stylus(youtube): ') }),
+		s('stylus(discord)', { t('stylus(discord): ') }),
 	}
 	ls.add_snippets('gitcommit', git_commit_snippets)
 
 	local css_snippets = {
-		s('important!', { t('important!') }),
+		s('!important', { t('!important') }),
 	}
 	ls.add_snippets('css', css_snippets)
 
