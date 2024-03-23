@@ -58,6 +58,10 @@ return {
 					},
 				},
 				lualine_y = {
+					{
+						'tabs',
+						cond = function() return #vim.api.nvim_list_tabpages() > 1 end,
+					},
 					'progress',
 				},
 				lualine_z = {
