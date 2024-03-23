@@ -32,6 +32,7 @@ local highlight_modifications = function()
 
 		['@conceal.jsonc'] = 'white',
 		['@conceal.json'] = 'white',
+		['@constant.builtin.jsonc'] = { fg = Colors.cyan, italic = true },
 
 		['@markup.italic.markdown_inline'] = { italic = true },
 		['@markup.strikethrough.markdown_inline'] = { strikethrough = true },

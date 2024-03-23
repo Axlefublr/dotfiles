@@ -158,7 +158,7 @@ function magazine_write
     end
     set -e result[-1]
     set result (string collect $result)
-    print $result > ~/.local/share/magazine/$argv[1]
+    printf "$result" > ~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "write $argv[1]"
     update_magazine $argv[1]
 end

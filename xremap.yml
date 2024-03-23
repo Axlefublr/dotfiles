@@ -690,7 +690,8 @@ keymap:
       Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
       Super-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
       Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
-      Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
+      Super-Shift-d:
+        { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
 
   - name: Direct
     remap:
