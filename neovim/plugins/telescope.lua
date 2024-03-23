@@ -109,6 +109,7 @@ return {
 								[',d'] = 'git_delete_branch',
 								[',m'] = 'git_merge_branch',
 								[',r'] = 'git_rebase_branch',
+								[',s'] = 'git_switch_branch',
 							},
 						},
 					},
