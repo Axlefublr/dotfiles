@@ -174,6 +174,11 @@ return {
 					zoxide = {
 						prompt_title = 'zoxide',
 						mappings = {
+							default = {
+								action = function(selection)
+									vim.cmd.tcd(selection.path)
+								end
+							},
 							['<c-s>'] = false,
 							['<c-v>'] = false,
 							['<c-e>'] = false,

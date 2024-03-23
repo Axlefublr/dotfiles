@@ -158,8 +158,8 @@ vim.keymap.set('n', ',av', '<c-w>|')
 vim.keymap.set('n', ',ac', '<c-w>_')
 vim.keymap.set('n', ',aq', '<cmd>enew<cr>')
 
-vim.keymap.set('n', 'g.', 'gt')
-vim.keymap.set('n', 'g,', 'gT')
+vim.keymap.set('n', ',az', 'gt')
+vim.keymap.set('n', ',aZ', 'gT')
 vim.keymap.set('n', ',aP', '<cmd>tabclose<cr>')
 vim.keymap.set('n', ',ap', '<cmd>tabnew<cr>')
 
