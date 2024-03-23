@@ -32,22 +32,16 @@ end
 funcsave rlc >/dev/null
 
 function mkcd
-    mkdir -p $argv && z $argv && clx
+    mkdir -p $argv && z $argv && clear -x
 end
 funcsave mkcd >/dev/null
 
 function ghrclc
-    gh repo clone $argv &&
-        cd (path basename $argv) &&
-        clx
+    gh repo clone $argv
+    z (path basename $argv[1])
+    clear -x
 end
 funcsave ghrclc >/dev/null
-
-function cf
-    commandline "code "(fzf)
-    commandline -f execute
-end
-funcsave cf >/dev/null
 
 function xrestart
     killall xremap
