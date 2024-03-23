@@ -17,6 +17,7 @@
 	--shell-orange: #ff9f1a;
 	--shell-cyan: #00D7FF;
 	--shell-grey: #878787;
+	--gruvbox-lighterest-background: hsl(0, 1%, 25%);
 	--gruvbox-lighter-background: hsl(0, 1%, 19%);
 	--gruvbox-background: hsl(0, 1%, 16%);
 	--gruvbox-darker-background: hsl(0, 1%, 14%);
@@ -860,3 +861,34 @@ rect[mask="url(#svg-mask-status-idle)"] {
 /* #---new-messages-bar {
 	height: 0;
 } */
+
+/* poll badge */
+.pollBadgeDefault_f48298 > div > div {
+	color: var(--smooth-black) !important;
+}
+.pollBadgeDefault_f48298 > div > svg > path {
+	fill: var(--smooth-black) !important;
+}
+/* poll container */
+.container__3ca24.pollContainer__95d4b {
+	background-color: var(--gruvbox-background);
+}
+/* unanswered answer container */
+.answerInner_a3bc8e {
+	background-color: var(--gruvbox-lighterest-background);
+}
+.container__3ca24.pollContainer__95d4b > .bottomBar_ef16d0 > .button_afdfd9.lookFilled__19298 > div > div {
+	color: var(--smooth-black) !important;
+}
+.votedStyles__92837 {
+	--custom-poll-style-vote-percentage: var(--shell-pink);
+}
+.normalStylesDefault_b8063d {
+	--custom-poll-style-vote-percentage: var(--shell-yellow);
+}
+.answer__07489 > div:not(.currentlyVoting_ca7610) > .fontScaling__5000d.text-sm-semibold__41578.label_f6dfd2 {
+	color: var(--smooth-black);
+}
+.lookFilled__19298.colorPrimary__6ed40 {
+	background-color: var(--shell-yellow);
+}
