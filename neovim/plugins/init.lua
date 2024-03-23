@@ -35,8 +35,8 @@ return {
 		event = 'InsertEnter',
 		dependencies = 'hrsh7th/nvim-cmp',
 		config = function()
-			local plugin = require('nvim-autopairs')
-			plugin.setup({
+			local autopairs = require('nvim-autopairs')
+			autopairs.setup({
 				disable_in_visualblock = false,
 				disable_in_replace_mode = true,
 				ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -45,7 +45,14 @@ return {
 				enable_check_bracket_line = true,
 			})
 			local rule = require('nvim-autopairs.rule')
-			plugin.add_rule(rule('<', '>'))
+
+			autopairs.add_rules({
+				rule('<', '>'):with_pair(function(opts) return opts.next_char ~= '>' end),
+				rule('>', '>')
+					:with_pair(function(_) return false end)
+					:with_move(function(opts) return opts.char == '>' end)
+					:use_key('>'), -- The key that triggers the move feature
+			})
 
 			local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 			local cmp = require('cmp')
