@@ -13,7 +13,6 @@ sudo pacman -S --noconfirm otf-monaspace-nerd
 
 sudo pacman -S --noconfirm paru
 sudo pacman -S --noconfirm vivaldi
-sudo pacman -S --noconfirm tree
 sudo pacman -S --noconfirm fzf
 sudo pacman -S --noconfirm hyfetch
 sudo pacman -S --noconfirm cmatrix
@@ -39,7 +38,6 @@ sudo pacman -S --noconfirm espeak-ng
 sudo pacman -S --noconfirm imagemagick
 sudo pacman -S --noconfirm lolcat
 sudo pacman -S --noconfirm kruler
-sudo pacman -S --noconfirm filezilla
 sudo pacman -S --noconfirm scrot
 sudo pacman -S --noconfirm zip
 sudo pacman -S --noconfirm wine-mono
@@ -97,3 +95,4 @@ sudo pacman -S --noconfirm alacritty
 sudo pacman -S --noconfirm sysstat
 sudo pacman -S --noconfirm xsel
 sudo pacman -S --noconfirm acpi
+sudo pacman -S --noconfirm eza
