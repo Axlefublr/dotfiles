@@ -89,8 +89,11 @@ local snippets = function()
 			i(0),
 			t({ '', 'end' }),
 		}),
-		s('dn', {
+		s('/dev/null', {
 			t('/dev/null')
+		}),
+		s('/dev/shm', {
+			t('/dev/shm')
 		}),
 		s('alias', {
 			t('alias --save '),

@@ -16,7 +16,7 @@ local function close_try_save()
 	close_without_saving()
 end
 vim.keymap.set('', '<Space>', save)
-vim.keymap.set('i', '<a-m>', close_try_save)
+vim.keymap.set('i', '<a-/>', close_try_save)
 vim.keymap.set('n', ',K', close_without_saving)
 vim.keymap.set('n', 'K', close_try_save)
 
