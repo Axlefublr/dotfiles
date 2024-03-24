@@ -254,6 +254,7 @@ keymap:
           s: { launch: [fish, -c, runner_clipboard] }
           Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
           Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
+          Semicolon: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end']}
 
           Comma:
             remap:
@@ -697,12 +698,12 @@ keymap:
   - name: Other
     exact_match: true
     remap:
-      CapsLock-Comma: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end']}
       Super-Space: { launch: [fish, -c, toggle_layout] }
       Super-6: { launch: [fish, -c, toggle_compositor] }
       F13: { launch: [wmctrl, -c, ':ACTIVE:'] }
       Shift-F13: { launch: [xdotool, getwindowfocus, windowkill] }
       Super-v: { launch: [boomer] }
+      CapsLock-2: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end']}
       CapsLock-Dot:
         {
           launch:
