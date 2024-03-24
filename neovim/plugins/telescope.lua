@@ -56,6 +56,7 @@ return {
 		},
 		config = function()
 			local telescope = require('telescope')
+			local actions = require('telescope.actions.layout')
 			telescope.setup({
 				defaults = {
 					prompt_prefix = '',
@@ -66,12 +67,16 @@ return {
 					prompt_title = false,
 					wrap_results = true,
 					layout_strategy = 'flex',
+					preview = {
+						treesitter = true,
+						hide_on_startup = true
+					},
 					layout_config = {
 						height = 0.99,
 						width = 0.99,
 						preview_cutoff = 5,
 						horizontal = {
-							preview_width = 50,
+							preview_width = 0.5,
 						},
 						vertical = {
 							preview_height = 10,
@@ -83,6 +88,7 @@ return {
 							['<a-o>'] = 'select_horizontal',
 							['<a-u>'] = 'smart_add_to_qflist',
 							['<a-U>'] = 'smart_send_to_qflist',
+							['<a-;>'] = actions.toggle_preview,
 							['H'] = 'preview_scrolling_up',
 							['L'] = 'preview_scrolling_down',
 							['<c-v>'] = false,
@@ -92,6 +98,7 @@ return {
 							['<a-o>'] = 'select_horizontal',
 							['<a-u>'] = 'smart_add_to_qflist',
 							['<a-U>'] = 'smart_send_to_qflist',
+							['<a-;>'] = actions.toggle_preview,
 							['<c-v>'] = false,
 							['<c-u>'] = false,
 						},
@@ -135,6 +142,15 @@ return {
 					},
 					git_files = {
 						show_untracked = true,
+					},
+					git_status = {
+						git_icons = {
+							added = '󰐕',
+							changed = '',
+							deleted = '󰍴',
+							renamed = '󰕍',
+							untracked = '󰛢'
+						}
 					},
 					buffers = {
 						ignore_current_buffer = true,
