@@ -104,6 +104,7 @@ end
 funcsave smdr >/dev/null
 
 function uboot
+    sudo -v
     if test (math (clorange updates show) % 5) -eq 0
         rustup update
     end

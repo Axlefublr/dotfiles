@@ -6,28 +6,29 @@ else
 	mkdir -p /tmp/log
 end
 
-xremap --mouse ~/prog/dotfiles/xremap.yml &> /tmp/log/xremap.txt & disown
-ydotoold &> /tmp/log/ydotoold.txt & disown
-ollama serve &> /tmp/log/ollama.txt & disown
-picom &> /tmp/log/picom.txt & disown
-gromit-mpx -o 1 -k 'none' -u 'none' &> /tmp/log/gromit.txt & disown
-clipster --daemon &> /tmp/log/clipster.txt & disown
-xset s off -dpms &> /tmp/log/xset.txt
-redshift -O 5700 &> /tmp/log/redshift.txt
-playerctld daemon &> /tmp/log/playerctl.txt
 for script in ~/prog/dotfiles/scripts/widget_update/*.fish
-	$script & disown
+	$script 2>>/dev/shm/user_log.txt & disown
 end
 
-alacritty -T meow & disown
-alacritty -T timer & disown
-oil ~/Videos/content & disown
+xremap --mouse ~/prog/dotfiles/xremap.yml 2>>/dev/shm/user_log.txt & disown
+ydotoold 2>>/dev/shm/user_log.txt & disown
+ollama serve 2>>/dev/shm/user_log.txt & disown
+picom 2>>/dev/shm/user_log.txt & disown
+gromit.fish 2>>/dev/shm/user_log.txt & disown
+clipster --daemon 2>>/dev/shm/user_log.txt & disown
+xset s off -dpms 2>>/dev/shm/user_log.txt
+redshift -O 5700 2>>/dev/shm/user_log.txt
+playerctld daemon 2>>/dev/shm/user_log.txt
 
-neovide & disown
+alacritty -T meow 2>>/dev/shm/user_log.txt & disown
+alacritty -T timer 2>>/dev/shm/user_log.txt & disown
+oil.fish ~/Videos/content 2>>/dev/shm/user_log.txt & disown
+
+neovide 2>>/dev/shm/user_log.txt & disown
 win_wait 'neovide — Neovide' 0.5 0 200
-alacritty -T terminal --working-directory ~/prog/dotfiles & disown
+alacritty -T terminal --working-directory ~/prog/dotfiles 2>>/dev/shm/user_log.txt & disown
 
-vivaldi-stable --force-dark-mode &> /tmp/log/vivaldi.txt & disown
+vivaldi-stable --force-dark-mode 2>>/dev/shm/user_log.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
 move_all 2 $vivaldis
 set discord (win_wait 'Vivaldi-stable — .*(Discord|Mastodon|Messenger)' 0.1 0 50)
@@ -35,13 +36,13 @@ move_all 5 $discord
 set youtube (win_wait 'Vivaldi-stable — .*YouTube' 0.1 0 50)
 move_all 7 $youtube
 
-anki &> /tmp/log/anki.txt & disown
+anki 2>>/dev/shm/user_log.txt & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
 notify-send -t 2000 'spotify'
 loopuntil is_internet 0.5 0 60
-spotify-launcher -v &> /tmp/log/spotify.txt & disown
+spotify-launcher -v 2>>/dev/shm/user_log.txt & disown
 
 notify-sent -t 2000 'xwaaa'
 sleep 10
