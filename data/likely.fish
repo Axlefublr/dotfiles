@@ -9,4 +9,6 @@ screen_off
 suspend
 logout
 filter_mature_tasks
-clorange snus show > ~/.local/share/magazine/s
+clorange snus increment
+clorange snus show
+clorange snus reset

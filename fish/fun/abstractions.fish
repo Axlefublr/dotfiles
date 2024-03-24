@@ -107,6 +107,14 @@ function get_media_player
 end
 funcsave get_media_player >/dev/null
 
+function get_media_title
+    begin
+        playerctl metadata --format '{{artist}}'
+        playerctl metadata --format '{{title}}'
+    end | string join ' — '
+end
+funcsave get_media_title > /dev/null
+
 function ml
     media_position "$argv-"
 end
@@ -148,6 +156,11 @@ function get_bluetooth_connected
     end
 end
 funcsave get_bluetooth_connected >/dev/null
+
+function get_bluetooth_connected_device
+    bluetoothctl info $argv | string match -gr 'Connected: (yes|no)'
+end
+funcsave get_bluetooth_connected_device >/dev/null
 
 function update_bluetooth
     set is_on (get_bluetooth)
