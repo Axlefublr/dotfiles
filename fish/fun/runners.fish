@@ -158,11 +158,26 @@ function magazine_write
     end
     set -e result[-1]
     set result (string collect $result)
-    printf "$result" > ~/.local/share/magazine/$argv[1]
+    printf "$result" >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "write $argv[1]"
     update_magazine $argv[1]
 end
 funcsave magazine_write >/dev/null
+
+function magazine_append
+    set result (rofi -dmenu 2>/dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    set result "$result"
+    set lines (cat ~/.local/share/magazine/$argv[1])
+    set lines $lines $result
+    prli $lines >~/.local/share/magazine/$argv[1]
+    notify-send -t 1000 "append $argv[1]"
+    update_magazine $argv[1]
+end
+funcsave magazine_append >/dev/null
 
 function update_magazine
     if test $argv[1] -ge 0 -a $argv[1] -le 9
