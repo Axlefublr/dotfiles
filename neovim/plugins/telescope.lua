@@ -69,7 +69,7 @@ return {
 					layout_strategy = 'flex',
 					preview = {
 						treesitter = true,
-						hide_on_startup = true
+						hide_on_startup = true,
 					},
 					layout_config = {
 						height = 0.99,
@@ -107,7 +107,7 @@ return {
 				pickers = {
 					find_files = {
 						hidden = true,
-						no_ignore = true
+						no_ignore = true,
 					},
 					git_branches = {
 						mappings = {
@@ -149,8 +149,8 @@ return {
 							changed = '',
 							deleted = '󰍴',
 							renamed = '󰕍',
-							untracked = '󰛢'
-						}
+							untracked = '󰛢',
+						},
 					},
 					buffers = {
 						ignore_current_buffer = true,
@@ -182,7 +182,7 @@ return {
 				},
 				extensions = {
 					fzf = {
-						fuzzy = true,       -- false will only do exact matching
+						fuzzy = true, -- false will only do exact matching
 						override_generic_sorter = true, -- override the generic sorter
 						override_file_sorter = true, -- override the file sorter
 						case_mode = 'smart_case', -- or 'ignore_case' or 'respect_case' (the default case_mode is 'smart_case')
@@ -191,9 +191,7 @@ return {
 						prompt_title = 'zoxide',
 						mappings = {
 							default = {
-								action = function(selection)
-									vim.cmd.tcd(selection.path)
-								end
+								action = function(selection) vim.cmd.tcd(selection.path) end,
 							},
 							['<c-s>'] = false,
 							['<c-v>'] = false,

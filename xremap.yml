@@ -101,13 +101,6 @@ keymap:
       i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
       o: { launch: ['ydotool', 'click', 'c1'] } # c1 — right click
 
-      # CapsLock-u: { launch: ["xdotool", "mousedown", "1"] }
-      # CapsLock-i: { launch: ["xdotool", "mousedown", "2"] }
-      # CapsLock-o: { launch: ["xdotool", "mousedown", "3"] }
-      # CapsLock-7: { launch: ["xdotool", "mouseup", "1"] }
-      # CapsLock-8: { launch: ["xdotool", "mouseup", "2"] }
-      # CapsLock-9: { launch: ["xdotool", "mouseup", "3"] }
-
       CapsLock-u: { launch: ['ydotool', 'click', '40'] }
       CapsLock-i: { launch: ['ydotool', 'click', '42'] }
       CapsLock-o: { launch: ['ydotool', 'click', '41'] }
@@ -252,6 +245,7 @@ keymap:
           w: { launch: [fish, -c, toggle_internet] }
           d: { launch: [neovide] }
           f: { launch: [alacritty] }
+          b: { launch: [fish, -c, runner_bluetooth] }
 
           j: { launch: [fish, -c, runner_note] }
           m: { launch: [fish, -c, runner_math] }
