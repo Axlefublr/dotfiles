@@ -73,6 +73,14 @@ end
 
 vim.cmd('packadd! matchit')
 
+vim.api.nvim_create_user_command('O', function(info)
+	local range = ''
+	if info.range > 0 then
+		range = (info.line1 or '') .. ',' .. (info.line2 or '')
+	end
+	vim.cmd(range .. 'norm ' .. info.args)
+end, { nargs = '*', range = true })
+
 vim.api.nvim_create_autocmd('CursorMoved', {
 	command = 'normal! zz',
 })
