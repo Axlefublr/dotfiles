@@ -16,3 +16,6 @@ alias --save blch 'bluetoothctl connect $head' > /dev/null
 alias --save bldh 'bluetoothctl disconnect $head' > /dev/null
 alias --save blce 'bluetoothctl connect $ear' > /dev/null
 alias --save blde 'bluetoothctl disconnect $ear' > /dev/null
+alias --save cl 'clorange' >/dev/null
+alias --save fb 'floral_barrel' >/dev/null
+alias --save fbg 'floral_barrel --git' >/dev/null

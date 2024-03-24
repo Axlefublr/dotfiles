@@ -56,7 +56,10 @@ funcsave toggle_internet >/dev/null
 
 alias --save media_state 'playerctl status' >/dev/null
 function update_media_state
-    set state (media_state)
+    set state (media_state 2>/dev/null)
+    if test -z "$state"
+        return 1
+    end
     if test $state = Paused
         echo '󰏤'
     else if test $state = Playing
@@ -74,7 +77,11 @@ alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_position 'playerctl position' >/dev/null
 alias --save ms media_position >/dev/null
 function get_media_volume
-    math "round($(playerctl volume) * 100)"
+    set volume (playerctl volume 2>/dev/null)
+    if test -z "$volume"
+        return 1
+    end
+    math "round($volume * 100)"
 end
 funcsave get_media_volume >/dev/null
 
@@ -91,12 +98,12 @@ end
 funcsave toggle_media >/dev/null
 
 function get_media_time
-    playerctl metadata --format '{{duration(position)}}' 2>/dev/null
+    playerctl metadata --format '{{duration(position)}}'
 end
 funcsave get_media_time >/dev/null
 
 function get_media_player
-    playerctl metadata --format '{{playerName}}' 2>/dev/null
+    playerctl metadata --format '{{playerName}}'
 end
 funcsave get_media_player >/dev/null
 

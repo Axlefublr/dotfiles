@@ -48,7 +48,7 @@ return {
 	config = function()
 		require('oil').setup(opts)
 		vim.api.nvim_set_hl(0, 'OilDir', { fg = Colors.white })
-		vim.api.nvim_set_hl(0, 'OilDirIcon', { fg = Colors.yellow })
+		vim.api.nvim_set_hl(0, 'OilDirIcon', { fg = Colors.shell_yellow })
 		vim.api.nvim_set_hl(0, 'OilLink', { fg = Colors.mint })
 		vim.api.nvim_set_hl(0, 'OilLinkTarget', { fg = Colors.red })
 

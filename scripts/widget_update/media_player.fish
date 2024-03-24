@@ -1,7 +1,11 @@
 #!/usr/bin/env fish
 
 function update_media_player
-    set player (get_media_player)
+    set player (get_media_player 2>/dev/null)
+    if test -z "$player"
+        echo '󰝚'
+        return
+    end
     if test $player = 'chromium'
         echo '󰌀'
     else if test $player = 'spotify'
