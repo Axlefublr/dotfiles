@@ -662,6 +662,7 @@ keymap:
   - name: Other
     exact_match: true
     remap:
+      CapsLock-Comma: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end']}
       Super-Space: { launch: [fish, -c, toggle_layout] }
       Super-6: { launch: [fish, -c, toggle_compositor] }
       F13: { launch: [wmctrl, -c, ':ACTIVE:'] }

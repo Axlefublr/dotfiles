@@ -65,9 +65,6 @@ Global_keys = gears.table.join(
 
 	awful.key({ modkey }, 'c', awful.client.urgent.jumpto),
 	awful.key({ modkey, 'Mod1' }, 'c', Ignore_all_urgencies),
-	awful.key({ 'Shift' }, 'Escape', function()
-		if not naughty.is_suspended() then naughty.destroy_all_notifications() end
-	end),
 	awful.key({ modkey }, '4', function()
 		naughty.toggle()
 		Dnd_wu()
