@@ -61,6 +61,7 @@ awful.rules.rules = {
 		rule = { class = 'neoline' },
 		properties = {
 			floating = true,
+			maximized = false,
 			x = 360,
 			y = 394,
 			width = 1200,
