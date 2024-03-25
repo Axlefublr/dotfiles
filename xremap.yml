@@ -528,7 +528,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
               Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
 
-          Alt-l:
+          Alt-k:
             remap:
               q: { launch: [fish, -c, 'magazine_append q'] }
               w: { launch: [fish, -c, 'magazine_append w'] }
@@ -566,6 +566,45 @@ keymap:
               Key_8: { launch: [fish, -c, 'magazine_append 8'] }
               Key_9: { launch: [fish, -c, 'magazine_append 9'] }
               Key_0: { launch: [fish, -c, 'magazine_append 0'] }
+
+          Alt-l:
+            remap:
+              q: { launch: [fish, -c, 'magazine_appset q'] }
+              w: { launch: [fish, -c, 'magazine_appset w'] }
+              e: { launch: [fish, -c, 'magazine_appset e'] }
+              r: { launch: [fish, -c, 'magazine_appset r'] }
+              t: { launch: [fish, -c, 'magazine_appset t'] }
+              y: { launch: [fish, -c, 'magazine_appset y'] }
+              u: { launch: [fish, -c, 'magazine_appset u'] }
+              i: { launch: [fish, -c, 'magazine_appset i'] }
+              o: { launch: [fish, -c, 'magazine_appset o'] }
+              p: { launch: [fish, -c, 'magazine_appset p'] }
+              a: { launch: [fish, -c, 'magazine_appset a'] }
+              s: { launch: [fish, -c, 'magazine_appset s'] }
+              d: { launch: [fish, -c, 'magazine_appset d'] }
+              f: { launch: [fish, -c, 'magazine_appset f'] }
+              g: { launch: [fish, -c, 'magazine_appset g'] }
+              h: { launch: [fish, -c, 'magazine_appset h'] }
+              j: { launch: [fish, -c, 'magazine_appset j'] }
+              k: { launch: [fish, -c, 'magazine_appset k'] }
+              l: { launch: [fish, -c, 'magazine_appset l'] }
+              z: { launch: [fish, -c, 'magazine_appset z'] }
+              x: { launch: [fish, -c, 'magazine_appset x'] }
+              c: { launch: [fish, -c, 'magazine_appset c'] }
+              v: { launch: [fish, -c, 'magazine_appset v'] }
+              b: { launch: [fish, -c, 'magazine_appset b'] }
+              n: { launch: [fish, -c, 'magazine_appset n'] }
+              m: { launch: [fish, -c, 'magazine_appset m'] }
+              Key_1: { launch: [fish, -c, 'magazine_appset 1'] }
+              Key_2: { launch: [fish, -c, 'magazine_appset 2'] }
+              Key_3: { launch: [fish, -c, 'magazine_appset 3'] }
+              Key_4: { launch: [fish, -c, 'magazine_appset 4'] }
+              Key_5: { launch: [fish, -c, 'magazine_appset 5'] }
+              Key_6: { launch: [fish, -c, 'magazine_appset 6'] }
+              Key_7: { launch: [fish, -c, 'magazine_appset 7'] }
+              Key_8: { launch: [fish, -c, 'magazine_appset 8'] }
+              Key_9: { launch: [fish, -c, 'magazine_appset 9'] }
+              Key_0: { launch: [fish, -c, 'magazine_appset 0'] }
 
   - name: Layouts
     exact_match: true

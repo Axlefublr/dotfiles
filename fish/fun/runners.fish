@@ -179,6 +179,15 @@ function magazine_append
 end
 funcsave magazine_append >/dev/null
 
+function magazine_appset
+    set lines (cat ~/.local/share/magazine/$argv[1])
+    set lines $lines "$(xclip -selection clipboard -o)"
+    prli $lines > ~/.local/share/magazine/$argv[1]
+    notify-send -t 1000 "append clip $argv[1]"
+    update_magazine $argv[1]
+end
+funcsave magazine_appset > /dev/null
+
 function update_magazine
     if test $argv[1] -ge 0 -a $argv[1] -le 9
         awesome-client 'Registers_wu()'
