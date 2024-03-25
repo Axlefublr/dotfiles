@@ -247,7 +247,6 @@ keymap:
           f: { launch: [alacritty] }
           b: { launch: [fish, -c, runner_bluetooth] }
 
-          j: { launch: [fish, -c, runner_note] }
           m: { launch: [fish, -c, runner_math] }
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
@@ -710,7 +709,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
               Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
 
-          Alt-k:
+          j:
             remap:
               q: { launch: [fish, -c, 'magazine_append q'] }
               w: { launch: [fish, -c, 'magazine_append w'] }
@@ -775,7 +774,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_append 9'] }
               Key_0: { launch: [fish, -c, 'magazine_append 0'] }
 
-          Alt-l:
+          Alt-j:
             remap:
               q: { launch: [fish, -c, 'magazine_appset q'] }
               w: { launch: [fish, -c, 'magazine_appset w'] }

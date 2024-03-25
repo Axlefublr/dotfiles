@@ -18,12 +18,6 @@ function runner_kill
 end
 funcsave runner_kill >/dev/null
 
-function runner_note
-    set input (rofi -dmenu 2> /dev/null | string collect)
-    indeed -- ~/prog/noties/notes.md $input
-end
-funcsave runner_note >/dev/null
-
 function runner_math
     set input (rofi -dmenu 2> /dev/null ; echo $status)
     if test $input[-1] -ne 0
