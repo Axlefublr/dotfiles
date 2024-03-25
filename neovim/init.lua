@@ -81,10 +81,6 @@ vim.api.nvim_create_user_command('O', function(info)
 	vim.cmd(range .. 'norm ' .. info.args)
 end, { nargs = '*', range = true })
 
-vim.api.nvim_create_user_command('M', function(info)
-	vim.cmd('split ' .. vim.fn.expand('~/.local/share/magazine/') .. info.args)
-end, { nargs = '*'})
-
 vim.api.nvim_create_autocmd('CursorMoved', {
 	command = 'normal! zz',
 })
@@ -97,6 +93,11 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 	pattern = { '*.rasi' },
 	command = 'setfiletype rasi',
+})
+
+vim.api.nvim_create_autocmd( { 'BufRead', 'BufNewFile' }, {
+	pattern = { vim.fn.expand('~/.local/share/magazine/l') },
+	command = 'setfiletype markdown'
 })
 
 vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
