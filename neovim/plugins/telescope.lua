@@ -222,6 +222,7 @@ return {
 							'~/prog/backup',
 							'~/.local/share/alien_temple',
 							'~/.local/share/glaza',
+							'~/.local/share/magazine',
 						},
 					})
 				end
@@ -234,11 +235,12 @@ return {
 					builtin.live_grep({
 						search_dirs = {
 							'~/prog/dotfiles',
-							'~/prog/noties',
-							'~/prog/job',
+							-- '~/prog/noties',
+							-- '~/prog/job',
 							'~/prog/backup',
-							'~/.local/share/alien_temple',
-							'~/.local/share/glaza',
+							-- '~/.local/share/alien_temple',
+							-- '~/.local/share/glaza',
+							-- '~/.local/share/magazine',
 						},
 					})
 				end
