@@ -262,6 +262,10 @@ function oil
     if set -q argv[1]
         z $argv[1]
     end
+    if test "$argv[1]" = '~/Videos/content'
+        neovide --x11-wm-class-instance oil-content -- -c 'Oil'
+        return
+    end
     neovide --x11-wm-class-instance oil -- -c 'Oil'
 end
 funcsave oil > /dev/null

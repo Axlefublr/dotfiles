@@ -69,7 +69,7 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'oil' },
+		rule = { class = 'oil-content' },
 		properties = { tag = screen.primary.tags[15] },
 	},
 
