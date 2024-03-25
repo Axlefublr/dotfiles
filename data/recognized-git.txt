@@ -6,5 +6,5 @@
 ~/prog/backup
 ~/Pictures/tree
 ~/Pictures/tools
-~/.local/share/floral_barrel
+~/.local/share/glaza
 ~/.local/share/alien_temple

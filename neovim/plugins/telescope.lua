@@ -221,7 +221,7 @@ return {
 							'~/prog/job',
 							'~/prog/backup',
 							'~/.local/share/alien_temple',
-							'~/.local/share/floral_barrel',
+							'~/.local/share/glaza',
 						},
 					})
 				end
@@ -238,7 +238,7 @@ return {
 							'~/prog/job',
 							'~/prog/backup',
 							'~/.local/share/alien_temple',
-							'~/.local/share/floral_barrel',
+							'~/.local/share/glaza',
 						},
 					})
 				end

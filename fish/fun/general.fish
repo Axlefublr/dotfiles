@@ -197,7 +197,7 @@ end
 funcsave s >/dev/null
 
 function fbp
-    floral_barrel show list | string match -gr '(.*?)\\s+-\\s+ep\\d+\\s+-\\s+dn\\d+' | fzf
+    glaza shows | string match -gr '(.*?)\\s+-\\s+ep\\d+\\s+-\\s+dn\\d+' | fzf
 end
 funcsave fbp >/dev/null
 
