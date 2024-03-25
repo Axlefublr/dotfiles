@@ -130,6 +130,18 @@ local snippets = function()
 		})
 	}
 	ls.add_snippets('rust', rust_snippets)
+
+	local markdown_snippets = {
+		s('inline link', {
+			t('['),
+			i(1),
+			t(']('),
+			i(2),
+			t(')')
+		})
+	}
+	ls.add_snippets('markdown', markdown_snippets)
+
 end
 
 return {

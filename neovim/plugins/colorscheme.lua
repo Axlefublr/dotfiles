@@ -42,6 +42,8 @@ local highlight_modifications = function()
 		['@markup.quote.markdown'] = 'cyan',
 		['@markup.list.markdown'] = 'purple',
 		['@punctuation.special.markdown'] = 'purple', -- >
+		['@markup.link.markdown_inline'] = 'grey',
+		['@markup.link.url.markdown_inline'] = 'mint',
 
 		['@punctuation.special.bash'] = 'purple',
 		['@variable.bash'] = 'purple',

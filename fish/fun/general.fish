@@ -109,7 +109,7 @@ function uboot
         rustup update
     end
     if test (math (clorange updates show) % 3) -eq 0
-        cargo mommy install-update -a
+        cargo install-update -a
     end
     paru
     pacclean

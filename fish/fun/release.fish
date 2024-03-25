@@ -50,7 +50,7 @@ function rust_release
 
 	rust_ci
 	indeed .gitignore release-notes.txt
-	cargo +nightly mommy fmt
+	cargo +nightly fmt
 
 	git add . &&
 	git commit -m $taggedVersion &&
@@ -58,7 +58,7 @@ function rust_release
 	git tag $taggedVersion -F release-notes.txt &&
 	git push origin $taggedVersion
 	truncate -s 0 release-notes.txt
-	cargo mommy publish
+	cargo publish
 end
 funcsave rust_release > /dev/null
 
@@ -75,7 +75,7 @@ function rust_publish
 		echo 'you have unstaged changes'
 		return 1
 	end
-	cargo mommy publish
+	cargo publish
 end
 funcsave rust_publish > /dev/null
 
@@ -85,7 +85,7 @@ function rust_fmt --description 'Bring in format config and format with it'
 		return 1
 	end
 	cp -f ~/prog/dotfiles/rust/rustfmt.toml ./.rustfmt.toml &&
-	cargo +nightly mommy fmt
+	cargo +nightly fmt
 end
 funcsave rust_fmt > /dev/null
 
@@ -106,7 +106,7 @@ function rust_bin
 		return 1
 	end
 	set -l name (basename $PWD)
-	cargo mommy build -r &&
+	cargo build -r &&
 	cp -f ./target/release/$name ~/prog/binaries
 	if set -q argv[1]
 		set -l newVersion $argv[1]
@@ -119,7 +119,7 @@ end
 funcsave rust_bin > /dev/null
 
 function rust_init
-	cargo mommy init
+	cargo init
 	cp -f ~/prog/dotfiles/rust/metadata.toml ./Cargo.toml
 	sd '%project_name%' (basename $PWD) Cargo.toml
 	touch README.md

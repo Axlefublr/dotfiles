@@ -12,7 +12,6 @@ set -gx SAVEHIST 10000
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 set -gx MANPAGER 'nvim +Man!'
 set -gx LESSKEYIN '/opt/lesskey'
-set -gx CARGO_MOMMYS_MOODS 'chill/thirsty'
 set -gx XMODIFIERS @im=none
 set -gx QT_QPA_PLATFORMTHEME gtk3
 set -gx NEOVIDE_FORK false
