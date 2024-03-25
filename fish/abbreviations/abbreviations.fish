@@ -42,6 +42,7 @@ abbr -a gf    'git fetch'
 abbr -a gpu   'git pull'
 abbr -a grm   'git rm'
 abbr -a gri   'git rebase'
+abbr -a gric  'git rebase --continue'
 abbr -a grp   'git rev-parse'
 abbr -a gui   'git update-index'
 

@@ -1,3 +1,188 @@
+local function remaps(telescope)
+	local builtin = require('telescope.builtin')
+
+	vim.keymap.set('n', ',ja', builtin.find_files, {})
+	vim.keymap.set(
+		'n',
+		',jA',
+		function()
+			builtin.find_files({
+				search_dirs = {
+					Get_repo_root(),
+				},
+			})
+		end,
+		{}
+	)
+	vim.keymap.set(
+		'n',
+		',Ja',
+		function()
+			builtin.find_files({
+				search_dirs = {
+					'~/prog/dotfiles',
+					'~/prog/noties',
+					'~/prog/job',
+					'~/prog/backup',
+					'~/.local/share/alien_temple',
+					'~/.local/share/glaza',
+					'~/.local/share/magazine',
+				},
+			})
+		end
+	)
+
+	vim.keymap.set(
+		'n',
+		',jf',
+		function()
+			builtin.find_files({
+				hidden = false,
+				no_ignore = false,
+				no_ignore_parent = false,
+			})
+		end
+	)
+	vim.keymap.set(
+		'n',
+		',jF',
+		function()
+			builtin.find_files({
+				search_dirs = {
+					Get_repo_root(),
+				},
+				hidden = false,
+				no_ignore = false,
+				no_ignore_parent = false,
+			})
+		end
+	)
+	vim.keymap.set(
+		'n',
+		',Jf',
+		function()
+			builtin.find_files({
+				hidden = false,
+				no_ignore = false,
+				no_ignore_parent = false,
+				search_dirs = {
+					'~/prog/dotfiles',
+					'~/prog/noties',
+					'~/prog/job',
+					'~/prog/backup',
+					'~/.local/share/alien_temple',
+					'~/.local/share/glaza',
+					'~/.local/share/magazine',
+				},
+			})
+		end
+	)
+
+	vim.keymap.set('n', ',jd', builtin.live_grep, {})
+	vim.keymap.set(
+		'n',
+		',jD',
+		function()
+			builtin.live_grep({
+				search_dirs = {
+					Get_repo_root(),
+				},
+			})
+		end
+	)
+	vim.keymap.set('n', ',Jd', function()
+		builtin.live_grep({
+			search_dirs = {
+				'~/prog/dotfiles',
+				-- '~/prog/noties',
+				-- '~/prog/job',
+				'~/prog/backup',
+				-- '~/.local/share/alien_temple',
+				-- '~/.local/share/glaza',
+				-- '~/.local/share/magazine',
+			},
+		})
+	end)
+
+	vim.keymap.set(
+		'n',
+		',jg',
+		function()
+			builtin.live_grep({
+				additional_args = {
+					'--no-ignore',
+					'--hidden',
+				},
+			})
+		end
+	)
+	vim.keymap.set(
+		'n',
+		',jG',
+		function()
+			builtin.live_grep({
+				search_dirs = {
+					Get_repo_root(),
+				},
+				additional_args = {
+					'--no-ignore',
+					'--hidden',
+				},
+			})
+		end
+	)
+	vim.keymap.set('n', ',jg', function()
+		builtin.live_grep({
+			search_dirs = {
+				'~/prog/dotfiles',
+				-- '~/prog/noties',
+				-- '~/prog/job',
+				'~/prog/backup',
+				-- '~/.local/share/alien_temple',
+				-- '~/.local/share/glaza',
+				-- '~/.local/share/magazine',
+			},
+			additional_args = {
+				'--no-ignore',
+				'--hidden',
+			},
+		})
+	end)
+
+	vim.keymap.set('n', ',jh', builtin.help_tags, {})
+	vim.keymap.set('n', ',jt', builtin.treesitter, {})
+	vim.keymap.set('n', ',js', builtin.current_buffer_fuzzy_find, {})
+	vim.keymap.set('n', ',jc', builtin.git_bcommits, {})
+	vim.keymap.set('n', ',jx', builtin.git_branches, {})
+	vim.keymap.set('n', ',je', builtin.git_status, {})
+	vim.keymap.set('n', ',jr', builtin.git_stash, {})
+	vim.keymap.set('n', ',j\\', builtin.builtin, {})
+	vim.keymap.set('n', ',jk', builtin.buffers, {})
+	vim.keymap.set('n', ',jK', builtin.oldfiles, {})
+	vim.keymap.set('n', ',j<cr>', builtin.commands, {})
+	vim.keymap.set('n', ',jy', builtin.command_history, {})
+	vim.keymap.set('n', ',jm', builtin.man_pages, {})
+	vim.keymap.set('n', ',jl', builtin.marks, {})
+	vim.keymap.set('n', ',jo', builtin.jumplist, {})
+	vim.keymap.set('n', ",j'", builtin.registers, {})
+	vim.keymap.set('n', ',jH', builtin.highlights, {})
+	vim.keymap.set('n', ',j;', builtin.filetypes, {})
+	vim.keymap.set('n', ',jq', function() builtin.diagnostics({ bufnr = 0 }) end, {})
+	vim.keymap.set('n', ',jQ', builtin.diagnostics, {})
+	vim.keymap.set('n', ',jj', builtin.quickfix, {})
+
+	vim.keymap.set('n', ',lr', builtin.lsp_references, {})
+	vim.keymap.set('n', ',li', builtin.lsp_incoming_calls, {})
+	vim.keymap.set('n', ',lo', builtin.lsp_outgoing_calls, {})
+	vim.keymap.set('n', ',ld', builtin.lsp_definitions, {})
+	vim.keymap.set('n', ',lt', builtin.lsp_type_definitions, {})
+	vim.keymap.set('n', ',lm', builtin.lsp_implementations, {})
+	vim.keymap.set('n', ',ll', builtin.lsp_document_symbols, {})
+	vim.keymap.set('n', ',lL', builtin.lsp_workspace_symbols, {})
+
+	vim.keymap.set('n', ',jz', telescope.extensions.zoxide.list, {})
+end
+
 return {
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',
@@ -108,6 +293,11 @@ return {
 					find_files = {
 						hidden = true,
 						no_ignore = true,
+						no_ignore_parent = true,
+					},
+					live_grep = {
+						disable_coordinates = true,
+						-- additional_args = {}
 					},
 					git_branches = {
 						mappings = {
@@ -207,77 +397,7 @@ return {
 			telescope.load_extension('fzf')
 			telescope.load_extension('zoxide')
 
-			local builtin = require('telescope.builtin')
-			vim.keymap.set('n', ',jf', builtin.find_files, {})
-			vim.keymap.set(
-				'n',
-				',jF',
-				function()
-					builtin.find_files({
-						hidden = true,
-						search_dirs = {
-							'~/prog/dotfiles',
-							'~/prog/noties',
-							'~/prog/job',
-							'~/prog/backup',
-							'~/.local/share/alien_temple',
-							'~/.local/share/glaza',
-							'~/.local/share/magazine',
-						},
-					})
-				end
-			)
-			vim.keymap.set('n', ',jd', builtin.live_grep, {})
-			vim.keymap.set(
-				'n',
-				',jD',
-				function()
-					builtin.live_grep({
-						search_dirs = {
-							'~/prog/dotfiles',
-							-- '~/prog/noties',
-							-- '~/prog/job',
-							'~/prog/backup',
-							-- '~/.local/share/alien_temple',
-							-- '~/.local/share/glaza',
-							-- '~/.local/share/magazine',
-						},
-					})
-				end
-			)
-			vim.keymap.set('n', ',jh', builtin.help_tags, {})
-			vim.keymap.set('n', ',jt', builtin.treesitter, {})
-			vim.keymap.set('n', ',js', builtin.current_buffer_fuzzy_find, {})
-			vim.keymap.set('n', ',jc', builtin.git_bcommits, {})
-			vim.keymap.set('n', ',jx', builtin.git_branches, {})
-			vim.keymap.set('n', ',je', builtin.git_status, {})
-			vim.keymap.set('n', ',jr', builtin.git_stash, {})
-			vim.keymap.set('n', ',j\\', builtin.builtin, {})
-			vim.keymap.set('n', ',ja', builtin.buffers, {})
-			vim.keymap.set('n', ',jA', builtin.oldfiles, {})
-			vim.keymap.set('n', ',j<cr>', builtin.commands, {})
-			vim.keymap.set('n', ',jy', builtin.command_history, {})
-			vim.keymap.set('n', ',jm', builtin.man_pages, {})
-			vim.keymap.set('n', ',jl', builtin.marks, {})
-			vim.keymap.set('n', ',jo', builtin.jumplist, {})
-			vim.keymap.set('n', ",j'", builtin.registers, {})
-			vim.keymap.set('n', ',jH', builtin.highlights, {})
-			vim.keymap.set('n', ',j;', builtin.filetypes, {})
-			vim.keymap.set('n', ',jq', function() builtin.diagnostics({ bufnr = 0 }) end, {})
-			vim.keymap.set('n', ',jQ', builtin.diagnostics, {})
-			vim.keymap.set('n', ',jj', builtin.git_files, {})
-			vim.keymap.set('n', ',jk', builtin.quickfix, {})
-
-			vim.keymap.set('n', ',lr', builtin.lsp_references, {})
-			vim.keymap.set('n', ',li', builtin.lsp_incoming_calls, {})
-			vim.keymap.set('n', ',lo', builtin.lsp_outgoing_calls, {})
-			vim.keymap.set('n', ',ld', builtin.lsp_definitions, {})
-			vim.keymap.set('n', ',lt', builtin.lsp_type_definitions, {})
-			vim.keymap.set('n', ',lm', builtin.lsp_implementations, {})
-			vim.keymap.set('n', ',ll', builtin.lsp_document_symbols, {})
-			vim.keymap.set('n', ',lL', builtin.lsp_workspace_symbols, {})
-
-			vim.keymap.set('n', ',jz', telescope.extensions.zoxide.list, {})
+			remaps(telescope)
 		end,
 	},
 }

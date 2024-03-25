@@ -41,7 +41,7 @@ vim.keymap.set({ 'n', 'x' }, ',dr', function()
 end)
 vim.keymap.set({ 'n', 'x' }, ',de', function()
 	local full_path = vim.api.nvim_buf_get_name(0)
-	local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+	local git_root = Get_repo_root()
 	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
 	vim.fn.setreg('+', relative_path)
 	print('copied: ' .. relative_path)

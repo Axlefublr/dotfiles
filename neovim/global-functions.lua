@@ -176,7 +176,13 @@ function Killring_pop_tail(insert)
 	end
 	local first_index = killring:remove(1)
 	vim.fn.setreg('"', first_index)
-	if insert then if insert == 'command' then FeedKeysInt('<c-r>"') else FeedKeysInt('<c-r<c-p>"') end end
+	if insert then
+		if insert == 'command' then
+			FeedKeysInt('<c-r>"')
+		else
+			FeedKeysInt('<c-r<c-p>"')
+		end
+	end
 	print('got tail')
 end
 
@@ -187,7 +193,13 @@ function Killring_pop(insert)
 	end
 	local first_index = killring:remove(#killring)
 	vim.fn.setreg('"', first_index)
-	if insert then if insert == 'command' then FeedKeysInt('<c-r>"') else FeedKeysInt('<c-r<c-p>"') end end
+	if insert then
+		if insert == 'command' then
+			FeedKeysInt('<c-r>"')
+		else
+			FeedKeysInt('<c-r<c-p>"')
+		end
+	end
 	print('got nose')
 end
 
@@ -212,7 +224,13 @@ function Numbered_get(index, insert)
 		return
 	end
 	vim.fn.setreg('"', numbered[index])
-	if insert then if insert == 'command' then FeedKeysInt('<c-r>"') else FeedKeysInt('<c-r><c-p>"') end end
+	if insert then
+		if insert == 'command' then
+			FeedKeysInt('<c-r>"')
+		else
+			FeedKeysInt('<c-r><c-p>"')
+		end
+	end
 	print('grabbed')
 end
 
@@ -255,8 +273,8 @@ end
 
 function Write_cursor_position_on_leave(path)
 	vim.api.nvim_create_autocmd('VimLeave', {
-		callback = function ()
-			local file = io.open(path, "w")
+		callback = function()
+			local file = io.open(path, 'w')
 			if file then
 				local position = vim.api.nvim_win_get_cursor(0)
 				local line = position[1]
@@ -264,6 +282,11 @@ function Write_cursor_position_on_leave(path)
 				file:write(line .. ' ' .. column + 1)
 				file:close()
 			end
-		end
+		end,
 	})
+end
+
+function Get_repo_root()
+	local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+	return git_root
 end
