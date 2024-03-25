@@ -10,6 +10,9 @@ local function save()
 	Remove_highlighting()
 	Write_if_modified()
 	require('lualine').refresh()
+	if vim.bo.filetype == 'oil' then
+		require('oil.actions').refresh.callback()
+	end
 end
 local function close_try_save()
 	Write_if_modified()
@@ -170,12 +173,12 @@ end
 vim.keymap.set('n', '{', function() move_to_blank_line(false) end)
 vim.keymap.set('n', '}', function() move_to_blank_line(true) end)
 vim.keymap.set({ 'n', 'x' }, ',dc', '<cmd>echo getcwd()<cr>')
-vim.keymap.set('n', 'gJ', 'j0d^kgJ')                                              -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
-vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB')                                  -- Push line of code after block into block
-vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK)   -- Move line to the top
-vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK)    -- Bottom
-vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>')                            -- Paste a characterwise register on a new line
-vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>')                            -- Paste a characterwise register on a new line
+vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
+vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
+vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top
+vim.keymap.set('n', ',do', 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK) -- Bottom
+vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
+vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
 vim.keymap.set('n', '@', function() FeedKeysInt('yl' .. vim.v.count1 .. 'p') end) -- multiply character
 vim.keymap.set('n', '<Esc>', function()
 	Remove_highlighting()

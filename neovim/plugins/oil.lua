@@ -1,5 +1,5 @@
 local opts = {
-	defaut_file_explorer = true,
+	default_file_explorer = true,
 	columns = {
 		'icon',
 		-- 'permissions',
@@ -38,6 +38,7 @@ local opts = {
 
 return {
 	'stevearc/oil.nvim',
+	lazy = false,
 	keys = {
 		{ 'gq', '<cmd>Oil<cr>' },
 	},
