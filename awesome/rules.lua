@@ -47,7 +47,7 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'neomax' },
+		rule = { class = 'Alacritty', name = 'neomax' },
 		properties = {
 			floating = true,
 			x = 10,
@@ -58,7 +58,7 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'neoline' },
+		rule = { class = 'Alacritty', name = 'neoline' },
 		properties = {
 			floating = true,
 			maximized = false,

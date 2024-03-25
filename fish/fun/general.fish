@@ -262,10 +262,14 @@ function oil
     if set -q argv[1]
         z $argv[1]
     end
-    if test "$argv[1]" = "$HOME/Videos/content"
-        neovide --x11-wm-class-instance oil-content -- .
+    if not set -q argv[2]
+        nvim .
         return
     end
-    neovide --x11-wm-class-instance oil -- .
+    if test "$argv[1]" = "$HOME/Videos/content"
+        alacritty -T oil-content -e nvim .
+        return
+    end
+    alacritty -T oil -e nvim .
 end
 funcsave oil > /dev/null

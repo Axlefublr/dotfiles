@@ -24,8 +24,8 @@ alacritty -T meow 2>>/dev/shm/user_log.txt & disown
 alacritty -T timer 2>>/dev/shm/user_log.txt & disown
 oil.fish ~/Videos/content 2>>/dev/shm/user_log.txt & disown
 
-neovide 2>>/dev/shm/user_log.txt & disown
-win_wait 'neovide — Neovide' 0.5 0 200
+alacritty -T editor --working-directory ~/prog/dotfiles -e nvim 2>>/dev/shm/user_log.txt & disown
+# win_wait 'neovide — Neovide' 0.5 0 200
 alacritty -T terminal --working-directory ~/prog/dotfiles 2>>/dev/shm/user_log.txt & disown
 
 vivaldi-stable --force-dark-mode 2>>/dev/shm/user_log.txt & disown

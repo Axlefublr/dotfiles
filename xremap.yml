@@ -243,7 +243,7 @@ keymap:
           'y': { launch: [fish, -c, install_yt_video] }
           Shift-y: { launch: [fish, -c, 'install_yt_video asmr/'] }
           w: { launch: [fish, -c, toggle_internet] }
-          d: { launch: [neovide] }
+          d: { launch: [alacritty, -e, nvim] }
           f: { launch: [alacritty] }
           b: { launch: [fish, -c, runner_bluetooth] }
 
@@ -937,16 +937,6 @@ keymap:
       Alt-f: shift-alt-b
       Alt-j: { launch: [sh, -c, 'xdotool mousemove 58 1025 ; ydotool click c1'] }
 
-  - name: Neovide
-    exact_match: true
-    application:
-      only: [neovide, neomax, neoline]
-    remap:
-      Ctrl-Backspace: ctrl-w
-      Alt-j: ctrl-n
-      Alt-k: ctrl-p
-      Shift-Alt-Semicolon: f5
-
   - name: Alacritty
     exact_match: true
     application:
@@ -955,6 +945,9 @@ keymap:
       Ctrl-Backspace: ctrl-w
       Ctrl-Enter: f2
       Ctrl-Alt-u: f4
+      Alt-j: ctrl-n
+      Alt-k: ctrl-p
+      Shift-Alt-Semicolon: f5
 
   - name: Compose key
     exact_match: true

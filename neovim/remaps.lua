@@ -10,9 +10,6 @@ local function save()
 	Remove_highlighting()
 	Write_if_modified()
 	require('lualine').refresh()
-	if vim.bo.filetype == 'oil' then
-		require('oil.actions').refresh.callback()
-	end
 end
 local function close_try_save()
 	Write_if_modified()

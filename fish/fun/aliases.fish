@@ -23,8 +23,8 @@ alias --save rofi-multi-select 'rofi -dmenu -multi-select -ballot-selected-str "
 alias --save awart 'awesome-client "awesome.restart()"' >/dev/null
 alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' >/dev/null
 alias --save dust 'dust -r' >/dev/null
-alias --save neomax 'neovide --x11-wm-class-instance neomax' >/dev/null
-alias --save neoline 'neovide --x11-wm-class-instance neoline' >/dev/null
+alias --save neomax 'alacritty -T neomax -e nvim' >/dev/null
+alias --save neoline 'alacritty -T neoline -e nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'eza --git --git-repos' >/dev/null
 

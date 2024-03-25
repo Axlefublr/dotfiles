@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
-set -gx EDITOR 'neovide'
-set -gx VISUAL 'neovide'
+set -gx EDITOR 'nvim'
+set -gx VISUAL 'nvim'
 set -gx PAGER '/usr/bin/less'
 set -gx BROWSER '/usr/bin/vivaldi-stable'
 set -gx HISTSIZE 10000
@@ -85,7 +85,7 @@ bind -M default yie 'commandline | xclip -r -selection clipboard'
 bind -M insert \c] execute
 bind -M default K execute
 
-bind -M default v edit_commandline
+bind -M default v edit_command_buffer
 bind -M default : repeat-jump-reverse
 bind -M default \; repeat-jump
 

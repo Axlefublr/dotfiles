@@ -16,19 +16,7 @@ Colors = {
 THROWAWAY_REGISTER = 'o'
 THROWAWAY_MARK = 'I'
 
-if vim.g.neovide then
-	vim.o.guifont = 'JetBrainsMono Nerd Font:h15'
-	vim.g.neovide_scroll_animation_length = 0.15
-	vim.g.neovide_scroll_animation_far_lines = 5
-	vim.g.neovide_hide_mouse_when_typing = true
-	vim.g.neovide_cursor_animate_command_line = true
-	vim.g.neovide_cursor_animation_length = 0.07
-	vim.g.neovide_cursor_trail_size = 0.4
-	vim.g.neovide_padding_left = 10
-	local default_scale = 1.0
-	vim.g.neovide_scale_factor = default_scale
-	if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
-end
+if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
 require('options')
 require('global-functions')
 require('remaps')
