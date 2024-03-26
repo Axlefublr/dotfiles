@@ -262,9 +262,13 @@ function oil
     if set -q argv[1]
         z $argv[1]
     end
-    if not set -q argv[2]
-        nvim .
-        return
+    nvim .
+end
+funcsave oil > /dev/null
+
+function oilf
+    if set -q argv[1]
+        z $argv[1]
     end
     if test "$argv[1]" = "$HOME/Videos/content"
         alacritty -T oil-content -e nvim .
@@ -272,4 +276,4 @@ function oil
     end
     alacritty -T oil -e nvim .
 end
-funcsave oil > /dev/null
+funcsave oilf > /dev/null
