@@ -180,7 +180,7 @@ function Killring_pop_tail(insert)
 		if insert == 'command' then
 			FeedKeysInt('<c-r>"')
 		else
-			FeedKeysInt('<c-r<c-p>"')
+			FeedKeysInt('<c-r><c-p>"')
 		end
 	end
 	print('got tail')
@@ -197,7 +197,7 @@ function Killring_pop(insert)
 		if insert == 'command' then
 			FeedKeysInt('<c-r>"')
 		else
-			FeedKeysInt('<c-r<c-p>"')
+			FeedKeysInt('<c-r><c-p>"')
 		end
 	end
 	print('got nose')
