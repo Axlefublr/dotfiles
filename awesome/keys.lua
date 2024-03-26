@@ -134,12 +134,6 @@ Global_keys = gears.table.join(
 root.keys(Global_keys)
 
 Client_keys = gears.table.join(
-	awful.key(
-		{ modkey },
-		'Return',
-		function(client) client.maximized = not client.maximized end,
-		{ description = 'move to master', group = 'client' }
-	),
 	awful.key({ modkey, 'Shift' }, 'w', function(client)
 		local current_tag = screen.primary.selected_tag
 		if current_tag then
