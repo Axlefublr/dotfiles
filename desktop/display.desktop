@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=display %F
+Name=ImageMagick Display
+Type=Application
+Terminal=false
+Categories=Graphics;Viewer;
+MimeType=image/jpeg;image/png;image/gif;image/bmp;image/tiff;image/svg+xml;

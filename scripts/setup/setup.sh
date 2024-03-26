@@ -12,8 +12,3 @@ sudo systemctl enable --now sddm
 sudo systemctl enable --now bluetooth.service
 
 sudo systemctl enable --now paccache.timer
-
-# xdg-mime query filetype
-xdg-mime default mpv.desktop video/webm
-xdg-mime default mpv.desktop video/mp4
-xdg-mime default mpv.desktop video/x-matroska

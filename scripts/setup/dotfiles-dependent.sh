@@ -74,6 +74,9 @@ sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/7
 # Mpv
 mkdir -p ~/.config/mpv
 ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
+xdg-mime default mpv.desktop video/webm
+xdg-mime default mpv.desktop video/mp4
+xdg-mime default mpv.desktop video/x-matroska
 
 # Rofi
 mkdir -p ~/.config/rofi
@@ -97,6 +100,10 @@ ln -sf ~/prog/dotfiles/zathura ~/.config/zathura/zathurarc
 # Clipster
 mkdir -p ~/.config/clipster
 ln -sf ~/prog/dotfiles/clipster.ini ~/.config/clipster/clipster.ini
+
+# Display
+ln -sf ~/prog/dotfiles/desktop/display.desktop ~/.local/share/applications/display.desktop
+xdg-mime default display.desktop image/svg+xml
 
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'
