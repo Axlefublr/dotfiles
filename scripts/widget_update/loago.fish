@@ -2,5 +2,5 @@
 
 while true
     widget_update get_oldest_task Loago
-    sleep 20
+    sleep 15
 end

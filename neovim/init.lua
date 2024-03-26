@@ -13,7 +13,7 @@ Colors = {
 	red = '#ea6962',
 }
 
-THROWAWAY_REGISTER = 'o'
+THROWAWAY_REGISTER = 'p'
 THROWAWAY_MARK = 'I'
 
 if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
