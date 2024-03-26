@@ -254,7 +254,32 @@ keymap:
           Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
           Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
 
-          Comma:
+  - name: Layouts
+    exact_match: true
+    remap:
+      Super-k:
+        remap:
+          h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
+          j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
+          k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
+          l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
+
+          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
+          i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
+          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
+          p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
+
+          m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
+          Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
+          Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+
+          s: { launch: [awesome-client, awful.client.floating.toggle()] }
+          t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+          g: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+          f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
+          d: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+
+          c:
             remap:
               q: { launch: [fish, -c, 'magazine_get q'] }
               w: { launch: [fish, -c, 'magazine_get w'] }
@@ -319,7 +344,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_get 9'] }
               Key_0: { launch: [fish, -c, 'magazine_get 0'] }
 
-          Alt-Comma:
+          v:
             remap:
               q: { launch: [fish, -c, 'magazine_set q'] }
               w: { launch: [fish, -c, 'magazine_set w'] }
@@ -384,7 +409,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_set 9'] }
               Key_0: { launch: [fish, -c, 'magazine_set 0'] }
 
-          l:
+          e:
             remap:
               q: { launch: [fish, -c, 'magazine_view q'] }
               w: { launch: [fish, -c, 'magazine_view w'] }
@@ -449,7 +474,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_view 9'] }
               Key_0: { launch: [fish, -c, 'magazine_view 0'] }
 
-          Dot:
+          r:
             remap:
               q: { launch: [fish, -c, 'magazine_truncate q'] }
               w: { launch: [fish, -c, 'magazine_truncate w'] }
@@ -514,7 +539,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_truncate 9'] }
               Key_0: { launch: [fish, -c, 'magazine_truncate 0'] }
 
-          Super-Dot:
+          x:
             remap:
               q: { launch: [fish, -c, 'magazine_cut q'] }
               w: { launch: [fish, -c, 'magazine_cut w'] }
@@ -579,7 +604,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_cut 9'] }
               Key_0: { launch: [fish, -c, 'magazine_cut 0'] }
 
-          k:
+          f:
             remap:
               q: { launch: [fish, -c, 'magazine_write q'] }
               w: { launch: [fish, -c, 'magazine_write w'] }
@@ -644,7 +669,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_write 9'] }
               Key_0: { launch: [fish, -c, 'magazine_write 0'] }
 
-          Super-k:
+          d:
             remap:
               q: { launch: [fish, -c, 'magazine_edit q'] }
               w: { launch: [fish, -c, 'magazine_edit w'] }
@@ -709,7 +734,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
               Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
 
-          j:
+          s:
             remap:
               q: { launch: [fish, -c, 'magazine_append q'] }
               w: { launch: [fish, -c, 'magazine_append w'] }
@@ -774,7 +799,7 @@ keymap:
               Key_9: { launch: [fish, -c, 'magazine_append 9'] }
               Key_0: { launch: [fish, -c, 'magazine_append 0'] }
 
-          Alt-j:
+          w:
             remap:
               q: { launch: [fish, -c, 'magazine_appset q'] }
               w: { launch: [fish, -c, 'magazine_appset w'] }
@@ -838,31 +863,6 @@ keymap:
               Key_8: { launch: [fish, -c, 'magazine_appset 8'] }
               Key_9: { launch: [fish, -c, 'magazine_appset 9'] }
               Key_0: { launch: [fish, -c, 'magazine_appset 0'] }
-
-  - name: Layouts
-    exact_match: true
-    remap:
-      Super-k:
-        remap:
-          h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
-          j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
-          k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
-          l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
-
-          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
-          i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
-          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
-          p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
-
-          m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
-          Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
-          Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
-
-          s: { launch: [awesome-client, awful.client.floating.toggle()] }
-          t: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-          g: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-          f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
-          d: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
 
   - name: System & Media
     remap:
