@@ -942,6 +942,7 @@ keymap:
       Ctrl-Alt-u: f4
       Alt-j: ctrl-n
       Alt-k: ctrl-p
+      Ctrl-j: f6
       Shift-Alt-Semicolon: f5
 
   - name: Compose key
@@ -998,8 +999,10 @@ keymap:
 
       CapsLock-7: { launch: [awesome-client, awful.client.floating.toggle()] }
       CapsLock-9: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-      CapsLock-8: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-      CapsLock-0: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
+      CapsLock-8:
+        { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+      CapsLock-0:
+        { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
       CapsLock-6: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
 
   - name: Direct

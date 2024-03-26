@@ -269,8 +269,8 @@ return {
 					},
 					mappings = {
 						n = {
-							['<a-;>'] = 'select_vertical',
-							['<a-o>'] = 'select_horizontal',
+							['<c-l>'] = 'select_vertical',
+							['<f6>'] = 'select_horizontal',
 							['<a-u>'] = 'smart_add_to_qflist',
 							['<a-U>'] = 'smart_send_to_qflist',
 							['<a-i>'] = actions.toggle_preview,
@@ -279,8 +279,8 @@ return {
 							['<c-v>'] = false,
 						},
 						i = {
-							['<a-;>'] = 'select_vertical',
-							['<a-o>'] = 'select_horizontal',
+							['<c-l>'] = 'select_vertical',
+							['<f6>'] = 'select_horizontal',
 							['<a-u>'] = 'smart_add_to_qflist',
 							['<a-U>'] = 'smart_send_to_qflist',
 							['<a-i>'] = actions.toggle_preview,

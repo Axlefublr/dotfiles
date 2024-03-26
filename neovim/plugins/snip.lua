@@ -63,7 +63,7 @@ local snippets = function()
 			i(0),
 			t({ '', 'end', 'funcsave ' }),
 			f(single, 1),
-			t(' > /dev/null'),
+			t(' >/dev/null'),
 		}),
 		s('if test', {
 			t('if test '),
