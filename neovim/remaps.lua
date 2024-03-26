@@ -169,7 +169,7 @@ local function move_to_blank_line(to_next)
 end
 vim.keymap.set('n', '{', function() move_to_blank_line(false) end)
 vim.keymap.set('n', '}', function() move_to_blank_line(true) end)
-vim.keymap.set({ 'n', 'x' }, ',dc', '<cmd>echo getcwd()<cr>')
+vim.keymap.set({ 'n', 'x' }, ',da', '<cmd>echo getcwd()<cr>')
 vim.keymap.set('n', 'gJ', 'j0d^kgJ') -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 vim.keymap.set('n', ',di', '"_ddddpvaB<Esc>>iB') -- Push line of code after block into block
 vim.keymap.set('n', ',du', 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK) -- Move line to the top

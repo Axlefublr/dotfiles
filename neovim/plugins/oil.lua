@@ -2,7 +2,6 @@ local opts = {
 	default_file_explorer = true,
 	columns = {
 		'icon',
-		-- 'permissions',
 	},
 	win_options = {
 		wrap = true,
@@ -11,14 +10,13 @@ local opts = {
 	skip_confirm_for_simple_edits = true,
 	keymaps = {
 		['<a-d>'] = 'actions.refresh',
-		['>'] = 'actions.select',
+		['<'] = 'actions.parent',
 		['K'] = 'actions.close',
 		['<a-;>'] = 'actions.select_vsplit',
 		['<a-o>'] = 'actions.select_split',
 		['<a-u>'] = 'actions.add_to_qflist',
 		['<a-U>'] = 'actions.send_to_qflist',
-		['<'] = 'actions.parent',
-		[',dc'] = 'actions.open_cwd',
+		[',da'] = 'actions.open_cwd',
 		['gq'] = 'actions.cd',
 		['go'] = 'actions.change_sort',
 		['ga'] = 'actions.open_external',
@@ -53,6 +51,23 @@ return {
 		vim.api.nvim_set_hl(0, 'OilLink', { fg = Colors.mint })
 		vim.api.nvim_set_hl(0, 'OilLinkTarget', { fg = Colors.red })
 
-		vim.api.nvim_set_hl(0, 'OilTrash', { fg = Colors.red })
+		vim.api.nvim_set_hl(0, 'OilTrash', { fg = Colors.orange })
+		vim.api.nvim_set_hl(0, 'OilRestore', { fg = Colors.purple })
+		vim.api.nvim_set_hl(0, 'OilPurge', { fg = Colors.red })
+
+		vim.api.nvim_create_autocmd('FileType', {
+			pattern = 'oil',
+			callback = function ()
+				vim.keymap.set('n', '>', function ()
+					local file_name = require('oil').get_cursor_entry().name
+					local is_external = file_name:match('%.mp4$') or file_name:match('%.webm$') or file_name:match('%.mkv$')
+					if is_external then
+						require('oil.actions').open_external.callback()
+					else
+						require('oil.actions').select.callback()
+					end
+				end, { buffer = true })
+			end
+		})
 	end,
 }
