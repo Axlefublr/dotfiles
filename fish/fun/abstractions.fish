@@ -113,7 +113,7 @@ function get_media_title
         playerctl metadata --format '{{title}}'
     end | string join ' — '
 end
-funcsave get_media_title > /dev/null
+funcsave get_media_title >/dev/null
 
 function ml
     media_position "$argv-"
@@ -240,27 +240,31 @@ end
 funcsave get_hunger >/dev/null
 
 function filter_mature_tasks
+    function if_print
+        test "$argv[1]" -gt $argv[3] && echo "$argv[2] — $argv[1]" || printf ''
+    end
     set oldest (loago list | rg -v 'eat' | awk '$3 > 4')
     for task in $oldest
         set -l match (string match -gr '^(\\S+)\\s+— (\\d+)$' $task)
         set -l name $match[1]
         set -l days $match[2]
-        if test \( $name = filter -a $days -gt 45 \) \
-                -o \( $name = towels -a $days -ge 7 \) \
-                -o \( $name = lamp -a $days -ge 7 \) \
-                -o \( $name = nose -a $days -ge 7 \) \
-                -o \( $name = cazor -a $days -ge 7 \) \
-                -o \( $name = cloths -a $days -ge 10 \) \
-                -o \( $name = fscrub -a $days -ge 10 \) \
-                -o \( $name = bscrub -a $days -ge 10 \) \
-                -o \( $name = nails -a $days -ge 15 \) \
-                -o \( $name = wilter -a $days -ge 15 \) \
-                -o \( $name = bottle -a $days -ge 15 \) \
-                -o \( $name = razor -a $days -ge 20 \) \
-                -o \( $name = tails -a $days -ge 30 \)
-            echo $task
+        switch $name
+            case filter
+                if_print $days $name 45
+            case towels lamp nose cazor
+                if_print $days $name 7
+            case cloths fscrub bscrub
+                if_print $days $name 10
+            case nails wilter bottle
+                if_print $days $name 15
+            case razor
+                if_print $days $name 20
+            case tails
+                if_print $days $name 30
+            case '*'
+                echo "$name — $days"
         end
-    end
+    end | column -t -s '—' -o '—'
 end
 funcsave filter_mature_tasks >/dev/null
 
