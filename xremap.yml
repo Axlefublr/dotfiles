@@ -272,6 +272,7 @@ keymap:
           m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
           Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+          q: { launch: [fish, -c, magazine_filled] }
 
           c:
             remap:

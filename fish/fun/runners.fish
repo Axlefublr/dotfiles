@@ -176,11 +176,22 @@ funcsave magazine_append >/dev/null
 function magazine_appset
     set lines (cat ~/.local/share/magazine/$argv[1])
     set lines $lines "$(xclip -selection clipboard -o)"
-    prli $lines > ~/.local/share/magazine/$argv[1]
+    prli $lines >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "append clip $argv[1]"
     update_magazine $argv[1]
 end
-funcsave magazine_appset > /dev/null
+funcsave magazine_appset >/dev/null
+
+function magazine_filled
+    set registers ''
+    for file in ~/.local/share/magazine/*
+        if test -s $file
+            set registers $registers(basename $file)
+        end
+    end
+    notify-send -t 0 $registers
+end
+funcsave magazine_filled >/dev/null
 
 function update_magazine
     if test $argv[1] -ge 0 -a $argv[1] -le 9
