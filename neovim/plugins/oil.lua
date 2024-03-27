@@ -21,7 +21,7 @@ local opts = {
 		['go'] = 'actions.change_sort',
 		['ga'] = 'actions.open_external',
 		['gy'] = 'actions.copy_entry_path',
-		['gt'] = 'actions.toggle_trash'
+		['gt'] = 'actions.toggle_trash',
 	},
 	use_default_keymaps = false,
 	view_options = {
@@ -30,8 +30,8 @@ local opts = {
 		natural_order = true,
 	},
 	float = {
-		padding = 0
-	}
+		padding = 0,
+	},
 }
 
 return {
@@ -41,7 +41,7 @@ return {
 		{ 'gq', '<cmd>Oil<cr>' },
 	},
 	cmd = {
-		'Oil'
+		'Oil',
 	},
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function()
@@ -54,20 +54,30 @@ return {
 		vim.api.nvim_set_hl(0, 'OilTrash', { fg = Colors.orange })
 		vim.api.nvim_set_hl(0, 'OilRestore', { fg = Colors.purple })
 		vim.api.nvim_set_hl(0, 'OilPurge', { fg = Colors.red })
+		vim.api.nvim_set_hl(0, 'OilMove', { fg = Colors.mint })
 
 		vim.api.nvim_create_autocmd('FileType', {
 			pattern = 'oil',
-			callback = function ()
-				vim.keymap.set('n', '>', function ()
+			callback = function()
+				vim.keymap.set('n', '>', function()
 					local file_name = require('oil').get_cursor_entry().name
-					local is_external = file_name:match('%.mp4$') or file_name:match('%.webm$') or file_name:match('%.mkv$')
+					local function get_externality(file_name)
+						local external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg' }
+						for _, extension in ipairs(external_extensions) do
+							if file_name:match('%.' .. extension .. '$') then
+								return true
+							end
+						end
+						return false
+					end
+					local is_external = get_externality(file_name)
 					if is_external then
 						require('oil.actions').open_external.callback()
 					else
 						require('oil.actions').select.callback()
 					end
 				end, { buffer = true })
-			end
+			end,
 		})
 	end,
 }
