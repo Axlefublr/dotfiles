@@ -49,7 +49,7 @@ function rust_release
 	end
 
 	rust_ci
-	indeed .gitignore release-notes.txt
+	indeed -u .gitignore release-notes.txt
 	cargo +nightly fmt
 
 	git add . &&
@@ -124,7 +124,7 @@ function rust_init
 	sd '%project_name%' (basename $PWD) Cargo.toml
 	touch README.md
 	touch release-notes.txt
-	indeed .gitignore release-notes.txt
+	indeed -u .gitignore release-notes.txt
 	rust_ci
 	git add . &&
 	git commit -m "first commit"

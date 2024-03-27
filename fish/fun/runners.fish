@@ -165,18 +165,14 @@ function magazine_append
     end
     set -e result[-1]
     set result "$result"
-    set lines (cat ~/.local/share/magazine/$argv[1])
-    set lines $lines $result
-    prli $lines >~/.local/share/magazine/$argv[1]
+    indeed ~/.local/share/magazine/$argv[1] $result
     notify-send -t 1000 "append $argv[1]"
     update_magazine $argv[1]
 end
 funcsave magazine_append >/dev/null
 
 function magazine_appset
-    set lines (cat ~/.local/share/magazine/$argv[1])
-    set lines $lines "$(xclip -selection clipboard -o)"
-    prli $lines >~/.local/share/magazine/$argv[1]
+    indeed ~/.local/share/magazine/$argv[1] "$(xclip -selection clipboard -o)"
     notify-send -t 1000 "append clip $argv[1]"
     update_magazine $argv[1]
 end
