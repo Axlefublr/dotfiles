@@ -1,4 +1,4 @@
 #!/usr/bin/env fish
 
-alacritty -T task -e holup new music &
-wait
+indeed ~/.local/share/magazine/6 'new music'
+update_magazine 6

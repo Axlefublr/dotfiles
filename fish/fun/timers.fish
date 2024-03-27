@@ -78,7 +78,8 @@ function yeared_parse
             continue
         end
         set year (math (date +%y) - $year)
-        alacritty -T task -e holup "$year years ago: $description" &
+        indeed ~/.local/share/magazine/6 "$year years ago: $description"
+        update_magazine 6
     end
 end
 funcsave yeared_parse >/dev/null
@@ -91,7 +92,8 @@ function yearless_parse
         if not test $date = (date +%m.%d)
             continue
         end
-        alacritty -T task -e holup "$description" &
+        indeed ~/.local/share/magazine/6 "$description"
+        update_magazine 6
     end
 end
 funcsave yearless_parse >/dev/null
@@ -105,7 +107,8 @@ function daily_parse
         if not test $date = (date '+%y.%m.%d')
             continue
         end
-        alacritty -T task -e holup "today at $time — $description" &
+        indeed ~/.local/share/magazine/6 "today at $time — $description"
+        update_magazine 6
     end
 end
 funcsave daily_parse >/dev/null

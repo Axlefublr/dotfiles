@@ -1,3 +1,4 @@
 #!/usr/bin/env fish
 
-kitty -T task holup 'update endeavor os iso'
+indeed ~/.local/share/magazine/6 'update endeavor os iso'
+update_magazine 6

@@ -8,19 +8,18 @@ yeared_parse
 yearless_parse
 daily_parse
 
-printf 'take medication' > ~/.local/share/magazine/6
-update_magazine 6
+indeed ~/.local/share/magazine/6 'take medication'
 
 if test (math (clorange megafon show) % 30) -eq 0
-    alacritty -T task -e holup 'megafon (504) tomorrow' &
+    indeed ~/.local/share/magazine/6 'megafon (504) tomorrow'
 end
 
 if test (date '+%d') -eq 17
-    alacritty -T task -e holup 'dom.ru (760) tomorrow' &
+    indeed ~/.local/share/magazine/6 'dom.ru (760) tomorrow'
 end
 
-if test (date '+%d') -q 27
-    alacritty -T task -e holup 'tinkoff premium (200) tomorrow' &
+if test (date '+%d') -eq 27
+    indeed ~/.local/share/magazine/6 'tinkoff premium (200) tomorrow'
 end
 
-wait
+update_magazine 6

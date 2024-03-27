@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
 
-alacritty -T task -e holup ask &
-alacritty -T task -e holup add liked &
-wait
+indeed ~/.local/share/magazine/6 ask
+indeed ~/.local/share/magazine/6 'add liked'
+update_magazine 6
