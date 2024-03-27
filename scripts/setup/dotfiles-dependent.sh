@@ -104,6 +104,9 @@ ln -sf ~/prog/dotfiles/clipster.ini ~/.config/clipster/clipster.ini
 # Display
 ln -sf ~/prog/dotfiles/desktop/display.desktop ~/.local/share/applications/display.desktop
 xdg-mime default display.desktop image/svg+xml
+xdg-mime default display.desktop image/png
+xdg-mime default display.desktop image/jpeg
+xdg-mime default display.desktop image/gif
 
 # Postgresql
 sudo -iu postgres 'initdb -D /var/lib/postgres/data'

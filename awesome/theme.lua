@@ -42,7 +42,7 @@ theme.fg_urgent = theme.black
 theme.fg_minimize = theme.white
 
 theme.useless_gap = dpi(4)
-theme.border_width = dpi(2)
+theme.border_width = dpi(1)
 theme.border_normal = theme.background
 theme.border_focus = theme.yellow
 theme.border_marked = theme.pink
@@ -81,7 +81,7 @@ theme.menu_submenu_icon = themes_path .. 'default/submenu.png'
 theme.menu_height = dpi(15)
 theme.menu_width = dpi(100)
 
-theme.wallpaper = '/home/axlefublr/Pictures/tree/themes/cyberpunk-something.jpg'
+theme.wallpaper = '/home/axlefublr/Pictures/tree/themes/tavern-16:9.png'
 
 theme.layout_icon_path = '/home/axlefublr/Pictures/tree/logos/awesome-layouts/'
 

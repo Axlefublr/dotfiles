@@ -1,4 +1,5 @@
 gh auth login
+gh auth refresh -h github.com -s delete_repo
 
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
