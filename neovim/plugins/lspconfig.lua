@@ -44,18 +44,20 @@ return {
 	-- },
 	{
 		'neovim/nvim-lspconfig',
-		dependencies = { 'folke/neoconf.nvim', --[[ 'lvimuser/lsp-inlayhints.nvim' ]] },
+		dependencies = {
+			'folke/neoconf.nvim', --[[ 'lvimuser/lsp-inlayhints.nvim' ]]
+		},
 		config = function()
 			local servers = {
-				rust_analyzer,
-				lua_ls,
-				omnisharp,
-				cssls,
-				html,
-				jsonls,
-				marksman,
-				hydra_lsp,
-				taplo,
+				'rust_analyzer',
+				'lua_ls',
+				'omnisharp',
+				'cssls',
+				'html',
+				'jsonls',
+				'marksman',
+				'hydra_lsp',
+				'taplo',
 			}
 			for _, server in ipairs(servers) do
 				require('lspconfig')[server].setup({})
@@ -70,7 +72,7 @@ return {
 					-- 	args.buf
 					-- )
 
-					vim.keymap.set('n', ',lg', function()
+					vim.keymap.set('n', ',la', function()
 						vim.diagnostic.open_float()
 						vim.diagnostic.open_float()
 					end)
@@ -78,7 +80,7 @@ return {
 					vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = args.buf }
-					vim.keymap.set('n', ',la', vim.lsp.buf.declaration, opts)
+					vim.keymap.set('n', ',lg', vim.lsp.buf.declaration, opts)
 					vim.keymap.set('n', ',le', function()
 						vim.lsp.buf.hover()
 						vim.lsp.buf.hover()
