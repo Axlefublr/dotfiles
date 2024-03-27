@@ -195,6 +195,7 @@ local function edit_magazine()
 	local register = Get_char('register: ')
 	if register == nil then return end
 	vim.cmd('edit ' .. vim.fn.expand('~/.local/share/magazine/') .. register)
+	print('shoot ' .. register)
 end
 vim.keymap.set('n', '"', edit_magazine)
 vim.keymap.set('n', '""d', '<cmd>tcd ~/prog/dotfiles<cr>')

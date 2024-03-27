@@ -1,6 +1,3 @@
-local killring = setmetatable({}, { __index = table })
-local numbered = setmetatable({ '', '', '', '', '', '', '', '', '', '' }, { __index = table })
-
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
 function FeedKeysInt(keys)

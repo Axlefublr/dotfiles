@@ -1,3 +1,6 @@
+local killring = setmetatable({}, { __index = table })
+local numbered = setmetatable({ '', '', '', '', '', '', '', '', '', '' }, { __index = table })
+
 function killring_push_tail()
 	local register_contents = vim.fn.getreg('"')
 	if register_contents == '' then

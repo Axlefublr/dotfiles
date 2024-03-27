@@ -240,7 +240,7 @@ return {
 		},
 		config = function()
 			local telescope = require('telescope')
-			local actions = require('telescope.actions.layout')
+			local layout_actions = require('telescope.actions.layout')
 			telescope.setup({
 				defaults = {
 					prompt_prefix = '',
@@ -272,7 +272,7 @@ return {
 							['<f6>'] = 'select_horizontal',
 							['<a-u>'] = 'smart_add_to_qflist',
 							['<a-U>'] = 'smart_send_to_qflist',
-							['<a-i>'] = actions.toggle_preview,
+							['<a-i>'] = layout_actions.toggle_preview,
 							['H'] = 'preview_scrolling_up',
 							['L'] = 'preview_scrolling_down',
 							['<c-v>'] = false,
@@ -282,7 +282,7 @@ return {
 							['<f6>'] = 'select_horizontal',
 							['<a-u>'] = 'smart_add_to_qflist',
 							['<a-U>'] = 'smart_send_to_qflist',
-							['<a-i>'] = actions.toggle_preview,
+							['<a-i>'] = layout_actions.toggle_preview,
 							['<c-v>'] = false,
 							['<c-u>'] = false,
 						},
