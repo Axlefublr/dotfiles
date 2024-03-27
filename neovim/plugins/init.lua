@@ -1,5 +1,4 @@
 return {
-	-- 'kana/vim-textobj-user',
 	'tpope/vim-repeat',
 	'adelarsq/vim-matchit',
 	'farmergreg/vim-lastplace',

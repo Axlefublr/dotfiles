@@ -20,6 +20,9 @@ if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/pro
 require('options')
 require('global-functions')
 require('remaps')
+require('window')
+require('harp')
+require('killring')
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then

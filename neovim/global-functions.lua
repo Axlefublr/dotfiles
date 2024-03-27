@@ -121,15 +121,6 @@ function Search_for_selection(direction, death)
 	end)
 end
 
-function Search_for_register(direction, death)
-	local char = Get_char('register: ')
-	if not char then return end
-	local register = Validate_register(char)
-	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
-	FeedKeys(direction .. '\\V' .. escaped_register .. death)
-	FeedKeysInt('<cr>')
-end
-
 function Move_default_to_other()
 	local char = Get_char('register: ')
 	if not char then return end
@@ -147,101 +138,6 @@ function Search_for_current_word(direction, death)
 		FeedKeysInt('<cr>')
 		vim.fn.setreg('"', register)
 	end)
-end
-
-function Killring_push_tail()
-	local register_contents = vim.fn.getreg('"')
-	if register_contents == '' then
-		print('default register is empty')
-		return
-	end
-	killring:insert(1, register_contents)
-	print('pushed')
-end
-
-function Killring_push()
-	local register_contents = vim.fn.getreg('"')
-	if register_contents == '' then
-		print('default register is empty')
-		return
-	end
-	killring:insert(register_contents)
-	print('pushed')
-end
-
-function Killring_pop_tail(insert)
-	if #killring <= 0 then
-		print('killring empty')
-		return
-	end
-	local first_index = killring:remove(1)
-	vim.fn.setreg('"', first_index)
-	if insert then
-		if insert == 'command' then
-			FeedKeysInt('<c-r>"')
-		else
-			FeedKeysInt('<c-r><c-p>"')
-		end
-	end
-	print('got tail')
-end
-
-function Killring_pop(insert)
-	if #killring <= 0 then
-		print('killring empty')
-		return
-	end
-	local first_index = killring:remove(#killring)
-	vim.fn.setreg('"', first_index)
-	if insert then
-		if insert == 'command' then
-			FeedKeysInt('<c-r>"')
-		else
-			FeedKeysInt('<c-r><c-p>"')
-		end
-	end
-	print('got nose')
-end
-
-function Killring_compile()
-	local compiled_killring = killring:concat('')
-	vim.fn.setreg('"', compiled_killring)
-	killring = setmetatable({}, { __index = table })
-	print('killring compiled')
-end
-
-function Killring_compile_reversed()
-	local reversed_killring = ReverseTable(killring)
-	local compiled_killring = reversed_killring:concat('')
-	vim.fn.setreg('"', compiled_killring)
-	killring = setmetatable({}, { __index = table })
-	print('killring compiled in reverse')
-end
-
-function Numbered_get(index, insert)
-	if numbered[index] == '' then
-		print(index .. ' is empty')
-		return
-	end
-	vim.fn.setreg('"', numbered[index])
-	if insert then
-		if insert == 'command' then
-			FeedKeysInt('<c-r>"')
-		else
-			FeedKeysInt('<c-r><c-p>"')
-		end
-	end
-	print('grabbed')
-end
-
-function Numbered_set(index)
-	local register_contents = vim.fn.getreg('"')
-	if register_contents == '' then
-		print('default register empty')
-		return
-	end
-	numbered[index] = register_contents
-	print('stabbed')
 end
 
 function Get_vertical_line_diff(is_top)
