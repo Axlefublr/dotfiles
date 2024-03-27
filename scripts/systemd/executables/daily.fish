@@ -1,6 +1,5 @@
 #!/usr/bin/env fish
 
-clorange days increment
 clorange megafon increment
 
 trash-empty -f 7
@@ -8,6 +7,9 @@ trash-empty -f 7
 yeared_parse
 yearless_parse
 daily_parse
+
+printf 'take medication' > ~/.local/share/magazine/6
+update_magazine 6
 
 if test (math (clorange megafon show) % 30) -eq 0
     alacritty -T task -e holup 'megafon (504) tomorrow' &
