@@ -20,9 +20,8 @@ vim.keymap.set('i', '<a-/>', close_try_save)
 vim.keymap.set('n', ',K', close_without_saving)
 vim.keymap.set('n', 'K', close_try_save)
 
-local function curr_buff_full_path() return vim.api.nvim_buf_get_name(0) end
 vim.keymap.set({ 'n', 'x' }, ',dq', function()
-	local full_path = curr_buff_full_path()
+	local full_path = Curr_buff_full_path()
 	local home = os.getenv('HOME')
 	if not home then return end
 	local friendly_path = string.gsub(full_path, home, '~')
@@ -315,20 +314,3 @@ vim.keymap.set('n', '"', edit_magazine)
 vim.keymap.set('n', '""d', '<cmd>tcd ~/prog/dotfiles<cr>')
 vim.keymap.set('n', '""t', '<cmd>tcd ~/prog/noties<cr>')
 vim.keymap.set('n', '""b', '<cmd>tcd ~/prog/backup<cr>')
-
-local function harp_set()
-	local register = Get_char('register: ')
-	local full_path = curr_buff_full_path()
-	vim.fn.system('harp ' .. register .. ' "' .. full_path .. '"')
-end
-vim.keymap.set('n', ',m', harp_set)
-local function harp_get()
-	local register = Get_char('register: ')
-	local output = vim.fn.system('harp ' .. register)
-	if #output > 0 then
-		vim.cmd('edit ' .. output)
-	else
-		print('register ' .. register .. ' is empty')
-	end
-end
-vim.keymap.set('n', 'm', harp_get)

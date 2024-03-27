@@ -290,3 +290,5 @@ function Get_repo_root()
 	local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
 	return git_root
 end
+
+function Curr_buff_full_path() return vim.api.nvim_buf_get_name(0) end
