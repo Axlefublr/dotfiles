@@ -66,8 +66,6 @@ vim.keymap.set('', 'zn', 'q')
 vim.keymap.set('', 'zm', '@')
 vim.keymap.set('', ',v', '<c-v>')
 vim.keymap.set({ 'n', 'x' }, 'g/', '<c-^>')
-vim.keymap.set('n', 'm', '`')
-vim.keymap.set('n', ',m', 'm')
 vim.keymap.set('n', 'gK', 'K')
 vim.keymap.set('n', 'Y', 'yg_')
 vim.keymap.set('n', '~', 'g~l')
@@ -317,3 +315,20 @@ vim.keymap.set('n', '"', edit_magazine)
 vim.keymap.set('n', '""d', '<cmd>tcd ~/prog/dotfiles<cr>')
 vim.keymap.set('n', '""t', '<cmd>tcd ~/prog/noties<cr>')
 vim.keymap.set('n', '""b', '<cmd>tcd ~/prog/backup<cr>')
+
+local function harp_set()
+	local register = Get_char('register: ')
+	local full_path = curr_buff_full_path()
+	vim.fn.system('harp ' .. register .. ' "' .. full_path .. '"')
+end
+vim.keymap.set('n', ',m', harp_set)
+local function harp_get()
+	local register = Get_char('register: ')
+	local output = vim.fn.system('harp ' .. register)
+	if #output > 0 then
+		vim.cmd('edit ' .. output)
+	else
+		print('register ' .. register .. ' is empty')
+	end
+end
+vim.keymap.set('n', 'm', harp_get)

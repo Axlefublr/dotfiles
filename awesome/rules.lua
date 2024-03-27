@@ -70,7 +70,7 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'oil-content' },
+		rule = { class = 'Alacritty', name = 'oil-content' },
 		properties = { tag = screen.primary.tags[15] },
 	},
 
