@@ -109,7 +109,7 @@ xdg-mime default display.desktop image/jpeg
 xdg-mime default display.desktop image/gif
 
 # Postgresql
-sudo -iu postgres 'initdb -D /var/lib/postgres/data'
+sudo -iu postgres initdb -D /var/lib/postgres/data
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 sudo usermod -aG postgres $USER
@@ -127,7 +127,7 @@ psql -U postgres
 # ALTER USER postgres PASSWORD 'password';
 # \pset null 󰟢
 # \q
-cd ~/documents
+cd ~/Documents
 curl -O https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
 unzip dvdrental.zip
 rm -fr dvdrental.zip

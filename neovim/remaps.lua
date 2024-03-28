@@ -70,7 +70,6 @@ vim.keymap.set('', 'gM', 'M')
 vim.keymap.set('', 'zn', 'q')
 vim.keymap.set('', 'zm', '@')
 vim.keymap.set('', ',v', '<c-v>')
-vim.keymap.set({ 'n', 'x' }, 'g/', '<c-^>')
 vim.keymap.set('n', 'gK', 'K')
 vim.keymap.set('n', 'Y', 'yg_')
 vim.keymap.set('n', '~', 'g~l')
@@ -198,7 +197,7 @@ vim.keymap.set('o', '[{', function() vim.cmd('normal V{j') end)
 
 -- big
 local function edit_magazine()
-	local register = Get_char('register: ')
+	local register = Get_char('magazine: ')
 	if register == nil then return end
 	vim.cmd('edit ' .. vim.fn.expand('~/.local/share/magazine/') .. register)
 	print('shoot ' .. register)

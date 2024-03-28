@@ -51,7 +51,7 @@ return {
 					-- require('null-ls').builtins.diagnostics.commitlint,
 					-- require('null-ls').builtins.diagnostics.gitlint,
 					require('null-ls').builtins.formatting.fish_indent,
-					require('null-ls').builtins.hover.dictionary,
+					-- require('null-ls').builtins.hover.dictionary,
 				},
 			})
 		end,
