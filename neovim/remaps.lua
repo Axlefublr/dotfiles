@@ -1,5 +1,11 @@
 local function close_without_saving() vim.cmd('q!') end
-local function trim_trailing_whitespace() pcall(vim.cmd, '%s`\\v\\s+$') end
+local function trim_trailing_whitespace()
+	local search = vim.fn.getreg('/')
+	---@diagnostic disable-next-line: param-type-mismatch
+	pcall(vim.cmd, '%s`\\v\\s+$')
+	vim.fn.setreg('/', search)
+end
+---@diagnostic disable-next-line: param-type-mismatch
 local function write() pcall(vim.cmd, 'write') end
 function Write_if_modified()
 	if vim.bo.modified then write() end
