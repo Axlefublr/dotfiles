@@ -11,6 +11,15 @@ function Ignore_all_urgencies()
 	end
 end
 
+function Unminimize_all_on_tag(tag)
+	local tag = tag or awful.tag.selected(awful.screen.focused())
+	for _, client in ipairs(tag:clients()) do
+		if client.minimized then
+			client.minimized = false
+		end
+	end
+end
+
 local activate_tag = function(index)
 	local screen = awful.screen.focused()
 	local tag = screen.tags[index]
