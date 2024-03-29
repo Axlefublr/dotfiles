@@ -162,6 +162,7 @@ local function remaps(telescope)
 	vim.keymap.set('n', ',j<cr>', builtin.commands, {})
 	vim.keymap.set('n', ',jy', builtin.command_history, {})
 	vim.keymap.set('n', ',jm', builtin.man_pages, {})
+	vim.keymap.set('n', ',ji', builtin.marks, {})
 	vim.keymap.set('n', ',jo', builtin.jumplist, {})
 	vim.keymap.set('n', ",j'", builtin.registers, {})
 	vim.keymap.set('n', ',jH', builtin.highlights, {})
@@ -202,41 +203,8 @@ return {
 		branch = '0.1.x',
 		dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' },
 		keys = {
-			{ ',jf' },
-			{ ',jF' },
-			{ ',jd' },
-			{ ',jD' },
-			{ ',jh' },
-			{ ',jt' },
-			{ ',js' },
-			{ ',jc' },
-			{ ',jx' },
-			{ ',je' },
-			{ ',jr' },
-			{ ',j\\' },
-			{ ',ja' },
-			{ ',jA' },
-			{ ',j<cr>' },
-			{ ',jy' },
-			{ ',jm' },
-			{ ',jl' },
-			{ ',jo' },
-			{ ",j'" },
-			{ ',j;' },
-			{ ',jH' },
-			{ ',jq' },
-			{ ',jQ' },
-			{ ',jj' },
-			{ ',jk' },
-			{ ',jz' },
-			{ ',lr' },
-			{ ',li' },
-			{ ',lo' },
-			{ ',ld' },
-			{ ',lt' },
-			{ ',lm' },
-			{ ',ll' },
-			{ ',lL' },
+			{ ',j' },
+			{ ',l' },
 		},
 		config = function()
 			local telescope = require('telescope')

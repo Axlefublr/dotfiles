@@ -20,7 +20,7 @@ local function harp_set()
 		print('prah ' .. register)
 	end
 end
-vim.keymap.set('n', ',m', harp_set)
+vim.keymap.set('n', ',S', harp_set)
 
 local function harp_get(edit_command)
 	local dir = vim.fn.expand('~/.local/share/harp')
@@ -41,4 +41,4 @@ local function harp_get(edit_command)
 		print(register .. ' is empty')
 	end
 end
-vim.keymap.set('n', 'm', harp_get)
+vim.keymap.set('n', ',s', harp_get)
