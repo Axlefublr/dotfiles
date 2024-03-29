@@ -180,37 +180,6 @@
 	display: none;
 }
 
-/* create new server button */
-#app-mount
-	> div.appAsidePanelWrapper__714a6
-	> div.notAppAsidePanel__9d124
-	> div.app_b1f720
-	> div
-	> div.layers__1c917.layers_a23c37
-	> div
-	> div
-	> nav
-	> ul
-	> div.scroller__3d071.none__51a8f.scrollerBase_dc3aa9
-	> div.tutorialContainer_dc6fde {
-	display: none;
-}
-
-#app-mount
-	> div.appAsidePanelWrapper__714a6
-	> div.notAppAsidePanel__9d124
-	> div.app_b1f720
-	> div
-	> div.layers__1c917.layers_a23c37
-	> div
-	> div
-	> nav
-	> ul
-	> div.scroller__3d071.none__51a8f.scrollerBase_dc3aa9
-	div.pill__6b31b.wrapper__3670f {
-	display: none;
-}
-
 /* top toolbar */
 #app-mount
 	> div.appAsidePanelWrapper__714a6
@@ -893,4 +862,16 @@ rect[mask="url(#svg-mask-status-idle)"] {
 }
 .lookFilled__19298.colorPrimary__6ed40 {
 	background-color: var(--shell-yellow);
+}
+
+/* left side extra server related buttons */
+.circleIconButton__05cf2 {
+	color: var(--gruvbox-white);
+}
+
+/* add server button */
+.tutorialContainer__6835f,
+.listItem__48528:has(.guildSeparator__75928),
+.listItem__48528:has([aria-label="Download Apps"]) {
+	display: none;
 }
