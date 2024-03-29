@@ -82,6 +82,7 @@ local highlight_modifications = function()
 		['@lsp.mod.controlFlow.rust'] = 'red',
 		['@lsp.mod.reference.rust'] = { italic = true },
 		['@lsp.mod.mutable.rust'] = { bold = true },
+		['@lsp.type.number.rust'] = 'orange',
 
 		['@type.ini'] = 'red',
 

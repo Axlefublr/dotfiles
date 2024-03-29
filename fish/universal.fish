@@ -40,6 +40,7 @@ set -U color_gruvbox_cyan   7DAEA3
 set -U fish_lazy_load_completions 'true'
 set -U fish_lazy_load_functions 'true'
 set -U fish_escape_delay_ms 10
+set -U fish_handle_reflow 1
 
 set -U fish_color_normal $color_gruvbox_white
 set -U fish_color_command $color_gruvbox_green

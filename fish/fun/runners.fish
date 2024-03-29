@@ -3,7 +3,7 @@
 function runner
     set cmd (rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2> /dev/null | string collect)
     if set -q argv[1]
-        notify-send -t 0 (eval $cmd | string collect)
+        notify-send -t 0 (eval $cmd &| string collect)
     else
         eval $cmd
     end
