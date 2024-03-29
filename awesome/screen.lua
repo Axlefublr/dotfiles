@@ -521,10 +521,10 @@ end
 
 Registers_w = text_widget()
 Registers_bw = wibox.container.background(Registers_w)
-Registers_bw.fg = beautiful.green
+Registers_bw.fg = beautiful.yellow
 Registers_mw = wibox.container.margin(Registers_bw)
 Registers_mw.visible = false
-Registers_mw.right = between
+Registers_mw.left = between
 function Registers_wu()
 	local widget = ''
 
@@ -610,6 +610,7 @@ Wibar_w:setup({
 	{
 		layout = wibox.layout.fixed.horizontal,
 		-- screen.primary.layout_box_widget,
+		Registers_mw,
 		Clock_mw,
 		Taglist_mw,
 		Loago_mw,
@@ -640,7 +641,6 @@ Wibar_w:setup({
 		Clients_mw,
 		Water_mw,
 		Clorange_mw,
-		Registers_mw,
 		Anki_mw,
 		Compositor_mw,
 		Mouse_mw,
