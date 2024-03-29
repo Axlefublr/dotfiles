@@ -192,7 +192,9 @@ yt-live-chat-author-badge-renderer div {
 /* watched red line */
 .ytp-swatch-background-color,
 /* channel owner nickname badge */
-ytd-author-comment-badge-renderer {
+ytd-author-comment-badge-renderer,
+/* submit button for "Tell us why" */
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
 	background-color: var(--shell-pink);
 }
 
