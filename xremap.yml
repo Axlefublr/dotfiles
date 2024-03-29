@@ -20,9 +20,6 @@ keymap:
     remap:
       CapsLock-Semicolon: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
-      y: [ { launch: [awesome-client, awful.mouse.client.move(client.focus)] }, { launch: ['ydotool', 'click', '40'] } ]
-      n: [ { launch: [awesome-client, awful.mouse.client.resize(client.focus)] }, { launch: ['ydotool', 'click', '40'] } ]
-
       q: { launch: [xdotool, mousemove, '128', '120'] }
       w: { launch: [xdotool, mousemove, '544', '120'] }
       e: { launch: [xdotool, mousemove, '960', '120'] }
