@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 fish_vi_key_bindings
+
 fish_add_path "$HOME/prog/binaries"
 fish_add_path "$HOME/prog/dotfiles/fish"
 fish_add_path "$HOME/prog/dotfiles/fish/fun"
