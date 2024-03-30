@@ -42,6 +42,11 @@ keymap:
       Ctrl-j: { launch: [awesome-client, 'client.focus:relative_move(0, 13, 0, 0)'] }
       Ctrl-k: { launch: [awesome-client, 'client.focus:relative_move(0, -13, 0, 0)'] }
 
+      Super-h: { launch: [awesome-client, 'client.focus:relative_move(-1, 0, 0, 0)'] }
+      Super-l: { launch: [awesome-client, 'client.focus:relative_move(1, 0, 0, 0)'] }
+      Super-j: { launch: [awesome-client, 'client.focus:relative_move(0, 1, 0, 0)'] }
+      Super-k: { launch: [awesome-client, 'client.focus:relative_move(0, -1, 0, 0)'] }
+
       s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -52, 0)'] }
       g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 52, 0)'] }
       f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 52)'] }
@@ -61,6 +66,11 @@ keymap:
       Ctrl-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 13, 0)'] }
       Ctrl-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 13)'] }
       Ctrl-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -13)'] }
+
+      Super-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -1, 0)'] }
+      Super-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 1, 0)'] }
+      Super-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 1)'] }
+      Super-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -1)'] }
 
   - name: Mouse mode only
     mode: [mouse]
@@ -139,6 +149,11 @@ keymap:
       Ctrl-l: { launch: [xdotool, mousemove_relative, '--', '13', '0'] }
       Ctrl-j: { launch: [xdotool, mousemove_relative, '--', '0', '13'] }
       Ctrl-k: { launch: [xdotool, mousemove_relative, '--', '0', '-13'] }
+
+      Super-h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
+      Super-l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
+      Super-j: { launch: [xdotool, mousemove_relative, '--', '0', '1'] }
+      Super-k: { launch: [xdotool, mousemove_relative, '--', '0', '-1'] }
 
       # mouse wheel
       m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
