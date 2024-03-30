@@ -76,8 +76,24 @@ return {
 						vim.diagnostic.open_float()
 						vim.diagnostic.open_float()
 					end)
-					vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-					vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+					vim.keymap.set(
+						'n',
+						'[d',
+						function ()
+							for _ = 1, vim.v.count1 do
+								vim.diagnostic.goto_prev()
+							end
+						end
+					)
+					vim.keymap.set(
+						'n',
+						']d',
+						function ()
+							for _ = 1, vim.v.count1 do
+								vim.diagnostic.goto_next()
+							end
+						end
+					)
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = args.buf }
 					vim.keymap.set('n', ',lg', vim.lsp.buf.declaration, opts)
