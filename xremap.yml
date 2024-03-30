@@ -49,28 +49,28 @@ keymap:
 
       s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -52, 0)'] }
       g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 52, 0)'] }
-      f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 52)'] }
-      d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -52)'] }
+      d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 52)'] }
+      f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -52)'] }
 
       Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -104, 0)'] }
       Shift-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 104, 0)'] }
-      Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 104)'] }
-      Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -104)'] }
+      Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 104)'] }
+      Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -104)'] }
 
       Alt-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -26, 0)'] }
       Alt-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 26, 0)'] }
-      Alt-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 26)'] }
-      Alt-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -26)'] }
+      Alt-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 26)'] }
+      Alt-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -26)'] }
 
       Ctrl-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -13, 0)'] }
       Ctrl-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 13, 0)'] }
-      Ctrl-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 13)'] }
-      Ctrl-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -13)'] }
+      Ctrl-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 13)'] }
+      Ctrl-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -13)'] }
 
       Super-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -1, 0)'] }
       Super-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 1, 0)'] }
-      Super-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 1)'] }
-      Super-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -1)'] }
+      Super-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 1)'] }
+      Super-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -1)'] }
 
   - name: Mouse mode only
     mode: [mouse]
