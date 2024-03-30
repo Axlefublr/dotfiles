@@ -104,21 +104,19 @@ keymap:
       CapsLock-u: { launch: ['ydotool', 'click', '40'] }
       CapsLock-i: { launch: ['ydotool', 'click', '42'] }
       CapsLock-o: { launch: ['ydotool', 'click', '41'] }
-      CapsLock-7: { launch: ['ydotool', 'click', '80'] }
-      CapsLock-8: { launch: ['ydotool', 'click', '82'] }
-      CapsLock-9: { launch: ['ydotool', 'click', '81'] }
+      CapsLock-m: { launch: ['ydotool', 'click', '80'] }
+      CapsLock-Comma: { launch: ['ydotool', 'click', '82'] }
+      CapsLock-Dot: { launch: ['ydotool', 'click', '81'] }
 
-      # Holds down and up a modifier (the one aside from capslock):
-      # j — down event
-      # k — up event
-      CapsLock-Super-j: { launch: [ydotool, key, '125:1'] }
-      CapsLock-Super-k: { launch: [ydotool, key, '125:0'] }
-      CapsLock-Shift-j: { launch: [ydotool, key, '42:1'] }
-      CapsLock-Shift-k: { launch: [ydotool, key, '42:0'] }
-      CapsLock-Alt-j: { launch: [ydotool, key, '56:1'] }
-      CapsLock-Alt-k: { launch: [ydotool, key, '56:0'] }
-      CapsLock-Ctrl-j: { launch: [ydotool, key, '29:1'] }
-      CapsLock-Ctrl-k: { launch: [ydotool, key, '29:0'] }
+      # down and up events of modifiers
+      CapsLock-f: { launch: [ydotool, key, '125:1'] } # super down
+      CapsLock-r: { launch: [ydotool, key, '125:0'] } # super up
+      CapsLock-s: { launch: [ydotool, key, '42:1'] } # shift
+      CapsLock-w: { launch: [ydotool, key, '42:0'] }
+      CapsLock-d: { launch: [ydotool, key, '56:1'] } # alt
+      CapsLock-e: { launch: [ydotool, key, '56:0'] }
+      CapsLock-g: { launch: [ydotool, key, '29:1'] } # ctrl
+      CapsLock-t: { launch: [ydotool, key, '29:0'] }
 
       m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
       Comma: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '1'] } # up
@@ -255,6 +253,7 @@ keymap:
           Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
 
   - name: Layouts
+    mode: [default]
     exact_match: true
     remap:
       Super-k:
@@ -957,6 +956,7 @@ keymap:
       CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }]
 
   - name: Other
+    mode: [default]
     exact_match: true
     remap:
       Super-Space: { launch: [fish, -c, toggle_layout] }
@@ -1008,6 +1008,8 @@ keymap:
       CapsLock-Minus: { launch: [awesome-client, 'client.focus.minimized = true'] }
 
   - name: Direct
+    mode: [default]
+    exact_match: true
     remap:
       CapsLock-f: tab
       CapsLock-Backspace: delete
