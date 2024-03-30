@@ -146,6 +146,8 @@ keymap:
       Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
       Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
+      n: { launch: [awesome-client, 'awful.mouse.client.move(client.focus)'] }
+
   - name: Mouse mode
     mode: [mouse, resize, move]
     remap:
