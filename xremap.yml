@@ -14,12 +14,57 @@ modmap:
     application:
       only: /Terraria/
 
+
+
 keymap:
-  - name: Mouse mode
+  - name: Move mode
+    mode: [move]
+    remap:
+      y: { set_mode: mouse }
+
+      h: { launch: [awesome-client, 'client.focus:relative_move(-52, 0, 0, 0)'] }
+      l: { launch: [awesome-client, 'client.focus:relative_move(52, 0, 0, 0)'] }
+      j: { launch: [awesome-client, 'client.focus:relative_move(0, 52, 0, 0)'] }
+      k: { launch: [awesome-client, 'client.focus:relative_move(0, -52, 0, 0)'] }
+
+      Shift-h: { launch: [awesome-client, 'client.focus:relative_move(-104, 0, 0, 0)'] }
+      Shift-l: { launch: [awesome-client, 'client.focus:relative_move(104, 0, 0, 0)'] }
+      Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 104, 0, 0)'] }
+      Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, -104, 0, 0)'] }
+
+      Alt-h: { launch: [awesome-client, 'client.focus:relative_move(-26, 0, 0, 0)'] }
+      Alt-l: { launch: [awesome-client, 'client.focus:relative_move(26, 0, 0, 0)'] }
+      Alt-j: { launch: [awesome-client, 'client.focus:relative_move(0, 26, 0, 0)'] }
+      Alt-k: { launch: [awesome-client, 'client.focus:relative_move(0, -26, 0, 0)'] }
+
+      Ctrl-h: { launch: [awesome-client, 'client.focus:relative_move(-13, 0, 0, 0)'] }
+      Ctrl-l: { launch: [awesome-client, 'client.focus:relative_move(13, 0, 0, 0)'] }
+      Ctrl-j: { launch: [awesome-client, 'client.focus:relative_move(0, 13, 0, 0)'] }
+      Ctrl-k: { launch: [awesome-client, 'client.focus:relative_move(0, -13, 0, 0)'] }
+
+      s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -52, 0)'] }
+      g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 52, 0)'] }
+      f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 52)'] }
+      d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -52)'] }
+
+      Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -104, 0)'] }
+      Shift-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 104, 0)'] }
+      Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 104)'] }
+      Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -104)'] }
+
+      Alt-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -26, 0)'] }
+      Alt-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 26, 0)'] }
+      Alt-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 26)'] }
+      Alt-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -26)'] }
+
+      Ctrl-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -13, 0)'] }
+      Ctrl-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 13, 0)'] }
+      Ctrl-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 13)'] }
+      Ctrl-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -13)'] }
+
+  - name: Mouse mode only
     mode: [mouse]
     remap:
-      CapsLock-Semicolon: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
-
       q: { launch: [xdotool, mousemove, '128', '120'] }
       w: { launch: [xdotool, mousemove, '544', '120'] }
       e: { launch: [xdotool, mousemove, '960', '120'] }
@@ -37,8 +82,6 @@ keymap:
       c: { launch: [xdotool, mousemove, '960', '960'] }
       v: { launch: [xdotool, mousemove, '1376', '960'] }
       b: { launch: [xdotool, mousemove, '1792', '960'] }
-
-      p: { launch: [xdotool, mousemove, '0', '1080'] }
 
       Shift-q: { launch: [xdotool, mousemove, '336', '120'] }
       Shift-w: { launch: [xdotool, mousemove, '752', '120'] }
@@ -97,10 +140,26 @@ keymap:
       Ctrl-j: { launch: [xdotool, mousemove_relative, '--', '0', '13'] }
       Ctrl-k: { launch: [xdotool, mousemove_relative, '--', '0', '-13'] }
 
+      # mouse wheel
+      m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
+      Comma: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '1'] } # up
+      Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
+      Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
+
+  - name: Mouse mode
+    mode: [mouse, resize, move]
+    remap:
+      CapsLock-Semicolon: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+
+      y: { set_mode: move }
+
+      p: { launch: [xdotool, mousemove, '0', '1080'] }
+
       u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
       i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
       o: { launch: ['ydotool', 'click', 'c1'] } # c1 — right click
 
+      # down and up events of mouse clicks
       CapsLock-u: { launch: ['ydotool', 'click', '40'] }
       CapsLock-i: { launch: ['ydotool', 'click', '42'] }
       CapsLock-o: { launch: ['ydotool', 'click', '41'] }
@@ -117,11 +176,6 @@ keymap:
       CapsLock-e: { launch: [ydotool, key, '56:0'] }
       CapsLock-g: { launch: [ydotool, key, '29:1'] } # ctrl
       CapsLock-t: { launch: [ydotool, key, '29:0'] }
-
-      m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
-      Comma: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '1'] } # up
-      Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
-      Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
       Key_1: { launch: [fish, -c, 'minigun_apply 1'] }
       Key_2: { launch: [fish, -c, 'minigun_apply 2'] }
@@ -1009,7 +1063,6 @@ keymap:
 
   - name: Direct
     mode: [default]
-    exact_match: true
     remap:
       CapsLock-f: tab
       CapsLock-Backspace: delete
