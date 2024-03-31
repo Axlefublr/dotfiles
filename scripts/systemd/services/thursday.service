@@ -1,3 +1,0 @@
-[Service]
-ExecStartPre=/home/axlefublr/prog/dotfiles/scripts/processwait.fish
-ExecStart=/home/axlefublr/prog/dotfiles/scripts/systemd/executables/thursday.fish

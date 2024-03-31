@@ -1,6 +1,0 @@
-[Timer]
-OnCalendar=Sun *-*-* 05:00:00
-Persistent=true
-
-[Install]
-WantedBy=timers.target

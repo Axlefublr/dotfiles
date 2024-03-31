@@ -22,4 +22,12 @@ if test (date '+%d') -eq 27
     indeed ~/.local/share/magazine/6 'tinkoff premium (200) tomorrow'
 end
 
+if test (date '+%A') = Saturday
+    indeed ~/.local/share/magazine/6 'new music'
+end
+
+if test (date '+%A') = Sunday
+    indeed ~/.local/share/magazine/6 ask
+end
+
 update_magazine 6
