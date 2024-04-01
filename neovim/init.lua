@@ -66,9 +66,7 @@ vim.cmd('packadd! matchit')
 
 vim.api.nvim_create_user_command('O', function(info)
 	local range = ''
-	if info.range > 0 then
-		range = (info.line1 or '') .. ',' .. (info.line2 or '')
-	end
+	if info.range > 0 then range = (info.line1 or '') .. ',' .. (info.line2 or '') end
 	vim.cmd(range .. 'norm ' .. info.args)
 end, { nargs = '*', range = true })
 
@@ -86,9 +84,9 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 	command = 'setfiletype rasi',
 })
 
-vim.api.nvim_create_autocmd( { 'BufRead', 'BufNewFile' }, {
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 	pattern = { vim.fn.expand('~/.local/share/magazine/l') },
-	command = 'setfiletype markdown'
+	command = 'setfiletype markdown',
 })
 
 vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
@@ -105,6 +103,17 @@ vim.api.nvim_create_autocmd('FileType', {
 	callback = function()
 		vim.opt_local.expandtab = true
 		vim.opt_local.shiftwidth = 4
+	end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'man',
+	callback = function()
+		vim.opt_local.relativenumber = true
+		vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)', { buffer = true })
+		vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)', { buffer = true })
+		vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)', { buffer = true })
+		vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)', { buffer = true })
 	end,
 })
 
