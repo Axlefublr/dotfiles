@@ -88,6 +88,10 @@ local highlight_modifications = function()
 
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',
+
+		['sqlNumber'] = 'orange',
+		['sqlString'] = 'yellow',
+		['sqlKeyword'] = 'red',
 	}
 
 	for highlight, color in pairs(recolors) do

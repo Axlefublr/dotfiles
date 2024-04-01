@@ -1,3 +1,13 @@
+vim.keymap.set('n', ',a1', '1<c-w>w')
+vim.keymap.set('n', ',a2', '2<c-w>w')
+vim.keymap.set('n', ',a3', '3<c-w>w')
+vim.keymap.set('n', ',a4', '4<c-w>w')
+vim.keymap.set('n', ',a5', '5<c-w>w')
+vim.keymap.set('n', ',a6', '6<c-w>w')
+vim.keymap.set('n', ',a7', '7<c-w>w')
+vim.keymap.set('n', ',a8', '8<c-w>w')
+vim.keymap.set('n', ',a9', '9<c-w>w')
+
 vim.keymap.set('n', ',aj', '<c-w>j')
 vim.keymap.set('n', ',ak', '<c-w>k')
 vim.keymap.set('n', ',ah', '<c-w>h')

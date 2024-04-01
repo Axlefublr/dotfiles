@@ -5,10 +5,6 @@ return {
 		config = true,
 	},
 	{
-		'folke/neoconf.nvim',
-		config = true,
-	},
-	{
 		'williamboman/mason-lspconfig.nvim',
 		dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
 		opts = {
@@ -16,36 +12,10 @@ return {
 			automatic_installation = true,
 		},
 	},
-	-- {
-	-- 	'lvimuser/lsp-inlayhints.nvim',
-	-- 	opts = {
-	-- 		inlay_hints = {
-	-- 			parameter_hints = {
-	-- 				show = true,
-	-- 				prefix = '',
-	-- 				separator = ', ',
-	-- 				remove_colon_start = true,
-	-- 				remove_colon_end = true,
-	-- 			},
-	-- 			type_hints = {
-	-- 				show = true,
-	-- 				prefix = '',
-	-- 				separator = ', ',
-	-- 				remove_colon_start = true,
-	-- 				remove_colon_end = true,
-	-- 			},
-	-- 			-- separator between types and parameter hints. Note that type hints are
-	-- 			-- shown before parameter
-	-- 			labels_separator = ' ',
-	-- 			highlight = 'LspInlayHint',
-	-- 		},
-	-- 		enabled_at_startup = true,
-	-- 	},
-	-- },
 	{
 		'neovim/nvim-lspconfig',
 		dependencies = {
-			'folke/neoconf.nvim', --[[ 'lvimuser/lsp-inlayhints.nvim' ]]
+			{ 'folke/neoconf.nvim', config = true,}, --[[ 'lvimuser/lsp-inlayhints.nvim' ]]
 		},
 		config = function()
 			local servers = {
