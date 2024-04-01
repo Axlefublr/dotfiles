@@ -1096,6 +1096,8 @@ keymap:
       CapsLock-s: ctrl-c
       CapsLock-Alt-s: ctrl-x
       CapsLock-d: ctrl-v
-      CapsLock-Alt-d: ctrl-shift-v
+      CapsLock-Shift-d: ctrl-shift-v
+      CapsLock-Ctrl-d: ctrl-shift-v
       CapsLock-g: ctrl-a
+      CapsLock-Alt-d: ctrl-a
       CapsLock-q: enter
