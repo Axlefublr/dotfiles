@@ -50,6 +50,7 @@
 	--brand-experiment-10a: var(--shell-background-orange);
 	--brand-experiment-15a: var(--shell-background-yellow);
 	--brand-experiment-360: var(--gruvbox-white);
+	--brand-experiment-200: var(--gruvbox-white);
 	--brand-experiment-400: var(--gruvbox-background);
 	--brand-experiment-560: var(--shell-orange);
 	--brand-experiment-500: var(--shell-yellow);
@@ -64,9 +65,10 @@
 	--channel-text-area-placeholder: var(--gruvbox-grey);
 	--background-modifier-selected: var(--gruvbox-lighter-background);
 	--background-modifier-active: var(--shell-background-yellow);
-	--background-modifier-hover: var(--gruvbox-lighter-background);
+	--background-modifier-hover: var(--shell-background-orange);
 	--background-modifier-accent: var(--gruvbox-lighter-background);
 	--background-message-highlight: var(--shell-background-yellow);
+	--bg-overlay-selected: var(--shell-background-yellow);
 	--background-message-hover: var(--shell-background-orange);
 	--background-primary: var(--gruvbox-background);
 	--background-tertiary: var(--gruvbox-background);
@@ -128,7 +130,11 @@
 /* bot badge */
 .botTagRegular_fc4b4a,
 /* focused right click button */
-.item__183e8.labelContainer__4f869.focused_dcafb9 {
+.item__183e8.labelContainer__4f869.focused_dcafb9,
+/* mention hover */
+.interactive:hover,
+/* add friend button */
+.lookFilled__950dd.colorBrand__27d57 {
 	color: var(--smooth-black);
 }
 
@@ -155,6 +161,31 @@
 [aria-label="Notification Settings"],
 [aria-label="Show Member List"],
 [href="https://support.discord.com"],
-[aria-label="Add Friends to DM"] {
+[aria-label="Add Friends to DM"],
+.iconContainer_d0200f {
 	display: none;
+}
+
+/* common username */
+.username__0b0e7 {
+	color: var(--shell-yellow);
+}
+
+/* channel you're in */
+.containerDefault_ae2ea4.selected__11b62 path {
+	fill: var(--shell-yellow) !important;
+}
+
+/* hovered channel name */
+.containerDefault_ae2ea4 .wrapper__612a5:hover .link_ddbb36 .name__4eb92 {
+	color: var(--shell-orange);
+}
+
+.wrapper__53064:hover {
+	background-color: var(--shell-orange);
+}
+
+/* channel hover # icon */
+.wrapper__612a5:hover .link_ddbb36 path {
+	fill: var(--shell-orange) !important;
 }

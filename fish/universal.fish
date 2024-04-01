@@ -4,7 +4,6 @@ set -Ux LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -Ux EDITOR 'nvim'
 set -Ux VISUAL 'nvim'
 set -Ux PAGER '/usr/bin/less'
-set -Ux BROWSER '/usr/bin/vivaldi-stable'
 set -Ux HISTSIZE 10000
 set -Ux SAVEHIST 10000
 set -Ux FZF_DEFAULT_OPTS '--layout=default --height=100%'
@@ -41,6 +40,7 @@ set -U fish_lazy_load_completions 'true'
 set -U fish_lazy_load_functions 'true'
 set -U fish_escape_delay_ms 10
 set -U fish_handle_reflow 1
+set -U fish_user_paths "$HOME/prog/binaries" "$HOME/prog/dotfiles/fish" "$HOME/prog/dotfiles/fish/fun" "$HOME/prog/dotfiles/scripts" "$HOME/.local/bin" "$HOME/Apps" "$HOME/go/bin" "$HOME/.dotnet/tools" "$HOME/.local/bin"
 
 set -U fish_color_normal $color_gruvbox_white
 set -U fish_color_command $color_gruvbox_green

@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+set -gx BROWSER '/usr/bin/vivaldi'
+
 zoxide init fish | source
 for file in ~/prog/dotfiles/fish/abbreviations/*.fish
 	source $file

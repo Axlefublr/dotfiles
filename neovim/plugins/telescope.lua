@@ -131,7 +131,7 @@ local function remaps(telescope)
 			})
 		end
 	)
-	vim.keymap.set('n', ',jg', function()
+	vim.keymap.set('n', ',Jg', function()
 		builtin.live_grep({
 			search_dirs = {
 				'~/prog/dotfiles',
@@ -310,7 +310,7 @@ return {
 						},
 					},
 					buffers = {
-						ignore_current_buffer = true,
+						ignore_current_buffer = false,
 						sort_lastused = true,
 						sort_mru = true,
 					},

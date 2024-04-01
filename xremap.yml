@@ -14,8 +14,6 @@ modmap:
     application:
       only: /Terraria/
 
-
-
 keymap:
   - name: Move mode
     mode: [move]
@@ -162,6 +160,7 @@ keymap:
       Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
       n: { launch: [awesome-client, 'awful.mouse.client.move(client.focus)'] }
+      b: { launch: [awesome-client, 'awful.mouse.client.resize(client.focus)'] }
 
   - name: Mouse mode
     mode: [mouse, resize, move]
