@@ -1,4 +1,4 @@
-vim.opt.number               = true
+vim.opt.number               = false
 vim.opt.relativenumber       = true
 vim.opt.tabstop              = 3
 vim.opt.shiftwidth           = 3
@@ -33,4 +33,6 @@ vim.opt.listchars            = 'tab:↦ ,multispace:·'
 vim.opt.list                 = true
 vim.opt.shortmess            = 'finxtTIoOFS'
 vim.opt.showtabline          = 0
+vim.opt.fillchars            = 'eob: '
+vim.opt.foldcolumn           = '0'
 vim.opt.langmap              = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>'
