@@ -8,8 +8,6 @@ systemctl --user daemon-reload
 
 systemctl --user enable --now daily.timer
 
-systemctl --user enable --now monthly.timer
-
 systemctl --user enable --now ten-minutes.timer
 
 systemctl --user enable --now minute.timer

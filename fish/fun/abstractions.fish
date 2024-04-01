@@ -253,13 +253,13 @@ function filter_mature_tasks
                 if_print $days $name 45
             case towels lamp nose cazor
                 if_print $days $name 7
-            case cloths fscrub bscrub
+            case cloths fscrub bscrub liked
                 if_print $days $name 10
-            case nails wilter bottle
+            case nails wilter bottle keyboard
                 if_print $days $name 15
             case razor
                 if_print $days $name 20
-            case tails
+            case tails iso
                 if_print $days $name 30
             case '*'
                 echo "$name — $days"
