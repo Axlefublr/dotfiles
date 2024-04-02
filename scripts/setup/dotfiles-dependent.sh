@@ -124,19 +124,12 @@ sudo ufw allow 5432/tcp
 sudo touch /var/lib/postgres/.psql_history
 sudo chown postgres:postgres /var/lib/postgres/.psql_history
 psql -U postgres -c "ALTER USER postgres PASSWORD '$(read -sP 'enter your password: ')'"
-# ALTER USER postgres PASSWORD 'password';
-# \pset null 󰟢
-# \q
+psql -U postgres -c '\pset null 󰟢' -c '\pset linestyle unicode' -c '\set ECHO_HIDDEN on'
 cd ~/Documents
 curl -O https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
 unzip dvdrental.zip
 rm -fr dvdrental.zip
-psql -U postgres
-# create database dvdrental;
-# \q
+psql -U postgres -c 'CREATE DATABASE dvdrental;'
 pg_restore -U postgres --dbname=dvdrental --verbose dvdrental.tar
 rm -fr dvdrental.tar
-psql -U postgres
-# \c dvdrental
-# select count(*) from film;
-# select version();
+psql -U postgres -d dvdrental -c 'SELECT count(*) FROM film;' -c 'SELECT version();'
