@@ -44,6 +44,7 @@ local highlight_modifications = function()
 		['@punctuation.special.markdown'] = 'purple', -- >
 		['@markup.link.markdown_inline'] = 'grey',
 		['@markup.link.url.markdown_inline'] = 'mint',
+		['@markup.raw.block.markdown'] = 'yellow',
 
 		['@punctuation.special.bash'] = 'purple',
 		['@variable.bash'] = 'purple',
@@ -88,6 +89,10 @@ local highlight_modifications = function()
 
 		['confComment'] = 'grey',
 		['confString'] = 'yellow',
+
+		['CfgString'] = 'yellow',
+		['CfgComment'] = 'grey',
+		['CfgSection'] = 'mint',
 
 		['sqlNumber'] = 'orange',
 		['sqlString'] = 'yellow',

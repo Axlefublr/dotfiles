@@ -6,7 +6,6 @@ set -Ux VISUAL 'nvim'
 set -Ux PAGER '/usr/bin/less'
 set -Ux HISTSIZE 10000
 set -Ux SAVEHIST 10000
-set -Ux FZF_DEFAULT_OPTS '--layout=default --height=100%'
 set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
 set -Ux DOTNET_CLI_TELEMETRY_OPTOUT true
 set -Ux MANPAGER 'nvim +Man!'
