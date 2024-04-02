@@ -123,7 +123,7 @@ sudo systemctl restart postgresql
 sudo ufw allow 5432/tcp
 sudo touch /var/lib/postgres/.psql_history
 sudo chown postgres:postgres /var/lib/postgres/.psql_history
-psql -U postgres
+psql -U postgres -c "ALTER USER postgres PASSWORD '$(read -sP 'enter your password: ')'"
 # ALTER USER postgres PASSWORD 'password';
 # \pset null 󰟢
 # \q

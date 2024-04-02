@@ -116,7 +116,7 @@ function uboot
     clorange updates increment
     loago do update
     bell
-    rd -ln 1 response
+    read -p rdp -ln 1 response
     if test $response = r
         reboot
     else if test $response = l

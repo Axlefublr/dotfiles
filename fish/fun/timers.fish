@@ -3,7 +3,7 @@
 function timer
     while true
         termdown $argv || return 1
-        rd -ln 1 response
+        read -p rdp -ln 1 response
         if not test $response
             return 1
         end

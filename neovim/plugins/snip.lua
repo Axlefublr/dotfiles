@@ -102,6 +102,9 @@ local snippets = function()
 			i(0),
 			t("' >/dev/null"),
 		}),
+		s('read', {
+			t("read -p rdp ")
+		})
 	}
 	ls.add_snippets('fish', fish_snippets)
 

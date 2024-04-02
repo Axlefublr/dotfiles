@@ -38,7 +38,7 @@ function rust_release
     echo 'did you update the README?'
     echo 'did you update --help?'
     echo 'your ci pipeline is going to get updated if necessary'
-    rd -ln 1 should_continue
+    read -p rdp -ln 1 should_continue
     if not test $should_continue
         return 1
     end
