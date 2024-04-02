@@ -116,7 +116,7 @@ function uboot
     clorange updates increment
     loago do update
     bell
-    read -ln 1 response
+    rd -ln 1 response
     if test $response = r
         reboot
     else if test $response = l
@@ -264,7 +264,7 @@ function oil
     end
     nvim .
 end
-funcsave oil > /dev/null
+funcsave oil >/dev/null
 
 function oilf
     if set -q argv[1]
@@ -276,4 +276,4 @@ function oilf
     end
     alacritty -T oil -e nvim .
 end
-funcsave oilf > /dev/null
+funcsave oilf >/dev/null

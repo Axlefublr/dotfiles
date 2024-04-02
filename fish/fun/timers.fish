@@ -3,7 +3,7 @@
 function timer
     while true
         termdown $argv || return 1
-        read -ln 1 response
+        rd -ln 1 response
         if not test $response
             return 1
         end
@@ -34,39 +34,6 @@ function alarm
     bell
 end
 funcsave alarm >/dev/null
-
-function doti
-    while true
-        kitten @set-window-title action
-        if set -q argv[1]
-            termdown $argv[1] || break
-        else
-            termdown 25m || break
-        end
-        echo "You just acted! Rest now?"
-        read -ln 1 should_continue
-        if not test $should_continue
-            break
-        end
-        clear
-
-        kitten @set-window-title rest
-        if set -q argv[2]
-            termdown $argv[2] || break
-        else
-            termdown 5m || break
-        end
-        echo "You just rested! Act now?"
-        read -ln 1 should_continue
-        if not test $should_continue
-            break
-        end
-        clear
-    end
-    clear
-    kitten @set-window-title
-end
-funcsave doti >/dev/null
 
 function yeared_parse
     for line in (cat ~/prog/noties/anniversaries.txt | string split '\n')

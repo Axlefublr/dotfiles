@@ -27,6 +27,7 @@ alias --save neomax 'alacritty -T neomax -e nvim' >/dev/null
 alias --save neoline 'alacritty -T neoline -e nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'clear -x && eza --git --git-repos' >/dev/null
+alias --save rd 'read -p "set_color \'#ffd75f\' ; printf \'󱕅 \' ; set_color normal"' >/dev/null
 
 function rlc
     realpath $argv | xclip -r -selection clipboard
