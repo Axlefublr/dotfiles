@@ -273,7 +273,6 @@ function get_oldest_task
     set tasks (filter_mature_tasks)
     set available (count $tasks)
     if test $available -eq 0
-        printf 'done!'
         return 0
     end
     set index (clorange task-count show)
