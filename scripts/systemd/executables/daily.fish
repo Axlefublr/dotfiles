@@ -9,6 +9,7 @@ yearless_parse
 daily_parse
 
 indeed ~/.local/share/magazine/6 'take medication'
+indeed ~/.local/share/magazine/6 'balsam'
 
 if test (math (clorange megafon show) % 30) -eq 0
     indeed ~/.local/share/magazine/6 'megafon (504) tomorrow'

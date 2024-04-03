@@ -75,6 +75,11 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = 'Alacritty', name = 'timer' },
+		properties = { tag = screen.primary.tags[11] },
+	},
+
+	{
 		rule = { class = 'Alacritty', name = 'meow' },
 		properties = {
 			tag = screen.primary.tags[3],

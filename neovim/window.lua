@@ -1,3 +1,4 @@
+---@diagnostic disable: param-type-mismatch
 vim.keymap.set('n', ',a1', '1<c-w>w')
 vim.keymap.set('n', ',a2', '2<c-w>w')
 vim.keymap.set('n', ',a3', '3<c-w>w')
@@ -62,8 +63,49 @@ vim.keymap.set('n', ',ax', 'gT')
 vim.keymap.set('n', ',aP', '<cmd>tabclose<cr>')
 vim.keymap.set('n', ',ap', '<cmd>tabnew<cr>')
 
-vim.keymap.set('n', '[w', '<cmd>cprev<cr>')
-vim.keymap.set('n', ']w', '<cmd>cnext<cr>')
-vim.keymap.set('n', '[W', '<cmd>cpfile<cr>')
-vim.keymap.set('n', ']W', '<cmd>cnfile<cr>')
-vim.keymap.set('n', ',am', function() vim.cmd(vim.v.count1 .. 'cc') end)
+local function another_quickfix_entry(to_next, buffer)
+	local qflist = vim.fn.getqflist()
+	if #qflist == 0 then
+		print('quickfix list is empty')
+		return
+	end
+
+	if vim.v.count > 0 then
+		vim.cmd('cc ' .. vim.v.count)
+		return
+	end
+
+	local qflist_index = vim.fn.getqflist({ idx = 0 }).idx
+	local current_buffer = vim.api.nvim_get_current_buf()
+	local current_line = vim.api.nvim_win_get_cursor(0)[1]
+
+	if
+		qflist_index == 1
+		and (qflist[1].bufnr ~= current_buffer
+		or qflist[1].lnum ~= current_line)
+	then -- If you do have a quickfix list, the first index is automatically selected, meaning that the first time you try to `cnext`, you go to the second quickfix entry, even though you have never actually visited the first one. This is what I mean when I say vim has a bad foundation and is terrible to build upon. We need a modal editor with a better foundation, with no strange behavior like this!
+		vim.cmd('cfirst')
+		return
+	end
+
+	local status = true
+	if to_next then
+		if buffer then
+			status, _ = pcall(vim.cmd, 'cnfile')
+		else
+			status, _ = pcall(vim.cmd, 'cnext')
+		end
+		if not status then vim.cmd('cfirst') end
+	else
+		if buffer then
+			status, _ = pcall(vim.cmd, 'cpfile')
+		else
+			status, _ = pcall(vim.cmd, 'cprev')
+		end
+		if not status then vim.cmd('clast') end
+	end
+end
+vim.keymap.set('n', '[w', function() another_quickfix_entry(false, false) end)
+vim.keymap.set('n', ']w', function() another_quickfix_entry(true, false) end)
+vim.keymap.set('n', '[W', function() another_quickfix_entry(false, true) end)
+vim.keymap.set('n', ']W', function() another_quickfix_entry(true, true) end)

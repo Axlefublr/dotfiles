@@ -16,6 +16,7 @@ local highlight_modifications = function()
 		['@variable.member.lua'] = 'white',
 		['@string.regexp.lua'] = { fg = Colors.yellow, bold = true },
 		['@constant.builtin.lua'] = { fg = Colors.cyan, italic = true },
+		['@module.builtin.lua'] = 'white',
 
 		['@constant.fish'] = 'purple',
 		['@variable.fish'] = 'purple',

@@ -143,6 +143,11 @@
 	color: var(--gruvbox-white);
 }
 
+/* "Slowmode is enabled…" */
+.cooldownWrapper__193b2 {
+	color: var(--gruvbox-white) !important;
+}
+
 /* add server button */
 .tutorialContainer__6835f,
 /* between add server and discover servers */
@@ -176,11 +181,17 @@
 	fill: var(--shell-yellow) !important;
 }
 
+/* border around input to a slash command */
+.selectedPill_b305ee {
+	border-color: var(--shell-yellow) !important;
+}
+
 /* hovered channel name */
 .containerDefault_ae2ea4 .wrapper__612a5:hover .link_ddbb36 .name__4eb92 {
 	color: var(--shell-orange);
 }
 
+/* channel hover */
 .wrapper__53064:hover {
 	background-color: var(--shell-orange);
 }

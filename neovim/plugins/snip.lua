@@ -90,10 +90,10 @@ local snippets = function()
 			t({ '', 'end' }),
 		}),
 		s('/dev/null', {
-			t('/dev/null')
+			t('/dev/null'),
 		}),
 		s('/dev/shm', {
-			t('/dev/shm')
+			t('/dev/shm'),
 		}),
 		s('alias', {
 			t('alias --save '),
@@ -103,7 +103,13 @@ local snippets = function()
 			t("' >/dev/null"),
 		}),
 		s('read', {
-			t("read -p rdp ")
+			t('read -p rdp '),
+		}),
+		s('xcp', {
+			t('xclip -r -selection clipboard'),
+		}),
+		s('xpc', {
+			t('xclip -selection clipboard -o')
 		})
 	}
 	ls.add_snippets('fish', fish_snippets)
@@ -129,8 +135,8 @@ local snippets = function()
 		s('Result<(), Box<dyn Error>>', {
 			t('Result<'),
 			i(1, '()'),
-			t(', Box<dyn Error>>')
-		})
+			t(', Box<dyn Error>>'),
+		}),
 	}
 	ls.add_snippets('rust', rust_snippets)
 
@@ -140,11 +146,10 @@ local snippets = function()
 			i(1),
 			t(']('),
 			i(2),
-			t(')')
-		})
+			t(')'),
+		}),
 	}
 	ls.add_snippets('markdown', markdown_snippets)
-
 end
 
 return {
@@ -210,7 +215,7 @@ return {
 							cmp.complete()
 						end
 					end,
-					['<a-i>'] = function (_)
+					['<a-i>'] = function(_)
 						if cmp.visible_docs() then
 							cmp.close_docs()
 						else

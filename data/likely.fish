@@ -9,6 +9,6 @@ screen_off
 suspend
 logout
 filter_mature_tasks
-clorange snus increment
-clorange snus show
-clorange snus reset
+timers.fish
+runners.fish
+universal.fish
