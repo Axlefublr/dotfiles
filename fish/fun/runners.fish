@@ -129,6 +129,7 @@ function magazine_view
     else
         notify-send -t 0 -- $text
     end
+    update_magazine $argv[1]
 end
 funcsave magazine_view >/dev/null
 
