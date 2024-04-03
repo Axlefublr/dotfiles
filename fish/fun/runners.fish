@@ -1,12 +1,13 @@
 #!/usr/bin/env fish
 
 function runner
-    rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2> /dev/null | read -lat cmd
+    truncate -s 0 /dev/shm/runner_output
+    rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2> /dev/null > /dev/shm/runner_output
     if set -q argv[1]
-        set output "$($cmd 2>&1)"
+        set output "$(source /dev/shm/runner_output)"
         notify-send -t 0 "$output"
     else
-        $cmd
+        source /dev/shm/runner_output
     end
 end
 funcsave runner >/dev/null
