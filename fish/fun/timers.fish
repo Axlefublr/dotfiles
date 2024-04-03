@@ -1,26 +1,62 @@
 #!/usr/bin/env fish
 
+function down
+    if status is-interactive
+        _down $argv
+    else
+        alacritty -T timer -e fish -c "_down $(string escape $argv)"
+    end
+end
+funcsave down >/dev/null
+
+function _down
+    termdown $argv
+    if not status is-interactive
+        and test "$argv" # termdown with no arguments counts up, which can only exit if I specifically close it myself
+        notify-send -t 0 "timer for $argv is up!"
+    end
+end
+funcsave _down >/dev/null
+
 function timer
+    if status is-interactive
+        _timer "$argv"
+    else
+        alacritty -T timer -e fish -c "_timer $(string escape $argv)"
+    end
+end
+funcsave timer >/dev/null
+
+function _timer
     while true
-        termdown $argv || return 1
+        termdown $argv || break
         read -p rdp -ln 1 response
         if not test $response
-            return 1
+            break
         end
-        if test $response = e
-            exit
-        else if test $response = ' '
+        if test $response = ' '
             clear -x
             continue
+        else if test $response = e
+            exit
         else
             break
         end
     end
     clear -x
 end
-funcsave timer >/dev/null
+funcsave _timer >/dev/null
 
 function alarm
+    if status is-interactive
+        _alarm "$argv"
+    else
+        alacritty -T timer -e fish -c "_alarm $(string escape $argv)"
+    end
+end
+funcsave alarm >/dev/null
+
+function _alarm
     set -l input $argv[1]
     set -l first (string sub -l 1 $input)
     if test $first != 0 && test $first != 1 && test $first != 2
@@ -31,9 +67,13 @@ function alarm
         sleep 0.1
     end
     sleep 0.5
-    bell
+    if status is-interactive
+        bell
+    else
+        notify-send -t 0 "alarm set for $argv[1] is ringing!"
+    end
 end
-funcsave alarm >/dev/null
+funcsave _alarm >/dev/null
 
 function yeared_parse
     for line in (cat ~/prog/noties/anniversaries.txt | string split '\n')
@@ -66,7 +106,7 @@ end
 funcsave yearless_parse >/dev/null
 
 function daily_parse
-    for line in (cat ~/prog/noties/events.txt | string split '\n')
+    for line in (cat ~/prog/noties/once.txt | string split '\n')
         set -l match (string match -gr '(\\d+.\\d+.\\d+) (\\d+:\\d+) — (.*)' $line)
         set -l date $match[1]
         set -l time $match[2]

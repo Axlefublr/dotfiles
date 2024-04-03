@@ -41,8 +41,8 @@ focused_match = { foreground = '#0f0f0f', background = '#ffafd7' }
 start = { foreground = '#0f0f0f', background = '#ffafd7' }
 end = { foreground = '#0f0f0f', background = '#ffd75f' }
 
-[bell]
-command = { program = 'notify-send', args = ['-t', '1000', 'bell'] }
+# [bell]
+# command = { program = 'notify-send', args = ['-t', '1000', 'bell'] }
 
 [selection]
 save_to_clipboard = true
