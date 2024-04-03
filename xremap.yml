@@ -367,7 +367,8 @@ keymap:
             ],
         }
 
-      CapsLock-Comma:
+      Shift_L-c:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_get q'] }
           w: { launch: [fish, -c, 'magazine_get w'] }
@@ -432,7 +433,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_get 9'] }
           Key_0: { launch: [fish, -c, 'magazine_get 0'] }
 
-      CapsLock-Alt-Comma:
+      Shift_L-v:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_set q'] }
           w: { launch: [fish, -c, 'magazine_set w'] }
@@ -497,7 +499,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_set 9'] }
           Key_0: { launch: [fish, -c, 'magazine_set 0'] }
 
-      CapsLock-Slash:
+      Shift_L-e:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_view q'] }
           w: { launch: [fish, -c, 'magazine_view w'] }
@@ -562,7 +565,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_view 9'] }
           Key_0: { launch: [fish, -c, 'magazine_view 0'] }
 
-      CapsLock-Alt-Slash:
+      Shift_L-r:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_truncate q'] }
           w: { launch: [fish, -c, 'magazine_truncate w'] }
@@ -627,7 +631,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_truncate 9'] }
           Key_0: { launch: [fish, -c, 'magazine_truncate 0'] }
 
-      CapsLock-Shift-Comma:
+      Shift_L-x:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_cut q'] }
           w: { launch: [fish, -c, 'magazine_cut w'] }
@@ -692,7 +697,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_cut 9'] }
           Key_0: { launch: [fish, -c, 'magazine_cut 0'] }
 
-      CapsLock-Shift-m:
+      Shift_L-f:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_write q'] }
           w: { launch: [fish, -c, 'magazine_write w'] }
@@ -757,7 +763,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_write 9'] }
           Key_0: { launch: [fish, -c, 'magazine_write 0'] }
 
-      CapsLock-Alt-m:
+      Shift_L-d:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_edit q'] }
           w: { launch: [fish, -c, 'magazine_edit w'] }
@@ -822,7 +829,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
           Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
 
-      CapsLock-m:
+      Shift_L-s:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_append q'] }
           w: { launch: [fish, -c, 'magazine_append w'] }
@@ -887,7 +895,8 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_append 9'] }
           Key_0: { launch: [fish, -c, 'magazine_append 0'] }
 
-      CapsLock-Shift-Slash:
+      Shift_L-w:
+        exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_appset q'] }
           w: { launch: [fish, -c, 'magazine_appset w'] }
@@ -1052,7 +1061,7 @@ keymap:
       F13: { launch: [wmctrl, -c, ':ACTIVE:'] }
       Shift-F13: { launch: [xdotool, getwindowfocus, windowkill] }
       Super-v: { launch: [boomer] }
-      CapsLock-2:
+      Shift_L-g:
         {
           launch:
             [
