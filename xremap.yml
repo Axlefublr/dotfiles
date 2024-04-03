@@ -315,7 +315,6 @@ keymap:
           f: { launch: [alacritty] }
           b: { launch: [fish, -c, runner_bluetooth] }
           m: { launch: [fish, -c, runner_math] }
-          j: { launch: [fish, -c, runner_clipboard] }
           x: { launch: [awesome-client, 'Write_client_info()'] }
 
           i: { launch: [fish, -c, runner_symbol] }
@@ -693,7 +692,7 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_cut 9'] }
           Key_0: { launch: [fish, -c, 'magazine_cut 0'] }
 
-      CapsLock-Shift-Enter:
+      CapsLock-Shift-m:
         remap:
           q: { launch: [fish, -c, 'magazine_write q'] }
           w: { launch: [fish, -c, 'magazine_write w'] }
@@ -758,7 +757,7 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_write 9'] }
           Key_0: { launch: [fish, -c, 'magazine_write 0'] }
 
-      CapsLock-Alt-Enter:
+      CapsLock-Alt-m:
         remap:
           q: { launch: [fish, -c, 'magazine_edit q'] }
           w: { launch: [fish, -c, 'magazine_edit w'] }
@@ -823,7 +822,7 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
           Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
 
-      CapsLock-Enter:
+      CapsLock-m:
         remap:
           q: { launch: [fish, -c, 'magazine_append q'] }
           w: { launch: [fish, -c, 'magazine_append w'] }
@@ -1059,24 +1058,6 @@ keymap:
             [
               awesome-client,
               'if not naughty.is_suspended() then naughty.destroy_all_notifications() end',
-            ],
-        }
-      CapsLock-Dot:
-        {
-          launch:
-            [
-              fish,
-              -c,
-              'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
-            ],
-        }
-      CapsLock-Alt-Dot:
-        {
-          launch:
-            [
-              fish,
-              -c,
-              'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
       Super-j: { launch: [fish, -c, 'runner show'] }
