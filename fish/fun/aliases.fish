@@ -28,6 +28,12 @@ alias --save neoline 'alacritty -T neoline -e nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'clear -x && eza --git --git-repos' >/dev/null
 
+function task
+    indeed ~/.local/share/magazine/6 $argv
+    update_magazine 6
+end
+funcsave task >/dev/null
+
 function rdp
     set_color '#ffd75f'
     printf '󱕅 '
