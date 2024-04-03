@@ -127,14 +127,14 @@ function uboot
 end
 funcsave uboot >/dev/null
 
-function take
+function perc
     set -l total 0
-    for arg in $argv[2..]
+    for arg in $argv[..-2]
         set total (math $total + $arg)
     end
-    math "$argv[1] + ($total / 20) + $total"
+    math "$total + ($total / 100 * $argv[-1])"
 end
-funcsave take >/dev/null
+funcsave perc >/dev/null
 
 function bak
     set -l full_path $argv[1]
