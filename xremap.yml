@@ -315,7 +315,6 @@ keymap:
           f: { launch: [alacritty] }
           b: { launch: [fish, -c, runner_bluetooth] }
           m: { launch: [fish, -c, runner_math] }
-          x: { launch: [awesome-client, 'Write_client_info()'] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
@@ -1056,6 +1055,7 @@ keymap:
     mode: [default]
     exact_match: true
     remap:
+      Shift_L-t: { launch: [awesome-client, 'Write_client_info()'] }
       Super-Space: { launch: [fish, -c, toggle_layout] }
       Super-6: { launch: [fish, -c, toggle_compositor] }
       F13: { launch: [wmctrl, -c, ':ACTIVE:'] }
