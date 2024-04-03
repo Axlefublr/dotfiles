@@ -1,11 +1,12 @@
 #!/usr/bin/env fish
 
 function runner
-    set cmd (rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2> /dev/null | string collect)
+    rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2> /dev/null | read -lat cmd
     if set -q argv[1]
-        notify-send -t 0 (eval $cmd &| string collect)
+        set output "$($cmd 2>&1)"
+        notify-send -t 0 "$output"
     else
-        eval $cmd
+        $cmd
     end
 end
 funcsave runner >/dev/null
