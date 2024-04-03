@@ -314,11 +314,12 @@ keymap:
           d: { launch: [alacritty, -e, nvim] }
           f: { launch: [alacritty] }
           b: { launch: [fish, -c, runner_bluetooth] }
-
           m: { launch: [fish, -c, runner_math] }
+          j: { launch: [fish, -c, runner_clipboard] }
+          x: { launch: [awesome-client, 'Write_client_info()'] }
+
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
-          j: { launch: [fish, -c, runner_clipboard] }
           Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
           Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
 

@@ -59,15 +59,15 @@ editor = os.getenv('EDITOR') or 'nano'
 editor_cmd = terminal .. ' -e ' .. editor
 modkey = 'Mod4'
 
-function Trim_newlines(string)
-	string = string:gsub('[\r\n]*$', '')
-	return string:gsub('^[\r\n]*', '')
-end
-
 require('layouts')
 require('screen')
 require('keys')
 require('rules')
 require('signals')
+
+function Trim_newlines(string)
+	string = string:gsub('[\r\n]*$', '')
+	return string:gsub('^[\r\n]*', '')
+end
 
 awful.spawn.once('/home/axlefublr/prog/dotfiles/scripts/setup/login.fish', {})

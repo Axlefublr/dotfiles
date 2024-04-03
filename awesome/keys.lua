@@ -33,6 +33,25 @@ local toggle_window_on_tag = function(index)
 	end
 end
 
+function Write_client_info()
+	local client = client.focus
+	local text = ''
+	if client.class then
+		text = text .. client.class .. '\n'
+	end
+	if client.instance then
+		text = text .. client.instance .. '\n'
+	end
+	if client.name then
+		text = text .. client.name
+	end
+	local file = io.open('/home/axlefublr/.local/share/magazine/i', 'w')
+	if file then
+		file:write(text)
+		file:close()
+	end
+end
+
 -- Buttons
 root.buttons(gears.table.join(awful.button({}, 3, function() Menu_w:toggle() end)))
 
