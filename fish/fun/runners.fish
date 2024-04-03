@@ -110,6 +110,7 @@ end
 funcsave magazine_get >/dev/null
 
 function magazine_set
+    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
     xclip -selection clipboard -o >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "set $argv[1]"
     update_magazine $argv[1]
@@ -117,6 +118,7 @@ end
 funcsave magazine_set >/dev/null
 
 function magazine_edit
+    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
     neoline ~/.local/share/magazine/$argv[1]
     update_magazine $argv[1]
 end
@@ -134,6 +136,7 @@ end
 funcsave magazine_view >/dev/null
 
 function magazine_truncate
+    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
     truncate -s 0 ~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "truncate $argv[1]"
     update_magazine $argv[1]
@@ -152,7 +155,7 @@ function magazine_write
         return 1
     end
     set -e result[-1]
-    set result (string collect $result)
+    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
     printf "$result" >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "write $argv[1]"
     update_magazine $argv[1]
@@ -189,6 +192,15 @@ function magazine_filled
     notify-send -t 0 $registers
 end
 funcsave magazine_filled >/dev/null
+
+function magazine_restore
+    if not set -q argv[1]
+        echo please specify the register name >&2
+        return 1
+    end
+    cp -f /dev/shm/magazine_$argv[1] > ~/.local/share/magazine/$argv[1]
+end
+funcsave magazine_restore >/dev/null
 
 function update_magazine
     if test $argv[1] -ge 0 -a $argv[1] -le 9
