@@ -4,7 +4,7 @@ local function remaps(telescope)
 	vim.keymap.set('n', ',ja', builtin.find_files, {})
 	vim.keymap.set(
 		'n',
-		',jA',
+		',Ja',
 		function()
 			builtin.find_files({
 				search_dirs = {
@@ -16,7 +16,7 @@ local function remaps(telescope)
 	)
 	vim.keymap.set(
 		'n',
-		',Ja',
+		',jA',
 		function()
 			builtin.find_files({
 				search_dirs = {
@@ -45,7 +45,7 @@ local function remaps(telescope)
 	)
 	vim.keymap.set(
 		'n',
-		',jF',
+		',Jf',
 		function()
 			builtin.find_files({
 				search_dirs = {
@@ -59,7 +59,7 @@ local function remaps(telescope)
 	)
 	vim.keymap.set(
 		'n',
-		',Jf',
+		',jF',
 		function()
 			builtin.find_files({
 				hidden = false,
@@ -81,7 +81,7 @@ local function remaps(telescope)
 	vim.keymap.set('n', ',jd', builtin.live_grep, {})
 	vim.keymap.set(
 		'n',
-		',jD',
+		',Jd',
 		function()
 			builtin.live_grep({
 				search_dirs = {
@@ -90,7 +90,7 @@ local function remaps(telescope)
 			})
 		end
 	)
-	vim.keymap.set('n', ',Jd', function()
+	vim.keymap.set('n', ',jD', function()
 		builtin.live_grep({
 			search_dirs = {
 				'~/prog/dotfiles',
@@ -118,7 +118,7 @@ local function remaps(telescope)
 	)
 	vim.keymap.set(
 		'n',
-		',jG',
+		',Jg',
 		function()
 			builtin.live_grep({
 				search_dirs = {
@@ -131,7 +131,7 @@ local function remaps(telescope)
 			})
 		end
 	)
-	vim.keymap.set('n', ',Jg', function()
+	vim.keymap.set('n', ',jG', function()
 		builtin.live_grep({
 			search_dirs = {
 				'~/prog/dotfiles',
