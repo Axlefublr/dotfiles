@@ -1034,6 +1034,7 @@ keymap:
       only: [Alacritty]
     remap:
       Ctrl-Backspace: ctrl-w
+      CapsLock-Alt-Enter: ctrl-w
       Ctrl-Enter: f2
       Ctrl-Alt-u: f4
       Alt-j: ctrl-n
@@ -1091,6 +1092,8 @@ keymap:
     remap:
       CapsLock-f: tab
       CapsLock-Backspace: delete
+      CapsLock-Enter: backspace
+      CapsLock-Alt-Enter: ctrl-backspace
       CapsLock-r: delete
 
       CapsLock-h: left
