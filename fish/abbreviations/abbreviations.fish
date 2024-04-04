@@ -170,7 +170,6 @@ abbr -a slus 'systemctl --user status'
 abbr -a slup 'systemctl --user stop'
 
 abbr -a v 'nvim'
-abbr -a f 'neovide'
 
 abbr -a ~ 'z ~ && clear -x'
 abbr -a rl 'realpath'
@@ -221,3 +220,4 @@ abbr -a li 'ez -al'
 abbr -a lt 'ez -T --git-ignore'
 abbr -a lr 'ez -aT'
 abbr -a read 'read -p rdp'
+abbr -a tg 'clear -x && ni | tgpt'

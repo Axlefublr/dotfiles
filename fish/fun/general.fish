@@ -5,16 +5,6 @@ function prli
 end
 funcsave prli >/dev/null
 
-function tg
-    $EDITOR /dev/shm/tg
-    set -l tempText (cat /tmp/gi)
-    if test -z "$tempText"
-        return 1
-    end
-    tgpt "$tempText"
-end
-funcsave tg >/dev/null
-
 function new --description='Creates new files or directories and all required parent directories'
     for arg in $argv
         if string match -rq '/$' -- "$arg"
@@ -33,26 +23,10 @@ funcsave new >/dev/null
 
 function abbrad
     abbr -a $argv
-    echo "abbr -a $argv[1] '$argv[2..]'" >>~/prog/dotfiles/fish/abbreviations/abbreviations.fish
-    echo "alias --save $argv[1] '$argv[2..]' > /dev/null" >>~/prog/dotfiles/fish/fun/fallbacks.fish
+    indeed ~/prog/dotfiles/fish/abbreviations/abbreviations.fish "abbr -a $argv[1] '$argv[2..]'"
+    indeed ~/prog/dotfiles/fish/fun/fallbacks.fish "alias --save $argv[1] '$argv[2..]' > /dev/null"
 end
 funcsave abbrad >/dev/null
-
-function abbrap
-    abbr -a :"$argv[1]" --position anywhere -- $argv[2..]
-    echo "abbr -a ,$argv[1] --position anywhere -- '$argv[2..]'" >>~/prog/dotfiles/fish/abbreviations/positional.fish
-end
-funcsave abbrap >/dev/null
-
-function asmra
-    set -l prevdir (pwd)
-    cd ~/prog/info/socials
-    printf '\n'$argv[1]
-    git add asmr.txt
-    git commit -m 'asmr: '$argv[1]
-    cd $prevdir
-end
-funcsave asmra >/dev/null
 
 function ats
     set -l shark (alien_temple shark)
@@ -76,21 +50,21 @@ function smdn
 
     set -l service ~/prog/dotfiles/scripts/systemd/services/$name.service
     printf "[Service]
-ExecStartPre=/home/axlefublr/prog/dotfiles/scripts/processwait.fish
-ExecStart=$executable" >$service
+    ExecStartPre=/home/axlefublr/prog/dotfiles/scripts/processwait.fish
+    ExecStart=$executable" >$service
 
     set -l timer ~/prog/dotfiles/scripts/systemd/timers/$name.timer
     printf '[Timer]
-OnCalendar=*-*-8 05:00:00
-Persistent=true
+    OnCalendar=*-*-8 05:00:00
+    Persistent=true
 
-[Install]
-WantedBy=timers.target' >$timer
+    [Install]
+    WantedBy=timers.target' >$timer
     code $timer
 
     printf "
 
-systemctl --user enable --now $name.timer" >>~/prog/dotfiles/scripts/systemd/definition.fish
+    systemctl --user enable --now $name.timer" >>~/prog/dotfiles/scripts/systemd/definition.fish
 end
 funcsave smdn >/dev/null
 
@@ -99,7 +73,7 @@ function smdr
     rm -fr ~/prog/dotfiles/scripts/systemd/{services,timers,executables}/$name.*
     sd "
 
-systemctl --user enable --now $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
+    systemctl --user enable --now $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
 end
 funcsave smdr >/dev/null
 
@@ -274,3 +248,17 @@ function oil
     alacritty -T oil -e nvim .
 end
 funcsave oil >/dev/null
+
+function ni
+    set extension ''
+    if test "$argv[1]"
+        set extension ".$argv[1]"
+    end
+    if status is-interactive
+        nvim "/dev/shm/ninput$extension" -c 'norm die' >&2
+    else
+        neoline "/dev/shm/ninput$extension" -c 'norm die' >&2
+    end
+    cat "/dev/shm/ninput$extension" | string collect
+end
+funcsave ni >/dev/null

@@ -13,3 +13,5 @@ timers.fish
 runners.fish
 universal.fish
 general.fish
+indeed ~/prog/dotfiles/data/likely.fish
+fallbacks.fish

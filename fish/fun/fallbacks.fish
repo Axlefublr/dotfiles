@@ -19,3 +19,4 @@ alias --save blde 'bluetoothctl disconnect $ear' > /dev/null
 alias --save cl 'clorange' >/dev/null
 alias --save gz 'glaza' >/dev/null
 alias --save gx 'glaza --git' >/dev/null
+alias --save tg 'clear -x && ni | tgpt' > /dev/null

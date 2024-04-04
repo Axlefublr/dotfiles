@@ -7,7 +7,7 @@ set -gx VISUAL nvim
 
 zoxide init fish | source
 
-if status --is-interactive
+if status is-interactive
     for file in ~/prog/dotfiles/fish/abbreviations/*.fish
         source $file
     end
