@@ -111,11 +111,12 @@ function uboot
     if test (math (clorange updates show) % 3) -eq 0
         cargo install-update -a
     end
+    notify-send 'system update expects input'
     paru
     pacclean
     clorange updates increment
     loago do update
-    bell
+    notify-send 'finished updating, what to do now?'
     read -p rdp -ln 1 response
     if test $response = r
         reboot
@@ -262,7 +263,7 @@ function oil
     if set -q argv[1]
         z $argv[1]
     end
-    if not status is-interactive
+    if status is-interactive
         nvim .
         return
     end

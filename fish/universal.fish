@@ -1,8 +1,6 @@
 #!/usr/bin/env fish
 
 set -Ux LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
-set -Ux EDITOR 'nvim'
-set -Ux VISUAL 'nvim'
 set -Ux PAGER '/usr/bin/less'
 set -Ux HISTSIZE 10000
 set -Ux SAVEHIST 10000
@@ -13,6 +11,8 @@ set -Ux LESSKEYIN '/opt/lesskey'
 set -Ux XMODIFIERS @im=none
 set -Ux QT_QPA_PLATFORMTHEME gtk3
 set -Ux NEOVIDE_FORK false
+set -Ux PGDATABASE dvdrental
+set -Ux PGUSER postgres
 
 set -U color_pink        FFAFD7
 set -U color_purple      AF87FF
