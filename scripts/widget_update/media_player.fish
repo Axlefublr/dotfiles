@@ -2,8 +2,7 @@
 
 function update_media_player
     set player (get_media_player 2>/dev/null)
-    if test -z "$player"
-        echo '󰝚'
+    if not test "$player"
         return
     end
     if test $player = 'chromium'

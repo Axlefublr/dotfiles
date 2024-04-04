@@ -273,7 +273,7 @@ function Water_we() Water_mw.visible = true end
 
 function Water_wd() Water_mw.visible = false end
 
-Media_player_w = text_widget(nil, '󰝚 ')
+Media_player_w = text_widget()
 Media_player_mw = wibox.container.margin(Media_player_w)
 Media_player_mw.right = -2
 Media_player_mw.left = larger
