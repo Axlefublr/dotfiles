@@ -301,6 +301,10 @@ return {
 						show_untracked = true,
 					},
 					git_status = {
+						initial_mode = 'normal',
+						preview = {
+							hide_on_startup = false,
+						},
 						git_icons = {
 							added = '󰐕',
 							changed = '',
