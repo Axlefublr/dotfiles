@@ -74,6 +74,7 @@ vim.keymap.set('n', 'gK', 'K')
 vim.keymap.set('n', 'Y', 'yg_')
 vim.keymap.set('n', '~', 'g~l')
 
+vim.keymap.set('n', ',dm', '<cmd>messages<cr>')
 vim.keymap.set('x', 'u', '<Esc>u')
 vim.keymap.set('x', '&', ':s`\\V')
 vim.keymap.set('x', '@@', function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end) -- multiply selection

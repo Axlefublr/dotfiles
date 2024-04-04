@@ -28,6 +28,13 @@ alias --save neoline 'alacritty -T neoline -e nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'clear -x && eza --git --git-repos' >/dev/null
 
+function eat
+    loago do eat
+    notify-send -t 2000 'ate!'
+    awesome-client 'Hunger_wu()'
+end
+funcsave eat >/dev/null
+
 function task
     indeed ~/.local/share/magazine/6 $argv
     update_magazine 6

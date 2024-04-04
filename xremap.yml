@@ -296,15 +296,6 @@ keymap:
     remap:
       Super-Semicolon:
         remap:
-          e:
-            {
-              launch:
-                [
-                  sh,
-                  -c,
-                  "loago do eat ; notify-send -t 2000 'ate!' ; awesome-client 'Hunger_wu()'",
-                ],
-            }
           u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
 
           Super-j: { launch: [fish, -c, runner] }
