@@ -57,6 +57,10 @@ hide_when_typing = true
 [hints]
 alphabet = 'fjdkslaeiwoghruxcz/vmtyqp'
 
+[bell]
+command.program = 'paplay'
+command.args = ['/usr/share/sounds/freedesktop/stereo/bell.oga']
+
 [keyboard]
 bindings = [
 	{ key = 'Space', mods = 'Control|Shift', mode = '~Search', action = 'ReceiveChar' },
@@ -72,12 +76,12 @@ bindings = [
 	{ key = '[', mods = 'Control|Alt', mode = '~Alt', action = 'ScrollToTop' },
 	{ key = ']', mods = 'Control|Alt', mode = '~Alt', action = 'ScrollToBottom' },
 
-	{ key = 'j', mods = 'Alt' , mode = 'Search', action = 'SearchHistoryNext' },
-	{ key = 'k', mods = 'Alt' , mode = 'Search', action = 'SearchHistoryPrevious' },
-	{ key = 'l', mods = 'Alt' , mode = 'Search', action = 'SearchFocusNext' },
-	{ key = 'h', mods = 'Alt' , mode = 'Search', action = 'SearchFocusPrevious' },
+	{ key = 'j', mods = 'Alt', mode = 'Search', action = 'SearchHistoryNext' },
+	{ key = 'k', mods = 'Alt', mode = 'Search', action = 'SearchHistoryPrevious' },
+	{ key = 'l', mods = 'Alt', mode = 'Search', action = 'SearchFocusNext' },
+	{ key = 'h', mods = 'Alt', mode = 'Search', action = 'SearchFocusPrevious' },
 
 	{ key = 'Space', mods = 'Alt', mode = '~Search', action = 'ToggleViMode' },
-	{ key = ';', mods = 'Shift' , mode = 'Vi|~Search', action = 'InlineSearchPrevious' },
+	{ key = ';', mods = 'Shift', mode = 'Vi|~Search', action = 'InlineSearchPrevious' },
 	# { key = 'Space', mods = 'Alt' , action = 'ClearLogNotice' },
 ]
