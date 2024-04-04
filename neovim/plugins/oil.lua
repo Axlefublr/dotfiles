@@ -17,7 +17,7 @@ local opts = {
 		['<a-u>'] = 'actions.add_to_qflist',
 		['<a-U>'] = 'actions.send_to_qflist',
 		[',da'] = 'actions.open_cwd',
-		['gq'] = 'actions.cd',
+		-- ['gq'] = 'actions.cd',
 		['go'] = 'actions.change_sort',
 		['ga'] = 'actions.open_external',
 		['gy'] = 'actions.copy_entry_path',
@@ -76,6 +76,12 @@ return {
 					else
 						require('oil.actions').select.callback()
 					end
+				end, { buffer = true })
+
+				vim.keymap.set('n', 'gq', function ()
+					local oil_cwd = require('oil').get_current_dir()
+					require('oil.actions').cd.callback()
+					os.execute('zoxide add "' .. oil_cwd .. '"')
 				end, { buffer = true })
 			end,
 		})
