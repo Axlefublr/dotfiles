@@ -1,6 +1,12 @@
 Colors = {
+	smooth_black = '#0f0f0f',
+
 	shell_pink = '#ffafd7',
 	shell_yellow = '#ffd75f',
+	shell_cyan = '#00d7ff',
+	shell_green = '#87ff5f',
+	shell_grey = '#878787',
+	shell_red = '#ff2930',
 
 	black = '#0f0f0f',
 	grey = '#928374',
@@ -11,6 +17,9 @@ Colors = {
 	mint = '#89b482',
 	purple = '#d3869b',
 	red = '#ea6962',
+
+	darkerest = '#1f1e1e',
+	darkness = '#1a1919',
 }
 
 THROWAWAY_REGISTER = 'p'

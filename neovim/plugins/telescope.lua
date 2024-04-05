@@ -8,7 +8,7 @@ local function remaps(telescope)
 		function()
 			builtin.find_files({
 				search_dirs = {
-					'~'
+					'~',
 				},
 			})
 		end,
@@ -49,7 +49,7 @@ local function remaps(telescope)
 		function()
 			builtin.find_files({
 				search_dirs = {
-					'~'
+					'~',
 				},
 				hidden = false,
 				no_ignore = false,
@@ -85,7 +85,7 @@ local function remaps(telescope)
 		function()
 			builtin.live_grep({
 				search_dirs = {
-					'~'
+					'~',
 				},
 			})
 		end
@@ -122,7 +122,7 @@ local function remaps(telescope)
 		function()
 			builtin.live_grep({
 				search_dirs = {
-					'~'
+					'~',
 				},
 				additional_args = {
 					'--no-ignore',
@@ -243,6 +243,10 @@ return {
 							['<a-i>'] = layout_actions.toggle_preview,
 							['H'] = 'preview_scrolling_up',
 							['L'] = 'preview_scrolling_down',
+							['<c-n>'] = 'move_selection_next',
+							['<c-p>'] = 'move_selection_previous',
+							['<c-d>'] = 'move_to_bottom',
+							['<c-u>'] = 'move_to_top',
 							['<c-v>'] = false,
 						},
 						i = {
@@ -252,7 +256,8 @@ return {
 							['<a-U>'] = 'smart_send_to_qflist',
 							['<a-i>'] = layout_actions.toggle_preview,
 							['<c-v>'] = false,
-							['<c-u>'] = false,
+							['<c-d>'] = 'move_to_bottom',
+							['<c-u>'] = 'move_to_top',
 						},
 					},
 				},
@@ -306,10 +311,10 @@ return {
 							hide_on_startup = false,
 						},
 						git_icons = {
-							added = '󰐕',
-							changed = '',
-							deleted = '󰍴',
-							renamed = '󰕍',
+							added = '',
+							changed = '󰻖',
+							deleted = '',
+							renamed = '󰈷',
 							untracked = '󰛢',
 						},
 					},
@@ -367,6 +372,13 @@ return {
 
 			telescope.load_extension('fzf')
 			telescope.load_extension('zoxide')
+
+			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffUntracked', { fg = Colors.shell_grey })
+			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffDelete', { fg = Colors.shell_red })
+			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { fg = Colors.shell_cyan })
+			vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = Colors.darkerest })
+			vim.api.nvim_set_hl(0, 'TelescopeMatching', { fg = Colors.shell_yellow, bold = true })
+			vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', { fg = Colors.shell_yellow, bg = Colors.darkerest })
 
 			remaps(telescope)
 		end,
