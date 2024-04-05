@@ -177,8 +177,8 @@ local function remaps(telescope)
 	vim.keymap.set('n', ',ld', builtin.lsp_definitions, {})
 	vim.keymap.set('n', ',lt', builtin.lsp_type_definitions, {})
 	vim.keymap.set('n', ',lm', builtin.lsp_implementations, {})
-	vim.keymap.set('n', ',ll', builtin.lsp_document_symbols, {})
-	vim.keymap.set('n', ',lL', builtin.lsp_workspace_symbols, {})
+	vim.keymap.set('n', ',ls', builtin.lsp_document_symbols, {})
+	vim.keymap.set('n', ',lS', builtin.lsp_workspace_symbols, {})
 
 	vim.keymap.set('n', ',jz', telescope.extensions.zoxide.list, {})
 end

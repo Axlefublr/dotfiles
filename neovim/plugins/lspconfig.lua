@@ -71,10 +71,7 @@ return {
 						vim.lsp.buf.hover()
 						vim.lsp.buf.hover()
 					end, opts)
-					vim.keymap.set('n', ',ls', function()
-						vim.lsp.buf.signature_help()
-						vim.lsp.buf.signature_help()
-					end, opts)
+					vim.keymap.set({ 'n', 'i' }, '<a-u>', vim.lsp.buf.signature_help, opts)
 					vim.keymap.set('n', ',lw', vim.lsp.buf.rename, opts)
 					vim.keymap.set({ 'n', 'x' }, ',lc', vim.lsp.buf.code_action, opts)
 					vim.keymap.set(
