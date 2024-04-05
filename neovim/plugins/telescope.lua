@@ -8,7 +8,7 @@ local function remaps(telescope)
 		function()
 			builtin.find_files({
 				search_dirs = {
-					Get_repo_root(),
+					'~'
 				},
 			})
 		end,
@@ -49,7 +49,7 @@ local function remaps(telescope)
 		function()
 			builtin.find_files({
 				search_dirs = {
-					Get_repo_root(),
+					'~'
 				},
 				hidden = false,
 				no_ignore = false,
@@ -85,7 +85,7 @@ local function remaps(telescope)
 		function()
 			builtin.live_grep({
 				search_dirs = {
-					Get_repo_root(),
+					'~'
 				},
 			})
 		end
@@ -122,7 +122,7 @@ local function remaps(telescope)
 		function()
 			builtin.live_grep({
 				search_dirs = {
-					Get_repo_root(),
+					'~'
 				},
 				additional_args = {
 					'--no-ignore',
