@@ -16,3 +16,4 @@ general.fish
 indeed ~/prog/dotfiles/data/likely.fish
 fallbacks.fish
 aliases.fish
+abstractions.fish

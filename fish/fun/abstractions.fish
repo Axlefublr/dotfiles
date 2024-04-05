@@ -268,6 +268,11 @@ function filter_mature_tasks
 end
 funcsave filter_mature_tasks >/dev/null
 
+function mature_tasks_line
+    filter_mature_tasks | tac | awk '{print $1}' | string join ' '
+end
+funcsave mature_tasks_line >/dev/null
+
 function get_oldest_task
     clorange task-count increment
     set tasks (filter_mature_tasks)
