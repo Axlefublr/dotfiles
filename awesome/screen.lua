@@ -25,8 +25,8 @@ end
 
 Menu_w = awful.menu({
 	items = {
-		{ 'restart',  awesome.restart },
-		{ 'quit',     function() awesome.quit() end },
+		{ 'restart', awesome.restart },
+		{ 'quit', function() awesome.quit() end },
 		{ 'terminal', terminal },
 	},
 })
@@ -355,6 +355,7 @@ function Malumn_wd() Malumn_w:set_text('?/?') end
 Brain_w = text_widget(beautiful.jetbrains_font .. ' 14', ' ')
 Brain_mw = wibox.container.margin(Brain_w)
 Brain_mw.right = -6
+Brain_mw.left = larger
 Brain_mw.visible = false
 
 Ram_w = text_widget()
@@ -534,7 +535,7 @@ function Registers_wu()
 
 		if file then
 			local size = file:seek('end') -- Check file size
-			if size > 0 then        -- If the file is not empty, add the number to widget
+			if size > 0 then -- If the file is not empty, add the number to widget
 				widget = widget .. num
 			end
 			file:close()
@@ -592,7 +593,7 @@ Taglist_w = awful.widget.taglist({
 	buttons = taglist_buttons,
 })
 Taglist_mw = wibox.container.margin(Taglist_w)
-Taglist_mw.right = between - 6
+Taglist_mw.right = between
 
 local wibar_height = 35
 local wibar_bg = beautiful.background
@@ -613,9 +614,8 @@ Wibar_w:setup({
 		Registers_mw,
 		Clock_mw,
 		Taglist_mw,
-		Loago_mw,
 	},
-	nil,
+	Loago_mw,
 	-- Right widgets
 	{
 		layout = wibox.layout.fixed.horizontal,
