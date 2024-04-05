@@ -35,4 +35,5 @@ vim.opt.shortmess            = 'finxtTIoOFS'
 vim.opt.showtabline          = 0
 vim.opt.fillchars            = 'eob: '
 vim.opt.foldcolumn           = '0'
+vim.opt.autowriteall         = true
 vim.opt.langmap              = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>'
