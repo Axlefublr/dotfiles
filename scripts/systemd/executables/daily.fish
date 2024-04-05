@@ -10,6 +10,7 @@ daily_parse
 
 task 'take medication'
 task 'balsam'
+task 'thoughts'
 
 if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (504) tomorrow'

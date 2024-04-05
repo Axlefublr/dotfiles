@@ -114,15 +114,3 @@ function imgs
     xclip -selection clipboard -o >$argv[1].png
 end
 funcsave imgs >/dev/null
-
-function install_yt_video
-    if set -q argv[1]
-        set extra $argv[1]
-    else
-        set extra youtube/
-    end
-    truncate -s 0 /dev/shm/install_yt_video_title
-    alacritty -T link-download -e yt-dlp -o '/home/axlefublr/Videos/content/'$extra'%(channel)s — %(title)s.%(ext)s' --print-to-file '%(channel)s — %(title)s' /dev/shm/install_yt_video_title (xclip -selection clipboard -o)
-    notify-send -t 3000 "downloaded: $(cat /dev/shm/install_yt_video_title)"
-end
-funcsave install_yt_video >/dev/null

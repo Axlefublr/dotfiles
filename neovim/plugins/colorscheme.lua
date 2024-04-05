@@ -55,6 +55,8 @@ local highlight_modifications = function()
 		['@type.toml'] = 'red',
 		['@number.float.toml'] = 'orange',
 
+		['@constant.builtin.yaml'] = { fg = Colors.cyan, italic = true},
+
 		['@module.rasi'] = 'purple',
 		['@attribute.rasi'] = 'cyan',
 		['@punctuation.special.rasi'] = 'yellow',

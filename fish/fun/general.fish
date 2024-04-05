@@ -262,3 +262,16 @@ function ni
     cat "/dev/shm/ninput$extension" | string collect
 end
 funcsave ni >/dev/null
+
+function install_yt_video
+    if set -q argv[1]
+        set extra $argv[1]
+    else
+        set extra youtube/
+    end
+    set file (mktemp /dev/shm/install_yt_video.XXXXXX)
+    alacritty -T link-download -e yt-dlp -o '/home/axlefublr/Videos/content/'$extra'%(channel)s — %(title)s.%(ext)s' --print-to-file '%(channel)s — %(title)s' $file (xclip -selection clipboard -o)
+    notify-send -t 3000 "downloaded: $(cat $file)"
+    rm -fr $file
+end
+funcsave install_yt_video >/dev/null

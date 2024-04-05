@@ -55,6 +55,7 @@ return {
 		vim.api.nvim_set_hl(0, 'OilRestore', { fg = Colors.purple })
 		vim.api.nvim_set_hl(0, 'OilPurge', { fg = Colors.red })
 		vim.api.nvim_set_hl(0, 'OilMove', { fg = Colors.mint })
+		vim.api.nvim_set_hl(0, 'OilMove', { fg = Colors.yellow })
 
 		vim.api.nvim_create_autocmd('FileType', {
 			pattern = 'oil',
