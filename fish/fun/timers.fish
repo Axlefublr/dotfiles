@@ -105,6 +105,12 @@ function yearless_parse
 end
 funcsave yearless_parse >/dev/null
 
+function tomorrow_parse
+    task (cat ~/.local/share/magazine/T)
+    truncate -s 0 ~/.local/share/magazine/T
+end
+funcsave tomorrow_parse >/dev/null
+
 function daily_parse
     for line in (cat ~/prog/noties/once.txt | string split '\n')
         set -l match (string match -gr '(\\d+.\\d+.\\d+) (\\d+:\\d+) — (.*)' $line)

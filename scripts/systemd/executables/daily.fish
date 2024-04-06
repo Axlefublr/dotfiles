@@ -7,10 +7,11 @@ trash-empty -f 7
 yeared_parse
 yearless_parse
 daily_parse
+tomorrow_parse
 
-task 'take medication'
-task 'balsam'
-task 'thoughts'
+task 'take medication' -u
+task 'balsam' -u
+task 'thoughts' -u
 
 if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (504) tomorrow'

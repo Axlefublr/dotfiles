@@ -4,7 +4,7 @@ function runner
     truncate -s 0 /dev/shm/runner_output
     rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2> /dev/null > /dev/shm/runner_output
     if set -q argv[1]
-        set output "$(source /dev/shm/runner_output)"
+        set output "$(source /dev/shm/runner_output 2>&1)"
         notify-send -t 0 "$output"
     else
         source /dev/shm/runner_output
