@@ -331,7 +331,6 @@ keymap:
           m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
           Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
-          q: { launch: [fish, -c, magazine_filled] }
           Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
 
   - name: Magazine
@@ -356,6 +355,8 @@ keymap:
               'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
+
+      Shift_L-q: { launch: [fish, -c, magazine_filled] }
 
       Shift_L-c:
         exact_match: true
