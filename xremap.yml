@@ -1095,6 +1095,22 @@ keymap:
       CapsLock-g: ctrl-a
       CapsLock-Alt-d: ctrl-a
       CapsLock-q: enter
+
+      CapsLock-Super-Ctrl-Shift-Alt-Slash: super-shift-alt-ctrl-backslash
+      CapsLock-Super-Ctrl-Shift-Slash: super-ctrl-alt-backslash
+      CapsLock-Super-Ctrl-Alt-Slash: super-shift-ctrl-backslash
+      CapsLock-Super-Shift-Alt-Slash: super-shift-alt-backslash
+      CapsLock-Ctrl-Shift-Alt-Slash: shift-alt-ctrl-backslash
+      CapsLock-Super-Ctrl-Slash: super-ctrl-backslash
+      CapsLock-Super-Shift-Slash: super-alt-backslash
+      CapsLock-Super-Alt-Slash: super-shift-backslash
+      CapsLock-Ctrl-Shift-Slash: alt-ctrl-backslash
+      CapsLock-Ctrl-Alt-Slash: shift-ctrl-backslash
+      CapsLock-Shift-Alt-Slash: alt-shift-backslash
+      CapsLock-Super-Slash: super-backslash
+      CapsLock-Ctrl-Slash: ctrl-backslash
+      CapsLock-Shift-Slash: alt-backslash
+      CapsLock-Alt-Slash: shift-backslash
       CapsLock-Slash: backslash
 
       # for a tldr on the following couple of blocks,
