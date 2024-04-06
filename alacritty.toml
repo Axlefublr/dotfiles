@@ -66,6 +66,7 @@ bindings = [
 	{ key = 'Space', mods = 'Control|Shift', mode = '~Search', action = 'ReceiveChar' },
 	{ key = 'Space', mods = 'Control|Shift', mode = 'Vi|~Search', action = 'ReceiveChar' },
 	{ key = ',', mode = 'Vi|~Search', action = 'ReceiveChar' },
+	{ key = '0', mods = 'Control', action = 'ReceiveChar' },
 
 	{ key = 'k', mods = 'Control|Shift', mode = '~Alt', action = 'ScrollPageUp' },
 	{ key = 'j', mods = 'Control|Shift', mode = '~Alt', action = 'ScrollPageDown' },
@@ -81,6 +82,7 @@ bindings = [
 	{ key = 'l', mods = 'Alt', mode = 'Search', action = 'SearchFocusNext' },
 	{ key = 'h', mods = 'Alt', mode = 'Search', action = 'SearchFocusPrevious' },
 
+	{ key = '=', mods = 'Control|Alt', action = 'ResetFontSize' },
 	{ key = 'Space', mods = 'Alt', mode = '~Search', action = 'ToggleViMode' },
 	{ key = ';', mods = 'Shift', mode = 'Vi|~Search', action = 'InlineSearchPrevious' },
 	# { key = 'Space', mods = 'Alt' , action = 'ClearLogNotice' },
