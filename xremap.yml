@@ -1094,6 +1094,12 @@ keymap:
       CapsLock-g: ctrl-a
       CapsLock-Alt-d: ctrl-a
       CapsLock-q: enter
+      CapsLock-Slash: backslash
+
+      # for a tldr on the following couple of blocks,
+      # what I'm doing here is a vim-like remap
+      # however, I replace ctrl with alt, and alt with ctrl
+      # unfortunately, I have to do this bullshit in xremap to make it possible
 
       CapsLock-Super-Ctrl-Shift-Alt-p: super-shift-alt-ctrl-pagedown
       CapsLock-Super-Ctrl-Shift-p: super-shift-alt-pagedown
