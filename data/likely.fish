@@ -1,7 +1,6 @@
 xrestartwaaa
 awart
 grostart
-picomstart
 reboot
 poweroff
 ukboot

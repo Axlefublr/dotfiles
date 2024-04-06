@@ -333,6 +333,11 @@ keymap:
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
           Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
 
+          d: { launch: [fish, -c, 'c phind'] }
+          Shift-d: { launch: [fish, -c, 'c phind neoline'] }
+          f: { launch: [fish, -c, 'c google'] }
+          Shift-f: { launch: [fish, -c, 'c google neoline'] }
+
   - name: Magazine
     mode: default
     exact_match: true

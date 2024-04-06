@@ -275,3 +275,31 @@ function install_yt_video
     rm -fr $file
 end
 funcsave install_yt_video >/dev/null
+
+function c
+    if test "$argv[2]"
+        set input "$(ni)" # can't pipe to string escape here because it tries doing it line by line
+        set input "$(string escape --style=url $input)"
+    else # previous piping issue no longer relevant because we can only enter a single line
+        if status is-interactive
+            set input (read -p rdp | string escape --style=url)
+        else
+            set input (rofi -dmenu 2> /dev/null | string escape --style=url ; echo $status)
+            if test $input[-1] -ne 0
+                return 1
+            end
+            set -e input[-1]
+        end
+    end
+    if not test "$input"
+        return 1
+    end
+    wmctrl -s 1 # 0-indexed; this just makes sure the link gets opened in the correct browser instance, out of the four I have constantly active
+    switch $argv[1] # I ignore output so that I don't see "Opening in existing browser session." in my runner ouput every time I search for something
+        case p phind
+            $BROWSER "https://www.phind.com/search?q=$input" >/dev/null
+        case '*'
+            $BROWSER "https://www.google.com/search?q=$input&sourceid=chrome&ie=UTF-8" >/dev/null
+    end
+end
+funcsave c >/dev/null
