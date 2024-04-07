@@ -61,7 +61,7 @@
 			"Lua.diagnostics.disable": [
 				"lowercase-global",
 				"undefined-global",
-				"redefined-local"
+				"redefined-local",
 			],
 			"Lua.workspace.checkThirdParty": false,
 			"Lua.workspace.library": [

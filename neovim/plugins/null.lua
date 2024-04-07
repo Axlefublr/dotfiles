@@ -22,7 +22,7 @@ return {
 							'AutoPreferSingle',
 						},
 					}),
-					require('null-ls').builtins.formatting.prettier.with({
+					require('null-ls').builtins.formatting.prettierd.with({
 						extra_args = {
 							-- '--no-bracket-spacing',
 							'--print-width',
@@ -47,11 +47,17 @@ return {
 							'handlebars',
 						},
 					}),
-					require('null-ls').builtins.diagnostics.fish,
-					-- require('null-ls').builtins.diagnostics.commitlint,
-					-- require('null-ls').builtins.diagnostics.gitlint,
+					require('null-ls').builtins.diagnostics.sqlfluff.with({
+						extra_args = { '--dialect', 'postgres' },
+					}),
 					require('null-ls').builtins.formatting.fish_indent,
-					-- require('null-ls').builtins.hover.dictionary,
+					require('null-ls').builtins.diagnostics.fish,
+					require('null-ls').builtins.diagnostics.actionlint,
+					require('null-ls').builtins.diagnostics.selene,
+					require('null-ls').builtins.diagnostics.tidy,
+					require('null-ls').builtins.diagnostics.todo_comments,
+					require('null-ls').builtins.diagnostics.trail_space,
+					require('null-ls').builtins.formatting.csharpier
 				},
 			})
 		end,
@@ -63,13 +69,6 @@ return {
 		opts = {
 			automatic_installation = true,
 			handlers = {},
-			methods = {
-				diagnostics = true,
-				formatting = true,
-				code_actions = true,
-				completion = true,
-				hover = true,
-			},
 		},
 	},
 }

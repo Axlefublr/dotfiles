@@ -15,18 +15,18 @@ return {
 	{
 		'neovim/nvim-lspconfig',
 		dependencies = {
-			{ 'folke/neoconf.nvim', config = true,}, --[[ 'lvimuser/lsp-inlayhints.nvim' ]]
+			{ 'folke/neoconf.nvim', config = true }, --[[ 'lvimuser/lsp-inlayhints.nvim' ]]
 		},
 		config = function()
 			local servers = {
 				'rust_analyzer',
 				'lua_ls',
-				'omnisharp',
+				'csharp_ls',
 				'cssls',
 				'html',
 				'jsonls',
 				'marksman',
-				'hydra_lsp',
+				'yamlls',
 				'taplo',
 			}
 			for _, server in ipairs(servers) do
@@ -46,24 +46,16 @@ return {
 						vim.diagnostic.open_float()
 						vim.diagnostic.open_float()
 					end)
-					vim.keymap.set(
-						'n',
-						'[d',
-						function ()
-							for _ = 1, vim.v.count1 do
-								vim.diagnostic.goto_prev()
-							end
+					vim.keymap.set('n', '[d', function()
+						for _ = 1, vim.v.count1 do
+							vim.diagnostic.goto_prev()
 						end
-					)
-					vim.keymap.set(
-						'n',
-						']d',
-						function ()
-							for _ = 1, vim.v.count1 do
-								vim.diagnostic.goto_next()
-							end
+					end)
+					vim.keymap.set('n', ']d', function()
+						for _ = 1, vim.v.count1 do
+							vim.diagnostic.goto_next()
 						end
-					)
+					end)
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = args.buf }
 					vim.keymap.set('n', ',lg', vim.lsp.buf.declaration, opts)

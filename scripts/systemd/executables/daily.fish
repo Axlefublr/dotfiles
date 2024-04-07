@@ -9,9 +9,10 @@ yearless_parse
 daily_parse
 tomorrow_parse
 
-task 'take medication' -u
-task 'balsam' -u
-task 'thoughts' -u
+task 'take medication' --unique
+task 'balsam' --unique
+task 'thoughts' --unique
+task 'зарядка' --unique
 
 if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (504) tomorrow'
