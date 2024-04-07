@@ -2,7 +2,7 @@
 
 function runner
     truncate -s 0 /dev/shm/runner_output
-    rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2> /dev/null > /dev/shm/runner_output
+    rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2>/dev/null >/dev/shm/runner_output
     if set -q argv[1]
         set output "$(source /dev/shm/runner_output 2>&1)"
         notify-send -t 0 "$output"
@@ -115,7 +115,7 @@ end
 funcsave magazine_get >/dev/null
 
 function magazine_set
-    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
+    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
     xclip -selection clipboard -o >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "set $argv[1]"
     update_magazine $argv[1]
@@ -123,7 +123,7 @@ end
 funcsave magazine_set >/dev/null
 
 function magazine_edit
-    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
+    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
     neoline ~/.local/share/magazine/$argv[1]
     update_magazine $argv[1]
 end
@@ -134,14 +134,15 @@ function magazine_view
     if test -z $text
         notify-send -t 1000 "register $argv[1] is empty"
     else
-        notify-send -t 0 -- $text
+        notify-send -t (test "$argv[2]" && printf "$argv[2]" || printf 0) -- $text
     end
     update_magazine $argv[1]
 end
 funcsave magazine_view >/dev/null
 
 function magazine_truncate
-    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
+    magazine_view $argv[1] 2000
+    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
     truncate -s 0 ~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "truncate $argv[1]"
     update_magazine $argv[1]
@@ -160,7 +161,7 @@ function magazine_write
         return 1
     end
     set -e result[-1]
-    cat ~/.local/share/magazine/$argv[1] > /dev/shm/magazine_$argv[1]
+    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
     printf "$result" >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "write $argv[1]"
     update_magazine $argv[1]
@@ -203,7 +204,13 @@ function magazine_restore
         echo please specify the register name >&2
         return 1
     end
-    cp -f /dev/shm/magazine_$argv[1] > ~/.local/share/magazine/$argv[1]
+    cp -f /dev/shm/magazine_$argv[1] ~/.local/share/magazine/$argv[1]
+    if status is-interactive
+        echo "restore $argv[1]"
+    else
+        notify-send -t 1000 "restore $argv[1]"
+    end
+    update_magazine $argv[1]
 end
 funcsave magazine_restore >/dev/null
 
