@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env fish
 
 # X
 ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
@@ -18,6 +18,15 @@ mkdir -p ~/.config/nvim
 ln -sf ~/prog/dotfiles/neovim/init.lua ~/.config/nvim/init.lua
 ln -sf ~/prog/dotfiles/neovim/neoconf.jsonc ~/.config/nvim/neoconf.json
 ln -sf ~/prog/dotfiles/neovim ~/.config/nvim/lua
+mkdir -p ~/.config/astro
+for file in ~/prog/dotfiles/astro/*
+    set name (path basename $file)
+    ln -sf $file ~/.config/astro/$name
+end
+for file in ~/prog/dotfiles/astro/.*
+    set name (path basename $file)
+    ln -sf $file ~/.config/astro/$name
+end
 
 # Fish shell
 chsh -s /usr/bin/fish
@@ -109,6 +118,7 @@ xdg-mime default display.desktop image/jpeg
 xdg-mime default display.desktop image/gif
 
 # Postgresql
+ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
 sudo -iu postgres initdb -D /var/lib/postgres/data
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
@@ -124,7 +134,6 @@ sudo ufw allow 5432/tcp
 sudo touch /var/lib/postgres/.psql_history
 sudo chown postgres:postgres /var/lib/postgres/.psql_history
 psql -U postgres -c "ALTER USER postgres PASSWORD '$(read -sP 'enter your password: ')'"
-psql -U postgres -c '\pset null 󰟢' -c '\pset linestyle unicode' -c '\set ECHO_HIDDEN on'
 cd ~/Documents
 curl -O https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
 unzip dvdrental.zip
