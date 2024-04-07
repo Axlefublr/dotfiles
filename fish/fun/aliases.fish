@@ -36,8 +36,8 @@ end
 funcsave eat >/dev/null
 
 function task
-    indeed ~/.local/share/magazine/6 $argv
-    update_magazine 6
+    indeed ~/.local/share/magazine/9 $argv
+    update_magazine 9
 end
 funcsave task >/dev/null
 
