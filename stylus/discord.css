@@ -202,6 +202,13 @@
 }
 
 /* message you picked to reply to */
-.replying__38514 {
+.replying__38514,
+/* hovered reaction */
+.reaction__4a43f:hover {
 	background-color: var(--shell-background-orange);
+}
+
+/* hovered reaction */
+.reaction__4a43f:hover {
+	border-color: var(--shell-orange);
 }

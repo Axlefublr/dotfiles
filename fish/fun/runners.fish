@@ -109,6 +109,7 @@ end
 funcsave runner_clipster >/dev/null
 
 function magazine_get
+    magazine_view $argv[1] 2000
     cat ~/.local/share/magazine/$argv[1] | xclip -selection clipboard -r
     notify-send -t 1000 "get $argv[1]"
 end

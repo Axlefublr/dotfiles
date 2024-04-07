@@ -63,6 +63,10 @@ local recolors = {
 
 	['@type.ini'] = 'red',
 
+	['@variable.member.sql'] = 'mint',
+	['@type.builtin.sql'] = { fg = Colors.cyan, italic = true },
+	['@type.sql'] = { fg = Colors.cyan, bold = true },
+
 	['confComment'] = 'grey',
 	['confString'] = 'yellow',
 

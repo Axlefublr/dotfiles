@@ -1,6 +1,8 @@
-[lints]
-mixed_table = 'allow'
-unscoped_variables = 'allow'
-undefined_variable = 'allow'
-multiple_statements = 'allow'
-unused_variable = 'allow'
+std = "neovim"
+
+[rules]
+global_usage = "allow"
+if_same_then_else = "allow"
+incorrect_standard_library_use = "allow"
+mixed_table = "allow"
+multiple_statements = "allow"
