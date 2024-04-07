@@ -1023,6 +1023,72 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_restore 9'] }
           Key_0: { launch: [fish, -c, 'magazine_restore 0'] }
 
+      Shift_L-z:
+        exact_match: true
+        remap:
+          q: { launch: [fish, -c, 'magazine_filter q'] }
+          w: { launch: [fish, -c, 'magazine_filter w'] }
+          e: { launch: [fish, -c, 'magazine_filter e'] }
+          r: { launch: [fish, -c, 'magazine_filter r'] }
+          t: { launch: [fish, -c, 'magazine_filter t'] }
+          y: { launch: [fish, -c, 'magazine_filter y'] }
+          u: { launch: [fish, -c, 'magazine_filter u'] }
+          i: { launch: [fish, -c, 'magazine_filter i'] }
+          o: { launch: [fish, -c, 'magazine_filter o'] }
+          p: { launch: [fish, -c, 'magazine_filter p'] }
+          a: { launch: [fish, -c, 'magazine_filter a'] }
+          s: { launch: [fish, -c, 'magazine_filter s'] }
+          d: { launch: [fish, -c, 'magazine_filter d'] }
+          f: { launch: [fish, -c, 'magazine_filter f'] }
+          g: { launch: [fish, -c, 'magazine_filter g'] }
+          h: { launch: [fish, -c, 'magazine_filter h'] }
+          j: { launch: [fish, -c, 'magazine_filter j'] }
+          k: { launch: [fish, -c, 'magazine_filter k'] }
+          l: { launch: [fish, -c, 'magazine_filter l'] }
+          z: { launch: [fish, -c, 'magazine_filter z'] }
+          x: { launch: [fish, -c, 'magazine_filter x'] }
+          c: { launch: [fish, -c, 'magazine_filter c'] }
+          v: { launch: [fish, -c, 'magazine_filter v'] }
+          b: { launch: [fish, -c, 'magazine_filter b'] }
+          n: { launch: [fish, -c, 'magazine_filter n'] }
+          m: { launch: [fish, -c, 'magazine_filter m'] }
+          Shift-q: { launch: [fish, -c, 'magazine_filter Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_filter W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_filter E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_filter R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_filter T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_filter Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_filter U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_filter I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_filter O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_filter P'] }
+          Shift-a: { launch: [fish, -c, 'magazine_filter A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_filter S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_filter D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_filter F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_filter G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_filter H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_filter J'] }
+          Shift-k: { launch: [fish, -c, 'magazine_filter K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_filter L'] }
+          Shift-z: { launch: [fish, -c, 'magazine_filter Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_filter X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_filter C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_filter V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_filter B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_filter N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_filter M'] }
+          Key_1: { launch: [fish, -c, 'magazine_filter 1'] }
+          Key_2: { launch: [fish, -c, 'magazine_filter 2'] }
+          Key_3: { launch: [fish, -c, 'magazine_filter 3'] }
+          Key_4: { launch: [fish, -c, 'magazine_filter 4'] }
+          Key_5: { launch: [fish, -c, 'magazine_filter 5'] }
+          Key_6: { launch: [fish, -c, 'magazine_filter 6'] }
+          Key_7: { launch: [fish, -c, 'magazine_filter 7'] }
+          Key_8: { launch: [fish, -c, 'magazine_filter 8'] }
+          Key_9: { launch: [fish, -c, 'magazine_filter 9'] }
+          Key_0: { launch: [fish, -c, 'magazine_filter 0'] }
+
   - name: System & Media
     remap:
       CapsLock-w: { launch: [fish, -c, 'set_volume -5'] }
@@ -1153,6 +1219,7 @@ keymap:
     mode: [default]
     remap:
       Backspace: { launch: [notify-send, -t, '1000', 'use capslock-enter instead'] }
+      Backslash: { launch: [notify-send, -t, '1000', 'use capslock-slash instead'] }
       CapsLock-f: tab
       CapsLock-Enter: backspace
       CapsLock-Alt-Enter: ctrl-backspace

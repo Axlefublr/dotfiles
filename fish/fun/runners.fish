@@ -214,6 +214,23 @@ function magazine_restore
 end
 funcsave magazine_restore >/dev/null
 
+function magazine_filter
+    set result (rofi -dmenu 2>/dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    set result "$result"
+    set file_path ~/.local/share/magazine/$argv[1]
+    set matched "$(rg $result $file_path)"
+    cp -f $file_path /dev/shm/magazine_$argv[1]
+    set everything_else "$(rg -v $result $file_path)"
+    printf $everything_else > $file_path # we can't `>` right after `rg` because reading and writing to the file at the same time results in an empty file
+    notify-send -t 3000 "$matched"
+    update_magazine $argv[1]
+end
+funcsave magazine_filter >/dev/null
+
 function update_magazine
     if test $argv[1] -ge 0 -a $argv[1] -le 9
         awesome-client 'Registers_wu()'
