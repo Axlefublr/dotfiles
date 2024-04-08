@@ -30,15 +30,6 @@ local opts = {
 	indent = {
 		enable = true,
 	},
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = ',ds',
-			scope_incremental = ',dc',
-			node_incremental = '<a-]>',
-			node_decremental = '<a-[>',
-		},
-	},
 	textobjects = {
 		select = {
 			enable = true,
