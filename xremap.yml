@@ -304,7 +304,6 @@ keymap:
           w: { launch: [fish, -c, toggle_internet] }
           d: { launch: [alacritty, -e, nvim] }
           f: { launch: [alacritty] }
-          b: { launch: [fish, -c, runner_bluetooth] }
           m: { launch: [fish, -c, runner_math] }
 
           i: { launch: [fish, -c, runner_symbol] }

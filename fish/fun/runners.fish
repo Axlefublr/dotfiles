@@ -2,7 +2,7 @@
 
 function runner
     truncate -s 0 /dev/shm/runner_output
-    rofi -input ~/prog/dotfiles/data/likely.fish -dmenu 2>/dev/null >/dev/shm/runner_output
+    rofi -input ~/.local/share/magazine/L -dmenu 2>/dev/null >/dev/shm/runner_output
     if set -q argv[1]
         set output "$(source /dev/shm/runner_output 2>&1)"
         notify-send -t 0 "$output"
@@ -242,56 +242,3 @@ function update_magazine
     end
 end
 funcsave update_magazine >/dev/null
-
-function runner_bluetooth
-    set options ''
-    set power (get_bluetooth)
-    if test "$power" = yes
-        set options '󰐥 on'
-    else if test "$power" = no
-        set options '󰐥 off'
-    end
-    set headphones (get_bluetooth_connected_device $head)
-    if test "$headphones" = yes
-        set options $options ' head'
-    else if test "$headphones" = no
-        set options $options ' head'
-    end
-    set earphones (get_bluetooth_connected_device $ear)
-    if test "$earphones" = yes
-        set options $options ' ear'
-    else if test "$earphones" = no
-        set options $options ' ear'
-    end
-    set speaker (get_bluetooth_connected_device $speaker)
-    if test "$speaker" = yes
-        set options $options ' speaker'
-    else if test "$speaker" = no
-        set options $options ' speaker'
-    end
-    set result (prli $options | rofi -dmenu 2> /dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
-    end
-    set -e result[-1]
-    switch $result
-        case '󰐥 on'
-            bluetoothctl power off 2>>/dev/shm/user_log.txt
-        case '󰐥 off'
-            bluetoothctl power on 2>>/dev/shm/user_log.txt
-        case ' head'
-            bluetoothctl disconnect $head 2>>/dev/shm/user_log.txt
-        case ' head'
-            bluetoothctl connect $head 2>>/dev/shm/user_log.txt
-        case ' ear'
-            bluetoothctl disconnect $ear 2>>/dev/shm/user_log.txt
-        case ' ear'
-            bluetoothctl connect $ear 2>>/dev/shm/user_log.txt
-        case ' speaker'
-            bluetoothctl disconnect $speaker 2>>/dev/shm/user_log.txt
-        case ' speaker'
-            bluetoothctl connect $speaker 2>>/dev/shm/user_log.txt
-    end
-    widget_update update_bluetooth Bluetooth
-end
-funcsave runner_bluetooth >/dev/null
