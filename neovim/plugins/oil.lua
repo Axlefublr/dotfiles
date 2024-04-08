@@ -26,7 +26,7 @@ local opts = {
 	use_default_keymaps = false,
 	view_options = {
 		show_hidden = true,
-		is_always_hidden = function(name, _) return name == '..' or name == '.git' or string.sub(name, -5) == '.part' end,
+		is_always_hidden = function(name, _) return name == '..' or name == '.git' end,
 		natural_order = true,
 	},
 	float = {

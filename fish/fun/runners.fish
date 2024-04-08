@@ -16,7 +16,7 @@ end
 funcsave runner >/dev/null
 
 function runner_kill
-    set selected (ps -eo pid,command | zat --start 2 | string trim --left | rofi-multi-select 2> /dev/null)
+    set selected (ps -eo pid,command | zat --start 2 | string trim --left | rofi_multi_select 2> /dev/null)
     for line in $selected
         kill (string match -gr '^(\\d+)' $line)
     end
@@ -142,7 +142,7 @@ end
 funcsave magazine_view >/dev/null
 
 function magazine_truncate
-    magazine_view $argv[1] 2000
+    magazine_view $argv[1] 3000
     cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
     truncate -s 0 ~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "truncate $argv[1]"
@@ -216,18 +216,22 @@ end
 funcsave magazine_restore >/dev/null
 
 function magazine_filter
-    set result (rofi -dmenu 2>/dev/null ; echo $status)
+    set result (rofi_multi_select -matching fuzzy -input ~/.local/share/magazine/$argv[1] 2>/dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end
     set -e result[-1]
-    set result "$result"
     set file_path ~/.local/share/magazine/$argv[1]
-    set matched "$(rg $result $file_path)"
+    for line in (cat $file_path)
+        if contains "$line" $result
+            continue
+        end
+        set collected $collected $line
+    end
     cp -f $file_path /dev/shm/magazine_$argv[1]
-    set everything_else "$(rg -v $result $file_path)"
-    printf $everything_else > $file_path # we can't `>` right after `rg` because reading and writing to the file at the same time results in an empty file
-    notify-send -t 3000 "$matched"
+    set multiline (printf '%s\n' $collected | string collect)
+    echo -n $multiline > $file_path
+    notify-send -t 1000 "filter $argv[1]"
     update_magazine $argv[1]
 end
 funcsave magazine_filter >/dev/null
