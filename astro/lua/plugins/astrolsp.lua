@@ -1,10 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
--- Configuration documentation can be found with `:h astrolsp`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
-
 ---@type LazySpec
 return {
 	'AstroNvim/astrolsp',
@@ -22,17 +15,12 @@ return {
 				allow_filetypes = {},
 				ignore_filetypes = {},
 			},
-			disabled = { -- disable formatting capabilities for the listed language servers
+			disabled = {
 				'lua_ls',
 			},
 			timeout_ms = 1000, -- default format timeout
-			-- filter = function(client) -- fully override the default formatting function
-			--   return true
-			-- end
 		},
-		-- enable servers that you already have installed without mason
 		servers = {},
-		-- customize language server configuration options passed to `lspconfig`
 		---@diagnostic disable: missing-fields
 		config = {
 			-- clangd = { capabilities = { offsetEncoding = "utf-8" } },

@@ -13,8 +13,7 @@ require('lazy').setup({
 	{ import = 'community' },
 	{ import = 'plugins' },
 } --[[@as LazySpec]], {
-	-- Configure any other `lazy.nvim` configuration options here
-	install = { colorscheme = { 'gruvbox-material' } },
+	install = { colorscheme = { 'sainnhe/gruvbox-material' } },
 	ui = { backdrop = 100 },
 	change_detection = {
 		notify = false,

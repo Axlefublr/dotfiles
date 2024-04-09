@@ -263,6 +263,25 @@ local function harp_set()
 	end
 end
 
+local function move_default_to_other()
+	local char = Get_char('register: ')
+	if not char then return end
+	local register = Validate_register(char)
+	local default_contents = vim.fn.getreg('"')
+	vim.fn.setreg(register, default_contents)
+end
+
+local function search_for_current_word(direction, death)
+	local register = vim.fn.getreg('"')
+	FeedKeys('yiw')
+	vim.schedule(function()
+		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg('"'))
+		FeedKeys(direction .. '\\V\\C' .. escaped_word .. death)
+		FeedKeysInt('<cr>')
+		vim.fn.setreg('"', register)
+	end)
+end
+
 local normal_mappings = {
 	['<Leader>dq'] = { copy_full_path },
 	['<Leader>dw'] = { copy_file_name },
@@ -278,16 +297,18 @@ local normal_mappings = {
 	["'T"] = { killring_compile_reversed },
 	[',S'] = { harp_set },
 	[',s'] = { harp_get },
+	K = { close_try_save },
+	['<Leader>K'] = { function() vim.cmd('q!') end },
 	['""d'] = { function() vim.cmd('tcd ~/prog/dotfiles') end },
 	['""t'] = { function() vim.cmd('tcd ~/prog/noties') end },
 	['""b'] = { function() vim.cmd('tcd ~/prog/backup') end },
 	['<Leader>dm'] = { function() vim.cmd('messages') end },
 	gy = { function() vim.cmd('%y+') end },
-	['<Leader>g'] = { Move_default_to_other },
-	['*'] = { function() Search_for_current_word('/', '') end },
-	['<Leader>*'] = { function() Search_for_current_word('/', '/e') end },
-	['#'] = { function() Search_for_current_word('?', '') end },
-	['<Leader>#'] = { function() Search_for_current_word('?', '?e') end },
+	['<Leader>g'] = { move_default_to_other },
+	['*'] = { function() search_for_current_word('/', '') end },
+	['<Leader>*'] = { function() search_for_current_word('/', '/e') end },
+	['#'] = { function() search_for_current_word('?', '') end },
+	['<Leader>#'] = { function() search_for_current_word('?', '?e') end },
 	['{'] = { function() move_to_blank_line(false) end },
 	['}'] = { function() move_to_blank_line(true) end },
 	['@'] = { function() FeedKeys('yl' .. vim.v.count1 .. 'p') end },
@@ -553,25 +574,24 @@ end
 ---@type LazySpec
 return {
 	'AstroNvim/astrocore',
-	---@type AstroCoreOpts
-	opts = {
-		-- Configure core features of AstroNvim
-		features = {
+	---@param opts AstroCoreOpts
+	opts = function(_, opts)
+		opts.features = {
 			large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
 			autopairs = true,
 			cmp = true,
 			diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
 			highlighturl = true, -- highlight URLs at start
 			notifications = true, -- enable notifications at start
-		},
+		}
 		-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
-		diagnostics = {
+		opts.diagnostics = {
 			virtual_text = true,
 			underline = true,
 			signs = false,
-		},
+		}
 		-- vim options can be configured here
-		options = {
+		opts.options = {
 			opt = {
 				relativenumber = true,
 				number = false,
@@ -614,8 +634,8 @@ return {
 			g = {
 				rust_recommended_style = true,
 			},
-		},
-		commands = {
+		}
+		opts.commands = {
 			O = {
 				function(info)
 					local range = ''
@@ -625,8 +645,8 @@ return {
 				nargs = '*',
 				range = true,
 			},
-		},
-		autocmds = {
+		}
+		opts.autocmds = {
 			everything = {
 				{
 					event = 'CursorMoved',
@@ -677,7 +697,7 @@ return {
 					end,
 				},
 			},
-		},
-		mappings = mappings_table,
-	},
+		}
+		opts.mappings = mappings_table
+	end,
 }

@@ -94,24 +94,5 @@ function Validate_register(register)
 	end
 end
 
-function Move_default_to_other()
-	local char = Get_char('register: ')
-	if not char then return end
-	local register = Validate_register(char)
-	local default_contents = vim.fn.getreg('"')
-	vim.fn.setreg(register, default_contents)
-end
-
-function Search_for_current_word(direction, death)
-	local register = vim.fn.getreg('"')
-	FeedKeys('yiw')
-	vim.schedule(function()
-		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg('"'))
-		FeedKeys(direction .. '\\V\\C' .. escaped_word .. death)
-		FeedKeysInt('<cr>')
-		vim.fn.setreg('"', register)
-	end)
-end
-
 require('lazy_setup')
 require('polish')
