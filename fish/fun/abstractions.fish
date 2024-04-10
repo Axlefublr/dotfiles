@@ -241,7 +241,7 @@ funcsave get_hunger >/dev/null
 
 function filter_mature_tasks
     function if_print
-        test "$argv[1]" -gt $argv[3] && echo "$argv[2] — $argv[1]" || printf ''
+        test "$argv[1]" -ge $argv[3] && echo "$argv[2] — $argv[1]" || printf ''
     end
     set oldest (loago list | rg -v 'eat' | awk '$3 > 4')
     for task in $oldest
