@@ -8,6 +8,7 @@ local opts = {
 	},
 	delete_to_trash = true,
 	skip_confirm_for_simple_edits = true,
+	experimental_watch_for_changes = true,
 	keymaps = {
 		['<a-d>'] = 'actions.refresh',
 		['<'] = 'actions.parent',
@@ -38,7 +39,7 @@ return {
 	'stevearc/oil.nvim',
 	lazy = false,
 	keys = {
-		{ 'gq', '<cmd>Oil<cr>' },
+		{ 'gq', '<Cmd>Oil<CR>' },
 	},
 	cmd = {
 		'Oil',

@@ -31,6 +31,7 @@ vim.keymap.set('n', ',aL', '<c-w>l<c-w>|')
 vim.keymap.set('n', ',aU', '<c-w>t<c-w>|<c-w>_')
 vim.keymap.set('n', ',aO', '<c-w>b<c-w>|<c-w>_')
 
+-- here
 vim.keymap.set('n', ",a'", '<c-w>|')
 vim.keymap.set('n', ',av', '<c-w>_')
 vim.keymap.set('n', ',ar', '<c-w>r')

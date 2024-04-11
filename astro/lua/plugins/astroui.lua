@@ -2,9 +2,9 @@ local function fg(colorname)
 	return { fg = Colors[colorname] }
 end
 
-local function bg(colorname)
-	return { bg = Colors[colorname] }
-end
+-- local function bg(colorname)
+-- 	return { bg = Colors[colorname] }
+-- end
 
 ---@type LazySpec
 return {

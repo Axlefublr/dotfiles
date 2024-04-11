@@ -12,7 +12,7 @@ local function harp_set()
 	ensure_dir_exists(dir)
 	local register = Get_char('harp: ')
 	if register == nil then return end
-	local full_path = Curr_buff_full_path()
+	local full_path = vim.api.nvim_buf_get_name(0)
 	local file = io.open(dir .. '/' .. register, 'w')
 	if file then
 		file:write(full_path)

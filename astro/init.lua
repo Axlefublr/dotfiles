@@ -95,4 +95,3 @@ function Validate_register(register)
 end
 
 require('lazy_setup')
-require('polish')

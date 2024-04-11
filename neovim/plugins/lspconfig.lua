@@ -58,11 +58,12 @@ return {
 					end)
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = args.buf }
-					vim.keymap.set('n', ',lg', vim.lsp.buf.declaration, opts)
+					vim.keymap.set('n', ',lD', vim.lsp.buf.declaration, opts)
 					vim.keymap.set('n', ',le', function()
 						vim.lsp.buf.hover()
 						vim.lsp.buf.hover()
 					end, opts)
+					-- here
 					vim.keymap.set({ 'n', 'i' }, '<a-u>', vim.lsp.buf.signature_help, opts)
 					vim.keymap.set('n', ',lw', vim.lsp.buf.rename, opts)
 					vim.keymap.set({ 'n', 'x' }, ',lc', vim.lsp.buf.code_action, opts)

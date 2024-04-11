@@ -4,8 +4,8 @@ require('lazy').setup({
 		version = '^4',
 		import = 'astronvim.plugins',
 		opts = {
-			mapleader = ' ',
-			maplocalleader = ' ',
+			mapleader = ',',
+			maplocalleader = ',',
 			icons_enabled = true,
 			pin_plugins = nil,
 		},

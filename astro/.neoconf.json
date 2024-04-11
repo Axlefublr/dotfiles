@@ -1,20 +1,89 @@
 {
-  "neodev": {
-    "library": {
-      "enabled": true,
-      "plugins": true
-    }
-  },
-  "neoconf": {
-    "plugins": {
-      "lua_ls": {
-        "enabled": true
-      }
-    }
-  },
-  "lspconfig": {
-    "lua_ls": {
-      "Lua.format.enable": false
-    }
-  }
+	"neodev": {
+		"library": {
+			"enabled": true,
+			"plugins": true
+		}
+	},
+	"neoconf": {
+		"plugins": {
+			"lua_ls": {
+				"enabled": true
+			}
+		}
+	},
+	"lspconfig": {
+		"rust_analyzer": {
+			"rust-analyzer.rustfmt.extraArgs": [
+				"+nightly"
+			],
+			"rust-analyzer.assist.expressionFillDefault": "default",
+			"rust-analyzer.inlayHints.typeHints.enable": true,
+			"rust-analyzer.cargo.features": "all",
+			"rust-analyzer.check.command": "clippy",
+			"rust-analyzer.completion.fullFunctionSignatures.enable": true,
+			"rust-analyzer.procMacro.enable": true,
+			"rust-analyzer.inlayHints.bindingModeHints.enable": true,
+			"rust-analyzer.inlayHints.closingBraceHints.minLines": 11,
+			"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
+			"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+			"rust-analyzer.inlayHints.closureStyle": "rust_analyzer",
+			"rust-analyzer.inlayHints.discriminantHints.enable": "fieldless",
+			"rust-analyzer.inlayHints.parameterHints.enable": true,
+			"rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
+			"rust-analyzer.inlayHints.renderColons": false,
+			"rust-analyzer.inlayHints.maxLength": null,
+			"rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "reborrow",
+			"rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "prefer_postfix",
+			"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+			"rust-analyzer.lens.run.enable": false,
+			"rust-analyzer.semanticHighlighting.operator.specialization.enable": true,
+			"rust-analyzer.semanticHighlighting.punctuation.enable": true,
+			"rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": false,
+			"rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
+			"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+			"rust-analyzer.workspace.symbol.search.kind": "all_symbols",
+			"rust-analyzer.signatureInfo.documentation.enable": false
+		},
+		"lua_ls": {
+			"Lua.hint.await": true,
+			"Lua.hint.enable": true,
+			"Lua.hint.setType": true,
+			"Lua.hint.paramType": true,
+			"Lua.hint.arrayIndex": "Auto",
+			"Lua.hint.paramName": "Literal",
+			"Lua.hover.enable": true,
+			"Lua.hover.enumsLimit": 9999,
+			"Lua.hover.viewNumber": true,
+			"Lua.hover.viewString": true,
+			"Lua.hover.expandAlias": true,
+			"Lua.hover.previewFields": 9999,
+			"Lua.format.enable": false,
+			"Lua.codeLens.enable": true,
+			"Lua.completion.enable": true,
+			"Lua.semantic.enable": true,
+			"Lua.semantic.variable": true,
+			"Lua.semantic.keyword": false,
+			"Lua.type.weakNilCheck": false,
+			// "Lua.runtime.version": "LuaJIT",
+			"Lua.completion.callSnippet": "Replace",
+			"Lua.completion.keywordSnippet": "Replace",
+			"Lua.completion.postfix": "@",
+			"Lua.completion.showParams": true,
+			"Lua.completion.showWord": "Enable",
+			"Lua.completion.workspaceWord": true,
+			"Lua.diagnostics.disable": [
+				"lowercase-global",
+				"undefined-global",
+				"redefined-local",
+			],
+			"Lua.workspace.checkThirdParty": false,
+			"Lua.workspace.library": [
+				"/usr/share/nvim/runtime/",
+				"/usr/share/nvim/runtime/lua"
+			],
+			"Lua.diagnostics.workspaceDelay": 0,
+		},
+		"Lua.format.enable": false
+	}
 }

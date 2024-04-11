@@ -99,7 +99,9 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 })
 
 vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
-	callback = Write_if_modified,
+	callback = function ()
+		if vim.bo.modified then pcall(vim.cmd, 'write') end
+	end,
 })
 
 vim.api.nvim_create_autocmd('FileType', {

@@ -1,33 +1,29 @@
-local function close_without_saving() vim.cmd('q!') end
 local function trim_trailing_whitespace()
 	local search = vim.fn.getreg('/')
 	---@diagnostic disable-next-line: param-type-mismatch
 	pcall(vim.cmd, '%s`\\v\\s+$')
 	vim.fn.setreg('/', search)
 end
----@diagnostic disable-next-line: param-type-mismatch
-local function write() pcall(vim.cmd, 'write') end
-function Write_if_modified()
-	if vim.bo.modified then write() end
-end
 
 local function save()
 	trim_trailing_whitespace()
-	Remove_highlighting()
-	Write_if_modified()
+	vim.cmd('nohl')
+	if vim.bo.modified then pcall(vim.cmd, 'write') end
 	require('lualine').refresh()
 end
+
 local function close_try_save()
-	Write_if_modified()
-	close_without_saving()
+	if vim.bo.modified then pcall(vim.cmd, 'write') end
+	vim.cmd('q!')
 end
+
 vim.keymap.set('', '<Space>', save)
 vim.keymap.set('i', '<a-/>', close_try_save)
-vim.keymap.set('n', ',K', close_without_saving)
+vim.keymap.set('n', ',K', function() vim.cmd('q!') end)
 vim.keymap.set('n', 'K', close_try_save)
 
 vim.keymap.set({ 'n', 'x' }, ',dq', function()
-	local full_path = Curr_buff_full_path()
+	local full_path = vim.api.nvim_buf_get_name(0)
 	local home = os.getenv('HOME')
 	if not home then return end
 	local friendly_path = string.gsub(full_path, home, '~')
@@ -64,12 +60,9 @@ vim.keymap.set('', ',/', '/\\V')
 vim.keymap.set('', ',?', '?\\V')
 vim.keymap.set('', '/', '/\\v')
 vim.keymap.set('', '?', '?\\v')
-vim.keymap.set('', 'zp', ']p')
-vim.keymap.set('', 'zP', ']P')
 vim.keymap.set('', 'gM', 'M')
 vim.keymap.set('', 'zn', 'q')
 vim.keymap.set('', 'zm', '@')
-vim.keymap.set('', ',v', '<c-v>')
 vim.keymap.set('n', 'gK', 'K')
 vim.keymap.set('n', 'Y', 'yg_')
 vim.keymap.set('n', '~', 'g~l')
@@ -90,8 +83,6 @@ vim.keymap.set(
 )
 vim.keymap.set('', '_', function() FeedKeysInt(vim.v.count1 .. 'k$') end)
 vim.keymap.set('', 'gm', function() FeedKeys(vim.v.count * 10 .. 'gM') end) -- cuts down precision of gM to 10s
-vim.keymap.set('', 'H', function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end)
-vim.keymap.set('', 'L', function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end)
 vim.keymap.set('n', '<c-k>', 'O<esc>')
 vim.keymap.set('n', '<f6>', 'o<esc>')
 vim.keymap.set('n', 'dp', 'ddp')
@@ -135,7 +126,7 @@ vim.keymap.set('n', ',p', 'Pv`[o`]do<c-r><c-p>"<esc>') -- Paste a characterwise 
 vim.keymap.set('n', ',P', 'Pv`[o`]dO<c-r><c-p>"<esc>') -- Paste a characterwise register on a new line
 vim.keymap.set('n', '@', function() FeedKeysInt('yl' .. vim.v.count1 .. 'p') end) -- multiply character
 vim.keymap.set('n', '<Esc>', function()
-	Remove_highlighting()
+	vim.cmd('noh')
 	FeedKeysInt('<Esc>')
 end)
 vim.keymap.set('n', 'J', function()
@@ -192,6 +183,7 @@ vim.keymap.set('x', 'a%', 'F%of%')
 vim.keymap.set('o', 'i%', function() vim.cmd('normal vT%ot%') end)
 vim.keymap.set('o', 'a%', function() vim.cmd('normal vF%of%') end)
 
+-- here
 -- Exclusive previous / next blank line
 vim.keymap.set({ 'n', 'x' }, ']}', '}k')
 vim.keymap.set({ 'n', 'x' }, '[{', '{j')
@@ -209,3 +201,5 @@ vim.keymap.set('n', '"', edit_magazine)
 vim.keymap.set('n', '""d', '<cmd>tcd ~/prog/dotfiles<cr>')
 vim.keymap.set('n', '""t', '<cmd>tcd ~/prog/noties<cr>')
 vim.keymap.set('n', '""b', '<cmd>tcd ~/prog/backup<cr>')
+vim.keymap.set('n', '""c', '<cmd>tcd ~/prog/other/astrocommunity<cr>')
+vim.keymap.set('n', '""a', '<cmd>tcd ~/prog/other/AstroNvim<cr>')
