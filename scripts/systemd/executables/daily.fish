@@ -33,7 +33,3 @@ end
 if test (date '+%A') = Sunday
     task ask
 end
-
-if test (date '+%A') = Monday
-    task 'add liked'
-end

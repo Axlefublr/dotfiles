@@ -13,10 +13,14 @@ require('lazy').setup({
 	{ import = 'community' },
 	{ import = 'plugins' },
 } --[[@as LazySpec]], {
-	install = { colorscheme = { 'sainnhe/gruvbox-material' } },
+	install = { colorscheme = { 'gruvbox-material' } },
 	ui = { backdrop = 100 },
 	change_detection = {
 		notify = false,
+	},
+	checker = {
+		enabled = false,
+		frequency = 60 * 60 * 24,
 	},
 	performance = {
 		rtp = {
@@ -27,6 +31,7 @@ require('lazy').setup({
 				'tarPlugin',
 				'tohtml',
 				'zipPlugin',
+				'tutor',
 			},
 		},
 	},

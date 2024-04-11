@@ -60,7 +60,7 @@ end
 funcsave mkcd >/dev/null
 
 function ghrclc
-    gh repo clone $argv
+    gh repo clone $argv -- --depth 1
     z (path basename $argv[1])
     clear -x
 end

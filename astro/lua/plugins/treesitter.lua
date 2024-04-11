@@ -1,17 +1,13 @@
 ---@type LazySpec
 return {
 	'nvim-treesitter/nvim-treesitter',
-	dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
 	opts = function(_, opts)
+		opts.textobjects = nil
 		return require('astrocore').extend_tbl(opts, {
-			auto_install = true,
 			highlight = {
-				enable = true,
 				additional_vim_regex_highlighting = false,
 			},
-			indent = {
-				enable = true,
-			},
+			incremental_selection = { enable = true },
 			textobjects = {
 				select = {
 					enable = true,
