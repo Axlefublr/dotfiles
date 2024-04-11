@@ -11,7 +11,6 @@ local function save()
 	trim_trailing_whitespace()
 	vim.cmd('nohl')
 	if vim.bo.modified then pcall(vim.cmd, 'write') end
-	require('lualine').refresh()
 end
 
 local function close_try_save()
@@ -130,9 +129,9 @@ function killring_pop_tail(insert)
 	vim.fn.setreg('"', first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<c-r>"')
+			FeedKeysInt('<C-r>"')
 		else
-			FeedKeysInt('<c-r><c-p>"')
+			FeedKeysInt('<C-r><C-p>"')
 		end
 	end
 	print('got tail')
@@ -287,7 +286,7 @@ local normal_mappings = {
 	['<Leader>dw'] = { copy_file_name },
 	['<Leader>dr'] = { copy_cwd_relative },
 	['<Leader>de'] = { copy_git_relative },
-	[','] = { save },
+	['<Space>'] = { save },
 	['"'] = { edit_magazine },
 	["'R"] = { killring_push_tail },
 	["'r"] = { killring_push },
@@ -298,10 +297,13 @@ local normal_mappings = {
 	[',S'] = { harp_set },
 	[',s'] = { harp_get },
 	K = { close_try_save },
+	['<Leader>lD'] = { vim.lsp.buf.declaration },
 	['<Leader>K'] = { function() vim.cmd('q!') end },
 	['""d'] = { function() vim.cmd('tcd ~/prog/dotfiles') end },
 	['""t'] = { function() vim.cmd('tcd ~/prog/noties') end },
 	['""b'] = { function() vim.cmd('tcd ~/prog/backup') end },
+	['""c'] = { function() vim.cmd('tcd ~/prog/other/astrocommunity') end },
+	['""a'] = { function() vim.cmd('tcd ~/prog/other/AstroNvim') end },
 	['<Leader>dm'] = { function() vim.cmd('messages') end },
 	gy = { function() vim.cmd('%y+') end },
 	['<Leader>g'] = { move_default_to_other },
@@ -320,6 +322,7 @@ local normal_mappings = {
 	['<Leader>awj'] = { function() vim.cmd('new') end },
 	['<Leader>awk'] = { function() vim.cmd('leftabove new') end },
 	['<Leader>awl'] = { function() vim.cmd('vnew') end },
+	['<Leader>aww'] = { function() vim.cmd('enew') end },
 	['<Leader>a/h'] = { function() vim.cmd('exe "leftabove vertical normal \\<c-w>^"') end },
 	['<Leader>a/j'] = { function() vim.cmd('exe "normal \\<c-w>^"') end },
 	['<Leader>a/k'] = { function() vim.cmd('exe "leftabove normal \\<c-w>^"') end },
@@ -373,6 +376,32 @@ local normal_mappings = {
 			for _ = 1, vim.v.count1 do
 				FeedKeys('dd')
 			end
+		end,
+	},
+	['<Leader>la'] = {
+		function()
+			vim.diagnostic.open_float()
+			vim.diagnostic.open_float()
+		end,
+	},
+	['[d'] = {
+		function()
+			for _ = 1, vim.v.count1 do
+				vim.diagnostic.goto_prev()
+			end
+		end,
+	},
+	[']d'] = {
+		function()
+			for _ = 1, vim.v.count1 do
+				vim.diagnostic.goto_next()
+			end
+		end,
+	},
+	['<Leader>le'] = {
+		function()
+			vim.lsp.buf.hover()
+			vim.lsp.buf.hover()
 		end,
 	},
 	gss = '==',
@@ -576,128 +605,140 @@ return {
 	'AstroNvim/astrocore',
 	---@param opts AstroCoreOpts
 	opts = function(_, opts)
-		opts.features = {
-			large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-			autopairs = true,
-			cmp = true,
-			diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
-			highlighturl = true, -- highlight URLs at start
-			notifications = true, -- enable notifications at start
-		}
-		-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
-		opts.diagnostics = {
-			virtual_text = true,
-			underline = true,
-			signs = false,
-		}
-		-- vim options can be configured here
-		opts.options = {
-			opt = {
-				relativenumber = true,
-				number = false,
-				spell = false,
-				signcolumn = 'auto', -- sets vim.opt.signcolumn to auto
-				wrap = true,
-				tabstop = 3,
-				shiftwidth = 3,
-				expandtab = false,
-				smartindent = true,
-				mouse = 'a',
-				ignorecase = true,
-				smartcase = true,
-				hlsearch = true,
-				colorcolumn = '',
-				syntax = 'enable',
-				termguicolors = true,
-				background = 'dark',
-				backup = false,
-				writebackup = false,
-				swapfile = false,
-				undofile = true,
-				timeout = false,
-				eol = false,
-				fixeol = false,
-				cpoptions = 'aABceFs',
-				splitbelow = true,
-				splitright = true,
-				virtualedit = 'block',
-				inccommand = 'split',
-				listchars = 'tab:↦ ,multispace:·',
-				list = true,
-				shortmess = 'finxtTIoOF',
-				showtabline = 0,
-				fillchars = 'eob: ',
-				foldcolumn = '0',
-				autowriteall = true,
-				langmap = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>',
-			},
-			g = {
-				rust_recommended_style = true,
-			},
-		}
-		opts.commands = {
-			O = {
-				function(info)
-					local range = ''
-					if info.range > 0 then range = (info.line1 or '') .. ',' .. (info.line2 or '') end
-					vim.cmd(range .. 'norm ' .. info.args)
-				end,
-				nargs = '*',
-				range = true,
-			},
-		}
-		opts.autocmds = {
-			everything = {
-				{
-					event = 'CursorMoved',
-					command = 'normal! zz',
-				},
-				{
-					event = { 'BufRead', 'BufNewFile' },
-					pattern = '*.XCompose',
-					command = 'setfiletype xcompose',
-				},
-				{
-					event = { 'BufRead', 'BufNewFile' },
-					pattern = '*.rasi',
-					command = 'setfiletype rasi',
-				},
-				{
-					event = { 'BufRead', 'BufNewFile' },
-					pattern = vim.fn.expand('~/.local/share/magazine/l'),
-					command = 'setfiletype markdown',
-				},
-				{
-					event = { 'BufLeave', 'FocusLost' },
-					callback = function()
-						if vim.bo.modified then pcall(vim.cmd, 'write') end
-					end,
-				},
-				{
-					event = 'FileType',
-					pattern = 'gitcommit',
-					command = 'startinsert',
-				},
-				{
-					event = 'FileType',
-					pattern = 'fish',
-					callback = function()
-						vim.opt_local.expandtab = true
-						vim.opt_local.shiftwidth = 4
-					end,
-				},
-				{
-					event = 'FileType',
-					pattern = 'man',
-					callback = function()
-						vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)', { buffer = true })
-						vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)', { buffer = true })
-						vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)', { buffer = true })
-						vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)', { buffer = true })
-					end,
-				},
-			},
-		}
 		opts.mappings = mappings_table
+		return require('astrocore').extend_tbl(opts, {
+			features = {
+				large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+				autopairs = true,
+				cmp = true,
+				diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+				highlighturl = true, -- highlight URLs at start
+				notifications = true, -- enable notifications at start
+			},
+			-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
+			diagnostics = {
+				virtual_text = true,
+				underline = true,
+				signs = false,
+			},
+			-- vim options can be configured here
+			options = {
+				opt = {
+					relativenumber = true,
+					number = false,
+					spell = false,
+					signcolumn = 'auto', -- sets vim.opt.signcolumn to auto
+					wrap = true,
+					tabstop = 3,
+					shiftwidth = 3,
+					expandtab = false,
+					smartindent = true,
+					mouse = 'a',
+					ignorecase = true,
+					smartcase = true,
+					hlsearch = true,
+					colorcolumn = '',
+					syntax = 'enable',
+					termguicolors = true,
+					background = 'dark',
+					backup = false,
+					writebackup = false,
+					swapfile = false,
+					undofile = true,
+					timeout = false,
+					eol = false,
+					fixeol = false,
+					cpoptions = 'aABceFs',
+					splitbelow = true,
+					splitright = true,
+					virtualedit = 'block',
+					inccommand = 'split',
+					listchars = 'tab:↦ ,multispace:·',
+					list = true,
+					shortmess = 'finxtTIoOF',
+					showtabline = 0,
+					fillchars = 'eob: ',
+					foldcolumn = '0',
+					autowriteall = true,
+					langmap = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>',
+				},
+				g = {
+					rust_recommended_style = true,
+				},
+			},
+			commands = {
+				O = {
+					function(info)
+						local range = ''
+						if info.range > 0 then range = (info.line1 or '') .. ',' .. (info.line2 or '') end
+						vim.cmd(range .. 'norm ' .. info.args)
+					end,
+					nargs = '*',
+					range = true,
+				},
+			},
+			autocmds = {
+				everything = {
+					{
+						event = 'CursorMoved',
+						command = 'normal! zz',
+					},
+					{
+						event = { 'BufRead', 'BufNewFile' },
+						pattern = '*.XCompose',
+						command = 'setfiletype xcompose',
+					},
+					{
+						event = { 'BufRead', 'BufNewFile' },
+						pattern = '*.rasi',
+						command = 'setfiletype rasi',
+					},
+					{
+						event = { 'BufRead', 'BufNewFile' },
+						pattern = vim.fn.expand('~/.local/share/magazine/l'),
+						command = 'setfiletype markdown',
+					},
+					{
+						event = { 'BufLeave', 'FocusLost' },
+						callback = function()
+							if vim.bo.modified then pcall(vim.cmd, 'write') end
+						end,
+					},
+					{
+						event = 'FileType',
+						pattern = 'gitcommit',
+						command = 'startinsert',
+					},
+					{
+						event = 'FileType',
+						pattern = 'fish',
+						callback = function()
+							vim.opt_local.expandtab = true
+							vim.opt_local.shiftwidth = 4
+						end,
+					},
+					{
+						event = 'FileType',
+						pattern = 'man',
+						callback = function()
+							vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)', { buffer = true })
+							vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)', { buffer = true })
+							vim.keymap.set(
+								{ 'n', 'x', 'o' },
+								',q',
+								'<Plug>(leap-forward-till)',
+								{ buffer = true }
+							)
+							vim.keymap.set(
+								{ 'n', 'x', 'o' },
+								',Q',
+								'<Plug>(leap-backward-till)',
+								{ buffer = true }
+							)
+						end,
+					},
+				},
+			},
+		})
 	end,
 }
