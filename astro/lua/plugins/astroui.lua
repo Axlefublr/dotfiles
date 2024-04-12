@@ -16,9 +16,22 @@ return {
 		highlights = {
 			init = {
 				['GruvboxDarkerest'] = bg('#1f1e1e'),
-				['BlueItalic'] = { fg = Colors.cyan, italic = true },
+
+				['RedBold'] = { fg = Colors.red, bold = true },
+				['OrangeBold'] = { fg = Colors.orange, bold = true },
 				['YellowBold'] = { fg = Colors.yellow, bold = true },
+				['GreenBold'] = { fg = Colors.green, bold = true },
+				['AquaBold'] = { fg = Colors.mint, bold = true },
+				['BlueBold'] = { fg = Colors.cyan, bold = true },
+				['PurpleBold'] = { fg = Colors.purple, bold = true },
+
+				['RedItalic'] = { fg = Colors.red, italic = true },
 				['OrangeItalic'] = { fg = Colors.orange, italic = true },
+				['YellowItalic'] = { fg = Colors.yellow, italic = true },
+				['GreenItalic'] = { fg = Colors.green, italic = true },
+				['AquaItalic'] = { fg = Colors.mint, italic = true },
+				['BlueItalic'] = { fg = Colors.cyan, italic = true },
+				['PurpleItalic'] = { fg = Colors.purple, italic = true },
 
 				['Tabline'] = link('Normal'),
 				['TablineFill'] = link('Normal'),

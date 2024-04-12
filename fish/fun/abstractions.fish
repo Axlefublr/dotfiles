@@ -255,11 +255,11 @@ function filter_mature_tasks
                 if_print $days $name 7
             case cloths fscrub bscrub liked
                 if_print $days $name 10
-            case nails wilter bottle keyboard
+            case nails wilter bottle
                 if_print $days $name 15
             case razor
                 if_print $days $name 20
-            case tails iso
+            case tails iso keyboard
                 if_print $days $name 30
             case '*'
                 echo "$name — $days"

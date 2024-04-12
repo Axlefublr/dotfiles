@@ -96,3 +96,4 @@ sudo pacman -S --noconfirm xsel
 sudo pacman -S --noconfirm acpi
 sudo pacman -S --noconfirm eza
 sudo pacman -S --noconfirm tidy
+sudo pacman -S --noconfirm luarocks

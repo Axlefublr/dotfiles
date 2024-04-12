@@ -509,6 +509,10 @@ local insert_mappings = {
 	['<F6>'] = '<C-o>o',
 	['<C-h>'] = '<C-o>"_S<Esc><C-o>gI<BS>', -- Delete from the current position to the last character on the previous line
 	['<A-s>'] = '<C-x>',
+	['<A-;>'] = '',
+	['<F5>'] = '',
+	['<A-i>'] = '',
+	['<A-o>'] = '',
 }
 
 local pending_mappings = {
