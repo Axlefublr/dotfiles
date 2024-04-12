@@ -7,7 +7,6 @@ return {
 	cmd = {
 		'Oil',
 	},
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	opts = function(_, opts)
 		vim.api.nvim_set_hl(0, 'OilDir', { fg = Colors.white })
 		vim.api.nvim_set_hl(0, 'OilDirIcon', { fg = Colors.shell_yellow })

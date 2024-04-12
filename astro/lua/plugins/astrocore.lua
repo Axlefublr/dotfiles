@@ -329,10 +329,10 @@ local normal_mappings = {
 	['<Leader>a/j'] = { function() vim.cmd('exe "normal \\<c-w>^"') end },
 	['<Leader>a/k'] = { function() vim.cmd('exe "leftabove normal \\<c-w>^"') end },
 	['<Leader>a/l'] = { function() vim.cmd('exe "vertical normal \\<c-w>^"') end },
-	['[w'] = { function() another_quickfix_entry(false, false) end },
-	[']w'] = { function() another_quickfix_entry(true, false) end },
-	['[W'] = { function() another_quickfix_entry(false, true) end },
-	[']W'] = { function() another_quickfix_entry(true, true) end },
+	['[q'] = { function() another_quickfix_entry(false, false) end },
+	[']q'] = { function() another_quickfix_entry(true, false) end },
+	['[Q'] = { function() another_quickfix_entry(false, true) end },
+	[']Q'] = { function() another_quickfix_entry(true, true) end },
 	["'1"] = { function() numbered_get(1) end },
 	["'2"] = { function() numbered_get(2) end },
 	["'3"] = { function() numbered_get(3) end },
@@ -386,14 +386,14 @@ local normal_mappings = {
 			vim.diagnostic.open_float()
 		end,
 	},
-	['[d'] = {
+	['[e'] = {
 		function()
 			for _ = 1, vim.v.count1 do
 				vim.diagnostic.goto_prev()
 			end
 		end,
 	},
-	[']d'] = {
+	[']e'] = {
 		function()
 			for _ = 1, vim.v.count1 do
 				vim.diagnostic.goto_next()
@@ -464,10 +464,10 @@ local normal_mappings = {
 	['<Leader>a?'] = '<C-^>',
 	['<Leader>a;'] = '<C-w>o',
 	['<Leader>ai'] = '<C-w>=',
-	['<Leader>ac'] = 'gt',
-	['<Leader>ax'] = 'gT',
-	['<Leader>aP'] = '<cmd>tabclose<Cr>',
-	['<Leader>ap'] = '<cmd>tabnew<Cr>',
+	[']w'] = 'gt',
+	['[w'] = 'gT',
+	['<Leader>aP'] = '<Cmd>tabclose<CR>',
+	['<Leader>ap'] = '<Cmd>tabnew<CR>',
 }
 
 local visual_mappings = {
@@ -654,7 +654,7 @@ local opts_table = {
 			tabstop = 3,
 			shiftwidth = 3,
 			numberwidth = 3, -- this weirdly means 2
-			scrolloff = 999,
+			-- scrolloff = 999,
 			expandtab = false,
 			smartindent = true,
 			mouse = 'a',
@@ -680,7 +680,7 @@ local opts_table = {
 			listchars = 'tab:↦ ,multispace:·',
 			list = true,
 			shortmess = 'finxtTIoOF',
-			showtabline = 0,
+			-- showtabline = 0,
 			fillchars = 'eob: ',
 			foldcolumn = '0',
 			autowriteall = true,
@@ -704,10 +704,10 @@ local opts_table = {
 	},
 	autocmds = {
 		everything = {
-			-- {
-			-- 	event = 'CursorMoved',
-			-- 	command = 'normal! zz',
-			-- },
+			{
+				event = 'CursorMoved',
+				command = 'normal! zz',
+			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = '*.XCompose',
@@ -742,7 +742,7 @@ local opts_table = {
 					vim.opt_local.shiftwidth = 4
 				end,
 			},
-			{
+			{ -- needed to stop `q` from exiting manpages
 				event = 'FileType',
 				pattern = 'man',
 				callback = function()

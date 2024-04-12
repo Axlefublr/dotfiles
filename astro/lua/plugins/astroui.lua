@@ -1,10 +1,11 @@
-local function fg(colorname)
-	return { fg = Colors[colorname] }
-end
+local function fg(colorname) return { fg = Colors[colorname] } end
 
--- local function bg(colorname)
--- 	return { bg = Colors[colorname] }
--- end
+local function bg(colorname) return { bg = Colors[colorname] } end
+
+local function link(hlgroupname) return { link = hlgroupname } end
+
+-- vim.cmd('highlight default GruvboxDarkerest guifg=#ff007c gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen')
+vim.cmd('highlight GruvboxDarkerest guibg=#1f1e1e')
 
 ---@type LazySpec
 return {
@@ -14,109 +15,118 @@ return {
 		colorscheme = 'gruvbox-material',
 		highlights = {
 			init = {
-				['@string'] = fg('yellow'),
-				['@string.escape'] = fg('grey'),
-				['@comment'] = fg('grey'),
-				['@punctuation.delimiter'] = fg('white'),
-				['@number'] = fg('orange'),
-				['@operator'] = fg('white'),
-				['@type'] = fg('cyan'),
-				['@type.definition'] = fg('cyan'),
-				['@boolean'] = { fg = Colors.cyan, italic = true },
-				['@property'] = fg('mint'),
+				['GruvboxDarkerest'] = bg('#1f1e1e'),
+				['BlueItalic'] = { fg = Colors.cyan, italic = true },
+				['YellowBold'] = { fg = Colors.yellow, bold = true },
+				['OrangeItalic'] = { fg = Colors.orange, italic = true },
 
-				['@lsp.type.property.lua'] = fg('white'),
-				['@lsp.type.comment.lua'] = fg('grey'),
-				['@variable.member.lua'] = fg('white'),
-				['@string.regexp.lua'] = { fg = Colors.yellow, bold = true },
-				['@constant.builtin.lua'] = { fg = Colors.cyan, italic = true },
-				['@module.builtin.lua'] = fg('white'),
+				['Tabline'] = link('Normal'),
+				['TablineFill'] = link('Normal'),
+				['BufTabLineActive'] = link('GruvboxDarkerest'),
 
-				['@constant.fish'] = fg('purple'),
-				['@variable.fish'] = fg('purple'),
-				['@operator.fish'] = fg('orange'),
+				['@string'] = link('Yellow'),
+				['@string.escape'] = link('Grey'),
+				['@comment'] = link('Grey'),
+				['@punctuation.delimiter'] = link('Fg'),
+				['@number'] = link('Orange'),
+				['@operator'] = link('Fg'),
+				['@type'] = link('Blue'),
+				['@type.definition'] = link('Blue'),
+				['@boolean'] = link('BlueItalic'),
+				['@property'] = link('Aqua'),
 
-				['@type.css'] = fg('orange'),
-				['@type.qualifier.css'] = fg('red'),
-				['@tag.attribute.css'] = fg('mint'),
-				['@tag.css'] = fg('purple'),
+				['@lsp.type.property.lua'] = link('Fg'),
+				['@lsp.type.comment.lua'] = link('Grey'),
+				['@variable.member.lua'] = link('Fg'),
+				['@string.regexp.lua'] = link('YellowBold'),
+				['@constant.builtin.lua'] = link('BlueItalic'),
+				['@module.builtin.lua'] = link('Fg'),
+
+				['@constant.fish'] = link('Purple'),
+				['@variable.fish'] = link('Purple'),
+				['@operator.fish'] = link('Orange'),
+
+				['@type.css'] = link('Orange'),
+				['@type.qualifier.css'] = link('Red'),
+				['@tag.attribute.css'] = link('Aqua'),
+				['@tag.css'] = link('Purple'),
 				['@variable.css'] = { fg = Colors.white, italic = true },
-				['@constant.css'] = fg('cyan'),
-				['@attribute.css'] = fg('cyan'), -- [something="something"]
-				['@number.float.css'] = fg('orange'),
+				['@constant.css'] = link('Blue'),
+				['@attribute.css'] = link('Blue'), -- [something="something"]
+				['@number.float.css'] = link('Orange'),
 
-				['@conceal.jsonc'] = fg('white'),
-				['@conceal.json'] = fg('white'),
-				['@constant.builtin.jsonc'] = { fg = Colors.cyan, italic = true },
+				['@conceal.jsonc'] = link('Fg'),
+				['@conceal.json'] = link('Fg'),
+				['@constant.builtin.jsonc'] = link('BlueItalic'),
 
-				['@punctuation.special.bash'] = fg('purple'),
-				['@variable.bash'] = fg('purple'),
+				['@punctuation.special.bash'] = link('Purple'),
+				['@variable.bash'] = link('Purple'),
 				['@constant.bash'] = { fg = Colors.purple, underline = true },
-				['@operator.bash'] = fg('orange'),
+				['@operator.bash'] = link('Orange'),
 
-				['@type.toml'] = fg('red'),
-				['@number.float.toml'] = fg('orange'),
+				['@type.toml'] = link('Red'),
+				['@number.float.toml'] = link('Orange'),
 
-				['@constant.builtin.yaml'] = { fg = Colors.cyan, italic = true },
+				['@constant.builtin.yaml'] = link('BlueItalic'),
 
-				['@module.rasi'] = fg('purple'),
-				['@attribute.rasi'] = fg('cyan'),
-				['@punctuation.special.rasi'] = fg('yellow'),
-				['@type.rasi'] = fg('yellow'),
+				['@module.rasi'] = link('Purple'),
+				['@attribute.rasi'] = link('Blue'),
+				['@punctuation.special.rasi'] = link('Yellow'),
+				['@type.rasi'] = link('Yellow'),
 
-				['@type.ini'] = fg('red'),
+				['@type.ini'] = link('Red'),
 
-				['@variable.member.sql'] = fg('mint'),
-				['@type.builtin.sql'] = { fg = Colors.cyan, italic = true },
-				['@type.sql'] = { fg = Colors.cyan, bold = true },
+				['@variable.member.sql'] = link('Aqua'),
+				['@type.builtin.sql'] = link('BlueItalic'),
+				['@type.sql'] = link('BlueItalic'),
 
-				['confComment'] = fg('grey'),
-				['confString'] = fg('yellow'),
+				['confComment'] = link('Grey'),
+				['confString'] = link('Yellow'),
 
-				['CfgString'] = fg('yellow'),
-				['CfgComment'] = fg('grey'),
-				['CfgSection'] = fg('mint'),
+				['CfgString'] = link('Yellow'),
+				['CfgComment'] = link('Grey'),
+				['CfgSection'] = link('Aqua'),
 
-				['sqlNumber'] = fg('orange'),
-				['sqlString'] = fg('yellow'),
-				['sqlKeyword'] = fg('red'),
+				['sqlNumber'] = link('Orange'),
+				['sqlString'] = link('Yellow'),
+				['sqlKeyword'] = link('Red'),
 
 				['@markup.italic.markdown_inline'] = { italic = true },
 				['@markup.strikethrough.markdown_inline'] = { strikethrough = true },
-				['@markup.raw.markdown_inline'] = fg('yellow'), -- inline code
-				['@markup.raw.delimiter.markdown_inline'] = fg('grey'), -- `` of inline code
-				['@markup.raw.delimiter.markdown'] = fg('grey'), -- ``` of codeblocks
-				['@markup.quote.markdown'] = fg('cyan'),
-				['@markup.list.markdown'] = fg('purple'),
-				['@punctuation.special.markdown'] = fg('purple'), -- >
-				['@markup.link.markdown_inline'] = fg('grey'),
-				['@markup.link.url.markdown_inline'] = fg('mint'),
-				['@markup.raw.block.markdown'] = fg('yellow'),
+				['@markup.raw.markdown_inline'] = link('Yellow'), -- inline code
+				['@markup.raw.delimiter.markdown_inline'] = link('Grey'), -- `` of inline code
+				['@markup.raw.delimiter.markdown'] = link('Grey'), -- ``` of codeblocks
+				['@markup.quote.markdown'] = link('Blue'),
+				['@markup.list.markdown'] = link('Purple'),
+				['@punctuation.special.markdown'] = link('Purple'), -- >
+				['@markup.link.markdown_inline'] = link('Grey'),
+				['@markup.link.url.markdown_inline'] = link('Blue'),
+				['@markup.raw.block.markdown'] = link('Yellow'),
 
-				['@type.qualifier.rust'] = { fg = Colors.orange, italic = true },
-				['@character.rust'] = { fg = Colors.yellow, bold = true },
-				['@variable.member.rust'] = fg('white'),
-				['@module.rust'] = fg('white'),
-				['@punctuation.special.rust'] = fg('white'),
-				['@lsp.type.namespace.rust'] = fg('white'),
-				['@lsp.type.struct.rust'] = fg('cyan'),
-				['@lsp.type.enum.rust'] = fg('mint'),
-				['@lsp.type.enumMember.rust'] = fg('mint'),
-				['@lsp.type.property.rust'] = fg('white'),
-				['@lsp.type.macro.rust'] = fg('green'),
-				['@lsp.type.string.rust'] = fg('yellow'),
+				['@type.qualifier.rust'] = link('OrangeItalic'),
+				['@character.rust'] = link('YellowBold'),
+				['@variable.member.rust'] = link('Fg'),
+				['@module.rust'] = link('Fg'),
+				['@punctuation.special.rust'] = link('Fg'),
+				['@lsp.type.namespace.rust'] = link('Fg'),
+				['@lsp.type.struct.rust'] = link('Blue'),
+				['@lsp.type.enum.rust'] = link('Aqua'),
+				['@lsp.type.enumMember.rust'] = link('Aqua'),
+				['@lsp.type.property.rust'] = link('Fg'),
+				['@lsp.type.macro.rust'] = link('Green'),
+				['@lsp.type.string.rust'] = link('Yellow'),
 				['@lsp.typemod.property.private.rust'] = { fg = Colors.mint, underline = true },
-				['@lsp.type.attributeBracket.rust'] = fg('purple'),
-				['@lsp.type.comment.rust'] = fg('grey'),
-				['@lsp.type.builtinType.rust'] = { fg = Colors.yellow, bold = true },
-				['@lsp.type.interface.rust'] = fg('yellow'),
-				['@lsp.type.operator.rust'] = fg('white'),
-				['@lsp.type.selfTypeKeyword.rust'] = fg('purple'),
-				['@lsp.type.lifetime.rust'] = { fg = Colors.orange, italic = true },
-				['@lsp.mod.controlFlow.rust'] = fg('red'),
+				['@lsp.type.attributeBracket.rust'] = link('Purple'),
+				['@lsp.type.comment.rust'] = link('Grey'),
+				['@lsp.type.builtinType.rust'] = link('YellowBold'),
+				['@lsp.type.interface.rust'] = link('Yellow'),
+				['@lsp.type.operator.rust'] = link('Fg'),
+				['@lsp.type.selfTypeKeyword.rust'] = link('Purple'),
+				['@lsp.type.lifetime.rust'] = link('OrangeItalic'),
+				['@lsp.mod.controlFlow.rust'] = link('Red'),
 				['@lsp.mod.reference.rust'] = { italic = true },
 				['@lsp.mod.mutable.rust'] = { bold = true },
-				['@lsp.type.number.rust'] = fg('orange'),
+				['@lsp.type.number.rust'] = link('Orange'),
 			},
 		},
 		icons = {

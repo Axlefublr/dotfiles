@@ -88,7 +88,7 @@ return {
 				},
 				move = {
 					enable = true,
-					set_jumps = false,
+					set_jumps = true,
 					goto_next_start = {
 						[']f'] = '@function.outer',
 						[']s'] = '@assignment.inner',

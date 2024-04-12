@@ -29,7 +29,7 @@ return {
 		init = function() vim.g.camelcasemotion_key = '<leader>' end, -- only `init` works
 	},
 	{
-		'nmac427/guess-indent.nvim',
+		'NMAC427/guess-indent.nvim',
 		cmd = 'GuessIndent',
 		opts = {
 			auto_cmd = true,
@@ -53,9 +53,8 @@ return {
 	},
 	{
 		'rcarriga/nvim-notify',
-		config = function(plugin, opts)
-			opts.background_colour = '#292828'
-			require('astronvim.plugins.configs.notify')(plugin, opts)
-		end,
+		opts = {
+			background_colour = '#292828'
+		}
 	},
 }
