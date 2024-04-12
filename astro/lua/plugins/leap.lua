@@ -1,0 +1,44 @@
+---@type LazySpec
+return {
+	{
+		'ggandor/leap.nvim',
+		keys = {
+			{ 'q', mode = { 'n', 'x', 'o' } },
+			{ 'Q', mode = { 'n', 'x', 'o' } },
+			{ '<Leader>q', mode = { 'n', 'x', 'o' } },
+			{ '<Leader>Q', mode = { 'n', 'x', 'o' } },
+		},
+		opts = {
+			case_sensitive = false,
+			max_phase_one_targets = 1,
+			-- stylua: ignore
+			equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', "'э", 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю', },
+			-- stylua: ignore
+			labels = { 'f', 'j', 'd', 'k', 's', 'l', 'a', 'e', 'i', 'w', 'o', 'g', 'h', 'r', 'u', 'x', 'c', 'z', '/', 'v', 'm', 't', 'y', 'q', 'p', },
+			safe_labels = {},
+		},
+		config = function(_, opts)
+			require('leap').setup(opts)
+			vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)')
+			vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)')
+			vim.keymap.set({ 'n', 'x', 'o' }, '<Leader>q', '<Plug>(leap-forward-till)')
+			vim.keymap.set({ 'n', 'x', 'o' }, '<Leader>Q', '<Plug>(leap-backward-till)')
+
+			vim.api.nvim_create_autocmd('User', {
+				pattern = 'LeapEnter',
+				callback = function()
+					vim.api.nvim_set_hl(
+						0,
+						'LeapLabelPrimary',
+						{ fg = Colors.black, bg = Colors.shell_pink }
+					)
+					vim.api.nvim_set_hl(
+						0,
+						'LeapLabelSecondary',
+						{ fg = Colors.black, bg = Colors.shell_yellow }
+					)
+				end,
+			})
+		end,
+	},
+}

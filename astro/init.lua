@@ -95,3 +95,5 @@ function Validate_register(register)
 end
 
 require('lazy_setup')
+
+if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end

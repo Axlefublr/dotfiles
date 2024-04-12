@@ -298,6 +298,7 @@ local normal_mappings = {
 	[',s'] = { harp_get },
 	K = { close_try_save },
 	['<Leader>lD'] = { vim.lsp.buf.declaration },
+	['<Leader>lw'] = { vim.lsp.buf.rename },
 	['<Leader>K'] = { function() vim.cmd('q!') end },
 	['""d'] = { function() vim.cmd('tcd ~/prog/dotfiles') end },
 	['""t'] = { function() vim.cmd('tcd ~/prog/noties') end },
@@ -462,7 +463,7 @@ local normal_mappings = {
 	['<Leader>a?'] = '<C-^>',
 	['<Leader>a;'] = '<C-w>o',
 	['<Leader>ai'] = '<C-w>=',
-	['<Leader>aC'] = 'gt',
+	['<Leader>ac'] = 'gt',
 	['<Leader>ax'] = 'gT',
 	['<Leader>aP'] = '<cmd>tabclose<Cr>',
 	['<Leader>ap'] = '<cmd>tabnew<Cr>',
@@ -571,7 +572,9 @@ local normal_visual_pending_mappings = {
 }
 
 local normal_visual_mappings = {
+	['<Leader>lc'] = { vim.lsp.buf.code_action },
 	['<Leader>da'] = { function() vim.cmd('echo getcwd()') end },
+	['<Leader>lf'] = { function() vim.lsp.buf.format({ async = true }) end },
 	['<CR>'] = ':',
 	['!'] = ':!',
 	['!!'] = ':r !',
@@ -586,6 +589,10 @@ local insert_select_mappings = {
 	['<A-h>'] = { function() require('luasnip').jump(-1) end, silent = true },
 }
 
+local normal_insert_mappings = {
+	['<A-u>'] = { vim.lsp.signature_help },
+}
+
 local mappings_table = {
 	n = normal_mappings,
 	x = visual_mappings,
@@ -593,6 +600,10 @@ local mappings_table = {
 	o = pending_mappings,
 	c = command_mappings,
 }
+
+if not mappings_table.s then
+	mappings_table.s = {}
+end
 
 for key, value in pairs(normal_visual_pending_mappings) do
 	mappings_table.n[key] = value
@@ -607,7 +618,12 @@ end
 
 for key, value in pairs(insert_select_mappings) do
 	mappings_table.i[key] = value
-	-- mappings_table.s[key] = value
+	mappings_table.s[key] = value
+end
+
+for key, value in pairs(normal_insert_mappings) do
+	mappings_table.n[key] = value
+	mappings_table.i[key] = value
 end
 
 local opts_table = {
@@ -631,10 +647,11 @@ local opts_table = {
 			relativenumber = true,
 			number = false,
 			spell = false,
-			signcolumn = 'auto', -- sets vim.opt.signcolumn to auto
+			signcolumn = 'no', -- sets vim.opt.signcolumn to auto
 			wrap = true,
 			tabstop = 3,
 			shiftwidth = 3,
+			numberwidth = 3, -- this weirdly means 2
 			expandtab = false,
 			smartindent = true,
 			mouse = 'a',
@@ -728,8 +745,18 @@ local opts_table = {
 				callback = function()
 					vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)', { buffer = true })
 					vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)', { buffer = true })
-					vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)', { buffer = true })
-					vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)', { buffer = true })
+					vim.keymap.set(
+						{ 'n', 'x', 'o' },
+						',q',
+						'<Plug>(leap-forward-till)',
+						{ buffer = true }
+					)
+					vim.keymap.set(
+						{ 'n', 'x', 'o' },
+						',Q',
+						'<Plug>(leap-backward-till)',
+						{ buffer = true }
+					)
 				end,
 			},
 		},

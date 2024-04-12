@@ -1,13 +1,20 @@
 return {
 	'windwp/nvim-autopairs',
+	opts = function(_, opts)
+		local core = require('astrocore')
+		if not opts.fast_wrap then
+			opts.fast_wrap = {}
+		end
+		core.list_insert_unique(opts.fast_wrap.chars, { '<' })
+		return core.extend_tbl(opts, {
+			disable_in_visualblock = false,
+			disable_in_replace_mode = true,
+			ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
+			map_c_w = true,
+			enable_check_bracket_line = true,
+		})
+	end,
 	config = function(_, opts)
-		opts.disable_in_visualblock = false
-		opts.disable_in_replace_mode = true
-		opts.ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=]
-		opts.check_ts = true
-		opts.map_c_w = true
-		opts.enable_check_bracket_line = true
-
 		require('astronvim.plugins.configs.nvim-autopairs')(plugin, opts)
 		local autopairs = require('nvim-autopairs')
 		local rule = require('nvim-autopairs.rule')
@@ -23,8 +30,5 @@ return {
 				return vim.tbl_contains({ '()', '[]', '{}' }, pair)
 			end),
 		})
-		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-		local cmp = require('cmp')
-		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 	end,
 }

@@ -43,7 +43,7 @@
 			"rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
 			"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
 			"rust-analyzer.workspace.symbol.search.kind": "all_symbols",
-			"rust-analyzer.signatureInfo.documentation.enable": false
+			"rust-analyzer.signatureInfo.documentation.enable": false,
 		},
 		"lua_ls": {
 			"Lua.hint.await": true,

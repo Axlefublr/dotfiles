@@ -14,19 +14,8 @@ sudo usermod -aG video $USER
 echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
 
 # Neovim
-mkdir -p ~/.config/nvim
-ln -sf ~/prog/dotfiles/neovim/init.lua ~/.config/nvim/init.lua
-ln -sf ~/prog/dotfiles/neovim/neoconf.jsonc ~/.config/nvim/neoconf.json
-ln -sf ~/prog/dotfiles/neovim ~/.config/nvim/lua
-mkdir -p ~/.config/astro
-for file in ~/prog/dotfiles/astro/*
-    set name (path basename $file)
-    ln -sf $file ~/.config/astro/$name
-end
-for file in ~/prog/dotfiles/astro/.*
-    set name (path basename $file)
-    ln -sf $file ~/.config/astro/$name
-end
+trash-put ~/.config/nvim
+ln -sf ~/prog/dotfiles/astro ~/.config/nvim
 
 # Fish shell
 chsh -s /usr/bin/fish

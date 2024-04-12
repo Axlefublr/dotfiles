@@ -27,7 +27,6 @@ alias --save neomax 'alacritty -T neomax -e nvim' >/dev/null
 alias --save neoline 'alacritty -T neoline -e nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'clear -x && eza --git --git-repos' >/dev/null
-alias --save astro 'NVIM_APPNAME=astro nvim' >/dev/null
 
 function eat
     loago do eat

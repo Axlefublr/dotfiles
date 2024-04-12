@@ -4,7 +4,7 @@ return {
 	'farmergreg/vim-lastplace',
 	{
 		'wellle/targets.vim',
-		init = function() vim.g.targets_nl = 'nh' end, -- for some reason, `config` doesn't work but `init` does
+		init = function() vim.g.targets_nl = 'nh' end,
 	},
 	{
 		'vim-scripts/ReplaceWithRegister',
@@ -22,12 +22,6 @@ return {
 	{
 		'bkad/CamelCaseMotion',
 		init = function() vim.g.camelcasemotion_key = '<leader>' end, -- only `init` works
-	},
-	{
-		'kylechui/nvim-surround',
-		version = '*',
-		event = 'VeryLazy',
-		config = true,
 	},
 	{
 		'windwp/nvim-autopairs',
@@ -118,7 +112,7 @@ return {
 		cmd = 'GuessIndent',
 		opts = {
 			auto_cmd = true,
-			buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
+			buftype_exclude = {
 				'help',
 				'nofile',
 				'terminal',
@@ -129,14 +123,11 @@ return {
 	{
 		'Wansmer/treesj',
 		keys = {
-			{ ',dj', function() require('treesj').join() end },
-			{ ',dk', function() require('treesj').split() end },
-			{ ',dJ', function() require('treesj').join({ split = { recursive = true } }) end },
-			{ ',dK', function() require('treesj').split({ split = { recursive = true } }) end },
+			{ '<Leader>dj', function() require('treesj').join() end },
+			{ '<Leader>dk', function() require('treesj').split() end },
+			{ '<Leader>dJ', function() require('treesj').join({ split = { recursive = true } }) end },
+			{ '<Leader>dK', function() require('treesj').split({ split = { recursive = true } }) end },
 		},
 		dependencies = { 'nvim-treesitter/nvim-treesitter' },
-		opts = {
-			use_default_keymaps = false,
-		},
 	},
 }
