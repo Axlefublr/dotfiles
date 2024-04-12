@@ -305,6 +305,7 @@ local normal_mappings = {
 	['""b'] = { function() vim.cmd('tcd ~/prog/backup') end },
 	['""c'] = { function() vim.cmd('tcd ~/prog/other/astrocommunity') end },
 	['""a'] = { function() vim.cmd('tcd ~/prog/other/AstroNvim') end },
+	['""e'] = { function() vim.cmd('tcd ~/prog/other/astrotemplate') end },
 	['<Leader>dm'] = { function() vim.cmd('messages') end },
 	gy = { function() vim.cmd('%y+') end },
 	['<Leader>g'] = { move_default_to_other },
@@ -589,8 +590,8 @@ local insert_select_mappings = {
 	['<A-h>'] = { function() require('luasnip').jump(-1) end, silent = true },
 }
 
-local normal_insert_mappings = {
-	['<A-u>'] = { vim.lsp.signature_help },
+local normal_insert_select_mappings = {
+	['<A-u>'] = { vim.lsp.buf.signature_help },
 }
 
 local mappings_table = {
@@ -621,9 +622,10 @@ for key, value in pairs(insert_select_mappings) do
 	mappings_table.s[key] = value
 end
 
-for key, value in pairs(normal_insert_mappings) do
+for key, value in pairs(normal_insert_select_mappings) do
 	mappings_table.n[key] = value
 	mappings_table.i[key] = value
+	mappings_table.s[key] = value
 end
 
 local opts_table = {
@@ -652,6 +654,7 @@ local opts_table = {
 			tabstop = 3,
 			shiftwidth = 3,
 			numberwidth = 3, -- this weirdly means 2
+			scrolloff = 999,
 			expandtab = false,
 			smartindent = true,
 			mouse = 'a',
@@ -701,10 +704,10 @@ local opts_table = {
 	},
 	autocmds = {
 		everything = {
-			{
-				event = 'CursorMoved',
-				command = 'normal! zz',
-			},
+			-- {
+			-- 	event = 'CursorMoved',
+			-- 	command = 'normal! zz',
+			-- },
 			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = '*.XCompose',

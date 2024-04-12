@@ -11,4 +11,5 @@ return {
 	{ 'mrjones2014/smart-splits.nvim', enabled = false },
 	{ 's1n7ax/nvim-window-picker', enabled = false },
 	-- { 'stevearc/aerial.nvim', enabled = false },
+	{ 'RRethy/vim-illuminate', enabled = false },
 }

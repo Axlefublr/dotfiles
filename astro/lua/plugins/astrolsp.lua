@@ -4,7 +4,6 @@ return {
 	---@param opts AstroLSPOpts
 	opts = function(_, opts)
 		opts.mappings = nil
-		opts.autocmds.lsp_document_highlight = nil
 		return require('astrocore').extend_tbl(opts, {
 			features = {
 				autoformat = false,
@@ -23,18 +22,18 @@ return {
 				},
 				timeout_ms = 1000, -- default format timeout
 			},
-			config = {
-				rust_analyzer = {
-					settings = {
-						['rust-analyzer'] = {
-							cargo = {
-								extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev' },
-								extraArgs = { '--profile', 'rust-analyzer' },
-							},
-						},
-					},
-				},
-			},
+			-- config = {
+			-- 	rust_analyzer = {
+			-- 		settings = {
+			-- 			['rust-analyzer'] = {
+			-- 				cargo = {
+			-- 					extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev' },
+			-- 					extraArgs = { '--profile', 'rust-analyzer' },
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 		})
 	end,
 }

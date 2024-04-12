@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
 	'hrsh7th/nvim-cmp',
 	opts = function(_, opts)
@@ -13,7 +14,9 @@ return {
 					scrollbar = false,
 					border = false
 				},
-				documentation = false
+				documentation = {
+					border = false
+				}
 			},
 			view = {
 				docs = {
