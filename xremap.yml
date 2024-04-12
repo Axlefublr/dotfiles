@@ -1020,7 +1020,6 @@ keymap:
     mode: [default]
     remap:
       Backspace: { launch: [notify-send, -t, '1000', 'use capslock-enter instead'] }
-      Backslash: { launch: [notify-send, -t, '1000', 'use capslock-slash instead'] }
       CapsLock-f: tab
       CapsLock-Enter: backspace
       CapsLock-Alt-Enter: ctrl-backspace
@@ -1034,8 +1033,6 @@ keymap:
       CapsLock-g: ctrl-a
       CapsLock-Alt-d: ctrl-a
       CapsLock-q: enter
-      CapsLock-Slash: backslash
-      CapsLock-Comma: shift-backslash
 
       # for a tldr on the following couple of blocks,
       # what I'm doing here is a vim-like remap
