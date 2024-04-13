@@ -59,6 +59,7 @@ return {
 				['@function.lua'] = link('Green'),
 				['@lsp.type.method.lua'] = link('Green'),
 				['@function.method.call.lua'] = link('Green'),
+				['@function.builtin.lua'] = link('Green'),
 
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
@@ -166,8 +167,35 @@ return {
 				breadcrumbs = true,
 			},
 			separators = {
-				breadcrumbs = ' > '
+				breadcrumbs = ' > ',
+				path = '/'
 			},
+			modes = {
+				['n'] = {
+					'N',
+					'normal'
+				},
+				['i'] = {
+					'I',
+					'insert'
+				},
+				['v'] = {
+					'V',
+					'visual'
+				},
+				['V'] = {
+					'L',
+					'visual'
+				},
+				[''] = {
+					'B',
+					'visual'
+				},
+				['c'] = {
+					'C',
+					'command'
+				}
+			}
 			-- colors = {
 			-- 	file_info_bg = '#292828'
 			-- }
