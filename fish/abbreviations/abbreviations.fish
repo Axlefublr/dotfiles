@@ -169,6 +169,7 @@ abbr -a slur 'systemctl --user daemon-reload'
 abbr -a slus 'systemctl --user status'
 abbr -a slup 'systemctl --user stop'
 
+abbr -a f 'nvim .'
 abbr -a v 'nvim'
 
 abbr -a ~ 'z ~ && clear -x'
