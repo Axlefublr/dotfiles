@@ -4,7 +4,6 @@ return {
 	'farmergreg/vim-lastplace',
 	{
 		'sainnhe/gruvbox-material',
-		lazy = false,
 		priority = 1000,
 	},
 	{
@@ -21,12 +20,12 @@ return {
 	{
 		'junegunn/vim-easy-align',
 		keys = {
-			{ mode = '', 'ga', '<Plug>(EasyAlign)' },
+			{ mode = { 'n', 'x' }, 'ga', '<Plug>(EasyAlign)' },
 		},
 	},
 	{
 		'bkad/CamelCaseMotion',
-		init = function() vim.g.camelcasemotion_key = '<leader>' end, -- only `init` works
+		init = function() vim.g.camelcasemotion_key = '<Leader>' end, -- only `init` works
 	},
 	{
 		'NMAC427/guess-indent.nvim',

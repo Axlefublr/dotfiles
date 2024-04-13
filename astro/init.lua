@@ -17,6 +17,7 @@ end
 
 Colors = {
 	shell_pink = '#ffafd7',
+	shell_purple = '#af87ff',
 	shell_yellow = '#ffd75f',
 	shell_cyan = '#00d7ff',
 	shell_green = '#87ff5f',
@@ -96,3 +97,4 @@ end
 require('lazy_setup')
 
 if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
+-- local argv = vim.api.nvim_get_vvar('argv')

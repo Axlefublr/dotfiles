@@ -1,11 +1,8 @@
-local function fg(colorname) return { fg = Colors[colorname] } end
+-- local function fg(colorname) return { fg = Colors[colorname] } end
 
-local function bg(colorname) return { bg = Colors[colorname] } end
+-- local function bg(colorname) return { bg = Colors[colorname] } end
 
 local function link(hlgroupname) return { link = hlgroupname } end
-
--- vim.cmd('highlight default GruvboxDarkerest guifg=#ff007c gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen')
-vim.cmd('highlight GruvboxDarkerest guibg=#1f1e1e')
 
 ---@type LazySpec
 return {
@@ -15,8 +12,6 @@ return {
 		colorscheme = 'gruvbox-material',
 		highlights = {
 			init = {
-				['GruvboxDarkerest'] = bg('#1f1e1e'),
-
 				['RedBold'] = { fg = Colors.red, bold = true },
 				['OrangeBold'] = { fg = Colors.orange, bold = true },
 				['YellowBold'] = { fg = Colors.yellow, bold = true },
@@ -36,6 +31,7 @@ return {
 				['Tabline'] = link('Normal'),
 				['TablineFill'] = link('Normal'),
 				['BufTabLineActive'] = link('GruvboxDarkerest'),
+				['StatusLine'] = link('Normal'),
 
 				['@string'] = link('Yellow'),
 				['@string.escape'] = link('Grey'),
@@ -161,6 +157,10 @@ return {
 			LSPLoading9 = '⠇',
 			LSPLoading10 = '⠏',
 			Selected = '󱕅 ',
+			GitBranch = '',
+			-- GitAdd = '󰄬',
+			-- GitChange = '',
+			-- GitDelete = '󰍴',
 		},
 		status = {
 			icon_highlights = {
@@ -168,37 +168,40 @@ return {
 			},
 			separators = {
 				breadcrumbs = ' > ',
-				path = '/'
+				path = '/',
+				left = { '', ' ' },
+				right = { ' ', '' },
+				center = { ' ', ' ' },
 			},
 			modes = {
 				['n'] = {
 					'N',
-					'normal'
+					'normal',
 				},
 				['i'] = {
 					'I',
-					'insert'
+					'insert',
 				},
 				['v'] = {
 					'V',
-					'visual'
+					'visual',
 				},
 				['V'] = {
 					'L',
-					'visual'
+					'visual',
 				},
 				[''] = {
 					'B',
-					'visual'
+					'visual',
 				},
 				['c'] = {
 					'C',
-					'command'
-				}
-			}
-			-- colors = {
-			-- 	file_info_bg = '#292828'
-			-- }
-		}
+					'command',
+				},
+			},
+			colors = {
+				git_branch_fg = Colors.shell_purple,
+			},
+		},
 	},
 }

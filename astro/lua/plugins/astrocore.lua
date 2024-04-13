@@ -75,9 +75,7 @@ local function another_quickfix_entry(to_next, buffer)
 	local current_buffer = vim.api.nvim_get_current_buf()
 	local current_line = vim.api.nvim_win_get_cursor(0)[1]
 
-	if
-		qflist_index == 1 and (qflist[1].bufnr ~= current_buffer or qflist[1].lnum ~= current_line)
-	then -- If you do have a quickfix list, the first index is automatically selected, meaning that the first time you try to `cnext`, you go to the second quickfix entry, even though you have never actually visited the first one. This is what I mean when I say vim has a bad foundation and is terrible to build upon. We need a modal editor with a better foundation, with no strange behavior like this!
+	if qflist_index == 1 and (qflist[1].bufnr ~= current_buffer or qflist[1].lnum ~= current_line) then -- If you do have a quickfix list, the first index is automatically selected, meaning that the first time you try to `cnext`, you go to the second quickfix entry, even though you have never actually visited the first one. This is what I mean when I say vim has a bad foundation and is terrible to build upon. We need a modal editor with a better foundation, with no strange behavior like this!
 		vim.cmd('cfirst')
 		return
 	end
@@ -607,9 +605,7 @@ local mappings_table = {
 	c = command_mappings,
 }
 
-if not mappings_table.s then
-	mappings_table.s = {}
-end
+if not mappings_table.s then mappings_table.s = {} end
 
 for key, value in pairs(normal_visual_pending_mappings) do
 	mappings_table.n[key] = value
@@ -714,6 +710,10 @@ local opts_table = {
 				command = 'normal! zz',
 			},
 			{
+				event = { 'CursorMoved' },
+				callback = function() vim.schedule(vim.cmd.redrawtabline) end,
+			},
+			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = '*.XCompose',
 				command = 'setfiletype xcompose',
@@ -753,18 +753,8 @@ local opts_table = {
 				callback = function()
 					vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)', { buffer = true })
 					vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)', { buffer = true })
-					vim.keymap.set(
-						{ 'n', 'x', 'o' },
-						',q',
-						'<Plug>(leap-forward-till)',
-						{ buffer = true }
-					)
-					vim.keymap.set(
-						{ 'n', 'x', 'o' },
-						',Q',
-						'<Plug>(leap-backward-till)',
-						{ buffer = true }
-					)
+					vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)', { buffer = true })
+					vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)', { buffer = true })
 				end,
 			},
 		},
