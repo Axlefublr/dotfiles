@@ -63,6 +63,7 @@ return {
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
 				['@operator.fish'] = link('Orange'),
+				['@function.call.fish'] = link('Green'),
 
 				['@type.css'] = link('Orange'),
 				['@type.qualifier.css'] = link('Red'),

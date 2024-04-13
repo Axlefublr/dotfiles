@@ -1,3 +1,5 @@
+abbr -a .. --regex '^\.\.+$' --function multiple_dot
+
 abbr --set-cursor -a z 'z %'
 abbr --set-cursor -a gmm 'git commit -m "%" && clear -x'
 abbr --set-cursor -a gp 'git push % && clear -x'

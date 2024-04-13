@@ -303,3 +303,8 @@ function c
     end
 end
 funcsave c >/dev/null
+
+function multiple_dot
+    echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+funcsave multiple_dot >/dev/null
