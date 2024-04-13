@@ -353,6 +353,7 @@ local normal_mappings = {
 	[',8'] = { function() numbered_set(8) end },
 	[',9'] = { function() numbered_set(9) end },
 	[',0'] = { function() numbered_set(10) end },
+	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
 	['<Esc>'] = {
 		function()
 			vim.cmd('noh')

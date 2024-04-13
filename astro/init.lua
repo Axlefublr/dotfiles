@@ -16,8 +16,6 @@ if not pcall(require, 'lazy') then
 end
 
 Colors = {
-	smooth_black = '#0f0f0f',
-
 	shell_pink = '#ffafd7',
 	shell_yellow = '#ffd75f',
 	shell_cyan = '#00d7ff',
@@ -26,14 +24,15 @@ Colors = {
 	shell_red = '#ff2930',
 
 	black = '#0f0f0f',
-	grey = '#928374',
-	yellow = '#d8a657',
-	white = '#d4be98',
-	orange = '#e78a4e',
-	cyan = '#7daea3',
-	mint = '#89b482',
-	purple = '#d3869b',
 	red = '#ea6962',
+	orange = '#e78a4e',
+	yellow = '#d8a657',
+	green = '#a9b665',
+	mint = '#89b482',
+	cyan = '#7daea3',
+	purple = '#d3869b',
+	white = '#d4be98',
+	grey = '#928374',
 
 	darkerest = '#1f1e1e',
 	darkness = '#1a1919',

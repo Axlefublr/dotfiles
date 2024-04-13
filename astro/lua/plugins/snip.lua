@@ -116,7 +116,7 @@ local snippets = function()
 
 	local git_commit_snippets = {
 		s('fish', { t('fish: ') }),
-		s('nvim', { t('nvim: ') }),
+		s('astro', { t('astro: ') }),
 		s('awesome', { t('awesome: ') }),
 		s('compose', { t('compose: ') }),
 		s('xremap', { t('xremap: ') }),

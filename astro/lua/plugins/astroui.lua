@@ -54,6 +54,11 @@ return {
 				['@string.regexp.lua'] = link('YellowBold'),
 				['@constant.builtin.lua'] = link('BlueItalic'),
 				['@module.builtin.lua'] = link('Fg'),
+				['@lsp.type.function.lua'] = link('Green'),
+				['@function.call.lua'] = link('Green'),
+				['@function.lua'] = link('Green'),
+				['@lsp.type.method.lua'] = link('Green'),
+				['@function.method.call.lua'] = link('Green'),
 
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
@@ -155,5 +160,16 @@ return {
 			LSPLoading10 = '⠏',
 			Selected = '󱕅 ',
 		},
+		status = {
+			icon_highlights = {
+				breadcrumbs = true,
+			},
+			separators = {
+				breadcrumbs = ' > '
+			},
+			-- colors = {
+			-- 	file_info_bg = '#292828'
+			-- }
+		}
 	},
 }
