@@ -158,8 +158,8 @@ local function remaps(telescope)
 	vim.keymap.set('n', '<Leader>je', builtin.git_status)
 	vim.keymap.set('n', '<Leader>jr', builtin.git_stash)
 	vim.keymap.set('n', '<Leader>j\\', builtin.builtin)
-	vim.keymap.set('n', '<Leader>jk', builtin.buffers)
-	vim.keymap.set('n', '<Leader>jK', builtin.oldfiles)
+	vim.keymap.set('n', '<Leader>jw', builtin.buffers)
+	vim.keymap.set('n', '<Leader>jW', builtin.oldfiles)
 	vim.keymap.set('n', '<Leader>j<cr>', builtin.commands)
 	vim.keymap.set('n', '<Leader>jy', builtin.command_history)
 	vim.keymap.set('n', '<Leader>jm', builtin.man_pages)
@@ -323,6 +323,10 @@ return {
 						ignore_current_buffer = false,
 						sort_lastused = true,
 						sort_mru = true,
+						initial_mode = 'normal',
+						preview = {
+							hide_on_startup = false,
+						},
 					},
 					quickfix = {
 						show_line = false,

@@ -236,13 +236,12 @@ local function harp_get(edit_command)
 		local output = file:read('l')
 		if #output > 0 then
 			vim.cmd((edit_command or 'edit') .. ' ' .. output)
-			print('harp ' .. register)
 		else
-			print(register .. ' is empty')
+			vim.notify(register .. ' is empty')
 		end
 		file:close()
 	else
-		print(register .. ' is empty')
+		vim.notify(register .. ' is empty')
 	end
 end
 
@@ -256,7 +255,7 @@ local function harp_set()
 	if file then
 		file:write(full_path)
 		file:close()
-		print('prah ' .. register)
+		vim.notify('set harp ' .. register)
 	end
 end
 
