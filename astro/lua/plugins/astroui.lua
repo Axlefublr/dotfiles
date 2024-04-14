@@ -43,6 +43,7 @@ return {
 				['@type.definition'] = link('Blue'),
 				['@boolean'] = link('BlueItalic'),
 				['@property'] = link('Aqua'),
+				['@function'] = link('Green'),
 
 				['@lsp.type.property.lua'] = link('Fg'),
 				['@lsp.type.comment.lua'] = link('Grey'),
@@ -146,6 +147,14 @@ return {
 				['@lsp.mod.reference.rust'] = { italic = true },
 				['@lsp.mod.mutable.rust'] = { bold = true },
 				['@lsp.type.number.rust'] = link('Orange'),
+				['@lsp.type.function.rust'] = link('Green'),
+				-- ['@function.rust'] = link('Green'),
+				['@function.call.rust'] = link('Green'),
+				['@function.macro.rust'] = link('Green'),
+				['@lsp.type.method.rust'] = link('Green'),
+				['@lsp.type.decorator.rust'] = link('Green'),
+				['@type.builtin.rust'] = link('YellowBold'),
+
 			},
 		},
 		icons = {

@@ -13,38 +13,6 @@
 		}
 	},
 	"lspconfig": {
-		"rust_analyzer": {
-			"rust-analyzer.rustfmt.extraArgs": [
-				"+nightly"
-			],
-			"rust-analyzer.assist.expressionFillDefault": "default",
-			"rust-analyzer.inlayHints.typeHints.enable": true,
-			"rust-analyzer.cargo.features": "all",
-			"rust-analyzer.check.command": "clippy",
-			"rust-analyzer.completion.fullFunctionSignatures.enable": true,
-			"rust-analyzer.procMacro.enable": true,
-			"rust-analyzer.inlayHints.bindingModeHints.enable": true,
-			"rust-analyzer.inlayHints.closingBraceHints.minLines": 11,
-			"rust-analyzer.inlayHints.closureCaptureHints.enable": true,
-			"rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
-			"rust-analyzer.inlayHints.closureStyle": "rust_analyzer",
-			"rust-analyzer.inlayHints.discriminantHints.enable": "fieldless",
-			"rust-analyzer.inlayHints.parameterHints.enable": true,
-			"rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
-			"rust-analyzer.inlayHints.renderColons": false,
-			"rust-analyzer.inlayHints.maxLength": null,
-			"rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "reborrow",
-			"rust-analyzer.inlayHints.expressionAdjustmentHints.mode": "prefer_postfix",
-			"rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
-			"rust-analyzer.lens.run.enable": false,
-			"rust-analyzer.semanticHighlighting.operator.specialization.enable": true,
-			"rust-analyzer.semanticHighlighting.punctuation.enable": true,
-			"rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": false,
-			"rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
-			"rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
-			"rust-analyzer.workspace.symbol.search.kind": "all_symbols",
-			"rust-analyzer.signatureInfo.documentation.enable": false,
-		},
 		"lua_ls": {
 			"Lua.hint.await": true,
 			"Lua.hint.enable": true,

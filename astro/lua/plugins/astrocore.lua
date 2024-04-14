@@ -3,6 +3,7 @@ local numbered = { '', '', '', '', '', '', '', '', '', '' }
 
 local function trim_trailing_whitespace()
 	local search = vim.fn.getreg('/')
+	---@diagnostic disable-next-line: param-type-mismatch
 	pcall(vim.cmd, '%s`\\v\\s+$')
 	vim.fn.setreg('/', search)
 end
@@ -10,10 +11,12 @@ end
 local function save()
 	trim_trailing_whitespace()
 	vim.cmd('nohl')
+	---@diagnostic disable-next-line: param-type-mismatch
 	if vim.bo.modified then pcall(vim.cmd, 'write') end
 end
 
 local function close_try_save()
+	---@diagnostic disable-next-line: param-type-mismatch
 	if vim.bo.modified then pcall(vim.cmd, 'write') end
 	vim.cmd('q!')
 end
@@ -83,15 +86,19 @@ local function another_quickfix_entry(to_next, buffer)
 	local status = true
 	if to_next then
 		if buffer then
+			---@diagnostic disable-next-line: param-type-mismatch
 			status, _ = pcall(vim.cmd, 'cnfile')
 		else
+			---@diagnostic disable-next-line: param-type-mismatch
 			status, _ = pcall(vim.cmd, 'cnext')
 		end
 		if not status then vim.cmd('cfirst') end
 	else
 		if buffer then
+			---@diagnostic disable-next-line: param-type-mismatch
 			status, _ = pcall(vim.cmd, 'cpfile')
 		else
+			---@diagnostic disable-next-line: param-type-mismatch
 			status, _ = pcall(vim.cmd, 'cprev')
 		end
 		if not status then vim.cmd('clast') end
@@ -425,6 +432,7 @@ local normal_mappings = {
 	yp = 'yyp',
 	yP = 'yyP',
 	['&'] = ':%s`\\V',
+	['<Leader>lP'] = ":lua =require('astrocore').plugin_opts('')<Left><Left>",
 	gJ = 'j0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>du'] = 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK, -- Move line to the top
@@ -552,6 +560,10 @@ local command_mappings = {
 	["<A-'><CR>"] = '<C-r>:',
 }
 
+local command_insert_mappings = {
+	['<A-f>'] = '<C-f>',
+}
+
 local normal_visual_pending_mappings = {
 	H = { function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end },
 	L = { function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end },
@@ -609,6 +621,7 @@ local mappings_table = {
 	i = insert_mappings,
 	o = pending_mappings,
 	c = command_mappings,
+	['!'] = command_insert_mappings,
 }
 
 if not mappings_table.s then mappings_table.s = {} end
@@ -737,6 +750,7 @@ local opts_table = {
 			{
 				event = { 'BufLeave', 'FocusLost' },
 				callback = function()
+					---@diagnostic disable-next-line: param-type-mismatch
 					if vim.bo.modified then pcall(vim.cmd, 'write') end
 				end,
 			},
