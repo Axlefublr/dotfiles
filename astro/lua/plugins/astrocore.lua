@@ -1,5 +1,5 @@
 local killring = setmetatable({}, { __index = table })
-local numbered = setmetatable({ '', '', '', '', '', '', '', '', '', '' }, { __index = table })
+local numbered = { '', '', '', '', '', '', '', '', '', '' }
 
 local function trim_trailing_whitespace()
 	local search = vim.fn.getreg('/')
@@ -101,62 +101,66 @@ end
 function killring_push_tail()
 	local register_contents = vim.fn.getreg('"')
 	if register_contents == '' then
-		print('default register is empty')
+		vim.notify('default register is empty')
 		return
 	end
 	killring:insert(1, register_contents)
-	print('pushed')
+	vim.notify('pushed')
 end
 
 function killring_push()
 	local register_contents = vim.fn.getreg('"')
 	if register_contents == '' then
-		print('default register is empty')
+		vim.notify('default register is empty')
 		return
 	end
 	killring:insert(register_contents)
-	print('pushed')
+	vim.notify('pushed')
 end
 
 function killring_pop_tail(insert)
 	if #killring <= 0 then
-		print('killring empty')
+		vim.notify('killring empty')
 		return
 	end
 	local first_index = killring:remove(1)
-	vim.fn.setreg('"', first_index)
+	vim.fn.setreg(THROWAWAY_REGISTER, first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>"')
+			FeedKeysInt('<C-r>' .. THROWAWAY_REGISTER)
 		else
-			FeedKeysInt('<C-r><C-p>"')
+			FeedKeysInt('<C-r><C-p>' .. THROWAWAY_REGISTER)
 		end
+	else
+		FeedKeysInt('"' .. THROWAWAY_REGISTER .. 'p')
 	end
-	print('got tail')
+	vim.notify('got tail')
 end
 
 function killring_pop(insert)
 	if #killring <= 0 then
-		print('killring empty')
+		vim.notify('killring empty')
 		return
 	end
 	local first_index = killring:remove(#killring)
-	vim.fn.setreg('"', first_index)
+	vim.fn.setreg(THROWAWAY_REGISTER, first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<c-r>"')
+			FeedKeysInt('<C-r>' .. THROWAWAY_REGISTER)
 		else
-			FeedKeysInt('<c-r><c-p>"')
+			FeedKeysInt('<C-r><C-p>' .. THROWAWAY_REGISTER)
 		end
+	else
+		FeedKeysInt('"' .. THROWAWAY_REGISTER .. 'p')
 	end
-	print('got nose')
+	vim.notify('got nose')
 end
 
 function killring_compile()
 	local compiled_killring = killring:concat('')
 	vim.fn.setreg('"', compiled_killring)
 	killring = setmetatable({}, { __index = table })
-	print('killring compiled')
+	vim.notify('killring compiled')
 end
 
 function killring_compile_reversed()
@@ -164,7 +168,7 @@ function killring_compile_reversed()
 	local compiled_killring = reversed_killring:concat('')
 	vim.fn.setreg('"', compiled_killring)
 	killring = setmetatable({}, { __index = table })
-	print('killring compiled in reverse')
+	vim.notify('killring compiled in reverse')
 end
 
 function search_for_register(direction, death)
@@ -176,34 +180,36 @@ function search_for_register(direction, death)
 	FeedKeysInt('<cr>')
 end
 
-local function numbered_insert(index) numbered_get(index, true) end
-local function numbered_command(index) numbered_get(index, 'command') end
-
-function numbered_set(index)
+local function numbered_set(index)
 	local register_contents = vim.fn.getreg('"')
 	if register_contents == '' then
-		print('default register empty')
+		vim.notify('default register empty')
 		return
 	end
 	numbered[index] = register_contents
-	print('stabbed')
+	vim.notify('stabbed')
 end
 
-function numbered_get(index, insert)
+local function numbered_get(index, insert)
 	if numbered[index] == '' then
-		print(index .. ' is empty')
+		vim.notify(index .. ' is empty')
 		return
 	end
-	vim.fn.setreg('"', numbered[index])
+	vim.fn.setreg(THROWAWAY_REGISTER, numbered[index])
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<c-r>"')
+			FeedKeysInt('<c-r>' .. THROWAWAY_REGISTER)
 		else
-			FeedKeysInt('<c-r><c-p>"')
+			FeedKeysInt('<c-r><c-p>' .. THROWAWAY_REGISTER)
 		end
+	else
+		FeedKeysInt('"' .. THROWAWAY_REGISTER .. 'p')
 	end
-	print('grabbed')
+	vim.notify('grabbed')
 end
+
+local function numbered_insert(index) numbered_get(index, true) end
+local function numbered_command(index) numbered_get(index, 'command') end
 
 -- I call it death because that's where we end up in. Just like /e or no /e
 local function search_for_selection(direction, death)
@@ -300,8 +306,9 @@ local normal_mappings = {
 	['""d'] = { function() vim.cmd('tcd ~/prog/dotfiles') end },
 	['""t'] = { function() vim.cmd('tcd ~/prog/noties') end },
 	['""b'] = { function() vim.cmd('tcd ~/prog/backup') end },
-	['""c'] = { function() vim.cmd('tcd ~/prog/other/astrocommunity') end },
-	['""a'] = { function() vim.cmd('tcd ~/prog/other/AstroNvim') end },
+	['""c'] = { function() vim.cmd('tcd ~/.local/share/nvim/lazy/astrocommunity') end },
+	['""u'] = { function() vim.cmd('tcd ~/.local/share/nvim/lazy/astroui') end },
+	['""a'] = { function() vim.cmd('tcd ~/.local/share/nvim/lazy/AstroNvim') end },
 	['""e'] = { function() vim.cmd('tcd ~/prog/other/astrotemplate') end },
 	['<Leader>dm'] = { function() vim.cmd('messages') end },
 	gy = { function() vim.cmd('%y+') end },
@@ -340,16 +347,16 @@ local normal_mappings = {
 	["'8"] = { function() numbered_get(8) end },
 	["'9"] = { function() numbered_get(9) end },
 	["'0"] = { function() numbered_get(10) end },
-	[',1'] = { function() numbered_set(1) end },
-	[',2'] = { function() numbered_set(2) end },
-	[',3'] = { function() numbered_set(3) end },
-	[',4'] = { function() numbered_set(4) end },
-	[',5'] = { function() numbered_set(5) end },
-	[',6'] = { function() numbered_set(6) end },
-	[',7'] = { function() numbered_set(7) end },
-	[',8'] = { function() numbered_set(8) end },
-	[',9'] = { function() numbered_set(9) end },
-	[',0'] = { function() numbered_set(10) end },
+	['<Leader>1'] = { function() numbered_set(1) end },
+	['<Leader>2'] = { function() numbered_set(2) end },
+	['<Leader>3'] = { function() numbered_set(3) end },
+	['<Leader>4'] = { function() numbered_set(4) end },
+	['<Leader>5'] = { function() numbered_set(5) end },
+	['<Leader>6'] = { function() numbered_set(6) end },
+	['<Leader>7'] = { function() numbered_set(7) end },
+	['<Leader>8'] = { function() numbered_set(8) end },
+	['<Leader>9'] = { function() numbered_set(9) end },
+	['<Leader>0'] = { function() numbered_set(10) end },
 	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
 	['<Esc>'] = {
 		function()
@@ -398,7 +405,7 @@ local normal_mappings = {
 			end
 		end,
 	},
-	['<Leader>le'] = {
+	['gh'] = {
 		function()
 			vim.lsp.buf.hover()
 			vim.lsp.buf.hover()

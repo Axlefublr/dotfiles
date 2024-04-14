@@ -61,6 +61,7 @@ return {
 				['@variable.fish'] = link('Purple'),
 				['@operator.fish'] = link('Orange'),
 				['@function.call.fish'] = link('Green'),
+				['@function.builtin.fish'] = link('Green'),
 
 				['@type.css'] = link('Orange'),
 				['@type.qualifier.css'] = link('Red'),
@@ -200,7 +201,7 @@ return {
 				},
 			},
 			colors = {
-				git_branch_fg = Colors.shell_purple,
+				git_branch_fg = Colors.purple,
 			},
 		},
 	},

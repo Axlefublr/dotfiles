@@ -65,6 +65,13 @@ function ghrclc
 end
 funcsave ghrclc >/dev/null
 
+function ghrfc
+    gh repo fork $argv --clone --default-branch-only -- --depth 1
+    z (path basename $argv[1])
+    clear -x
+end
+funcsave ghrfc >/dev/null
+
 function xrestart
     killall xremap
     xremap --mouse ~/prog/dotfiles/xremap.yml &>/tmp/log/xremap.txt & disown

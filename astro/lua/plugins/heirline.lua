@@ -14,8 +14,7 @@ return {
 		table.insert(opts.tabline, 5, {
 			provider = function()
 				local cwd = vim.fn.getcwd()
-				---@diagnostic disable-next-line: param-type-mismatch
-				return cwd:gsub(os.getenv('HOME'), '~') .. ' '
+				return ' ' .. vim.fn.fnamemodify(cwd, ':~') .. ' '
 			end,
 		})
 
@@ -41,9 +40,6 @@ return {
 		})
 		opts.statusline[12] = status.component.nav({
 			scrollbar = false,
-			-- ruler = {
-			-- 	pad_ruler = { line = 1, char = 1 },
-			-- },
 		})
 
 		table.remove(opts.statusline, 11)
