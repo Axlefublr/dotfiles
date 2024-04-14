@@ -160,7 +160,7 @@ keymap:
       Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
       n: { launch: [awesome-client, 'awful.mouse.client.move(client.focus)'] }
-      b: { launch: [awesome-client, 'awful.mouse.client.resize(client.focus)'] }
+      y: { launch: [awesome-client, 'awful.mouse.client.resize(client.focus)'] }
 
   - name: Mouse mode
     mode: [mouse, resize, move]
@@ -289,7 +289,7 @@ keymap:
   - name: Clipboard Manager
     exact_match: true
     remap:
-      Super-Apostrophe: { launch: [fish, -c, runner_clipster] }
+      Super-Apostrophe: { launch: [rofi-copyq] }
 
   - name: Global chord hotkeys
     exact_match: true

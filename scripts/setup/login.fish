@@ -15,7 +15,7 @@ ydotoold 2>>/dev/shm/user_log.txt & disown
 ollama serve 2>>/dev/shm/user_log.txt & disown
 picom 2>>/dev/shm/user_log.txt & disown
 gromit.fish 2>>/dev/shm/user_log.txt & disown
-clipster --daemon 2>>/dev/shm/user_log.txt & disown
+copyq 2>>/dev/shm/user_log.txt & disown
 xset s off -dpms 2>>/dev/shm/user_log.txt
 redshift -O 5700 2>>/dev/shm/user_log.txt
 playerctld daemon 2>>/dev/shm/user_log.txt

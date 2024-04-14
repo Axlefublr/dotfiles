@@ -95,10 +95,6 @@ ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
 mkdir -p ~/.config/zathura
 ln -sf ~/prog/dotfiles/zathura ~/.config/zathura/zathurarc
 
-# Clipster
-mkdir -p ~/.config/clipster
-ln -sf ~/prog/dotfiles/clipster.ini ~/.config/clipster/clipster.ini
-
 # Display
 ln -sf ~/prog/dotfiles/desktop/display.desktop ~/.local/share/applications/display.desktop
 xdg-mime default display.desktop image/svg+xml

@@ -78,36 +78,6 @@ function runner_symbol_name
 end
 funcsave runner_symbol_name >/dev/null
 
-function runner_clipster
-    set items
-    clipster -co0n 0 | while read -z item
-        set items $items $item
-    end
-    set rofified
-    set index 0
-    for item in $items
-        set index (math $index + 1)
-        set -l has_newlines ''
-        if string match -qr '\\n' $item
-            set has_newlines '⏎'
-        end
-        set rofified $rofified $index\ (string match -gr '^[\\t ]*([^\\n]*).*' $item)$has_newlines
-    end
-    set picked (prli $rofified | rofi -dmenu 2> /dev/null ; echo $status)
-    if test $picked[-1] -ne 0
-        return 1
-    end
-    set -e picked[-1]
-    if test -z $picked
-        return 1
-    end
-    set index (string match -r '^\\d+' $picked)
-    if test -n $index
-        echo $items[$index] | xclip -selection clipboard -r
-    end
-end
-funcsave runner_clipster >/dev/null
-
 function magazine_get
     magazine_view $argv[1] 2000
     cat ~/.local/share/magazine/$argv[1] | xclip -selection clipboard -r

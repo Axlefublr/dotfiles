@@ -62,6 +62,7 @@ return {
 				['@operator.fish'] = link('Orange'),
 				['@function.call.fish'] = link('Green'),
 				['@function.builtin.fish'] = link('Green'),
+				['@function.fish'] = link('Green'),
 
 				['@type.css'] = link('Orange'),
 				['@type.qualifier.css'] = link('Red'),
@@ -80,6 +81,7 @@ return {
 				['@variable.bash'] = link('Purple'),
 				['@constant.bash'] = { fg = Colors.purple, underline = true },
 				['@operator.bash'] = link('Orange'),
+				['@function.call.bash'] = link('Green'),
 
 				['@type.toml'] = link('Red'),
 				['@number.float.toml'] = link('Orange'),
