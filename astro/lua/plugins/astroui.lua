@@ -37,6 +37,9 @@ return {
 				['TablineFill'] = link('Normal'),
 				['BufTabLineActive'] = link('GruvboxDarkerest'),
 				['StatusLine'] = link('Normal'),
+				['Title'] = link('OrangeBold'),
+				['Constant'] = link('Aqua'),
+				['SpecialChar'] = link('Yellow'),
 
 				['@string'] = link('Yellow'),
 				['@string.escape'] = link('Grey'),
@@ -46,7 +49,7 @@ return {
 				['@operator'] = link('Fg'),
 				['@type'] = link('Blue'),
 				['@type.definition'] = link('Blue'),
-				['@boolean'] = link('BlueItalic'),
+				['@boolean'] = link('PurpleItalic'),
 				['@property'] = link('Aqua'),
 				['@function'] = link('Green'),
 
@@ -54,7 +57,7 @@ return {
 				['@lsp.type.comment.lua'] = link('Grey'),
 				['@variable.member.lua'] = link('Fg'),
 				['@string.regexp.lua'] = link('YellowBold'),
-				['@constant.builtin.lua'] = link('BlueItalic'),
+				['@constant.builtin.lua'] = link('PurpleItalic'),
 				['@module.builtin.lua'] = link('Fg'),
 				['@lsp.type.function.lua'] = link('Green'),
 				['@function.call.lua'] = link('Green'),
@@ -81,7 +84,7 @@ return {
 
 				['@conceal.jsonc'] = link('Fg'),
 				['@conceal.json'] = link('Fg'),
-				['@constant.builtin.jsonc'] = link('BlueItalic'),
+				['@constant.builtin.jsonc'] = link('PurpleItalic'),
 
 				['@punctuation.special.bash'] = link('Purple'),
 				['@variable.bash'] = link('Purple'),
@@ -92,7 +95,7 @@ return {
 				['@type.toml'] = link('Red'),
 				['@number.float.toml'] = link('Orange'),
 
-				['@constant.builtin.yaml'] = link('BlueItalic'),
+				['@constant.builtin.yaml'] = link('PurpleItalic'),
 
 				['@module.rasi'] = link('Purple'),
 				['@attribute.rasi'] = link('Blue'),
@@ -102,8 +105,8 @@ return {
 				['@type.ini'] = link('Red'),
 
 				['@variable.member.sql'] = link('Aqua'),
-				['@type.builtin.sql'] = link('BlueItalic'),
-				['@type.sql'] = link('BlueItalic'),
+				['@type.builtin.sql'] = link('PurpleItalic'),
+				['@type.sql'] = link('PurpleItalic'),
 
 				['confComment'] = link('Grey'),
 				['confString'] = link('Yellow'),

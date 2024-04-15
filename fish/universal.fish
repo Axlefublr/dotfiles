@@ -23,7 +23,7 @@ set -U fish_features qmark-noglob
 
 set -U fish_color_normal 'd4be98'
 set -U fish_color_command 'a9b665'
-set -U fish_color_quote 'd7ae56'
+set -U fish_color_quote 'd1a954'
 set -U fish_color_redirection 'e6943d'
 set -U fish_color_end 'e6943d'
 set -U fish_color_error 'ea6962'
