@@ -149,14 +149,31 @@ local function remaps(telescope)
 		})
 	end)
 
+	vim.keymap.set('n', '<Leader>jr', function()
+		builtin.grep_string({
+			search = vim.fn.getreg('"')
+		})
+	end)
+	vim.keymap.set(
+		'n',
+		'<Leader>jt',
+		function()
+			builtin.grep_string({
+				search = vim.fn.getreg('"'),
+				additional_args = {
+					'--no-ignore',
+					'--hidden',
+				},
+			})
+		end
+	)
+
 	vim.keymap.set('n', '<Leader>jh', builtin.help_tags)
-	vim.keymap.set('n', '<Leader>jt', builtin.treesitter)
 	vim.keymap.set('n', '<Leader>js', builtin.current_buffer_fuzzy_find)
 	vim.keymap.set('n', '<Leader>jc', builtin.git_commits)
 	vim.keymap.set('n', '<Leader>jC', builtin.git_bcommits)
 	vim.keymap.set('n', '<Leader>jx', builtin.git_branches)
 	vim.keymap.set('n', '<Leader>je', builtin.git_status)
-	vim.keymap.set('n', '<Leader>jr', builtin.git_stash)
 	vim.keymap.set('n', '<Leader>j\\', builtin.builtin)
 	vim.keymap.set('n', '<Leader>jw', builtin.buffers)
 	vim.keymap.set('n', '<Leader>jW', builtin.oldfiles)
@@ -270,7 +287,13 @@ return {
 					},
 					live_grep = {
 						disable_coordinates = true,
-						-- additional_args = {}
+					},
+					grep_string = {
+						initial_mode = 'normal',
+						preview = {
+							hide_on_startup = false
+						},
+						disable_coordinates = true
 					},
 					git_branches = {
 						mappings = {
