@@ -7,9 +7,9 @@ alias --save termdown 'termdown -W -f roman' >/dev/null
 alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git -I bin -I obj -I target -I .vscode' >/dev/null
 alias --save bell 'printf \a' >/dev/null
 alias --save toco 'touch $argv && code $argv' >/dev/null
-alias --save octogit-set "octogit --color-all-commits $color_yellow \
-	--color-all-staged $color_green \
-	--color-all-unstaged $color_cyan" >/dev/null
+alias --save octogit-set "octogit --color-all-commits ffd75f \
+	--color-all-staged 87ff5f \
+	--color-all-unstaged 00d7ff" >/dev/null
 alias --save etg 'shuf -n 1 ~/prog/noties/etg-actives.txt' >/dev/null
 alias --save icat 'kitten icat --align left' >/dev/null
 alias --save woman man >/dev/null # lol and even lmao

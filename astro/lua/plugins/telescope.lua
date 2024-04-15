@@ -172,7 +172,7 @@ local function remaps(telescope)
 	vim.keymap.set('n', '<Leader>jQ', builtin.diagnostics)
 	vim.keymap.set('n', '<Leader>jj', builtin.quickfix)
 
-	vim.keymap.set('n', '<Leader>lr', builtin.lsp_references)
+	vim.keymap.set('n', '<Leader>le', builtin.lsp_references)
 	vim.keymap.set('n', '<Leader>li', builtin.lsp_incoming_calls)
 	vim.keymap.set('n', '<Leader>lo', builtin.lsp_outgoing_calls)
 	vim.keymap.set('n', '<Leader>ld', builtin.lsp_definitions)

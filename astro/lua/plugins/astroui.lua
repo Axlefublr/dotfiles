@@ -1,4 +1,4 @@
--- local function fg(colorname) return { fg = Colors[colorname] } end
+local function fg(colorname) return { fg = Colors[colorname] } end
 
 -- local function bg(colorname) return { bg = Colors[colorname] } end
 
@@ -12,11 +12,16 @@ return {
 		colorscheme = 'gruvbox-material',
 		highlights = {
 			init = {
+				['Orange'] = fg('orange'),
+				['Yellow'] = fg('yellow'),
+				['Purple'] = fg('purple'),
+				['Aqua'] = fg('mint'),
+
 				['RedBold'] = { fg = Colors.red, bold = true },
 				['OrangeBold'] = { fg = Colors.orange, bold = true },
 				['YellowBold'] = { fg = Colors.yellow, bold = true },
 				['GreenBold'] = { fg = Colors.green, bold = true },
-				['AquaBold'] = { fg = Colors.mint, bold = true },
+				['AquaBold'] = { fg = Colors.blush, bold = true },
 				['BlueBold'] = { fg = Colors.cyan, bold = true },
 				['PurpleBold'] = { fg = Colors.purple, bold = true },
 
@@ -24,7 +29,7 @@ return {
 				['OrangeItalic'] = { fg = Colors.orange, italic = true },
 				['YellowItalic'] = { fg = Colors.yellow, italic = true },
 				['GreenItalic'] = { fg = Colors.green, italic = true },
-				['AquaItalic'] = { fg = Colors.mint, italic = true },
+				['AquaItalic'] = { fg = Colors.blush, italic = true },
 				['BlueItalic'] = { fg = Colors.cyan, italic = true },
 				['PurpleItalic'] = { fg = Colors.purple, italic = true },
 
@@ -135,7 +140,7 @@ return {
 				['@lsp.type.property.rust'] = link('Fg'),
 				['@lsp.type.macro.rust'] = link('Green'),
 				['@lsp.type.string.rust'] = link('Yellow'),
-				['@lsp.typemod.property.private.rust'] = { fg = Colors.mint, underline = true },
+				['@lsp.typemod.property.private.rust'] = { fg = Colors.blush, underline = true },
 				['@lsp.type.attributeBracket.rust'] = link('Purple'),
 				['@lsp.type.comment.rust'] = link('Grey'),
 				['@lsp.type.builtinType.rust'] = link('YellowBold'),

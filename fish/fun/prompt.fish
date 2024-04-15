@@ -31,10 +31,10 @@ function fish_prompt_status
 					printf ' '
 				end
 				if test $argv[$i] -ne 0
-					set_color -o $color_red
+					set_color -o 'ff2930'
 					printf '󱎘'
 				else
-					set_color -o $color_green
+					set_color -o '87ff5f'
 					printf ''
 				end
 				printf $argv[$i]
@@ -43,7 +43,7 @@ function fish_prompt_status
 		end
 	else
 		if test $argv -ne 0
-			set_color -o $color_red
+			set_color -o 'ff2930'
 			printf '󱎘%s ' $argv
 		end
 	end
@@ -52,7 +52,7 @@ funcsave fish_prompt_status > /dev/null
 
 function fish_prompt
 	set -l fullstatuses $pipestatus
-	set_color $color_yellow
+	set_color 'ffd75f'
 	if set -q fish_private_mode
 		printf '󰗹 '
 	end
@@ -62,18 +62,18 @@ function fish_prompt
 	if not test -w .
 		printf ' '
 	end
-	set_color $color_orange
+	set_color 'ff9f1a'
 	if test $USER != 'axlefublr'
 		echo -n ' '$USER
 	end
 	if set -q SSH_TTY
-		set_color -o $color_yellow
+		set_color -o 'ffd75f'
 		echo -n '@'
 		set_color normal
-		set_color $color_orange
+		set_color 'ff9f1a'
 		echo -n $hostname
 	end
-	set_color -o $color_pink
+	set_color -o 'ffafd7'
 	fish_prompt_pwd
 	set_color normal
 	if test $COLUMNS -ge $small_threshold
@@ -83,7 +83,7 @@ function fish_prompt
 	end
 	if git rev-parse --is-inside-work-tree &> /dev/null
 		set -l curr_branch (git branch --show-current 2> /dev/null)
-		set_color -o $color_purple
+		set_color -o 'af87ff'
 		if test $curr_branch
 			echo -n ''$curr_branch' '
 		else
@@ -97,7 +97,7 @@ function fish_prompt
 		end
 	end
 	fish_prompt_status $fullstatuses
-	set_color $color_yellow
+	set_color 'ffd75f'
 	printf '󱕅 '
 	set_color normal
 end

@@ -308,7 +308,7 @@ local normal_mappings = {
 	[',s'] = { harp_get },
 	K = { close_try_save },
 	['<Leader>lD'] = { vim.lsp.buf.declaration },
-	['<Leader>lw'] = { vim.lsp.buf.rename },
+	['<Leader>lr'] = { vim.lsp.buf.rename },
 	['<Leader>K'] = { function() vim.cmd('q!') end },
 	['""d'] = { function() vim.cmd('tcd ~/prog/dotfiles') end },
 	['""t'] = { function() vim.cmd('tcd ~/prog/noties') end },
@@ -392,7 +392,7 @@ local normal_mappings = {
 			end
 		end,
 	},
-	['<Leader>la'] = {
+	['gl'] = {
 		function()
 			vim.diagnostic.open_float()
 			vim.diagnostic.open_float()
@@ -432,7 +432,6 @@ local normal_mappings = {
 	yp = 'yyp',
 	yP = 'yyP',
 	['&'] = ':%s`\\V',
-	['<Leader>lP'] = ":lua =require('astrocore').plugin_opts('')<Left><Left>",
 	gJ = 'j0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>du'] = 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK, -- Move line to the top
@@ -496,6 +495,7 @@ local visual_mappings = {
 }
 
 local insert_mappings = {
+	['<A-/>'] = { close_try_save },
 	["<A-'>1"] = { function() numbered_insert(1) end },
 	["<A-'>2"] = { function() numbered_insert(2) end },
 	["<A-'>3"] = { function() numbered_insert(3) end },
@@ -514,7 +514,6 @@ local insert_mappings = {
 	["<A-'>q"] = '<C-r><C-p>+',
 	['<C-v>'] = '<C-r><C-p>+',
 	["<A-'>"] = '<C-r><C-p>',
-	['<A-/>'] = { close_try_save },
 	['<A-,>'] = '<C-d>',
 	['<A-.>'] = '<C-t>',
 	['<C-l>'] = '<C-x><C-l>',
@@ -595,7 +594,12 @@ local normal_visual_pending_mappings = {
 
 local normal_visual_mappings = {
 	['<Leader>lc'] = { vim.lsp.buf.code_action },
-	['<Leader>da'] = { function() vim.cmd('echo getcwd()') end },
+	['<Leader>da'] = { function()
+		local cwd = vim.fn.getcwd()
+		cwd = vim.fn.fnamemodify(cwd, ':~')
+		vim.notify('cwd: ' .. cwd)
+		vim.fn.setreg('+', cwd)
+	end },
 	['<Leader>lf'] = { function() vim.lsp.buf.format({ async = true }) end },
 	['<CR>'] = ':',
 	['!'] = ':!',
@@ -703,8 +707,14 @@ local opts_table = {
 			-- showtabline = 0,
 			fillchars = 'eob: ',
 			foldcolumn = '0',
+			autowrite = true,
 			autowriteall = true,
 			cursorline = false,
+			cmdwinheight = 1,
+			matchpairs = '(:),{:},[:],<:>',
+			showbreak = '󱞩',
+			sidescrolloff = 999,
+			wildoptions = 'fuzzy,pum,tagfile',
 			langmap = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>',
 		},
 		g = {

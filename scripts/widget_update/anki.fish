@@ -2,5 +2,5 @@
 
 while true
     widget_update update_anki Anki
-    sleep 3
+    sleep 1
 end
