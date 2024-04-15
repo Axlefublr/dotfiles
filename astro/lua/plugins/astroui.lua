@@ -44,6 +44,7 @@ return {
 
 				['AerialArrayIcon'] = link('Orange'),
 				['AerialObjectIcon'] = link('Purple'),
+				['AerialStringIcon'] = link('Yellow'),
 
 				['Tabline'] = link('Normal'),
 				['TablineFill'] = link('Normal'),
