@@ -38,6 +38,9 @@ Colors = {
 	white = '#d4be98',
 	grey = '#928374',
 
+	lighterest = '#403f3f',
+	lighter = '#313030',
+	darker = '#212121',
 	darkerest = '#1f1e1e',
 	darkness = '#1a1919',
 }

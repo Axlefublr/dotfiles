@@ -18,26 +18,19 @@
 	--green: #a9b665;
 	--mint: #78bf84;
 	--cyan: #7daea3;
-	--purple: #e392b2;
+	--purple: #bb95cf;
+	--blush: #e392b2;
 	--white: #d4be98;
 	--grey: #928374;
 }
 
-.gruvbox-material.background {
-	--lighterest: hsl(0, 1%, 25%);
-	--lighter: hsl(0, 1%, 19%);
-	--level: hsl(0, 1%, 16%);
-	--darker: hsl(0, 1%, 14%);
-	--darkerest: hsl(0, 1%, 12%);
-	--darkness: hsl(0, 1%, 10%);
-}
 .gruvbox-material.background.hex {
-	--lighterest: #403f3f;
-	--lighter: #313030;
+	--light25: #403f3f;
+	--light19: #313030;
+	--dark13: #212121;
+	--dark12: #1f1e1e;
+	--dark10: #1a1919;
 	--level: #292828;
-	--darker: #242323;
-	--darkerest: #1f1e1e;
-	--darkness: #1a1919;
 }
 
 .chart {

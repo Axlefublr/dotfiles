@@ -1,6 +1,6 @@
 local function fg(colorname) return { fg = Colors[colorname] } end
 
--- local function bg(colorname) return { bg = Colors[colorname] } end
+local function bg(colorname) return { bg = Colors[colorname] } end
 
 local function link(hlgroupname) return { link = hlgroupname } end
 
@@ -12,30 +12,45 @@ return {
 		colorscheme = 'gruvbox-material',
 		highlights = {
 			init = {
+				['Lighterest'] = bg('lighterest'),
+				['Lighter'] = bg('lighter'),
+				['Darker'] = bg('darker'),
+				['Darkerest'] = bg('darkerest'),
+				['Darkness'] = bg('darkness'),
+
 				['Orange'] = fg('orange'),
 				['Yellow'] = fg('yellow'),
-				['Purple'] = fg('purple'),
 				['Aqua'] = fg('mint'),
+				['Purple'] = fg('purple'),
+				['Blush'] = fg('blush'),
 
 				['RedBold'] = { fg = Colors.red, bold = true },
 				['OrangeBold'] = { fg = Colors.orange, bold = true },
 				['YellowBold'] = { fg = Colors.yellow, bold = true },
 				['GreenBold'] = { fg = Colors.green, bold = true },
-				['AquaBold'] = { fg = Colors.blush, bold = true },
+				['AquaBold'] = { fg = Colors.mint, bold = true },
 				['BlueBold'] = { fg = Colors.cyan, bold = true },
 				['PurpleBold'] = { fg = Colors.purple, bold = true },
+				['BlushBold'] = { fg = Colors.blush, bold = true },
 
 				['RedItalic'] = { fg = Colors.red, italic = true },
 				['OrangeItalic'] = { fg = Colors.orange, italic = true },
 				['YellowItalic'] = { fg = Colors.yellow, italic = true },
 				['GreenItalic'] = { fg = Colors.green, italic = true },
-				['AquaItalic'] = { fg = Colors.blush, italic = true },
+				['AquaItalic'] = { fg = Colors.mint, italic = true },
 				['BlueItalic'] = { fg = Colors.cyan, italic = true },
 				['PurpleItalic'] = { fg = Colors.purple, italic = true },
+				['BlushItalic'] = { fg = Colors.blush, italic = true },
+
+				['AerialArrayIcon'] = link('Orange'),
+				['AerialObjectIcon'] = link('Purple'),
 
 				['Tabline'] = link('Normal'),
 				['TablineFill'] = link('Normal'),
-				['BufTabLineActive'] = link('GruvboxDarkerest'),
+				['TablineSel'] = link('Darkness'),
+				['NormalFloat'] = link('Darker'),
+				['FloatBorder'] = link('Darker'),
+				['FloatTitle'] = { fg = Colors.yellow, bg = Colors.darkerest },
 				['StatusLine'] = link('Normal'),
 				['Title'] = link('OrangeBold'),
 				['Constant'] = link('Aqua'),
@@ -45,30 +60,33 @@ return {
 				['@string.escape'] = link('Grey'),
 				['@comment'] = link('Grey'),
 				['@punctuation.delimiter'] = link('Fg'),
-				['@number'] = link('Orange'),
-				['@operator'] = link('Fg'),
+				['@number'] = link('Blush'),
+				['@operator'] = link('OrangeBold'),
 				['@type'] = link('Blue'),
 				['@type.definition'] = link('Blue'),
 				['@boolean'] = link('PurpleItalic'),
 				['@property'] = link('Aqua'),
 				['@function'] = link('Green'),
 
+				['@operator.lua'] = link('OrangeBold'),
 				['@lsp.type.property.lua'] = link('Fg'),
 				['@lsp.type.comment.lua'] = link('Grey'),
 				['@variable.member.lua'] = link('Fg'),
 				['@string.regexp.lua'] = link('YellowBold'),
 				['@constant.builtin.lua'] = link('PurpleItalic'),
-				['@module.builtin.lua'] = link('Fg'),
+				['@module.builtin.lua'] = link('Purple'),
 				['@lsp.type.function.lua'] = link('Green'),
 				['@function.call.lua'] = link('Green'),
 				['@function.lua'] = link('Green'),
 				['@lsp.type.method.lua'] = link('Green'),
 				['@function.method.call.lua'] = link('Green'),
 				['@function.builtin.lua'] = link('Green'),
+				['@lsp.mod.defaultLibrary.lua'] = link('Purple'),
+				['@lsp.typemod.function.defaultLibrary.lua'] = link('Blush'),
 
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
-				['@operator.fish'] = link('Orange'),
+				['@operator.fish'] = link('OrangeBold'),
 				['@function.call.fish'] = link('Green'),
 				['@function.builtin.fish'] = link('Green'),
 				['@function.fish'] = link('Green'),
@@ -80,7 +98,7 @@ return {
 				['@variable.css'] = { fg = Colors.white, italic = true },
 				['@constant.css'] = link('Blue'),
 				['@attribute.css'] = link('Blue'), -- [something="something"]
-				['@number.float.css'] = link('Orange'),
+				['@number.float.css'] = link('Blush'),
 
 				['@conceal.jsonc'] = link('Fg'),
 				['@conceal.json'] = link('Fg'),
@@ -89,11 +107,12 @@ return {
 				['@punctuation.special.bash'] = link('Purple'),
 				['@variable.bash'] = link('Purple'),
 				['@constant.bash'] = { fg = Colors.purple, underline = true },
-				['@operator.bash'] = link('Orange'),
+				['@operator.bash'] = link('OrangeBold'),
 				['@function.call.bash'] = link('Green'),
 
 				['@type.toml'] = link('Red'),
-				['@number.float.toml'] = link('Orange'),
+				['@number.float.toml'] = link('Blush'),
+				['@operator.toml'] = link('OrangeBold'),
 
 				['@constant.builtin.yaml'] = link('PurpleItalic'),
 
@@ -115,7 +134,7 @@ return {
 				['CfgComment'] = link('Grey'),
 				['CfgSection'] = link('Aqua'),
 
-				['sqlNumber'] = link('Orange'),
+				['sqlNumber'] = link('Blush'),
 				['sqlString'] = link('Yellow'),
 				['sqlKeyword'] = link('Red'),
 
@@ -148,15 +167,15 @@ return {
 				['@lsp.type.comment.rust'] = link('Grey'),
 				['@lsp.type.builtinType.rust'] = link('YellowBold'),
 				['@lsp.type.interface.rust'] = link('Yellow'),
-				['@lsp.type.operator.rust'] = link('Fg'),
+				['@lsp.type.operator.rust'] = link('OrangeBold'),
 				['@lsp.type.selfTypeKeyword.rust'] = link('Purple'),
 				['@lsp.type.lifetime.rust'] = link('OrangeItalic'),
 				['@lsp.mod.controlFlow.rust'] = link('Red'),
 				['@lsp.mod.reference.rust'] = { italic = true },
 				['@lsp.mod.mutable.rust'] = { bold = true },
-				['@lsp.type.number.rust'] = link('Orange'),
+				['@lsp.type.number.rust'] = link('Blush'),
 				['@lsp.type.function.rust'] = link('Green'),
-				-- ['@function.rust'] = link('Green'),
+				['@function.rust'] = link('Green'),
 				['@function.call.rust'] = link('Green'),
 				['@function.macro.rust'] = link('Green'),
 				['@lsp.type.method.rust'] = link('Green'),
