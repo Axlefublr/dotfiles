@@ -39,19 +39,19 @@ local function copy_full_path()
 	if not home then return end
 	local friendly_path = string.gsub(full_path, home, '~')
 	vim.fn.setreg('+', friendly_path)
-	print('full path: ' .. friendly_path)
+	vim.notify('full path: ' .. friendly_path)
 end
 
 local function copy_file_name()
 	local file_name = vim.fn.expand('%:t')
 	vim.fn.setreg('+', file_name)
-	print('name: ' .. file_name)
+	vim.notify('name: ' .. file_name)
 end
 
 local function copy_cwd_relative()
 	local relative_path = vim.fn.expand('%:p:.')
 	vim.fn.setreg('+', relative_path)
-	print('cwd relative: ' .. relative_path)
+	vim.notify('cwd relative: ' .. relative_path)
 end
 
 local function copy_git_relative()
@@ -59,7 +59,14 @@ local function copy_git_relative()
 	local git_root = Get_repo_root()
 	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
 	vim.fn.setreg('+', relative_path)
-	print('repo relative: ' .. relative_path)
+	vim.notify('repo relative: ' .. relative_path)
+end
+
+local function copy_cwd()
+	local cwd = vim.fn.getcwd()
+	cwd = vim.fn.fnamemodify(cwd, ':~')
+	vim.fn.setreg('+', cwd)
+	vim.notify('cwd: ' .. cwd)
 end
 
 local function another_quickfix_entry(to_next, buffer)
@@ -588,12 +595,7 @@ local normal_visual_pending_mappings = {
 
 local normal_visual_mappings = {
 	['<Leader>lc'] = { vim.lsp.buf.code_action },
-	['<Leader>da'] = { function()
-		local cwd = vim.fn.getcwd()
-		cwd = vim.fn.fnamemodify(cwd, ':~')
-		vim.notify('cwd: ' .. cwd)
-		vim.fn.setreg('+', cwd)
-	end },
+	['<Leader>da'] = { copy_cwd },
 	['<Leader>lf'] = { function() vim.lsp.buf.format({ async = true }) end },
 	['<CR>'] = ':',
 	['!'] = ':!',
@@ -706,7 +708,7 @@ local opts_table = {
 			cursorline = false,
 			cmdwinheight = 1,
 			matchpairs = '(:),{:},[:],<:>',
-			showbreak = '󱞩',
+			showbreak = '󱞩 ',
 			sidescrolloff = 999,
 			clipboard = '',
 			wildoptions = 'fuzzy,pum,tagfile',

@@ -36,7 +36,7 @@ if status is-interactive
     bind -M insert -k f4 'commandline ""'
 
     bind -M insert \ed clear-screen repaint
-    bind -M default \ed clear-screen
+    bind -M default \ed clear-screen repaint
     bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'
     bind -M insert \eu list_current_token
     bind -M insert -k f5 forward-word
