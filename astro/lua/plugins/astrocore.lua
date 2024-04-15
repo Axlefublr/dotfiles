@@ -131,15 +131,13 @@ function killring_pop_tail(insert)
 		return
 	end
 	local first_index = killring:remove(1)
-	vim.fn.setreg(THROWAWAY_REGISTER, first_index)
+	vim.fn.setreg('"', first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>' .. THROWAWAY_REGISTER)
+			FeedKeysInt('<C-r>"')
 		else
-			FeedKeysInt('<C-r><C-p>' .. THROWAWAY_REGISTER)
+			FeedKeysInt('<C-r><C-p>"')
 		end
-	else
-		FeedKeysInt('"' .. THROWAWAY_REGISTER .. 'p')
 	end
 	vim.notify('got tail')
 end
@@ -150,15 +148,13 @@ function killring_pop(insert)
 		return
 	end
 	local first_index = killring:remove(#killring)
-	vim.fn.setreg(THROWAWAY_REGISTER, first_index)
+	vim.fn.setreg('"', first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>' .. THROWAWAY_REGISTER)
+			FeedKeysInt('<C-r>"')
 		else
-			FeedKeysInt('<C-r><C-p>' .. THROWAWAY_REGISTER)
+			FeedKeysInt('<C-r><C-p>"')
 		end
-	else
-		FeedKeysInt('"' .. THROWAWAY_REGISTER .. 'p')
 	end
 	vim.notify('got nose')
 end
@@ -202,15 +198,13 @@ local function numbered_get(index, insert)
 		vim.notify(index .. ' is empty')
 		return
 	end
-	vim.fn.setreg(THROWAWAY_REGISTER, numbered[index])
+	vim.fn.setreg('"', numbered[index])
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<c-r>' .. THROWAWAY_REGISTER)
+			FeedKeysInt('<C-r>"')
 		else
-			FeedKeysInt('<c-r><c-p>' .. THROWAWAY_REGISTER)
+			FeedKeysInt('<C-r><C-p>"')
 		end
-	else
-		FeedKeysInt('"' .. THROWAWAY_REGISTER .. 'p')
 	end
 	vim.notify('grabbed')
 end
@@ -714,6 +708,7 @@ local opts_table = {
 			matchpairs = '(:),{:},[:],<:>',
 			showbreak = '󱞩',
 			sidescrolloff = 999,
+			clipboard = '',
 			wildoptions = 'fuzzy,pum,tagfile',
 			langmap = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>',
 		},
