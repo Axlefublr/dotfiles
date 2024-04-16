@@ -104,10 +104,10 @@ function Clients_wu(tag)
 	end
 end
 
-Mic_muteness_w = text_widget(beautiful.jetbrains_font .. ' 14', ' ')
+Mic_muteness_w = text_widget(nil, ' ')
 Mic_muteness_bw = wibox.container.background(Mic_muteness_w)
 Mic_muteness_mw = wibox.container.margin(Mic_muteness_bw)
-Mic_muteness_mw.right = -9
+Mic_muteness_mw.right = -8
 Mic_muteness_mw.left = larger
 function Mic_muteness_wu()
 	awful.spawn.easy_async_with_shell('get_mic_mute', function(stdout)
@@ -137,11 +137,11 @@ function Mic_volume_wu()
 	end
 end
 
-Muteness_w = text_widget(nil, ' ')
+Muteness_w = text_widget(beautiful.jetbrains_font .. ' 12', ' ')
 Muteness_bw = wibox.container.background(Muteness_w)
 Muteness_mw = wibox.container.margin(Muteness_bw)
 Muteness_mw.left = larger - 1
-Muteness_mw.right = 2
+Muteness_mw.right = 4
 function Muteness_wu()
 	awful.spawn.easy_async_with_shell('get_mute', function(stdout)
 		local muteness = Trim_newlines(stdout)
@@ -170,7 +170,7 @@ function Volume_wu()
 	end
 end
 
-Bluetooth_w = text_widget(beautiful.jetbrains_font .. ' 15', '')
+Bluetooth_w = text_widget(nil, '')
 Bluetooth_bw = wibox.container.background(Bluetooth_w)
 Bluetooth_mw = wibox.container.margin(Bluetooth_bw)
 Bluetooth_mw.right = between - 1
