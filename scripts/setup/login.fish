@@ -18,10 +18,9 @@ gromit.fish 2>>/dev/shm/user_log.txt & disown
 copyq 2>>/dev/shm/user_log.txt & disown
 xset s off -dpms 2>>/dev/shm/user_log.txt
 redshift -O 5700 2>>/dev/shm/user_log.txt
-playerctld daemon 2>>/dev/shm/user_log.txt
+playerctld daemon
 
 alacritty -T meow 2>>/dev/shm/user_log.txt & disown
-alacritty -T timer 2>>/dev/shm/user_log.txt & disown
 oil.fish ~/Videos/content 2>>/dev/shm/user_log.txt & disown
 
 alacritty -T editor --working-directory ~/prog/dotfiles -e nvim 2>>/dev/shm/user_log.txt & disown

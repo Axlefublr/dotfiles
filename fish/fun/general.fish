@@ -227,7 +227,7 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
     set uninstalled_target (aur_cache_dirs_fmt)
     echo $uninstalled_target[1]
     paccache -ruvk0 $uninstalled_target
-    set installed_target (aur_cache_dirs_fmt) # we do it this way because uninstalled package directories got removed
+    set installed_target (aur_cache_dirs_fmt) # we do this twice because uninstalled package directories got removed
     paccache -qruk1
     paccache -qrk2 -c /var/cache/pacman/pkg $installed_target
 end

@@ -12,4 +12,4 @@ while true
         printf $output >~/.local/share/magazine/b
     end
     sleep 1
-end
+end &>/dev/null

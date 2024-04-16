@@ -17,4 +17,4 @@ end
 while true
     widget_update update_media_player Media_player
     sleep 0.1
-end
+end &>/dev/null
