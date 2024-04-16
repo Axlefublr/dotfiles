@@ -11,5 +11,9 @@ while true
     if test $output != $previous
         printf $output >~/.local/share/magazine/b
     end
-    sleep 1
+    if acpi | rg Discharging &>/dev/null
+        sleep 60
+    else
+        sleep 1
+    end
 end &>/dev/null

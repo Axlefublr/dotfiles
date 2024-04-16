@@ -218,24 +218,6 @@ function Wifi_wu()
 	end
 end
 
-Compositor_w = text_widget(nil, '󱕅 ')
-Compositor_bw = wibox.container.background(Compositor_w)
-Compositor_mw = wibox.container.margin(Compositor_bw)
-Compositor_mw.right = between - 13
-Compositor_mw.visible = false
-function Compositor_wu()
-	local file = io.open('/dev/shm/Compositor_f', 'r')
-	if file then
-		local text = file:read('*a')
-		file:close()
-		if #text > 0 then
-			Compositor_mw.visible = true
-		else
-			Compositor_mw.visible = false
-		end
-	end
-end
-
 Dnd_w = text_widget(nil, ' ')
 Dnd_mw = wibox.container.margin(Dnd_w)
 Dnd_mw.right = between - 6
@@ -643,7 +625,6 @@ Wibar_w:setup({
 		Water_mw,
 		Clorange_mw,
 		Anki_mw,
-		Compositor_mw,
 		Mouse_mw,
 		Dnd_mw,
 		Bluetooth_mw,
@@ -662,7 +643,6 @@ local run_once = function()
 		'Volume',
 		'Wifi',
 		'Bluetooth',
-		'Compositor',
 		'Anki',
 		'Processor',
 		'Ram',

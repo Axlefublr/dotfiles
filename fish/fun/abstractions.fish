@@ -183,10 +183,8 @@ function toggle_compositor
             killall gromit-mpx
         end
         killall picom
-        widget_update update_compositor Compositor
     else
         picom &>/tmp/log/picom.txt & disown
-        widget_update update_compositor Compositor
         if pidof gromit-mpx
             killall gromit-mpx
         end

@@ -16,5 +16,9 @@ end
 
 while true
     widget_update update_media_player Media_player
-    sleep 0.1
+    if acpi | rg Discharging &>/dev/null
+        sleep 60
+    else
+        sleep 1
+    end
 end &>/dev/null

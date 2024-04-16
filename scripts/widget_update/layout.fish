@@ -2,5 +2,9 @@
 
 while true
     widget_update update_layout Layout
-    sleep 1
+    if acpi | rg Discharging &>/dev/null
+        sleep 60
+    else
+        sleep 1
+    end
 end

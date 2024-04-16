@@ -7,5 +7,9 @@ end
 
 while true
     widget_update update_ram Ram
-    sleep 3
+    if acpi | rg Discharging &>/dev/null
+        sleep 60
+    else
+        sleep 3
+    end
 end
