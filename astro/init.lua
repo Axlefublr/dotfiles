@@ -34,7 +34,7 @@ Colors = {
 	mint = '#78bf84',
 	cyan = '#7daea3',
 	purple = '#b58cc6',
-	blush = '#e392b2',
+	blush = '#e491b2',
 	white = '#d4be98',
 	grey = '#928374',
 
