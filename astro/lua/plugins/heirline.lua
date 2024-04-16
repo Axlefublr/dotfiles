@@ -20,7 +20,47 @@ return {
 
 		opts.winbar = false
 
-		opts.statusline[1] = status.component.mode({ mode_text = { padding = { left = 1, right = 1 } } })
+		opts.statusline[1] = {
+			hl = function(_)
+				local mode = vim.fn.mode()
+				local modes = {
+					['n'] = Colors.yellow,
+					['i'] = Colors.green,
+					['v'] = Colors.mint,
+					['V'] = Colors.cyan,
+					[''] = Colors.red,
+					['c'] = Colors.purple,
+					['R'] = Colors.blush,
+				}
+				if modes[mode] then
+					return { fg = modes[mode], bold = true }
+				else
+					return { fg = Colors.white, bold = true }
+				end
+			end,
+			provider = function()
+				local mode = vim.fn.mode()
+				local modes = {
+					['n'] = 'normal',
+					['i'] = 'insert',
+					['v'] = 'visual',
+					['V'] = 'linews',
+					[''] = 'blocky',
+					['c'] = 'comand',
+					['R'] = 'replce',
+				}
+				if modes[mode] then
+					return ' ' .. modes[mode] .. ' '
+				else
+					return ' ' .. mode .. ' '
+				end
+			end,
+			update = {
+				'ModeChanged',
+				pattern = '*:*',
+				callback = function() vim.schedule(vim.cmd.redrawstatus) end,
+			},
+		}
 		opts.statusline[2] = {
 			status.component.git_branch({
 				git_branch = { icon = { kind = 'GitBranch', padding = { left = 1, right = 0 } } },

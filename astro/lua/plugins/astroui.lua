@@ -225,32 +225,7 @@ return {
 				right = { ' ', '' },
 				center = { ' ', ' ' },
 			},
-			modes = {
-				['n'] = {
-					'N',
-					'normal',
-				},
-				['i'] = {
-					'I',
-					'insert',
-				},
-				['v'] = {
-					'V',
-					'visual',
-				},
-				['V'] = {
-					'L',
-					'visual',
-				},
-				[''] = {
-					'B',
-					'visual',
-				},
-				['c'] = {
-					'C',
-					'command',
-				},
-			},
+			---@diagnostic disable-next-line: assign-type-mismatch
 			colors = {
 				git_branch_fg = Colors.purple,
 			},
