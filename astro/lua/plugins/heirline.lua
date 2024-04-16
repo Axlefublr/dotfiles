@@ -10,6 +10,9 @@ return {
 
 		table.remove(opts.tabline[4], 2)
 
+		opts.winbar[2] = status.component.breadcrumbs({
+			max_depth = 2,
+		})
 		table.insert(opts.tabline, 3, opts.winbar)
 		table.insert(opts.tabline, 5, {
 			provider = function()
@@ -31,6 +34,9 @@ return {
 					[''] = Colors.red,
 					['c'] = Colors.purple,
 					['R'] = Colors.blush,
+					['s'] = Colors.mint,
+					['S'] = Colors.cyan,
+					[''] = Colors.red,
 				}
 				if modes[mode] then
 					return { fg = modes[mode], bold = true }
@@ -48,6 +54,9 @@ return {
 					[''] = 'blocky',
 					['c'] = 'comand',
 					['R'] = 'replce',
+					['s'] = 'select',
+					['S'] = 'seline',
+					[''] = 'selock',
 				}
 				if modes[mode] then
 					return ' ' .. modes[mode] .. ' '
@@ -63,26 +72,32 @@ return {
 		}
 		opts.statusline[2] = {
 			status.component.git_branch({
-				git_branch = { icon = { kind = 'GitBranch', padding = { left = 1, right = 0 } } },
+				git_branch = { icon = { kind = 'GitBranch', padding = { left = 0, right = 0 } } },
 				padding = {
 					right = 1,
 				},
 			}),
 			padding = { right = 0 },
 		}
-		opts.statusline[3] = status.component.file_info({ file_icon = { padding = { left = 0 } } })
-		opts.statusline[9] = status.component.lsp({
-			lsp_client_names = {
-				icon = {
-					padding = { left = 1 },
-				},
-			},
+		opts.statusline[3] = status.component.git_diff({
+			-- added = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
+			-- changed = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
+			-- removed = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
+			surround = { separator = {} }
 		})
 		opts.statusline[12] = status.component.nav({
 			scrollbar = false,
 		})
 
+		opts.statusline[13] = status.component.file_info({
+			surround = {
+				separator = 'center',
+			},
+			file_icon = false,
+		})
+
 		table.remove(opts.statusline, 11)
-		table.remove(opts.statusline, 12)
+		table.remove(opts.statusline, 9)
+		table.remove(opts.statusline, 3)
 	end,
 }

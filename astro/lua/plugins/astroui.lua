@@ -210,9 +210,9 @@ return {
 			LSPLoading10 = '⠏',
 			Selected = '󱕅 ',
 			GitBranch = '',
-			-- GitAdd = '󰄬',
-			-- GitChange = '',
-			-- GitDelete = '󰍴',
+			GitAdd = '',
+			GitChange = '',
+			GitDelete = '',
 		},
 		status = {
 			icon_highlights = {
@@ -221,8 +221,9 @@ return {
 			separators = {
 				breadcrumbs = ' > ',
 				path = '/',
-				left = { '', ' ' },
-				right = { ' ', '' },
+				none = { '', '' },
+				left = { ' ', '' },
+				right = { '', ' ' },
 				center = { ' ', ' ' },
 			},
 			---@diagnostic disable-next-line: assign-type-mismatch
