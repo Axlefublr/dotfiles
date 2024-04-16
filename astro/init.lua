@@ -28,7 +28,7 @@ Colors = {
 
 	black = '#0f0f0f',
 	red = '#ea6962',
-	orange = '#e6943d',
+	orange = '#e49641',
 	yellow = '#d0a750',
 	green = '#a9b665',
 	mint = '#78bf84',

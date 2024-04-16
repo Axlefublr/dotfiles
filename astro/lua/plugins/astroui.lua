@@ -110,6 +110,7 @@ return {
 				['@constant.bash'] = { fg = Colors.purple, underline = true },
 				['@operator.bash'] = link('OrangeBold'),
 				['@function.call.bash'] = link('Green'),
+				['@function.builtin.bash'] = link('Green'),
 
 				['@type.toml'] = link('Red'),
 				['@number.float.toml'] = link('Blush'),
