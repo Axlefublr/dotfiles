@@ -42,9 +42,13 @@ return {
 				['PurpleItalic'] = { fg = Colors.purple, italic = true },
 				['BlushItalic'] = { fg = Colors.blush, italic = true },
 
-				['AerialArrayIcon'] = link('Orange'),
-				['AerialObjectIcon'] = link('Purple'),
-				['AerialStringIcon'] = link('Yellow'),
+				['PreProc'] = link('Blush'),
+				['PreCondit'] = link('Blush'),
+				['Define'] = link('Blush'),
+				['Include'] = link('Blush'),
+				['Float'] = link('Blush'),
+				['Constant'] = link('Aqua'),
+				['SpecialChar'] = link('Yellow'),
 
 				['Tabline'] = link('Normal'),
 				['TablineFill'] = link('Normal'),
@@ -54,8 +58,15 @@ return {
 				['FloatTitle'] = { fg = Colors.yellow, bg = Colors.darkerest },
 				['StatusLine'] = link('Normal'),
 				['Title'] = link('OrangeBold'),
-				['Constant'] = link('Aqua'),
-				['SpecialChar'] = link('Yellow'),
+
+				['DiagnosticVirtualTextError'] = link('Red'),
+				['DiagnosticVirtualTextWarn'] = link('Orange'),
+				['DiagnosticVirtualTextInfo'] = link('Blue'),
+				['DiagnosticVirtualTextHint'] = link('Blue'),
+
+				['AerialArrayIcon'] = link('Orange'),
+				['AerialObjectIcon'] = link('Purple'),
+				['AerialStringIcon'] = link('Yellow'),
 
 				['@string'] = link('Yellow'),
 				['@string.escape'] = link('Grey'),
