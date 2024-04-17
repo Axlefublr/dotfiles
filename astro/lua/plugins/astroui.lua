@@ -64,6 +64,9 @@ return {
 				['DiagnosticVirtualTextInfo'] = link('Blue'),
 				['DiagnosticVirtualTextHint'] = link('Blue'),
 
+				['CmpItemKindSnippet'] = link('Yellow'),
+				['CmpItemAbbrMatch'] = { fg = Colors.shell_yellow, bold = true },
+
 				['AerialArrayIcon'] = link('Orange'),
 				['AerialObjectIcon'] = link('Purple'),
 				['AerialStringIcon'] = link('Yellow'),

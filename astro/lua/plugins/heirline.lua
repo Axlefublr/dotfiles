@@ -20,6 +20,17 @@ return {
 				return ' ' .. vim.fn.fnamemodify(cwd, ':~') .. ' '
 			end,
 		})
+		table.insert(
+			opts.tabline,
+			2,
+			status.component.file_info({
+				file_icon = { padding = { left = 0, right = 0 } },
+				surround = { separator = 'left' },
+				filetype = false,
+				file_modified = false,
+				file_readonly = false
+			})
+		)
 
 		opts.winbar = false
 
@@ -83,7 +94,7 @@ return {
 			-- added = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
 			-- changed = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
 			-- removed = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
-			surround = { separator = {} }
+			surround = { separator = {} },
 		})
 		opts.statusline[12] = status.component.nav({
 			scrollbar = false,
