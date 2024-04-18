@@ -1019,7 +1019,9 @@ keymap:
   - name: Direct
     mode: [default]
     remap:
-      Backspace: { launch: [notify-send, -t, '1000', 'use capslock-enter instead'] }
+      Backspace: { launch: [fish, -c, screen_off] }
+      Shift-Backspace: { launch: [fish, -c, suspend] }
+      Alt-Backspace: { launch: [fish, -c, ukboot] }
       CapsLock-f: tab
       CapsLock-Enter: backspace
       CapsLock-Alt-Enter: ctrl-backspace
