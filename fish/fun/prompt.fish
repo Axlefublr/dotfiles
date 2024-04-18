@@ -2,7 +2,7 @@
 
 function fish_prompt_pwd
 	set -l git_repo_full (git rev-parse --show-toplevel 2> /dev/null)
-	if test $git_repo_full
+	if test "$git_repo_full"
 		set -l git_repo (basename $git_repo_full)
 		set -l not_git_repo (string replace $git_repo '' $git_repo_full)
 		printf (string replace "$not_git_repo" '' $PWD)
