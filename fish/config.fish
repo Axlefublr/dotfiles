@@ -35,6 +35,7 @@ if status is-interactive
     bind -M insert -k f2 expand-abbr insert-line-under
     bind -M insert -k f4 'commandline ""'
 
+    bind dr transpose-words
     bind -M insert \ed clear-screen repaint
     bind -M default \ed clear-screen repaint
     bind -M insert \ep 'commandline -i (pwd | string replace -r $HOME \'~\')'

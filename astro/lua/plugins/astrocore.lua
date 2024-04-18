@@ -439,6 +439,7 @@ local normal_mappings = {
 	['<Leader>do'] = 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK, -- Bottom
 	['<Leader>p'] = 'Pv`[o`]do<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
+	['dr'] = '"' .. THROWAWAY_REGISTER .. 'diWxEp"' .. THROWAWAY_REGISTER .. 'p',
 	['<Leader>a1'] = '1<C-w>w',
 	['<Leader>a2'] = '2<C-w>w',
 	['<Leader>a3'] = '3<C-w>w',
