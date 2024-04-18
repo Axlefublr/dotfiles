@@ -2,18 +2,23 @@
 
 function fish_prompt_pwd
     set -l git_repo_full (git rev-parse --show-toplevel 2> /dev/null)
+    if string match -qgr "^$HOME" $PWD
+        set_color -o ff8787
+        echo -n '~'
+        set_color -o ffafd7
+    end
     set -l home (string escape --style=regex $HOME)
     if test "$git_repo_full"
         set -l above_repo (path dirname $git_repo_full)
         set -l repo_segment (path basename $git_repo_full)
         set -l rest_pwd (string replace $git_repo_full '' $PWD)
-        echo -n "$(string replace -r "^$home" '~' $above_repo/)"
-        set_color -o ffd75f
+        echo -n "$(string replace -r "^$home" '' $above_repo/)"
+        set_color -io ffafd7
         echo -n $repo_segment
         set_color -o ffafd7
         echo -n $rest_pwd
     else
-        set -l cwd (string replace -r "^$home" '~' $PWD)
+        set -l cwd (string replace -r "^$home" '' $PWD)
         echo -n $cwd
     end
 end
