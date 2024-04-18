@@ -213,9 +213,9 @@ return {
 			LSPLoading10 = '⠏',
 			Selected = '󱕅 ',
 			GitBranch = '',
-			GitAdd = '',
-			GitChange = '',
-			GitDelete = '',
+		-- 	GitAdd = '',
+		-- 	GitChange = '',
+		-- 	GitDelete = '',
 		},
 		status = {
 			icon_highlights = {

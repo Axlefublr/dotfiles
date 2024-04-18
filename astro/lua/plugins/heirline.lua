@@ -85,17 +85,11 @@ return {
 			status.component.git_branch({
 				git_branch = { icon = { kind = 'GitBranch', padding = { left = 0, right = 0 } } },
 				padding = {
-					right = 1,
+					right = 0,
 				},
 			}),
 			padding = { right = 0 },
 		}
-		opts.statusline[3] = status.component.git_diff({
-			-- added = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
-			-- changed = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
-			-- removed = { surround = { separator = 'none' }, icon = { padding = { left = 0, right = 0 } } },
-			surround = { separator = {} },
-		})
 		opts.statusline[12] = status.component.nav({
 			scrollbar = false,
 		})
