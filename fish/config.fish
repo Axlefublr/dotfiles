@@ -35,6 +35,9 @@ if status is-interactive
     bind -M insert -k f2 expand-abbr insert-line-under
     bind -M insert -k f4 'commandline ""'
 
+    bind \eo expand-abbr
+    bind -M insert \eo expand-abbr
+    bind -M insert '/' expand-abbr self-insert
     bind dr transpose-words
     bind -M insert \ed clear-screen repaint
     bind -M default \ed clear-screen repaint

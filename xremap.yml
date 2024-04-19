@@ -1015,6 +1015,10 @@ keymap:
         { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
       CapsLock-6: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
       CapsLock-Minus: { launch: [awesome-client, 'client.focus.minimized = true'] }
+      CapsLock-LeftBrace: { launch: [sh, -c, 'brillo -U 5 ; awesome-client "Brightness_wu()"'] }
+      CapsLock-RightBrace: { launch: [sh, -c, 'brillo -A 5 ; awesome-client "Brightness_wu()"'] }
+      CapsLock-Alt-LeftBrace: { launch: [sh, -c, 'brillo -S 0 ; awesome-client "Brightness_wu()"'] }
+      CapsLock-Alt-RightBrace: { launch: [sh, -c, 'brillo -S 100 ; awesome-client "Brightness_wu()"'] }
 
   - name: Direct
     mode: [default]

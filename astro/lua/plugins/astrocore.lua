@@ -192,7 +192,7 @@ end
 
 local function numbered_get(index, insert)
 	local index = index - 1
-	local result = os.execute('copyq read ' .. index .. ' | xclip -r -selection clipboard')
+	local result = os.execute('copyq read ' .. index .. ' | xclip -selection clipboard')
 	if result and not insert then
 		vim.notify('got ' .. index)
 	else

@@ -92,6 +92,9 @@ return {
 			}),
 			padding = { right = 0 },
 		}
+		opts.statusline[9] = status.component.lsp({
+			lsp_client_names = false
+		})
 		opts.statusline[12] = status.component.nav({
 			scrollbar = false,
 		})
@@ -104,7 +107,6 @@ return {
 		})
 
 		table.remove(opts.statusline, 11)
-		table.remove(opts.statusline, 9)
 		table.remove(opts.statusline, 3)
 	end,
 }

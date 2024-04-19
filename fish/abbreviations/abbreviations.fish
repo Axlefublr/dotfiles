@@ -221,3 +221,5 @@ abbr -a lt 'ez -T --git-ignore'
 abbr -a lr 'ez -aT'
 abbr -a read 'read -p rdp'
 abbr -a tg 'clear -x && ni | tgpt'
+abbr -a br (path basename $BROWSER)
+abbr -a brd (path basename $BROWSER)' ~/docs'

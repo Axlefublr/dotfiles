@@ -247,6 +247,29 @@ function Hunger_wu()
 	end)
 end
 
+Monitor_w = text_widget(nil, '󰃟 ')
+Monitor_mw = wibox.container.margin(Monitor_w)
+Monitor_mw.left = larger
+Monitor_mw.right = -1
+Monitor_mw.visible = false
+
+Brightness_w = text_widget()
+Brightness_mw = wibox.container.margin(Brightness_w)
+Brightness_mw.visible = false
+function Brightness_wu()
+	awful.spawn.easy_async_with_shell('brillo | math -s 0', function(stdout)
+		local value = Trim_newlines(stdout)
+		if #value > 0 and value ~= '100' then
+			Monitor_mw.visible = true
+			Brightness_mw.visible = true
+			Brightness_w:set_text(value)
+		else
+			Monitor_mw.visible = false
+			Brightness_mw.visible = false
+		end
+	end)
+end
+
 Water_w = text_widget(nil, '󰖌 ')
 Water_bw = wibox.container.background(Water_w)
 Water_mw = wibox.container.margin(Water_bw)
@@ -614,6 +637,8 @@ Wibar_w:setup({
 		Media_volume_mw,
 		Meat_mw,
 		Hunger_mw,
+		Monitor_mw,
+		Brightness_mw,
 		Mic_muteness_mw,
 		Mic_volume_mw,
 		Muteness_mw,
@@ -655,6 +680,7 @@ local run_once = function()
 	end
 	Clorange_wu()
 	Registers_wu()
+	Brightness_wu()
 	Hunger_wu()
 	Malumn_wu(screen.primary.selected_tag)
 	Dnd_wu()
