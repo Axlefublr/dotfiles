@@ -66,7 +66,6 @@ function _alarm
     while test $input -gt (date +%H%M%S)
         sleep 0.1
     end
-    sleep 0.5
     if status is-interactive
         bell
     else

@@ -100,3 +100,5 @@ sudo pacman -S --noconfirm luarocks
 sudo pacman -S --noconfirm whois
 sudo pacman -S --noconfirm copyq
 sudo pacman -S --noconfirm httrack
+sudo pacman -S --noconfirm asciinema
+sudo pacman -S --noconfirm pueue

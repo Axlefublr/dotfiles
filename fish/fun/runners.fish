@@ -220,18 +220,25 @@ function runner_doc
         end
     end
     set result (begin
-        ls ~/docs
+        ls ~/docs | rg -v '^fish$'
+        echo fish
         based_entries 'fish/cmds' fish
+        based_entries 'awm/awesomewm.org/doc/api/classes' awm class
+        based_entries 'awm/awesomewm.org/doc/api/libraries' awm lib
     end | rofi -dmenu 2>/dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end
     set -e result[-1]
     set result "$result"
+    set last_element (string split ' ' $result)[-1]
     switch $result
+        case 'awm lib *'
+            $BROWSER ~/docs/awm/awesomewm.org/doc/api/libraries/$last_element.html
+        case 'awm class *'
+            $BROWSER ~/docs/awm/awesomewm.org/doc/api/classes/$last_element.html
         case 'fish *'
-            set -l result (string split ' ' $result)[-1]
-            $BROWSER ~/docs/fish/cmds/$result.html
+            $BROWSER ~/docs/fish/cmds/$last_element.html
         case '*'
             $BROWSER "~/docs/$result/index.html"
     end

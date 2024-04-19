@@ -28,6 +28,24 @@ alias --save neoline 'alacritty -T neoline -e nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'eza --git --git-repos' >/dev/null
 
+function pacstall
+    for each in $argv
+        set items $items "sudo pacman -S --noconfirm $each"
+    end
+    indeed -u ~/prog/dotfiles/scripts/setup/install.sh $items
+    notify-send -t 3000 "$(tail -n (count $argv) ~/prog/dotfiles/scripts/setup/install.sh)"
+end
+funcsave pacstall >/dev/null
+
+function aurall
+    for each in $argv
+        set items $items "paru --noconfirm -aS $each"
+    end
+    indeed -u ~/prog/dotfiles/scripts/setup/aur.sh $items
+    notify-send -t 3000 "$(tail -n (count $argv) ~/prog/dotfiles/scripts/setup/aur.sh)"
+end
+funcsave aurall >/dev/null
+
 function eat
     loago do eat
     notify-send -t 2000 'ate!'
