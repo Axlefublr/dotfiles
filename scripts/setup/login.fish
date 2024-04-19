@@ -47,4 +47,4 @@ notify-sent -t 2000 'xwaaa'
 sleep 10
 xwaaa
 
-notify-send -t 2000 'logged in'
+notify-send -t 0 'logged in'

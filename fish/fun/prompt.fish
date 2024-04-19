@@ -2,6 +2,10 @@
 
 function fish_prompt_pwd
     set -l git_repo_full (git rev-parse --show-toplevel 2> /dev/null)
+    if test "$HOME" = "$PWD"
+        echo -n '~'
+        return 0
+    end
     if string match -qgr "^$HOME" $PWD
         set_color -o ff8787
         echo -n '~'

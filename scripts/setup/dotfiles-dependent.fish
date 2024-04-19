@@ -13,6 +13,12 @@ sudo usermod -aG input $USER
 sudo usermod -aG video $USER
 echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
 
+# Brillo
+begin
+    echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"'
+    echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"'
+end | sudo tee /etc/udev/rules.d/backlight.rules
+
 # Neovim
 trash-put ~/.config/nvim
 ln -sf ~/prog/dotfiles/astro ~/.config/nvim

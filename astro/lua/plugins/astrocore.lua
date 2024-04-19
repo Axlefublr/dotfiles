@@ -1,5 +1,4 @@
 local killring = setmetatable({}, { __index = table })
-local numbered = { '', '', '', '', '', '', '', '', '', '' }
 
 local function trim_trailing_whitespace()
 	local search = vim.fn.getreg('/')
@@ -30,7 +29,6 @@ local function edit_magazine()
 	local register = Get_char('magazine: ')
 	if register == nil then return end
 	vim.cmd('edit ' .. vim.fn.expand('~/.local/share/magazine/') .. register)
-	print('shoot ' .. register)
 end
 
 local function copy_full_path()
@@ -113,7 +111,7 @@ local function another_quickfix_entry(to_next, buffer)
 end
 
 function killring_push_tail()
-	local register_contents = vim.fn.getreg('"')
+	local register_contents = vim.fn.getreg('+')
 	if register_contents == '' then
 		vim.notify('default register is empty')
 		return
@@ -123,7 +121,7 @@ function killring_push_tail()
 end
 
 function killring_push()
-	local register_contents = vim.fn.getreg('"')
+	local register_contents = vim.fn.getreg('+')
 	if register_contents == '' then
 		vim.notify('default register is empty')
 		return
@@ -138,15 +136,16 @@ function killring_pop_tail(insert)
 		return
 	end
 	local first_index = killring:remove(1)
-	vim.fn.setreg('"', first_index)
+	vim.fn.setreg('+', first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>"')
+			FeedKeysInt('<C-r>+')
 		else
-			FeedKeysInt('<C-r><C-p>"')
+			FeedKeysInt('<C-r><C-p>+')
 		end
+	else
+		vim.notify('got tail')
 	end
-	vim.notify('got tail')
 end
 
 function killring_pop(insert)
@@ -155,20 +154,21 @@ function killring_pop(insert)
 		return
 	end
 	local first_index = killring:remove(#killring)
-	vim.fn.setreg('"', first_index)
+	vim.fn.setreg('+', first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>"')
+			FeedKeysInt('<C-r>+')
 		else
-			FeedKeysInt('<C-r><C-p>"')
+			FeedKeysInt('<C-r><C-p>+')
 		end
+	else
+		vim.notify('got nose')
 	end
-	vim.notify('got nose')
 end
 
 function killring_compile()
 	local compiled_killring = killring:concat('')
-	vim.fn.setreg('"', compiled_killring)
+	vim.fn.setreg('+', compiled_killring)
 	killring = setmetatable({}, { __index = table })
 	vim.notify('killring compiled')
 end
@@ -176,7 +176,7 @@ end
 function killring_compile_reversed()
 	local reversed_killring = ReverseTable(killring)
 	local compiled_killring = reversed_killring:concat('')
-	vim.fn.setreg('"', compiled_killring)
+	vim.fn.setreg('+', compiled_killring)
 	killring = setmetatable({}, { __index = table })
 	vim.notify('killring compiled in reverse')
 end
@@ -187,33 +187,24 @@ function search_for_register(direction, death)
 	local register = Validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
 	FeedKeys(direction .. '\\V' .. escaped_register .. death)
-	FeedKeysInt('<cr>')
-end
-
-local function numbered_set(index)
-	local register_contents = vim.fn.getreg('"')
-	if register_contents == '' then
-		vim.notify('default register empty')
-		return
-	end
-	numbered[index] = register_contents
-	vim.notify('stabbed')
+	FeedKeysInt('<CR>')
 end
 
 local function numbered_get(index, insert)
-	if numbered[index] == '' then
-		vim.notify(index .. ' is empty')
-		return
+	local index = index - 1
+	local result = os.execute('copyq read ' .. index .. ' | xclip -r -selection clipboard')
+	if result and not insert then
+		vim.notify('got ' .. index)
+	else
+		vim.notify('failed getting ' .. index)
 	end
-	vim.fn.setreg('"', numbered[index])
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>"')
+			FeedKeysInt('<C-r>+')
 		else
-			FeedKeysInt('<C-r><C-p>"')
+			FeedKeysInt('<C-r><C-p>+')
 		end
 	end
-	vim.notify('grabbed')
 end
 
 local function numbered_insert(index) numbered_get(index, true) end
@@ -221,13 +212,13 @@ local function numbered_command(index) numbered_get(index, 'command') end
 
 -- I call it death because that's where we end up in. Just like /e or no /e
 local function search_for_selection(direction, death)
-	local default = vim.fn.getreg('"')
+	local default = vim.fn.getreg('+')
 	FeedKeys('y')
 	vim.schedule(function()
-		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('"'))
+		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('+'))
 		FeedKeys(direction .. '\\V' .. escaped_selection .. death)
 		FeedKeysInt('<cr>')
-		vim.fn.setreg('"', default)
+		vim.fn.setreg('+', default)
 	end)
 end
 
@@ -277,18 +268,18 @@ local function move_default_to_other()
 	local char = Get_char('register: ')
 	if not char then return end
 	local register = Validate_register(char)
-	local default_contents = vim.fn.getreg('"')
+	local default_contents = vim.fn.getreg('+')
 	vim.fn.setreg(register, default_contents)
 end
 
 local function search_for_current_word(direction, death)
-	local register = vim.fn.getreg('"')
+	local register = vim.fn.getreg('+')
 	FeedKeys('yiw')
 	vim.schedule(function()
-		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg('"'))
+		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg('+'))
 		FeedKeys(direction .. '\\V\\C' .. escaped_word .. death)
-		FeedKeysInt('<cr>')
-		vim.fn.setreg('"', register)
+		FeedKeysInt('<CR>')
+		vim.fn.setreg('+', register)
 	end)
 end
 
@@ -319,7 +310,7 @@ local normal_mappings = {
 	['""a'] = { function() vim.cmd('tcd ~/.local/share/nvim/lazy/AstroNvim') end },
 	['""e'] = { function() vim.cmd('tcd ~/prog/other/astrotemplate') end },
 	['<Leader>dm'] = { function() vim.cmd('messages') end },
-	gy = { function() vim.cmd('%y+') end },
+	yie = { function() vim.cmd('%y+') end },
 	['<Leader>g'] = { move_default_to_other },
 	['*'] = { function() search_for_current_word('/', '') end },
 	['<Leader>*'] = { function() search_for_current_word('/', '/e') end },
@@ -355,16 +346,6 @@ local normal_mappings = {
 	["'8"] = { function() numbered_get(8) end },
 	["'9"] = { function() numbered_get(9) end },
 	["'0"] = { function() numbered_get(10) end },
-	['<Leader>1'] = { function() numbered_set(1) end },
-	['<Leader>2'] = { function() numbered_set(2) end },
-	['<Leader>3'] = { function() numbered_set(3) end },
-	['<Leader>4'] = { function() numbered_set(4) end },
-	['<Leader>5'] = { function() numbered_set(5) end },
-	['<Leader>6'] = { function() numbered_set(6) end },
-	['<Leader>7'] = { function() numbered_set(7) end },
-	['<Leader>8'] = { function() numbered_set(8) end },
-	['<Leader>9'] = { function() numbered_set(9) end },
-	['<Leader>0'] = { function() numbered_set(10) end },
 	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
 	['<Esc>'] = {
 		function()
@@ -511,9 +492,8 @@ local insert_mappings = {
 	["<A-'>E"] = { function() killring_pop_tail(true) end },
 	["<A-'>e"] = { function() killring_pop(true) end },
 	["<A-'><CR>"] = '<C-r><C-p>:',
-	["<A-'>'"] = '<C-r><C-p>"',
+	["<A-'>'"] = '<C-r><C-p>+',
 	["<A-'>w"] = '<C-r><C-p>0',
-	["<A-'>q"] = '<C-r><C-p>+',
 	['<C-v>'] = '<C-r><C-p>+',
 	["<A-'>"] = '<C-r><C-p>',
 	['<A-,>'] = '<C-d>',
@@ -555,9 +535,8 @@ local command_mappings = {
 	["<A-'>e"] = { function() killring_pop('command') end },
 	["<A-'>"] = '<C-r>',
 	['<C-v>'] = '<C-r>+',
-	["<A-'>q"] = '<C-r>+',
 	["<A-'>w"] = '<C-r>0',
-	["<A-'>'"] = '<C-r>"',
+	["<A-'>'"] = '<C-r>+',
 	["<A-'><CR>"] = '<C-r>:',
 }
 
@@ -588,7 +567,6 @@ local normal_visual_pending_mappings = {
 	['/'] = '/\\v',
 	['?'] = '?\\v',
 	gM = 'M',
-	["'q"] = '"+',
 	["'w"] = '"0',
 	["'a"] = '"_',
 	["';"] = '":',
@@ -711,7 +689,7 @@ local opts_table = {
 			matchpairs = '(:),{:},[:],<:>',
 			showbreak = '󱞩 ',
 			sidescrolloff = 999,
-			clipboard = '',
+			clipboard = 'unnamedplus',
 			wildoptions = 'fuzzy,pum,tagfile',
 			langmap = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>',
 		},
