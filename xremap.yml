@@ -305,6 +305,7 @@ keymap:
           d: { launch: [alacritty, -e, nvim, '.'] }
           f: { launch: [alacritty] }
           m: { launch: [fish, -c, runner_math] }
+          x: { launch: [fish, -c, runner_doc] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }

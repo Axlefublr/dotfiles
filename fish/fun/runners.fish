@@ -212,3 +212,28 @@ function update_magazine
     end
 end
 funcsave update_magazine >/dev/null
+
+function runner_doc
+    function based_entries
+        for entry in (fd -e html . ~/docs/$argv[1] | path basename | path change-extension '')
+            echo $argv[2..] $entry
+        end
+    end
+    set result (begin
+        ls ~/docs
+        based_entries 'fish/cmds' fish
+    end | rofi -dmenu 2>/dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    set result "$result"
+    switch $result
+        case 'fish *'
+            set -l result (string split ' ' $result)[-1]
+            $BROWSER ~/docs/fish/cmds/$result.html
+        case '*'
+            $BROWSER "~/docs/$result/index.html"
+    end
+end
+funcsave runner_doc >/dev/null
