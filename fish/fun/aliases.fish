@@ -139,3 +139,8 @@ function imgs
     xclip -selection clipboard -o >$argv[1].png
 end
 funcsave imgs >/dev/null
+
+function q
+    $argv --help | nvim -c +Man!
+end
+funcsave q >/dev/null
