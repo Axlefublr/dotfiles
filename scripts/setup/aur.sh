@@ -18,3 +18,4 @@ paru --noconfirm -aS gromit-mpx
 paru --noconfirm -aS tgpt-bin
 paru --noconfirm -aS xkblayout-state-git
 paru --noconfirm -aS brillo
+paru --noconfirm -aS monolith

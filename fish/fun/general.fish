@@ -270,7 +270,8 @@ function install_yt_video
         set extra youtube/
     end
     set file (mktemp /dev/shm/install_yt_video.XXXXXX)
-    alacritty -T link-download -e yt-dlp -o '/home/axlefublr/Videos/content/'$extra'%(channel)s — %(title)s.%(ext)s' --print-to-file '%(channel)s — %(title)s' $file (xclip -selection clipboard -o)
+    set clipboard (xclip -selection clipboard -o)
+    alacritty -T link-download -e yt-dlp -o '/home/axlefublr/Videos/content/'$extra'%(channel)s — %(title)s — ($clipboard).%(ext)s' --print-to-file "%(channel)s — %(title)s" $file $clipboard
     notify-send -t 3000 "downloaded: $(cat $file)"
     rm -fr $file
 end
@@ -308,3 +309,8 @@ function multiple_dot
     echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
 funcsave multiple_dot >/dev/null
+
+function regen_highs
+    nvim --headless -c 'Lazy load all' -c 'high' -c 'q' &> ~/prog/backup/highlights.txt
+end
+funcsave regen_highs >/dev/null
