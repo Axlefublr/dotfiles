@@ -12,11 +12,15 @@ return {
 		colorscheme = 'gruvbox-material',
 		highlights = {
 			init = {
-				['Lighterest'] = bg('lighterest'),
-				['Lighter'] = bg('lighter'),
-				['Darker'] = bg('darker'),
-				['Darkerest'] = bg('darkerest'),
-				['Darkness'] = bg('darkness'),
+				['Italic'] = { italic = true },
+				['Bold'] = { bold = true },
+				['Strikethrough'] = { strikethrough = true },
+
+				['Light25'] = bg('lighterest'),
+				['Light19'] = bg('lighter'),
+				['Dark13'] = bg('darker'),
+				['Dark12'] = bg('darkerest'),
+				['Dark10'] = bg('darkness'),
 
 				['Orange'] = fg('orange'),
 				['Yellow'] = fg('yellow'),
@@ -41,7 +45,7 @@ return {
 				['BlueItalic'] = { fg = Colors.cyan, italic = true },
 				['PurpleItalic'] = { fg = Colors.purple, italic = true },
 				['BlushItalic'] = { fg = Colors.blush, italic = true },
-				['FgItalic'] = 
+				['FgItalic'] = { fg = Colors.white, italic = true },
 
 				['ShellYellowBold'] = { fg = Colors.shell_yellow, bold = true },
 
@@ -58,6 +62,8 @@ return {
 
 				['AquaUndercurl'] = { sp = Colors.mint, undercurl = true },
 				['AquaAndUnderline'] = { fg = Colors.mint, underline = true },
+
+				['PurpleAndUnderline'] = { fg = Colors.purple, underline = true },
 
 				['BlushBackground'] = { fg = Colors.level, bg = Colors.blush },
 				['BlushBoldBackground'] = { fg = Colors.level, bg = Colors.blush, bold = true },
@@ -154,10 +160,10 @@ return {
 
 				['Tabline'] = link('Normal'),
 				['TablineFill'] = link('Normal'),
-				['TablineSel'] = link('Darkness'),
-				['NormalFloat'] = link('Darker'),
-				['FloatBorder'] = link('Darker'),
-				['FloatTitle'] = { fg = Colors.yellow, bg = Colors.darkerest },
+				['TablineSel'] = link('Dark10'),
+				['NormalFloat'] = link('Dark13'),
+				['FloatBorder'] = link('Dark13'),
+				['FloatTitle'] = link('YellowOnDark12'),
 				['StatusLine'] = link('Normal'),
 				['Title'] = link('OrangeBold'),
 
@@ -167,8 +173,8 @@ return {
 				['DiagnosticVirtualTextHint'] = link('Blue'),
 
 				['CmpItemKindSnippet'] = link('Yellow'),
-				['CmpItemAbbrMatch'] = { fg = Colors.shell_yellow, bold = true },
-				['CmpItemAbbrMatchFuzzy'] = { fg = Colors.shell_yellow, bold = true },
+				['CmpItemAbbrMatch'] = link('ShellYellowBold'),
+				['CmpItemAbbrMatchFuzzy'] = link('ShellYellowBold'),
 
 				['AerialArrayIcon'] = link('Orange'),
 				['AerialObjectIcon'] = link('Purple'),
@@ -213,7 +219,7 @@ return {
 				['@type.qualifier.css'] = link('Red'),
 				['@tag.attribute.css'] = link('Aqua'),
 				['@tag.css'] = link('Purple'),
-				['@variable.css'] = { fg = Colors.white, italic = true },
+				['@variable.css'] = link('FgItalic'),
 				['@constant.css'] = link('Blue'),
 				['@attribute.css'] = link('Blue'), -- [something="something"]
 				['@number.float.css'] = link('Blush'),
@@ -224,7 +230,7 @@ return {
 
 				['@punctuation.special.bash'] = link('Purple'),
 				['@variable.bash'] = link('Purple'),
-				['@constant.bash'] = { fg = Colors.purple, underline = true },
+				['@constant.bash'] = link('PurpleAndUnderline'),
 				['@operator.bash'] = link('OrangeBold'),
 				['@function.call.bash'] = link('Green'),
 				['@function.builtin.bash'] = link('Green'),
@@ -257,8 +263,8 @@ return {
 				['sqlString'] = link('Yellow'),
 				['sqlKeyword'] = link('Red'),
 
-				['@markup.italic.markdown_inline'] = { italic = true },
-				['@markup.strikethrough.markdown_inline'] = { strikethrough = true },
+				['@markup.italic.markdown_inline'] = link('Italic'),
+				['@markup.strikethrough.markdown_inline'] = link('Strikethrough'),
 				['@markup.raw.markdown_inline'] = link('Yellow'), -- inline code
 				['@markup.raw.delimiter.markdown_inline'] = link('Grey'), -- `` of inline code
 				['@markup.raw.delimiter.markdown'] = link('Grey'), -- ``` of codeblocks
@@ -281,7 +287,7 @@ return {
 				['@lsp.type.property.rust'] = link('Fg'),
 				['@lsp.type.macro.rust'] = link('Green'),
 				['@lsp.type.string.rust'] = link('Yellow'),
-				['@lsp.typemod.property.private.rust'] = { fg = Colors.blush, underline = true },
+				['@lsp.typemod.property.private.rust'] = link('BlushAndUnderline'),
 				['@lsp.type.attributeBracket.rust'] = link('Purple'),
 				['@lsp.type.comment.rust'] = link('Grey'),
 				['@lsp.type.builtinType.rust'] = link('YellowBold'),
@@ -290,8 +296,8 @@ return {
 				['@lsp.type.selfTypeKeyword.rust'] = link('Purple'),
 				['@lsp.type.lifetime.rust'] = link('OrangeItalic'),
 				['@lsp.mod.controlFlow.rust'] = link('Red'),
-				['@lsp.mod.reference.rust'] = { italic = true },
-				['@lsp.mod.mutable.rust'] = { bold = true },
+				['@lsp.mod.reference.rust'] = link('Italic'),
+				['@lsp.mod.mutable.rust'] = link('Bold'),
 				['@lsp.type.number.rust'] = link('Blush'),
 				['@lsp.type.function.rust'] = link('Green'),
 				['@function.rust'] = link('Green'),

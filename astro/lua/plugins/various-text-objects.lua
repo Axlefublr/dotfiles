@@ -7,7 +7,7 @@ return {
 			{ mode = { 'o', 'x' }, 'ai', function() require('various-textobjs').indentation('outer', 'inner') end },
 			{ mode = { 'o', 'x' }, 'iI', function() require('various-textobjs').indentation('inner', 'inner') end },
 			{ mode = { 'o', 'x' }, 'aI', function() require('various-textobjs').indentation('outer', 'outer') end },
-			{ mode = { 'o', 'x' }, 'R', function() require('various-textobjs').restOfIndentation() end },
+			{ mode = { 'o', 'x' }, 'D', function() require('various-textobjs').restOfIndentation() end },
 			{ mode = { 'o', 'x' }, 'iS', function() require('various-textobjs').subword('inner') end },
 			{ mode = { 'o', 'x' }, 'aS', function() require('various-textobjs').subword('outer') end },
 			{ mode = { 'o', 'x' }, 'ie', function() require('various-textobjs').entireBuffer() end },
