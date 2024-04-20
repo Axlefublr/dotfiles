@@ -16,11 +16,11 @@ return {
 				['Bold'] = { bold = true },
 				['Strikethrough'] = { strikethrough = true },
 
-				['Light25'] = bg('lighterest'),
-				['Light19'] = bg('lighter'),
-				['Dark13'] = bg('darker'),
-				['Dark12'] = bg('darkerest'),
-				['Dark10'] = bg('darkness'),
+				['Light25'] = bg('light25'),
+				['Light19'] = bg('light19'),
+				['Dark13'] = bg('dark13'),
+				['Dark12'] = bg('dark12'),
+				['Dark10'] = bg('dark10'),
 
 				['Orange'] = fg('orange'),
 				['Yellow'] = fg('yellow'),

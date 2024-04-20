@@ -222,46 +222,56 @@ local function search_for_selection(direction, death)
 	end)
 end
 
-local function ensure_dir_exists(path)
-	local stat = vim.loop.fs_stat(path)
-	if not stat then
-		vim.loop.fs_mkdir(path, 511) -- 511 corresponds to octal 0777
-	elseif stat.type ~= 'directory' then
-		error(path .. ' is not a directory')
+local function split_by_newlines(string)
+	local lines = {}
+	for line in string.gmatch(string, '([^\n]+)') do
+		table.insert(lines, line)
 	end
+	return lines
 end
 
-local function harp_get(edit_command)
-	local dir = vim.fn.expand('~/.local/share/harp')
-	ensure_dir_exists(dir)
-	local register = Get_char('harp: ')
+local function harp_get()
+	local register = Get_char('get harp: ')
 	if register == nil then return end
-	local file = io.open(dir .. '/' .. register, 'r')
-	if file then
-		local output = file:read('l')
-		if #output > 0 then
-			vim.cmd((edit_command or 'edit') .. ' ' .. output)
-		else
-			vim.notify(register .. ' is empty')
-		end
-		file:close()
+	local output = require('astrocore').cmd({ 'harp', '__harps', register }, false)
+	if output then
+		vim.cmd.edit(output)
 	else
-		vim.notify(register .. ' is empty')
+		vim.notify('harp ' .. register .. ' is empty')
 	end
 end
 
 local function harp_set()
-	local dir = vim.fn.expand('~/.local/share/harp')
-	ensure_dir_exists(dir)
-	local register = Get_char('harp: ')
+	local register = Get_char('set harp: ')
 	if register == nil then return end
-	local full_path = vim.api.nvim_buf_get_name(0)
-	local file = io.open(dir .. '/' .. register, 'w')
-	if file then
-		file:write(full_path)
-		file:close()
-		vim.notify('set harp ' .. register)
+	local path = vim.api.nvim_buf_get_name(0)
+	local output = require('astrocore').cmd({ 'harp', '__harps', register, '--path', path }, true)
+	if output then vim.notify('set harp ' .. register) end
+end
+
+local function harp_local_mark_get(register)
+	local path = vim.api.nvim_buf_get_name(0)
+	local output = require('astrocore').cmd({ 'harp', '__local_marks__' .. path, register }, false)
+	if output then
+		local lines = split_by_newlines(output)
+		local line = lines[1]
+		local column = lines[2]
+		vim.fn.cursor({ line, column })
+	else
+		vim.notify('local mark ' .. register .. ' is empty')
 	end
+end
+
+local function harp_local_mark_set(register)
+	local path = vim.api.nvim_buf_get_name(0)
+	local cursor = vim.api.nvim_win_get_cursor(0)
+	local line = cursor[1]
+	local column = cursor[2]
+	local output = require('astrocore').cmd(
+		{ 'harp', '__local_marks__' .. path, register, '--line', tostring(line), '--column', tostring(column) },
+		false
+	)
+	if output then vim.notify('set local mark ' .. register) end
 end
 
 local function move_default_to_other()
@@ -296,9 +306,81 @@ local normal_mappings = {
 	["'e"] = { killring_pop },
 	["'t"] = { killring_compile },
 	["'T"] = { killring_compile_reversed },
-	[',S'] = { harp_set },
-	[',s'] = { harp_get },
+	['<Leader>S'] = { harp_set },
+	['<Leader>s'] = { harp_get },
 	K = { close_try_save },
+	['ma'] = { function() harp_local_mark_get('a') end },
+	['mb'] = { function() harp_local_mark_get('b') end },
+	['mc'] = { function() harp_local_mark_get('c') end },
+	['md'] = { function() harp_local_mark_get('d') end },
+	['me'] = { function() harp_local_mark_get('e') end },
+	['mf'] = { function() harp_local_mark_get('f') end },
+	['mg'] = { function() harp_local_mark_get('g') end },
+	['mh'] = { function() harp_local_mark_get('h') end },
+	['mi'] = { function() harp_local_mark_get('i') end },
+	['mj'] = { function() harp_local_mark_get('j') end },
+	['mk'] = { function() harp_local_mark_get('k') end },
+	['ml'] = { function() harp_local_mark_get('l') end },
+	['mm'] = { function() harp_local_mark_get('m') end },
+	['mn'] = { function() harp_local_mark_get('n') end },
+	['mo'] = { function() harp_local_mark_get('o') end },
+	['mp'] = { function() harp_local_mark_get('p') end },
+	['mq'] = { function() harp_local_mark_get('q') end },
+	['mr'] = { function() harp_local_mark_get('r') end },
+	['ms'] = { function() harp_local_mark_get('s') end },
+	['mt'] = { function() harp_local_mark_get('t') end },
+	['mu'] = { function() harp_local_mark_get('u') end },
+	['mv'] = { function() harp_local_mark_get('v') end },
+	['mw'] = { function() harp_local_mark_get('w') end },
+	['mx'] = { function() harp_local_mark_get('x') end },
+	['my'] = { function() harp_local_mark_get('y') end },
+	['mz'] = { function() harp_local_mark_get('z') end },
+	['m0'] = { function() harp_local_mark_get('0') end },
+	['m1'] = { function() harp_local_mark_get('1') end },
+	['m2'] = { function() harp_local_mark_get('2') end },
+	['m3'] = { function() harp_local_mark_get('3') end },
+	['m4'] = { function() harp_local_mark_get('4') end },
+	['m5'] = { function() harp_local_mark_get('5') end },
+	['m6'] = { function() harp_local_mark_get('6') end },
+	['m7'] = { function() harp_local_mark_get('7') end },
+	['m8'] = { function() harp_local_mark_get('8') end },
+	['m9'] = { function() harp_local_mark_get('9') end },
+	['Ma'] = { function() harp_local_mark_set('a') end },
+	['Mb'] = { function() harp_local_mark_set('b') end },
+	['Mc'] = { function() harp_local_mark_set('c') end },
+	['Md'] = { function() harp_local_mark_set('d') end },
+	['Me'] = { function() harp_local_mark_set('e') end },
+	['Mf'] = { function() harp_local_mark_set('f') end },
+	['Mg'] = { function() harp_local_mark_set('g') end },
+	['Mh'] = { function() harp_local_mark_set('h') end },
+	['Mi'] = { function() harp_local_mark_set('i') end },
+	['Mj'] = { function() harp_local_mark_set('j') end },
+	['Mk'] = { function() harp_local_mark_set('k') end },
+	['Ml'] = { function() harp_local_mark_set('l') end },
+	['Mm'] = { function() harp_local_mark_set('m') end },
+	['Mn'] = { function() harp_local_mark_set('n') end },
+	['Mo'] = { function() harp_local_mark_set('o') end },
+	['Mp'] = { function() harp_local_mark_set('p') end },
+	['Mq'] = { function() harp_local_mark_set('q') end },
+	['Mr'] = { function() harp_local_mark_set('r') end },
+	['Ms'] = { function() harp_local_mark_set('s') end },
+	['Mt'] = { function() harp_local_mark_set('t') end },
+	['Mu'] = { function() harp_local_mark_set('u') end },
+	['Mv'] = { function() harp_local_mark_set('v') end },
+	['Mw'] = { function() harp_local_mark_set('w') end },
+	['Mx'] = { function() harp_local_mark_set('x') end },
+	['My'] = { function() harp_local_mark_set('y') end },
+	['Mz'] = { function() harp_local_mark_set('z') end },
+	['M0'] = { function() harp_local_mark_set('0') end },
+	['M1'] = { function() harp_local_mark_set('1') end },
+	['M2'] = { function() harp_local_mark_set('2') end },
+	['M3'] = { function() harp_local_mark_set('3') end },
+	['M4'] = { function() harp_local_mark_set('4') end },
+	['M5'] = { function() harp_local_mark_set('5') end },
+	['M6'] = { function() harp_local_mark_set('6') end },
+	['M7'] = { function() harp_local_mark_set('7') end },
+	['M8'] = { function() harp_local_mark_set('8') end },
+	['M9'] = { function() harp_local_mark_set('9') end },
 	['<Leader>lD'] = { vim.lsp.buf.declaration },
 	['<Leader>lr'] = { vim.lsp.buf.rename },
 	['<Leader>K'] = { function() vim.cmd('q!') end },
@@ -400,6 +482,8 @@ local normal_mappings = {
 			vim.lsp.buf.hover()
 		end,
 	},
+	M = 'm',
+	m = '`',
 	gss = '==',
 	U = '@n',
 	zn = 'q',
@@ -422,6 +506,7 @@ local normal_mappings = {
 	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['dr'] = '"' .. THROWAWAY_REGISTER .. 'diWxt p"' .. THROWAWAY_REGISTER .. 'p',
 	['dR'] = '"' .. THROWAWAY_REGISTER .. 'diWxBP"' .. THROWAWAY_REGISTER .. 'P',
+	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
 	['<Leader>a1'] = '1<C-w>w',
 	['<Leader>a2'] = '2<C-w>w',
 	['<Leader>a3'] = '3<C-w>w',
@@ -554,9 +639,6 @@ local normal_visual_pending_mappings = {
 	['<Leader>F'] = { function() search_for_register('?', '') end },
 	['<Leader><Leader>f'] = { function() search_for_register('/', '/e') end },
 	['<Leader><Leader>F'] = { function() search_for_register('?', '?e') end },
-	m = '`',
-	M = '``',
-	['<Leader>m'] = 'm',
 	['m['] = '`[',
 	['m]'] = '`]',
 	['m.'] = '`>',
