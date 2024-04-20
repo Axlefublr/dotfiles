@@ -129,7 +129,7 @@ alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle $argv ; awesome-client "Muteness_wu()"' >/dev/null
 alias --save get_mute 'pactl get-sink-mute @DEFAULT_SINK@ | string match -gr "Mute: (no|yes)"' >/dev/null
 
-alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' >/dev/null
+alias --save get_mic_volume 'pactl get-source-volume @DEFAULT_SOURCE@ | string match -rg \'Volume: [\\w-]+: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' >/dev/null
 alias --save toggle_mic_mute 'pactl set-source-mute @DEFAULT_SOURCE@ toggle $argv ; awesome-client "Mic_muteness_wu()"' >/dev/null
 alias --save get_mic_mute 'pactl get-source-mute @DEFAULT_SOURCE@ | string match -gr "Mute: (no|yes)"' >/dev/null
 

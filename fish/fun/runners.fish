@@ -220,8 +220,7 @@ function runner_doc
         end
     end
     set result (begin
-        ls ~/docs | rg -v '^fish$'
-        echo fish
+        ls ~/docs
         based_entries 'fish/cmds' fish
         based_entries 'awm/awesomewm.org/doc/api/classes' awm class
         based_entries 'awm/awesomewm.org/doc/api/libraries' awm lib
