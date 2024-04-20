@@ -14,7 +14,7 @@ footer_bar = { foreground = '#0f0f0f', background = '#ffd75f' }
 [colors.normal]
 red = '#ea6962'
 green = '#a9b665'
-yellow = '#d0a750'
+yellow = '#d3ad5c'
 blue = '#7daea3'
 magenta = '#e491b2'
 cyan = '#78bf84'
@@ -23,7 +23,7 @@ white = '#d4be98'
 [colors.bright]
 red = '#ea6962'
 green = '#a9b665'
-yellow = '#d0a750'
+yellow = '#d3ad5c'
 blue = '#7daea3'
 magenta = '#e491b2'
 cyan = '#78bf84'

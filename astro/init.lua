@@ -29,7 +29,7 @@ Colors = {
 	black = '#0f0f0f',
 	red = '#ea6962',
 	orange = '#e49641',
-	yellow = '#d0a750',
+	yellow = '#d3ad5c',
 	green = '#a9b665',
 	mint = '#78bf84',
 	cyan = '#7daea3',
@@ -38,11 +38,12 @@ Colors = {
 	white = '#d4be98',
 	grey = '#928374',
 
-	lighterest = '#403f3f',
-	lighter = '#313030',
-	darker = '#212121',
-	darkerest = '#1f1e1e',
-	darkness = '#1a1919',
+	light25 = '#403f3f',
+	light19 = '#313030',
+	level = '#292828',
+	dark13 = '#212121',
+	dark12 = '#1f1e1e',
+	dark10 = '#1a1919',
 }
 
 THROWAWAY_MARK = 'P'
