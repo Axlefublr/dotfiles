@@ -249,6 +249,27 @@ local function harp_set()
 	if output then vim.notify('set harp ' .. register) end
 end
 
+local function harp_local_get()
+	local register = Get_char('get local harp: ')
+	if register == nil then return end
+	local cwd = vim.fn.getcwd()
+	local output = require('astrocore').cmd({ 'harp', '__cwd_harps__' .. cwd, register }, false)
+	if output then
+		vim.cmd.edit(output)
+	else
+		vim.notify('local harp ' .. register .. ' is empty')
+	end
+end
+
+local function harp_local_set()
+	local register = Get_char('set local harp: ')
+	if register == nil then return end
+	local cwd = vim.fn.getcwd()
+	local path = vim.api.nvim_buf_get_name(0)
+	local output = require('astrocore').cmd({ 'harp', '__cwd_harps__' .. cwd, register, '--path', path }, true)
+	if output then vim.notify('set local harp ' .. register) end
+end
+
 local function harp_local_mark_get(register)
 	local path = vim.api.nvim_buf_get_name(0)
 	local output = require('astrocore').cmd({ 'harp', '__local_marks__' .. path, register }, false)
@@ -308,6 +329,8 @@ local normal_mappings = {
 	["'T"] = { killring_compile_reversed },
 	['<Leader>S'] = { harp_set },
 	['<Leader>s'] = { harp_get },
+	['<Leader>R'] = { harp_local_set },
+	['<Leader>r'] = { harp_local_get },
 	K = { close_try_save },
 	['ma'] = { function() harp_local_mark_get('a') end },
 	['mb'] = { function() harp_local_mark_get('b') end },
@@ -736,7 +759,7 @@ local opts_table = {
 			tabstop = 3,
 			shiftwidth = 3,
 			numberwidth = 3, -- this weirdly means 2
-			-- scrolloff = 999,
+			scrolloff = 999,
 			expandtab = false,
 			smartindent = true,
 			mouse = 'a',
@@ -792,56 +815,56 @@ local opts_table = {
 		},
 	},
 	autocmds = {
-		center_cursorline = {
-			{
-				event = { 'BufNewFile', 'BufReadPost', 'BufWritePost' },
-				desc = 'Keeps the cursorline at the center of the screen [1]',
-				callback = function(args)
-					-- add virtual lines at the top
-					local win_height = vim.api.nvim_win_get_height(0) - 1 -- 1 is added by the breadcrumbs
-					local win_offset = math.floor(win_height / 2)
-					local extmark_ns = vim.api.nvim_create_namespace('always_center')
+		-- center_cursorline = {
+		-- 	{
+		-- 		event = { 'BufNewFile', 'BufReadPost', 'BufWritePost' },
+		-- 		desc = 'Keeps the cursorline at the center of the screen [1]',
+		-- 		callback = function(args)
+		-- 			-- add virtual lines at the top
+		-- 			local win_height = vim.api.nvim_win_get_height(0)
+		-- 			local win_offset = math.floor(win_height / 2)
+		-- 			local extmark_ns = vim.api.nvim_create_namespace('always_center')
 
-					local virt_lines = {}
-					for _ = 1, win_offset do
-						table.insert(virt_lines, { { '', '' } })
-					end
-					vim.api.nvim_buf_set_extmark(0, extmark_ns, 0, 0, {
-						id = 1,
-						virt_lines = virt_lines,
-						virt_lines_above = true,
-					})
+		-- 			local virt_lines = {}
+		-- 			for _ = 1, win_offset do
+		-- 				table.insert(virt_lines, { { '', '' } })
+		-- 			end
+		-- 			vim.api.nvim_buf_set_extmark(0, extmark_ns, 0, 0, {
+		-- 				id = 1,
+		-- 				virt_lines = virt_lines,
+		-- 				virt_lines_above = true,
+		-- 			})
 
-					-- add autocmd to trigger on movement
-					vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'BufEnter' }, {
-						desc = 'Keeps the cursorline at the center of the screen [2]',
-						callback = function(args_lcl)
-							local current_line = vim.api.nvim_win_get_cursor(0)[1]
+		-- 			-- add autocmd to trigger on movement
+		-- 			vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'BufEnter' }, {
+		-- 				desc = 'Keeps the cursorline at the center of the screen [2]',
+		-- 				callback = function(args_lcl)
+		-- 					local current_line = vim.api.nvim_win_get_cursor(0)[1]
 
-							-- if the event is CursorMoved or CursorMovedI (~BufEnter), only trigger if the cursorline has changed
-							if
-								args_lcl.event ~= 'BufEnter' and current_line == vim.b[args.buf].center_cursorline_last_line
-							then
-								return
-							end
-							vim.b[args.buf].center_cursorline_last_line = current_line
+		-- 					-- if the event is CursorMoved or CursorMovedI (~BufEnter), only trigger if the cursorline has changed
+		-- 					if
+		-- 						args_lcl.event ~= 'BufEnter' and current_line == vim.b[args.buf].center_cursorline_last_line
+		-- 					then
+		-- 						return
+		-- 					end
+		-- 					vim.b[args.buf].center_cursorline_last_line = current_line
 
-							local win_view = vim.fn.winsaveview()
-							win_view.topline = math.max(current_line - win_offset, 1)
-							win_view.topfill = math.max(win_offset - current_line + 1, 0)
-							vim.fn.winrestview(win_view)
-						end,
-						buffer = args.buf,
-						group = vim.api.nvim_create_augroup('center_cursorline' .. args.buf, { clear = true }),
-					})
-				end,
-			},
-		},
+		-- 					local win_view = vim.fn.winsaveview()
+		-- 					win_view.topline = math.max(current_line - win_offset, 1)
+		-- 					win_view.topfill = math.max(win_offset - current_line + 1, 0)
+		-- 					vim.fn.winrestview(win_view)
+		-- 				end,
+		-- 				buffer = args.buf,
+		-- 				group = vim.api.nvim_create_augroup('center_cursorline' .. args.buf, { clear = true }),
+		-- 			})
+		-- 		end,
+		-- 	},
+		-- },
 		everything = {
-			-- {
-			-- 	event = 'CursorMoved',
-			-- 	command = 'normal! zz',
-			-- },
+			{
+				event = 'CursorMoved',
+				command = 'normal! zz',
+			},
 			{
 				event = { 'CursorMoved' },
 				callback = function() vim.schedule(vim.cmd.redrawtabline) end,
