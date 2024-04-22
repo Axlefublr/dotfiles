@@ -10,8 +10,6 @@ daily_parse
 tomorrow_parse
 
 task 'take medication' --unique
-task 'thoughts' --unique
-task 'warmup' --unique
 
 if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (504) tomorrow'

@@ -89,18 +89,6 @@ function Get_char(prompt)
 	return char
 end
 
-function Validate_register(register)
-	if register == 'q' then
-		return '+'
-	elseif register == 'w' then
-		return '0'
-	elseif register == "'" then
-		return '"'
-	else
-		return register
-	end
-end
-
 function Write_cursor_position_on_leave(path)
 	vim.api.nvim_create_autocmd('VimLeave', {
 		callback = function()

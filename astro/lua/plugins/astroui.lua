@@ -49,6 +49,7 @@ return {
 
 				['ShellYellowBold'] = { fg = Colors.shell_yellow, bold = true },
 
+				['OrangeBoldBackground'] = { fg = Colors.level, bg = Colors.orange, bold = true },
 				['OrangeBoldNocombine'] = { fg = Colors.orange, bold = true, nocombine = true },
 				['OrangeBoldOnDark12'] = { fg = Colors.orange, bg = Colors.dark12, bold = true },
 
@@ -60,8 +61,9 @@ return {
 				['YellowOnDark13'] = { fg = Colors.yellow, bg = Colors.dark13 },
 				['YellowUndercurl'] = { sp = Colors.yellow, undercurl = true },
 
-				['AquaUndercurl'] = { sp = Colors.mint, undercurl = true },
 				['AquaAndUnderline'] = { fg = Colors.mint, underline = true },
+				['AquaBoldBackground'] = { fg = Colors.level, bg = Colors.mint, bold = true },
+				['AquaUndercurl'] = { sp = Colors.mint, undercurl = true },
 
 				['PurpleAndUnderline'] = { fg = Colors.purple, underline = true },
 
@@ -166,6 +168,8 @@ return {
 				['FloatTitle'] = link('YellowOnDark12'),
 				['StatusLine'] = link('Normal'),
 				['Title'] = link('OrangeBold'),
+				['TodoBgNOTE'] = link('AquaBoldBackground'),
+				['TodoBgTODO'] = link('OrangeBoldBackground'),
 
 				['DiagnosticVirtualTextError'] = link('Red'),
 				['DiagnosticVirtualTextWarn'] = link('Orange'),
@@ -224,8 +228,8 @@ return {
 				['@attribute.css'] = link('Blue'), -- [something="something"]
 				['@number.float.css'] = link('Blush'),
 
-				['@conceal.jsonc'] = link('Fg'),
-				['@conceal.json'] = link('Fg'),
+				['@conceal.jsonc'] = link('Grey'),
+				['@conceal.json'] = link('Grey'),
 				['@constant.builtin.jsonc'] = link('PurpleItalic'),
 
 				['@punctuation.special.bash'] = link('Purple'),

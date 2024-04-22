@@ -1,5 +1,15 @@
 local killring = setmetatable({}, { __index = table })
 
+function validate_register(register)
+	if register == 'w' then
+		return '0'
+	elseif register == "'" then
+		return '+'
+	else
+		return register
+	end
+end
+
 local function trim_trailing_whitespace()
 	local search = vim.fn.getreg('/')
 	---@diagnostic disable-next-line: param-type-mismatch
@@ -184,7 +194,7 @@ end
 function search_for_register(direction, death)
 	local char = Get_char('register: ')
 	if not char then return end
-	local register = Validate_register(char)
+	local register = validate_register(char)
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
 	FeedKeys(direction .. '\\V' .. escaped_register .. death)
 	FeedKeysInt('<CR>')
@@ -233,7 +243,7 @@ end
 local function harp_get()
 	local register = Get_char('get harp: ')
 	if register == nil then return end
-	local output = require('astrocore').cmd({ 'harp', '__harps', register }, false)
+	local output = require('astrocore').cmd({ 'harp', 'get', 'harps', register, '--path' }, false)
 	if output then
 		vim.cmd.edit(output)
 	else
@@ -244,8 +254,8 @@ end
 local function harp_set()
 	local register = Get_char('set harp: ')
 	if register == nil then return end
-	local path = vim.api.nvim_buf_get_name(0)
-	local output = require('astrocore').cmd({ 'harp', '__harps', register, '--path', path }, true)
+	local path = vim.fn.expand('%:~')
+	local output = require('astrocore').cmd({ 'harp', 'update', 'harps', register, '--path', path }, true)
 	if output then vim.notify('set harp ' .. register) end
 end
 
@@ -253,7 +263,8 @@ local function harp_local_get()
 	local register = Get_char('get local harp: ')
 	if register == nil then return end
 	local cwd = vim.fn.getcwd()
-	local output = require('astrocore').cmd({ 'harp', '__cwd_harps__' .. cwd, register }, false)
+	cwd = vim.fn.fnamemodify(cwd, ':~')
+	local output = require('astrocore').cmd({ 'harp', 'get', 'cwd_harps_' .. cwd, register, '--path' }, false)
 	if output then
 		vim.cmd.edit(output)
 	else
@@ -265,14 +276,35 @@ local function harp_local_set()
 	local register = Get_char('set local harp: ')
 	if register == nil then return end
 	local cwd = vim.fn.getcwd()
-	local path = vim.api.nvim_buf_get_name(0)
-	local output = require('astrocore').cmd({ 'harp', '__cwd_harps__' .. cwd, register, '--path', path }, true)
+	cwd = vim.fn.fnamemodify(cwd, ':~')
+	local path = vim.fn.expand('%:~:.')
+	local output = require('astrocore').cmd({ 'harp', 'update', 'cwd_harps_' .. cwd, register, '--path', path }, true)
 	if output then vim.notify('set local harp ' .. register) end
 end
 
+local function harp_cd_get()
+	local register = Get_char('get cd harp: ')
+	if register == nil then return end
+	local output = require('astrocore').cmd({ 'harp', 'get', 'cd_harps', register, '--path' }, false)
+	if output then
+		vim.cmd.tcd(output)
+	else
+		vim.notify('cd harp ' .. register .. ' is empty')
+	end
+end
+
+local function harp_cd_set()
+	local register = Get_char('set cd harp: ')
+	if register == nil then return end
+	local cwd = vim.fn.getcwd()
+	cwd = vim.fn.fnamemodify(cwd, ':~')
+	local output = require('astrocore').cmd({ 'harp', 'update', 'cd_harps', register, '--path', cwd }, false)
+	if output then vim.notify('set cd harp ' .. register) end
+end
+
 local function harp_local_mark_get(register)
-	local path = vim.api.nvim_buf_get_name(0)
-	local output = require('astrocore').cmd({ 'harp', '__local_marks__' .. path, register }, false)
+	local path = vim.fn.expand('%:~')
+	local output = require('astrocore').cmd({ 'harp', 'get', 'local_marks_' .. path, register, '--line', '--column' }, false)
 	if output then
 		local lines = split_by_newlines(output)
 		local line = lines[1]
@@ -284,21 +316,40 @@ local function harp_local_mark_get(register)
 end
 
 local function harp_local_mark_set(register)
-	local path = vim.api.nvim_buf_get_name(0)
+	local path = vim.fn.expand('%:~')
 	local cursor = vim.api.nvim_win_get_cursor(0)
 	local line = cursor[1]
 	local column = cursor[2]
 	local output = require('astrocore').cmd(
-		{ 'harp', '__local_marks__' .. path, register, '--line', tostring(line), '--column', tostring(column) },
+		{ 'harp', 'update', 'local_marks_' .. path, register, '--line', tostring(line), '--column', tostring(column) },
 		false
 	)
 	if output then vim.notify('set local mark ' .. register) end
 end
 
+local function harp_relative_get()
+	local register = Get_char('get relative harp: ')
+	if register == nil then return end
+	local output = require('astrocore').cmd({ 'harp', 'get', 'relative_harps', register, '--path' }, false)
+	if output then
+		vim.cmd.edit(output)
+	else
+		vim.notify('relative harp ' .. register .. ' is empty')
+	end
+end
+
+local function harp_relative_set()
+	local register = Get_char('set relative harp: ')
+	if register == nil then return end
+	local relative_path = vim.fn.expand('%:~:.')
+	local output = require('astrocore').cmd({ 'harp', 'update', 'relative_harps', register, '--path', relative_path }, false)
+	if output then vim.notify('set relative harp ' .. register) end
+end
+
 local function move_default_to_other()
 	local char = Get_char('register: ')
 	if not char then return end
-	local register = Validate_register(char)
+	local register = validate_register(char)
 	local default_contents = vim.fn.getreg('+')
 	vim.fn.setreg(register, default_contents)
 end
@@ -320,7 +371,7 @@ local normal_mappings = {
 	['<Leader>dr'] = { copy_cwd_relative },
 	['<Leader>de'] = { copy_git_relative },
 	['<Space>'] = { save },
-	['"'] = { edit_magazine },
+	['<Leader>D'] = { edit_magazine },
 	["'R"] = { killring_push_tail },
 	["'r"] = { killring_push },
 	["'E"] = { killring_pop_tail },
@@ -329,8 +380,10 @@ local normal_mappings = {
 	["'T"] = { killring_compile_reversed },
 	['<Leader>S'] = { harp_set },
 	['<Leader>s'] = { harp_get },
-	['<Leader>R'] = { harp_local_set },
-	['<Leader>r'] = { harp_local_get },
+	['<Leader>X'] = { harp_local_set },
+	['<Leader>x'] = { harp_local_get },
+	['<Leader>Z'] = { harp_relative_set },
+	['<Leader>z'] = { harp_relative_get },
 	K = { close_try_save },
 	['ma'] = { function() harp_local_mark_get('a') end },
 	['mb'] = { function() harp_local_mark_get('b') end },
@@ -407,13 +460,8 @@ local normal_mappings = {
 	['<Leader>lD'] = { vim.lsp.buf.declaration },
 	['<Leader>lr'] = { vim.lsp.buf.rename },
 	['<Leader>K'] = { function() vim.cmd('q!') end },
-	['""d'] = { function() vim.cmd('tcd ~/prog/dotfiles') end },
-	['""t'] = { function() vim.cmd('tcd ~/prog/noties') end },
-	['""b'] = { function() vim.cmd('tcd ~/prog/backup') end },
-	['""c'] = { function() vim.cmd('tcd ~/.local/share/nvim/lazy/astrocommunity') end },
-	['""u'] = { function() vim.cmd('tcd ~/.local/share/nvim/lazy/astroui') end },
-	['""a'] = { function() vim.cmd('tcd ~/.local/share/nvim/lazy/AstroNvim') end },
-	['""e'] = { function() vim.cmd('tcd ~/prog/other/astrotemplate') end },
+	['"'] = { harp_cd_get },
+	['""'] = { harp_cd_set },
 	['<Leader>dm'] = { function() vim.cmd('messages') end },
 	yie = { function() vim.cmd('%y+') end },
 	['<Leader>g'] = { move_default_to_other },
@@ -759,7 +807,7 @@ local opts_table = {
 			tabstop = 3,
 			shiftwidth = 3,
 			numberwidth = 3, -- this weirdly means 2
-			scrolloff = 999,
+			-- scrolloff = 999,
 			expandtab = false,
 			smartindent = true,
 			mouse = 'a',

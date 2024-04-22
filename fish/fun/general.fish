@@ -271,7 +271,7 @@ function install_yt_video
     end
     set file (mktemp /dev/shm/install_yt_video.XXXXXX)
     set clipboard (xclip -selection clipboard -o)
-    alacritty -T link-download -e yt-dlp -o '/home/axlefublr/Videos/content/'$extra'%(channel)s — %(title)s — ($clipboard).%(ext)s' --print-to-file "%(channel)s — %(title)s" $file $clipboard
+    alacritty -T link-download -e yt-dlp -o '/home/axlefublr/Videos/content/'$extra"%(channel)s — %(title)s — ($clipboard).%(ext)s" --print-to-file "%(channel)s — %(title)s" $file $clipboard
     notify-send -t 3000 "downloaded: $(cat $file)"
     rm -fr $file
 end

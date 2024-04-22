@@ -78,7 +78,7 @@
 		"",
 		"map yt copyCurrentTitle",
 		"map I LinkHints.activateEdit",
-		"map ,m Marks.activateCreate",
+		"map M Marks.activateCreate",
 		"map m Marks.activate",
 		""
 	],

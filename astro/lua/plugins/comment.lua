@@ -1,14 +1,5 @@
 return {
 	'numToStr/Comment.nvim',
-	keys = {
-		{ mode = { 'n', 'x' }, 'gd' },
-		{ mode = { 'n', 'x' }, 'gD' },
-		{ 'gdd' },
-		{ 'gDD' },
-		{ 'gdo' },
-		{ 'gdO' },
-		{ 'gdl' },
-	},
 	opts = {
 		---Add a space b/w comment and the line
 		padding = true,
