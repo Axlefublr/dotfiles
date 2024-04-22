@@ -23,7 +23,7 @@ return {
 					auto_open = false,
 				},
 			},
-			mapping = cmp.mapping.preset.insert({
+			mapping = {
 				['<A-o>'] = function(_)
 					if cmp.visible() then
 						cmp.abort()
@@ -46,7 +46,7 @@ return {
 					select = true,
 					behavior = cmp.ConfirmBehavior.Insert,
 				}),
-			}),
+			},
 		})
 	end
 }
