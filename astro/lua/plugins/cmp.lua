@@ -12,11 +12,11 @@ return {
 				completion = {
 					scrolloff = 99,
 					scrollbar = false,
-					border = false
+					border = false,
 				},
 				documentation = {
-					border = false
-				}
+					border = false,
+				},
 			},
 			view = {
 				docs = {
@@ -46,7 +46,21 @@ return {
 					select = true,
 					behavior = cmp.ConfirmBehavior.Insert,
 				}),
+				['<C-p>'] = function()
+					if cmp.visible() then
+						cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+					else
+						cmp.complete()
+					end
+				end,
+				['<C-n>'] = function()
+					if cmp.visible() then
+						cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+					else
+						cmp.complete()
+					end
+				end,
 			},
 		})
-	end
+	end,
 }
