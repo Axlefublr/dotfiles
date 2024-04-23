@@ -159,8 +159,8 @@ keymap:
       Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
       Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
-      n: { launch: [awesome-client, 'awful.mouse.client.move(client.focus)'] }
-      y: { launch: [awesome-client, 'awful.mouse.client.resize(client.focus)'] }
+      # n: { launch: [awesome-client, 'awful.mouse.client.move(client.focus)'] }
+      # y: { launch: [awesome-client, 'awful.mouse.client.resize(client.focus)'] }
 
   - name: Mouse mode
     mode: [mouse, resize, move]
@@ -302,7 +302,7 @@ keymap:
           'y': { launch: [fish, -c, install_yt_video] }
           h: { launch: [fish, -c, 'install_yt_video asmr/'] }
           w: { launch: [fish, -c, toggle_internet] }
-          d: { launch: [kitty, nvim, '.'] }
+          d: { launch: [kitty, -d, '~/prog/dotfiles', nvim, '.'] }
           f: { launch: [kitty] }
           m: { launch: [fish, -c, runner_math] }
           x: { launch: [fish, -c, runner_doc] }

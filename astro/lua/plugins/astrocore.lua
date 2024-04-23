@@ -620,7 +620,7 @@ local normal_mappings = {
 	['<Leader>aR'] = '<C-w>R',
 	['<Leader>ay'] = '<C-w>x',
 	['<Leader>a//'] = '<C-w>p',
-	['<Leader>a?'] = '<C-^>',
+	['`'] = '<C-^>',
 	['<Leader>a;'] = '<C-w>o',
 	['<Leader>ai'] = '<C-w>=',
 	[']w'] = 'gt',
