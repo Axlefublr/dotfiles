@@ -27,6 +27,7 @@ alias --save neomax 'alacritty -T neomax -e nvim' >/dev/null
 alias --save neoline 'alacritty -T neoline -e nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'eza --git --git-repos' >/dev/null
+alias --save clx 'printf "\e[H\e[22J"' >/dev/null
 
 function pacstall
     for each in $argv
@@ -72,21 +73,21 @@ end
 funcsave rlc >/dev/null
 
 function mkcd
-    mkdir -p $argv && z $argv && clear -x
+    mkdir -p $argv && z $argv && clx
 end
 funcsave mkcd >/dev/null
 
 function ghrclc
     gh repo clone $argv -- --depth 1
     z (path basename $argv[1])
-    clear -x
+    clx
 end
 funcsave ghrclc >/dev/null
 
 function ghrfc
     gh repo fork $argv --clone --default-branch-only -- --depth 1
     z (path basename $argv[1])
-    clear -x
+    clx
 end
 funcsave ghrfc >/dev/null
 
