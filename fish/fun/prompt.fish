@@ -19,6 +19,7 @@ function fish_prompt_pwd
         echo -n "$(string replace -r "^$home" '' $above_repo/)"
         set_color -io ffafd7
         echo -n $repo_segment
+        set_color normal
         set_color -o ffafd7
         echo -n $rest_pwd
     else
