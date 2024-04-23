@@ -501,13 +501,33 @@ local normal_mappings = {
 			FeedKeysInt('<Esc>')
 		end,
 	},
-	J = {
+	["'q"] = {
 		function()
-			for _ = 1, vim.v.count1 do
-				FeedKeys('J')
-			end
+			local buffer = vim.api.nvim_get_current_buf()
+			local cursor = vim.api.nvim_win_get_cursor(0)
+			local line = cursor[1]
+			local column = cursor[2] + 1
+			vim.fn.setqflist({ {
+				bufnr = buffer,
+				lnum = line,
+				col = column,
+			} }, 'a')
+			vim.notify('add qf entry')
 		end,
 	},
+	["'Q"] = {
+		function()
+			local selected = vim.fn.getqflist({ idx = 0 }).idx
+			local qflist = vim.fn.getqflist()
+			table.remove(qflist, selected)
+			vim.fn.setqflist(qflist, 'r')
+			vim.notify('remove qf ' .. selected)
+		end,
+	},
+	["''q"] = function()
+		vim.fn.setqflist({}, 'r')
+		vim.notify('qflist cleared')
+	end,
 	['.'] = {
 		function()
 			for _ = 1, vim.v.count1 do
@@ -573,14 +593,6 @@ local normal_mappings = {
 	['dr'] = '"' .. THROWAWAY_REGISTER .. 'diWxt p"' .. THROWAWAY_REGISTER .. 'p',
 	['dR'] = '"' .. THROWAWAY_REGISTER .. 'diWxBP"' .. THROWAWAY_REGISTER .. 'P',
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
-	['<Leader>a1'] = '1<C-w>w',
-	['<Leader>a2'] = '2<C-w>w',
-	['<Leader>a3'] = '3<C-w>w',
-	['<Leader>a4'] = '4<C-w>w',
-	['<Leader>a5'] = '5<C-w>w',
-	['<Leader>a6'] = '6<C-w>w',
-	['<Leader>a7'] = '7<C-w>w',
-	['<Leader>a8'] = '8<C-w>w',
 	['<Leader>a9'] = '9<C-w>w',
 	['<Leader>aj'] = '<C-w>j',
 	['<Leader>ak'] = '<C-w>k',
@@ -654,7 +666,6 @@ local insert_mappings = {
 	['<C-k>'] = '<C-o>O',
 	['<F6>'] = '<C-o>o',
 	['<C-h>'] = '<C-o>"_S<Esc><C-o>gI<BS>', -- Delete from the current position to the last character on the previous line
-	['<A-s>'] = '<C-x>',
 	['<A-;>'] = '',
 	['<F5>'] = '',
 	['<A-i>'] = '',
@@ -802,7 +813,7 @@ local opts_table = {
 			tabstop = 3,
 			shiftwidth = 3,
 			numberwidth = 3, -- this weirdly means 2
-			-- scrolloff = 999,
+			scrolloff = 999,
 			expandtab = false,
 			smartindent = true,
 			mouse = 'a',
@@ -904,10 +915,10 @@ local opts_table = {
 		-- 	},
 		-- },
 		everything = {
-			{
-				event = 'CursorMoved',
-				command = 'normal! zz',
-			},
+			-- {
+			-- 	event = 'CursorMoved',
+			-- 	command = 'normal! zz',
+			-- },
 			{
 				event = { 'CursorMoved' },
 				callback = function() vim.schedule(vim.cmd.redrawtabline) end,
