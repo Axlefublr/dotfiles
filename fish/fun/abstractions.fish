@@ -309,3 +309,8 @@ function update_anki
     end
 end
 funcsave update_anki >/dev/null
+
+function disk_usage
+    df -h /dev/nvme0n1p2 | tail -n 1 | awk '{print $5}' | string replace '%' '' | string collect
+end
+funcsave disk_usage >/dev/null

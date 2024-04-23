@@ -247,6 +247,31 @@ function Hunger_wu()
 	end)
 end
 
+Disk_w = text_widget(beautiful.jetbrains_font .. ' 14', '󰩹 ')
+Disk_mw = wibox.container.margin(Disk_w)
+Disk_mw.left = larger
+Disk_mw.right = -6
+Disk_mw.visible = false
+
+Disk_usage_w = text_widget()
+Disk_usage_mw = wibox.container.margin(Disk_usage_w)
+Disk_usage_mw.visible = false
+function Disk_usage_wu()
+	local file = io.open('/dev/shm/Disk_usage_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Disk_usage_mw.visible = true
+			Disk_mw.visible = true
+			Disk_usage_w:set_text(text)
+		else
+			Disk_usage_mw.visible = false
+			Disk_mw.visible = false
+		end
+	end
+end
+
 Monitor_w = text_widget(nil, '󰃟 ')
 Monitor_mw = wibox.container.margin(Monitor_w)
 Monitor_mw.left = larger
@@ -627,6 +652,8 @@ Wibar_w:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
+		Disk_mw,
+		Disk_usage_mw,
 		Brain_mw,
 		Ram_mw,
 		Fire_mw,
@@ -673,6 +700,7 @@ local run_once = function()
 		'Ram',
 		'Media_player',
 		'Loago',
+		'Disk_usage',
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')

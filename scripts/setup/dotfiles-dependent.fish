@@ -21,7 +21,14 @@ end | sudo tee /etc/udev/rules.d/backlight.rules
 
 # Neovim
 trash-put ~/.config/nvim
-ln -sf ~/prog/dotfiles/astro ~/.config/nvim
+mkdir -p ~/.config/nvim
+for file in ~/prog/dotfiles/astro/*
+    ln -sf $file ~/.config/nvim
+end
+for file in ~/prog/dotfiles/astro/.*
+    ln -sf $file ~/.config/nvim
+end
+trash-put ~/.config/nvim/.neoconf.json
 
 # Fish shell
 chsh -s /usr/bin/fish
