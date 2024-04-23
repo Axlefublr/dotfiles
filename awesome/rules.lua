@@ -47,6 +47,17 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = 'kitty', name = 'neomax' },
+		properties = {
+			floating = true,
+			x = 10,
+			y = 45,
+			width = 1894,
+			height = 1019,
+		},
+	},
+
+	{
 		rule = { class = 'Alacritty', name = 'neomax' },
 		properties = {
 			floating = true,
@@ -54,6 +65,18 @@ awful.rules.rules = {
 			y = 45,
 			width = 1894,
 			height = 1019,
+		},
+	},
+
+	{
+		rule = { class = 'kitty', name = 'neoline' },
+		properties = {
+			floating = true,
+			maximized = false,
+			x = 360,
+			y = 393,
+			width = 1200,
+			height = 293,
 		},
 	},
 
@@ -70,13 +93,21 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'Alacritty', name = 'oil-content' },
-		properties = { tag = screen.primary.tags[15] },
+		rule = { class = 'kitty', name = 'oil-content' },
+		properties = { tag = screen.primary.tags[15], urgent = false },
 	},
 
 	{
-		rule = { class = 'Alacritty', name = 'timer' },
-		properties = { tag = screen.primary.tags[11] },
+		rule = { class = 'Alacritty', name = 'oil-content' },
+		properties = { tag = screen.primary.tags[15], urgent = false },
+	},
+
+	{
+		rule = { class = 'kitty', name = 'meow' },
+		properties = {
+			tag = screen.primary.tags[3],
+			urgent = false,
+		},
 	},
 
 	{
@@ -88,11 +119,29 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = 'kitty', name = 'timer' },
+		properties = {
+			tag = screen.primary.tags[11],
+			urgent = false,
+		},
+	},
+
+	{
 		rule = { class = 'Alacritty', name = 'timer' },
 		properties = {
 			tag = screen.primary.tags[11],
 			urgent = false,
 		},
+	},
+
+	{
+		rule = { class = 'kitty', name = 'link-download' },
+		properties = { tag = screen.primary.tags[12] },
+	},
+
+	{
+		rule = { class = 'kitty', name = 'uboot' },
+		properties = { tag = screen.primary.tags[14] },
 	},
 
 	{

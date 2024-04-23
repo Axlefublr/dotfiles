@@ -279,6 +279,8 @@ return {
 				['sqlString'] = link('Yellow'),
 				['sqlKeyword'] = link('Red'),
 
+				['freebasicString'] = link('Yellow'),
+
 				['@markup.italic.markdown_inline'] = link('Italic'),
 				['@markup.strikethrough.markdown_inline'] = link('Strikethrough'),
 				['@markup.raw.markdown_inline'] = link('Yellow'), -- inline code

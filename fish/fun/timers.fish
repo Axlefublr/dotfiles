@@ -4,7 +4,7 @@ function down
     if status is-interactive
         _down $argv
     else
-        alacritty -T timer -e fish -c "_down $(string escape $argv)"
+        kitty -T timer fish -c "_down $(string escape $argv)"
     end
 end
 funcsave down >/dev/null
@@ -22,7 +22,7 @@ function timer
     if status is-interactive
         _timer "$argv"
     else
-        alacritty -T timer -e fish -c "_timer $(string escape $argv)"
+        kitty -T timer fish -c "_timer $(string escape $argv)"
     end
 end
 funcsave timer >/dev/null
@@ -51,7 +51,7 @@ function alarm
     if status is-interactive
         _alarm "$argv"
     else
-        alacritty -T timer -e fish -c "_alarm $(string escape $argv)"
+        kitty -T timer fish -c "_alarm $(string escape $argv)"
     end
 end
 funcsave alarm >/dev/null

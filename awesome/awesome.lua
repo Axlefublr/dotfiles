@@ -54,7 +54,7 @@ naughty.config.defaults.position = 'bottom_right'
 naughty.config.presets.critical.bg = beautiful.darkerest
 naughty.config.presets.critical.fg = beautiful.red
 
-terminal = 'alacritty'
+terminal = 'kitty'
 editor = os.getenv('EDITOR') or 'nano'
 editor_cmd = terminal .. ' -e ' .. editor
 modkey = 'Mod4'

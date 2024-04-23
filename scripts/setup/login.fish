@@ -20,12 +20,12 @@ xset s off -dpms 2>>/dev/shm/user_log.txt
 redshift -O 5700 2>>/dev/shm/user_log.txt
 playerctld daemon
 
-alacritty -T meow 2>>/dev/shm/user_log.txt & disown
+kitty -T meow 2>>/dev/shm/user_log.txt & disown
 oil.fish ~/Videos/content 2>>/dev/shm/user_log.txt & disown
 
-alacritty -T editor --working-directory ~/prog/dotfiles -e nvim 2>>/dev/shm/user_log.txt & disown
+kitty -T editor -d ~/prog/dotfiles nvim 2>>/dev/shm/user_log.txt & disown
 # win_wait 'neovide — Neovide' 0.5 0 200
-alacritty -T terminal --working-directory ~/prog/dotfiles 2>>/dev/shm/user_log.txt & disown
+kitty -T terminal -d ~/prog/dotfiles 2>>/dev/shm/user_log.txt & disown
 
 vivaldi-stable --force-dark-mode 2>>/dev/shm/user_log.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
