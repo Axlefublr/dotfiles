@@ -1,20 +1,20 @@
 abbr -a g     'git'
 abbr -a gd    'git diff'
 abbr -a giti  'git init'
-abbr -a gss   'clear -x ; git status'
-abbr -a gs    'clear -x ; git status -s'
+abbr -a gss   'clx ; git status'
+abbr -a gs    'clx ; git status -s'
 abbr -a gsh   'git show'
 abbr -a gsho  'git show --oneline'
 abbr -a gshos 'git show --oneline -s'
 abbr -a gl    'git log'
 abbr -a glo   'git log --oneline'
 abbr -a ga    'git add'
-abbr -a gap   'clear -x && git add -p'
+abbr -a gap   'clx && git add -p'
 abbr -a gm    'git commit'
-abbr -a gmu   'git commit -a && clear -x'
-abbr -a gma   'git commit --amend && clear -x'
-abbr -a gmn   'git commit --no-edit && clear -x'
-abbr -a gman  'git commit --amend --no-edit && clear -x'
+abbr -a gmu   'git commit -a && clx'
+abbr -a gma   'git commit --amend && clx'
+abbr -a gmn   'git commit --no-edit && clx'
+abbr -a gman  'git commit --amend --no-edit && clx'
 abbr -a grs   'git reset'
 abbr -a grsH  'git reset HEAD'
 abbr -a grsh  'git reset --hard'
@@ -48,42 +48,42 @@ abbr -a gui   'git update-index'
 
 abbr -a gmap 'git commit --amend &&
 	git push &&
-	clear -x'
+	clx'
 abbr -a gmanp 'git commit --amend --no-edit &&
 	git push &&
-	clear -x'
+	clx'
 abbr -a gmp 'git commit &&
 	git push &&
-	clear -x'
+	clx'
 abbr -a gam 'git add . &&
 	git commit -a &&
-	clear -x'
+	clx'
 abbr -a gamn 'git add . &&
 	git commit -a --no-edit &&
-	clear -x'
+	clx'
 abbr -a gamp 'git add . &&
 	git commit -a &&
 	git push &&
-	clear -x'
+	clx'
 abbr -a gamap 'git add . &&
 	git commit -a --amend &&
 	git push &&
-	clear -x'
+	clx'
 abbr -a gamanp 'git add . &&
 	git commit -a --amend --no-edit &&
 	git push &&
-	clear -x'
+	clx'
 abbr -a gamanpf 'git add . &&
 	git commit -a --amend --no-edit &&
 	git push -f &&
-	clear -x'
+	clx'
 abbr -a gaman 'git add . &&
 	git commit -a --amend --no-edit &&
-	clear -x'
+	clx'
 abbr -a gcr 'git add . &&
 	git commit -m "first commit" &&
 	git push -u origin main &&
-	clear -x'
+	clx'
 
 abbr -a dn   'dotnet'
 abbr -a dnn  'dotnet new'
@@ -172,9 +172,9 @@ abbr -a slup 'systemctl --user stop'
 abbr -a f 'nvim .'
 abbr -a v 'nvim'
 
-abbr -a ~ 'z ~ && clear -x'
+abbr -a ~ 'z ~ && clx'
 abbr -a rl 'realpath'
-abbr -a u 'z - && clear -x'
+abbr -a u 'z - && clx'
 abbr -a fp 'fish -P'
 abbr -a x 'exit'
 abbr -a bacon 'bacon -j clippy'
@@ -182,7 +182,7 @@ abbr -a lo 'loago'
 abbr -a xcp 'xclip -r -selection clipboard'
 abbr -a xcpi 'xclip -selection clipboard -t image/png'
 abbr -a xpc 'xclip -selection clipboard -o'
-abbr -a jf 'clear -x && exec fish'
+abbr -a jf 'clx && exec fish'
 abbr -a mkd 'mkdir -p'
 abbr -a to 'touch'
 abbr -a gz 'glaza'
@@ -211,8 +211,8 @@ abbr -a bldh 'bluetoothctl disconnect $head'
 abbr -a blce 'bluetoothctl connect $ear'
 abbr -a blde 'bluetoothctl disconnect $ear'
 abbr -a cls 'clear'
-abbr -a clx 'clear -x'
-abbr -a h 'z ~ && clear -x'
+abbr -a clx 'clx'
+abbr -a h 'z ~ && clx'
 abbr -a ls 'ez --git-ignore'
 abbr -a la 'ez -a'
 abbr -a lg 'ez -l --git-ignore'
@@ -220,6 +220,6 @@ abbr -a li 'ez -al'
 abbr -a lt 'ez -T --git-ignore'
 abbr -a lr 'ez -aT'
 abbr -a read 'read -p rdp'
-abbr -a tg 'clear -x && ni | tgpt'
+abbr -a tg 'clx && ni | tgpt'
 abbr -a br (path basename $BROWSER)
 abbr -a brd (path basename $BROWSER)' ~/docs'

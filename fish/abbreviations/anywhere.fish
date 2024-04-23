@@ -4,6 +4,6 @@ abbr -a ,ar --position anywhere -- '&> /dev/null'
 abbr -a ,h --position anywhere -- $HOME/
 abbr -a ,ds --position anywhere -- '&> /dev/null & disown'
 abbr -a ,dsr --position anywhere --set-cursor -- '&> % & disown'
-abbr -a ,f --position anywhere -- '&& clear -x'
-abbr -a ,d --position anywhere -- 'clear -x &&'
+abbr -a ,f --position anywhere -- '&& clx'
+abbr -a ,d --position anywhere -- 'clx &&'
 abbr -a ,a --position anywhere -- '&| less'

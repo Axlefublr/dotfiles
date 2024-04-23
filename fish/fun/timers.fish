@@ -35,7 +35,7 @@ function _timer
             break
         end
         if test $response = ' '
-            clear -x
+            clx
             continue
         else if test $response = e
             exit
@@ -43,7 +43,7 @@ function _timer
             break
         end
     end
-    clear -x
+    clx
 end
 funcsave _timer >/dev/null
 
