@@ -115,6 +115,13 @@ function ReverseTable(table)
 	return reversed
 end
 
+function Trim_trailing_whitespace()
+	local search = vim.fn.getreg('/')
+	---@diagnostic disable-next-line: param-type-mismatch
+	pcall(vim.cmd, '%s`\\v\\s+$')
+	vim.fn.setreg('/', search)
+end
+
 require('lazy_setup')
 
 if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end

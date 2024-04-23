@@ -117,6 +117,7 @@ local snippets = function()
 		s('alacritty', { t('alacritty: ') }),
 		s('stylus(youtube)', { t('stylus(youtube): ') }),
 		s('stylus(discord)', { t('stylus(discord): ') }),
+		s('kitty', { t('kitty: ') }),
 	}
 	ls.add_snippets('gitcommit', git_commit_snippets)
 

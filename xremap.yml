@@ -962,7 +962,7 @@ keymap:
   - name: Alacritty
     exact_match: true
     application:
-      only: [Alacritty]
+      only: [Alacritty, kitty]
     remap:
       CapsLock-Alt-Enter: ctrl-w
       Ctrl-Enter: f2

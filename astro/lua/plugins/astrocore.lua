@@ -10,15 +10,8 @@ function validate_register(register)
 	end
 end
 
-local function trim_trailing_whitespace()
-	local search = vim.fn.getreg('/')
-	---@diagnostic disable-next-line: param-type-mismatch
-	pcall(vim.cmd, '%s`\\v\\s+$')
-	vim.fn.setreg('/', search)
-end
-
 local function save()
-	trim_trailing_whitespace()
+	Trim_trailing_whitespace()
 	vim.cmd('nohl')
 	---@diagnostic disable-next-line: param-type-mismatch
 	if vim.bo.modified then pcall(vim.cmd, 'write') end
@@ -304,7 +297,8 @@ end
 
 local function harp_local_mark_get(register)
 	local path = vim.fn.expand('%:~')
-	local output = require('astrocore').cmd({ 'harp', 'get', 'local_marks_' .. path, register, '--line', '--column' }, false)
+	local output =
+		require('astrocore').cmd({ 'harp', 'get', 'local_marks_' .. path, register, '--line', '--column' }, false)
 	if output then
 		local lines = split_by_newlines(output)
 		local line = lines[1]
@@ -342,7 +336,8 @@ local function harp_relative_set()
 	local register = Get_char('set relative harp: ')
 	if register == nil then return end
 	local relative_path = vim.fn.expand('%:~:.')
-	local output = require('astrocore').cmd({ 'harp', 'update', 'relative_harps', register, '--path', relative_path }, false)
+	local output =
+		require('astrocore').cmd({ 'harp', 'update', 'relative_harps', register, '--path', relative_path }, false)
 	if output then vim.notify('set relative harp ' .. register) end
 end
 
@@ -926,6 +921,11 @@ local opts_table = {
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = '*.rasi',
 				command = 'setfiletype rasi',
+			},
+			{
+				event = { 'BufRead', 'BufNewFile' },
+				pattern = 'kitty.conf',
+				command = 'setfiletype conf'
 			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
