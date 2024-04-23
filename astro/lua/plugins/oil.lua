@@ -58,6 +58,7 @@ return {
 			delete_to_trash = true,
 			skip_confirm_for_simple_edits = true,
 			keymaps = {
+				['<A-d>'] = 'actions.refresh',
 				['<'] = 'actions.parent',
 				['K'] = 'actions.close',
 				['<C-l>'] = 'actions.select_vsplit',
