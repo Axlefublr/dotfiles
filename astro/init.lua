@@ -47,7 +47,7 @@ Colors = {
 }
 
 THROWAWAY_MARK = 'P'
-THROWAWAY_REGISTER = 'p'
+THROWAWAY_REGISTER = 'x'
 
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
