@@ -39,7 +39,7 @@ return {
 					end
 				end, { buffer = true })
 
-				vim.keymap.set('n', 'gq', function()
+				vim.keymap.set('n', '<Leader>da', function()
 					local oil_cwd = require('oil').get_current_dir()
 					require('oil.actions').cd.callback()
 					os.execute('zoxide add "' .. oil_cwd .. '"')
@@ -65,7 +65,7 @@ return {
 				['<F6>'] = 'actions.select_split',
 				['<A-u>'] = 'actions.add_to_qflist',
 				['<A-U>'] = 'actions.send_to_qflist',
-				['<Leader>da'] = 'actions.open_cwd',
+				['gq'] = 'actions.open_cwd',
 				-- ['gq'] = 'actions.cd',
 				['go'] = 'actions.change_sort',
 				['ga'] = 'actions.open_external',
