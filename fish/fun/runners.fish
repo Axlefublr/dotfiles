@@ -246,7 +246,7 @@ funcsave runner_doc >/dev/null
 
 function runner_link
     set file ~/.local/share/magazine/l
-    set result (cat $file | sd ' — .+$' '' | rofi -only-match -format 'i' -dmenu 2> /dev/null ; echo $status)
+    set result (cat $file | sd ' — .+$' '' | rofi -no-custom -format 'i' -dmenu 2> /dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end

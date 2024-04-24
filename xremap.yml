@@ -18,140 +18,150 @@ keymap:
   - name: Move mode
     mode: [move]
     remap:
-      y: { set_mode: mouse }
+      g: { set_mode: mouse }
 
-      h: { launch: [awesome-client, 'client.focus:relative_move(-52, 0, 0, 0)'] }
-      l: { launch: [awesome-client, 'client.focus:relative_move(52, 0, 0, 0)'] }
-      j: { launch: [awesome-client, 'client.focus:relative_move(0, 52, 0, 0)'] }
-      k: { launch: [awesome-client, 'client.focus:relative_move(0, -52, 0, 0)'] }
+      h: { launch: [awesome-client, 'client.focus:relative_move(-1, 0, 0, 0)'] }
+      l: { launch: [awesome-client, 'client.focus:relative_move(1, 0, 0, 0)'] }
+      j: { launch: [awesome-client, 'client.focus:relative_move(0, 1, 0, 0)'] }
+      k: { launch: [awesome-client, 'client.focus:relative_move(0, -1, 0, 0)'] }
 
-      Shift-h: { launch: [awesome-client, 'client.focus:relative_move(-104, 0, 0, 0)'] }
-      Shift-l: { launch: [awesome-client, 'client.focus:relative_move(104, 0, 0, 0)'] }
-      Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 104, 0, 0)'] }
-      Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, -104, 0, 0)'] }
+      Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -1, 0)'] }
+      Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 1, 0)'] }
+      Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 1)'] }
+      Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -1)'] }
 
-      Alt-h: { launch: [awesome-client, 'client.focus:relative_move(-26, 0, 0, 0)'] }
-      Alt-l: { launch: [awesome-client, 'client.focus:relative_move(26, 0, 0, 0)'] }
-      Alt-j: { launch: [awesome-client, 'client.focus:relative_move(0, 26, 0, 0)'] }
-      Alt-k: { launch: [awesome-client, 'client.focus:relative_move(0, -26, 0, 0)'] }
+      a:
+        remap:
+          h: { launch: [awesome-client, 'client.focus:relative_move(-15, 0, 0, 0)'] }
+          l: { launch: [awesome-client, 'client.focus:relative_move(15, 0, 0, 0)'] }
+          j: { launch: [awesome-client, 'client.focus:relative_move(0, 15, 0, 0)'] }
+          k: { launch: [awesome-client, 'client.focus:relative_move(0, -15, 0, 0)'] }
+          a: { launch: [awesome-client, 'client.focus:relative_move(-15, -15, 0, 0)'] }
+          s: { launch: [awesome-client, 'client.focus:relative_move(-15, 15, 0, 0)'] }
+          d: { launch: [awesome-client, 'client.focus:relative_move(15, 15, 0, 0)'] }
+          f: { launch: [awesome-client, 'client.focus:relative_move(15, -15, 0, 0)'] }
+          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, 0)'] }
+          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, 0)'] }
+          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 15)'] }
+          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -15)'] }
+          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, -15)'] }
+          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, 15)'] }
+          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, 15)'] }
+          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, -15)'] }
 
-      Ctrl-h: { launch: [awesome-client, 'client.focus:relative_move(-13, 0, 0, 0)'] }
-      Ctrl-l: { launch: [awesome-client, 'client.focus:relative_move(13, 0, 0, 0)'] }
-      Ctrl-j: { launch: [awesome-client, 'client.focus:relative_move(0, 13, 0, 0)'] }
-      Ctrl-k: { launch: [awesome-client, 'client.focus:relative_move(0, -13, 0, 0)'] }
+      s:
+        remap:
+          h: { launch: [awesome-client, 'client.focus:relative_move(-45, 0, 0, 0)'] }
+          l: { launch: [awesome-client, 'client.focus:relative_move(45, 0, 0, 0)'] }
+          j: { launch: [awesome-client, 'client.focus:relative_move(0, 45, 0, 0)'] }
+          k: { launch: [awesome-client, 'client.focus:relative_move(0, -45, 0, 0)'] }
+          a: { launch: [awesome-client, 'client.focus:relative_move(-45, -45, 0, 0)'] }
+          s: { launch: [awesome-client, 'client.focus:relative_move(-45, 45, 0, 0)'] }
+          d: { launch: [awesome-client, 'client.focus:relative_move(45, 45, 0, 0)'] }
+          f: { launch: [awesome-client, 'client.focus:relative_move(45, -45, 0, 0)'] }
+          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, 0)'] }
+          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, 0)'] }
+          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 45)'] }
+          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -45)'] }
+          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, -45)'] }
+          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, 45)'] }
+          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, 45)'] }
+          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, -45)'] }
 
-      Super-h: { launch: [awesome-client, 'client.focus:relative_move(-1, 0, 0, 0)'] }
-      Super-l: { launch: [awesome-client, 'client.focus:relative_move(1, 0, 0, 0)'] }
-      Super-j: { launch: [awesome-client, 'client.focus:relative_move(0, 1, 0, 0)'] }
-      Super-k: { launch: [awesome-client, 'client.focus:relative_move(0, -1, 0, 0)'] }
+      d:
+        remap:
+          h: { launch: [awesome-client, 'client.focus:relative_move(-135, 0, 0, 0)'] }
+          l: { launch: [awesome-client, 'client.focus:relative_move(135, 0, 0, 0)'] }
+          j: { launch: [awesome-client, 'client.focus:relative_move(0, 135, 0, 0)'] }
+          k: { launch: [awesome-client, 'client.focus:relative_move(0, -135, 0, 0)'] }
+          a: { launch: [awesome-client, 'client.focus:relative_move(-135, -135, 0, 0)'] }
+          s: { launch: [awesome-client, 'client.focus:relative_move(-135, 135, 0, 0)'] }
+          d: { launch: [awesome-client, 'client.focus:relative_move(135, 135, 0, 0)'] }
+          f: { launch: [awesome-client, 'client.focus:relative_move(135, -135, 0, 0)'] }
+          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, 0)'] }
+          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, 0)'] }
+          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 135)'] }
+          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -135)'] }
+          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, -135)'] }
+          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, 135)'] }
+          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, 135)'] }
+          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, -135)'] }
 
-      s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -52, 0)'] }
-      g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 52, 0)'] }
-      d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 52)'] }
-      f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -52)'] }
-
-      Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -104, 0)'] }
-      Shift-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 104, 0)'] }
-      Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 104)'] }
-      Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -104)'] }
-
-      Alt-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -26, 0)'] }
-      Alt-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 26, 0)'] }
-      Alt-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 26)'] }
-      Alt-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -26)'] }
-
-      Ctrl-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -13, 0)'] }
-      Ctrl-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 13, 0)'] }
-      Ctrl-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 13)'] }
-      Ctrl-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -13)'] }
-
-      Super-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -1, 0)'] }
-      Super-g: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 1, 0)'] }
-      Super-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 1)'] }
-      Super-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -1)'] }
+      f:
+        remap:
+          h: { launch: [awesome-client, 'client.focus:relative_move(-405, 0, 0, 0)'] }
+          l: { launch: [awesome-client, 'client.focus:relative_move(405, 0, 0, 0)'] }
+          j: { launch: [awesome-client, 'client.focus:relative_move(0, 405, 0, 0)'] }
+          k: { launch: [awesome-client, 'client.focus:relative_move(0, -405, 0, 0)'] }
+          a: { launch: [awesome-client, 'client.focus:relative_move(-405, -405, 0, 0)'] }
+          s: { launch: [awesome-client, 'client.focus:relative_move(-405, 405, 0, 0)'] }
+          d: { launch: [awesome-client, 'client.focus:relative_move(405, 405, 0, 0)'] }
+          f: { launch: [awesome-client, 'client.focus:relative_move(405, -405, 0, 0)'] }
+          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, 0)'] }
+          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, 0)'] }
+          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 405)'] }
+          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -405)'] }
+          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, -405)'] }
+          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, 405)'] }
+          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, 405)'] }
+          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, -405)'] }
 
   - name: Mouse mode only
     mode: [mouse]
     remap:
       q: { launch: [xdotool, mousemove, '128', '120'] }
-      w: { launch: [xdotool, mousemove, '544', '120'] }
-      e: { launch: [xdotool, mousemove, '960', '120'] }
-      r: { launch: [xdotool, mousemove, '1376', '120'] }
-      t: { launch: [xdotool, mousemove, '1792', '120'] }
+      r: { launch: [xdotool, mousemove, '1792', '120'] }
+      w: { launch: [xdotool, mousemove, '128', '960'] }
+      e: { launch: [xdotool, mousemove, '1792', '960'] }
 
-      a: { launch: [xdotool, mousemove, '128', '540'] }
-      s: { launch: [xdotool, mousemove, '544', '540'] }
-      d: { launch: [xdotool, mousemove, '960', '540'] }
-      f: { launch: [xdotool, mousemove, '1376', '540'] }
-      g: { launch: [xdotool, mousemove, '1792', '540'] }
+      h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
+      l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
+      j: { launch: [xdotool, mousemove_relative, '--', '0', '1'] }
+      k: { launch: [xdotool, mousemove_relative, '--', '0', '-1'] }
 
-      z: { launch: [xdotool, mousemove, '128', '960'] }
-      x: { launch: [xdotool, mousemove, '544', '960'] }
-      c: { launch: [xdotool, mousemove, '960', '960'] }
-      v: { launch: [xdotool, mousemove, '1376', '960'] }
-      b: { launch: [xdotool, mousemove, '1792', '960'] }
+      a:
+        remap:
+          h: { launch: [xdotool, mousemove_relative, '--', '-15', '0'] }
+          l: { launch: [xdotool, mousemove_relative, '--', '15', '0'] }
+          j: { launch: [xdotool, mousemove_relative, '--', '0', '15'] }
+          k: { launch: [xdotool, mousemove_relative, '--', '0', '-15'] }
+          a: { launch: [xdotool, mousemove_relative, '--', '-15', '-15'] }
+          s: { launch: [xdotool, mousemove_relative, '--', '-15', '15'] }
+          d: { launch: [xdotool, mousemove_relative, '--', '15', '15'] }
+          f: { launch: [xdotool, mousemove_relative, '--', '15', '-15'] }
 
-      Shift-q: { launch: [xdotool, mousemove, '336', '120'] }
-      Shift-w: { launch: [xdotool, mousemove, '752', '120'] }
-      Shift-e: { launch: [xdotool, mousemove, '1168', '120'] }
-      Shift-r: { launch: [xdotool, mousemove, '1584', '120'] }
+      s:
+        remap:
+          h: { launch: [xdotool, mousemove_relative, '--', '-45', '0'] }
+          l: { launch: [xdotool, mousemove_relative, '--', '45', '0'] }
+          j: { launch: [xdotool, mousemove_relative, '--', '0', '45'] }
+          k: { launch: [xdotool, mousemove_relative, '--', '0', '-45'] }
+          a: { launch: [xdotool, mousemove_relative, '--', '-45', '-45'] }
+          s: { launch: [xdotool, mousemove_relative, '--', '-45', '45'] }
+          d: { launch: [xdotool, mousemove_relative, '--', '45', '45'] }
+          f: { launch: [xdotool, mousemove_relative, '--', '45', '-45'] }
 
-      Shift-a: { launch: [xdotool, mousemove, '336', '540'] }
-      Shift-s: { launch: [xdotool, mousemove, '752', '540'] }
-      Shift-d: { launch: [xdotool, mousemove, '1168', '540'] }
-      Shift-f: { launch: [xdotool, mousemove, '1584', '540'] }
+      d:
+        remap:
+          h: { launch: [xdotool, mousemove_relative, '--', '-135', '0'] }
+          l: { launch: [xdotool, mousemove_relative, '--', '135', '0'] }
+          j: { launch: [xdotool, mousemove_relative, '--', '0', '135'] }
+          k: { launch: [xdotool, mousemove_relative, '--', '0', '-135'] }
+          a: { launch: [xdotool, mousemove_relative, '--', '-135', '-135'] }
+          s: { launch: [xdotool, mousemove_relative, '--', '-135', '135'] }
+          d: { launch: [xdotool, mousemove_relative, '--', '135', '135'] }
+          f: { launch: [xdotool, mousemove_relative, '--', '135', '-135'] }
 
-      Shift-z: { launch: [xdotool, mousemove, '336', '960'] }
-      Shift-x: { launch: [xdotool, mousemove, '752', '960'] }
-      Shift-c: { launch: [xdotool, mousemove, '1168', '960'] }
-      Shift-v: { launch: [xdotool, mousemove, '1584', '960'] }
-
-      Ctrl-q: { launch: [xdotool, mousemove, '128', '330'] }
-      Ctrl-w: { launch: [xdotool, mousemove, '544', '330'] }
-      Ctrl-e: { launch: [xdotool, mousemove, '960', '330'] }
-      Ctrl-r: { launch: [xdotool, mousemove, '1376', '330'] }
-      Ctrl-t: { launch: [xdotool, mousemove, '1792', '330'] }
-
-      Ctrl-a: { launch: [xdotool, mousemove, '128', '750'] }
-      Ctrl-s: { launch: [xdotool, mousemove, '544', '750'] }
-      Ctrl-d: { launch: [xdotool, mousemove, '960', '750'] }
-      Ctrl-f: { launch: [xdotool, mousemove, '1376', '750'] }
-      Ctrl-g: { launch: [xdotool, mousemove, '1792', '750'] }
-
-      Shift-Ctrl-q: { launch: [xdotool, mousemove, '336', '330'] }
-      Shift-Ctrl-w: { launch: [xdotool, mousemove, '752', '330'] }
-      Shift-Ctrl-e: { launch: [xdotool, mousemove, '1168', '330'] }
-      Shift-Ctrl-r: { launch: [xdotool, mousemove, '1584', '330'] }
-
-      Shift-Ctrl-a: { launch: [xdotool, mousemove, '336', '750'] }
-      Shift-Ctrl-s: { launch: [xdotool, mousemove, '752', '750'] }
-      Shift-Ctrl-d: { launch: [xdotool, mousemove, '1168', '750'] }
-      Shift-Ctrl-f: { launch: [xdotool, mousemove, '1584', '750'] }
-
-      h: { launch: [xdotool, mousemove_relative, '--', '-52', '0'] }
-      l: { launch: [xdotool, mousemove_relative, '--', '52', '0'] }
-      j: { launch: [xdotool, mousemove_relative, '--', '0', '52'] }
-      k: { launch: [xdotool, mousemove_relative, '--', '0', '-52'] }
-
-      Shift-h: { launch: [xdotool, mousemove_relative, '--', '-104', '0'] }
-      Shift-l: { launch: [xdotool, mousemove_relative, '--', '104', '0'] }
-      Shift-j: { launch: [xdotool, mousemove_relative, '--', '0', '104'] }
-      Shift-k: { launch: [xdotool, mousemove_relative, '--', '0', '-104'] }
-
-      Alt-h: { launch: [xdotool, mousemove_relative, '--', '-26', '0'] }
-      Alt-l: { launch: [xdotool, mousemove_relative, '--', '26', '0'] }
-      Alt-j: { launch: [xdotool, mousemove_relative, '--', '0', '26'] }
-      Alt-k: { launch: [xdotool, mousemove_relative, '--', '0', '-26'] }
-
-      Ctrl-h: { launch: [xdotool, mousemove_relative, '--', '-13', '0'] }
-      Ctrl-l: { launch: [xdotool, mousemove_relative, '--', '13', '0'] }
-      Ctrl-j: { launch: [xdotool, mousemove_relative, '--', '0', '13'] }
-      Ctrl-k: { launch: [xdotool, mousemove_relative, '--', '0', '-13'] }
-
-      Super-h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
-      Super-l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
-      Super-j: { launch: [xdotool, mousemove_relative, '--', '0', '1'] }
-      Super-k: { launch: [xdotool, mousemove_relative, '--', '0', '-1'] }
+      f:
+        remap:
+          h: { launch: [xdotool, mousemove_relative, '--', '-405', '0'] }
+          l: { launch: [xdotool, mousemove_relative, '--', '405', '0'] }
+          j: { launch: [xdotool, mousemove_relative, '--', '0', '405'] }
+          k: { launch: [xdotool, mousemove_relative, '--', '0', '-405'] }
+          a: { launch: [xdotool, mousemove_relative, '--', '-405', '-405'] }
+          s: { launch: [xdotool, mousemove_relative, '--', '-405', '405'] }
+          d: { launch: [xdotool, mousemove_relative, '--', '405', '405'] }
+          f: { launch: [xdotool, mousemove_relative, '--', '405', '-405'] }
 
       # mouse wheel
       m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
@@ -159,17 +169,15 @@ keymap:
       Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
       Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
-      # n: { launch: [awesome-client, 'awful.mouse.client.move(client.focus)'] }
-      # y: { launch: [awesome-client, 'awful.mouse.client.resize(client.focus)'] }
-
   - name: Mouse mode
     mode: [mouse, resize, move]
     remap:
       CapsLock-Semicolon: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
-      y: { set_mode: move }
+      g: { set_mode: move }
 
       p: { launch: [xdotool, mousemove, '0', '1080'] }
+      Semicolon: { launch: [xdotool, mousemove, '960', '540'] }
 
       u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
       i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
@@ -192,94 +200,6 @@ keymap:
       CapsLock-e: { launch: [ydotool, key, '56:0'] }
       CapsLock-g: { launch: [ydotool, key, '29:1'] } # ctrl
       CapsLock-t: { launch: [ydotool, key, '29:0'] }
-
-      Key_1: { launch: [fish, -c, 'minigun_apply 1'] }
-      Key_2: { launch: [fish, -c, 'minigun_apply 2'] }
-      Key_3: { launch: [fish, -c, 'minigun_apply 3'] }
-      Key_4: { launch: [fish, -c, 'minigun_apply 4'] }
-      Key_5: { launch: [fish, -c, 'minigun_apply 5'] }
-      Key_6: { launch: [fish, -c, 'minigun_apply 6'] }
-      Key_7: { launch: [fish, -c, 'minigun_apply 7'] }
-      Key_8: { launch: [fish, -c, 'minigun_apply 8'] }
-      Key_9: { launch: [fish, -c, 'minigun_apply 9'] }
-      Key_0: { launch: [fish, -c, 'minigun_apply 0'] }
-
-      Apostrophe:
-        remap:
-          q: { launch: [fish, -c, 'minigun_save q'] }
-          w: { launch: [fish, -c, 'minigun_save w'] }
-          e: { launch: [fish, -c, 'minigun_save e'] }
-          r: { launch: [fish, -c, 'minigun_save r'] }
-          t: { launch: [fish, -c, 'minigun_save t'] }
-          'y': { launch: [fish, -c, 'minigun_save y'] }
-          u: { launch: [fish, -c, 'minigun_save u'] }
-          i: { launch: [fish, -c, 'minigun_save i'] }
-          o: { launch: [fish, -c, 'minigun_save o'] }
-          p: { launch: [fish, -c, 'minigun_save p'] }
-          a: { launch: [fish, -c, 'minigun_save a'] }
-          s: { launch: [fish, -c, 'minigun_save s'] }
-          d: { launch: [fish, -c, 'minigun_save d'] }
-          f: { launch: [fish, -c, 'minigun_save f'] }
-          g: { launch: [fish, -c, 'minigun_save g'] }
-          h: { launch: [fish, -c, 'minigun_save h'] }
-          j: { launch: [fish, -c, 'minigun_save j'] }
-          k: { launch: [fish, -c, 'minigun_save k'] }
-          l: { launch: [fish, -c, 'minigun_save l'] }
-          z: { launch: [fish, -c, 'minigun_save z'] }
-          x: { launch: [fish, -c, 'minigun_save x'] }
-          c: { launch: [fish, -c, 'minigun_save c'] }
-          v: { launch: [fish, -c, 'minigun_save v'] }
-          b: { launch: [fish, -c, 'minigun_save b'] }
-          'n': { launch: [fish, -c, 'minigun_save n'] }
-          m: { launch: [fish, -c, 'minigun_save m'] }
-          Key_1: { launch: [fish, -c, 'minigun_save 1'] }
-          Key_2: { launch: [fish, -c, 'minigun_save 2'] }
-          Key_3: { launch: [fish, -c, 'minigun_save 3'] }
-          Key_4: { launch: [fish, -c, 'minigun_save 4'] }
-          Key_5: { launch: [fish, -c, 'minigun_save 5'] }
-          Key_6: { launch: [fish, -c, 'minigun_save 6'] }
-          Key_7: { launch: [fish, -c, 'minigun_save 7'] }
-          Key_8: { launch: [fish, -c, 'minigun_save 8'] }
-          Key_9: { launch: [fish, -c, 'minigun_save 9'] }
-          Key_0: { launch: [fish, -c, 'minigun_save 0'] }
-      Semicolon:
-        remap:
-          q: { launch: [fish, -c, 'minigun_apply q'] }
-          w: { launch: [fish, -c, 'minigun_apply w'] }
-          e: { launch: [fish, -c, 'minigun_apply e'] }
-          r: { launch: [fish, -c, 'minigun_apply r'] }
-          t: { launch: [fish, -c, 'minigun_apply t'] }
-          'y': { launch: [fish, -c, 'minigun_apply y'] }
-          u: { launch: [fish, -c, 'minigun_apply u'] }
-          i: { launch: [fish, -c, 'minigun_apply i'] }
-          o: { launch: [fish, -c, 'minigun_apply o'] }
-          p: { launch: [fish, -c, 'minigun_apply p'] }
-          a: { launch: [fish, -c, 'minigun_apply a'] }
-          s: { launch: [fish, -c, 'minigun_apply s'] }
-          d: { launch: [fish, -c, 'minigun_apply d'] }
-          f: { launch: [fish, -c, 'minigun_apply f'] }
-          g: { launch: [fish, -c, 'minigun_apply g'] }
-          h: { launch: [fish, -c, 'minigun_apply h'] }
-          j: { launch: [fish, -c, 'minigun_apply j'] }
-          k: { launch: [fish, -c, 'minigun_apply k'] }
-          l: { launch: [fish, -c, 'minigun_apply l'] }
-          z: { launch: [fish, -c, 'minigun_apply z'] }
-          x: { launch: [fish, -c, 'minigun_apply x'] }
-          c: { launch: [fish, -c, 'minigun_apply c'] }
-          v: { launch: [fish, -c, 'minigun_apply v'] }
-          b: { launch: [fish, -c, 'minigun_apply b'] }
-          'n': { launch: [fish, -c, 'minigun_apply n'] }
-          m: { launch: [fish, -c, 'minigun_apply m'] }
-          Key_1: { launch: [fish, -c, 'minigun_apply 1'] }
-          Key_2: { launch: [fish, -c, 'minigun_apply 2'] }
-          Key_3: { launch: [fish, -c, 'minigun_apply 3'] }
-          Key_4: { launch: [fish, -c, 'minigun_apply 4'] }
-          Key_5: { launch: [fish, -c, 'minigun_apply 5'] }
-          Key_6: { launch: [fish, -c, 'minigun_apply 6'] }
-          Key_7: { launch: [fish, -c, 'minigun_apply 7'] }
-          Key_8: { launch: [fish, -c, 'minigun_apply 8'] }
-          Key_9: { launch: [fish, -c, 'minigun_apply 9'] }
-          Key_0: { launch: [fish, -c, 'minigun_apply 0'] }
 
   - name: Default mode
     mode: default
@@ -337,8 +257,8 @@ keymap:
           f: { launch: [fish, -c, 'c google'] }
           Shift-f: { launch: [fish, -c, 'c google neoline'] }
           x: { launch: [fish, -c, runner_doc] }
-          Shift-s: { launch: [fish, -c, runner_link] }
           s: { launch: [fish, -c, 'runner_link open'] }
+          Shift-s: { launch: [fish, -c, runner_link] }
 
   - name: Magazine
     mode: default
@@ -1022,6 +942,10 @@ keymap:
       CapsLock-RightBrace: { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-LeftBrace: { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace: { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+
+  - name: Other in mouse too
+    remap:
+      Super-v: { launch: [boomer] }
 
   - name: Direct
     mode: [default]
