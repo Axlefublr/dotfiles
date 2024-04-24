@@ -28,7 +28,7 @@ if status is-interactive
     bind -M insert \c] execute
     bind -M default K execute
 
-    bind -M default v edit_commandline
+    bind -M default v edit_command_buffer
     bind -M default : repeat-jump-reverse
     bind -M default \; repeat-jump
 

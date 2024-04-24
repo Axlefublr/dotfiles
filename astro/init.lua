@@ -123,6 +123,3 @@ function Trim_trailing_whitespace()
 end
 
 require('lazy_setup')
-
-if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
--- local argv = vim.api.nvim_get_vvar('argv')

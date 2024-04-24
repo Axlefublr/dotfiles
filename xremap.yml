@@ -302,7 +302,7 @@ keymap:
           'y': { launch: [fish, -c, install_yt_video] }
           h: { launch: [fish, -c, 'install_yt_video asmr/'] }
           w: { launch: [fish, -c, toggle_internet] }
-          d: { launch: [kitty, -d, '~/prog/dotfiles', nvim, '.'] }
+          d: { launch: [kitty, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
           m: { launch: [fish, -c, runner_math] }
           x: { launch: [fish, -c, runner_doc] }

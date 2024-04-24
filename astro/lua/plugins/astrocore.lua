@@ -859,6 +859,13 @@ local opts_table = {
 		},
 	},
 	commands = {
+		Young = {
+			function()
+				if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
+				local recent = vim.v.oldfiles[1]
+				vim.cmd.edit(recent)
+			end,
+		},
 		O = {
 			function(info)
 				local range = ''
@@ -937,7 +944,7 @@ local opts_table = {
 			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = 'kitty.conf',
-				command = 'setfiletype conf'
+				command = 'setfiletype conf',
 			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
