@@ -305,7 +305,6 @@ keymap:
           d: { launch: [kitty, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
           m: { launch: [fish, -c, runner_math] }
-          x: { launch: [fish, -c, runner_doc] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
@@ -337,6 +336,9 @@ keymap:
           Shift-d: { launch: [fish, -c, 'c phind neoline'] }
           f: { launch: [fish, -c, 'c google'] }
           Shift-f: { launch: [fish, -c, 'c google neoline'] }
+          x: { launch: [fish, -c, runner_doc] }
+          Shift-s: { launch: [fish, -c, runner_link] }
+          s: { launch: [fish, -c, 'runner_link open'] }
 
   - name: Magazine
     mode: default

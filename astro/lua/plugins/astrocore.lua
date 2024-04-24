@@ -947,11 +947,6 @@ local opts_table = {
 				command = 'setfiletype conf',
 			},
 			{
-				event = { 'BufRead', 'BufNewFile' },
-				pattern = vim.fn.expand('~/.local/share/magazine/l'),
-				command = 'setfiletype markdown',
-			},
-			{
 				event = { 'BufLeave', 'FocusLost' },
 				callback = function()
 					---@diagnostic disable-next-line: param-type-mismatch

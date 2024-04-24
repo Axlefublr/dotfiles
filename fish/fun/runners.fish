@@ -243,3 +243,21 @@ function runner_doc
     end
 end
 funcsave runner_doc >/dev/null
+
+function runner_link
+    set file ~/.local/share/magazine/l
+    set result (cat $file | sd ' — .+$' '' | rofi -only-match -format 'i' -dmenu 2> /dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    set line (math $result + 1)
+    set link (awk "NR==$line { print \$NF }" $file)
+    if test "$argv"
+        $BROWSER $link
+    else
+        echo $link | xclip -r -selection clipboard
+        notify-send -t 2000 "copied link: $link"
+    end
+end
+funcsave runner_link >/dev/null
