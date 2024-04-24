@@ -569,6 +569,13 @@ local normal_mappings = {
 			vim.lsp.buf.hover()
 		end,
 	},
+	['g;'] = ':%norm ',
+	gy = ':%v`\\V',
+	gY = ':%v`\\v',
+	gw = ':%g`\\V',
+	gW = ':%g`\\v',
+	go = ':%s`\\V',
+	gO = ':%s`\\v',
 	M = 'm',
 	m = '`',
 	gss = '==',
@@ -636,10 +643,16 @@ local visual_mappings = {
 	['<Leader>*'] = { function() search_for_selection('/', '/e') end },
 	['#'] = { function() search_for_selection('?', '') end },
 	['<Leader>#'] = { function() search_for_selection('?', '?e') end },
-	['&'] = ':s`\\V',
 	['i%'] = 'T%ot%',
 	['a%'] = 'F%of%',
 	u = '<Esc>u',
+	['g;'] = ':norm ',
+	gy = ':v`\\V',
+	gY = ':v`\\v',
+	gw = ':g`\\V',
+	gW = ':g`\\v',
+	go = ':s`\\V',
+	gO = ':s`\\v',
 }
 
 local insert_mappings = {
@@ -868,15 +881,6 @@ local opts_table = {
 				local recent = vim.v.oldfiles[1]
 				vim.cmd.edit(recent)
 			end,
-		},
-		O = {
-			function(info)
-				local range = ''
-				if info.range > 0 then range = (info.line1 or '') .. ',' .. (info.line2 or '') end
-				vim.cmd(range .. 'norm ' .. info.args)
-			end,
-			nargs = '*',
-			range = true,
 		},
 	},
 	autocmds = {
