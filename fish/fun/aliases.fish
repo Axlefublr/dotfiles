@@ -27,7 +27,15 @@ alias --save neomax 'kitty -T neomax nvim' >/dev/null
 alias --save neoline 'kitty -T neoline nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'eza --git --git-repos' >/dev/null
-alias --save clx 'printf "\e[H\e[22J"' >/dev/null
+
+function clx
+    if test "$NVIM_LOG_FILE"
+        clear -x
+    else
+        printf '\e[H\e[22J'
+    end
+end
+funcsave clx >/dev/null
 
 function pacstall
     for each in $argv

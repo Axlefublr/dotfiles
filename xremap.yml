@@ -895,6 +895,7 @@ keymap:
       Alt-k: ctrl-p
       Ctrl-j: f6
       Shift-Alt-Semicolon: f5
+      Shift-Esc: f7
 
   - name: Compose key
     exact_match: true

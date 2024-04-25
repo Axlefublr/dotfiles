@@ -496,6 +496,7 @@ local normal_mappings = {
 	["'9"] = { function() numbered_get(9) end },
 	["'0"] = { function() numbered_get(10) end },
 	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
+	['<A-/>'] = function() vim.cmd('ToggleTerm') end,
 	['<Esc>'] = {
 		function()
 			vim.cmd('noh')
@@ -642,7 +643,7 @@ local visual_mappings = {
 }
 
 local insert_mappings = {
-	['<A-/>'] = { close_try_save },
+	-- ['<A-/>'] = { close_try_save },
 	["<A-'>1"] = { function() numbered_insert(1) end },
 	["<A-'>2"] = { function() numbered_insert(2) end },
 	["<A-'>3"] = { function() numbered_insert(3) end },
@@ -707,6 +708,11 @@ local command_insert_mappings = {
 	['<A-f>'] = '<C-f>',
 }
 
+local terminal_mappings = {
+	['<A-/>'] = [[<C-\><C-n>:bd!<CR>]],
+	['<F7>'] = [[<C-\><C-n>]],
+}
+
 local normal_visual_pending_mappings = {
 	H = { function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end },
 	L = { function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end },
@@ -759,6 +765,7 @@ local mappings_table = {
 	i = insert_mappings,
 	o = pending_mappings,
 	c = command_mappings,
+	t = terminal_mappings,
 	['!'] = command_insert_mappings,
 }
 
