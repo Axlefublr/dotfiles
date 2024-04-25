@@ -569,13 +569,7 @@ local normal_mappings = {
 			vim.lsp.buf.hover()
 		end,
 	},
-	['g;'] = ':%norm ',
-	gy = ':%v`\\V',
-	gY = ':%v`\\v',
-	gw = ':%g`\\V',
-	gW = ':%g`\\v',
-	go = ':%s`\\V',
-	gO = ':%s`\\v',
+	['<Leader><CR>'] = ':%',
 	M = 'm',
 	m = '`',
 	gss = '==',
@@ -591,7 +585,6 @@ local normal_mappings = {
 	dP = 'ddkP',
 	yp = 'yyp',
 	yP = 'yyP',
-	['&'] = ':%s`\\V',
 	gJ = 'j0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>du'] = 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK, -- Move line to the top
@@ -646,13 +639,6 @@ local visual_mappings = {
 	['i%'] = 'T%ot%',
 	['a%'] = 'F%of%',
 	u = '<Esc>u',
-	['g;'] = ':norm ',
-	gy = ':v`\\V',
-	gY = ':v`\\v',
-	gw = ':g`\\V',
-	gW = ':g`\\v',
-	go = ':s`\\V',
-	gO = ':s`\\v',
 }
 
 local insert_mappings = {
@@ -736,10 +722,6 @@ local normal_visual_pending_mappings = {
 	['m,'] = '`<',
 	['m/'] = '`^',
 	[':'] = ',',
-	['<Leader>/'] = '/\\V',
-	['<Leader>?'] = '?\\V',
-	['/'] = '/\\v',
-	['?'] = '?\\v',
 	gM = 'M',
 	["'w"] = '"0',
 	["'s"] = '"_s',
@@ -881,6 +863,15 @@ local opts_table = {
 				local recent = vim.v.oldfiles[1]
 				vim.cmd.edit(recent)
 			end,
+		},
+		J = {
+			function(info)
+				local range = ''
+				if info.range > 0 then range = (info.line1 or '') .. ',' .. (info.line2 or '') end
+				vim.cmd(range .. 'norm ' .. info.args)
+			end,
+			nargs = '*',
+			range = true,
 		},
 	},
 	autocmds = {
