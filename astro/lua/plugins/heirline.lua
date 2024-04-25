@@ -5,6 +5,7 @@ return {
 
 		opts.tabline[2] = {
 			provider = ' %f',
+			condition = function() return vim.bo.filetype ~= 'oil' end
 		} -- previously, bufferline
 
 		table.remove(opts.tabline[4], 2)
@@ -12,7 +13,6 @@ return {
 		opts.winbar[2] = status.component.breadcrumbs({
 			max_depth = 2,
 		})
-		table.remove(opts.winbar, 1)
 		table.insert(opts.tabline, 3, opts.winbar)
 		table.insert(opts.tabline, 5, {
 			provider = function()
@@ -28,7 +28,7 @@ return {
 				surround = { separator = 'none' },
 				filetype = false,
 				file_modified = false,
-				file_readonly = false
+				file_readonly = false,
 			})
 		)
 
@@ -93,7 +93,7 @@ return {
 			padding = { right = 0 },
 		}
 		opts.statusline[9] = status.component.lsp({
-			lsp_client_names = false
+			lsp_client_names = false,
 		})
 		opts.statusline[12] = status.component.nav({
 			scrollbar = false,

@@ -5,6 +5,8 @@ return {
 		keys = {
 			{ mode = { 'o', 'x' }, 'ii', function() require('various-textobjs').indentation('inner', 'inner') end },
 			{ mode = { 'o', 'x' }, 'ai', function() require('various-textobjs').indentation('outer', 'inner') end },
+			{ mode = { 'o', 'x' }, 'iD', function() require('various-textobjs').htmlAttribute('inner') end },
+			{ mode = { 'o', 'x' }, 'aD', function() require('various-textobjs').htmlAttribute('outer') end },
 			{ mode = { 'o', 'x' }, 'iI', function() require('various-textobjs').indentation('inner', 'inner') end },
 			{ mode = { 'o', 'x' }, 'aI', function() require('various-textobjs').indentation('outer', 'outer') end },
 			{ mode = { 'o', 'x' }, 'D', function() require('various-textobjs').restOfIndentation() end },
