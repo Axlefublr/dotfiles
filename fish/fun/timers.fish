@@ -63,6 +63,11 @@ function _alarm
         set input '0'$input
     end
     set -l input (string pad -r -c 0 -w 6 $input)
+    if test $input -lt (date +%H%M%S)
+        while test $input -lt (date +%H%M%S)
+            sleep 0.1
+        end
+    end
     while test $input -gt (date +%H%M%S)
         sleep 0.1
     end
