@@ -14,7 +14,7 @@ return {
 			enable_check_bracket_line = true,
 		})
 	end,
-	config = function(_, opts)
+	config = function(plugin, opts)
 		require('astronvim.plugins.configs.nvim-autopairs')(plugin, opts)
 		local autopairs = require('nvim-autopairs')
 		local rule = require('nvim-autopairs.rule')

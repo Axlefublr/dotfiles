@@ -356,6 +356,7 @@ return {
 				right = { '', ' ' },
 				center = { ' ', ' ' },
 			},
+			---@diagnostic disable-next-line: assign-type-mismatch
 			colors = {
 				git_branch_fg = Colors.purple,
 				diag_ERROR = Colors.red,

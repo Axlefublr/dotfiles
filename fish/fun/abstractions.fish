@@ -125,7 +125,7 @@ function mm
 end
 funcsave ml >/dev/null
 
-alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: front-left: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' >/dev/null
+alias --save get_volume 'pactl get-sink-volume @DEFAULT_SINK@ | string match -rg \'Volume: .*: \\d* \\/\\s*(\\d+)%\\s*\\/.*\'' >/dev/null
 alias --save toggle_mute 'pactl set-sink-mute @DEFAULT_SINK@ toggle $argv ; awesome-client "Muteness_wu()"' >/dev/null
 alias --save get_mute 'pactl get-sink-mute @DEFAULT_SINK@ | string match -gr "Mute: (no|yes)"' >/dev/null
 

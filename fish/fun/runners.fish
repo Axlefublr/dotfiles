@@ -214,16 +214,22 @@ end
 funcsave update_magazine >/dev/null
 
 function runner_doc
-    function based_entries
+    function named_html
         for entry in (fd -e html . ~/docs/$argv[1] | path basename | path change-extension '')
+            echo $argv[2..] $entry
+        end
+    end
+    function named_directory
+        for entry in (fd -e html . ~/docs/$argv[1] | path dirname | path basename)
             echo $argv[2..] $entry
         end
     end
     set result (begin
         ls ~/docs
-        based_entries 'fish/cmds' fish
-        based_entries 'awm/awesomewm.org/doc/api/classes' awm class
-        based_entries 'awm/awesomewm.org/doc/api/libraries' awm lib
+        named_html 'fish/cmds' fish
+        named_html 'awm/awesomewm.org/doc/api/classes' awm class
+        named_html 'awm/awesomewm.org/doc/api/libraries' awm lib
+        named_directory 'kitty/sw.kovidgoyal.net/kitty' kitty
     end | rofi -dmenu 2>/dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
@@ -238,6 +244,8 @@ function runner_doc
             $BROWSER ~/docs/awm/awesomewm.org/doc/api/classes/$last_element.html
         case 'fish *'
             $BROWSER ~/docs/fish/cmds/$last_element.html
+        case 'kitty *'
+            $BROWSER ~/docs/kitty/sw.kovidgoyal.net/kitty/$last_element/index.html
         case '*'
             $BROWSER "~/docs/$result/index.html"
     end

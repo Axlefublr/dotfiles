@@ -6,6 +6,7 @@ return {
 	{ 'rafamadriz/friendly-snippets', enabled = false },
 	{ 'lukas-reineke/indent-blankline.nvim', enabled = false },
 	{ 'nvim-neo-tree/neo-tree.nvim', enabled = false },
+	{ 'akinsho/toggleterm.nvim', enabled = false },
 	{ 'kevinhwang91/nvim-ufo', enabled = false },
 	{ 'mrjones2014/smart-splits.nvim', enabled = false },
 	{ 's1n7ax/nvim-window-picker', enabled = false },

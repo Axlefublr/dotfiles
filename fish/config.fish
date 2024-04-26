@@ -47,4 +47,7 @@ if status is-interactive
     bind -M insert \e\; accept-autosuggestion
     bind -M default -k f5 forward-word
     bind -M default \e\; accept-autosuggestion
+
+    bind \e/ exit
+    bind -M insert \e/ exit
 end
