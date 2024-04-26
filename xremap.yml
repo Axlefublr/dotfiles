@@ -953,8 +953,7 @@ keymap:
   - name: Direct
     mode: [default]
     remap:
-      Backspace: { launch: [fish, -c, screen_off] }
-      Shift-Backspace: { launch: [fish, -c, suspend] }
+      Backspace: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
       CapsLock-Enter: backspace
       CapsLock-Alt-Enter: ctrl-backspace
