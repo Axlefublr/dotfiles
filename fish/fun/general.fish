@@ -272,8 +272,11 @@ function install_yt_video
     set file (mktemp /dev/shm/install_yt_video.XXXXXX)
     set clipboard (xclip -selection clipboard -o)
     set video_short_link (string replace 'https://www.youtube.com/watch?v=' '' $clipboard)
-    set video_short_link (string replace -r '\\&list\\=WL&index\\=.*' '' $video_short_link)
-    kitty -T link-download yt-dlp -o '/home/axlefublr/Videos/content/'$extra"%(channel)s — %(title)s — ($video_short_link).%(ext)s" --print-to-file "%(channel)s — %(title)s" $file $clipboard
+    set video_short_link (string replace -r '\\&(list\\=WL\\&index|pp)\\=.*' '' $video_short_link)
+    kitty -T link-download yt-dlp \
+        -o "~/Videos/content/$extra/%(channel)s — %(title)s — ($video_short_link).%(ext)s" \
+        --print-to-file "%(channel)s — %(title)s" $file \
+        $clipboard
     notify-send -t 3000 "downloaded: $(cat $file)"
     rm -fr $file
 end
@@ -313,6 +316,6 @@ end
 funcsave multiple_dot >/dev/null
 
 function regen_highs
-    nvim --headless -c 'Lazy load all' -c 'high' -c 'q' &> ~/prog/backup/highlights.txt
+    nvim --headless -c 'Lazy load all' -c high -c q &>~/prog/backup/highlights.txt
 end
 funcsave regen_highs >/dev/null
