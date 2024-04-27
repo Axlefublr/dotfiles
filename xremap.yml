@@ -261,6 +261,7 @@ keymap:
           x: { launch: [fish, -c, runner_doc] }
           s: { launch: [fish, -c, 'runner_link open'] }
           Shift-s: { launch: [fish, -c, runner_link] }
+          r: { launch: [fish, -c, runner_project] }
 
   - name: Magazine
     mode: default

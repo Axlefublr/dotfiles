@@ -200,7 +200,7 @@ function magazine_filter
     end
     cp -f $file_path /dev/shm/magazine_$argv[1]
     set multiline (printf '%s\n' $collected | string collect)
-    echo -n $multiline > $file_path
+    echo -n $multiline >$file_path
     notify-send -t 1000 "filter $argv[1]"
     update_magazine $argv[1]
 end
@@ -269,3 +269,16 @@ function runner_link
     end
 end
 funcsave runner_link >/dev/null
+
+function runner_project
+    for file in (fd -utf project.txt ~/prog)
+        set dirname (path dirname $file | path basename)
+        for line in (cat $file)
+            echo $dirname: $line
+        end
+    end | rofi -dmenu 2>/dev/null | read line
+    if test "$line"
+        notify-send -t 0 "$line"
+    end
+end
+funcsave runner_project >/dev/null
