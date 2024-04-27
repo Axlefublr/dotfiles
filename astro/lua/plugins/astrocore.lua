@@ -276,6 +276,17 @@ local function harp_local_set()
 	if output then vim.notify('set local harp ' .. register) end
 end
 
+local function harp_cd_get_or_home()
+	local register = Get_char('get cd harp: ')
+	if register == nil then return end
+	local output = require('astrocore').cmd({ 'harp', 'get', 'cd_harps', register, '--path' }, false)
+	if output then
+		return output
+	else
+		return os.getenv('HOME')
+	end
+end
+
 local function harp_cd_get()
 	local register = Get_char('get cd harp: ')
 	if register == nil then return end
@@ -359,6 +370,12 @@ local function search_for_current_word(direction, death)
 		FeedKeysInt('<CR>')
 		vim.fn.setreg('+', register)
 	end)
+end
+
+local function get_buffer_cwd()
+	local buffer = vim.api.nvim_buf_get_name(0)
+	local parent = vim.fn.fnamemodify(buffer, ':h')
+	return parent
 end
 
 local normal_mappings = {
@@ -496,26 +513,47 @@ local normal_mappings = {
 	["'9"] = { function() numbered_get(9) end },
 	["'0"] = { function() numbered_get(10) end },
 	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
-	['<A-Y>'] = function()
+	['<Leader>tys'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', get_buffer_cwd() })
+	end,
+	['<Leader>tps'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd() })
+	end,
+	['<Leader>tis'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() })
+	end,
+	['<Leader>tyf'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', vim.fn.getcwd() })
 	end,
-	['<A-P>'] = function()
+	['<Leader>tpf'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd() })
 	end,
-	['<A-I>'] = function()
+	['<Leader>tif'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() })
 	end,
-	['<A-y>'] = function()
+	['<Leader>tyv'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', vim.fn.getcwd(), 'nvim', '-c', 'Young' })
 	end,
-	['<A-p>'] = function()
+	['<Leader>tpv'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd(), 'nvim', '-c', 'Young' })
 	end,
-	['<A-i>'] = function()
+	['<Leader>tiv'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd(), 'nvim', '-c', 'Young' })
+	end,
+	['<Leader>tyx'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', harp_cd_get_or_home(), 'nvim', '-c', 'Young' })
+	end,
+	['<Leader>tpx'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home(), 'nvim', '-c', 'Young' })
+	end,
+	['<Leader>tix'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home(), 'nvim', '-c', 'Young' })
 	end,
 	['<A-/>'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() })
+	end,
+	['<Leader><A-/>'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() })
 	end,
 	['<Esc>'] = {
 		function()
@@ -757,6 +795,7 @@ local normal_visual_mappings = {
 	['<Leader>da'] = { copy_cwd },
 	['<Leader>lf'] = { function() vim.lsp.buf.format({ async = true }) end },
 	['<CR>'] = ':',
+	['<S-CR>'] = ':',
 	['!'] = ':!',
 	['!!'] = ':r !',
 	["'"] = '"',
