@@ -50,4 +50,5 @@ if status is-interactive
 
     bind \e/ exit
     bind -M insert \e/ exit
+    bind K exit
 end
