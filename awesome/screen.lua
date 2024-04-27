@@ -295,15 +295,6 @@ function Brightness_wu()
 	end)
 end
 
-Water_w = text_widget(nil, '󰖌 ')
-Water_bw = wibox.container.background(Water_w)
-Water_mw = wibox.container.margin(Water_bw)
-Water_mw.right = between - 16
-Water_mw.visible = false
-function Water_we() Water_mw.visible = true end
-
-function Water_wd() Water_mw.visible = false end
-
 Media_player_w = text_widget()
 Media_player_mw = wibox.container.margin(Media_player_w)
 Media_player_mw.right = -2
@@ -674,7 +665,6 @@ Wibar_w:setup({
 		Malumn_mw,
 		Window_state_lw,
 		Clients_mw,
-		Water_mw,
 		Clorange_mw,
 		Anki_mw,
 		Mouse_mw,
