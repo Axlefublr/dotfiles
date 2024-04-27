@@ -42,8 +42,50 @@ return {
 				vim.keymap.set('n', '<Leader>da', function()
 					local oil_cwd = require('oil').get_current_dir()
 					require('oil.actions').cd.callback()
-					os.execute('zoxide add "' .. oil_cwd .. '"')
+					os.execute("zoxide add '" .. oil_cwd .. "'")
 				end, { buffer = true })
+				vim.keymap.set(
+					'n',
+					'<Leader>tys',
+					function()
+						require('astrocore').cmd({
+							'kitten',
+							'@',
+							'launch',
+							'--type',
+							'os-window',
+							'--cwd',
+							require('oil').get_current_dir(),
+						})
+					end
+				)
+				vim.keymap.set(
+					'n',
+					'<Leader>tps',
+					function()
+						require('astrocore').cmd({
+							'kitten',
+							'@',
+							'launch',
+							'--type',
+							'tab',
+							'--cwd',
+							require('oil').get_current_dir(),
+						})
+					end
+				)
+				vim.keymap.set(
+					'n',
+					'<Leader>tis',
+					function()
+						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
+					end
+				)
+				vim.keymap.set(
+					'n',
+					'<Leader><A-/>',
+					function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() }) end
+				)
 			end,
 		})
 

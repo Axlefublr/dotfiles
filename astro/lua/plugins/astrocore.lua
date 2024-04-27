@@ -794,6 +794,7 @@ local normal_visual_mappings = {
 	['<Leader>lc'] = { vim.lsp.buf.code_action },
 	['<Leader>da'] = { copy_cwd },
 	['<Leader>lf'] = { function() vim.lsp.buf.format({ async = true }) end },
+	['&'] = '@:',
 	['<CR>'] = ':',
 	['<S-CR>'] = ':',
 	['!'] = ':!',
