@@ -123,6 +123,16 @@ local snippets = function()
 			i(0),
 			t(' end'),
 		}),
+		s('function()', {
+			t('function'),
+			i(1),
+			t('('),
+			i(2),
+			t(')'),
+			t({ '', '\t' }),
+			i(0),
+			t({ '', 'end' })
+		})
 	}
 	ls.add_snippets('lua', lua_snippets)
 

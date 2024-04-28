@@ -30,13 +30,13 @@ function list_current_token -d "List contents of token under the cursor (includi
 	set -l val (commandline -t | string replace -r '^~' "$HOME")
 	echo
 	if test -d $val
-		ls -A $val
+		ez -a $val
 	else
 		set -l dir (dirname -- $val)
 		if test $dir != . -a -d $dir
-			ls -A $dir
+			ez -a $dir
 		else
-			ls -A
+			ez -a
 		end
 	end
 

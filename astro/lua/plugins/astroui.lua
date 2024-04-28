@@ -223,6 +223,8 @@ return {
 				['@function.builtin.lua'] = link('Green'),
 				['@lsp.mod.defaultLibrary.lua'] = link('Purple'),
 				['@lsp.typemod.function.defaultLibrary.lua'] = link('Blush'),
+				['luaConstant'] = link('PurpleItalic'),
+				['luaFunction'] = link('Red'),
 
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
@@ -292,6 +294,7 @@ return {
 				['@markup.link.markdown_inline'] = link('Grey'),
 				['@markup.link.url.markdown_inline'] = link('Blue'),
 				['@markup.raw.block.markdown'] = link('Yellow'),
+				['markdownCode'] = link('Yellow'),
 
 				['@type.qualifier.rust'] = link('OrangeItalic'),
 				['@character.rust'] = link('YellowBold'),
