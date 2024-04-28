@@ -12,7 +12,7 @@ end
 
 xremap --mouse ~/prog/dotfiles/xremap.yml 2>>/dev/shm/user_log.txt & disown
 ydotoold 2>>/dev/shm/user_log.txt & disown
-ollama serve 2>>/dev/shm/user_log.txt & disown
+# ollama serve 2>>/dev/shm/user_log.txt & disown
 picom 2>>/dev/shm/user_log.txt & disown
 gromit.fish 2>>/dev/shm/user_log.txt & disown
 copyq 2>>/dev/shm/user_log.txt & disown
