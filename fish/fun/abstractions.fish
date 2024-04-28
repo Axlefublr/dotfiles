@@ -267,7 +267,8 @@ end
 funcsave filter_mature_tasks >/dev/null
 
 function mature_tasks_line
-    filter_mature_tasks | tac | awk '{print $1}' | string join ' '
+    set lines (filter_mature_tasks | tac | awk '{print $1}')
+    shuf -e $lines | string join ' '
 end
 funcsave mature_tasks_line >/dev/null
 
