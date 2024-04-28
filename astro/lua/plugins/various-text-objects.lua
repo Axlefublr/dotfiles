@@ -9,7 +9,7 @@ return {
 			{ mode = { 'o', 'x' }, 'aD', function() require('various-textobjs').htmlAttribute('outer') end },
 			{ mode = { 'o', 'x' }, 'iI', function() require('various-textobjs').indentation('inner', 'inner') end },
 			{ mode = { 'o', 'x' }, 'aI', function() require('various-textobjs').indentation('outer', 'outer') end },
-			{ mode = { 'o', 'x' }, 'D', function() require('various-textobjs').restOfIndentation() end },
+			{ mode = { 'o', 'x' }, 'R', function() require('various-textobjs').restOfIndentation() end },
 			{ mode = { 'o', 'x' }, 'is', function() require('various-textobjs').subword('inner') end },
 			{ mode = { 'o', 'x' }, 'as', function() require('various-textobjs').subword('outer') end },
 			{ mode = { 'o', 'x' }, 'ie', function() require('various-textobjs').entireBuffer() end },
