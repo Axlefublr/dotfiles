@@ -116,6 +116,11 @@ keymap:
       w: { launch: [xdotool, mousemove, '128', '960'] }
       e: { launch: [xdotool, mousemove, '1792', '960'] }
 
+      z: { launch: [xdotool, mousemove, '128', '540'] }
+      x: { launch: [xdotool, mousemove, '960', '960'] }
+      c: { launch: [xdotool, mousemove, '960', '120'] }
+      v: { launch: [xdotool, mousemove, '1792', '540'] }
+
       h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
       l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
       j: { launch: [xdotool, mousemove_relative, '--', '0', '1'] }
