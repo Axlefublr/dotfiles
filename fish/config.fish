@@ -47,7 +47,7 @@ if status is-interactive
     bind -M insert \e\; accept-autosuggestion
     bind -M default -k f5 forward-word
     bind -M default \e\; accept-autosuggestion
-
+    bind -M insert \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
     bind \e/ exit
     bind -M insert \e/ exit
     bind K exit
