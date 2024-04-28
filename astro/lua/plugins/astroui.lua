@@ -225,6 +225,8 @@ return {
 				['@lsp.typemod.function.defaultLibrary.lua'] = link('Blush'),
 				['luaConstant'] = link('PurpleItalic'),
 				['luaFunction'] = link('Red'),
+				['@lsp.type.type.lua'] = link('YellowBold'),
+				['@lsp.typemod.keyword.documentation.lua'] = link('Blush'),
 
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
