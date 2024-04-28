@@ -122,7 +122,7 @@ funcsave xrestartwaaa >/dev/null
 
 function grostart
     killall gromit-mpx
-    gromit &>/tmp/log/gromit.txt & disown
+    gromit.fish &>/tmp/log/gromit.txt & disown
 end
 funcsave grostart >/dev/null
 
