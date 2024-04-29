@@ -57,7 +57,7 @@ Anki_w = text_widget()
 Anki_bw = wibox.container.background(Anki_w)
 Anki_bw.fg = beautiful.red
 Anki_mw = wibox.container.margin(Anki_bw)
-Anki_mw.right = between
+Anki_mw.right = between + 1
 Anki_mw.visible = false
 function Anki_wu()
 	local file = io.open('/dev/shm/Anki_f', 'r')
@@ -297,8 +297,7 @@ end
 
 Media_player_w = text_widget()
 Media_player_mw = wibox.container.margin(Media_player_w)
-Media_player_mw.right = -2
-Media_player_mw.left = larger
+Media_player_mw.right = between - 6
 Media_player_mw.visible = false
 function Media_player_wu()
 	local file = io.open('/dev/shm/Media_player_f', 'r')
@@ -314,27 +313,9 @@ function Media_player_wu()
 	end
 end
 
-Media_time_w = text_widget()
-Media_time_mw = wibox.container.margin(Media_time_w)
-Media_time_mw.visible = false
-function Media_time_wu()
-	local file = io.open('/dev/shm/Media_time_f', 'r')
-	if file then
-		local text = file:read('*a')
-		file:close()
-		if #text > 0 then
-			Media_time_mw.visible = true
-			Media_time_w:set_text(text)
-		else
-			Media_time_mw.visible = false
-		end
-	end
-end
-
 Media_state_w = text_widget(beautiful.jetbrains_font .. ' 15')
 Media_state_mw = wibox.container.margin(Media_state_w)
-Media_state_mw.right = 6
-Media_state_mw.left = larger
+Media_state_mw.right = between - 1
 Media_state_mw.visible = false
 function Media_state_wu()
 	local file = io.open('/dev/shm/Media_state_f', 'r')
@@ -346,23 +327,6 @@ function Media_state_wu()
 			Media_state_w:set_text(text)
 		else
 			Media_player_mw.visible = false
-		end
-	end
-end
-
-Media_volume_w = text_widget()
-Media_volume_mw = wibox.container.margin(Media_volume_w)
-Media_volume_mw.visible = false
-function Media_volume_wu()
-	local file = io.open('/dev/shm/Media_volume_f', 'r')
-	if file then
-		local text = file:read('*a')
-		file:close()
-		if #text > 0 then
-			Media_volume_mw.visible = true
-			Media_volume_w:set_text(text)
-		else
-			Media_volume_mw.visible = false
 		end
 	end
 end
@@ -649,10 +613,6 @@ Wibar_w:setup({
 		Ram_mw,
 		Fire_mw,
 		Processor_mw,
-		Media_player_mw,
-		Media_time_mw,
-		Media_state_mw,
-		Media_volume_mw,
 		Meat_mw,
 		Hunger_mw,
 		Monitor_mw,
@@ -668,6 +628,8 @@ Wibar_w:setup({
 		Clorange_mw,
 		Anki_mw,
 		Mouse_mw,
+		Media_player_mw,
+		Media_state_mw,
 		Dnd_mw,
 		Bluetooth_mw,
 		Wifi_mw,
