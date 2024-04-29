@@ -333,7 +333,7 @@ end
 
 Malumn_w = text_widget()
 Malumn_mw = wibox.container.margin(Malumn_w)
-Malumn_mw.right = between
+Malumn_mw.left = larger
 function Malumn_wu(tag) Malumn_w:set_text(tag.master_count .. '/' .. tag.column_count) end
 
 function Malumn_wd() Malumn_w:set_text('?/?') end
@@ -452,32 +452,34 @@ Window_state_lw = wibox.widget({
 	layout = wibox.layout.fixed.horizontal,
 })
 
-Tile_w = text_widget(beautiful.jetbrains_font .. ' 14')
+Tile_w = text_widget(beautiful.ubuntu_font .. ' 15')
 Tile_mw = wibox.container.margin(Tile_w)
 Tile_mw.right = between
-Tile_mw.left = between
+Tile_mw.left  = between - 1
 function Tile_wu(tag)
 	local layout_name = tag.layout.name
 	if layout_name == 'tile' then
-		layout_name = 'right'
+		layout_name = '→'
 	elseif layout_name == 'tileleft' then
-		layout_name = 'left'
+		layout_name = '←'
 	elseif layout_name == 'tilebottom' then
-		layout_name = 'bottom'
+		layout_name = '↓'
 	elseif layout_name == 'tiletop' then
-		layout_name = 'top'
+		layout_name = '↑'
 	elseif layout_name == 'cornernw' then
-		layout_name = 'left-top'
+		layout_name = '↘'
 	elseif layout_name == 'cornerne' then
-		layout_name = 'right-top'
+		layout_name = '↙'
 	elseif layout_name == 'cornersw' then
-		layout_name = 'left-bottom'
+		layout_name = '↗'
 	elseif layout_name == 'cornerse' then
-		layout_name = 'right-bottom'
+		layout_name = '↖'
 	elseif layout_name == 'fairv' then
-		layout_name = 'vert'
+		layout_name = '↔'
 	elseif layout_name == 'fairh' then
-		layout_name = 'hori'
+		layout_name = '↕'
+	elseif layout_name == 'max' then
+		layout_name = '⇅'
 	end
 	Tile_w:set_text(layout_name)
 end
@@ -621,8 +623,8 @@ Wibar_w:setup({
 		Mic_volume_mw,
 		Muteness_mw,
 		Volume_mw,
-		Tile_mw,
 		Malumn_mw,
+		Tile_mw,
 		Window_state_lw,
 		Clients_mw,
 		Clorange_mw,
