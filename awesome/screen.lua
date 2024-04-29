@@ -315,7 +315,7 @@ end
 
 Media_state_w = text_widget(beautiful.jetbrains_font .. ' 15')
 Media_state_mw = wibox.container.margin(Media_state_w)
-Media_state_mw.right = between - 1
+Media_state_mw.right = between
 Media_state_mw.visible = false
 function Media_state_wu()
 	local file = io.open('/dev/shm/Media_state_f', 'r')
@@ -333,7 +333,8 @@ end
 
 Malumn_w = text_widget()
 Malumn_mw = wibox.container.margin(Malumn_w)
-Malumn_mw.left = larger
+Malumn_mw.left = between
+Malumn_mw.right = between
 function Malumn_wu(tag) Malumn_w:set_text(tag.master_count .. '/' .. tag.column_count) end
 
 function Malumn_wd() Malumn_w:set_text('?/?') end
@@ -455,7 +456,6 @@ Window_state_lw = wibox.widget({
 Tile_w = text_widget(beautiful.ubuntu_font .. ' 15')
 Tile_mw = wibox.container.margin(Tile_w)
 Tile_mw.right = between
-Tile_mw.left  = between - 1
 function Tile_wu(tag)
 	local layout_name = tag.layout.name
 	if layout_name == 'tile' then
@@ -487,7 +487,7 @@ end
 Layout_w = text_widget(beautiful.jetbrains_font .. ' 14')
 Layout_bw = wibox.container.background(Layout_w)
 Layout_mw = wibox.container.margin(Layout_bw)
-Layout_mw.right = between
+Layout_mw.right = between - 4
 Layout_mw.visible = false
 function Layout_wu()
 	local file = io.open('/dev/shm/Layout_f', 'r')
@@ -624,7 +624,6 @@ Wibar_w:setup({
 		Muteness_mw,
 		Volume_mw,
 		Malumn_mw,
-		Tile_mw,
 		Window_state_lw,
 		Clients_mw,
 		Clorange_mw,
@@ -636,15 +635,14 @@ Wibar_w:setup({
 		Bluetooth_mw,
 		Wifi_mw,
 		Layout_mw,
+		Tile_mw,
 	},
 })
 
 local run_once = function()
 	local frequents = {
 		'Layout',
-		'Media_time',
 		'Media_state',
-		'Media_volume',
 		'Mic_volume',
 		'Volume',
 		'Wifi',
@@ -658,7 +656,10 @@ local run_once = function()
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
-		if file then file:close() end
+		if file then
+			file:write('')
+			file:close()
+		end
 	end
 	Clorange_wu()
 	Registers_wu()
