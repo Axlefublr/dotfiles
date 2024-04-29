@@ -317,5 +317,6 @@ funcsave multiple_dot >/dev/null
 
 function regen_highs
     nvim --headless -c 'Lazy load all' -c high -c q &>~/prog/backup/highlights.txt
+    nvim -c '%g;^\\S.*\\n \\{19};j' -c '%sort' -c q ~/prog/backup/highlights.txt
 end
 funcsave regen_highs >/dev/null
