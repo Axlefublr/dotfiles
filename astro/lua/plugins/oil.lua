@@ -57,7 +57,8 @@ return {
 							'--cwd',
 							require('oil').get_current_dir(),
 						})
-					end
+					end,
+					{ buffer = true }
 				)
 				vim.keymap.set(
 					'n',
@@ -72,19 +73,22 @@ return {
 							'--cwd',
 							require('oil').get_current_dir(),
 						})
-					end
+					end,
+					{ buffer = true }
 				)
 				vim.keymap.set(
 					'n',
 					'<Leader>tis',
 					function()
 						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
-					end
+					end,
+					{ buffer = true }
 				)
 				vim.keymap.set(
 					'n',
 					'<Leader><A-/>',
-					function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() }) end
+					function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() }) end,
+					{ buffer = true }
 				)
 			end,
 		})

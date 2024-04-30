@@ -57,7 +57,7 @@ Anki_w = text_widget()
 Anki_bw = wibox.container.background(Anki_w)
 Anki_bw.fg = beautiful.red
 Anki_mw = wibox.container.margin(Anki_bw)
-Anki_mw.right = between + 1
+Anki_mw.left = between
 Anki_mw.visible = false
 function Anki_wu()
 	local file = io.open('/dev/shm/Anki_f', 'r')
@@ -393,7 +393,7 @@ Ontop_state_w = text_widget(nil, ' ')
 Ontop_state_bw = wibox.container.background(Ontop_state_w)
 Ontop_state_bw.fg = beautiful.red
 Ontop_state_mw = wibox.container.margin(Ontop_state_bw)
-Ontop_state_mw.right = 6
+Ontop_state_mw.right = between - 4
 Ontop_state_mw.visible = false
 function Ontop_state_wu(client)
 	if client.ontop then
@@ -407,7 +407,7 @@ Maximized_state_w = text_widget(nil, ' ')
 Maximized_state_bw = wibox.container.background(Maximized_state_w)
 Maximized_state_bw.fg = beautiful.yellow
 Maximized_state_mw = wibox.container.margin(Maximized_state_bw)
-Maximized_state_mw.right = 4
+Maximized_state_mw.right = between - 5
 Maximized_state_mw.visible = false
 function Maximized_state_wu(client)
 	if client.maximized then
@@ -421,7 +421,7 @@ Sticky_state_w = text_widget(nil, '󰹧 ')
 Sticky_state_bw = wibox.container.background(Sticky_state_w)
 Sticky_state_bw.fg = beautiful.green
 Sticky_state_mw = wibox.container.margin(Sticky_state_bw)
-Sticky_state_mw.right = 3
+Sticky_state_mw.right = between - 5
 Sticky_state_mw.visible = false
 function Sticky_state_wu(client)
 	if client.sticky then
@@ -435,7 +435,7 @@ Floating_state_w = text_widget(nil, ' ')
 Floating_state_bw = wibox.container.background(Floating_state_w)
 Floating_state_bw.fg = beautiful.cyan
 Floating_state_mw = wibox.container.margin(Floating_state_bw)
-Floating_state_mw.right = 6
+Floating_state_mw.right = between - 4
 Floating_state_mw.visible = false
 function Floating_state_wu(client)
 	if client.floating then
@@ -559,7 +559,7 @@ Clorange_w = text_widget()
 Clorange_bw = wibox.container.background(Clorange_w)
 Clorange_bw.fg = beautiful.purple
 Clorange_mw = wibox.container.margin(Clorange_bw)
-Clorange_mw.right = between
+Clorange_mw.left = between + 1
 Clorange_mw.visible = false
 function Clorange_wu()
 	local file = io.open('/home/axlefublr/.local/share/clorange/widget', 'r')
@@ -602,6 +602,7 @@ Wibar_w:setup({
 		Registers_mw,
 		Clock_mw,
 		Taglist_mw,
+		Clients_mw,
 	},
 	Loago_mw,
 	-- Right widgets
@@ -623,11 +624,10 @@ Wibar_w:setup({
 		Mic_volume_mw,
 		Muteness_mw,
 		Volume_mw,
-		Malumn_mw,
-		Window_state_lw,
-		Clients_mw,
 		Clorange_mw,
 		Anki_mw,
+		Malumn_mw,
+		Window_state_lw,
 		Mouse_mw,
 		Media_player_mw,
 		Media_state_mw,
