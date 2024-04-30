@@ -179,7 +179,7 @@ keymap:
   - name: Mouse mode
     mode: [mouse, resize, move]
     remap:
-      CapsLock-Semicolon: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      CapsLock-Comma: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       g: { set_mode: move }
 
@@ -194,9 +194,9 @@ keymap:
       CapsLock-u: { launch: ['ydotool', 'click', '40'] }
       CapsLock-i: { launch: ['ydotool', 'click', '42'] }
       CapsLock-o: { launch: ['ydotool', 'click', '41'] }
-      CapsLock-m: { launch: ['ydotool', 'click', '80'] }
-      CapsLock-Comma: { launch: ['ydotool', 'click', '82'] }
-      CapsLock-Dot: { launch: ['ydotool', 'click', '81'] }
+      CapsLock-j: { launch: ['ydotool', 'click', '80'] }
+      CapsLock-k: { launch: ['ydotool', 'click', '82'] }
+      CapsLock-l: { launch: ['ydotool', 'click', '81'] }
 
       # down and up events of modifiers
       CapsLock-f: { launch: [ydotool, key, '125:1'] } # super down
@@ -211,7 +211,7 @@ keymap:
   - name: Default mode
     mode: default
     remap:
-      CapsLock-Semicolon: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      CapsLock-Comma: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
   - name: Clipboard Manager
     exact_match: true
@@ -894,7 +894,7 @@ keymap:
     application:
       only: [Alacritty, kitty]
     remap:
-      CapsLock-Alt-Enter: ctrl-w
+      CapsLock-Alt-Semicolon: ctrl-w
       Ctrl-Enter: f2
       Ctrl-Alt-u: f4
       Alt-j: ctrl-n
@@ -961,8 +961,10 @@ keymap:
     remap:
       Backspace: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
-      CapsLock-Enter: backspace
-      CapsLock-Alt-Enter: ctrl-backspace
+      CapsLock-Enter: { launch: [notify-send, -t, '1000', nope] }
+      CapsLock-Alt-Enter: { launch: [notify-send, -t, '1000', nope] }
+      CapsLock-Semicolon: backspace
+      CapsLock-Alt-Semicolon: ctrl-backspace
       CapsLock-r: delete
 
       CapsLock-s: ctrl-c
