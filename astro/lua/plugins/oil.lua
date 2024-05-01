@@ -87,9 +87,30 @@ return {
 				vim.keymap.set(
 					'n',
 					'<Leader><A-/>',
-					function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() }) end,
+					function()
+						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
+					end,
 					{ buffer = true }
 				)
+				vim.keymap.set('n', '"', function()
+					local register = Get_char('get cd harp: ')
+					if register == nil then return end
+					local output = require('astrocore').cmd({ 'harp', 'get', 'cd_harps', register, '--path' }, false)
+					if output then
+						require('oil').open(output)
+					else
+						vim.notify('cd harp ' .. register .. ' is empty')
+					end
+				end, { buffer = true })
+				vim.keymap.set('n', '""', function()
+					local register = Get_char('set cd harp: ')
+					if register == nil then return end
+					local directory = require('oil').get_current_dir()
+					directory = vim.fn.fnamemodify(directory, ':~')
+					local output =
+						require('astrocore').cmd({ 'harp', 'update', 'cd_harps', register, '--path', directory }, false)
+					if output then vim.notify('set cd harp ' .. register) end
+				end, { buffer = true })
 			end,
 		})
 
