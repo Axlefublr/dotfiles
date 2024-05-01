@@ -272,6 +272,31 @@ function Disk_usage_wu()
 	end
 end
 
+Battery_w = text_widget(nil, ' ')
+Battery_mw = wibox.container.margin(Battery_w)
+Battery_mw.left = larger
+Battery_mw.right = 3
+Battery_mw.visible = false
+
+Charge_w = text_widget()
+Charge_mw = wibox.container.margin(Charge_w)
+Charge_mw.visible = false
+function Charge_wu()
+	local file = io.open('/dev/shm/Charge_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 and text ~= '100' then
+			Charge_mw.visible = true
+			Battery_mw.visible = true
+			Charge_w:set_text(text)
+		else
+			Charge_mw.visible = false
+			Battery_mw.visible = false
+		end
+	end
+end
+
 Monitor_w = text_widget(nil, '󰃟 ')
 Monitor_mw = wibox.container.margin(Monitor_w)
 Monitor_mw.left = larger
@@ -610,6 +635,8 @@ Wibar_w:setup({
 		layout = wibox.layout.fixed.horizontal,
 		-- awful.widget.tasklist(),
 		-- wibox.widget.systray(),
+		Battery_mw,
+		Charge_mw,
 		Disk_mw,
 		Disk_usage_mw,
 		Brain_mw,
@@ -653,6 +680,7 @@ local run_once = function()
 		'Media_player',
 		'Loago',
 		'Disk_usage',
+		'Charge'
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
