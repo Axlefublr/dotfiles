@@ -232,6 +232,7 @@ keymap:
           d: { launch: [kitty, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
           m: { launch: [fish, -c, runner_math] }
+          x: { launch: [fish, -c, runner_project] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
@@ -266,7 +267,6 @@ keymap:
           x: { launch: [fish, -c, runner_doc] }
           s: { launch: [fish, -c, 'runner_link open'] }
           Shift-s: { launch: [fish, -c, runner_link] }
-          r: { launch: [fish, -c, runner_project] }
 
   - name: Magazine
     mode: default

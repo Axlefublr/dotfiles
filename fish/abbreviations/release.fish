@@ -1,4 +1,5 @@
 abbr -a ign 'indeed -u .gitignore'
+abbr -a igni 'indeed -u .git/info/exclude'
 abbr -a ignc 'cat .gitignore'
 abbr -a ignv 'nvim .gitignore'
 abbr -a rlnts 'nvim release-notes.txt'

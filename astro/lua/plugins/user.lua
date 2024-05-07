@@ -53,7 +53,12 @@ return {
 	{
 		'rcarriga/nvim-notify',
 		opts = {
-			background_colour = '#292828'
-		}
+			background_colour = '#292828',
+		},
+	},
+	{
+		'ErichDonGubler/lsp_lines.nvim',
+		event = 'LspAttach',
+		opts = {},
 	},
 }

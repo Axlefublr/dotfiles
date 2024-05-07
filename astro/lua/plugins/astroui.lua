@@ -183,6 +183,8 @@ return {
 				['Lf_hl_popup_fullPathMode'] = link('Dark13'),
 				['Lf_hl_popup_nameOnlyMode'] = link('Dark13'),
 
+				['TodoFgTODO'] = link('Orange'),
+
 				['DiagnosticVirtualTextError'] = link('Red'),
 				['DiagnosticVirtualTextWarn'] = link('Orange'),
 				['DiagnosticVirtualTextInfo'] = link('Blue'),
@@ -208,6 +210,7 @@ return {
 				['@property'] = link('Aqua'),
 				['@function'] = link('Green'),
 
+				['@function.builtin.lua'] = link('Purple'),
 				['@operator.lua'] = link('OrangeBold'),
 				['@lsp.type.property.lua'] = link('Fg'),
 				['@lsp.type.comment.lua'] = link('Grey'),
@@ -220,7 +223,6 @@ return {
 				['@function.lua'] = link('Green'),
 				['@lsp.type.method.lua'] = link('Green'),
 				['@function.method.call.lua'] = link('Green'),
-				['@function.builtin.lua'] = link('Green'),
 				['@lsp.mod.defaultLibrary.lua'] = link('Purple'),
 				['@lsp.typemod.function.defaultLibrary.lua'] = link('Blush'),
 				['luaConstant'] = link('PurpleItalic'),

@@ -1,14 +1,14 @@
 ---@type AstroLSPOpts
 local opts_table = {
 	features = {
-		autoformat = false,
+		autoformat = true,
 		codelens = true,
 		inlay_hints = false,
 		semantic_tokens = true,
 	},
 	formatting = {
 		format_on_save = {
-			enabled = false,
+			enabled = true,
 			allow_filetypes = {},
 			ignore_filetypes = {},
 		},

@@ -59,6 +59,7 @@ local function copy_git_relative()
 	local full_path = vim.api.nvim_buf_get_name(0)
 	local git_root = Get_repo_root()
 	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
+	relative_path = vim.fn.fnamemodify(relative_path, ':~')
 	vim.fn.setreg('+', relative_path)
 	vim.notify('repo relative: ' .. relative_path)
 end
@@ -519,42 +520,90 @@ local normal_mappings = {
 	['<Leader>tps'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd() })
 	end,
-	['<Leader>tis'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() })
-	end,
+	['<Leader>tis'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() }) end,
 	['<Leader>tyf'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', vim.fn.getcwd() })
 	end,
 	['<Leader>tpf'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd() })
 	end,
-	['<Leader>tif'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() })
-	end,
+	['<Leader>tif'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
 	['<Leader>tyv'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', vim.fn.getcwd(), 'nvim', '-c', 'Young' })
+		require('astrocore').cmd({
+			'kitten',
+			'@',
+			'launch',
+			'--type',
+			'os-window',
+			'--cwd',
+			vim.fn.getcwd(),
+			'nvim',
+			vim.api.nvim_buf_get_name(0),
+		})
 	end,
 	['<Leader>tpv'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd(), 'nvim', '-c', 'Young' })
+		require('astrocore').cmd({
+			'kitten',
+			'@',
+			'launch',
+			'--type',
+			'tab',
+			'--cwd',
+			vim.fn.getcwd(),
+			'nvim',
+			vim.api.nvim_buf_get_name(0),
+		})
 	end,
 	['<Leader>tiv'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd(), 'nvim', '-c', 'Young' })
+		require('astrocore').cmd({
+			'kitten',
+			'@',
+			'launch',
+			'--cwd',
+			vim.fn.getcwd(),
+			'nvim',
+			vim.api.nvim_buf_get_name(0),
+		})
 	end,
 	['<Leader>tyx'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', harp_cd_get_or_home(), 'nvim', '-c', 'Young' })
+		require('astrocore').cmd({
+			'kitten',
+			'@',
+			'launch',
+			'--type',
+			'os-window',
+			'--cwd',
+			harp_cd_get_or_home(),
+			'nvim',
+			vim.fn.expand('~/.local/share/magazine/j'),
+		})
 	end,
 	['<Leader>tpx'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home(), 'nvim', '-c', 'Young' })
+		require('astrocore').cmd({
+			'kitten',
+			'@',
+			'launch',
+			'--type',
+			'tab',
+			'--cwd',
+			harp_cd_get_or_home(),
+			'nvim',
+			vim.fn.expand('~/.local/share/magazine/j'),
+		})
 	end,
 	['<Leader>tix'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home(), 'nvim', '-c', 'Young' })
+		require('astrocore').cmd({
+			'kitten',
+			'@',
+			'launch',
+			'--cwd',
+			harp_cd_get_or_home(),
+			'nvim',
+			vim.fn.expand('~/.local/share/magazine/j'),
+		})
 	end,
-	['<A-/>'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() })
-	end,
-	['<Leader><A-/>'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() })
-	end,
+	['<A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
+	['<Leader><A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() }) end,
 	['<Esc>'] = {
 		function()
 			vim.cmd('noh')
@@ -860,9 +909,10 @@ local opts_table = {
 	},
 	-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
 	diagnostics = {
-		virtual_text = true,
+		virtual_text = false,
 		underline = true,
 		signs = false,
+		virtual_lines = true,
 	},
 	-- vim options can be configured here
 	options = {
