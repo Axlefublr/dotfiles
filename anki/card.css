@@ -3,7 +3,7 @@
 }
 
 .card {
-	font-family: Ubuntu Nerd Font;
+	font-family: Ubuntu Nerd Font, Ubuntu;
 	font-size: 22px;
 	text-align: center;
 	line-height: 1.3;
@@ -48,7 +48,7 @@ hr#answer {
 }
 
 .codeblock {
-	font-family: JetBrainsMonoNL NF;
+	font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono;
 	background-color: #242323;
 	border-radius: 5px;
 	padding: 7px;
@@ -67,14 +67,14 @@ hr#answer {
 }
 
 code {
-	font-family: JetBrainsMonoNL NF;
+	font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono;
 	background-color: #242323;
 	padding: 2px 5px;
 	border-radius: 5px;
 }
 
 input {
-	font-family: JetBrainsMonoNL NF !important;
+	font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono !important;
 	font-size: 22px !important;
 	padding: 7px;
 	text-align: center;

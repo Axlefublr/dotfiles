@@ -61,4 +61,9 @@ return {
 		event = 'LspAttach',
 		opts = {},
 	},
+	{
+		'Axlefublr/harp-nvim',
+		lazy = true,
+		opts = {},
+	},
 }

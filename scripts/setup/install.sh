@@ -102,3 +102,4 @@ sudo pacman -S --noconfirm copyq
 sudo pacman -S --noconfirm httrack
 sudo pacman -S --noconfirm asciinema
 sudo pacman -S --noconfirm pueue
+sudo pacman -S --noconfirm mpv-mpris

@@ -10,7 +10,7 @@ local opts_table = {
 		format_on_save = {
 			enabled = true,
 			allow_filetypes = {},
-			ignore_filetypes = {},
+			ignore_filetypes = { 'css' },
 		},
 		disabled = {
 			'lua_ls',
@@ -71,7 +71,7 @@ local opts_table = {
 					},
 					procMacro = { enable = true },
 					typing = {
-						autoClosingAngleBrackets = { enable = true }
+						autoClosingAngleBrackets = { enable = true },
 					},
 					semanticHighlighting = {
 						operator = {
@@ -80,8 +80,8 @@ local opts_table = {
 						punctuation = {
 							separate = {
 								macro = {
-									bang = true
-								}
+									bang = true,
+								},
 							},
 							enable = true,
 						},
@@ -89,15 +89,15 @@ local opts_table = {
 					workspace = {
 						symbol = {
 							search = {
-								kind = 'all_symbols'
-							}
-						}
+								kind = 'all_symbols',
+							},
+						},
 					},
 					signatureInfo = {
 						documentation = {
-							enable = false
-						}
-					}
+							enable = false,
+						},
+					},
 				},
 			},
 		},
