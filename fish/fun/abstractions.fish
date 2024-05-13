@@ -247,8 +247,8 @@ function filter_mature_tasks
         set -l name $match[1]
         set -l days $match[2]
         switch $name
-            case filter
-                if_print $days $name 45
+            case filter rilter
+                if_print $days $name 60
             case towels lamp wash
                 if_print $days $name 7
             case cloths fscrub bscrub nose liked cazor
@@ -256,7 +256,7 @@ function filter_mature_tasks
             case nails wilter bottle
                 if_print $days $name 15
             case razor
-                if_print $days $name 20
+                if_print $days $name 25
             case tails iso keyboard
                 if_print $days $name 30
             case '*'

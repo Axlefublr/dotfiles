@@ -2,7 +2,7 @@
 
 clorange megafon increment
 
-trash-empty -f 7
+trash-empty -f 3
 
 yeared_parse
 yearless_parse

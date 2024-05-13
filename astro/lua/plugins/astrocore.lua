@@ -232,26 +232,6 @@ local function search_for_selection(direction, death)
 	end)
 end
 
-local function harp_relative_get()
-	local register = Get_char('get relative harp: ')
-	if register == nil then return end
-	local output = require('astrocore').cmd({ 'harp', 'get', 'relative_harps', register, '--path' }, false)
-	if output then
-		vim.cmd.edit(output)
-	else
-		vim.notify('relative harp ' .. register .. ' is empty')
-	end
-end
-
-local function harp_relative_set()
-	local register = Get_char('set relative harp: ')
-	if register == nil then return end
-	local relative_path = vim.fn.expand('%:~:.')
-	local output =
-		require('astrocore').cmd({ 'harp', 'update', 'relative_harps', register, '--path', relative_path }, false)
-	if output then vim.notify('set relative harp ' .. register) end
-end
-
 local function move_default_to_other()
 	local char = Get_char('register: ')
 	if not char then return end
@@ -295,14 +275,14 @@ local normal_mappings = {
 	['<Leader>s'] = { function() require('harp').default_get() end },
 	['<Leader>X'] = { function() require('harp').percwd_set() end },
 	['<Leader>x'] = { function() require('harp').percwd_get() end },
-	['<Leader>Z'] = { function() harp_relative_set() end },
-	['<Leader>z'] = { function() harp_relative_get() end },
+	['<Leader>R'] = { function() require('harp').positional_set() end },
+	['<Leader>r'] = { function() require('harp').positional_get() end },
 	['"'] = { function() require('harp').cd_get() end },
 	['""'] = { function() require('harp').cd_set() end },
 	['m'] = { function() require('harp').perbuffer_mark_get() end },
 	['M'] = { function() require('harp').perbuffer_mark_set() end },
-	['<Leader>m'] = { function() require('harp').global_mark_get() end },
-	['<Leader>M'] = { function() require('harp').global_mark_set() end },
+	['<Leader>z'] = { function() require('harp').global_mark_get() end },
+	['<Leader>Z'] = { function() require('harp').global_mark_set() end },
 	['<Leader>lD'] = { vim.lsp.buf.declaration },
 	['<Leader>lr'] = { vim.lsp.buf.rename },
 	['<Leader>K'] = { function() vim.cmd('q!') end },
