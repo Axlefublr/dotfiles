@@ -232,7 +232,6 @@ keymap:
           d: { launch: [kitty, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
           m: { launch: [fish, -c, runner_math] }
-          x: { launch: [fish, -c, runner_project] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }

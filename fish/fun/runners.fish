@@ -276,9 +276,6 @@ function runner_project
         for line in (cat $file)
             echo $dirname: $line
         end
-    end | rofi -dmenu 2>/dev/null | read line
-    if test "$line"
-        notify-send -t 0 "$line"
-    end
+    end >/dev/shm/project.txt
 end
 funcsave runner_project >/dev/null
