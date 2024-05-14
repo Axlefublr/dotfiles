@@ -864,6 +864,16 @@ local opts_table = {
 				command = 'setfiletype rasi',
 			},
 			{
+				event = { 'FileType' },
+				callback = function()
+					if vim.bo.filetype == 'lazy' then
+						vim.diagnostic.config({ virtual_lines = false })
+					else
+						vim.diagnostic.config({ virtual_lines = true })
+					end
+				end,
+			},
+			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = 'kitty.conf',
 				command = 'setfiletype conf',
