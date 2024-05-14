@@ -198,6 +198,7 @@ return {
 				['AerialObjectIcon'] = link('Purple'),
 				['AerialStringIcon'] = link('Yellow'),
 
+				['String'] = link('Yellow'),
 				['@string'] = link('Yellow'),
 				['@string.escape'] = link('Grey'),
 				['@comment'] = link('Grey'),
@@ -209,8 +210,12 @@ return {
 				['@boolean'] = link('PurpleItalic'),
 				['@property'] = link('Aqua'),
 				['@function'] = link('Green'),
+				['@function.builtin'] = link('Green'),
+				['@function.call'] = link('Green'),
+				['@number.float'] = link('Blush'),
+				['@function.method.call'] = link('Green'),
 
-				['@function.builtin.lua'] = link('Purple'),
+				['@function.builtin.lua'] = link('Blush'),
 				['@operator.lua'] = link('OrangeBold'),
 				['@lsp.type.property.lua'] = link('Fg'),
 				['@lsp.type.comment.lua'] = link('Grey'),
@@ -219,10 +224,8 @@ return {
 				['@constant.builtin.lua'] = link('PurpleItalic'),
 				['@module.builtin.lua'] = link('Purple'),
 				['@lsp.type.function.lua'] = link('Green'),
-				['@function.call.lua'] = link('Green'),
 				['@function.lua'] = link('Green'),
 				['@lsp.type.method.lua'] = link('Green'),
-				['@function.method.call.lua'] = link('Green'),
 				['@lsp.mod.defaultLibrary.lua'] = link('Purple'),
 				['@lsp.typemod.function.defaultLibrary.lua'] = link('Blush'),
 				['luaConstant'] = link('PurpleItalic'),
@@ -230,11 +233,18 @@ return {
 				['@lsp.type.type.lua'] = link('YellowBold'),
 				['@lsp.typemod.keyword.documentation.lua'] = link('Blush'),
 
+				['@function.builtin.python'] = link('Purple'),
+				['@type.builtin.python'] = link('BlueBold'),
+
+				['@tag.html'] = link('Red'),
+				['@tag.delimiter.html'] = link('Orange'),
+				['@tag.attribute.html'] = link('Aqua'),
+				['@markup.raw.html'] = link('Fg'),
+
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
 				['@operator.fish'] = link('OrangeBold'),
-				['@function.call.fish'] = link('Green'),
-				['@function.builtin.fish'] = link('Green'),
+				['@function.builtin.fish'] = link('Purple'),
 				['@function.fish'] = link('Green'),
 
 				['@type.css'] = link('Orange'),
@@ -254,8 +264,7 @@ return {
 				['@variable.bash'] = link('Purple'),
 				['@constant.bash'] = link('PurpleAndUnderline'),
 				['@operator.bash'] = link('OrangeBold'),
-				['@function.call.bash'] = link('Green'),
-				['@function.builtin.bash'] = link('Green'),
+				['@function.builtin.bash'] = link('Purple'),
 
 				['@type.toml'] = link('Red'),
 				['@number.float.toml'] = link('Blush'),
@@ -326,12 +335,10 @@ return {
 				['@lsp.type.number.rust'] = link('Blush'),
 				['@lsp.type.function.rust'] = link('Green'),
 				['@function.rust'] = link('Green'),
-				['@function.call.rust'] = link('Green'),
 				['@function.macro.rust'] = link('Green'),
 				['@lsp.type.method.rust'] = link('Green'),
 				['@lsp.type.decorator.rust'] = link('Green'),
 				['@type.builtin.rust'] = link('YellowBold'),
-
 			},
 		},
 		icons = {
@@ -347,9 +354,9 @@ return {
 			LSPLoading10 = '⠏',
 			Selected = '󱕅 ',
 			GitBranch = '',
-		-- 	GitAdd = '',
-		-- 	GitChange = '',
-		-- 	GitDelete = '',
+			-- 	GitAdd = '',
+			-- 	GitChange = '',
+			-- 	GitDelete = '',
 		},
 		status = {
 			icon_highlights = {
@@ -369,7 +376,7 @@ return {
 				diag_ERROR = Colors.red,
 				diag_WARN = Colors.yellow,
 				diag_HINT = Colors.green,
-				diag_INFO = Colors.cyan
+				diag_INFO = Colors.cyan,
 			},
 		},
 	},

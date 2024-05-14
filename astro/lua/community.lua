@@ -10,7 +10,8 @@ return {
 	{ import = 'astrocommunity.pack.html-css' },
 	{ import = 'astrocommunity.pack.markdown' },
 	{ import = 'astrocommunity.pack.sql' },
-	{ import = 'astrocommunity.file-explorer.oil-nvim'},
+	{ import = 'astrocommunity.pack.python' },
+	{ import = 'astrocommunity.file-explorer.oil-nvim' },
 	{ import = 'astrocommunity.motion.nvim-surround' },
 	{ import = 'astrocommunity.pack.fish' },
 }
