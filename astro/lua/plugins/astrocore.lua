@@ -251,6 +251,14 @@ local function search_for_current_word(direction, death)
 	end)
 end
 
+local function harp_cd_get_or_home()
+	local register = require('harp').get_char('get cd harp: ')
+	if not register then return vim.expand('~') end
+	local harp = require('harp').cd_get_path(register)
+	if not harp then return vim.expand('~') end
+	return harp
+end
+
 local function get_buffer_cwd()
 	local buffer = vim.api.nvim_buf_get_name(0)
 	local parent = vim.fn.fnamemodify(buffer, ':h')
