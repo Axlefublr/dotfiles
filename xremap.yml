@@ -22,196 +22,470 @@ keymap:
     remap:
       g: { set_mode: mouse }
 
-      h: { launch: [awesome-client, 'client.focus:relative_move(-1, 0, 0, 0)'] }
-      l: { launch: [awesome-client, 'client.focus:relative_move(1, 0, 0, 0)'] }
-      j: { launch: [awesome-client, 'client.focus:relative_move(0, 1, 0, 0)'] }
-      k: { launch: [awesome-client, 'client.focus:relative_move(0, -1, 0, 0)'] }
+      h: { launch: [awesome-client, "client.focus:relative_move(-1, 0, 0, 0)"] }
+      l: { launch: [awesome-client, "client.focus:relative_move(1, 0, 0, 0)"] }
+      j: { launch: [awesome-client, "client.focus:relative_move(0, 1, 0, 0)"] }
+      k: { launch: [awesome-client, "client.focus:relative_move(0, -1, 0, 0)"] }
 
-      Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -1, 0)'] }
-      Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 1, 0)'] }
-      Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 1)'] }
-      Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -1)'] }
+      Shift-h:
+        { launch: [awesome-client, "client.focus:relative_move(0, 0, -1, 0)"] }
+      Shift-l:
+        { launch: [awesome-client, "client.focus:relative_move(0, 0, 1, 0)"] }
+      Shift-k:
+        { launch: [awesome-client, "client.focus:relative_move(0, 0, 0, 1)"] }
+      Shift-j:
+        { launch: [awesome-client, "client.focus:relative_move(0, 0, 0, -1)"] }
 
       a:
         remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-15, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(15, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 15, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -15, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-15, -15, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-15, 15, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(15, 15, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(15, -15, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 15)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -15)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, -15)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, 15)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, 15)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, -15)'] }
+          h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-15, 0, 0, 0)"],
+            }
+          l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(15, 0, 0, 0)"],
+            }
+          j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 15, 0, 0)"],
+            }
+          k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, -15, 0, 0)"],
+            }
+          a:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-15, -15, 0, 0)"],
+            }
+          s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-15, 15, 0, 0)"],
+            }
+          d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(15, 15, 0, 0)"],
+            }
+          f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(15, -15, 0, 0)"],
+            }
+          Shift-h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -15, 0)"],
+            }
+          Shift-l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 15, 0)"],
+            }
+          Shift-k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, 15)"],
+            }
+          Shift-j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, -15)"],
+            }
+          Shift-a:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -15, -15)"],
+            }
+          Shift-s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -15, 15)"],
+            }
+          Shift-d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 15, 15)"],
+            }
+          Shift-f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 15, -15)"],
+            }
 
       s:
         remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-45, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(45, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 45, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -45, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-45, -45, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-45, 45, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(45, 45, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(45, -45, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 45)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -45)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, -45)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, 45)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, 45)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, -45)'] }
+          h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-45, 0, 0, 0)"],
+            }
+          l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(45, 0, 0, 0)"],
+            }
+          j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 45, 0, 0)"],
+            }
+          k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, -45, 0, 0)"],
+            }
+          a:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-45, -45, 0, 0)"],
+            }
+          s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-45, 45, 0, 0)"],
+            }
+          d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(45, 45, 0, 0)"],
+            }
+          f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(45, -45, 0, 0)"],
+            }
+          Shift-h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -45, 0)"],
+            }
+          Shift-l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 45, 0)"],
+            }
+          Shift-k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, 45)"],
+            }
+          Shift-j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, -45)"],
+            }
+          Shift-a:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -45, -45)"],
+            }
+          Shift-s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -45, 45)"],
+            }
+          Shift-d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 45, 45)"],
+            }
+          Shift-f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 45, -45)"],
+            }
 
       d:
         remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-135, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(135, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 135, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -135, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-135, -135, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-135, 135, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(135, 135, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(135, -135, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 135)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -135)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, -135)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, 135)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, 135)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, -135)'] }
+          h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-135, 0, 0, 0)"],
+            }
+          l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(135, 0, 0, 0)"],
+            }
+          j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 135, 0, 0)"],
+            }
+          k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, -135, 0, 0)"],
+            }
+          a:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "client.focus:relative_move(-135, -135, 0, 0)",
+                ],
+            }
+          s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-135, 135, 0, 0)"],
+            }
+          d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(135, 135, 0, 0)"],
+            }
+          f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(135, -135, 0, 0)"],
+            }
+          Shift-h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -135, 0)"],
+            }
+          Shift-l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 135, 0)"],
+            }
+          Shift-k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, 135)"],
+            }
+          Shift-j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, -135)"],
+            }
+          Shift-a:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "client.focus:relative_move(0, 0, -135, -135)",
+                ],
+            }
+          Shift-s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -135, 135)"],
+            }
+          Shift-d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 135, 135)"],
+            }
+          Shift-f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 135, -135)"],
+            }
 
       f:
         remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-405, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(405, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 405, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -405, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-405, -405, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-405, 405, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(405, 405, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(405, -405, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 405)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -405)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, -405)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, 405)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, 405)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, -405)'] }
+          h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-405, 0, 0, 0)"],
+            }
+          l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(405, 0, 0, 0)"],
+            }
+          j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 405, 0, 0)"],
+            }
+          k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, -405, 0, 0)"],
+            }
+          a:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "client.focus:relative_move(-405, -405, 0, 0)",
+                ],
+            }
+          s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(-405, 405, 0, 0)"],
+            }
+          d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(405, 405, 0, 0)"],
+            }
+          f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(405, -405, 0, 0)"],
+            }
+          Shift-h:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -405, 0)"],
+            }
+          Shift-l:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 405, 0)"],
+            }
+          Shift-k:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, 405)"],
+            }
+          Shift-j:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 0, -405)"],
+            }
+          Shift-a:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "client.focus:relative_move(0, 0, -405, -405)",
+                ],
+            }
+          Shift-s:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, -405, 405)"],
+            }
+          Shift-d:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 405, 405)"],
+            }
+          Shift-f:
+            {
+              launch:
+                [awesome-client, "client.focus:relative_move(0, 0, 405, -405)"],
+            }
 
   - name: Mouse mode only
     mode: [mouse]
     remap:
-      q: { launch: [xdotool, mousemove, '128', '120'] }
-      r: { launch: [xdotool, mousemove, '1792', '120'] }
-      w: { launch: [xdotool, mousemove, '128', '960'] }
-      e: { launch: [xdotool, mousemove, '1792', '960'] }
+      q: { launch: [xdotool, mousemove, "128", "120"] }
+      r: { launch: [xdotool, mousemove, "1792", "120"] }
+      w: { launch: [xdotool, mousemove, "128", "960"] }
+      e: { launch: [xdotool, mousemove, "1792", "960"] }
 
-      z: { launch: [xdotool, mousemove, '128', '540'] }
-      x: { launch: [xdotool, mousemove, '960', '960'] }
-      c: { launch: [xdotool, mousemove, '960', '120'] }
-      v: { launch: [xdotool, mousemove, '1792', '540'] }
+      z: { launch: [xdotool, mousemove, "128", "540"] }
+      x: { launch: [xdotool, mousemove, "960", "960"] }
+      c: { launch: [xdotool, mousemove, "960", "120"] }
+      v: { launch: [xdotool, mousemove, "1792", "540"] }
 
-      h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
-      l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
-      j: { launch: [xdotool, mousemove_relative, '--', '0', '1'] }
-      k: { launch: [xdotool, mousemove_relative, '--', '0', '-1'] }
+      h: { launch: [xdotool, mousemove_relative, "--", "-1", "0"] }
+      l: { launch: [xdotool, mousemove_relative, "--", "1", "0"] }
+      j: { launch: [xdotool, mousemove_relative, "--", "0", "1"] }
+      k: { launch: [xdotool, mousemove_relative, "--", "0", "-1"] }
 
       a:
         remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-15', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '15', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '15'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-15'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-15', '-15'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-15', '15'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '15', '15'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '15', '-15'] }
+          h: { launch: [xdotool, mousemove_relative, "--", "-15", "0"] }
+          l: { launch: [xdotool, mousemove_relative, "--", "15", "0"] }
+          j: { launch: [xdotool, mousemove_relative, "--", "0", "15"] }
+          k: { launch: [xdotool, mousemove_relative, "--", "0", "-15"] }
+          a: { launch: [xdotool, mousemove_relative, "--", "-15", "-15"] }
+          s: { launch: [xdotool, mousemove_relative, "--", "-15", "15"] }
+          d: { launch: [xdotool, mousemove_relative, "--", "15", "15"] }
+          f: { launch: [xdotool, mousemove_relative, "--", "15", "-15"] }
 
       s:
         remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-45', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '45', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '45'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-45'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-45', '-45'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-45', '45'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '45', '45'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '45', '-45'] }
+          h: { launch: [xdotool, mousemove_relative, "--", "-45", "0"] }
+          l: { launch: [xdotool, mousemove_relative, "--", "45", "0"] }
+          j: { launch: [xdotool, mousemove_relative, "--", "0", "45"] }
+          k: { launch: [xdotool, mousemove_relative, "--", "0", "-45"] }
+          a: { launch: [xdotool, mousemove_relative, "--", "-45", "-45"] }
+          s: { launch: [xdotool, mousemove_relative, "--", "-45", "45"] }
+          d: { launch: [xdotool, mousemove_relative, "--", "45", "45"] }
+          f: { launch: [xdotool, mousemove_relative, "--", "45", "-45"] }
 
       d:
         remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-135', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '135', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '135'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-135'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-135', '-135'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-135', '135'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '135', '135'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '135', '-135'] }
+          h: { launch: [xdotool, mousemove_relative, "--", "-135", "0"] }
+          l: { launch: [xdotool, mousemove_relative, "--", "135", "0"] }
+          j: { launch: [xdotool, mousemove_relative, "--", "0", "135"] }
+          k: { launch: [xdotool, mousemove_relative, "--", "0", "-135"] }
+          a: { launch: [xdotool, mousemove_relative, "--", "-135", "-135"] }
+          s: { launch: [xdotool, mousemove_relative, "--", "-135", "135"] }
+          d: { launch: [xdotool, mousemove_relative, "--", "135", "135"] }
+          f: { launch: [xdotool, mousemove_relative, "--", "135", "-135"] }
 
       f:
         remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-405', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '405', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '405'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-405'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-405', '-405'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-405', '405'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '405', '405'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '405', '-405'] }
+          h: { launch: [xdotool, mousemove_relative, "--", "-405", "0"] }
+          l: { launch: [xdotool, mousemove_relative, "--", "405", "0"] }
+          j: { launch: [xdotool, mousemove_relative, "--", "0", "405"] }
+          k: { launch: [xdotool, mousemove_relative, "--", "0", "-405"] }
+          a: { launch: [xdotool, mousemove_relative, "--", "-405", "-405"] }
+          s: { launch: [xdotool, mousemove_relative, "--", "-405", "405"] }
+          d: { launch: [xdotool, mousemove_relative, "--", "405", "405"] }
+          f: { launch: [xdotool, mousemove_relative, "--", "405", "-405"] }
 
       # mouse wheel
-      m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
-      Comma: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '1'] } # up
-      Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
-      Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
+      m: { launch: ["ydotool", "mousemove", "-w", "--", "-1", "0"] } # left
+      Comma: { launch: ["ydotool", "mousemove", "-w", "--", "0", "1"] } # up
+      Dot: { launch: ["ydotool", "mousemove", "-w", "--", "0", "-1"] } # down
+      Slash: { launch: ["ydotool", "mousemove", "-w", "--", "1", "0"] } # up
 
   - name: Mouse mode
     mode: [mouse, resize, move]
     remap:
-      CapsLock-Comma: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      CapsLock-Comma:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       g: { set_mode: move }
 
-      p: { launch: [xdotool, mousemove, '0', '1080'] }
-      Semicolon: { launch: [xdotool, mousemove, '960', '540'] }
+      p: { launch: [xdotool, mousemove, "0", "1080"] }
+      Semicolon: { launch: [xdotool, mousemove, "960", "540"] }
 
-      u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
-      i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
-      o: { launch: ['ydotool', 'click', 'c1'] } # c1 — right click
+      u: { launch: ["ydotool", "click", "c0"] } # c0 — left click
+      i: { launch: ["ydotool", "click", "c2"] } # c2 — middle click
+      o: { launch: ["ydotool", "click", "c1"] } # c1 — right click
 
       # down and up events of mouse clicks
-      CapsLock-u: { launch: ['ydotool', 'click', '40'] }
-      CapsLock-i: { launch: ['ydotool', 'click', '42'] }
-      CapsLock-o: { launch: ['ydotool', 'click', '41'] }
-      CapsLock-j: { launch: ['ydotool', 'click', '80'] }
-      CapsLock-k: { launch: ['ydotool', 'click', '82'] }
-      CapsLock-l: { launch: ['ydotool', 'click', '81'] }
+      CapsLock-u: { launch: ["ydotool", "click", "40"] }
+      CapsLock-i: { launch: ["ydotool", "click", "42"] }
+      CapsLock-o: { launch: ["ydotool", "click", "41"] }
+      CapsLock-j: { launch: ["ydotool", "click", "80"] }
+      CapsLock-k: { launch: ["ydotool", "click", "82"] }
+      CapsLock-l: { launch: ["ydotool", "click", "81"] }
 
       # down and up events of modifiers
-      CapsLock-f: { launch: [ydotool, key, '125:1'] } # super down
-      CapsLock-r: { launch: [ydotool, key, '125:0'] } # super up
-      CapsLock-s: { launch: [ydotool, key, '42:1'] } # shift
-      CapsLock-w: { launch: [ydotool, key, '42:0'] }
-      CapsLock-d: { launch: [ydotool, key, '56:1'] } # alt
-      CapsLock-e: { launch: [ydotool, key, '56:0'] }
-      CapsLock-g: { launch: [ydotool, key, '29:1'] } # ctrl
-      CapsLock-t: { launch: [ydotool, key, '29:0'] }
+      CapsLock-f: { launch: [ydotool, key, "125:1"] } # super down
+      CapsLock-r: { launch: [ydotool, key, "125:0"] } # super up
+      CapsLock-s: { launch: [ydotool, key, "42:1"] } # shift
+      CapsLock-w: { launch: [ydotool, key, "42:0"] }
+      CapsLock-d: { launch: [ydotool, key, "56:1"] } # alt
+      CapsLock-e: { launch: [ydotool, key, "56:0"] }
+      CapsLock-g: { launch: [ydotool, key, "29:1"] } # ctrl
+      CapsLock-t: { launch: [ydotool, key, "29:0"] }
 
   - name: Default mode
     mode: default
     remap:
-      CapsLock-Comma: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      CapsLock-Comma:
+        [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
   - name: Clipboard Manager
     exact_match: true
@@ -223,20 +497,24 @@ keymap:
     remap:
       Super-Semicolon:
         remap:
-          u: { launch: [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"] }
+          u:
+            {
+              launch:
+                [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"],
+            }
 
           Super-j: { launch: [fish, -c, runner] }
-          'y': { launch: [fish, -c, install_yt_video] }
-          h: { launch: [fish, -c, 'install_yt_video asmr'] }
+          "y": { launch: [fish, -c, install_yt_video] }
+          h: { launch: [fish, -c, "install_yt_video asmr"] }
           w: { launch: [fish, -c, toggle_internet] }
-          d: { launch: [kitty, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
+          d: { launch: [kitty, -d, "~/prog/dotfiles", nvim, -c, "Young"] }
           f: { launch: [kitty] }
           m: { launch: [fish, -c, runner_math] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
-          Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
-          Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
+          Shift-i: { launch: [fish, -c, "emoji_picker_clipboard code"] }
+          Shift-o: { launch: [fish, -c, "emoji_picker_clipboard name"] }
 
   - name: Layouts
     mode: [default]
@@ -244,27 +522,95 @@ keymap:
     remap:
       Super-k:
         remap:
-          h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
-          j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
-          k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
-          l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
+          h:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.tile.left)",
+                ],
+            }
+          j:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.tile.bottom)",
+                ],
+            }
+          k:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.tile.top)",
+                ],
+            }
+          l:
+            {
+              launch:
+                [awesome-client, "awful.layout.set(awful.layout.suit.tile)"],
+            }
 
-          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
-          i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
-          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
-          p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
+          u:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.corner.nw)",
+                ],
+            }
+          i:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.corner.ne)",
+                ],
+            }
+          o:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.corner.se)",
+                ],
+            }
+          p:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.corner.sw)",
+                ],
+            }
 
-          m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
-          Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
-          Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+          m:
+            {
+              launch:
+                [awesome-client, "awful.layout.set(awful.layout.suit.max)"],
+            }
+          Comma:
+            {
+              launch:
+                [awesome-client, "awful.layout.set(awful.layout.suit.fair)"],
+            }
+          Dot:
+            {
+              launch:
+                [
+                  awesome-client,
+                  "awful.layout.set(awful.layout.suit.fair.horizontal)",
+                ],
+            }
           Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
 
-          d: { launch: [fish, -c, 'c phind'] }
-          Shift-d: { launch: [fish, -c, 'c phind neoline'] }
-          f: { launch: [fish, -c, 'c google'] }
-          Shift-f: { launch: [fish, -c, 'c google neoline'] }
+          d: { launch: [fish, -c, "c phind"] }
+          Shift-d: { launch: [fish, -c, "c phind neoline"] }
+          f: { launch: [fish, -c, "c google"] }
+          Shift-f: { launch: [fish, -c, "c google neoline"] }
           x: { launch: [fish, -c, runner_doc] }
-          s: { launch: [fish, -c, 'runner_link open'] }
+          s: { launch: [fish, -c, "runner_link open"] }
           Shift-s: { launch: [fish, -c, runner_link] }
 
   - name: Magazine
@@ -272,12 +618,13 @@ keymap:
     exact_match: true
     remap:
       CapsLock-Shift-Dot: { launch: [fish, -c, runner_clipboard] }
-      CapsLock-Dot: {
+      CapsLock-Dot:
+        {
           launch:
             [
               fish,
               -c,
-              'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              "xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard",
             ],
         }
       CapsLock-Alt-Dot:
@@ -286,7 +633,7 @@ keymap:
             [
               fish,
               -c,
-              'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              "truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard",
             ],
         }
 
@@ -295,544 +642,544 @@ keymap:
       Shift_L-c:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_get q'] }
-          w: { launch: [fish, -c, 'magazine_get w'] }
-          e: { launch: [fish, -c, 'magazine_get e'] }
-          r: { launch: [fish, -c, 'magazine_get r'] }
-          t: { launch: [fish, -c, 'magazine_get t'] }
-          y: { launch: [fish, -c, 'magazine_get y'] }
-          u: { launch: [fish, -c, 'magazine_get u'] }
-          i: { launch: [fish, -c, 'magazine_get i'] }
-          o: { launch: [fish, -c, 'magazine_get o'] }
-          p: { launch: [fish, -c, 'magazine_get p'] }
-          a: { launch: [fish, -c, 'magazine_get a'] }
-          s: { launch: [fish, -c, 'magazine_get s'] }
-          d: { launch: [fish, -c, 'magazine_get d'] }
-          f: { launch: [fish, -c, 'magazine_get f'] }
-          g: { launch: [fish, -c, 'magazine_get g'] }
-          h: { launch: [fish, -c, 'magazine_get h'] }
-          j: { launch: [fish, -c, 'magazine_get j'] }
-          k: { launch: [fish, -c, 'magazine_get k'] }
-          l: { launch: [fish, -c, 'magazine_get l'] }
-          z: { launch: [fish, -c, 'magazine_get z'] }
-          x: { launch: [fish, -c, 'magazine_get x'] }
-          c: { launch: [fish, -c, 'magazine_get c'] }
-          v: { launch: [fish, -c, 'magazine_get v'] }
-          b: { launch: [fish, -c, 'magazine_get b'] }
-          n: { launch: [fish, -c, 'magazine_get n'] }
-          m: { launch: [fish, -c, 'magazine_get m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_get Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_get W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_get E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_get R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_get T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_get Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_get U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_get I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_get O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_get P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_get A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_get S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_get D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_get F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_get G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_get H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_get J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_get K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_get L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_get Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_get X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_get C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_get V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_get B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_get N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_get M'] }
-          Key_1: { launch: [fish, -c, 'magazine_get 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_get 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_get 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_get 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_get 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_get 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_get 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_get 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_get 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_get 0'] }
+          q: { launch: [fish, -c, "magazine_get q"] }
+          w: { launch: [fish, -c, "magazine_get w"] }
+          e: { launch: [fish, -c, "magazine_get e"] }
+          r: { launch: [fish, -c, "magazine_get r"] }
+          t: { launch: [fish, -c, "magazine_get t"] }
+          y: { launch: [fish, -c, "magazine_get y"] }
+          u: { launch: [fish, -c, "magazine_get u"] }
+          i: { launch: [fish, -c, "magazine_get i"] }
+          o: { launch: [fish, -c, "magazine_get o"] }
+          p: { launch: [fish, -c, "magazine_get p"] }
+          a: { launch: [fish, -c, "magazine_get a"] }
+          s: { launch: [fish, -c, "magazine_get s"] }
+          d: { launch: [fish, -c, "magazine_get d"] }
+          f: { launch: [fish, -c, "magazine_get f"] }
+          g: { launch: [fish, -c, "magazine_get g"] }
+          h: { launch: [fish, -c, "magazine_get h"] }
+          j: { launch: [fish, -c, "magazine_get j"] }
+          k: { launch: [fish, -c, "magazine_get k"] }
+          l: { launch: [fish, -c, "magazine_get l"] }
+          z: { launch: [fish, -c, "magazine_get z"] }
+          x: { launch: [fish, -c, "magazine_get x"] }
+          c: { launch: [fish, -c, "magazine_get c"] }
+          v: { launch: [fish, -c, "magazine_get v"] }
+          b: { launch: [fish, -c, "magazine_get b"] }
+          n: { launch: [fish, -c, "magazine_get n"] }
+          m: { launch: [fish, -c, "magazine_get m"] }
+          Shift-q: { launch: [fish, -c, "magazine_get Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_get W"] }
+          Shift-e: { launch: [fish, -c, "magazine_get E"] }
+          Shift-r: { launch: [fish, -c, "magazine_get R"] }
+          Shift-t: { launch: [fish, -c, "magazine_get T"] }
+          Shift-y: { launch: [fish, -c, "magazine_get Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_get U"] }
+          Shift-i: { launch: [fish, -c, "magazine_get I"] }
+          Shift-o: { launch: [fish, -c, "magazine_get O"] }
+          Shift-p: { launch: [fish, -c, "magazine_get P"] }
+          Shift-a: { launch: [fish, -c, "magazine_get A"] }
+          Shift-s: { launch: [fish, -c, "magazine_get S"] }
+          Shift-d: { launch: [fish, -c, "magazine_get D"] }
+          Shift-f: { launch: [fish, -c, "magazine_get F"] }
+          Shift-g: { launch: [fish, -c, "magazine_get G"] }
+          Shift-h: { launch: [fish, -c, "magazine_get H"] }
+          Shift-j: { launch: [fish, -c, "magazine_get J"] }
+          Shift-k: { launch: [fish, -c, "magazine_get K"] }
+          Shift-l: { launch: [fish, -c, "magazine_get L"] }
+          Shift-z: { launch: [fish, -c, "magazine_get Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_get X"] }
+          Shift-c: { launch: [fish, -c, "magazine_get C"] }
+          Shift-v: { launch: [fish, -c, "magazine_get V"] }
+          Shift-b: { launch: [fish, -c, "magazine_get B"] }
+          Shift-n: { launch: [fish, -c, "magazine_get N"] }
+          Shift-m: { launch: [fish, -c, "magazine_get M"] }
+          Key_1: { launch: [fish, -c, "magazine_get 1"] }
+          Key_2: { launch: [fish, -c, "magazine_get 2"] }
+          Key_3: { launch: [fish, -c, "magazine_get 3"] }
+          Key_4: { launch: [fish, -c, "magazine_get 4"] }
+          Key_5: { launch: [fish, -c, "magazine_get 5"] }
+          Key_6: { launch: [fish, -c, "magazine_get 6"] }
+          Key_7: { launch: [fish, -c, "magazine_get 7"] }
+          Key_8: { launch: [fish, -c, "magazine_get 8"] }
+          Key_9: { launch: [fish, -c, "magazine_get 9"] }
+          Key_0: { launch: [fish, -c, "magazine_get 0"] }
 
       Shift_L-e:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_view q'] }
-          w: { launch: [fish, -c, 'magazine_view w'] }
-          e: { launch: [fish, -c, 'magazine_view e'] }
-          r: { launch: [fish, -c, 'magazine_view r'] }
-          t: { launch: [fish, -c, 'magazine_view t'] }
-          y: { launch: [fish, -c, 'magazine_view y'] }
-          u: { launch: [fish, -c, 'magazine_view u'] }
-          i: { launch: [fish, -c, 'magazine_view i'] }
-          o: { launch: [fish, -c, 'magazine_view o'] }
-          p: { launch: [fish, -c, 'magazine_view p'] }
-          a: { launch: [fish, -c, 'magazine_view a'] }
-          s: { launch: [fish, -c, 'magazine_view s'] }
-          d: { launch: [fish, -c, 'magazine_view d'] }
-          f: { launch: [fish, -c, 'magazine_view f'] }
-          g: { launch: [fish, -c, 'magazine_view g'] }
-          h: { launch: [fish, -c, 'magazine_view h'] }
-          j: { launch: [fish, -c, 'magazine_view j'] }
-          k: { launch: [fish, -c, 'magazine_view k'] }
-          l: { launch: [fish, -c, 'magazine_view l'] }
-          z: { launch: [fish, -c, 'magazine_view z'] }
-          x: { launch: [fish, -c, 'magazine_view x'] }
-          c: { launch: [fish, -c, 'magazine_view c'] }
-          v: { launch: [fish, -c, 'magazine_view v'] }
-          b: { launch: [fish, -c, 'magazine_view b'] }
-          n: { launch: [fish, -c, 'magazine_view n'] }
-          m: { launch: [fish, -c, 'magazine_view m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_view Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_view W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_view E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_view R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_view T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_view Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_view U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_view I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_view O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_view P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_view A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_view S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_view D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_view F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_view G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_view H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_view J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_view K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_view L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_view Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_view X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_view C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_view V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_view B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_view N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_view M'] }
-          Key_1: { launch: [fish, -c, 'magazine_view 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_view 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_view 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_view 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_view 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_view 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_view 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_view 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_view 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_view 0'] }
+          q: { launch: [fish, -c, "magazine_view q"] }
+          w: { launch: [fish, -c, "magazine_view w"] }
+          e: { launch: [fish, -c, "magazine_view e"] }
+          r: { launch: [fish, -c, "magazine_view r"] }
+          t: { launch: [fish, -c, "magazine_view t"] }
+          y: { launch: [fish, -c, "magazine_view y"] }
+          u: { launch: [fish, -c, "magazine_view u"] }
+          i: { launch: [fish, -c, "magazine_view i"] }
+          o: { launch: [fish, -c, "magazine_view o"] }
+          p: { launch: [fish, -c, "magazine_view p"] }
+          a: { launch: [fish, -c, "magazine_view a"] }
+          s: { launch: [fish, -c, "magazine_view s"] }
+          d: { launch: [fish, -c, "magazine_view d"] }
+          f: { launch: [fish, -c, "magazine_view f"] }
+          g: { launch: [fish, -c, "magazine_view g"] }
+          h: { launch: [fish, -c, "magazine_view h"] }
+          j: { launch: [fish, -c, "magazine_view j"] }
+          k: { launch: [fish, -c, "magazine_view k"] }
+          l: { launch: [fish, -c, "magazine_view l"] }
+          z: { launch: [fish, -c, "magazine_view z"] }
+          x: { launch: [fish, -c, "magazine_view x"] }
+          c: { launch: [fish, -c, "magazine_view c"] }
+          v: { launch: [fish, -c, "magazine_view v"] }
+          b: { launch: [fish, -c, "magazine_view b"] }
+          n: { launch: [fish, -c, "magazine_view n"] }
+          m: { launch: [fish, -c, "magazine_view m"] }
+          Shift-q: { launch: [fish, -c, "magazine_view Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_view W"] }
+          Shift-e: { launch: [fish, -c, "magazine_view E"] }
+          Shift-r: { launch: [fish, -c, "magazine_view R"] }
+          Shift-t: { launch: [fish, -c, "magazine_view T"] }
+          Shift-y: { launch: [fish, -c, "magazine_view Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_view U"] }
+          Shift-i: { launch: [fish, -c, "magazine_view I"] }
+          Shift-o: { launch: [fish, -c, "magazine_view O"] }
+          Shift-p: { launch: [fish, -c, "magazine_view P"] }
+          Shift-a: { launch: [fish, -c, "magazine_view A"] }
+          Shift-s: { launch: [fish, -c, "magazine_view S"] }
+          Shift-d: { launch: [fish, -c, "magazine_view D"] }
+          Shift-f: { launch: [fish, -c, "magazine_view F"] }
+          Shift-g: { launch: [fish, -c, "magazine_view G"] }
+          Shift-h: { launch: [fish, -c, "magazine_view H"] }
+          Shift-j: { launch: [fish, -c, "magazine_view J"] }
+          Shift-k: { launch: [fish, -c, "magazine_view K"] }
+          Shift-l: { launch: [fish, -c, "magazine_view L"] }
+          Shift-z: { launch: [fish, -c, "magazine_view Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_view X"] }
+          Shift-c: { launch: [fish, -c, "magazine_view C"] }
+          Shift-v: { launch: [fish, -c, "magazine_view V"] }
+          Shift-b: { launch: [fish, -c, "magazine_view B"] }
+          Shift-n: { launch: [fish, -c, "magazine_view N"] }
+          Shift-m: { launch: [fish, -c, "magazine_view M"] }
+          Key_1: { launch: [fish, -c, "magazine_view 1"] }
+          Key_2: { launch: [fish, -c, "magazine_view 2"] }
+          Key_3: { launch: [fish, -c, "magazine_view 3"] }
+          Key_4: { launch: [fish, -c, "magazine_view 4"] }
+          Key_5: { launch: [fish, -c, "magazine_view 5"] }
+          Key_6: { launch: [fish, -c, "magazine_view 6"] }
+          Key_7: { launch: [fish, -c, "magazine_view 7"] }
+          Key_8: { launch: [fish, -c, "magazine_view 8"] }
+          Key_9: { launch: [fish, -c, "magazine_view 9"] }
+          Key_0: { launch: [fish, -c, "magazine_view 0"] }
 
       Shift_L-r:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_truncate q'] }
-          w: { launch: [fish, -c, 'magazine_truncate w'] }
-          e: { launch: [fish, -c, 'magazine_truncate e'] }
-          r: { launch: [fish, -c, 'magazine_truncate r'] }
-          t: { launch: [fish, -c, 'magazine_truncate t'] }
-          y: { launch: [fish, -c, 'magazine_truncate y'] }
-          u: { launch: [fish, -c, 'magazine_truncate u'] }
-          i: { launch: [fish, -c, 'magazine_truncate i'] }
-          o: { launch: [fish, -c, 'magazine_truncate o'] }
-          p: { launch: [fish, -c, 'magazine_truncate p'] }
-          a: { launch: [fish, -c, 'magazine_truncate a'] }
-          s: { launch: [fish, -c, 'magazine_truncate s'] }
-          d: { launch: [fish, -c, 'magazine_truncate d'] }
-          f: { launch: [fish, -c, 'magazine_truncate f'] }
-          g: { launch: [fish, -c, 'magazine_truncate g'] }
-          h: { launch: [fish, -c, 'magazine_truncate h'] }
-          j: { launch: [fish, -c, 'magazine_truncate j'] }
-          k: { launch: [fish, -c, 'magazine_truncate k'] }
-          l: { launch: [fish, -c, 'magazine_truncate l'] }
-          z: { launch: [fish, -c, 'magazine_truncate z'] }
-          x: { launch: [fish, -c, 'magazine_truncate x'] }
-          c: { launch: [fish, -c, 'magazine_truncate c'] }
-          v: { launch: [fish, -c, 'magazine_truncate v'] }
-          b: { launch: [fish, -c, 'magazine_truncate b'] }
-          n: { launch: [fish, -c, 'magazine_truncate n'] }
-          m: { launch: [fish, -c, 'magazine_truncate m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_truncate Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_truncate W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_truncate E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_truncate R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_truncate T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_truncate Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_truncate U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_truncate I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_truncate O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_truncate P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_truncate A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_truncate S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_truncate D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_truncate F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_truncate G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_truncate H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_truncate J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_truncate K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_truncate L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_truncate Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_truncate X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_truncate C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_truncate V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_truncate B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_truncate N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_truncate M'] }
-          Key_1: { launch: [fish, -c, 'magazine_truncate 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_truncate 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_truncate 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_truncate 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_truncate 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_truncate 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_truncate 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_truncate 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_truncate 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_truncate 0'] }
+          q: { launch: [fish, -c, "magazine_truncate q"] }
+          w: { launch: [fish, -c, "magazine_truncate w"] }
+          e: { launch: [fish, -c, "magazine_truncate e"] }
+          r: { launch: [fish, -c, "magazine_truncate r"] }
+          t: { launch: [fish, -c, "magazine_truncate t"] }
+          y: { launch: [fish, -c, "magazine_truncate y"] }
+          u: { launch: [fish, -c, "magazine_truncate u"] }
+          i: { launch: [fish, -c, "magazine_truncate i"] }
+          o: { launch: [fish, -c, "magazine_truncate o"] }
+          p: { launch: [fish, -c, "magazine_truncate p"] }
+          a: { launch: [fish, -c, "magazine_truncate a"] }
+          s: { launch: [fish, -c, "magazine_truncate s"] }
+          d: { launch: [fish, -c, "magazine_truncate d"] }
+          f: { launch: [fish, -c, "magazine_truncate f"] }
+          g: { launch: [fish, -c, "magazine_truncate g"] }
+          h: { launch: [fish, -c, "magazine_truncate h"] }
+          j: { launch: [fish, -c, "magazine_truncate j"] }
+          k: { launch: [fish, -c, "magazine_truncate k"] }
+          l: { launch: [fish, -c, "magazine_truncate l"] }
+          z: { launch: [fish, -c, "magazine_truncate z"] }
+          x: { launch: [fish, -c, "magazine_truncate x"] }
+          c: { launch: [fish, -c, "magazine_truncate c"] }
+          v: { launch: [fish, -c, "magazine_truncate v"] }
+          b: { launch: [fish, -c, "magazine_truncate b"] }
+          n: { launch: [fish, -c, "magazine_truncate n"] }
+          m: { launch: [fish, -c, "magazine_truncate m"] }
+          Shift-q: { launch: [fish, -c, "magazine_truncate Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_truncate W"] }
+          Shift-e: { launch: [fish, -c, "magazine_truncate E"] }
+          Shift-r: { launch: [fish, -c, "magazine_truncate R"] }
+          Shift-t: { launch: [fish, -c, "magazine_truncate T"] }
+          Shift-y: { launch: [fish, -c, "magazine_truncate Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_truncate U"] }
+          Shift-i: { launch: [fish, -c, "magazine_truncate I"] }
+          Shift-o: { launch: [fish, -c, "magazine_truncate O"] }
+          Shift-p: { launch: [fish, -c, "magazine_truncate P"] }
+          Shift-a: { launch: [fish, -c, "magazine_truncate A"] }
+          Shift-s: { launch: [fish, -c, "magazine_truncate S"] }
+          Shift-d: { launch: [fish, -c, "magazine_truncate D"] }
+          Shift-f: { launch: [fish, -c, "magazine_truncate F"] }
+          Shift-g: { launch: [fish, -c, "magazine_truncate G"] }
+          Shift-h: { launch: [fish, -c, "magazine_truncate H"] }
+          Shift-j: { launch: [fish, -c, "magazine_truncate J"] }
+          Shift-k: { launch: [fish, -c, "magazine_truncate K"] }
+          Shift-l: { launch: [fish, -c, "magazine_truncate L"] }
+          Shift-z: { launch: [fish, -c, "magazine_truncate Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_truncate X"] }
+          Shift-c: { launch: [fish, -c, "magazine_truncate C"] }
+          Shift-v: { launch: [fish, -c, "magazine_truncate V"] }
+          Shift-b: { launch: [fish, -c, "magazine_truncate B"] }
+          Shift-n: { launch: [fish, -c, "magazine_truncate N"] }
+          Shift-m: { launch: [fish, -c, "magazine_truncate M"] }
+          Key_1: { launch: [fish, -c, "magazine_truncate 1"] }
+          Key_2: { launch: [fish, -c, "magazine_truncate 2"] }
+          Key_3: { launch: [fish, -c, "magazine_truncate 3"] }
+          Key_4: { launch: [fish, -c, "magazine_truncate 4"] }
+          Key_5: { launch: [fish, -c, "magazine_truncate 5"] }
+          Key_6: { launch: [fish, -c, "magazine_truncate 6"] }
+          Key_7: { launch: [fish, -c, "magazine_truncate 7"] }
+          Key_8: { launch: [fish, -c, "magazine_truncate 8"] }
+          Key_9: { launch: [fish, -c, "magazine_truncate 9"] }
+          Key_0: { launch: [fish, -c, "magazine_truncate 0"] }
 
       Shift_L-d:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_edit q'] }
-          w: { launch: [fish, -c, 'magazine_edit w'] }
-          e: { launch: [fish, -c, 'magazine_edit e'] }
-          r: { launch: [fish, -c, 'magazine_edit r'] }
-          t: { launch: [fish, -c, 'magazine_edit t'] }
-          y: { launch: [fish, -c, 'magazine_edit y'] }
-          u: { launch: [fish, -c, 'magazine_edit u'] }
-          i: { launch: [fish, -c, 'magazine_edit i'] }
-          o: { launch: [fish, -c, 'magazine_edit o'] }
-          p: { launch: [fish, -c, 'magazine_edit p'] }
-          a: { launch: [fish, -c, 'magazine_edit a'] }
-          s: { launch: [fish, -c, 'magazine_edit s'] }
-          d: { launch: [fish, -c, 'magazine_edit d'] }
-          f: { launch: [fish, -c, 'magazine_edit f'] }
-          g: { launch: [fish, -c, 'magazine_edit g'] }
-          h: { launch: [fish, -c, 'magazine_edit h'] }
-          j: { launch: [fish, -c, 'magazine_edit j'] }
-          k: { launch: [fish, -c, 'magazine_edit k'] }
-          l: { launch: [fish, -c, 'magazine_edit l'] }
-          z: { launch: [fish, -c, 'magazine_edit z'] }
-          x: { launch: [fish, -c, 'magazine_edit x'] }
-          c: { launch: [fish, -c, 'magazine_edit c'] }
-          v: { launch: [fish, -c, 'magazine_edit v'] }
-          b: { launch: [fish, -c, 'magazine_edit b'] }
-          n: { launch: [fish, -c, 'magazine_edit n'] }
-          m: { launch: [fish, -c, 'magazine_edit m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_edit Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_edit W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_edit E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_edit R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_edit T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_edit Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_edit U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_edit I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_edit O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_edit P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_edit A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_edit S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_edit D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_edit F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_edit G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_edit H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_edit J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_edit K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_edit L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_edit Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_edit X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_edit C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_edit V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_edit B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_edit N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_edit M'] }
-          Key_1: { launch: [fish, -c, 'magazine_edit 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_edit 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_edit 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_edit 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_edit 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_edit 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_edit 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_edit 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
+          q: { launch: [fish, -c, "magazine_edit q"] }
+          w: { launch: [fish, -c, "magazine_edit w"] }
+          e: { launch: [fish, -c, "magazine_edit e"] }
+          r: { launch: [fish, -c, "magazine_edit r"] }
+          t: { launch: [fish, -c, "magazine_edit t"] }
+          y: { launch: [fish, -c, "magazine_edit y"] }
+          u: { launch: [fish, -c, "magazine_edit u"] }
+          i: { launch: [fish, -c, "magazine_edit i"] }
+          o: { launch: [fish, -c, "magazine_edit o"] }
+          p: { launch: [fish, -c, "magazine_edit p"] }
+          a: { launch: [fish, -c, "magazine_edit a"] }
+          s: { launch: [fish, -c, "magazine_edit s"] }
+          d: { launch: [fish, -c, "magazine_edit d"] }
+          f: { launch: [fish, -c, "magazine_edit f"] }
+          g: { launch: [fish, -c, "magazine_edit g"] }
+          h: { launch: [fish, -c, "magazine_edit h"] }
+          j: { launch: [fish, -c, "magazine_edit j"] }
+          k: { launch: [fish, -c, "magazine_edit k"] }
+          l: { launch: [fish, -c, "magazine_edit l"] }
+          z: { launch: [fish, -c, "magazine_edit z"] }
+          x: { launch: [fish, -c, "magazine_edit x"] }
+          c: { launch: [fish, -c, "magazine_edit c"] }
+          v: { launch: [fish, -c, "magazine_edit v"] }
+          b: { launch: [fish, -c, "magazine_edit b"] }
+          n: { launch: [fish, -c, "magazine_edit n"] }
+          m: { launch: [fish, -c, "magazine_edit m"] }
+          Shift-q: { launch: [fish, -c, "magazine_edit Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_edit W"] }
+          Shift-e: { launch: [fish, -c, "magazine_edit E"] }
+          Shift-r: { launch: [fish, -c, "magazine_edit R"] }
+          Shift-t: { launch: [fish, -c, "magazine_edit T"] }
+          Shift-y: { launch: [fish, -c, "magazine_edit Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_edit U"] }
+          Shift-i: { launch: [fish, -c, "magazine_edit I"] }
+          Shift-o: { launch: [fish, -c, "magazine_edit O"] }
+          Shift-p: { launch: [fish, -c, "magazine_edit P"] }
+          Shift-a: { launch: [fish, -c, "magazine_edit A"] }
+          Shift-s: { launch: [fish, -c, "magazine_edit S"] }
+          Shift-d: { launch: [fish, -c, "magazine_edit D"] }
+          Shift-f: { launch: [fish, -c, "magazine_edit F"] }
+          Shift-g: { launch: [fish, -c, "magazine_edit G"] }
+          Shift-h: { launch: [fish, -c, "magazine_edit H"] }
+          Shift-j: { launch: [fish, -c, "magazine_edit J"] }
+          Shift-k: { launch: [fish, -c, "magazine_edit K"] }
+          Shift-l: { launch: [fish, -c, "magazine_edit L"] }
+          Shift-z: { launch: [fish, -c, "magazine_edit Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_edit X"] }
+          Shift-c: { launch: [fish, -c, "magazine_edit C"] }
+          Shift-v: { launch: [fish, -c, "magazine_edit V"] }
+          Shift-b: { launch: [fish, -c, "magazine_edit B"] }
+          Shift-n: { launch: [fish, -c, "magazine_edit N"] }
+          Shift-m: { launch: [fish, -c, "magazine_edit M"] }
+          Key_1: { launch: [fish, -c, "magazine_edit 1"] }
+          Key_2: { launch: [fish, -c, "magazine_edit 2"] }
+          Key_3: { launch: [fish, -c, "magazine_edit 3"] }
+          Key_4: { launch: [fish, -c, "magazine_edit 4"] }
+          Key_5: { launch: [fish, -c, "magazine_edit 5"] }
+          Key_6: { launch: [fish, -c, "magazine_edit 6"] }
+          Key_7: { launch: [fish, -c, "magazine_edit 7"] }
+          Key_8: { launch: [fish, -c, "magazine_edit 8"] }
+          Key_9: { launch: [fish, -c, "magazine_edit 9"] }
+          Key_0: { launch: [fish, -c, "magazine_edit 0"] }
 
       Shift_L-s:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_append q'] }
-          w: { launch: [fish, -c, 'magazine_append w'] }
-          e: { launch: [fish, -c, 'magazine_append e'] }
-          r: { launch: [fish, -c, 'magazine_append r'] }
-          t: { launch: [fish, -c, 'magazine_append t'] }
-          y: { launch: [fish, -c, 'magazine_append y'] }
-          u: { launch: [fish, -c, 'magazine_append u'] }
-          i: { launch: [fish, -c, 'magazine_append i'] }
-          o: { launch: [fish, -c, 'magazine_append o'] }
-          p: { launch: [fish, -c, 'magazine_append p'] }
-          a: { launch: [fish, -c, 'magazine_append a'] }
-          s: { launch: [fish, -c, 'magazine_append s'] }
-          d: { launch: [fish, -c, 'magazine_append d'] }
-          f: { launch: [fish, -c, 'magazine_append f'] }
-          g: { launch: [fish, -c, 'magazine_append g'] }
-          h: { launch: [fish, -c, 'magazine_append h'] }
-          j: { launch: [fish, -c, 'magazine_append j'] }
-          k: { launch: [fish, -c, 'magazine_append k'] }
-          l: { launch: [fish, -c, 'magazine_append l'] }
-          z: { launch: [fish, -c, 'magazine_append z'] }
-          x: { launch: [fish, -c, 'magazine_append x'] }
-          c: { launch: [fish, -c, 'magazine_append c'] }
-          v: { launch: [fish, -c, 'magazine_append v'] }
-          b: { launch: [fish, -c, 'magazine_append b'] }
-          n: { launch: [fish, -c, 'magazine_append n'] }
-          m: { launch: [fish, -c, 'magazine_append m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_append Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_append W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_append E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_append R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_append T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_append Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_append U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_append I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_append O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_append P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_append A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_append S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_append D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_append F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_append G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_append H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_append J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_append K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_append L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_append Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_append X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_append C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_append V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_append B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_append N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_append M'] }
-          Key_1: { launch: [fish, -c, 'magazine_append 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_append 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_append 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_append 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_append 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_append 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_append 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_append 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_append 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_append 0'] }
+          q: { launch: [fish, -c, "magazine_append q"] }
+          w: { launch: [fish, -c, "magazine_append w"] }
+          e: { launch: [fish, -c, "magazine_append e"] }
+          r: { launch: [fish, -c, "magazine_append r"] }
+          t: { launch: [fish, -c, "magazine_append t"] }
+          y: { launch: [fish, -c, "magazine_append y"] }
+          u: { launch: [fish, -c, "magazine_append u"] }
+          i: { launch: [fish, -c, "magazine_append i"] }
+          o: { launch: [fish, -c, "magazine_append o"] }
+          p: { launch: [fish, -c, "magazine_append p"] }
+          a: { launch: [fish, -c, "magazine_append a"] }
+          s: { launch: [fish, -c, "magazine_append s"] }
+          d: { launch: [fish, -c, "magazine_append d"] }
+          f: { launch: [fish, -c, "magazine_append f"] }
+          g: { launch: [fish, -c, "magazine_append g"] }
+          h: { launch: [fish, -c, "magazine_append h"] }
+          j: { launch: [fish, -c, "magazine_append j"] }
+          k: { launch: [fish, -c, "magazine_append k"] }
+          l: { launch: [fish, -c, "magazine_append l"] }
+          z: { launch: [fish, -c, "magazine_append z"] }
+          x: { launch: [fish, -c, "magazine_append x"] }
+          c: { launch: [fish, -c, "magazine_append c"] }
+          v: { launch: [fish, -c, "magazine_append v"] }
+          b: { launch: [fish, -c, "magazine_append b"] }
+          n: { launch: [fish, -c, "magazine_append n"] }
+          m: { launch: [fish, -c, "magazine_append m"] }
+          Shift-q: { launch: [fish, -c, "magazine_append Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_append W"] }
+          Shift-e: { launch: [fish, -c, "magazine_append E"] }
+          Shift-r: { launch: [fish, -c, "magazine_append R"] }
+          Shift-t: { launch: [fish, -c, "magazine_append T"] }
+          Shift-y: { launch: [fish, -c, "magazine_append Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_append U"] }
+          Shift-i: { launch: [fish, -c, "magazine_append I"] }
+          Shift-o: { launch: [fish, -c, "magazine_append O"] }
+          Shift-p: { launch: [fish, -c, "magazine_append P"] }
+          Shift-a: { launch: [fish, -c, "magazine_append A"] }
+          Shift-s: { launch: [fish, -c, "magazine_append S"] }
+          Shift-d: { launch: [fish, -c, "magazine_append D"] }
+          Shift-f: { launch: [fish, -c, "magazine_append F"] }
+          Shift-g: { launch: [fish, -c, "magazine_append G"] }
+          Shift-h: { launch: [fish, -c, "magazine_append H"] }
+          Shift-j: { launch: [fish, -c, "magazine_append J"] }
+          Shift-k: { launch: [fish, -c, "magazine_append K"] }
+          Shift-l: { launch: [fish, -c, "magazine_append L"] }
+          Shift-z: { launch: [fish, -c, "magazine_append Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_append X"] }
+          Shift-c: { launch: [fish, -c, "magazine_append C"] }
+          Shift-v: { launch: [fish, -c, "magazine_append V"] }
+          Shift-b: { launch: [fish, -c, "magazine_append B"] }
+          Shift-n: { launch: [fish, -c, "magazine_append N"] }
+          Shift-m: { launch: [fish, -c, "magazine_append M"] }
+          Key_1: { launch: [fish, -c, "magazine_append 1"] }
+          Key_2: { launch: [fish, -c, "magazine_append 2"] }
+          Key_3: { launch: [fish, -c, "magazine_append 3"] }
+          Key_4: { launch: [fish, -c, "magazine_append 4"] }
+          Key_5: { launch: [fish, -c, "magazine_append 5"] }
+          Key_6: { launch: [fish, -c, "magazine_append 6"] }
+          Key_7: { launch: [fish, -c, "magazine_append 7"] }
+          Key_8: { launch: [fish, -c, "magazine_append 8"] }
+          Key_9: { launch: [fish, -c, "magazine_append 9"] }
+          Key_0: { launch: [fish, -c, "magazine_append 0"] }
 
       Shift_L-v:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_appset q'] }
-          w: { launch: [fish, -c, 'magazine_appset w'] }
-          e: { launch: [fish, -c, 'magazine_appset e'] }
-          r: { launch: [fish, -c, 'magazine_appset r'] }
-          t: { launch: [fish, -c, 'magazine_appset t'] }
-          y: { launch: [fish, -c, 'magazine_appset y'] }
-          u: { launch: [fish, -c, 'magazine_appset u'] }
-          i: { launch: [fish, -c, 'magazine_appset i'] }
-          o: { launch: [fish, -c, 'magazine_appset o'] }
-          p: { launch: [fish, -c, 'magazine_appset p'] }
-          a: { launch: [fish, -c, 'magazine_appset a'] }
-          s: { launch: [fish, -c, 'magazine_appset s'] }
-          d: { launch: [fish, -c, 'magazine_appset d'] }
-          f: { launch: [fish, -c, 'magazine_appset f'] }
-          g: { launch: [fish, -c, 'magazine_appset g'] }
-          h: { launch: [fish, -c, 'magazine_appset h'] }
-          j: { launch: [fish, -c, 'magazine_appset j'] }
-          k: { launch: [fish, -c, 'magazine_appset k'] }
-          l: { launch: [fish, -c, 'magazine_appset l'] }
-          z: { launch: [fish, -c, 'magazine_appset z'] }
-          x: { launch: [fish, -c, 'magazine_appset x'] }
-          c: { launch: [fish, -c, 'magazine_appset c'] }
-          v: { launch: [fish, -c, 'magazine_appset v'] }
-          b: { launch: [fish, -c, 'magazine_appset b'] }
-          n: { launch: [fish, -c, 'magazine_appset n'] }
-          m: { launch: [fish, -c, 'magazine_appset m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_appset Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_appset W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_appset E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_appset R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_appset T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_appset Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_appset U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_appset I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_appset O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_appset P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_appset A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_appset S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_appset D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_appset F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_appset G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_appset H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_appset J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_appset K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_appset L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_appset Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_appset X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_appset C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_appset V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_appset B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_appset N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_appset M'] }
-          Key_1: { launch: [fish, -c, 'magazine_appset 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_appset 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_appset 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_appset 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_appset 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_appset 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_appset 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_appset 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_appset 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_appset 0'] }
+          q: { launch: [fish, -c, "magazine_appset q"] }
+          w: { launch: [fish, -c, "magazine_appset w"] }
+          e: { launch: [fish, -c, "magazine_appset e"] }
+          r: { launch: [fish, -c, "magazine_appset r"] }
+          t: { launch: [fish, -c, "magazine_appset t"] }
+          y: { launch: [fish, -c, "magazine_appset y"] }
+          u: { launch: [fish, -c, "magazine_appset u"] }
+          i: { launch: [fish, -c, "magazine_appset i"] }
+          o: { launch: [fish, -c, "magazine_appset o"] }
+          p: { launch: [fish, -c, "magazine_appset p"] }
+          a: { launch: [fish, -c, "magazine_appset a"] }
+          s: { launch: [fish, -c, "magazine_appset s"] }
+          d: { launch: [fish, -c, "magazine_appset d"] }
+          f: { launch: [fish, -c, "magazine_appset f"] }
+          g: { launch: [fish, -c, "magazine_appset g"] }
+          h: { launch: [fish, -c, "magazine_appset h"] }
+          j: { launch: [fish, -c, "magazine_appset j"] }
+          k: { launch: [fish, -c, "magazine_appset k"] }
+          l: { launch: [fish, -c, "magazine_appset l"] }
+          z: { launch: [fish, -c, "magazine_appset z"] }
+          x: { launch: [fish, -c, "magazine_appset x"] }
+          c: { launch: [fish, -c, "magazine_appset c"] }
+          v: { launch: [fish, -c, "magazine_appset v"] }
+          b: { launch: [fish, -c, "magazine_appset b"] }
+          n: { launch: [fish, -c, "magazine_appset n"] }
+          m: { launch: [fish, -c, "magazine_appset m"] }
+          Shift-q: { launch: [fish, -c, "magazine_appset Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_appset W"] }
+          Shift-e: { launch: [fish, -c, "magazine_appset E"] }
+          Shift-r: { launch: [fish, -c, "magazine_appset R"] }
+          Shift-t: { launch: [fish, -c, "magazine_appset T"] }
+          Shift-y: { launch: [fish, -c, "magazine_appset Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_appset U"] }
+          Shift-i: { launch: [fish, -c, "magazine_appset I"] }
+          Shift-o: { launch: [fish, -c, "magazine_appset O"] }
+          Shift-p: { launch: [fish, -c, "magazine_appset P"] }
+          Shift-a: { launch: [fish, -c, "magazine_appset A"] }
+          Shift-s: { launch: [fish, -c, "magazine_appset S"] }
+          Shift-d: { launch: [fish, -c, "magazine_appset D"] }
+          Shift-f: { launch: [fish, -c, "magazine_appset F"] }
+          Shift-g: { launch: [fish, -c, "magazine_appset G"] }
+          Shift-h: { launch: [fish, -c, "magazine_appset H"] }
+          Shift-j: { launch: [fish, -c, "magazine_appset J"] }
+          Shift-k: { launch: [fish, -c, "magazine_appset K"] }
+          Shift-l: { launch: [fish, -c, "magazine_appset L"] }
+          Shift-z: { launch: [fish, -c, "magazine_appset Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_appset X"] }
+          Shift-c: { launch: [fish, -c, "magazine_appset C"] }
+          Shift-v: { launch: [fish, -c, "magazine_appset V"] }
+          Shift-b: { launch: [fish, -c, "magazine_appset B"] }
+          Shift-n: { launch: [fish, -c, "magazine_appset N"] }
+          Shift-m: { launch: [fish, -c, "magazine_appset M"] }
+          Key_1: { launch: [fish, -c, "magazine_appset 1"] }
+          Key_2: { launch: [fish, -c, "magazine_appset 2"] }
+          Key_3: { launch: [fish, -c, "magazine_appset 3"] }
+          Key_4: { launch: [fish, -c, "magazine_appset 4"] }
+          Key_5: { launch: [fish, -c, "magazine_appset 5"] }
+          Key_6: { launch: [fish, -c, "magazine_appset 6"] }
+          Key_7: { launch: [fish, -c, "magazine_appset 7"] }
+          Key_8: { launch: [fish, -c, "magazine_appset 8"] }
+          Key_9: { launch: [fish, -c, "magazine_appset 9"] }
+          Key_0: { launch: [fish, -c, "magazine_appset 0"] }
 
       Shift_L-w:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_restore q'] }
-          w: { launch: [fish, -c, 'magazine_restore w'] }
-          e: { launch: [fish, -c, 'magazine_restore e'] }
-          r: { launch: [fish, -c, 'magazine_restore r'] }
-          t: { launch: [fish, -c, 'magazine_restore t'] }
-          y: { launch: [fish, -c, 'magazine_restore y'] }
-          u: { launch: [fish, -c, 'magazine_restore u'] }
-          i: { launch: [fish, -c, 'magazine_restore i'] }
-          o: { launch: [fish, -c, 'magazine_restore o'] }
-          p: { launch: [fish, -c, 'magazine_restore p'] }
-          a: { launch: [fish, -c, 'magazine_restore a'] }
-          s: { launch: [fish, -c, 'magazine_restore s'] }
-          d: { launch: [fish, -c, 'magazine_restore d'] }
-          f: { launch: [fish, -c, 'magazine_restore f'] }
-          g: { launch: [fish, -c, 'magazine_restore g'] }
-          h: { launch: [fish, -c, 'magazine_restore h'] }
-          j: { launch: [fish, -c, 'magazine_restore j'] }
-          k: { launch: [fish, -c, 'magazine_restore k'] }
-          l: { launch: [fish, -c, 'magazine_restore l'] }
-          z: { launch: [fish, -c, 'magazine_restore z'] }
-          x: { launch: [fish, -c, 'magazine_restore x'] }
-          c: { launch: [fish, -c, 'magazine_restore c'] }
-          v: { launch: [fish, -c, 'magazine_restore v'] }
-          b: { launch: [fish, -c, 'magazine_restore b'] }
-          n: { launch: [fish, -c, 'magazine_restore n'] }
-          m: { launch: [fish, -c, 'magazine_restore m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_restore Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_restore W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_restore E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_restore R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_restore T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_restore Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_restore U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_restore I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_restore O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_restore P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_restore A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_restore S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_restore D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_restore F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_restore G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_restore H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_restore J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_restore K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_restore L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_restore Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_restore X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_restore C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_restore V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_restore B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_restore N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_restore M'] }
-          Key_1: { launch: [fish, -c, 'magazine_restore 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_restore 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_restore 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_restore 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_restore 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_restore 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_restore 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_restore 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_restore 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_restore 0'] }
+          q: { launch: [fish, -c, "magazine_restore q"] }
+          w: { launch: [fish, -c, "magazine_restore w"] }
+          e: { launch: [fish, -c, "magazine_restore e"] }
+          r: { launch: [fish, -c, "magazine_restore r"] }
+          t: { launch: [fish, -c, "magazine_restore t"] }
+          y: { launch: [fish, -c, "magazine_restore y"] }
+          u: { launch: [fish, -c, "magazine_restore u"] }
+          i: { launch: [fish, -c, "magazine_restore i"] }
+          o: { launch: [fish, -c, "magazine_restore o"] }
+          p: { launch: [fish, -c, "magazine_restore p"] }
+          a: { launch: [fish, -c, "magazine_restore a"] }
+          s: { launch: [fish, -c, "magazine_restore s"] }
+          d: { launch: [fish, -c, "magazine_restore d"] }
+          f: { launch: [fish, -c, "magazine_restore f"] }
+          g: { launch: [fish, -c, "magazine_restore g"] }
+          h: { launch: [fish, -c, "magazine_restore h"] }
+          j: { launch: [fish, -c, "magazine_restore j"] }
+          k: { launch: [fish, -c, "magazine_restore k"] }
+          l: { launch: [fish, -c, "magazine_restore l"] }
+          z: { launch: [fish, -c, "magazine_restore z"] }
+          x: { launch: [fish, -c, "magazine_restore x"] }
+          c: { launch: [fish, -c, "magazine_restore c"] }
+          v: { launch: [fish, -c, "magazine_restore v"] }
+          b: { launch: [fish, -c, "magazine_restore b"] }
+          n: { launch: [fish, -c, "magazine_restore n"] }
+          m: { launch: [fish, -c, "magazine_restore m"] }
+          Shift-q: { launch: [fish, -c, "magazine_restore Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_restore W"] }
+          Shift-e: { launch: [fish, -c, "magazine_restore E"] }
+          Shift-r: { launch: [fish, -c, "magazine_restore R"] }
+          Shift-t: { launch: [fish, -c, "magazine_restore T"] }
+          Shift-y: { launch: [fish, -c, "magazine_restore Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_restore U"] }
+          Shift-i: { launch: [fish, -c, "magazine_restore I"] }
+          Shift-o: { launch: [fish, -c, "magazine_restore O"] }
+          Shift-p: { launch: [fish, -c, "magazine_restore P"] }
+          Shift-a: { launch: [fish, -c, "magazine_restore A"] }
+          Shift-s: { launch: [fish, -c, "magazine_restore S"] }
+          Shift-d: { launch: [fish, -c, "magazine_restore D"] }
+          Shift-f: { launch: [fish, -c, "magazine_restore F"] }
+          Shift-g: { launch: [fish, -c, "magazine_restore G"] }
+          Shift-h: { launch: [fish, -c, "magazine_restore H"] }
+          Shift-j: { launch: [fish, -c, "magazine_restore J"] }
+          Shift-k: { launch: [fish, -c, "magazine_restore K"] }
+          Shift-l: { launch: [fish, -c, "magazine_restore L"] }
+          Shift-z: { launch: [fish, -c, "magazine_restore Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_restore X"] }
+          Shift-c: { launch: [fish, -c, "magazine_restore C"] }
+          Shift-v: { launch: [fish, -c, "magazine_restore V"] }
+          Shift-b: { launch: [fish, -c, "magazine_restore B"] }
+          Shift-n: { launch: [fish, -c, "magazine_restore N"] }
+          Shift-m: { launch: [fish, -c, "magazine_restore M"] }
+          Key_1: { launch: [fish, -c, "magazine_restore 1"] }
+          Key_2: { launch: [fish, -c, "magazine_restore 2"] }
+          Key_3: { launch: [fish, -c, "magazine_restore 3"] }
+          Key_4: { launch: [fish, -c, "magazine_restore 4"] }
+          Key_5: { launch: [fish, -c, "magazine_restore 5"] }
+          Key_6: { launch: [fish, -c, "magazine_restore 6"] }
+          Key_7: { launch: [fish, -c, "magazine_restore 7"] }
+          Key_8: { launch: [fish, -c, "magazine_restore 8"] }
+          Key_9: { launch: [fish, -c, "magazine_restore 9"] }
+          Key_0: { launch: [fish, -c, "magazine_restore 0"] }
 
       Shift_L-f:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_filter q'] }
-          w: { launch: [fish, -c, 'magazine_filter w'] }
-          e: { launch: [fish, -c, 'magazine_filter e'] }
-          r: { launch: [fish, -c, 'magazine_filter r'] }
-          t: { launch: [fish, -c, 'magazine_filter t'] }
-          y: { launch: [fish, -c, 'magazine_filter y'] }
-          u: { launch: [fish, -c, 'magazine_filter u'] }
-          i: { launch: [fish, -c, 'magazine_filter i'] }
-          o: { launch: [fish, -c, 'magazine_filter o'] }
-          p: { launch: [fish, -c, 'magazine_filter p'] }
-          a: { launch: [fish, -c, 'magazine_filter a'] }
-          s: { launch: [fish, -c, 'magazine_filter s'] }
-          d: { launch: [fish, -c, 'magazine_filter d'] }
-          f: { launch: [fish, -c, 'magazine_filter f'] }
-          g: { launch: [fish, -c, 'magazine_filter g'] }
-          h: { launch: [fish, -c, 'magazine_filter h'] }
-          j: { launch: [fish, -c, 'magazine_filter j'] }
-          k: { launch: [fish, -c, 'magazine_filter k'] }
-          l: { launch: [fish, -c, 'magazine_filter l'] }
-          z: { launch: [fish, -c, 'magazine_filter z'] }
-          x: { launch: [fish, -c, 'magazine_filter x'] }
-          c: { launch: [fish, -c, 'magazine_filter c'] }
-          v: { launch: [fish, -c, 'magazine_filter v'] }
-          b: { launch: [fish, -c, 'magazine_filter b'] }
-          n: { launch: [fish, -c, 'magazine_filter n'] }
-          m: { launch: [fish, -c, 'magazine_filter m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_filter Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_filter W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_filter E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_filter R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_filter T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_filter Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_filter U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_filter I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_filter O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_filter P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_filter A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_filter S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_filter D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_filter F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_filter G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_filter H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_filter J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_filter K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_filter L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_filter Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_filter X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_filter C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_filter V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_filter B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_filter N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_filter M'] }
-          Key_1: { launch: [fish, -c, 'magazine_filter 1'] }
-          Key_2: { launch: [fish, -c, 'magazine_filter 2'] }
-          Key_3: { launch: [fish, -c, 'magazine_filter 3'] }
-          Key_4: { launch: [fish, -c, 'magazine_filter 4'] }
-          Key_5: { launch: [fish, -c, 'magazine_filter 5'] }
-          Key_6: { launch: [fish, -c, 'magazine_filter 6'] }
-          Key_7: { launch: [fish, -c, 'magazine_filter 7'] }
-          Key_8: { launch: [fish, -c, 'magazine_filter 8'] }
-          Key_9: { launch: [fish, -c, 'magazine_filter 9'] }
-          Key_0: { launch: [fish, -c, 'magazine_filter 0'] }
+          q: { launch: [fish, -c, "magazine_filter q"] }
+          w: { launch: [fish, -c, "magazine_filter w"] }
+          e: { launch: [fish, -c, "magazine_filter e"] }
+          r: { launch: [fish, -c, "magazine_filter r"] }
+          t: { launch: [fish, -c, "magazine_filter t"] }
+          y: { launch: [fish, -c, "magazine_filter y"] }
+          u: { launch: [fish, -c, "magazine_filter u"] }
+          i: { launch: [fish, -c, "magazine_filter i"] }
+          o: { launch: [fish, -c, "magazine_filter o"] }
+          p: { launch: [fish, -c, "magazine_filter p"] }
+          a: { launch: [fish, -c, "magazine_filter a"] }
+          s: { launch: [fish, -c, "magazine_filter s"] }
+          d: { launch: [fish, -c, "magazine_filter d"] }
+          f: { launch: [fish, -c, "magazine_filter f"] }
+          g: { launch: [fish, -c, "magazine_filter g"] }
+          h: { launch: [fish, -c, "magazine_filter h"] }
+          j: { launch: [fish, -c, "magazine_filter j"] }
+          k: { launch: [fish, -c, "magazine_filter k"] }
+          l: { launch: [fish, -c, "magazine_filter l"] }
+          z: { launch: [fish, -c, "magazine_filter z"] }
+          x: { launch: [fish, -c, "magazine_filter x"] }
+          c: { launch: [fish, -c, "magazine_filter c"] }
+          v: { launch: [fish, -c, "magazine_filter v"] }
+          b: { launch: [fish, -c, "magazine_filter b"] }
+          n: { launch: [fish, -c, "magazine_filter n"] }
+          m: { launch: [fish, -c, "magazine_filter m"] }
+          Shift-q: { launch: [fish, -c, "magazine_filter Q"] }
+          Shift-w: { launch: [fish, -c, "magazine_filter W"] }
+          Shift-e: { launch: [fish, -c, "magazine_filter E"] }
+          Shift-r: { launch: [fish, -c, "magazine_filter R"] }
+          Shift-t: { launch: [fish, -c, "magazine_filter T"] }
+          Shift-y: { launch: [fish, -c, "magazine_filter Y"] }
+          Shift-u: { launch: [fish, -c, "magazine_filter U"] }
+          Shift-i: { launch: [fish, -c, "magazine_filter I"] }
+          Shift-o: { launch: [fish, -c, "magazine_filter O"] }
+          Shift-p: { launch: [fish, -c, "magazine_filter P"] }
+          Shift-a: { launch: [fish, -c, "magazine_filter A"] }
+          Shift-s: { launch: [fish, -c, "magazine_filter S"] }
+          Shift-d: { launch: [fish, -c, "magazine_filter D"] }
+          Shift-f: { launch: [fish, -c, "magazine_filter F"] }
+          Shift-g: { launch: [fish, -c, "magazine_filter G"] }
+          Shift-h: { launch: [fish, -c, "magazine_filter H"] }
+          Shift-j: { launch: [fish, -c, "magazine_filter J"] }
+          Shift-k: { launch: [fish, -c, "magazine_filter K"] }
+          Shift-l: { launch: [fish, -c, "magazine_filter L"] }
+          Shift-z: { launch: [fish, -c, "magazine_filter Z"] }
+          Shift-x: { launch: [fish, -c, "magazine_filter X"] }
+          Shift-c: { launch: [fish, -c, "magazine_filter C"] }
+          Shift-v: { launch: [fish, -c, "magazine_filter V"] }
+          Shift-b: { launch: [fish, -c, "magazine_filter B"] }
+          Shift-n: { launch: [fish, -c, "magazine_filter N"] }
+          Shift-m: { launch: [fish, -c, "magazine_filter M"] }
+          Key_1: { launch: [fish, -c, "magazine_filter 1"] }
+          Key_2: { launch: [fish, -c, "magazine_filter 2"] }
+          Key_3: { launch: [fish, -c, "magazine_filter 3"] }
+          Key_4: { launch: [fish, -c, "magazine_filter 4"] }
+          Key_5: { launch: [fish, -c, "magazine_filter 5"] }
+          Key_6: { launch: [fish, -c, "magazine_filter 6"] }
+          Key_7: { launch: [fish, -c, "magazine_filter 7"] }
+          Key_8: { launch: [fish, -c, "magazine_filter 8"] }
+          Key_9: { launch: [fish, -c, "magazine_filter 9"] }
+          Key_0: { launch: [fish, -c, "magazine_filter 0"] }
 
   - name: System & Media
     remap:
-      CapsLock-w: { launch: [fish, -c, 'set_volume -5'] }
-      CapsLock-e: { launch: [fish, -c, 'set_volume +5'] }
+      CapsLock-w: { launch: [fish, -c, "set_volume -5"] }
+      CapsLock-e: { launch: [fish, -c, "set_volume +5"] }
 
-      CapsLock-Alt-w: { launch: [fish, -c, 'set_mic_volume -5'] }
-      CapsLock-Alt-e: { launch: [fish, -c, 'set_mic_volume +5'] }
+      CapsLock-Alt-w: { launch: [fish, -c, "set_mic_volume -5"] }
+      CapsLock-Alt-e: { launch: [fish, -c, "set_mic_volume +5"] }
 
-      CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
-      CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
+      CapsLock-a: { launch: [fish, -c, "toggle_mic_mute"] }
+      CapsLock-Alt-a: { launch: [fish, -c, "toggle_mute"] }
 
-      CapsLock-Shift-w: { launch: [fish, -c, 'set_media_volume 0.05-'] }
-      CapsLock-Shift-e: { launch: [fish, -c, 'set_media_volume 0.05+'] }
+      CapsLock-Shift-w: { launch: [fish, -c, "set_media_volume 0.05-"] }
+      CapsLock-Shift-e: { launch: [fish, -c, "set_media_volume 0.05+"] }
 
       CapsLock-3: { launch: [fish, -c, media_prev] }
       CapsLock-4: { launch: [fish, -c, media_next] }
@@ -842,7 +1189,11 @@ keymap:
   - name: Screenshot
     exact_match: true
     remap:
-      Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
+      Super-s:
+        {
+          launch:
+            [fish, -c, "scrot -s - | xclip -selection clipboard -t image/png"],
+        }
       Super-Alt-s:
         {
           launch:
@@ -861,9 +1212,16 @@ keymap:
               "scrot - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took screen'",
             ],
         }
-      Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
+      Super-w: { launch: [fish, -c, "scrot -s - | display"] }
       Super-Alt-w:
-        { launch: [fish, -c, 'xclip -selection clipboard -t image/png -o 2> /dev/null | display'] }
+        {
+          launch:
+            [
+              fish,
+              -c,
+              "xclip -selection clipboard -t image/png -o 2> /dev/null | display",
+            ],
+        }
 
   - name: Gromit
     exact_match: true
@@ -872,7 +1230,7 @@ keymap:
       Super-Alt-f: { launch: [gromit-mpx, --clear] }
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
 
-  - name: 'Anki'
+  - name: "Anki"
     exact_match: true
     application:
       only: Anki
@@ -886,7 +1244,8 @@ keymap:
       only: Spotify
     remap:
       Alt-f: shift-alt-b
-      Alt-j: { launch: [sh, -c, 'xdotool mousemove 58 1025 ; ydotool click c1'] }
+      Alt-j:
+        { launch: [sh, -c, "xdotool mousemove 58 1025 ; ydotool click c1"] }
 
   - name: Terminal
     exact_match: true
@@ -910,16 +1269,17 @@ keymap:
   - name: Toggle capslock
     exact_match: true
     remap:
-      CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }]
+      CapsLock-Space:
+        [CapsLock, { launch: [fish, -c, "widget_update update_layout Layout"] }]
 
   - name: Other
     mode: [default]
     exact_match: true
     remap:
-      Shift_L-t: { launch: [awesome-client, 'Write_client_info()'] }
+      Shift_L-t: { launch: [awesome-client, "Write_client_info()"] }
       Super-Space: { launch: [fish, -c, toggle_layout] }
       Super-6: { launch: [fish, -c, toggle_compositor] }
-      F13: { launch: [wmctrl, -c, ':ACTIVE:'] }
+      F13: { launch: [wmctrl, -c, ":ACTIVE:"] }
       Shift-F13: { launch: [xdotool, getwindowfocus, windowkill] }
       Super-v: { launch: [boomer] }
       Shift_L-g:
@@ -927,29 +1287,101 @@ keymap:
           launch:
             [
               awesome-client,
-              'if not naughty.is_suspended() then naughty.destroy_all_notifications() end',
+              "if not naughty.is_suspended() then naughty.destroy_all_notifications() end",
             ],
         }
-      Super-j: { launch: [fish, -c, 'runner show'] }
+      Super-j: { launch: [fish, -c, "runner show"] }
       Super-Alt-Semicolon: { launch: [rofi, -show, drun] }
       Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
-      Super-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
-      Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
+      Super-d:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'clorange widget increment ; awesome-client "Clorange_wu()"',
+            ],
+        }
+      Super-Alt-d:
+        {
+          launch:
+            [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'],
+        }
       Super-Shift-d:
-        { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'clorange widget decrement ; awesome-client "Clorange_wu()"',
+            ],
+        }
 
       CapsLock-7: { launch: [awesome-client, awful.client.floating.toggle()] }
-      CapsLock-9: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+      CapsLock-9:
+        {
+          launch:
+            [awesome-client, "client.focus.ontop = not client.focus.ontop"],
+        }
       CapsLock-8:
-        { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+        {
+          launch:
+            [
+              awesome-client,
+              "client.focus.maximized = not client.focus.maximized",
+            ],
+        }
       CapsLock-0:
-        { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
-      CapsLock-6: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
-      CapsLock-Minus: { launch: [awesome-client, 'client.focus.minimized = true'] }
-      CapsLock-LeftBrace: { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-RightBrace: { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Alt-LeftBrace: { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Alt-RightBrace: { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+        {
+          launch:
+            [
+              awesome-client,
+              "client.focus.fullscreen = not client.focus.fullscreen",
+            ],
+        }
+      CapsLock-6:
+        {
+          launch:
+            [awesome-client, "client.focus.sticky = not client.focus.sticky"],
+        }
+      CapsLock-Minus:
+        { launch: [awesome-client, "client.focus.minimized = true"] }
+      CapsLock-LeftBrace:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"',
+            ],
+        }
+      CapsLock-RightBrace:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"',
+            ],
+        }
+      CapsLock-Alt-LeftBrace:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"',
+            ],
+        }
+      CapsLock-Alt-RightBrace:
+        {
+          launch:
+            [
+              sh,
+              -c,
+              'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"',
+            ],
+        }
 
   - name: Other in mouse too
     remap:
@@ -960,8 +1392,8 @@ keymap:
     remap:
       Backspace: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
-      CapsLock-Enter: { launch: [notify-send, -t, '1000', nope] }
-      CapsLock-Alt-Enter: { launch: [notify-send, -t, '1000', nope] }
+      CapsLock-Enter: { launch: [fish, -c, runner_notification] }
+      CapsLock-Alt-Enter: { launch: [notify-send, -t, "1000", nope] }
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
       CapsLock-r: delete

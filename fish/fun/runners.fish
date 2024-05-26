@@ -279,3 +279,13 @@ function runner_project
     end >/dev/shm/project.txt
 end
 funcsave runner_project >/dev/null
+
+function runner_notification
+    set result (rofi -dmenu 2>/dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    notify-send -t 0 "$result"
+end
+funcsave runner_notification >/dev/null
