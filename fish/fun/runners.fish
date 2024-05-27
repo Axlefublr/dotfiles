@@ -2,7 +2,14 @@
 
 function runner
     truncate -s 0 /dev/shm/runner_output
-    rofi -input ~/.local/share/magazine/L -dmenu 2>/dev/null >/dev/shm/runner_output
+    set last "$(awk '!seen[$0]++' ~/.local/share/runner_history | tail -n 10)"
+    echo $last >~/.local/share/runner_history
+    begin
+        cat ~/.local/share/magazine/L
+        echo -e '\n'
+        cat ~/.local/share/runner_history
+    end | rofi -dmenu 2>/dev/null >/dev/shm/runner_output
+    indeed ~/.local/share/runner_history (cat /dev/shm/runner_output)
     if set -q argv[1]
         set output "$(source /dev/shm/runner_output 2>&1)"
         notify-send -t 0 "$output"
