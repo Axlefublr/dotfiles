@@ -2,18 +2,13 @@ local function remaps(telescope)
 	local builtin = require('telescope.builtin')
 
 	vim.keymap.set('n', '<Leader>ja', builtin.find_files)
-	vim.keymap.set(
-		'n',
-		'<Leader>Ja',
-		function()
-			builtin.find_files({
-				search_dirs = {
-					'~',
-				},
-			})
-		end,
-		{}
-	)
+	vim.keymap.set('n', '<Leader>Ja', function()
+		builtin.find_files({
+			search_dirs = {
+				'~',
+			},
+		})
+	end, {})
 	vim.keymap.set(
 		'n',
 		'<Leader>jA',
@@ -79,17 +74,13 @@ local function remaps(telescope)
 	)
 
 	vim.keymap.set('n', '<Leader>jd', builtin.live_grep)
-	vim.keymap.set(
-		'n',
-		'<Leader>Jd',
-		function()
-			builtin.live_grep({
-				search_dirs = {
-					'~',
-				},
-			})
-		end
-	)
+	vim.keymap.set('n', '<Leader>Jd', function()
+		builtin.live_grep({
+			search_dirs = {
+				'~',
+			},
+		})
+	end)
 	vim.keymap.set('n', '<Leader>jD', function()
 		builtin.live_grep({
 			search_dirs = {
@@ -151,7 +142,7 @@ local function remaps(telescope)
 
 	vim.keymap.set('n', '<Leader>jr', function()
 		builtin.grep_string({
-			search = vim.fn.getreg('"')
+			search = vim.fn.getreg('"'),
 		})
 	end)
 	vim.keymap.set(
@@ -290,18 +281,27 @@ return {
 					grep_string = {
 						initial_mode = 'normal',
 						preview = {
-							hide_on_startup = false
+							hide_on_startup = false,
 						},
-						disable_coordinates = true
+						disable_coordinates = true,
 					},
 					git_branches = {
 						mappings = {
 							n = {
-								[',c'] = 'git_create_branch',
-								[',d'] = 'git_delete_branch',
-								[',m'] = 'git_merge_branch',
-								[',r'] = 'git_rebase_branch',
-								[',s'] = 'git_switch_branch',
+								['<A-o>c'] = 'git_create_branch',
+								['<A-o>d'] = 'git_delete_branch',
+								['<A-o>m'] = 'git_merge_branch',
+								['<A-o>r'] = 'git_rebase_branch',
+								['<A-o>s'] = 'git_checkout',
+								['<CR>'] = 'git_switch_branch',
+							},
+							i = {
+								['<A-o>c'] = 'git_create_branch',
+								['<A-o>d'] = 'git_delete_branch',
+								['<A-o>m'] = 'git_merge_branch',
+								['<A-o>r'] = 'git_rebase_branch',
+								['<A-o>s'] = 'git_checkout',
+								['<CR>'] = 'git_switch_branch',
 							},
 						},
 					},
@@ -406,11 +406,7 @@ return {
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { fg = Colors.shell_cyan })
 			vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = Colors.dark12 })
 			vim.api.nvim_set_hl(0, 'TelescopeMatching', { fg = Colors.shell_yellow, bold = true })
-			vim.api.nvim_set_hl(
-				0,
-				'TelescopeSelectionCaret',
-				{ fg = Colors.shell_yellow, bg = Colors.dark12 }
-			)
+			vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', { fg = Colors.shell_yellow, bg = Colors.dark12 })
 			remaps(telescope)
 		end,
 	},
