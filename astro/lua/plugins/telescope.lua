@@ -308,7 +308,7 @@ return {
 					command_history = {
 						mappings = {
 							n = {
-								[',e'] = 'edit_command_line',
+								['<A-o>e'] = 'edit_command_line',
 							},
 						},
 					},
@@ -318,7 +318,7 @@ return {
 					registers = {
 						mappings = {
 							n = {
-								[',e'] = 'edit_register',
+								['<A-o>e'] = 'edit_register',
 							},
 						},
 					},
@@ -386,12 +386,12 @@ return {
 							default = {
 								action = function(selection) vim.cmd.tcd(selection.path) end,
 							},
-							['<c-s>'] = false,
-							['<c-v>'] = false,
-							['<c-e>'] = false,
-							['<c-b>'] = false,
-							['<c-f>'] = false,
-							['<c-t>'] = false,
+							['<C-s>'] = false,
+							['<C-v>'] = false,
+							['<C-e>'] = false,
+							['<C-b>'] = false,
+							['<C-f>'] = false,
+							['<C-t>'] = false,
 						},
 					},
 				},
