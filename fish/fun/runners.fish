@@ -2,8 +2,14 @@
 
 function runner
     truncate -s 0 /dev/shm/runner_output
-    set last "$(awk '!seen[$0]++' ~/.local/share/runner_history | tail -n 10)"
-    echo $last >~/.local/share/runner_history
+    for line in (awk '!seen[$0]++' ~/.local/share/runner_history)
+        if not contains $line (cat ~/.local/share/magazine/L)
+            echo $line
+        end
+    end | while read -l line
+        set last $last $line
+    end
+    printf '%s\n' $last >~/.local/share/runner_history
     begin
         cat ~/.local/share/magazine/L
         echo -e '\n'
