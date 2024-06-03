@@ -87,7 +87,7 @@ return {
 					vim.cmd(tostring(startBorderLn) .. ' delete')
 				end,
 			},
-			{ '<Leader>dl', "dil'_dd", { remap = true } },
+			{ '<Leader>dl' },
 		},
 		opts = {
 			lookForwardSmall = 2,

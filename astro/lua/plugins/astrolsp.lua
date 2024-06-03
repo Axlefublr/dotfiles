@@ -3,14 +3,14 @@ local opts_table = {
 	features = {
 		autoformat = true,
 		codelens = true,
-		inlay_hints = false,
+		inlay_hints = true,
 		semantic_tokens = true,
 	},
 	formatting = {
 		format_on_save = {
 			enabled = true,
 			allow_filetypes = {},
-			ignore_filetypes = { 'css', 'yml' },
+			ignore_filetypes = { 'css', 'yml', 'html' },
 		},
 		disabled = {
 			'lua_ls',

@@ -188,7 +188,7 @@ local function remaps(telescope)
 	vim.keymap.set('n', '<Leader>ls', builtin.lsp_document_symbols)
 	vim.keymap.set('n', '<Leader>lS', builtin.lsp_workspace_symbols)
 
-	vim.keymap.set('n', '<Leader>jz', telescope.extensions.zoxide.list)
+	-- vim.keymap.set('n', '<Leader>jz', telescope.extensions.zoxide.list)
 	vim.keymap.set('n', '<Leader>jn', telescope.extensions.notify.notify)
 end
 
@@ -244,28 +244,28 @@ return {
 					},
 					mappings = {
 						n = {
-							['<c-l>'] = 'select_vertical',
-							['<f6>'] = 'select_horizontal',
-							['<a-u>'] = 'smart_add_to_qflist',
-							['<a-U>'] = 'smart_send_to_qflist',
-							['<a-i>'] = layout_actions.toggle_preview,
+							['<C-l>'] = 'select_vertical',
+							['<F6>'] = 'select_horizontal',
+							['<A-u>'] = 'smart_add_to_qflist',
+							['<A-U>'] = 'smart_send_to_qflist',
+							['<A-i>'] = layout_actions.toggle_preview,
 							['H'] = 'preview_scrolling_up',
 							['L'] = 'preview_scrolling_down',
-							['<c-n>'] = 'move_selection_next',
-							['<c-p>'] = 'move_selection_previous',
-							['<c-v>'] = false,
-							['<c-u>'] = false,
-							['<c-d>'] = false,
+							['<C-n>'] = 'move_selection_next',
+							['<C-p>'] = 'move_selection_previous',
+							['<C-v>'] = false,
+							['<C-u>'] = false,
+							['<C-d>'] = false,
 						},
 						i = {
-							['<c-l>'] = 'select_vertical',
-							['<f6>'] = 'select_horizontal',
-							['<a-u>'] = 'smart_add_to_qflist',
-							['<a-U>'] = 'smart_send_to_qflist',
-							['<a-i>'] = layout_actions.toggle_preview,
-							['<c-v>'] = false,
-							['<c-u>'] = false,
-							['<c-d>'] = false,
+							['<C-l>'] = 'select_vertical',
+							['<F6>'] = 'select_horizontal',
+							['<A-u>'] = 'smart_add_to_qflist',
+							['<A-U>'] = 'smart_send_to_qflist',
+							['<A-i>'] = layout_actions.toggle_preview,
+							['<C-v>'] = false,
+							['<C-u>'] = false,
+							['<C-d>'] = false,
 						},
 					},
 				},
@@ -310,6 +310,9 @@ return {
 							n = {
 								['<A-o>e'] = 'edit_command_line',
 							},
+							i = {
+								['<A-o>e'] = 'edit_command_line',
+							},
 						},
 					},
 					jumplist = {
@@ -318,6 +321,9 @@ return {
 					registers = {
 						mappings = {
 							n = {
+								['<A-o>e'] = 'edit_register',
+							},
+							i = {
 								['<A-o>e'] = 'edit_register',
 							},
 						},
@@ -400,7 +406,7 @@ return {
 		config = function(plugin, opts)
 			require('astronvim.plugins.configs.telescope')(plugin, opts)
 			local telescope = require('telescope')
-			telescope.load_extension('zoxide')
+			-- telescope.load_extension('zoxide')
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffUntracked', { fg = Colors.shell_grey })
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffDelete', { fg = Colors.shell_red })
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { fg = Colors.shell_cyan })

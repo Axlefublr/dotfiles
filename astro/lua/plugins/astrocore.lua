@@ -495,6 +495,7 @@ local normal_mappings = {
 			vim.lsp.buf.hover()
 		end,
 	},
+	['<Leader>dl'] = { "dil'dd", remap = true },
 	['<Leader><CR>'] = ':%',
 	gss = '==',
 	U = '@n',

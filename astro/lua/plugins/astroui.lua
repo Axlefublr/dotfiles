@@ -244,7 +244,7 @@ return {
 				['@constant.fish'] = link('Purple'),
 				['@variable.fish'] = link('Purple'),
 				['@operator.fish'] = link('OrangeBold'),
-				['@function.builtin.fish'] = link('Purple'),
+				['@function.builtin.fish'] = link('Blush'),
 				['@function.fish'] = link('Green'),
 
 				['@type.css'] = link('Orange'),
