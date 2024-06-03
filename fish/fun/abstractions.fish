@@ -249,9 +249,9 @@ function filter_mature_tasks
         switch $name
             case filter rilter
                 if_print $days $name 60
-            case towels lamp wash
+            case towels lamp nose wash
                 if_print $days $name 7
-            case cloths fscrub bscrub nose liked cazor
+            case cloths fscrub bscrub liked cazor audio
                 if_print $days $name 10
             case nails wilter bottle
                 if_print $days $name 15

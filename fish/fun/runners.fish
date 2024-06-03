@@ -9,7 +9,7 @@ function runner
     end | while read -l line
         set last $last $line
     end
-    printf '%s\n' $last >~/.local/share/runner_history
+    printf '%s\n' $last | tail -n 30 >~/.local/share/runner_history
     begin
         cat ~/.local/share/magazine/L
         echo -e '\n'
@@ -293,7 +293,7 @@ function runner_project
         for line in (cat $file)
             echo $dirname: $line
         end
-    end >/dev/shm/project.txt
+    end
 end
 funcsave runner_project >/dev/null
 

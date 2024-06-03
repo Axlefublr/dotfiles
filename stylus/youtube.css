@@ -252,7 +252,8 @@ ytd-searchbox[has-focus] #container.ytd-searchbox {
 }
 
 /* scroll down button */
-[icon="down_arrow"] > yt-icon-shape > icon-shape > div {
+[icon="down_arrow"] > yt-icon-shape > icon-shape > div,
+#like-button[is-shorts] button[aria-pressed="true"] path {
 	fill: var(--smooth-black) !important;
 }
 
@@ -350,7 +351,8 @@ yt-live-chat-header-renderer {
 }
 
 /* dropdown down arrow showing replies */
-#more-replies .yt-spec-button-shape-next__icon div {
+#more-replies .yt-spec-button-shape-next__icon div,
+#less-replies .yt-spec-button-shape-next__icon div {
 	fill: var(--shell-pink) !important;
 }
 
