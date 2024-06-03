@@ -1,5 +1,6 @@
 * {
 	--codeblock-margin: 10px;
+	--monospace-font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF, JetBrainsMono, Consolas, Roboto Mono, Droid Sans Mono, monospace;
 }
 
 .card {
@@ -48,7 +49,7 @@ hr#answer {
 }
 
 .codeblock {
-	font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono;
+	font-family: var(--monospace-font-family);
 	background-color: #242323;
 	border-radius: 5px;
 	padding: 7px;
@@ -67,14 +68,14 @@ hr#answer {
 }
 
 code {
-	font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono;
+	font-family: var(--monospace-font-family);
 	background-color: #242323;
 	padding: 2px 5px;
 	border-radius: 5px;
 }
 
 input {
-	font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono !important;
+	font-family: var(--monospace-font-family) !important;
 	font-size: 22px !important;
 	padding: 7px;
 	text-align: center;
