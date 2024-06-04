@@ -48,7 +48,7 @@ return {
 				['FgItalic'] = { fg = Colors.white, italic = true },
 
 				['ShellYellowBold'] = { fg = Colors.shell_yellow, bold = true },
-				['ShellYellowBoldOnDark13'] = { fg = Colors.shell_yellow, bg = Colors.dark13, bold = true },
+				['ShellYellowBoldOnDark12'] = { fg = Colors.shell_yellow, bg = Colors.dark12, bold = true },
 
 				['OrangeBoldBackground'] = { fg = Colors.level, bg = Colors.orange, bold = true },
 				['OrangeBoldNocombine'] = { fg = Colors.orange, bold = true, nocombine = true },
@@ -169,7 +169,7 @@ return {
 				['ToolbarLine'] = link('Dark13'),
 				['PMenu'] = link('Dark13'),
 				['PMenuExtra'] = link('Dark13'),
-				['PMenuSel'] = link('ShellYellowBoldOnDark13'),
+				['PMenuSel'] = link('ShellYellowBoldOnDark12'),
 				['PMenuSBar'] = link('Dark13'),
 				['PMenuThumb'] = link('Dark13'),
 				['FloatTitle'] = link('YellowOnDark12'),
@@ -198,8 +198,9 @@ return {
 				['DiagnosticVirtualTextHint'] = link('Blue'),
 
 				['CmpItemKindSnippet'] = link('Yellow'),
-				['CmpItemAbbrMatch'] = link('ShellYellowBold'),
-				['CmpItemAbbrMatchFuzzy'] = link('ShellYellowBold'),
+				['CmpItemAbbrMatch'] = link('ShellYellowBoldOnDark12'),
+				['CmpItemAbbrMatchFuzzy'] = link('ShellYellowBoldOnDark12'),
+				['CmpItemKindClass'] = link('Orange'),
 
 				['AerialArrayIcon'] = link('Orange'),
 				['AerialObjectIcon'] = link('Purple'),

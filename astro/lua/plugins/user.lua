@@ -66,4 +66,17 @@ return {
 		lazy = true,
 		opts = {},
 	},
+	{
+		'onsails/lspkind.nvim',
+		opts = {
+			symbol_map = {
+				Text = '󰉿',
+				String = '󰉿',
+				Function = '󰹧',
+				Method = '󰹧',
+				Variable = '󰸌',
+				Class = '󰠱',
+			},
+		},
+	},
 }
