@@ -188,7 +188,7 @@ local function remaps(telescope)
 	vim.keymap.set('n', '<Leader>ls', builtin.lsp_document_symbols)
 	vim.keymap.set('n', '<Leader>lS', builtin.lsp_workspace_symbols)
 
-	-- vim.keymap.set('n', '<Leader>jz', telescope.extensions.zoxide.list)
+	vim.keymap.set('n', '<Leader>jz', telescope.extensions.zoxide.list)
 	vim.keymap.set('n', '<Leader>jn', telescope.extensions.notify.notify)
 end
 
@@ -216,6 +216,8 @@ return {
 		},
 		opts = function(_, opts)
 			local layout_actions = require('telescope.actions.layout')
+			local actions = require('telescope.actions')
+			local actions_state = require('telescope.actions.state')
 			opts.defaults.mappings = nil
 			return require('astrocore').extend_tbl(opts, {
 				defaults = {
@@ -284,6 +286,26 @@ return {
 							hide_on_startup = false,
 						},
 						disable_coordinates = true,
+					},
+					git_bcommits = {
+						mappings = {
+							n = {
+								['<A-o>s'] = 'git_checkout_current_buffer',
+								['<CR>'] = function(prompt_bufnr)
+									local commit_hash = actions_state.get_selected_entry().value
+									actions.close(prompt_bufnr)
+									require('gitsigns').show(commit_hash)
+								end,
+							},
+							i = {
+								['<A-o>s'] = 'git_checkout_current_buffer',
+								['<CR>'] = function(prompt_bufnr)
+									local commit_hash = actions_state.get_selected_entry().value
+									actions.close(prompt_bufnr)
+									require('gitsigns').show(commit_hash)
+								end,
+							},
+						},
 					},
 					git_branches = {
 						mappings = {
@@ -406,7 +428,6 @@ return {
 		config = function(plugin, opts)
 			require('astronvim.plugins.configs.telescope')(plugin, opts)
 			local telescope = require('telescope')
-			-- telescope.load_extension('zoxide')
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffUntracked', { fg = Colors.shell_grey })
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffDelete', { fg = Colors.shell_red })
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { fg = Colors.shell_cyan })
