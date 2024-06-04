@@ -48,6 +48,7 @@ return {
 				['FgItalic'] = { fg = Colors.white, italic = true },
 
 				['ShellYellowBold'] = { fg = Colors.shell_yellow, bold = true },
+				['ShellYellowBoldOnDark13'] = { fg = Colors.shell_yellow, bg = Colors.dark13, bold = true },
 
 				['OrangeBoldBackground'] = { fg = Colors.level, bg = Colors.orange, bold = true },
 				['OrangeBoldNocombine'] = { fg = Colors.orange, bold = true, nocombine = true },
@@ -165,6 +166,12 @@ return {
 				['TablineSel'] = link('Dark10'),
 				['NormalFloat'] = link('Dark13'),
 				['FloatBorder'] = link('Dark13'),
+				['ToolbarLine'] = link('Dark13'),
+				['PMenu'] = link('Dark13'),
+				['PMenuExtra'] = link('Dark13'),
+				['PMenuSel'] = link('ShellYellowBoldOnDark13'),
+				['PMenuSBar'] = link('Dark13'),
+				['PMenuThumb'] = link('Dark13'),
 				['FloatTitle'] = link('YellowOnDark12'),
 				['StatusLine'] = link('Normal'),
 				['Title'] = link('OrangeBold'),
