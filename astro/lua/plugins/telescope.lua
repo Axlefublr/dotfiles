@@ -362,11 +362,11 @@ return {
 							hide_on_startup = false,
 						},
 						git_icons = {
-							added = '',
-							changed = '󰻖',
-							deleted = '',
-							renamed = '󰈷',
-							untracked = '󰛢',
+							added = '󰐕',
+							changed = '',
+							deleted = '󰍴',
+							renamed = '󰕍',
+							untracked = '?',
 						},
 					},
 					buffers = {
@@ -431,6 +431,7 @@ return {
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffUntracked', { fg = Colors.shell_grey })
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffDelete', { fg = Colors.shell_red })
 			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { fg = Colors.shell_cyan })
+			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffAdd', { fg = Colors.shell_green })
 			vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = Colors.dark12 })
 			vim.api.nvim_set_hl(0, 'TelescopeMatching', { fg = Colors.shell_yellow, bold = true })
 			vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', { fg = Colors.shell_yellow, bg = Colors.dark12 })
