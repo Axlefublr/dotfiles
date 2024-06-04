@@ -272,6 +272,7 @@ function install_yt_video
     set file (mktemp /dev/shm/install_yt_video.XXXXXX)
     set clipboard (xclip -selection clipboard -o)
     set video_short_link (string replace 'https://www.youtube.com/watch?v=' '' $clipboard)
+    set video_short_link (string replace 'https://www.youtube.com/shorts/' '' $video_short_link)
     set video_short_link (string replace -r '\\&.+' '' $video_short_link)
     kitty -T link-download yt-dlp \
         -o "~/Videos/content/$extra/%(channel)s — %(title)s — ($video_short_link).%(ext)s" \
