@@ -46,7 +46,7 @@ return {
 				end, { buffer = true })
 				vim.keymap.set(
 					'n',
-					'<Leader>tys',
+					'<Leader>tws',
 					function()
 						require('astrocore').cmd({
 							'kitten',
@@ -62,7 +62,7 @@ return {
 				)
 				vim.keymap.set(
 					'n',
-					'<Leader>tps',
+					'<Leader>tqs',
 					function()
 						require('astrocore').cmd({
 							'kitten',
@@ -78,7 +78,7 @@ return {
 				)
 				vim.keymap.set(
 					'n',
-					'<Leader>tis',
+					'<Leader>tes',
 					function()
 						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
 					end,
