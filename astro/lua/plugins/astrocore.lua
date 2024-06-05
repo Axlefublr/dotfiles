@@ -265,6 +265,15 @@ local function get_buffer_cwd()
 	return parent
 end
 
+local function percent_if_empty()
+	local cmd = vim.fn.getcmdline()
+	if cmd == '' then
+		FeedKeys('%')
+	else
+		FeedKeysInt('<CR>')
+	end
+end
+
 local normal_mappings = {
 	['<Leader>dq'] = { copy_full_path },
 	['<Leader>dw'] = { copy_file_name },
@@ -576,6 +585,7 @@ local command_mappings = {
 	["<A-'>0"] = { function() numbered_command(10) end },
 	["<A-'>E"] = { function() killring_pop_tail('command') end },
 	["<A-'>e"] = { function() killring_pop('command') end },
+	['<CR>'] = { percent_if_empty },
 	["<A-'>"] = '<C-r>',
 	['<C-v>'] = '<C-r>+',
 	["<A-'>w"] = '<C-r>0',
