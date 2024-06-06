@@ -308,12 +308,13 @@ end
 funcsave runner_notification >/dev/null
 
 function runner_python
-    set output (ni py | python)
+    set output (ni py | python 2>&1)
     if test "$output"
         if status is-interactive
             echo "$output"
         else
             notify-send -t 0 "$output"
+            echo "$output" | xclip -r -selection clipboard
         end
     end
 end
