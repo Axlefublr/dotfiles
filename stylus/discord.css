@@ -139,7 +139,9 @@
 }
 
 /* left side extra server related buttons */
-.circleIconButton__05cf2 {
+.circleIconButton__05cf2,
+/* reaction count */
+.reaction__4a43f.reactionMe__0fffc .reactionCount__2c34d {
 	color: var(--gruvbox-white);
 }
 
