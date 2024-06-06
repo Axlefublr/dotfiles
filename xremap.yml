@@ -497,22 +497,15 @@ keymap:
     remap:
       Super-Semicolon:
         remap:
-          u:
-            {
-              launch:
-                [sh, -c, "uclanr -j '-' 3 | xclip -r -selection clipboard"],
-            }
-
           Super-j: { launch: [fish, -c, runner] }
-          "y": { launch: [fish, -c, install_yt_video] }
+          k: { launch: [fish, -c, install_yt_video] }
           h: { launch: [fish, -c, "install_yt_video asmr"] }
-          w: { launch: [fish, -c, toggle_internet] }
+          l: { launch: [fish, -c, "install_yt_video longform"] }
           d:
             {
               launch: [kitty, --hold, -d, "~/prog/dotfiles", nvim, -c, "Young"],
             }
           f: { launch: [kitty] }
-          m: { launch: [fish, -c, runner_math] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
@@ -614,7 +607,8 @@ keymap:
           Shift-f: { launch: [fish, -c, "c google neoline"] }
           x: { launch: [fish, -c, runner_doc] }
           s: { launch: [fish, -c, "runner_link open"] }
-          Shift-s: { launch: [fish, -c, runner_link] }
+          c: { launch: [fish, -c, runner_link] }
+          t: { launch: [fish, -c, runner_math] }
 
   - name: Magazine
     mode: default
