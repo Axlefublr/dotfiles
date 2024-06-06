@@ -5,8 +5,6 @@ modmap:
   - remap:
       Tab: Esc
       Esc: F13
-      Grave: backslash
-      Backslash: grave
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
 
   - name: Game side mouse buttons fix
