@@ -306,3 +306,15 @@ function runner_notification
     notify-send -t 0 "$result"
 end
 funcsave runner_notification >/dev/null
+
+function runner_python
+    set output (ni py | python)
+    if test "$output"
+        if status is-interactive
+            echo "$output"
+        else
+            notify-send -t 0 "$output"
+        end
+    end
+end
+funcsave runner_python >/dev/null
