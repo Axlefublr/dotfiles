@@ -62,7 +62,6 @@ sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm fd
 sudo pacman -S --noconfirm cargo-update
 sudo pacman -S --noconfirm bacon
-sudo pacman -S --noconfirm ollama
 sudo pacman -S --noconfirm rustup
 sudo pacman -S --noconfirm pastel
 sudo pacman -S --noconfirm postgresql
@@ -101,5 +100,4 @@ sudo pacman -S --noconfirm whois
 sudo pacman -S --noconfirm copyq
 sudo pacman -S --noconfirm httrack
 sudo pacman -S --noconfirm asciinema
-sudo pacman -S --noconfirm pueue
 sudo pacman -S --noconfirm mpv-mpris
