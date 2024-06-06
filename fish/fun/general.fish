@@ -267,7 +267,7 @@ function install_yt_video
     if set -q argv[1]
         set extra $argv[1]
     else
-        set extra youtube/
+        set extra youtube
     end
     set file (mktemp /dev/shm/install_yt_video.XXXXXX)
     set clipboard (xclip -selection clipboard -o)

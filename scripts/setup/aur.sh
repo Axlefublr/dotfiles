@@ -10,7 +10,6 @@ paru --noconfirm -aS qt5-styleplugins
 paru --noconfirm -aS ascii-image-converter
 paru --noconfirm -aS nodejs-mapscii
 paru --noconfirm -aS unimatrix-git
-paru --noconfirm -aS zoom
 paru --noconfirm -aS anki-bin
 paru --noconfirm -aS mullvad-vpn-bin
 paru --noconfirm -aS xremap-x11-bin
