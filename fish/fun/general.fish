@@ -255,9 +255,9 @@ function ni
         set extension ".$argv[1]"
     end
     if status is-interactive
-        nvim "/dev/shm/ninput$extension" -c 'norm die' >&2
+        nvim "/dev/shm/ninput$extension" -c 'norm \'die' >&2
     else
-        neoline "/dev/shm/ninput$extension" -c 'norm die' >&2
+        neoline "/dev/shm/ninput$extension" -c 'norm \'die' >&2
     end
     cat "/dev/shm/ninput$extension" | string collect
 end
