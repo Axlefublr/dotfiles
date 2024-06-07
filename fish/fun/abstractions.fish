@@ -326,3 +326,44 @@ function disk_usage
     df -h /dev/nvme0n1p2 | tail -n 1 | awk '{print $5}' | string replace '%' '' | string collect
 end
 funcsave disk_usage >/dev/null
+
+function git_search_file
+    if not test "$argv[1]"
+        echo 'the first argument should be the filepath where you want to search for a string' >&2
+    end
+    if not test "$argv[2]"
+        echo 'the second argument and beyond are expected argument(s) to `rg`' >&2
+        return 1
+    end
+    set commits (git log --format=format:"%h")
+    for commit in $commits
+        git show $commit:$argv[1] | rg $argv[2..]
+        and git show -s --oneline $commit
+    end
+end
+funcsave git_search_file >/dev/null
+
+function git_search
+    if not test "$argv[1]"
+        echo 'missing arguments for `rg`' >&2
+        return 1
+    end
+    set commits (git log --format=format:"%h")
+    for commit in $commits
+        set files (git show --format=format:'' --name-only $commit)
+        set -l did_match ''
+        for file in $files
+            git show $commit:$file 2>/dev/null | rg $argv
+            and begin
+                set_color '#e491b2'
+                echo $file
+                set_color normal
+                set did_match true
+            end
+        end
+        if test "$did_match"
+            git show -s --oneline $commit
+        end
+    end
+end
+funcsave git_search >/dev/null
