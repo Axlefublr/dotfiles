@@ -43,6 +43,7 @@ funcsave update_wifi >/dev/null
 alias --save get_internet_connection 'nmcli networking connectivity check' >/dev/null
 alias --save disable_internet 'nmcli radio wifi off' >/dev/null
 alias --save enable_internet 'nmcli radio wifi on' >/dev/null
+alias --save restart_internet 'disable_internet ; enable_internet' >/dev/null
 function toggle_internet
     if test (get_internet) = enabled
         disable_internet
