@@ -112,8 +112,10 @@ end
 funcsave yearless_parse >/dev/null
 
 function tomorrow_parse
-    task (cat ~/.local/share/magazine/T)
-    truncate -s 0 ~/.local/share/magazine/T
+    if test -f ~/.local/share/magazine/T -a -s ~/.local/share/magazine/T
+        task (cat ~/.local/share/magazine/T)
+        truncate -s 0 ~/.local/share/magazine/T
+    end
 end
 funcsave tomorrow_parse >/dev/null
 

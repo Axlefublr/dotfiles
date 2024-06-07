@@ -11,8 +11,8 @@ for file in ~/.local/share/magazine/*
 end
 cp -fr ~/.local/share/magazine ~/prog/backup
 cd ~/prog/backup
-set -l changed_magazines (git status -s | rg magazine | wl -l)
-if test $changed_magazines -gt 0
+set -l changed_magazines (git status -s | rg magazine | wc -l)
+if test "$changed_magazines" -gt 0
     git add magazine/
     git commit -m "sync magazine $(date '+%y.%m.%d'): $changed_magazines changes"
 end
@@ -52,4 +52,5 @@ if test (date '+%A') = Sunday
     task ask
 end
 
+loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sleep, it hasn't connected to wifi at that point, but *has* started executing this script. so what ends up happening is gpp fails to push all the directories because it doesn't have internet to do so yet.
 gpp
