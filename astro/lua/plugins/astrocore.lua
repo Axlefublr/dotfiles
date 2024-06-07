@@ -444,6 +444,16 @@ local normal_mappings = {
 			vim.diagnostic.open_float()
 		end,
 	},
+	gL = {
+		function()
+			---@diagnostic disable-next-line: undefined-field
+			if vim.diagnostic.config().virtual_lines then
+				vim.diagnostic.config({ virtual_lines = false })
+			else
+				vim.diagnostic.config({ virtual_lines = true })
+			end
+		end,
+	},
 	['[e'] = {
 		function()
 			for _ = 1, vim.v.count1 do
