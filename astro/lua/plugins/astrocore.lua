@@ -588,7 +588,7 @@ local command_mappings = {
 	["<A-'>0"] = { function() numbered_command(10) end },
 	["<A-'>E"] = { function() killring_pop_tail('command') end },
 	["<A-'>e"] = { function() killring_pop('command') end },
-	['<CR>'] = { percent_if_empty },
+	['<CR>'] = { rotate_range },
 	["<A-'>"] = '<C-r>',
 	['<C-v>'] = '<C-r>+',
 	["<A-'>w"] = '<C-r>0',
@@ -700,9 +700,9 @@ local opts_table = {
 		signs = false,
 		virtual_lines = true,
 	},
-	-- vim options can be configured here
 	options = {
 		opt = {
+			gdefault = true,
 			relativenumber = true,
 			number = false,
 			spell = false,
