@@ -145,6 +145,16 @@ function set_mic_volume
 end
 funcsave set_mic_volume >/dev/null
 
+function reconnect_bluetooth_device
+    if not test "$argv"
+        echo 'missing bluetooth device MAC address' >&2
+        return 1
+    end
+    bluetoothctl disconnect $argv
+    bluetoothctl connect $argv
+end
+funcsave reconnect_bluetooth_device >/dev/null
+
 function get_bluetooth
     bluetoothctl show | string match -gr 'Powered: (no|yes)'
 end
