@@ -2,20 +2,20 @@
 
 function runner
     truncate -s 0 /dev/shm/runner_output
-    for line in (awk '!seen[$0]++' ~/.local/share/runner_history)
+    for line in (awk '!seen[$0]++' ~/.local/share/magazine/H)
         if not contains $line (cat ~/.local/share/magazine/L)
             echo $line
         end
     end | while read -l line
         set last $last $line
     end
-    printf '%s\n' $last | tail -n 30 >~/.local/share/runner_history
+    printf '%s\n' $last >~/.local/share/magazine/H
     begin
         cat ~/.local/share/magazine/L
         echo -e '\n'
-        cat ~/.local/share/runner_history
+        cat ~/.local/share/magazine/H
     end | rofi -dmenu 2>/dev/null >/dev/shm/runner_output
-    indeed ~/.local/share/runner_history (cat /dev/shm/runner_output)
+    indeed ~/.local/share/magazine/H (cat /dev/shm/runner_output)
     if set -q argv[1]
         set output "$(source /dev/shm/runner_output 2>&1)"
         notify-send -t 0 "$output"
