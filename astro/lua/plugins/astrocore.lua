@@ -265,10 +265,14 @@ local function get_buffer_cwd()
 	return parent
 end
 
-local function percent_if_empty()
+local function rotate_range()
 	local cmd = vim.fn.getcmdline()
-	if cmd == '' then
-		FeedKeys('%')
+	if cmd == '' or cmd == "'<,'>" then
+		vim.fn.setcmdline('%')
+	elseif cmd == '%' then
+		vim.fn.setcmdline('.,.+')
+	elseif cmd == '.,.+' then
+		vim.fn.setcmdline("'<,'>")
 	else
 		FeedKeysInt('<CR>')
 	end
