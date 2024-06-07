@@ -64,7 +64,6 @@ local function copy_git_relative()
 	local full_path = vim.api.nvim_buf_get_name(0)
 	local git_root = get_repo_root()
 	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
-	relative_path = vim.fn.fnamemodify(relative_path, ':~')
 	vim.fn.setreg('+', relative_path)
 	vim.notify('repo relative: ' .. relative_path)
 end
