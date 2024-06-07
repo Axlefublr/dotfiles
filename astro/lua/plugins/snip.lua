@@ -138,7 +138,7 @@ local snippets = function()
 
 	local fish_snippets = {
 		s('#!', {
-			t({ '#!/usr/bin/env fish', '' }), -- {} in a t is a multiline text node
+			t({ '#!/usr/bin/env fish', '' }), -- {} in a t is a multiline text node, every separate string is its own line
 		}),
 		s('function', {
 			t('function '),
