@@ -21,85 +21,85 @@ local snippets = function()
 			f(function() return os.date('%H:%M') end),
 		}),
 		s('ff2930', {
-			t('ff2930')
+			t('ff2930'),
 		}),
 		s('ff9f1a', {
-			t('ff9f1a')
+			t('ff9f1a'),
 		}),
 		s('ffd75f', {
-			t('ffd75f')
+			t('ffd75f'),
 		}),
 		s('87ff5f', {
-			t('87ff5f')
+			t('87ff5f'),
 		}),
 		s('3dff47', {
-			t('3dff47')
+			t('3dff47'),
 		}),
 		s('00d7ff', {
-			t('00d7ff')
+			t('00d7ff'),
 		}),
 		s('af87ff', {
-			t('af87ff')
+			t('af87ff'),
 		}),
 		s('ffafd7', {
-			t('ffafd7')
+			t('ffafd7'),
 		}),
 		s('ff8787', {
-			t('ff8787')
+			t('ff8787'),
 		}),
 		s('878787', {
-			t('878787')
+			t('878787'),
 		}),
 		s('ea6962', {
-			t('ea6962')
+			t('ea6962'),
 		}),
 		s('e49641', {
-			t('e49641')
+			t('e49641'),
 		}),
 		s('d3ad5c', {
-			t('d3ad5c')
+			t('d3ad5c'),
 		}),
 		s('a9b665', {
-			t('a9b665')
+			t('a9b665'),
 		}),
 		s('78bf84', {
-			t('78bf84')
+			t('78bf84'),
 		}),
 		s('7daea3', {
-			t('7daea3')
+			t('7daea3'),
 		}),
 		s('b58cc6', {
-			t('b58cc6')
+			t('b58cc6'),
 		}),
 		s('e491b2', {
-			t('e491b2')
+			t('e491b2'),
 		}),
 		s('d4be98', {
-			t('d4be98')
+			t('d4be98'),
 		}),
 		s('928374', {
-			t('928374')
+			t('928374'),
 		}),
 		s('403f3f', {
-			t('403f3f')
+			t('403f3f'),
 		}),
 		s('313030', {
-			t('313030')
+			t('313030'),
 		}),
 		s('212121', {
-			t('212121')
+			t('212121'),
 		}),
 		s('1f1e1e', {
-			t('1f1e1e')
+			t('1f1e1e'),
 		}),
 		s('1a1919', {
-			t('1a1919')
+			t('1a1919'),
 		}),
 		s('292828', {
-			t('292828')
+			t('292828'),
 		}),
 		s('0f0f0f', {
-			t('0f0f0f')
+			t('0f0f0f'),
 		}),
 	}
 	ls.add_snippets('all', all_snippets)
@@ -114,7 +114,7 @@ local snippets = function()
 			i(0),
 			t(')'),
 		}),
-		s('function inline', {
+		s('funl', {
 			t('function'),
 			i(1),
 			t('('),
@@ -123,7 +123,7 @@ local snippets = function()
 			i(0),
 			t(' end'),
 		}),
-		s('function()', {
+		s('func', {
 			t('function'),
 			i(1),
 			t('('),
@@ -131,8 +131,8 @@ local snippets = function()
 			t(')'),
 			t({ '', '\t' }),
 			i(0),
-			t({ '', 'end' })
-		})
+			t({ '', 'end' }),
+		}),
 	}
 	ls.add_snippets('lua', lua_snippets)
 
@@ -194,8 +194,8 @@ local snippets = function()
 			t('xclip -r -selection clipboard'),
 		}),
 		s('xpc', {
-			t('xclip -selection clipboard -o')
-		})
+			t('xclip -selection clipboard -o'),
+		}),
 	}
 	ls.add_snippets('fish', fish_snippets)
 
@@ -241,8 +241,6 @@ end
 return {
 	{
 		'L3MON4D3/LuaSnip',
-		opts = function()
-			snippets()
-		end
+		opts = function() snippets() end,
 	},
 }
