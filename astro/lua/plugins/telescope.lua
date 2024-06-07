@@ -384,6 +384,10 @@ return {
 					lsp_references = {
 						show_line = false,
 						include_declaration = false,
+						initial_mode = 'normal',
+						preview = {
+							hide_on_startup = false,
+						},
 					},
 					lsp_incoming_calls = {
 						show_line = false,
