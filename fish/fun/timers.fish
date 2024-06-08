@@ -1,5 +1,45 @@
 #!/usr/bin/env fish
 
+function doti
+    if status is-interactive
+        _doti $argv
+    else
+        kitty -T timer fish -c "_doti $(string escape $argv)"
+    end
+end
+funcsave doti >/dev/null
+
+function _doti
+    clx
+    while true
+        if set -q argv[1]
+            termdown $argv[1] || break
+        else
+            termdown 25m || break
+        end
+        echo "You just acted! Rest now?"
+        read -p rdp -ln 1 should_continue
+        if not test $should_continue
+            break
+        end
+        clx
+
+        if set -q argv[2]
+            termdown $argv[2] || break
+        else
+            termdown 5m || break
+        end
+        echo "You just rested! Act now?"
+        read -p rdp -ln 1 should_continue
+        if not test $should_continue
+            break
+        end
+        clx
+    end
+    clx
+end
+funcsave _doti >/dev/null
+
 function down
     if status is-interactive
         _down $argv
