@@ -337,8 +337,16 @@ function git_search_file
     end
     set commits (git log --format=format:"%h" -- $argv[1])
     for commit in $commits
-        git show $commit:$argv[1] 2>/dev/null | rg $argv[2..]
-        and git show -s --oneline $commit
+        truncate -s 0 /dev/shm/git_search
+        git show $commit:$argv[1] 2>/dev/null | rg --color=always $argv[2..] >>/dev/shm/git_search
+        and git show --color=always --oneline $commit -- $argv[1] >>/dev/shm/git_search
+        if test -s /dev/shm/git_search
+            cat /dev/shm/git_search | diff-so-fancy | less
+            and read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
+            and if test "$continue" = q
+                break
+            end
+        end
     end
 end
 funcsave git_search_file >/dev/null
@@ -350,19 +358,23 @@ function git_search
     end
     set commits (git log --format=format:"%h")
     for commit in $commits
+        truncate -s 0 /dev/shm/git_search
         set files (git show --format=format:'' --name-only $commit)
-        set -l did_match ''
+        set -l matched_files
         for file in $files
-            git show $commit:$file 2>/dev/null | rg $argv
-            and begin
+            git show $commit:$file 2>/dev/null | rg --color=always $argv >>/dev/shm/git_search
+            and set matched_files $matched_files $file
+            if test -s /dev/shm/git_search
                 set_color '#e491b2'
                 echo $file
                 set_color normal
-                set did_match true
             end
         end
-        if test "$did_match"
-            git show -s --oneline $commit
+        if test "$matched_files"
+            git show --color=always --oneline $commit -- $matched_files >>/dev/shm/git_search
+        end
+        if test -s /dev/shm/git_search
+            cat /dev/shm/git_search | diff-so-fancy | less
         end
     end
 end
