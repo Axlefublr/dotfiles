@@ -23,7 +23,7 @@ if status is-interactive
 
     bind -M default -m insert cie 'commandline ""'
     bind -M default die 'commandline ""'
-    bind -M default yie 'commandline | xclip -r -selection clipboard'
+    bind -M default Y 'commandline | xclip -r -selection clipboard'
 
     bind -M insert \c] execute
     bind -M default K execute
@@ -37,7 +37,7 @@ if status is-interactive
 
     bind \eo expand-abbr
     bind -M insert \eo expand-abbr
-    bind -M insert '/' expand-abbr self-insert
+    bind -M insert / expand-abbr self-insert
     bind dr transpose-words
     bind -M insert \ed clear-screen repaint
     bind -M default \ed clear-screen repaint

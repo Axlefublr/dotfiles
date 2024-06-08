@@ -264,7 +264,7 @@ function filter_mature_tasks
                 if_print $days $name 7
             case cloths fscrub bscrub liked cazor nails audio
                 if_print $days $name 10
-            case wilter bottle
+            case wilter bottle photos
                 if_print $days $name 15
             case razor
                 if_print $days $name 25
@@ -335,9 +335,9 @@ function git_search_file
         echo 'the second argument and beyond are expected argument(s) to `rg`' >&2
         return 1
     end
-    set commits (git log --format=format:"%h")
+    set commits (git log --format=format:"%h" -- $argv[1])
     for commit in $commits
-        git show $commit:$argv[1] | rg $argv[2..]
+        git show $commit:$argv[1] 2>/dev/null | rg $argv[2..]
         and git show -s --oneline $commit
     end
 end
