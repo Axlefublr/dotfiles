@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function runner
-    truncate -s 0 /dev/shm/runner_output
+    truncate -s 0 /dev/shm/runner_input
     for line in (awk '!seen[$0]++' ~/.local/share/magazine/H)
         if not contains $line (cat ~/.local/share/magazine/L)
             echo $line
@@ -14,19 +14,19 @@ function runner
         cat ~/.local/share/magazine/L
         echo -e '\n'
         cat ~/.local/share/magazine/H
-    end | rofi -dmenu 2>/dev/null >/dev/shm/runner_output
-    indeed ~/.local/share/magazine/H (cat /dev/shm/runner_output)
+    end | rofi -dmenu 2>/dev/null >/dev/shm/runner_input
+    indeed ~/.local/share/magazine/H (cat /dev/shm/runner_input)
     if set -q argv[1]
-        set output "$(source /dev/shm/runner_output 2>&1)"
+        set output "$(source /dev/shm/runner_input &| tee /dev/shm/runner_output)"
         notify-send -t 0 "$output"
     else
-        source /dev/shm/runner_output
+        source /dev/shm/runner_input
     end
-    if rg '^at play' /dev/shm/runner_output
+    if rg '^at play' /dev/shm/runner_input
         loago do liked
         widget_update mature_tasks_line Loago
     end
-    if rg '^loago do' /dev/shm/runner_output
+    if rg '^loago do' /dev/shm/runner_input
         widget_update mature_tasks_line Loago
     end
 end

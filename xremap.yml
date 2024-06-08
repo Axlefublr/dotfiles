@@ -504,6 +504,7 @@ keymap:
               launch: [kitty, --hold, -d, "~/prog/dotfiles", nvim, -c, "Young"],
             }
           f: { launch: [kitty] }
+          c: { launch: [awesome-client, "Write_client_info()"] }
 
           i: { launch: [fish, -c, runner_symbol] }
           o: { launch: [fish, -c, runner_symbol_name] }
@@ -1270,12 +1271,20 @@ keymap:
     mode: [default]
     exact_match: true
     remap:
-      Shift_L-t: { launch: [awesome-client, "Write_client_info()"] }
       Super-Space: { launch: [fish, -c, toggle_layout] }
       Super-6: { launch: [fish, -c, toggle_compositor] }
       F13: { launch: [wmctrl, -c, ":ACTIVE:"] }
       Shift-F13: { launch: [xdotool, getwindowfocus, windowkill] }
       Super-v: { launch: [boomer] }
+      Shift_L-t:
+        {
+          launch:
+            [
+              fish,
+              -c,
+              "cat /dev/shm/runner_output | xclip -r -selection clipboard",
+            ],
+        }
       Shift_L-g:
         {
           launch:
