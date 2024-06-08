@@ -266,14 +266,21 @@ end
 
 local function rotate_range()
 	local cmd = vim.fn.getcmdline()
-	if cmd == '' or cmd == "'<,'>" then
+	if cmd == '' or cmd == '.,.+' or cmd == '.,$' then
 		vim.fn.setcmdline('%')
 	elseif cmd == '%' then
-		vim.fn.setcmdline('.,.+')
-	elseif cmd == '.,.+' then
-		vim.fn.setcmdline("'<,'>")
+		vim.fn.setcmdline('')
 	else
 		FeedKeysInt('<CR>')
+	end
+end
+
+local function rotate_relative_range()
+	local cmd = vim.fn.getcmdline()
+	if cmd == '' or cmd == '.,$' then
+		vim.fn.setcmdline('.,.+')
+	else
+		vim.fn.setcmdline('.,$')
 	end
 end
 
@@ -599,6 +606,7 @@ local command_mappings = {
 	["<A-'>E"] = { function() killring_pop_tail('command') end },
 	["<A-'>e"] = { function() killring_pop('command') end },
 	['<CR>'] = { rotate_range },
+	['<S-CR>'] = { rotate_relative_range },
 	["<A-'>"] = '<C-r>',
 	['<C-v>'] = '<C-r>+',
 	["<A-'>w"] = '<C-r>0',
@@ -645,7 +653,7 @@ local normal_visual_mappings = {
 	['<Leader>lf'] = { function() vim.lsp.buf.format({ async = true }) end },
 	['&'] = '@:',
 	['<CR>'] = ':',
-	['<S-CR>'] = ':',
+	['<S-CR>'] = ':.,.+',
 	["'"] = '"',
 	gs = '=',
 	[']}'] = '}k',
