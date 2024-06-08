@@ -284,6 +284,22 @@ local function rotate_relative_range()
 	end
 end
 
+local function execute_this_file()
+	local file = vim.api.nvim_buf_get_name(0)
+	save()
+	require('astrocore').cmd({
+		'kitten',
+		'@',
+		'launch',
+		'--cwd',
+		vim.fn.getcwd(),
+		'--hold',
+		'fish',
+		'-c',
+		"execute '" .. file .. "'",
+	})
+end
+
 local normal_mappings = {
 	['<Leader>dq'] = { copy_full_path },
 	['<Leader>dw'] = { copy_file_name },
@@ -298,6 +314,7 @@ local normal_mappings = {
 	["'e"] = { killring_pop },
 	["'t"] = { killring_compile },
 	["'T"] = { killring_compile_reversed },
+	['<Leader>lx'] = { execute_this_file },
 	['<Leader>S'] = { function() require('harp').default_set() end },
 	['<Leader>s'] = { function() require('harp').default_get() end },
 	['<Leader>X'] = { function() require('harp').percwd_set() end },

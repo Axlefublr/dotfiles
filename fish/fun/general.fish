@@ -321,3 +321,20 @@ function regen_highs
     nvim -c '%g;^\\S.*\\n \\{19};j' -c '%sort' -c q ~/prog/backup/highlights.txt
 end
 funcsave regen_highs >/dev/null
+
+function execute
+    set path $argv[1]
+    switch $path
+        case '*.rs'
+            cargo run
+        case '*.py'
+            python $path
+        case '*'
+            $path
+    end
+    read -p rdp -ln 1 continue
+    if test "$continue" = x
+        kitten @close-window # not exit because this is called via `fish -c`
+    end
+end
+funcsave execute >/dev/null

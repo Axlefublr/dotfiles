@@ -188,7 +188,7 @@ local snippets = function()
 			t("' >/dev/null"),
 		}),
 		s('read', {
-			t('read -p rdp '),
+			t('read -p rdp'),
 		}),
 		s('xcp', {
 			t('xclip -r -selection clipboard'),
