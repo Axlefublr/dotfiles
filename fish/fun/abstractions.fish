@@ -364,17 +364,17 @@ function git_search
         for file in $files
             git show $commit:$file 2>/dev/null | rg --color=always $argv >>/dev/shm/git_search
             and set matched_files $matched_files $file
-            if test -s /dev/shm/git_search
-                set_color '#e491b2'
-                echo $file
-                set_color normal
-            end
+            and echo (set_color '#e491b2')$file(set_color normal) >>/dev/shm/git_search
         end
         if test "$matched_files"
             git show --color=always --oneline $commit -- $matched_files >>/dev/shm/git_search
         end
         if test -s /dev/shm/git_search
             cat /dev/shm/git_search | diff-so-fancy | less
+            and read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
+            and if test "$continue" = q
+                break
+            end
         end
     end
 end
