@@ -342,8 +342,8 @@ function git_search_file
         and git show --color=always --oneline $commit -- $argv[1] >>/dev/shm/git_search
         if test -s /dev/shm/git_search
             cat /dev/shm/git_search | diff-so-fancy | less
-            and read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
-            and if test "$continue" = q
+            read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
+            if test "$continue" = q
                 break
             end
         end
@@ -371,8 +371,8 @@ function git_search
         end
         if test -s /dev/shm/git_search
             cat /dev/shm/git_search | diff-so-fancy | less
-            and read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
-            and if test "$continue" = q
+            read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
+            if test "$continue" = q
                 break
             end
         end
