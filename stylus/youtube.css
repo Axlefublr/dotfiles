@@ -121,7 +121,8 @@ div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-li
 /* border around hearted comment */
 #hearted-border.ytd-creator-heart-renderer,
 /* blurred background image in playlist header */
-.blurred-image.ytd-playlist-header-renderer {
+.blurred-image.ytd-playlist-header-renderer,
+ytd-author-comment-badge-renderer > #icon.style-scope.ytd-author-comment-badge-renderer{
 	display: none;
 }
 
@@ -265,6 +266,10 @@ ytd-searchbox[has-focus] #container.ytd-searchbox {
 /* each singular notification */
 ytd-notification-renderer {
 	padding: 16px;
+}
+
+#container.ytd-channel-name > #text-container.ytd-channel-name {
+	padding: 0 7px;
 }
 
 /* :active sidebar (the one you don't pull out) buttons, like subscriptions */
