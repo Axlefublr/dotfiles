@@ -29,7 +29,7 @@ alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%
 alias --save ez 'eza --git --git-repos' >/dev/null
 
 function clx
-    if test "$NVIM_LOG_FILE"
+    if test "$TERM" != xterm-kitty
         clear -x
     else
         printf '\e[H\e[22J'
