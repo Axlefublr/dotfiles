@@ -561,6 +561,13 @@ local normal_mappings = {
 	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
 	['z;'] = 'za',
 	zR = '<Cmd>set foldlevel=99<CR>',
+	zE = function()
+		if vim.opt.foldcolumn == '0' then
+			vim.opt.foldcolumn = 'auto'
+		else
+			vim.opt.foldcolumn = '0'
+		end
+	end,
 }
 
 local visual_mappings = {
