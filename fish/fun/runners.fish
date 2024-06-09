@@ -203,7 +203,7 @@ end
 funcsave magazine_restore >/dev/null
 
 function magazine_filter
-    set result (rofi_multi_select -matching fuzzy -input ~/.local/share/magazine/$argv[1] 2>/dev/null ; echo $status)
+    set result (rofi_multi_select -input ~/.local/share/magazine/$argv[1] 2>/dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end

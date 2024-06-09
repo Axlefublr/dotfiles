@@ -5,14 +5,15 @@ return {
 
 		opts.tabline[2] = {
 			provider = ' %f',
-			condition = function() return vim.bo.filetype ~= 'oil' end
+			condition = function() return vim.bo.filetype ~= 'oil' end,
 		} -- previously, bufferline
 
 		table.remove(opts.tabline[4], 2)
 
-		opts.winbar[2] = status.component.breadcrumbs({
-			max_depth = 2,
-		})
+		-- opts.winbar[2] = status.component.breadcrumbs({
+		-- 	max_depth = 1,
+		-- })
+		opts.winbar[2] = nil
 		table.insert(opts.tabline, 3, opts.winbar)
 		table.insert(opts.tabline, 5, {
 			provider = function()

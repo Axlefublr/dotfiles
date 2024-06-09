@@ -866,10 +866,10 @@ local opts_table = {
 			-- 	event = 'CursorMoved',
 			-- 	command = 'normal! zz',
 			-- },
-			{
-				event = { 'CursorMoved' },
-				callback = function() vim.schedule(vim.cmd.redrawtabline) end,
-			},
+			-- {
+			-- 	event = { 'CursorMoved' },
+			-- 	callback = function() vim.schedule(vim.cmd.redrawtabline) end,
+			-- },
 			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = '*.XCompose',
