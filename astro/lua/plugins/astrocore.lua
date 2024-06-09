@@ -553,6 +553,12 @@ local normal_mappings = {
 	['[w'] = 'gT',
 	['<Leader>aP'] = '<Cmd>tabclose<CR>',
 	['<Leader>ap'] = '<Cmd>tabnew<CR>',
+	['<Leader>j:h'] = '<Cmd>setfiletype html<CR>',
+	['<Leader>j:l'] = '<Cmd>setfiletype lua<CR>',
+	['<Leader>j:c'] = '<Cmd>setfiletype css<CR>',
+	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
+	['<Leader>j:f'] = '<Cmd>setfiletype fish<CR>',
+	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
 }
 
 local visual_mappings = {
