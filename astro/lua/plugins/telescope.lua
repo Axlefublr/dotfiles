@@ -168,8 +168,7 @@ local function remaps(telescope)
 	vim.keymap.set('n', '<Leader>j\\', builtin.builtin)
 	vim.keymap.set('n', '<Leader>jw', builtin.buffers)
 	vim.keymap.set('n', '<Leader>jW', builtin.oldfiles)
-	vim.keymap.set('n', '<Leader>j<cr>', builtin.commands)
-	vim.keymap.set('n', '<Leader>jy', builtin.command_history)
+	vim.keymap.set('n', '<Leader><CR>', builtin.command_history)
 	vim.keymap.set('n', '<Leader>jm', builtin.man_pages)
 	vim.keymap.set('n', '<Leader>ji', builtin.marks)
 	vim.keymap.set('n', "<Leader>j'", builtin.registers)
@@ -213,6 +212,7 @@ return {
 		keys = {
 			{ '<Leader>j' },
 			{ '<Leader>l' },
+			{ '<Leader><CR>' },
 		},
 		opts = function(_, opts)
 			local layout_actions = require('telescope.actions.layout')

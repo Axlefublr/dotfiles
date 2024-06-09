@@ -499,7 +499,6 @@ local normal_mappings = {
 		end,
 	},
 	['<Leader>dl'] = { "dil'dd", remap = true },
-	['<Leader><CR>'] = ':%',
 	gss = '==',
 	U = '@n',
 	zn = 'q',
