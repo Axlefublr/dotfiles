@@ -502,7 +502,7 @@ local normal_mappings = {
 	gss = '==',
 	U = '@n',
 	zn = 'q',
-	zm = '@',
+	zx = '@',
 	gK = 'K',
 	Y = 'yg_',
 	['~'] = 'g~l',
