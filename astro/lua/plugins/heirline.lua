@@ -13,6 +13,12 @@ return {
 		-- opts.winbar[2] = status.component.breadcrumbs({
 		-- 	max_depth = 1,
 		-- })
+		-- opts.winbar[1] = status.component.separated_path({
+		-- 	path_func = function()
+		-- 		local full_path = vim.api.nvim_buf_get_name(0)
+		-- 		return vim.fn.fnamemodify(full_path, ':~')
+		-- 	end,
+		-- })
 		opts.winbar[2] = nil
 		table.insert(opts.tabline, 3, opts.winbar)
 		table.insert(opts.tabline, 5, {
@@ -110,5 +116,9 @@ return {
 		table.remove(opts.statusline, 11)
 		table.remove(opts.statusline, 9)
 		table.remove(opts.statusline, 3)
+
+		opts.statuscolumn[1] = status.component.foldcolumn({
+			foldcolumn = { padding = { right = 0 } },
+		})
 	end,
 }
