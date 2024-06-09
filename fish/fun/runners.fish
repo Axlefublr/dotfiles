@@ -287,15 +287,14 @@ function runner_link
 end
 funcsave runner_link >/dev/null
 
-function runner_project
+function pjs
     for file in (fd -utf project.txt ~/prog)
-        set dirname (path dirname $file | path basename)
-        for line in (cat $file)
-            echo $dirname: $line
-        end
-    end
+        string replace "$HOME" '~' $file
+        cat $file
+        echo
+    end >/tmp/pjs
 end
-funcsave runner_project >/dev/null
+funcsave pjs >/dev/null
 
 function runner_notification
     set result (rofi -dmenu 2>/dev/null ; echo $status)
