@@ -559,6 +559,8 @@ local normal_mappings = {
 	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
 	['<Leader>j:f'] = '<Cmd>setfiletype fish<CR>',
 	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
+	['z;'] = 'za',
+	zR = '<Cmd>set foldlevel=99<CR>',
 }
 
 local visual_mappings = {
