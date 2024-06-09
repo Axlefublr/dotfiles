@@ -1,13 +1,13 @@
 #!/usr/bin/env fish
 
 if test -d /tmp/log
-	return 1
+    return 1
 else
-	mkdir -p /tmp/log
+    mkdir -p /tmp/log
 end
 
 for script in ~/prog/dotfiles/scripts/widget_update/*.fish
-	$script 2>>/dev/shm/user_log.txt & disown
+    $script 2>>/dev/shm/user_log.txt & disown
 end
 
 xremap --mouse ~/prog/dotfiles/xremap.yml 2>>/dev/shm/user_log.txt & disown
@@ -21,7 +21,7 @@ redshift -O 5700 2>>/dev/shm/user_log.txt
 playerctld daemon
 
 kitty -T meow 2>>/dev/shm/user_log.txt & disown
-oil.fish ~/Videos/content 2>>/dev/shm/user_log.txt & disown
+oil.fish ~/vid/content 2>>/dev/shm/user_log.txt & disown
 
 kitty -T editor -d ~/prog/dotfiles nvim 2>>/dev/shm/user_log.txt & disown
 # win_wait 'neovide — Neovide' 0.5 0 200
@@ -43,7 +43,7 @@ move_all 8 $ankis
 # loopuntil is_internet 0.5 0 60
 # spotify-launcher -v 2>>/dev/shm/user_log.txt & disown
 
-notify-sent -t 2000 'xwaaa'
+notify-sent -t 2000 xwaaa
 sleep 10
 xwaaa
 

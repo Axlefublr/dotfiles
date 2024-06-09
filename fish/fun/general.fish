@@ -241,7 +241,7 @@ function oil
         nvim .
         return
     end
-    if test "$argv[1]" = "$HOME/Videos/content"
+    if test "$argv[1]" = "$HOME/vid/content"
         kitty -T oil-content nvim .
         return
     end
@@ -275,7 +275,7 @@ function install_yt_video
     set video_short_link (string replace 'https://www.youtube.com/shorts/' '' $video_short_link)
     set video_short_link (string replace -r '\\&.+' '' $video_short_link)
     kitty -T link-download yt-dlp \
-        -o "~/Videos/content/$extra/%(channel)s — %(title)s — ($video_short_link).%(ext)s" \
+        -o "~/vid/content/$extra/%(channel)s — %(title)s — ($video_short_link).%(ext)s" \
         --print-to-file "%(channel)s — %(title)s" $file \
         $clipboard
     notify-send -t 3000 "downloaded: $(cat $file)"

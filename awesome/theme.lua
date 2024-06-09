@@ -80,9 +80,9 @@ theme.menu_submenu_icon = themes_path .. 'default/submenu.png'
 theme.menu_height = dpi(15)
 theme.menu_width = dpi(100)
 
-theme.wallpaper = '/home/axlefublr/Pictures/tree/themes/tavern-16:9.png'
+theme.wallpaper = '/home/axlefublr/pic/tree/themes/tavern-16:9.png'
 
-theme.layout_icon_path = '/home/axlefublr/Pictures/tree/logos/awesome-layouts/'
+theme.layout_icon_path = '/home/axlefublr/pic/tree/logos/awesome-layouts/'
 
 theme.layout_fairh = theme.layout_icon_path .. 'fairhw.png'
 theme.layout_fairv = theme.layout_icon_path .. 'fairvw.png'

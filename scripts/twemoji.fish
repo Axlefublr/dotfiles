@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-cd ~/Pictures/twemoji-svg
+cd ~/pic/twemoji-svg
 if not git status -s
     exit 1
 end
