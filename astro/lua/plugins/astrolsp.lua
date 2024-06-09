@@ -10,7 +10,7 @@ local opts_table = {
 		format_on_save = {
 			enabled = true,
 			allow_filetypes = {},
-			ignore_filetypes = { 'css', 'yml', 'html' },
+			ignore_filetypes = { 'yml', 'html' },
 		},
 		disabled = {
 			'lua_ls',
