@@ -17,8 +17,9 @@
 	--gruvbox-grey: #928374;
 
 	--gruvbox-background: hsl(0, 1%, 16%);
-	--gruvbox-darker-background: hsl(0, 1%, 14%);
-	--gruvbox-darkerest-background: hsl(0, 1%, 13%);
+	--gruvbox-dark14-background: hsl(0, 1%, 14%);
+	--gruvbox-dark13-background: hsl(0, 1%, 13%);
+	--gruvbox-dark12-background: hsl(0, 1%, 12%);
 
 	--shell-pink-ten: hsla(330, 100%, 84%, 0.1);
 	--shell-pink-thirty: hsla(330, 100%, 84%, 0.3);
@@ -44,10 +45,10 @@ html[darker-dark-theme][dark],
 	--yt-spec-button-chip-background-hover: var(--shell-pink-thirty);
 	--yt-spec-badge-chip-background: var(--shell-background-pink);
 	--yt-spec-base-background: var(--gruvbox-background);
-	--yt-spec-raised-background: var(--gruvbox-darkerest-background);
-	--ytd-searchbox-background: var(--gruvbox-darker-background);
+	--yt-spec-raised-background: var(--gruvbox-dark13-background);
+	--ytd-searchbox-background: var(--gruvbox-background);
 	--ytd-searchbox-text-color: var(--gruvbox-white);
-	--ytd-searchbox-legacy-button-color: var(--gruvbox-darker-background);
+	--ytd-searchbox-legacy-button-color: var(--gruvbox-background);
 	--yt-spec-text-primary: var(--gruvbox-white);
 	--yt-spec-static-brand-white: var(--gruvbox-white);
 	--yt-spec-text-secondary: var(--gruvbox-grey);
@@ -122,7 +123,7 @@ div.style-scope.ytls-live-dashboard-page-renderer#chat:has(div.style-scope.yt-li
 #hearted-border.ytd-creator-heart-renderer,
 /* blurred background image in playlist header */
 .blurred-image.ytd-playlist-header-renderer,
-ytd-author-comment-badge-renderer > #icon.style-scope.ytd-author-comment-badge-renderer{
+ytd-author-comment-badge-renderer > #icon.style-scope.ytd-author-comment-badge-renderer {
 	display: none;
 }
 
@@ -149,7 +150,8 @@ yt-live-chat-author-badge-renderer div {
 }
 
 /* × button and mic button to the right of the search bar */
-.yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill {
+.yt-spec-touch-feedback-shape--touch-response
+	.yt-spec-touch-feedback-shape__fill {
 	background-color: var(--gruvbox-white);
 }
 
@@ -164,9 +166,21 @@ yt-live-chat-author-badge-renderer div {
 }
 
 /* player background */
-.html5-video-player:not(.efyt-black-bars), .html5-video-player.unstarted-mode:not(.efyt-black-bars),
-.html5-video-player.ytp-autonav-endscreen-cancelled-state.ended-mode{
-	background-color: var(--gruvbox-darkerest-background);
+.html5-video-player:not(.efyt-black-bars),
+.html5-video-player.unstarted-mode:not(.efyt-black-bars),
+.html5-video-player.ytp-autonav-endscreen-cancelled-state.ended-mode {
+	background-color: var(--gruvbox-dark13-background);
+}
+
+/* left side big buttons */
+ytd-mini-guide-renderer,
+ytd-mini-guide-entry-renderer {
+	background-color: var(--gruvbox-dark14-background);
+}
+
+/* top bar */
+#background.ytd-masthead {
+	background-color: var(--gruvbox-dark12-background);
 }
 
 /* unselected sections on a channel */
@@ -200,7 +214,7 @@ ytd-author-comment-badge-renderer,
 }
 
 /* like button */
-button[aria-pressed="false"] [animated-icon-type="LIKE"] path{
+button[aria-pressed="false"] [animated-icon-type="LIKE"] path {
 	stroke: var(--gruvbox-white) !important;
 }
 button[aria-pressed="true"] [animated-icon-type="LIKE"] path {
@@ -319,15 +333,19 @@ yt-live-chat-text-message-renderer {
 }
 
 /* background color of chat input box */
-yt-live-chat-message-input-renderer[updated-input-visuals] #input-container.yt-live-chat-message-input-renderer {
+yt-live-chat-message-input-renderer[updated-input-visuals]
+	#input-container.yt-live-chat-message-input-renderer {
 	background-color: unset;
 }
 
 /* start poll + button */
-yt-live-chat-message-input-renderer[updated-input-visuals] #picker-buttons.yt-live-chat-message-input-renderer yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer {
+yt-live-chat-message-input-renderer[updated-input-visuals]
+	#picker-buttons.yt-live-chat-message-input-renderer
+	yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer {
 	margin-left: 0;
 }
-yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer > #button.yt-live-chat-icon-toggle-button-renderer {
+yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer
+	> #button.yt-live-chat-icon-toggle-button-renderer {
 	background-color: unset;
 }
 
@@ -362,7 +380,8 @@ yt-live-chat-header-renderer {
 }
 
 /* container with history buttons */
-ytd-two-column-browse-results-renderer[page-subtype=history] ytd-browse-feed-actions-renderer.ytd-two-column-browse-results-renderer {
+ytd-two-column-browse-results-renderer[page-subtype="history"]
+	ytd-browse-feed-actions-renderer.ytd-two-column-browse-results-renderer {
 	padding: 0;
 }
 ytd-browse-feed-actions-renderer.ytd-two-column-browse-results-renderer {
@@ -370,6 +389,7 @@ ytd-browse-feed-actions-renderer.ytd-two-column-browse-results-renderer {
 }
 
 /* container with history videos */
-ytd-two-column-browse-results-renderer[page-subtype=history][has-secondary-column-data] #primary.ytd-two-column-browse-results-renderer {
+ytd-two-column-browse-results-renderer[page-subtype="history"][has-secondary-column-data]
+	#primary.ytd-two-column-browse-results-renderer {
 	padding-right: 160px;
 }
