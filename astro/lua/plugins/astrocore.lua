@@ -782,6 +782,7 @@ local opts_table = {
 			-- showtabline = 0,
 			fillchars = 'eob: ',
 			foldcolumn = '1',
+			foldminlines = 0,
 			autowrite = true,
 			autowriteall = true,
 			cursorline = false,
