@@ -1,10 +1,5 @@
 #!/usr/bin/env fish
 
-function prli
-    printf '%s\n' $argv
-end
-funcsave prli >/dev/null
-
 function new --description='Creates new files or directories and all required parent directories'
     for arg in $argv
         if string match -rq '/$' -- "$arg"

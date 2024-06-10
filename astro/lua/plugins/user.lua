@@ -79,4 +79,10 @@ return {
 			},
 		},
 	},
+	{
+		'kevinhwang91/nvim-ufo',
+		opts = {
+			open_fold_hl_timeout = 100,
+		},
+	},
 }
