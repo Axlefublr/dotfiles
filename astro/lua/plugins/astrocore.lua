@@ -643,8 +643,8 @@ local command_insert_mappings = {
 }
 
 local normal_visual_pending_mappings = {
-	H = { function() vim.cmd.normal(Get_vertical_line_diff(true) .. 'k') end },
-	L = { function() vim.cmd.normal(Get_vertical_line_diff(false) .. 'j') end },
+	H = '<C-u>',
+	L = '<C-d>',
 	['_'] = { function() FeedKeysInt(vim.v.count1 .. 'k$') end },
 	gm = { function() FeedKeys(vim.v.count * 10 .. 'gM') end }, -- cuts down precision of gM to 10s
 	['<Leader>f'] = { function() search_for_register('/', '') end },
