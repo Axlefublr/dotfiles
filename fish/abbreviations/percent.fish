@@ -1,5 +1,6 @@
 abbr -a .. --regex '^\.\.+$' --function multiple_dot
 
+abbr --set-cursor -a f 'nvim -c Young % && clx'
 abbr --set-cursor -a z 'z %'
 abbr --set-cursor -a gmm 'git commit -m "%" && clx'
 abbr --set-cursor -a gp 'git push % && clx'
