@@ -563,7 +563,9 @@ local normal_mappings = {
 	['<Leader><A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() }) end,
 
 	-- Direct
-	U = '@n',
+	U = '@u',
+	zu = 'q',
+	["z'"] = '@',
 	Y = 'yg_',
 	["zx'"] = '@"',
 	['<C-k>'] = 'O<Esc>',
@@ -578,8 +580,6 @@ local normal_mappings = {
 	gss = '==',
 	yP = 'yyP',
 	yp = 'yyp',
-	zn = 'q',
-	zx = '@',
 }
 
 local visual_mappings = {
