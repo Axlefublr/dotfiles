@@ -1,9 +1,7 @@
 local killring = setmetatable({}, { __index = table })
 
 function validate_register(register)
-	if register == 'w' then
-		return '0'
-	elseif register == "'" then
+	if register == "'" then
 		return '+'
 	else
 		return register
@@ -611,7 +609,6 @@ local insert_mappings = {
 	["<A-'><CR>"] = '<C-r><C-p>:',
 	["<A-'>E"] = { function() killring_pop_tail(true) end },
 	["<A-'>e"] = { function() killring_pop(true) end },
-	["<A-'>w"] = '<C-r><C-p>0',
 	['<A-,>'] = '<C-d>',
 	['<A-.>'] = '<C-t>',
 	['<A-/>'] = { close_try_save },
@@ -653,7 +650,6 @@ local command_mappings = {
 	["<A-'><CR>"] = '<C-r>:',
 	["<A-'>E"] = { function() killring_pop_tail('command') end },
 	["<A-'>e"] = { function() killring_pop('command') end },
-	["<A-'>w"] = '<C-r>0',
 	['<C-v>'] = '<C-r>+',
 	['<CR>'] = { rotate_range },
 	['<S-CR>'] = { function() vim.fn.setcmdline('.,$') end },
@@ -675,7 +671,6 @@ local normal_visual_pending_mappings = {
 	["'c"] = '"_c',
 	["'d"] = '"_d',
 	["'s"] = '"_s',
-	["'w"] = '"0',
 	["'x"] = '"_x',
 	["m'"] = "`'",
 	[':'] = ',',
