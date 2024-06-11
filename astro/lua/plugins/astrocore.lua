@@ -763,6 +763,7 @@ local opts_table = {
 	},
 	options = {
 		opt = {
+			lazyredraw = true,
 			gdefault = true,
 			relativenumber = true,
 			number = false,
