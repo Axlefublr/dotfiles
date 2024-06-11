@@ -1174,9 +1174,6 @@ keymap:
       CapsLock-a: { launch: [fish, -c, "toggle_mic_mute"] }
       CapsLock-Alt-a: { launch: [fish, -c, "toggle_mute"] }
 
-      CapsLock-Shift-w: { launch: [fish, -c, "set_media_volume 0.05-"] }
-      CapsLock-Shift-e: { launch: [fish, -c, "set_media_volume 0.05+"] }
-
       CapsLock-3: { launch: [fish, -c, media_prev] }
       CapsLock-4: { launch: [fish, -c, media_next] }
 
