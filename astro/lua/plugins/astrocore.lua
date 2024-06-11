@@ -459,16 +459,6 @@ local normal_mappings = {
 			vim.diagnostic.open_float()
 		end,
 	},
-	gL = {
-		function()
-			---@diagnostic disable-next-line: undefined-field
-			if vim.diagnostic.config().virtual_lines then
-				vim.diagnostic.config({ virtual_lines = false })
-			else
-				vim.diagnostic.config({ virtual_lines = true })
-			end
-		end,
-	},
 	['[e'] = {
 		function()
 			for _ = 1, vim.v.count1 do
@@ -736,10 +726,10 @@ local opts_table = {
 	},
 	-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
 	diagnostics = {
-		virtual_text = false,
-		underline = false,
+		virtual_text = true,
+		underline = true,
 		signs = false,
-		virtual_lines = true,
+		virtual_lines = false,
 	},
 	options = {
 		opt = {
