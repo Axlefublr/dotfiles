@@ -60,21 +60,6 @@ local function remaps(telescope)
 	)
 	vim.keymap.set(
 		'n',
-		'<Leader>Jg',
-		function()
-			builtin.live_grep({
-				search_dirs = {
-					'~',
-				},
-				additional_args = {
-					'--no-ignore',
-					'--hidden',
-				},
-			})
-		end
-	)
-	vim.keymap.set(
-		'n',
 		'<Leader>jG',
 		function()
 			builtin.live_grep({
@@ -87,17 +72,12 @@ local function remaps(telescope)
 		end
 	)
 
-	vim.keymap.set('n', '<Leader>jr', function()
-		builtin.grep_string({
-			search = vim.fn.getreg('+'),
-		})
-	end)
+	vim.keymap.set('n', '<Leader>jr', builtin.grep_string)
 	vim.keymap.set(
 		'n',
 		'<Leader>jt',
 		function()
 			builtin.grep_string({
-				search = vim.fn.getreg('+'),
 				additional_args = {
 					'--no-ignore',
 					'--hidden',
@@ -105,6 +85,31 @@ local function remaps(telescope)
 			})
 		end
 	)
+
+	vim.keymap.set('x', '<Leader>jr', function()
+		local previous_clipboard = vim.fn.getreg('+')
+		FeedKeys('y')
+		vim.schedule(function()
+			builtin.grep_string({
+				search = vim.fn.getreg('+'),
+			})
+			vim.fn.setreg('+', previous_clipboard)
+		end)
+	end)
+	vim.keymap.set('x', '<Leader>jt', function()
+		local previous_clipboard = vim.fn.getreg('+')
+		FeedKeys('y')
+		vim.schedule(function()
+			builtin.grep_string({
+				search = vim.fn.getreg('+'),
+				additional_args = {
+					'--no-ignore',
+					'--hidden',
+				},
+			})
+			vim.fn.setreg('+', previous_clipboard)
+		end)
+	end)
 
 	vim.keymap.set('n', '<Leader>jh', builtin.help_tags)
 	vim.keymap.set('n', '<Leader>js', builtin.current_buffer_fuzzy_find)
@@ -157,7 +162,7 @@ return {
 			'jvgrootveld/telescope-zoxide',
 		},
 		keys = {
-			{ '<Leader>j' },
+			{ '<Leader>j', mode = { 'n', 'x' } },
 			{ '<Leader>l' },
 			{ '<Leader><CR>' },
 		},
