@@ -371,6 +371,8 @@ local normal_mappings = {
 	gQ = function()
 		local parent = vim.fn.expand('%:h')
 		vim.cmd.tcd(parent)
+		local repo_root = get_repo_root()
+		if repo_root then vim.cmd.tcd(repo_root) end
 	end,
 	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
