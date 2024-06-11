@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
 	'hrsh7th/nvim-cmp',
+	ft = 'gitcommit',
 	opts = function(_, opts)
 		local cmp = require('cmp')
 		opts.mapping = nil
