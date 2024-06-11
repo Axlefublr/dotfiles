@@ -242,8 +242,8 @@ local function edit_register()
 	local char = Get_char('register: ')
 	if not char then return end
 	local register = validate_register(char)
-	local content = vim.fn.getreg(register)
-	local file = io.open('/dev/shm/clipboard', 'w')
+	local wisdom = vim.fn.getregtype(register)
+	local lines = vim.fn.getreg(register, 1, true)
 	if not file then
 		vim.notify("couldn't write to /dev/shm/clipboard: `" .. content .. '`')
 		return
@@ -341,52 +341,47 @@ local normal_mappings = {
 
 	-- System
 	K = { close_try_save },
-	['<Leader>K'] = { function() vim.cmd('q!') end },
-	['<Leader>dm'] = { function() vim.cmd('messages') end },
+	['<Leader>K'] = function() vim.cmd('q!') end,
+	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>ds'] = { edit_magazine },
 	['<Leader>g'] = { move_default_to_other },
 	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
+	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Leader>lx'] = { execute_this_file },
 	['<Space>'] = { save },
 
 	-- Fixes
-	['<Esc>'] = {
-		function()
-			vim.cmd('noh')
-			FeedKeysInt('<Esc>')
-		end,
-	},
-	['.'] = { function() count_repeats_keys('.') end },
-	['>>'] = { function() count_repeats_keys('>>') end },
-	['<<'] = { function() count_repeats_keys('<<') end },
-	yie = { function() vim.cmd('%y+') end },
+	['<Esc>'] = function()
+		vim.cmd('noh')
+		FeedKeysInt('<Esc>')
+	end,
+	['.'] = function() count_repeats_keys('.') end,
+	['>>'] = function() count_repeats_keys('>>') end,
+	['<<'] = function() count_repeats_keys('<<') end,
+	yie = function() vim.cmd('%y+') end,
 	zM = function() vim.wo.foldlevel = vim.v.count end,
 	zR = '<Cmd>set foldlevel=99<CR>',
 
 	-- Features
-	["'q"] = {
-		function()
-			local buffer = vim.api.nvim_get_current_buf()
-			local cursor = vim.api.nvim_win_get_cursor(0)
-			local line = cursor[1]
-			local column = cursor[2] + 1
-			vim.fn.setqflist({ {
-				bufnr = buffer,
-				lnum = line,
-				col = column,
-			} }, 'a')
-			vim.notify('add qf entry')
-		end,
-	},
-	["'Q"] = {
-		function()
-			local selected = vim.fn.getqflist({ idx = 0 }).idx
-			local qflist = vim.fn.getqflist()
-			table.remove(qflist, selected)
-			vim.fn.setqflist(qflist, 'r')
-			vim.notify('remove qf ' .. selected)
-		end,
-	},
+	["'q"] = function()
+		local buffer = vim.api.nvim_get_current_buf()
+		local cursor = vim.api.nvim_win_get_cursor(0)
+		local line = cursor[1]
+		local column = cursor[2] + 1
+		vim.fn.setqflist({ {
+			bufnr = buffer,
+			lnum = line,
+			col = column,
+		} }, 'a')
+		vim.notify('add qf entry')
+	end,
+	["'Q"] = function()
+		local selected = vim.fn.getqflist({ idx = 0 }).idx
+		local qflist = vim.fn.getqflist()
+		table.remove(qflist, selected)
+		vim.fn.setqflist(qflist, 'r')
+		vim.notify('remove qf ' .. selected)
+	end,
 	["''q"] = function()
 		vim.fn.setqflist({}, 'r')
 		vim.notify('qflist cleared')
@@ -403,37 +398,29 @@ local normal_mappings = {
 	['<Leader>do'] = 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK, -- Bottom
 	['<Leader>du'] = 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK, -- Move line to the top
 	['<Leader>p'] = 'Pv`[o`]do<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
-	['@'] = { function() FeedKeys('yl' .. vim.v.count1 .. 'p') end },
+	['@'] = function() FeedKeys('yl' .. vim.v.count1 .. 'p') end,
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
-	du = { function() count_repeats_keys('dd') end },
+	du = function() count_repeats_keys('dd') end,
 	gJ = 'j0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 	gy = '<Cmd>set list!<CR>',
 
 	-- Lsp
 	['<Leader>lD'] = { vim.lsp.buf.declaration },
 	['<Leader>lr'] = { vim.lsp.buf.rename },
-	['gl'] = {
-		function()
-			vim.diagnostic.open_float()
-			vim.diagnostic.open_float()
-		end,
-	},
-	['[e'] = {
-		function()
-			count_repeats(function() vim.diagnostic.goto_prev() end)
-		end,
-	},
-	[']e'] = {
-		function()
-			count_repeats(function() vim.diagnostic.goto_next() end)
-		end,
-	},
-	['gh'] = {
-		function()
-			vim.lsp.buf.hover()
-			vim.lsp.buf.hover()
-		end,
-	},
+	['gl'] = function()
+		vim.diagnostic.open_float()
+		vim.diagnostic.open_float()
+	end,
+	['[e'] = function()
+		count_repeats(function() vim.diagnostic.goto_prev() end)
+	end,
+	[']e'] = function()
+		count_repeats(function() vim.diagnostic.goto_next() end)
+	end,
+	['gh'] = function()
+		vim.lsp.buf.hover()
+		vim.lsp.buf.hover()
+	end,
 
 	-- Abstractions
 	['<Leader>j:c'] = '<Cmd>setfiletype css<CR>',
@@ -441,34 +428,35 @@ local normal_mappings = {
 	['<Leader>j:h'] = '<Cmd>setfiletype html<CR>',
 	['<Leader>j:l'] = '<Cmd>setfiletype lua<CR>',
 	['<Leader>j:m'] = '<Cmd>setfiletype man<CR>',
+	['<Leader>j:k'] = '<Cmd>setfiletype markdown<CR>',
 	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
 	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
 
 	-- Harp
-	['""'] = { function() require('harp').cd_set() end },
-	['"'] = { function() require('harp').cd_get() end },
-	['<Leader>R'] = { function() require('harp').positional_set() end },
-	['<Leader>S'] = { function() require('harp').default_set() end },
-	['<Leader>X'] = { function() require('harp').percwd_set() end },
-	['<Leader>Z'] = { function() require('harp').global_mark_set() end },
-	['<Leader>r'] = { function() require('harp').positional_get() end },
-	['<Leader>s'] = { function() require('harp').default_get() end },
-	['<Leader>x'] = { function() require('harp').percwd_get() end },
-	['<Leader>z'] = { function() require('harp').global_mark_get() end },
-	['M'] = { function() require('harp').perbuffer_mark_set() end },
-	['m'] = { function() require('harp').perbuffer_mark_get() end },
+	['""'] = function() require('harp').cd_set() end,
+	['"'] = function() require('harp').cd_get() end,
+	['<Leader>R'] = function() require('harp').positional_set() end,
+	['<Leader>S'] = function() require('harp').default_set() end,
+	['<Leader>X'] = function() require('harp').percwd_set() end,
+	['<Leader>Z'] = function() require('harp').global_mark_set() end,
+	['<Leader>r'] = function() require('harp').positional_get() end,
+	['<Leader>s'] = function() require('harp').default_get() end,
+	['<Leader>x'] = function() require('harp').percwd_get() end,
+	['<Leader>z'] = function() require('harp').global_mark_get() end,
+	['M'] = function() require('harp').perbuffer_mark_set() end,
+	['m'] = function() require('harp').perbuffer_mark_get() end,
 
 	-- Moving
-	['#'] = { function() search_for_current_word('?', '') end },
-	['*'] = { function() search_for_current_word('/', '') end },
-	['<Leader>#'] = { function() search_for_current_word('?', '?e') end },
-	['<Leader>*'] = { function() search_for_current_word('/', '/e') end },
-	['[Q'] = { function() another_quickfix_entry(false, true) end },
-	['[q'] = { function() another_quickfix_entry(false, false) end },
-	[']Q'] = { function() another_quickfix_entry(true, true) end },
-	[']q'] = { function() another_quickfix_entry(true, false) end },
-	['{'] = { function() move_to_blank_line(false) end },
-	['}'] = { function() move_to_blank_line(true) end },
+	['#'] = function() search_for_current_word('?', '') end,
+	['*'] = function() search_for_current_word('/', '') end,
+	['<Leader>#'] = function() search_for_current_word('?', '?e') end,
+	['<Leader>*'] = function() search_for_current_word('/', '/e') end,
+	['[Q'] = function() another_quickfix_entry(false, true) end,
+	['[q'] = function() another_quickfix_entry(false, false) end,
+	[']Q'] = function() another_quickfix_entry(true, true) end,
+	[']q'] = function() another_quickfix_entry(true, false) end,
+	['{'] = function() move_to_blank_line(false) end,
+	['}'] = function() move_to_blank_line(true) end,
 
 	-- Window
 	["<Leader>a'"] = '<C-w>|',
@@ -477,10 +465,10 @@ local normal_mappings = {
 	['<C-n>'] = '<C-w>-',
 	['<C-p>'] = '<C-w>+',
 	['<Leader>a//'] = '<C-w>p',
-	['<Leader>a/h'] = { function() vim.cmd('exe "leftabove vertical normal \\<c-w>^"') end },
-	['<Leader>a/j'] = { function() vim.cmd('exe "normal \\<c-w>^"') end },
-	['<Leader>a/k'] = { function() vim.cmd('exe "leftabove normal \\<c-w>^"') end },
-	['<Leader>a/l'] = { function() vim.cmd('exe "vertical normal \\<c-w>^"') end },
+	['<Leader>a/h'] = function() vim.cmd('exe "leftabove vertical normal \\<c-w>^"') end,
+	['<Leader>a/j'] = function() vim.cmd('exe "normal \\<c-w>^"') end,
+	['<Leader>a/k'] = function() vim.cmd('exe "leftabove normal \\<c-w>^"') end,
+	['<Leader>a/l'] = function() vim.cmd('exe "vertical normal \\<c-w>^"') end,
 	['<Leader>a1'] = '1<C-w>w',
 	['<Leader>a2'] = '2<C-w>w',
 	['<Leader>a3'] = '3<C-w>w',
@@ -509,17 +497,17 @@ local normal_mappings = {
 	['<Leader>ap'] = '<Cmd>tabnew<CR>',
 	['<Leader>ar'] = '<C-w>r',
 	['<Leader>as'] = '<C-w>H',
-	['<Leader>ath'] = { function() vim.cmd('leftabove vsplit') end },
-	['<Leader>atj'] = { function() vim.cmd('split') end },
-	['<Leader>atk'] = { function() vim.cmd('leftabove split') end },
-	['<Leader>atl'] = { function() vim.cmd('vsplit') end },
+	['<Leader>ath'] = function() vim.cmd('leftabove vsplit') end,
+	['<Leader>atj'] = function() vim.cmd('split') end,
+	['<Leader>atk'] = function() vim.cmd('leftabove split') end,
+	['<Leader>atl'] = function() vim.cmd('vsplit') end,
 	['<Leader>au'] = '<C-w>t',
 	['<Leader>av'] = '<C-w>_',
-	['<Leader>awh'] = { function() vim.cmd('leftabove vnew') end },
-	['<Leader>awj'] = { function() vim.cmd('new') end },
-	['<Leader>awk'] = { function() vim.cmd('leftabove new') end },
-	['<Leader>awl'] = { function() vim.cmd('vnew') end },
-	['<Leader>aww'] = { function() vim.cmd('enew') end },
+	['<Leader>awh'] = function() vim.cmd('leftabove vnew') end,
+	['<Leader>awj'] = function() vim.cmd('new') end,
+	['<Leader>awk'] = function() vim.cmd('leftabove new') end,
+	['<Leader>awl'] = function() vim.cmd('vnew') end,
+	['<Leader>aww'] = function() vim.cmd('enew') end,
 	['<Leader>ay'] = '<C-w>x',
 	['<Leader>a;'] = '<C-w>o',
 	['<Leader>ai'] = '<C-w>=',
@@ -527,16 +515,16 @@ local normal_mappings = {
 	[']w'] = 'gt',
 
 	-- Numbered
-	["'1"] = { function() numbered_get(1) end },
-	["'2"] = { function() numbered_get(2) end },
-	["'3"] = { function() numbered_get(3) end },
-	["'4"] = { function() numbered_get(4) end },
-	["'5"] = { function() numbered_get(5) end },
-	["'6"] = { function() numbered_get(6) end },
-	["'7"] = { function() numbered_get(7) end },
-	["'8"] = { function() numbered_get(8) end },
-	["'9"] = { function() numbered_get(9) end },
-	["'0"] = { function() numbered_get(10) end },
+	["'1"] = function() numbered_get(1) end,
+	["'2"] = function() numbered_get(2) end,
+	["'3"] = function() numbered_get(3) end,
+	["'4"] = function() numbered_get(4) end,
+	["'5"] = function() numbered_get(5) end,
+	["'6"] = function() numbered_get(6) end,
+	["'7"] = function() numbered_get(7) end,
+	["'8"] = function() numbered_get(8) end,
+	["'9"] = function() numbered_get(9) end,
+	["'0"] = function() numbered_get(10) end,
 
 	-- Kitty blank
 	['<Leader>tws'] = function()
@@ -608,11 +596,11 @@ local normal_mappings = {
 }
 
 local visual_mappings = {
-	['#'] = { function() search_for_selection('?', '') end },
-	['*'] = { function() search_for_selection('/', '') end },
-	['<Leader>#'] = { function() search_for_selection('?', '?e') end },
-	['<Leader>*'] = { function() search_for_selection('/', '/e') end },
-	['@@'] = { function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end },
+	['#'] = function() search_for_selection('?', '') end,
+	['*'] = function() search_for_selection('/', '') end,
+	['<Leader>#'] = function() search_for_selection('?', '?e') end,
+	['<Leader>*'] = function() search_for_selection('/', '/e') end,
+	['@@'] = function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end,
 	['a%'] = 'F%of%',
 	['i%'] = 'T%ot%',
 	u = '<Esc>u',
@@ -621,19 +609,19 @@ local visual_mappings = {
 local insert_mappings = {
 	["<A-'>"] = '<C-r><C-p>',
 	["<A-'>'"] = '<C-r><C-p>+',
-	["<A-'>0"] = { function() numbered_insert(10) end },
-	["<A-'>1"] = { function() numbered_insert(1) end },
-	["<A-'>2"] = { function() numbered_insert(2) end },
-	["<A-'>3"] = { function() numbered_insert(3) end },
-	["<A-'>4"] = { function() numbered_insert(4) end },
-	["<A-'>5"] = { function() numbered_insert(5) end },
-	["<A-'>6"] = { function() numbered_insert(6) end },
-	["<A-'>7"] = { function() numbered_insert(7) end },
-	["<A-'>8"] = { function() numbered_insert(8) end },
-	["<A-'>9"] = { function() numbered_insert(9) end },
+	["<A-'>0"] = function() numbered_insert(10) end,
+	["<A-'>1"] = function() numbered_insert(1) end,
+	["<A-'>2"] = function() numbered_insert(2) end,
+	["<A-'>3"] = function() numbered_insert(3) end,
+	["<A-'>4"] = function() numbered_insert(4) end,
+	["<A-'>5"] = function() numbered_insert(5) end,
+	["<A-'>6"] = function() numbered_insert(6) end,
+	["<A-'>7"] = function() numbered_insert(7) end,
+	["<A-'>8"] = function() numbered_insert(8) end,
+	["<A-'>9"] = function() numbered_insert(9) end,
 	["<A-'><CR>"] = '<C-r><C-p>:',
-	["<A-'>E"] = { function() killring_pop_tail(true) end },
-	["<A-'>e"] = { function() killring_pop(true) end },
+	["<A-'>E"] = function() killring_pop_tail(true) end,
+	["<A-'>e"] = function() killring_pop(true) end,
 	['<A-,>'] = '<C-d>',
 	['<A-.>'] = '<C-t>',
 	['<A-/>'] = { close_try_save },
@@ -649,10 +637,10 @@ local insert_mappings = {
 }
 
 local pending_mappings = {
-	['i%'] = { function() vim.cmd('normal vT%ot%') end },
-	['a%'] = { function() vim.cmd('normal vF%of%') end },
-	[']}'] = { function() vim.cmd('normal V}k') end },
-	['[{'] = { function() vim.cmd('normal V{j') end },
+	['i%'] = function() vim.cmd('normal vT%ot%') end,
+	['a%'] = function() vim.cmd('normal vF%of%') end,
+	[']}'] = function() vim.cmd('normal V}k') end,
+	['[{'] = function() vim.cmd('normal V{j') end,
 	['{'] = 'V{',
 	['}'] = 'V}',
 	['+'] = 'v+',
@@ -662,22 +650,22 @@ local pending_mappings = {
 local command_mappings = {
 	["<A-'>"] = '<C-r>',
 	["<A-'>'"] = '<C-r>+',
-	["<A-'>0"] = { function() numbered_command(10) end },
-	["<A-'>1"] = { function() numbered_command(1) end },
-	["<A-'>2"] = { function() numbered_command(2) end },
-	["<A-'>3"] = { function() numbered_command(3) end },
-	["<A-'>4"] = { function() numbered_command(4) end },
-	["<A-'>5"] = { function() numbered_command(5) end },
-	["<A-'>6"] = { function() numbered_command(6) end },
-	["<A-'>7"] = { function() numbered_command(7) end },
-	["<A-'>8"] = { function() numbered_command(8) end },
-	["<A-'>9"] = { function() numbered_command(9) end },
+	["<A-'>0"] = function() numbered_command(10) end,
+	["<A-'>1"] = function() numbered_command(1) end,
+	["<A-'>2"] = function() numbered_command(2) end,
+	["<A-'>3"] = function() numbered_command(3) end,
+	["<A-'>4"] = function() numbered_command(4) end,
+	["<A-'>5"] = function() numbered_command(5) end,
+	["<A-'>6"] = function() numbered_command(6) end,
+	["<A-'>7"] = function() numbered_command(7) end,
+	["<A-'>8"] = function() numbered_command(8) end,
+	["<A-'>9"] = function() numbered_command(9) end,
 	["<A-'><CR>"] = '<C-r>:',
-	["<A-'>E"] = { function() killring_pop_tail('command') end },
-	["<A-'>e"] = { function() killring_pop('command') end },
+	["<A-'>E"] = function() killring_pop_tail('command') end,
+	["<A-'>e"] = function() killring_pop('command') end,
 	['<C-v>'] = '<C-r>+',
 	['<CR>'] = { rotate_range },
-	['<S-CR>'] = { function() vim.fn.setcmdline('.,$') end },
+	['<S-CR>'] = function() vim.fn.setcmdline('.,$') end,
 }
 
 local command_insert_mappings = {
@@ -699,18 +687,18 @@ local normal_visual_pending_mappings = {
 	["'x"] = '"_x',
 	["m'"] = "`'",
 	[':'] = ',',
-	['<Leader><Leader>F'] = { function() search_for_register('?', '?e') end },
-	['<Leader><Leader>f'] = { function() search_for_register('/', '/e') end },
-	['<Leader>F'] = { function() search_for_register('?', '') end },
-	['<Leader>f'] = { function() search_for_register('/', '') end },
-	['_'] = { function() FeedKeysInt(vim.v.count1 .. 'k$') end },
+	['<Leader><Leader>F'] = function() search_for_register('?', '?e') end,
+	['<Leader><Leader>f'] = function() search_for_register('/', '/e') end,
+	['<Leader>F'] = function() search_for_register('?', '') end,
+	['<Leader>f'] = function() search_for_register('/', '') end,
+	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
 	['m,'] = '`<',
 	['m.'] = '`>',
 	['m/'] = '`^',
 	['m['] = '`[',
 	['m]'] = '`]',
 	gM = 'M',
-	gm = { function() FeedKeys(vim.v.count * 10 .. 'gM') end }, -- cuts down precision of gM to 10s
+	gm = function() FeedKeys(vim.v.count * 10 .. 'gM') end, -- cuts down precision of gM to 10s
 }
 
 local normal_visual_mappings = {
@@ -727,7 +715,7 @@ local normal_visual_mappings = {
 	['&'] = '@:',
 	['<Leader>da'] = { copy_cwd },
 	['<Leader>lc'] = { vim.lsp.buf.code_action },
-	['<Leader>lf'] = { function() vim.lsp.buf.format({ async = true }) end },
+	['<Leader>lf'] = function() vim.lsp.buf.format({ async = true }) end,
 	['<S-CR>'] = ':.,$',
 	['[{'] = '{j',
 	[']}'] = '}k',
@@ -735,8 +723,8 @@ local normal_visual_mappings = {
 }
 
 local insert_select_mappings = {
-	['<A-l>'] = { function() require('luasnip').jump(1) end, silent = true },
-	['<A-h>'] = { function() require('luasnip').jump(-1) end, silent = true },
+	['<A-l>'] = function() require('luasnip').jump(1) end,
+	['<A-h>'] = function() require('luasnip').jump(-1) end,
 }
 
 local normal_insert_select_mappings = {
