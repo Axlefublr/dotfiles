@@ -1,6 +1,13 @@
 local function remaps(telescope)
 	local builtin = require('telescope.builtin')
 
+	local extra = {
+		'~/t',
+		'~/prog/noties',
+		'~/.local/share/alien_temple',
+		'~/.local/share/glaza',
+	}
+
 	vim.keymap.set('n', '<Leader>ja', builtin.find_files)
 	vim.keymap.set('n', '<Leader>Ja', function()
 		builtin.find_files({
@@ -9,24 +16,11 @@ local function remaps(telescope)
 			},
 		})
 	end, {})
-	vim.keymap.set(
-		'n',
-		'<Leader>jA',
-		function()
-			builtin.find_files({
-				search_dirs = {
-					'~/prog/dotfiles',
-					'~/t',
-					'~/prog/noties',
-					'~/prog/job',
-					'~/prog/backup',
-					'~/.local/share/alien_temple',
-					'~/.local/share/glaza',
-					'~/.local/share/magazine',
-				},
-			})
-		end
-	)
+	vim.keymap.set('n', '<Leader>jA', function()
+		builtin.find_files({
+			search_dirs = extra,
+		})
+	end)
 
 	vim.keymap.set(
 		'n',
@@ -61,16 +55,7 @@ local function remaps(telescope)
 				hidden = false,
 				no_ignore = false,
 				no_ignore_parent = false,
-				search_dirs = {
-					'~/prog/dotfiles',
-					'~/t',
-					'~/prog/noties',
-					'~/prog/job',
-					'~/prog/backup',
-					'~/.local/share/alien_temple',
-					'~/.local/share/glaza',
-					'~/.local/share/magazine',
-				},
+				search_dirs = extra,
 			})
 		end
 	)
@@ -85,16 +70,7 @@ local function remaps(telescope)
 	end)
 	vim.keymap.set('n', '<Leader>jD', function()
 		builtin.live_grep({
-			search_dirs = {
-				'~/prog/dotfiles',
-				'~/t',
-				-- '~/prog/noties',
-				-- '~/prog/job',
-				'~/prog/backup',
-				-- '~/.local/share/alien_temple',
-				-- '~/.local/share/glaza',
-				-- '~/.local/share/magazine',
-			},
+			search_dirs = extra,
 		})
 	end)
 
@@ -125,28 +101,23 @@ local function remaps(telescope)
 			})
 		end
 	)
-	vim.keymap.set('n', '<Leader>jG', function()
-		builtin.live_grep({
-			search_dirs = {
-				'~/prog/dotfiles',
-				'~/t',
-				-- '~/prog/noties',
-				-- '~/prog/job',
-				'~/prog/backup',
-				-- '~/.local/share/alien_temple',
-				-- '~/.local/share/glaza',
-				-- '~/.local/share/magazine',
-			},
-			additional_args = {
-				'--no-ignore',
-				'--hidden',
-			},
-		})
-	end)
+	vim.keymap.set(
+		'n',
+		'<Leader>jG',
+		function()
+			builtin.live_grep({
+				search_dirs = extra,
+				additional_args = {
+					'--no-ignore',
+					'--hidden',
+				},
+			})
+		end
+	)
 
 	vim.keymap.set('n', '<Leader>jr', function()
 		builtin.grep_string({
-			search = vim.fn.getreg('"'),
+			search = vim.fn.getreg('+'),
 		})
 	end)
 	vim.keymap.set(
@@ -154,7 +125,7 @@ local function remaps(telescope)
 		'<Leader>jt',
 		function()
 			builtin.grep_string({
-				search = vim.fn.getreg('"'),
+				search = vim.fn.getreg('+'),
 				additional_args = {
 					'--no-ignore',
 					'--hidden',
