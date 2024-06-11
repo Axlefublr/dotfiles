@@ -238,6 +238,30 @@ local function move_default_to_other()
 	vim.fn.setreg(register, default_contents)
 end
 
+local function edit_register()
+	local char = Get_char('register: ')
+	if not char then return end
+	local register = validate_register(char)
+	local content = vim.fn.getreg(register)
+	local file = io.open('/dev/shm/clipboard', 'w')
+	if not file then
+		vim.notify("couldn't write to /dev/shm/clipboard: `" .. content .. '`')
+		return
+	end
+	file:write(content)
+	file:close()
+	require('astrocore').cmd({ 'fish', '-c', 'neoline /dev/shm/clipboard' })
+	local file = io.open('/dev/shm/clipboard', 'r')
+	if not file then
+		vim.notify("couldn't read /dev/shm/clipboard")
+		return
+	end
+	local new_contents = file:read('*a')
+	print(vim.inspect(new_contents))
+	file:close()
+	vim.fn.setreg(register, new_contents)
+end
+
 local function search_for_current_word(direction, death)
 	local register = vim.fn.getreg('+')
 	FeedKeys('yiw')
