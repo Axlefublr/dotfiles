@@ -359,6 +359,7 @@ local normal_mappings = {
 	["'9"] = { function() numbered_get(9) end },
 	["'0"] = { function() numbered_get(10) end },
 	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
+	zM = function() vim.wo.foldlevel = vim.v.count end,
 	['<Leader>tws'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'os-window', '--cwd', get_buffer_cwd() })
 	end,
