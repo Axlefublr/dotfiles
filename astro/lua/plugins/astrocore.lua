@@ -54,7 +54,8 @@ local function copy_cwd_relative()
 end
 
 local function get_repo_root()
-	local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+	local git_root = require('astrocore').cmd({ 'git', 'rev-parse', '--show-toplevel' }, false)
+	git_root = git_root and git_root:sub(1, -2) or git_root
 	return git_root
 end
 
