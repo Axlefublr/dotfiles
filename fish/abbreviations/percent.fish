@@ -22,6 +22,3 @@ abbr --set-cursor -a gammp 'git add . &&
 	git commit -am "%" &&
 	git push &&
 	clx'
-
-abbr --set-cursor -a slurr 'systemctl --user daemon-reload
-	systemctl --user restart %.timer'

@@ -490,6 +490,8 @@ local normal_mappings = {
 	['<Leader>awl'] = { function() vim.cmd('vnew') end },
 	['<Leader>aww'] = { function() vim.cmd('enew') end },
 	['<Leader>ay'] = '<C-w>x',
+	['<Leader>a;'] = '<C-w>o',
+	['<Leader>ai'] = '<C-w>=',
 	['[w'] = 'gT',
 	[']w'] = 'gt',
 
