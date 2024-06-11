@@ -327,6 +327,12 @@ local normal_mappings = {
 	['<Space>'] = { save },
 
 	-- Fixes
+	['<Esc>'] = {
+		function()
+			vim.cmd('noh')
+			FeedKeysInt('<Esc>')
+		end,
+	},
 	['.'] = { function() count_repeats_keys('.') end },
 	['>>'] = { function() count_repeats_keys('>>') end },
 	['<<'] = { function() count_repeats_keys('<<') end },
@@ -362,12 +368,10 @@ local normal_mappings = {
 		vim.fn.setqflist({}, 'r')
 		vim.notify('qflist cleared')
 	end,
-	['<Esc>'] = {
-		function()
-			vim.cmd('noh')
-			FeedKeysInt('<Esc>')
-		end,
-	},
+	gQ = function()
+		local parent = vim.fn.expand('%:h')
+		vim.cmd.tcd(parent)
+	end,
 	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>dl'] = { "dil'dd", remap = true },
