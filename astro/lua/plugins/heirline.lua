@@ -35,7 +35,6 @@ return {
 				surround = { separator = 'none' },
 				filetype = false,
 				file_modified = false,
-				file_readonly = false,
 			})
 		)
 
@@ -111,6 +110,7 @@ return {
 				separator = 'center',
 			},
 			file_icon = false,
+			file_read_only = false,
 		})
 
 		table.remove(opts.statusline, 11)
