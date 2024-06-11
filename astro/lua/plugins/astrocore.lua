@@ -328,6 +328,8 @@ local normal_mappings = {
 
 	-- Fixes
 	['.'] = { function() count_repeats_keys('.') end },
+	['>>'] = { function() count_repeats_keys('>>') end },
+	['<<'] = { function() count_repeats_keys('<<') end },
 	yie = { function() vim.cmd('%y+') end },
 	zM = function() vim.wo.foldlevel = vim.v.count end,
 	zR = '<Cmd>set foldlevel=99<CR>',
