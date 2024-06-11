@@ -937,6 +937,11 @@ local opts_table = {
 					vim.opt_local.shiftwidth = 4
 				end,
 			},
+			{
+				event = 'FileType',
+				pattern = 'help',
+				callback = function() vim.opt_local.list = false end,
+			},
 			{ -- needed to stop `q` from exiting manpages
 				event = 'FileType',
 				pattern = 'man',
