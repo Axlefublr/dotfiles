@@ -16,6 +16,7 @@ local function remaps(telescope)
 			builtin.find_files({
 				search_dirs = {
 					'~/prog/dotfiles',
+					'~/t',
 					'~/prog/noties',
 					'~/prog/job',
 					'~/prog/backup',
@@ -62,6 +63,7 @@ local function remaps(telescope)
 				no_ignore_parent = false,
 				search_dirs = {
 					'~/prog/dotfiles',
+					'~/t',
 					'~/prog/noties',
 					'~/prog/job',
 					'~/prog/backup',
@@ -85,6 +87,7 @@ local function remaps(telescope)
 		builtin.live_grep({
 			search_dirs = {
 				'~/prog/dotfiles',
+				'~/t',
 				-- '~/prog/noties',
 				-- '~/prog/job',
 				'~/prog/backup',
@@ -126,6 +129,7 @@ local function remaps(telescope)
 		builtin.live_grep({
 			search_dirs = {
 				'~/prog/dotfiles',
+				'~/t',
 				-- '~/prog/noties',
 				-- '~/prog/job',
 				'~/prog/backup',

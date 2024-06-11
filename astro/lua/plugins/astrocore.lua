@@ -653,6 +653,7 @@ local command_mappings = {
 
 local command_insert_mappings = {
 	['<A-f>'] = '<C-f>',
+	['<A-q>'] = '<C-q>',
 }
 
 local normal_visual_pending_mappings = {

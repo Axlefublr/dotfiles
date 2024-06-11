@@ -133,6 +133,9 @@ local snippets = function()
 			i(0),
 			t({ '', 'end' }),
 		}),
+		s('#!', {
+			t({ '#!/usr/bin/lua', '' }),
+		}),
 	}
 	ls.add_snippets('lua', lua_snippets)
 
