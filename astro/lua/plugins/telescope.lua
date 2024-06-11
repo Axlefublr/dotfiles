@@ -9,13 +9,6 @@ local function remaps(telescope)
 	}
 
 	vim.keymap.set('n', '<Leader>ja', builtin.find_files)
-	vim.keymap.set('n', '<Leader>Ja', function()
-		builtin.find_files({
-			search_dirs = {
-				'~',
-			},
-		})
-	end, {})
 	vim.keymap.set('n', '<Leader>jA', function()
 		builtin.find_files({
 			search_dirs = extra,
@@ -27,20 +20,6 @@ local function remaps(telescope)
 		'<Leader>jf',
 		function()
 			builtin.find_files({
-				hidden = false,
-				no_ignore = false,
-				no_ignore_parent = false,
-			})
-		end
-	)
-	vim.keymap.set(
-		'n',
-		'<Leader>Jf',
-		function()
-			builtin.find_files({
-				search_dirs = {
-					'~',
-				},
 				hidden = false,
 				no_ignore = false,
 				no_ignore_parent = false,
@@ -61,13 +40,6 @@ local function remaps(telescope)
 	)
 
 	vim.keymap.set('n', '<Leader>jd', builtin.live_grep)
-	vim.keymap.set('n', '<Leader>Jd', function()
-		builtin.live_grep({
-			search_dirs = {
-				'~',
-			},
-		})
-	end)
 	vim.keymap.set('n', '<Leader>jD', function()
 		builtin.live_grep({
 			search_dirs = extra,
