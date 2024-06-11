@@ -239,27 +239,38 @@ local function move_default_to_other()
 end
 
 local function edit_register()
-	local char = Get_char('register: ')
+	local char = Get_char()
 	if not char then return end
+
 	local register = validate_register(char)
 	local wisdom = vim.fn.getregtype(register)
+	---@diagnostic disable-next-line: redundant-parameter
 	local lines = vim.fn.getreg(register, 1, true)
-	if not file then
-		vim.notify("couldn't write to /dev/shm/clipboard: `" .. content .. '`')
-		return
-	end
-	file:write(content)
-	file:close()
-	require('astrocore').cmd({ 'fish', '-c', 'neoline /dev/shm/clipboard' })
-	local file = io.open('/dev/shm/clipboard', 'r')
-	if not file then
-		vim.notify("couldn't read /dev/shm/clipboard")
-		return
-	end
-	local new_contents = file:read('*a')
-	print(vim.inspect(new_contents))
-	file:close()
-	vim.fn.setreg(register, new_contents)
+
+	local buf = vim.api.nvim_create_buf(false, true)
+	---@diagnostic disable-next-line: param-type-mismatch
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
+	local width = math.floor(vim.o.columns * 0.6)
+	local height = math.floor(vim.o.lines * 0.3)
+	local columns = math.min((vim.o.columns - width) / 2)
+	local rows = math.min((vim.o.lines - height) / 2)
+	local win_opts = {
+		relative = 'editor',
+		width = width,
+		height = height,
+		col = columns,
+		row = rows,
+	}
+	vim.api.nvim_open_win(buf, true, win_opts)
+
+	vim.api.nvim_create_autocmd('BufWinLeave', {
+		pattern = '<buffer>',
+		callback = function()
+			local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+			vim.fn.setreg(register, lines, wisdom)
+		end,
+	})
 end
 
 local function search_for_current_word(direction, death)
@@ -344,8 +355,8 @@ local normal_mappings = {
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>ds'] = { edit_magazine },
-	['<Leader>g'] = { move_default_to_other },
-	['<Leader>lp'] = { function() vim.cmd('Inspect') end },
+	['<Leader>G'] = { move_default_to_other },
+	['<Leader>g'] = { edit_register },
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Leader>lx'] = { execute_this_file },
 	['<Space>'] = { save },
