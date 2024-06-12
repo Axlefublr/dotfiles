@@ -125,4 +125,20 @@ function Trim_trailing_whitespace()
 	vim.fn.setreg('/', search)
 end
 
+function Split_by_newlines(text)
+	lines = {}
+	for line in string.gmatch(text, '[^\r\n]+') do
+		table.insert(lines, line)
+	end
+	return lines
+end
+
+function Join_with_newlines(lines)
+	text = ''
+	for _, line in ipairs(lines) do
+		text = text .. line .. '\n'
+	end
+	return text:sub(1, -2)
+end
+
 require('lazy_setup')
