@@ -1390,7 +1390,7 @@ keymap:
   - name: Direct
     mode: [default]
     remap:
-      Backspace: { launch: [fish, -c, suspend] }
+      Pause: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
       CapsLock-Enter: { launch: [fish, -c, runner_notification] }
       CapsLock-Alt-Enter: { launch: [notify-send, -t, "1000", nope] }
