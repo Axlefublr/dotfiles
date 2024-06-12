@@ -188,7 +188,8 @@ function edit_commandline
     end
     set column (math $offset + 1)
 
-    nvim +$line -c "norm! $column|" -c 'lua Write_cursor_position_on_leave("'$cursor_location'")' $temp 2>/dev/null
+    nvim -c "call cursor($line, $column)" $temp 2>/dev/null
+
     set -l editor_status $status
     cat $cursor_location
 

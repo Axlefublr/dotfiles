@@ -939,6 +939,20 @@ local opts_table = {
 				command = 'setfiletype rasi',
 			},
 			{
+				event = 'BufUnload',
+				pattern = '/dev/shm/fish_edit_commandline.fish',
+				callback = function()
+					local file = io.open('/dev/shm/fish_edit_commandline_cursor', 'w')
+					if file then
+						local position = vim.api.nvim_win_get_cursor(0)
+						local line = position[1]
+						local column = position[2]
+						file:write(line .. ' ' .. column + 1)
+						file:close()
+					end
+				end,
+			},
+			{
 				event = { 'FileType' },
 				callback = function()
 					if vim.bo.filetype == 'lazy' then

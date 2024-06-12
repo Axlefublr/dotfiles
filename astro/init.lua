@@ -75,21 +75,6 @@ function Get_char(prompt)
 	return char
 end
 
-function Write_cursor_position_on_leave(path)
-	vim.api.nvim_create_autocmd('VimLeave', {
-		callback = function()
-			local file = io.open(path, 'w')
-			if file then
-				local position = vim.api.nvim_win_get_cursor(0)
-				local line = position[1]
-				local column = position[2]
-				file:write(line .. ' ' .. column + 1)
-				file:close()
-			end
-		end,
-	})
-end
-
 function ReverseTable(table)
 	local reversed = setmetatable({}, { __index = table })
 	local length = #table
