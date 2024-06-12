@@ -404,6 +404,18 @@ local normal_mappings = {
 		local repo_root = get_repo_root()
 		if repo_root then vim.cmd.tcd(repo_root) end
 	end,
+	gL = {
+		function()
+			---@diagnostic disable-next-line: undefined-field
+			if vim.diagnostic.config().virtual_text then
+				vim.diagnostic.config({ virtual_text = false })
+				vim.diagnostic.config({ underline = false })
+			else
+				vim.diagnostic.config({ virtual_text = true })
+				vim.diagnostic.config({ underline = true })
+			end
+		end,
+	},
 	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>dl'] = { "dil'dd", remap = true },
