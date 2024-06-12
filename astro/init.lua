@@ -62,23 +62,6 @@ function EscapeForLiteralSearch(input)
 	return input
 end
 
-function Get_vertical_line_diff(is_top)
-	local winid = vim.api.nvim_get_current_win()
-	local function get_visible_lines()
-		local compared_line = 0
-		if is_top then
-			compared_line = vim.fn.line('w0')
-		else
-			compared_line = vim.fn.line('w$')
-		end
-		local current_line = vim.api.nvim_win_get_cursor(0)[1]
-		local line_count = math.abs(compared_line - current_line)
-		return line_count
-	end
-	local line_count = vim.api.nvim_win_call(winid, get_visible_lines)
-	return line_count
-end
-
 --- Return the next character the user presses
 ---@param prompt string|nil
 ---@return string|nil character `nil` if the user pressed <Esc>
@@ -123,22 +106,6 @@ function Trim_trailing_whitespace()
 	---@diagnostic disable-next-line: param-type-mismatch
 	pcall(vim.cmd, '%s`\\v\\s+$')
 	vim.fn.setreg('/', search)
-end
-
-function Split_by_newlines(text)
-	lines = {}
-	for line in string.gmatch(text, '[^\r\n]+') do
-		table.insert(lines, line)
-	end
-	return lines
-end
-
-function Join_with_newlines(lines)
-	text = ''
-	for _, line in ipairs(lines) do
-		text = text .. line .. '\n'
-	end
-	return text:sub(1, -2)
 end
 
 require('lazy_setup')
