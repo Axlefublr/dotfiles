@@ -50,9 +50,10 @@ return {
 						return
 					end
 
-					-- retrieve URL with the z-register as intermediary
-					vim.cmd.normal({ '"' .. THROWAWAY_REGISTER .. 'y', bang = true })
-					local url = vim.fn.getreg(THROWAWAY_REGISTER)
+					local previous_clipboard = vim.fn.getreg()
+					vim.cmd.normal({ 'y', bang = true })
+					local url = vim.fn.getreg()
+					vim.fn.setreg(vim.v.register, previous_clipboard)
 
 					-- open with the OS-specific shell command
 					local opener

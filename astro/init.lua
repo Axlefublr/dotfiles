@@ -47,7 +47,6 @@ Colors = {
 }
 
 THROWAWAY_MARK = 'P'
-THROWAWAY_REGISTER = 'x'
 
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
@@ -80,11 +79,15 @@ function Get_vertical_line_diff(is_top)
 	return line_count
 end
 
+--- Return the next character the user presses
+---@param prompt string|nil
+---@return string|nil character `nil` if the user pressed <Esc>
 function Get_char(prompt)
-	vim.api.nvim_echo({ { prompt, 'Input' } }, true, {})
+	if prompt then vim.api.nvim_echo({ { prompt, 'Input' } }, true, {}) end
+	---@type string|nil
 	local char = vim.fn.getcharstr()
-	-- That's the escape character (<Esc>). Not sure how to specify it smarter
-	-- In other words, if you pressed escape, we return nil
+	-- In '' is the escape character (<Esc>).
+	-- Not sure how to check for it without literal character magic.
 	if char == '' then char = nil end
 	return char
 end
