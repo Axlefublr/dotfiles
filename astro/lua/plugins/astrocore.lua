@@ -331,6 +331,7 @@ local function count_repeats_keys(keys)
 	end
 end
 
+---@param closure function
 local function count_repeats(closure)
 	for _ = 1, vim.v.count1 do
 		closure()
@@ -343,12 +344,12 @@ local normal_mappings = {
 	['<Leader>dr'] = { copy_cwd_relative },
 	['<Leader>dw'] = { copy_file_name },
 
-	["'E"] = { killring_pop_tail },
-	["'R"] = { killring_push_tail },
-	["'T"] = { killring_compile_reversed },
 	["'e"] = { killring_pop },
-	["'r"] = { killring_push },
-	["'t"] = { killring_compile },
+	["'E"] = { killring_pop_tail },
+	["',"] = { killring_push },
+	["'<"] = { killring_push_tail },
+	["']"] = { killring_compile },
+	["'["] = { killring_compile_reversed },
 
 	-- System
 	K = { close_try_save },
