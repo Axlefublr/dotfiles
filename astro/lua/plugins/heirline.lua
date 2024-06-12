@@ -4,23 +4,19 @@ return {
 		local status = require('astroui.status')
 
 		opts.tabline[2] = {
-			provider = ' %f',
-			condition = function() return vim.bo.filetype ~= 'oil' end,
+			provider = function()
+				if vim.bo.filetype == 'oil' then
+					return ' ' .. vim.fn.fnamemodify(require('oil').get_current_dir(), ':~'):gsub('/$', '')
+				else
+					local path = vim.api.nvim_buf_get_name(0)
+					local cwd = vim.fn.getcwd()
+					return ' ' .. path:gsub(cwd .. '/', '')
+				end
+			end,
 		} -- previously, bufferline
 
 		table.remove(opts.tabline[4], 2)
 
-		-- opts.winbar[2] = status.component.breadcrumbs({
-		-- 	max_depth = 1,
-		-- })
-		-- opts.winbar[1] = status.component.separated_path({
-		-- 	path_func = function()
-		-- 		local full_path = vim.api.nvim_buf_get_name(0)
-		-- 		return vim.fn.fnamemodify(full_path, ':~')
-		-- 	end,
-		-- })
-		opts.winbar[2] = nil
-		table.insert(opts.tabline, 3, opts.winbar)
 		table.insert(opts.tabline, 5, {
 			provider = function()
 				local cwd = vim.fn.getcwd()
