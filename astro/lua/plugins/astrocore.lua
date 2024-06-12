@@ -417,7 +417,6 @@ local normal_mappings = {
 	gy = '<Cmd>set list!<CR>',
 
 	-- Lsp
-	['<Leader>lD'] = { vim.lsp.buf.declaration },
 	['<Leader>lr'] = { vim.lsp.buf.rename },
 	['gl'] = function()
 		vim.diagnostic.open_float()
