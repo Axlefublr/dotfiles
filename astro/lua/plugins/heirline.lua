@@ -8,9 +8,7 @@ return {
 				if vim.bo.filetype == 'oil' then
 					return ' ' .. vim.fn.fnamemodify(require('oil').get_current_dir(), ':~'):gsub('/$', '')
 				else
-					local path = vim.api.nvim_buf_get_name(0)
-					local cwd = vim.fn.getcwd()
-					return ' ' .. path:gsub(cwd .. '/', '')
+					return ' ' .. vim.fn.expand('%:~:.')
 				end
 			end,
 		} -- previously, bufferline
