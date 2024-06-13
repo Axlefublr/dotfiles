@@ -430,7 +430,12 @@ local normal_mappings = {
 	gy = '<Cmd>set list!<CR>',
 
 	-- Lsp
-	['<Leader>lr'] = { vim.lsp.buf.rename },
+	['<Leader>lr'] = vim.lsp.buf.rename,
+	['<Leader>lc'] = vim.lsp.buf.code_action,
+	['<Leader>lf'] = require('astrolsp.toggles').buffer_autoformat,
+	['<Leader>lF'] = function()
+		vim.lsp.buf.format(require('astrolsp').format_opts --[[@as vim.lsp.buf.format.Opts?]])
+	end,
 	['gl'] = function()
 		vim.diagnostic.open_float()
 		vim.diagnostic.open_float()
@@ -603,8 +608,8 @@ local normal_mappings = {
 	U = '@u',
 	zu = 'q',
 	["z'"] = '@',
+	["z''"] = '@"',
 	Y = 'yg_',
-	["zx'"] = '@"',
 	['<C-k>'] = 'O<Esc>',
 	['<F6>'] = 'o<Esc>',
 	['`'] = '<C-^>',
@@ -731,8 +736,6 @@ local normal_visual_mappings = {
 	["'"] = '"',
 	['&'] = '@:',
 	['<Leader>da'] = { copy_cwd },
-	['<Leader>lc'] = { vim.lsp.buf.code_action },
-	['<Leader>lf'] = function() vim.lsp.buf.format({ async = true }) end,
 	['<S-CR>'] = ':.,$',
 	['[{'] = '{j',
 	[']}'] = '}k',
