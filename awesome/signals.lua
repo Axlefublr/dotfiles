@@ -9,21 +9,19 @@ client.connect_signal('property::urgent', function(client)
 	client.border_color = beautiful.pink
 end)
 
-client.connect_signal('property::name', function(client)
-end)
+-- client.connect_signal('property::name', function(client) end)
 
 -- Signal function to execute when a new client appears.
 client.connect_signal('manage', function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
-	if client.class == 'Anki' and string.match(client.name, '^Browse') then
-		Move_window_to_tag(16)
-	end
+	if client.class == 'Anki' and string.match(client.name, '^Browse') then Move_window_to_tag(16) end
 	Clients_wu(screen.primary.selected_tag)
 end)
 
-client.connect_signal('unmanage', function(client)
+client.connect_signal('unmanage', function(_)
 	Clients_wu(screen.primary.selected_tag)
+	Floating_state_wu(false)
 end)
 
 client.connect_signal('property::maximized', function(client)
@@ -31,9 +29,7 @@ client.connect_signal('property::maximized', function(client)
 	Maximized_state_wu(client)
 end)
 
-client.connect_signal('property::floating', function(client)
-	Floating_state_wu(client)
-end)
+client.connect_signal('property::floating', function(client) Floating_state_wu(client) end)
 
 client.connect_signal('property::ontop', function(client) Ontop_state_wu(client) end)
 
@@ -45,17 +41,9 @@ awful.tag.attached_connect_signal(screen.primary, 'property::layout', function(t
 	Tile_wu(tag)
 end)
 
-awful.tag.attached_connect_signal(
-	screen.primary,
-	'property::master_count',
-	function(tag) Malumn_wu(tag) end
-)
+awful.tag.attached_connect_signal(screen.primary, 'property::master_count', function(tag) Malumn_wu(tag) end)
 
-awful.tag.attached_connect_signal(
-	screen.primary,
-	'property::column_count',
-	function(tag) Malumn_wu(tag) end
-)
+awful.tag.attached_connect_signal(screen.primary, 'property::column_count', function(tag) Malumn_wu(tag) end)
 
 awful.tag.attached_connect_signal(screen.primary, 'property::selected', function(tag)
 	Malumn_wu(tag)

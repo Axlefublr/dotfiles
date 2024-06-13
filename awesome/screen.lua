@@ -463,7 +463,7 @@ Floating_state_mw = wibox.container.margin(Floating_state_bw)
 Floating_state_mw.right = between - 4
 Floating_state_mw.visible = false
 function Floating_state_wu(client)
-	if client.floating then
+	if client and client.floating then
 		Floating_state_mw.visible = true
 	else
 		Floating_state_mw.visible = false
@@ -680,7 +680,7 @@ local run_once = function()
 		'Media_player',
 		'Loago',
 		'Disk_usage',
-		'Charge'
+		'Charge',
 	}
 	for _, frequent_ in ipairs(frequents) do
 		local file = io.open('/dev/shm/' .. frequent_ .. '_f', 'w')
