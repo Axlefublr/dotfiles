@@ -5,9 +5,6 @@ virtual_modifiers:
 default_mode: default
 modmap:
   - remap:
-      Tab:
-        held: Tab
-        alone: Backslash
       CapsLock:
         held: CapsLock
         alone: Esc
@@ -485,12 +482,6 @@ keymap:
       CapsLock-e: { launch: [ydotool, key, '56:0'] }
       CapsLock-g: { launch: [ydotool, key, '29:1'] } # ctrl
       CapsLock-t: { launch: [ydotool, key, '29:0'] }
-
-  - name: Default mode
-    mode: default
-    remap:
-      CapsLock-Comma:
-        [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
   - name: Clipboard Manager
     exact_match: true
@@ -1394,9 +1385,46 @@ keymap:
     remap:
       Super-v: { launch: [boomer] }
 
+  - name: Tab
+    exact_match: true
+    remap:
+      Tab-h: grave
+      Tab-Alt-h: shift-grave
+      Tab-Slash: backslash
+      Tab-Alt-Slash: shift-backslash
+
+      Tab-Alt-p: '0'
+      Tab-Alt-m: '1'
+      Tab-Alt-Comma: '2'
+      Tab-Alt-Dot: '3'
+      Tab-Alt-j: '4'
+      Tab-Alt-k: '5'
+      Tab-Alt-l: '6'
+      Tab-Alt-u: '7'
+      Tab-Alt-i: '8'
+      Tab-Alt-o: '9'
+
+      Tab-LeftBrace: shift-9
+      Tab-RightBrace: shift-0
+      Tab-i: shift-6
+      Tab-o: shift-4
+      Tab-Comma: shift-minus
+      Tab-j: shift-equal
+      Tab-k: minus
+      Tab-l: equal
+      Tab-u: shift-8
+      Tab-p: shift-3
+      Tab-m: shift-1
+      Tab-Dot: shift-7
+      Tab-n: shift-5
+      Tab-y: shift-2
+      Tab-Alt-Apostrophe: [scrolllock, minus, minus]
+
   - name: Direct
     mode: [default]
     remap:
+      CapsLock-Comma:
+        [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
       Pause: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
       CapsLock-Enter: { launch: [fish, -c, runner_notification] }
@@ -1413,22 +1441,6 @@ keymap:
       CapsLock-g: ctrl-a
       CapsLock-Alt-d: ctrl-a
       CapsLock-q: enter
-
-      Alt_R-s: shift-9
-      Alt_R-d: shift-0
-      Alt_R-w: shift-6
-      Alt_R-e: shift-4
-      Alt_R-q: shift-minus
-      Alt_R-r: shift-equal
-      Alt_R-a: shift-3
-      Alt_R-f: shift-8
-      Alt_R-z: backslash
-      Alt_R-v: shift-backslash
-      Alt_R-x: shift-1
-      Alt_R-c: shift-5
-      Alt_R-t: shift-7
-      Alt_R-g: shift-grave
-      Alt_R-5: [scrolllock, minus, minus]
 
       # for a tldr on the following couple of blocks,
       # what I'm doing here is a vim-like remap
