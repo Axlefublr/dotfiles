@@ -103,7 +103,7 @@ end
 funcsave magazine_get >/dev/null
 
 function magazine_set
-    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
+    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
     xclip -selection clipboard -o >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "set $argv[1]"
     update_magazine $argv[1]
@@ -111,7 +111,7 @@ end
 funcsave magazine_set >/dev/null
 
 function magazine_edit
-    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
+    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
     neoline ~/.local/share/magazine/$argv[1]
     update_magazine $argv[1]
 end
@@ -130,7 +130,7 @@ funcsave magazine_view >/dev/null
 
 function magazine_truncate
     magazine_view $argv[1] 3000
-    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
+    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
     truncate -s 0 ~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "truncate $argv[1]"
     update_magazine $argv[1]
@@ -149,7 +149,7 @@ function magazine_write
         return 1
     end
     set -e result[-1]
-    cat ~/.local/share/magazine/$argv[1] >/dev/shm/magazine_$argv[1]
+    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
     printf "$result" >~/.local/share/magazine/$argv[1]
     notify-send -t 1000 "write $argv[1]"
     update_magazine $argv[1]
@@ -192,7 +192,7 @@ function magazine_restore
         echo please specify the register name >&2
         return 1
     end
-    cp -f /dev/shm/magazine_$argv[1] ~/.local/share/magazine/$argv[1]
+    cp -f /tmp/magazine_$argv[1] ~/.local/share/magazine/$argv[1]
     if status is-interactive
         echo "restore $argv[1]"
     else
@@ -215,7 +215,7 @@ function magazine_filter
         end
         set collected $collected $line
     end
-    cp -f $file_path /dev/shm/magazine_$argv[1]
+    cp -f $file_path /tmp/magazine_$argv[1]
     set multiline (printf '%s\n' $collected | string collect)
     echo -n $multiline >$file_path
     notify-send -t 1000 "filter $argv[1]"

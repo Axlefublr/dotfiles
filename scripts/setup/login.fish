@@ -7,27 +7,27 @@ else
 end
 
 for script in ~/prog/dotfiles/scripts/widget_update/*.fish
-    $script 2>>/dev/shm/user_log.txt & disown
+    $script 2>>/tmp/user_log.txt & disown
 end
 
-xremap --mouse ~/prog/dotfiles/xremap.yml 2>>/dev/shm/user_log.txt & disown
-ydotoold 2>>/dev/shm/user_log.txt & disown
-# ollama serve 2>>/dev/shm/user_log.txt & disown
-picom 2>>/dev/shm/user_log.txt & disown
-gromit.fish 2>>/dev/shm/user_log.txt & disown
-copyq 2>>/dev/shm/user_log.txt & disown
-xset s off -dpms 2>>/dev/shm/user_log.txt
-redshift -O 5700 2>>/dev/shm/user_log.txt
+xremap --mouse ~/prog/dotfiles/xremap.yml 2>>/tmp/user_log.txt & disown
+ydotoold 2>>/tmp/user_log.txt & disown
+# ollama serve 2>>/tmp/user_log.txt & disown
+picom 2>>/tmp/user_log.txt & disown
+gromit.fish 2>>/tmp/user_log.txt & disown
+copyq 2>>/tmp/user_log.txt & disown
+xset s off -dpms 2>>/tmp/user_log.txt
+redshift -O 5700 2>>/tmp/user_log.txt
 playerctld daemon
 
-kitty -T meow 2>>/dev/shm/user_log.txt & disown
-oil.fish ~/vid/content 2>>/dev/shm/user_log.txt & disown
+kitty -T meow 2>>/tmp/user_log.txt & disown
+oil.fish ~/vid/content 2>>/tmp/user_log.txt & disown
 
-kitty -T editor -d ~/prog/dotfiles nvim 2>>/dev/shm/user_log.txt & disown
+kitty -T editor -d ~/prog/dotfiles nvim 2>>/tmp/user_log.txt & disown
 # win_wait 'neovide — Neovide' 0.5 0 200
-# kitty -T terminal -d ~/prog/dotfiles 2>>/dev/shm/user_log.txt & disown
+# kitty -T terminal -d ~/prog/dotfiles 2>>/tmp/user_log.txt & disown
 
-vivaldi-stable --force-dark-mode 2>>/dev/shm/user_log.txt & disown
+vivaldi-stable --force-dark-mode 2>>/tmp/user_log.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
 move_all 2 $vivaldis
 set discord (win_wait 'Vivaldi-stable — .*(Discord|Mastodon|Messenger)' 0.1 0 50)
@@ -35,13 +35,13 @@ move_all 5 $discord
 set youtube (win_wait 'Vivaldi-stable — .*YouTube' 0.1 0 50)
 move_all 7 $youtube
 
-anki 2>>/dev/shm/user_log.txt & disown
+anki 2>>/tmp/user_log.txt & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
 # notify-send -t 2000 'spotify'
 # loopuntil is_internet 0.5 0 60
-# spotify-launcher -v 2>>/dev/shm/user_log.txt & disown
+# spotify-launcher -v 2>>/tmp/user_log.txt & disown
 
 notify-sent -t 2000 xwaaa
 sleep 10
