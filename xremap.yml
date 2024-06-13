@@ -1408,8 +1408,20 @@ keymap:
       CapsLock-Alt-d: ctrl-a
       CapsLock-q: enter
 
-      Alt-LeftBrace: backslash
-      Alt-RightBrace: shift-backslash
+      Alt_R-s: shift-9
+      Alt_R-d: shift-0
+      Alt_R-w: shift-6
+      Alt_R-e: shift-4
+      Alt_R-q: shift-minus
+      Alt_R-r: shift-equal
+      Alt_R-a: shift-3
+      Alt_R-f: shift-8
+      Alt_R-z: backslash
+      Alt_R-v: shift-backslash
+      Alt_R-x: shift-1
+      Alt_R-c: shift-5
+      Alt_R-t: shift-7
+      Alt_R-g: shift-grave
 
       # for a tldr on the following couple of blocks,
       # what I'm doing here is a vim-like remap
