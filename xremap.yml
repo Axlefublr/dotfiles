@@ -181,7 +181,7 @@ keymap:
   - name: Mouse mode
     mode: [mouse, resize, move]
     remap:
-      CapsLock-Comma: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      Tab-Comma: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       g: { set_mode: move }
 
@@ -267,8 +267,8 @@ keymap:
     mode: default
     exact_match: true
     remap:
-      CapsLock-Shift-Dot: { launch: [fish, -c, runner_clipboard] }
-      CapsLock-Dot:
+      Tab-Shift-Dot: { launch: [fish, -c, runner_clipboard] }
+      Tab-Dot:
         {
           launch:
             [
@@ -277,7 +277,7 @@ keymap:
               'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
-      CapsLock-Alt-Dot:
+      Tab-Alt-Dot:
         {
           launch:
             [
@@ -925,13 +925,10 @@ keymap:
       CapsLock-0: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
       CapsLock-6: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
       CapsLock-Minus: { launch: [awesome-client, 'client.focus.minimized = true'] }
-      CapsLock-LeftBrace:
-        { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-RightBrace:
-        { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Alt-LeftBrace:
-        { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Alt-RightBrace:
+      Tab-LeftBrace: { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Tab-RightBrace: { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Tab-Alt-LeftBrace: { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Tab-Alt-RightBrace:
         { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
 
   - name: Other in mouse too
@@ -941,42 +938,42 @@ keymap:
   - name: Tab
     exact_match: true
     remap:
-      Tab-h: grave
-      Tab-Alt-h: shift-grave
-      Tab-Slash: backslash
-      Tab-Alt-Slash: shift-backslash
+      CapsLock-h: grave
+      CapsLock-Alt-h: shift-grave
+      CapsLock-Slash: backslash
+      CapsLock-Alt-Slash: shift-backslash
 
-      Tab-Alt-p: '0'
-      Tab-Alt-m: '1'
-      Tab-Alt-Comma: '2'
-      Tab-Alt-Dot: '3'
-      Tab-Alt-j: '4'
-      Tab-Alt-k: '5'
-      Tab-Alt-l: '6'
-      Tab-Alt-u: '7'
-      Tab-Alt-i: '8'
-      Tab-Alt-o: '9'
+      CapsLock-Alt-p: '0'
+      CapsLock-Alt-m: '1'
+      CapsLock-Alt-Comma: '2'
+      CapsLock-Alt-Dot: '3'
+      CapsLock-Alt-j: '4'
+      CapsLock-Alt-k: '5'
+      CapsLock-Alt-l: '6'
+      CapsLock-Alt-u: '7'
+      CapsLock-Alt-i: '8'
+      CapsLock-Alt-o: '9'
 
-      Tab-LeftBrace: shift-9
-      Tab-RightBrace: shift-0
-      Tab-i: shift-6
-      Tab-o: shift-4
-      Tab-Comma: shift-minus
-      Tab-j: shift-equal
-      Tab-k: minus
-      Tab-l: equal
-      Tab-u: shift-8
-      Tab-p: shift-3
-      Tab-m: shift-1
-      Tab-Dot: shift-7
-      Tab-n: shift-5
-      Tab-y: shift-2
-      Tab-Alt-Apostrophe: [scrolllock, minus, minus]
+      CapsLock-LeftBrace: shift-9
+      CapsLock-RightBrace: shift-0
+      CapsLock-i: shift-6
+      CapsLock-o: shift-4
+      CapsLock-Comma: shift-minus
+      CapsLock-j: shift-equal
+      CapsLock-k: minus
+      CapsLock-l: equal
+      CapsLock-u: shift-8
+      CapsLock-p: shift-3
+      CapsLock-m: shift-1
+      CapsLock-Dot: shift-7
+      CapsLock-n: shift-5
+      CapsLock-y: shift-2
+      CapsLock-Alt-Apostrophe: [scrolllock, minus, minus]
 
   - name: Direct
     mode: [default]
     remap:
-      CapsLock-Comma: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      Tab-Comma: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
       Pause: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
       CapsLock-Enter: { launch: [fish, -c, runner_notification] }
@@ -999,138 +996,138 @@ keymap:
       # however, I replace ctrl with alt, and alt with ctrl
       # unfortunately, I have to do this bullshit in xremap to make it possible
 
-      CapsLock-Super-Ctrl-Shift-Alt-p: super-shift-alt-ctrl-pagedown
-      CapsLock-Super-Ctrl-Shift-p: super-shift-alt-pagedown
-      CapsLock-Super-Ctrl-Alt-p: super-alt-ctrl-pagedown
-      CapsLock-Super-Shift-Alt-p: super-shift-ctrl-pagedown
-      CapsLock-Ctrl-Shift-Alt-p: shift-alt-ctrl-pagedown
-      CapsLock-Super-Ctrl-p: super-alt-pagedown
-      CapsLock-Super-Shift-p: super-shift-pagedown
-      CapsLock-Super-Alt-p: super-ctrl-pagedown
-      CapsLock-Ctrl-Shift-p: shift-alt-pagedown
-      CapsLock-Ctrl-Alt-p: alt-ctrl-pagedown
-      CapsLock-Shift-Alt-p: shift-ctrl-pagedown
-      CapsLock-Super-p: super-pagedown
-      CapsLock-Ctrl-p: alt-pagedown
-      CapsLock-Shift-p: shift-pagedown
-      CapsLock-Alt-p: ctrl-pagedown
-      CapsLock-p: pagedown
+      Tab-Super-Ctrl-Shift-Alt-p: super-shift-alt-ctrl-pagedown
+      Tab-Super-Ctrl-Shift-p: super-shift-alt-pagedown
+      Tab-Super-Ctrl-Alt-p: super-alt-ctrl-pagedown
+      Tab-Super-Shift-Alt-p: super-shift-ctrl-pagedown
+      Tab-Ctrl-Shift-Alt-p: shift-alt-ctrl-pagedown
+      Tab-Super-Ctrl-p: super-alt-pagedown
+      Tab-Super-Shift-p: super-shift-pagedown
+      Tab-Super-Alt-p: super-ctrl-pagedown
+      Tab-Ctrl-Shift-p: shift-alt-pagedown
+      Tab-Ctrl-Alt-p: alt-ctrl-pagedown
+      Tab-Shift-Alt-p: shift-ctrl-pagedown
+      Tab-Super-p: super-pagedown
+      Tab-Ctrl-p: alt-pagedown
+      Tab-Shift-p: shift-pagedown
+      Tab-Alt-p: ctrl-pagedown
+      Tab-p: pagedown
 
-      CapsLock-Super-Ctrl-Shift-Alt-u: super-shift-alt-ctrl-pageup
-      CapsLock-Super-Ctrl-Shift-u: super-shift-alt-pageup
-      CapsLock-Super-Ctrl-Alt-u: super-alt-ctrl-pageup
-      CapsLock-Super-Shift-Alt-u: super-shift-ctrl-pageup
-      CapsLock-Ctrl-Shift-Alt-u: shift-alt-ctrl-pageup
-      CapsLock-Super-Ctrl-u: super-alt-pageup
-      CapsLock-Super-Shift-u: super-shift-pageup
-      CapsLock-Super-Alt-u: super-ctrl-pageup
-      CapsLock-Ctrl-Shift-u: shift-alt-pageup
-      CapsLock-Ctrl-Alt-u: alt-ctrl-pageup
-      CapsLock-Shift-Alt-u: shift-ctrl-pageup
-      CapsLock-Super-u: super-pageup
-      CapsLock-Ctrl-u: alt-pageup
-      CapsLock-Shift-u: shift-pageup
-      CapsLock-Alt-u: ctrl-pageup
-      CapsLock-u: pageup
+      Tab-Super-Ctrl-Shift-Alt-u: super-shift-alt-ctrl-pageup
+      Tab-Super-Ctrl-Shift-u: super-shift-alt-pageup
+      Tab-Super-Ctrl-Alt-u: super-alt-ctrl-pageup
+      Tab-Super-Shift-Alt-u: super-shift-ctrl-pageup
+      Tab-Ctrl-Shift-Alt-u: shift-alt-ctrl-pageup
+      Tab-Super-Ctrl-u: super-alt-pageup
+      Tab-Super-Shift-u: super-shift-pageup
+      Tab-Super-Alt-u: super-ctrl-pageup
+      Tab-Ctrl-Shift-u: shift-alt-pageup
+      Tab-Ctrl-Alt-u: alt-ctrl-pageup
+      Tab-Shift-Alt-u: shift-ctrl-pageup
+      Tab-Super-u: super-pageup
+      Tab-Ctrl-u: alt-pageup
+      Tab-Shift-u: shift-pageup
+      Tab-Alt-u: ctrl-pageup
+      Tab-u: pageup
 
-      CapsLock-Super-Ctrl-Shift-Alt-i: super-shift-alt-ctrl-home
-      CapsLock-Super-Ctrl-Shift-i: super-shift-alt-home
-      CapsLock-Super-Ctrl-Alt-i: super-alt-ctrl-home
-      CapsLock-Super-Shift-Alt-i: super-shift-ctrl-home
-      CapsLock-Ctrl-Shift-Alt-i: shift-alt-ctrl-home
-      CapsLock-Super-Ctrl-i: super-alt-home
-      CapsLock-Super-Shift-i: super-shift-home
-      CapsLock-Super-Alt-i: super-ctrl-home
-      CapsLock-Ctrl-Shift-i: shift-alt-home
-      CapsLock-Ctrl-Alt-i: alt-ctrl-home
-      CapsLock-Shift-Alt-i: shift-ctrl-home
-      CapsLock-Super-i: super-home
-      CapsLock-Ctrl-i: alt-home
-      CapsLock-Shift-i: shift-home
-      CapsLock-Alt-i: ctrl-home
-      CapsLock-i: home
+      Tab-Super-Ctrl-Shift-Alt-i: super-shift-alt-ctrl-home
+      Tab-Super-Ctrl-Shift-i: super-shift-alt-home
+      Tab-Super-Ctrl-Alt-i: super-alt-ctrl-home
+      Tab-Super-Shift-Alt-i: super-shift-ctrl-home
+      Tab-Ctrl-Shift-Alt-i: shift-alt-ctrl-home
+      Tab-Super-Ctrl-i: super-alt-home
+      Tab-Super-Shift-i: super-shift-home
+      Tab-Super-Alt-i: super-ctrl-home
+      Tab-Ctrl-Shift-i: shift-alt-home
+      Tab-Ctrl-Alt-i: alt-ctrl-home
+      Tab-Shift-Alt-i: shift-ctrl-home
+      Tab-Super-i: super-home
+      Tab-Ctrl-i: alt-home
+      Tab-Shift-i: shift-home
+      Tab-Alt-i: ctrl-home
+      Tab-i: home
 
-      CapsLock-Super-Ctrl-Shift-Alt-o: super-shift-alt-ctrl-end
-      CapsLock-Super-Ctrl-Shift-o: super-shift-alt-end
-      CapsLock-Super-Ctrl-Alt-o: super-alt-ctrl-end
-      CapsLock-Super-Shift-Alt-o: super-shift-ctrl-end
-      CapsLock-Ctrl-Shift-Alt-o: shift-alt-ctrl-end
-      CapsLock-Super-Ctrl-o: super-alt-end
-      CapsLock-Super-Shift-o: super-shift-end
-      CapsLock-Super-Alt-o: super-ctrl-end
-      CapsLock-Ctrl-Shift-o: shift-alt-end
-      CapsLock-Ctrl-Alt-o: alt-ctrl-end
-      CapsLock-Shift-Alt-o: shift-ctrl-end
-      CapsLock-Super-o: super-end
-      CapsLock-Ctrl-o: alt-end
-      CapsLock-Shift-o: shift-end
-      CapsLock-Alt-o: ctrl-end
-      CapsLock-o: end
+      Tab-Super-Ctrl-Shift-Alt-o: super-shift-alt-ctrl-end
+      Tab-Super-Ctrl-Shift-o: super-shift-alt-end
+      Tab-Super-Ctrl-Alt-o: super-alt-ctrl-end
+      Tab-Super-Shift-Alt-o: super-shift-ctrl-end
+      Tab-Ctrl-Shift-Alt-o: shift-alt-ctrl-end
+      Tab-Super-Ctrl-o: super-alt-end
+      Tab-Super-Shift-o: super-shift-end
+      Tab-Super-Alt-o: super-ctrl-end
+      Tab-Ctrl-Shift-o: shift-alt-end
+      Tab-Ctrl-Alt-o: alt-ctrl-end
+      Tab-Shift-Alt-o: shift-ctrl-end
+      Tab-Super-o: super-end
+      Tab-Ctrl-o: alt-end
+      Tab-Shift-o: shift-end
+      Tab-Alt-o: ctrl-end
+      Tab-o: end
 
-      CapsLock-Super-Ctrl-Shift-Alt-h: super-shift-alt-ctrl-left
-      CapsLock-Super-Ctrl-Shift-h: super-shift-alt-left
-      CapsLock-Super-Ctrl-Alt-h: super-alt-ctrl-left
-      CapsLock-Super-Shift-Alt-h: super-shift-ctrl-left
-      CapsLock-Ctrl-Shift-Alt-h: shift-alt-ctrl-left
-      CapsLock-Super-Ctrl-h: super-alt-left
-      CapsLock-Super-Shift-h: super-shift-left
-      CapsLock-Super-Alt-h: super-ctrl-left
-      CapsLock-Ctrl-Shift-h: shift-alt-left
-      CapsLock-Ctrl-Alt-h: alt-ctrl-left
-      CapsLock-Shift-Alt-h: shift-ctrl-left
-      CapsLock-Super-h: super-left
-      CapsLock-Ctrl-h: alt-left
-      CapsLock-Shift-h: shift-left
-      CapsLock-Alt-h: ctrl-left
-      CapsLock-h: left
+      Tab-Super-Ctrl-Shift-Alt-h: super-shift-alt-ctrl-left
+      Tab-Super-Ctrl-Shift-h: super-shift-alt-left
+      Tab-Super-Ctrl-Alt-h: super-alt-ctrl-left
+      Tab-Super-Shift-Alt-h: super-shift-ctrl-left
+      Tab-Ctrl-Shift-Alt-h: shift-alt-ctrl-left
+      Tab-Super-Ctrl-h: super-alt-left
+      Tab-Super-Shift-h: super-shift-left
+      Tab-Super-Alt-h: super-ctrl-left
+      Tab-Ctrl-Shift-h: shift-alt-left
+      Tab-Ctrl-Alt-h: alt-ctrl-left
+      Tab-Shift-Alt-h: shift-ctrl-left
+      Tab-Super-h: super-left
+      Tab-Ctrl-h: alt-left
+      Tab-Shift-h: shift-left
+      Tab-Alt-h: ctrl-left
+      Tab-h: left
 
-      CapsLock-Super-Ctrl-Shift-Alt-j: super-shift-alt-ctrl-down
-      CapsLock-Super-Ctrl-Shift-j: super-shift-alt-down
-      CapsLock-Super-Ctrl-Alt-j: super-alt-ctrl-down
-      CapsLock-Super-Shift-Alt-j: super-shift-ctrl-down
-      CapsLock-Ctrl-Shift-Alt-j: shift-alt-ctrl-down
-      CapsLock-Super-Ctrl-j: super-alt-down
-      CapsLock-Super-Shift-j: super-shift-down
-      CapsLock-Super-Alt-j: super-ctrl-down
-      CapsLock-Ctrl-Shift-j: shift-alt-down
-      CapsLock-Ctrl-Alt-j: alt-ctrl-down
-      CapsLock-Shift-Alt-j: shift-ctrl-down
-      CapsLock-Super-j: super-down
-      CapsLock-Ctrl-j: alt-down
-      CapsLock-Shift-j: shift-down
-      CapsLock-Alt-j: ctrl-down
-      CapsLock-j: down
+      Tab-Super-Ctrl-Shift-Alt-j: super-shift-alt-ctrl-down
+      Tab-Super-Ctrl-Shift-j: super-shift-alt-down
+      Tab-Super-Ctrl-Alt-j: super-alt-ctrl-down
+      Tab-Super-Shift-Alt-j: super-shift-ctrl-down
+      Tab-Ctrl-Shift-Alt-j: shift-alt-ctrl-down
+      Tab-Super-Ctrl-j: super-alt-down
+      Tab-Super-Shift-j: super-shift-down
+      Tab-Super-Alt-j: super-ctrl-down
+      Tab-Ctrl-Shift-j: shift-alt-down
+      Tab-Ctrl-Alt-j: alt-ctrl-down
+      Tab-Shift-Alt-j: shift-ctrl-down
+      Tab-Super-j: super-down
+      Tab-Ctrl-j: alt-down
+      Tab-Shift-j: shift-down
+      Tab-Alt-j: ctrl-down
+      Tab-j: down
 
-      CapsLock-Super-Ctrl-Shift-Alt-k: super-shift-alt-ctrl-up
-      CapsLock-Super-Ctrl-Shift-k: super-shift-alt-up
-      CapsLock-Super-Ctrl-Alt-k: super-alt-ctrl-up
-      CapsLock-Super-Shift-Alt-k: super-shift-ctrl-up
-      CapsLock-Ctrl-Shift-Alt-k: shift-alt-ctrl-up
-      CapsLock-Super-Ctrl-k: super-alt-up
-      CapsLock-Super-Shift-k: super-shift-up
-      CapsLock-Super-Alt-k: super-ctrl-up
-      CapsLock-Ctrl-Shift-k: shift-alt-up
-      CapsLock-Ctrl-Alt-k: alt-ctrl-up
-      CapsLock-Shift-Alt-k: shift-ctrl-up
-      CapsLock-Super-k: super-up
-      CapsLock-Ctrl-k: alt-up
-      CapsLock-Shift-k: shift-up
-      CapsLock-Alt-k: ctrl-up
-      CapsLock-k: up
+      Tab-Super-Ctrl-Shift-Alt-k: super-shift-alt-ctrl-up
+      Tab-Super-Ctrl-Shift-k: super-shift-alt-up
+      Tab-Super-Ctrl-Alt-k: super-alt-ctrl-up
+      Tab-Super-Shift-Alt-k: super-shift-ctrl-up
+      Tab-Ctrl-Shift-Alt-k: shift-alt-ctrl-up
+      Tab-Super-Ctrl-k: super-alt-up
+      Tab-Super-Shift-k: super-shift-up
+      Tab-Super-Alt-k: super-ctrl-up
+      Tab-Ctrl-Shift-k: shift-alt-up
+      Tab-Ctrl-Alt-k: alt-ctrl-up
+      Tab-Shift-Alt-k: shift-ctrl-up
+      Tab-Super-k: super-up
+      Tab-Ctrl-k: alt-up
+      Tab-Shift-k: shift-up
+      Tab-Alt-k: ctrl-up
+      Tab-k: up
 
-      CapsLock-Super-Ctrl-Shift-Alt-l: super-shift-alt-ctrl-right
-      CapsLock-Super-Ctrl-Shift-l: super-shift-alt-right
-      CapsLock-Super-Ctrl-Alt-l: super-alt-ctrl-right
-      CapsLock-Super-Shift-Alt-l: super-shift-ctrl-right
-      CapsLock-Ctrl-Shift-Alt-l: shift-alt-ctrl-right
-      CapsLock-Super-Ctrl-l: super-alt-right
-      CapsLock-Super-Shift-l: super-shift-right
-      CapsLock-Super-Alt-l: super-ctrl-right
-      CapsLock-Ctrl-Shift-l: shift-alt-right
-      CapsLock-Ctrl-Alt-l: alt-ctrl-right
-      CapsLock-Shift-Alt-l: shift-ctrl-right
-      CapsLock-Super-l: super-right
-      CapsLock-Ctrl-l: alt-right
-      CapsLock-Shift-l: shift-right
-      CapsLock-Alt-l: ctrl-right
-      CapsLock-l: right
+      Tab-Super-Ctrl-Shift-Alt-l: super-shift-alt-ctrl-right
+      Tab-Super-Ctrl-Shift-l: super-shift-alt-right
+      Tab-Super-Ctrl-Alt-l: super-alt-ctrl-right
+      Tab-Super-Shift-Alt-l: super-shift-ctrl-right
+      Tab-Ctrl-Shift-Alt-l: shift-alt-ctrl-right
+      Tab-Super-Ctrl-l: super-alt-right
+      Tab-Super-Shift-l: super-shift-right
+      Tab-Super-Alt-l: super-ctrl-right
+      Tab-Ctrl-Shift-l: shift-alt-right
+      Tab-Ctrl-Alt-l: alt-ctrl-right
+      Tab-Shift-Alt-l: shift-ctrl-right
+      Tab-Super-l: super-right
+      Tab-Ctrl-l: alt-right
+      Tab-Shift-l: shift-right
+      Tab-Alt-l: ctrl-right
+      Tab-l: right
