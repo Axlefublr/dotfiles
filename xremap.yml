@@ -1422,6 +1422,7 @@ keymap:
       Alt_R-c: shift-5
       Alt_R-t: shift-7
       Alt_R-g: shift-grave
+      Alt_R-5: [scrolllock, minus, minus]
 
       # for a tldr on the following couple of blocks,
       # what I'm doing here is a vim-like remap
