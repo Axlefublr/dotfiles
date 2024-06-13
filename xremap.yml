@@ -2,12 +2,16 @@
 virtual_modifiers:
   - CapsLock
   - Tab
+  - F14
 default_mode: default
 modmap:
   - remap:
       CapsLock:
         held: CapsLock
         alone: Esc
+      Enter:
+        held: F14
+        alone: Enter
       Esc: F13
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
 
@@ -181,11 +185,11 @@ keymap:
   - name: Mouse mode
     mode: [mouse, resize, move]
     remap:
-      Tab-Comma: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      F14-a: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       g: { set_mode: move }
 
-      p: { launch: [xdotool, mousemove, '0', '1080'] }
+      Enter: { launch: [xdotool, mousemove, '0', '1080'] }
       Semicolon: { launch: [xdotool, mousemove, '960', '540'] }
 
       u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
@@ -267,8 +271,8 @@ keymap:
     mode: default
     exact_match: true
     remap:
-      Tab-Shift-Dot: { launch: [fish, -c, runner_clipboard] }
-      Tab-Dot:
+      Tab-CapsLock-Apostrophe: { launch: [fish, -c, runner_clipboard] }
+      Tab-Apostrophe:
         {
           launch:
             [
@@ -277,7 +281,7 @@ keymap:
               'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
             ],
         }
-      Tab-Alt-Dot:
+      Tab-Alt-Apostrophe:
         {
           launch:
             [
@@ -943,16 +947,16 @@ keymap:
       CapsLock-Slash: backslash
       CapsLock-Alt-Slash: shift-backslash
 
-      CapsLock-Alt-p: '0'
-      CapsLock-Alt-m: '1'
-      CapsLock-Alt-Comma: '2'
-      CapsLock-Alt-Dot: '3'
-      CapsLock-Alt-j: '4'
-      CapsLock-Alt-k: '5'
-      CapsLock-Alt-l: '6'
-      CapsLock-Alt-u: '7'
-      CapsLock-Alt-i: '8'
-      CapsLock-Alt-o: '9'
+      Tab-Semicolon: '0'
+      Tab-m: '1'
+      Tab-Comma: '2'
+      Tab-Dot: '3'
+      Tab-j: '4'
+      Tab-k: '5'
+      Tab-l: '6'
+      Tab-u: '7'
+      Tab-i: '8'
+      Tab-o: '9'
 
       CapsLock-LeftBrace: shift-9
       CapsLock-RightBrace: shift-0
@@ -970,10 +974,10 @@ keymap:
       CapsLock-y: shift-2
       CapsLock-Alt-Apostrophe: [scrolllock, minus, minus]
 
-  - name: Direct
+  - name: Default
     mode: [default]
     remap:
-      Tab-Comma: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      F14-a: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
       Pause: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
       CapsLock-Enter: { launch: [fish, -c, runner_notification] }
@@ -996,138 +1000,138 @@ keymap:
       # however, I replace ctrl with alt, and alt with ctrl
       # unfortunately, I have to do this bullshit in xremap to make it possible
 
-      Tab-Super-Ctrl-Shift-Alt-p: super-shift-alt-ctrl-pagedown
-      Tab-Super-Ctrl-Shift-p: super-shift-alt-pagedown
-      Tab-Super-Ctrl-Alt-p: super-alt-ctrl-pagedown
-      Tab-Super-Shift-Alt-p: super-shift-ctrl-pagedown
-      Tab-Ctrl-Shift-Alt-p: shift-alt-ctrl-pagedown
-      Tab-Super-Ctrl-p: super-alt-pagedown
-      Tab-Super-Shift-p: super-shift-pagedown
-      Tab-Super-Alt-p: super-ctrl-pagedown
-      Tab-Ctrl-Shift-p: shift-alt-pagedown
-      Tab-Ctrl-Alt-p: alt-ctrl-pagedown
-      Tab-Shift-Alt-p: shift-ctrl-pagedown
-      Tab-Super-p: super-pagedown
-      Tab-Ctrl-p: alt-pagedown
-      Tab-Shift-p: shift-pagedown
-      Tab-Alt-p: ctrl-pagedown
-      Tab-p: pagedown
+      F14-Super-Ctrl-Shift-Alt-r: super-shift-alt-ctrl-pagedown
+      F14-Super-Ctrl-Shift-r: super-shift-alt-pagedown
+      F14-Super-Ctrl-Alt-r: super-alt-ctrl-pagedown
+      F14-Super-Shift-Alt-r: super-shift-ctrl-pagedown
+      F14-Ctrl-Shift-Alt-r: shift-alt-ctrl-pagedown
+      F14-Super-Ctrl-r: super-alt-pagedown
+      F14-Super-Shift-r: super-shift-pagedown
+      F14-Super-Alt-r: super-ctrl-pagedown
+      F14-Ctrl-Shift-r: shift-alt-pagedown
+      F14-Ctrl-Alt-r: alt-ctrl-pagedown
+      F14-Shift-Alt-r: shift-ctrl-pagedown
+      F14-Super-r: super-pagedown
+      F14-Ctrl-r: alt-pagedown
+      F14-Shift-r: shift-pagedown
+      F14-Alt-r: ctrl-pagedown
+      F14-r: pagedown
 
-      Tab-Super-Ctrl-Shift-Alt-u: super-shift-alt-ctrl-pageup
-      Tab-Super-Ctrl-Shift-u: super-shift-alt-pageup
-      Tab-Super-Ctrl-Alt-u: super-alt-ctrl-pageup
-      Tab-Super-Shift-Alt-u: super-shift-ctrl-pageup
-      Tab-Ctrl-Shift-Alt-u: shift-alt-ctrl-pageup
-      Tab-Super-Ctrl-u: super-alt-pageup
-      Tab-Super-Shift-u: super-shift-pageup
-      Tab-Super-Alt-u: super-ctrl-pageup
-      Tab-Ctrl-Shift-u: shift-alt-pageup
-      Tab-Ctrl-Alt-u: alt-ctrl-pageup
-      Tab-Shift-Alt-u: shift-ctrl-pageup
-      Tab-Super-u: super-pageup
-      Tab-Ctrl-u: alt-pageup
-      Tab-Shift-u: shift-pageup
-      Tab-Alt-u: ctrl-pageup
-      Tab-u: pageup
+      F14-Super-Ctrl-Shift-Alt-q: super-shift-alt-ctrl-pageup
+      F14-Super-Ctrl-Shift-q: super-shift-alt-pageup
+      F14-Super-Ctrl-Alt-q: super-alt-ctrl-pageup
+      F14-Super-Shift-Alt-q: super-shift-ctrl-pageup
+      F14-Ctrl-Shift-Alt-q: shift-alt-ctrl-pageup
+      F14-Super-Ctrl-q: super-alt-pageup
+      F14-Super-Shift-q: super-shift-pageup
+      F14-Super-Alt-q: super-ctrl-pageup
+      F14-Ctrl-Shift-q: shift-alt-pageup
+      F14-Ctrl-Alt-q: alt-ctrl-pageup
+      F14-Shift-Alt-q: shift-ctrl-pageup
+      F14-Super-q: super-pageup
+      F14-Ctrl-q: alt-pageup
+      F14-Shift-q: shift-pageup
+      F14-Alt-q: ctrl-pageup
+      F14-q: pageup
 
-      Tab-Super-Ctrl-Shift-Alt-i: super-shift-alt-ctrl-home
-      Tab-Super-Ctrl-Shift-i: super-shift-alt-home
-      Tab-Super-Ctrl-Alt-i: super-alt-ctrl-home
-      Tab-Super-Shift-Alt-i: super-shift-ctrl-home
-      Tab-Ctrl-Shift-Alt-i: shift-alt-ctrl-home
-      Tab-Super-Ctrl-i: super-alt-home
-      Tab-Super-Shift-i: super-shift-home
-      Tab-Super-Alt-i: super-ctrl-home
-      Tab-Ctrl-Shift-i: shift-alt-home
-      Tab-Ctrl-Alt-i: alt-ctrl-home
-      Tab-Shift-Alt-i: shift-ctrl-home
-      Tab-Super-i: super-home
-      Tab-Ctrl-i: alt-home
-      Tab-Shift-i: shift-home
-      Tab-Alt-i: ctrl-home
-      Tab-i: home
+      F14-Super-Ctrl-Shift-Alt-w: super-shift-alt-ctrl-home
+      F14-Super-Ctrl-Shift-w: super-shift-alt-home
+      F14-Super-Ctrl-Alt-w: super-alt-ctrl-home
+      F14-Super-Shift-Alt-w: super-shift-ctrl-home
+      F14-Ctrl-Shift-Alt-w: shift-alt-ctrl-home
+      F14-Super-Ctrl-w: super-alt-home
+      F14-Super-Shift-w: super-shift-home
+      F14-Super-Alt-w: super-ctrl-home
+      F14-Ctrl-Shift-w: shift-alt-home
+      F14-Ctrl-Alt-w: alt-ctrl-home
+      F14-Shift-Alt-w: shift-ctrl-home
+      F14-Super-w: super-home
+      F14-Ctrl-w: alt-home
+      F14-Shift-w: shift-home
+      F14-Alt-w: ctrl-home
+      F14-w: home
 
-      Tab-Super-Ctrl-Shift-Alt-o: super-shift-alt-ctrl-end
-      Tab-Super-Ctrl-Shift-o: super-shift-alt-end
-      Tab-Super-Ctrl-Alt-o: super-alt-ctrl-end
-      Tab-Super-Shift-Alt-o: super-shift-ctrl-end
-      Tab-Ctrl-Shift-Alt-o: shift-alt-ctrl-end
-      Tab-Super-Ctrl-o: super-alt-end
-      Tab-Super-Shift-o: super-shift-end
-      Tab-Super-Alt-o: super-ctrl-end
-      Tab-Ctrl-Shift-o: shift-alt-end
-      Tab-Ctrl-Alt-o: alt-ctrl-end
-      Tab-Shift-Alt-o: shift-ctrl-end
-      Tab-Super-o: super-end
-      Tab-Ctrl-o: alt-end
-      Tab-Shift-o: shift-end
-      Tab-Alt-o: ctrl-end
-      Tab-o: end
+      F14-Super-Ctrl-Shift-Alt-e: super-shift-alt-ctrl-end
+      F14-Super-Ctrl-Shift-e: super-shift-alt-end
+      F14-Super-Ctrl-Alt-e: super-alt-ctrl-end
+      F14-Super-Shift-Alt-e: super-shift-ctrl-end
+      F14-Ctrl-Shift-Alt-e: shift-alt-ctrl-end
+      F14-Super-Ctrl-e: super-alt-end
+      F14-Super-Shift-e: super-shift-end
+      F14-Super-Alt-e: super-ctrl-end
+      F14-Ctrl-Shift-e: shift-alt-end
+      F14-Ctrl-Alt-e: alt-ctrl-end
+      F14-Shift-Alt-e: shift-ctrl-end
+      F14-Super-e: super-end
+      F14-Ctrl-e: alt-end
+      F14-Shift-e: shift-end
+      F14-Alt-e: ctrl-end
+      F14-e: end
 
-      Tab-Super-Ctrl-Shift-Alt-h: super-shift-alt-ctrl-left
-      Tab-Super-Ctrl-Shift-h: super-shift-alt-left
-      Tab-Super-Ctrl-Alt-h: super-alt-ctrl-left
-      Tab-Super-Shift-Alt-h: super-shift-ctrl-left
-      Tab-Ctrl-Shift-Alt-h: shift-alt-ctrl-left
-      Tab-Super-Ctrl-h: super-alt-left
-      Tab-Super-Shift-h: super-shift-left
-      Tab-Super-Alt-h: super-ctrl-left
-      Tab-Ctrl-Shift-h: shift-alt-left
-      Tab-Ctrl-Alt-h: alt-ctrl-left
-      Tab-Shift-Alt-h: shift-ctrl-left
-      Tab-Super-h: super-left
-      Tab-Ctrl-h: alt-left
-      Tab-Shift-h: shift-left
-      Tab-Alt-h: ctrl-left
-      Tab-h: left
+      F14-Super-Ctrl-Shift-Alt-s: super-shift-alt-ctrl-left
+      F14-Super-Ctrl-Shift-s: super-shift-alt-left
+      F14-Super-Ctrl-Alt-s: super-alt-ctrl-left
+      F14-Super-Shift-Alt-s: super-shift-ctrl-left
+      F14-Ctrl-Shift-Alt-s: shift-alt-ctrl-left
+      F14-Super-Ctrl-s: super-alt-left
+      F14-Super-Shift-s: super-shift-left
+      F14-Super-Alt-s: super-ctrl-left
+      F14-Ctrl-Shift-s: shift-alt-left
+      F14-Ctrl-Alt-s: alt-ctrl-left
+      F14-Shift-Alt-s: shift-ctrl-left
+      F14-Super-s: super-left
+      F14-Ctrl-s: alt-left
+      F14-Shift-s: shift-left
+      F14-Alt-s: ctrl-left
+      F14-s: left
 
-      Tab-Super-Ctrl-Shift-Alt-j: super-shift-alt-ctrl-down
-      Tab-Super-Ctrl-Shift-j: super-shift-alt-down
-      Tab-Super-Ctrl-Alt-j: super-alt-ctrl-down
-      Tab-Super-Shift-Alt-j: super-shift-ctrl-down
-      Tab-Ctrl-Shift-Alt-j: shift-alt-ctrl-down
-      Tab-Super-Ctrl-j: super-alt-down
-      Tab-Super-Shift-j: super-shift-down
-      Tab-Super-Alt-j: super-ctrl-down
-      Tab-Ctrl-Shift-j: shift-alt-down
-      Tab-Ctrl-Alt-j: alt-ctrl-down
-      Tab-Shift-Alt-j: shift-ctrl-down
-      Tab-Super-j: super-down
-      Tab-Ctrl-j: alt-down
-      Tab-Shift-j: shift-down
-      Tab-Alt-j: ctrl-down
-      Tab-j: down
+      F14-Super-Ctrl-Shift-Alt-f: super-shift-alt-ctrl-down
+      F14-Super-Ctrl-Shift-f: super-shift-alt-down
+      F14-Super-Ctrl-Alt-f: super-alt-ctrl-down
+      F14-Super-Shift-Alt-f: super-shift-ctrl-down
+      F14-Ctrl-Shift-Alt-f: shift-alt-ctrl-down
+      F14-Super-Ctrl-f: super-alt-down
+      F14-Super-Shift-f: super-shift-down
+      F14-Super-Alt-f: super-ctrl-down
+      F14-Ctrl-Shift-f: shift-alt-down
+      F14-Ctrl-Alt-f: alt-ctrl-down
+      F14-Shift-Alt-f: shift-ctrl-down
+      F14-Super-f: super-down
+      F14-Ctrl-f: alt-down
+      F14-Shift-f: shift-down
+      F14-Alt-f: ctrl-down
+      F14-f: down
 
-      Tab-Super-Ctrl-Shift-Alt-k: super-shift-alt-ctrl-up
-      Tab-Super-Ctrl-Shift-k: super-shift-alt-up
-      Tab-Super-Ctrl-Alt-k: super-alt-ctrl-up
-      Tab-Super-Shift-Alt-k: super-shift-ctrl-up
-      Tab-Ctrl-Shift-Alt-k: shift-alt-ctrl-up
-      Tab-Super-Ctrl-k: super-alt-up
-      Tab-Super-Shift-k: super-shift-up
-      Tab-Super-Alt-k: super-ctrl-up
-      Tab-Ctrl-Shift-k: shift-alt-up
-      Tab-Ctrl-Alt-k: alt-ctrl-up
-      Tab-Shift-Alt-k: shift-ctrl-up
-      Tab-Super-k: super-up
-      Tab-Ctrl-k: alt-up
-      Tab-Shift-k: shift-up
-      Tab-Alt-k: ctrl-up
-      Tab-k: up
+      F14-Super-Ctrl-Shift-Alt-d: super-shift-alt-ctrl-up
+      F14-Super-Ctrl-Shift-d: super-shift-alt-up
+      F14-Super-Ctrl-Alt-d: super-alt-ctrl-up
+      F14-Super-Shift-Alt-d: super-shift-ctrl-up
+      F14-Ctrl-Shift-Alt-d: shift-alt-ctrl-up
+      F14-Super-Ctrl-d: super-alt-up
+      F14-Super-Shift-d: super-shift-up
+      F14-Super-Alt-d: super-ctrl-up
+      F14-Ctrl-Shift-d: shift-alt-up
+      F14-Ctrl-Alt-d: alt-ctrl-up
+      F14-Shift-Alt-d: shift-ctrl-up
+      F14-Super-d: super-up
+      F14-Ctrl-d: alt-up
+      F14-Shift-d: shift-up
+      F14-Alt-d: ctrl-up
+      F14-d: up
 
-      Tab-Super-Ctrl-Shift-Alt-l: super-shift-alt-ctrl-right
-      Tab-Super-Ctrl-Shift-l: super-shift-alt-right
-      Tab-Super-Ctrl-Alt-l: super-alt-ctrl-right
-      Tab-Super-Shift-Alt-l: super-shift-ctrl-right
-      Tab-Ctrl-Shift-Alt-l: shift-alt-ctrl-right
-      Tab-Super-Ctrl-l: super-alt-right
-      Tab-Super-Shift-l: super-shift-right
-      Tab-Super-Alt-l: super-ctrl-right
-      Tab-Ctrl-Shift-l: shift-alt-right
-      Tab-Ctrl-Alt-l: alt-ctrl-right
-      Tab-Shift-Alt-l: shift-ctrl-right
-      Tab-Super-l: super-right
-      Tab-Ctrl-l: alt-right
-      Tab-Shift-l: shift-right
-      Tab-Alt-l: ctrl-right
-      Tab-l: right
+      F14-Super-Ctrl-Shift-Alt-g: super-shift-alt-ctrl-right
+      F14-Super-Ctrl-Shift-g: super-shift-alt-right
+      F14-Super-Ctrl-Alt-g: super-alt-ctrl-right
+      F14-Super-Shift-Alt-g: super-shift-ctrl-right
+      F14-Ctrl-Shift-Alt-g: shift-alt-ctrl-right
+      F14-Super-Ctrl-g: super-alt-right
+      F14-Super-Shift-g: super-shift-right
+      F14-Super-Alt-g: super-ctrl-right
+      F14-Ctrl-Shift-g: shift-alt-right
+      F14-Ctrl-Alt-g: alt-ctrl-right
+      F14-Shift-Alt-g: shift-ctrl-right
+      F14-Super-g: super-right
+      F14-Ctrl-g: alt-right
+      F14-Shift-g: shift-right
+      F14-Alt-g: ctrl-right
+      F14-g: right
