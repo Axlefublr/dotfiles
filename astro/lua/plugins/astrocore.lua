@@ -1,4 +1,5 @@
 local killring = setmetatable({}, { __index = table })
+local foldlevel = {}
 
 function validate_register(register)
 	if register == "'" then
@@ -372,8 +373,6 @@ local normal_mappings = {
 	-- ['>>'] = function() count_repeats_keys('>>') end,
 	-- ['<<'] = function() count_repeats_keys('<<') end,
 	yie = function() vim.cmd('%y+') end,
-	zM = function() vim.wo.foldlevel = vim.v.count end,
-	zR = function() vim.wo.foldlevel = 99 end,
 
 	-- Features
 	["'q"] = function()
@@ -449,6 +448,22 @@ local normal_mappings = {
 	['gh'] = function()
 		vim.lsp.buf.hover()
 		vim.lsp.buf.hover()
+	end,
+	['zM'] = function()
+		vim.b.ufo_foldlevel = vim.v.count
+		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
+	end,
+	['zR'] = function()
+		vim.b.ufo_foldlevel = 99
+		require('ufo').openAllFolds()
+	end,
+	['zm'] = function()
+		vim.b.ufo_foldlevel = math.max(0, (vim.b.ufo_foldlevel - vim.v.count1))
+		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
+	end,
+	['zr'] = function()
+		vim.b.ufo_foldlevel = math.min(99, (vim.b.ufo_foldlevel + vim.v.count1))
+		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
 	end,
 
 	-- Abstractions
@@ -941,6 +956,10 @@ local opts_table = {
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = '*.rasi',
 				command = 'setfiletype rasi',
+			},
+			{
+				event = { 'BufReadPre' },
+				callback = function() vim.b.ufo_foldlevel = 0 end,
 			},
 			{
 				event = 'BufUnload',

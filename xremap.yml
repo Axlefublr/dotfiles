@@ -215,8 +215,8 @@ keymap:
       c: { launch: [xdotool, mousemove, '960', '120'] }
       v: { launch: [xdotool, mousemove, '1792', '540'] }
 
-      Semicolon: { launch: [xdotool, mousemove, '0', '1080'] }
-      p: { launch: [xdotool, mousemove, '960', '540'] }
+      p: { launch: [xdotool, mousemove, '0', '1080'] }
+      Semicolon: { launch: [xdotool, mousemove, '960', '540'] }
 
       # down and up events of mouse clicks
       CapsLock-u: { launch: ['ydotool', 'click', '40'] }
@@ -918,7 +918,7 @@ keymap:
             ],
         }
       Super-Space: { launch: [fish, -c, toggle_layout] }
-      CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }]
+      CapsLock-Enter: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
       CapsLock-Apostrophe: ScrollLock
       Super-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }
@@ -952,7 +952,7 @@ keymap:
 
   - name: Any functionality
     remap:
-      CapsLock-Enter: { launch: [fish, -c, runner_notification] }
+      # CapsLock-Enter: { launch: [fish, -c, runner_notification] }
       Pause: { launch: [fish, -c, suspend] }
 
   - name: Any
