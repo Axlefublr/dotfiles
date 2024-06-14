@@ -621,9 +621,10 @@ local normal_mappings = {
 
 	-- Direct
 	U = '<C-r>',
-	zu = 'q',
-	["z'"] = '@',
-	["z''"] = '@"',
+	zl = 'q',
+	zu = '@',
+	["zu'"] = '@"',
+	zz = '@@',
 	Y = 'yg_',
 	['<C-k>'] = 'O<Esc>',
 	['<F6>'] = 'o<Esc>',
