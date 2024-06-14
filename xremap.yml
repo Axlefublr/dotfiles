@@ -2,16 +2,15 @@
 virtual_modifiers:
   - CapsLock
   - Tab
-  - F14
 default_mode: default
 modmap:
   - remap:
       CapsLock:
         held: CapsLock
         alone: Esc
-      Enter:
-        held: F14
-        alone: Enter
+      Tab:
+        held: Tab
+        alone: F15
       Esc: F13
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
 
@@ -185,7 +184,7 @@ keymap:
   - name: Mouse mode
     mode: [mouse, resize, move]
     remap:
-      F14-a: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      # F14-a: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       g: { set_mode: move }
 
@@ -947,7 +946,7 @@ keymap:
       CapsLock-Slash: backslash
       CapsLock-Alt-Slash: shift-backslash
 
-      Tab-Semicolon: '0'
+      Tab-p: '0'
       Tab-m: '1'
       Tab-Comma: '2'
       Tab-Dot: '3'
@@ -974,16 +973,32 @@ keymap:
       CapsLock-y: shift-2
       CapsLock-Alt-Apostrophe: [scrolllock, minus, minus]
 
+  - name: Arrows
+    mode: arrows
+    remap:
+      F15: { set_mode: default }
+      h: left
+      j: down
+      k: up
+      l: right
+      u: pageup
+      i: home
+      o: end
+      p: pagedown
+
   - name: Default
     mode: [default]
     remap:
-      F14-a: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      F15: { set_mode: arrows }
+      # F14-a: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
       Pause: { launch: [fish, -c, suspend] }
       CapsLock-f: tab
       CapsLock-Enter: { launch: [fish, -c, runner_notification] }
       CapsLock-Alt-Enter: { launch: [notify-send, -t, '1000', nope] }
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
+      Tab-Semicolon: backspace
+      Tab-Alt-Semicolon: ctrl-backspace
       CapsLock-r: delete
 
       CapsLock-s: ctrl-c
@@ -995,143 +1010,5 @@ keymap:
       CapsLock-Alt-d: ctrl-a
       CapsLock-q: enter
 
-      # for a tldr on the following couple of blocks,
-      # what I'm doing here is a vim-like remap
-      # however, I replace ctrl with alt, and alt with ctrl
-      # unfortunately, I have to do this bullshit in xremap to make it possible
-
-      F14-Super-Ctrl-Shift-Alt-r: super-shift-alt-ctrl-pagedown
-      F14-Super-Ctrl-Shift-r: super-shift-alt-pagedown
-      F14-Super-Ctrl-Alt-r: super-alt-ctrl-pagedown
-      F14-Super-Shift-Alt-r: super-shift-ctrl-pagedown
-      F14-Ctrl-Shift-Alt-r: shift-alt-ctrl-pagedown
-      F14-Super-Ctrl-r: super-alt-pagedown
-      F14-Super-Shift-r: super-shift-pagedown
-      F14-Super-Alt-r: super-ctrl-pagedown
-      F14-Ctrl-Shift-r: shift-alt-pagedown
-      F14-Ctrl-Alt-r: alt-ctrl-pagedown
-      F14-Shift-Alt-r: shift-ctrl-pagedown
-      F14-Super-r: super-pagedown
-      F14-Ctrl-r: alt-pagedown
-      F14-Shift-r: shift-pagedown
-      F14-Alt-r: ctrl-pagedown
-      F14-r: pagedown
-
-      F14-Super-Ctrl-Shift-Alt-q: super-shift-alt-ctrl-pageup
-      F14-Super-Ctrl-Shift-q: super-shift-alt-pageup
-      F14-Super-Ctrl-Alt-q: super-alt-ctrl-pageup
-      F14-Super-Shift-Alt-q: super-shift-ctrl-pageup
-      F14-Ctrl-Shift-Alt-q: shift-alt-ctrl-pageup
-      F14-Super-Ctrl-q: super-alt-pageup
-      F14-Super-Shift-q: super-shift-pageup
-      F14-Super-Alt-q: super-ctrl-pageup
-      F14-Ctrl-Shift-q: shift-alt-pageup
-      F14-Ctrl-Alt-q: alt-ctrl-pageup
-      F14-Shift-Alt-q: shift-ctrl-pageup
-      F14-Super-q: super-pageup
-      F14-Ctrl-q: alt-pageup
-      F14-Shift-q: shift-pageup
-      F14-Alt-q: ctrl-pageup
-      F14-q: pageup
-
-      F14-Super-Ctrl-Shift-Alt-w: super-shift-alt-ctrl-home
-      F14-Super-Ctrl-Shift-w: super-shift-alt-home
-      F14-Super-Ctrl-Alt-w: super-alt-ctrl-home
-      F14-Super-Shift-Alt-w: super-shift-ctrl-home
-      F14-Ctrl-Shift-Alt-w: shift-alt-ctrl-home
-      F14-Super-Ctrl-w: super-alt-home
-      F14-Super-Shift-w: super-shift-home
-      F14-Super-Alt-w: super-ctrl-home
-      F14-Ctrl-Shift-w: shift-alt-home
-      F14-Ctrl-Alt-w: alt-ctrl-home
-      F14-Shift-Alt-w: shift-ctrl-home
-      F14-Super-w: super-home
-      F14-Ctrl-w: alt-home
-      F14-Shift-w: shift-home
-      F14-Alt-w: ctrl-home
-      F14-w: home
-
-      F14-Super-Ctrl-Shift-Alt-e: super-shift-alt-ctrl-end
-      F14-Super-Ctrl-Shift-e: super-shift-alt-end
-      F14-Super-Ctrl-Alt-e: super-alt-ctrl-end
-      F14-Super-Shift-Alt-e: super-shift-ctrl-end
-      F14-Ctrl-Shift-Alt-e: shift-alt-ctrl-end
-      F14-Super-Ctrl-e: super-alt-end
-      F14-Super-Shift-e: super-shift-end
-      F14-Super-Alt-e: super-ctrl-end
-      F14-Ctrl-Shift-e: shift-alt-end
-      F14-Ctrl-Alt-e: alt-ctrl-end
-      F14-Shift-Alt-e: shift-ctrl-end
-      F14-Super-e: super-end
-      F14-Ctrl-e: alt-end
-      F14-Shift-e: shift-end
-      F14-Alt-e: ctrl-end
-      F14-e: end
-
-      F14-Super-Ctrl-Shift-Alt-s: super-shift-alt-ctrl-left
-      F14-Super-Ctrl-Shift-s: super-shift-alt-left
-      F14-Super-Ctrl-Alt-s: super-alt-ctrl-left
-      F14-Super-Shift-Alt-s: super-shift-ctrl-left
-      F14-Ctrl-Shift-Alt-s: shift-alt-ctrl-left
-      F14-Super-Ctrl-s: super-alt-left
-      F14-Super-Shift-s: super-shift-left
-      F14-Super-Alt-s: super-ctrl-left
-      F14-Ctrl-Shift-s: shift-alt-left
-      F14-Ctrl-Alt-s: alt-ctrl-left
-      F14-Shift-Alt-s: shift-ctrl-left
-      F14-Super-s: super-left
-      F14-Ctrl-s: alt-left
-      F14-Shift-s: shift-left
-      F14-Alt-s: ctrl-left
-      F14-s: left
-
-      F14-Super-Ctrl-Shift-Alt-f: super-shift-alt-ctrl-down
-      F14-Super-Ctrl-Shift-f: super-shift-alt-down
-      F14-Super-Ctrl-Alt-f: super-alt-ctrl-down
-      F14-Super-Shift-Alt-f: super-shift-ctrl-down
-      F14-Ctrl-Shift-Alt-f: shift-alt-ctrl-down
-      F14-Super-Ctrl-f: super-alt-down
-      F14-Super-Shift-f: super-shift-down
-      F14-Super-Alt-f: super-ctrl-down
-      F14-Ctrl-Shift-f: shift-alt-down
-      F14-Ctrl-Alt-f: alt-ctrl-down
-      F14-Shift-Alt-f: shift-ctrl-down
-      F14-Super-f: super-down
-      F14-Ctrl-f: alt-down
-      F14-Shift-f: shift-down
-      F14-Alt-f: ctrl-down
-      F14-f: down
-
-      F14-Super-Ctrl-Shift-Alt-d: super-shift-alt-ctrl-up
-      F14-Super-Ctrl-Shift-d: super-shift-alt-up
-      F14-Super-Ctrl-Alt-d: super-alt-ctrl-up
-      F14-Super-Shift-Alt-d: super-shift-ctrl-up
-      F14-Ctrl-Shift-Alt-d: shift-alt-ctrl-up
-      F14-Super-Ctrl-d: super-alt-up
-      F14-Super-Shift-d: super-shift-up
-      F14-Super-Alt-d: super-ctrl-up
-      F14-Ctrl-Shift-d: shift-alt-up
-      F14-Ctrl-Alt-d: alt-ctrl-up
-      F14-Shift-Alt-d: shift-ctrl-up
-      F14-Super-d: super-up
-      F14-Ctrl-d: alt-up
-      F14-Shift-d: shift-up
-      F14-Alt-d: ctrl-up
-      F14-d: up
-
-      F14-Super-Ctrl-Shift-Alt-g: super-shift-alt-ctrl-right
-      F14-Super-Ctrl-Shift-g: super-shift-alt-right
-      F14-Super-Ctrl-Alt-g: super-alt-ctrl-right
-      F14-Super-Shift-Alt-g: super-shift-ctrl-right
-      F14-Ctrl-Shift-Alt-g: shift-alt-ctrl-right
-      F14-Super-Ctrl-g: super-alt-right
-      F14-Super-Shift-g: super-shift-right
-      F14-Super-Alt-g: super-ctrl-right
-      F14-Ctrl-Shift-g: shift-alt-right
-      F14-Ctrl-Alt-g: alt-ctrl-right
-      F14-Shift-Alt-g: shift-ctrl-right
-      F14-Super-g: super-right
-      F14-Ctrl-g: alt-right
-      F14-Shift-g: shift-right
-      F14-Alt-g: ctrl-right
-      F14-g: right
+  # - name: Anywhere
+  #   remap:
