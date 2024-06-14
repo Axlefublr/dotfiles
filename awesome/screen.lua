@@ -578,7 +578,14 @@ Mouse_mw.right = between - 2
 Mouse_mw.visible = false
 function Mouse_wd() Mouse_mw.visible = false end
 
-function Mouse_we() Mouse_mw.visible = true end
+function Mouse_we(yellow)
+	if yellow then
+		Mouse_bw.fg = beautiful.yellow
+	elseif Mouse_bw.fg ~= beautiful.purple then
+		Mouse_bw.fg = beautiful.purple
+	end
+	Mouse_mw.visible = true
+end
 
 Clorange_w = text_widget()
 Clorange_bw = wibox.container.background(Clorange_w)
