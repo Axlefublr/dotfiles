@@ -620,7 +620,7 @@ local normal_mappings = {
 	['<Leader><A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() }) end,
 
 	-- Direct
-	U = '@u',
+	U = '<C-r>',
 	zu = 'q',
 	["z'"] = '@',
 	["z''"] = '@"',
