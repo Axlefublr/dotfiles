@@ -22,7 +22,28 @@ modmap:
       only: /Terraria/
 
 keymap:
-  - name: Move mode
+  - name: Spotify!
+    exact_match: true
+    application:
+      only: Spotify
+    remap:
+      Alt-f: shift-alt-b
+
+  - name: Term!
+    exact_match: true
+    application:
+      only: [Alacritty, kitty]
+    remap:
+      Alt-j: ctrl-n
+      Alt-k: ctrl-p
+      CapsLock-Alt-Semicolon: ctrl-w
+      Ctrl-Alt-u: f4
+      Ctrl-Enter: f2
+      Ctrl-j: f6
+      Shift-Alt-Semicolon: f5
+
+  - name: Move!
+    exact_match: true
     mode: [move]
     remap:
       g: { set_mode: mouse }
@@ -113,18 +134,11 @@ keymap:
           Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, 405)'] }
           Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, -405)'] }
 
-  - name: Mouse mode only
+  - name: Mouse!
     mode: [mouse]
+    exact_match: true
     remap:
-      q: { launch: [xdotool, mousemove, '128', '120'] }
-      r: { launch: [xdotool, mousemove, '1792', '120'] }
-      w: { launch: [xdotool, mousemove, '128', '960'] }
-      e: { launch: [xdotool, mousemove, '1792', '960'] }
-
-      z: { launch: [xdotool, mousemove, '128', '540'] }
-      x: { launch: [xdotool, mousemove, '960', '960'] }
-      c: { launch: [xdotool, mousemove, '960', '120'] }
-      v: { launch: [xdotool, mousemove, '1792', '540'] }
+      g: { set_mode: move }
 
       h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
       l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
@@ -175,25 +189,34 @@ keymap:
           d: { launch: [xdotool, mousemove_relative, '--', '405', '405'] }
           f: { launch: [xdotool, mousemove_relative, '--', '405', '-405'] }
 
+  - name: Mouse
+    mode: [mouse]
+    remap:
       # mouse wheel
       m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
       Comma: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '1'] } # up
       Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
       Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
 
-  - name: Mouse mode
-    mode: [mouse, resize, move]
+  - name: Mousemove!
+    mode: [mouse, move]
+    exact_match: true
     remap:
-      # F14-a: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      CapsLock-Alt-Space: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      Alt-Space: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_wd()] }]
 
-      g: { set_mode: move }
+      q: { launch: [xdotool, mousemove, '128', '120'] }
+      r: { launch: [xdotool, mousemove, '1792', '120'] }
+      w: { launch: [xdotool, mousemove, '128', '960'] }
+      e: { launch: [xdotool, mousemove, '1792', '960'] }
 
-      Enter: { launch: [xdotool, mousemove, '0', '1080'] }
-      Semicolon: { launch: [xdotool, mousemove, '960', '540'] }
+      z: { launch: [xdotool, mousemove, '128', '540'] }
+      x: { launch: [xdotool, mousemove, '960', '960'] }
+      c: { launch: [xdotool, mousemove, '960', '120'] }
+      v: { launch: [xdotool, mousemove, '1792', '540'] }
 
-      u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
-      i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
-      o: { launch: ['ydotool', 'click', 'c1'] } # c1 — right click
+      Semicolon: { launch: [xdotool, mousemove, '0', '1080'] }
+      p: { launch: [xdotool, mousemove, '960', '540'] }
 
       # down and up events of mouse clicks
       CapsLock-u: { launch: ['ydotool', 'click', '40'] }
@@ -213,12 +236,27 @@ keymap:
       CapsLock-g: { launch: [ydotool, key, '29:1'] } # ctrl
       CapsLock-t: { launch: [ydotool, key, '29:0'] }
 
-  - name: Clipboard Manager
-    exact_match: true
+  - name: Mousemove
+    mode: [mouse, move]
     remap:
-      Super-Apostrophe: { launch: [rofi-copyq] }
+      u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
+      i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
+      o: { launch: ['ydotool', 'click', 'c1'] } # c1 — right click
 
-  - name: Global chord hotkeys
+  - name: Arr
+    mode: arrows
+    remap:
+      Alt-Space: { set_mode: default }
+      h: left
+      j: down
+      k: up
+      l: right
+      u: pageup
+      i: home
+      o: end
+      p: pagedown
+
+  - name: Any! chord
     exact_match: true
     remap:
       Super-Semicolon:
@@ -236,8 +274,7 @@ keymap:
           Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
           Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
 
-  - name: Layouts
-    mode: [default]
+  - name: Any! layout
     exact_match: true
     remap:
       Super-k:
@@ -266,32 +303,10 @@ keymap:
           c: { launch: [fish, -c, runner_link] }
           t: { launch: [fish, -c, runner_math] }
 
-  - name: Magazine
-    mode: default
+  - name: Any! magazine
     exact_match: true
     remap:
-      Tab-CapsLock-Apostrophe: { launch: [fish, -c, runner_clipboard] }
-      Tab-Apostrophe:
-        {
-          launch:
-            [
-              fish,
-              -c,
-              'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
-            ],
-        }
-      Tab-Alt-Apostrophe:
-        {
-          launch:
-            [
-              fish,
-              -c,
-              'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
-            ],
-        }
-
       Shift_L-q: { launch: [fish, -c, magazine_filled] }
-
       Shift_L-c:
         exact_match: true
         remap:
@@ -357,7 +372,6 @@ keymap:
           Key_8: { launch: [fish, -c, 'magazine_get 8'] }
           Key_9: { launch: [fish, -c, 'magazine_get 9'] }
           Key_0: { launch: [fish, -c, 'magazine_get 0'] }
-
       Shift_L-e:
         exact_match: true
         remap:
@@ -423,7 +437,6 @@ keymap:
           Key_8: { launch: [fish, -c, 'magazine_view 8'] }
           Key_9: { launch: [fish, -c, 'magazine_view 9'] }
           Key_0: { launch: [fish, -c, 'magazine_view 0'] }
-
       Shift_L-r:
         exact_match: true
         remap:
@@ -489,7 +502,6 @@ keymap:
           Key_8: { launch: [fish, -c, 'magazine_truncate 8'] }
           Key_9: { launch: [fish, -c, 'magazine_truncate 9'] }
           Key_0: { launch: [fish, -c, 'magazine_truncate 0'] }
-
       Shift_L-d:
         exact_match: true
         remap:
@@ -555,7 +567,6 @@ keymap:
           Key_8: { launch: [fish, -c, 'magazine_edit 8'] }
           Key_9: { launch: [fish, -c, 'magazine_edit 9'] }
           Key_0: { launch: [fish, -c, 'magazine_edit 0'] }
-
       Shift_L-s:
         exact_match: true
         remap:
@@ -621,7 +632,6 @@ keymap:
           Key_8: { launch: [fish, -c, 'magazine_append 8'] }
           Key_9: { launch: [fish, -c, 'magazine_append 9'] }
           Key_0: { launch: [fish, -c, 'magazine_append 0'] }
-
       Shift_L-v:
         exact_match: true
         remap:
@@ -687,7 +697,6 @@ keymap:
           Key_8: { launch: [fish, -c, 'magazine_appset 8'] }
           Key_9: { launch: [fish, -c, 'magazine_appset 9'] }
           Key_0: { launch: [fish, -c, 'magazine_appset 0'] }
-
       Shift_L-w:
         exact_match: true
         remap:
@@ -753,7 +762,6 @@ keymap:
           Key_8: { launch: [fish, -c, 'magazine_restore 8'] }
           Key_9: { launch: [fish, -c, 'magazine_restore 9'] }
           Key_0: { launch: [fish, -c, 'magazine_restore 0'] }
-
       Shift_L-f:
         exact_match: true
         remap:
@@ -820,25 +828,103 @@ keymap:
           Key_9: { launch: [fish, -c, 'magazine_filter 9'] }
           Key_0: { launch: [fish, -c, 'magazine_filter 0'] }
 
-  - name: System & Media
+  - name: Any! numbers & special symbols
+    exact_match: true
+    remap:
+      CapsLock-Alt-p: '0'
+      CapsLock-Alt-m: '1'
+      CapsLock-Alt-Comma: '2'
+      CapsLock-Alt-Dot: '3'
+      CapsLock-Alt-j: '4'
+      CapsLock-Alt-k: '5'
+      CapsLock-Alt-l: '6'
+      CapsLock-Alt-u: '7'
+      CapsLock-Alt-i: '8'
+      CapsLock-Alt-o: '9'
+      CapsLock-LeftBrace: shift-9
+      CapsLock-RightBrace: shift-0
+      CapsLock-i: shift-6
+      CapsLock-o: shift-4
+      CapsLock-Comma: shift-minus
+      CapsLock-j: shift-equal
+      CapsLock-k: minus
+      CapsLock-l: equal
+      CapsLock-u: shift-8
+      CapsLock-p: shift-3
+      CapsLock-m: shift-1
+      CapsLock-Dot: shift-7
+      CapsLock-n: shift-5
+      CapsLock-y: shift-2
+      CapsLock-h: grave
+      CapsLock-Alt-h: shift-grave
+      CapsLock-Slash: backslash
+      CapsLock-Alt-Slash: shift-backslash
+      CapsLock-Alt-Apostrophe: [scrolllock, minus, minus]
+
+  - name: Any! wm
+    exact_match: true
+    remap:
+      F13: { launch: [wmctrl, -c, ':ACTIVE:'] }
+      Shift-F13: { launch: [xdotool, getwindowfocus, windowkill] }
+      CapsLock-7: { launch: [awesome-client, awful.client.floating.toggle()] }
+      CapsLock-9: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+      CapsLock-8: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+      CapsLock-0: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
+      CapsLock-6: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+      CapsLock-Minus: { launch: [awesome-client, 'client.focus.minimized = true'] }
+      Tab-LeftBrace: { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Tab-RightBrace: { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Tab-Alt-LeftBrace: { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Tab-Alt-RightBrace:
+        { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Shift_L-g:
+        { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
+
+  - name: Any! media
+    exact_match: true
     remap:
       CapsLock-w: { launch: [fish, -c, 'set_volume -5'] }
       CapsLock-e: { launch: [fish, -c, 'set_volume +5'] }
-
       CapsLock-Alt-w: { launch: [fish, -c, 'set_mic_volume -5'] }
       CapsLock-Alt-e: { launch: [fish, -c, 'set_mic_volume +5'] }
-
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
-
       CapsLock-3: { launch: [fish, -c, media_prev] }
       CapsLock-4: { launch: [fish, -c, media_next] }
-
       CapsLock-t: { launch: [fish, -c, toggle_media] }
 
-  - name: Screenshot
+  - name: Any!
     exact_match: true
     remap:
+      Alt-Space: { set_mode: arrows }
+      CapsLock-Alt-Space: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      Tab-CapsLock-Apostrophe: { launch: [fish, -c, runner_clipboard] }
+      Tab-Apostrophe:
+        {
+          launch:
+            [
+              fish,
+              -c,
+              'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+            ],
+        }
+      Tab-Alt-Apostrophe:
+        {
+          launch:
+            [
+              fish,
+              -c,
+              'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+            ],
+        }
+      Super-Space: { launch: [fish, -c, toggle_layout] }
+      CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }]
+      CapsLock-Apostrophe: ScrollLock
+      Super-v: { launch: [boomer] }
+      Super-Apostrophe: { launch: [rofi-copyq] }
+      Super-f: { launch: [gromit-mpx, --toggle] }
+      Super-Alt-f: { launch: [gromit-mpx, --clear] }
+      Super-Shift-f: { launch: [gromit-mpx, --visibility] }
       Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-Alt-s:
         {
@@ -856,65 +942,7 @@ keymap:
         }
       Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
       Super-Alt-w: { launch: [fish, -c, 'xclip -selection clipboard -t image/png -o 2> /dev/null | display'] }
-
-  - name: Gromit
-    exact_match: true
-    remap:
-      Super-f: { launch: [gromit-mpx, --toggle] }
-      Super-Alt-f: { launch: [gromit-mpx, --clear] }
-      Super-Shift-f: { launch: [gromit-mpx, --visibility] }
-
-  - name: 'Anki'
-    exact_match: true
-    application:
-      only: Anki
-    remap:
-      Alt-c: [tab, tab, tab, tab, tab, enter]
-      Shift-Alt-c: [shift-tab, shift-tab, shift-tab, shift-tab, shift-tab]
-
-  - name: Spotify
-    exact_match: true
-    application:
-      only: Spotify
-    remap:
-      Alt-f: shift-alt-b
-      Alt-j: { launch: [sh, -c, 'xdotool mousemove 58 1025 ; ydotool click c1'] }
-
-  - name: Terminal
-    exact_match: true
-    application:
-      only: [Alacritty, kitty]
-    remap:
-      CapsLock-Alt-Semicolon: ctrl-w
-      Ctrl-Enter: f2
-      Ctrl-Alt-u: f4
-      Alt-j: ctrl-n
-      Alt-k: ctrl-p
-      Ctrl-j: f6
-      Shift-Alt-Semicolon: f5
-
-  - name: Compose key
-    exact_match: true
-    remap:
-      CapsLock-Apostrophe: ScrollLock
-
-  - name: Toggle capslock
-    exact_match: true
-    remap:
-      CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }]
-
-  - name: Other
-    mode: [default]
-    exact_match: true
-    remap:
-      Super-Space: { launch: [fish, -c, toggle_layout] }
-      Super-6: { launch: [fish, -c, toggle_compositor] }
-      F13: { launch: [wmctrl, -c, ':ACTIVE:'] }
-      Shift-F13: { launch: [xdotool, getwindowfocus, windowkill] }
-      Super-v: { launch: [boomer] }
       Shift_L-t: { launch: [fish, -c, 'cat /dev/shm/runner_output | xclip -r -selection clipboard'] }
-      Shift_L-g:
-        { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
       Super-Alt-Semicolon: { launch: [rofi, -show, drun] }
       Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
@@ -922,93 +950,24 @@ keymap:
       Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
       Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
 
-      CapsLock-7: { launch: [awesome-client, awful.client.floating.toggle()] }
-      CapsLock-9: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-      CapsLock-8: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-      CapsLock-0: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
-      CapsLock-6: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
-      CapsLock-Minus: { launch: [awesome-client, 'client.focus.minimized = true'] }
-      Tab-LeftBrace: { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      Tab-RightBrace: { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      Tab-Alt-LeftBrace: { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      Tab-Alt-RightBrace:
-        { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-
-  - name: Other in mouse too
+  - name: Any functionality
     remap:
-      Super-v: { launch: [boomer] }
-
-  - name: Tab
-    exact_match: true
-    remap:
-      CapsLock-h: grave
-      CapsLock-Alt-h: shift-grave
-      CapsLock-Slash: backslash
-      CapsLock-Alt-Slash: shift-backslash
-
-      Tab-p: '0'
-      Tab-m: '1'
-      Tab-Comma: '2'
-      Tab-Dot: '3'
-      Tab-j: '4'
-      Tab-k: '5'
-      Tab-l: '6'
-      Tab-u: '7'
-      Tab-i: '8'
-      Tab-o: '9'
-
-      CapsLock-LeftBrace: shift-9
-      CapsLock-RightBrace: shift-0
-      CapsLock-i: shift-6
-      CapsLock-o: shift-4
-      CapsLock-Comma: shift-minus
-      CapsLock-j: shift-equal
-      CapsLock-k: minus
-      CapsLock-l: equal
-      CapsLock-u: shift-8
-      CapsLock-p: shift-3
-      CapsLock-m: shift-1
-      CapsLock-Dot: shift-7
-      CapsLock-n: shift-5
-      CapsLock-y: shift-2
-      CapsLock-Alt-Apostrophe: [scrolllock, minus, minus]
-
-  - name: Arrows
-    mode: arrows
-    remap:
-      F15: { set_mode: default }
-      h: left
-      j: down
-      k: up
-      l: right
-      u: pageup
-      i: home
-      o: end
-      p: pagedown
-
-  - name: Default
-    mode: [default]
-    remap:
-      F15: { set_mode: arrows }
-      # F14-a: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
-      Pause: { launch: [fish, -c, suspend] }
-      CapsLock-f: tab
       CapsLock-Enter: { launch: [fish, -c, runner_notification] }
-      CapsLock-Alt-Enter: { launch: [notify-send, -t, '1000', nope] }
+      Pause: { launch: [fish, -c, suspend] }
+
+  - name: Any
+    remap:
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
       Tab-Semicolon: backspace
       Tab-Alt-Semicolon: ctrl-backspace
-      CapsLock-r: delete
-
-      CapsLock-s: ctrl-c
-      CapsLock-Alt-s: ctrl-x
-      CapsLock-d: ctrl-v
-      CapsLock-Shift-d: ctrl-shift-v
-      CapsLock-Ctrl-d: ctrl-shift-v
-      CapsLock-g: ctrl-a
+      CapsLock-f: tab
       CapsLock-Alt-d: ctrl-a
+      CapsLock-Alt-s: ctrl-x
+      CapsLock-Ctrl-d: ctrl-shift-v
+      CapsLock-Shift-d: ctrl-shift-v
+      CapsLock-d: ctrl-v
+      CapsLock-g: ctrl-a
       CapsLock-q: enter
-
-  # - name: Anywhere
-  #   remap:
+      CapsLock-r: delete
+      CapsLock-s: ctrl-c
