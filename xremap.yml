@@ -202,7 +202,7 @@ keymap:
     exact_match: true
     remap:
       F15-a: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
-      Alt-Space: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      F15-z: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
 
       q: { launch: [xdotool, mousemove, '128', '120'] }
       r: { launch: [xdotool, mousemove, '1792', '120'] }
@@ -245,7 +245,7 @@ keymap:
   - name: Arr
     mode: arrows
     remap:
-      Alt-Space: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      F15-z: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
       h: left
       j: down
       k: up
@@ -875,7 +875,7 @@ keymap:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Alt-j:
+      Shift_L-g:
         { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
 
   - name: Any! media
@@ -894,7 +894,7 @@ keymap:
   - name: Any!
     exact_match: true
     remap:
-      Alt-Space: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      F15-z: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       F15-a: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       CapsLock-Alt-Apostrophe: ctrl-shift-u
@@ -919,7 +919,7 @@ keymap:
             ],
         }
       Super-Space: { launch: [fish, -c, toggle_layout] }
-      CapsLock-Alt-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
+      F15-q: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
       CapsLock-Apostrophe: ScrollLock
       Super-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }

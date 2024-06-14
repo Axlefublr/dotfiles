@@ -25,7 +25,7 @@ return {
 				vim.keymap.set('n', '>', function()
 					local file_name = require('oil').get_cursor_entry().name
 					local function get_externality(file_name)
-						local external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg' }
+						local external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav' }
 						for _, extension in ipairs(external_extensions) do
 							if file_name:match('%.' .. extension .. '$') then return true end
 						end
