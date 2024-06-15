@@ -18,10 +18,7 @@ end
 local function save(and_format)
 	trim_trailing_whitespace()
 	vim.cmd.nohlsearch()
-	if and_format then
-		if vim.fn.expand('%:~') == '~/.local/share/magazine/r' then vim.cmd.sort() end
-		vim.lsp.buf.format()
-	end
+	if and_format then vim.lsp.buf.format() end
 	---@diagnostic disable-next-line: param-type-mismatch
 	if vim.bo.modified then pcall(vim.cmd, 'silent write') end
 end
