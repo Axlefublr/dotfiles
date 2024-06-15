@@ -1001,7 +1001,7 @@ local opts_table = {
 				event = { 'BufLeave', 'FocusLost' },
 				callback = function()
 					---@diagnostic disable-next-line: param-type-mismatch
-					if vim.bo.modified then pcall(vim.cmd, 'write') end
+					if vim.bo.modified then pcall(vim.cmd, 'silent write') end
 				end,
 			},
 			{

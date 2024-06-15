@@ -25,7 +25,8 @@ return {
 			opts.tabline,
 			2,
 			status.component.file_info({
-				file_icon = { padding = { left = 1, right = 0 } },
+				file_icon = { padding = { left = 1, right = 0 }, condition = function() return vim.bo.filetype ~= '' end },
+				file_read_only = { condition = function() return vim.bo.readonly end },
 				surround = { separator = 'none' },
 				filetype = false,
 				file_modified = false,
@@ -92,19 +93,17 @@ return {
 			}),
 			padding = { right = 0 },
 		}
-		-- opts.statusline[9] = status.component.lsp({
-		-- 	lsp_client_names = false,
-		-- })
 		opts.statusline[12] = status.component.nav({
 			scrollbar = false,
 		})
 
-		opts.statusline[13] = status.component.file_info({
-			surround = {
-				separator = 'center',
-			},
-			file_icon = false,
-			file_read_only = false,
+		opts.statusline[13] = {
+			provider = function() return ' ' .. vim.bo.filetype .. ' ' end,
+			condition = function() return vim.bo.filetype ~= '' end,
+		}
+		table.insert(opts.statusline, {
+			provider = ' ',
+			condition = function() return vim.bo.modified end,
 		})
 
 		table.remove(opts.statusline, 11)
