@@ -1,15 +1,13 @@
 # /usr/include/linux/input-event-codes.h
 virtual_modifiers:
   - CapsLock
-  - F15
+  # - F15
 default_mode: default
 modmap:
   - remap:
       CapsLock:
         held: CapsLock
         alone: Esc
-      Enter: F15
-      Tab: Enter
       Esc: F13
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
 
@@ -201,8 +199,7 @@ keymap:
     mode: [mouse, move]
     exact_match: true
     remap:
-      F15-a: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
-      F15-z: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      t: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       q: { launch: [xdotool, mousemove, '128', '120'] }
       r: { launch: [xdotool, mousemove, '1792', '120'] }
@@ -245,7 +242,7 @@ keymap:
   - name: Arr
     mode: arrows
     remap:
-      F15-z: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      f: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
       h: left
       j: down
       k: up
@@ -254,6 +251,31 @@ keymap:
       i: home
       o: end
       p: pagedown
+
+  - name: Num!
+    exact_match: true
+    mode: numpad
+    remap:
+      Esc: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      Tab: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      t: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      h: [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          CapsLock,
+          { launch: [fish, -c, 'widget_update update_layout Layout'] },
+        ] # toggle capslock
+      Semicolon: '0'
+      m: '1'
+      Comma: '2'
+      Dot: '3'
+      j: '4'
+      k: '5'
+      l: '6'
+      u: '7'
+      i: '8'
+      o: '9'
 
   - name: Any! chord
     exact_match: true
@@ -830,17 +852,6 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      F15-g: '0'
-      F15-s: '1'
-      F15-d: '2'
-      F15-f: '3'
-      F15-w: '4'
-      F15-e: '5'
-      F15-r: '6'
-      F15-x: '7'
-      F15-c: '8'
-      F15-v: '9'
-
       CapsLock-LeftBrace: shift-9
       CapsLock-RightBrace: shift-0
       CapsLock-i: shift-6
@@ -894,8 +905,7 @@ keymap:
   - name: Any!
     exact_match: true
     remap:
-      F15-z: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
-      F15-a: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      Tab: [{ set_mode: numpad }, { launch: [awesome-client, "Mouse_we('numpad')"] }]
 
       CapsLock-Alt-Apostrophe: ctrl-shift-u
       CapsLock-Alt-o: { launch: [fish, -c, runner_clipboard] }
@@ -919,7 +929,6 @@ keymap:
             ],
         }
       Super-Space: { launch: [fish, -c, toggle_layout] }
-      F15-q: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
       CapsLock-Apostrophe: ScrollLock
       Super-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }

@@ -578,8 +578,10 @@ Mouse_mw.right = between - 2
 Mouse_mw.visible = false
 function Mouse_wd() Mouse_mw.visible = false end
 
-function Mouse_we(yellow)
-	if yellow then
+function Mouse_we(mode_type)
+	if mode_type and mode_type == 'numpad' and Mouse_bw.fg ~= beautiful.green then
+		Mouse_bw.fg = beautiful.green
+	elseif mode_type and Mouse_bw.fg ~= beautiful.yellow then
 		Mouse_bw.fg = beautiful.yellow
 	elseif Mouse_bw.fg ~= beautiful.purple then
 		Mouse_bw.fg = beautiful.purple
