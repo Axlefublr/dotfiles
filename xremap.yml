@@ -1,13 +1,14 @@
 # /usr/include/linux/input-event-codes.h
 virtual_modifiers:
   - CapsLock
-  # - F15
 default_mode: default
 modmap:
   - remap:
       CapsLock:
         held: CapsLock
         alone: Esc
+      Enter: F15
+      Tab: Enter
       Esc: F13
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
 
@@ -43,7 +44,7 @@ keymap:
     exact_match: true
     mode: [move]
     remap:
-      g: { set_mode: mouse }
+      g: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       h: { launch: [awesome-client, 'client.focus:relative_move(-1, 0, 0, 0)'] }
       l: { launch: [awesome-client, 'client.focus:relative_move(1, 0, 0, 0)'] }
@@ -135,7 +136,7 @@ keymap:
     mode: [mouse]
     exact_match: true
     remap:
-      g: { set_mode: move }
+      g: [{ set_mode: move }, { launch: [awesome-client, "Mouse_we('green')"] }]
 
       h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
       l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
@@ -199,7 +200,7 @@ keymap:
     mode: [mouse, move]
     exact_match: true
     remap:
-      t: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      Super-Semicolon: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
 
       q: { launch: [xdotool, mousemove, '128', '120'] }
       r: { launch: [xdotool, mousemove, '1792', '120'] }
@@ -242,7 +243,7 @@ keymap:
   - name: Arr
     mode: arrows
     remap:
-      f: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      F15: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
       h: left
       j: down
       k: up
@@ -252,48 +253,82 @@ keymap:
       o: end
       p: pagedown
 
-  - name: Num!
-    exact_match: true
-    mode: numpad
-    remap:
-      Esc: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
-      Tab: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
-      f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
-      t: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
-      h: [
+      g: [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           CapsLock,
           { launch: [fish, -c, 'widget_update update_layout Layout'] },
         ] # toggle capslock
-      Semicolon: '0'
-      m: '1'
-      Comma: '2'
-      Dot: '3'
-      j: '4'
-      k: '5'
-      l: '6'
-      u: '7'
-      i: '8'
-      o: '9'
-
-  - name: Any! chord
-    exact_match: true
-    remap:
-      Super-Semicolon:
-        remap:
-          Super-j: { launch: [fish, -c, runner] }
-          k: { launch: [fish, -c, install_yt_video] }
-          h: { launch: [fish, -c, 'install_yt_video asmr'] }
-          l: { launch: [fish, -c, 'install_yt_video longform'] }
-          d: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
-          f: { launch: [kitty] }
-          c: { launch: [awesome-client, 'Write_client_info()'] }
-
-          i: { launch: [fish, -c, runner_symbol] }
-          o: { launch: [fish, -c, runner_symbol_name] }
-          Shift-i: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
-          Shift-o: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
+      t:
+        [
+          {
+            launch:
+              [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'],
+          },
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+        ]
+      d: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c phind'] }]
+      Shift-d:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'c phind neoline'] },
+        ]
+      f: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c google'] }]
+      Shift-f:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'c google neoline'] },
+        ]
+      x: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_doc] }]
+      s:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'runner_link open'] },
+        ]
+      c: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_link] }]
+      Shift-s:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_math] }]
+      q:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, install_yt_video] },
+        ]
+      a:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'install_yt_video asmr'] },
+        ]
+      z:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'install_yt_video longform'] },
+        ]
+      w: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_symbol] }]
+      e:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, runner_symbol_name] },
+        ]
+      Shift-w:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'emoji_picker_clipboard code'] },
+        ]
+      Shift-e:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'emoji_picker_clipboard name'] },
+        ]
 
   - name: Any! layout
     exact_match: true
@@ -315,14 +350,9 @@ keymap:
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
           Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
 
-          d: { launch: [fish, -c, 'c phind'] }
-          Shift-d: { launch: [fish, -c, 'c phind neoline'] }
-          f: { launch: [fish, -c, 'c google'] }
-          Shift-f: { launch: [fish, -c, 'c google neoline'] }
-          x: { launch: [fish, -c, runner_doc] }
-          s: { launch: [fish, -c, 'runner_link open'] }
-          c: { launch: [fish, -c, runner_link] }
-          t: { launch: [fish, -c, runner_math] }
+          d: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
+          f: { launch: [kitty] }
+          c: { launch: [awesome-client, 'Write_client_info()'] }
 
   - name: Any! magazine
     exact_match: true
@@ -852,6 +882,17 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
+      CapsLock-Alt-p: '0'
+      CapsLock-Alt-m: '1'
+      CapsLock-Alt-Comma: '2'
+      CapsLock-Alt-Dot: '3'
+      CapsLock-Alt-j: '4'
+      CapsLock-Alt-k: '5'
+      CapsLock-Alt-l: '6'
+      CapsLock-Alt-u: '7'
+      CapsLock-Alt-i: '8'
+      CapsLock-Alt-o: '9'
+
       CapsLock-LeftBrace: shift-9
       CapsLock-RightBrace: shift-0
       CapsLock-i: shift-6
@@ -886,8 +927,6 @@ keymap:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      Shift_L-g:
-        { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
 
   - name: Any! media
     exact_match: true
@@ -905,7 +944,8 @@ keymap:
   - name: Any!
     exact_match: true
     remap:
-      Tab: [{ set_mode: numpad }, { launch: [awesome-client, "Mouse_we('numpad')"] }]
+      F15: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      Super-Semicolon: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       CapsLock-Alt-Apostrophe: ctrl-shift-u
       CapsLock-Alt-o: { launch: [fish, -c, runner_clipboard] }
