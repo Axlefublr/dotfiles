@@ -30,12 +30,12 @@ return {
 					vim.api.nvim_set_hl(
 						0,
 						'LeapLabelPrimary',
-						{ fg = Colors.black, bg = Colors.shell_pink }
+						{ fg = env.color.black, bg = env.color.shell_pink }
 					)
 					vim.api.nvim_set_hl(
 						0,
 						'LeapLabelSecondary',
-						{ fg = Colors.black, bg = Colors.shell_yellow }
+						{ fg = env.color.black, bg = env.color.shell_yellow }
 					)
 				end,
 			})

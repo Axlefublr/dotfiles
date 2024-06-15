@@ -8,14 +8,8 @@ local opts_table = {
 	},
 	formatting = {
 		format_on_save = {
-			enabled = true,
-			allow_filetypes = {},
-			ignore_filetypes = { 'yml', 'html' },
+			enabled = false,
 		},
-		disabled = {
-			'lua_ls',
-		},
-		timeout_ms = 1000, -- default format timeout
 	},
 	---@diagnostic disable: missing-fields
 	config = {

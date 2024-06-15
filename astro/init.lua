@@ -15,7 +15,10 @@ if not pcall(require, 'lazy') then
 	vim.cmd.quit()
 end
 
-Colors = {
+env = {}
+env.temp_mark = 'P'
+env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav' }
+env.color = {
 	shell_red = '#ff2930',
 	shell_orange = '#ff9f1a',
 	shell_yellow = '#ffd75f',
@@ -45,8 +48,6 @@ Colors = {
 	dark12 = '#1f1e1e',
 	dark10 = '#1a1919',
 }
-
-THROWAWAY_MARK = 'P'
 
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
@@ -86,11 +87,11 @@ function ReverseTable(table)
 	return reversed
 end
 
-function Trim_trailing_whitespace()
-	local search = vim.fn.getreg('/')
-	---@diagnostic disable-next-line: param-type-mismatch
-	pcall(vim.cmd, '%s`\\v\\s+$')
-	vim.fn.setreg('/', search)
+function table.contains(table, item)
+	for _, thingy in pairs(table) do
+		if thingy == item then return true end
+	end
+	return false
 end
 
 require('lazy_setup')

@@ -40,21 +40,21 @@ return {
 			hl = function(_)
 				local mode = vim.fn.mode()
 				local modes = {
-					['n'] = Colors.yellow,
-					['i'] = Colors.green,
-					['v'] = Colors.mint,
-					['V'] = Colors.cyan,
-					[''] = Colors.red,
-					['c'] = Colors.purple,
-					['R'] = Colors.blush,
-					['s'] = Colors.mint,
-					['S'] = Colors.cyan,
-					[''] = Colors.red,
+					['n'] = env.color.yellow,
+					['i'] = env.color.green,
+					['v'] = env.color.mint,
+					['V'] = env.color.cyan,
+					[''] = env.color.red,
+					['c'] = env.color.purple,
+					['R'] = env.color.blush,
+					['s'] = env.color.mint,
+					['S'] = env.color.cyan,
+					[''] = env.color.red,
 				}
 				if modes[mode] then
 					return { fg = modes[mode], bold = true }
 				else
-					return { fg = Colors.white, bold = true }
+					return { fg = env.color.white, bold = true }
 				end
 			end,
 			provider = function()

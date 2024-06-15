@@ -8,16 +8,16 @@ return {
 		'Oil',
 	},
 	opts = function(_, opts)
-		vim.api.nvim_set_hl(0, 'OilDir', { fg = Colors.white })
-		vim.api.nvim_set_hl(0, 'OilDirIcon', { fg = Colors.shell_yellow })
-		vim.api.nvim_set_hl(0, 'OilLink', { fg = Colors.blush })
-		vim.api.nvim_set_hl(0, 'OilLinkTarget', { fg = Colors.red })
+		vim.api.nvim_set_hl(0, 'OilDir', { fg = env.color.white })
+		vim.api.nvim_set_hl(0, 'OilDirIcon', { fg = env.color.shell_yellow })
+		vim.api.nvim_set_hl(0, 'OilLink', { fg = env.color.blush })
+		vim.api.nvim_set_hl(0, 'OilLinkTarget', { fg = env.color.red })
 
-		vim.api.nvim_set_hl(0, 'OilTrash', { fg = Colors.orange })
-		vim.api.nvim_set_hl(0, 'OilRestore', { fg = Colors.purple })
-		vim.api.nvim_set_hl(0, 'OilPurge', { fg = Colors.red })
-		vim.api.nvim_set_hl(0, 'OilMove', { fg = Colors.blush })
-		vim.api.nvim_set_hl(0, 'OilMove', { fg = Colors.yellow })
+		vim.api.nvim_set_hl(0, 'OilTrash', { fg = env.color.orange })
+		vim.api.nvim_set_hl(0, 'OilRestore', { fg = env.color.purple })
+		vim.api.nvim_set_hl(0, 'OilPurge', { fg = env.color.red })
+		vim.api.nvim_set_hl(0, 'OilMove', { fg = env.color.blush })
+		vim.api.nvim_set_hl(0, 'OilMove', { fg = env.color.yellow })
 
 		vim.api.nvim_create_autocmd('FileType', {
 			pattern = 'oil',
@@ -25,7 +25,7 @@ return {
 				vim.keymap.set('n', '>', function()
 					local file_name = require('oil').get_cursor_entry().name
 					local function get_externality(file_name)
-						local external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav' }
+						local external_extensions = env.external_extensions
 						for _, extension in ipairs(external_extensions) do
 							if file_name:match('%.' .. extension .. '$') then return true end
 						end

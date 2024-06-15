@@ -1,5 +1,4 @@
 local killring = setmetatable({}, { __index = table })
-local foldlevel = {}
 
 function validate_register(register)
 	if register == "'" then
@@ -9,17 +8,27 @@ function validate_register(register)
 	end
 end
 
-local function save()
-	Trim_trailing_whitespace()
-	vim.cmd('nohl')
-	if vim.fn.expand('%:~') == '~/.local/share/magazine/r' then vim.cmd.sort() end
+local function trim_trailing_whitespace()
+	local search = vim.fn.getreg('/')
 	---@diagnostic disable-next-line: param-type-mismatch
-	if vim.bo.modified then pcall(vim.cmd, 'write') end
+	pcall(vim.cmd, 'silent %s`\\v\\s+$')
+	vim.fn.setreg('/', search)
+end
+
+local function save(and_format)
+	trim_trailing_whitespace()
+	vim.cmd.nohlsearch()
+	if and_format then
+		if vim.fn.expand('%:~') == '~/.local/share/magazine/r' then vim.cmd.sort() end
+		vim.lsp.buf.format()
+	end
+	---@diagnostic disable-next-line: param-type-mismatch
+	if vim.bo.modified then pcall(vim.cmd, 'silent write') end
 end
 
 local function close_try_save()
 	---@diagnostic disable-next-line: param-type-mismatch
-	if vim.bo.modified then pcall(vim.cmd, 'write') end
+	if vim.bo.modified then pcall(vim.cmd, 'silent write') end
 	vim.cmd('q!')
 end
 
@@ -354,7 +363,6 @@ local normal_mappings = {
 	["'["] = { killring_compile_reversed },
 
 	-- System
-	K = { close_try_save },
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>ds'] = { edit_magazine },
@@ -362,7 +370,9 @@ local normal_mappings = {
 	['<Leader>g'] = { edit_register },
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Leader>lx'] = { execute_this_file },
-	['<Space>'] = { save },
+	['<Space>'] = save,
+	['d<Space>'] = function() save(true) end,
+	K = close_try_save,
 
 	-- Fixes
 	['<Esc>'] = function()
@@ -419,8 +429,8 @@ local normal_mappings = {
 	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>dl'] = { "dil'dd", remap = true },
-	['<Leader>do'] = 'ddm' .. THROWAWAY_MARK .. 'Gp`' .. THROWAWAY_MARK, -- Bottom
-	['<Leader>du'] = 'ddm' .. THROWAWAY_MARK .. 'ggP`' .. THROWAWAY_MARK, -- Move line to the top
+	['<Leader>do'] = 'ddm' .. env.temp_mark .. 'Gp`' .. env.temp_mark, -- Bottom
+	['<Leader>du'] = 'ddm' .. env.temp_mark .. 'ggP`' .. env.temp_mark, -- Move line to the top
 	['<Leader>p'] = 'Pv`[o`]do<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['@'] = function() FeedKeys('yl' .. vim.v.count1 .. 'p') end,
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
@@ -431,10 +441,6 @@ local normal_mappings = {
 	-- Lsp
 	['<Leader>lr'] = vim.lsp.buf.rename,
 	['<Leader>lc'] = vim.lsp.buf.code_action,
-	['<Leader>lf'] = require('astrolsp.toggles').buffer_autoformat,
-	['<Leader>lF'] = function()
-		vim.lsp.buf.format(require('astrolsp').format_opts --[[@as vim.lsp.buf.format.Opts?]])
-	end,
 	['gl'] = function()
 		vim.diagnostic.open_float()
 		vim.diagnostic.open_float()
