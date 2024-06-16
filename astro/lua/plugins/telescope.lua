@@ -123,7 +123,6 @@ local function remaps(telescope)
 	vim.keymap.set('n', '<Leader><CR>', builtin.command_history)
 	vim.keymap.set('n', '<Leader>jm', builtin.man_pages)
 	vim.keymap.set('n', '<Leader>ji', builtin.marks)
-	vim.keymap.set('n', "<Leader>j'", builtin.registers)
 	vim.keymap.set('n', '<Leader>jH', builtin.highlights)
 	vim.keymap.set('n', '<Leader>j;', builtin.filetypes)
 	vim.keymap.set('n', '<Leader>jq', function() builtin.diagnostics({ bufnr = 0 }) end)
@@ -293,16 +292,6 @@ return {
 					},
 					jumplist = {
 						show_line = false,
-					},
-					registers = {
-						mappings = {
-							n = {
-								['<A-o>e'] = 'edit_register',
-							},
-							i = {
-								['<A-o>e'] = 'edit_register',
-							},
-						},
 					},
 					loclist = {
 						show_line = false,
