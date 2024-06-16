@@ -8,6 +8,7 @@ return {
 	},
 	{
 		'wellle/targets.vim',
+		event = 'VeryLazy',
 		init = function() vim.g.targets_nl = 'nh' end,
 	},
 	{
@@ -25,6 +26,7 @@ return {
 	},
 	{
 		'bkad/CamelCaseMotion',
+		event = 'VeryLazy',
 		init = function() vim.g.camelcasemotion_key = '<Leader>' end, -- only `init` works
 	},
 	{
@@ -52,6 +54,7 @@ return {
 	},
 	{
 		'rcarriga/nvim-notify',
+		event = 'VeryLazy',
 		opts = {
 			background_colour = '#292828',
 		},
