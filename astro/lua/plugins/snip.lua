@@ -239,6 +239,21 @@ local snippets = function()
 		}),
 	}
 	ls.add_snippets('markdown', markdown_snippets)
+
+	local yaml_snippets = {
+		s('Apostrophe', { t('Apostrophe') }),
+		s('Semicolon', { t('Semicolon') }),
+		s('CapsLock', { t('CapsLock') }),
+		s('LeftBrace', { t('LeftBrace') }),
+		s('RightBrace', { t('RightBrace') }),
+		s('Backslash', { t('Backslash') }),
+		s('sm', {
+			t('{ set_mode: '),
+			i(1, 'default'),
+			t(' }')
+		})
+	}
+	ls.add_snippets('yaml', yaml_snippets)
 end
 
 return {
