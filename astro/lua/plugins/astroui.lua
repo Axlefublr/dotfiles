@@ -191,11 +191,13 @@ return {
 				['Lf_hl_popup_nameOnlyMode'] = link('Dark13'),
 
 				['TodoFgTODO'] = link('Orange'),
-
 				['DiagnosticVirtualTextError'] = link('Red'),
 				['DiagnosticVirtualTextWarn'] = link('Orange'),
 				['DiagnosticVirtualTextInfo'] = link('Blue'),
 				['DiagnosticVirtualTextHint'] = link('Blue'),
+				['LspInformationVirtual'] = link('InlayHints'),
+				['LspCodeLens'] = link('InlayHints'),
+				['LspCodeLensSeparator'] = link('InlayHints'),
 
 				['CmpItemKindSnippet'] = link('Yellow'),
 				['CmpItemAbbrMatch'] = link('ShellYellowBoldOnDark12'),
