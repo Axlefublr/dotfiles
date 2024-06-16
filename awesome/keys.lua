@@ -91,8 +91,6 @@ Global_keys = gears.table.join(
 		awful.client.focus.byidx(1)
 	end),
 
-	awful.key({ modkey }, 'c', awful.client.urgent.jumpto),
-	awful.key({ modkey, 'Mod1' }, 'c', Ignore_all_urgencies),
 	awful.key({ modkey }, '4', function()
 		naughty.toggle()
 		Dnd_wu()
