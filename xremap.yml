@@ -7,8 +7,7 @@ modmap:
       CapsLock:
         held: CapsLock
         alone: Esc
-      Enter: F15
-      Tab: Enter
+      Tab: F15
       Esc: F13
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
 
@@ -253,7 +252,7 @@ keymap:
       o: end
       p: pagedown
 
-      g: [
+      Apostrophe: [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           CapsLock,
@@ -268,43 +267,45 @@ keymap:
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
         ]
-      d: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c phind'] }]
-      Shift-d:
+      LeftBrace:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c phind'] }]
+      Shift-LeftBrace:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'c phind neoline'] },
         ]
-      f: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c google'] }]
-      Shift-f:
+      RightBrace:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c google'] }]
+      Shift-RightBrace:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'c google neoline'] },
         ]
-      x: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_doc] }]
-      s:
+      Slash: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_doc] }]
+      Dot:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'runner_link open'] },
         ]
-      c: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_link] }]
-      Shift-s:
-        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_math] }]
-      q:
+      Comma:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_link] }]
+      m: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_math] }]
+      f:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, install_yt_video] },
         ]
-      a:
+      s:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'install_yt_video asmr'] },
         ]
-      z:
+      d:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
@@ -328,6 +329,45 @@ keymap:
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'emoji_picker_clipboard name'] },
+        ]
+
+      Enter:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, runner_notification] },
+        ]
+      y:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          {
+            launch:
+              [
+                fish,
+                -c,
+                'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              ],
+          },
+        ]
+      Alt-y:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          {
+            launch:
+              [
+                fish,
+                -c,
+                'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              ],
+          },
+        ]
+      Shift-y:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, runner_clipboard] },
         ]
 
   - name: Any! layout
@@ -948,26 +988,6 @@ keymap:
       Super-Semicolon: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       CapsLock-Alt-Apostrophe: ctrl-shift-u
-      CapsLock-Alt-o: { launch: [fish, -c, runner_clipboard] }
-      CapsLock-Alt-i: { launch: [fish, -c, runner_notification] }
-      CapsLock-Alt-Dot:
-        {
-          launch:
-            [
-              fish,
-              -c,
-              'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
-            ],
-        }
-      CapsLock-Alt-Comma:
-        {
-          launch:
-            [
-              fish,
-              -c,
-              'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
-            ],
-        }
       Super-Space: { launch: [fish, -c, toggle_layout] }
       CapsLock-Apostrophe: ScrollLock
       Super-v: { launch: [boomer] }
