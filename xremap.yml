@@ -19,6 +19,13 @@ modmap:
       only: /Terraria/
 
 keymap:
+  - name: Anki!
+    exact_match: true
+    application:
+      only: Anki
+    remap:
+      Ctrl-i: ctrl-shift-x
+
   - name: Spotify!
     exact_match: true
     application:
