@@ -7,7 +7,7 @@ return {
 			highlight = {
 				additional_vim_regex_highlighting = false,
 			},
-			incremental_selection = { enable = true },
+			incremental_selection = { enable = false },
 			textobjects = {
 				select = {
 					enable = true,
@@ -24,29 +24,7 @@ return {
 						['ar'] = '@conditional.outer',
 					},
 				},
-				swap = {
-					enable = true,
-					swap_next = {
-						[']]f'] = '@function.inner',
-						[']]F'] = '@function.outer',
-						[']]A'] = '@parameter.outer',
-						[']]a'] = '@parameter.inner',
-						[']]c'] = '@call.inner',
-						[']]C'] = '@call.outer',
-						[']]r'] = '@conditional.inner',
-						[']]R'] = '@conditional.outer',
-					},
-					swap_previous = {
-						['[[f'] = '@function.inner',
-						['[[F'] = '@function.outer',
-						['[[a'] = '@parameter.inner',
-						['[[A'] = '@parameter.outer',
-						['[[c'] = '@call.inner',
-						['[[C'] = '@call.outer',
-						['[[r'] = '@conditional.inner',
-						['[[R'] = '@conditional.outer',
-					},
-				},
+				swap = { enable = false },
 				move = {
 					enable = true,
 					set_jumps = true,
