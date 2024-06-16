@@ -176,7 +176,7 @@ abbr -a ~ 'z ~ && clx'
 abbr -a rl realpath
 abbr -a u 'z - && clx'
 abbr -a fp 'fish -P'
-abbr -a \/ exit
+abbr -a x exit
 abbr -a bacon 'bacon -j clippy'
 abbr -a lo loago
 abbr -a xcp 'xclip -r -selection clipboard'
