@@ -13,6 +13,59 @@ local opts_table = {
 	},
 	---@diagnostic disable: missing-fields
 	config = {
+		lua_ls = {
+			settings = {
+				Lua = {
+					codeLens = {
+						enable = true,
+					},
+					completion = {
+						callSnippet = 'Replace',
+						enable = true,
+						keywordSnippet = 'Replace',
+						postfix = '@',
+						showParams = true,
+						showWord = 'Enable',
+						workspaceWord = true,
+					},
+					diagnostics = {
+						disable = { 'lowercase-global', 'redefined-local' },
+						workspaceDelay = 0,
+					},
+					format = {
+						enable = false,
+					},
+					hint = {
+						arrayIndex = 'Disable',
+						await = true,
+						enable = true,
+						paramName = 'Disable',
+						paramType = true,
+						semicolon = 'Disable',
+						setType = true,
+					},
+					hover = {
+						enable = true,
+						enumsLimit = 9999,
+						expandAlias = true,
+						previewFields = 9999,
+						viewNumber = true,
+						viewString = true,
+					},
+					semantic = {
+						enable = true,
+						keyword = false,
+						variable = true,
+					},
+					type = {
+						weakNilCheck = false,
+					},
+					workspace = {
+						checkThirdParty = true,
+					},
+				},
+			},
+		},
 		rust_analyzer = {
 			settings = {
 				['rust-analyzer'] = {
