@@ -671,6 +671,7 @@ local pending_mappings = {
 local command_mappings = {
 	["<A-'>"] = '<C-r>',
 	["<A-'>'"] = '<C-r>+',
+	["<A-'>;"] = '<C-r><C-w>',
 	["<A-'>0"] = function() numbered_command(10) end,
 	["<A-'>1"] = function() numbered_command(1) end,
 	["<A-'>2"] = function() numbered_command(2) end,
