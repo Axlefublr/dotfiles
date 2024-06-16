@@ -260,6 +260,8 @@ function filter_mature_tasks
         switch $name
             case filter rilter
                 if_print $days $name 60
+            case vacuum floor dust brushes
+                if_print $days $name 6
             case towels lamp nose wash
                 if_print $days $name 7
             case cloths fscrub bscrub liked cazor nails audio
