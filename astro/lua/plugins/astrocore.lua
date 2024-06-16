@@ -591,9 +591,9 @@ local normal_mappings = {
 
 	-- Direct
 	U = '<C-r>',
-	zl = 'q',
-	zu = '@',
-	["zu'"] = '@"',
+	zL = 'q',
+	zl = '@',
+	["zl'"] = '@"',
 	zz = '@@',
 	Y = 'yg_',
 	['<C-k>'] = 'O<Esc>',
@@ -612,7 +612,7 @@ local normal_mappings = {
 	-- 	local function shell(cmd) return vim.system(cmd, { text = true }):wait() end
 	-- 	local result = shell({ 'harp', 'get', 'harps', 's', '--path' })
 	-- 	if result.code ~= 0 then return end
-	-- 	vim.notify(result.stdout)
+	-- 	vim.notify("'" .. result.stdout .. "'")
 	-- end
 }
 
