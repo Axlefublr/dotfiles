@@ -651,7 +651,6 @@ local insert_mappings = {
 	['<A-o>'] = '',
 	['<C-h>'] = '<C-o>"_S<Esc><C-o>gI<BS>', -- Delete from the current position to the last character on the previous line
 	['<C-k>'] = '<C-o>O',
-	['<C-l>'] = '<C-x><C-l>',
 	['<C-v>'] = '<C-r><C-p>+',
 	['<F5>'] = '',
 	['<F6>'] = '<C-o>o',

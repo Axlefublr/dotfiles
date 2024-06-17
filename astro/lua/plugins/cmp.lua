@@ -2,6 +2,9 @@
 return {
 	'hrsh7th/nvim-cmp',
 	event = 'InsertEnter',
+	dependencies = {
+		{ 'amarakon/nvim-cmp-buffer-lines', lazy = true },
+	},
 	opts = function(_, opts)
 		local cmp = require('cmp')
 		opts.mapping = nil
@@ -46,6 +49,15 @@ return {
 				['<A-;>'] = cmp.mapping.confirm({
 					select = true,
 					behavior = cmp.ConfirmBehavior.Insert,
+				}),
+				['<C-l>'] = cmp.mapping.complete({
+					config = {
+						sources = {
+							{ name = 'buffer-lines', priority = 50, option = {
+								leading_whitespace = false,
+							} },
+						},
+					},
 				}),
 				['<C-p>'] = function()
 					if cmp.visible() then
