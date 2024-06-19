@@ -50,7 +50,7 @@ return {
 					select = true,
 					behavior = cmp.ConfirmBehavior.Insert,
 				}),
-				['<C-l>'] = cmp.mapping.complete({
+				['<A-m>'] = cmp.mapping.complete({
 					config = {
 						sources = {
 							{ name = 'buffer-lines', priority = 50, option = {

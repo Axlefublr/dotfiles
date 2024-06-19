@@ -347,27 +347,27 @@ local function count_repeats(closure)
 end
 
 local normal_mappings = {
-	['<Leader>de'] = { copy_git_relative },
-	['<Leader>dq'] = { copy_full_path },
-	['<Leader>dr'] = { copy_cwd_relative },
-	['<Leader>dw'] = { copy_file_name },
-	['<Leader>dt'] = { copy_cwd },
+	['<Leader>de'] = copy_git_relative,
+	['<Leader>dq'] = copy_full_path,
+	['<Leader>dr'] = copy_cwd_relative,
+	['<Leader>dw'] = copy_file_name,
+	['<Leader>dt'] = copy_cwd,
 
-	["'e"] = { killring_pop },
-	["'E"] = { killring_pop_tail },
-	["',"] = { killring_push },
-	["'<"] = { killring_push_tail },
-	["']"] = { killring_compile },
-	["'["] = { killring_compile_reversed },
+	["'e"] = killring_pop,
+	["'E"] = killring_pop_tail,
+	["',"] = killring_push,
+	["'<"] = killring_push_tail,
+	["']"] = killring_compile,
+	["'["] = killring_compile_reversed,
 
 	-- System
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
-	['<Leader>sq'] = { edit_magazine },
-	['<Leader>G'] = { move_default_to_other },
-	['<Leader>g'] = { edit_register },
+	['<Leader>sq'] = edit_magazine,
+	['<Leader>G'] = move_default_to_other,
+	['<Leader>g'] = edit_register,
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
-	['<Leader>lx'] = { execute_this_file },
+	['<Leader>lx'] = execute_this_file,
 	['<Space>'] = save,
 	['d<Space>'] = function() save(true) end,
 	K = close_try_save,
@@ -427,13 +427,13 @@ local normal_mappings = {
 	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>dl'] = { "dil'dd", remap = true },
-	['<Leader>do'] = 'ddm' .. env.temp_mark .. 'Gp`' .. env.temp_mark, -- Bottom
-	['<Leader>du'] = 'ddm' .. env.temp_mark .. 'ggP`' .. env.temp_mark, -- Move line to the top
+	['<Leader>do'] = '<Cmd>pu $',
+	['<Leader>du'] = '<Cmd>pu! 0',
 	['<Leader>p'] = 'Pv`[o`]do<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
 	['@'] = function() FeedKeys('yl' .. vim.v.count1 .. 'p') end,
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
 	du = function() count_repeats_keys('dd') end,
-	gJ = 'j0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
+	gJ = '0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 	gy = '<Cmd>set list!<CR>',
 
 	-- Lsp
