@@ -1,8 +1,10 @@
 local killring = setmetatable({}, { __index = table })
 
 function validate_register(register)
-	if register == "'" then
+	if register == "'" or register == '"' then
 		return '+'
+	elseif register == '\13' then
+		return ':'
 	else
 		return register
 	end
@@ -198,9 +200,7 @@ function killring_compile_reversed()
 end
 
 function search_for_register(direction, death)
-	local char = Get_char('register: ')
-	if not char then return end
-	local register = validate_register(char)
+	local register = validate_register('"')
 	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
 	FeedKeys(direction .. '\\V' .. escaped_register .. death)
 	FeedKeysInt('<CR>')
@@ -572,6 +572,10 @@ local normal_mappings = {
 	['*'] = function() search_for_current_word('/', '') end,
 	['<Leader>#'] = function() search_for_current_word('?', '?e') end,
 	['<Leader>*'] = function() search_for_current_word('/', '/e') end,
+	['g#'] = function() search_for_register('?', '') end,
+	['g*'] = function() search_for_register('/', '') end,
+	['<Leader>g#'] = function() search_for_register('?', '?e') end,
+	['<Leader>g*'] = function() search_for_register('/', '/e') end,
 	['[Q'] = function() another_quickfix_entry(false, true) end,
 	['[q'] = function() another_quickfix_entry(false, false) end,
 	[']Q'] = function() another_quickfix_entry(true, true) end,
@@ -771,11 +775,6 @@ local normal_visual_pending_mappings = {
 	L = '<C-d>',
 	["m'"] = "`'",
 	[':'] = ',',
-	['<Leader><Leader>F'] = function() search_for_register('?', '?e') end,
-	['<Leader><Leader>f'] = function() search_for_register('/', '/e') end,
-	['<Leader>F'] = function() search_for_register('?', '') end,
-	['<Leader>f'] = function() search_for_register('/', '') end,
-	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
 	['m,'] = '`<',
 	['m.'] = '`>',
 	['m/'] = '`^',
@@ -795,6 +794,7 @@ local normal_visual_mappings = {
 			end
 		end,
 	},
+	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
 	["'"] = '"',
