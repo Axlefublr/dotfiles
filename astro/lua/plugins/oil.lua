@@ -8,17 +8,6 @@ return {
 		'Oil',
 	},
 	opts = function(_, opts)
-		vim.api.nvim_set_hl(0, 'OilDir', { fg = env.color.white })
-		vim.api.nvim_set_hl(0, 'OilDirIcon', { fg = env.color.shell_yellow })
-		vim.api.nvim_set_hl(0, 'OilLink', { fg = env.color.blush })
-		vim.api.nvim_set_hl(0, 'OilLinkTarget', { fg = env.color.red })
-
-		vim.api.nvim_set_hl(0, 'OilTrash', { fg = env.color.orange })
-		vim.api.nvim_set_hl(0, 'OilRestore', { fg = env.color.purple })
-		vim.api.nvim_set_hl(0, 'OilPurge', { fg = env.color.red })
-		vim.api.nvim_set_hl(0, 'OilMove', { fg = env.color.blush })
-		vim.api.nvim_set_hl(0, 'OilMove', { fg = env.color.yellow })
-
 		vim.api.nvim_create_autocmd('FileType', {
 			pattern = 'oil',
 			callback = function()

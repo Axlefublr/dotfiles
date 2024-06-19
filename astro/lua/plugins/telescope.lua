@@ -375,13 +375,6 @@ return {
 		config = function(plugin, opts)
 			require('astronvim.plugins.configs.telescope')(plugin, opts)
 			local telescope = require('telescope')
-			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffUntracked', { fg = env.color.shell_grey })
-			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffDelete', { fg = env.color.shell_red })
-			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { fg = env.color.shell_cyan })
-			vim.api.nvim_set_hl(0, 'TelescopeResultsDiffAdd', { fg = env.color.shell_salad })
-			vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = env.color.dark12 })
-			vim.api.nvim_set_hl(0, 'TelescopeMatching', { fg = env.color.shell_yellow, bold = true })
-			vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', { fg = env.color.shell_yellow, bg = env.color.dark12 })
 			remaps(telescope)
 		end,
 	},

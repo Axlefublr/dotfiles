@@ -47,8 +47,14 @@ return {
 				['BlushItalic'] = { fg = env.color.blush, italic = true },
 				['FgItalic'] = { fg = env.color.white, italic = true },
 
+				['ShellYellow'] = { fg = env.color.shell_yellow },
 				['ShellYellowBold'] = { fg = env.color.shell_yellow, bold = true },
 				['ShellYellowBoldOnDark12'] = { fg = env.color.shell_yellow, bg = env.color.dark12, bold = true },
+
+				['ShellGrey'] = { fg = env.color.shell_grey },
+				['ShellRed'] = { fg = env.color.shell_red },
+				['ShellCyan'] = { fg = env.color.shell_cyan },
+				['ShellSalad'] = { fg = env.color.shell_salad },
 
 				['OrangeBoldBackground'] = { fg = env.color.level, bg = env.color.orange, bold = true },
 				['OrangeBoldNocombine'] = { fg = env.color.orange, bold = true, nocombine = true },
@@ -198,6 +204,23 @@ return {
 				['LspInformationVirtual'] = link('InlayHints'),
 				['LspCodeLens'] = link('InlayHints'),
 				['LspCodeLensSeparator'] = link('InlayHints'),
+
+				['OilDir'] = link('Fg'),
+				['OilDirIcon'] = link('ShellYellow'),
+				['OilLink'] = link('Blush'),
+				['OilLinkTarget'] = link('Red'),
+				['OilTrash'] = link('Orange'),
+				['OilRestore'] = link('Purple'),
+				['OilPurge'] = link('Red'),
+				['OilMove'] = link('Yellow'),
+
+				['TelescopeResultsDiffUntracked'] = link('ShellGrey'),
+				['TelescopeResultsDiffDelete'] = link('ShellRed'),
+				['TelescopeResultsDiffChange'] = link('ShellCyan'),
+				['TelescopeResultsDiffAdd'] = link('ShellSalad'),
+				['TelescopeSelection'] = link('Dark12'),
+				['TelescopeMatching'] = link('ShellYellowBold'),
+				['TelescopeSelectionCaret'] = link('ShellYellowBoldOnDark12'),
 
 				['CmpItemKindSnippet'] = link('Yellow'),
 				['CmpItemAbbrMatch'] = link('ShellYellowBoldOnDark12'),
