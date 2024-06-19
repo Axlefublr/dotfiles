@@ -35,4 +35,7 @@ require('lazy').setup({
 			},
 		},
 	},
+	dev = {
+		path = "~/prog/proj"
+	}
 } --[[@as LazyConfig]])

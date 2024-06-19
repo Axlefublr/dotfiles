@@ -62,6 +62,7 @@ return {
 	{
 		'Axlefublr/harp-nvim',
 		lazy = true,
+		dev = true,
 		opts = {},
 	},
 	{

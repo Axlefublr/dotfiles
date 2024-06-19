@@ -363,7 +363,7 @@ local normal_mappings = {
 	-- System
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
-	['<Leader>ds'] = { edit_magazine },
+	['<Leader>sq'] = { edit_magazine },
 	['<Leader>G'] = { move_default_to_other },
 	['<Leader>g'] = { edit_register },
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
@@ -475,22 +475,30 @@ local normal_mappings = {
 	['<Leader>j:f'] = '<Cmd>setfiletype fish<CR>',
 	['<Leader>j:h'] = '<Cmd>setfiletype html<CR>',
 	['<Leader>j:l'] = '<Cmd>setfiletype lua<CR>',
-	['<Leader>j:m'] = '<Cmd>setfiletype man<CR>',
-	['<Leader>j:k'] = '<Cmd>setfiletype markdown<CR>',
+	['<Leader>j:a'] = '<Cmd>setfiletype man<CR>',
+	['<Leader>j:m'] = '<Cmd>setfiletype markdown<CR>',
 	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
 	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
 
 	-- Harp
-	['""'] = function() require('harp').cd_set() end,
-	['"'] = function() require('harp').cd_get() end,
-	['<Leader>R'] = function() require('harp').positional_set() end,
-	['<Leader>S'] = function() require('harp').default_set() end,
-	['<Leader>X'] = function() require('harp').percwd_set() end,
-	['<Leader>Z'] = function() require('harp').global_mark_set() end,
-	['<Leader>r'] = function() require('harp').positional_get() end,
-	['<Leader>s'] = function() require('harp').default_get() end,
-	['<Leader>x'] = function() require('harp').percwd_get() end,
-	['<Leader>z'] = function() require('harp').global_mark_get() end,
+	['<Leader>Sd'] = function() require('harp').cd_set() end,
+	['<Leader>sd'] = function() require('harp').cd_get() end,
+	['<Leader>ss'] = function() require('harp').default_get() end,
+	['<Leader>Ss'] = function() require('harp').default_set() end,
+	['<Leader>sc'] = function() require('harp').global_mark_get() end,
+	['<Leader>Sc'] = function() require('harp').global_mark_set() end,
+	['<Leader>se'] = function() require('harp').global_search_get() end,
+	['<Leader>Se'] = function() require('harp').global_search_set({ ask = true }) end,
+	['<Leader>s/'] = function() require('harp').perbuffer_search_get() end,
+	['<Leader>s?'] = function() require('harp').perbuffer_search_get({ backwards = true }) end,
+	['<Leader>S/'] = function() require('harp').perbuffer_search_set({ ask = true }) end,
+	['<Leader>sf'] = function() require('harp').filetype_search_get() end,
+	['<Leader>sF'] = function() require('harp').filetype_search_get({ backwards = true }) end,
+	['<Leader>Sf'] = function() require('harp').filetype_search_set({ ask = true}) end,
+	['<Leader>sa'] = function() require('harp').percwd_get() end,
+	['<Leader>Sa'] = function() require('harp').percwd_set() end,
+	['<Leader>sr'] = function() require('harp').positional_get() end,
+	['<Leader>Sr'] = function() require('harp').positional_set() end,
 	['M'] = function() require('harp').perbuffer_mark_set() end,
 	['m'] = function() require('harp').perbuffer_mark_get() end,
 
@@ -608,12 +616,11 @@ local normal_mappings = {
 	gss = '==',
 	yP = 'yyP',
 	yp = 'yyp',
-	-- ['<Leader><Space>'] = function()
-	-- 	local function shell(cmd) return vim.system(cmd, { text = true }):wait() end
-	-- 	local result = shell({ 'harp', 'get', 'harps', 's', '--path' })
-	-- 	if result.code ~= 0 then return end
-	-- 	vim.notify("'" .. result.stdout .. "'")
-	-- end
+	['<Leader><Space>'] = function()
+		local var = 'asdf'
+		local things = vim.fn.split(var, '\127')
+		vim.notify(things[1])
+	end,
 }
 
 local visual_mappings = {
@@ -685,7 +692,7 @@ local command_mappings = {
 	["<A-'>E"] = function() killring_pop_tail('command') end,
 	["<A-'>e"] = function() killring_pop('command') end,
 	['<C-v>'] = '<C-r>+',
-	['<CR>'] = { rotate_range },
+	-- ['<CR>'] = { rotate_range },
 	['<S-CR>'] = function() vim.fn.setcmdline('.,$') end,
 }
 

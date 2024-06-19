@@ -92,7 +92,7 @@ return {
 					end,
 					{ buffer = true }
 				)
-				vim.keymap.set('n', '"', function()
+				vim.keymap.set('n', '<Leader>sd', function()
 					local register = Get_char('get cd harp: ')
 					if register == nil then return end
 					local output = require('astrocore').cmd({ 'harp', 'get', 'cd_harps', register, '--path' }, false)
@@ -102,7 +102,7 @@ return {
 						vim.notify('cd harp ' .. register .. ' is empty')
 					end
 				end, { buffer = true })
-				vim.keymap.set('n', '""', function()
+				vim.keymap.set('n', '<Leader>Sd', function()
 					local register = Get_char('set cd harp: ')
 					if register == nil then return end
 					local directory = require('oil').get_current_dir()
