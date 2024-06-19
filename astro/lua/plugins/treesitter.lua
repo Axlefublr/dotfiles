@@ -9,50 +9,9 @@ return {
 			},
 			incremental_selection = { enable = false },
 			textobjects = {
-				select = {
-					enable = true,
-					lookahead = true,
-					include_surrounding_whitespace = false,
-					keymaps = {
-						['af'] = '@function.outer',
-						['if'] = '@function.inner',
-						['ia'] = '@parameter.inner',
-						['aa'] = '@parameter.outer',
-						['ic'] = '@call.inner',
-						['ac'] = '@call.outer',
-						['ir'] = '@conditional.inner',
-						['ar'] = '@conditional.outer',
-					},
-				},
+				select = { enable = false },
 				swap = { enable = false },
-				move = {
-					enable = true,
-					set_jumps = true,
-					goto_next_start = {
-						[']f'] = '@function.outer',
-						[']a'] = '@parameter.outer',
-						[']c'] = '@call.outer',
-						[']r'] = '@conditional.outer',
-					},
-					goto_next_end = {
-						[']F'] = '@function.outer',
-						[']A'] = '@parameter.outer',
-						[']C'] = '@call.outer',
-						[']R'] = '@conditional.outer',
-					},
-					goto_previous_start = {
-						['[f'] = '@function.outer',
-						['[a'] = '@parameter.outer',
-						['[c'] = '@call.outer',
-						['[r'] = '@conditional.outer',
-					},
-					goto_previous_end = {
-						['[F'] = '@function.outer',
-						['[A'] = '@parameter.outer',
-						['[C'] = '@call.outer',
-						['[R'] = '@conditional.outer',
-					},
-				},
+				move = { enable = false },
 			},
 		})
 	end,
