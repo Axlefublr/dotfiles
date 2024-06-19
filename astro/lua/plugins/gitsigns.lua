@@ -1,7 +1,7 @@
 local opts_table = {
 	signcolumn = false, -- Toggle with `:Gitsigns toggle_signs`
-	numhl = true,     -- Toggle with `:Gitsigns toggle_numhl`
-	linehl = false,   -- Toggle with `:Gitsigns toggle_linehl`
+	numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+	linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
 	word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
 	watch_gitdir = {
 		follow_files = true,
@@ -75,7 +75,7 @@ local opts_table = {
 		map('n', '<Leader>cs', ':Gitsigns show ')
 		map('n', '<Leader>cd', ':Gitsigns diffthis ')
 
-		map({'o', 'x'}, 'id', ':<C-U>Gitsigns select_hunk<CR>')
+		map({ 'o', 'x' }, 'id', ':<C-U>Gitsigns select_hunk<CR>')
 	end,
 }
 

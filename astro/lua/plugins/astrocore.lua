@@ -470,6 +470,71 @@ local normal_mappings = {
 		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
 	end,
 
+	-- Gaf
+	['<Leader>cam'] = function()
+		env.shell({ 'gaf', 'stage', 'modified' }, function(result)
+			if result.code == 0 then
+				vim.notify('stage modified')
+			else
+				vim.notify(result.stderr)
+			end
+		end)
+	end,
+	['<Leader>can'] = function()
+		env.shell({ 'gaf', 'stage', 'new' }, function(result)
+			if result.code == 0 then
+				vim.notify('stage new')
+			else
+				vim.notify(result.stderr)
+			end
+		end)
+	end,
+	['<Leader>cad'] = function()
+		env.shell({ 'gaf', 'stage', 'deleted' }, function(result)
+			if result.code == 0 then
+				vim.notify('stage deleted')
+			else
+				vim.notify(result.stderr)
+			end
+		end)
+	end,
+	['<Leader>cua'] = function()
+		env.shell({ 'gaf', 'unstage', 'added' }, function(result)
+			if result.code == 0 then
+				vim.notify('unstage added')
+			else
+				vim.notify(result.stderr)
+			end
+		end)
+	end,
+	['<Leader>cum'] = function()
+		env.shell({ 'gaf', 'unstage', 'modified' }, function(result)
+			if result.code == 0 then
+				vim.notify('unstage modified')
+			else
+				vim.notify(result.stderr)
+			end
+		end)
+	end,
+	['<Leader>cur'] = function()
+		env.shell({ 'gaf', 'unstage', 'renamed' }, function(result)
+			if result.code == 0 then
+				vim.notify('unstage renamed')
+			else
+				vim.notify(result.stderr)
+			end
+		end)
+	end,
+	['<Leader>cud'] = function()
+		env.shell({ 'gaf', 'unstage', 'deleted' }, function(result)
+			if result.code == 0 then
+				vim.notify('unstage deleted')
+			else
+				vim.notify(result.stderr)
+			end
+		end)
+	end,
+
 	-- Abstractions
 	['<Leader>j:c'] = '<Cmd>setfiletype css<CR>',
 	['<Leader>j:f'] = '<Cmd>setfiletype fish<CR>',
@@ -494,7 +559,7 @@ local normal_mappings = {
 	['<Leader>S/'] = function() require('harp').perbuffer_search_set({ ask = true }) end,
 	['<Leader>sf'] = function() require('harp').filetype_search_get() end,
 	['<Leader>sF'] = function() require('harp').filetype_search_get({ backwards = true }) end,
-	['<Leader>Sf'] = function() require('harp').filetype_search_set({ ask = true}) end,
+	['<Leader>Sf'] = function() require('harp').filetype_search_set({ ask = true }) end,
 	['<Leader>sa'] = function() require('harp').percwd_get() end,
 	['<Leader>Sa'] = function() require('harp').percwd_set() end,
 	['<Leader>sr'] = function() require('harp').positional_get() end,

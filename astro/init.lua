@@ -49,6 +49,8 @@ env.color = {
 	dark10 = '#1a1919',
 }
 
+function env.shell(cmd, on_exit) return vim.system(cmd, { text = true }, on_exit) end
+
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
 function FeedKeysInt(keys)

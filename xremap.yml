@@ -265,15 +265,15 @@ keymap:
           CapsLock,
           { launch: [fish, -c, 'widget_update update_layout Layout'] },
         ] # toggle capslock
-      r: { launch: [awesome-client, Ignore_all_urgencies()] }
+      r: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [awesome-client, Ignore_all_urgencies()] }]
       t:
         [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
           {
             launch:
               [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'],
           },
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
         ]
       LeftBrace:
         [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c phind'] }]
