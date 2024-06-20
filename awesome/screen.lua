@@ -184,6 +184,12 @@ function Bluetooth_wu()
 			Bluetooth_mw.visible = true
 			if text == 'connected' then
 				Bluetooth_bw.fg = beautiful.cyan
+			elseif text == 'connected full' then
+				Bluetooth_bw.fg = beautiful.green
+			elseif text == 'connected low' then
+				Bluetooth_bw.fg = beautiful.yellow
+			elseif text == 'connected critical' then
+				Bluetooth_bw.fg = beautiful.red
 			else
 				Bluetooth_bw.fg = beautiful.white
 			end

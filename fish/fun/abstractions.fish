@@ -179,11 +179,27 @@ function update_bluetooth
         echo ''
         return 0
     end
+
     set connection (get_bluetooth_connected 2> /dev/null)
     if test -z "$connection"
         echo disconnected
-    else
+        return
+    end
+
+    set battery (bl_battery $head 2>/dev/null)
+    if test -z "$battery"
         echo connected
+        return 0
+    end
+
+    if test "$battery" -gt 75
+        echo connected full
+    else if test "$battery" -gt 50
+        echo connected
+    else if test "$battery" -gt 25
+        echo connected low
+    else
+        echo connected critical
     end
 end
 funcsave update_bluetooth >/dev/null
@@ -328,6 +344,11 @@ function disk_usage
     df -h /dev/nvme0n1p2 | tail -n 1 | awk '{print $5}' | string replace '%' '' | string collect
 end
 funcsave disk_usage >/dev/null
+
+function bl_battery
+    bluetoothctl info $argv | string match -gr 'Battery Percentage: \\S+ \\((\\d+)\\)'
+end
+funcsave bl_battery >/dev/null
 
 function git_search_file
     if not test "$argv[1]"
