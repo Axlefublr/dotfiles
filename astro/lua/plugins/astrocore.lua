@@ -246,41 +246,6 @@ local function move_default_to_other()
 	vim.fn.setreg(register, default_contents)
 end
 
-local function edit_register()
-	local char = Get_char()
-	if not char then return end
-
-	local register = validate_register(char)
-	local wisdom = vim.fn.getregtype(register)
-	---@diagnostic disable-next-line: redundant-parameter
-	local lines = vim.fn.getreg(register, 1, true)
-
-	local buf = vim.api.nvim_create_buf(false, true)
-	---@diagnostic disable-next-line: param-type-mismatch
-	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
-
-	local width = math.floor(vim.o.columns * 0.6)
-	local height = math.floor(vim.o.lines * 0.3)
-	local columns = math.min((vim.o.columns - width) / 2)
-	local rows = math.min((vim.o.lines - height) / 2)
-	local win_opts = {
-		relative = 'editor',
-		width = width,
-		height = height,
-		col = columns,
-		row = rows,
-	}
-	vim.api.nvim_open_win(buf, true, win_opts)
-
-	vim.api.nvim_create_autocmd('BufWinLeave', {
-		pattern = '<buffer>',
-		callback = function()
-			local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-			vim.fn.setreg(register, lines, wisdom)
-		end,
-	})
-end
-
 local function search_for_current_word(direction, death)
 	local register = vim.fn.getreg('+')
 	FeedKeys('yiw')
@@ -364,8 +329,7 @@ local normal_mappings = {
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>sq'] = edit_magazine,
-	['<Leader>G'] = move_default_to_other,
-	['<Leader>g'] = edit_register,
+	['<Leader>f'] = move_default_to_other,
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Leader>lx'] = execute_this_file,
 	['<Space>'] = save,
@@ -545,6 +509,14 @@ local normal_mappings = {
 	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
 	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
 
+	-- Edister
+	['<Leader>g'] = function() require('edister').edit_register() end,
+	["<Leader>g'"] = function() require('edister').edit_register('+') end,
+	['<Leader>g<CR>'] = function() require('edister').edit_register(':') end,
+	['<Leader>G'] = function() require('edister').edit_register(nil, 'ask') end,
+	["<Leader>G'"] = function() require('edister').edit_register('+', 'ask') end,
+	['<Leader>G<CR>'] = function() require('edister').edit_register(':', 'ask') end,
+
 	-- Harp
 	['<Leader>Sd'] = function() require('harp').cd_set() end,
 	['<Leader>sd'] = function() require('harp').cd_get() end,
@@ -686,9 +658,8 @@ local normal_mappings = {
 	yP = 'yyP',
 	yp = 'yyp',
 	['<Leader><Space>'] = function()
-		local var = 'asdf'
-		local things = vim.fn.split(var, '\127')
-		vim.notify(things[1])
+		local table = {}
+		vim.notify(tostring(table.asdf and 3 or 5))
 	end,
 }
 

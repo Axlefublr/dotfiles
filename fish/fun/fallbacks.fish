@@ -25,3 +25,5 @@ alias --save py python >/dev/null
 alias --save pyt runner_python >/dev/null
 alias --save grf 'git_search_file' > /dev/null
 alias --save grf 'git_search_file' > /dev/null
+alias --save gq 'oil' > /dev/null
+alias --save gt 'git tag' > /dev/null

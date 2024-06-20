@@ -227,3 +227,5 @@ abbr -a py python
 abbr -a pyt runner_python
 abbr -a gr git_search
 abbr -a grf git_search_file
+abbr -a gq 'oil'
+abbr -a gt 'git tag'

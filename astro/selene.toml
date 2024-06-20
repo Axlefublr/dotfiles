@@ -1,5 +1,3 @@
-std = 'neovim'
-
 [rules]
 unused_variable = 'allow'
 global_usage = 'allow'

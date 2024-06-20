@@ -60,12 +60,6 @@ return {
 		},
 	},
 	{
-		'Axlefublr/harp-nvim',
-		lazy = true,
-		dev = true,
-		opts = {},
-	},
-	{
 		'onsails/lspkind.nvim',
 		opts = {
 			symbol_map = {
