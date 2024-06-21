@@ -930,16 +930,16 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      CapsLock-Alt-p: '0'
-      CapsLock-Alt-m: '1'
-      CapsLock-Alt-Comma: '2'
-      CapsLock-Alt-Dot: '3'
-      CapsLock-Alt-j: '4'
-      CapsLock-Alt-k: '5'
-      CapsLock-Alt-l: '6'
-      CapsLock-Alt-u: '7'
-      CapsLock-Alt-i: '8'
-      CapsLock-Alt-o: '9'
+      CapsLock-Alt-f: '0'
+      CapsLock-Alt-j: '1'
+      CapsLock-Alt-k: '2'
+      CapsLock-Alt-l: '3'
+      CapsLock-Alt-u: '4'
+      CapsLock-Alt-i: '5'
+      CapsLock-Alt-o: '6'
+      CapsLock-Alt-m: '7'
+      CapsLock-Alt-Comma: '8'
+      CapsLock-Alt-Dot: '9'
 
       CapsLock-LeftBrace: shift-9
       CapsLock-RightBrace: shift-0
