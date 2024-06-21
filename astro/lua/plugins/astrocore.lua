@@ -329,7 +329,6 @@ local normal_mappings = {
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>sq'] = edit_magazine,
-	['<Leader>f'] = move_default_to_other,
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Leader>lx'] = execute_this_file,
 	['<Space>'] = save,
@@ -510,6 +509,9 @@ local normal_mappings = {
 	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
 
 	-- Edister
+	-- ['<Leader>f'] = move_default_to_other,
+	['<Leader>f'] = function() require('edister').move_from_one_to_another() end,
+	['<Leader>F'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
 	['<Leader>g'] = function() require('edister').edit_register() end,
 	["<Leader>g'"] = function() require('edister').edit_register('+') end,
 	['<Leader>g<CR>'] = function() require('edister').edit_register(':') end,
