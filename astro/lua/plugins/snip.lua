@@ -257,6 +257,11 @@ local snippets = function()
 		})
 	}
 	ls.add_snippets('yaml', yaml_snippets)
+
+	local python_snippets = {
+		s('#!', { t('#!/usr/bin/python') })
+	}
+	ls.add_snippets('python', python_snippets)
 end
 
 return {
