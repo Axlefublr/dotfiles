@@ -14,6 +14,7 @@ set -Ux NEOVIDE_FORK false
 set -Ux PGDATABASE dvdrental
 set -Ux PGUSER postgres
 set -Ux PYTHONSTARTUP ~/prog/dotfiles/pyrc.py
+set -Ux TELOXIDE_TOKEN (cat ~/prog/info/pswds/axleizer-api)
 
 set -U fish_lazy_load_completions true
 set -U fish_lazy_load_functions true

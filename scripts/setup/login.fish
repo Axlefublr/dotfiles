@@ -47,4 +47,6 @@ notify-sent -t 2000 xwaaa
 sleep 10
 xwaaa
 
+axleizer 2>>/tmp/user_log.txt & disown
+
 notify-send -t 0 'logged in'
