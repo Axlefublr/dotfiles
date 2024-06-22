@@ -238,14 +238,6 @@ local function search_for_selection(direction, death)
 	end)
 end
 
-local function move_default_to_other()
-	local char = Get_char('register: ')
-	if not char then return end
-	local register = validate_register(char)
-	local default_contents = vim.fn.getreg('+')
-	vim.fn.setreg(register, default_contents)
-end
-
 local function search_for_current_word(direction, death)
 	local register = vim.fn.getreg('+')
 	FeedKeys('yiw')
@@ -511,7 +503,6 @@ local normal_mappings = {
 	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
 
 	-- Edister
-	-- ['<Leader>f'] = move_default_to_other,
 	['<Leader>f'] = function() require('edister').move_from_one_to_another() end,
 	['<Leader>F'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
 	['<Leader>g'] = function() require('edister').edit_register() end,
