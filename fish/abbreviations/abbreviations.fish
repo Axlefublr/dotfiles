@@ -141,9 +141,10 @@ abbr -a ghiv 'gh issue view'
 abbr -a ghal 'gh auth login'
 abbr -a ghpr 'gh pr'
 abbr -a ghprc 'gh pr create'
-abbr -a ghrel 'gh release'
-abbr -a ghrell 'gh release list -L 1000'
-abbr -a ghrelv 'gh release view'
+abbr -a ghrs 'gh release'
+abbr -a ghrsc 'gh release create'
+abbr -a ghrsl 'gh release list -L 1000'
+abbr -a ghrsv 'gh release view'
 
 abbr -a ff ffmpeg
 abbr -a ffi 'ffmpeg -i'
