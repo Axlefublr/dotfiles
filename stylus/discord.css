@@ -141,7 +141,7 @@
 /* left side extra server related buttons */
 .circleIconButton__05cf2,
 /* reaction count */
-.reaction__4a43f.reactionMe__0fffc .reactionCount__2c34d {
+.reaction_ec6b19.reactionMe_ec6b19 .reactionCount_ec6b19 {
 	color: var(--gruvbox-white);
 }
 
@@ -151,10 +151,11 @@
 }
 
 /* add server button */
-.tutorialContainer__6835f,
+.tutorialContainer_c96c45,
 /* between add server and discover servers */
-.listItem__48528:has(.guildSeparator__75928),
-.listItem__48528:has([aria-label="Download Apps"]),
+.listItem_c96c45:has(.guildSeparator_d0c57e),
+.listItem_c96c45:has([aria-label="Download Apps"]),
+.listItem_c96c45:has([aria-label="Explore Discoverable Servers"]),
 /* shop */
 .channel__0aef5.shyButton__30111.container__3792d,
 /* nitro */
@@ -162,9 +163,9 @@
 /* direct messages separator */
 .privateChannelsHeaderContainer_b22dc9.container__43554,
 /* gifs, stickers, emojis buttons */
-.buttons__7ecff,
+.buttons_d0696b,
 /* strange gradient after top bar channel title */
-.children_cde9af::after,
+.children_e44302::after,
 [aria-label="Notification Settings"],
 [aria-label="Show Member List"],
 [href="https://support.discord.com"],
@@ -174,12 +175,12 @@
 }
 
 /* common username */
-.username__0b0e7 {
+.username_ec86aa {
 	color: var(--shell-yellow);
 }
 
 /* channel you're in */
-.containerDefault_ae2ea4.selected__11b62 path {
+.containerDefault_f6f816.selected_f6f816 path {
 	fill: var(--shell-yellow) !important;
 }
 
@@ -204,7 +205,7 @@
 }
 
 /* message you picked to reply to */
-.replying__38514,
+.replying_d5deea,
 /* hovered reaction */
 .reaction__4a43f:hover {
 	background-color: var(--shell-background-orange);
