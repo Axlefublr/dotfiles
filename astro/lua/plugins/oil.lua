@@ -11,6 +11,7 @@ return {
 		vim.api.nvim_create_autocmd('FileType', {
 			pattern = 'oil',
 			callback = function()
+
 				vim.keymap.set('n', '>', function()
 					local file_name = require('oil').get_cursor_entry().name
 					local function get_externality(file_name)
@@ -33,25 +34,10 @@ return {
 					require('oil.actions').cd.callback()
 					os.execute("zoxide add '" .. oil_cwd .. "'")
 				end, { buffer = true })
+
 				vim.keymap.set(
 					'n',
-					'<Leader>tws',
-					function()
-						require('astrocore').cmd({
-							'kitten',
-							'@',
-							'launch',
-							'--type',
-							'os-window',
-							'--cwd',
-							require('oil').get_current_dir(),
-						})
-					end,
-					{ buffer = true }
-				)
-				vim.keymap.set(
-					'n',
-					'<Leader>tqs',
+					'<Leader>dfs',
 					function()
 						require('astrocore').cmd({
 							'kitten',
@@ -67,20 +53,13 @@ return {
 				)
 				vim.keymap.set(
 					'n',
-					'<Leader>tes',
+					'<Leader>das',
 					function()
 						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
 					end,
 					{ buffer = true }
 				)
-				vim.keymap.set(
-					'n',
-					'<Leader><A-/>',
-					function()
-						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
-					end,
-					{ buffer = true }
-				)
+
 				vim.keymap.set('n', '<Leader>sd', function()
 					local register = Get_char('get cd harp: ')
 					if register == nil then return end
@@ -91,6 +70,7 @@ return {
 						vim.notify('cd harp ' .. register .. ' is empty')
 					end
 				end, { buffer = true })
+
 				vim.keymap.set('n', '<Leader>Sd', function()
 					local register = Get_char('set cd harp: ')
 					if register == nil then return end
