@@ -67,7 +67,7 @@ sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/n
 
 # Rust formatting
 mkdir -p ~/.config/rustfmt
-ln -sf ~/prog/dotfiles/rust/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
+ln -sf ~/prog/dotfiles/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
 
 # Bacon
 mkdir -p ~/.config/bacon

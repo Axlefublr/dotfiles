@@ -84,7 +84,7 @@ function rust_fmt --description 'Bring in format config and format with it'
         echo "you're not in repo root"
         return 1
     end
-    cp -f ~/prog/dotfiles/rust/rustfmt.toml ./.rustfmt.toml &&
+    cp -f ~/prog/dotfiles/defconf/rustfmt.toml ./.rustfmt.toml &&
         cargo +nightly fmt
 end
 funcsave rust_fmt >/dev/null
@@ -95,7 +95,7 @@ function rust_ci --description 'Bring in on tag push github action'
         return 1
     end
     mkdir -p ./.github/workflows &&
-        cp -f ~/prog/dotfiles/ghactions/rust.yml ./.github/workflows/ci.yml &&
+        cp -f ~/prog/dotfiles/defconf/gh-action-rust.yml ./.github/workflows/ci.yml &&
         sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
 end
 funcsave rust_ci >/dev/null
@@ -120,7 +120,7 @@ funcsave rust_bin >/dev/null
 
 function rust_init
     cargo init
-    cp -f ~/prog/dotfiles/rust/metadata.toml ./Cargo.toml
+    cp -f ~/prog/dotfiles/defconf/rust-metadata.toml ./Cargo.toml
     sd '%project_name%' (basename $PWD) Cargo.toml
     touch README.md
     touch release-notes.txt
