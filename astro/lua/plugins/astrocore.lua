@@ -379,9 +379,11 @@ local normal_mappings = {
 		function()
 			---@diagnostic disable-next-line: undefined-field
 			if vim.diagnostic.config().virtual_text then
+				vim.diagnostic.config({ virtual_lines = false })
 				vim.diagnostic.config({ virtual_text = false })
 				vim.diagnostic.config({ underline = false })
 			else
+				vim.diagnostic.config({ virtual_lines = true })
 				vim.diagnostic.config({ virtual_text = true })
 				vim.diagnostic.config({ underline = true })
 			end
@@ -834,7 +836,7 @@ local opts_table = {
 		virtual_text = true,
 		underline = true,
 		signs = false,
-		virtual_lines = false,
+		virtual_lines = true,
 	},
 	options = {
 		opt = {

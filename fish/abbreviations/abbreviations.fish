@@ -221,3 +221,7 @@ abbr -a gr git_search
 abbr -a grf git_search_file
 abbr -a gq 'oil'
 abbr -a gt 'git tag'
+abbr -a cacl 'cargo clean'
+abbr -a xk 'xdotool key'
+abbr -a tm 'toggle_media'
+abbr -a ntf 'notify-send'

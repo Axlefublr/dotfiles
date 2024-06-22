@@ -79,4 +79,10 @@ return {
 			provider_selector = function() return { 'treesitter', 'indent' } end,
 		},
 	},
+	{
+		'ErichDonGubler/lsp_lines.nvim',
+		event = 'LspAttach',
+		opts = {},
+		enabled = false
+	},
 }

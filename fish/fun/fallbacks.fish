@@ -27,3 +27,8 @@ alias --save grf 'git_search_file' > /dev/null
 alias --save grf 'git_search_file' > /dev/null
 alias --save gq 'oil' > /dev/null
 alias --save gt 'git tag' > /dev/null
+alias --save cacl 'cargo clean' > /dev/null
+alias --save xk 'xdotool key' > /dev/null
+alias --save awl 'awesome-client' > /dev/null
+alias --save tm 'toggle_media' > /dev/null
+alias --save ntf 'notify-send' > /dev/null
