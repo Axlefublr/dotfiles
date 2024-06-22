@@ -1,15 +1,5 @@
 local killring = setmetatable({}, { __index = table })
 
-function validate_register(register)
-	if register == "'" or register == '"' then
-		return '+'
-	elseif register == '\13' then
-		return ':'
-	else
-		return register
-	end
-end
-
 local function trim_trailing_whitespace()
 	local search = vim.fn.getreg('/')
 	---@diagnostic disable-next-line: param-type-mismatch
@@ -129,7 +119,7 @@ local function another_quickfix_entry(to_next, buffer)
 end
 
 function killring_push_tail()
-	local register_contents = vim.fn.getreg('+')
+	local register_contents = vim.fn.getreg(env.default_register)
 	if register_contents == '' then
 		vim.notify('default register is empty')
 		return
@@ -139,7 +129,7 @@ function killring_push_tail()
 end
 
 function killring_push()
-	local register_contents = vim.fn.getreg('+')
+	local register_contents = vim.fn.getreg(env.default_register)
 	if register_contents == '' then
 		vim.notify('default register is empty')
 		return
@@ -154,12 +144,12 @@ function killring_pop_tail(insert)
 		return
 	end
 	local first_index = killring:remove(1)
-	vim.fn.setreg('+', first_index)
+	vim.fn.setreg(env.default_register, first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>+')
+			FeedKeysInt('<C-r>' .. env.default_register)
 		else
-			FeedKeysInt('<C-r><C-p>+')
+			FeedKeysInt('<C-r><C-p>' .. env.default_register)
 		end
 	else
 		vim.notify('got tail')
@@ -172,12 +162,12 @@ function killring_pop(insert)
 		return
 	end
 	local first_index = killring:remove(#killring)
-	vim.fn.setreg('+', first_index)
+	vim.fn.setreg(env.default_register, first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>+')
+			FeedKeysInt('<C-r>' .. env.default_register)
 		else
-			FeedKeysInt('<C-r><C-p>+')
+			FeedKeysInt('<C-r><C-p>' .. env.default_register)
 		end
 	else
 		vim.notify('got nose')
@@ -186,7 +176,7 @@ end
 
 function killring_compile()
 	local compiled_killring = killring:concat('')
-	vim.fn.setreg('+', compiled_killring)
+	vim.fn.setreg(env.default_register, compiled_killring)
 	killring = setmetatable({}, { __index = table })
 	vim.notify('killring compiled')
 end
@@ -194,14 +184,13 @@ end
 function killring_compile_reversed()
 	local reversed_killring = ReverseTable(killring)
 	local compiled_killring = reversed_killring:concat('')
-	vim.fn.setreg('+', compiled_killring)
+	vim.fn.setreg(env.default_register, compiled_killring)
 	killring = setmetatable({}, { __index = table })
 	vim.notify('killring compiled in reverse')
 end
 
 function search_for_register(direction, death)
-	local register = validate_register('"')
-	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(register))
+	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(env.default_register))
 	FeedKeys(direction .. '\\V' .. escaped_register .. death)
 	FeedKeysInt('<CR>')
 end
@@ -228,24 +217,24 @@ local function numbered_command(index) numbered_get(index, 'command') end
 
 -- I call it death because that's where we end up in. Just like /e or no /e
 local function search_for_selection(direction, death)
-	local default = vim.fn.getreg('+')
+	local default = vim.fn.getreg(env.default_register)
 	FeedKeys('y')
 	vim.schedule(function()
-		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg('+'))
+		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg(env.default_register))
 		FeedKeys(direction .. '\\V' .. escaped_selection .. death)
 		FeedKeysInt('<cr>')
-		vim.fn.setreg('+', default)
+		vim.fn.setreg(env.default_register, default)
 	end)
 end
 
 local function search_for_current_word(direction, death)
-	local register = vim.fn.getreg('+')
+	local register = vim.fn.getreg(env.default_register)
 	FeedKeys('yiw')
 	vim.schedule(function()
-		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg('+'))
+		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg(env.default_register))
 		FeedKeys(direction .. '\\V\\C' .. escaped_word .. death)
 		FeedKeysInt('<CR>')
-		vim.fn.setreg('+', register)
+		vim.fn.setreg(env.default_register, register)
 	end)
 end
 
@@ -261,17 +250,6 @@ local function get_buffer_cwd()
 	local buffer = vim.api.nvim_buf_get_name(0)
 	local parent = vim.fn.fnamemodify(buffer, ':h')
 	return parent
-end
-
-local function rotate_range()
-	local cmd = vim.fn.getcmdline()
-	if cmd == '' or cmd == '.,$' then
-		vim.fn.setcmdline('%')
-	elseif cmd == '%' then
-		vim.fn.setcmdline('')
-	else
-		FeedKeysInt('<CR>')
-	end
 end
 
 local function execute_this_file()
@@ -381,12 +359,12 @@ local normal_mappings = {
 			end
 		end,
 	},
-	['<Leader>P'] = 'Pv`[o`]dO<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
+	['<Leader>P'] = '<Cmd>pu!<CR>',
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
 	['<Leader>dl'] = { "dil'dd", remap = true },
 	['<Leader>do'] = '<Cmd>pu $',
 	['<Leader>du'] = '<Cmd>pu! 0',
-	['<Leader>p'] = 'Pv`[o`]do<c-r><c-p>"<esc>', -- Paste a characterwise register on a new line
+	['<Leader>p'] = '<Cmd>pu<CR>',
 	['@'] = function() FeedKeys('yl' .. vim.v.count1 .. 'p') end,
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
 	du = function() count_repeats_keys('dd') end,
@@ -506,11 +484,7 @@ local normal_mappings = {
 	['<Leader>f'] = function() require('edister').move_from_one_to_another() end,
 	['<Leader>F'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
 	['<Leader>g'] = function() require('edister').edit_register() end,
-	["<Leader>g'"] = function() require('edister').edit_register('+') end,
-	['<Leader>g<CR>'] = function() require('edister').edit_register(':') end,
 	['<Leader>G'] = function() require('edister').edit_register(nil, 'ask') end,
-	["<Leader>G'"] = function() require('edister').edit_register('+', 'ask') end,
-	['<Leader>G<CR>'] = function() require('edister').edit_register(':', 'ask') end,
 
 	-- Harp
 	['<Leader>Sd'] = function() require('harp').cd_set() end,

@@ -50,10 +50,10 @@ return {
 						return
 					end
 
-					local previous_clipboard = vim.fn.getreg()
+					local previous_clipboard = vim.fn.getreg(env.default_register)
 					vim.cmd.normal({ 'y', bang = true })
 					local url = vim.fn.getreg()
-					vim.fn.setreg(vim.v.register, previous_clipboard)
+					vim.fn.setreg(env.default_register, previous_clipboard)
 
 					-- open with the OS-specific shell command
 					local opener

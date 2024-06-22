@@ -51,6 +51,15 @@ env.color = {
 
 function env.shell(cmd, on_exit) return vim.system(cmd, { text = true }, on_exit) end
 
+env.default_register = nil
+if vim.go.clipboard == 'unnamedplus' or vim.go.clipboard == 'unnamedplus,unnamed' then
+	env.default_register = '+'
+elseif vim.go.clipboard == 'unnamed' or vim.go.clipboard == 'unnamed,unnamedplus' then
+	env.default_register = '*'
+else
+	env.default_register = '"'
+end
+
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
 function FeedKeysInt(keys)
