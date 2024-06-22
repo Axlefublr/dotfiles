@@ -340,6 +340,11 @@ function update_anki
 end
 funcsave update_anki >/dev/null
 
+function sync_anki
+    curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
+end
+funcsave sync_anki >/dev/null
+
 function disk_usage
     df -h /dev/nvme0n1p2 | tail -n 1 | awk '{print $5}' | string replace '%' '' | string collect
 end
