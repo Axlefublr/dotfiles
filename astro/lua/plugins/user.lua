@@ -85,4 +85,10 @@ return {
 		opts = {},
 		enabled = false
 	},
+	{
+		'stevearc/dressing.nvim',
+		opts = {
+			input = { enabled = false }
+		}
+	}
 }
