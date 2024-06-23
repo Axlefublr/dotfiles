@@ -57,6 +57,8 @@ return {
 		event = 'VeryLazy',
 		opts = {
 			background_colour = '#292828',
+			render = 'wrapped-compact',
+			stages = 'static'
 		},
 	},
 	{

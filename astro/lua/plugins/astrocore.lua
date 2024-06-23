@@ -308,6 +308,7 @@ local normal_mappings = {
 	-- Fixes
 	['<Esc>'] = function()
 		vim.cmd('noh')
+		require('notify').dismiss()
 		FeedKeysInt('<Esc>')
 	end,
 	['.'] = function() count_repeats_keys('.') end,
