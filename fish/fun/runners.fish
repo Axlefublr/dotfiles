@@ -263,6 +263,8 @@ function runner_doc
             $BROWSER ~/docs/fish/cmds/$last_element.html
         case 'kitty *'
             $BROWSER ~/docs/kitty/sw.kovidgoyal.net/kitty/$last_element/index.html
+        case '*.pdf'
+            zathura "~/docs/$result" & disown
         case '*'
             $BROWSER "~/docs/$result/index.html"
     end
