@@ -24,11 +24,11 @@ return {
 			{ mode = { 'n', 'x' }, 'ga', '<Plug>(EasyAlign)' },
 		},
 	},
-	{
-		'bkad/CamelCaseMotion',
-		event = 'VeryLazy',
-		init = function() vim.g.camelcasemotion_key = '<Leader>' end, -- only `init` works
-	},
+	-- {
+	-- 	'bkad/CamelCaseMotion',
+	-- 	event = 'VeryLazy',
+	-- 	init = function() vim.g.camelcasemotion_key = '<Leader>' end, -- only `init` works
+	-- },
 	{
 		'NMAC427/guess-indent.nvim',
 		cmd = 'GuessIndent',
@@ -83,12 +83,21 @@ return {
 		'ErichDonGubler/lsp_lines.nvim',
 		event = 'LspAttach',
 		opts = {},
-		enabled = false
+		enabled = false,
 	},
 	{
 		'stevearc/dressing.nvim',
 		opts = {
-			input = { enabled = false }
-		}
-	}
+			input = { enabled = false },
+		},
+	},
+	{
+		'chrisgrieser/nvim-spider',
+		lazy = true,
+		-- dependencies = {
+		-- 	'theHamsta/nvim_rocks',
+		-- 	build = 'hererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua',
+		-- 	config = function() require('nvim_rocks').ensure_installed('luautf8') end,
+		-- },
+	},
 }
