@@ -217,7 +217,6 @@ abbr -a tg 'clx && ni | tgpt'
 abbr -a br (path basename $BROWSER)
 abbr -a brd (path basename $BROWSER)' ~/docs'
 abbr -a py python
-abbr -a pyt runner_python
 abbr -a gr git_search
 abbr -a grf git_search_file
 abbr -a gq 'oil'

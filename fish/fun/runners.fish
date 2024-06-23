@@ -169,6 +169,19 @@ function magazine_append
 end
 funcsave magazine_append >/dev/null
 
+function magazine_append_link
+    set result (rofi -dmenu 2>/dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    set result "$result"
+    set link (xclip -selection clipboard -o)
+    indeed -u ~/.local/share/magazine/l "$result — $link"
+    notify-send -t 2000 "append l with $link"
+end
+funcsave magazine_append_link >/dev/null
+
 function magazine_appset
     indeed ~/.local/share/magazine/$argv[1] "$(xclip -selection clipboard -o)"
     notify-send -t 1000 "append clip $argv[1]"
@@ -307,16 +320,3 @@ function runner_notification
     notify-send -t 0 "$result"
 end
 funcsave runner_notification >/dev/null
-
-function runner_python
-    set output (ni py | python 2>&1)
-    if test "$output"
-        if status is-interactive
-            echo "$output"
-        else
-            notify-send -t 0 "$output"
-            echo "$output" | xclip -r -selection clipboard
-        end
-    end
-end
-funcsave runner_python >/dev/null

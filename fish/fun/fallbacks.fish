@@ -22,7 +22,6 @@ alias --save gx 'glaza --git' >/dev/null
 alias --save tg 'clx && ni | tgpt' >/dev/null
 alias --save ign 'indeed -u .gitignore' >/dev/null
 alias --save py python >/dev/null
-alias --save pyt runner_python >/dev/null
 alias --save grf 'git_search_file' > /dev/null
 alias --save grf 'git_search_file' > /dev/null
 alias --save gq 'oil' > /dev/null

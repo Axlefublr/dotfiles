@@ -24,7 +24,7 @@ keymap:
     application:
       only: Anki
     remap:
-      Ctrl-i: ctrl-shift-x
+      Ctrl-o: ctrl-shift-x
 
   - name: Spotify!
     exact_match: true
@@ -687,7 +687,7 @@ keymap:
           h: { launch: [fish, -c, 'magazine_append h'] }
           j: { launch: [fish, -c, 'magazine_append j'] }
           k: { launch: [fish, -c, 'magazine_append k'] }
-          l: { launch: [fish, -c, 'magazine_append l'] }
+          l: { launch: [fish, -c, 'magazine_append_link'] }
           z: { launch: [fish, -c, 'magazine_append z'] }
           x: { launch: [fish, -c, 'magazine_append x'] }
           c: { launch: [fish, -c, 'magazine_append c'] }
