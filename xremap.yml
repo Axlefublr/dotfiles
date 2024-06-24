@@ -388,9 +388,9 @@ keymap:
           k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
           l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
 
-          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
+          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
           i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
-          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
+          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
           p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
 
           m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
