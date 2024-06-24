@@ -267,18 +267,10 @@ function install_yt_video
     end
     set file (mktemp /dev/shm/install_yt_video.XXXXXX)
     set clipboard (xclip -selection clipboard -o)
-    set video_short_link $clipboard
-    set video_short_link (string replace -r '^https:\\/\\/' '' $video_short_link)
-    set video_short_link (string replace -r '^www\\.' '' $video_short_link)
-    set video_short_link (string replace -r '^youtu\\.be\\/' '' $video_short_link)
-    set video_short_link (string replace -r '^youtube.com\\/' '' $video_short_link)
-    set video_short_link (string replace -r '^shorts\\/' '' $video_short_link)
-    set video_short_link (string replace -r '^live\\/' '' $video_short_link)
-    set video_short_link (string replace 'watch?v=' '' $video_short_link)
-    set video_short_link (string replace '?feature=share' '' $video_short_link)
-    set video_short_link (string replace -r '\\&.+' '' $video_short_link)
+    set match (string match -gr '^https?://(?:www\\.)?youtu(?:\\.be|be\\.com)/(?:\\S+/)?(?:[^\\s/]*(?:\\?|&)vi?=)?([^#?&]+)' $clipboard)
+    set video_short_link $match[1]
     kitty -T link-download yt-dlp \
-        -o "~/vid/content/$extra/%(channel)s — %(title)s — ($video_short_link).%(ext)s" \
+        -o "~/vid/content/$extra/%(channel)s — %(title)s — ;$video_short_link;.%(ext)s" \
         --print-to-file "%(channel)s — %(title)s" $file \
         $clipboard
     notify-send -t 3000 "downloaded: $(cat $file)"
