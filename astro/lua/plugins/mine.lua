@@ -7,4 +7,9 @@ return {
 		dev = true,
 		opts = {},
 	},
+	{
+		'Axlefublr/qfetter.nvim',
+		lazy = true,
+		dev = true
+	}
 }

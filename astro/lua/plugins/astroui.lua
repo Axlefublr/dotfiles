@@ -248,6 +248,7 @@ return {
 				['@number.float'] = link('Blush'),
 				['@function.method.call'] = link('Green'),
 
+				['@lsp.type.class.lua'] = link('Blue'),
 				['@lsp.type.string.lua'] = link('Yellow'),
 				['@function.builtin.lua'] = link('Blush'),
 				['@operator.lua'] = link('OrangeBold'),

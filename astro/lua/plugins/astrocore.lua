@@ -317,29 +317,6 @@ local normal_mappings = {
 	yie = function() vim.cmd('%y+') end,
 
 	-- Features
-	["'q"] = function()
-		local buffer = vim.api.nvim_get_current_buf()
-		local cursor = vim.api.nvim_win_get_cursor(0)
-		local line = cursor[1]
-		local column = cursor[2] + 1
-		vim.fn.setqflist({ {
-			bufnr = buffer,
-			lnum = line,
-			col = column,
-		} }, 'a')
-		vim.notify('add qf entry')
-	end,
-	["'Q"] = function()
-		local selected = vim.fn.getqflist({ idx = 0 }).idx
-		local qflist = vim.fn.getqflist()
-		table.remove(qflist, selected)
-		vim.fn.setqflist(qflist, 'r')
-		vim.notify('remove qf ' .. selected)
-	end,
-	["''q"] = function()
-		vim.fn.setqflist({}, 'r')
-		vim.notify('qflist cleared')
-	end,
 	gQ = function()
 		local parent = vim.fn.expand('%:h')
 		vim.cmd.tcd(parent)
@@ -405,6 +382,7 @@ local normal_mappings = {
 		vim.b.ufo_foldlevel = math.min(99, (vim.b.ufo_foldlevel + vim.v.count1))
 		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
 	end,
+	['go'] = function() require('astrolsp.toggles').buffer_inlay_hints() end,
 
 	-- Gaf
 	['<Leader>cam'] = function()
@@ -481,6 +459,15 @@ local normal_mappings = {
 	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
 	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
 
+	-- Qfetter
+	['[Q'] = function() require('qfetter').another({ backwards = true, next_buffer = true }) end,
+	['[q'] = function() require('qfetter').another({ backwards = true }) end,
+	[']Q'] = function() require('qfetter').another({ next_buffer = true }) end,
+	[']q'] = function() require('qfetter').another() end,
+	["'q"] = function() require('qfetter').mark() end,
+	["'Q"] = function() require('qfetter').unmark() end,
+	["''q"] = function() require('qfetter').clear() end,
+
 	-- Edister
 	['<Leader>f'] = function() require('edister').move_from_one_to_another() end,
 	['<Leader>F'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
@@ -497,7 +484,6 @@ local normal_mappings = {
 	['<Leader>se'] = function() require('harp').global_search_get() end,
 	['<Leader>Se'] = function() require('harp').global_search_set({ ask = true }) end,
 	['<Leader>s/'] = function() require('harp').perbuffer_search_get() end,
-	['<Leader>s?'] = function() require('harp').perbuffer_search_get({ backwards = true }) end,
 	['<Leader>S/'] = function() require('harp').perbuffer_search_set({ ask = true }) end,
 	['<Leader>sf'] = function() require('harp').filetype_search_get() end,
 	['<Leader>sF'] = function() require('harp').filetype_search_get({ backwards = true }) end,
@@ -518,10 +504,6 @@ local normal_mappings = {
 	['g*'] = function() search_for_register('/', '') end,
 	['<Leader>g#'] = function() search_for_register('?', '?e') end,
 	['<Leader>g*'] = function() search_for_register('/', '/e') end,
-	['[Q'] = function() another_quickfix_entry(false, true) end,
-	['[q'] = function() another_quickfix_entry(false, false) end,
-	[']Q'] = function() another_quickfix_entry(true, true) end,
-	[']q'] = function() another_quickfix_entry(true, false) end,
 	['{'] = function() move_to_blank_line(false) end,
 	['}'] = function() move_to_blank_line(true) end,
 
