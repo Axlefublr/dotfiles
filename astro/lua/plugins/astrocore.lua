@@ -298,7 +298,7 @@ local normal_mappings = {
 	-- System
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
-	['<Leader>sq'] = edit_magazine,
+	['<Leader>ds'] = edit_magazine,
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Leader>lx'] = execute_this_file,
 	['<Space>'] = save,
