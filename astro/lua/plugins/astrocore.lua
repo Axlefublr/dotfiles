@@ -352,7 +352,7 @@ local normal_mappings = {
 	['<Leader>cO'] = function() require('astrolsp.toggles').inlay_hints() end,
 
 	-- Lsp
-	['<Leader>lr'] = vim.lsp.buf.rename,
+	['gw'] = vim.lsp.buf.rename,
 	['<Leader>lc'] = vim.lsp.buf.code_action,
 	['gl'] = function()
 		vim.diagnostic.open_float()
@@ -453,14 +453,14 @@ local normal_mappings = {
 	end,
 
 	-- Abstractions
-	['<Leader>j:c'] = '<Cmd>setfiletype css<CR>',
-	['<Leader>j:f'] = '<Cmd>setfiletype fish<CR>',
-	['<Leader>j:h'] = '<Cmd>setfiletype html<CR>',
-	['<Leader>j:l'] = '<Cmd>setfiletype lua<CR>',
-	['<Leader>j:a'] = '<Cmd>setfiletype man<CR>',
-	['<Leader>j:m'] = '<Cmd>setfiletype markdown<CR>',
-	['<Leader>j:p'] = '<Cmd>setfiletype python<CR>',
-	['<Leader>j:t'] = '<Cmd>setfiletype text<CR>',
+	['<Leader>;c'] = '<Cmd>setfiletype css<CR>',
+	['<Leader>;f'] = '<Cmd>setfiletype fish<CR>',
+	['<Leader>;h'] = '<Cmd>setfiletype html<CR>',
+	['<Leader>;l'] = '<Cmd>setfiletype lua<CR>',
+	['<Leader>;a'] = '<Cmd>setfiletype man<CR>',
+	['<Leader>;m'] = '<Cmd>setfiletype markdown<CR>',
+	['<Leader>;p'] = '<Cmd>setfiletype python<CR>',
+	['<Leader>;t'] = '<Cmd>setfiletype text<CR>',
 
 	-- Qfetter
 	['[Q'] = function() require('qfetter').another({ backwards = true, next_buffer = true }) end,
@@ -565,6 +565,90 @@ local normal_mappings = {
 	['[w'] = 'gT',
 	[']w'] = 'gt',
 
+	-- Telescope
+	['<Leader>ja'] = function() require('telescope.builtin').find_files() end,
+	['<Leader>jA'] = function()
+		require('telescope.builtin').find_files({
+			search_dirs = env.extra_directories,
+		})
+	end,
+	['<Leader>jf'] = function()
+		require('telescope.builtin').find_files({
+			hidden = false,
+			no_ignore = false,
+			no_ignore_parent = false,
+		})
+	end,
+	['<Leader>jF'] = function()
+		require('telescope.builtin').find_files({
+			hidden = false,
+			no_ignore = false,
+			no_ignore_parent = false,
+			search_dirs = env.extra_directories,
+		})
+	end,
+	['<Leader>jd'] = function() require('telescope.builtin').live_grep() end,
+	['<Leader>jD'] = function()
+		require('telescope.builtin').live_grep({
+			search_dirs = env.extra_directories,
+		})
+	end,
+	['<Leader>jg'] = function()
+		require('telescope.builtin').live_grep({
+			additional_args = {
+				'--no-ignore',
+				'--hidden',
+			},
+		})
+	end,
+	['<Leader>jG'] = function()
+		require('telescope.builtin').live_grep({
+			search_dirs = env.extra_directories,
+			additional_args = {
+				'--no-ignore',
+				'--hidden',
+			},
+		})
+	end,
+	['<Leader>jr'] = function() require('telescope.builtin').grep_string() end,
+	['<Leader>jt'] = function()
+		require('telescope.builtin').grep_string({
+			additional_args = {
+				'--no-ignore',
+				'--hidden',
+			},
+		})
+	end,
+	['<Leader>jh'] = function() require('telescope.builtin').help_tags() end,
+	['<Leader>js'] = function() require('telescope.builtin').current_buffer_fuzzy_find() end,
+	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
+	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
+	['<Leader>jx'] = function() require('telescope.builtin').git_branches() end,
+	['<Leader>je'] = function() require('telescope.builtin').git_status() end,
+	['<Leader>j\\'] = function() require('telescope.builtin').require('telescope.builtin') end,
+	['<Leader>jw'] = function() require('telescope.builtin').buffers() end,
+	['<Leader>jW'] = function() require('telescope.builtin').oldfiles() end,
+	['<Leader><CR>'] = function() require('telescope.builtin').command_history() end,
+	['<Leader>jm'] = function() require('telescope.builtin').man_pages() end,
+	['<Leader>ji'] = function() require('telescope.builtin').marks() end,
+	['<Leader>jH'] = function() require('telescope.builtin').highlights() end,
+	['gy'] = function() require('telescope.builtin').filetypes() end,
+	['<Leader>jq'] = function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end,
+	['<Leader>jQ'] = function() require('telescope.builtin').diagnostics() end,
+	['<Leader>jj'] = function() require('telescope.builtin').quickfix() end,
+
+	['go'] = function() require('telescope.builtin').lsp_references() end,
+	['<Leader>li'] = function() require('telescope.builtin').lsp_incoming_calls() end,
+	['<Leader>lo'] = function() require('telescope.builtin').lsp_outgoing_calls() end,
+	['gd'] = function() require('telescope.builtin').lsp_definitions() end,
+	['<Leader>lt'] = function() require('telescope.builtin').lsp_type_definitions() end,
+	['<Leader>lm'] = function() require('telescope.builtin').lsp_implementations() end,
+	['<Leader>ls'] = function() require('telescope.builtin').lsp_document_symbols() end,
+	['<Leader>lS'] = function() require('telescope.builtin').lsp_workspace_symbols() end,
+
+	['<Leader>jz'] = function() require('telescope').extensions.zoxide.list() end,
+	['<Leader>jn'] = function() require('telescope').extensions.notify.notify() end,
+
 	-- Numbered
 	["'1"] = function() numbered_get(1) end,
 	["'2"] = function() numbered_get(2) end,
@@ -618,6 +702,30 @@ local normal_mappings = {
 }
 
 local visual_mappings = {
+	['<Leader>jr'] = function()
+		local previous_clipboard = vim.fn.getreg(env.default_register)
+		FeedKeys('y')
+		vim.schedule(function()
+			require('telescope.builtin').grep_string({
+				search = vim.fn.getreg(env.default_register),
+			})
+			vim.fn.setreg(env.default_register, previous_clipboard)
+		end)
+	end,
+	['<Leader>jt'] = function()
+		local previous_clipboard = vim.fn.getreg(env.default_register)
+		FeedKeys('y')
+		vim.schedule(function()
+			require('telescope.builtin').grep_string({
+				search = vim.fn.getreg(env.default_register),
+				additional_args = {
+					'--no-ignore',
+					'--hidden',
+				},
+			})
+			vim.fn.setreg(env.default_register, previous_clipboard)
+		end)
+	end,
 	['#'] = function() search_for_selection('?', '') end,
 	['*'] = function() search_for_selection('/', '') end,
 	['<Leader>#'] = function() search_for_selection('?', '?e') end,

@@ -1,147 +1,3 @@
-local function remaps(telescope)
-	local builtin = require('telescope.builtin')
-
-	local extra = {
-		'~/t',
-		'~/prog/noties',
-		'~/.local/share/alien_temple',
-		'~/.local/share/glaza',
-	}
-
-	vim.keymap.set('n', '<Leader>ja', builtin.find_files)
-	vim.keymap.set('n', '<Leader>jA', function()
-		builtin.find_files({
-			search_dirs = extra,
-		})
-	end)
-
-	vim.keymap.set(
-		'n',
-		'<Leader>jf',
-		function()
-			builtin.find_files({
-				hidden = false,
-				no_ignore = false,
-				no_ignore_parent = false,
-			})
-		end
-	)
-	vim.keymap.set(
-		'n',
-		'<Leader>jF',
-		function()
-			builtin.find_files({
-				hidden = false,
-				no_ignore = false,
-				no_ignore_parent = false,
-				search_dirs = extra,
-			})
-		end
-	)
-
-	vim.keymap.set('n', '<Leader>jd', builtin.live_grep)
-	vim.keymap.set('n', '<Leader>jD', function()
-		builtin.live_grep({
-			search_dirs = extra,
-		})
-	end)
-
-	vim.keymap.set(
-		'n',
-		'<Leader>jg',
-		function()
-			builtin.live_grep({
-				additional_args = {
-					'--no-ignore',
-					'--hidden',
-				},
-			})
-		end
-	)
-	vim.keymap.set(
-		'n',
-		'<Leader>jG',
-		function()
-			builtin.live_grep({
-				search_dirs = extra,
-				additional_args = {
-					'--no-ignore',
-					'--hidden',
-				},
-			})
-		end
-	)
-
-	vim.keymap.set('n', '<Leader>jr', builtin.grep_string)
-	vim.keymap.set(
-		'n',
-		'<Leader>jt',
-		function()
-			builtin.grep_string({
-				additional_args = {
-					'--no-ignore',
-					'--hidden',
-				},
-			})
-		end
-	)
-
-	vim.keymap.set('x', '<Leader>jr', function()
-		local previous_clipboard = vim.fn.getreg('+')
-		FeedKeys('y')
-		vim.schedule(function()
-			builtin.grep_string({
-				search = vim.fn.getreg('+'),
-			})
-			vim.fn.setreg('+', previous_clipboard)
-		end)
-	end)
-	vim.keymap.set('x', '<Leader>jt', function()
-		local previous_clipboard = vim.fn.getreg('+')
-		FeedKeys('y')
-		vim.schedule(function()
-			builtin.grep_string({
-				search = vim.fn.getreg('+'),
-				additional_args = {
-					'--no-ignore',
-					'--hidden',
-				},
-			})
-			vim.fn.setreg('+', previous_clipboard)
-		end)
-	end)
-
-	vim.keymap.set('n', '<Leader>jh', builtin.help_tags)
-	vim.keymap.set('n', '<Leader>js', builtin.current_buffer_fuzzy_find)
-	vim.keymap.set('n', '<Leader>jc', builtin.git_commits)
-	vim.keymap.set('n', '<Leader>jC', builtin.git_bcommits)
-	vim.keymap.set('n', '<Leader>jx', builtin.git_branches)
-	vim.keymap.set('n', '<Leader>je', builtin.git_status)
-	vim.keymap.set('n', '<Leader>j\\', builtin.builtin)
-	vim.keymap.set('n', '<Leader>jw', builtin.buffers)
-	vim.keymap.set('n', '<Leader>jW', builtin.oldfiles)
-	vim.keymap.set('n', '<Leader><CR>', builtin.command_history)
-	vim.keymap.set('n', '<Leader>jm', builtin.man_pages)
-	vim.keymap.set('n', '<Leader>ji', builtin.marks)
-	vim.keymap.set('n', '<Leader>jH', builtin.highlights)
-	vim.keymap.set('n', '<Leader>j;', builtin.filetypes)
-	vim.keymap.set('n', '<Leader>jq', function() builtin.diagnostics({ bufnr = 0 }) end)
-	vim.keymap.set('n', '<Leader>jQ', builtin.diagnostics)
-	vim.keymap.set('n', '<Leader>jj', builtin.quickfix)
-
-	vim.keymap.set('n', 'gD', builtin.lsp_references)
-	vim.keymap.set('n', '<Leader>li', builtin.lsp_incoming_calls)
-	vim.keymap.set('n', '<Leader>lo', builtin.lsp_outgoing_calls)
-	vim.keymap.set('n', 'gd', builtin.lsp_definitions)
-	vim.keymap.set('n', '<Leader>lt', builtin.lsp_type_definitions)
-	vim.keymap.set('n', '<Leader>lm', builtin.lsp_implementations)
-	vim.keymap.set('n', '<Leader>ls', builtin.lsp_document_symbols)
-	vim.keymap.set('n', '<Leader>lS', builtin.lsp_workspace_symbols)
-
-	vim.keymap.set('n', '<Leader>jz', telescope.extensions.zoxide.list)
-	vim.keymap.set('n', '<Leader>jn', telescope.extensions.notify.notify)
-end
-
 ---@type LazySpec
 return {
 	{
@@ -160,13 +16,7 @@ return {
 			'kyazdani42/nvim-web-devicons',
 			'jvgrootveld/telescope-zoxide',
 		},
-		keys = {
-			{ '<Leader>j', mode = { 'n', 'x' } },
-			{ '<Leader>l' },
-			{ 'gd' },
-			{ 'gD' },
-			{ '<Leader><CR>' },
-		},
+		lazy = true,
 		opts = function(_, opts)
 			local layout_actions = require('telescope.actions.layout')
 			local actions = require('telescope.actions')
@@ -371,11 +221,6 @@ return {
 					},
 				},
 			})
-		end,
-		config = function(plugin, opts)
-			require('astronvim.plugins.configs.telescope')(plugin, opts)
-			local telescope = require('telescope')
-			remaps(telescope)
 		end,
 	},
 }

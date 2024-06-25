@@ -18,6 +18,12 @@ end
 env = {}
 env.temp_mark = 'P'
 env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav' }
+env.extra_directories = {
+	'~/t',
+	'~/prog/noties',
+	'~/.local/share/alien_temple',
+	'~/.local/share/glaza',
+}
 env.color = {
 	shell_red = '#ff2930',
 	shell_orange = '#ff9f1a',
