@@ -246,7 +246,7 @@ keymap:
   - name: Arr
     mode: arrows
     remap:
-      Alt-Space: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      Ctrl-Space: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
       h: left
       j: down
       k: up
@@ -995,7 +995,7 @@ keymap:
   - name: Any!
     exact_match: true
     remap:
-      Alt-Space: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      Ctrl-Space: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       Super-Semicolon: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       CapsLock-Alt-Apostrophe: ctrl-shift-u
