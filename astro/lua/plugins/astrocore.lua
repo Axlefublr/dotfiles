@@ -366,6 +366,8 @@ local normal_mappings = {
 		vim.lsp.buf.hover()
 		vim.lsp.buf.hover()
 	end,
+
+	-- Folding
 	['zM'] = function()
 		vim.b.ufo_foldlevel = vim.v.count
 		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
@@ -469,29 +471,28 @@ local normal_mappings = {
 	["''q"] = function() require('qfetter').clear() end,
 
 	-- Edister
-	['<Leader>f'] = function() require('edister').move_from_one_to_another() end,
-	['<Leader>F'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
-	['<Leader>g'] = function() require('edister').edit_register() end,
-	['<Leader>G'] = function() require('edister').edit_register(nil, 'ask') end,
+	['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
+	['<Leader>G'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
+	['<Leader>h'] = function() require('edister').edit_register() end,
+	['<Leader>H'] = function() require('edister').edit_register(nil, 'ask') end,
 
 	-- Harp
-	['<Leader>Sd'] = function() require('harp').cd_set() end,
-	['<Leader>sd'] = function() require('harp').cd_get() end,
-	['<Leader>ss'] = function() require('harp').default_get() end,
-	['<Leader>Ss'] = function() require('harp').default_set() end,
-	['<Leader>sc'] = function() require('harp').global_mark_get() end,
-	['<Leader>Sc'] = function() require('harp').global_mark_set() end,
-	['<Leader>se'] = function() require('harp').global_search_get() end,
-	['<Leader>Se'] = function() require('harp').global_search_set({ ask = true }) end,
-	['<Leader>s/'] = function() require('harp').perbuffer_search_get() end,
-	['<Leader>S/'] = function() require('harp').perbuffer_search_set({ ask = true }) end,
-	['<Leader>sf'] = function() require('harp').filetype_search_get() end,
-	['<Leader>sF'] = function() require('harp').filetype_search_get({ backwards = true }) end,
-	['<Leader>Sf'] = function() require('harp').filetype_search_set({ ask = true }) end,
-	['<Leader>sa'] = function() require('harp').percwd_get() end,
-	['<Leader>Sa'] = function() require('harp').percwd_set() end,
-	['<Leader>sr'] = function() require('harp').positional_get() end,
-	['<Leader>Sr'] = function() require('harp').positional_set() end,
+	['<Leader>z'] = function() require('harp').cd_get() end,
+	['<Leader>Z'] = function() require('harp').cd_set() end,
+	['<Leader>s'] = function() require('harp').default_get() end,
+	['<Leader>S'] = function() require('harp').default_set() end,
+	['<Leader>w'] = function() require('harp').global_mark_get() end,
+	['<Leader>W'] = function() require('harp').global_mark_set() end,
+	['<Leader>e'] = function() require('harp').global_search_get() end,
+	['<Leader>E'] = function() require('harp').global_search_set({ ask = true }) end,
+	['<Leader>/'] = function() require('harp').perbuffer_search_get() end,
+	['<Leader>?'] = function() require('harp').perbuffer_search_set({ ask = true }) end,
+	['<Leader>f'] = function() require('harp').filetype_search_get() end,
+	['<Leader>F'] = function() require('harp').filetype_search_set({ ask = true }) end,
+	['<Leader>x'] = function() require('harp').percwd_get() end,
+	['<Leader>X'] = function() require('harp').percwd_set() end,
+	['<Leader>r'] = function() require('harp').positional_get() end,
+	['<Leader>R'] = function() require('harp').positional_set() end,
 	['M'] = function() require('harp').perbuffer_mark_set() end,
 	['m'] = function() require('harp').perbuffer_mark_get() end,
 
