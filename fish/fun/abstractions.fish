@@ -266,7 +266,7 @@ funcsave get_hunger >/dev/null
 
 function filter_mature_tasks
     function if_print
-        test "$argv[1]" -ge $argv[3] && echo "$argv[2] — $argv[1]" || printf ''
+        test "$argv[1]" -ge $argv[3] && echo "$argv[2] — $(math $argv[1] - $argv[3])" || printf ''
     end
     set oldest (loago list | rg -v 'eat' | awk '$3 > 4')
     for task in $oldest
@@ -289,15 +289,14 @@ function filter_mature_tasks
             case tails iso keyboard
                 if_print $days $name 30
             case '*'
-                echo "$name — $days"
+                echo "$name — $(math $days - 5)"
         end
-    end | column -t -s '—' -o '—'
+    end | sort -k 3 -r | column -t -s '—' -o '—'
 end
 funcsave filter_mature_tasks >/dev/null
 
 function mature_tasks_line
-    set lines (filter_mature_tasks | tac | awk '{print $1}')
-    shuf -e $lines | string join ' '
+    filter_mature_tasks | awk '{print $1}' | string join ' '
 end
 funcsave mature_tasks_line >/dev/null
 
