@@ -326,6 +326,8 @@ function execute
             cargo run
         case '*.py'
             python $path
+        case '*.nim'
+            nimble run
         case '*'
             $path
     end

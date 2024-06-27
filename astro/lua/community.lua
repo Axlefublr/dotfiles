@@ -6,6 +6,7 @@ return {
 	{ import = 'astrocommunity.pack.json' },
 	{ import = 'astrocommunity.pack.toml' },
 	{ import = 'astrocommunity.pack.yaml' },
+	{ import = 'astrocommunity.pack.nim' },
 	-- { import = 'astrocommunity.pack.cs' },
 	{ import = 'astrocommunity.pack.html-css' },
 	{ import = 'astrocommunity.pack.markdown' },

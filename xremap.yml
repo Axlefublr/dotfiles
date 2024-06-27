@@ -898,6 +898,7 @@ keymap:
       CapsLock-Alt-Apostrophe: ctrl-shift-u
       Super-Space: { launch: [fish, -c, toggle_layout] }
       CapsLock-v: ScrollLock
+      Btn_Side: { launch: [fish, -c, 'pidof boomer && kill boomer || boomer'] }
       Super-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }
       Super-f: { launch: [gromit-mpx, --toggle] }
