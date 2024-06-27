@@ -39,7 +39,7 @@ end
 yeared_parse
 yearless_parse
 daily_parse
-tomorrow_parse
+whensies.py
 
 if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (504) tomorrow'
