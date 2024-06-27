@@ -325,9 +325,9 @@ local normal_mappings = {
 	end,
 	['<Leader>P'] = '<Cmd>pu!<CR>',
 	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
-	['<Leader>dl'] = { "dil'dd", remap = true },
-	['<Leader>do'] = '<Cmd>pu $',
-	['<Leader>du'] = '<Cmd>pu! 0',
+	['<Leader>dl'] = '^D"_dd',
+	['<Leader>do'] = 'dd<Cmd>$pu<CR>',
+	['<Leader>du'] = 'dd<Cmd>0pu!<CR>',
 	['<Leader>p'] = '<Cmd>pu<CR>',
 	['@'] = function() FeedKeys('yl' .. vim.v.count1 .. 'p') end,
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
@@ -846,6 +846,7 @@ local normal_visual_mappings = {
 	['<S-CR>'] = ':.,$',
 	['[{'] = '{j',
 	[']}'] = '}k',
+	['gz'] = 'g<C-g>',
 	gs = '=',
 }
 

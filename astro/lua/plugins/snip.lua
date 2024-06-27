@@ -267,6 +267,21 @@ local snippets = function()
 		s('#!', { t('#!/usr/bin/python') })
 	}
 	ls.add_snippets('python', python_snippets)
+
+	local xcompose_snippets = {
+		s('multi_key', {
+			t('<Multi_key> <'),
+			i(1),
+			t('> <'),
+			i(2),
+			t('> <'),
+			i(3),
+			t('>: "'),
+			i(4),
+			t('"'),
+		})
+	}
+	ls.add_snippets('xcompose', xcompose_snippets)
 end
 
 return {
