@@ -12,12 +12,12 @@ local function save(and_format)
 	vim.cmd.nohlsearch()
 	if and_format then vim.lsp.buf.format() end
 	---@diagnostic disable-next-line: param-type-mismatch
-	if vim.bo.modified then pcall(vim.cmd, 'silent write') end
+	pcall(vim.cmd, 'silent update')
 end
 
 local function close_try_save()
 	---@diagnostic disable-next-line: param-type-mismatch
-	if vim.bo.modified then pcall(vim.cmd, 'silent write') end
+	pcall(vim.cmd, 'silent update')
 	vim.cmd('q!')
 end
 
@@ -1033,7 +1033,7 @@ local opts_table = {
 				event = { 'BufLeave', 'FocusLost' },
 				callback = function()
 					---@diagnostic disable-next-line: param-type-mismatch
-					if vim.bo.modified then pcall(vim.cmd, 'silent write') end
+					pcall(vim.cmd, 'silent update')
 				end,
 			},
 			{
