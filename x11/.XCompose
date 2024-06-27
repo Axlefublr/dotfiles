@@ -1,6 +1,6 @@
 # Hotstrings
 
-<Multi_key> <l> <ampersand> <d> <h>: "what in the living and dying hell"
+<Multi_key> <l> <d> <h>: "what in the living and dying hell"
 <Multi_key> <e> <n> <d> <o> <s>: "on EndeavorOS x11 AwesomeWM"
 
 # Emojis
@@ -46,34 +46,56 @@
 
 # Arrows
 
-<Multi_key> <a> <r> <h> <h>: "←"
-<Multi_key> <a> <r> <j> <j>: "↓"
-<Multi_key> <a> <r> <k> <k>: "↑"
-<Multi_key> <a> <r> <l> <l>: "→"
+<Multi_key> <n> <h> <h>: "←"
+<Multi_key> <n> <j> <j>: "↓"
+<Multi_key> <n> <k> <k>: "↑"
+<Multi_key> <n> <l> <l>: "→"
+<Multi_key> <n> <s> <s>: "↙"
+<Multi_key> <n> <a> <a>: "↖"
+<Multi_key> <n> <d> <d>: "↘"
+<Multi_key> <n> <f> <f>: "↗"
 
-<Multi_key> <a> <r> <h> <j>: "↙"
-<Multi_key> <a> <r> <j> <h>: "↙"
-<Multi_key> <a> <r> <h> <k>: "↖"
-<Multi_key> <a> <r> <k> <h>: "↖"
-<Multi_key> <a> <r> <l> <j>: "↘"
-<Multi_key> <a> <r> <j> <l>: "↘"
-<Multi_key> <a> <r> <l> <k>: "↗"
-<Multi_key> <a> <r> <k> <l>: "↗"
+<Multi_key> <n> <l> <h>: "↔"
+<Multi_key> <n> <h> <l>: "↔"
+<Multi_key> <n> <k> <j>: "↕"
+<Multi_key> <n> <j> <k>: "↕"
+<Multi_key> <n> <a> <d>: "⤡"
+<Multi_key> <n> <d> <a>: "⤡"
+<Multi_key> <n> <s> <f>: "⤢"
+<Multi_key> <n> <f> <s>: "⤢"
 
-<Multi_key> <a> <r> <h> <H>: "⇐"
-<Multi_key> <a> <r> <k> <K>: "⇑"
-<Multi_key> <a> <r> <l> <L>: "⇒"
-<Multi_key> <a> <r> <j> <J>: "⇓"
+<Multi_key> <c> <l> <k> <h>: "⮌"
+<Multi_key> <c> <j> <l> <k>: "⮍"
+<Multi_key> <c> <h> <j> <l>: "⮎"
+<Multi_key> <c> <k> <h> <j>: "⮏"
 
-<Multi_key> <a> <r> <H> <L>: "↔"
-<Multi_key> <a> <r> <L> <H>: "↔"
-<Multi_key> <a> <r> <J> <K>: "↕"
-<Multi_key> <a> <r> <K> <J>: "↕"
+<Multi_key> <t> <j> <h>: "⮠"
+<Multi_key> <t> <j> <l>: "⮡"
+<Multi_key> <t> <k> <h>: "⮢"
+<Multi_key> <t> <k> <l>: "⮣"
+<Multi_key> <t> <h> <k>: "⮤"
+<Multi_key> <t> <l> <k>: "⮥"
+<Multi_key> <t> <h> <j>: "⮦"
+<Multi_key> <t> <l> <j>: "⮧"
 
-<Multi_key> <a> <r> <l> <h>: "⇄"
-<Multi_key> <a> <r> <h> <l>: "⇆"
-<Multi_key> <a> <r> <j> <k>: "⇵"
-<Multi_key> <a> <r> <k> <j>: "⇅"
+<Multi_key> <f> <l> <l>: "⮕"
+<Multi_key> <f> <h> <h>: "⬅"
+<Multi_key> <f> <k> <k>: "⬆"
+<Multi_key> <f> <j> <j>: "⬇"
+<Multi_key> <f> <f> <f>: "⬈"
+<Multi_key> <f> <a> <a>: "⬉"
+<Multi_key> <f> <d> <d>: "⬊"
+<Multi_key> <f> <s> <s>: "⬋"
+
+<Multi_key> <f> <l> <h>: "⬌"
+<Multi_key> <f> <h> <l>: "⬌"
+<Multi_key> <f> <k> <j>: "⬍"
+<Multi_key> <f> <j> <k>: "⬍"
+
+<Multi_key> <o> <l> <h>: "⇄"
+<Multi_key> <o> <h> <l>: "⇆"
+<Multi_key> <o> <j> <k>: "⇵"
+<Multi_key> <o> <k> <j>: "⇅"
 
 # Math
 
