@@ -250,6 +250,11 @@ local snippets = function()
 		s('LeftBrace', { t('LeftBrace') }),
 		s('RightBrace', { t('RightBrace') }),
 		s('Backslash', { t('Backslash') }),
+		s('launch', {
+			t('{ launch: ['),
+			i(0),
+			t('] }')
+		}),
 		s('sm', {
 			t('{ set_mode: '),
 			i(1, 'default'),

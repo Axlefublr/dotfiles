@@ -269,7 +269,7 @@ return {
 				['@lsp.typemod.keyword.documentation.lua'] = link('Blush'),
 
 				['@function.builtin.python'] = link('Purple'),
-				['@type.builtin.python'] = link('BlueBold'),
+				['@type.builtin.python'] = link('Blue'),
 
 				['@tag.html'] = link('Red'),
 				['@tag.delimiter.html'] = link('Orange'),

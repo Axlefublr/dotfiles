@@ -96,6 +96,9 @@ return {
 	{
 		'chrisgrieser/nvim-spider',
 		lazy = true,
+		opts = {
+			subwordMovement = false
+		}
 		-- dependencies = {
 		-- 	'theHamsta/nvim_rocks',
 		-- 	build = 'hererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua',
