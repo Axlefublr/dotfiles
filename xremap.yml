@@ -5,7 +5,6 @@ default_mode: default
 modmap:
   - remap:
       Tab: Esc
-      Esc: F13
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
 
   - name: Game side mouse buttons fix
@@ -400,6 +399,8 @@ keymap:
           Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
           Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
+          Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
+          Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
 
           d: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
