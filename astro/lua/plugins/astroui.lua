@@ -271,6 +271,8 @@ return {
 				['@function.builtin.python'] = link('Purple'),
 				['@type.builtin.python'] = link('Blue'),
 
+				['@constructor.nim'] = link('Blue'),
+
 				['@tag.html'] = link('Red'),
 				['@tag.delimiter.html'] = link('Orange'),
 				['@tag.attribute.html'] = link('Aqua'),
