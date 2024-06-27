@@ -362,6 +362,8 @@ keymap:
 
           d: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
+          s: { launch: [fish, -c, screenkey] }
+          Shift-s: { launch: [kill, screenkey] }
           c: { launch: [awesome-client, 'Write_client_info()'] }
           t: { launch: [fish, -c, 'cat /dev/shm/runner_output | xclip -r -selection clipboard'] }
 
