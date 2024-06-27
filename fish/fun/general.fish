@@ -299,7 +299,7 @@ function c
     wmctrl -s 1 # 0-indexed; this just makes sure the link gets opened in the correct browser instance, out of the four I have constantly active
     switch $argv[1] # I ignore output so that I don't see "Opening in existing browser session." in my runner ouput every time I search for something
         case ya yandex
-            $BROWSER "https://yandex.com/search?q=$input" >/dev/null
+            $BROWSER "https://yandex.com/search?text=$input" >/dev/null
         case p phind
             $BROWSER "https://www.phind.com/search?q=$input" >/dev/null
         case '*'
