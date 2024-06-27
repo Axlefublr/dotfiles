@@ -904,6 +904,7 @@ keymap:
       Super-f: { launch: [gromit-mpx, --toggle] }
       Super-Alt-f: { launch: [gromit-mpx, --clear] }
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
+      Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-Alt-s:
         {
