@@ -20,7 +20,8 @@ keymap:
     application:
       only: Anki
     remap:
-      Ctrl-o: ctrl-shift-x
+      Ctrl-Semicolon: ctrl-shift-x
+      Ctrl-Apostrophe: ctrl-z
 
   - name: Spotify!
     exact_match: true
