@@ -827,7 +827,7 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      CapsLock-Alt-f: '0'
+      CapsLock-Alt-p: '0'
       CapsLock-Alt-j: '1'
       CapsLock-Alt-k: '2'
       CapsLock-Alt-l: '3'
