@@ -337,45 +337,6 @@ keymap:
           { launch: [fish, -c, 'emoji_picker_clipboard name'] },
         ]
 
-      Enter:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, runner_notification] },
-        ]
-      y:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          {
-            launch:
-              [
-                fish,
-                -c,
-                'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
-              ],
-          },
-        ]
-      Alt-y:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          {
-            launch:
-              [
-                fish,
-                -c,
-                'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
-              ],
-          },
-        ]
-      Shift-y:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, runner_clipboard] },
-        ]
-
   - name: Any! layout
     exact_match: true
     remap:
@@ -965,6 +926,44 @@ keymap:
       Super-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
       Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
       Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
+      CapsLock-Shift-Enter:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, runner_notification] },
+        ]
+      CapsLock-Enter:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          {
+            launch:
+              [
+                fish,
+                -c,
+                'xclip -selection clipboard -o > /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              ],
+          },
+        ]
+      CapsLock-Alt-Enter:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          {
+            launch:
+              [
+                fish,
+                -c,
+                'truncate -s 0 /dev/shm/clipboard ; neoline /dev/shm/clipboard ; test -s /dev/shm/clipboard && cat /dev/shm/clipboard | xclip -r -selection clipboard',
+              ],
+          },
+        ]
+      CapsLock-Ctrl-Enter:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, runner_clipboard] },
+        ]
 
   - name: Any functionality
     remap:
