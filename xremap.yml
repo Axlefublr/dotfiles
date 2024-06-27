@@ -355,7 +355,8 @@ keymap:
           m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
           Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
           Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
-          Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
+          Super-Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
+          Semicolon: { launch: [awesome-client, 'client.focus.minimized = true'] }
           Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
           Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
 
