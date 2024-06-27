@@ -256,38 +256,31 @@ keymap:
       o: end
       p: pagedown
 
-      Apostrophe: [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          CapsLock,
-          { launch: [fish, -c, 'widget_update update_layout Layout'] },
-        ] # toggle capslock
-      r: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [awesome-client, Ignore_all_urgencies()] }]
-      t:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          {
-            launch:
-              [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'],
-          },
-        ]
-      LeftBrace:
+      c:
         [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c phind'] }]
-      Shift-LeftBrace:
+      Shift-c:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'c phind neoline'] },
         ]
-      RightBrace:
+      v:
         [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c google'] }]
-      Shift-RightBrace:
+      Shift-v:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'c google neoline'] },
         ]
+      x:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c yandex'] }]
+      Shift-x:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'c yandex neoline'] },
+        ]
+
       Slash: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_doc] }]
       Dot:
         [
@@ -298,6 +291,7 @@ keymap:
       Comma:
         [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_link] }]
       m: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_math] }]
+
       f:
         [
           { set_mode: default },
@@ -322,6 +316,7 @@ keymap:
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'install_yt_video pod'] },
         ]
+
       w: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_symbol] }]
       e:
         [
@@ -411,7 +406,6 @@ keymap:
   - name: Any! magazine
     exact_match: true
     remap:
-      Shift_L-q: { launch: [fish, -c, magazine_filled] }
       Shift_L-c:
         exact_match: true
         remap:
@@ -477,71 +471,6 @@ keymap:
           CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_get 8'] }
           CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_get 9'] }
           CapsLock-Alt-f: { launch: [fish, -c, 'magazine_get 0'] }
-      Shift_L-e:
-        exact_match: true
-        remap:
-          q: { launch: [fish, -c, 'magazine_view q'] }
-          w: { launch: [fish, -c, 'magazine_view w'] }
-          e: { launch: [fish, -c, 'magazine_view e'] }
-          r: { launch: [fish, -c, 'magazine_view r'] }
-          t: { launch: [fish, -c, 'magazine_view t'] }
-          y: { launch: [fish, -c, 'magazine_view y'] }
-          u: { launch: [fish, -c, 'magazine_view u'] }
-          i: { launch: [fish, -c, 'magazine_view i'] }
-          o: { launch: [fish, -c, 'magazine_view o'] }
-          p: { launch: [fish, -c, 'magazine_view p'] }
-          a: { launch: [fish, -c, 'magazine_view a'] }
-          s: { launch: [fish, -c, 'magazine_view s'] }
-          d: { launch: [fish, -c, 'magazine_view d'] }
-          f: { launch: [fish, -c, 'magazine_view f'] }
-          g: { launch: [fish, -c, 'magazine_view g'] }
-          h: { launch: [fish, -c, 'magazine_view h'] }
-          j: { launch: [fish, -c, 'magazine_view j'] }
-          k: { launch: [fish, -c, 'magazine_view k'] }
-          l: { launch: [fish, -c, 'magazine_view l'] }
-          z: { launch: [fish, -c, 'magazine_view z'] }
-          x: { launch: [fish, -c, 'magazine_view x'] }
-          c: { launch: [fish, -c, 'magazine_view c'] }
-          v: { launch: [fish, -c, 'magazine_view v'] }
-          b: { launch: [fish, -c, 'magazine_view b'] }
-          n: { launch: [fish, -c, 'magazine_view n'] }
-          m: { launch: [fish, -c, 'magazine_view m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_view Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_view W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_view E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_view R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_view T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_view Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_view U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_view I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_view O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_view P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_view A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_view S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_view D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_view F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_view G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_view H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_view J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_view K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_view L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_view Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_view X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_view C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_view V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_view B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_view N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_view M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_view 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_view 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_view 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_view 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_view 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_view 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_view 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_view 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_view 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_view 0'] }
       Shift_L-r:
         exact_match: true
         remap:
@@ -802,7 +731,7 @@ keymap:
           CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_appset 8'] }
           CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_appset 9'] }
           CapsLock-Alt-f: { launch: [fish, -c, 'magazine_appset 0'] }
-      Shift_L-w:
+      Shift_L-q:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_restore q'] }
@@ -981,6 +910,9 @@ keymap:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      Shift_L-w: { launch: [awesome-client, Ignore_all_urgencies()] }
+      Shift_L-e:
+        { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
 
   - name: Any! media
     exact_match: true
@@ -1001,6 +933,7 @@ keymap:
       CapsLock-Apostrophe: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
+      Shift_L-g: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
       CapsLock-Alt-Apostrophe: ctrl-shift-u
       Super-Space: { launch: [fish, -c, toggle_layout] }
       CapsLock-v: ScrollLock
