@@ -51,10 +51,23 @@ return {
 				['ShellYellowBold'] = { fg = env.color.shell_yellow, bold = true },
 				['ShellYellowBoldOnDark12'] = { fg = env.color.shell_yellow, bg = env.color.dark12, bold = true },
 
+				['ShellPink'] = { fg = env.color.shell_pink },
+				['ShellPinkBold'] = { fg = env.color.shell_pink, bold = true },
+
 				['ShellGrey'] = { fg = env.color.shell_grey },
+				['ShellGreyBold'] = { fg = env.color.shell_grey, bold = true },
+
 				['ShellRed'] = { fg = env.color.shell_red },
+				['ShellRedBold'] = { fg = env.color.shell_red, bold = true },
+
 				['ShellCyan'] = { fg = env.color.shell_cyan },
+				['ShellCyanBold'] = { fg = env.color.shell_cyan, bold = true },
+
 				['ShellSalad'] = { fg = env.color.shell_salad },
+				['ShellSaladBold'] = { fg = env.color.shell_salad, bold = true },
+
+				['ShellPurple'] = { fg = env.color.shell_purple },
+				['ShellPurpleBold'] = { fg = env.color.shell_purple, bold = true },
 
 				['OrangeBoldBackground'] = { fg = env.color.level, bg = env.color.orange, bold = true },
 				['OrangeBoldNocombine'] = { fg = env.color.orange, bold = true, nocombine = true },
