@@ -1,0 +1,24 @@
+/*
+* Urls starting with
+* https://studio.youtube.com/live_chat
+*/
+
+/* place for chat */
+div#item-offset.style-scope.yt-live-chat-item-list-renderer {
+	min-height: 10px !important;
+	min-width: 10px !important;
+}
+
+/* place for chat, scrollable area */
+yt-live-chat-app {
+	min-width: 10px !important;
+	min-height: 10px !important;
+}
+
+/* youtube chat header */
+[aria-label="Live Chat mode selection"] > #label-text {
+	font-size: 14px;
+}
+yt-live-chat-header-renderer {
+	height: 22px;
+}

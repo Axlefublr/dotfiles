@@ -1,0 +1,61 @@
+/* thing that says random bs with the yt icon inside of the chat */
+yt-live-chat-viewer-engagement-message-renderer,
+/* div with buttons under chat input box */
+#buttons.yt-live-chat-message-input-renderer,
+/* pfp in chat input */
+#avatar.yt-live-chat-message-input-renderer,
+#emoji-picker-button.style-scope.yt-live-chat-message-input-renderer,
+/* my nickname in chat input box */
+yt-live-chat-author-chip.style-scope.yt-live-chat-message-input-renderer,
+/* "Chat..." */
+#label.yt-live-chat-text-input-field-renderer,
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text
+yt-live-chat-author-badge-renderer div {
+	fill: var(--shell-pink) !important;
+}
+/* place for chat */
+div#item-offset.style-scope.yt-live-chat-item-list-renderer {
+	min-height: 10px !important;
+	min-width: 10px !important;
+}
+/* down arrow that appears when you have stuff to scroll down to */
+yt-icon-button.yt-live-chat-item-list-renderer {
+	background-color: var(--shell-yellow);
+	color: var(--smooth-black);
+}
+/* thingy that holds my side of chat input */
+yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer {
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 11px;
+	padding-top: 3px;
+}
+/* each singular chat message container */
+yt-live-chat-text-message-renderer {
+	padding: 4px 11px;
+}
+/* each singular chat message pfp container */
+#author-photo.yt-live-chat-text-message-renderer {
+	margin-right: 9px;
+}
+/* background color of chat input box */
+yt-live-chat-message-input-renderer[updated-input-visuals]
+	#input-container.yt-live-chat-message-input-renderer {
+	background-color: unset;
+}
+/* start poll + button */
+yt-live-chat-message-input-renderer[updated-input-visuals]
+	#picker-buttons.yt-live-chat-message-input-renderer
+	yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer {
+	margin-left: 0;
+}
+yt-live-chat-icon-toggle-button-renderer[updated-input-visuals].yt-live-chat-message-input-renderer
+	> #button.yt-live-chat-icon-toggle-button-renderer {
+	background-color: unset;
+}
+/* bottom bar that includes inputbox among ඞ other things */
+yt-live-chat-message-input-renderer.style-scope.yt-live-chat-renderer,
+/* live chat / top chat */
+yt-live-chat-header-renderer {
+	padding: 0;
+}
