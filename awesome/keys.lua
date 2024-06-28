@@ -34,16 +34,24 @@ local toggle_window_on_tag = function(index)
 end
 
 function Write_client_info()
-	local client = client.focus
 	local text = ''
-	if client.class then
-		text = text .. client.class .. '\n'
-	end
-	if client.instance then
-		text = text .. client.instance .. '\n'
-	end
-	if client.name then
-		text = text .. client.name
+	for _, client in ipairs(client.get()) do
+		if client.instance then
+			text = text .. ':' .. client.instance .. ': '
+		else
+			text = text .. '??? '
+		end
+		if client.class then
+			text = text .. '!' .. client.class .. '! '
+		else
+			text = text .. '??? '
+		end
+		if client.name then
+			text = text .. ';' .. client.name .. '; '
+		else
+			text = text .. '???'
+		end
+		text = text .. '\n'
 	end
 	local file = io.open('/home/axlefublr/.local/share/magazine/i', 'w')
 	if file then

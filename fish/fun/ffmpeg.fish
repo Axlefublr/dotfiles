@@ -55,7 +55,7 @@ function combine
     ffmpeg -i $argv[1] -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
     ffmpeg -i $argv[2] -c copy -bsf:v h264_mp4toannexb -f mpegts input2.ts
     echo "file 'input1.ts'
-	file 'input2.ts'" >inputs.txt
+    file 'input2.ts'" >inputs.txt
     ffmpeg -f concat -safe 0 -i inputs.txt -c copy $argv[3]
     rm inputs.txt input1.ts input2.ts
     bell
