@@ -287,7 +287,7 @@ local normal_mappings = {
 	['<Leader>p'] = '<Cmd>pu<CR>',
 	['@'] = function() FeedKeys('yl' .. vim.v.count1 .. 'p') end,
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
-	du = function() count_repeats_keys('dd') end,
+	du = '"_dddd',
 	gJ = '0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
 
 	-- Toggles
@@ -719,6 +719,7 @@ local insert_mappings = {
 	['<C-v>'] = '<C-r><C-p>+',
 	['<F5>'] = '',
 	['<F6>'] = '<C-o>o',
+	['<A-a>'] = '<C-a>',
 }
 
 local pending_mappings = {
@@ -814,7 +815,7 @@ local insert_select_mappings = {
 }
 
 local normal_insert_select_mappings = {
-	['<A-u>'] = { vim.lsp.buf.signature_help },
+	['<A-u>'] = vim.lsp.buf.signature_help,
 }
 
 local mappings_table = {
@@ -835,7 +836,9 @@ for key, value in pairs(normal_visual_pending_mappings) do
 end
 
 for key, value in pairs(normal_visual_mappings) do
+	---@diagnostic disable-next-line: assign-type-mismatch
 	mappings_table.n[key] = value
+	---@diagnostic disable-next-line: assign-type-mismatch
 	mappings_table.x[key] = value
 end
 
