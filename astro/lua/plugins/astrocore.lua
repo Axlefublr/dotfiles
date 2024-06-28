@@ -801,6 +801,8 @@ local command_mappings = {
 	['<C-k>'] = '<Up>',
 	['<F6>'] = '<Down>',
 	['<S-CR>'] = function() vim.fn.setcmdline('.,$') end,
+	['<A-s>'] = '\\zs',
+	['<A-d>'] = '\\ze',
 }
 
 local command_insert_mappings = {
