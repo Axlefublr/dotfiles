@@ -2,7 +2,7 @@
 
 clorange megafon increment
 
-trash-empty -f 3
+trash-empty -f 1
 
 for file in ~/.local/share/magazine/*
     if not test -s $file
