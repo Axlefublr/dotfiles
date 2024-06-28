@@ -74,50 +74,6 @@ local function copy_cwd()
 	vim.notify('cwd: ' .. cwd)
 end
 
-local function another_quickfix_entry(to_next, buffer)
-	local qflist = vim.fn.getqflist()
-	if #qflist == 0 then
-		vim.notify('quickfix list is empty')
-		return
-	end
-
-	if vim.v.count > 0 then
-		vim.cmd('silent! cc ' .. vim.v.count)
-		vim.notify('qf ' .. vim.v.count)
-		return
-	end
-
-	local qflist_index = vim.fn.getqflist({ idx = 0 }).idx
-	local current_buffer = vim.api.nvim_get_current_buf()
-	local current_line = vim.api.nvim_win_get_cursor(0)[1]
-
-	if qflist_index == 1 and (qflist[1].bufnr ~= current_buffer or qflist[1].lnum ~= current_line) then -- If you do have a quickfix list, the first index is automatically selected, meaning that the first time you try to `cnext`, you go to the second quickfix entry, even though you have never actually visited the first one. This is what I mean when I say vim has a bad foundation and is terrible to build upon. We need a modal editor with a better foundation, with no strange behavior like this!
-		vim.cmd('silent! cfirst')
-		return
-	end
-
-	local status = true
-	if to_next then
-		if buffer then
-			---@diagnostic disable-next-line: param-type-mismatch
-			status, _ = pcall(vim.cmd, 'cnfile')
-		else
-			---@diagnostic disable-next-line: param-type-mismatch
-			status, _ = pcall(vim.cmd, 'cnext')
-		end
-		if not status then vim.cmd('silent! cfirst') end
-	else
-		if buffer then
-			---@diagnostic disable-next-line: param-type-mismatch
-			status, _ = pcall(vim.cmd, 'cpfile')
-		else
-			---@diagnostic disable-next-line: param-type-mismatch
-			status, _ = pcall(vim.cmd, 'cprev')
-		end
-		if not status then vim.cmd('silent! clast') end
-	end
-end
-
 function killring_push_tail()
 	local register_contents = vim.fn.getreg(env.default_register)
 	if register_contents == '' then
