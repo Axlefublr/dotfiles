@@ -137,8 +137,8 @@ local snippets = function()
 			t({ '#!/usr/bin/lua', '' }),
 		}),
 		s('rt', {
-			t({ 'return' })
-		})
+			t({ 'return' }),
+		}),
 	}
 	ls.add_snippets('lua', lua_snippets)
 
@@ -240,6 +240,7 @@ local snippets = function()
 			i(2),
 			t(')'),
 		}),
+		s('kbd', { t('<kbd>'), i(1), t('</kbd>'), i(0) }),
 	}
 	ls.add_snippets('markdown', markdown_snippets)
 
@@ -253,18 +254,18 @@ local snippets = function()
 		s('launch', {
 			t('{ launch: ['),
 			i(0),
-			t('] }')
+			t('] }'),
 		}),
 		s('sm', {
 			t('{ set_mode: '),
 			i(1, 'default'),
-			t(' }')
-		})
+			t(' }'),
+		}),
 	}
 	ls.add_snippets('yaml', yaml_snippets)
 
 	local python_snippets = {
-		s('#!', { t('#!/usr/bin/python') })
+		s('#!', { t('#!/usr/bin/python') }),
 	}
 	ls.add_snippets('python', python_snippets)
 
@@ -279,7 +280,7 @@ local snippets = function()
 			t('>: "'),
 			i(4),
 			t('"'),
-		})
+		}),
 	}
 	ls.add_snippets('xcompose', xcompose_snippets)
 end

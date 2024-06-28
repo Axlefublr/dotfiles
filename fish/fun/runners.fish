@@ -303,10 +303,19 @@ end
 funcsave runner_link >/dev/null
 
 function pjs
-    for file in (fd -utf project.txt ~/prog)
-        string replace "$HOME" '~' $file
-        cat $file
-        echo
+    begin
+        set empties
+        for file in (fd -utf project.txt ~/prog)
+            set pretty_file (string replace "$HOME" '~' $file)
+            if test -s $file
+                echo $pretty_file
+                cat $file
+                echo
+            else
+                set empties $empties $pretty_file
+            end
+        end
+        printf '%s\n' $empties
     end >/tmp/pjs
 end
 funcsave pjs >/dev/null
