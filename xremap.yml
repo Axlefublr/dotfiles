@@ -22,6 +22,7 @@ keymap:
     remap:
       Ctrl-Semicolon: ctrl-shift-x
       Ctrl-Apostrophe: ctrl-z
+      Ctrl-Slash: ctrl-shift-alt-c
 
   - name: Spotify!
     exact_match: true

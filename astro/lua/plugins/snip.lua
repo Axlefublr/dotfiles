@@ -283,6 +283,25 @@ local snippets = function()
 		}),
 	}
 	ls.add_snippets('xcompose', xcompose_snippets)
+
+	local html_snippets = {
+		s('cc', {
+			t('{{c1::'),
+			i(1),
+			t('}}')
+		}),
+		s('cda', {
+			t({ '<div class="codeblock above">', '\t' }),
+			i(0),
+			t({ '', '</div>' })
+		}),
+		s('cdb', {
+			t({ '<div class="codeblock below">', '\t' }),
+			i(0),
+			t({ '', '</div>' })
+		})
+	}
+	ls.add_snippets('html', html_snippets)
 end
 
 return {
