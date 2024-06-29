@@ -425,16 +425,16 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_get B'] }
           Shift-n: { launch: [fish, -c, 'magazine_get N'] }
           Shift-m: { launch: [fish, -c, 'magazine_get M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_get 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_get 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_get 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_get 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_get 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_get 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_get 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_get 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_get 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_get 0'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_get 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_get 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_get 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_get 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_get 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_get 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_get 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_get 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_get 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_get 0'] }
       Shift_L-r:
         exact_match: true
         remap:
@@ -490,16 +490,16 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_truncate B'] }
           Shift-n: { launch: [fish, -c, 'magazine_truncate N'] }
           Shift-m: { launch: [fish, -c, 'magazine_truncate M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_truncate 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_truncate 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_truncate 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_truncate 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_truncate 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_truncate 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_truncate 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_truncate 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_truncate 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_truncate 0'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_truncate 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_truncate 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_truncate 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_truncate 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_truncate 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_truncate 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_truncate 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_truncate 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_truncate 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_truncate 0'] }
       Shift_L-d:
         exact_match: true
         remap:
@@ -555,16 +555,16 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_edit B'] }
           Shift-n: { launch: [fish, -c, 'magazine_edit N'] }
           Shift-m: { launch: [fish, -c, 'magazine_edit M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_edit 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_edit 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_edit 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_edit 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_edit 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_edit 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_edit 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_edit 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_edit 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_edit 0'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_edit 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_edit 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_edit 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_edit 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_edit 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_edit 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_edit 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_edit 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_edit 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_edit 0'] }
       Shift_L-s:
         exact_match: true
         remap:
@@ -620,16 +620,16 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_append B'] }
           Shift-n: { launch: [fish, -c, 'magazine_append N'] }
           Shift-m: { launch: [fish, -c, 'magazine_append M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_append 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_append 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_append 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_append 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_append 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_append 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_append 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_append 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_append 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_append 0'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_append 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_append 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_append 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_append 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_append 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_append 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_append 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_append 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_append 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_append 0'] }
       Shift_L-v:
         exact_match: true
         remap:
@@ -685,16 +685,16 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_appset B'] }
           Shift-n: { launch: [fish, -c, 'magazine_appset N'] }
           Shift-m: { launch: [fish, -c, 'magazine_appset M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_appset 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_appset 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_appset 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_appset 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_appset 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_appset 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_appset 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_appset 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_appset 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_appset 0'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_appset 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_appset 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_appset 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_appset 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_appset 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_appset 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_appset 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_appset 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_appset 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_appset 0'] }
       Shift_L-q:
         exact_match: true
         remap:
@@ -750,16 +750,16 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_restore B'] }
           Shift-n: { launch: [fish, -c, 'magazine_restore N'] }
           Shift-m: { launch: [fish, -c, 'magazine_restore M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_restore 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_restore 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_restore 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_restore 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_restore 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_restore 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_restore 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_restore 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_restore 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_restore 0'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_restore 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_restore 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_restore 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_restore 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_restore 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_restore 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_restore 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_restore 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_restore 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_restore 0'] }
       Shift_L-f:
         exact_match: true
         remap:
@@ -815,30 +815,30 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_filter B'] }
           Shift-n: { launch: [fish, -c, 'magazine_filter N'] }
           Shift-m: { launch: [fish, -c, 'magazine_filter M'] }
-          CapsLock-Alt-j: { launch: [fish, -c, 'magazine_filter 1'] }
-          CapsLock-Alt-k: { launch: [fish, -c, 'magazine_filter 2'] }
-          CapsLock-Alt-l: { launch: [fish, -c, 'magazine_filter 3'] }
-          CapsLock-Alt-u: { launch: [fish, -c, 'magazine_filter 4'] }
-          CapsLock-Alt-i: { launch: [fish, -c, 'magazine_filter 5'] }
-          CapsLock-Alt-o: { launch: [fish, -c, 'magazine_filter 6'] }
-          CapsLock-Alt-m: { launch: [fish, -c, 'magazine_filter 7'] }
-          CapsLock-Alt-Comma: { launch: [fish, -c, 'magazine_filter 8'] }
-          CapsLock-Alt-Dot: { launch: [fish, -c, 'magazine_filter 9'] }
-          CapsLock-Alt-f: { launch: [fish, -c, 'magazine_filter 0'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_filter 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_filter 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_filter 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_filter 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_filter 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_filter 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_filter 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_filter 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_filter 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_filter 0'] }
 
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      CapsLock-Alt-p: '0'
-      CapsLock-Alt-j: '1'
-      CapsLock-Alt-k: '2'
-      CapsLock-Alt-l: '3'
-      CapsLock-Alt-u: '4'
-      CapsLock-Alt-i: '5'
-      CapsLock-Alt-o: '6'
-      CapsLock-Alt-m: '7'
-      CapsLock-Alt-Comma: '8'
-      CapsLock-Alt-Dot: '9'
+      Super_R-a: '0'
+      Super_R-f: '1'
+      Super_R-d: '2'
+      Super_R-s: '3'
+      Super_R-r: '4'
+      Super_R-e: '5'
+      Super_R-w: '6'
+      Super_R-v: '7'
+      Super_R-c: '8'
+      Super_R-x: '9'
 
       CapsLock-LeftBrace: shift-9
       CapsLock-RightBrace: shift-0
@@ -895,7 +895,7 @@ keymap:
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       Shift_L-g: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
-      CapsLock-Alt-Apostrophe: ctrl-shift-u
+      CapsLock-Alt-v: ctrl-shift-u
       Super-Space: { launch: [fish, -c, toggle_layout] }
       CapsLock-v: ScrollLock
       Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
