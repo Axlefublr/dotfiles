@@ -432,10 +432,10 @@ local normal_mappings = {
 	["''q"] = function() require('qfetter').clear() end,
 
 	-- Edister
-	-- ['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
-	['<Leader>g'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
-	-- ['<Leader>h'] = function() require('edister').edit_register() end,
-	['<Leader>h'] = function() require('edister').edit_register(nil, 'ask') end,
+	['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
+	['<Leader>G'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
+	['<Leader>t'] = function() require('edister').edit_register() end,
+	['<Leader>T'] = function() require('edister').edit_register(nil, 'ask') end,
 
 	-- Harp
 	['<Leader>z'] = function() require('harp').cd_get() end,
