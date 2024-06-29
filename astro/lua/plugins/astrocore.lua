@@ -344,68 +344,72 @@ local normal_mappings = {
 	end,
 
 	-- Gaf
-	['<Leader>cam'] = function()
-		env.shell({ 'gaf', 'stage', 'modified' }, function(result)
-			if result.code == 0 then
-				vim.notify('stage modified')
-			else
-				vim.notify(result.stderr)
-			end
-		end)
+	['<Leader>ca'] = function()
+		local picked = vim.fn.confirm('Choose change type', 'Modified\nNew\nDeleted')
+		if picked == 0 then return end
+		if picked == 1 then
+			env.shell({ 'gaf', 'stage', 'modified' }, function(result)
+				if result.code == 0 then
+					vim.notify('stage modified')
+				else
+					vim.notify(result.stderr)
+				end
+			end)
+		elseif picked == 2 then
+			env.shell({ 'gaf', 'stage', 'new' }, function(result)
+				if result.code == 0 then
+					vim.notify('stage new')
+				else
+					vim.notify(result.stderr)
+				end
+			end)
+		elseif picked == 3 then
+			env.shell({ 'gaf', 'stage', 'deleted' }, function(result)
+				if result.code == 0 then
+					vim.notify('stage deleted')
+				else
+					vim.notify(result.stderr)
+				end
+			end)
+		end
 	end,
-	['<Leader>can'] = function()
-		env.shell({ 'gaf', 'stage', 'new' }, function(result)
-			if result.code == 0 then
-				vim.notify('stage new')
-			else
-				vim.notify(result.stderr)
-			end
-		end)
-	end,
-	['<Leader>cad'] = function()
-		env.shell({ 'gaf', 'stage', 'deleted' }, function(result)
-			if result.code == 0 then
-				vim.notify('stage deleted')
-			else
-				vim.notify(result.stderr)
-			end
-		end)
-	end,
-	['<Leader>cua'] = function()
-		env.shell({ 'gaf', 'unstage', 'added' }, function(result)
-			if result.code == 0 then
-				vim.notify('unstage added')
-			else
-				vim.notify(result.stderr)
-			end
-		end)
-	end,
-	['<Leader>cum'] = function()
-		env.shell({ 'gaf', 'unstage', 'modified' }, function(result)
-			if result.code == 0 then
-				vim.notify('unstage modified')
-			else
-				vim.notify(result.stderr)
-			end
-		end)
-	end,
-	['<Leader>cur'] = function()
-		env.shell({ 'gaf', 'unstage', 'renamed' }, function(result)
-			if result.code == 0 then
-				vim.notify('unstage renamed')
-			else
-				vim.notify(result.stderr)
-			end
-		end)
-	end,
-	['<Leader>cud'] = function()
-		env.shell({ 'gaf', 'unstage', 'deleted' }, function(result)
-			if result.code == 0 then
-				vim.notify('unstage deleted')
-			else
-				vim.notify(result.stderr)
-			end
-		end)
+	['<Leader>cu'] = function()
+		local picked = vim.fn.confirm('Choose change type', 'Modified\nAdded\nDeleted\nRenamed')
+		if picked == 0 then
+			return
+		elseif picked == 1 then
+			env.shell({ 'gaf', 'unstage', 'modified' }, function(result)
+				if result.code == 0 then
+					vim.notify('unstage modified')
+				else
+					vim.notify(result.stderr)
+				end
+			end)
+		elseif picked == 2 then
+			env.shell({ 'gaf', 'unstage', 'added' }, function(result)
+				if result.code == 0 then
+					vim.notify('unstage added')
+				else
+					vim.notify(result.stderr)
+				end
+			end)
+		elseif picked == 3 then
+			env.shell({ 'gaf', 'unstage', 'deleted' }, function(result)
+				if result.code == 0 then
+					vim.notify('unstage deleted')
+				else
+					vim.notify(result.stderr)
+				end
+			end)
+		elseif picked == 4 then
+			env.shell({ 'gaf', 'unstage', 'renamed' }, function(result)
+				if result.code == 0 then
+					vim.notify('unstage renamed')
+				else
+					vim.notify(result.stderr)
+				end
+			end)
+		end
 	end,
 
 	-- Abstractions
@@ -651,10 +655,7 @@ local normal_mappings = {
 	gss = '==',
 	yP = 'yyP',
 	yp = 'yyp',
-	['<Leader><Space>'] = function()
-		local table = {}
-		vim.notify(tostring(table.asdf and 3 or 5))
-	end,
+	['<Leader><Space>'] = function() vim.fn.confirm('pick', 'this\nthat\nasdf') end,
 }
 
 local visual_mappings = {
