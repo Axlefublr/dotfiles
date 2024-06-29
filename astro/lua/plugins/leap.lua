@@ -10,7 +10,7 @@ return {
 		},
 		opts = {
 			case_sensitive = false,
-			max_phase_one_targets = 1,
+			max_phase_one_targets = 0,
 			-- stylua: ignore
 			equivalence_classes = { ' \t\n\r', 'qй', 'wц', 'eу', 'rк', 'tе', 'yн', 'uг', 'iш', 'oщ', 'pз', '[х', ']ъ', 'aф', 'sы', 'dв', 'fа', 'gп', 'hр', 'jо', 'kл', 'lд', ';ж', "'э", 'zя', 'xч', 'cс', 'vм', 'bи', 'nт', 'mь', ',б', '.ю', },
 			-- stylua: ignore
