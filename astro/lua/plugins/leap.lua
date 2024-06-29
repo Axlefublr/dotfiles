@@ -5,8 +5,8 @@ return {
 		keys = {
 			{ 'q', mode = { 'n', 'x', 'o' } },
 			{ 'Q', mode = { 'n', 'x', 'o' } },
-			{ '<Leader>q', mode = { 'n', 'x', 'o' } },
-			{ '<Leader>Q', mode = { 'n', 'x', 'o' } },
+			{ 'x', mode = { 'x', 'o' } },
+			{ 'X', mode = { 'x', 'o' } },
 		},
 		opts = {
 			case_sensitive = false,
@@ -21,8 +21,8 @@ return {
 			require('leap').setup(opts)
 			vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)')
 			vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)')
-			vim.keymap.set({ 'n', 'x', 'o' }, '<Leader>q', '<Plug>(leap-forward-till)')
-			vim.keymap.set({ 'n', 'x', 'o' }, '<Leader>Q', '<Plug>(leap-backward-till)')
+			vim.keymap.set({ 'x', 'o' }, 'x', '<Plug>(leap-forward-till)')
+			vim.keymap.set({ 'x', 'o' }, 'X', '<Plug>(leap-backward-till)')
 
 			vim.api.nvim_create_autocmd('User', {
 				pattern = 'LeapEnter',
