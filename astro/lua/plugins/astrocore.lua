@@ -432,10 +432,10 @@ local normal_mappings = {
 	["''q"] = function() require('qfetter').clear() end,
 
 	-- Edister
-	['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
-	['<Leader>G'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
-	['<Leader>h'] = function() require('edister').edit_register() end,
-	['<Leader>H'] = function() require('edister').edit_register(nil, 'ask') end,
+	-- ['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
+	['<Leader>g'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
+	-- ['<Leader>h'] = function() require('edister').edit_register() end,
+	['<Leader>h'] = function() require('edister').edit_register(nil, 'ask') end,
 
 	-- Harp
 	['<Leader>z'] = function() require('harp').cd_get() end,
@@ -655,7 +655,10 @@ local normal_mappings = {
 	gss = '==',
 	yP = 'yyP',
 	yp = 'yyp',
-	['<Leader><Space>'] = function() vim.fn.confirm('pick', 'this\nthat\nasdf') end,
+	zff = 'zfl',
+	['<Leader><Space>'] = function()
+		-- code
+	end,
 }
 
 local visual_mappings = {
