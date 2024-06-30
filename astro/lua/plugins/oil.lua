@@ -80,6 +80,13 @@ return {
 						require('astrocore').cmd({ 'harp', 'update', 'cd_harps', register, '--path', directory }, false)
 					if output then vim.notify('set cd harp ' .. register) end
 				end, { buffer = true })
+
+				vim.keymap.set('n', 'gd', function()
+					local id = vim.fn.getreg(env.default_register)
+					local link = 'https://www.youtube.com/watch?v=' .. id
+					vim.fn.setreg(env.default_register, link)
+					vim.notify('compiled link')
+				end, { buffer = true })
 			end,
 		})
 
