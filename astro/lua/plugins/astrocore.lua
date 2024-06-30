@@ -297,10 +297,12 @@ local normal_mappings = {
 			vim.diagnostic.config({ virtual_lines = false })
 			vim.diagnostic.config({ virtual_text = false })
 			vim.diagnostic.config({ underline = false })
+			vim.notify('diags off')
 		else
 			vim.diagnostic.config({ virtual_lines = true })
 			vim.diagnostic.config({ virtual_text = true })
 			vim.diagnostic.config({ underline = true })
+			vim.notify('diags on')
 		end
 	end,
 	['<Leader>cl'] = '<Cmd>set list!<CR>',
