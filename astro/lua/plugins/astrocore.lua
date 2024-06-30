@@ -958,45 +958,10 @@ local opts_table = {
 				pattern = '*.rasi',
 				command = 'setfiletype rasi',
 			},
-			-- {
-			-- 	event = { 'BufReadPre' },
-			-- 	callback = function() vim.b.ufo_foldlevel = 0 end,
-			-- },
-			{
-				event = 'BufUnload',
-				pattern = '/dev/shm/fish_edit_commandline.fish',
-				callback = function()
-					local file = io.open('/dev/shm/fish_edit_commandline_cursor', 'w')
-					if file then
-						local position = vim.api.nvim_win_get_cursor(0)
-						local line = position[1]
-						local column = position[2]
-						file:write(line .. ' ' .. column + 1)
-						file:close()
-					end
-				end,
-			},
-			{
-				event = { 'FileType' },
-				callback = function()
-					if vim.bo.filetype == 'lazy' then
-						vim.diagnostic.config({ virtual_lines = false })
-					else
-						vim.diagnostic.config({ virtual_lines = true })
-					end
-				end,
-			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = 'kitty.conf',
 				command = 'setfiletype conf',
-			},
-			{
-				event = { 'BufLeave', 'FocusLost' },
-				callback = function()
-					---@diagnostic disable-next-line: param-type-mismatch
-					pcall(vim.cmd, 'silent update')
-				end,
 			},
 			{
 				event = 'FileType',
@@ -1024,6 +989,41 @@ local opts_table = {
 					vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)', { buffer = true })
 					vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)', { buffer = true })
 					vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)', { buffer = true })
+				end,
+			},
+			-- {
+			-- 	event = { 'BufReadPre' },
+			-- 	callback = function() vim.b.ufo_foldlevel = 0 end,
+			-- },
+			{
+				event = 'BufUnload',
+				pattern = '/dev/shm/fish_edit_commandline.fish',
+				callback = function()
+					local file = io.open('/dev/shm/fish_edit_commandline_cursor', 'w')
+					if file then
+						local position = vim.api.nvim_win_get_cursor(0)
+						local line = position[1]
+						local column = position[2]
+						file:write(line .. ' ' .. column + 1)
+						file:close()
+					end
+				end,
+			},
+			-- {
+			-- 	event = { 'FileType' },
+			-- 	callback = function()
+			-- 		if vim.bo.filetype == 'lazy' then
+			-- 			vim.diagnostic.config({ virtual_lines = false })
+			-- 		else
+			-- 			vim.diagnostic.config({ virtual_lines = true })
+			-- 		end
+			-- 	end,
+			-- },
+			{
+				event = { 'BufLeave', 'FocusLost' },
+				callback = function()
+					---@diagnostic disable-next-line: param-type-mismatch
+					pcall(vim.cmd, 'silent update')
 				end,
 			},
 		},

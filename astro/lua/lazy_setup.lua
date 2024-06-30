@@ -1,4 +1,5 @@
 require('lazy').setup({
+	{ import = 'autism' },
 	{
 		'AstroNvim/AstroNvim',
 		version = '^4',

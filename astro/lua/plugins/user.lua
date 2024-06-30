@@ -105,4 +105,9 @@ return {
 		-- 	config = function() require('nvim_rocks').ensure_installed('luautf8') end,
 		-- },
 	},
+	{
+		'windwp/nvim-ts-autotag',
+		event = false,
+		ft = 'html'
+	}
 }
