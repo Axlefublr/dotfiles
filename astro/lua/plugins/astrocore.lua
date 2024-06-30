@@ -939,15 +939,6 @@ local opts_table = {
 				vim.cmd.edit(recent)
 			end,
 		},
-		J = {
-			function(info)
-				local range = ''
-				if info.range > 0 then range = (info.line1 or '') .. ',' .. (info.line2 or '') end
-				vim.cmd(range .. 'norm ' .. info.args)
-			end,
-			nargs = '*',
-			range = true,
-		},
 	},
 	autocmds = {
 		everything = {
