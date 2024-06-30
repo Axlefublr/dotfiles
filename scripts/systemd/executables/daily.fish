@@ -30,6 +30,12 @@ if git status -s | rg loago.json
     git commit -m "sync loago $(date '+%y.%m.%d')"
 end
 
+cp -fr ~/.local/share/axleizer.json ~/prog/backup/automatic/axleizer.json
+if git status -s | rg axleizer.json
+    git add automatic/axleizer.json
+    git commit -m "sync axleizer $(date '+%y.%m.%d')"
+end
+
 yeared_parse
 yearless_parse
 daily_parse
