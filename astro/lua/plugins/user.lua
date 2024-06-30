@@ -58,7 +58,7 @@ return {
 		opts = {
 			background_colour = '#292828',
 			render = 'wrapped-compact',
-			stages = 'static'
+			stages = 'static',
 		},
 	},
 	{
@@ -97,8 +97,8 @@ return {
 		'chrisgrieser/nvim-spider',
 		lazy = true,
 		opts = {
-			subwordMovement = false
-		}
+			subwordMovement = false,
+		},
 		-- dependencies = {
 		-- 	'theHamsta/nvim_rocks',
 		-- 	build = 'hererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua',
@@ -108,6 +108,32 @@ return {
 	{
 		'windwp/nvim-ts-autotag',
 		event = false,
-		ft = 'html'
-	}
+		ft = 'html',
+	},
+	{
+		'whleucka/reverb.nvim',
+		event = 'VimEnter',
+		opts = {
+			sounds = {
+				-- CmdLineEnter = { path = env.soundeffects .. 'glass_002.ogg', volume = 65 },
+				-- CmdLineLeave = { path = env.soundeffects .. 'glass_002.ogg', volume = 65 },
+				-- `!` means "I want this, but don't have a good enough sound effect", `?` means "I want this, but the event is buggy"
+				--! CursorMoved = { path = env.soundeffects .. 'bong_001.ogg', volume = 80 },
+				--! InsertCharPre = { path = env.soundeffects .. 'click_001.ogg', volume = 65 },
+				--? BufEnter = { path = env.soundeffects .. 'drop_004.ogg', volume = 90 },
+				--? InsertEnter = { path = env.soundeffects .. 'click_001.ogg', volume = 65 },
+				--? InsertLeave = { path = env.soundeffects .. 'drop_002.ogg', volume = 65 },
+				--? TextChanged = { path = env.soundeffects .. 'drop_004.ogg', volume = 65 },
+				--? WinClosed = { path = env.soundeffects .. 'error_005.ogg', volume = 60 },
+				BufWritePost = { path = env.soundeffects .. 'confirmation_003.ogg', volume = 65 },
+				DirChanged = { path = env.soundeffects .. 'confirmation_001.ogg', volume = 65 },
+				ExitPre = { path = env.soundeffects .. 'minimize_009.ogg', volume = 65 },
+				RecordingEnter = { path = env.soundeffects .. 'maximize_003.ogg', volume = 60 },
+				RecordingLeave = { path = env.soundeffects .. 'minimize_003.ogg', volume = 60 },
+				TextYankPost = { path = env.soundeffects .. 'drop_001.ogg', volume = 65 },
+				VimEnter = { path = env.soundeffects .. 'maximize_009.ogg', volume = 65 },
+				WinNew = { path = env.soundeffects .. 'glass_004.ogg', volume = 50 },
+			},
+		},
+	},
 }

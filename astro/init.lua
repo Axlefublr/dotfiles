@@ -17,7 +17,8 @@ end
 
 env = {}
 env.temp_mark = 'P'
-env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav' }
+env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
+env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav', 'ogg' }
 env.extra_directories = {
 	'~/t',
 	'~/prog/noties',
