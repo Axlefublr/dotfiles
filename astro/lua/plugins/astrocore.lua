@@ -326,16 +326,12 @@ local normal_mappings = {
 	end,
 
 	-- Folding
-	['zM'] = function()
-		vim.wo.foldlevel = vim.v.count
-	end,
+	['zM'] = function() vim.wo.foldlevel = vim.v.count end,
 	-- ['zM'] = function()
 	-- 	vim.b.ufo_foldlevel = vim.v.count
 	-- 	require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
 	-- end,
-	['zR'] = function()
-		vim.wo.foldlevel = 99
-	end,
+	['zR'] = function() vim.wo.foldlevel = 99 end,
 	-- ['zR'] = function()
 	-- 	vim.b.ufo_foldlevel = 99
 	-- 	require('ufo').openAllFolds()
@@ -948,6 +944,10 @@ local opts_table = {
 	},
 	autocmds = {
 		everything = {
+			{
+				event = { 'VimEnter', 'WinEnter' },
+				callback = function() vim.fn.matchadd('OrangeBoldBackground', ' \\=FIXME:\\= \\=') end,
+			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
 				pattern = '*.XCompose',
