@@ -327,21 +327,27 @@ local normal_mappings = {
 
 	-- Folding
 	['zM'] = function()
-		vim.b.ufo_foldlevel = vim.v.count
-		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
+		vim.wo.foldlevel = vim.v.count
 	end,
+	-- ['zM'] = function()
+	-- 	vim.b.ufo_foldlevel = vim.v.count
+	-- 	require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
+	-- end,
 	['zR'] = function()
-		vim.b.ufo_foldlevel = 99
-		require('ufo').openAllFolds()
+		vim.wo.foldlevel = 99
 	end,
-	['zm'] = function()
-		vim.b.ufo_foldlevel = math.max(0, (vim.b.ufo_foldlevel - vim.v.count1))
-		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
-	end,
-	['zr'] = function()
-		vim.b.ufo_foldlevel = math.min(99, (vim.b.ufo_foldlevel + vim.v.count1))
-		require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
-	end,
+	-- ['zR'] = function()
+	-- 	vim.b.ufo_foldlevel = 99
+	-- 	require('ufo').openAllFolds()
+	-- end,
+	-- ['zm'] = function()
+	-- 	vim.b.ufo_foldlevel = math.max(0, (vim.b.ufo_foldlevel - vim.v.count1))
+	-- 	require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
+	-- end,
+	-- ['zr'] = function()
+	-- 	vim.b.ufo_foldlevel = math.min(99, (vim.b.ufo_foldlevel + vim.v.count1))
+	-- 	require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
+	-- end,
 
 	-- Gaf
 	['<Leader>ca'] = function()
@@ -952,10 +958,10 @@ local opts_table = {
 				pattern = '*.rasi',
 				command = 'setfiletype rasi',
 			},
-			{
-				event = { 'BufReadPre' },
-				callback = function() vim.b.ufo_foldlevel = 0 end,
-			},
+			-- {
+			-- 	event = { 'BufReadPre' },
+			-- 	callback = function() vim.b.ufo_foldlevel = 0 end,
+			-- },
 			{
 				event = 'BufUnload',
 				pattern = '/dev/shm/fish_edit_commandline.fish',

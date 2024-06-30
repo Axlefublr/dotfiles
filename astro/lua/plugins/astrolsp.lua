@@ -61,7 +61,7 @@ local opts_table = {
 						weakNilCheck = false,
 					},
 					workspace = {
-						checkThirdParty = true,
+						checkThirdParty = false,
 					},
 				},
 			},
