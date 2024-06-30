@@ -991,10 +991,6 @@ local opts_table = {
 					vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)', { buffer = true })
 				end,
 			},
-			-- {
-			-- 	event = { 'BufReadPre' },
-			-- 	callback = function() vim.b.ufo_foldlevel = 0 end,
-			-- },
 			{
 				event = 'BufUnload',
 				pattern = '/dev/shm/fish_edit_commandline.fish',
@@ -1009,16 +1005,6 @@ local opts_table = {
 					end
 				end,
 			},
-			-- {
-			-- 	event = { 'FileType' },
-			-- 	callback = function()
-			-- 		if vim.bo.filetype == 'lazy' then
-			-- 			vim.diagnostic.config({ virtual_lines = false })
-			-- 		else
-			-- 			vim.diagnostic.config({ virtual_lines = true })
-			-- 		end
-			-- 	end,
-			-- },
 			{
 				event = { 'BufLeave', 'FocusLost' },
 				callback = function()
