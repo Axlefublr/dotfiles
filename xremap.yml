@@ -899,13 +899,13 @@ keymap:
       CapsLock-Alt-v: ctrl-shift-u
       Super-Space: { launch: [fish, -c, toggle_layout] }
       CapsLock-v: ScrollLock
-      Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
+      # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
       Super-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }
       Super-f: { launch: [gromit-mpx, --toggle] }
       Super-Alt-f: { launch: [gromit-mpx, --clear] }
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
-      Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
+      # Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-Alt-s:
         {
