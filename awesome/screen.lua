@@ -85,23 +85,8 @@ function Clients_wu(tag)
 		return
 	end
 
-	local text = ''
-	for _, client in ipairs(clients) do
-		if client.class then
-			local truncation = client.class:sub(1, 1)
-			text = text .. truncation
-		else
-			text = text .. '?'
-		end
-	end
-
-	if text == '' then
-		Clients_mw.visible = false
-		return
-	else
-		Clients_mw.visible = true
-		Clients_w:set_text(text)
-	end
+	Clients_mw.visible = true
+	Clients_w:set_text(#clients)
 end
 
 Mic_muteness_w = text_widget(nil, ' ')
