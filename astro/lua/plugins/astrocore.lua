@@ -802,14 +802,27 @@ local normal_visual_mappings = {
 			else
 				FeedKeys(':')
 			end
+			env.play_sound('bloop-4.mp3', 70)
 		end,
 	},
+	['<S-CR>'] = function()
+		env.play_sound('bloop-4.mp3', 70)
+		FeedKeys(':')
+		vim.schedule(function() vim.fn.setcmdline('.,$') end)
+	end,
+	['/'] = function()
+		env.play_sound('drop_004.ogg', 60)
+		FeedKeys('/')
+	end,
+	['?'] = function()
+		env.play_sound('drop_004.ogg', 60)
+		FeedKeys('?')
+	end,
 	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
 	["'"] = '"',
 	['&'] = '@:',
-	['<S-CR>'] = ':.,$',
 	['[{'] = '{j',
 	[']}'] = '}k',
 	['gz'] = 'g<C-g>',
@@ -819,6 +832,10 @@ local normal_visual_mappings = {
 local insert_select_mappings = {
 	['<A-l>'] = function() require('luasnip').jump(1) end,
 	['<A-h>'] = function() require('luasnip').jump(-1) end,
+}
+
+local visual_select_mappings = {
+	['<A-f>'] = '<C-g>',
 }
 
 local normal_insert_select_mappings = {
@@ -832,9 +849,9 @@ local mappings_table = {
 	o = pending_mappings,
 	c = command_mappings,
 	['!'] = command_insert_mappings,
+	s = {},
+	v = {},
 }
-
-if not mappings_table.s then mappings_table.s = {} end
 
 for key, value in pairs(normal_visual_pending_mappings) do
 	mappings_table.n[key] = value
@@ -851,6 +868,11 @@ end
 
 for key, value in pairs(insert_select_mappings) do
 	mappings_table.i[key] = value
+	mappings_table.s[key] = value
+end
+
+for key, value in pairs(visual_select_mappings) do
+	mappings_table.x[key] = value
 	mappings_table.s[key] = value
 end
 
@@ -997,7 +1019,7 @@ local opts_table = {
 				event = 'BufUnload',
 				pattern = '/dev/shm/fish_edit_commandline.fish',
 				callback = function()
-					local file = io.open('/dev/shm/fish_edit_commandline_cursor', 'w')
+					local file = io.open('/dev/shm/fish_edit_commandline_cursor', 'w+')
 					if file then
 						local position = vim.api.nvim_win_get_cursor(0)
 						local line = position[1]

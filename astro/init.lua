@@ -17,8 +17,9 @@ end
 
 env = {}
 env.temp_mark = 'P'
+env.default_register = '+'
 env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
-env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav', 'ogg' }
+env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav', 'ogg', 'oga' }
 env.extra_directories = {
 	'~/t',
 	'~/prog/noties',
@@ -58,7 +59,13 @@ env.color = {
 
 function env.shell(cmd, on_exit) return vim.system(cmd, { text = true }, on_exit) end
 
-env.default_register = '+'
+function env.play_sound(relative_path, volume)
+	local path = env.soundeffects .. relative_path
+	local volume = volume or 100
+	local clamped_volume = math.max(0, math.min(100, volume))
+	local paplay_volume = math.floor(clamped_volume * 655.36)
+	vim.system({ 'paplay', path, '--volume', tostring(paplay_volume) })
+end
 
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
