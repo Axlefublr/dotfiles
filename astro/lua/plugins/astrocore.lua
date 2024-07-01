@@ -293,15 +293,12 @@ local normal_mappings = {
 	-- Toggles
 	['<Leader>ce'] = function()
 		---@diagnostic disable-next-line: undefined-field
-		if vim.diagnostic.config().virtual_text then
-			vim.diagnostic.config({ virtual_lines = false })
-			vim.diagnostic.config({ virtual_text = false })
-			vim.diagnostic.config({ underline = false })
+		local used_type = 'underline'
+		if vim.diagnostic.config()[used_type] then
+			vim.diagnostic.config({ [used_type] = false })
 			vim.notify('diags off')
 		else
-			vim.diagnostic.config({ virtual_lines = true })
-			vim.diagnostic.config({ virtual_text = true })
-			vim.diagnostic.config({ underline = true })
+			vim.diagnostic.config({ [used_type] = true })
 			vim.notify('diags on')
 		end
 	end,
@@ -313,8 +310,8 @@ local normal_mappings = {
 	['gw'] = vim.lsp.buf.rename,
 	['<Leader>lc'] = vim.lsp.buf.code_action,
 	['gl'] = function()
-		vim.diagnostic.open_float()
-		vim.diagnostic.open_float()
+		vim.diagnostic.open_float({ border = 'none', scope = 'cursor', source = 'if_many' })
+		vim.diagnostic.open_float({ border = 'none', scope = 'cursor', source = 'if_many' })
 	end,
 	['[e'] = function()
 		count_repeats(function() vim.diagnostic.goto_prev() end)
@@ -790,8 +787,8 @@ local normal_visual_pending_mappings = {
 	['m/'] = '`^',
 	['m['] = '`[',
 	['m]'] = '`]',
-	gM = 'M',
 	gm = function() FeedKeys(vim.v.count * 10 .. 'gM') end, -- cuts down precision of gM to 10s
+	gM = 'M',
 }
 
 local normal_visual_mappings = {
@@ -893,10 +890,15 @@ local opts_table = {
 	},
 	-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
 	diagnostics = {
-		virtual_text = true,
+		-- virtual_text = {
+		-- 	virt_text_pos = 'eol',
+		-- 	source = 'if_many',
+		-- 	spacing = 0,
+		-- },
+		virtual_text = false,
 		underline = true,
 		signs = false,
-		virtual_lines = true,
+		virtual_lines = false,
 	},
 	options = {
 		opt = {
