@@ -1023,6 +1023,12 @@ local opts_table = {
 				callback = function() env.play_sound('drop_004.ogg', 60) end,
 			},
 			{
+				event = 'CmdwinEnter',
+				callback = function()
+					vim.keymap.set('n', '<CR>', '<CR>', { buffer = true })
+				end
+			},
+			{
 				event = 'BufUnload',
 				pattern = '/dev/shm/fish_edit_commandline.fish',
 				callback = function()
