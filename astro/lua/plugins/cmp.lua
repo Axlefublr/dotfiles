@@ -8,6 +8,7 @@ return {
 	opts = function(_, opts)
 		local cmp = require('cmp')
 		opts.mapping = nil
+		cmp.event:on('confirm_done', function() env.play_sound('drop_001.ogg', 60) end)
 		return require('astrocore').extend_tbl(opts, {
 			performance = {
 				throttle = 0,
@@ -42,20 +43,14 @@ return {
 						cmp.open_docs()
 					end
 				end,
-				['<F5>'] = function()
-					env.play_sound('drop_001.ogg', 60)
-					cmp.mapping.confirm({
-						select = true,
-						behavior = cmp.ConfirmBehavior.Replace,
-					})
-				end,
-				['<A-;>'] = function()
-					env.play_sound('drop_001.ogg', 60)
-					cmp.mapping.confirm({
-						select = true,
-						behavior = cmp.ConfirmBehavior.Insert,
-					})()
-				end,
+				['<F5>'] = cmp.mapping.confirm({
+					select = true,
+					behavior = cmp.ConfirmBehavior.Replace,
+				}),
+				['<A-;>'] = cmp.mapping.confirm({
+					select = true,
+					behavior = cmp.ConfirmBehavior.Insert,
+				}),
 				['<A-m>'] = cmp.mapping.complete({
 					config = {
 						sources = {
