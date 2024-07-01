@@ -173,7 +173,7 @@ funcsave fbp >/dev/null
 
 function edit_commandline
     set temp '/dev/shm/fish_edit_commandline.fish'
-    truncate -s 0 $temp || touch $temp
+    truncate -s 0 $temp
     set cursor_location /dev/shm/fish_edit_commandline_cursor
     truncate -s 0 $cursor_location || touch $cursor_location
     commandline >$temp
