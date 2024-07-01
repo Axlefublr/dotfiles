@@ -8,7 +8,7 @@ return {
 	opts = function(_, opts)
 		local cmp = require('cmp')
 		opts.mapping = nil
-		cmp.event:on('confirm_done', function() env.play_sound('drop_001.ogg', 60) end)
+		cmp.event:on('confirm_done', function() env.play_sound('drop_001.ogg', 55) end)
 		return require('astrocore').extend_tbl(opts, {
 			performance = {
 				throttle = 0,

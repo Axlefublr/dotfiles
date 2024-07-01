@@ -1016,6 +1016,11 @@ local opts_table = {
 				end,
 			},
 			{
+				event = 'User',
+				pattern = 'LeapEnter',
+				callback = function() env.play_sound('drop_004.ogg', 60) end,
+			},
+			{
 				event = 'BufUnload',
 				pattern = '/dev/shm/fish_edit_commandline.fish',
 				callback = function()
