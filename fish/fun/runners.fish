@@ -1,21 +1,25 @@
 #!/usr/bin/env fish
 
 function runner
+    set preset ~/.local/share/magazine/L
+    set history ~/.local/share/magazine/H
     truncate -s 0 /dev/shm/runner_input
-    for line in (tac ~/.local/share/magazine/H | awk '!seen[$0]++' | tac | tail -n 20)
-        if not contains $line (cat ~/.local/share/magazine/L)
+    for line in (tac $history | awk '!seen[$0]++' | tac)
+        if not contains $line (cat $preset)
             echo $line
         end
     end | while read -l line
         set last $last $line
     end
-    printf '%s\n' $last >~/.local/share/magazine/H
+    printf '%s\n' $last | tail -n 20 >$history
     begin
-        cat ~/.local/share/magazine/L
-        echo
-        cat ~/.local/share/magazine/H
+        cat $preset
+        if test -s $history
+            echo
+            cat $history
+        end
     end | rofi -dmenu 2>/dev/null >/dev/shm/runner_input
-    indeed ~/.local/share/magazine/H (cat /dev/shm/runner_input)
+    indeed $history (cat /dev/shm/runner_input)
     if set -q argv[1]
         set output "$(source /dev/shm/runner_input &| tee /dev/shm/runner_output)"
         notify-send -t 0 "$output"
