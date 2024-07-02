@@ -2,7 +2,7 @@
 
 function runner
     truncate -s 0 /dev/shm/runner_input
-    for line in (awk '!seen[$0]++' ~/.local/share/magazine/H)
+    for line in (tac ~/.local/share/magazine/H | awk '!seen[$0]++' | tac | tail -n 20)
         if not contains $line (cat ~/.local/share/magazine/L)
             echo $line
         end
@@ -12,7 +12,7 @@ function runner
     printf '%s\n' $last >~/.local/share/magazine/H
     begin
         cat ~/.local/share/magazine/L
-        echo -e '\n'
+        echo
         cat ~/.local/share/magazine/H
     end | rofi -dmenu 2>/dev/null >/dev/shm/runner_input
     indeed ~/.local/share/magazine/H (cat /dev/shm/runner_input)
