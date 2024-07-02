@@ -33,28 +33,25 @@ local function edit_magazine()
 end
 
 local function copy_full_path()
-	local full_path = vim.api.nvim_buf_get_name(0)
-	local home = os.getenv('HOME')
-	if not home then return end
-	local friendly_path = string.gsub(full_path, home, '~')
-	vim.fn.setreg('+', friendly_path)
-	vim.notify('full path: ' .. friendly_path)
+	local full_path = vim.fn.expand('%:~')
+	vim.fn.setreg(env.default_register, full_path)
+	vim.notify('full path: ' .. full_path)
 end
 
 local function copy_file_name()
 	local file_name = vim.fn.expand('%:t')
-	vim.fn.setreg('+', file_name)
+	vim.fn.setreg(env.default_register, file_name)
 	vim.notify('name: ' .. file_name)
 end
 
 local function copy_cwd_relative()
 	local relative_path = vim.fn.expand('%:p:.')
-	vim.fn.setreg('+', relative_path)
+	vim.fn.setreg(env.default_register, relative_path)
 	vim.notify('cwd relative: ' .. relative_path)
 end
 
-local function get_repo_root()
-	local git_root = require('astrocore').cmd({ 'git', 'rev-parse', '--show-toplevel' }, false)
+function get_repo_root()
+	local git_root = env.shell({ 'git', 'rev-parse', '--show-toplevel' }, { cwd = vim.fn.expand('%:h') }):wait().stdout
 	git_root = git_root and git_root:sub(1, -2) or git_root
 	return git_root
 end
@@ -63,14 +60,14 @@ local function copy_git_relative()
 	local full_path = vim.api.nvim_buf_get_name(0)
 	local git_root = get_repo_root()
 	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
-	vim.fn.setreg('+', relative_path)
+	vim.fn.setreg(env.default_register, relative_path)
 	vim.notify('repo relative: ' .. relative_path)
 end
 
 local function copy_cwd()
 	local cwd = vim.fn.getcwd()
 	cwd = vim.fn.fnamemodify(cwd, ':~')
-	vim.fn.setreg('+', cwd)
+	vim.fn.setreg(env.default_register, cwd)
 	vim.notify('cwd: ' .. cwd)
 end
 
