@@ -24,7 +24,7 @@ yt-live-chat-viewer-engagement-message-renderer,
 
 /* big ass input + etc container at the bottom */
 yt-live-chat-message-input-renderer {
-	padding: none;
+	padding: 0;
 }
 
 /* thingy that contains Chat... */

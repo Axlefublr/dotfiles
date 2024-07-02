@@ -57,7 +57,9 @@ env.color = {
 	dark10 = '#1a1919',
 }
 
-function env.shell(cmd, on_exit) return vim.system(cmd, { text = true }, on_exit) end
+function env.shell(cmd, opts, on_exit)
+	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts), on_exit)
+end
 
 function env.play_sound(relative_path, volume)
 	local path = env.soundeffects .. relative_path
