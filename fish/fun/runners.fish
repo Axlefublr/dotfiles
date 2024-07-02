@@ -4,20 +4,17 @@ function runner
     set preset ~/.local/share/magazine/L
     set histori ~/.local/share/magazine/H
     truncate -s 0 /dev/shm/runner_input
-    for line in (tac $histori | awk '!seen[$0]++' | tac)
+    for line in (echo "$(cat $histori)" | tac | awk '!seen[$0]++' | tac)
         if not contains $line (cat $preset)
             echo $line
         end
     end | while read -l line
         set last $last $line
     end
-    printf '%s\n' $last | tail -n 20 >$histori
+    printf '%s\n' $last | tail -n 30 >$histori
     begin
         cat $preset
-        if test -s $history
-            echo
-            cat $history
-        end
+        echo "$(cat $histori)"
     end | rofi -dmenu 2>/dev/null >/dev/shm/runner_input
     indeed $histori (cat /dev/shm/runner_input)
     if set -q argv[1]
