@@ -971,16 +971,16 @@ local opts_table = {
 	},
 	autocmds = {
 		everything = {
-			{
-				event = 'BufWinLeave',
-				pattern = '*.*',
-				command = 'mkview',
-			},
-			{
-				event = 'BufWinEnter',
-				pattern = '*.*',
-				command = 'silent! loadview',
-			},
+			-- {
+			-- 	event = 'BufWinLeave',
+			-- 	pattern = '*.*',
+			-- 	command = 'mkview',
+			-- },
+			-- {
+			-- 	event = 'BufWinEnter',
+			-- 	pattern = '*.*',
+			-- 	command = 'silent! loadview',
+			-- },
 			{
 				event = { 'VimEnter', 'WinEnter' },
 				callback = function() vim.fn.matchadd('OrangeBoldBackground', ' \\=FIXME:\\= \\=') end,
