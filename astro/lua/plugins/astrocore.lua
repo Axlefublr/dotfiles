@@ -1035,9 +1035,7 @@ local opts_table = {
 			},
 			{
 				event = 'CmdwinEnter',
-				callback = function()
-					vim.keymap.set('n', '<CR>', '<CR>', { buffer = true })
-				end
+				callback = function() vim.keymap.set('n', '<CR>', '<CR>', { buffer = true }) end,
 			},
 			{
 				event = 'BufUnload',
