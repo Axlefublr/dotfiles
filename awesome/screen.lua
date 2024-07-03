@@ -87,6 +87,19 @@ function Clients_wu(tag)
 
 	Clients_mw.visible = true
 	Clients_w:set_text(#clients)
+
+	local has_minimized = false
+	for _, cliente in ipairs(clients) do
+		if cliente.minimized then
+			has_minimized = true
+			break
+		end
+	end
+	if has_minimized then
+		Clients_bw.fg = beautiful.cyan
+	else
+		Clients_bw.fg = beautiful.white
+	end
 end
 
 Mic_muteness_w = text_widget(nil, ' ')
