@@ -311,24 +311,6 @@ function Brightness_wu()
 	end)
 end
 
-Media_player_w = text_widget()
-Media_player_mw = wibox.container.margin(Media_player_w)
-Media_player_mw.right = between - 6
-Media_player_mw.visible = false
-function Media_player_wu()
-	local file = io.open('/dev/shm/Media_player_f', 'r')
-	if file then
-		local text = file:read('*a')
-		file:close()
-		if #text > 0 then
-			Media_player_mw.visible = true
-			Media_player_w:set_text(text .. ' ')
-		else
-			Media_player_mw.visible = false
-		end
-	end
-end
-
 Media_state_w = text_widget(beautiful.jetbrains_font .. ' 15')
 Media_state_mw = wibox.container.margin(Media_state_w)
 Media_state_mw.right = between
@@ -341,8 +323,6 @@ function Media_state_wu()
 		if #text > 0 then
 			Media_state_mw.visible = true
 			Media_state_w:set_text(text)
-		else
-			Media_player_mw.visible = false
 		end
 	end
 end
@@ -656,7 +636,6 @@ Wibar_w:setup({
 		Malumn_mw,
 		Window_state_lw,
 		Mouse_mw,
-		Media_player_mw,
 		Media_state_mw,
 		Dnd_mw,
 		Bluetooth_mw,
@@ -677,7 +656,6 @@ local run_once = function()
 		'Anki',
 		'Processor',
 		'Ram',
-		'Media_player',
 		'Loago',
 		'Disk_usage',
 		'Charge',
