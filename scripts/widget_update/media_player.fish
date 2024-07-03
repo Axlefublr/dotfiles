@@ -16,7 +16,7 @@ end
 
 while true
     widget_update update_media_player Media_player
-    if acpi | rg Discharging &>/dev/null
+    if test "$(cat /dev/shm/Charge_f)" -lt 100 &>/dev/null
         sleep 60
     else
         sleep 1

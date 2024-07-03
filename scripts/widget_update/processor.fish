@@ -8,7 +8,7 @@ end
 
 while true
     widget_update update_processor Processor
-    if acpi | rg Discharging &>/dev/null
+    if test "$(cat /dev/shm/Charge_f)" -lt 100 &>/dev/null
         sleep 60
     else
         sleep 3

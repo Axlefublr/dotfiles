@@ -11,7 +11,7 @@ while true
     if test $output != $previous
         printf $output >~/.local/share/magazine/b
     end
-    if acpi | rg Discharging &>/dev/null
+    if test "$(cat /dev/shm/Charge_f)" -lt 100 &>/dev/null
         sleep 60
     else
         sleep 1
