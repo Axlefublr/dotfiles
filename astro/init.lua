@@ -58,7 +58,7 @@ env.color = {
 }
 
 function env.shell(cmd, opts, on_exit)
-	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts), on_exit)
+	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts or {}), on_exit)
 end
 
 function env.play_sound(relative_path, volume)

@@ -221,6 +221,25 @@ local function execute_this_file()
 	})
 end
 
+local function diag_this_file()
+	local repo = get_repo_root()
+	local extension = vim.fn.expand('%:e')
+	if extension == 'rs' then
+		local output = env.shell({ 'cargo', 'clippy', '-q' }, { cwd = repo }):wait()
+		local file = io.open('/tmp/diag', 'w+')
+		if not file then
+			vim.notify("couldn't open /tmp/diag")
+			return
+		end
+		file:write(output.stdout)
+		file:write(output.stderr)
+		file:close()
+		vim.cmd.edit('/tmp/diag')
+	else
+		vim.notify('extension ' .. extension .. 'is not recognized')
+	end
+end
+
 local function count_repeats_keys(keys)
 	for _ = 1, vim.v.count1 do
 		FeedKeysInt(keys)
@@ -253,7 +272,6 @@ local normal_mappings = {
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>ds'] = edit_magazine,
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
-	['<Leader>lx'] = execute_this_file,
 	['<Space>'] = save,
 	['d<Space>'] = function() save(true) end,
 	K = close_try_save,
@@ -324,6 +342,8 @@ local normal_mappings = {
 		vim.lsp.buf.hover()
 		vim.lsp.buf.hover()
 	end,
+	['<Leader>lx'] = execute_this_file,
+	['<Leader>lz'] = diag_this_file,
 
 	-- Folding
 	['zM'] = function() vim.wo.foldlevel = vim.v.count end,
