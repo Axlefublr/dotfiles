@@ -291,7 +291,7 @@ function filter_mature_tasks
             case '*'
                 echo "$name — $(math $days - 5)"
         end
-    end | sort -k 3 -r | column -t -s '—' -o '—'
+    end | sort -g -k 3 -r | column -t -s '—' -o '—'
 end
 funcsave filter_mature_tasks >/dev/null
 
