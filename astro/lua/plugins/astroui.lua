@@ -221,6 +221,7 @@ return {
 				['Search'] = link('AquaBoldBackground'),
 				['CurSearch'] = link('PurpleBoldBackground'),
 				['IncSearch'] = link('PurpleBoldBackground'),
+				['Folded'] = link('Light19'),
 
 				['OilDir'] = link('Fg'),
 				['OilDirIcon'] = link('ShellYellow'),

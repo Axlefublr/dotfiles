@@ -13,8 +13,8 @@ function runner
     end
     printf '%s\n' $last | tail -n 30 >$histori
     begin
-        cat $preset
-        echo "$(cat $histori)"
+        echo "$(cat $preset)"
+        cat $histori
     end | rofi -dmenu 2>/dev/null >/dev/shm/runner_input
     indeed $histori (cat /dev/shm/runner_input)
     if set -q argv[1]
