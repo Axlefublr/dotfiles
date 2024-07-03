@@ -191,7 +191,6 @@ function edit_commandline
     nvim -c "call cursor($line, $column)" $temp 2>/dev/null
 
     set -l editor_status $status
-    cat $cursor_location
 
     if test $editor_status -eq 0
         if test -s $temp # this shouldn't be needed, but strangely is
