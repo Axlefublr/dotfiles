@@ -921,6 +921,7 @@ local opts_table = {
 			fixeol = false,
 			foldcolumn = '1',
 			foldminlines = 0,
+			foldtext = '',
 			gdefault = true,
 			hlsearch = true,
 			ignorecase = true,

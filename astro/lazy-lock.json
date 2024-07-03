@@ -47,6 +47,7 @@
   "oil.nvim": { "branch": "master", "commit": "65c53dbe4f2140236590a7568a5f22a77d16be39" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
+  "pretty-fold.nvim": { "branch": "master", "commit": "a7d8b424abe0eedf50116c460fbe6dfd5783b1d5" },
   "reverb.nvim": { "branch": "main", "commit": "941188092cc5ea6b6a52086ee85f5f5562bd79e2" },
   "rustaceanvim": { "branch": "master", "commit": "d6d7620b66d74b3b16defcf85cbef7b3582795b3" },
   "targets.vim": { "branch": "master", "commit": "642d3a4ce306264b05ea3219920b13ea80931767" },
@@ -56,6 +57,5 @@
   "treesj": { "branch": "main", "commit": "f98deb33805485b56a8d44d1a27d16874af00d7f" },
   "venv-selector.nvim": { "branch": "regexp", "commit": "d946b1e86212f38ff9c42e3b622a8178bbc93461" },
   "vim-easy-align": { "branch": "master", "commit": "9815a55dbcd817784458df7a18acacc6f82b1241" },
-  "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "vim-stay": { "branch": "master", "commit": "f1c494a688faa932603d18ec7d41196e9c117391" }
+  "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" }
 }
