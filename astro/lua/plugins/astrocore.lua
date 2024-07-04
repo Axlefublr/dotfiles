@@ -1058,6 +1058,20 @@ local opts_table = {
 				event = 'CmdwinEnter',
 				callback = function() vim.keymap.set('n', '<CR>', '<CR>', { buffer = true }) end,
 			},
+			{
+				event = 'BufEnter',
+				pattern = '/tmp/pjs',
+				callback = function()
+					vim.b.match_paths = vim.fn.matchadd('Blush', '^\\~.*')
+				end
+			},
+			{
+				event = 'BufLeave',
+				pattern = '/tmp/pjs',
+				callback = function()
+					vim.fn.matchdelete(vim.b.match_paths)
+				end
+			},
 			{ -- Special behavior autocommands
 				event = 'BufUnload',
 				pattern = '/dev/shm/fish_edit_commandline.fish',
