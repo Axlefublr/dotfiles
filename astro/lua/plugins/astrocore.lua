@@ -973,7 +973,7 @@ local opts_table = {
 			timeout = false,
 			undofile = true,
 			virtualedit = 'block',
-			wildoptions = 'fuzzy,pum,tagfile',
+			wildoptions = 'fuzzy,pum',
 			wrap = true,
 			writebackup = false,
 		},
@@ -1058,7 +1058,7 @@ local opts_table = {
 				event = 'CmdwinEnter',
 				callback = function() vim.keymap.set('n', '<CR>', '<CR>', { buffer = true }) end,
 			},
-			{
+			{ -- Special behavior autocommands
 				event = 'BufUnload',
 				pattern = '/dev/shm/fish_edit_commandline.fish',
 				callback = function()
@@ -1071,6 +1071,28 @@ local opts_table = {
 						file:close()
 					end
 				end,
+			},
+			{
+				event = 'User',
+				pattern = 'KittyInput',
+				callback = function()
+					vim.opt_local.relativenumber = false
+					vim.opt_local.laststatus = 0
+					vim.opt_local.showtabline = 0
+					vim.opt_local.foldcolumn = '0'
+					vim.opt_local.list = false
+					vim.opt_local.showbreak = ''
+					vim.opt_local.linebreak = false
+					vim.opt_local.breakindent = false
+					vim.cmd('%s;\\s*$;;e')
+					vim.cmd('%s;\\n\\+\\%$;;e')
+					vim.fn.matchadd('ShellPinkBold', '^[\\/~].*\\ze 󱕅')
+					vim.fn.matchadd('ShellYellow', '󱕅')
+					vim.fn.matchadd('ShellPurpleBold', '\\S\\+')
+					vim.fn.matchadd('ShellRedBold', '󱎘\\d\\+')
+					vim.fn.matchadd('ShellCyan', '\\d\\+')
+					vim.fn.matchadd('Green', '󱕅 \\zs.*')
+				end
 			},
 			{
 				event = { 'BufLeave', 'FocusLost' },

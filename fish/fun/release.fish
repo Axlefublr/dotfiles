@@ -124,6 +124,7 @@ function rust_init
     sd '%project_name%' (basename $PWD) Cargo.toml
     touch README.md
     touch release-notes.txt
+    touch project.txt
     indeed -u .gitignore release-notes.txt project.txt
     rust_ci
     git add . &&
