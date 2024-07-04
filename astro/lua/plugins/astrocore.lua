@@ -970,7 +970,7 @@ local opts_table = {
 			signcolumn = 'no',
 			smartcase = true,
 			smartindent = true,
-			smoothscroll = true,
+			smoothscroll = false,
 			spell = false,
 			splitbelow = true,
 			splitright = true,
@@ -1000,16 +1000,6 @@ local opts_table = {
 	},
 	autocmds = {
 		everything = {
-			{
-				event = { 'BufWinLeave', 'BufWritePost' },
-				pattern = '*.*',
-				command = 'mkview',
-			},
-			{
-				event = 'BufWinEnter',
-				pattern = '*.*',
-				command = 'silent! loadview',
-			},
 			{
 				event = { 'VimEnter', 'WinEnter' },
 				callback = function() vim.fn.matchadd('OrangeBoldBackground', ' \\=FIXME:\\= \\=') end,
