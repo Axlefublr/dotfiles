@@ -462,6 +462,11 @@ local normal_mappings = {
 	-- Harp
 	['<Leader>z'] = function() require('harp').cd_get() end,
 	['<Leader>Z'] = function() require('harp').cd_set() end,
+	['<Leader>so'] = function()
+		env.shell({ 'fish', '-c', 'pjs' }):wait()
+		local path = require('harp').default_get_path('o')
+		vim.cmd.edit(path)
+	end,
 	['<Leader>s'] = function() require('harp').default_get() end,
 	['<Leader>S'] = function() require('harp').default_set() end,
 	['<Leader>w'] = function() require('harp').global_mark_get() end,
@@ -942,6 +947,7 @@ local opts_table = {
 			foldcolumn = '1',
 			foldminlines = 0,
 			foldtext = '',
+			-- foldclose = 'all',
 			gdefault = true,
 			hlsearch = true,
 			ignorecase = true,
@@ -956,6 +962,7 @@ local opts_table = {
 			number = false,
 			numberwidth = 3, -- this weirdly means 2
 			relativenumber = true,
+			report = 9999,
 			scrolloff = 999,
 			shiftwidth = 3,
 			shortmess = 'finxtTIoOF',
@@ -963,6 +970,7 @@ local opts_table = {
 			signcolumn = 'no',
 			smartcase = true,
 			smartindent = true,
+			smoothscroll = true,
 			spell = false,
 			splitbelow = true,
 			splitright = true,
@@ -1061,16 +1069,12 @@ local opts_table = {
 			{
 				event = 'BufEnter',
 				pattern = '/tmp/pjs',
-				callback = function()
-					vim.b.match_paths = vim.fn.matchadd('Blush', '^\\~.*')
-				end
+				callback = function() vim.b.match_paths = vim.fn.matchadd('Blush', '^\\~.*') end,
 			},
 			{
 				event = 'BufLeave',
 				pattern = '/tmp/pjs',
-				callback = function()
-					vim.fn.matchdelete(vim.b.match_paths)
-				end
+				callback = function() vim.fn.matchdelete(vim.b.match_paths) end,
 			},
 			{ -- Special behavior autocommands
 				event = 'BufUnload',
@@ -1106,7 +1110,7 @@ local opts_table = {
 					vim.fn.matchadd('ShellRedBold', '󱎘\\d\\+')
 					vim.fn.matchadd('ShellCyan', '\\d\\+')
 					vim.fn.matchadd('Green', '󱕅 \\zs.*')
-				end
+				end,
 			},
 			{
 				event = { 'BufLeave', 'FocusLost' },
