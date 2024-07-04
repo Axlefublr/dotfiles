@@ -1058,23 +1058,16 @@ local opts_table = {
 				end,
 			},
 			{
-				event = 'User',
-				pattern = 'LeapEnter',
-				callback = function() env.play_sound('drop_004.ogg', 60) end,
-			},
-			{
 				event = 'CmdwinEnter',
 				callback = function() vim.keymap.set('n', '<CR>', '<CR>', { buffer = true }) end,
 			},
 			{
-				event = 'BufEnter',
-				pattern = '/tmp/pjs',
-				callback = function() vim.b.match_paths = vim.fn.matchadd('Blush', '^\\~.*') end,
-			},
-			{
-				event = 'BufLeave',
-				pattern = '/tmp/pjs',
-				callback = function() vim.fn.matchdelete(vim.b.match_paths) end,
+				event = 'LspAttach',
+				callback = function()
+					vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+						border = 'none',
+					})
+				end,
 			},
 			{ -- Special behavior autocommands
 				event = 'BufUnload',
@@ -1113,11 +1106,26 @@ local opts_table = {
 				end,
 			},
 			{
+				event = 'BufEnter',
+				pattern = '/tmp/pjs',
+				callback = function() vim.b.match_paths = vim.fn.matchadd('Blush', '^\\~.*') end,
+			},
+			{
+				event = 'BufLeave',
+				pattern = '/tmp/pjs',
+				callback = function() vim.fn.matchdelete(vim.b.match_paths) end,
+			},
+			{
 				event = { 'BufLeave', 'FocusLost' },
 				callback = function()
 					---@diagnostic disable-next-line: param-type-mismatch
 					pcall(vim.cmd, 'silent update')
 				end,
+			},
+			{
+				event = 'User',
+				pattern = 'LeapEnter',
+				callback = function() env.play_sound('drop_004.ogg', 60) end,
 			},
 		},
 	},
