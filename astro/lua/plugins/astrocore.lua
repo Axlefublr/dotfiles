@@ -751,6 +751,7 @@ local insert_mappings = {
 	['<F5>'] = '',
 	['<F6>'] = '<C-o>o',
 	['<A-a>'] = '<C-a>',
+	['<A-f>'] = '<C-g>u',
 }
 
 local pending_mappings = {
@@ -791,10 +792,10 @@ local command_mappings = {
 	['<S-CR>'] = function() vim.fn.setcmdline('.,$') end,
 	['<A-s>'] = '\\zs',
 	['<A-d>'] = '\\ze',
+	['<A-f>'] = '<C-f>',
 }
 
 local command_insert_mappings = {
-	['<A-f>'] = '<C-f>',
 	['<A-q>'] = '<C-q>',
 }
 
