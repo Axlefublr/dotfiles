@@ -42,6 +42,11 @@ button#button[aria-label='More comments below'] div {
 	fill: #0f0f0f !important;
 }
 
+/* non-mod chatters' nicknames */
+#author-name.yt-live-chat-author-chip {
+	color: #ffd75f;
+}
+
 /* the thingy that contains a chat message */
 yt-live-chat-text-message-renderer {
 	padding: 3px 10px 3px 9px;
