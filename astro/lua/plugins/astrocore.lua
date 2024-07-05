@@ -619,7 +619,7 @@ local normal_mappings = {
 	['<Leader>jm'] = function() require('telescope.builtin').man_pages() end,
 	['<Leader>ji'] = function() require('telescope.builtin').marks() end,
 	['<Leader>jH'] = function() require('telescope.builtin').highlights() end,
-	['gy'] = function() require('telescope.builtin').filetypes() end,
+	['<Leader>j;'] = function() require('telescope.builtin').filetypes() end,
 	['<Leader>jq'] = function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end,
 	['<Leader>jQ'] = function() require('telescope.builtin').diagnostics() end,
 	['<Leader>jj'] = function() require('telescope.builtin').quickfix() end,
