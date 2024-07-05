@@ -370,7 +370,7 @@ local normal_mappings = {
 		local picked = vim.fn.confirm('Choose change type', 'Modified\nNew\nDeleted')
 		if picked == 0 then return end
 		if picked == 1 then
-			env.shell({ 'gaf', 'stage', 'modified' }, function(result)
+			env.shell({ 'gaf', 'stage', 'modified' }, nil, function(result)
 				if result.code == 0 then
 					vim.notify('stage modified')
 				else
@@ -378,7 +378,7 @@ local normal_mappings = {
 				end
 			end)
 		elseif picked == 2 then
-			env.shell({ 'gaf', 'stage', 'new' }, function(result)
+			env.shell({ 'gaf', 'stage', 'new' }, nil, function(result)
 				if result.code == 0 then
 					vim.notify('stage new')
 				else
@@ -386,7 +386,7 @@ local normal_mappings = {
 				end
 			end)
 		elseif picked == 3 then
-			env.shell({ 'gaf', 'stage', 'deleted' }, function(result)
+			env.shell({ 'gaf', 'stage', 'deleted' }, nil, function(result)
 				if result.code == 0 then
 					vim.notify('stage deleted')
 				else
@@ -400,7 +400,7 @@ local normal_mappings = {
 		if picked == 0 then
 			return
 		elseif picked == 1 then
-			env.shell({ 'gaf', 'unstage', 'modified' }, function(result)
+			env.shell({ 'gaf', 'unstage', 'modified' }, nil, function(result)
 				if result.code == 0 then
 					vim.notify('unstage modified')
 				else
@@ -408,7 +408,7 @@ local normal_mappings = {
 				end
 			end)
 		elseif picked == 2 then
-			env.shell({ 'gaf', 'unstage', 'added' }, function(result)
+			env.shell({ 'gaf', 'unstage', 'added' }, nil, function(result)
 				if result.code == 0 then
 					vim.notify('unstage added')
 				else
@@ -416,7 +416,7 @@ local normal_mappings = {
 				end
 			end)
 		elseif picked == 3 then
-			env.shell({ 'gaf', 'unstage', 'deleted' }, function(result)
+			env.shell({ 'gaf', 'unstage', 'deleted' }, nil, function(result)
 				if result.code == 0 then
 					vim.notify('unstage deleted')
 				else
@@ -424,7 +424,7 @@ local normal_mappings = {
 				end
 			end)
 		elseif picked == 4 then
-			env.shell({ 'gaf', 'unstage', 'renamed' }, function(result)
+			env.shell({ 'gaf', 'unstage', 'renamed' }, nil, function(result)
 				if result.code == 0 then
 					vim.notify('unstage renamed')
 				else
