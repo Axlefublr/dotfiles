@@ -304,6 +304,10 @@ local normal_mappings = {
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
 	du = '"_dddd',
 	gJ = '0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
+	ga = function()
+		local path = vim.api.nvim_buf_get_name(0)
+		env.shell({ 'xdg-open', path })
+	end,
 
 	-- Toggles
 	['<Leader>ce'] = function()

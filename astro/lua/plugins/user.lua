@@ -18,12 +18,12 @@ return {
 			{ 'gr' },
 		},
 	},
-	{
-		'junegunn/vim-easy-align',
-		keys = {
-			{ mode = { 'n', 'x' }, 'ga', '<Plug>(EasyAlign)' },
-		},
-	},
+	-- {
+	-- 	'junegunn/vim-easy-align',
+	-- 	keys = {
+	-- 		{ mode = { 'n', 'x' }, 'ga', '<Plug>(EasyAlign)' },
+	-- 	},
+	-- },
 	-- {
 	-- 	'bkad/CamelCaseMotion',
 	-- 	event = 'VeryLazy',
