@@ -683,6 +683,7 @@ local normal_mappings = {
 	yP = 'yyP',
 	yp = 'yyp',
 	zff = 'zfl',
+	['g:'] = 'g,',
 	['<Leader><Space>'] = function() -- test mapping
 	end,
 }
