@@ -1,6 +1,7 @@
 return {
 	'whleucka/reverb.nvim',
 	event = 'VeryLazy',
+	enabled = env.should_play_soundeffects,
 	opts = {
 		sounds = {
 			-- `!` means "I want this, but don't have a good enough sound effect", `?` means "the event happens when you don't expect it, making it non-viable to use", `#` means "conflicts with another event that often occures together with that one"

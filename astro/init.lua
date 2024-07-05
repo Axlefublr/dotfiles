@@ -16,6 +16,7 @@ if not pcall(require, 'lazy') then
 end
 
 env = {}
+env.should_play_soundeffects = true
 env.temp_mark = 'P'
 env.default_register = '+'
 env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
@@ -62,6 +63,7 @@ function env.shell(cmd, opts, on_exit)
 end
 
 function env.play_sound(relative_path, volume)
+	if not env.should_play_soundeffects then return end
 	local path = env.soundeffects .. relative_path
 	local volume = volume or 100
 	local clamped_volume = math.max(0, math.min(100, volume))
