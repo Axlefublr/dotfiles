@@ -330,9 +330,7 @@ funcsave widget_update >/dev/null
 
 function update_anki
     if test (curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "is:due" } }' 2> /dev/null | jq .result.[] 2> /dev/null | count) -gt 0
-        echo 'due'
-    else
-        echo ''
+        echo due
     end
 end
 funcsave update_anki >/dev/null

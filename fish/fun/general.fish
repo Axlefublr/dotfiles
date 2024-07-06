@@ -230,7 +230,7 @@ funcsave pacclean >/dev/null
 
 function oil
     if set -q argv[1]
-        z $argv[1]
+        z $argv[1] || return 1
     end
     if status is-interactive
         nvim .
