@@ -53,20 +53,20 @@ function Loago_wu()
 	end
 end
 
-Anki_w = text_widget()
+Anki_w = text_widget(nil, '󰟟 ')
 Anki_bw = wibox.container.background(Anki_w)
 Anki_bw.fg = beautiful.red
 Anki_mw = wibox.container.margin(Anki_bw)
 Anki_mw.left = between
+Anki_mw.right = -10
 Anki_mw.visible = false
 function Anki_wu()
 	local file = io.open('/dev/shm/Anki_f', 'r')
 	if file then
 		local text = file:read('*a')
 		file:close()
-		if #text > 0 and text ~= '0' then
+		if #text > 0 then
 			Anki_mw.visible = true
-			Anki_w:set_text(text)
 		else
 			Anki_mw.visible = false
 		end
