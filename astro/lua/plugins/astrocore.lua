@@ -724,6 +724,10 @@ local visual_mappings = {
 	['a%'] = 'F%of%',
 	['i%'] = 'T%ot%',
 	u = '<Esc>u',
+	im = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>ok",
+	am = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>jok",
+	iM = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>o2k",
+	aM = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>jo2k",
 }
 
 local insert_mappings = {
