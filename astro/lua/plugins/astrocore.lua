@@ -206,8 +206,8 @@ local function get_buffer_cwd()
 end
 
 local function execute_this_file()
+	save(true)
 	local file = vim.api.nvim_buf_get_name(0)
-	save()
 	require('astrocore').cmd({
 		'kitten',
 		'@',
@@ -222,6 +222,7 @@ local function execute_this_file()
 end
 
 local function diag_this_file()
+	save(true)
 	local repo = get_repo_root()
 	local extension = vim.fn.expand('%:e')
 	if extension == 'rs' then
