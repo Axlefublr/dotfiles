@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
 	{ 'stevearc/resession.nvim', enabled = false },
+	{ 'mfussenegger/nvim-dap-python', enabled = false },
 	{ 'lukas-reineke/indent-blankline.nvim', enabled = false },
 	{ 'JoosepAlviste/nvim-ts-context-commentstring', enabled = false },
 	{ 's1n7ax/nvim-window-picker', enabled = false },
