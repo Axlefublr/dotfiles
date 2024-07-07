@@ -15,6 +15,15 @@ modmap:
       only: /Terraria/
 
 keymap:
+  - name: Vivaldi!
+    exact_match: true
+    mode: default
+    application:
+      only: Vivaldi-stable
+    remap:
+      Alt-j: shift-f9
+      Alt-k: shift-f10
+
   - name: Anki!
     exact_match: true
     application:
