@@ -1004,11 +1004,6 @@ keymap:
           { launch: [fish, -c, runner_clipboard] },
         ]
 
-      CapsLock-Alt-y: super-ctrl-shift-0
-      CapsLock-Alt-u: super-ctrl-shift-1
-      CapsLock-Alt-i: super-ctrl-shift-2
-      CapsLock-Alt-o: super-ctrl-shift-3
-
   - name: Any functionality
     remap:
       Pause: { launch: [fish, -c, suspend] }
