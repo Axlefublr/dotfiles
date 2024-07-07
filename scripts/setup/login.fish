@@ -47,6 +47,6 @@ notify-sent -t 2000 xwaaa
 sleep 10
 xwaaa
 
-axleizer &>/tmp/log/axleizer.txt & disown
+RUST_LOG=debug axleizer &>/tmp/log/axleizer.txt & disown
 
 notify-send -t 0 'logged in'

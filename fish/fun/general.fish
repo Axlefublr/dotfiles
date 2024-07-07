@@ -320,7 +320,7 @@ function execute
     set path $argv[1]
     switch $path
         case '*.rs'
-            cargo run
+            RUST_LOG=trace cargo run
         case '*.py'
             python $path
         case '*.nim'
