@@ -1,3 +1,22 @@
+local activate_tag = function(tag)
+	local screen = awful.screen.focused()
+	local tag = type(tag) == 'number' and screen.tags[tag] or tag
+	if tag then tag:view_only() end
+end
+
+local toggle_window_on_tag = function(index)
+	if client.focus then
+		local tag = client.focus.screen.tags[index]
+		if tag then client.focus:toggle_tag(tag) end
+	end
+end
+
+function FixBrowserInstance()
+	local prev_tag = screen.primary.selected_tag
+	activate_tag(2)
+	activate_tag(prev_tag)
+end
+
 function Move_window_to_tag(index)
 	if client.focus then
 		local tag = client.focus.screen.tags[index]
@@ -17,19 +36,6 @@ function Unminimize_all_on_tag(tag)
 		if client.minimized then
 			client.minimized = false
 		end
-	end
-end
-
-local activate_tag = function(index)
-	local screen = awful.screen.focused()
-	local tag = screen.tags[index]
-	if tag then tag:view_only() end
-end
-
-local toggle_window_on_tag = function(index)
-	if client.focus then
-		local tag = client.focus.screen.tags[index]
-		if tag then client.focus:toggle_tag(tag) end
 	end
 end
 
