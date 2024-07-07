@@ -4,7 +4,7 @@ function runner
     set preset ~/.local/share/magazine/L
     set histori ~/.local/share/magazine/H
     truncate -s 0 /dev/shm/runner_input
-    for line in (echo "$(cat $histori)" | tac | awk '!seen[$0]++' | tac)
+    for line in (cat $histori | uniq -u)
         if not contains $line (cat $preset)
             echo $line
         end
