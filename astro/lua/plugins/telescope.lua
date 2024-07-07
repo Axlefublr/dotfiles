@@ -22,6 +22,14 @@ return {
 			local actions = require('telescope.actions')
 			local actions_state = require('telescope.actions.state')
 			opts.defaults.mappings = nil
+
+			local function open_parent_in_oil(bufnr)
+				local selection = actions_state.get_selected_entry().value
+				actions.close(bufnr)
+				local parent_dir = vim.fn.fnamemodify(selection, ":h")
+				require('oil').open(parent_dir)
+			end
+
 			return require('astrocore').extend_tbl(opts, {
 				defaults = {
 					prompt_prefix = '',
@@ -58,6 +66,7 @@ return {
 							['L'] = 'preview_scrolling_down',
 							['<C-n>'] = 'move_selection_next',
 							['<C-p>'] = 'move_selection_previous',
+							['<A-q>'] = open_parent_in_oil,
 							['<C-v>'] = false,
 							['<C-u>'] = false,
 							['<C-d>'] = false,
@@ -68,6 +77,7 @@ return {
 							['<A-u>'] = 'smart_add_to_qflist',
 							['<A-U>'] = 'smart_send_to_qflist',
 							['<A-i>'] = layout_actions.toggle_preview,
+							['<A-q>'] = open_parent_in_oil,
 							['<C-v>'] = false,
 							['<C-u>'] = false,
 							['<C-d>'] = false,
