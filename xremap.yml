@@ -386,15 +386,6 @@ keymap:
           Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
           Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
 
-          r:
-            {
-              launch:
-                [
-                  fish,
-                  -c,
-                  'xclip -selection clipboard -o -t image/png | tesseract - - > ~/.local/share/magazine/t && notify-send -t 2000 "ocr"',
-                ],
-            }
           d: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
           s: { launch: [fish, -c, screenkey] }
@@ -929,6 +920,24 @@ keymap:
       CapsLock-Apostrophe: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
+      Super-r:
+        {
+          launch:
+            [
+              fish,
+              -c,
+              'truncate -s 0 /tmp/tesseract.txt ; scrot -s - | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && xclip -r -selection clipboard /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
+            ],
+        }
+      Super-Alt-r:
+        {
+          launch:
+            [
+              fish,
+              -c,
+              'truncate -s 0 /tmp/tesseract.txt ; xclip -selection clipboard -o -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && xclip -r -selection clipboard /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
+            ],
+        }
       Super-c: { launch: [awesome-client, FixBrowserInstance()] }
       Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
       Shift_L-g: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
