@@ -11,9 +11,9 @@ local toggle_window_on_tag = function(index)
 	end
 end
 
-function FixBrowserInstance()
+function FixBrowserInstance(index)
 	local prev_tag = screen.primary.selected_tag
-	activate_tag(2)
+	activate_tag(index or 2)
 	activate_tag(prev_tag)
 end
 

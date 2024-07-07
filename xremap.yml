@@ -288,15 +288,22 @@ keymap:
           { launch: [fish, -c, 'c yandex neoline'] },
         ]
 
-      Slash: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_doc] }]
+      Slash: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 1'] }]
+      Shift-Slash: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 6'] }]
       Dot:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'runner_link open'] },
+          { launch: [fish, -c, 'runner_link 1 open'] },
+        ]
+      Shift-Dot:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'runner_link 6 open'] },
         ]
       Comma:
-        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_link] }]
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_link'] }]
       m: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_math] }]
 
       f:
@@ -329,6 +336,12 @@ keymap:
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'wmctrl -s 1 ; xdg-open (xclip -selection clipboard -o)'] },
+        ]
+      Shift-g:
+        [
+          { set_mode: default },
+          { launch: [awesome-client, Mouse_wd()] },
+          { launch: [fish, -c, 'wmctrl -s 6 ; xdg-open (xclip -selection clipboard -o)'] },
         ]
       w: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_symbol] }]
       e:
@@ -917,6 +930,7 @@ keymap:
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       Super-c: { launch: [awesome-client, FixBrowserInstance()] }
+      Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
       Shift_L-g: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
       CapsLock-Alt-v: ctrl-shift-u
       Super-Space: { launch: [fish, -c, toggle_layout] }

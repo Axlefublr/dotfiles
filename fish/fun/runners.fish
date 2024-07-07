@@ -265,6 +265,9 @@ function runner_doc
     if test $result[-1] -ne 0
         return 1
     end
+    if test "$argv"
+        wmctrl -s $argv
+    end
     set -e result[-1]
     set result "$result"
     set last_element (string split ' ' $result)[-1]
@@ -291,10 +294,11 @@ function runner_link
     if test $result[-1] -ne 0
         return 1
     end
+    wmctrl -s $argv[1]
     set -e result[-1]
     set line (math $result + 1)
     set link (awk "NR==$line { print \$NF }" $file)
-    if test "$argv"
+    if test "$argv[2]"
         $BROWSER $link
     else
         echo $link | xclip -r -selection clipboard
