@@ -37,12 +37,16 @@ alt text is displayed without wpcc */
 /* first undeletable channel in switcher */
 #contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(1),
 /* special channel */
-#contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(5) yt-formatted-string {
+#contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(5) yt-formatted-string,
+/* blue notification markers in notification popout */
+div#new.ytd-notification-renderer {
 	display: none;
 }
 
-/* blue notification markers in notification popout */
-/* div#new.ytd-notification-renderer, FIXME */
+/* holder of each notification */
+a.yt-simple-endpoint.ytd-notification-renderer {
+	margin-left: 24px;
+}
 
 /* scrollbar of the left side preview of the playlist */
 .immersive-header-content.ytd-playlist-header-renderer {
