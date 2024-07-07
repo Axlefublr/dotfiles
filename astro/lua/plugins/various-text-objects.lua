@@ -1,3 +1,26 @@
+local function open_link_in_instance(index)
+	local index = (index or 1) - 1
+	require('various-textobjs').url()
+
+	-- plugin only switches to visual mode when textobj found
+	local foundURL = vim.fn.mode():find('v')
+
+	-- if not found, search whole buffer via urlview.nvim instead
+	if not foundURL then
+		vim.cmd.UrlView('buffer')
+		return
+	end
+
+	local previous_clipboard = vim.fn.getreg(env.default_register)
+	vim.cmd.normal({ 'y', bang = true })
+	local url = vim.fn.getreg()
+	vim.fn.setreg(env.default_register, previous_clipboard)
+
+	env.shell({ 'wmctrl', '-s', index }):wait()
+	local openCommand = string.format("xdg-open '%s' >/dev/null 2>&1", url)
+	os.execute(openCommand)
+end
+
 ---@type LazySpec
 return {
 	{
@@ -33,36 +56,11 @@ return {
 			{ mode = { 'o' }, 'aM', function() vim.cmd('normal viijo2k') end },
 			{
 				'gx',
-				function()
-					-- select URL
-					require('various-textobjs').url()
-
-					-- plugin only switches to visual mode when textobj found
-					local foundURL = vim.fn.mode():find('v')
-
-					-- if not found, search whole buffer via urlview.nvim instead
-					if not foundURL then
-						vim.cmd.UrlView('buffer')
-						return
-					end
-
-					local previous_clipboard = vim.fn.getreg(env.default_register)
-					vim.cmd.normal({ 'y', bang = true })
-					local url = vim.fn.getreg()
-					vim.fn.setreg(env.default_register, previous_clipboard)
-
-					-- open with the OS-specific shell command
-					local opener
-					if vim.fn.has('macunix') == 1 then
-						opener = 'open'
-					elseif vim.fn.has('linux') == 1 then
-						opener = 'xdg-open'
-					elseif vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
-						opener = 'start'
-					end
-					local openCommand = string.format("%s '%s' >/dev/null 2>&1", opener, url)
-					os.execute(openCommand)
-				end,
+				function() open_link_in_instance(2) end
+			},
+			{
+				'gX',
+				function() open_link_in_instance(7) end
 			},
 			{
 				'dsi',
