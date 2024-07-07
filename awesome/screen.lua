@@ -55,7 +55,7 @@ end
 
 Anki_w = text_widget(nil, '󰟟 ')
 Anki_bw = wibox.container.background(Anki_w)
-Anki_bw.fg = beautiful.red
+Anki_bw.fg = beautiful.purple
 Anki_mw = wibox.container.margin(Anki_bw)
 Anki_mw.left = between
 Anki_mw.right = -10

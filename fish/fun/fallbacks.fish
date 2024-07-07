@@ -31,3 +31,4 @@ alias --save xk 'xdotool key' > /dev/null
 alias --save awl 'awesome-client' > /dev/null
 alias --save tm 'toggle_media' > /dev/null
 alias --save ntf 'notify-send' > /dev/null
+alias --save chx 'chmod +x' > /dev/null

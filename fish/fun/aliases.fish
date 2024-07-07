@@ -153,3 +153,8 @@ function q
     $argv --help | nvim -c +Man!
 end
 funcsave q >/dev/null
+
+function ocr
+    tesseract $argv - 2>/dev/null
+end
+funcsave ocr >/dev/null

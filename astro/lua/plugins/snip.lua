@@ -7,6 +7,7 @@ local snippets = function()
 	local single = function(node) return node[1] end
 
 	local all_snippets = {
+		s('asdf', { t('asdfasdf') }),
 		s('wd', {
 			---@diagnostic disable-next-line: param-type-mismatch
 			f(function() return string.lower(os.date('%A')) end),
@@ -146,14 +147,14 @@ local snippets = function()
 		s('#!', {
 			t({ '#!/usr/bin/env fish', '' }), -- {} in a t is a multiline text node, every separate string is its own line
 		}),
-		s('function', {
+		s('func', {
 			t('function '),
 			i(1),
 			t({ '', '    ' }),
 			i(0),
 			t({ '', 'end' }),
 		}),
-		s('function save', {
+		s('func+s', {
 			t('function '),
 			i(1),
 			t({ '', '    ' }),

@@ -361,6 +361,7 @@ keymap:
           Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
           Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
 
+          r: { launch: [fish, -c, 'xclip -selection clipboard -o -t image/png | tesseract - - > ~/.local/share/magazine/t && notify-send -t 2000 "ocr"'] }
           d: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           f: { launch: [kitty] }
           s: { launch: [fish, -c, screenkey] }
