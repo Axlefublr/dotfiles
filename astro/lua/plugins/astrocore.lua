@@ -611,7 +611,8 @@ local normal_mappings = {
 			},
 		})
 	end,
-	['gb'] = function() require('telescope.builtin').help_tags() end,
+	['g;'] = function() require('telescope.builtin').help_tags() end,
+	['g,'] = ':help ',
 	['<Leader>js'] = function() require('telescope.builtin').current_buffer_fuzzy_find() end,
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
@@ -621,7 +622,7 @@ local normal_mappings = {
 	['<Leader>jw'] = function() require('telescope.builtin').buffers() end,
 	['<Leader>jW'] = function() require('telescope.builtin').oldfiles() end,
 	['<Leader><CR>'] = function() require('telescope.builtin').command_history() end,
-	['gy'] = ':Man ',
+	['gb'] = ':Man ',
 	['<Leader>ji'] = function() require('telescope.builtin').marks() end,
 	['<Leader>jh'] = function() require('telescope.builtin').highlights() end,
 	['<Leader>j;'] = function() require('telescope.builtin').filetypes() end,
