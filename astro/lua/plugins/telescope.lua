@@ -52,6 +52,12 @@ local telescope_opts = function(_, opts)
 					['<C-n>'] = 'move_selection_next',
 					['<C-p>'] = 'move_selection_previous',
 					['<A-q>'] = open_parent_in_oil,
+					['J'] = function(bufnr)
+						actions_set.shift_selection(bufnr, 6)
+					end,
+					['K'] = function(bufnr)
+						actions_set.shift_selection(bufnr, -6)
+					end,
 					['<C-v>'] = false,
 					['<C-u>'] = false,
 					['<C-d>'] = false,
