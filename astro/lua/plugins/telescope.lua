@@ -1,6 +1,7 @@
 local telescope_opts = function(_, opts)
 	local layout_actions = require('telescope.actions.layout')
 	local actions = require('telescope.actions')
+	local actions_set = require('telescope.actions.set')
 	local actions_state = require('telescope.actions.state')
 	opts.defaults.mappings = nil
 

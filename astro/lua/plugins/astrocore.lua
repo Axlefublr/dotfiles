@@ -676,8 +676,8 @@ local normal_mappings = {
 	["zl'"] = '@"',
 	X = '@e',
 	['\\'] = 'qe',
-	Y = 'yg_',
 	zz = '@@',
+	Y = 'yg_',
 	['<C-k>'] = 'O<Esc>',
 	['<F6>'] = 'o<Esc>',
 	['`'] = '<C-^>',
@@ -1125,6 +1125,8 @@ local opts_table = {
 
 					local pattern = require('harp').filetype_search_get_pattern('f', '')
 					vim.fn.setreg('/', pattern)
+
+					vim.keymap.set('n', 'gy', 'jVnko')
 				end,
 			},
 			{
