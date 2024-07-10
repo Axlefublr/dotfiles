@@ -6,5 +6,5 @@ end
 
 while true
     widget_update update_battery Charge
-    sleep 10
+    sleep 30
 end
