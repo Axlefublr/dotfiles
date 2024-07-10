@@ -869,19 +869,19 @@ keymap:
       CapsLock-LeftBrace: shift-9
       CapsLock-RightBrace: shift-0
       CapsLock-i: shift-6
-      CapsLock-o: shift-4
+      CapsLock-o: shift_r-4
       CapsLock-Comma: shift-minus
       CapsLock-j: shift-equal
       CapsLock-k: minus
       CapsLock-l: equal
       CapsLock-u: shift-8
-      CapsLock-p: shift-3
-      CapsLock-m: shift-1
+      CapsLock-p: shift_r-3
+      CapsLock-m: shift_r-1
       CapsLock-Dot: shift-7
-      CapsLock-n: shift-5
-      CapsLock-y: shift-2
+      CapsLock-n: shift_r-5
+      CapsLock-y: shift_r-2
       CapsLock-h: grave
-      CapsLock-Alt-h: shift-grave
+      CapsLock-Alt-h: shift_r-grave
       CapsLock-Slash: backslash
       CapsLock-Alt-Slash: shift-backslash
 
