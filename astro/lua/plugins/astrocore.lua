@@ -296,7 +296,7 @@ local normal_mappings = {
 		if repo_root then vim.cmd.tcd(repo_root) end
 	end,
 	['<Leader>P'] = '<Cmd>pu!<CR>',
-	['<Leader>di'] = '"_ddddpvaB<Esc>>iB', -- Push line of code after block into block
+	['<Leader>di'] = '"_ddddpvaB<Esc>=iB', -- Push line of code after block into block
 	['<Leader>dl'] = '^D"_dd',
 	['<Leader>do'] = 'dd<Cmd>$pu<CR>',
 	['<Leader>du'] = 'dd<Cmd>0pu!<CR>',
@@ -762,6 +762,8 @@ local insert_mappings = {
 	['<F6>'] = '<C-o>o',
 	['<A-a>'] = '<C-a>',
 	['<A-f>'] = '<C-g>u',
+	['<A-[>'] = '<C-g>k',
+	['<A-]>'] = '<C-g>j',
 }
 
 local pending_mappings = {
