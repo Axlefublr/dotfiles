@@ -667,6 +667,7 @@ local normal_mappings = {
 	X = '@e',
 	gX = 'qe',
 	Y = 'yg_',
+	zz = '@@',
 	['<C-k>'] = 'O<Esc>',
 	['<F6>'] = 'o<Esc>',
 	['`'] = '<C-^>',
