@@ -82,7 +82,8 @@ return {
 				end, { buffer = true })
 
 				vim.keymap.set('n', 'gd', function()
-					local id = vim.fn.getreg(env.default_register)
+					local buffer_id = vim.api.nvim_win_get_buf(0)
+					local id = vim.fn.matchbufline(buffer_id, ';\\zs.*\\ze;', vim.fn.line('.'), vim.fn.line('.'))[1].text
 					local link = 'https://www.youtube.com/watch?v=' .. id
 					vim.fn.setreg(env.default_register, link)
 					vim.notify('compiled link')
