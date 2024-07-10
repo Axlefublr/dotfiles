@@ -665,7 +665,7 @@ local normal_mappings = {
 	zl = '@',
 	["zl'"] = '@"',
 	X = '@e',
-	gX = 'qe',
+	['\\'] = 'qe',
 	Y = 'yg_',
 	zz = '@@',
 	['<C-k>'] = 'O<Esc>',
@@ -1016,13 +1016,13 @@ local opts_table = {
 			{
 				event = 'RecordingLeave',
 				callback = function()
-					vim.keymap.set('n', 'gX', 'qe')
+					vim.keymap.set('n', '\\', 'qe')
 				end
 			},
 			{
 				event = 'RecordingEnter',
 				callback = function()
-					vim.keymap.set('n', 'gX', 'q')
+					vim.keymap.set('n', '\\', 'q')
 				end
 			},
 			{
