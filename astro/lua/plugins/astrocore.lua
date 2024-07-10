@@ -661,10 +661,11 @@ local normal_mappings = {
 
 	-- Direct
 	U = '<C-r>',
-	zL = 'q',
+	zu = 'q',
 	zl = '@',
 	["zl'"] = '@"',
-	X = '@@',
+	X = '@e',
+	gX = 'qe',
 	Y = 'yg_',
 	['<C-k>'] = 'O<Esc>',
 	['<F6>'] = 'o<Esc>',
@@ -1010,6 +1011,18 @@ local opts_table = {
 					vim.fn.matchadd('OrangeBoldBackground', 'FIXME:\\=')
 					vim.fn.matchadd('GreenBoldBackground', 'TODO:\\=')
 				end,
+			},
+			{
+				event = 'RecordingLeave',
+				callback = function()
+					vim.keymap.set('n', 'gX', 'qe')
+				end
+			},
+			{
+				event = 'RecordingEnter',
+				callback = function()
+					vim.keymap.set('n', 'gX', 'q')
+				end
 			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
