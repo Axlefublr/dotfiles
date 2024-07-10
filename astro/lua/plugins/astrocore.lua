@@ -502,7 +502,6 @@ local normal_mappings = {
 	['}'] = function() move_to_blank_line(true) end,
 
 	-- Window
-	["<Leader>ao"] = '<C-w>|',
 	['<A-h>'] = '<C-w><',
 	['<A-l>'] = '<C-w>>',
 	['<C-n>'] = '<C-w>-',
@@ -840,14 +839,14 @@ local normal_visual_mappings = {
 		FeedKeys(':')
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
-	['/'] = function()
+	['/'] = { function()
 		env.play_sound('drop_004.ogg', 60)
-		FeedKeys('/')
-	end,
-	['?'] = function()
+		return '/'
+	end, expr = true },
+	['?'] = { function()
 		env.play_sound('drop_004.ogg', 60)
-		FeedKeys('?')
-	end,
+		return '?'
+	end, expr = true },
 	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
