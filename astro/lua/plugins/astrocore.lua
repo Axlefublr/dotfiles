@@ -1016,15 +1016,11 @@ local opts_table = {
 			},
 			{
 				event = 'RecordingLeave',
-				callback = function()
-					vim.keymap.set('n', '\\', 'qe')
-				end
+				callback = function() vim.keymap.set('n', '\\', 'qe') end,
 			},
 			{
 				event = 'RecordingEnter',
-				callback = function()
-					vim.keymap.set('n', '\\', 'q')
-				end
+				callback = function() vim.keymap.set('n', '\\', 'q') end,
 			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
