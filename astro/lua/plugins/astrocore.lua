@@ -1008,7 +1008,10 @@ local opts_table = {
 		everything = {
 			{
 				event = { 'VimEnter', 'WinEnter' },
-				callback = function() vim.fn.matchadd('OrangeBoldBackground', ' \\=FIXME:\\= \\=') end,
+				callback = function()
+					vim.fn.matchadd('OrangeBoldBackground', 'FIXME:\\=')
+					vim.fn.matchadd('GreenBoldBackground', 'TODO:\\=')
+				end,
 			},
 			{
 				event = { 'BufRead', 'BufNewFile' },

@@ -11,7 +11,6 @@ return {
 		vim.api.nvim_create_autocmd('FileType', {
 			pattern = 'oil',
 			callback = function()
-
 				vim.keymap.set('n', '>', function()
 					local file_name = require('oil').get_cursor_entry().name
 					local function get_externality(file_name)

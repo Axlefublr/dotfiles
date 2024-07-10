@@ -49,6 +49,8 @@ return {
 				['BlushItalic'] = { fg = color.blush, italic = true },
 				['FgItalic'] = { fg = color.white, italic = true },
 
+				['GreenNormal'] = { fg = color.green, nocombine = true },
+
 				['ShellYellow'] = { fg = color.shell_yellow },
 				['ShellYellowBold'] = { fg = color.shell_yellow, bold = true },
 				['ShellYellowBoldOnDark12'] = { fg = color.shell_yellow, bg = color.dark12, bold = true },
@@ -74,6 +76,8 @@ return {
 				['OrangeBoldBackground'] = { fg = color.level, bg = color.orange, bold = true },
 				['OrangeBoldNocombine'] = { fg = color.orange, bold = true, nocombine = true },
 				['OrangeBoldOnDark12'] = { fg = color.orange, bg = color.dark12, bold = true },
+
+				['GreenBoldBackground'] = { fg = color.level, bg = color.green, bold = true },
 
 				['YellowAndUndercurl'] = { fg = color.yellow, undercurl = true },
 				['YellowBackground'] = { fg = color.level, bg = color.yellow },
@@ -288,6 +292,7 @@ return {
 
 				['@function.builtin.python'] = link('Purple'),
 				['@type.builtin.python'] = link('Blue'),
+				['@function.call.python'] = link('GreenNormal'),
 
 				['@constructor.nim'] = link('Blue'),
 

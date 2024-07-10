@@ -179,6 +179,7 @@ function magazine_append_link
     set result "$result"
     set link (xclip -selection clipboard -o)
     indeed -u ~/.local/share/magazine/l "$result — $link"
+    silly_sort.py ~/.local/share/magazine/l
     notify-send -t 2000 "append l with $link"
 end
 funcsave magazine_append_link >/dev/null
