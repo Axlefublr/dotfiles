@@ -554,6 +554,7 @@ local normal_mappings = {
 	['<Leader>ay'] = '<C-w>x',
 	['<Leader>a;'] = '<C-w>o',
 	['<Leader>ai'] = '<C-w>=',
+	["d'"] = '<C-w><C-w>',
 	['[w'] = 'gT',
 	[']w'] = 'gt',
 
@@ -674,7 +675,7 @@ local normal_mappings = {
 	zL = 'q',
 	zl = '@',
 	["zl'"] = '@"',
-	zz = '@@',
+	X = '@@',
 	Y = 'yg_',
 	['<C-k>'] = 'O<Esc>',
 	['<F6>'] = 'o<Esc>',
