@@ -21,6 +21,9 @@ local telescope_opts = function(_, opts)
 			prompt_title = false,
 			wrap_results = true,
 			layout_strategy = 'flex',
+			path_display = function(opts, path)
+				return vim.fn.fnamemodify(path, ':~:.')
+			end,
 			preview = {
 				treesitter = true,
 				hide_on_startup = true,
