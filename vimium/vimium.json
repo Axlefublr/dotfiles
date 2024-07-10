@@ -55,6 +55,8 @@
 		"unmap <<",
 		"unmap >>",
 		"unmap gs",
+		"unmap p",
+		"unmap P",
 		"",
 		"map ,f LinkHints.activateWithQueue",
 		"map yc LinkHints.activateCopyLinkText",
