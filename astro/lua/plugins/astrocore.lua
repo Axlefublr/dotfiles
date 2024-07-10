@@ -1112,14 +1112,19 @@ local opts_table = {
 					vim.opt_local.showbreak = ''
 					vim.opt_local.linebreak = false
 					vim.opt_local.breakindent = false
+
 					vim.cmd('%s;\\s*$;;e')
 					vim.cmd('%s;\\n\\+\\%$;;e')
+
 					vim.fn.matchadd('ShellPinkBold', '^[\\/~].*\\ze 󱕅')
 					vim.fn.matchadd('ShellYellow', '󱕅')
 					vim.fn.matchadd('ShellPurpleBold', '\\S\\+')
 					vim.fn.matchadd('ShellRedBold', '󱎘\\d\\+')
 					vim.fn.matchadd('ShellCyan', '\\d\\+')
 					vim.fn.matchadd('Green', '󱕅 \\zs.*')
+
+					local pattern = require('harp').filetype_search_get_pattern('f', '')
+					vim.fn.setreg('/', pattern)
 				end,
 			},
 			{
