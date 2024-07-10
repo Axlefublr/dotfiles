@@ -74,13 +74,13 @@ return {
 			},
 		},
 	},
-	{
-		'kevinhwang91/nvim-ufo',
-		opts = {
-			open_fold_hl_timeout = 100,
-			provider_selector = function() return { 'treesitter', 'indent' } end,
-		},
-	},
+	-- {
+	-- 	'kevinhwang91/nvim-ufo',
+	-- 	opts = {
+	-- 		open_fold_hl_timeout = 100,
+	-- 		provider_selector = function() return { 'treesitter', 'indent' } end,
+	-- 	},
+	-- },
 	{
 		'ErichDonGubler/lsp_lines.nvim',
 		event = 'LspAttach',

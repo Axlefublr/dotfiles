@@ -611,12 +611,13 @@ local normal_mappings = {
 			},
 		})
 	end,
-	['g;'] = function() require('telescope.builtin').help_tags() end,
+	['<Leader>jq'] = function() require('telescope.builtin').help_tags() end,
 	['g,'] = ':help ',
 	['<Leader>js'] = function() require('telescope.builtin').current_buffer_fuzzy_find() end,
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
 	['<Leader>jx'] = function() require('telescope.builtin').git_branches() end,
+	['<Leader>jX'] = function() require('telescope.builtin').git_stash() end,
 	['<Leader>je'] = function() require('telescope.builtin').git_status() end,
 	['<Leader>j\\'] = function() require('telescope.builtin').builtin() end,
 	['<Leader>jw'] = function() require('telescope.builtin').buffers() end,
@@ -626,7 +627,6 @@ local normal_mappings = {
 	['<Leader>ji'] = function() require('telescope.builtin').marks() end,
 	['<Leader>jh'] = function() require('telescope.builtin').highlights() end,
 	['<Leader>j;'] = function() require('telescope.builtin').filetypes() end,
-	['<Leader>jq'] = function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end,
 	['<Leader>jQ'] = function() require('telescope.builtin').diagnostics() end,
 	['<Leader>jj'] = function() require('telescope.builtin').quickfix() end,
 

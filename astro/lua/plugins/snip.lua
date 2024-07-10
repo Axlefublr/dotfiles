@@ -140,6 +140,7 @@ local snippets = function()
 		s('rt', {
 			t({ 'return' }),
 		}),
+		s('Leader', { t('<Leader>') }),
 	}
 	ls.add_snippets('lua', lua_snippets)
 
@@ -289,18 +290,18 @@ local snippets = function()
 		s('cc', {
 			t('{{c1::'),
 			i(1),
-			t('}}')
+			t('}}'),
 		}),
 		s('cda', {
 			t({ '<div class="codeblock above">', '\t' }),
 			i(0),
-			t({ '', '</div>' })
+			t({ '', '</div>' }),
 		}),
 		s('cdb', {
 			t({ '<div class="codeblock below">', '\t' }),
 			i(0),
-			t({ '', '</div>' })
-		})
+			t({ '', '</div>' }),
+		}),
 	}
 	ls.add_snippets('html', html_snippets)
 end
