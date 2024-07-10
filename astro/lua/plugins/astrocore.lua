@@ -502,7 +502,7 @@ local normal_mappings = {
 	['}'] = function() move_to_blank_line(true) end,
 
 	-- Window
-	["<Leader>a'"] = '<C-w>|',
+	["<Leader>ao"] = '<C-w>|',
 	['<A-h>'] = '<C-w><',
 	['<A-l>'] = '<C-w>>',
 	['<C-n>'] = '<C-w>-',
@@ -527,7 +527,6 @@ local normal_mappings = {
 	['<Leader>aj'] = '<C-w>j',
 	['<Leader>ak'] = '<C-w>k',
 	['<Leader>al'] = '<C-w>l',
-	['<Leader>ao'] = '<C-w>b',
 	['<Leader>ap'] = '<Cmd>tabnew<CR>',
 	['<Leader>ar'] = '<C-w>r',
 	['<Leader>as'] = '<C-w>H',
@@ -535,8 +534,7 @@ local normal_mappings = {
 	['<Leader>atj'] = function() vim.cmd('split') end,
 	['<Leader>atk'] = function() vim.cmd('leftabove split') end,
 	['<Leader>atl'] = function() vim.cmd('vsplit') end,
-	['<Leader>au'] = '<C-w>t',
-	['<Leader>av'] = '<C-w>_',
+	['<Leader>au'] = '<C-w>_',
 	['<Leader>awh'] = function() vim.cmd('leftabove vnew') end,
 	['<Leader>awj'] = function() vim.cmd('new') end,
 	['<Leader>awk'] = function() vim.cmd('leftabove new') end,
