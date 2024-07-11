@@ -53,6 +53,7 @@ env.color = {
 	light25 = '#403f3f',
 	light19 = '#313030',
 	level = '#292828',
+	dark14 = '#242323',
 	dark13 = '#212121',
 	dark12 = '#1f1e1e',
 	dark10 = '#1a1919',

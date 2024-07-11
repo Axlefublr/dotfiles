@@ -20,6 +20,7 @@ return {
 
 				['Light25'] = bg('light25'),
 				['Light19'] = bg('light19'),
+				['Dark14'] = bg('dark14'),
 				['Dark13'] = bg('dark13'),
 				['Dark12'] = bg('dark12'),
 				['Dark10'] = bg('dark10'),
@@ -54,11 +55,11 @@ return {
 				['ShellYellow'] = { fg = color.shell_yellow },
 				['ShellYellowBold'] = { fg = color.shell_yellow, bold = true },
 				['ShellYellowBoldOnDark12'] = { fg = color.shell_yellow, bg = color.dark12, bold = true },
-				['BoldOnShellYellow'] = { fg = color.level, bg = color.shell_yellow, bold = true },
+				['ShellYellowBoldBackground'] = { fg = color.level, bg = color.shell_yellow, bold = true },
 
 				['ShellPink'] = { fg = color.shell_pink },
 				['ShellPinkBold'] = { fg = color.shell_pink, bold = true },
-				['BoldOnShellPink'] = { fg = color.level, bg = color.shell_pink, bold = true },
+				['ShellPinkBoldBackground'] = { fg = color.level, bg = color.shell_pink, bold = true },
 
 				['ShellGrey'] = { fg = color.shell_grey },
 				['ShellGreyBold'] = { fg = color.shell_grey, bold = true },
@@ -74,6 +75,8 @@ return {
 
 				['ShellPurple'] = { fg = color.shell_purple },
 				['ShellPurpleBold'] = { fg = color.shell_purple, bold = true },
+
+				['RedBoldBackground'] = { fg = color.level, bg = color.red, bold = true },
 
 				['OrangeBoldBackground'] = { fg = color.level, bg = color.orange, bold = true },
 				['OrangeBoldNocombine'] = { fg = color.orange, bold = true, nocombine = true },
@@ -92,6 +95,8 @@ return {
 				['AquaAndUnderline'] = { fg = color.mint, underline = true },
 				['AquaBoldBackground'] = { fg = color.level, bg = color.mint, bold = true },
 				['AquaUndercurl'] = { sp = color.mint, undercurl = true },
+
+				['BlueBoldBackground'] = { fg = color.level, bg = color.cyan, bold = true },
 
 				['PurpleAndUnderline'] = { fg = color.purple, underline = true },
 				['PurpleBoldBackground'] = { fg = color.level, bg = color.purple, bold = true },
@@ -227,7 +232,8 @@ return {
 				['Search'] = link('AquaBoldBackground'),
 				['CurSearch'] = link('PurpleBoldBackground'),
 				['IncSearch'] = link('PurpleBoldBackground'),
-				['Folded'] = link('Light19'),
+				['Folded'] = link('Dark14'),
+				-- ['CursorLine'] = link('Light19'),
 
 				['OilDir'] = link('Fg'),
 				['OilDirIcon'] = link('ShellYellow'),
@@ -247,8 +253,11 @@ return {
 				['TelescopeSelectionCaret'] = link('ShellYellowBoldOnDark12'),
 				['TelescopeMultiSelection'] = link('Blue'),
 
-				['EyelinerPrimary'] = link('BoldOnShellPink'),
-				['EyelinerSecondary'] = link('BoldOnShellYellow'),
+				['EyelinerPrimary'] = link('ShellPinkBoldBackground'),
+				['EyelinerSecondary'] = link('ShellYellowBoldBackground'),
+				['LuminatePaste'] = link('RedBoldBackground'),
+				['HighlightUndo'] = link('AquaBoldBackground'),
+				['HighlightRedo'] = link('AquaBoldBackground'),
 
 				['CmpItemKindSnippet'] = link('Yellow'),
 				['CmpItemAbbrMatch'] = link('ShellYellowBoldOnDark12'),
