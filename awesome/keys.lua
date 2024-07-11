@@ -17,7 +17,22 @@ function FixBrowserInstance(index)
 	activate_tag(prev_tag)
 end
 
-function Move_window_to_tag(index)
+function MoveVideoPopout(client, x, y, width, height)
+	local client = client or client.focus
+	local x = x or 0
+	local y = y or 0
+	local width = width or 1
+	local height = height or 1
+	client.floating = true
+	client.ontop = true
+	client.sticky = true
+	client.x = x
+	client.y = y
+	client.width = width
+	client.height = height
+end
+
+function MoveWindowToTag(index)
 	if client.focus then
 		local tag = client.focus.screen.tags[index]
 		if tag then client.focus:move_to_tag(tag) end
@@ -33,9 +48,7 @@ end
 function Unminimize_all_on_tag(tag)
 	local tag = tag or awful.tag.selected(awful.screen.focused())
 	for _, client in ipairs(tag:clients()) do
-		if client.minimized then
-			client.minimized = false
-		end
+		if client.minimized then client.minimized = false end
 	end
 end
 
@@ -137,22 +150,22 @@ Global_keys = gears.table.join(
 	awful.key({ modkey, 'Mod1' }, '/', function() activate_tag(16) end),
 
 	-- Move window to tag
-	awful.key({ modkey, 'Control' }, 'u', function() Move_window_to_tag(1) end),
-	awful.key({ modkey, 'Control' }, 'i', function() Move_window_to_tag(2) end),
-	awful.key({ modkey, 'Control' }, 'o', function() Move_window_to_tag(3) end),
-	awful.key({ modkey, 'Control' }, 'p', function() Move_window_to_tag(4) end),
-	awful.key({ modkey, 'Control' }, 'm', function() Move_window_to_tag(5) end),
-	awful.key({ modkey, 'Control' }, ',', function() Move_window_to_tag(6) end),
-	awful.key({ modkey, 'Control' }, '.', function() Move_window_to_tag(7) end),
-	awful.key({ modkey, 'Control' }, '/', function() Move_window_to_tag(8) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, 'u', function() Move_window_to_tag(9) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, 'i', function() Move_window_to_tag(10) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, 'o', function() Move_window_to_tag(11) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, 'p', function() Move_window_to_tag(12) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, 'm', function() Move_window_to_tag(13) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, ',', function() Move_window_to_tag(14) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, '.', function() Move_window_to_tag(15) end),
-	awful.key({ modkey, 'Control', 'Mod1' }, '/', function() Move_window_to_tag(16) end),
+	awful.key({ modkey, 'Control' }, 'u', function() MoveWindowToTag(1) end),
+	awful.key({ modkey, 'Control' }, 'i', function() MoveWindowToTag(2) end),
+	awful.key({ modkey, 'Control' }, 'o', function() MoveWindowToTag(3) end),
+	awful.key({ modkey, 'Control' }, 'p', function() MoveWindowToTag(4) end),
+	awful.key({ modkey, 'Control' }, 'm', function() MoveWindowToTag(5) end),
+	awful.key({ modkey, 'Control' }, ',', function() MoveWindowToTag(6) end),
+	awful.key({ modkey, 'Control' }, '.', function() MoveWindowToTag(7) end),
+	awful.key({ modkey, 'Control' }, '/', function() MoveWindowToTag(8) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, 'u', function() MoveWindowToTag(9) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, 'i', function() MoveWindowToTag(10) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, 'o', function() MoveWindowToTag(11) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, 'p', function() MoveWindowToTag(12) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, 'm', function() MoveWindowToTag(13) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, ',', function() MoveWindowToTag(14) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, '.', function() MoveWindowToTag(15) end),
+	awful.key({ modkey, 'Control', 'Mod1' }, '/', function() MoveWindowToTag(16) end),
 	awful.key({ modkey, 'Shift' }, 'u', function() toggle_window_on_tag(1) end),
 	awful.key({ modkey, 'Shift' }, 'i', function() toggle_window_on_tag(2) end),
 	awful.key({ modkey, 'Shift' }, 'o', function() toggle_window_on_tag(3) end),
@@ -173,13 +186,11 @@ Global_keys = gears.table.join(
 
 root.keys(Global_keys)
 
-Client_keys = gears.table.join(
-	awful.key({ modkey, 'Shift' }, 'w', function(client)
-		local current_tag = screen.primary.selected_tag
-		if current_tag then
-			for _, other_client in ipairs(current_tag:clients()) do
-				if other_client ~= client then other_client:kill() end
-			end
+Client_keys = gears.table.join(awful.key({ modkey, 'Shift' }, 'w', function(client)
+	local current_tag = screen.primary.selected_tag
+	if current_tag then
+		for _, other_client in ipairs(current_tag:clients()) do
+			if other_client ~= client then other_client:kill() end
 		end
-	end)
-)
+	end
+end))

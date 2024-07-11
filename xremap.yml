@@ -59,6 +59,11 @@ keymap:
     remap:
       g: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
+      q: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 0, 35, 490, 500)'] }
+      r: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 1428, 35, 490, 500)'] }
+      w: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 0, 802, 490, 500)'] }
+      e: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 1428, 802, 490, 500)'] }
+
       h: { launch: [awesome-client, 'client.focus:relative_move(-1, 0, 0, 0)'] }
       l: { launch: [awesome-client, 'client.focus:relative_move(1, 0, 0, 0)'] }
       j: { launch: [awesome-client, 'client.focus:relative_move(0, 1, 0, 0)'] }
@@ -288,8 +293,10 @@ keymap:
           { launch: [fish, -c, 'c yandex neoline'] },
         ]
 
-      Slash: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 1'] }]
-      Shift-Slash: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 6'] }]
+      Slash:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 1'] }]
+      Shift-Slash:
+        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 6'] }]
       Dot:
         [
           { set_mode: default },
