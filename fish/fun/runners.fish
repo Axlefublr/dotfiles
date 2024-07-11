@@ -178,7 +178,7 @@ function magazine_append_link
     set -e result[-1]
     set result "$result"
     set link (xclip -selection clipboard -o)
-    indeed -u ~/.local/share/magazine/l "$result — $link"
+    indeed -u ~/.local/share/magazine/l "$result — $link"\n
     silly_sort.py ~/.local/share/magazine/l
     notify-send -t 2000 "append l with $link"
 end
