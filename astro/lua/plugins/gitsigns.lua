@@ -49,8 +49,8 @@ local opts_table = {
 			end
 		end
 
-		map('n', ']d', function() schedule_repeat(pkg.next_hunk) end)
-		map('n', '[d', function() schedule_repeat(pkg.prev_hunk) end)
+		map({ 'n', 'x' }, ']d', function() schedule_repeat(pkg.next_hunk) end)
+		map({ 'n', 'x' }, '[d', function() schedule_repeat(pkg.prev_hunk) end)
 
 		map('n', '<Leader>cj', pkg.stage_hunk)
 		map('n', '<Leader>ck', pkg.undo_stage_hunk)
