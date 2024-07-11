@@ -32,6 +32,11 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = 'Zathura' },
+		properties = { tag = screen.primary.tags[4] }
+	},
+
+	{
 		rule = { class = 'Spotify' },
 		properties = { tag = screen.primary.tags[6] },
 	},
