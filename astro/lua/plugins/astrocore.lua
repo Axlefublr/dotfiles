@@ -710,7 +710,6 @@ local normal_mappings = {
 	dP = 'ddkP',
 	dp = 'ddp',
 	gK = 'K',
-	gss = '==',
 	yP = 'yyP',
 	yp = 'yyp',
 	zff = 'zfl',
@@ -802,6 +801,7 @@ local pending_mappings = {
 	['}'] = 'V}',
 	['+'] = 'v+',
 	['-'] = 'v-',
+	gs = { 'gc', remap = true },
 }
 
 local command_mappings = {
@@ -874,14 +874,20 @@ local normal_visual_mappings = {
 		FeedKeys(':')
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
-	['/'] = { function()
-		env.play_sound('drop_004.ogg', 60)
-		return '/'
-	end, expr = true },
-	['?'] = { function()
-		env.play_sound('drop_004.ogg', 60)
-		return '?'
-	end, expr = true },
+	['/'] = {
+		function()
+			env.play_sound('drop_004.ogg', 60)
+			return '/'
+		end,
+		expr = true,
+	},
+	['?'] = {
+		function()
+			env.play_sound('drop_004.ogg', 60)
+			return '?'
+		end,
+		expr = true,
+	},
 	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
@@ -890,7 +896,6 @@ local normal_visual_mappings = {
 	['[{'] = '{j',
 	[']}'] = '}k',
 	['gz'] = 'g<C-g>',
-	gs = '=',
 }
 
 local insert_select_mappings = {
