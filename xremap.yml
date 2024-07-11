@@ -895,11 +895,10 @@ keymap:
   - name: Any! wm
     exact_match: true
     remap:
-      Shift_L-Alt-d: { launch: [awesome-client, awful.client.floating.toggle()] }
-      Shift_L-Alt-r: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-      Shift_L-Alt-w: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-      Shift_L-Alt-f: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
-      Shift_L-Alt-s: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+      CapsLock-Alt-j: { launch: [awesome-client, awful.client.floating.toggle()] }
+      CapsLock-Alt-l: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+      CapsLock-Alt-i: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+      CapsLock-Alt-k: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
       CapsLock-Alt-LeftBrace:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:
