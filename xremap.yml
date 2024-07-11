@@ -30,7 +30,6 @@ keymap:
       only: Anki
     remap:
       Ctrl-Semicolon: ctrl-shift-x
-      Ctrl-Apostrophe: ctrl-z
       Ctrl-Slash: ctrl-shift-alt-c
 
   - name: Spotify!
@@ -1028,6 +1027,8 @@ keymap:
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
       CapsLock-f: tab
+      CapsLock-Shift-o: ctrl-z
+      CapsLock-Shift-u: ctrl-y
       CapsLock-Alt-d: ctrl-a
       CapsLock-Alt-s: ctrl-x
       CapsLock-Ctrl-d: ctrl-shift-v
