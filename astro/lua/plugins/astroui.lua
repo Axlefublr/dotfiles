@@ -54,9 +54,11 @@ return {
 				['ShellYellow'] = { fg = color.shell_yellow },
 				['ShellYellowBold'] = { fg = color.shell_yellow, bold = true },
 				['ShellYellowBoldOnDark12'] = { fg = color.shell_yellow, bg = color.dark12, bold = true },
+				['BoldOnShellYellow'] = { fg = color.level, bg = color.shell_yellow, bold = true },
 
 				['ShellPink'] = { fg = color.shell_pink },
 				['ShellPinkBold'] = { fg = color.shell_pink, bold = true },
+				['BoldOnShellPink'] = { fg = color.level, bg = color.shell_pink, bold = true },
 
 				['ShellGrey'] = { fg = color.shell_grey },
 				['ShellGreyBold'] = { fg = color.shell_grey, bold = true },
@@ -243,6 +245,10 @@ return {
 				['TelescopeSelection'] = link('Dark12'),
 				['TelescopeMatching'] = link('ShellYellowBold'),
 				['TelescopeSelectionCaret'] = link('ShellYellowBoldOnDark12'),
+				['TelescopeMultiSelection'] = link('Blue'),
+
+				['EyelinerPrimary'] = link('BoldOnShellPink'),
+				['EyelinerSecondary'] = link('BoldOnShellYellow'),
 
 				['CmpItemKindSnippet'] = link('Yellow'),
 				['CmpItemAbbrMatch'] = link('ShellYellowBoldOnDark12'),
