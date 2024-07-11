@@ -241,6 +241,29 @@ local function diag_this_file()
 	end
 end
 
+local function open_link_in_instance(index)
+	local index = (index or 1) - 1
+	require('various-textobjs').url()
+
+	-- plugin only switches to visual mode when textobj found
+	local foundURL = vim.fn.mode():find('v')
+
+	-- if not found, search whole buffer via urlview.nvim instead
+	if not foundURL then
+		vim.cmd.UrlView('buffer')
+		return
+	end
+
+	local previous_clipboard = vim.fn.getreg(env.default_register)
+	vim.cmd.normal({ 'y', bang = true })
+	local url = vim.fn.getreg()
+	vim.fn.setreg(env.default_register, previous_clipboard)
+
+	env.shell({ 'wmctrl', '-s', index }):wait()
+	local openCommand = string.format("xdg-open '%s' >/dev/null 2>&1", url)
+	os.execute(openCommand)
+end
+
 local function count_repeats_keys(keys)
 	for _ = 1, vim.v.count1 do
 		FeedKeysInt(keys)
@@ -309,6 +332,8 @@ local normal_mappings = {
 		local path = vim.api.nvim_buf_get_name(0)
 		env.shell({ 'xdg-open', path })
 	end,
+	cc = function() open_link_in_instance(2) end,
+	cC = function() open_link_in_instance(7) end,
 
 	-- Toggles
 	['<Leader>ce'] = function()
@@ -969,7 +994,7 @@ local opts_table = {
 			ignorecase = true,
 			inccommand = 'nosplit',
 			langmap = 'йЙцЦуУкКеЕнНгГшШщЩзЗхХъЪфФыЫвВаАпПрРоОлЛдДжЖэЭяЯчЧсСмМиИтТьЬбБюЮ;qQwWeErRtTyYuUiIoOpP[{]}aAsSdDfFgGhHjJkKlL;:\'\\"zZxXcCvVbBnNmM\\,<.>',
-			lazyredraw = true,
+			lazyredraw = false,
 			linebreak = false,
 			list = true,
 			listchars = 'tab:↦ ,multispace:·',

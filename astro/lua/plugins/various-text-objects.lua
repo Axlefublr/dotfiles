@@ -1,30 +1,8 @@
-local function open_link_in_instance(index)
-	local index = (index or 1) - 1
-	require('various-textobjs').url()
-
-	-- plugin only switches to visual mode when textobj found
-	local foundURL = vim.fn.mode():find('v')
-
-	-- if not found, search whole buffer via urlview.nvim instead
-	if not foundURL then
-		vim.cmd.UrlView('buffer')
-		return
-	end
-
-	local previous_clipboard = vim.fn.getreg(env.default_register)
-	vim.cmd.normal({ 'y', bang = true })
-	local url = vim.fn.getreg()
-	vim.fn.setreg(env.default_register, previous_clipboard)
-
-	env.shell({ 'wmctrl', '-s', index }):wait()
-	local openCommand = string.format("xdg-open '%s' >/dev/null 2>&1", url)
-	os.execute(openCommand)
-end
-
 ---@type LazySpec
 return {
 	{
 		'chrisgrieser/nvim-various-textobjs',
+		lazy = true,
 		keys = {
 			{ mode = { 'o', 'x' }, 'ii', function() require('various-textobjs').indentation('inner', 'inner') end },
 			{ mode = { 'o', 'x' }, 'ai', function() require('various-textobjs').indentation('outer', 'inner') end },
@@ -54,14 +32,6 @@ return {
 			{ mode = { 'o' }, 'am', function() vim.cmd('normal viijok') end },
 			{ mode = { 'o' }, 'iM', function() vim.cmd('normal viio2k') end },
 			{ mode = { 'o' }, 'aM', function() vim.cmd('normal viijo2k') end },
-			{
-				'gx',
-				function() open_link_in_instance(2) end
-			},
-			{
-				'gX',
-				function() open_link_in_instance(7) end
-			},
 			{
 				'dsi',
 				function()
