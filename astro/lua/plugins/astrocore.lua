@@ -856,6 +856,8 @@ local normal_visual_pending_mappings = {
 	['m]'] = '`]',
 	gm = function() FeedKeys(vim.v.count * 10 .. 'gM') end, -- cuts down precision of gM to 10s
 	gM = 'M',
+	['g.'] = 'gn',
+	['g>'] = 'gN',
 }
 
 local normal_visual_mappings = {
