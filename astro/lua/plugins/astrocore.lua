@@ -832,6 +832,7 @@ local command_mappings = {
 	['<A-s>'] = '\\zs',
 	['<A-d>'] = '\\ze',
 	['<A-f>'] = '<C-f>',
+	['<A-;>'] = '<C-z>', -- I use wildcharm, that doesn't recognize <A-;>, but does <C-z>. Hence the remap.
 }
 
 local command_insert_mappings = {
@@ -989,6 +990,7 @@ local opts_table = {
 			colorcolumn = '',
 			cpoptions = 'aABceFs',
 			cursorline = true,
+			wildcharm = 26, -- is ctrl+z
 			cursorlineopt = 'both',
 			eol = false,
 			expandtab = false,

@@ -233,7 +233,6 @@ return {
 				['CurSearch'] = link('PurpleBoldBackground'),
 				['IncSearch'] = link('PurpleBoldBackground'),
 				['Folded'] = link('Dark14'),
-				-- ['CursorLine'] = link('Light19'),
 
 				['OilDir'] = link('Fg'),
 				['OilDirIcon'] = link('ShellYellow'),
