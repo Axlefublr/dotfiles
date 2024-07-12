@@ -915,8 +915,8 @@ keymap:
       CapsLock-Alt-e: { launch: [fish, -c, 'set_mic_volume +5'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
-      CapsLock-3: { launch: [fish, -c, media_prev] }
-      CapsLock-4: { launch: [fish, -c, media_next] }
+      CapsLock-Alt-Shift-d: { launch: [fish, -c, media_prev] }
+      CapsLock-Alt-d: { launch: [fish, -c, media_next] }
       CapsLock-t: { launch: [fish, -c, toggle_media] }
 
   - name: Any!
