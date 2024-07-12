@@ -823,7 +823,6 @@ local command_mappings = {
 	["<A-'>E"] = function() killring_pop_tail('command') end,
 	["<A-'>e"] = function() killring_pop('command') end,
 	['<C-v>'] = '<C-r>+',
-	['<C-y>'] = '<C-l>',
 	['<A-h>'] = '<C-t>',
 	['<A-l>'] = '<C-g>',
 	['<C-k>'] = '<Up>',
@@ -832,7 +831,7 @@ local command_mappings = {
 	['<A-s>'] = '\\zs',
 	['<A-d>'] = '\\ze',
 	['<A-f>'] = '<C-f>',
-	['<A-;>'] = '<C-z>', -- I use wildcharm, that doesn't recognize <A-;>, but does <C-z>. Hence the remap.
+	['<A-;>'] = '<C-l>', -- I use wildcharm, that doesn't recognize <A-;>, but does <C-z>. Hence the remap.
 }
 
 local command_insert_mappings = {
@@ -990,7 +989,7 @@ local opts_table = {
 			colorcolumn = '',
 			cpoptions = 'aABceFs',
 			cursorline = true,
-			wildcharm = 26, -- is <C-z>
+			wildcharm = 12, -- is <C-l>
 			cursorlineopt = 'both',
 			eol = false,
 			expandtab = false,
