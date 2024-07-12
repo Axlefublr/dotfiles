@@ -118,4 +118,12 @@ return {
 			dim = false,
 		},
 	},
+	{
+		'kylechui/nvim-surround',
+		opts = {
+			keymaps = {
+				visual = 'c'
+			},
+		},
+	},
 }
