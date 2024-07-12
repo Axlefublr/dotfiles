@@ -63,15 +63,6 @@ function env.shell(cmd, opts, on_exit)
 	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts or {}), on_exit)
 end
 
-function env.play_sound(relative_path, volume)
-	if not env.should_play_soundeffects then return end
-	local path = env.soundeffects .. relative_path
-	local volume = volume or 100
-	local clamped_volume = math.max(0, math.min(100, volume))
-	local paplay_volume = math.floor(clamped_volume * 655.36)
-	vim.system({ 'paplay', path, '--volume', tostring(paplay_volume) })
-end
-
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
 function FeedKeysInt(keys)

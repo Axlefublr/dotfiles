@@ -868,28 +868,12 @@ local normal_visual_mappings = {
 			else
 				FeedKeys(':')
 			end
-			env.play_sound('bloop-4.mp3', 70)
 		end,
 	},
 	['<S-CR>'] = function()
-		env.play_sound('bloop-4.mp3', 70)
 		FeedKeys(':')
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
-	['/'] = {
-		function()
-			env.play_sound('drop_004.ogg', 60)
-			return '/'
-		end,
-		expr = true,
-	},
-	['?'] = {
-		function()
-			env.play_sound('drop_004.ogg', 60)
-			return '?'
-		end,
-		expr = true,
-	},
 	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
@@ -1180,11 +1164,6 @@ local opts_table = {
 					---@diagnostic disable-next-line: param-type-mismatch
 					pcall(vim.cmd, 'silent update')
 				end,
-			},
-			{
-				event = 'User',
-				pattern = 'LeapEnter',
-				callback = function() env.play_sound('drop_004.ogg', 60) end,
 			},
 		},
 	},
