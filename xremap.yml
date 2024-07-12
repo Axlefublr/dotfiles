@@ -467,6 +467,71 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_get 8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_get 9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_get 0'] }
+      Shift_L-Alt-c:
+        exact_match: true
+        remap:
+          q: { launch: [fish, -c, 'magazine_cut q'] }
+          w: { launch: [fish, -c, 'magazine_cut w'] }
+          e: { launch: [fish, -c, 'magazine_cut e'] }
+          r: { launch: [fish, -c, 'magazine_cut r'] }
+          t: { launch: [fish, -c, 'magazine_cut t'] }
+          y: { launch: [fish, -c, 'magazine_cut y'] }
+          u: { launch: [fish, -c, 'magazine_cut u'] }
+          i: { launch: [fish, -c, 'magazine_cut i'] }
+          o: { launch: [fish, -c, 'magazine_cut o'] }
+          p: { launch: [fish, -c, 'magazine_cut p'] }
+          a: { launch: [fish, -c, 'magazine_cut a'] }
+          s: { launch: [fish, -c, 'magazine_cut s'] }
+          d: { launch: [fish, -c, 'magazine_cut d'] }
+          f: { launch: [fish, -c, 'magazine_cut f'] }
+          g: { launch: [fish, -c, 'magazine_cut g'] }
+          h: { launch: [fish, -c, 'magazine_cut h'] }
+          j: { launch: [fish, -c, 'magazine_cut j'] }
+          k: { launch: [fish, -c, 'magazine_cut k'] }
+          l: { launch: [fish, -c, 'magazine_cut l'] }
+          z: { launch: [fish, -c, 'magazine_cut z'] }
+          x: { launch: [fish, -c, 'magazine_cut x'] }
+          c: { launch: [fish, -c, 'magazine_cut c'] }
+          v: { launch: [fish, -c, 'magazine_cut v'] }
+          b: { launch: [fish, -c, 'magazine_cut b'] }
+          n: { launch: [fish, -c, 'magazine_cut n'] }
+          m: { launch: [fish, -c, 'magazine_cut m'] }
+          Shift-q: { launch: [fish, -c, 'magazine_cut Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_cut W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_cut E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_cut R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_cut T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_cut Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_cut U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_cut I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_cut O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_cut P'] }
+          Shift-a: { launch: [fish, -c, 'magazine_cut A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_cut S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_cut D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_cut F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_cut G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_cut H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_cut J'] }
+          Shift-k: { launch: [fish, -c, 'magazine_cut K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_cut L'] }
+          Shift-z: { launch: [fish, -c, 'magazine_cut Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_cut X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_cut C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_cut V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_cut B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_cut N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_cut M'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_cut 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_cut 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_cut 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_cut 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_cut 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_cut 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_cut 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_cut 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_cut 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_cut 0'] }
       Shift_L-r:
         exact_match: true
         remap:
@@ -662,6 +727,71 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_append 8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_append 9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_append 0'] }
+      Shift_L-Alt-s:
+        exact_match: true
+        remap:
+          q: { launch: [fish, -c, 'magazine_write q'] }
+          w: { launch: [fish, -c, 'magazine_write w'] }
+          e: { launch: [fish, -c, 'magazine_write e'] }
+          r: { launch: [fish, -c, 'magazine_write r'] }
+          t: { launch: [fish, -c, 'magazine_write t'] }
+          y: { launch: [fish, -c, 'magazine_write y'] }
+          u: { launch: [fish, -c, 'magazine_write u'] }
+          i: { launch: [fish, -c, 'magazine_write i'] }
+          o: { launch: [fish, -c, 'magazine_write o'] }
+          p: { launch: [fish, -c, 'magazine_write p'] }
+          a: { launch: [fish, -c, 'magazine_write a'] }
+          s: { launch: [fish, -c, 'magazine_write s'] }
+          d: { launch: [fish, -c, 'magazine_write d'] }
+          f: { launch: [fish, -c, 'magazine_write f'] }
+          g: { launch: [fish, -c, 'magazine_write g'] }
+          h: { launch: [fish, -c, 'magazine_write h'] }
+          j: { launch: [fish, -c, 'magazine_write j'] }
+          k: { launch: [fish, -c, 'magazine_write k'] }
+          l: { launch: [fish, -c, 'magazine_write_link'] }
+          z: { launch: [fish, -c, 'magazine_write z'] }
+          x: { launch: [fish, -c, 'magazine_write x'] }
+          c: { launch: [fish, -c, 'magazine_write c'] }
+          v: { launch: [fish, -c, 'magazine_write v'] }
+          b: { launch: [fish, -c, 'magazine_write b'] }
+          n: { launch: [fish, -c, 'magazine_write n'] }
+          m: { launch: [fish, -c, 'magazine_write m'] }
+          Shift-q: { launch: [fish, -c, 'magazine_write Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_write W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_write E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_write R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_write T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_write Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_write U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_write I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_write O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_write P'] }
+          Shift-a: { launch: [fish, -c, 'magazine_write A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_write S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_write D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_write F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_write G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_write H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_write J'] }
+          Shift-k: { launch: [fish, -c, 'magazine_write K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_write L'] }
+          Shift-z: { launch: [fish, -c, 'magazine_write Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_write X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_write C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_write V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_write B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_write N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_write M'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_write 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_write 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_write 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_write 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_write 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_write 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_write 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_write 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_write 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_write 0'] }
       Shift_L-v:
         exact_match: true
         remap:
@@ -727,6 +857,71 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_appset 8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_appset 9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_appset 0'] }
+      Shift_L-Alt-v:
+        exact_match: true
+        remap:
+          q: { launch: [fish, -c, 'magazine_set q'] }
+          w: { launch: [fish, -c, 'magazine_set w'] }
+          e: { launch: [fish, -c, 'magazine_set e'] }
+          r: { launch: [fish, -c, 'magazine_set r'] }
+          t: { launch: [fish, -c, 'magazine_set t'] }
+          y: { launch: [fish, -c, 'magazine_set y'] }
+          u: { launch: [fish, -c, 'magazine_set u'] }
+          i: { launch: [fish, -c, 'magazine_set i'] }
+          o: { launch: [fish, -c, 'magazine_set o'] }
+          p: { launch: [fish, -c, 'magazine_set p'] }
+          a: { launch: [fish, -c, 'magazine_set a'] }
+          s: { launch: [fish, -c, 'magazine_set s'] }
+          d: { launch: [fish, -c, 'magazine_set d'] }
+          f: { launch: [fish, -c, 'magazine_set f'] }
+          g: { launch: [fish, -c, 'magazine_set g'] }
+          h: { launch: [fish, -c, 'magazine_set h'] }
+          j: { launch: [fish, -c, 'magazine_set j'] }
+          k: { launch: [fish, -c, 'magazine_set k'] }
+          l: { launch: [fish, -c, 'magazine_set l'] }
+          z: { launch: [fish, -c, 'magazine_set z'] }
+          x: { launch: [fish, -c, 'magazine_set x'] }
+          c: { launch: [fish, -c, 'magazine_set c'] }
+          v: { launch: [fish, -c, 'magazine_set v'] }
+          b: { launch: [fish, -c, 'magazine_set b'] }
+          n: { launch: [fish, -c, 'magazine_set n'] }
+          m: { launch: [fish, -c, 'magazine_set m'] }
+          Shift-q: { launch: [fish, -c, 'magazine_set Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_set W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_set E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_set R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_set T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_set Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_set U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_set I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_set O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_set P'] }
+          Shift-a: { launch: [fish, -c, 'magazine_set A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_set S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_set D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_set F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_set G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_set H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_set J'] }
+          Shift-k: { launch: [fish, -c, 'magazine_set K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_set L'] }
+          Shift-z: { launch: [fish, -c, 'magazine_set Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_set X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_set C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_set V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_set B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_set N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_set M'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_set 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_set 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_set 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_set 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_set 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_set 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_set 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_set 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_set 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_set 0'] }
       Shift_L-q:
         exact_match: true
         remap:
@@ -857,6 +1052,71 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_filter 8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_filter 9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_filter 0'] }
+      Shift_L-Alt-f:
+        exact_match: true
+        remap:
+          q: { launch: [fish, -c, 'magazine_view q'] }
+          w: { launch: [fish, -c, 'magazine_view w'] }
+          e: { launch: [fish, -c, 'magazine_view e'] }
+          r: { launch: [fish, -c, 'magazine_view r'] }
+          t: { launch: [fish, -c, 'magazine_view t'] }
+          y: { launch: [fish, -c, 'magazine_view y'] }
+          u: { launch: [fish, -c, 'magazine_view u'] }
+          i: { launch: [fish, -c, 'magazine_view i'] }
+          o: { launch: [fish, -c, 'magazine_view o'] }
+          p: { launch: [fish, -c, 'magazine_view p'] }
+          a: { launch: [fish, -c, 'magazine_view a'] }
+          s: { launch: [fish, -c, 'magazine_view s'] }
+          d: { launch: [fish, -c, 'magazine_view d'] }
+          f: { launch: [fish, -c, 'magazine_view f'] }
+          g: { launch: [fish, -c, 'magazine_view g'] }
+          h: { launch: [fish, -c, 'magazine_view h'] }
+          j: { launch: [fish, -c, 'magazine_view j'] }
+          k: { launch: [fish, -c, 'magazine_view k'] }
+          l: { launch: [fish, -c, 'magazine_view l'] }
+          z: { launch: [fish, -c, 'magazine_view z'] }
+          x: { launch: [fish, -c, 'magazine_view x'] }
+          c: { launch: [fish, -c, 'magazine_view c'] }
+          v: { launch: [fish, -c, 'magazine_view v'] }
+          b: { launch: [fish, -c, 'magazine_view b'] }
+          n: { launch: [fish, -c, 'magazine_view n'] }
+          m: { launch: [fish, -c, 'magazine_view m'] }
+          Shift-q: { launch: [fish, -c, 'magazine_view Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_view W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_view E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_view R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_view T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_view Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_view U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_view I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_view O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_view P'] }
+          Shift-a: { launch: [fish, -c, 'magazine_view A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_view S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_view D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_view F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_view G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_view H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_view J'] }
+          Shift-k: { launch: [fish, -c, 'magazine_view K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_view L'] }
+          Shift-z: { launch: [fish, -c, 'magazine_view Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_view X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_view C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_view V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_view B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_view N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_view M'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_view 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_view 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_view 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_view 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_view 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_view 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_view 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_view 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_view 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_view 0'] }
 
   - name: Any! numbers & special symbols
     exact_match: true
