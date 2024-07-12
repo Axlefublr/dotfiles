@@ -177,6 +177,13 @@ local snippets = function()
 	ls.add_snippets('lua', lua_snippets)
 
 	local fish_snippets = {
+		s('if', {
+			t('if '),
+			i(1),
+			t({ '', '\t' }),
+			i(2),
+			t({ '', 'end' }),
+		}),
 		s('#!', {
 			t({ '#!/usr/bin/env fish', '' }), -- {} in a t is a multiline text node, every separate string is its own line
 		}),
