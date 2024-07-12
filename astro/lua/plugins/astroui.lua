@@ -212,6 +212,7 @@ return {
 				['LspCodeLensSeparator'] = link('InlayHints'),
 				['LspInformationVirtual'] = link('InlayHints'),
 				['NormalFloat'] = link('Dark13'),
+				['CccFloatNormal'] = link('Dark12'),
 				['PMenu'] = link('Dark13'),
 				['PMenuExtra'] = link('Dark13'),
 				['PMenuSBar'] = link('Dark13'),

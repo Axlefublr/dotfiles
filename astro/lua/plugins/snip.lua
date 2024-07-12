@@ -137,7 +137,7 @@ local snippets = function()
 		s('#!', {
 			t({ '#!/usr/bin/lua', '' }),
 		}),
-		s('rt', {
+		s('rn', {
 			t({ 'return' }),
 		}),
 		s('Leader', { t('<Leader>') }),
@@ -146,11 +146,27 @@ local snippets = function()
 			i(1),
 			t({ "', {", '\t' }),
 			i(2, 't'),
-			t('('),
+			t("('"),
 			i(3),
-			t('),'),
+			t("'),"),
 			i(4),
-			t({ '', '})' }),
+			t({ '', '}),' }),
+		}),
+		s('ebrc', {
+			t({ '= {', '\t' }),
+			i(1),
+			t({ '', '},' })
+		}),
+		s('ebr', {
+			t({ '= {', '\t' }),
+			i(1),
+			t({ '', '}' })
+		}),
+		s('Cmd', {
+			t('<Cmd>'),
+			i(1),
+			t('<CR>'),
+			i(0),
 		}),
 	}
 	ls.add_snippets('lua', lua_snippets)
