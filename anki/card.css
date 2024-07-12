@@ -23,6 +23,31 @@ i {
 	margin-bottom: 20px;
 }
 
+.header.red {
+	color: #ff2930;
+}
+
+.header.orange {
+	color: #ff9f1a;
+}
+
+.header.yellow {
+	color: #ffd75f;
+}
+
+.header.salad,
+.header.green {
+	color: #87ff5f;
+}
+
+.header.cyan {
+	color: #00d7ff;
+}
+
+.header.purple {
+	color: #af87ff;
+}
+
 .margin {
 	height: 30px;
 }
