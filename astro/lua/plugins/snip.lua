@@ -21,85 +21,85 @@ local snippets = function()
 		s('tm', {
 			f(function() return os.date('%H:%M') end),
 		}),
-		s('ff2930', {
+		s('sh_red', {
 			t('ff2930'),
 		}),
-		s('ff9f1a', {
+		s('sh_orange', {
 			t('ff9f1a'),
 		}),
-		s('ffd75f', {
+		s('sh_yellow', {
 			t('ffd75f'),
 		}),
-		s('87ff5f', {
+		s('sh_salad', {
 			t('87ff5f'),
 		}),
-		s('3dff47', {
+		s('sh_green', {
 			t('3dff47'),
 		}),
-		s('00d7ff', {
+		s('sh_cyan', {
 			t('00d7ff'),
 		}),
-		s('af87ff', {
+		s('sh_purple', {
 			t('af87ff'),
 		}),
-		s('ffafd7', {
+		s('sh_pink', {
 			t('ffafd7'),
 		}),
-		s('ff8787', {
+		s('sh_coral', {
 			t('ff8787'),
 		}),
-		s('878787', {
+		s('sh_grey', {
 			t('878787'),
 		}),
-		s('ea6962', {
+		s('gr_red', {
 			t('ea6962'),
 		}),
-		s('e49641', {
+		s('gr_orange', {
 			t('e49641'),
 		}),
-		s('d3ad5c', {
+		s('gr_yellow', {
 			t('d3ad5c'),
 		}),
-		s('a9b665', {
+		s('gr_green', {
 			t('a9b665'),
 		}),
-		s('78bf84', {
+		s('gr_mint', {
 			t('78bf84'),
 		}),
-		s('7daea3', {
+		s('gr_cyan', {
 			t('7daea3'),
 		}),
-		s('b58cc6', {
+		s('gr_purple', {
 			t('b58cc6'),
 		}),
-		s('e491b2', {
+		s('gr_blush', {
 			t('e491b2'),
 		}),
-		s('d4be98', {
+		s('gr_white', {
 			t('d4be98'),
 		}),
-		s('928374', {
+		s('gr_grey', {
 			t('928374'),
 		}),
-		s('403f3f', {
+		s('gr_light25', {
 			t('403f3f'),
 		}),
-		s('313030', {
+		s('gr_light19', {
 			t('313030'),
 		}),
-		s('212121', {
+		s('gr_dark13', {
 			t('212121'),
 		}),
-		s('1f1e1e', {
+		s('gr_dark12', {
 			t('1f1e1e'),
 		}),
-		s('1a1919', {
+		s('gr_dark10', {
 			t('1a1919'),
 		}),
-		s('292828', {
+		s('gr_background', {
 			t('292828'),
 		}),
-		s('0f0f0f', {
+		s('sh_black', {
 			t('0f0f0f'),
 		}),
 	}
