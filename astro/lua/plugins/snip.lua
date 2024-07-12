@@ -141,6 +141,17 @@ local snippets = function()
 			t({ 'return' }),
 		}),
 		s('Leader', { t('<Leader>') }),
+		s('snp', {
+			t("s('"),
+			i(1),
+			t({ "', {", '\t' }),
+			i(2, 't'),
+			t('('),
+			i(3),
+			t('),'),
+			i(4),
+			t({ '', '})' }),
+		}),
 	}
 	ls.add_snippets('lua', lua_snippets)
 
