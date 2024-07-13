@@ -856,6 +856,28 @@ local normal_visual_pending_mappings = {
 	['b'] = "<Cmd>lua require('spider').motion('b')<CR>",
 	['ge'] = "<Cmd>lua require('spider').motion('ge')<CR>",
 
+	j = {
+		function()
+			if vim.v.count > 0 then
+				vim.g.stored_count_move_jk = vim.v.count
+				return 'j'
+			else
+				return (vim.g.stored_count_move_jk or 1) .. 'j'
+			end
+		end,
+		expr = true,
+	},
+	k = {
+		function()
+			if vim.v.count > 0 then
+				vim.g.stored_count_move_jk = vim.v.count
+				return 'k'
+			else
+				return (vim.g.stored_count_move_jk or 1) .. 'k'
+			end
+		end,
+		expr = true,
+	},
 	H = '<C-u>',
 	L = '<C-d>',
 	["m'"] = "`'",
