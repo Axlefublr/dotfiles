@@ -1124,14 +1124,13 @@ local opts_table = {
 				pattern = 'help',
 				callback = function() vim.opt_local.list = false end,
 			},
-			{ -- needed to stop `q` from exiting manpages
+			{
 				event = 'FileType',
 				pattern = 'man',
 				callback = function()
-					vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)', { buffer = true })
-					vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)', { buffer = true })
-					vim.keymap.set({ 'n', 'x', 'o' }, ',q', '<Plug>(leap-forward-till)', { buffer = true })
-					vim.keymap.set({ 'n', 'x', 'o' }, ',Q', '<Plug>(leap-backward-till)', { buffer = true })
+					vim.keymap.del('n', 'j', { buffer = true })
+					vim.keymap.del('n', 'k', { buffer = true })
+					vim.keymap.del('n', 'q', { buffer = true })
 				end,
 			},
 			{
