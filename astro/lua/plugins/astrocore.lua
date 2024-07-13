@@ -64,6 +64,29 @@ local function copy_git_relative()
 	vim.notify('repo relative: ' .. relative_path)
 end
 
+local function ghl_file()
+	local full_path = vim.api.nvim_buf_get_name(0)
+	local git_root = get_repo_root()
+	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
+	local output = env.shell({ 'ghl', relative_path }):wait()
+	if output.code ~= 0 then
+		vim.notify('ghl brokie 😭')
+		return
+	end
+	vim.fn.setreg(env.default_register, output.stdout, 'c')
+	vim.notify('ghl buffer: ' .. output.stdout)
+end
+
+local function ghl_repo()
+	local output = env.shell({ 'ghl' }):wait()
+	if output.code ~= 0 then
+		vim.notify('ghl brokie 😭')
+		return
+	end
+	vim.fn.setreg(env.default_register, output.stdout, 'c')
+	vim.notify('ghl repo: ' .. output.stdout)
+end
+
 local function copy_cwd()
 	local cwd = vim.fn.getcwd()
 	cwd = vim.fn.fnamemodify(cwd, ':~')
@@ -279,10 +302,12 @@ end
 
 local normal_mappings = {
 	['<Leader>de'] = copy_git_relative,
+	['<Leader>dE'] = ghl_file,
 	['<Leader>dq'] = copy_full_path,
 	['<Leader>dr'] = copy_cwd_relative,
 	['<Leader>dw'] = copy_file_name,
 	['<Leader>dt'] = copy_cwd,
+	['<Leader>dT'] = ghl_repo,
 
 	["'e"] = killring_pop,
 	["'E"] = killring_pop_tail,
@@ -693,9 +718,15 @@ local normal_mappings = {
 	['<Leader>dfd'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home() })
 	end,
-	['<Leader>daF'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' }) end,
-	['<Leader>daS'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd(), '--hold', 'nvim' }) end,
-	['<Leader>daD'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home(), '--hold', 'nvim' }) end,
+	['<Leader>daF'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' })
+	end,
+	['<Leader>daS'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd(), '--hold', 'nvim' })
+	end,
+	['<Leader>daD'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home(), '--hold', 'nvim' })
+	end,
 	['<Leader>dfF'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' })
 	end,
@@ -703,7 +734,17 @@ local normal_mappings = {
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd(), '--hold', 'nvim' })
 	end,
 	['<Leader>dfD'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home(), '--hold', 'nvim' })
+		require('astrocore').cmd({
+			'kitten',
+			'@',
+			'launch',
+			'--type',
+			'tab',
+			'--cwd',
+			harp_cd_get_or_home(),
+			'--hold',
+			'nvim',
+		})
 	end,
 
 	-- Direct
