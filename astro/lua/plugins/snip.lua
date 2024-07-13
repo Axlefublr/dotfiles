@@ -106,6 +106,9 @@ local snippets = function()
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
+		s('Esc', {
+			t('<Esc>'),
+		}),
 		s('map', {
 			t("vim.keymap.set('"),
 			i(1, 'n'),

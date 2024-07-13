@@ -1148,7 +1148,7 @@ keymap:
       CapsLock-n: shift_r-3
       CapsLock-o: shift_r-4
       CapsLock-u: grave
-      CapsLock-y: shift_r-2
+      CapsLock-Alt-n: shift_r-2
       CapsLock-m: shift_r-5
 
   - name: Any! wm
@@ -1281,6 +1281,10 @@ keymap:
   - name: Any functionality
     remap:
       Pause: { launch: [fish, -c, suspend] }
+
+  # - name: Any soundeffects
+  #   remap:
+  #     Alt_r-f: { launch: [paplay, ] }
 
   - name: Any
     remap:

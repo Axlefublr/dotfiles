@@ -700,7 +700,6 @@ local normal_mappings = {
 	zl = '@',
 	["zl'"] = '@"',
 	X = '@e',
-	gX = 'qe',
 	zz = '@@',
 	Y = 'yg_',
 	['<C-k>'] = 'O<Esc>',
@@ -1034,6 +1033,22 @@ local opts_table = {
 		},
 	},
 	autocmds = {
+		macromode = {
+			{
+				event = { 'RecordingLeave', 'VimEnter', },
+				callback = function()
+					vim.keymap.set('n', 'gX', 'qe')
+					vim.keymap.set('i', '<A-x>', '<Esc>qegi')
+				end,
+			},
+			{
+				event = 'RecordingEnter',
+				callback = function()
+					vim.keymap.set('n', 'gX', 'q')
+					vim.keymap.set('i', '<A-x>', '<Esc>qgi')
+				end,
+			},
+		},
 		everything = {
 			{
 				event = { 'VimEnter', 'WinEnter' },
@@ -1041,14 +1056,6 @@ local opts_table = {
 					vim.fn.matchadd('OrangeBoldBackground', 'FIXME:\\=')
 					vim.fn.matchadd('GreenBoldBackground', 'TODO:\\=')
 				end,
-			},
-			{
-				event = 'RecordingLeave',
-				callback = function() vim.keymap.set('n', 'gX', 'qe') end,
-			},
-			{
-				event = 'RecordingEnter',
-				callback = function() vim.keymap.set('n', 'gX', 'q') end,
 			},
 			{
 				event = { 'BufRead', 'BufNewFile' },
