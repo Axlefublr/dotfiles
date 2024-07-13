@@ -268,7 +268,7 @@ function filter_mature_tasks
     function if_print
         test "$argv[1]" -ge $argv[3] && echo "$argv[2] — $(math $argv[1] - $argv[3])" || printf ''
     end
-    set oldest (loago list | rg -v 'eat|razor' | awk '$3 > 4')
+    set oldest (loago list | rg -v 'eat|razor|rilter' | awk '$3 > 4')
     for task in $oldest
         set -l match (string match -gr '^(\\S+)\\s+— (\\d+)$' $task)
         set -l name $match[1]
@@ -402,3 +402,24 @@ function git_search
     end
 end
 funcsave git_search >/dev/null
+
+function igrai
+    if not test "$argv[1]"
+        echo "no sound effect path provided" >&2
+        return 1
+    end
+    set path $argv[1]
+    if test "$argv[2]"
+        set volume $argv[2]
+    else
+        set volume 100
+    end
+    if test "$volume" -gt 100
+        set volume 100
+    else if test "$volume" -lt 0
+        set volume 0
+    end
+    set volume (math "floor($volume * 655.36)")
+    paplay $path --volume $volume
+end
+funcsave igrai >/dev/null

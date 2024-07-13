@@ -1282,9 +1282,26 @@ keymap:
     remap:
       Pause: { launch: [fish, -c, suspend] }
 
-  # - name: Any soundeffects
-  #   remap:
-  #     Alt_r-f: { launch: [paplay, ] }
+  - name: Any soundeffects
+    remap:
+      Alt_r-d: { launch: [fish, -c, 'igrai ~/mus/soundeffects/normal-gunshot.wav 60'] }
+      Alt_r-Shift-d: { launch: [fish, -c, 'igrai ~/mus/soundeffects/gunshot-damped.wav 80'] }
+      Alt_r-Alt_l-d: { launch: [fish, -c, 'igrai ~/mus/soundeffects/boomgun-fury-blast.wav 70'] }
+      Alt_r-s: { launch: [fish, -c, 'igrai ~/mus/soundeffects/gun-cock.wav 75'] }
+      Alt_r-e: { launch: [fish, -c, 'igrai ~/mus/soundeffects/kvrvist-gunshot.wav 75'] }
+      Alt_r-Alt_l-e: { launch: [fish, -c, 'igrai ~/mus/soundeffects/sharper-9mm.wav 75'] }
+      Alt_r-x: { launch: [fish, -c, 'igrai ~/mus/soundeffects/mp5.wav 60'] }
+      Alt_r-Shift-x: { launch: [fish, -c, 'igrai ~/mus/soundeffects/ak47-machine-gun-spray.wav 75'] }
+      Alt_r-Alt_l-x: { launch: [fish, -c, 'igrai ~/mus/soundeffects/clear-machine-gun-sfx.wav 75'] }
+      Alt_r-w: { launch: [fish, -c, 'igrai ~/mus/soundeffects/long-shotgun.wav 65'] }
+      Alt_r-t: { launch: [fish, -c, 'igrai ~/mus/soundeffects/shell-falling.wav'] }
+      Alt_r-r: { launch: [fish, -c, 'igrai ~/mus/soundeffects/old-school-shotgun-reload.wav 90'] }
+      Alt_r-v: { launch: [fish, -c, 'igrai ~/mus/soundeffects/gunshot-then-machine-gun.wav 90'] }
+
+      Alt_r-f: { launch: [fish, -c, 'igrai ~/mus/soundeffects/audio-volume-change.oga'] }
+      Alt_r-c: { launch: [fish, -c, 'igrai ~/mus/soundeffects/camera-shutter.oga 75'] }
+      Alt_r-z: { launch: [fish, -c, 'igrai ~/mus/soundeffects/confirmation_001.ogg 65'] }
+      Alt_r-a: { launch: [fish, -c, 'igrai ~/mus/soundeffects/multi-pop-2.mp3 65'] }
 
   - name: Any
     remap:
