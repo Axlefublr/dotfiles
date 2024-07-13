@@ -193,9 +193,9 @@ end
 
 local function harp_cd_get_or_home()
 	local register = require('harp').get_char('get cd harp: ')
-	if not register then return vim.expand('~') end
+	if not register then return vim.fn.expand('~') end
 	local harp = require('harp').cd_get_path(register)
-	if not harp then return vim.expand('~') end
+	if not harp then return vim.fn.expand('~') end
 	return harp
 end
 
@@ -693,6 +693,18 @@ local normal_mappings = {
 	['<Leader>dfd'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home() })
 	end,
+	['<Leader>daF'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' }) end,
+	['<Leader>daS'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd(), '--hold', 'nvim' }) end,
+	['<Leader>daD'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home(), '--hold', 'nvim' }) end,
+	['<Leader>dfF'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' })
+	end,
+	['<Leader>dfS'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd(), '--hold', 'nvim' })
+	end,
+	['<Leader>dfD'] = function()
+		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home(), '--hold', 'nvim' })
+	end,
 
 	-- Direct
 	U = '<C-r>',
@@ -1035,7 +1047,7 @@ local opts_table = {
 	autocmds = {
 		macromode = {
 			{
-				event = { 'RecordingLeave', 'VimEnter', },
+				event = { 'RecordingLeave', 'VimEnter' },
 				callback = function()
 					vim.keymap.set('n', 'gX', 'qe')
 					vim.keymap.set('i', '<A-x>', '<Esc>qegi')
