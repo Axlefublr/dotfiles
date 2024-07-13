@@ -287,6 +287,20 @@ local function open_link_in_instance(index)
 	os.execute(openCommand)
 end
 
+function store_andor_use_count(what)
+	local is_operator_pending = vim.fn.mode(true):find('no')
+	if vim.v.count > 0 then
+		if is_operator_pending then
+			vim.g.stored_count_shared_op = vim.v.count
+		else
+			vim.g.stored_count_shared = vim.v.count
+		end
+		return what
+	else
+		return (is_operator_pending and (vim.g.stored_count_shared_op or 1) or (vim.g.stored_count_shared or 1)) .. what
+	end
+end
+
 local function count_repeats_keys(keys)
 	for _ = 1, vim.v.count1 do
 		FeedKeysInt(keys)
@@ -898,25 +912,11 @@ local normal_visual_pending_mappings = {
 	['ge'] = "<Cmd>lua require('spider').motion('ge')<CR>",
 
 	j = {
-		function()
-			if vim.v.count > 0 then
-				vim.g.stored_count_move_jk = vim.v.count
-				return 'j'
-			else
-				return (vim.g.stored_count_move_jk or 1) .. 'j'
-			end
-		end,
+		function() return store_andor_use_count('j') end,
 		expr = true,
 	},
 	k = {
-		function()
-			if vim.v.count > 0 then
-				vim.g.stored_count_move_jk = vim.v.count
-				return 'k'
-			else
-				return (vim.g.stored_count_move_jk or 1) .. 'k'
-			end
-		end,
+		function() return store_andor_use_count('k') end,
 		expr = true,
 	},
 	H = '<C-u>',
