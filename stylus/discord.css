@@ -32,6 +32,7 @@
 }
 
 .theme-dark {
+	--brand-15a: var(--shell-background-yellow);
 	--text-normal: var(--gruvbox-white);
 	--text-muted: var(--gruvbox-grey);
 	--text-link: var(--shell-yellow);
