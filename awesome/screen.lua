@@ -138,7 +138,7 @@ end
 Muteness_w = text_widget(beautiful.jetbrains_font .. ' 12', ' ')
 Muteness_bw = wibox.container.background(Muteness_w)
 Muteness_mw = wibox.container.margin(Muteness_bw)
-Muteness_mw.left = larger - 1
+Muteness_mw.left = larger - 4
 Muteness_mw.right = 4
 function Muteness_wu()
 	awful.spawn.easy_async_with_shell('get_mute', function(stdout)
