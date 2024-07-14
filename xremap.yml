@@ -1134,7 +1134,7 @@ keymap:
       Super_R-c: '8'
       Super_R-x: '9'
 
-      CapsLock-Alt-Comma: shift-7
+      CapsLock-Alt-Dot: shift-7
       CapsLock-Alt-Slash: shift-backslash
       CapsLock-Alt-u: shift_r-grave
       CapsLock-Comma: shift_r-1

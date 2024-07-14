@@ -110,6 +110,16 @@ return {
 		table.remove(opts.statusline, 9)
 		table.remove(opts.statusline, 3)
 
+		table.insert(opts.statusline, 10, {
+			provider = function() return (vim.g.stored_count_shared or 1) .. ' ' end,
+			hl = { fg = env.color.cyan, bold = true },
+		})
+
+		table.insert(opts.statusline, 11, {
+			provider = function() return (vim.g.stored_count_shared_op or 1) end,
+			hl = { fg = env.color.yellow, bold = true },
+		})
+
 		opts.statuscolumn[1] = status.component.foldcolumn({
 			foldcolumn = { padding = { right = 0 } },
 		})

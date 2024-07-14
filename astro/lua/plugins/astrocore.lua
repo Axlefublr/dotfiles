@@ -1059,6 +1059,7 @@ local opts_table = {
 			colorcolumn = '',
 			cpoptions = 'aABceFs',
 			cursorline = true,
+			foldlevel = 0,
 			wildcharm = 12, -- is <C-l>
 			cursorlineopt = 'both',
 			eol = false,
