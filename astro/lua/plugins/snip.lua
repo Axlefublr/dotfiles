@@ -4,6 +4,9 @@ local snippets = function()
 	local f = ls.function_node
 	local t = ls.text_node
 	local i = ls.insert_node
+	local c = ls.choice_node
+	local extras = require('luasnip.extras')
+	local rep = extras.rep
 	local single = function(node) return node[1] end
 
 	local all_snippets = {
@@ -204,7 +207,7 @@ local snippets = function()
 			t({ '', '    ' }),
 			i(0),
 			t({ '', 'end', 'funcsave ' }),
-			f(single, 1),
+			rep(1),
 			t(' >/dev/null'),
 		}),
 		s('if test', {
