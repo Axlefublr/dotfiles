@@ -1,29 +1,29 @@
 local function remaps()
 	vim.keymap.set(
 		'n',
-		'<C-a>',
+		'<A-d>',
 		function() require('dial.map').manipulate('increment', 'normal') end
 	)
 	vim.keymap.set(
 		'n',
-		'<C-x>',
+		'<A-s>',
 		function() require('dial.map').manipulate('decrement', 'normal') end
 	)
 	vim.keymap.set(
 		'n',
-		'g<C-a>',
+		'g<A-d>',
 		function() require('dial.map').manipulate('increment', 'gnormal') end
 	)
 	vim.keymap.set(
 		'n',
-		'g<C-x>',
+		'g<A-s>',
 		function() require('dial.map').manipulate('decrement', 'gnormal') end
 	)
 
-	vim.keymap.set('x', '<C-a>', require('dial.map').inc_visual('visual'))
-	vim.keymap.set('x', '<C-x>', require('dial.map').dec_visual('visual'))
-	vim.keymap.set('x', 'g<C-a>', require('dial.map').inc_gvisual('visual'))
-	vim.keymap.set('x', 'g<C-x>', require('dial.map').dec_visual('visual'))
+	vim.keymap.set('x', '<A-d>', require('dial.map').inc_visual('visual'))
+	vim.keymap.set('x', '<A-s>', require('dial.map').dec_visual('visual'))
+	vim.keymap.set('x', 'g<A-d>', require('dial.map').inc_gvisual('visual'))
+	vim.keymap.set('x', 'g<A-s>', require('dial.map').dec_visual('visual'))
 
 	vim.keymap.set('n', '<Leader>d;', require('dial.map').inc_normal('toggles'))
 	vim.keymap.set('x', '<Leader>d;', require('dial.map').inc_visual('toggles'))
@@ -33,26 +33,26 @@ return {
 	{
 		'monaqa/dial.nvim',
 		keys = {
-			'<C-a>',
-			'<C-x>',
-			'g<C-a>',
-			'g<C-x>',
+			'<A-d>',
+			'<A-s>',
+			'g<A-d>',
+			'g<A-s>',
 			'<Leader>d;',
 			{
 				mode = 'x',
-				'<C-a>',
+				'<A-d>',
 			},
 			{
 				mode = 'x',
-				'<C-x>',
+				'<A-s>',
 			},
 			{
 				mode = 'x',
-				'g<C-a>',
+				'g<A-d>',
 			},
 			{
 				mode = 'x',
-				'g<C-x>',
+				'g<A-s>',
 			},
 			{
 				mode = 'x',
