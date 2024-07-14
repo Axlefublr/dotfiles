@@ -28,10 +28,6 @@ return {
 			{ mode = { 'o', 'x' }, 'aC', function() require('various-textobjs').mdFencedCodeBlock('outer') end },
 			{ mode = { 'o', 'x' }, 'i|', function() require('various-textobjs').shellPipe('inner') end },
 			{ mode = { 'o', 'x' }, 'a|', function() require('various-textobjs').shellPipe('outer') end },
-			{ mode = { 'o' }, 'im', function() vim.cmd('normal viiok') end },
-			{ mode = { 'o' }, 'am', function() vim.cmd('normal viijok') end },
-			{ mode = { 'o' }, 'iM', function() vim.cmd('normal viio2k') end },
-			{ mode = { 'o' }, 'aM', function() vim.cmd('normal viijo2k') end },
 			{
 				'dsi',
 				function()

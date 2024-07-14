@@ -7,7 +7,6 @@ local snippets = function()
 	local c = ls.choice_node
 	local extras = require('luasnip.extras')
 	local rep = extras.rep
-	local single = function(node) return node[1] end
 
 	local all_snippets = {
 		s('wd', {

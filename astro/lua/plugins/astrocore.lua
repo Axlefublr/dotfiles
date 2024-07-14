@@ -864,15 +864,19 @@ local insert_mappings = {
 }
 
 local pending_mappings = {
-	['i%'] = function() vim.cmd('normal vT%ot%') end,
-	['a%'] = function() vim.cmd('normal vF%of%') end,
-	[']}'] = function() vim.cmd('normal V}k') end,
-	['[{'] = function() vim.cmd('normal V{j') end,
+	['i%'] = function() vim.cmd('normal! vT%ot%') end,
+	['a%'] = function() vim.cmd('normal! vF%of%') end,
+	[']}'] = function() vim.cmd('normal! V}k') end,
+	['[{'] = function() vim.cmd('normal! V{j') end,
 	['{'] = 'V{',
 	['}'] = 'V}',
 	['+'] = 'v+',
 	['-'] = 'v-',
 	gs = { 'gc', remap = true },
+	im = '<Cmd>lua require("various-textobjs").indentation("inner", "inner") ; vim.cmd("normal! ok")<CR>',
+	am = '<Cmd>lua require("various-textobjs").indentation("inner", "inner") ; vim.cmd("normal! jok")<CR>',
+	iM = '<Cmd>lua require("various-textobjs").indentation("inner", "inner") ; vim.cmd("normal! o2k")<CR>',
+	aM = '<Cmd>lua require("various-textobjs").indentation("inner", "inner") ; vim.cmd("normal! jo2k")<CR>',
 }
 
 local command_mappings = {
