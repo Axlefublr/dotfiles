@@ -108,4 +108,8 @@ function table.contains(table, item)
 	return false
 end
 
+function string.trim(string)
+	return vim.fn.trim(string)
+end
+
 require('lazy_setup')

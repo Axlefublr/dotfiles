@@ -73,8 +73,21 @@ local function ghl_file()
 		vim.notify('ghl brokie 😭')
 		return
 	end
-	vim.fn.setreg(env.default_register, output.stdout, 'c')
+	vim.fn.setreg(env.default_register, output.stdout:trim(), 'c')
 	vim.notify('ghl buffer: ' .. output.stdout)
+end
+
+local function ghl_file_head()
+	local full_path = vim.api.nvim_buf_get_name(0)
+	local git_root = get_repo_root()
+	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
+	local output = env.shell({ 'ghl', '-pb', 'head', relative_path }):wait()
+	if output.code ~= 0 then
+		vim.notify('ghl brokie 😭')
+		return
+	end
+	vim.fn.setreg(env.default_register, output.stdout:trim(), 'c')
+	vim.notify('ghl buffer head: ' .. output.stdout)
 end
 
 local function ghl_repo()
@@ -83,7 +96,7 @@ local function ghl_repo()
 		vim.notify('ghl brokie 😭')
 		return
 	end
-	vim.fn.setreg(env.default_register, output.stdout, 'c')
+	vim.fn.setreg(env.default_register, output.stdout:trim(), 'c')
 	vim.notify('ghl repo: ' .. output.stdout)
 end
 
@@ -319,6 +332,7 @@ local normal_mappings = {
 	['<Leader>dE'] = ghl_file,
 	['<Leader>dq'] = copy_full_path,
 	['<Leader>dr'] = copy_cwd_relative,
+	['<Leader>dR'] = ghl_file_head,
 	['<Leader>dw'] = copy_file_name,
 	['<Leader>dt'] = copy_cwd,
 	['<Leader>dT'] = ghl_repo,
@@ -346,8 +360,6 @@ local normal_mappings = {
 		FeedKeysInt('<Esc>')
 	end,
 	['.'] = function() count_repeats_keys('.') end,
-	-- ['>>'] = function() count_repeats_keys('>>') end,
-	-- ['<<'] = function() count_repeats_keys('<<') end,
 	yie = function() vim.cmd('%y+') end,
 
 	-- Features
@@ -780,8 +792,6 @@ local normal_mappings = {
 	yp = 'yyp',
 	zff = 'zfl',
 	['g:'] = 'g,',
-	['<Leader><Space>'] = function() -- test mapping
-	end,
 }
 
 local visual_mappings = {
@@ -932,6 +942,8 @@ local normal_visual_pending_mappings = {
 	gM = 'M',
 	['g.'] = 'gn',
 	['g>'] = 'gN',
+	['<Leader><Space>'] = function() -- test mapping
+	end,
 }
 
 local normal_visual_mappings = {

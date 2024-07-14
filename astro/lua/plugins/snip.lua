@@ -7,7 +7,6 @@ local snippets = function()
 	local single = function(node) return node[1] end
 
 	local all_snippets = {
-		s('asdf', { t('asdfasdf') }),
 		s('wd', {
 			---@diagnostic disable-next-line: param-type-mismatch
 			f(function() return string.lower(os.date('%A')) end),
@@ -106,6 +105,13 @@ local snippets = function()
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
+		s('spec', {
+			t({ '{', "\t'" }),
+			i(1),
+			t({ "',", '\topts = {', }),
+			i(2),
+			t({ '},', '},' })
+		}),
 		s('Esc', {
 			t('<Esc>'),
 		}),
@@ -160,15 +166,10 @@ local snippets = function()
 			i(1),
 			t("',")
 		}),
-		s('jjl', {
-			t({ '{', '\t' }),
-			i(1),
-			t({ '', '},' })
-		}),
 		s('jj', {
 			t({ '{', '\t' }),
 			i(1),
-			t({ '', '}' })
+			t({ '', '},' })
 		}),
 		s('Cmd', {
 			t('<Cmd>'),
@@ -277,7 +278,7 @@ local snippets = function()
 	ls.add_snippets('rust', rust_snippets)
 
 	local markdown_snippets = {
-		s('inline link', {
+		s('inl', {
 			t('['),
 			i(1),
 			t(']('),
