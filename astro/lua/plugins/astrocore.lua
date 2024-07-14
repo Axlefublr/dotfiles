@@ -342,6 +342,51 @@ local function open_link_in_instance(index)
 	os.execute(openCommand)
 end
 
+local function get_case_type(prompt, is_word)
+	local options = {
+		'UPPER',
+		'lower',
+		'sn_a&_ke',
+		'da&-sh',
+		'CON_ST',
+		'cam&elCase',
+		'PascalCase',
+		'dot&.case',
+		'path&/case',
+		'Title Case',
+		'P&hrase case',
+		'UPPER PH&RASE',
+		'l&ower phrase'
+	}
+	local method_map = {
+		[options[1]] = 'to_upper_case',
+		[options[2]] = 'to_lower_case',
+		[options[3]] = 'to_snake_case',
+		[options[4]] = 'to_dash_case',
+		[options[5]] = 'to_constant_case',
+		[options[6]] = 'to_camel_case',
+		[options[7]] = 'to_pascal_case',
+		[options[8]] = 'to_dot_case',
+		[options[9]] = 'to_path_case',
+		[options[10]] = 'to_title_case',
+		[options[11]] = 'to_phrase_case',
+		[options[12]] = 'to_upper_phrase_case',
+		[options[13]] = 'to_lower_phrase_case',
+	}
+	if is_word then
+		table.remove(options, 11)
+		table.remove(options, 10)
+		table.remove(options, 7)
+	end
+	local index = vim.fn.confirm(
+		prompt, vim.fn.join(options, '\n')
+	)
+	if index == 0 then
+		return nil
+	end
+	return method_map[options[index]]
+end
+
 function store_andor_use_count(what)
 	if vim.v.count > 0 then
 		vim.g.stored_count_shared = vim.v.count
@@ -400,6 +445,16 @@ local normal_mappings = {
 	yie = function() vim.cmd('%y+') end,
 
 	-- Features
+	cz = function()
+		local case = get_case_type('Word convert: ', true)
+		if not case then return end
+		require('textcase').current_word(case)
+	end,
+	gW = function()
+		local case = get_case_type('LSP convert: ')
+		if not case then return end
+		require('textcase').lsp_rename(case)
+	end,
 	gQ = function()
 		local parent = vim.fn.expand('%:h')
 		vim.cmd.tcd(parent)
@@ -832,6 +887,11 @@ local normal_mappings = {
 }
 
 local visual_mappings = {
+	cz = function()
+		local case = get_case_type('Word convert: ')
+		if not case then return end
+		require('textcase').operator(case)
+	end,
 	['<Leader>jr'] = function()
 		local previous_clipboard = vim.fn.getreg(env.default_register)
 		FeedKeys('y')

@@ -119,4 +119,15 @@ return {
 			},
 		},
 	},
+	{
+		'johmsalas/text-case.nvim',
+		event = 'CmdlineEnter',
+		opts = {
+			default_keymappings_enabled = false,
+			substitude_command_name = 'S'
+		},
+		cmd = {
+			'Subs',
+		},
+	},
 }
