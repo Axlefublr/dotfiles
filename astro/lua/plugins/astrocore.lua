@@ -56,38 +56,80 @@ function get_repo_root()
 	return git_root
 end
 
-local function copy_git_relative()
+local function get_repo_relative()
 	local full_path = vim.api.nvim_buf_get_name(0)
 	local git_root = get_repo_root()
 	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
+	return relative_path
+end
+
+local function copy_git_relative()
+	local relative_path = get_repo_relative()
 	vim.fn.setreg(env.default_register, relative_path)
-	vim.notify('repo relative: ' .. relative_path)
+	vim.notify('repo relative:\n' .. relative_path)
 end
 
 local function ghl_file()
-	local full_path = vim.api.nvim_buf_get_name(0)
-	local git_root = get_repo_root()
-	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
+	local relative_path = get_repo_relative()
 	local output = env.shell({ 'ghl', relative_path }):wait()
 	if output.code ~= 0 then
 		vim.notify('ghl brokie 😭')
 		return
 	end
-	vim.fn.setreg(env.default_register, output.stdout:trim(), 'c')
-	vim.notify('ghl buffer: ' .. output.stdout)
+	local link = output.stdout:trim()
+	vim.fn.setreg(env.default_register, link, 'c')
+	vim.notify('ghl buffer:\n' .. link)
+end
+
+local function get_ghl_lines()
+	local selection_start_line = vim.fn.line('v')
+	local cursor_line = vim.fn.line('.')
+	local start_line
+	local end_line
+	if cursor_line > selection_start_line then
+		start_line = selection_start_line
+		end_line = cursor_line
+	else
+		start_line = cursor_line
+		end_line = selection_start_line
+	end
+	return '#L' .. start_line .. '-L' .. end_line
+end
+
+local function ghl_file_visual()
+	local relative_path = get_repo_relative()
+	local output = env.shell({ 'ghl', relative_path }):wait()
+	if output.code ~= 0 then
+		vim.notify('ghl brokie 😭')
+		return
+	end
+	local full_link = output.stdout:trim() .. get_ghl_lines()
+	vim.fn.setreg(env.default_register, full_link, 'c')
+	vim.notify('ghl buffer lined:\n' .. full_link)
 end
 
 local function ghl_file_head()
-	local full_path = vim.api.nvim_buf_get_name(0)
-	local git_root = get_repo_root()
-	local relative_path = string.gsub(full_path, '^' .. git_root .. '/', '')
+	local relative_path = get_repo_relative()
 	local output = env.shell({ 'ghl', '-pb', 'head', relative_path }):wait()
 	if output.code ~= 0 then
 		vim.notify('ghl brokie 😭')
 		return
 	end
-	vim.fn.setreg(env.default_register, output.stdout:trim(), 'c')
-	vim.notify('ghl buffer head: ' .. output.stdout)
+	local link = output.stdout:trim()
+	vim.fn.setreg(env.default_register, link, 'c')
+	vim.notify('ghl buffer head:\n' .. link)
+end
+
+local function ghl_file_head_visual()
+	local relative_path = get_repo_relative()
+	local output = env.shell({ 'ghl', '-pb', 'head', relative_path }):wait()
+	if output.code ~= 0 then
+		vim.notify('ghl brokie 😭')
+		return
+	end
+	local link = output.stdout:trim() .. get_ghl_lines()
+	vim.fn.setreg(env.default_register, link, 'c')
+	vim.notify('ghl buffer head lined:\n' .. link)
 end
 
 local function ghl_repo()
@@ -365,7 +407,7 @@ local normal_mappings = {
 		if repo_root then vim.cmd.tcd(repo_root) end
 	end,
 	['<Leader>P'] = '<Cmd>pu!<CR>',
-	['<Leader>di'] = '"_ddddpvaB<Esc>=iB', -- Push line of code after block into block
+	['<Leader>di'] = '"_ddddpk==^', -- Push line of code after block into block
 	['<Leader>dl'] = '^D"_dd',
 	['<Leader>do'] = 'dd<Cmd>$pu<CR>',
 	['<Leader>du'] = 'dd<Cmd>0pu!<CR>',
@@ -828,6 +870,8 @@ local visual_mappings = {
 	am = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>jok",
 	iM = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>o2k",
 	aM = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>jo2k",
+	['<Leader>dE'] = ghl_file_visual,
+	['<Leader>dR'] = ghl_file_head_visual,
 }
 
 local insert_mappings = {
