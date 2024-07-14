@@ -301,16 +301,11 @@ local function open_link_in_instance(index)
 end
 
 function store_andor_use_count(what)
-	local is_operator_pending = vim.fn.mode(true):find('no')
 	if vim.v.count > 0 then
-		if is_operator_pending then
-			vim.g.stored_count_shared_op = vim.v.count
-		else
-			vim.g.stored_count_shared = vim.v.count
-		end
+		vim.g.stored_count_shared = vim.v.count
 		return what
 	else
-		return (is_operator_pending and (vim.g.stored_count_shared_op or 1) or (vim.g.stored_count_shared or 1)) .. what
+		return (vim.g.stored_count_shared or 1) .. what
 	end
 end
 
