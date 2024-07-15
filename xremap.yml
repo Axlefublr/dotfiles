@@ -31,6 +31,8 @@ keymap:
     application:
       only: Anki
     remap:
+      Ctrl-k: up
+      Ctrl-j: down
       Ctrl-Semicolon: ctrl-shift-x
       Ctrl-Slash: ctrl-shift-alt-c
 

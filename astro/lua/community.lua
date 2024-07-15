@@ -7,6 +7,7 @@ return {
 	-- { import = 'astrocommunity.pack.sql' },
 	{ import = 'astrocommunity.color.ccc-nvim' },
 	-- { import = 'astrocommunity.editing-support.conform-nvim' },
+	{ import = 'astrocommunity.lsp.nvim-lint' },
 	{ import = 'astrocommunity.file-explorer.oil-nvim' },
 	{ import = 'astrocommunity.fuzzy-finder.telescope-zoxide' },
 	{ import = 'astrocommunity.motion.nvim-surround' },
