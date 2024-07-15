@@ -1210,7 +1210,7 @@ keymap:
       CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
       Super_R-q: ctrl-shift-u
       Super_R-z: ctrl-shift-u
-      Super-Space: { launch: [fish, -c, toggle_layout] }
+      Super_L-Space: { launch: [fish, -c, toggle_layout] }
       CapsLock-p: ScrollLock
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
       Super-v: { launch: [boomer] }

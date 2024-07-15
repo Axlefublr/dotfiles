@@ -124,10 +124,18 @@ return {
 		event = 'CmdlineEnter',
 		opts = {
 			default_keymappings_enabled = false,
-			substitude_command_name = 'S'
+			substitude_command_name = 'S',
 		},
 		cmd = {
 			'Subs',
+		},
+	},
+	{
+		'OXY2DEV/markview.nvim',
+		ft = 'markdown',
+		dependencies = {
+			'nvim-treesitter/nvim-treesitter',
+			'nvim-tree/nvim-web-devicons',
 		},
 	},
 }

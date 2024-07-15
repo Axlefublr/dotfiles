@@ -173,7 +173,7 @@ local snippets = function()
 		s('rn', {
 			t({ 'return' }),
 		}),
-		s('Leader', { t('<Leader>') }),
+		s('ldr', { t('<Leader>') }),
 		s('snp', {
 			t("s('"),
 			i(1),
@@ -195,7 +195,7 @@ local snippets = function()
 			i(1),
 			t({ '', '},' }),
 		}),
-		s('Cmd', {
+		s('cmdcr', {
 			t('<Cmd>'),
 			i(1),
 			t('<CR>'),
