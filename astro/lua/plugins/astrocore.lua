@@ -10,7 +10,7 @@ end
 local function save(and_format)
 	trim_trailing_whitespace()
 	vim.cmd.nohlsearch()
-	if and_format then vim.lsp.buf.format() end
+	if and_format then require('conform').format({ async = false, lsp_format = 'fallback' }) end
 	---@diagnostic disable-next-line: param-type-mismatch
 	pcall(vim.cmd, 'silent update')
 end
@@ -356,7 +356,7 @@ local function get_case_type(prompt, is_word)
 		'Title Case',
 		'P&hrase case',
 		'UPPER PH&RASE',
-		'l&ower phrase'
+		'l&ower phrase',
 	}
 	local method_map = {
 		[options[1]] = 'to_upper_case',
@@ -378,12 +378,8 @@ local function get_case_type(prompt, is_word)
 		table.remove(options, 10)
 		table.remove(options, 7)
 	end
-	local index = vim.fn.confirm(
-		prompt, vim.fn.join(options, '\n')
-	)
-	if index == 0 then
-		return nil
-	end
+	local index = vim.fn.confirm(prompt, vim.fn.join(options, '\n'))
+	if index == 0 then return nil end
 	return method_map[options[index]]
 end
 

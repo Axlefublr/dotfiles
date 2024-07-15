@@ -7,9 +7,7 @@ local opts_table = {
 		semantic_tokens = true,
 	},
 	formatting = {
-		format_on_save = {
-			enabled = false,
-		},
+		disabled = true,
 	},
 	---@diagnostic disable: missing-fields
 	config = {
