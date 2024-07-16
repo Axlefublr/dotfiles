@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
 	'tpope/vim-repeat',
-	'zhimsel/vim-stay',
+	-- 'zhimsel/vim-stay',
 	{
 		'sainnhe/gruvbox-material',
 		priority = 1000,
