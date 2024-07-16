@@ -1128,7 +1128,7 @@ local opts_table = {
 		autopairs = true,
 		cmp = true,
 		diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
-		highlighturl = true, -- highlight URLs at start
+		highlighturl = false, -- highlight URLs at start
 		notifications = true, -- enable notifications at start
 	},
 	-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
@@ -1175,7 +1175,7 @@ local opts_table = {
 			lazyredraw = false,
 			linebreak = false,
 			list = true,
-			listchars = 'tab:↦ ,multispace:·',
+			listchars = 'tab:← ,multispace:·',
 			matchpairs = '(:),{:},[:],<:>',
 			mouse = '',
 			number = false,

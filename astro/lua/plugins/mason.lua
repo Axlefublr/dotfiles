@@ -4,9 +4,9 @@ return {
 		'Saecki/crates.nvim',
 		opts = {
 			null_ls = {
-				enabled = false
-			}
-		}
+				enabled = false,
+			},
+		},
 	},
 	{
 		'nvim-treesitter/nvim-treesitter',
