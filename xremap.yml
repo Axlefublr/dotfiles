@@ -1173,8 +1173,8 @@ keymap:
   - name: Any! media
     exact_match: true
     remap:
-      CapsLock-w: { launch: [fish, -c, 'set_volume -5 ; igrai ~/mus/soundeffects/audio-volume-change.oga'] }
-      CapsLock-e: { launch: [fish, -c, 'set_volume +5 ; igrai ~/mus/soundeffects/audio-volume-change.oga'] }
+      CapsLock-w: { launch: [fish, -c, 'set_volume -5'] }
+      CapsLock-e: { launch: [fish, -c, 'set_volume +5'] }
       CapsLock-Alt-w: { launch: [fish, -c, 'set_mic_volume -5'] }
       CapsLock-Alt-e: { launch: [fish, -c, 'set_mic_volume +5'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }

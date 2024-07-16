@@ -303,17 +303,10 @@ local function diag_this_file()
 	save(true)
 	local repo = get_repo_root()
 	local extension = vim.fn.expand('%:e')
+	local command = { 'kitten', '@', 'launch', '--type', 'overlay', '--cwd', repo, '--hold' }
+	local diag = function(diag_command) env.shell(vim.list_extend(command, diag_command)):wait() end
 	if extension == 'rs' then
-		local output = env.shell({ 'cargo', 'clippy', '-q' }, { cwd = repo }):wait()
-		local file = io.open('/tmp/diag', 'w+')
-		if not file then
-			vim.notify("couldn't open /tmp/diag")
-			return
-		end
-		file:write(output.stdout)
-		file:write(output.stderr)
-		file:close()
-		vim.cmd.edit('/tmp/diag')
+		diag({ 'cargo', 'clippy', '-q' })
 	else
 		vim.notify('extension ' .. extension .. 'is not recognized')
 	end
