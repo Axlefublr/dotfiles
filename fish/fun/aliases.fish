@@ -26,6 +26,7 @@ alias --save neomax 'kitty -T neomax nvim' >/dev/null
 alias --save neoline 'kitty -T neoline nvim' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'eza --git --git-repos' >/dev/null
+alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
 
 function clx
     if test "$TERM" != xterm-kitty
