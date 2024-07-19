@@ -214,7 +214,7 @@ local snippets = function()
 			i(1),
 			t({ '', '},' }),
 		}),
-		s('cmdcr', {
+		s('cmd', {
 			t('<Cmd>'),
 			i(1),
 			t('<CR>'),
@@ -295,14 +295,14 @@ local snippets = function()
 
 	local git_commit_snippets = {
 		s('fish', { t('fish: ') }),
-		s('astro', { t('astro: ') }),
-		s('awesome', { t('awesome: ') }),
-		s('compose', { t('compose: ') }),
-		s('xremap', { t('xremap: ') }),
-		s('alacritty', { t('alacritty: ') }),
-		s('stylus(youtube)', { t('stylus(youtube): ') }),
-		s('stylus(discord)', { t('stylus(discord): ') }),
-		s('kitty', { t('kitty: ') }),
+		s('as', { t('astro: ') }),
+		s('awm', { t('awesome: ') }),
+		s('cps', { t('compose: ') }),
+		s('xr', { t('xremap: ') }),
+		s('sty', { t('stylus(youtube): ') }),
+		s('std', { t('stylus(discord): ') }),
+		s('kit', { t('kitty: ') }),
+		s('pkg', { t('pkg: ') }),
 	}
 	ls.add_snippets('gitcommit', git_commit_snippets)
 

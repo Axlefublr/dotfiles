@@ -138,4 +138,8 @@ return {
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
+	{
+		'tpope/vim-fugitive',
+		event = 'User AstroGitFile',
+	}
 }

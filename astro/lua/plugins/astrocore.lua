@@ -527,6 +527,11 @@ local normal_mappings = {
 	-- 	require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
 	-- end,
 
+	-- Git
+	['<Leader>cc'] = '<Cmd>silent G commit<CR>',
+	['<Leader>cA'] = '<Cmd>silent G add .<CR>',
+	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
+
 	-- Gaf
 	['<Leader>ca'] = function()
 		local picked = vim.fn.confirm('Choose change type', 'Modified\nNew\nDeleted')
