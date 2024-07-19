@@ -303,7 +303,7 @@ local function diag_this_file()
 	save(true)
 	local repo = get_repo_root()
 	local extension = vim.fn.expand('%:e')
-	local command = { 'kitten', '@', 'launch', '--type', 'overlay', '--cwd', repo, '--hold' }
+	local command = { 'kitten', '@', 'launch', '--type', 'overlay-main', '--cwd', repo, '--hold' }
 	local diag = function(diag_command) env.shell(vim.list_extend(command, diag_command)):wait() end
 	if extension == 'rs' then
 		diag({ 'cargo', 'clippy', '-q' })
