@@ -52,7 +52,7 @@ function Unminimize_all_on_tag(tag)
 	end
 end
 
-function Write_client_info()
+function WriteClientInfo()
 	local text = ''
 	for _, client in ipairs(client.get()) do
 		if client.instance then
@@ -61,7 +61,7 @@ function Write_client_info()
 			text = text .. '??? '
 		end
 		if client.class then
-			text = text .. '!' .. client.class .. '! '
+			text = text .. ',' .. client.class .. ', '
 		else
 			text = text .. '??? '
 		end

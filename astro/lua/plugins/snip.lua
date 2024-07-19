@@ -107,6 +107,11 @@ local snippets = function()
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
+		s('opts', {
+			t({ 'opts = {', '\t' }),
+			i(1),
+			t({ '', '},' })
+		}),
 		s('event', {
 			t('event = '),
 			c(1, {

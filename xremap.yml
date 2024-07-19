@@ -400,7 +400,7 @@ keymap:
           f: { launch: [kitty] }
           s: { launch: [fish, -c, screenkey] }
           Shift-s: { launch: [kill, screenkey] }
-          c: { launch: [awesome-client, 'Write_client_info()'] }
+          c: { launch: [awesome-client, 'WriteClientInfo()'] }
           t: { launch: [fish, -c, 'cat /dev/shm/runner_output | xclip -r -selection clipboard'] }
 
   - name: Any! magazine
