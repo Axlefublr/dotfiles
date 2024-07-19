@@ -948,8 +948,8 @@ local insert_mappings = {
 	["<A-'><CR>"] = '<C-r><C-p>:',
 	["<A-'>E"] = function() killring_pop_tail(true) end,
 	["<A-'>e"] = function() killring_pop(true) end,
-	['<A-,>'] = '<C-d>',
-	['<A-.>'] = '<C-t>',
+	['<A-s>'] = '<C-d>',
+	['<A-d>'] = '<C-t>',
 	['<A-/>'] = { close_try_save },
 	['<A-;>'] = '',
 	['<A-i>'] = '',
@@ -1081,14 +1081,17 @@ local insert_select_mappings = {
 	['<A-o>'] = function()
 		if require('luasnip').choice_active() then require('luasnip').change_choice(1) end
 	end,
+	['<A-S-o>'] = function()
+		if require('luasnip').choice_active() then require('luasnip').change_choice(-1) end
+	end,
 }
 
 local visual_select_mappings = {
 	['<A-f>'] = '<C-g>',
 }
 
-local normal_insert_select_mappings = {
-	['<A-u>'] = vim.lsp.buf.signature_help,
+local normal_select_mappings = {
+	['<A-.>'] = vim.lsp.buf.signature_help,
 }
 
 local mappings_table = {
@@ -1125,9 +1128,8 @@ for key, value in pairs(visual_select_mappings) do
 	mappings_table.s[key] = value
 end
 
-for key, value in pairs(normal_insert_select_mappings) do
+for key, value in pairs(normal_select_mappings) do
 	mappings_table.n[key] = value
-	mappings_table.i[key] = value
 	mappings_table.s[key] = value
 end
 

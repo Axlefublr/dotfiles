@@ -20,7 +20,7 @@ return {
 					border = env.borders,
 				},
 				documentation = {
-					border = false,
+					border = env.borders,
 				},
 			},
 			view = {
@@ -29,18 +29,22 @@ return {
 				},
 			},
 			mapping = {
-				['<A-p>'] = function(_)
+				['<A-m>'] = function(_)
 					if cmp.visible() then
 						cmp.abort()
 					else
 						cmp.complete()
 					end
 				end,
-				['<A-y>'] = function(_)
-					if cmp.visible_docs() then
-						cmp.close_docs()
+				['<A-.>'] = function(_)
+					if cmp.visible() then
+						if cmp.visible_docs() then
+							cmp.close_docs()
+						else
+							cmp.open_docs()
+						end
 					else
-						cmp.open_docs()
+						vim.lsp.buf.signature_help()
 					end
 				end,
 				['<F5>'] = cmp.mapping.confirm({
@@ -51,7 +55,7 @@ return {
 					select = true,
 					behavior = cmp.ConfirmBehavior.Insert,
 				}),
-				['<A-m>'] = cmp.mapping.complete({
+				['<A-,>'] = cmp.mapping.complete({
 					config = {
 						sources = {
 							{ name = 'buffer-lines', priority = 50, option = {
