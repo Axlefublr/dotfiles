@@ -107,14 +107,28 @@ local snippets = function()
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
-		s('iff', {
+		s('event', {
+			t('event = '),
+			c(1, {
+				t('{ '),
+				t('')
+			}),
+			t("'"),
+			i(2),
+			t("'"),
+			f(function(node)
+				if node[1][1] == '' then return '' else return ' }' end
+			end, 1),
+			t(',')
+		}),
+		s('if', {
 			t('if '),
 			i(1),
 			t({ ' then', '' }),
 			i(2),
 			t({ '', 'end' }),
 		}),
-		s('eiff', {
+		s('eif', {
 			t('elseif '),
 			i(1),
 			t({ ' then', '' }),
@@ -126,7 +140,7 @@ local snippets = function()
 			i(2),
 			t({ ' then', '' })
 		}),
-		s('esl', {
+		s('else', {
 			t({ 'else', '' }),
 		}),
 		s('spec', {

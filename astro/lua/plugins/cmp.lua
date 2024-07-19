@@ -4,6 +4,7 @@ return {
 	event = 'InsertEnter',
 	dependencies = {
 		{ 'amarakon/nvim-cmp-buffer-lines', lazy = true },
+		{ 'saadparwaiz1/cmp_luasnip', enabled = false },
 	},
 	opts = function(_, opts)
 		local cmp = require('cmp')
@@ -28,14 +29,14 @@ return {
 				},
 			},
 			mapping = {
-				['<A-o>'] = function(_)
+				['<A-y>'] = function(_)
 					if cmp.visible() then
 						cmp.abort()
 					else
 						cmp.complete()
 					end
 				end,
-				['<A-i>'] = function(_)
+				['<A-o>'] = function(_)
 					if cmp.visible_docs() then
 						cmp.close_docs()
 					else
