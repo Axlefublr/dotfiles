@@ -131,10 +131,20 @@ local snippets = function()
 			i(2),
 			t({ '},', '},' }),
 		}),
-		s('Esc', {
+		s('esc', {
 			t('<Esc>'),
 		}),
-		s('map', {
+		s(
+			'map',
+			fmta("['<>'] = <>,", {
+				i(1),
+				c(2, {
+					fmta("'<>'", { i(1) }),
+					fmta('function()\n\t<>\nend', { i(1) }),
+				}),
+			})
+		),
+		s('kmap', {
 			t("vim.keymap.set('"),
 			i(1, 'n'),
 			t("', '"),
@@ -143,7 +153,7 @@ local snippets = function()
 			i(0),
 			t(')'),
 		}),
-		s('funl', {
+		s('fnl', {
 			t('function'),
 			i(1),
 			t('('),
@@ -152,7 +162,7 @@ local snippets = function()
 			i(0),
 			t(' end'),
 		}),
-		s('func', {
+		s('fn', {
 			t('function'),
 			i(1),
 			t('('),
@@ -194,8 +204,8 @@ local snippets = function()
 				c(2, { fmta('{ <> }', i(1)), i(1) }),
 			})
 		),
-		s('fmt', fmta("fmt('<>', { <> }),", { i(1), i(2) })),
-		s('fmta', fmta("fmta('<>', { <> }),", { i(1), i(2) })),
+		s('fmt', fmta("fmt('<>', { <> })", { i(1), i(2) })),
+		s('fmta', fmta("fmta('<>', { <> })", { i(1), i(2) })),
 		s('i', fmta('i(<><>),', { i(1, '1'), i(2) })),
 		s(
 			't',
@@ -234,14 +244,14 @@ local snippets = function()
 		s('#!', {
 			t({ '#!/usr/bin/env fish', '' }), -- {} in a t is a multiline text node, every separate string is its own line
 		}),
-		s('func', {
+		s('fn', {
 			t('function '),
 			i(1),
 			t({ '', '    ' }),
 			i(0),
 			t({ '', 'end' }),
 		}),
-		s('func+s', {
+		s('fns', {
 			t('function '),
 			i(1),
 			t({ '', '    ' }),
@@ -250,19 +260,19 @@ local snippets = function()
 			rep(1),
 			t(' >/dev/null'),
 		}),
-		s('if test', {
+		s('ift', {
 			t('if test '),
 			i(1),
 			t({ '', '    ' }),
 			i(0),
 			t({ '', 'end' }),
 		}),
-		s('else if test', {
+		s('elseift', {
 			t('else if test '),
 			i(1),
 			t({ '', '    ' }),
 		}),
-		s('funcsave', {
+		s('fcs', {
 			t('funcsave '),
 			i(0),
 			t(' >/dev/null'),
@@ -274,7 +284,7 @@ local snippets = function()
 			i(0),
 			t({ '', 'end' }),
 		}),
-		s('alias', {
+		s('ali', {
 			t('alias --save '),
 			i(1),
 			t(" '"),
@@ -307,12 +317,12 @@ local snippets = function()
 	ls.add_snippets('gitcommit', git_commit_snippets)
 
 	local css_snippets = {
-		s('!important', { t('!important') }),
+		s('imp', { t('!important') }),
 	}
 	ls.add_snippets('css', css_snippets)
 
 	local rust_snippets = {
-		s('Result<(), Box<dyn Error>>', {
+		s('rbde', {
 			t('Result<'),
 			i(1, '()'),
 			t(', Box<dyn Error>>'),
@@ -333,12 +343,12 @@ local snippets = function()
 	ls.add_snippets('markdown', markdown_snippets)
 
 	local yaml_snippets = {
-		s('Apostrophe', { t('Apostrophe') }),
-		s('Semicolon', { t('Semicolon') }),
-		s('CapsLock', { t('CapsLock') }),
-		s('LeftBrace', { t('LeftBrace') }),
-		s('RightBrace', { t('RightBrace') }),
-		s('Backslash', { t('Backslash') }),
+		s('apo', { t('Apostrophe') }),
+		s(';', { t('Semicolon') }),
+		s('c', { t('CapsLock') }),
+		s('lb', { t('LeftBrace') }),
+		s('rb', { t('RightBrace') }),
+		s('\\', { t('Backslash') }),
 		s('launch', {
 			t('{ launch: ['),
 			i(0),
