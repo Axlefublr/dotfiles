@@ -29,14 +29,14 @@ return {
 				},
 			},
 			mapping = {
-				['<A-y>'] = function(_)
+				['<A-p>'] = function(_)
 					if cmp.visible() then
 						cmp.abort()
 					else
 						cmp.complete()
 					end
 				end,
-				['<A-o>'] = function(_)
+				['<A-y>'] = function(_)
 					if cmp.visible_docs() then
 						cmp.close_docs()
 					else

@@ -7,6 +7,8 @@ local snippets = function()
 	local c = ls.choice_node
 	local extras = require('luasnip.extras')
 	local rep = extras.rep
+	local fmt = require('luasnip.extras.fmt').fmt
+	local fmta = require('luasnip.extras.fmt').fmta
 
 	local all_snippets = {
 		s('wd', {
@@ -22,131 +24,105 @@ local snippets = function()
 		s('tm', {
 			f(function() return os.date('%H:%M') end),
 		}),
-		s('sh_red', {
+		s('shred', {
 			t('ff2930'),
 		}),
-		s('sh_orange', {
+		s('shorange', {
 			t('ff9f1a'),
 		}),
-		s('sh_yellow', {
+		s('shyellow', {
 			t('ffd75f'),
 		}),
-		s('sh_salad', {
+		s('shsalad', {
 			t('87ff5f'),
 		}),
-		s('sh_green', {
+		s('shgreen', {
 			t('3dff47'),
 		}),
-		s('sh_cyan', {
+		s('shcyan', {
 			t('00d7ff'),
 		}),
-		s('sh_purple', {
+		s('shpurple', {
 			t('af87ff'),
 		}),
-		s('sh_pink', {
+		s('shpink', {
 			t('ffafd7'),
 		}),
-		s('sh_coral', {
+		s('shcoral', {
 			t('ff8787'),
 		}),
-		s('sh_grey', {
+		s('shgrey', {
 			t('878787'),
 		}),
-		s('gr_red', {
+		s('grred', {
 			t('ea6962'),
 		}),
-		s('gr_orange', {
+		s('grorange', {
 			t('e49641'),
 		}),
-		s('gr_yellow', {
+		s('gryellow', {
 			t('d3ad5c'),
 		}),
-		s('gr_green', {
+		s('grgreen', {
 			t('a9b665'),
 		}),
-		s('gr_mint', {
+		s('grmint', {
 			t('78bf84'),
 		}),
-		s('gr_cyan', {
+		s('grcyan', {
 			t('7daea3'),
 		}),
-		s('gr_purple', {
+		s('grpurple', {
 			t('b58cc6'),
 		}),
-		s('gr_blush', {
+		s('grblush', {
 			t('e491b2'),
 		}),
-		s('gr_white', {
+		s('grwhite', {
 			t('d4be98'),
 		}),
-		s('gr_grey', {
+		s('grgrey', {
 			t('928374'),
 		}),
-		s('gr_light25', {
+		s('grlight25', {
 			t('403f3f'),
 		}),
-		s('gr_light19', {
+		s('grlight19', {
 			t('313030'),
 		}),
-		s('gr_dark13', {
+		s('grdark13', {
 			t('212121'),
 		}),
-		s('gr_dark12', {
+		s('grdark12', {
 			t('1f1e1e'),
 		}),
-		s('gr_dark10', {
+		s('grdark10', {
 			t('1a1919'),
 		}),
-		s('gr_background', {
+		s('grbg', {
 			t('292828'),
 		}),
-		s('sh_black', {
+		s('shblack', {
 			t('0f0f0f'),
 		}),
 	}
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
-		s('opts', {
-			t({ 'opts = {', '\t' }),
-			i(1),
-			t({ '', '},' })
-		}),
-		s('event', {
-			t('event = '),
-			c(1, {
-				t('{ '),
-				t('')
-			}),
-			t("'"),
-			i(2),
-			t("'"),
-			f(function(node)
-				if node[1][1] == '' then return '' else return ' }' end
-			end, 1),
-			t(',')
-		}),
-		s('if', {
-			t('if '),
-			i(1),
-			t({ ' then', '' }),
-			i(2),
-			t({ '', 'end' }),
-		}),
-		s('eif', {
-			t('elseif '),
-			i(1),
-			t({ ' then', '' }),
-		}),
-		s('eife', {
-			t('elseif '),
-			i(1),
-			t(' == '),
-			i(2),
-			t({ ' then', '' })
-		}),
+		s(
+			'opts',
+			fmt('opts = {},', {
+				c(1, {
+					fmta('{<>}', { i(1) }),
+					fmt('function(_, opts)\n\t{}\nend', { i(1) }),
+				}),
+			})
+		),
+		s('if', fmta('if <> then\n\t<>\nend', { i(1), i(2) })),
+		s('eif', fmta('elseif <> then\n\t<>', { i(1), i(2) })),
+		s('eife', fmta('elseif <> == <> then\n\t<>', { i(1), i(2), i(3) })),
 		s('else', {
-			t({ 'else', '' }),
+			t({ 'else', '\t' }),
 		}),
 		s('spec', {
 			t({ '{', "\t'" }),
@@ -193,17 +169,6 @@ local snippets = function()
 			t({ 'return' }),
 		}),
 		s('ldr', { t('<Leader>') }),
-		s('snp', {
-			t("s('"),
-			i(1),
-			t({ "', {", '\t' }),
-			i(2, 't'),
-			t("('"),
-			i(3),
-			t("'),"),
-			i(4),
-			t({ '', '}),' }),
-		}),
 		s('qq', {
 			t("'"),
 			i(1),
@@ -220,6 +185,41 @@ local snippets = function()
 			t('<CR>'),
 			i(0),
 		}),
+
+		-- Snippet making snippets
+		s(
+			's',
+			fmta("s('<>', <>),", {
+				i(1),
+				c(2, { fmta('{ <> }', i(1)), i(1) }),
+			})
+		),
+		s('fmt', fmta("fmt('<>', { <> }),", { i(1), i(2) })),
+		s('fmta', fmta("fmta('<>', { <> }),", { i(1), i(2) })),
+		s('i', fmta('i(<><>),', { i(1, '1'), i(2) })),
+		s(
+			't',
+			fmta('t(<>),', {
+				c(1, {
+					fmta("{ '<>',<> }", { i(1), i(2) }),
+					fmta("'<>'", { i(1) }),
+				}),
+			})
+		),
+		s(
+			'c',
+			fmta('c(<>, {\n\t<>\n})', {
+				i(1, '1'),
+				i(2),
+			})
+		),
+		s(
+			'f',
+			fmta('f(<>, function()\n\t<>\nend),', {
+				i(1, '1'),
+				i(2),
+			})
+		),
 	}
 	ls.add_snippets('lua', lua_snippets)
 
