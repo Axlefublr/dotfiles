@@ -16,7 +16,6 @@ if not pcall(require, 'lazy') then
 end
 
 env = {}
-env.should_play_soundeffects = true
 env.temp_mark = 'P'
 env.default_register = '+'
 env.soundeffects = vim.fn.expand('~/mus/soundeffects/')

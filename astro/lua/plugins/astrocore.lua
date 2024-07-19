@@ -999,7 +999,7 @@ local command_mappings = {
 	['<A-s>'] = '\\zs',
 	['<A-d>'] = '\\ze',
 	['<A-f>'] = '<C-f>',
-	['<A-;>'] = '<C-l>', -- I use wildcharm, that doesn't recognize <A-;>, but does <C-z>. Hence the remap.
+	['<A-;>'] = '<C-l>', -- I use wildcharm, that doesn't recognize <A-;>, but does <C-l>. Hence the remap.
 }
 
 local command_insert_mappings = {
@@ -1397,6 +1397,8 @@ return {
 		opts.autocmds.bufferline = nil
 		---@diagnostic disable-next-line: undefined-field
 		opts.autocmds.q_close_windows = nil
+		---@diagnostic disable-next-line: undefined-field
+		opts.on_keys.auto_hlsearch = nil
 		return require('astrocore').extend_tbl(opts, opts_table)
 	end,
 }
