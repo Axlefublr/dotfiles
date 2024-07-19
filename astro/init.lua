@@ -20,6 +20,7 @@ env.temp_mark = 'P'
 env.default_register = '+'
 env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
 env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav', 'ogg', 'oga' }
+env.borders = { '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' }
 env.extra_directories = {
 	'~/t',
 	'~/prog/noties',
@@ -107,8 +108,6 @@ function table.contains(table, item)
 	return false
 end
 
-function string.trim(string)
-	return vim.fn.trim(string)
-end
+function string.trim(string) return vim.fn.trim(string) end
 
 require('lazy_setup')

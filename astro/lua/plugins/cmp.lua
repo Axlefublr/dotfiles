@@ -17,7 +17,7 @@ return {
 				completion = {
 					scrolloff = 99,
 					scrollbar = false,
-					border = false,
+					border = env.borders,
 				},
 				documentation = {
 					border = false,

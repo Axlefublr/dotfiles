@@ -56,11 +56,20 @@ return {
 	{
 		'rcarriga/nvim-notify',
 		event = 'VeryLazy',
-		opts = {
-			background_colour = '#292828',
-			render = 'wrapped-compact',
-			stages = 'static',
-		},
+		opts = function(_, opts)
+			local prev_func = opts.on_open
+			opts.on_open = function(win)
+				prev_func(win)
+				vim.api.nvim_win_set_config(win, {
+					border = env.borders
+				})
+			end
+			return require('astrocore').extend_tbl(opts, {
+				background_colour = '#292828',
+				render = 'wrapped-compact',
+				stages = 'static',
+			})
+		end,
 	},
 	{
 		'onsails/lspkind.nvim',
@@ -75,18 +84,12 @@ return {
 			},
 		},
 	},
-	{
-		'ErichDonGubler/lsp_lines.nvim',
-		event = 'LspAttach',
-		opts = {},
-		enabled = false,
-	},
-	{
-		'stevearc/dressing.nvim',
-		opts = {
-			input = { enabled = false },
-		},
-	},
+	-- {
+	-- 	'ErichDonGubler/lsp_lines.nvim',
+	-- 	event = 'LspAttach',
+	-- 	opts = {},
+	-- 	enabled = false,
+	-- },
 	{
 		'chrisgrieser/nvim-spider',
 		lazy = true,
@@ -141,5 +144,5 @@ return {
 	{
 		'tpope/vim-fugitive',
 		event = 'User AstroGitFile',
-	}
+	},
 }

@@ -487,12 +487,16 @@ local normal_mappings = {
 	['gw'] = vim.lsp.buf.rename,
 	['<Leader>lc'] = vim.lsp.buf.code_action,
 	['gl'] = function()
-		vim.diagnostic.open_float({ border = 'none', scope = 'cursor', source = 'if_many' })
-		vim.diagnostic.open_float({ border = 'none', scope = 'cursor', source = 'if_many' })
+		---@diagnostic disable-next-line: assign-type-mismatch
+		vim.diagnostic.open_float({ border = env.borders, scope = 'cursor', source = 'if_many' })
+		---@diagnostic disable-next-line: assign-type-mismatch
+		vim.diagnostic.open_float({ border = env.borders, scope = 'cursor', source = 'if_many' })
 	end,
 	['gL'] = function()
-		vim.diagnostic.open_float({ border = 'none', scope = 'buffer', source = 'if_many' })
-		vim.diagnostic.open_float({ border = 'none', scope = 'buffer', source = 'if_many' })
+		---@diagnostic disable-next-line: assign-type-mismatch
+		vim.diagnostic.open_float({ border = env.borders, scope = 'buffer', source = 'if_many' })
+		---@diagnostic disable-next-line: assign-type-mismatch
+		vim.diagnostic.open_float({ border = env.borders, scope = 'buffer', source = 'if_many' })
 	end,
 	['[e'] = function()
 		count_repeats(function() vim.diagnostic.goto_prev() end)
@@ -1324,7 +1328,7 @@ local opts_table = {
 				event = 'LspAttach',
 				callback = function()
 					vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-						border = 'none',
+						border = env.borders,
 					})
 				end,
 			},
