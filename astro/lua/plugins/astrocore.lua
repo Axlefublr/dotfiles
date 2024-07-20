@@ -359,14 +359,14 @@ local function get_case_type(prompt, is_word)
 	return env.confirm(prompt, options)
 end
 
-function store_andor_use_count(what)
-	if vim.v.count > 0 then
-		vim.g.stored_count_shared = vim.v.count
-		return what
-	else
-		return (vim.g.stored_count_shared or 1) .. what
-	end
-end
+-- function store_andor_use_count(what)
+-- 	if vim.v.count > 0 then
+-- 		vim.g.stored_count_shared = vim.v.count
+-- 		return what
+-- 	else
+-- 		return (vim.g.stored_count_shared or 1) .. what
+-- 	end
+-- end
 
 local function count_repeats_keys(keys)
 	for _ = 1, vim.v.count1 do
@@ -1004,14 +1004,14 @@ local normal_visual_pending_mappings = {
 	['b'] = "<Cmd>lua require('spider').motion('b')<CR>",
 	['ge'] = "<Cmd>lua require('spider').motion('ge')<CR>",
 
-	j = {
-		function() return store_andor_use_count('j') end,
-		expr = true,
-	},
-	k = {
-		function() return store_andor_use_count('k') end,
-		expr = true,
-	},
+	-- j = {
+	-- 	function() return store_andor_use_count('j') end,
+	-- 	expr = true,
+	-- },
+	-- k = {
+	-- 	function() return store_andor_use_count('k') end,
+	-- 	expr = true,
+	-- },
 	H = '<C-u>',
 	L = '<C-d>',
 	["m'"] = "`'",
