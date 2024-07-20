@@ -25,11 +25,6 @@ return {
 			{ mode = { 'n', 'x' }, 'gx', '<Plug>(EasyAlign)' },
 		},
 	},
-	-- {
-	-- 	'bkad/CamelCaseMotion',
-	-- 	event = 'VeryLazy',
-	-- 	init = function() vim.g.camelcasemotion_key = '<Leader>' end, -- only `init` works
-	-- },
 	{
 		'NMAC427/guess-indent.nvim',
 		cmd = 'GuessIndent',
