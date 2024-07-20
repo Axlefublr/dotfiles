@@ -515,6 +515,27 @@ local normal_mappings = {
 	-- end,
 
 	-- Git
+	['<Leader>cf'] = function()
+		local result = env.shell({ 'gaf', 'print', 'new' }):wait()
+		if result.code ~= 0 then
+			vim.notify('gaf failed')
+			return
+		end
+		local output = result.stdout:trim()
+		if output == '' then
+			vim.notify('nothing to clean')
+			return
+		end
+		local state = {
+			{ 'Jes', 'silent G clean -df' },
+			{ 'Ko', nil },
+		}
+		local result = env.confirm(output, state)
+		if not result then
+			return
+		end
+		vim.cmd(result)
+	end,
 	['<Leader>cc'] = '<Cmd>silent G commit -q<CR>',
 	['<Leader>cA'] = '<Cmd>silent G add .<CR>',
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
