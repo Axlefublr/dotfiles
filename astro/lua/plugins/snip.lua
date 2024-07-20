@@ -11,6 +11,13 @@ local snippets = function()
 	local fmta = require('luasnip.extras.fmt').fmta
 
 	local all_snippets = {
+		s('asi', {
+			f(function()
+				local result = env.shell('uclanr'):wait()
+				if result.code ~= 0 then return '' end
+				return result.stdout:trim()
+			end),
+		}),
 		s('wd', {
 			---@diagnostic disable-next-line: param-type-mismatch
 			f(function() return string.lower(os.date('%A')) end),
@@ -120,7 +127,11 @@ local snippets = function()
 		),
 		s('if', fmta('if <> then\n\t<>\nend', { i(1), i(2) })),
 		s('eif', fmta('elseif <> then\n\t<>', { i(1), i(2) })),
+		s('ife', fmta('if <> == <> then\n\t<>\nend', { i(1), i(2), i(3) })),
 		s('eife', fmta('elseif <> == <> then\n\t<>', { i(1), i(2), i(3) })),
+		s('th', fmta('then\n\t<>\nend', { i(1) })),
+		s('loc', { t('local ') }),
+		s('vf', { t('vim.fn.') }),
 		s('else', {
 			t({ 'else', '\t' }),
 		}),
@@ -176,7 +187,7 @@ local snippets = function()
 			t({ '#!/usr/bin/lua', '' }),
 		}),
 		s('rn', {
-			t({ 'return' }),
+			t({ 'return ' }),
 		}),
 		s('ldr', { t('<Leader>') }),
 		s('qq', {

@@ -60,6 +60,9 @@ env.color = {
 }
 
 function env.shell(cmd, opts, on_exit)
+	if type(cmd) == 'string' then
+		cmd = { cmd }
+	end
 	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts or {}), on_exit)
 end
 
@@ -99,6 +102,19 @@ function ReverseTable(table)
 	end
 
 	return reversed
+end
+
+function env.confirm(prompt, state, default)
+	local options = {}
+	for value in ipairs(state) do
+		table.insert(options, value[1])
+	end
+	options = vim.fn.join(options, '\n')
+	local index = vim.fn.confirm(prompt, options, default)
+	if index == 0 then
+		return nil
+	end
+	return state[index][2]
 end
 
 function table.contains(table, item)

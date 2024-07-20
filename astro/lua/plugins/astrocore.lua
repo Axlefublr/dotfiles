@@ -337,43 +337,26 @@ end
 
 local function get_case_type(prompt, is_word)
 	local options = {
-		'UPPER',
-		'lower',
-		'sn_a&_ke',
-		'da&-sh',
-		'CON_ST',
-		'cam&elCase',
-		'PascalCase',
-		'dot&.case',
-		'path&/case',
-		'Title Case',
-		'P&hrase case',
-		'UPPER PH&RASE',
-		'l&ower phrase',
-	}
-	local method_map = {
-		[options[1]] = 'to_upper_case',
-		[options[2]] = 'to_lower_case',
-		[options[3]] = 'to_snake_case',
-		[options[4]] = 'to_dash_case',
-		[options[5]] = 'to_constant_case',
-		[options[6]] = 'to_camel_case',
-		[options[7]] = 'to_pascal_case',
-		[options[8]] = 'to_dot_case',
-		[options[9]] = 'to_path_case',
-		[options[10]] = 'to_title_case',
-		[options[11]] = 'to_phrase_case',
-		[options[12]] = 'to_upper_phrase_case',
-		[options[13]] = 'to_lower_phrase_case',
+		{ 'UPPER', 'to_upper_case' },
+		{ 'lower', 'to_lower_case' },
+		{ 'sn_a&_ke', 'to_snake_case' },
+		{ 'da&-sh', 'to_dash_case' },
+		{ 'CON_ST', 'to_constant_case' },
+		{ 'cam&elCase', 'to_camel_case' },
+		{ 'PascalCase', 'to_pascal_case' },
+		{ 'dot&.case', 'to_dot_case' },
+		{ 'path&/case', 'to_path_case' },
+		{ 'Title Case', 'to_title_case' },
+		{ 'P&hrase case', 'to_phrase_case' },
+		{ 'UPPER PH&RASE', 'to_upper_phrase_case' },
+		{ 'l&ower phrase', 'to_lower_phrase_case' },
 	}
 	if is_word then
 		table.remove(options, 11)
 		table.remove(options, 10)
 		table.remove(options, 7)
 	end
-	local index = vim.fn.confirm(prompt, vim.fn.join(options, '\n'))
-	if index == 0 then return nil end
-	return method_map[options[index]]
+	return env.confirm(prompt, options)
 end
 
 function store_andor_use_count(what)
@@ -532,7 +515,7 @@ local normal_mappings = {
 	-- end,
 
 	-- Git
-	['<Leader>cc'] = '<Cmd>silent G commit<CR>',
+	['<Leader>cc'] = '<Cmd>silent G commit -q<CR>',
 	['<Leader>cA'] = '<Cmd>silent G add .<CR>',
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
 

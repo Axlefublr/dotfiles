@@ -23,9 +23,7 @@ local telescope_opts = function(_, opts)
 			wrap_results = true,
 			layout_strategy = 'flex',
 			selection_strategy = 'row',
-			borderchars = {
-				'━', '┃', '━', '┃', '┏', '┓', '┛', '┗'
-			},
+			borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗' },
 			path_display = function(opts, path)
 				return vim.fn.fnamemodify(path, ':~:.')
 			end,
