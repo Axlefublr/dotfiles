@@ -531,9 +531,7 @@ local normal_mappings = {
 			{ 'Ko', nil },
 		}
 		local result = env.confirm(output, state)
-		if not result then
-			return
-		end
+		if not result then return end
 		vim.cmd(result)
 	end,
 	['<Leader>cc'] = '<Cmd>silent G commit -q<CR>',
@@ -670,14 +668,14 @@ local normal_mappings = {
 	['m'] = function() require('harp').perbuffer_mark_get() end,
 
 	-- Moving
-	['#'] = function() search_for_current_word('?', '') end,
-	['*'] = function() search_for_current_word('/', '') end,
-	['<Leader>#'] = function() search_for_current_word('?', '?e') end,
-	['<Leader>*'] = function() search_for_current_word('/', '/e') end,
-	['g#'] = function() search_for_register('?', '') end,
-	['g*'] = function() search_for_register('/', '') end,
-	['<Leader>g#'] = function() search_for_register('?', '?e') end,
-	['<Leader>g*'] = function() search_for_register('/', '/e') end,
+	['#'] = function() require('lupa').word({ backwards = true }) end,
+	['*'] = function() require('lupa').word() end,
+	['<Leader>#'] = function() require('lupa').word({ backwards = true, edit = true }) end,
+	['<Leader>*'] = function() require('lupa').word({ edit = true }) end,
+	['g#'] = function() require('lupa').register(env.default_register, { backwards = true }) end,
+	['g*'] = function() require('lupa').register(env.default_register) end,
+	['<Leader>g#'] = function() require('lupa').register(env.default_register, { edit = true }) end,
+	['<Leader>g*'] = function() require('lupa').register(env.default_register, { edit = true }) end,
 	['{'] = function() move_to_blank_line(false) end,
 	['}'] = function() move_to_blank_line(true) end,
 
@@ -896,10 +894,10 @@ local visual_mappings = {
 			vim.fn.setreg(env.default_register, previous_clipboard)
 		end)
 	end,
-	['#'] = function() search_for_selection('?', '') end,
-	['*'] = function() search_for_selection('/', '') end,
-	['<Leader>#'] = function() search_for_selection('?', '?e') end,
-	['<Leader>*'] = function() search_for_selection('/', '/e') end,
+	['#'] = function() require('lupa').selection({ backwards = true }) end,
+	['*'] = function() require('lupa').selection() end,
+	['<Leader>#'] = function() require('lupa').selection({ edit = true, backwards = true }) end,
+	['<Leader>*'] = function() require('lupa').selection({ edit = true }) end,
 	['@@'] = function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end,
 	['a%'] = 'F%of%',
 	['i%'] = 'T%ot%',

@@ -11,5 +11,10 @@ return {
 		'Axlefublr/qfetter.nvim',
 		lazy = true,
 		dev = true
+	},
+	{
+		'Axlefublr/lupa.nvim',
+		lazy = true,
+		dev = true
 	}
 }
