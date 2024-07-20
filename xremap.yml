@@ -334,12 +334,6 @@ keymap:
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, 'install_yt_video longform'] },
         ]
-      a:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'install_yt_video pod'] },
-        ]
 
       g:
         [
