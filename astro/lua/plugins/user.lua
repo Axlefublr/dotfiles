@@ -78,12 +78,6 @@ return {
 			},
 		},
 	},
-	-- {
-	-- 	'ErichDonGubler/lsp_lines.nvim',
-	-- 	event = 'LspAttach',
-	-- 	opts = {},
-	-- 	enabled = false,
-	-- },
 	{
 		'chrisgrieser/nvim-spider',
 		lazy = true,
