@@ -274,12 +274,12 @@ keymap:
       o: end
       p: pagedown
 
-      c: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c phind'] }]
+      c: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c github'] }]
       Shift-c:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'c phind neoline'] },
+          { launch: [fish, -c, 'c github neoline'] },
         ]
       v: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c google'] }]
       Shift-v:

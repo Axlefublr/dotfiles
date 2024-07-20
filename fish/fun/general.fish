@@ -299,6 +299,8 @@ function c
             $BROWSER "https://yandex.com/search?text=$input" >/dev/null
         case p phind
             $BROWSER "https://www.phind.com/search?q=$input" >/dev/null
+        case github
+            $BROWSER "https://www.google.com/search?q=$input%20github&sourceid=chrome&ie=UTF-8" >/dev/null
         case '*'
             $BROWSER "https://www.google.com/search?q=$input&sourceid=chrome&ie=UTF-8" >/dev/null
     end
