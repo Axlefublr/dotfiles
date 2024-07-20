@@ -1211,6 +1211,55 @@ local opts_table = {
 		},
 	},
 	autocmds = {
+		neoline = {
+			{
+				event = 'User',
+				pattern = 'NeolineNi',
+				callback = function()
+					vim.api.nvim_create_autocmd('BufUnload', {
+						callback = function()
+							local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+							local text = vim.fn.join(lines, '\n')
+							local file = io.open('/tmp/ni-output', 'w+')
+							if not file then return end
+							file:write(text)
+							file:close()
+						end
+					})
+					return true
+				end
+			},
+			{
+				event = 'User',
+				pattern = 'NeolineClipboard',
+				callback = function()
+					---@diagnostic disable-next-line: redundant-parameter
+					local lines = vim.fn.getreg('+', 1, true)
+					---@diagnostic disable-next-line: param-type-mismatch
+					vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+					vim.api.nvim_create_autocmd('BufUnload', {
+						callback = function()
+							local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+							vim.fn.setreg('+', vim.fn.join(lines, '\n'))
+						end
+					})
+					return true
+				end
+			},
+			{
+				event = 'User',
+				pattern = 'NeolineClipboard empty',
+				callback = function()
+					vim.api.nvim_create_autocmd('BufUnload', {
+						callback = function()
+							local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+							vim.fn.setreg('+', vim.fn.join(lines, '\n'))
+						end
+					})
+					return true
+				end
+			}
+		},
 		autoview = { -- stolen from astronvim, I literally just wanted to make this work for files without a filetype
 			{
 				event = { 'BufWinLeave', 'BufWritePost', 'WinLeave' },

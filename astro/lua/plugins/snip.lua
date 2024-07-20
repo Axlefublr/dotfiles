@@ -116,7 +116,18 @@ local snippets = function()
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
-		s('ntf', fmta("vim.notify('<>')", { i(1), })),
+		s(
+			'event',
+			fmta('event = <>,', {
+				c(1, {
+					i(1),
+					fmta('{ <> }', { i(1) }),
+				}),
+			})
+		),
+		s('va', { t('vim.api.') }),
+		s('van', { t('vim.api.nvim_') }),
+		s('ntf', fmta("vim.notify('<>')", { i(1) })),
 		s(
 			'opts',
 			fmt('opts = {},', {
@@ -316,6 +327,10 @@ local snippets = function()
 	ls.add_snippets('fish', fish_snippets)
 
 	local git_commit_snippets = {
+		s('c', fmta('chore<>: ', { i(1) })),
+		s('f', fmta('feat<>: ', { i(1) })),
+		s('x', fmta('fix<>: ', { i(1) })),
+		s('d', fmta('doc<>: ', { i(1) })),
 		s('fish', { t('fish: ') }),
 		s('as', { t('astro: ') }),
 		s('awm', { t('awesome: ') }),

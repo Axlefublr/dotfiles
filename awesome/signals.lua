@@ -15,7 +15,6 @@ end)
 client.connect_signal('manage', function(client)
 	-- New windows are extra, not main
 	if not awesome.startup then awful.client.setslave(client) end
-	if client.class == 'Anki' and string.match(client.name, '^Browse') then MoveWindowToTag(16) end
 	Clients_wu(screen.primary.selected_tag)
 end)
 

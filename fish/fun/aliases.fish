@@ -23,7 +23,16 @@ alias --save awart 'awesome-client "awesome.restart()"' >/dev/null
 alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' >/dev/null
 alias --save dust 'dust -r' >/dev/null
 alias --save neomax 'kitty -T neomax nvim' >/dev/null
-alias --save neoline 'kitty -T neoline nvim' >/dev/null
+function neoline
+    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --type os-window --os-window-title neoline --no-response nvim $argv
+end
+funcsave neoline >/dev/null
+function neoline_hold
+    neoline $argv
+    win_wait 'kitty\\.kitty — neoline'
+    win_wait_closed 'kitty\\.kitty — neoline'
+end
+funcsave neoline_hold >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'eza --git --git-repos' >/dev/null
 alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null

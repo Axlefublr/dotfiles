@@ -245,16 +245,16 @@ end
 funcsave oil >/dev/null
 
 function ni
-    set extension ''
+    set filetype
     if test "$argv[1]"
-        set extension ".$argv[1]"
+        set filetype -c setfiletype $argv[1]
     end
     if status is-interactive
-        nvim "/dev/shm/ninput$extension" -c 'norm \'\'die' >&2
+        nvim -c 'do User NeolineNi' $filetype >&2
     else
-        neoline "/dev/shm/ninput$extension" -c 'norm \'\'die' >&2
+        neoline_hold -c 'do User NeolineNi' $filetype >&2
     end
-    cat "/dev/shm/ninput$extension" | string collect
+    cat /tmp/ni-output | string collect
 end
 funcsave ni >/dev/null
 
