@@ -106,7 +106,7 @@ end
 
 function env.confirm(prompt, state, default)
 	local options = {}
-	for value in ipairs(state) do
+	for _, value in ipairs(state) do
 		table.insert(options, value[1])
 	end
 	options = vim.fn.join(options, '\n')

@@ -116,6 +116,7 @@ local snippets = function()
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
+		s('ntf', fmta("vim.notify('<>')", { i(1), })),
 		s(
 			'opts',
 			fmt('opts = {},', {

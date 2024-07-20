@@ -20,8 +20,8 @@ local function remaps()
 		function() require('dial.map').manipulate('decrement', 'gnormal') end
 	)
 
-	vim.keymap.set('x', '<A-d>', require('dial.map').inc_visual('visual'))
-	vim.keymap.set('x', '<A-s>', require('dial.map').dec_visual('visual'))
+	vim.keymap.set('v', '<A-d>', require('dial.map').inc_visual('visual'))
+	vim.keymap.set('v', '<A-s>', require('dial.map').dec_visual('visual'))
 	vim.keymap.set('x', 'g<A-d>', require('dial.map').inc_gvisual('visual'))
 	vim.keymap.set('x', 'g<A-s>', require('dial.map').dec_visual('visual'))
 
@@ -39,11 +39,11 @@ return {
 			'g<A-s>',
 			'<Leader>d;',
 			{
-				mode = 'x',
+				mode = 's',
 				'<A-d>',
 			},
 			{
-				mode = 'x',
+				mode = 's',
 				'<A-s>',
 			},
 			{
