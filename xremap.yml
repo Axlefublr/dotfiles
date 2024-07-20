@@ -1205,6 +1205,7 @@ keymap:
       Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
       CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
       Super_R-q: ctrl-shift-u
+      Super_R-g: enter
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
       Super_R-z: ScrollLock # compose
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
