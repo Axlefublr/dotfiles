@@ -285,18 +285,22 @@ end
 
 local function execute_this_file()
 	save(true)
-	local file = vim.api.nvim_buf_get_name(0)
-	require('astrocore').cmd({
-		'kitten',
-		'@',
-		'launch',
-		'--cwd',
-		vim.fn.getcwd(),
-		'--hold',
-		'fish',
-		'-c',
-		"execute '" .. file .. "'",
-	})
+	local repo = get_repo_root()
+	local file = vim.fn.expand('%')
+	local extension = vim.fn.expand('%:e')
+	local command = { 'kitten', '@', 'launch', '--type', 'overlay-main', '--cwd', repo, '--hold' }
+	local run = function(diag_command, opts) env.shell(vim.list_extend(command, diag_command), opts):wait() end
+	if extension == 'rs' then
+		local edited_command = env.input('run: ', 'cargo run -- ')
+		if not edited_command then return end
+		run(vim.fn.split(edited_command))
+	elseif extension == 'py' then
+		run({ 'python', file })
+	elseif extension == 'nim' then
+		run({ 'nimble', 'run' })
+	else
+		run({ file })
+	end
 end
 
 local function diag_this_file()
@@ -684,7 +688,7 @@ local normal_mappings = {
 	['<A-l>'] = '<C-w>>',
 	['<C-n>'] = '<C-w>-',
 	['<C-p>'] = '<C-w>+',
-	["d'"] = '<C-w>p',
+	["c'"] = '<C-w>p',
 	['<Leader>aP'] = '<Cmd>tabclose<CR>',
 	['<Leader>ap'] = '<Cmd>tabnew<CR>',
 	['<Leader>ah'] = function() vim.cmd('leftabove vsplit') end,
@@ -699,7 +703,7 @@ local normal_mappings = {
 	['<Leader>aa'] = function() vim.cmd('enew') end,
 	['co'] = '<C-w>o',
 	['cu'] = '<C-w>=',
-	["c'"] = '<C-w><C-w>',
+	["d'"] = '<C-w><C-w>',
 	['[w'] = 'gT',
 	[']w'] = 'gt',
 
@@ -1224,10 +1228,10 @@ local opts_table = {
 							if not file then return end
 							file:write(text)
 							file:close()
-						end
+						end,
 					})
 					return true
-				end
+				end,
 			},
 			{
 				event = 'User',
@@ -1241,10 +1245,10 @@ local opts_table = {
 						callback = function()
 							local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 							vim.fn.setreg('+', vim.fn.join(lines, '\n'))
-						end
+						end,
 					})
 					return true
-				end
+				end,
 			},
 			{
 				event = 'User',
@@ -1254,11 +1258,11 @@ local opts_table = {
 						callback = function()
 							local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 							vim.fn.setreg('+', vim.fn.join(lines, '\n'))
-						end
+						end,
 					})
 					return true
-				end
-			}
+				end,
+			},
 		},
 		autoview = { -- stolen from astronvim, I literally just wanted to make this work for files without a filetype
 			{

@@ -66,6 +66,16 @@ function env.shell(cmd, opts, on_exit)
 	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts or {}), on_exit)
 end
 
+---@return string|nil
+function env.input(prompt, default)
+	local output = vim.fn.input({ prompt = prompt, default = default, cancelreturn = '\127' })
+	if output == '\127' then
+		return nil
+	else
+		return output
+	end
+end
+
 function FeedKeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
 function FeedKeysInt(keys)
@@ -110,7 +120,7 @@ function env.confirm(prompt, state, default)
 		table.insert(options, value[1])
 	end
 	options = vim.fn.join(options, '\n')
-	local index = vim.fn.confirm(prompt, options, default)
+	local index = vim.fn.confirm(prompt, options, default or 1)
 	if index == 0 then
 		return nil
 	end

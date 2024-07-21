@@ -116,6 +116,7 @@ local snippets = function()
 	ls.add_snippets('all', all_snippets)
 
 	local lua_snippets = {
+		s('pis', fmta('print(vim.inspect(<>))', { i(1) })),
 		s(
 			'event',
 			fmta('event = <>,', {
@@ -234,8 +235,8 @@ local snippets = function()
 			't',
 			fmta('t(<>),', {
 				c(1, {
-					fmta("{ '<>',<> }", { i(1), i(2) }),
 					fmta("'<>'", { i(1) }),
+					fmta("{ '<>',<> }", { i(1), i(2) }),
 				}),
 			})
 		),
@@ -370,6 +371,10 @@ local snippets = function()
 	ls.add_snippets('markdown', markdown_snippets)
 
 	local yaml_snippets = {
+		s('!', { t('Alt-') }),
+		s('+', { t('Shift-') }),
+		s('^', { t('Ctrl-') }),
+		s('#', fmta('Super<>-<>', { i(1), i(2) })),
 		s('apo', { t('Apostrophe') }),
 		s(';', { t('Semicolon') }),
 		s('c', { t('CapsLock') }),
