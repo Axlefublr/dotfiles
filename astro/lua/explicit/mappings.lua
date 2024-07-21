@@ -1061,7 +1061,7 @@ local normal_visual_mappings = {
 local insert_select_mappings = {
 	['<A-l>'] = function() require('luasnip').jump(1) end,
 	['<A-h>'] = function() require('luasnip').jump(-1) end,
-	['<A-i>'] = function()
+	['<A-;>'] = function()
 		if require('luasnip').expandable() then require('luasnip').expand() end
 	end,
 	['<A-o>'] = function()

@@ -47,11 +47,7 @@ return {
 						vim.lsp.buf.signature_help()
 					end
 				end,
-				['<F5>'] = cmp.mapping.confirm({
-					select = true,
-					behavior = cmp.ConfirmBehavior.Replace,
-				}),
-				['<A-;>'] = cmp.mapping.confirm({
+				['<A-i>'] = cmp.mapping.confirm({
 					select = true,
 					behavior = cmp.ConfirmBehavior.Insert,
 				}),
