@@ -1266,6 +1266,7 @@ local opts_table = {
 				event = 'User',
 				pattern = 'NeolineClipboard',
 				callback = function()
+					vim.bo.filetype = 'markdown'
 					---@diagnostic disable-next-line: redundant-parameter
 					local lines = vim.fn.getreg('+', 1, true)
 					---@diagnostic disable-next-line: param-type-mismatch
@@ -1283,6 +1284,7 @@ local opts_table = {
 				event = 'User',
 				pattern = 'NeolineClipboard empty',
 				callback = function()
+					vim.bo.filetype = 'markdown'
 					vim.api.nvim_create_autocmd('BufUnload', {
 						callback = function()
 							local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
