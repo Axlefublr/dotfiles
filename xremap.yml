@@ -1203,7 +1203,7 @@ keymap:
         }
       Super-c: { launch: [awesome-client, FixBrowserInstance()] }
       Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
-      CapsLock-Space: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock
+      CapsLock-p: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
       Super_R-q: ctrl-shift-u
       Super_R-g: enter
       Super_L-Space: { launch: [fish, -c, toggle_layout] }

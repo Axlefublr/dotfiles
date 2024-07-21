@@ -114,6 +114,8 @@ local all_snippets = {
 }
 
 local lua_snippets = {
+	s('for', fmta('for <>, <> in <> do\n\t<>\nend', { i(1, 'key'), i(2, 'value'), i(3), i(4) })),
+	s('do', fmta('do\n\t<>\nend', { i(1) })),
 	s('pis', fmta('print(vim.inspect(<>))', { i(1) })),
 	s(
 		'event',
