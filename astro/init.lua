@@ -127,6 +127,15 @@ function env.confirm(prompt, state, default)
 	return state[index][2]
 end
 
+function env.confirm_same(prompt, options, default)
+	options_text = vim.fn.join(options, '\n')
+	local index = vim.fn.confirm(prompt, options_text, default or 1)
+	if index == 0 then
+		return nil
+	end
+	return options[index]
+end
+
 function table.contains(table, item)
 	for _, thingy in pairs(table) do
 		if thingy == item then return true end

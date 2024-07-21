@@ -316,6 +316,32 @@ local function diag_this_file()
 	end
 end
 
+local function set_env_vars()
+	local options = {
+		RUST_LOG = {
+			'trace',
+			'debug',
+			'info',
+			'warn',
+			'error',
+		},
+	}
+	local env_var_options = {}
+	for key, _ in pairs(options) do
+		table.insert(env_var_options, key)
+	end
+	local env_var = env.confirm_same('', env_var_options)
+	if not env_var then
+		return
+	end
+	local env_value = env.confirm_same('', options[env_var])
+	if not env_value then
+		return
+	end
+	vim.fn.setenv(env_var, env_value)
+	vim.notify('set ' .. env_var .. '=' .. env_value)
+end
+
 local function open_link_in_instance(index)
 	local index = (index or 1) - 1
 	require('various-textobjs').url()
@@ -497,6 +523,7 @@ local normal_mappings = {
 	end,
 	['<Leader>lx'] = execute_this_file,
 	['<Leader>lz'] = diag_this_file,
+	['<Leader>lZ'] = set_env_vars,
 
 	-- Folding
 	['zM'] = function() vim.wo.foldlevel = vim.v.count end,
