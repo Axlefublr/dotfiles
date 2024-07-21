@@ -10,7 +10,8 @@ end
 local function save(and_format)
 	trim_trailing_whitespace()
 	vim.cmd.nohlsearch()
-	if and_format then require('conform').format({ async = false, lsp_format = 'fallback' }) end
+	if and_format == true then require('conform').format({ async = false, lsp_format = 'fallback' }) end
+	if type(and_format) == 'string' then vim.cmd('silent ' .. and_format) end
 	---@diagnostic disable-next-line: param-type-mismatch
 	pcall(vim.cmd, 'silent update')
 end
@@ -50,7 +51,7 @@ local function copy_cwd_relative()
 	vim.notify('cwd relative: ' .. relative_path)
 end
 
-function get_repo_root()
+local function get_repo_root()
 	local git_root = env.shell({ 'git', 'rev-parse', '--show-toplevel' }, { cwd = vim.fn.expand('%:h') }):wait().stdout
 	git_root = git_root and git_root:sub(1, -2) or git_root
 	return git_root
@@ -149,7 +150,7 @@ local function copy_cwd()
 	vim.notify('cwd: ' .. cwd)
 end
 
-function killring_push_tail()
+local function killring_push_tail()
 	local register_contents = vim.fn.getreg(env.default_register)
 	if register_contents == '' then
 		vim.notify('default register is empty')
@@ -159,7 +160,7 @@ function killring_push_tail()
 	vim.notify('pushed')
 end
 
-function killring_push()
+local function killring_push()
 	local register_contents = vim.fn.getreg(env.default_register)
 	if register_contents == '' then
 		vim.notify('default register is empty')
@@ -169,7 +170,7 @@ function killring_push()
 	vim.notify('pushed')
 end
 
-function killring_pop_tail(insert)
+local function killring_pop_tail(insert)
 	if #killring <= 0 then
 		vim.notify('killring empty')
 		return
@@ -187,7 +188,7 @@ function killring_pop_tail(insert)
 	end
 end
 
-function killring_pop(insert)
+local function killring_pop(insert)
 	if #killring <= 0 then
 		vim.notify('killring empty')
 		return
@@ -205,25 +206,19 @@ function killring_pop(insert)
 	end
 end
 
-function killring_compile()
+local function killring_compile()
 	local compiled_killring = killring:concat('')
 	vim.fn.setreg(env.default_register, compiled_killring)
 	killring = setmetatable({}, { __index = table })
 	vim.notify('killring compiled')
 end
 
-function killring_compile_reversed()
+local function killring_compile_reversed()
 	local reversed_killring = ReverseTable(killring)
 	local compiled_killring = reversed_killring:concat('')
 	vim.fn.setreg(env.default_register, compiled_killring)
 	killring = setmetatable({}, { __index = table })
 	vim.notify('killring compiled in reverse')
-end
-
-function search_for_register(direction, death)
-	local escaped_register = EscapeForLiteralSearch(vim.fn.getreg(env.default_register))
-	FeedKeys(direction .. '\\V' .. escaped_register .. death)
-	FeedKeysInt('<CR>')
 end
 
 local function numbered_get(index, insert)
@@ -245,29 +240,6 @@ end
 
 local function numbered_insert(index) numbered_get(index, true) end
 local function numbered_command(index) numbered_get(index, 'command') end
-
--- I call it death because that's where we end up in. Just like /e or no /e
-local function search_for_selection(direction, death)
-	local default = vim.fn.getreg(env.default_register)
-	FeedKeys('y')
-	vim.schedule(function()
-		local escaped_selection = EscapeForLiteralSearch(vim.fn.getreg(env.default_register))
-		FeedKeys(direction .. '\\V' .. escaped_selection .. death)
-		FeedKeysInt('<cr>')
-		vim.fn.setreg(env.default_register, default)
-	end)
-end
-
-local function search_for_current_word(direction, death)
-	local register = vim.fn.getreg(env.default_register)
-	FeedKeys('yiw')
-	vim.schedule(function()
-		local escaped_word = EscapeForLiteralSearch(vim.fn.getreg(env.default_register))
-		FeedKeys(direction .. '\\V\\C' .. escaped_word .. death)
-		FeedKeysInt('<CR>')
-		vim.fn.setreg(env.default_register, register)
-	end)
-end
 
 local function harp_cd_get_or_home()
 	local register = require('harp').get_char('get cd harp: ')
@@ -298,7 +270,7 @@ local function execute_this_file()
 		run({ 'python', file })
 	elseif extension == 'nim' then
 		run({ 'nimble', 'run' })
-	elseif file == vim.fn.expand('~/prog/dotfiles/astro/lua/snippets.lua') then
+	elseif extension == 'lua' then
 		vim.cmd.source()
 	else
 		run({ file })
@@ -333,13 +305,9 @@ local function interactive_setenv()
 		table.insert(env_var_options, key)
 	end
 	local env_var = env.confirm_same('', env_var_options)
-	if not env_var then
-		return
-	end
+	if not env_var then return end
 	local env_value = env.confirm_same('', options[env_var])
-	if not env_value then
-		return
-	end
+	if not env_value then return end
 	vim.fn.setenv(env_var, env_value)
 	vim.notify('set ' .. env_var .. '=' .. env_value)
 end
@@ -391,7 +359,7 @@ local function get_case_type(prompt, is_word)
 	return env.confirm(prompt, options)
 end
 
--- function store_andor_use_count(what)
+-- local function store_andor_use_count(what)
 -- 	if vim.v.count > 0 then
 -- 		vim.g.stored_count_shared = vim.v.count
 -- 		return what
@@ -437,6 +405,7 @@ local normal_mappings = {
 	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Space>'] = save,
 	['d<Space>'] = function() save(true) end,
+	['c<Space>'] = function() save('sort') end,
 	K = close_try_save,
 
 	-- Fixes
@@ -1464,6 +1433,8 @@ local opts_table = {
 		},
 	},
 }
+
+require('mappings')
 
 ---@type LazySpec
 return {
