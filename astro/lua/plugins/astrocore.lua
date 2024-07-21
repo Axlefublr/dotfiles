@@ -567,6 +567,7 @@ local normal_mappings = {
 		if not result then return end
 		vim.cmd(result)
 	end,
+	['<Leader>cC'] = '<Cmd>silent G add . | silent G commit -q<CR>',
 	['<Leader>cc'] = '<Cmd>silent G commit -q<CR>',
 	['<Leader>cA'] = '<Cmd>silent G add .<CR>',
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
