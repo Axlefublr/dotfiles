@@ -1,6 +1,9 @@
 return {
 	{
 		'L3MON4D3/LuaSnip',
-		opts = function() require('explicit.snippets') end,
+		config = function(_, opts)
+			require("luasnip").config.setup(opts)
+			require("luasnip.loaders.from_lua").load({ paths = '~/.config/nvim/snippets' })
+		end
 	},
 }
