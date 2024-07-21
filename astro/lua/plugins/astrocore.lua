@@ -298,6 +298,8 @@ local function execute_this_file()
 		run({ 'python', file })
 	elseif extension == 'nim' then
 		run({ 'nimble', 'run' })
+	elseif file == vim.fn.expand('~/prog/dotfiles/astro/lua/snippets.lua') then
+		vim.cmd.source()
 	else
 		run({ file })
 	end
@@ -316,7 +318,7 @@ local function diag_this_file()
 	end
 end
 
-local function set_env_vars()
+local function interactive_setenv()
 	local options = {
 		RUST_LOG = {
 			'trace',
@@ -523,7 +525,7 @@ local normal_mappings = {
 	end,
 	['<Leader>lx'] = execute_this_file,
 	['<Leader>lz'] = diag_this_file,
-	['<Leader>lZ'] = set_env_vars,
+	['<Leader>le'] = interactive_setenv,
 
 	-- Folding
 	['zM'] = function() vim.wo.foldlevel = vim.v.count end,
