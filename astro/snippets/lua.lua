@@ -87,7 +87,7 @@ return {
 	s({ filetype = 'lua', trig = '#!' }, {
 		t({ '#!/usr/bin/lua', '' }),
 	}),
-	s({ filetype = 'lua', trig = 'rn' }, {
+	s({ filetype = 'lua', trig = 're' }, {
 		t({ 'return ' }),
 	}),
 	s({ filetype = 'lua', trig = 'ldr' }, { t('<Leader>') }),

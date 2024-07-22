@@ -12,6 +12,19 @@ local telescope_opts = function(_, opts)
 		require('oil').open(parent_dir)
 	end
 
+	local function git_branch_pick(bufnr)
+		local branch = actions_state.get_selected_entry().value
+		local options = {
+			{ 'Switch', function() vim.cmd('Git switch ' .. branch) end },
+			{ 'Delete', function() vim.cmd('Git branch -d ' .. branch) end },
+			{ 'Copy', function() vim.fn.setreg('+', branch) end },
+		}
+		local picked = env.confirm(nil, options)
+		if not picked then return end
+		actions.close(bufnr)
+		picked()
+	end
+
 	return require('astrocore').extend_tbl(opts, {
 		defaults = {
 			prompt_prefix = '',
@@ -110,20 +123,10 @@ local telescope_opts = function(_, opts)
 			git_branches = {
 				mappings = {
 					n = {
-						['<A-o>c'] = 'git_create_branch',
-						['<A-o>d'] = 'git_delete_branch',
-						['<A-o>m'] = 'git_merge_branch',
-						['<A-o>r'] = 'git_rebase_branch',
-						['<A-o>s'] = 'git_checkout',
-						['<CR>'] = 'git_switch_branch',
+						['<CR>'] = git_branch_pick,
 					},
 					i = {
-						['<A-o>c'] = 'git_create_branch',
-						['<A-o>d'] = 'git_delete_branch',
-						['<A-o>m'] = 'git_merge_branch',
-						['<A-o>r'] = 'git_rebase_branch',
-						['<A-o>s'] = 'git_checkout',
-						['<CR>'] = 'git_switch_branch',
+						['<CR>'] = git_branch_pick,
 					},
 				},
 			},

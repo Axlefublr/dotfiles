@@ -120,7 +120,7 @@ function env.confirm(prompt, state, default)
 		table.insert(options, value[1])
 	end
 	options = vim.fn.join(options, '\n')
-	local index = vim.fn.confirm(prompt, options, default or 1)
+	local index = vim.fn.confirm(prompt or '', options, default or 1)
 	if index == 0 then
 		return nil
 	end
