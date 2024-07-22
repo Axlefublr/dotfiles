@@ -2,12 +2,26 @@
 virtual_modifiers:
   - CapsLock
   - F7
+  - F8
 default_mode: default
 modmap:
   - remap:
       Tab: Esc
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
       Alt_r: F7
+      Key_KP7: F8
+      Key_KP8: F8
+      Key_KP9: F8
+      Key_KPMINUS: F8
+      Key_KP4: F8
+      Key_KP5: F8
+      Key_KP6: F8
+      Key_KPPLUS: F8
+      Key_KP1: F8
+      Key_KP2: F8
+      Key_KP3: F8
+      Key_KP0: F8
+      Key_KPDOT: F8
 
   - name: Game side mouse buttons fix
     remap:
@@ -1045,6 +1059,36 @@ keymap:
       Super_R-v: '7'
       Super_R-c: '8'
       Super_R-x: '9'
+
+      F8-a: '0'
+      F8-f: '1'
+      F8-d: '2'
+      F8-s: '3'
+      F8-r: '4'
+      F8-e: '5'
+      F8-w: '6'
+      F8-v: '7'
+      F8-c: '8'
+      F8-x: '9'
+
+      F8-Shift-Dot: shift-7
+      F8-Shift-Slash: shift-backslash
+      F8-Shift-Comma: shift_r-grave
+      F8-Comma: shift_r-1
+      F8-Dot: shift-minus
+      F8-LeftBrace: shift-9
+      F8-RightBrace: shift-0
+      F8-Slash: backslash
+      F8-h: shift-6
+      F8-i: shift-8
+      F8-j: shift-equal
+      F8-k: minus
+      F8-l: equal
+      F8-n: shift_r-3
+      F8-o: shift_r-4
+      F8-u: grave
+      F8-Shift-n: shift_r-2
+      F8-m: shift_r-5
 
       CapsLock-Alt-Dot: shift-7
       CapsLock-Alt-Slash: shift-backslash
