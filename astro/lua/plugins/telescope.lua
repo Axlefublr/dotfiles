@@ -24,9 +24,7 @@ local telescope_opts = function(_, opts)
 			layout_strategy = 'flex',
 			selection_strategy = 'row',
 			borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗' },
-			path_display = function(opts, path)
-				return vim.fn.fnamemodify(path, ':~:.')
-			end,
+			path_display = function(opts, path) return vim.fn.fnamemodify(path, ':~:.') end,
 			preview = {
 				treesitter = true,
 				hide_on_startup = true,
@@ -54,12 +52,8 @@ local telescope_opts = function(_, opts)
 					['<C-n>'] = 'move_selection_next',
 					['<C-p>'] = 'move_selection_previous',
 					['<A-q>'] = open_parent_in_oil,
-					['J'] = function(bufnr)
-						actions_set.shift_selection(bufnr, 6)
-					end,
-					['K'] = function(bufnr)
-						actions_set.shift_selection(bufnr, -6)
-					end,
+					['J'] = function(bufnr) actions_set.shift_selection(bufnr, 6) end,
+					['K'] = function(bufnr) actions_set.shift_selection(bufnr, -6) end,
 					['<C-v>'] = false,
 					['<C-u>'] = false,
 					['<C-d>'] = false,
@@ -136,10 +130,10 @@ local telescope_opts = function(_, opts)
 			command_history = {
 				mappings = {
 					n = {
-						['<A-o>e'] = 'edit_command_line',
+						['<CR>'] = 'edit_command_line',
 					},
 					i = {
-						['<A-o>e'] = 'edit_command_line',
+						['<CR>'] = 'edit_command_line',
 					},
 				},
 			},
@@ -148,9 +142,6 @@ local telescope_opts = function(_, opts)
 			},
 			loclist = {
 				show_line = false,
-			},
-			git_files = {
-				show_untracked = true,
 			},
 			git_status = {
 				initial_mode = 'normal',
