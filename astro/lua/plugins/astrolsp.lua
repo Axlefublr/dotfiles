@@ -20,11 +20,11 @@ local opts_table = {
 					completion = {
 						callSnippet = 'Replace',
 						enable = true,
-						keywordSnippet = 'Replace',
+						keywordSnippet = 'Disable',
 						postfix = '@',
 						showParams = true,
-						showWord = 'Enable',
-						workspaceWord = true,
+						showWord = 'Disable',
+						workspaceWord = false,
 					},
 					diagnostics = {
 						disable = { 'lowercase-global', 'redefined-local' },
