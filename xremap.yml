@@ -370,7 +370,7 @@ keymap:
   - name: Any! layout
     exact_match: true
     remap:
-      Super-k:
+      CapsLock-Alt-Apostrophe:
         remap:
           h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
           j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
@@ -1233,8 +1233,8 @@ keymap:
       Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
       Super-Alt-w: { launch: [fish, -c, 'xclip -selection clipboard -t image/png -o 2> /dev/null | display'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
-      Super-Alt-Semicolon: { launch: [rofi, -show, drun] }
-      Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
+      Super-Semicolon: { launch: [rofi, -show, drun] }
+      Super-k: { launch: [fish, -c, runner_kill] }
       Super-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
       Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
       Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
