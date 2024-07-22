@@ -41,6 +41,7 @@ local opts_table = {
 			fixeol = false,
 			foldcolumn = '1',
 			foldlevel = 0,
+			foldlevelstart = 0,
 			foldminlines = 0,
 			foldtext = '',
 			gdefault = true,
@@ -185,6 +186,20 @@ local opts_table = {
 					vim.keymap.set('n', 'gX', 'q')
 					vim.keymap.set('i', '<A-x>', '<Esc>qgi')
 				end,
+			},
+		},
+		hlsearch = {
+			{
+				event = 'InsertEnter',
+				callback = function()
+					vim.opt.hlsearch = false
+				end
+			},
+			{
+				event = 'InsertLeave',
+				callback = function()
+					vim.opt.hlsearch = true
+				end
 			},
 		},
 		everything = {
