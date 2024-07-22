@@ -691,8 +691,6 @@ local normal_mappings = {
 	['<C-n>'] = '<C-w>-',
 	['<C-p>'] = '<C-w>+',
 	["c'"] = '<C-w>p',
-	['<Leader>aP'] = '<Cmd>tabclose<CR>',
-	['<Leader>ap'] = '<Cmd>tabnew<CR>',
 	['<Leader>ah'] = function() vim.cmd('leftabove vsplit') end,
 	['<Leader>aj'] = function() vim.cmd('split') end,
 	['<Leader>ak'] = function() vim.cmd('leftabove split') end,
@@ -806,36 +804,38 @@ local normal_mappings = {
 	["'9"] = function() numbered_get(9) end,
 	["'0"] = function() numbered_get(10) end,
 
-	-- Kitty blank
+	-- Kitty blank series
 	['<A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
-	['<Leader>daf'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
-	['<Leader>das'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() }) end,
-	['<Leader>dad'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home() }) end,
-	['<Leader>dff'] = function()
+	['<Leader>aI'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', '~' }) end,
+	['<Leader>aii'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
+	['<Leader>ais'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() }) end,
+	['<Leader>aid'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home() }) end,
+	['<Leader>aU'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', '~' }) end,
+	['<Leader>auu'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd() })
 	end,
-	['<Leader>dfs'] = function()
+	['<Leader>aus'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd() })
 	end,
-	['<Leader>dfd'] = function()
+	['<Leader>aud'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home() })
 	end,
-	['<Leader>daF'] = function()
+	['<Leader>aiI'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' })
 	end,
-	['<Leader>daS'] = function()
+	['<Leader>aiS'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd(), '--hold', 'nvim' })
 	end,
-	['<Leader>daD'] = function()
+	['<Leader>aiD'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home(), '--hold', 'nvim' })
 	end,
-	['<Leader>dfF'] = function()
+	['<Leader>auU'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' })
 	end,
-	['<Leader>dfS'] = function()
+	['<Leader>auS'] = function()
 		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd(), '--hold', 'nvim' })
 	end,
-	['<Leader>dfD'] = function()
+	['<Leader>auD'] = function()
 		require('astrocore').cmd({
 			'kitten',
 			'@',
@@ -946,9 +946,7 @@ local insert_mappings = {
 	['<F5>'] = '',
 	['<F6>'] = '<C-o>o',
 	['<A-a>'] = '<C-a>',
-	['<A-f>'] = '<C-g>u',
-	['<A-[>'] = '<C-g>k',
-	['<A-]>'] = '<C-g>j',
+	['<A-f>'] = '<C-g>j',
 }
 
 local pending_mappings = {

@@ -36,7 +36,7 @@ return {
 
 				vim.keymap.set(
 					'n',
-					'<Leader>dfs',
+					'<Leader>aus',
 					function()
 						require('astrocore').cmd({
 							'kitten',
@@ -52,7 +52,7 @@ return {
 				)
 				vim.keymap.set(
 					'n',
-					'<Leader>das',
+					'<Leader>ais',
 					function()
 						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
 					end,
