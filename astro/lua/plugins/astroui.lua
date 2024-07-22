@@ -163,7 +163,7 @@ local highlights = {
 	-- Simple
 
 	['Normal'] = link('White'),
-	['NormalFloat'] = link('Normal'),
+	['NormalFloat'] = link('Dark14'),
 	['NormalNC'] = link('Normal'),
 
 	['FloatBorder'] = link('Normal'),
