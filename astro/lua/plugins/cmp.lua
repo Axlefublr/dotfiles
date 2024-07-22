@@ -3,12 +3,17 @@ return {
 	'hrsh7th/nvim-cmp',
 	event = 'InsertEnter',
 	dependencies = {
+		{ 'hrsh7th/cmp-buffer', lazy = true },
 		{ 'amarakon/nvim-cmp-buffer-lines', lazy = true },
 		{ 'saadparwaiz1/cmp_luasnip', enabled = false },
 	},
 	opts = function(_, opts)
 		local cmp = require('cmp')
 		opts.mapping = nil
+		for index = #opts.sources, 1, -1 do
+			local source_name = opts.sources[index].name
+			if source_name == 'buffer' or source_name == 'luasnip' then table.remove(opts.sources, index) end
+		end
 		return require('astrocore').extend_tbl(opts, {
 			performance = {
 				throttle = 0,
@@ -17,7 +22,7 @@ return {
 				completion = {
 					scrolloff = 99,
 					scrollbar = false,
-					border = env.borders,
+					border = false,
 				},
 				documentation = {
 					border = env.borders,
@@ -57,6 +62,13 @@ return {
 							{ name = 'buffer-lines', priority = 50, option = {
 								leading_whitespace = false,
 							} },
+						},
+					},
+				}),
+				['<A-n>'] = cmp.mapping.complete({
+					config = {
+						sources = {
+							{ name = 'buffer' },
 						},
 					},
 				}),
