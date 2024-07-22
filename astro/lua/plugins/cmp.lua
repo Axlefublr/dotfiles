@@ -47,7 +47,7 @@ return {
 						vim.lsp.buf.signature_help()
 					end
 				end,
-				['<A-i>'] = cmp.mapping.confirm({
+				['<A-;>'] = cmp.mapping.confirm({
 					select = true,
 					behavior = cmp.ConfirmBehavior.Insert,
 				}),
