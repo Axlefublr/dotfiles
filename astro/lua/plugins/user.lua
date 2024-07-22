@@ -55,7 +55,7 @@ return {
 			opts.on_open = function(win)
 				prev_func(win)
 				vim.api.nvim_win_set_config(win, {
-					border = env.borders
+					border = env.borders,
 				})
 			end
 			return require('astrocore').extend_tbl(opts, {
