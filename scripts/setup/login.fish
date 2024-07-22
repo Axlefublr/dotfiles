@@ -23,7 +23,7 @@ playerctld daemon
 kitty -T meow 2>>/tmp/log/user.txt & disown
 oil.fish ~/vid/content 2>>/tmp/log/user.txt & disown
 
-kitty -T editor -d ~/prog/dotfiles nvim 2>>/tmp/log/user.txt & disown
+kitty -T editor -d ~/prog/dotfiles --hold nvim 2>>/tmp/log/user.txt & disown
 # win_wait 'neovide — Neovide' 0.5 0 200
 # kitty -T terminal -d ~/prog/dotfiles 2>>/tmp/log/user.txt & disown
 

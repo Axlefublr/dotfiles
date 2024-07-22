@@ -475,15 +475,15 @@ local normal_mappings = {
 	['<Leader>lc'] = vim.lsp.buf.code_action,
 	['gl'] = function()
 		---@diagnostic disable-next-line: assign-type-mismatch
-		vim.diagnostic.open_float({ border = env.borders, scope = 'cursor', source = 'if_many' })
+		vim.diagnostic.open_float({ border = env.borders, scope = 'cursor' })
 		---@diagnostic disable-next-line: assign-type-mismatch
-		vim.diagnostic.open_float({ border = env.borders, scope = 'cursor', source = 'if_many' })
+		vim.diagnostic.open_float({ border = env.borders, scope = 'cursor' })
 	end,
 	['gL'] = function()
 		---@diagnostic disable-next-line: assign-type-mismatch
-		vim.diagnostic.open_float({ border = env.borders, scope = 'buffer', source = 'if_many' })
+		vim.diagnostic.open_float({ border = env.borders, scope = 'buffer' })
 		---@diagnostic disable-next-line: assign-type-mismatch
-		vim.diagnostic.open_float({ border = env.borders, scope = 'buffer', source = 'if_many' })
+		vim.diagnostic.open_float({ border = env.borders, scope = 'buffer' })
 	end,
 	['[e'] = function()
 		count_repeats(function() vim.diagnostic.goto_prev() end)

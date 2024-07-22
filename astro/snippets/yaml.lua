@@ -8,7 +8,8 @@ return {
 	s({ filetype = 'yaml', trig = 'c' }, { t('CapsLock') }),
 	s({ filetype = 'yaml', trig = 'lb' }, { t('LeftBrace') }),
 	s({ filetype = 'yaml', trig = 'rb' }, { t('RightBrace') }),
-	s({ filetype = 'yaml', trig = '\\' }, { t(' }Backslash') }),
+	s({ filetype = 'yaml', trig = '\\' }, { t('Backslash') }),
+	s({ filetype = 'yaml', trig = ',' }, { t('Comma') }),
 	s({ filetype = 'yaml', trig = 'launch' }, {
 		t('{ launch: ['),
 		i(0),

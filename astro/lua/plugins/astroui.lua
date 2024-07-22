@@ -184,6 +184,7 @@ local highlights = {
 	['Folded'] = link('Dark14'),
 	['IncSearch'] = link('PurpleBoldBackground'),
 	['Include'] = link('Blush'),
+	['InlayHints'] = { fg = color.grey, italic = true },
 	['LspCodeLens'] = link('InlayHints'),
 	['LspCodeLensSeparator'] = link('InlayHints'),
 	['LspInformationVirtual'] = link('InlayHints'),
