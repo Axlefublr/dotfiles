@@ -25,6 +25,7 @@ local highlights = {
 	['Aqua'] = fg('mint'),
 	['Purple'] = fg('purple'),
 	['Blush'] = fg('blush'),
+	['White'] = fg('white'),
 
 	['RedBold'] = { fg = color.red, bold = true },
 	['OrangeBold'] = { fg = color.orange, bold = true },
@@ -159,6 +160,17 @@ local highlights = {
 
 	-- Fixes
 
+	-- Simple
+
+	['Normal'] = link('White'),
+	['NormalFloat'] = link('Normal'),
+	['NormalNC'] = link('Normal'),
+
+	['FloatBorder'] = link('Normal'),
+	['FloatTitle'] = link('Yellow'),
+
+	-- Simple
+
 	-- Other
 
 	['CccFloatNormal'] = link('Dark12'),
@@ -169,16 +181,12 @@ local highlights = {
 	['DiagnosticVirtualTextHint'] = link('Blue'),
 	['DiagnosticVirtualTextInfo'] = link('Blue'),
 	['DiagnosticVirtualTextWarn'] = link('Orange'),
-	['Float'] = link('Blush'),
-	['FloatBorder'] = link('Dark13'),
-	['FloatTitle'] = link('YellowOnDark12'),
 	['Folded'] = link('Dark14'),
 	['IncSearch'] = link('PurpleBoldBackground'),
 	['Include'] = link('Blush'),
 	['LspCodeLens'] = link('InlayHints'),
 	['LspCodeLensSeparator'] = link('InlayHints'),
 	['LspInformationVirtual'] = link('InlayHints'),
-	['NormalFloat'] = link('Dark13'),
 	['PMenu'] = link('Dark13'),
 	['PMenuExtra'] = link('Dark13'),
 	['PMenuSBar'] = link('Dark13'),
@@ -224,14 +232,15 @@ local highlights = {
 	['HighlightRedo'] = link('AquaBoldBackground'),
 
 	['CmpItemKindSnippet'] = link('Yellow'),
-	['CmpItemAbbrMatch'] = link('ShellYellowBoldOnDark12'),
-	['CmpItemAbbrMatchFuzzy'] = link('ShellYellowBoldOnDark12'),
+	['CmpItemAbbrMatch'] = link('ShellYellowBold'),
+	['CmpItemAbbrMatchFuzzy'] = link('ShellYellowBold'),
 	['CmpItemKindClass'] = link('Orange'),
 
 	-- Plugins
 
 	-- Language
 
+	['Float'] = link('Blush'),
 	['String'] = link('Yellow'),
 	['@string'] = link('Yellow'),
 	['@string.escape'] = link('Grey'),
