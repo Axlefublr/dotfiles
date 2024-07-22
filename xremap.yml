@@ -264,7 +264,7 @@ keymap:
   - name: Arr
     mode: arrows
     remap:
-      CapsLock-Apostrophe: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      CapsLock-p: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
       h: left
       j: down
       k: up
@@ -274,128 +274,44 @@ keymap:
       o: end
       p: pagedown
 
-      c: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c github'] }]
-      Shift-c:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'c github neoline'] },
-        ]
-      v: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c google'] }]
-      Shift-v:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'c google neoline'] },
-        ]
-      x: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'c yandex'] }]
-      Shift-x:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'c yandex neoline'] },
-        ]
-
-      Slash:
-        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 1'] }]
-      Shift-Slash:
-        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_doc 6'] }]
-      Dot:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'runner_link 1 open'] },
-        ]
-      Shift-Dot:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'runner_link 6 open'] },
-        ]
-      Comma:
-        [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, 'runner_link'] }]
-      m: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_math] }]
-
-      f:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, install_yt_video] },
-        ]
-      s:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'install_yt_video asmr'] },
-        ]
-      d:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'install_yt_video longform'] },
-        ]
-
-      g:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'wmctrl -s 1 ; xdg-open (xclip -selection clipboard -o)'] },
-        ]
-      Shift-g:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'wmctrl -s 6 ; xdg-open (xclip -selection clipboard -o)'] },
-        ]
-      w: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }, { launch: [fish, -c, runner_symbol] }]
-      e:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, runner_symbol_name] },
-        ]
-      Shift-w:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'emoji_picker_clipboard code'] },
-        ]
-      Shift-e:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'emoji_picker_clipboard name'] },
-        ]
-
-  - name: Any! layout
+  - name: Any! chord
     exact_match: true
     remap:
-      CapsLock-Alt-Apostrophe:
+      CapsLock-Apostrophe:
         remap:
-          h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
-          j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
-          k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
-          l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
+          c: { launch: [fish, -c, 'c github'] }
+          Shift-c: { launch: [fish, -c, 'c github neoline'] }
+          v: { launch: [fish, -c, 'c google'] }
+          Shift-v: { launch: [fish, -c, 'c google neoline'] }
+          x: { launch: [fish, -c, 'c yandex'] }
+          Shift-x: { launch: [fish, -c, 'c yandex neoline'] }
 
-          o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.nw)'] }
-          i: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.ne)'] }
-          u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.se)'] }
-          p: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.corner.sw)'] }
+          d: { launch: [fish, -c, 'runner_doc 1'] }
+          Shift-d: { launch: [fish, -c, 'runner_doc 6'] }
+          f: { launch: [fish, -c, 'runner_link 1 open'] }
+          Shift-f: { launch: [fish, -c, 'runner_link 6 open'] }
+          s: { launch: [fish, -c, 'runner_link'] }
+          g: { launch: [fish, -c, 'wmctrl -s 1 ; xdg-open (xclip -selection clipboard -o)'] }
+          Shift-g: { launch: [fish, -c, 'wmctrl -s 6 ; xdg-open (xclip -selection clipboard -o)'] }
+
+          j: { launch: [fish, -c, install_yt_video] }
+          k: { launch: [fish, -c, 'install_yt_video asmr'] }
+          l: { launch: [fish, -c, 'install_yt_video longform'] }
+
+          w: { launch: [fish, -c, runner_symbol] }
+          e: { launch: [fish, -c, runner_symbol_name] }
+          Shift-w: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
+          Shift-e: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
+          CapsLock-m: { launch: [fish, -c, runner_math] }
 
           m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
-          Comma: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
-          Dot: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
-          Super-Semicolon: { launch: [awesome-client, Unminimize_all_on_tag()] }
-          Semicolon: { launch: [awesome-client, 'client.focus.minimized = true'] }
-          Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
-          Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
 
-          d: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
-          f: { launch: [kitty] }
-          s: { launch: [fish, -c, screenkey] }
-          Shift-s: { launch: [kill, screenkey] }
-          c: { launch: [awesome-client, 'WriteClientInfo()'] }
-          t: { launch: [fish, -c, 'cat /dev/shm/runner_output | xclip -r -selection clipboard'] }
+          o: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
+          u: { launch: [kitty] }
+          y: { launch: [fish, -c, screenkey] }
+          Shift-y: { launch: [kill, screenkey] }
+          i: { launch: [awesome-client, 'WriteClientInfo()'] }
+          r: { launch: [fish, -c, 'cat /dev/shm/runner_output | xclip -r -selection clipboard'] }
 
   - name: Any! magazine
     exact_match: true
@@ -1132,7 +1048,7 @@ keymap:
 
       CapsLock-Alt-Dot: shift-7
       CapsLock-Alt-Slash: shift-backslash
-      CapsLock-Alt-u: shift_r-grave
+      CapsLock-Alt-Comma: shift_r-grave
       CapsLock-Comma: shift_r-1
       CapsLock-Dot: shift-minus
       CapsLock-LeftBrace: shift-9
@@ -1152,10 +1068,23 @@ keymap:
   - name: Any! wm
     exact_match: true
     remap:
-      CapsLock-Alt-j: { launch: [awesome-client, awful.client.floating.toggle()] }
-      CapsLock-Alt-l: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-      CapsLock-Alt-i: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-      CapsLock-Alt-k: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+      CapsLock-Alt-h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
+      CapsLock-Alt-j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
+      CapsLock-Alt-k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
+      CapsLock-Alt-l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
+      CapsLock-Alt-u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
+      CapsLock-Alt-o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+
+      CapsLock-Alt-i: { launch: [awesome-client, awful.client.floating.toggle()] }
+      CapsLock-Alt-p: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+      CapsLock-Alt-m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+      CapsLock-Alt-y: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+
+      Super-Ctrl-Apostrophe: { launch: [awesome-client, Unminimize_all_on_tag()] }
+      Super-Alt-Apostrophe: { launch: [awesome-client, 'client.focus.minimized = true'] }
+      Super-Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
+      Super-Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
+
       CapsLock-Alt-LeftBrace:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:
@@ -1180,7 +1109,7 @@ keymap:
   - name: Any!
     exact_match: true
     remap:
-      CapsLock-Apostrophe: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      CapsLock-p: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       Super-r:
@@ -1203,7 +1132,7 @@ keymap:
         }
       Super-c: { launch: [awesome-client, FixBrowserInstance()] }
       Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
-      CapsLock-p: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
+      CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
       Super_R-q: ctrl-shift-u
       Super_R-g: enter
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
@@ -1248,27 +1177,13 @@ keymap:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
-          {
-            launch:
-              [
-                fish,
-                -c,
-                'neoline -c "do User NeolineClipboard"',
-              ],
-          },
+          { launch: [fish, -c, 'neoline -c "do User NeolineClipboard"'] },
         ]
       CapsLock-Alt-Enter:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
-          {
-            launch:
-              [
-                fish,
-                -c,
-                'neoline -c "do User NeolineClipboard empty"',
-              ],
-          },
+          { launch: [fish, -c, 'neoline -c "do User NeolineClipboard empty"'] },
         ]
       CapsLock-Ctrl-Enter:
         [
