@@ -97,6 +97,7 @@ return {
 			},
 			win_options = {
 				wrap = true,
+				foldcolumn = '1'
 			},
 			delete_to_trash = true,
 			skip_confirm_for_simple_edits = true,
