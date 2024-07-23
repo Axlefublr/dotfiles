@@ -295,8 +295,8 @@ keymap:
           Shift-g: { launch: [fish, -c, 'wmctrl -s 6 ; xdg-open (xclip -selection clipboard -o)'] }
 
           j: { launch: [fish, -c, install_yt_video] }
-          l: { launch: [fish, -c, 'install_yt_video longform'] }
-          k: { launch: [fish, -c, 'install_yt_video asmr'] }
+          k: { launch: [fish, -c, 'install_yt_video longform'] }
+          l: { launch: [fish, -c, 'install_yt_video asmr'] }
 
           w: { launch: [fish, -c, runner_symbol] }
           e: { launch: [fish, -c, runner_symbol_name] }
