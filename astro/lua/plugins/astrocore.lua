@@ -202,6 +202,17 @@ local opts_table = {
 				end
 			},
 		},
+		fugutive = {
+			{
+				event = 'FileType',
+				pattern = 'git',
+				callback = function()
+					pcall(vim.keymap.del, { 'n', 'x', 'o' }, 'K', { buffer = true })
+					vim.keymap.set('n', '>', ':<C-U>exe <SNR>37_GF("edit")<CR>', { buffer = true })
+					vim.keymap.del('n', '<CR>', { buffer = true })
+				end
+			}
+		},
 		everything = {
 			{
 				event = { 'VimEnter', 'WinEnter' },
