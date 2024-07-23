@@ -42,11 +42,11 @@ env.color = {
 	dark10 = '#1a1919',
 }
 
-function table.reverse(table)
-	local reversed = setmetatable({}, { __index = table })
-	local length = #table
+function table.reverse(tbl)
+	local reversed = {}
+	local length = #tbl
 	for i = length, 1, -1 do
-		table.insert(reversed, table[i])
+		table.insert(reversed, tbl[i])
 	end
 	return reversed
 end
@@ -58,7 +58,23 @@ function table.contains(table, item)
 	return false
 end
 
+function table.slice(tbl, start, stop)
+	local sliced = {}
+	for index = start or 1, (stop or #tbl) do
+		table.insert(sliced, tbl[index])
+	end
+	return sliced
+end
+
+function table.index(tbl, item)
+	for index, value in ipairs(tbl) do
+		if value == item then return index end
+	end
+end
+
 function string.trim(string) return vim.fn.trim(string) end
+
+function table.join(tbl, joiner) return vim.fn.join(tbl, joiner) end
 
 function env.echo(chunks, history)
 	if history == nil then history = false end
@@ -104,7 +120,7 @@ end
 ---@param prompt string|nil
 ---@return string|nil character `nil` if the user pressed <Esc>
 function env.char(prompt)
-	if prompt then vim.api.nvim_echo({ { prompt, 'Input' } }, true, {}) end
+	if prompt then env.echo(prompt) end
 	---@type string|nil
 	local char = vim.fn.getcharstr()
 	-- In '' is the escape character (<Esc>).
@@ -131,10 +147,63 @@ function env.confirm_same(prompt, options, default)
 	return options[index]
 end
 
--- function env.select(items, opts, on_choice)
--- 	local hints = { 'f', 'd', 's', 'r', 'e', 'w', 'v', 'c', 'x', 'a', 'j', 'k', 'l', 'u', 'i', 'o', 'm', ',', '.', ';' }
--- 	if #items > #hints then
--- 		vim.notify('too many options (' .. #items .. ')')
--- 		return
--- 	end
--- end
+function vim.ui.select(items, opts, on_choice)
+	if #items == 0 then return end
+	if not on_choice then return end
+	local opts = opts or {}
+	local hints = { 'f', 'd', 's', 'r', 'e', 'w', 'v', 'c', 'x', 'a', 'j', 'k', 'l', 'u', 'i', 'o', 'm', ',', '.', ';' }
+	if #items > #hints then
+		vim.notify('too many options (' .. #items .. ')')
+		return
+	end
+
+	local valid_hints = table.slice(hints, 1, #items)
+	local stringify = type(opts.format_item) == 'function' and opts.format_item or tostring
+
+	lines = {}
+	longest = 1
+	for index, item in ipairs(items) do
+		local stringified = stringify(item)
+		if #stringified > longest then longest = #stringified end
+		table.insert(lines, hints[index] .. ': ' .. stringified)
+	end
+	longest = longest + 3
+
+	local buf = vim.api.nvim_create_buf(false, true)
+	---@diagnostic disable-next-line: param-type-mismatch
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
+	local width = math.floor(vim.o.columns * 0.6)
+	local height = #items
+	local win_opts = {
+		relative = 'cursor',
+		style = 'minimal',
+		border = env.borders,
+		width = longest,
+		height = height,
+		row = 1,
+		col = 1,
+	}
+	if opts.prompt then
+		win_opts.title = opts.prompt
+		win_opts.title_pos = 'center'
+	end
+	local window = vim.api.nvim_open_win(buf, true, win_opts)
+
+	local namespace = vim.api.nvim_create_namespace('')
+	for index = 0, #lines do
+		vim.api.nvim_buf_add_highlight(buf, namespace, 'Orange', index, 0, 1)
+		vim.api.nvim_buf_add_highlight(buf, namespace, 'Bold', index, 1, 2)
+	end
+
+	for index, value in ipairs(items) do
+		vim.keymap.set('n', valid_hints[index], function()
+			vim.api.nvim_win_close(window, false)
+			on_choice(items[index], index)
+		end, { buffer = buf })
+	end
+	vim.keymap.set('n', '<Esc>', function()
+		vim.api.nvim_win_close(window, false)
+		on_choice(nil, nil)
+	end, { buffer = buf })
+end

@@ -103,6 +103,8 @@ local highlights = {
 	['BlushUndercurl'] = { sp = color.blush, undercurl = true },
 	['BlushAndUnderline'] = { fg = color.blush, underline = true },
 
+	['BoldOnDark14'] = { bold = true, bg = color.dark14 },
+
 	-- Colors
 
 	-- Fixes
@@ -166,8 +168,8 @@ local highlights = {
 	['NormalFloat'] = link('Dark14'),
 	['NormalNC'] = link('Normal'),
 
-	['FloatBorder'] = link('Normal'),
-	['FloatTitle'] = link('Yellow'),
+	['FloatBorder'] = link('Dark14'),
+	['FloatTitle'] = link('BoldOnDark14'),
 
 	-- Simple
 
