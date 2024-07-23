@@ -4,6 +4,7 @@ return {
 		fmta('for <>, <> in <> do\n\t<>\nend', { i(1, 'key'), i(2, 'value'), i(3), i(4) })
 	),
 	s({ filetype = 'lua', trig = 'do' }, fmta('do\n\t<>\nend', { i(1) })),
+	s({ filetype = 'lua', trig = 'r' }, fmta('print(<>)', { i(1) })),
 	s({ filetype = 'lua', trig = 'pis' }, fmta('print(vim.inspect(<>))', { i(1) })),
 	s(
 		{ filetype = 'lua', trig = 'event' },
@@ -26,24 +27,14 @@ return {
 			}),
 		})
 	),
-	s({ filetype = 'lua', trig = 'if' }, fmta('if <> then\n\t<>\nend', { i(1), i(2) })),
-	s({ filetype = 'lua', trig = 'ifl' }, fmta('if <> then <> end', { i(1), i(2) })),
-	s(
-		{ filetype = 'lua', trig = 'ifre' },
-		fmta('if <> then return<> end', {
-			i(1),
-			i(2),
-		})
-	),
-	s({ filetype = 'lua', trig = 'eif' }, fmta('elseif <> then\n\t<>', { i(1), i(2) })),
-	s({ filetype = 'lua', trig = 'ife' }, fmta('if <> == <> then\n\t<>\nend', { i(1), i(2), i(3) })),
-	s({ filetype = 'lua', trig = 'eife' }, fmta('elseif <> == <> then\n\t<>', { i(1), i(2), i(3) })),
-	s({ filetype = 'lua', trig = 'th' }, fmta('then\n\t<>\nend', { i(1) })),
-	s({ filetype = 'lua', trig = 'loc' }, { t('local ') }),
-	s({ filetype = 'lua', trig = 'vf' }, { t('vim.fn.') }),
+	s({ filetype = 'lua', trig = 'if' }, fmta('if <> then <> end', { i(1), i(2) })),
+	s({ filetype = 'lua', trig = 'eif' }, fmta('elseif <> then <>', { i(1), i(2) })),
 	s({ filetype = 'lua', trig = 'else' }, {
 		t({ 'else', '\t' }),
 	}),
+	s({ filetype = 'lua', trig = 'th' }, fmta('then\n\t<>\nend', { i(1) })),
+	s({ filetype = 'lua', trig = 'loc' }, { t('local ') }),
+	s({ filetype = 'lua', trig = 'vf' }, { t('vim.fn.') }),
 	s({ filetype = 'lua', trig = 'spec' }, {
 		t({ '{', "\t'" }),
 		i(1),

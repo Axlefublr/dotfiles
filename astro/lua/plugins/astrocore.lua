@@ -148,30 +148,6 @@ local opts_table = {
 				end,
 			},
 		},
-		autoview = { -- stolen from astronvim, I literally just wanted to make this work for files without a filetype
-			{
-				event = { 'BufWinLeave', 'BufWritePost', 'WinLeave' },
-				desc = 'Save view with mkview for real files',
-				callback = function(event)
-					if vim.b[event.buf].view_activated then vim.cmd.mkview({ mods = { emsg_silent = true } }) end
-				end,
-			},
-			{
-				event = 'BufWinEnter',
-				desc = 'Try to load file view if available and enable view saving for real files',
-				callback = function(event)
-					if not vim.b[event.buf].view_activated then
-						local filetype = vim.bo[event.buf].filetype
-						local buftype = vim.bo[event.buf].buftype
-						local ignore_filetypes = { 'gitcommit', 'gitrebase', 'svg', 'hgcommit' }
-						if buftype == '' and filetype and not vim.tbl_contains(ignore_filetypes, filetype) then
-							vim.b[event.buf].view_activated = true
-							vim.cmd.loadview({ mods = { emsg_silent = true } })
-						end
-					end
-				end,
-			},
-		},
 		macromode = {
 			{
 				event = { 'RecordingLeave', 'VimEnter' },
@@ -353,6 +329,8 @@ return {
 		opts.autocmds.bufferline = nil
 		---@diagnostic disable-next-line: undefined-field
 		opts.autocmds.q_close_windows = nil
+		---@diagnostic disable-next-line: undefined-field
+		opts.autocmds.autoview = nil
 		---@diagnostic disable-next-line: undefined-field
 		opts.on_keys.auto_hlsearch = nil
 		require('explicit.mappings')

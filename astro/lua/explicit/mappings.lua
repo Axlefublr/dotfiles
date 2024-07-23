@@ -13,6 +13,7 @@ local function save(and_format)
 	if and_format == true then require('conform').format({ async = false, lsp_format = 'fallback' }) end
 	if type(and_format) == 'string' then vim.cmd('silent ' .. and_format) end
 	---@diagnostic disable-next-line: param-type-mismatch
+	vim.cmd.mkview({ mods = { emsg_silent = true } })
 	pcall(vim.cmd, 'silent update')
 end
 
@@ -1058,6 +1059,7 @@ local normal_visual_pending_mappings = {
 local normal_visual_mappings = {
 	['<CR>'] = {
 		function()
+			vim.cmd.mkview({ mods = { emsg_silent = true } })
 			if vim.v.count > 0 then
 				env.feedkeys(vim.v.count + 1 .. ':')
 			else
@@ -1066,6 +1068,7 @@ local normal_visual_mappings = {
 		end,
 	},
 	['<S-CR>'] = function()
+		vim.cmd.mkview({ mods = { emsg_silent = true } })
 		env.feedkeys(':')
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
