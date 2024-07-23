@@ -15,12 +15,17 @@ local highlights = {
 
 	['Light25'] = bg('light25'),
 	['Light19'] = bg('light19'),
+
 	['Dark14'] = bg('dark14'),
+	['BoldOnDark14'] = { bold = true, bg = color.dark14 },
+
 	['Dark13'] = bg('dark13'),
 	['Dark12'] = bg('dark12'),
 	['Dark10'] = bg('dark10'),
 
 	['Orange'] = fg('orange'),
+	['Dark14OnOrange'] = { fg = color.dark14, bg = color.orange },
+
 	['Yellow'] = fg('yellow'),
 	['Aqua'] = fg('mint'),
 	['Purple'] = fg('purple'),
@@ -102,8 +107,6 @@ local highlights = {
 	['BlushOnDark13'] = { fg = color.blush, bg = color.dark13 },
 	['BlushUndercurl'] = { sp = color.blush, undercurl = true },
 	['BlushAndUnderline'] = { fg = color.blush, underline = true },
-
-	['BoldOnDark14'] = { bold = true, bg = color.dark14 },
 
 	-- Colors
 

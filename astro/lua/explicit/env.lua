@@ -147,9 +147,13 @@ function env.confirm_same(prompt, options, default)
 	return options[index]
 end
 
+---@diagnostic disable-next-line: duplicate-set-field
 function vim.ui.select(items, opts, on_choice)
 	if #items == 0 then return end
-	if not on_choice then return end
+	if not on_choice then
+		vim.notify('no on_choice')
+		return
+	end
 	local opts = opts or {}
 	local hints = { 'f', 'd', 's', 'r', 'e', 'w', 'v', 'c', 'x', 'a', 'j', 'k', 'l', 'u', 'i', 'o', 'm', ',', '.', ';' }
 	if #items > #hints then
@@ -173,7 +177,6 @@ function vim.ui.select(items, opts, on_choice)
 	---@diagnostic disable-next-line: param-type-mismatch
 	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 
-	local width = math.floor(vim.o.columns * 0.6)
 	local height = #items
 	local win_opts = {
 		relative = 'cursor',
@@ -188,7 +191,7 @@ function vim.ui.select(items, opts, on_choice)
 		win_opts.title = opts.prompt
 		win_opts.title_pos = 'center'
 	end
-	local window = vim.api.nvim_open_win(buf, true, win_opts)
+	local window = vim.api.nvim_open_win(buf, false, win_opts)
 
 	local namespace = vim.api.nvim_create_namespace('')
 	for index = 0, #lines do
@@ -196,14 +199,17 @@ function vim.ui.select(items, opts, on_choice)
 		vim.api.nvim_buf_add_highlight(buf, namespace, 'Bold', index, 1, 2)
 	end
 
-	for index, value in ipairs(items) do
-		vim.keymap.set('n', valid_hints[index], function()
-			vim.api.nvim_win_close(window, false)
-			on_choice(items[index], index)
-		end, { buffer = buf })
-	end
-	vim.keymap.set('n', '<Esc>', function()
+	vim.defer_fn(function()
+		local picked
+		repeat
+			picked = env.char()
+		until table.contains(valid_hints, picked) or not picked
 		vim.api.nvim_win_close(window, false)
-		on_choice(nil, nil)
-	end, { buffer = buf })
+		if not picked then
+			on_choice(nil, nil)
+			return
+		end
+		local index = table.index(valid_hints, picked)
+		on_choice(items[index], index)
+	end, 1)
 end
