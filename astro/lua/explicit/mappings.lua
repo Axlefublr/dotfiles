@@ -28,7 +28,7 @@ local function move_to_blank_line(to_next)
 end
 
 local function edit_magazine()
-	local register = Get_char('magazine: ')
+	local register = env.char('magazine: ')
 	if register == nil then return end
 	vim.cmd('edit ' .. vim.fn.expand('~/.local/share/magazine/') .. register)
 end
@@ -179,9 +179,9 @@ local function killring_pop_tail(insert)
 	vim.fn.setreg(env.default_register, first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>' .. env.default_register)
+			env.feedkeys_int('<C-r>' .. env.default_register)
 		else
-			FeedKeysInt('<C-r><C-p>' .. env.default_register)
+			env.feedkeys_int('<C-r><C-p>' .. env.default_register)
 		end
 	else
 		vim.notify('got tail')
@@ -197,9 +197,9 @@ local function killring_pop(insert)
 	vim.fn.setreg(env.default_register, first_index)
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>' .. env.default_register)
+			env.feedkeys_int('<C-r>' .. env.default_register)
 		else
-			FeedKeysInt('<C-r><C-p>' .. env.default_register)
+			env.feedkeys_int('<C-r><C-p>' .. env.default_register)
 		end
 	else
 		vim.notify('got nose')
@@ -231,9 +231,9 @@ local function numbered_get(index, insert)
 	end
 	if insert then
 		if insert == 'command' then
-			FeedKeysInt('<C-r>+')
+			env.feedkeys_int('<C-r>+')
 		else
-			FeedKeysInt('<C-r><C-p>+')
+			env.feedkeys_int('<C-r><C-p>+')
 		end
 	end
 end
@@ -371,7 +371,7 @@ end
 
 local function count_repeats_keys(keys)
 	for _ = 1, vim.v.count1 do
-		FeedKeysInt(keys)
+		env.feedkeys_int(keys)
 	end
 end
 
@@ -415,7 +415,7 @@ local normal_mappings = {
 	['<Esc>'] = function()
 		vim.cmd('noh')
 		require('notify').dismiss()
-		FeedKeysInt('<Esc>')
+		env.feedkeys_int('<Esc>')
 	end,
 	['.'] = function() count_repeats_keys('.') end,
 	yie = function() vim.cmd('%y+') end,
@@ -443,7 +443,7 @@ local normal_mappings = {
 	['<Leader>do'] = 'dd<Cmd>$pu<CR>',
 	['<Leader>du'] = 'dd<Cmd>0pu!<CR>',
 	['<Leader>p'] = '<Cmd>pu<CR>',
-	['@'] = function() FeedKeys('yl' .. vim.v.count1 .. 'p') end,
+	['@'] = function() env.feedkeys('yl' .. vim.v.count1 .. 'p') end,
 	['z?'] = '<CMD>execute "normal! " . rand() % line(\'$\') . "G"<CR>',
 	du = '"_dddd',
 	gJ = '0d^kgJ', -- Join current line with the next line with no space in between, *also* discarding any leading whitespace of the next line. Because gJ would include indentation. Stupidly.
@@ -556,7 +556,7 @@ local normal_mappings = {
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
 	['cm'] = function()
 		vim.opt_local.cmdheight = 1
-		FeedKeys(':G ')
+		env.feedkeys(':G ')
 		vim.api.nvim_create_autocmd('CmdlineLeave', {
 			callback = function() vim.opt_local.cmdheight = 0 end,
 		})
@@ -895,7 +895,7 @@ local visual_mappings = {
 	end,
 	['<Leader>jr'] = function()
 		local previous_clipboard = vim.fn.getreg(env.default_register)
-		FeedKeys('y')
+		env.feedkeys('y')
 		vim.schedule(function()
 			require('telescope.builtin').grep_string({
 				search = vim.fn.getreg(env.default_register),
@@ -905,7 +905,7 @@ local visual_mappings = {
 	end,
 	['<Leader>jt'] = function()
 		local previous_clipboard = vim.fn.getreg(env.default_register)
-		FeedKeys('y')
+		env.feedkeys('y')
 		vim.schedule(function()
 			require('telescope.builtin').grep_string({
 				search = vim.fn.getreg(env.default_register),
@@ -921,7 +921,7 @@ local visual_mappings = {
 	['*'] = function() require('lupa').selection() end,
 	['<Leader>#'] = function() require('lupa').selection({ edit = true, backwards = true }) end,
 	['<Leader>*'] = function() require('lupa').selection({ edit = true }) end,
-	['@@'] = function() FeedKeysInt('ygv<Esc>' .. vim.v.count1 .. 'p') end,
+	['@@'] = function() env.feedkeys_int('ygv<Esc>' .. vim.v.count1 .. 'p') end,
 	['a%'] = 'F%of%',
 	['i%'] = 'T%ot%',
 	u = '<Esc>u',
@@ -940,7 +940,7 @@ local insert_mappings = {
 		if require('luasnip').expandable() then
 			require('luasnip').expand()
 		else
-			FeedKeys(';')
+			env.feedkeys(';')
 		end
 	end,
 	["<A-'>"] = '<C-r><C-p>',
@@ -1047,7 +1047,7 @@ local normal_visual_pending_mappings = {
 	['m/'] = '`^',
 	['m['] = '`[',
 	['m]'] = '`]',
-	gm = function() FeedKeys(vim.v.count * 10 .. 'gM') end, -- cuts down precision of gM to 10s
+	gm = function() env.feedkeys(vim.v.count * 10 .. 'gM') end, -- cuts down precision of gM to 10s
 	gM = 'M',
 	['g.'] = 'gn',
 	['g>'] = 'gN',
@@ -1059,17 +1059,17 @@ local normal_visual_mappings = {
 	['<CR>'] = {
 		function()
 			if vim.v.count > 0 then
-				FeedKeys(vim.v.count + 1 .. ':')
+				env.feedkeys(vim.v.count + 1 .. ':')
 			else
-				FeedKeys(':')
+				env.feedkeys(':')
 			end
 		end,
 	},
 	['<S-CR>'] = function()
-		FeedKeys(':')
+		env.feedkeys(':')
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
-	['_'] = function() FeedKeysInt(vim.v.count1 .. 'k$') end,
+	['_'] = function() env.feedkeys_int(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
 	["'"] = '"',

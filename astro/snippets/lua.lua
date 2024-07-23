@@ -28,13 +28,13 @@ return {
 	),
 	s({ filetype = 'lua', trig = 'if' }, fmta('if <> then\n\t<>\nend', { i(1), i(2) })),
 	s({ filetype = 'lua', trig = 'ifl' }, fmta('if <> then <> end', { i(1), i(2) })),
-	s({ filetype = 'lua', trig = 'if n' }, fmta('if not <> then return<> end', {
-		i(1),
-		c(2, {
-			{ t(' '), i(1, 'nil'), },
-			{ t(''), }
+	s(
+		{ filetype = 'lua', trig = 'ifre' },
+		fmta('if <> then return<> end', {
+			i(1),
+			i(2),
 		})
-	})),
+	),
 	s({ filetype = 'lua', trig = 'eif' }, fmta('elseif <> then\n\t<>', { i(1), i(2) })),
 	s({ filetype = 'lua', trig = 'ife' }, fmta('if <> == <> then\n\t<>\nend', { i(1), i(2), i(3) })),
 	s({ filetype = 'lua', trig = 'eife' }, fmta('elseif <> == <> then\n\t<>', { i(1), i(2), i(3) })),
@@ -104,6 +104,7 @@ return {
 		i(1),
 		t("',"),
 	}),
+	s({ filetype = 'lua', trig = 'jjl' }, fmta('{ <> },', { i(1) })),
 	s({ filetype = 'lua', trig = 'jj' }, {
 		t({ '{', '\t' }),
 		i(1),

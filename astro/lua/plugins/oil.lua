@@ -60,7 +60,7 @@ return {
 				)
 
 				vim.keymap.set('n', '<Leader>z', function()
-					local register = Get_char('get cd harp: ')
+					local register = env.char('get cd harp: ')
 					if register == nil then return end
 					local output = require('astrocore').cmd({ 'harp', 'get', 'cd_harps', register, '--path' }, false)
 					if output then
@@ -71,7 +71,7 @@ return {
 				end, { buffer = true })
 
 				vim.keymap.set('n', '<Leader>Z', function()
-					local register = Get_char('set cd harp: ')
+					local register = env.char('set cd harp: ')
 					if register == nil then return end
 					local directory = require('oil').get_current_dir()
 					directory = vim.fn.fnamemodify(directory, ':~')
