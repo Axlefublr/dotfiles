@@ -936,6 +936,13 @@ local visual_mappings = {
 }
 
 local insert_mappings = {
+	[';'] = function()
+		if require('luasnip').expandable() then
+			require('luasnip').expand()
+		else
+			FeedKeys(';')
+		end
+	end,
 	["<A-'>"] = '<C-r><C-p>',
 	["<A-'>'"] = '<C-r><C-p>+',
 	["<A-'>0"] = function() numbered_insert(10) end,
@@ -1078,13 +1085,6 @@ local insert_select_mappings = {
 	['<A-h>'] = function() require('luasnip').jump(-1) end,
 	['<A-i>'] = function()
 		if require('luasnip').expandable() then require('luasnip').expand() end
-	end,
-	['<F8>'] = function()
-		if require('luasnip').expandable() then
-			require('luasnip').expand()
-		else
-			FeedKeys(' ')
-		end
 	end,
 	['<A-o>'] = function()
 		if require('luasnip').choice_active() then require('luasnip').change_choice(1) end

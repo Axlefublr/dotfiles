@@ -60,9 +60,7 @@ env.color = {
 }
 
 function env.shell(cmd, opts, on_exit)
-	if type(cmd) == 'string' then
-		cmd = { cmd }
-	end
+	if type(cmd) == 'string' then cmd = { cmd } end
 	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts or {}), on_exit)
 end
 
@@ -121,18 +119,14 @@ function env.confirm(prompt, state, default)
 	end
 	options = vim.fn.join(options, '\n')
 	local index = vim.fn.confirm(prompt or '', options, default or 1)
-	if index == 0 then
-		return nil
-	end
+	if index == 0 then return nil end
 	return state[index][2]
 end
 
 function env.confirm_same(prompt, options, default)
 	options_text = vim.fn.join(options, '\n')
 	local index = vim.fn.confirm(prompt, options_text, default or 1)
-	if index == 0 then
-		return nil
-	end
+	if index == 0 then return nil end
 	return options[index]
 end
 
