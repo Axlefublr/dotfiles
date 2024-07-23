@@ -543,6 +543,7 @@ local normal_mappings = {
 	['<Leader>cc'] = '<Cmd>silent G commit -q<CR>',
 	['<Leader>cA'] = '<Cmd>silent G add .<CR>',
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
+	['cm'] = ':Git ',
 
 	-- Gaf
 	['<Leader>ca'] = function()
@@ -763,11 +764,10 @@ local normal_mappings = {
 	end,
 	['<Leader>jq'] = function() require('telescope.builtin').help_tags() end,
 	['d,'] = ':help ',
-	['<Leader>js'] = function() require('telescope.builtin').current_buffer_fuzzy_find() end,
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
 	['<Leader>jb'] = function() require('telescope.builtin').git_branches() end,
-	['<Leader>jX'] = function() require('telescope.builtin').git_stash() end,
+	['<Leader>jx'] = function() require('telescope.builtin').git_stash() end,
 	['<Leader>je'] = function() require('telescope.builtin').git_status() end,
 	['<Leader>j\\'] = function() require('telescope.builtin').builtin() end,
 	['<Leader>jw'] = function() require('telescope.builtin').buffers() end,

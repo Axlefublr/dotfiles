@@ -15,9 +15,41 @@ local telescope_opts = function(_, opts)
 	local function git_branch_pick(bufnr)
 		local branch = actions_state.get_selected_entry().value
 		local options = {
-			{ 'Switch', function() vim.cmd('Git switch ' .. branch) end },
-			{ 'Delete', function() vim.cmd('Git branch -d ' .. branch) end },
+			{ 'Switch', function() vim.cmd('silent Git switch ' .. branch) end },
+			{ 'Delete', function() vim.cmd('silent Git branch -d ' .. branch) end },
 			{ 'Copy', function() vim.fn.setreg('+', branch) end },
+		}
+		local picked = env.confirm(nil, options)
+		if not picked then return end
+		picked()
+		actions.close(bufnr)
+	end
+
+	local function git_commits_pick(bufnr)
+		local commit_hash = actions_state.get_selected_entry().value
+		local options = {
+			{ 'View', function() require('gitsigns').show(commit_hash) end },
+			{ 'Copy', function() vim.fn.setreg('+', commit_hash) end },
+			{
+				'P&rior',
+				function()
+					vim.fn.setreg('+', env.shell({ 'git', 'rev-parse', '--short', commit_hash .. '^' }):wait().stdout:trim())
+				end,
+			},
+		}
+		local picked = env.confirm(nil, options)
+		if not picked then return end
+		actions.close(bufnr)
+		picked()
+	end
+
+	local function git_stash_pick(bufnr)
+		local stash = actions_state.get_selected_entry().value
+		local options = {
+			{ 'P&op', function() vim.cmd('Git stash pop ' .. stash) end },
+			{ 'Apply', function() vim.cmd('Git stash apply ' .. stash) end },
+			{ 'Drop', function() vim.cmd('Git stash drop ' .. stash) end },
+			{ 'Copy', function() vim.fn.setreg('+', stash) end },
 		}
 		local picked = env.confirm(nil, options)
 		if not picked then return end
@@ -100,23 +132,33 @@ local telescope_opts = function(_, opts)
 				},
 				disable_coordinates = true,
 			},
+			git_commits = {
+				mappings = {
+					n = {
+						['<CR>'] = git_commits_pick,
+					},
+					i = {
+						['<CR>'] = git_commits_pick,
+					},
+				},
+			},
+			git_stash = {
+				mappings = {
+					n = {
+						['<CR>'] = git_stash_pick,
+					},
+					i = {
+						['<CR>'] = git_stash_pick,
+					},
+				},
+			},
 			git_bcommits = {
 				mappings = {
 					n = {
-						['<A-o>s'] = 'git_checkout_current_buffer',
-						['<CR>'] = function(prompt_bufnr)
-							local commit_hash = actions_state.get_selected_entry().value
-							actions.close(prompt_bufnr)
-							require('gitsigns').show(commit_hash)
-						end,
+						['<CR>'] = git_commits_pick,
 					},
 					i = {
-						['<A-o>s'] = 'git_checkout_current_buffer',
-						['<CR>'] = function(prompt_bufnr)
-							local commit_hash = actions_state.get_selected_entry().value
-							actions.close(prompt_bufnr)
-							require('gitsigns').show(commit_hash)
-						end,
+						['<CR>'] = git_commits_pick,
 					},
 				},
 			},
