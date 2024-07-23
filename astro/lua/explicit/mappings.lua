@@ -556,11 +556,9 @@ local normal_mappings = {
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
 	['cm'] = function()
 		vim.opt_local.cmdheight = 1
-		FeedKeys(':Git ')
+		FeedKeys(':G ')
 		vim.api.nvim_create_autocmd('CmdlineLeave', {
-			callback = function()
-				vim.opt_local.cmdheight = 0
-			end
+			callback = function() vim.opt_local.cmdheight = 0 end,
 		})
 	end,
 
@@ -1080,6 +1078,13 @@ local insert_select_mappings = {
 	['<A-h>'] = function() require('luasnip').jump(-1) end,
 	['<A-i>'] = function()
 		if require('luasnip').expandable() then require('luasnip').expand() end
+	end,
+	['<F8>'] = function()
+		if require('luasnip').expandable() then
+			require('luasnip').expand()
+		else
+			FeedKeys(' ')
+		end
 	end,
 	['<A-o>'] = function()
 		if require('luasnip').choice_active() then require('luasnip').change_choice(1) end

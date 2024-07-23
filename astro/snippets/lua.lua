@@ -65,7 +65,7 @@ return {
 		i(0),
 		t(')'),
 	}),
-	s({ filetype = 'lua', trig = 'fnl' }, {
+	s({ filetype = 'lua', trig = 'funl' }, {
 		t('function'),
 		i(1),
 		t('('),
@@ -74,7 +74,7 @@ return {
 		i(0),
 		t(' end'),
 	}),
-	s({ filetype = 'lua', trig = 'fn' }, {
+	s({ filetype = 'lua', trig = 'fun' }, {
 		t('function'),
 		i(1),
 		t('('),

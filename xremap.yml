@@ -55,6 +55,7 @@ keymap:
       Ctrl-Enter: f2
       Ctrl-j: f6
       Shift-Alt-Semicolon: f5
+      Shift_L-Space: f8
 
   - name: Move!
     exact_match: true
