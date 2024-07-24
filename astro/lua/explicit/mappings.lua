@@ -583,16 +583,25 @@ local normal_mappings = {
 	['<Leader>cc'] = '<Cmd>silent G commit -q<CR>',
 	['<Leader>cz'] = function()
 		local options = {
-			{ 'A&ll', 'add . | silent G commit -q' },
-			{ 'Gitted', 'commit -aq' },
-			{ 'Amend', 'commit --amend' },
-			{ 'N&edit', 'commit --amend --no-edit' },
+			{
+				'git add . && git commit',
+				function() vim.cmd('silent Git add . | silent Git commit -q') end
+			},
+			{
+				'git commit -a',
+				function() vim.cmd('silent Git commit -aq') end
+			},
+			{
+				'git commit --amend',
+				function() vim.cmd('silent Git commit --amend') end
+			},
+			{
+				'git commit --amend --no-edit',
+				function() vim.cmd('silent Git commit --amend --no-edit') end
+			},
 		}
-		local picked = env.confirm(nil, options)
-		if not picked then return end
-		vim.cmd('silent Git ' .. picked)
+		env.select(options, { prompt = ' Commit ' })
 	end,
-	['<Leader>cC'] = '<Cmd>silent G add . | silent G commit -q<CR>',
 	['<Leader>cA'] = '<Cmd>silent G add .<CR>',
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
 	['cm'] = function()

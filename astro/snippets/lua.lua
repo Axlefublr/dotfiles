@@ -35,6 +35,8 @@ return {
 	s({ filetype = 'lua', trig = 'th' }, fmta('then\n\t<>\nend', { i(1) })),
 	s({ filetype = 'lua', trig = 'loc' }, { t('local ') }),
 	s({ filetype = 'lua', trig = 'vf' }, { t('vim.fn.') }),
+	s({ filetype = 'lua', trig = 'vc' },
+		fmta("vim.cmd('<>')", { i(1), })),
 	s({ filetype = 'lua', trig = 'spec' }, {
 		t({ '{', "\t'" }),
 		i(1),
