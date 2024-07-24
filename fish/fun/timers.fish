@@ -4,7 +4,7 @@ function doti
     if status is-interactive
         _doti $argv
     else
-        kitty -T timer fish -c "_doti $(string escape $argv)"
+        kitty -T timer fish -c "_doti $argv"
     end
 end
 funcsave doti >/dev/null
