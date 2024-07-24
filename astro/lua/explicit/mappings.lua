@@ -561,6 +561,12 @@ local normal_mappings = {
 	-- end,
 
 	-- Git
+	['<Leader>ch'] = function()
+		local result = env.shell({ 'git', 'log', '--oneline', 'HEAD~7..HEAD', '--pretty=format:%s' }):wait()
+		if result.code ~= 0 then return end
+		local lines = result.stdout:trim():split('\n')
+		vim.ui.select(lines, { prompt = ' Git Log ' }, function() end)
+	end,
 	['<Leader>cf'] = function()
 		local result = env.shell({ 'gaf', 'print', 'new' }):wait()
 		if result.code ~= 0 then

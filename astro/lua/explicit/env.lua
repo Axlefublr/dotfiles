@@ -4,6 +4,7 @@ env.default_register = '+'
 env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
 env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav', 'ogg', 'oga' }
 env.borders = { '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' }
+env.sleek_borders = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
 env.extra_directories = {
 	'~/t',
 	'~/prog/noties',
@@ -72,9 +73,17 @@ function table.index(tbl, item)
 	end
 end
 
-function string.trim(string) return vim.fn.trim(string) end
-
 function table.join(tbl, joiner) return vim.fn.join(tbl, joiner) end
+
+function string.trim(string, what) return vim.fn.trim(string, what or '') end
+
+function string.rtrim(string, what)
+	return vim.fn.trim(string, what or '', 2)
+end
+
+function string.split(string, separator)
+	return vim.fn.split(string, separator)
+end
 
 function env.echo(chunks, history)
 	if history == nil then history = false end
