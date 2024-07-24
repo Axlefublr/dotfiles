@@ -597,9 +597,16 @@ local normal_mappings = {
 	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
 	['cm'] = function()
 		vim.opt_local.cmdheight = 1
-		env.feedkeys(':G ')
+		env.feedkeys(':Git ')
 		vim.api.nvim_create_autocmd('CmdlineLeave', {
-			callback = function() vim.opt_local.cmdheight = 0 end,
+			callback = function() vim.opt_local.cmdheight = 0 return true end,
+		})
+	end,
+	['cM'] = function()
+		vim.opt_local.cmdheight = 1
+		env.feedkeys(':silent Git ')
+		vim.api.nvim_create_autocmd('CmdlineLeave', {
+			callback = function() vim.opt_local.cmdheight = 0 return true end,
 		})
 	end,
 
