@@ -337,28 +337,73 @@ local function open_link_in_instance(index)
 	os.execute(openCommand)
 end
 
-local function get_case_type(prompt, is_word)
-	local options = {
-		{ 'UPPER', 'to_upper_case' },
-		{ 'lower', 'to_lower_case' },
-		{ 'sn_a&_ke', 'to_snake_case' },
-		{ 'da&-sh', 'to_dash_case' },
-		{ 'CON_ST', 'to_constant_case' },
-		{ 'cam&elCase', 'to_camel_case' },
-		{ 'PascalCase', 'to_pascal_case' },
-		{ 'dot&.case', 'to_dot_case' },
-		{ 'path&/case', 'to_path_case' },
-		{ 'Title Case', 'to_title_case' },
-		{ 'P&hrase case', 'to_phrase_case' },
-		{ 'UPPER PH&RASE', 'to_upper_phrase_case' },
-		{ 'l&ower phrase', 'to_lower_phrase_case' },
-	}
-	if is_word then
-		table.remove(options, 11)
-		table.remove(options, 10)
-		table.remove(options, 7)
+---@param action_type 'lsp'|'selection'
+local function change_case(prompt, action_type)
+	local function textcase_action(case, action_type)
+		if action_type == 'selection' then
+			local text = env.get_inline_selection()[1]
+			local converted = require('textcase').api[case](text)
+			env.replace_inline_selection(converted)
+			env.feedkeys_int('<Esc>')
+		elseif action_type == 'lsp' then
+			require('textcase').lsp_rename(case)
+		end
 	end
-	return env.confirm(prompt, options)
+	local options = {
+		{
+			'UPPERCASE',
+			function() textcase_action('to_upper_case', action_type) end,
+		},
+		{
+			'lowercase',
+			function() textcase_action('to_lower_case', action_type) end,
+		},
+		{
+			'snake_case',
+			function() textcase_action('to_snake_case', action_type) end,
+		},
+		{
+			'dash-case',
+			function() textcase_action('to_dash_case', action_type) end,
+		},
+		{
+			'CONSTANT_CASE',
+			function() textcase_action('to_constant_case', action_type) end,
+		},
+		{
+			'camelCase',
+			function() textcase_action('to_camel_case', action_type) end,
+		},
+		{
+			'PascalCase',
+			function() textcase_action('to_pascal_case', action_type) end,
+		},
+		{
+			'dot.case',
+			function() textcase_action('to_dot_case', action_type) end,
+		},
+		{
+			'path/case',
+			function() textcase_action('to_path_case', action_type) end,
+		},
+		{
+			'Title Case',
+			function() textcase_action('to_title_case', action_type) end,
+		},
+		{
+			'Phrase case',
+			function() textcase_action('to_phrase_case', action_type) end,
+		},
+		{
+			'UPPER PHRASE',
+			function() textcase_action('to_upper_phrase_case', action_type) end,
+		},
+		{
+			'lower phrase',
+			function() textcase_action('to_lower_phrase_case', action_type) end,
+		},
+	}
+	return env.select(options, { prompt = prompt })
 end
 
 -- local function store_andor_use_count(what)
@@ -422,16 +467,7 @@ local normal_mappings = {
 	yie = function() vim.cmd('%y+') end,
 
 	-- Features
-	cz = function()
-		local case = get_case_type('Word convert: ', true)
-		if not case then return end
-		require('textcase').current_word(case)
-	end,
-	gW = function()
-		local case = get_case_type('LSP convert: ')
-		if not case then return end
-		require('textcase').lsp_rename(case)
-	end,
+	gW = function() change_case(' LSP convert ', 'lsp') end,
 	gQ = function()
 		local parent = vim.fn.expand('%:h')
 		vim.cmd.tcd(parent)
@@ -889,11 +925,7 @@ local normal_mappings = {
 }
 
 local visual_mappings = {
-	cz = function()
-		local case = get_case_type('Word convert: ')
-		if not case then return end
-		require('textcase').operator(case)
-	end,
+	cz = function() change_case('', 'selection') end,
 	['<Leader>jr'] = function()
 		local previous_clipboard = vim.fn.getreg(env.default_register)
 		env.feedkeys('y')

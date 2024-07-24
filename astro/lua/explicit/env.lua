@@ -1,4 +1,4 @@
-env = {}
+if not env then env = {} end -- makes more sense once you consider `:source`
 env.temp_mark = 'P'
 env.default_register = '+'
 env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
@@ -145,4 +145,34 @@ function env.confirm_same(prompt, options, default)
 	local index = vim.fn.confirm(prompt, options_text, default or 1)
 	if index == 0 then return nil end
 	return options[index]
+end
+
+local function get_selection_col_bounds()
+	local maybe_start_col = vim.fn.col('v')
+	local maybe_end_col = vim.fn.col('.')
+	local start_col = maybe_start_col <= maybe_end_col and maybe_start_col or maybe_end_col
+	local end_col = maybe_end_col >= maybe_start_col and maybe_end_col or maybe_start_col
+	return start_col, end_col
+end
+
+---@return string[]
+function env.get_inline_selection()
+	local start_col, end_col = get_selection_col_bounds()
+	return vim.api.nvim_buf_get_text(0, vim.fn.line('.') - 1, start_col - 1, vim.fn.line('.') - 1, end_col, {})
+end
+
+---@param text table|string
+function env.replace_inline_selection(text)
+	local start_col, end_col = get_selection_col_bounds()
+	if type(text) == 'string' then
+		text = { text }
+	end
+	vim.api.nvim_buf_set_text(
+		0,
+		vim.fn.line('.') - 1,
+		start_col - 1,
+		vim.fn.line('.') - 1,
+		end_col,
+		text
+	)
 end
