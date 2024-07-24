@@ -53,9 +53,11 @@ local function copy_cwd_relative()
 end
 
 local function get_repo_root()
-	local git_root = env.shell({ 'git', 'rev-parse', '--show-toplevel' }, { cwd = vim.fn.expand('%:h') }):wait().stdout
-	git_root = git_root and git_root:sub(1, -2) or git_root
-	return git_root
+	local head = vim.fn.expand('%:h'):trim()
+	if head == '' then head = vim.fn.getcwd() end
+	local result = env.shell({ 'git', 'rev-parse', '--show-toplevel' }, { cwd = head }):wait()
+	if result.code ~= 0 then return end
+	return result.stdout:trim()
 end
 
 local function get_repo_relative()
@@ -215,7 +217,7 @@ local function killring_compile()
 end
 
 local function killring_compile_reversed()
-	local reversed_killring = ReverseTable(killring)
+	local reversed_killring = table.reverse(killring)
 	local compiled_killring = reversed_killring:concat('')
 	vim.fn.setreg(env.default_register, compiled_killring)
 	killring = setmetatable({}, { __index = table })
@@ -257,23 +259,25 @@ local function get_buffer_cwd()
 end
 
 local function execute_this_file()
+	local filetype = vim.bo.filetype
+	if filetype == 'lua' then
+		save()
+		vim.cmd('source')
+		return
+	end
 	save(true)
 	local repo = get_repo_root()
 	local file = vim.fn.expand('%')
-	local extension = vim.fn.expand('%:e')
 	local command = { 'kitten', '@', 'launch', '--type', 'overlay-main', '--cwd', repo, '--hold' }
 	local run = function(diag_command, opts) env.shell(vim.list_extend(command, diag_command), opts):wait() end
-	if extension == 'rs' then
+	if filetype == 'rust' then
 		local edited_command = env.input('run: ', 'cargo run -- ')
 		if not edited_command then return end
 		run(vim.fn.split(edited_command))
-	elseif extension == 'py' then
+	elseif filetype == 'python' then
 		run({ 'python', file })
-	elseif extension == 'nim' then
+	elseif filetype == 'nim' then
 		run({ 'nimble', 'run' })
-	elseif extension == 'lua' then
-		vim.cmd.source()
-		vim.notify('sourced')
 	else
 		run({ file })
 	end
