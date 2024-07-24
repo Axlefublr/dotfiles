@@ -16,5 +16,18 @@ return {
 		'Axlefublr/lupa.nvim',
 		lazy = true,
 		dev = true
-	}
+	},
+	{
+		'Axlefublr/selabel.nvim',
+		dev = true,
+		opts = {
+			win_opts = {
+				border = env.border,
+			}
+		},
+		config = function(_, opts)
+			require('selabel').setup(opts)
+			env.select = require('selabel').select_nice
+		end
+	},
 }

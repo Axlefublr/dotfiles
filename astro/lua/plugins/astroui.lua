@@ -23,8 +23,9 @@ local highlights = {
 	['Dark12'] = bg('dark12'),
 	['Dark10'] = bg('dark10'),
 
-	['Orange'] = fg('orange'),
 	['Dark14OnOrange'] = { fg = color.dark14, bg = color.orange },
+	['Orange'] = fg('orange'),
+	['OrangeBoldOnDark14'] = { bg = color.dark14, fg = color.orange, bold = true },
 
 	['Yellow'] = fg('yellow'),
 	['Aqua'] = fg('mint'),
@@ -172,7 +173,7 @@ local highlights = {
 	['NormalNC'] = link('Normal'),
 
 	['FloatBorder'] = link('Dark14'),
-	['FloatTitle'] = link('BoldOnDark14'),
+	['FloatTitle'] = link('OrangeBoldOnDark14'),
 
 	-- Simple
 
