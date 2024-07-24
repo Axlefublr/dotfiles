@@ -455,7 +455,6 @@ local normal_mappings = {
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>ds'] = edit_magazine,
-	['<Leader>lp'] = function() vim.cmd('Inspect') end,
 	['<Space>'] = save,
 	['d<Space>'] = function() save(true) end,
 	['c<Space>'] = function() save('sort') end,
@@ -507,7 +506,6 @@ local normal_mappings = {
 			vim.notify('diags on')
 		end
 	end,
-	['<Leader>cl'] = '<Cmd>set list!<CR>',
 	['<Leader>co'] = function() require('astrolsp.toggles').buffer_inlay_hints() end,
 	['<Leader>cO'] = function() require('astrolsp.toggles').inlay_hints() end,
 
@@ -536,7 +534,7 @@ local normal_mappings = {
 		vim.lsp.buf.hover()
 		vim.lsp.buf.hover()
 	end,
-	['<Leader>lx'] = execute_this_file,
+	['<Leader>cl'] = execute_this_file,
 	['<Leader>lz'] = diag_this_file,
 	['<Leader>le'] = interactive_setenv,
 
@@ -591,19 +589,19 @@ local normal_mappings = {
 		local options = {
 			{
 				'git add . && git commit',
-				function() vim.cmd('silent Git add . | silent Git commit -q') end
+				function() vim.cmd('silent Git add . | silent Git commit -q') end,
 			},
 			{
 				'git commit -a',
-				function() vim.cmd('silent Git commit -aq') end
+				function() vim.cmd('silent Git commit -aq') end,
 			},
 			{
 				'git commit --amend',
-				function() vim.cmd('silent Git commit --amend') end
+				function() vim.cmd('silent Git commit --amend') end,
 			},
 			{
 				'git commit --amend --no-edit',
-				function() vim.cmd('silent Git commit --amend --no-edit') end
+				function() vim.cmd('silent Git commit --amend --no-edit') end,
 			},
 		}
 		env.select(options, { prompt = ' Commit ' })
@@ -614,14 +612,20 @@ local normal_mappings = {
 		vim.opt_local.cmdheight = 1
 		env.feedkeys(':Git ')
 		vim.api.nvim_create_autocmd('CmdlineLeave', {
-			callback = function() vim.opt_local.cmdheight = 0 return true end,
+			callback = function()
+				vim.opt_local.cmdheight = 0
+				return true
+			end,
 		})
 	end,
 	['cM'] = function()
 		vim.opt_local.cmdheight = 1
 		env.feedkeys(':silent Git ')
 		vim.api.nvim_create_autocmd('CmdlineLeave', {
-			callback = function() vim.opt_local.cmdheight = 0 return true end,
+			callback = function()
+				vim.opt_local.cmdheight = 0
+				return true
+			end,
 		})
 	end,
 
