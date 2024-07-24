@@ -495,19 +495,53 @@ local normal_mappings = {
 	cC = function() open_link_in_instance(7) end,
 
 	-- Toggles
-	['<Leader>ce'] = function()
-		---@diagnostic disable-next-line: undefined-field
-		local used_type = 'underline'
-		if vim.diagnostic.config()[used_type] then
-			vim.diagnostic.config({ [used_type] = false })
-			vim.notify('diags off')
-		else
-			vim.diagnostic.config({ [used_type] = true })
-			vim.notify('diags on')
-		end
+	['zs'] = function()
+		local options = {
+			{
+				'Inlay hints',
+				function() require('astrolsp.toggles').inlay_hints() end,
+			},
+			{
+				'Diagnostics',
+				function()
+					---@diagnostic disable-next-line: undefined-field
+					local used_type = 'underline'
+					if vim.diagnostic.config()[used_type] then
+						vim.diagnostic.config({ [used_type] = false })
+						vim.notify('diags off')
+					else
+						vim.diagnostic.config({ [used_type] = true })
+						vim.notify('diags on')
+					end
+				end,
+			},
+			{
+				'Listchars',
+				function() vim.opt_local.list = not vim.wo.list end,
+			},
+			{
+				'Relative number',
+				function()
+					if vim.wo.relativenumber then
+						vim.wo.relativenumber = false
+					else
+						vim.wo.relativenumber = true
+					end
+				end,
+			},
+			{
+				'Foldcolumn',
+				function()
+					if vim.wo.foldcolumn == '1' then
+						vim.wo.foldcolumn = '0'
+					else
+						vim.wo.foldcolumn = '1'
+					end
+				end,
+			},
+		}
+		env.select(options, { prompt = ' Toggle ' })
 	end,
-	['<Leader>co'] = function() require('astrolsp.toggles').buffer_inlay_hints() end,
-	['<Leader>cO'] = function() require('astrolsp.toggles').inlay_hints() end,
 
 	-- Lsp
 	['gw'] = vim.lsp.buf.rename,
