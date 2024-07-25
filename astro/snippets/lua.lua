@@ -37,6 +37,13 @@ return {
 	s({ filetype = 'lua', trig = 'vf' }, { t('vim.fn.') }),
 	s({ filetype = 'lua', trig = 'vc' },
 		fmta("vim.cmd('<>')", { i(1), })),
+	s({ filetype = 'lua', trig = 'vus' },
+		fmta("vim.ui.select(<>, <>, function(<>) <> end)", {
+			i(1),
+			i(2, '{}'),
+			i(3, 'item, index'),
+			i(4),
+	})),
 	s({ filetype = 'lua', trig = 'spec' }, {
 		t({ '{', "\t'" }),
 		i(1),
@@ -113,15 +120,15 @@ return {
 	-- Snippet making snippets
 	s(
 		{ filetype = 'lua', trig = 's' },
-		fmta("s({ filetype = '<>', trig = '<>' },\n\t<>),", {
+		fmta("s(\n\t{ filetype = '<>', trig = '<>' },\n\t<>\n\t),", {
 			f(function() return vim.fn.expand('%:t:r') end),
 			i(1),
-			c(2, { fmta('{ <> }', i(1)), i(1) }),
+			i(2),
 		})
 	),
 	s({ filetype = 'lua', trig = 'fmt' }, fmta("fmt('<>', { <> })", { i(1), i(2) })),
 	s({ filetype = 'lua', trig = 'fmta' }, fmta("fmta('<>', { <> })", { i(1), i(2) })),
-	s({ filetype = 'lua', trig = 'i' }, fmta('i(<><>),', { i(1, '1'), i(2) })),
+	s({ filetype = 'lua', trig = 'i' }, fmta('i(<>),', { i(1, '1') })),
 	s(
 		{ filetype = 'lua', trig = 't' },
 		fmta('t(<>),', {

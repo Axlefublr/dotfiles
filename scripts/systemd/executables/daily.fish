@@ -16,6 +16,7 @@ set -l changed_magazines (git status -s | rg magazine | wc -l)
 if test "$changed_magazines" -gt 0
     git add magazine/
     git commit -m "sync magazine $(date '+%y.%m.%d'): $changed_magazines changes"
+    truncate -s 0 ~/.local/share/magazine/d
 end
 
 cp -fr ~/.local/share/harp/harp.yml ~/prog/backup/automatic/harp.yml
