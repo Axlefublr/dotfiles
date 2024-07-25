@@ -492,6 +492,22 @@ local function kitty_blank() -- Kitty blank
 				env.select(cwds, { prompt = ' Directory ' })
 			end,
 		},
+		{
+			'AnoTab',
+			function()
+				vim.list_extend(cmd, { '--type', 'tab' })
+				extendor = { '--hold', 'nvim', '-c', 'Young' }
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
+		{
+			'AnoWindow',
+			function()
+				vim.list_extend(cmd, { '--type', 'window' })
+				extendor = { '--hold', 'nvim', '-c', 'Young' }
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
 	}
 	env.select(typ, { prompt = ' Type ' }) -- TODO: from last to first questions, and you just modify the table in this cool confusing way
 end

@@ -91,8 +91,11 @@ local opts_table = {
 		Young = {
 			function()
 				if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
-				local recent = vim.v.oldfiles[1]
-				vim.cmd.edit(recent)
+				local file = io.open('/dev/shm/youngest_nvim_file', 'r')
+				if not file then return end
+				local stored_path = file:read('*a')
+				file:close()
+				if stored_path and stored_path ~= '' then vim.cmd.edit(stored_path) end
 			end,
 		},
 	},
@@ -167,15 +170,11 @@ local opts_table = {
 		hlsearch = {
 			{
 				event = 'InsertEnter',
-				callback = function()
-					vim.opt.hlsearch = false
-				end
+				callback = function() vim.opt.hlsearch = false end,
 			},
 			{
 				event = 'InsertLeave',
-				callback = function()
-					vim.opt.hlsearch = true
-				end
+				callback = function() vim.opt.hlsearch = true end,
 			},
 		},
 		fugutive = {
@@ -186,8 +185,23 @@ local opts_table = {
 					pcall(vim.keymap.del, { 'n', 'x', 'o' }, 'K', { buffer = true })
 					pcall(vim.keymap.del, 'n', '<CR>', { buffer = true })
 					vim.keymap.set('n', '>', ':<C-U>exe <SNR>37_GF("edit")<CR>', { buffer = true })
-				end
-			}
+				end,
+			},
+		},
+		young = {
+			{
+				event = 'BufEnter',
+				callback = function(ev)
+					local path = vim.api.nvim_buf_get_name(ev.buf)
+					if not path or path == '' then
+						return
+					end
+					local file = io.open('/dev/shm/youngest_nvim_file', 'w+')
+					if not file then return end
+					file:write(path)
+					file:close()
+				end,
+			},
 		},
 		everything = {
 			{
