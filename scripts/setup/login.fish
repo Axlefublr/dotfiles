@@ -10,7 +10,6 @@ for script in ~/prog/dotfiles/scripts/widget_update/*.fish
     $script 2>>/tmp/log/user.txt & disown
 end
 
-xremap --mouse ~/prog/dotfiles/xremap.yml 2>>/tmp/log/user.txt & disown
 ydotoold 2>>/tmp/log/user.txt & disown
 # ollama serve 2>>/tmp/log/user.txt & disown
 picom 2>>/tmp/log/user.txt & disown
@@ -19,6 +18,8 @@ copyq 2>>/tmp/log/user.txt & disown
 xset s off -dpms 2>>/tmp/log/user.txt
 redshift -O 5700 2>>/tmp/log/user.txt
 playerctld daemon
+
+xrestart.fish
 
 kitty -T meow 2>>/tmp/log/user.txt & disown
 oil.fish ~/vid/content 2>>/tmp/log/user.txt & disown
@@ -42,10 +43,6 @@ move_all 8 $ankis
 # notify-send -t 2000 'spotify'
 # loopuntil is_internet 0.5 0 60
 # spotify-launcher -v 2>>/tmp/log/user.txt & disown
-
-notify-sent -t 2000 xwaaa
-sleep 10
-xwaaa
 
 RUST_LOG=debug axleizer &>/tmp/log/axleizer.txt & disown
 

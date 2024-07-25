@@ -108,27 +108,6 @@ function ghrfc
 end
 funcsave ghrfc >/dev/null
 
-function xrestart
-    killall xremap
-    xremap --mouse ~/prog/dotfiles/xremap.yml &>/tmp/log/xremap.txt & disown
-end
-funcsave xrestart >/dev/null
-
-function xwaaa
-    xset r rate 170 35 &>/tmp/log/xset.txt
-    setxkbmap -layout us,ru -option 'compose:sclk' &>/tmp/log/setxkbmap.txt
-end
-funcsave xwaaa >/dev/null
-
-function xrestartwaaa
-    xrestart
-    notify-send -t 2000 'restarted xremap'
-    sleep 3
-    xwaaa
-    notify-send -t 2000 'applied xset'
-end
-funcsave xrestartwaaa >/dev/null
-
 function grostart
     killall gromit-mpx
     gromit.fish &>/tmp/log/gromit.txt & disown
