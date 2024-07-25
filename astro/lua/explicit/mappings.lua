@@ -700,10 +700,37 @@ local normal_mappings = {
 							local message = env.input('stash message: ')
 							if not message then return end
 							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -S -m ' .. message)
+							vim.cmd('Git stash push --staged -m ' .. message)
 						end,
 					},
-				})
+					{
+						'-k',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -k -m ' .. message)
+						end,
+					},
+					{
+						'-ku',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -ku -m ' .. message)
+						end,
+					},
+					{
+						'-u',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -u -m ' .. message)
+						end,
+					},
+				}, { prompt = ' Flags ' })
 			else
 				local picked_stash = index - 2 -- stashes are 0 indexed
 				local options = {
