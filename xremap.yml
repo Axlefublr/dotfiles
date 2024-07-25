@@ -5,6 +5,7 @@ virtual_modifiers:
 default_mode: default
 modmap:
   - remap:
+      Esc: F8
       Tab: Esc
       Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
       Alt_r: F7
@@ -1145,6 +1146,7 @@ keymap:
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
       # Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
+      F8: { launch: [fish, -c, 'echo charged > /dev/shm/Getup_f'] }
       Super-Alt-s:
         {
           launch:

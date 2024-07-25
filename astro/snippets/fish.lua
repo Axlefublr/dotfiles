@@ -1,4 +1,8 @@
 return {
+	s(
+		{ filetype = 'fish', trig = 'awm' },
+			{ t('awesome-client '), }
+		),
 	s({ filetype = 'fish', trig = 'if' }, {
 		t('if '),
 		i(1),
