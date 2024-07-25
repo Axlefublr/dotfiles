@@ -274,7 +274,10 @@ local function execute_this_file()
 	local repo = get_repo_root()
 	local file = vim.fn.expand('%')
 	local command = { 'kitten', '@', 'launch', '--type', 'window', '--cwd', repo, '--hold' }
-	local run = function(diag_command, opts) env.shell(vim.list_extend(command, diag_command), opts) end
+	local run = function(diag_command, opts)
+		require('astrocore').cmd(vim.list_extend(command, diag_command))
+		-- env.shell(vim.list_extend(command, diag_command), opts):wait()
+	end
 	if filetype == 'rust' then
 		local edited_command = env.input('run: ', 'cargo run -- ')
 		if not edited_command then return end
