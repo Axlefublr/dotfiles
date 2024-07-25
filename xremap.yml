@@ -1146,7 +1146,7 @@ keymap:
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
       # Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
-      F8: { launch: [fish, -c, 'echo charged > /dev/shm/Getup_f'] }
+      F8: { launch: [clorange, getup, reset] }
       Super-Alt-s:
         {
           launch:
