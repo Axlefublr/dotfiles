@@ -164,7 +164,7 @@ function magazine_append
     end
     set -e result[-1]
     set result "$result"
-    indeed ~/.local/share/magazine/$argv[1] $result
+    indeed ~/.local/share/magazine/$argv[1] -- $result
     notify-send -t 1000 "append $argv[1]"
     update_magazine $argv[1]
 end

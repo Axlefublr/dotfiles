@@ -743,6 +743,50 @@ local normal_mappings = {
 			end
 		end)
 	end,
+	['<Leader>jv'] = function()
+		local result = env.shell({ 'git', 'branch', '-l' }):wait()
+		if result.code ~= 0 then return end
+		local lines = result.stdout:split('\n')
+		local branches = {}
+		for index, line in ipairs(lines) do
+			if line:sub(1, 1) == '*' then
+				table.insert(branches, 1, line:sub(3))
+			else
+				table.insert(branches, line:sub(3))
+			end
+		end
+		table.insert(branches, 1, 'git switch -c')
+		vim.ui.select(branches, { prompt = ' Branches ' }, function(item, index)
+			if not item then return end
+			if index == 1 then
+				local new_branch_name = env.input('branch name: ')
+				if not new_branch_name then return  end
+				vim.cmd('Git switch --create ' .. new_branch_name)
+				return
+			end
+			local options = {
+				{ 'switch', function() vim.cmd('Git switch ' .. item) end },
+				{
+					'delete',
+					function()
+						local response = env.confirm('delete branch `' .. item .. '`? ', {
+							{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+						})
+						if not response then return end
+						response()
+					end,
+				},
+				{ 'merge', function()
+					local response = env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
+						{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+					})
+					if not response then return end
+					response()
+				end }
+			}
+			env.select(options, { prompt = ' Action ' })
+		end)
+	end,
 	['<Leader>ch'] = function()
 		local result = env.shell({ 'git', 'log', '--oneline', 'HEAD~7..HEAD', '--pretty=format:%s' }):wait()
 		if result.code ~= 0 then return end
@@ -1035,7 +1079,7 @@ local normal_mappings = {
 	['d,'] = ':help ',
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
-	['<Leader>jb'] = function() require('telescope.builtin').git_branches() end,
+	['<Leader>jV'] = function() require('telescope.builtin').git_branches() end,
 	-- ['<Leader>jx'] = function() require('telescope.builtin').git_stash() end,
 	['<Leader>je'] = function() require('telescope.builtin').git_status() end,
 	['<Leader>j\\'] = function() require('telescope.builtin').builtin() end,
@@ -1362,7 +1406,7 @@ for bindee, binding in pairs(insert_select_mappings) do
 end
 
 for bindee, binding in pairs(visual_select_mappings) do
-	map('v', bindee, binding)
+	map({ 'x', 's' }, bindee, binding)
 end
 
 for bindee, binding in pairs(normal_select_mappings) do
