@@ -345,7 +345,7 @@ local function change_case(prompt, action_type)
 	local function textcase_action(case, action_type)
 		if action_type == 'selection' then
 			local text = env.get_inline_selection()[1]
-			local converted = require('textcase').api[case](text)
+			local converted = require('textcase.plugin.api')[case](text)
 			env.replace_inline_selection(converted)
 			env.feedkeys_int('<Esc>')
 		elseif action_type == 'lsp' then
