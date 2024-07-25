@@ -91,7 +91,7 @@ local opts_table = {
 		Young = {
 			function()
 				if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
-				local file = io.open('~/.local/share/youngest_nvim_file', 'r')
+				local file = io.open('/home/axlefublr/.local/share/youngest_nvim_file', 'r')
 				if not file then return end
 				local stored_path = file:read('*a')
 				file:close()
@@ -190,13 +190,13 @@ local opts_table = {
 		},
 		young = {
 			{
-				event = 'BufEnter',
+				event = { 'BufEnter', 'FocusGained' },
 				callback = function(ev)
 					local path = vim.api.nvim_buf_get_name(ev.buf)
 					if not path or path == '' then
 						return
 					end
-					local file = io.open('~/.local/share/youngest_nvim_file', 'w+')
+					local file = io.open('/home/axlefublr/.local/share/youngest_nvim_file', 'w+')
 					if not file then return end
 					file:write(path)
 					file:close()
