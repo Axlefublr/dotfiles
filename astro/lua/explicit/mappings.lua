@@ -434,7 +434,10 @@ local function kitty_blank() -- Kitty blank
 		{
 			'Buffer',
 			function()
-				vim.list_extend(cmd, { '--cwd', vim.bo.filetype == 'oil' and require('oil').get_current_dir() or get_buffer_cwd() })
+				vim.list_extend(
+					cmd,
+					{ '--cwd', vim.bo.filetype == 'oil' and require('oil').get_current_dir() or get_buffer_cwd() }
+				)
 				vim.list_extend(cmd, extendor)
 				env.shell(cmd)
 			end,
@@ -666,6 +669,53 @@ local normal_mappings = {
 	-- end,
 
 	-- Git
+	['<Leader>jx'] = function()
+		local options = { '!git stash push' }
+		local result = env.shell({ 'git', 'stash', 'list' }):wait()
+		if result.code == 0 then
+			local lines = result.stdout:trim():split('\n')
+			local stashes = {}
+			for index = #lines, 1, -1 do
+				local just_message = vim.fn.matchstr(lines[index], 'stash@{\\d\\+}: .*[Oo]n \\w\\+: \\zs.*')
+				if just_message ~= '' then table.insert(stashes, 1, just_message) end
+			end
+			vim.list_extend(options, stashes)
+		end
+		vim.ui.select(options, { prompt = ' Stashes ' }, function(item, index)
+			if not item then return end
+			if index == 1 then
+				env.select({
+					{
+						'',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -m ' .. message)
+						end,
+					},
+					{
+						'-S',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -S -m ' .. message)
+						end,
+					},
+				})
+			else
+				local picked_stash = index - 2 -- stashes are 0 indexed
+				local options = {
+					{ 'pop', function() vim.cmd('Git stash pop stash@\\{' .. picked_stash .. '}') end },
+					{ 'drop', function() vim.cmd('Git stash drop stash@\\{' .. picked_stash .. '}') end },
+					{ 'copy', function() vim.fn.setreg('+', 'stash@\\{' .. picked_stash .. '}') end },
+					{ 'apply', function() vim.cmd('Git stash apply stash@\\{' .. picked_stash .. '}') end },
+				}
+				env.select(options, { prompt = ' Action ' })
+			end
+		end)
+	end,
 	['<Leader>ch'] = function()
 		local result = env.shell({ 'git', 'log', '--oneline', 'HEAD~7..HEAD', '--pretty=format:%s' }):wait()
 		if result.code ~= 0 then return end
@@ -959,7 +1009,7 @@ local normal_mappings = {
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
 	['<Leader>jb'] = function() require('telescope.builtin').git_branches() end,
-	['<Leader>jx'] = function() require('telescope.builtin').git_stash() end,
+	-- ['<Leader>jx'] = function() require('telescope.builtin').git_stash() end,
 	['<Leader>je'] = function() require('telescope.builtin').git_status() end,
 	['<Leader>j\\'] = function() require('telescope.builtin').builtin() end,
 	['<Leader>jw'] = function() require('telescope.builtin').buffers() end,
