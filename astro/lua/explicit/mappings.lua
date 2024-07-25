@@ -470,14 +470,7 @@ local function kitty_blank() -- Kitty blank
 			end,
 		},
 		{
-			'Window',
-			function()
-				vim.list_extend(cmd, { '--type', 'window' })
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-		{
-			'NeoTab',
+			'Tab Neovim',
 			function()
 				vim.list_extend(cmd, { '--type', 'tab' })
 				extendor = { '--hold', 'nvim' }
@@ -485,15 +478,7 @@ local function kitty_blank() -- Kitty blank
 			end,
 		},
 		{
-			'NeoWindow',
-			function()
-				vim.list_extend(cmd, { '--type', 'window' })
-				extendor = { '--hold', 'nvim' }
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-		{
-			'AnoTab',
+			'Tab Young',
 			function()
 				vim.list_extend(cmd, { '--type', 'tab' })
 				extendor = { '--hold', 'nvim', '-c', 'Young' }
@@ -501,7 +486,22 @@ local function kitty_blank() -- Kitty blank
 			end,
 		},
 		{
-			'AnoWindow',
+			'Window',
+			function()
+				vim.list_extend(cmd, { '--type', 'window' })
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
+		{
+			'Window Neovim',
+			function()
+				vim.list_extend(cmd, { '--type', 'window' })
+				extendor = { '--hold', 'nvim' }
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
+		{
+			'Window Young',
 			function()
 				vim.list_extend(cmd, { '--type', 'window' })
 				extendor = { '--hold', 'nvim', '-c', 'Young' }
