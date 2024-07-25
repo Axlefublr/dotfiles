@@ -34,31 +34,6 @@ return {
 					os.execute("zoxide add '" .. oil_cwd .. "'")
 				end, { buffer = true })
 
-				vim.keymap.set(
-					'n',
-					'<Leader>aus',
-					function()
-						require('astrocore').cmd({
-							'kitten',
-							'@',
-							'launch',
-							'--type',
-							'tab',
-							'--cwd',
-							require('oil').get_current_dir(),
-						})
-					end,
-					{ buffer = true }
-				)
-				vim.keymap.set(
-					'n',
-					'<Leader>ais',
-					function()
-						require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', require('oil').get_current_dir() })
-					end,
-					{ buffer = true }
-				)
-
 				vim.keymap.set('n', '<Leader>z', function()
 					local register = env.char('get cd harp: ')
 					if register == nil then return end

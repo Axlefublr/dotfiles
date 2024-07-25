@@ -244,11 +244,10 @@ end
 local function numbered_insert(index) numbered_get(index, true) end
 local function numbered_command(index) numbered_get(index, 'command') end
 
-local function harp_cd_get_or_home()
+local function harp_cd_get()
 	local register = require('harp').get_char('get cd harp: ')
-	if not register then return vim.fn.expand('~') end
+	if not register then return end
 	local harp = require('harp').cd_get_path(register)
-	if not harp then return vim.fn.expand('~') end
 	return harp
 end
 
@@ -408,6 +407,80 @@ local function change_case(prompt, action_type)
 		},
 	}
 	return env.select(options, { prompt = prompt })
+end
+
+local function kitty_blank() -- Kitty blank
+	local cmd = { 'kitten', '@', 'launch' }
+	local extendor = {}
+	local cwds = {
+		{
+			'Here',
+			function()
+				vim.list_extend(cmd, { '--cwd', vim.fn.getcwd() })
+				vim.list_extend(cmd, extendor)
+				env.shell(cmd)
+			end,
+		},
+		{
+			'Harp',
+			function()
+				local dir = harp_cd_get()
+				if not dir then return end
+				vim.list_extend(cmd, { '--cwd', dir })
+				vim.list_extend(cmd, extendor)
+				env.shell(cmd)
+			end,
+		},
+		{
+			'Buffer',
+			function()
+				vim.list_extend(cmd, { '--cwd', vim.bo.filetype == 'oil' and require('oil').get_current_dir() or get_buffer_cwd() })
+				vim.list_extend(cmd, extendor)
+				env.shell(cmd)
+			end,
+		},
+		{
+			'~',
+			function()
+				vim.list_extend(cmd, { '--cwd', '~' })
+				vim.list_extend(cmd, extendor)
+				env.shell(cmd)
+			end,
+		},
+	}
+	local typ = {
+		{
+			'Tab',
+			function()
+				vim.list_extend(cmd, { '--type', 'tab' })
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
+		{
+			'Window',
+			function()
+				vim.list_extend(cmd, { '--type', 'window' })
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
+		{
+			'NeoTab',
+			function()
+				vim.list_extend(cmd, { '--type', 'tab' })
+				extendor = { '--hold', 'nvim' }
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
+		{
+			'NeoWindow',
+			function()
+				vim.list_extend(cmd, { '--type', 'window' })
+				extendor = { '--hold', 'nvim' }
+				env.select(cwds, { prompt = ' Directory ' })
+			end,
+		},
+	}
+	env.select(typ, { prompt = ' Type ' }) -- TODO: from last to first questions, and you just modify the table in this cool confusing way
 end
 
 -- local function store_andor_use_count(what)
@@ -922,50 +995,9 @@ local normal_mappings = {
 	["'9"] = function() numbered_get(9) end,
 	["'0"] = function() numbered_get(10) end,
 
-	-- Kitty blank series
+	-- Kitty blank
+	['<Leader>m'] = kitty_blank,
 	['<A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
-	['<Leader>aI'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', '~' }) end,
-	['<Leader>aii'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
-	['<Leader>ais'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd() }) end,
-	['<Leader>aid'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home() }) end,
-	['<Leader>aU'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', '~' }) end,
-	['<Leader>auu'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd() })
-	end,
-	['<Leader>aus'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd() })
-	end,
-	['<Leader>aud'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', harp_cd_get_or_home() })
-	end,
-	['<Leader>aiI'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' })
-	end,
-	['<Leader>aiS'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', get_buffer_cwd(), '--hold', 'nvim' })
-	end,
-	['<Leader>aiD'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', harp_cd_get_or_home(), '--hold', 'nvim' })
-	end,
-	['<Leader>auU'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', vim.fn.getcwd(), '--hold', 'nvim' })
-	end,
-	['<Leader>auS'] = function()
-		require('astrocore').cmd({ 'kitten', '@', 'launch', '--type', 'tab', '--cwd', get_buffer_cwd(), '--hold', 'nvim' })
-	end,
-	['<Leader>auD'] = function()
-		require('astrocore').cmd({
-			'kitten',
-			'@',
-			'launch',
-			'--type',
-			'tab',
-			'--cwd',
-			harp_cd_get_or_home(),
-			'--hold',
-			'nvim',
-		})
-	end,
 
 	-- Direct
 	U = '<C-r>',
@@ -1066,8 +1098,8 @@ local insert_mappings = {
 	['<C-v>'] = '<C-r><C-p>+',
 	['<F5>'] = '',
 	['<F6>'] = '<C-o>o',
-	['<A-a>'] = '<C-a>',
-	['<A-f>'] = '<C-g>j',
+	['<A-f>'] = '<C-a>',
+	['<A-g>'] = '<C-g>j',
 }
 
 local pending_mappings = {
