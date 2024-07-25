@@ -15,8 +15,8 @@ local telescope_opts = function(_, opts)
 	local function git_branch_pick(bufnr)
 		local branch = actions_state.get_selected_entry().value
 		local options = {
-			{ 'Switch', function() vim.cmd('silent Git switch ' .. branch) end },
-			{ 'Delete', function() vim.cmd('silent Git branch -d ' .. branch) end },
+			{ 'Switch', function() vim.cmd('Git switch ' .. branch) end },
+			{ 'Delete', function() vim.cmd('Git branch -d ' .. branch) end },
 			{ 'Copy', function() vim.fn.setreg('+', branch) end },
 		}
 		local picked = env.confirm(nil, options)
@@ -43,20 +43,6 @@ local telescope_opts = function(_, opts)
 		picked()
 	end
 
-	local function git_stash_pick(bufnr)
-		local stash = actions_state.get_selected_entry().value
-		local options = {
-			{ 'P&op', function() vim.cmd('Git stash pop ' .. stash) end },
-			{ 'Apply', function() vim.cmd('Git stash apply ' .. stash) end },
-			{ 'Drop', function() vim.cmd('Git stash drop ' .. stash) end },
-			{ 'Copy', function() vim.fn.setreg('+', stash) end },
-		}
-		local picked = env.confirm(nil, options)
-		if not picked then return end
-		actions.close(bufnr)
-		picked()
-	end
-
 	return require('astrocore').extend_tbl(opts, {
 		defaults = {
 			prompt_prefix = '',
@@ -69,7 +55,7 @@ local telescope_opts = function(_, opts)
 			layout_strategy = 'flex',
 			selection_strategy = 'row',
 			borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗' },
-			path_display = function(opts, path) return vim.fn.fnamemodify(path, ':~:.') end,
+			path_display = function(_, path) return vim.fn.fnamemodify(path, ':~:.') end,
 			preview = {
 				treesitter = true,
 				hide_on_startup = true,
@@ -139,16 +125,6 @@ local telescope_opts = function(_, opts)
 					},
 					i = {
 						['<CR>'] = git_commits_pick,
-					},
-				},
-			},
-			git_stash = {
-				mappings = {
-					n = {
-						['<CR>'] = git_stash_pick,
-					},
-					i = {
-						['<CR>'] = git_stash_pick,
 					},
 				},
 			},
