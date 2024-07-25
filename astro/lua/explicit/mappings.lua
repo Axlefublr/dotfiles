@@ -670,7 +670,7 @@ local normal_mappings = {
 
 	-- Git
 	['<Leader>jx'] = function()
-		local options = { '!git stash push' }
+		local options = { 'create' }
 		local result = env.shell({ 'git', 'stash', 'list' }):wait()
 		if result.code == 0 then
 			local lines = result.stdout:trim():split('\n')
@@ -681,67 +681,74 @@ local normal_mappings = {
 			end
 			vim.list_extend(options, stashes)
 		end
-		vim.ui.select(options, { prompt = ' Stashes ' }, function(item, index)
-			if not item then return end
-			if index == 1 then
-				env.select({
-					{
-						'',
-						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -m ' .. message)
-						end,
-					},
-					{
-						'-S',
-						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push --staged -m ' .. message)
-						end,
-					},
-					{
-						'-k',
-						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -k -m ' .. message)
-						end,
-					},
-					{
-						'-ku',
-						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -ku -m ' .. message)
-						end,
-					},
-					{
-						'-u',
-						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -u -m ' .. message)
-						end,
-					},
-				}, { prompt = ' Flags ' })
-			else
-				local picked_stash = index - 2 -- stashes are 0 indexed
-				local options = {
-					{ 'pop', function() vim.cmd('Git stash pop stash@\\{' .. picked_stash .. '}') end },
-					{ 'drop', function() vim.cmd('Git stash drop stash@\\{' .. picked_stash .. '}') end },
-					{ 'copy', function() vim.fn.setreg('+', 'stash@\\{' .. picked_stash .. '}') end },
-					{ 'apply', function() vim.cmd('Git stash apply stash@\\{' .. picked_stash .. '}') end },
-				}
-				env.select(options, { prompt = ' Action ' })
+		vim.ui.select(
+			options,
+			{
+				prompt = ' Stashes ',
+				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 3, -1) end,
+			},
+			function(item, index)
+				if not item then return end
+				if index == 1 then
+					env.select({
+						{
+							'',
+							function()
+								local message = env.input('stash message: ')
+								if not message then return end
+								message = vim.fn.shellescape(message)
+								vim.cmd('Git stash push -m ' .. message)
+							end,
+						},
+						{
+							'-S',
+							function()
+								local message = env.input('stash message: ')
+								if not message then return end
+								message = vim.fn.shellescape(message)
+								vim.cmd('Git stash push --staged -m ' .. message)
+							end,
+						},
+						{
+							'-k',
+							function()
+								local message = env.input('stash message: ')
+								if not message then return end
+								message = vim.fn.shellescape(message)
+								vim.cmd('Git stash push -k -m ' .. message)
+							end,
+						},
+						{
+							'-ku',
+							function()
+								local message = env.input('stash message: ')
+								if not message then return end
+								message = vim.fn.shellescape(message)
+								vim.cmd('Git stash push -ku -m ' .. message)
+							end,
+						},
+						{
+							'-u',
+							function()
+								local message = env.input('stash message: ')
+								if not message then return end
+								message = vim.fn.shellescape(message)
+								vim.cmd('Git stash push -u -m ' .. message)
+							end,
+						},
+					}, { prompt = ' Flags ' })
+				else
+					local picked_stash = index - 2 -- stashes are 0 indexed
+					local options = {
+						{ 'pop', function() vim.cmd('Git stash pop stash@\\{' .. picked_stash .. '}') end },
+						{ 'drop', function() vim.cmd('Git stash drop stash@\\{' .. picked_stash .. '}') end },
+						{ 'copy', function() vim.fn.setreg('+', 'stash@\\{' .. picked_stash .. '}') end },
+						{ 'apply', function() vim.cmd('Git stash apply stash@\\{' .. picked_stash .. '}') end },
+					}
+					env.select(options, { prompt = ' Action ' })
+				end
 			end
-		end)
+		)
 	end,
 	['<Leader>jv'] = function()
 		local result = env.shell({ 'git', 'branch', '-l' }):wait()
@@ -755,37 +762,47 @@ local normal_mappings = {
 				table.insert(branches, line:sub(3))
 			end
 		end
-		table.insert(branches, 1, 'git switch -c')
-		vim.ui.select(branches, { prompt = ' Branches ' }, function(item, index)
-			if not item then return end
-			if index == 1 then
-				local new_branch_name = env.input('branch name: ')
-				if not new_branch_name then return  end
-				vim.cmd('Git switch --create ' .. new_branch_name)
-				return
+		table.insert(branches, 1, 'create')
+		vim.ui.select(
+			branches,
+			{
+				prompt = ' Branches ',
+				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 3, -1) end,
+			},
+			function(item, index)
+				if not item then return end
+				if index == 1 then
+					local new_branch_name = env.input('branch name: ')
+					if not new_branch_name then return end
+					vim.cmd('Git switch --create ' .. new_branch_name)
+					return
+				end
+				local options = {
+					{ 'switch', function() vim.cmd('Git switch ' .. item) end },
+					{
+						'delete',
+						function()
+							local response = env.confirm('delete branch `' .. item .. '`? ', {
+								{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+							})
+							if not response then return end
+							response()
+						end,
+					},
+					{
+						'merge',
+						function()
+							local response = env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
+								{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+							})
+							if not response then return end
+							response()
+						end,
+					},
+				}
+				env.select(options, { prompt = ' Action ' })
 			end
-			local options = {
-				{ 'switch', function() vim.cmd('Git switch ' .. item) end },
-				{
-					'delete',
-					function()
-						local response = env.confirm('delete branch `' .. item .. '`? ', {
-							{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
-						})
-						if not response then return end
-						response()
-					end,
-				},
-				{ 'merge', function()
-					local response = env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
-						{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
-					})
-					if not response then return end
-					response()
-				end }
-			}
-			env.select(options, { prompt = ' Action ' })
-		end)
+		)
 	end,
 	['<Leader>ch'] = function()
 		local result = env.shell({ 'git', 'log', '--oneline', 'HEAD~7..HEAD', '--pretty=format:%s' }):wait()
