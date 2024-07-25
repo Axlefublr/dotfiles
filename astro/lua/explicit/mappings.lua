@@ -892,9 +892,10 @@ local normal_mappings = {
 	['<Leader>ad'] = function() vim.cmd('leftabove new') end,
 	['<Leader>ag'] = function() vim.cmd('vnew') end,
 	['<Leader>aa'] = function() vim.cmd('enew') end,
-	['do'] = '<C-w>o',
-	['co'] = '<C-w>=',
-	['cu'] = '<C-w>_<C-w>|',
+	['co'] = '<C-w>o',
+	['cu'] = '<C-w>=',
+	['zh'] = '<C-w>_',
+	['zH'] = '<C-w>|',
 	["d'"] = '<C-w><C-w>',
 	['[w'] = 'gT',
 	[']w'] = 'gt',
@@ -996,7 +997,7 @@ local normal_mappings = {
 	["'0"] = function() numbered_get(10) end,
 
 	-- Kitty blank
-	['<Leader>m'] = kitty_blank,
+	['do'] = kitty_blank,
 	['<A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
 
 	-- Direct
