@@ -257,6 +257,12 @@ local function get_buffer_cwd()
 	return parent
 end
 
+---@param which 'main'|'content'
+local function ensure_browser(which)
+	local index = (which == 'content' and 7 or 2) - 1
+	env.shell({ 'wmctrl', '-s', index }):wait()
+end
+
 local function execute_this_file()
 	local filetype = vim.bo.filetype
 	if filetype == 'lua' then
@@ -267,8 +273,8 @@ local function execute_this_file()
 	save(true)
 	local repo = get_repo_root()
 	local file = vim.fn.expand('%')
-	local command = { 'kitten', '@', 'launch', '--type', 'overlay-main', '--cwd', repo, '--hold' }
-	local run = function(diag_command, opts) env.shell(vim.list_extend(command, diag_command), opts):wait() end
+	local command = { 'kitten', '@', 'launch', '--type', 'window', '--cwd', repo, '--hold' }
+	local run = function(diag_command, opts) env.shell(vim.list_extend(command, diag_command), opts) end
 	if filetype == 'rust' then
 		local edited_command = env.input('run: ', 'cargo run -- ')
 		if not edited_command then return end
@@ -277,9 +283,13 @@ local function execute_this_file()
 		run({ 'python', file })
 	elseif filetype == 'nim' then
 		run({ 'nimble', 'run' })
+	elseif filetype == 'markdown' then
+		ensure_browser('main')
+		run({ 'grip', '-b' })
 	else
 		run({ file })
 	end
+	env.shell({ 'kitten', '@', 'action', 'move_window_forward' })
 end
 
 local function diag_this_file()
@@ -317,8 +327,8 @@ local function interactive_setenv()
 	vim.notify('set ' .. env_var .. '=' .. env_value)
 end
 
-local function open_link_in_instance(index)
-	local index = (index or 1) - 1
+---@param which 'main'|'content'
+local function open_link_in_instance(which)
 	require('various-textobjs').url()
 
 	-- plugin only switches to visual mode when textobj found
@@ -335,7 +345,7 @@ local function open_link_in_instance(index)
 	local url = vim.fn.getreg()
 	vim.fn.setreg(env.default_register, previous_clipboard)
 
-	env.shell({ 'wmctrl', '-s', index }):wait()
+	ensure_browser(which)
 	local openCommand = string.format("xdg-open '%s' >/dev/null 2>&1", url)
 	os.execute(openCommand)
 end
@@ -567,8 +577,8 @@ local normal_mappings = {
 		local path = vim.api.nvim_buf_get_name(0)
 		env.shell({ 'xdg-open', path })
 	end,
-	cc = function() open_link_in_instance(2) end,
-	cC = function() open_link_in_instance(7) end,
+	cc = function() open_link_in_instance('main') end,
+	cC = function() open_link_in_instance('content') end,
 
 	-- Toggles
 	['zs'] = function()
