@@ -34,6 +34,19 @@ return {
 					os.execute("zoxide add '" .. oil_cwd .. "'")
 				end, { buffer = true })
 
+				vim.keymap.set('n', 'gss', function()
+					local options = {
+						{
+							'chmod +x',
+							function()
+								local path = require('oil').get_current_dir() .. require('oil').get_cursor_entry().name
+								env.shell({ 'chmod', '+x', path })
+							end,
+						},
+					}
+					env.select(options, { prompt = ' Action ' })
+				end, { buffer = true })
+
 				vim.keymap.set('n', '<Leader>z', function()
 					local register = env.char('get cd harp: ')
 					if register == nil then return end
