@@ -1,5 +1,9 @@
 return {
 	s(
+		{ filetype = 'lua', trig = 'req' },
+			fmta("require('<>')", { i(1), })
+		),
+	s(
 		{ filetype = 'lua', trig = 'for' },
 		fmta('for <>, <> in <> do\n\t<>\nend', { i(1, 'key'), i(2, 'value'), i(3), i(4) })
 	),
@@ -120,7 +124,7 @@ return {
 	-- Snippet making snippets
 	s(
 		{ filetype = 'lua', trig = 's' },
-		fmta("s(\n\t{ filetype = '<>', trig = '<>' },\n\t<>\n\t),", {
+		fmta("s(\n\t{ filetype = '<>', trig = '<>' },\n\t\t<>\n\t),", {
 			f(function() return vim.fn.expand('%:t:r') end),
 			i(1),
 			i(2),

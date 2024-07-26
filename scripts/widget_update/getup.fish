@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set -l minutes 60
+set -l minutes 40
 
 while true
     while test (clorange getup show) -lt $minutes
