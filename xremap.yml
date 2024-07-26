@@ -312,7 +312,6 @@ keymap:
           y: { launch: [fish, -c, screenkey] }
           Shift-y: { launch: [kill, screenkey] }
           i: { launch: [awesome-client, 'WriteClientInfo()'] }
-          r: { launch: [fish, -c, 'cat /dev/shm/runner_output | xclip -r -selection clipboard'] }
 
   - name: Any! magazine
     exact_match: true

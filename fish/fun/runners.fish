@@ -18,8 +18,8 @@ function runner
     end | rofi -dmenu 2>/dev/null >/dev/shm/runner_input
     indeed $histori (cat /dev/shm/runner_input)
     if set -q argv[1]
-        set output "$(source /dev/shm/runner_input &| tee /dev/shm/runner_output)"
-        notify-send -t 0 "$output"
+        set output "$(source /dev/shm/runner_input &| tee ~/.local/share/magazine/o)"
+        notify-send -t 2000 "$output"
     else
         source /dev/shm/runner_input
     end
