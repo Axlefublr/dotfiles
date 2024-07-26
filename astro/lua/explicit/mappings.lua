@@ -512,7 +512,7 @@ local function kitty_blank() -- Kitty blank
 			end,
 		},
 	}
-	env.select(typ, { prompt = ' Type ' }) -- TODO: from last to first questions, and you just modify the table in this cool confusing way
+	env.select(typ, { prompt = ' Type ' })
 end
 
 -- local function store_andor_use_count(what)
@@ -714,7 +714,7 @@ local normal_mappings = {
 			options,
 			{
 				prompt = ' Stashes ',
-				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 3, -1) end,
+				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
 			},
 			function(item, index)
 				if not item then return end
@@ -796,7 +796,7 @@ local normal_mappings = {
 			branches,
 			{
 				prompt = ' Branches ',
-				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 3, -1) end,
+				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
 			},
 			function(item, index)
 				if not item then return end
