@@ -21,6 +21,8 @@ return {
 		'Axlefublr/selabel.nvim',
 		dev = true,
 		opts = {
+			separator = ' ',
+			-- separator_highlight = 'Orange',
 			win_opts = {
 				border = env.borders,
 			},
