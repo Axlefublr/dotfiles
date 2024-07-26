@@ -137,6 +137,11 @@ function imgs
 end
 funcsave imgs >/dev/null
 
+function vids
+    cp -f ~/vid/rec.mp4 $argv[1].mp4
+end
+funcsave vids >/dev/null
+
 function q
     $argv --help | nvim -c +Man!
 end

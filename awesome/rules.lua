@@ -86,6 +86,13 @@ awful.rules.rules = {
 	},
 
 	{
+		rule = { class = 'kitty', name = 'screen_record' },
+		properties = {
+			tag = screen.primary.tags[4]
+		},
+	},
+
+	{
 		rule = { class = 'kitty', name = 'oil-content' },
 		properties = { tag = screen.primary.tags[15], urgent = false },
 	},

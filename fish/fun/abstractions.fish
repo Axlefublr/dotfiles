@@ -425,3 +425,12 @@ function igrai
     paplay $path --volume $volume
 end
 funcsave igrai >/dev/null
+
+function toggle_screen_record
+    if matches 'kitty — screen_record' &>/dev/null
+        kitten @ --to unix:/tmp/screen_record_kitty_socket signal-child SIGINT
+    else
+        kitty -T screen_record --listen-on unix:/tmp/screen_record_kitty_socket screen_record.fish
+    end
+end
+funcsave toggle_screen_record >/dev/null
