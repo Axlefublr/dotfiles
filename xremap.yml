@@ -1079,6 +1079,7 @@ keymap:
       CapsLock-Alt-p: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
       CapsLock-Alt-m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
       CapsLock-Alt-y: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+      CapsLock-Alt-b: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
 
       Super-Ctrl-Apostrophe: { launch: [awesome-client, Unminimize_all_on_tag()] }
       Super-Alt-Apostrophe: { launch: [awesome-client, 'client.focus.minimized = true'] }
