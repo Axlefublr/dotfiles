@@ -50,8 +50,8 @@ function runner_math
     set input (string collect $input)
     if test -n $input
         set result (math "$input" | string collect)
-        notify-send -t 3000 $result
-        echo $result | xclip -selection clipboard -r
+        notify-send -t 2000 $result
+        echo $result >~/.local/share/magazine/o
     end
 end
 funcsave runner_math >/dev/null
