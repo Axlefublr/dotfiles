@@ -126,4 +126,10 @@ return {
 		'tpope/vim-fugitive',
 		event = 'User AstroGitFile',
 	},
+	{
+		'nvim-tree/nvim-web-devicons',
+		opts = function(_, opts)
+			opts.override.mp4 = nil
+		end
+	}
 }
