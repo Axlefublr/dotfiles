@@ -203,6 +203,16 @@ local opts_table = {
 				end,
 			},
 		},
+		spaceslist = {
+			{
+				event = 'BufEnter',
+				callback = function()
+					local spaces = vim.bo.shiftwidth
+					local built_chars = 'tab:← ,multispace:·,leadmultispace:' .. (' '):rep(spaces - 1)
+					vim.opt_local.listchars = built_chars
+				end
+			},
+		},
 		everything = {
 			{
 				event = { 'VimEnter', 'WinEnter' },
