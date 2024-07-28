@@ -1,10 +1,27 @@
 if not env then env = {} end -- makes more sense once you consider `:source`
 env.temp_mark = 'P'
 env.default_register = '+'
-env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
+-- env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
 env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav', 'ogg', 'oga' }
-env.treesitters = { 'diff' }
-env.lsps = { 'lua_ls' }
+
+env.treesitters = { 'diff', 'markdown_inline' }
+env.lsps = { 'lua_ls', 'jsonls', 'html', 'cssls', 'emmet_ls', 'marksman', 'pyright', 'taplo', 'yamlls' }
+env.formatters_by_ft = {
+	lua = { 'stylua' },
+	fish = { 'fish_indent' },
+	html = { { 'prettierd', 'prettier' } },
+	css = { { 'prettierd', 'prettier' } },
+	scss = { { 'prettierd', 'prettier' } },
+	less = { { 'prettierd', 'prettier' } },
+	markdown = { { 'prettierd', 'prettier' } },
+	['markdown.mdx'] = { { 'prettierd', 'prettier' } },
+	python = { 'isort', 'black' },
+	yaml = { { 'prettierd', 'prettier' } },
+}
+env.linters_by_ft = {
+	fish = { 'fish' },
+}
+
 env.borders = { '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' }
 env.sleek_borders = { '🭽', '▔', '🭾', '▕', '🭿', '▁', '🭼', '▏' }
 env.extra_directories = {
