@@ -1,0 +1,33 @@
+return {
+	{
+		'onsails/lspkind.nvim',
+		lazy = true,
+		opts = {
+			mode = 'symbol',
+			symbol_map = {
+				Text = '󰉿',
+				String = '󰉿',
+				Function = '󰹧',
+				Method = '󰹧',
+				Variable = '󰸌',
+				Class = '󰠱',
+				Array = '󰅪',
+				Boolean = '⊨',
+				Constructor = '',
+				Key = '󰌆',
+				Namespace = '󰅪',
+				Null = 'NULL',
+				Number = '#',
+				Object = '󰀚',
+				Package = '󰏗',
+				Property = '',
+				Reference = '',
+				Snippet = '',
+				TypeParameter = '󰊄',
+				Unit = '',
+			},
+			menu = {},
+		},
+		config = function(_, opts) require("lspkind").init(opts) end,
+	},
+}

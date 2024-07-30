@@ -28,9 +28,9 @@ local opts_table = {
 		row = 0,
 		col = 1,
 	},
-	yadm = {
-		enable = false,
-	},
+	-- yadm = {
+	-- 	enable = false,
+	-- },
 	diff_opts = {
 		vertical = true,
 	},

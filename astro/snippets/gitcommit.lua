@@ -1,4 +1,5 @@
 return {
+	s({ filetype = 'gitcommit', trig = 'v' }, { t('nvim: ') }),
 	s({ filetype = 'gitcommit', trig = 'c' }, fmta('chore<>: ', { i(1) })),
 	s({ filetype = 'gitcommit', trig = 'f' }, fmta('feat<>: ', { i(1) })),
 	s({ filetype = 'gitcommit', trig = 'x' }, fmta('fix<>: ', { i(1) })),

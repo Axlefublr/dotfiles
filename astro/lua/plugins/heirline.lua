@@ -73,9 +73,9 @@ return {
 					[''] = 'selock',
 				}
 				if modes[mode] then
-					return ' ' .. modes[mode] .. ' '
+					return ' ' .. modes[mode]
 				else
-					return ' ' .. mode .. ' '
+					return ' ' .. mode
 				end
 			end,
 			update = {
@@ -109,6 +109,7 @@ return {
 		table.remove(opts.statusline, 11)
 		table.remove(opts.statusline, 9)
 		table.remove(opts.statusline, 3)
+		table.remove(opts.statusline, 2)
 
 		-- table.insert(opts.statusline, 10, {
 		-- 	provider = function() return (vim.g.stored_count_shared or 1) .. ' ' end,

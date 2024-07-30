@@ -1,5 +1,5 @@
 return {
-	'AstroNvim/astrolsp',
+	'AstroNvim/astrolsp', -- FIXME: should not load on start
 	opts = function(_, opts)
 		return vim.tbl_deep_extend('force', opts, {
 			features = {
@@ -14,15 +14,25 @@ return {
 				disabled = true,
 			},
 			on_attach = nil,
-			-- lsp_handlers = { -- MOVE: your LspAttach autocommand into here
-			-- 	['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded', silent = true }),
-			-- 	['textDocument/signatureHelp'] = vim.lsp.with(
-			-- 		vim.lsp.handlers.signature_help,
-			-- 		{ border = 'rounded', silent = true }
-			-- 	),
-			-- },
+			lsp_handlers = {
+				['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+					border = env.borders,
+				}),
+				['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+					border = env.borders,
+				}),
+			},
 			---@diagnostic disable: missing-fields
 			config = {
+				html = {
+					init_options = { provideFormatter = false },
+				},
+				cssls = {
+					init_options = { provideFormatter = false },
+				},
+				pyright = {
+					before_init = function(_, client) client.settings.python.pythonPath = vim.fn.exepath('python') end,
+				},
 				lua_ls = {
 					settings = {
 						Lua = {

@@ -5,21 +5,10 @@ return {
 	opts = {
 		format_on_save = false,
 		notify_on_error = true,
-		formatters_by_ft = {
-			lua = { 'stylua' },
-		},
+		formatters_by_ft = env.formatters_by_ft,
 		formatters = {
 			black = {
 				prepend_args = { '--skip-string-normalization' },
-			},
-		},
-	},
-	dependencies = {
-		{ 'williamboman/mason.nvim', optional = true },
-		{
-			'AstroNvim/astrocore',
-			opts = {
-				options = { opt = { formatexpr = "v:lua.require'conform'.formatexpr()" } },
 			},
 		},
 	},

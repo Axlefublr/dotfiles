@@ -87,11 +87,11 @@ local opts_table = {
 			rust_recommended_style = true,
 		},
 	},
-	commands = {
+	commands = { -- MOVE
 		Young = {
 			function()
 				if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
-				local file = io.open('/home/axlefublr/.local/share/youngest_nvim_file', 'r')
+				local file = io.open('/home/axlefublr/.local/share/youngest_nvim_file', 'r') -- MOVE
 				if not file then return end
 				local stored_path = file:read('*a')
 				file:close()
@@ -99,7 +99,7 @@ local opts_table = {
 			end,
 		},
 	},
-	autocmds = {
+	autocmds = { -- MOVE
 		neoline = {
 			{
 				event = 'User',

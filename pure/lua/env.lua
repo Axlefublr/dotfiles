@@ -62,6 +62,7 @@ env.color = {
 	dark10 = '#1a1919',
 }
 env.icons = {
+	circle_dot = '',
 	diag_error = '',
 	diag_hint = '󰌵',
 	diag_info = '󰋼',
@@ -106,6 +107,36 @@ function string.trim(string, what) return vim.fn.trim(string, what or '') end
 function string.rtrim(string, what) return vim.fn.trim(string, what or '', 2) end
 
 function string.split(string, separator) return vim.fn.split(string, separator) end
+
+---@param event string|string[]
+---@param pattern (string|string[])?
+---@param todo string|function `command` or `callback`
+---@param opts table? other opts you may want to add to the autocmd
+function env.acmd(event, pattern, todo, opts)
+	local opts = opts or {}
+	if pattern then opts.pattern = pattern end
+	if type(todo) == 'string' then
+		opts.command = todo
+	elseif type(todo) == 'function' then
+		opts.callback = todo
+	end
+	vim.api.nvim_create_autocmd(event, opts)
+end
+
+---Emit event into every valid buffer
+---@param event string|string[]
+---@param opts vim.api.keyset.exec_autocmds for the autocmd
+function env.emit_bufs(event, opts)
+	opts = vim.tbl_deep_extend('force', opts or {}, { modeline = false })
+	for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
+		for _, bufnr in ipairs(vim.t[tabpage].bufs or {}) do
+			if vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].filetype then
+				opts.buffer = bufnr
+				pcall(vim.api.nvim_exec_autocmds, event, opts)
+			end
+		end
+	end
+end
 
 function env.echo(chunks, history)
 	if history == nil then history = false end
@@ -199,12 +230,20 @@ function env.replace_inline_selection(text)
 	vim.api.nvim_buf_set_text(0, vim.fn.line('.') - 1, start_col - 1, vim.fn.line('.') - 1, end_col, text)
 end
 
----Gets plugin spec.
+---Gets a plugin spec.
 ---@param plugin string Name without author.
 ---@return LazyPlugin? available
 function env.plugetspec(plugin)
 	local lazy_config_available, lazy_config = pcall(require, 'lazy.core.config')
 	return lazy_config_available and lazy_config.spec.plugins[plugin] or nil
+end
+
+---Resolve the `opts` table for a given plugin.
+---@param plugin string Name without author.
+---@return table opts
+function env.plugopts(plugin)
+  local spec = env.plugetspec(plugin)
+  return spec and require("lazy.core.plugin").values(spec, "opts") or {}
 end
 
 ---Check if a plugin is avaiable.

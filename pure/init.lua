@@ -14,31 +14,33 @@ end
 
 require('options')
 require('env')
-env.saquire('mappings')
 
 require('lazy').setup({
-	{ import = 'plugins' }
+	{ import = 'plugins' },
 }, {
-		install = { colorscheme = { 'gruvbox-material' } },
-		ui = { backdrop = 100 },
-		change_detection = { notify = false },
-		checker = {
-			enabled = false,
-			frequency = 60 * 60 * 24,
+	install = { colorscheme = { 'gruvbox-material' } },
+	ui = { backdrop = 100 },
+	change_detection = { notify = false },
+	checker = {
+		enabled = false,
+		frequency = 60 * 60 * 24,
+	},
+	dev = {
+		path = '~/prog/proj',
+	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				'gzip',
+				'netrwPlugin',
+				'tarPlugin',
+				'tohtml',
+				'zipPlugin',
+				'tutor',
+			},
 		},
-		dev = {
-			path = '~/prog/proj'
-		},
-		performance = {
-			rtp = {
-				disabled_plugins = {
-					'gzip',
-					'netrwPlugin',
-					'tarPlugin',
-					'tohtml',
-					'zipPlugin',
-					'tutor',
-				}
-			}
-		}
-	})
+	},
+})
+
+env.saquire('mappings')
+env.saquire('autocmds')

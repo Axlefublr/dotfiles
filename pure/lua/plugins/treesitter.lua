@@ -4,6 +4,9 @@ return {
 	main = 'nvim-treesitter.configs',
 	build = ':TSUpdate',
 	event = 'FileType',
+	-- dependencies = {
+	-- 	{ 'nvim-treesitter/nvim-treesitter-textobjects', lazy = true },
+	-- },
 	cmd = {
 		'TSBufDisable',
 		'TSBufEnable',
@@ -33,7 +36,7 @@ return {
 	opts = {
 		auto_install = vim.fn.executable('tree-sitter') == 1,
 		ensure_installed = env.treesitters,
-      highlight = { enable = true },
-      indent = { enable = true },
+		highlight = { enable = true },
+		indent = { enable = true },
 	},
 }

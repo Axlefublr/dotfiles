@@ -44,7 +44,10 @@ return {
 					{ name = 'path', priority = 250 },
 				},
 				preselect = cmp.PreselectMode.None,
-				formatting = { fields = { 'kind', 'abbr', 'menu' } },
+				formatting = {
+					fields = { 'kind', 'abbr', 'menu' },
+					format = require('lspkind').cmp_format(env.plugopts('lspkind.nvim'))
+				},
 				performance = {
 					throttle = 0,
 				},
