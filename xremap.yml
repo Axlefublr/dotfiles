@@ -1146,7 +1146,7 @@ keymap:
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
       # Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
-      F8: { launch: [clorange, getup, reset] }
+      F8: [ { launch: [clorange, getup, reset] }, { launch: [awesome-client, 'Getup_wd()'] } ]
       Super-Alt-s:
         {
           launch:

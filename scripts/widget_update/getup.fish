@@ -11,6 +11,4 @@ while true
     while test (clorange getup show) -ge $minutes
         sleep 5
     end
-    clorange getup reset
-    awesome-client 'Getup_wd()'
 end
