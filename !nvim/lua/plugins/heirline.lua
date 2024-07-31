@@ -32,14 +32,10 @@ local function build_opts(_, opts)
 					if icon then self.icon = icon end
 					if highlight then self.icon_hl = highlight end
 				end,
-				provider = function(self)
-					return self.icon and self.icon ~= '' and self.icon .. ' '
-				end,
+				provider = function(self) return self.icon and self.icon ~= '' and self.icon .. ' ' end,
 				hl = function(self) return self.icon_hl end,
 				update = { 'FileType', 'WinEnter' },
-				condition = function()
-					return not table.contains({ 'TelescopePrompt' }, vim.bo.filetype)
-				end
+				condition = function() return not table.contains({ 'TelescopePrompt' }, vim.bo.filetype) end,
 			},
 			{
 				provider = function()
@@ -139,7 +135,7 @@ local function build_opts(_, opts)
 						return ''
 					end
 				end,
-				hl = env.high({ bold = true })
+				hl = env.high({ bold = true }),
 			},
 			{
 				provider = ' ' .. env.icons.circle_dot,
@@ -147,13 +143,15 @@ local function build_opts(_, opts)
 			},
 			padding(),
 		},
-		statuscolumn = { -- FIXME: foldable should be shown with a highlihgt (maybe check how gitsigns does it)
+		statuscolumn = {
 			{
 				provider = function()
-					env.set_high('FoldColumn', { fg = env.color.grey, bold = true })
-					-- return [[%#Red#%{&nu?v:lnum:""}%=%{&rnu&&(v:lnum%2)?"\ ".v:relnum:""}%#LineNr#%{&rnu&&!(v:lnum%2)?"\ ".v:relnum:""} ]]
-					-- return [[%{%foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#@Comment.error#":""%}%{%v:foldstart==v:lnum?"%#BoldItalic#":""%}%=%{v:relnum?v:relnum:v:lnum} ]]
-					--[[
+					-- %#Red#%
+					-- {&nu?v:lnum:""}
+					-- %=
+					-- %{&rnu&&(v:lnum%2)?"\ ".v:relnum:""}
+					-- %#LineNr#%
+					-- {&rnu&&!(v:lnum%2)?"\ ".v:relnum:""}
 					-- %{
 					-- %foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#@Comment.error#":""
 					-- %}
@@ -162,12 +160,23 @@ local function build_opts(_, opts)
 					-- %}
 					-- %=
 					-- %{v:relnum?v:relnum:v:lnum}
-					--]]
+					-- %{
+					-- %foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#@Comment.error#":""
+					-- %}
+					-- %{
+					-- %v:foldstart==v:lnum?"%#BoldItalic#":""
+					-- %}
+					-- %=
+					-- %{v:relnum?v:relnum:v:lnum}
 					-- return [[%=%#LineNr#%{foldlevel(v:lnum)>foldlevel(v:lnum-1)?"":v:relnum}%#LineNrReversed#%{foldlevel(v:lnum)>foldlevel(v:lnum-1)?v:relnum:" "} ]]
 					-- return [[%=%{%foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#LineNrReversed#":""%}%{v:relnum} ]]
-					return [[%{v:virtnum<=0?luaeval('env.to_base_36(_A)', v:relnum):""}%{%foldlevel(v:lnum)>foldlevel(v:lnum-1)&&v:virtnum==0?"%#FoldColumn#:":" "%}]]
+					local ffi = require('stolen_ffi')
+					local wp = ffi.C.find_window_by_handle(0, ffi.new('Error')) -- get window handler
+					local fold_info = ffi.C.fold_info(wp, vim.v.lnum)
+					local starts_a_fold = fold_info.start == vim.v.lnum and ':' or ' '
+					return [[%{v:virtnum<=0?luaeval('env.to_base_36(_A)', v:relnum):""}%#FoldColumn#]] .. starts_a_fold
 				end,
-				condition = function() return vim.wo.relativenumber end
+				condition = function() return vim.wo.relativenumber end,
 			},
 		},
 	}
@@ -177,4 +186,8 @@ return {
 	'rebelot/heirline.nvim',
 	event = 'UiEnter',
 	opts = build_opts,
+	config = function(_, opts)
+		require('heirline').setup(opts)
+		env.set_high('FoldColumn', { fg = env.color.feeble, bold = true })
+	end,
 }

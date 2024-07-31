@@ -102,6 +102,7 @@ env.color = {
 	blush = '#e491b2',
 	white = '#d4be98',
 	grey = '#928374',
+	feeble = '#5a524c',
 
 	light25 = '#403f3f',
 	light19 = '#313030',
