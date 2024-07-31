@@ -1300,12 +1300,6 @@ local command_insert_mappings = {
 }
 
 local normal_visual_pending_mappings = {
-	-- Spider
-	['w'] = "<Cmd>lua require('spider').motion('w')<CR>",
-	['e'] = "<Cmd>lua require('spider').motion('e')<CR>",
-	['b'] = "<Cmd>lua require('spider').motion('b')<CR>",
-	['ge'] = "<Cmd>lua require('spider').motion('ge')<CR>",
-
 	-- j = {
 	-- 	function() return store_andor_use_count('j') end,
 	-- 	expr = true,
