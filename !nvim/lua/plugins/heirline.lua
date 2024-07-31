@@ -112,9 +112,10 @@ local function build_opts(_, opts)
 					return ('%%%dd:%%-%dd'):format(3, 2):format(line, char)
 				end,
 			},
+			padding(),
 			{
 				provider = function()
-					local text = '%4p%%'
+					local text = '%2p%%'
 					local current_line = vim.fn.line('.')
 					if current_line == 1 then
 						text = 'top'
