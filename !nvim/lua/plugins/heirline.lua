@@ -32,9 +32,11 @@ local function build_opts(_, opts)
 					if icon then self.icon = icon end
 					if highlight then self.icon_hl = highlight end
 				end,
-				provider = function(self) return self.icon and self.icon .. ' ' end,
+				provider = function(self)
+					return self.icon and self.icon ~= '' and self.icon .. ' '
+				end,
 				hl = function(self) return self.icon_hl end,
-				update = 'FileType',
+				update = { 'FileType', 'WinEnter' },
 			},
 			{
 				provider = function()
