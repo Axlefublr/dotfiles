@@ -528,11 +528,13 @@ local normal_mappings = {
 	['d<Space>'] = function() save(true) end,
 	['c<Space>'] = function() save('sort') end,
 	K = close_try_save,
+	cd = function() vim.cmd('Young') end,
 
 	-- Fixes
 	['<Esc>'] = function()
 		vim.cmd('noh')
-		require('notify').dismiss()
+		local module = env.saquire('notify')
+		if module then module.dismiss({}) end
 		env.feedkeys_int('<Esc>')
 	end,
 	['.'] = function() count_repeats_keys('.') end,
@@ -1110,7 +1112,7 @@ local normal_mappings = {
 		require('telescope').extensions.zoxide.list()
 	end,
 	['<Leader>jn'] = function()
-		require('lazy').load({ plugins = { 'nvim-notify' }})
+		require('lazy').load({ plugins = { 'nvim-notify' } })
 		require('telescope').load_extension('notify')
 		require('telescope').extensions.notify.notify()
 	end,
