@@ -8,7 +8,7 @@ env.acmd('BufUnload', '/dev/shm/fish_edit_commandline.fish', function()
 	file:close()
 end)
 
-env.acmd({ 'BufEnter' }, nil, function(ev)
+env.acmd({ 'BufEnter', 'FocusGained' }, nil, function(ev)
 	local path = vim.api.nvim_buf_get_name(ev.buf)
 	if not path or path == '' then return end
 	local file = io.open('/home/axlefublr/.local/share/youngest_nvim_file', 'w+')
@@ -65,7 +65,10 @@ env.acmd('FileType', 'fish', function()
 	vim.opt_local.expandtab = true
 	vim.opt_local.shiftwidth = 4
 end)
-env.acmd('FileType', 'help', function() vim.opt_local.list = false end)
+env.acmd('FileType', 'help', function()
+	vim.opt_local.list = false
+	vim.opt.relativenumber = true
+end)
 env.acmd('FileType', 'man', function()
 	vim.keymap.del('n', 'j', { buffer = true })
 	vim.keymap.del('n', 'k', { buffer = true })

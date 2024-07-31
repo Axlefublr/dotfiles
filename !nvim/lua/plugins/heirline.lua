@@ -147,16 +147,29 @@ local function build_opts(_, opts)
 			},
 			padding(),
 		},
-		-- statuscolumn = { -- FIXME: foldable things should be shown with a highlihgt (maybe check how gitsigns does it)
-		-- 	{
-		-- 		provider = function()
-		-- 			return '%=' .. vim.v.relnum .. ' '
-		-- 		end,
-		-- 		hl = function()
-		-- 			if vim.fn. then return { bg = env.color.dark14 } end
-		-- 		end
-		-- 	},
-		-- },
+		statuscolumn = { -- FIXME: foldable should be shown with a highlihgt (maybe check how gitsigns does it)
+			{
+				provider = function()
+					env.set_high('FoldColumn', { fg = env.color.grey, bold = true })
+					-- return [[%#Red#%{&nu?v:lnum:""}%=%{&rnu&&(v:lnum%2)?"\ ".v:relnum:""}%#LineNr#%{&rnu&&!(v:lnum%2)?"\ ".v:relnum:""} ]]
+					-- return [[%{%foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#@Comment.error#":""%}%{%v:foldstart==v:lnum?"%#BoldItalic#":""%}%=%{v:relnum?v:relnum:v:lnum} ]]
+					--[[
+					-- %{
+					-- %foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#@Comment.error#":""
+					-- %}
+					-- %{
+					-- %v:foldstart==v:lnum?"%#BoldItalic#":""
+					-- %}
+					-- %=
+					-- %{v:relnum?v:relnum:v:lnum}
+					--]]
+					-- return [[%=%#LineNr#%{foldlevel(v:lnum)>foldlevel(v:lnum-1)?"":v:relnum}%#LineNrReversed#%{foldlevel(v:lnum)>foldlevel(v:lnum-1)?v:relnum:" "} ]]
+					-- return [[%=%{%foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#LineNrReversed#":""%}%{v:relnum} ]]
+					return [[%{v:virtnum<=0?luaeval('env.to_base_36(_A)', v:relnum):""}%{%foldlevel(v:lnum)>foldlevel(v:lnum-1)&&v:virtnum==0?"%#FoldColumn#:":" "%}]]
+				end,
+				condition = function() return vim.wo.relativenumber end
+			},
+		},
 	}
 end
 

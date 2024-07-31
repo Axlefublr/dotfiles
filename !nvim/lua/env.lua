@@ -118,7 +118,41 @@ env.icons = {
 	diag_info = '󰋼',
 	diag_warn = '',
 	debug = '',
+	circle_curcuit = '',
 }
+
+function env.to_base_36(number)
+	if number < 0 or number > 35 then
+		return '?'
+	elseif number == 0 then
+		return '┃'
+	elseif number < 16 then
+		return string.format('%X', number)
+	end
+	local mappings = {
+		[16] = 'G',
+		[17] = 'H',
+		[18] = 'I',
+		[19] = 'J',
+		[20] = 'K',
+		[21] = 'L',
+		[22] = 'M',
+		[23] = 'N',
+		[24] = 'O',
+		[25] = 'P',
+		[26] = 'Q',
+		[27] = 'R',
+		[28] = 'S',
+		[29] = 'T',
+		[30] = 'U',
+		[31] = 'V',
+		[32] = 'W',
+		[33] = 'X',
+		[34] = 'Y',
+		[35] = 'Z',
+	}
+	return mappings[number]
+end
 
 ---@param event string|string[]
 ---@param pattern (string|string[])?

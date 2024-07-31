@@ -610,6 +610,10 @@ local normal_mappings = {
 					end
 				end,
 			},
+			{
+				'Wrap',
+				function() vim.cmd('set wrap!') end,
+			},
 		}
 		env.select(options, { prompt = ' Toggle ' })
 	end,
