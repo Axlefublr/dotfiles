@@ -1194,13 +1194,13 @@ keymap:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'neoline -c "do User NeolineClipboard"'] },
+          { launch: [fish, -c, 'neoline -c "NeolineClipboard"'] },
         ]
       CapsLock-Alt-Enter:
         [
           { set_mode: default },
           { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'neoline -c "do User NeolineClipboard empty"'] },
+          { launch: [fish, -c, 'neoline -c "NeolineClipboardEmpty"'] },
         ]
       CapsLock-Ctrl-Enter:
         [

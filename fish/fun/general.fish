@@ -250,9 +250,9 @@ function ni
         set filetype -c setfiletype $argv[1]
     end
     if status is-interactive
-        nvim -c 'do User NeolineNi' $filetype >&2
+        nvim -c NeolineNi $filetype >&2
     else
-        neoline_hold -c 'do User NeolineNi' $filetype >&2
+        neoline_hold -c NeolineNi $filetype >&2
     end
     cat /tmp/ni-output | string collect
 end
