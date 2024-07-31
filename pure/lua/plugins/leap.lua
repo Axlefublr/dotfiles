@@ -22,12 +22,9 @@ return {
 		vim.keymap.set({ 'x', 'o' }, 'x', '<Plug>(leap-forward-till)')
 		vim.keymap.set({ 'x', 'o' }, 'X', '<Plug>(leap-backward-till)')
 
-		vim.api.nvim_create_autocmd('User', { -- FIXME: make abstraction for autocmds so they don't look as huge in plugin configs
-			pattern = 'LeapEnter',
-			callback = function()
-				vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = env.color.black, bg = env.color.shell_pink })
+		env.acmd('User', 'LeapEnter', function()
+				vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = env.color.black, bg = env.color.shell_pink }) -- make a neater hlgroup setting abstraction
 				vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = env.color.black, bg = env.color.shell_yellow })
-			end,
-		})
+		end)
 	end,
 }

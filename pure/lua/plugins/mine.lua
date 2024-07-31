@@ -19,6 +19,11 @@ return {
 	{
 		'Axlefublr/selabel.nvim',
 		dev = true,
+		lazy = true,
+		init = function()
+			env.func_loads_plugin('selabel.nvim', env, 'select')
+			env.func_loads_plugin('selabel.nvim', vim.ui, 'select')
+		end,
 		opts = {
 			separator = ' ',
 			-- separator_highlight = 'Orange',

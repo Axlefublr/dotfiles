@@ -1,6 +1,6 @@
 return {
 	'stevearc/oil.nvim',
-	lazy = false, -- FIXME: lazify oil
+	event = 'User WayAfter',
 	keys = {
 		{ 'gq', function() vim.cmd('Oil') end },
 	},

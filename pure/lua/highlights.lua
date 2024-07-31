@@ -267,6 +267,7 @@ local highlights = {
 
 	-- Language lua
 
+	['@property.lua'] = link('Normal'),
 	['@lsp.type.class.lua'] = link('Blue'),
 	['@lsp.type.string.lua'] = link('Yellow'),
 	['@function.builtin.lua'] = link('Blush'),

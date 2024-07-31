@@ -1,4 +1,51 @@
 if not env then env = {} end -- makes more sense once you consider `:source`
+
+function table.reverse(tbl)
+	local reversed = {}
+	local length = #tbl
+	for i = length, 1, -1 do
+		table.insert(reversed, tbl[i])
+	end
+	return reversed
+end
+
+function table.contains(table, item)
+	for _, thingy in pairs(table) do
+		if thingy == item then return true end
+	end
+	return false
+end
+
+function table.slice(tbl, start, stop)
+	local sliced = {}
+	for index = start or 1, (stop or #tbl) do
+		table.insert(sliced, tbl[index])
+	end
+	return sliced
+end
+
+function table.index(tbl, item)
+	for index, value in ipairs(tbl) do
+		if value == item then return index end
+	end
+end
+
+function table.join(tbl, joiner) return vim.fn.join(tbl, joiner) end
+
+function table.into_keys(tbl)
+	local keys = {}
+	for key, _ in pairs(tbl) do
+		table.insert(keys, key)
+	end
+	return keys
+end
+
+function string.trim(string, what) return vim.fn.trim(string, what or '') end
+
+function string.rtrim(string, what) return vim.fn.trim(string, what or '', 2) end
+
+function string.split(string, separator) return vim.fn.split(string, separator) end
+
 env.temp_mark = 'P'
 env.default_register = '+'
 -- env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
@@ -6,21 +53,24 @@ env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'm
 
 env.treesitters = { 'diff', 'markdown_inline' }
 env.lsps = { 'lua_ls', 'jsonls', 'html', 'cssls', 'emmet_ls', 'marksman', 'pyright', 'taplo', 'yamlls' }
+env.lsp_fts = { 'lua', 'json', 'jsonc', 'html', 'css', 'markdown', 'python', 'toml', 'yaml', 'rust' }
 env.formatters_by_ft = {
 	lua = { 'stylua' },
 	fish = { 'fish_indent' },
-	html = { { 'prettierd', 'prettier' } },
-	css = { { 'prettierd', 'prettier' } },
-	scss = { { 'prettierd', 'prettier' } },
-	less = { { 'prettierd', 'prettier' } },
-	markdown = { { 'prettierd', 'prettier' } },
-	['markdown.mdx'] = { { 'prettierd', 'prettier' } },
+	html = { 'prettierd', 'prettier', stop_after_first = true },
+	css = { 'prettierd', 'prettier', stop_after_first = true },
+	scss = { 'prettierd', 'prettier', stop_after_first = true },
+	less = { 'prettierd', 'prettier', stop_after_first = true },
+	markdown = { 'prettierd', 'prettier', stop_after_first = true },
+	['markdown.mdx'] = { 'prettierd', 'prettier', stop_after_first = true },
 	python = { 'isort', 'black' },
-	yaml = { { 'prettierd', 'prettier' } },
+	yaml = { 'prettierd', 'prettier', stop_after_first = true },
 }
+env.formatter_fts = table.into_keys(env.formatters_by_ft)
 env.linters_by_ft = {
 	fish = { 'fish' },
 }
+env.linter_fts = table.into_keys(env.linters_by_ft)
 
 env.borders = { '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' }
 env.sleek_borders = { '🭽', '▔', '🭾', '▕', '🭿', '▁', '🭼', '▏' }
@@ -70,48 +120,10 @@ env.icons = {
 	debug = '',
 }
 
-function table.reverse(tbl)
-	local reversed = {}
-	local length = #tbl
-	for i = length, 1, -1 do
-		table.insert(reversed, tbl[i])
-	end
-	return reversed
-end
-
-function table.contains(table, item)
-	for _, thingy in pairs(table) do
-		if thingy == item then return true end
-	end
-	return false
-end
-
-function table.slice(tbl, start, stop)
-	local sliced = {}
-	for index = start or 1, (stop or #tbl) do
-		table.insert(sliced, tbl[index])
-	end
-	return sliced
-end
-
-function table.index(tbl, item)
-	for index, value in ipairs(tbl) do
-		if value == item then return index end
-	end
-end
-
-function table.join(tbl, joiner) return vim.fn.join(tbl, joiner) end
-
-function string.trim(string, what) return vim.fn.trim(string, what or '') end
-
-function string.rtrim(string, what) return vim.fn.trim(string, what or '', 2) end
-
-function string.split(string, separator) return vim.fn.split(string, separator) end
-
 ---@param event string|string[]
 ---@param pattern (string|string[])?
 ---@param todo string|function `command` or `callback`
----@param opts table? other opts you may want to add to the autocmd
+---@param opts vim.api.keyset.create_autocmd? other opts you may want to add to the autocmd
 function env.acmd(event, pattern, todo, opts)
 	local opts = opts or {}
 	if pattern then opts.pattern = pattern end
@@ -123,9 +135,36 @@ function env.acmd(event, pattern, todo, opts)
 	vim.api.nvim_create_autocmd(event, opts)
 end
 
+---Try executing a function. If it doesn't return true, create an autocommand that will continue checking until the function returns true.
+---@param condition function
+---@param todo function
+---@param opts vim.api.keyset.create_autocmd?
+function env.do_and_acmd(condition, todo, opts)
+	if condition then
+		todo()
+		return
+	end
+	local opts = opts or {}
+	opts.callback = todo
+	local event = opts.event
+	---@diagnostic disable-next-line: inject-field
+	opts.event = nil
+	vim.api.nvim_create_autocmd(event, opts)
+end
+
+---Emit event
+---@param event string|string[]
+---@param pattern (string|string[])?
+---@param opts vim.api.keyset.exec_autocmds? for the autocmd
+function env.emit(event, pattern, opts)
+	local opts = vim.tbl_deep_extend('force', { modeline = false }, opts or {})
+	if pattern then opts.pattern = pattern end
+	pcall(vim.api.nvim_exec_autocmds, event, opts)
+end
+
 ---Emit event into every valid buffer
 ---@param event string|string[]
----@param opts vim.api.keyset.exec_autocmds for the autocmd
+---@param opts vim.api.keyset.exec_autocmds? for the autocmd
 function env.emit_bufs(event, opts)
 	opts = vim.tbl_deep_extend('force', opts or {}, { modeline = false })
 	for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
@@ -242,8 +281,8 @@ end
 ---@param plugin string Name without author.
 ---@return table opts
 function env.plugopts(plugin)
-  local spec = env.plugetspec(plugin)
-  return spec and require("lazy.core.plugin").values(spec, "opts") or {}
+	local spec = env.plugetspec(plugin)
+	return spec and require('lazy.core.plugin').values(spec, 'opts') or {}
 end
 
 ---Check if a plugin is avaiable.

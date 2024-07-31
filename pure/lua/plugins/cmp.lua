@@ -42,6 +42,7 @@ return {
 				sources = {
 					{ name = 'nvim_lsp', priority = 1000 },
 					{ name = 'path', priority = 250 },
+					{ name = 'lazydev', group_index = 0 }
 				},
 				preselect = cmp.PreselectMode.None,
 				formatting = {
@@ -93,7 +94,7 @@ return {
 						select = true,
 						behavior = cmp.ConfirmBehavior.Insert,
 					}),
-					['<A-,>'] = cmp.mapping.complete({
+					['<A-,>'] = cmp.mapping.complete({ -- MOVE: into mappings
 						config = {
 							sources = {
 								{

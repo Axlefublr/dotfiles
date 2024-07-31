@@ -1,4 +1,20 @@
 return {
+	-- { 'Bilal2453/luvit-meta', lazy = true },
+	{
+		'folke/lazydev.nvim',
+		event = 'User WayAfter',
+		cmd = 'LazyDev',
+		dependencies = {
+			'neovim/nvim-lspconfig'
+		},
+		opts = {
+			library = {
+				{ path = 'luvit-meta/library', words = { 'vim%.uv' } },
+				{ path = 'astrolsp', words = { 'AstroLSP' } },
+				{ path = 'lazy.nvim', words = { 'Lazy' } },
+			},
+		},
+	},
 	{
 		'williamboman/mason.nvim',
 		build = ':MasonUpdate',
@@ -25,28 +41,22 @@ return {
 		opts_extend = { 'ensure_installed' },
 		opts = {
 			ensure_installed = env.lsps,
-			handlers = { function(server) require('astrolsp').lsp_setup(server) end },
 		},
 		dependencies = { 'williamboman/mason.nvim' },
 	},
-	{ 'folke/neodev.nvim', lazy = true, opts = {} },
 	{
 		'neovim/nvim-lspconfig',
+		-- event = 'User WayAfter',
 		cmd = { 'LspInfo', 'LspLog', 'LspStart', 'Neoconf' },
 		dependencies = {
-			{ 'folke/neoconf.nvim', lazy = true, opts = {} },
+			{ 'folke/neoconf.nvim', opts = {} },
 			{ 'williamboman/mason-lspconfig.nvim' },
+			{ 'AstroNvim/astrolsp' },
 		},
 		config = function(_, opts)
-			local setup_servers = function()
-				vim.tbl_map(require('astrolsp').lsp_setup, require('astrolsp').config.servers)
-				env.emit_bufs('FileType', { group = 'lspconfig' })
-			end
-			if env.plugalid('mason-lspconfig.nvim') then
-				env.on_load('mason-lspconfig.nvim', setup_servers)
-			else
-				setup_servers()
-			end
+			vim.tbl_map(require('astrolsp').lsp_setup, require('astrolsp').config.servers)
+			env.emit_bufs('FileType', { group = 'lspconfig' })
+			vim.cmd('silent! LspStart')
 		end,
 	},
 }

@@ -1,8 +1,0 @@
-{
-    "diagnostics.disable": [
-        "lowercase-global",
-        "undefined-global",
-        "redefined-local",
-        "undefined-doc-name"
-    ]
-}

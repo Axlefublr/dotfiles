@@ -1,4 +1,4 @@
-env.acmd('User', 'NeolineNi', function()
+env.acmd('User', 'NeolineNi', function() -- MOVE: to be commands
 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 	local text = vim.fn.join(lines, '\n')
 	local file = io.open('/tmp/ni-output', 'w+')
@@ -86,7 +86,7 @@ end)
 env.acmd('InsertEnter', nil, 'set nohlsearch')
 env.acmd('InsertLeave', nil, 'set hlsearch')
 
-env.acmd({ 'BufLeave', 'FocusLost' }, nil, function() pcall(vim.cmd, 'silent update') end)
+env.acmd({ 'BufLeave', 'FocusLost' }, nil, function() pcall(vim.cmd --[[@as function]], 'silent update') end)
 
 env.acmd('BufEnter', nil, function()
 	local spaces = vim.bo.shiftwidth
@@ -126,3 +126,9 @@ env.acmd('FileType', 'git', function()
 	pcall(vim.keymap.del, 'n', '<CR>', { buffer = true })
 	vim.keymap.set('n', '>', ':<C-U>exe <SNR>37_GF("edit")<CR>', { buffer = true })
 end)
+
+env.acmd('User', 'VeryLazy', function()
+	vim.defer_fn(function()
+		env.saquire('after')
+	end, 10)
+end, { once = true })

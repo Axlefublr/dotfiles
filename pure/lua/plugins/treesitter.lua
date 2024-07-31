@@ -2,8 +2,8 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
 	main = 'nvim-treesitter.configs',
+	event = 'User WayAfter',
 	build = ':TSUpdate',
-	event = 'FileType',
 	-- dependencies = {
 	-- 	{ 'nvim-treesitter/nvim-treesitter-textobjects', lazy = true },
 	-- },

@@ -37,10 +37,11 @@ require('lazy').setup({
 				'tohtml',
 				'zipPlugin',
 				'tutor',
+				'spellfile'
 			},
 		},
 	},
 })
 
-env.saquire('mappings')
 env.saquire('autocmds')
+env.saquire('commands')

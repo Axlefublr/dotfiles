@@ -1,8 +1,12 @@
-return {
+return { -- MOVE: to pure as well
+	s({ filetype = 'lua', trig = 'keys' }, fmta('keys = {\n\t<>\n},', { i(1) })),
 	s(
-		{ filetype = 'lua', trig = 'req' },
-			fmta("require('<>')", { i(1), })
+		{ filetype = 'lua', trig = 'key' },
+			fmta("{ mode = { '<>',<> }, '<>' },", { i(1), i(2), i(3), })
 		),
+	s({ filetype = 'lua', trig = 'config' }, fmta('config = function(_, opts)\n\t<>\nend,', { i(1) })),
+	s({ filetype = 'lua', trig = 'tde' }, t("vim.tbl_deep_extend('force', ")),
+	s({ filetype = 'lua', trig = 'req' }, fmta("require('<>')", { i(1) })),
 	s(
 		{ filetype = 'lua', trig = 'for' },
 		fmta('for <>, <> in <> do\n\t<>\nend', { i(1, 'key'), i(2, 'value'), i(3), i(4) })
@@ -39,15 +43,16 @@ return {
 	s({ filetype = 'lua', trig = 'th' }, fmta('then\n\t<>\nend', { i(1) })),
 	s({ filetype = 'lua', trig = 'loc' }, { t('local ') }),
 	s({ filetype = 'lua', trig = 'vf' }, { t('vim.fn.') }),
-	s({ filetype = 'lua', trig = 'vc' },
-		fmta("vim.cmd('<>')", { i(1), })),
-	s({ filetype = 'lua', trig = 'vus' },
-		fmta("vim.ui.select(<>, <>, function(<>) <> end)", {
+	s({ filetype = 'lua', trig = 'vc' }, fmta("vim.cmd('<>')", { i(1) })),
+	s(
+		{ filetype = 'lua', trig = 'vus' },
+		fmta('vim.ui.select(<>, <>, function(<>) <> end)', {
 			i(1),
 			i(2, '{}'),
 			i(3, 'item, index'),
 			i(4),
-	})),
+		})
+	),
 	s({ filetype = 'lua', trig = 'spec' }, {
 		t({ '{', "\t'" }),
 		i(1),

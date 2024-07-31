@@ -1173,7 +1173,7 @@ local normal_mappings = {
 
 	-- Kitty blank
 	['do'] = kitty_blank,
-	['<A-/>'] = function() require('astrocore').cmd({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }) end,
+	['<A-/>'] = function() env.shell({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }):wait() end,
 
 	-- Direct
 	U = '<C-r>',

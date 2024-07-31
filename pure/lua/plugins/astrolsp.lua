@@ -1,5 +1,6 @@
 return {
-	'AstroNvim/astrolsp', -- FIXME: should not load on start
+	'AstroNvim/astrolsp',
+	lazy = true,
 	opts = function(_, opts)
 		return vim.tbl_deep_extend('force', opts, {
 			features = {
@@ -22,6 +23,7 @@ return {
 					border = env.borders,
 				}),
 			},
+			servers = env.lsps,
 			---@diagnostic disable: missing-fields
 			config = {
 				html = {

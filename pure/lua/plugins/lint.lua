@@ -1,6 +1,6 @@
 return {
 	'mfussenegger/nvim-lint',
-	event = 'FileType', -- FIXME: lazy load only on filetypes you care about
+	event = 'User WayAfter',
 	opts = {
 		linters_by_ft = env.linters_by_ft
 	},

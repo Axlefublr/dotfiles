@@ -1,6 +1,12 @@
 return {
-	'tpope/vim-repeat',
-	'zhimsel/vim-stay',
+	{
+		'tpope/vim-repeat',
+		event = 'User WayAfter'
+	},
+	{
+		'zhimsel/vim-stay',
+		event = 'BufEnter'
+	},
 	{
 		'echasnovski/mini.bufremove',
 		lazy = true,
@@ -36,10 +42,10 @@ return {
 		},
 	},
 	{
-		'NMAC427/guess-indent.nvim', -- FIXME: lazy load this
+		'NMAC427/guess-indent.nvim',
 		cmd = 'GuessIndent',
 		opts = {
-			auto_cmd = true,
+			auto_cmd = false,
 			buftype_exclude = {
 				'help',
 				'nofile',
@@ -47,24 +53,17 @@ return {
 				'prompt',
 			},
 		},
-		-- GuessIndent = {
-		-- 	{
-		-- 		event = 'BufReadPost',
-		-- 		desc = 'Guess indentation when loading a file',
-		-- 		callback = function(args) require('guess-indent').set_from_buffer(args.buf, true, true) end,
-		-- 	},
-		-- 	{
-		-- 		event = 'BufNewFile',
-		-- 		desc = 'Guess indentation when saving a new file',
-		-- 		callback = function(args)
-		-- 			vim.api.nvim_create_autocmd('BufWritePost', {
-		-- 				buffer = args.buf,
-		-- 				once = true,
-		-- 				callback = function(wargs) require('guess-indent').set_from_buffer(wargs.buf, true, true) end,
-		-- 			})
-		-- 		end,
-		-- 	},
-		-- },
+		init = function()
+			env.acmd('BufReadPost', nil, function(args) require('guess-indent').set_from_buffer(args.buf, true, true) end)
+			env.acmd('BufNewFile', nil, function(args)
+				env.acmd(
+					'BufWritePost',
+					nil,
+					function(write_args) require('guess-indent').set_from_buffer(wargs.buf, true, true) end,
+					{ buffer = args.buf, once = true }
+				)
+			end)
+		end,
 	},
 	{
 		'Wansmer/treesj',
@@ -86,11 +85,12 @@ return {
 	},
 	{
 		'windwp/nvim-ts-autotag',
-		ft = 'html',
+		ft = 'html', -- FIXME: not on filetype
 		opts = {},
 	},
 	{
 		'jinh0/eyeliner.nvim', -- FIXME: lazy load on_keys fFtT
+		event = 'User WayAfter',
 		opts = {
 			highlight_on_key = true,
 			dim = false,
@@ -98,6 +98,7 @@ return {
 	},
 	{
 		'kylechui/nvim-surround', -- FIXME: lazyload on keys
+		event = 'User WayAfter',
 		version = '*',
 		opts = {
 			keymaps = {
@@ -117,8 +118,8 @@ return {
 		},
 	},
 	{
-		'tpope/vim-fugitive', -- FIXME: lazy load on first gittable file, create RealFile and GitFile events
-		-- event = 'User AstroGitFile',
+		'tpope/vim-fugitive',
+		cmd = { 'Git', 'G' },
 	},
 	{
 		'rcarriga/nvim-notify',
@@ -134,7 +135,7 @@ return {
 					zindex = 175,
 				})
 				if env.plugalid('nvim-treesitter') then require('lazy').load({ plugins = { 'nvim-treesitter' } }) end
-				vim.wo[win].conceallevel = 3
+				vim.wo[window].conceallevel = 3
 				local buffer = vim.api.nvim_win_get_buf(window)
 				if not pcall(vim.treesitter.start, buffer, 'markdown') then vim.bo[buffer].syntax = 'markdown' end
 			end,
