@@ -71,7 +71,11 @@ env.acmd('User', 'KittyInput', function()
 	vim.keymap.set('n', 'gy', 'jVnko')
 end)
 
-env.acmd('BufEnter', '/tmp/pjs', function() vim.b.match_paths = vim.fn.matchadd(env.high({ fg = env.color.blush }), '^\\~.*') end)
+env.acmd(
+	'BufEnter',
+	'/tmp/pjs',
+	function() vim.b.match_paths = vim.fn.matchadd(env.high({ fg = env.color.blush }), '^\\~.*') end
+)
 env.acmd('BufLeave', '/tmp/pjs', function() vim.fn.matchdelete(vim.b.match_paths) end)
 
 env.acmd({ 'RecordingLeave', 'VimEnter' }, nil, function()
@@ -90,8 +94,14 @@ env.acmd({ 'BufLeave', 'FocusLost' }, nil, function()
 	pcall(vim.cmd --[[@as function]], 'silent update')
 end)
 
-env.acmd('TextYankPost', nil, function()
-	vim.highlight.on_yank()
+env.acmd('TextYankPost', nil, function() vim.highlight.on_yank() end)
+
+env.acmd({ 'FocusGained', 'TermClose', 'TermLeave' }, nil, 'checktime')
+
+env.acmd('BufWritePre', nil, function(args) -- create parent directories when saving a new file
+	if not env.is_valid(args.buf) then return end
+	---@diagnostic disable-next-line: undefined-field
+	vim.fn.mkdir(vim.fn.fnamemodify(vim.loop.fs_realpath(args.match) or args.match, ':p:h'), 'p')
 end)
 
 env.acmd('BufEnter', nil, function()

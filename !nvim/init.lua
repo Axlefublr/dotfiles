@@ -37,7 +37,8 @@ require('lazy').setup({
 				'tohtml',
 				'zipPlugin',
 				'tutor',
-				'spellfile'
+				'spellfile',
+				'editorconfig',
 			},
 		},
 	},

@@ -302,6 +302,14 @@ function env.saquire(requiree)
 	end
 end
 
+---Check if a buffer is valid
+---@param bufnr integer? The buffer to check, default to current buffer
+---@return boolean
+function env.is_valid(bufnr)
+  if not bufnr then bufnr = 0 end
+  return vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted
+end
+
 ---Wrap a function to load a plugin before executing.
 ---@param plugin string
 ---@param module table
