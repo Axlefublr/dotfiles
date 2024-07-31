@@ -36,7 +36,6 @@ funcsave neoline_hold >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save ez 'eza --git --git-repos' >/dev/null
 alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
-alias --save r 'NVIM_APPNAME=pure nvim' >/dev/null
 
 function clx
     if test "$TERM" != xterm-kitty
