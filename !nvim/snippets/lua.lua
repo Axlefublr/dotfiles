@@ -1,9 +1,9 @@
-return { -- MOVE: to pure as well
+---@diagnostic disable: undefined-global
+return {
+	s({ filetype = 'lua', trig = 'eh' }, fmta('env.high({ <> })', { i(1) })),
+	s({ filetype = 'lua', trig = 'ec' }, { t('env.color.') }),
 	s({ filetype = 'lua', trig = 'keys' }, fmta('keys = {\n\t<>\n},', { i(1) })),
-	s(
-		{ filetype = 'lua', trig = 'key' },
-			fmta("{ mode = { '<>',<> }, '<>' },", { i(1), i(2), i(3), })
-		),
+	s({ filetype = 'lua', trig = 'key' }, fmta("{ mode = { '<>',<> }, '<>' },", { i(1), i(2), i(3) })),
 	s({ filetype = 'lua', trig = 'config' }, fmta('config = function(_, opts)\n\t<>\nend,', { i(1) })),
 	s({ filetype = 'lua', trig = 'tde' }, t("vim.tbl_deep_extend('force', ")),
 	s({ filetype = 'lua', trig = 'req' }, fmta("require('<>')", { i(1) })),
@@ -13,7 +13,7 @@ return { -- MOVE: to pure as well
 	),
 	s({ filetype = 'lua', trig = 'do' }, fmta('do\n\t<>\nend', { i(1) })),
 	s({ filetype = 'lua', trig = 'r' }, fmta('print(<>)', { i(1) })),
-	s({ filetype = 'lua', trig = 'pis' }, fmta('print(vim.inspect(<>))', { i(1) })),
+	s({ filetype = 'lua', trig = 'pis' }, fmta('vim.print(<>)', { i(1) })),
 	s(
 		{ filetype = 'lua', trig = 'event' },
 		fmta('event = <>,', {
@@ -108,13 +108,13 @@ return { -- MOVE: to pure as well
 		t({ 'return ' }),
 	}),
 	s({ filetype = 'lua', trig = 'ldr' }, { t('<Leader>') }),
-	s({ filetype = 'lua', trig = 'qq' }, {
+	s({ filetype = 'lua', trig = 'q' }, {
 		t("'"),
 		i(1),
 		t("',"),
 	}),
-	s({ filetype = 'lua', trig = 'jjl' }, fmta('{ <> },', { i(1) })),
-	s({ filetype = 'lua', trig = 'jj' }, {
+	s({ filetype = 'lua', trig = 'jj' }, fmta('{ <> },', { i(1) })),
+	s({ filetype = 'lua', trig = 'j' }, {
 		t({ '{', '\t' }),
 		i(1),
 		t({ '', '},' }),

@@ -1,4 +1,5 @@
 return {
+	s({ filetype = 'lua', trig = 'td' }, { t('TODO') }),
 	s({ filetype = 'all', trig = 'fx' }, { t('FIXME: ') }),
 	s({ filetype = 'all', trig = 'mov' }, { t('MOVE: ') }),
 	s({ filetype = 'all', trig = 'asi' }, {

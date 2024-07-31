@@ -48,7 +48,7 @@ return {
 	end,
 	config = function(_, opts)
 		require('oil').setup(opts)
-		vim.api.nvim_create_autocmd('FileType', {
+		vim.api.nvim_create_autocmd('FileType', { -- TODO: use env.acmd
 			pattern = 'oil',
 			callback = function()
 				vim.keymap.set('n', '>', function()
@@ -90,9 +90,9 @@ return {
 				vim.keymap.set('n', '<Leader>z', function()
 					local register = env.char('get cd harp: ')
 					if register == nil then return end
-					local output = require('astrocore').cmd({ 'harp', 'get', 'cd_harps', register, '--path' }, false)
-					if output then
-						require('oil').open(output)
+					local output = env.shell({ 'harp', 'get', 'cd_harps', register, '--path' }):wait()
+					if output.code == 0 then
+						require('oil').open(output.stdout:trim())
 					else
 						vim.notify('cd harp ' .. register .. ' is empty')
 					end
@@ -104,8 +104,8 @@ return {
 					local directory = require('oil').get_current_dir()
 					directory = vim.fn.fnamemodify(directory, ':~')
 					local output =
-						require('astrocore').cmd({ 'harp', 'update', 'cd_harps', register, '--path', directory }, false)
-					if output then vim.notify('set cd harp ' .. register) end
+						env.shell({ 'harp', 'update', 'cd_harps', register, '--path', directory }):wait()
+					if output.code == 0 then vim.notify('set cd harp ' .. register) end
 				end, { buffer = true })
 
 				vim.keymap.set('n', 'gd', function()

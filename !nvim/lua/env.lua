@@ -53,7 +53,7 @@ env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'm
 
 env.treesitters = { 'diff', 'markdown_inline' }
 env.lsps = { 'lua_ls', 'jsonls', 'html', 'cssls', 'emmet_ls', 'marksman', 'pyright', 'taplo', 'yamlls' }
-env.lsp_fts = { 'lua', 'json', 'jsonc', 'html', 'css', 'markdown', 'python', 'toml', 'yaml', 'rust' }
+-- env.lsp_fts = { 'lua', 'json', 'jsonc', 'html', 'css', 'markdown', 'python', 'toml', 'yaml', 'rust' }
 env.formatters_by_ft = {
 	lua = { 'stylua' },
 	fish = { 'fish_indent' },
@@ -66,14 +66,14 @@ env.formatters_by_ft = {
 	python = { 'isort', 'black' },
 	yaml = { 'prettierd', 'prettier', stop_after_first = true },
 }
-env.formatter_fts = table.into_keys(env.formatters_by_ft)
+-- env.formatter_fts = table.into_keys(env.formatters_by_ft)
 env.linters_by_ft = {
 	fish = { 'fish' },
 }
-env.linter_fts = table.into_keys(env.linters_by_ft)
+-- env.linter_fts = table.into_keys(env.linters_by_ft)
 
 env.borders = { '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' }
-env.sleek_borders = { '🭽', '▔', '🭾', '▕', '🭿', '▁', '🭼', '▏' }
+-- env.sleek_borders = { '🭽', '▔', '🭾', '▕', '🭿', '▁', '🭼', '▏' }
 env.extra_directories = {
 	'~/t',
 	'~/prog/noties',
@@ -345,4 +345,40 @@ function env.on_load(plugins, load_op)
 			end
 		end,
 	})
+end
+
+local highlights = {}
+
+---Get a cached or create a new highlight group
+---@param highlight table
+function env.high(highlight)
+	if highlight.link then return highlight.link end
+	local name = ''
+	if highlight.fg then name = name .. highlight.fg:sub(2, -1) .. '_' end
+	if highlight.bg then name = name .. 'bg_' .. highlight.bg:sub(2, -1) .. '_' end
+	if highlight.sp then name = name .. 'sp_' .. highlight.sp:sub(2, -1) .. '_' end
+	if highlight.blend then name = name .. 'Blend' .. highlight.blend end
+	if highlight.bold then name = name .. 'Bold' end
+	if highlight.standout then name = name .. 'Standout' end
+	if highlight.underline then name = name .. 'Underline' end
+	if highlight.undercurl then name = name .. 'Undercurl' end
+	if highlight.underdouble then name = name .. 'Underdouble' end
+	if highlight.underdotted then name = name .. 'Underdotted' end
+	if highlight.underdashed then name = name .. 'Underdashed' end
+	if highlight.strikethrough then name = name .. 'Strikethough' end
+	if highlight.italic then name = name .. 'Italic' end
+	if highlight.reverse then name = name .. 'Reverse' end
+	if highlight.nocombine then name = name .. 'Nocombine' end
+	if highlights[name] then
+		return name
+	else
+		highlights[name] = true
+	end
+	highlight.force = true
+	vim.api.nvim_set_hl(0, name, highlight)
+	return name
+end
+
+function env.set_high(name, highlight)
+	vim.api.nvim_set_hl(0, name, { link = env.high(highlight) })
 end

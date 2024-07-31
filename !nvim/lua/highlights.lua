@@ -1,37 +1,14 @@
 local color = env.color
 
-local function fg(colorname) return { fg = color[colorname] } end
-
-local function bg(colorname) return { bg = color[colorname] } end
-
-local function link(hlgroupname) return { link = hlgroupname } end
+local function link(hlgroup) return { link = hlgroup } end
 
 local highlights = {
 	-- Colors
 
-	['Italic'] = { italic = true },
-	['Bold'] = { bold = true },
-	['Strikethrough'] = { strikethrough = true },
-
-	['Light25'] = bg('light25'),
-	['Light19'] = bg('light19'),
-
-	['Dark14'] = bg('dark14'),
-	['BoldOnDark14'] = { bold = true, bg = color.dark14 },
-
-	['Dark13'] = bg('dark13'),
-	['Dark12'] = bg('dark12'),
-	['Dark10'] = bg('dark10'),
-
-	['Dark14OnOrange'] = { fg = color.dark14, bg = color.orange },
-	['Orange'] = fg('orange'),
-	['OrangeBoldOnDark14'] = { bg = color.dark14, fg = color.orange, bold = true },
-
-	['Yellow'] = fg('yellow'),
-	['Aqua'] = fg('mint'),
-	['Purple'] = fg('purple'),
-	['Blush'] = fg('blush'),
-	['White'] = fg('white'),
+	['Orange'] = { fg = color.orange },
+	['Yellow'] = { fg = color.yellow },
+	['Aqua'] = { fg = color.mint },
+	['Purple'] = { fg = color.purple },
 
 	['RedBold'] = { fg = color.red, bold = true },
 	['OrangeBold'] = { fg = color.orange, bold = true },
@@ -40,7 +17,6 @@ local highlights = {
 	['AquaBold'] = { fg = color.mint, bold = true },
 	['BlueBold'] = { fg = color.cyan, bold = true },
 	['PurpleBold'] = { fg = color.purple, bold = true },
-	['BlushBold'] = { fg = color.blush, bold = true },
 
 	['RedItalic'] = { fg = color.red, italic = true },
 	['OrangeItalic'] = { fg = color.orange, italic = true },
@@ -49,65 +25,6 @@ local highlights = {
 	['AquaItalic'] = { fg = color.mint, italic = true },
 	['BlueItalic'] = { fg = color.cyan, italic = true },
 	['PurpleItalic'] = { fg = color.purple, italic = true },
-	['BlushItalic'] = { fg = color.blush, italic = true },
-	['FgItalic'] = { fg = color.white, italic = true },
-
-	['GreenNormal'] = { fg = color.green, nocombine = true },
-
-	['ShellYellow'] = { fg = color.shell_yellow },
-	['ShellYellowBold'] = { fg = color.shell_yellow, bold = true },
-	['ShellYellowBoldOnDark12'] = { fg = color.shell_yellow, bg = color.dark12, bold = true },
-	['ShellYellowBoldBackground'] = { fg = color.level, bg = color.shell_yellow, bold = true },
-
-	['ShellPink'] = { fg = color.shell_pink },
-	['ShellPinkBold'] = { fg = color.shell_pink, bold = true },
-	['ShellPinkBoldBackground'] = { fg = color.level, bg = color.shell_pink, bold = true },
-
-	['ShellGrey'] = { fg = color.shell_grey },
-	['ShellGreyBold'] = { fg = color.shell_grey, bold = true },
-
-	['ShellRed'] = { fg = color.shell_red },
-	['ShellRedBold'] = { fg = color.shell_red, bold = true },
-
-	['ShellCyan'] = { fg = color.shell_cyan },
-	['ShellCyanBold'] = { fg = color.shell_cyan, bold = true },
-
-	['ShellSalad'] = { fg = color.shell_salad },
-	['ShellSaladBold'] = { fg = color.shell_salad, bold = true },
-
-	['ShellPurple'] = { fg = color.shell_purple },
-	['ShellPurpleBold'] = { fg = color.shell_purple, bold = true },
-
-	['RedBoldBackground'] = { fg = color.level, bg = color.red, bold = true },
-
-	['OrangeBoldBackground'] = { fg = color.level, bg = color.orange, bold = true },
-	['OrangeBoldNocombine'] = { fg = color.orange, bold = true, nocombine = true },
-	['OrangeBoldOnDark12'] = { fg = color.orange, bg = color.dark12, bold = true },
-
-	['GreenBoldBackground'] = { fg = color.level, bg = color.green, bold = true },
-
-	['YellowAndUndercurl'] = { fg = color.yellow, undercurl = true },
-	['YellowBackground'] = { fg = color.level, bg = color.yellow },
-	['YellowBoldBackground'] = { fg = color.level, bg = color.yellow, bold = true },
-	['YellowBoldOnDark12'] = { fg = color.yellow, bg = color.dark12, bold = true },
-	['YellowOnDark12'] = { fg = color.yellow, bg = color.dark12 },
-	['YellowOnDark13'] = { fg = color.yellow, bg = color.dark13 },
-	['YellowUndercurl'] = { sp = color.yellow, undercurl = true },
-
-	['AquaAndUnderline'] = { fg = color.mint, underline = true },
-	['AquaBoldBackground'] = { fg = color.level, bg = color.mint, bold = true },
-	['AquaUndercurl'] = { sp = color.mint, undercurl = true },
-
-	['BlueBoldBackground'] = { fg = color.level, bg = color.cyan, bold = true },
-
-	['PurpleAndUnderline'] = { fg = color.purple, underline = true },
-	['PurpleBoldBackground'] = { fg = color.level, bg = color.purple, bold = true },
-
-	['BlushBackground'] = { fg = color.level, bg = color.blush },
-	['BlushBoldBackground'] = { fg = color.level, bg = color.blush, bold = true },
-	['BlushOnDark13'] = { fg = color.blush, bg = color.dark13 },
-	['BlushUndercurl'] = { sp = color.blush, undercurl = true },
-	['BlushAndUnderline'] = { fg = color.blush, underline = true },
 
 	-- Colors
 
@@ -116,16 +33,16 @@ local highlights = {
 	['MoreMsg'] = link('YellowBold'),
 	['Question'] = link('Yellow'),
 	['WarningMsg'] = link('YellowBold'),
-	['Substitute'] = link('YellowBackground'),
+	['Substitute'] = { fg = color.level, bg = color.yellow },
 	['Type'] = link('Yellow'),
 	['Special'] = link('Yellow'),
 	['WarningFloat'] = link('Yellow'),
-	['WarningText'] = link('YellowUndercurl'),
+	['WarningText'] = { sp = color.yellow, undercurl = true },
 	['YellowSign'] = link('Yellow'),
-	['TSWarning'] = link('YellowBoldBackground'),
+	['TSWarning'] = { fg = color.level, bg = color.yellow, bold = true },
 	['CmpItemKindDefault'] = link('Yellow'),
-	['BufferVisibleTarget'] = link('YellowBoldOnDark12'),
-	['BufferInactiveTarget'] = link('YellowBoldOnDark12'),
+	['BufferVisibleTarget'] = { fg = color.yellow, bg = color.dark12, bold = true },
+	['BufferInactiveTarget'] = { fg = color.yellow, bg = color.dark12, bold = true },
 	['plugNumber'] = link('YellowBold'),
 	['markdownH3'] = link('YellowBold'),
 	['VimwikiHeader3'] = link('YellowBold'),
@@ -145,115 +62,115 @@ local highlights = {
 	['htmlH2'] = link('OrangeBold'),
 	['helpHeader'] = link('OrangeBold'),
 
-	['SpellRare'] = link('BlushUndercurl'),
-	['QuickFixLine'] = link('BlushBold'),
-	['Number'] = link('Blush'),
-	['Boolean'] = link('Blush'),
-	['PurpleSign'] = link('Blush'),
-	['UndotreeSavedBig'] = link('BlushBold'),
-	['markdownH6'] = link('BlushBold'),
-	['mkdInlineURL'] = link('BlushAndUnderline'),
-	['VimwikiHeader6'] = link('BlushBold'),
-	['rstStandaloneHyperlink'] = link('BlushAndUnderline'),
-	['htmlH6'] = link('BlushBold'),
-	['tomlTable'] = link('BlushBold'),
-	['helpNote'] = link('BlushBold'),
+	['SpellRare'] = { sp = color.blush, undercurl = true },
+	['QuickFixLine'] = { fg = color.blush, bold = true },
+	['Number'] = { fg = color.blush },
+	['Boolean'] = { fg = color.blush },
+	['PurpleSign'] = { fg = color.blush },
+	['UndotreeSavedBig'] = { fg = color.blush, bold = true },
+	['markdownH6'] = { fg = color.blush, bold = true },
+	['mkdInlineURL'] = { fg = color.blush, underline = true },
+	['VimwikiHeader6'] = { fg = color.blush, bold = true },
+	['rstStandaloneHyperlink'] = { fg = color.blush, underline = true },
+	['htmlH6'] = { fg = color.blush, bold = true },
+	['tomlTable'] = { fg = color.blush, bold = true },
+	['helpNote'] = { fg = color.blush, bold = true },
 
-	['SpellLocal'] = link('AquaUndercurl'),
+	['SpellLocal'] = { sp = color.mint, undercurl = true },
 	['Macro'] = link('Aqua'),
 	['AquaSign'] = link('Aqua'),
-	['QuickScopePrimary'] = link('AquaAndUnderline'),
+	['QuickScopePrimary'] = { fg = color.mint, underline = true },
 
 	-- Fixes
 
 	-- Simple
 
-	['Normal'] = link('White'),
-	['NormalFloat'] = link('Dark14'),
+	['Normal'] = { fg = color.white },
+	['NormalFloat'] = { bg = color.dark14 },
 	['NormalNC'] = link('Normal'),
 
-	['FloatBorder'] = link('Dark14'),
-	['FloatTitle'] = link('OrangeBoldOnDark14'),
+	['FloatBorder'] = { bg = color.dark14 },
+	['FloatTitle'] = { bg = color.dark14, fg = color.orange, bold = true },
 
 	-- Simple
 
 	-- Other
 
-	['CccFloatNormal'] = link('Dark12'),
+	['CccFloatNormal'] = { bg = color.dark12 },
 	['Constant'] = link('Aqua'),
-	['CurSearch'] = link('PurpleBoldBackground'),
-	['Define'] = link('Blush'),
+	['CurSearch'] = { fg = color.level, bg = color.purple, bold = true },
+	['Define'] = { fg = color.blush },
 	['DiagnosticVirtualTextError'] = link('Red'),
 	['DiagnosticVirtualTextHint'] = link('Blue'),
 	['DiagnosticVirtualTextInfo'] = link('Blue'),
 	['DiagnosticVirtualTextWarn'] = link('Orange'),
-	['Folded'] = link('Dark14'),
-	['IncSearch'] = link('PurpleBoldBackground'),
-	['Include'] = link('Blush'),
+	['Folded'] = { bg = color.dark14 },
+	['IncSearch'] = { fg = color.level, bg = color.purple, bold = true },
+	['Include'] = { fg = color.blush },
 	['InlayHints'] = { fg = color.grey, italic = true },
 	['LspCodeLens'] = link('InlayHints'),
 	['LspCodeLensSeparator'] = link('InlayHints'),
 	['LspInformationVirtual'] = link('InlayHints'),
-	['PMenu'] = link('Dark13'),
-	['PMenuExtra'] = link('Dark13'),
-	['PMenuSBar'] = link('Dark13'),
-	['PMenuSel'] = link('ShellYellowBoldOnDark12'),
-	['PMenuThumb'] = link('Dark13'),
-	['PreCondit'] = link('Blush'),
-	['PreProc'] = link('Blush'),
-	['Search'] = link('AquaBoldBackground'),
+	['PMenu'] = { bg = color.dark13 },
+	['PMenuExtra'] = { bg = color.dark13 },
+	['PMenuSBar'] = { bg = color.dark13 },
+	['PMenuSel'] = { fg = color.shell_yellow, bg = color.dark12, bold = true },
+	['PMenuThumb'] = { bg = color.dark13 },
+	['PreCondit'] = { fg = color.blush },
+	['PreProc'] = { fg = color.blush },
+	['Search'] = { fg = color.level, bg = color.mint, bold = true },
 	['SpecialChar'] = link('Yellow'),
 	['StatusLine'] = link('Normal'),
 	['Tabline'] = link('Normal'),
 	['TablineFill'] = link('Normal'),
-	['TablineSel'] = link('Dark10'),
+	['TablineSel'] = { bg = color.dark10 },
 	['Title'] = link('OrangeBold'),
-	['ToolbarLine'] = link('Dark13'),
+	['ToolbarLine'] = { bg = color.dark13 },
 
 	-- Other
 
 	-- Plugins
 
 	['OilDir'] = link('Fg'),
-	['OilDirIcon'] = link('ShellYellow'),
-	['OilLink'] = link('Blush'),
+	['OilDirIcon'] = { fg = color.shell_yellow },
+	['OilLink'] = { fg = color.blush },
 	['OilLinkTarget'] = link('Red'),
 	['OilTrash'] = link('Orange'),
 	['OilRestore'] = link('Purple'),
 	['OilPurge'] = link('Red'),
 	['OilMove'] = link('Yellow'),
 
-	['TelescopeResultsDiffUntracked'] = link('ShellGrey'),
-	['TelescopeResultsDiffDelete'] = link('ShellRed'),
-	['TelescopeResultsDiffChange'] = link('ShellCyan'),
-	['TelescopeResultsDiffAdd'] = link('ShellSalad'),
-	['TelescopeSelection'] = link('Dark12'),
-	['TelescopeMatching'] = link('ShellYellowBold'),
-	['TelescopeSelectionCaret'] = link('ShellYellowBoldOnDark12'),
+	['TelescopeResultsDiffUntracked'] = { fg = color.shell_grey },
+	['TelescopeResultsDiffDelete'] = { fg = color.shell_red },
+	['TelescopeResultsDiffChange'] = { fg = color.shell_cyan },
+	['TelescopeResultsDiffAdd'] = { fg = color.shell_salad },
+	['TelescopeSelection'] = { bg = color.dark12 },
+	['TelescopeMatching'] = { fg = color.shell_yellow, bold = true },
+	['TelescopeSelectionCaret'] = { fg = color.shell_yellow, bg = color.dark12, bold = true },
 	['TelescopeMultiSelection'] = link('Blue'),
 
-	['EyelinerPrimary'] = link('ShellPinkBoldBackground'),
-	['EyelinerSecondary'] = link('ShellYellowBoldBackground'),
-	['LuminatePaste'] = link('RedBoldBackground'),
-	['HighlightUndo'] = link('AquaBoldBackground'),
-	['HighlightRedo'] = link('AquaBoldBackground'),
+	['EyelinerPrimary'] = { fg = color.level, bg = color.shell_pink, bold = true },
+	['EyelinerSecondary'] = { fg = color.level, bg = color.shell_yellow, bold = true },
+	['LuminatePaste'] = { fg = color.level, bg = color.red, bold = true },
+	['HighlightUndo'] = { fg = color.level, bg = color.mint, bold = true },
+	['HighlightRedo'] = { fg = color.level, bg = color.mint, bold = true },
 
 	['CmpItemKindSnippet'] = link('Yellow'),
-	['CmpItemAbbrMatch'] = link('ShellYellowBold'),
-	['CmpItemAbbrMatchFuzzy'] = link('ShellYellowBold'),
+	['CmpItemAbbrMatch'] = { fg = color.shell_yellow, bold = true },
+	['CmpItemAbbrMatchFuzzy'] = { fg = color.shell_yellow, bold = true },
 	['CmpItemKindClass'] = link('Orange'),
 
 	-- Plugins
 
 	-- Language
 
-	['Float'] = link('Blush'),
+	['Float'] = { fg = color.blush },
 	['String'] = link('Yellow'),
 	['@string'] = link('Yellow'),
 	['@string.escape'] = link('Grey'),
 	['@comment'] = link('Grey'),
 	['@punctuation.delimiter'] = link('Fg'),
-	['@number'] = link('Blush'),
+	['@number'] = { fg = color.blush },
 	['@operator'] = link('OrangeBold'),
 	['@type'] = link('Blue'),
 	['@type.definition'] = link('Blue'),
@@ -262,7 +179,7 @@ local highlights = {
 	['@function'] = link('Green'),
 	['@function.builtin'] = link('Green'),
 	['@function.call'] = link('Green'),
-	['@number.float'] = link('Blush'),
+	['@number.float'] = { fg = color.blush },
 	['@function.method.call'] = link('Green'),
 
 	-- Language lua
@@ -270,7 +187,7 @@ local highlights = {
 	['@property.lua'] = link('Normal'),
 	['@lsp.type.class.lua'] = link('Blue'),
 	['@lsp.type.string.lua'] = link('Yellow'),
-	['@function.builtin.lua'] = link('Blush'),
+	['@function.builtin.lua'] = { fg = color.blush },
 	['@operator.lua'] = link('OrangeBold'),
 	['@lsp.type.property.lua'] = link('Fg'),
 	['@lsp.type.comment.lua'] = link('Grey'),
@@ -282,17 +199,17 @@ local highlights = {
 	['@function.lua'] = link('Green'),
 	['@lsp.type.method.lua'] = link('Green'),
 	['@lsp.mod.defaultLibrary.lua'] = link('Purple'),
-	['@lsp.typemod.function.defaultLibrary.lua'] = link('Blush'),
+	['@lsp.typemod.function.defaultLibrary.lua'] = { fg = color.blush },
 	['luaConstant'] = link('PurpleItalic'),
 	['luaFunction'] = link('Red'),
 	['@lsp.type.type.lua'] = link('YellowBold'),
-	['@lsp.typemod.keyword.documentation.lua'] = link('Blush'),
+	['@lsp.typemod.keyword.documentation.lua'] = { fg = color.blush },
 
 	-- Language python
 
 	['@function.builtin.python'] = link('Purple'),
 	['@type.builtin.python'] = link('Blue'),
-	['@function.call.python'] = link('GreenNormal'),
+	['@function.call.python'] = { fg = color.green, nocombine = true },
 
 	-- Language nim
 
@@ -310,7 +227,7 @@ local highlights = {
 	['@constant.fish'] = link('Purple'),
 	['@variable.fish'] = link('Purple'),
 	['@operator.fish'] = link('OrangeBold'),
-	['@function.builtin.fish'] = link('Blush'),
+	['@function.builtin.fish'] = { fg = color.blush },
 	['@function.fish'] = link('Green'),
 
 	-- Language css
@@ -319,10 +236,10 @@ local highlights = {
 	['@type.qualifier.css'] = link('Red'),
 	['@tag.attribute.css'] = link('Aqua'),
 	['@tag.css'] = link('Purple'),
-	['@variable.css'] = link('FgItalic'),
+	['@variable.css'] = { fg = color.white, italic = true },
 	['@constant.css'] = link('Blue'),
 	['@attribute.css'] = link('Blue'), -- [something="something"]
-	['@number.float.css'] = link('Blush'),
+	['@number.float.css'] = { fg = color.blush },
 
 	-- Language json
 
@@ -334,14 +251,14 @@ local highlights = {
 
 	['@punctuation.special.bash'] = link('Purple'),
 	['@variable.bash'] = link('Purple'),
-	['@constant.bash'] = link('PurpleAndUnderline'),
+	['@constant.bash'] = { fg = color.purple, underline = true },
 	['@operator.bash'] = link('OrangeBold'),
 	['@function.builtin.bash'] = link('Purple'),
 
 	-- Language toml
 
 	['@type.toml'] = link('Red'),
-	['@number.float.toml'] = link('Blush'),
+	['@number.float.toml'] = { fg = color.blush },
 	['@operator.toml'] = link('OrangeBold'),
 
 	-- Language yaml
@@ -374,7 +291,7 @@ local highlights = {
 	['CfgComment'] = link('Grey'),
 	['CfgSection'] = link('Aqua'),
 
-	['sqlNumber'] = link('Blush'),
+	['sqlNumber'] = { fg = color.blush },
 	['sqlString'] = link('Yellow'),
 	['sqlKeyword'] = link('Red'),
 
@@ -382,8 +299,8 @@ local highlights = {
 
 	-- Language markdown
 
-	['@markup.italic.markdown_inline'] = link('Italic'),
-	['@markup.strikethrough.markdown_inline'] = link('Strikethrough'),
+	['@markup.italic.markdown_inline'] = { italic = true },
+	['@markup.strikethrough.markdown_inline'] = { strikethrough = true },
 	['@markup.raw.markdown_inline'] = link('Yellow'), -- inline code
 	['@markup.raw.delimiter.markdown_inline'] = link('Grey'), -- `` of inline code
 	['@markup.raw.delimiter.markdown'] = link('Grey'), -- ``` of codeblocks
@@ -409,7 +326,7 @@ local highlights = {
 	['@lsp.type.property.rust'] = link('Fg'),
 	['@lsp.type.macro.rust'] = link('Green'),
 	['@lsp.type.string.rust'] = link('Yellow'),
-	['@lsp.typemod.property.private.rust'] = link('BlushAndUnderline'),
+	['@lsp.typemod.property.private.rust'] = { fg = color.blush, underline = true },
 	['@lsp.type.attributeBracket.rust'] = link('Purple'),
 	['@lsp.type.comment.rust'] = link('Grey'),
 	['@lsp.type.builtinType.rust'] = link('YellowBold'),
@@ -418,9 +335,9 @@ local highlights = {
 	['@lsp.type.selfTypeKeyword.rust'] = link('Purple'),
 	['@lsp.type.lifetime.rust'] = link('OrangeItalic'),
 	['@lsp.mod.controlFlow.rust'] = link('Red'),
-	['@lsp.mod.reference.rust'] = link('Italic'),
-	['@lsp.mod.mutable.rust'] = link('Bold'),
-	['@lsp.type.number.rust'] = link('Blush'),
+	['@lsp.mod.reference.rust'] = { italic = true },
+	['@lsp.mod.mutable.rust'] = { bold = true },
+	['@lsp.type.number.rust'] = { fg = color.blush },
 	['@lsp.type.function.rust'] = link('Green'),
 	['@function.rust'] = link('Green'),
 	['@function.macro.rust'] = link('Green'),
@@ -430,5 +347,5 @@ local highlights = {
 }
 
 for key, value in pairs(highlights) do
-	vim.api.nvim_set_hl(0, key, value)
+	env.set_high(key, value)
 end

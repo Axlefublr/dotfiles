@@ -23,8 +23,8 @@ return {
 		vim.keymap.set({ 'x', 'o' }, 'X', '<Plug>(leap-backward-till)')
 
 		env.acmd('User', 'LeapEnter', function()
-				vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = env.color.black, bg = env.color.shell_pink }) -- make a neater hlgroup setting abstraction
-				vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = env.color.black, bg = env.color.shell_yellow })
+			env.set_high('LeapLabelPrimary', { fg = env.color.black, bg = env.color.shell_pink })
+			env.set_high('LeapLabelSecondary', { fg = env.color.black, bg = env.color.shell_yellow })
 		end)
 	end,
 }

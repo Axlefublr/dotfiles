@@ -4,7 +4,8 @@ local globals = {
 }
 
 local diagnostics = {
-	underline = true
+	underline = true,
+	virtual_text = false
 }
 
 local options = {

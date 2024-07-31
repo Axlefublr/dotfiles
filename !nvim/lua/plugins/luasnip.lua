@@ -18,6 +18,6 @@ return {
 	},
 	config = function(_, opts)
 		require('luasnip').config.setup(opts)
-		require('luasnip.loaders.from_lua').load({ paths = '~/prog/dotfiles/pure/snippets' })
+		require('luasnip.loaders.from_lua').load({ paths = { '~/prog/dotfiles/!nvim/snippets' } })
 	end,
 }

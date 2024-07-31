@@ -90,9 +90,9 @@ local function build_opts(_, opts)
 				init = function(self) self.mode = vim.fn.mode() end,
 				hl = function(self)
 					if self.mode_hls[self.mode] then
-						return { fg = self.mode_hls[self.mode], bold = true }
+						return env.high({ fg = self.mode_hls[self.mode], bold = true })
 					else
-						return { fg = env.color.white, bold = true }
+						return env.high({ fg = env.color.white, bold = true })
 					end
 				end,
 				provider = function(self)
@@ -133,11 +133,7 @@ local function build_opts(_, opts)
 						return ''
 					end
 				end,
-				hl = function(self)
-					local _, highlight = devicons()
-					return highlight
-				end,
-				update = 'FileType',
+				hl = env.high({ bold = true })
 			},
 			{
 				provider = ' ' .. env.icons.circle_dot,
