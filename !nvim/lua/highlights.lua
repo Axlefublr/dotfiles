@@ -92,6 +92,8 @@ local highlights = {
 	['FloatBorder'] = { bg = color.dark14 },
 	['FloatTitle'] = { bg = color.dark14, fg = color.orange, bold = true },
 
+	['SpecialKey'] = { fg = color.grey },
+
 	-- Simple
 
 	-- Other

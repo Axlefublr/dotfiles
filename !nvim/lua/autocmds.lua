@@ -50,19 +50,7 @@ env.acmd('BufWritePre', nil, function(args) -- create parent directories when sa
 	vim.fn.mkdir(vim.fn.fnamemodify(vim.loop.fs_realpath(args.match) or args.match, ':p:h'), 'p')
 end)
 
-env.acmd('BufEnter', nil, function()
-	local spaces = vim.bo.shiftwidth
-	local built_chars = 'tab:← ,multispace:·,leadmultispace:' .. (' '):rep(spaces - 1)
-	vim.opt_local.listchars = built_chars
-end)
-
 env.acmd('CmdwinEnter', nil, function() vim.keymap.set('n', '<CR>', '<CR>', { buffer = true }) end)
-
-env.acmd({ 'VimEnter', 'WinEnter' }, nil, function()
-	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.orange, bold = true }), 'FIXME:\\=')
-	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.green, bold = true }), 'TODO:\\=')
-	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.cyan, bold = true }), 'MOVE:\\=')
-end)
 
 -- тук тук
 

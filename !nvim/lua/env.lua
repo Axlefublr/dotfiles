@@ -135,16 +135,19 @@ function env.acmd(event, pattern, todo, opts)
 	vim.api.nvim_create_autocmd(event, opts)
 end
 
----Try executing a function. If it doesn't return true, create an autocommand that will continue checking until the function returns true.
----@param condition function
+---Try executing a function if `condition` is true or returns true.
+---If `todo` is called and *doesn't* return true, also create an autocommand to call that function, using `opts`
+---This is useful for registering autocommands late, so they don't waste startup time.
+---And can be used for both one-time actions, and "more than one time" actions.
+---@param condition function|boolean
 ---@param todo function
 ---@param opts vim.api.keyset.create_autocmd?
 function env.do_and_acmd(condition, todo, opts)
-	if condition then
-		todo()
-		return
-	end
 	local opts = opts or {}
+	if type(condition) == "function" and condition() or condition then
+		if todo() then return end
+		---@diagnostic disable-next-line: undefined-field
+	end
 	opts.callback = todo
 	local event = opts.event
 	---@diagnostic disable-next-line: inject-field
@@ -306,8 +309,8 @@ end
 ---@param bufnr integer? The buffer to check, default to current buffer
 ---@return boolean
 function env.is_valid(bufnr)
-  if not bufnr then bufnr = 0 end
-  return vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted
+	if not bufnr then bufnr = 0 end
+	return vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted
 end
 
 ---Wrap a function to load a plugin before executing.
@@ -387,6 +390,4 @@ function env.high(highlight)
 	return name
 end
 
-function env.set_high(name, highlight)
-	vim.api.nvim_set_hl(0, name, { link = env.high(highlight) })
-end
+function env.set_high(name, highlight) vim.api.nvim_set_hl(0, name, { link = env.high(highlight) }) end
