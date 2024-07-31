@@ -1,4 +1,4 @@
-local telescope_opts = function(_, opts)
+local telescope_opts = function()
 	local layout_actions = require('telescope.actions.layout')
 	local actions = require('telescope.actions')
 	local actions_set = require('telescope.actions.set')
@@ -42,7 +42,7 @@ local telescope_opts = function(_, opts)
 		picked()
 	end
 
-	return vim.tbl_deep_extend('force', opts, {
+	return {
 		defaults = {
 			prompt_prefix = '',
 			selection_caret = '󱕅 ',
@@ -56,6 +56,7 @@ local telescope_opts = function(_, opts)
 			selection_strategy = 'row',
 			borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗' },
 			path_display = function(_, path) return vim.fn.fnamemodify(path, ':~:.') end,
+			cycle_layout_list = { 'vertical', 'horizontal' },
 			preview = {
 				treesitter = true,
 				hide_on_startup = true,
@@ -78,6 +79,7 @@ local telescope_opts = function(_, opts)
 					['<A-u>'] = 'smart_add_to_qflist',
 					['<A-U>'] = 'smart_send_to_qflist',
 					['<A-i>'] = layout_actions.toggle_preview,
+					['<S-A-i>'] = layout_actions.cycle_layout_next,
 					['H'] = 'preview_scrolling_up',
 					['L'] = 'preview_scrolling_down',
 					['<C-n>'] = 'move_selection_next',
@@ -95,6 +97,7 @@ local telescope_opts = function(_, opts)
 					['<A-u>'] = 'smart_add_to_qflist',
 					['<A-U>'] = 'smart_send_to_qflist',
 					['<A-i>'] = layout_actions.toggle_preview,
+					['<S-A-i>'] = layout_actions.cycle_layout_next,
 					['<A-q>'] = open_parent_in_oil,
 					['<C-v>'] = false,
 					['<C-u>'] = false,
@@ -235,7 +238,7 @@ local telescope_opts = function(_, opts)
 				},
 			},
 		},
-	})
+	}
 end
 
 ---@type LazySpec
