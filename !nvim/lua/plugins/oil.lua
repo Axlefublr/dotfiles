@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 return {
 	'stevearc/oil.nvim',
 	event = 'User WayAfter',

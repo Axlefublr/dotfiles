@@ -1,4 +1,4 @@
----@type LazySpec
+---@type LazyPluginSpec
 return {
 	'nvim-treesitter/nvim-treesitter',
 	main = 'nvim-treesitter.configs',

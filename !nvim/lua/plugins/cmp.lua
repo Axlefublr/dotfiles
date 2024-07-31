@@ -1,4 +1,4 @@
----@module "cmp"
+---@type LazyPluginSpec[]
 return {
 	{
 		'hrsh7th/cmp-buffer',
@@ -36,20 +36,20 @@ return {
 		dependencies = {
 			{ 'hrsh7th/cmp-path' },
 			{ 'hrsh7th/cmp-nvim-lsp' },
-			{ 'onsails/lspkind.nvim' }
+			{ 'onsails/lspkind.nvim' },
 		},
-		opts = function(_, opts)
+		opts = function()
 			local cmp = require('cmp')
 			return {
 				sources = {
 					{ name = 'nvim_lsp', priority = 1000 },
 					{ name = 'path', priority = 250 },
-					{ name = 'lazydev', group_index = 0 }
+					{ name = 'lazydev', group_index = 0 },
 				},
 				preselect = cmp.PreselectMode.None,
 				formatting = {
 					fields = { 'kind', 'abbr', 'menu' },
-					format = require('lspkind').cmp_format(env.plugopts('lspkind.nvim'))
+					format = require('lspkind').cmp_format(env.plugopts('lspkind.nvim')),
 				},
 				performance = {
 					throttle = 0,
@@ -73,7 +73,7 @@ return {
 				-- },
 				view = {
 					entries = {
-						follow_cursor = true
+						follow_cursor = true,
 					},
 					docs = {
 						auto_open = false,

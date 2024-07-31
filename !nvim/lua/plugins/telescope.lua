@@ -241,7 +241,7 @@ local telescope_opts = function()
 	}
 end
 
----@type LazySpec
+---@type LazyPluginSpec[]
 return {
 	{
 		'jvgrootveld/telescope-zoxide',

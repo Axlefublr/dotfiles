@@ -1,3 +1,4 @@
+---@type LazyPluginSpec[]
 return {
 	{ 'Axlefublr/edister.nvim', lazy = true, dev = true, opts = { border = env.borders } },
 	{

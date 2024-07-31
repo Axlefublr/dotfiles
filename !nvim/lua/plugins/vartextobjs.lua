@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 return {
 	'chrisgrieser/nvim-various-textobjs', -- MOVE: to mappings
 	lazy = true,

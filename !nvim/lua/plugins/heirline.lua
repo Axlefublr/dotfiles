@@ -25,7 +25,6 @@ local function build_opts(_, opts)
 
 	return {
 		tabline = {
-			padding(),
 			{
 				init = function(self)
 					local icon, highlight = devicons()
@@ -57,10 +56,8 @@ local function build_opts(_, opts)
 				end,
 				update = 'DirChanged',
 			},
-			padding(),
 		},
 		statusline = {
-			padding(),
 			{
 				static = {
 					mode_hls = {
@@ -141,7 +138,6 @@ local function build_opts(_, opts)
 				provider = ' ' .. env.icons.circle_dot,
 				condition = function() return vim.bo.modified end,
 			},
-			padding(),
 		},
 		statuscolumn = {
 			{
@@ -182,6 +178,7 @@ local function build_opts(_, opts)
 	}
 end
 
+---@type LazyPluginSpec
 return {
 	'rebelot/heirline.nvim',
 	event = 'UiEnter',

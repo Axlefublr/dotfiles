@@ -1,8 +1,12 @@
+---@type LazyPluginSpec
 return {
 	'AstroNvim/astrolsp',
 	lazy = true,
-	opts = function(_, opts)
-		return vim.tbl_deep_extend('force', opts, {
+	pin = true,
+	---@param prevopts AstroLSPOpts
+	opts = function(_, prevopts)
+		---@type AstroLSPOpts
+		local opts = {
 			features = {
 				-- autoformat = false,
 				codelens = false,
@@ -171,6 +175,7 @@ return {
 					},
 				},
 			},
-		})
+		}
+		return vim.tbl_deep_extend('force', opts, prevopts)
 	end,
 }

@@ -79,10 +79,9 @@ local opts_table = {
 	end,
 }
 
+---@type LazyPluginSpec
 return {
-	{
-		'lewis6991/gitsigns.nvim',
-		event = 'User WayAfter',
-		opts = opts_table,
-	},
+	'lewis6991/gitsigns.nvim',
+	event = 'User WayAfter',
+	opts = opts_table,
 }
