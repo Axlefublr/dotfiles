@@ -70,6 +70,7 @@ local options = {
 	wildoptions = 'fuzzy,pum',
 	wrap = true,
 	writebackup = false,
+	laststatus = 3
 }
 
 for key, value in pairs(globals) do
