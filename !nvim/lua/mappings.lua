@@ -224,26 +224,6 @@ local function killring_compile_reversed()
 	vim.notify('killring compiled in reverse')
 end
 
-local function numbered_get(index, insert)
-	local index = index - 1
-	local result = os.execute('copyq read ' .. index .. ' | xclip -selection clipboard')
-	if result and not insert then
-		vim.notify('got ' .. index)
-	elseif not insert then
-		vim.notify('failed getting ' .. index)
-	end
-	if insert then
-		if insert == 'command' then
-			env.feedkeys_int('<C-r>+')
-		else
-			env.feedkeys_int('<C-r><C-p>+')
-		end
-	end
-end
-
-local function numbered_insert(index) numbered_get(index, true) end
-local function numbered_command(index) numbered_get(index, 'command') end
-
 local function harp_cd_get()
 	local register = require('harp').get_char('get cd harp: ')
 	if not register then return end
@@ -1125,27 +1105,15 @@ local normal_mappings = {
 	['<Leader>lS'] = function() require('telescope.builtin').lsp_workspace_symbols() end,
 
 	['<Leader>jz'] = function()
-		require('lazy').load('telescope-zoxide')
+		require('lazy').load({ plugins = { 'telescope-zoxide' } })
 		require('telescope').load_extension('zoxide')
 		require('telescope').extensions.zoxide.list()
 	end,
 	['<Leader>jn'] = function()
-		require('lazy').load('nvim-notify')
+		require('lazy').load({ plugins = { 'nvim-notify' }})
 		require('telescope').load_extension('notify')
 		require('telescope').extensions.notify.notify()
 	end,
-
-	-- Numbered
-	["'1"] = function() numbered_get(1) end,
-	["'2"] = function() numbered_get(2) end,
-	["'3"] = function() numbered_get(3) end,
-	["'4"] = function() numbered_get(4) end,
-	["'5"] = function() numbered_get(5) end,
-	["'6"] = function() numbered_get(6) end,
-	["'7"] = function() numbered_get(7) end,
-	["'8"] = function() numbered_get(8) end,
-	["'9"] = function() numbered_get(9) end,
-	["'0"] = function() numbered_get(10) end,
 
 	-- Kitty blank
 	['do'] = kitty_blank,
@@ -1272,16 +1240,6 @@ local insert_mappings = {
 	end,
 	["<A-'>"] = '<C-r><C-p>',
 	["<A-'>'"] = '<C-r><C-p>+',
-	["<A-'>0"] = function() numbered_insert(10) end,
-	["<A-'>1"] = function() numbered_insert(1) end,
-	["<A-'>2"] = function() numbered_insert(2) end,
-	["<A-'>3"] = function() numbered_insert(3) end,
-	["<A-'>4"] = function() numbered_insert(4) end,
-	["<A-'>5"] = function() numbered_insert(5) end,
-	["<A-'>6"] = function() numbered_insert(6) end,
-	["<A-'>7"] = function() numbered_insert(7) end,
-	["<A-'>8"] = function() numbered_insert(8) end,
-	["<A-'>9"] = function() numbered_insert(9) end,
 	["<A-'><CR>"] = '<C-r><C-p>:',
 	["<A-'>E"] = function() killring_pop_tail(true) end,
 	["<A-'>e"] = function() killring_pop(true) end,
@@ -1320,16 +1278,6 @@ local command_mappings = {
 	["<A-'>'"] = '<C-r>+',
 	["<A-'>;"] = '<C-r><C-w>',
 	["<A-'><A-;>"] = '<C-r><C-w>',
-	["<A-'>0"] = function() numbered_command(10) end,
-	["<A-'>1"] = function() numbered_command(1) end,
-	["<A-'>2"] = function() numbered_command(2) end,
-	["<A-'>3"] = function() numbered_command(3) end,
-	["<A-'>4"] = function() numbered_command(4) end,
-	["<A-'>5"] = function() numbered_command(5) end,
-	["<A-'>6"] = function() numbered_command(6) end,
-	["<A-'>7"] = function() numbered_command(7) end,
-	["<A-'>8"] = function() numbered_command(8) end,
-	["<A-'>9"] = function() numbered_command(9) end,
 	["<A-'><CR>"] = '<C-r>:',
 	["<A-'>E"] = function() killring_pop_tail('command') end,
 	["<A-'>e"] = function() killring_pop('command') end,
