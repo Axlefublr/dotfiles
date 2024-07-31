@@ -117,7 +117,7 @@ return {
 				end, { buffer = true })
 			end,
 		})
-		vim.api.nvim_create_autocmd('User', {
+		vim.api.nvim_create_autocmd('User', { -- FIXME: env.acmd
 			pattern = 'OilActionsPost',
 			callback = function(args)
 				if args.data.err then return end
@@ -129,7 +129,6 @@ return {
 							bufnr ~= -1
 							and vim.api.nvim_buf_is_valid(bufnr)
 							and vim.bo[bufnr].buflisted
-							and #vim.t.bufs > 1
 						then
 							require("mini.bufremove").wipeout(bufnr, true)
 						end

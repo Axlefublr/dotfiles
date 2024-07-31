@@ -79,7 +79,7 @@ local opts_table = {
 	end,
 }
 
-return { -- FIXME: lazy load on first git file
+return {
 	{
 		'lewis6991/gitsigns.nvim',
 		event = 'User WayAfter',

@@ -320,11 +320,11 @@ end
 funcsave get_oldest_task >/dev/null
 
 function widget_update
-    set output ($argv[1])
-    set previous (cat /dev/shm/$argv[2]_f 2> /dev/null || echo 'ඞ') # yes, I'm using the amogus character as a sentinel value. what about it?
+    set output ($argv[1..-2])
+    set previous (cat /dev/shm/$argv[-1]_f 2> /dev/null || echo 'ඞ') # yes, I'm using the amogus character as a sentinel value. what about it?
     if test "$output" != "$previous"
-        printf $output >/dev/shm/$argv[2]_f
-        awesome-client $argv[2]'_wu()'
+        printf $output >/dev/shm/$argv[-1]_f
+        awesome-client $argv[-1]'_wu()'
     end
     sleep 0.2
 end
@@ -332,7 +332,14 @@ funcsave widget_update >/dev/null
 
 function update_anki
     if test (curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "is:due" } }' 2> /dev/null | jq .result.[] 2> /dev/null | count) -gt 0
-        echo due
+        if not test "$argv"
+            clorange anki increment
+        end
+        if test (clorange anki show) -ge 3
+            echo due
+        end
+    else
+        clorange anki reset
     end
 end
 funcsave update_anki >/dev/null

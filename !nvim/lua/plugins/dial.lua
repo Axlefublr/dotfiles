@@ -1,24 +1,8 @@
 local function remaps()
-	vim.keymap.set(
-		'n',
-		'<A-d>',
-		function() require('dial.map').manipulate('increment', 'normal') end
-	)
-	vim.keymap.set(
-		'n',
-		'<A-s>',
-		function() require('dial.map').manipulate('decrement', 'normal') end
-	)
-	vim.keymap.set(
-		'n',
-		'g<A-d>',
-		function() require('dial.map').manipulate('increment', 'gnormal') end
-	)
-	vim.keymap.set(
-		'n',
-		'g<A-s>',
-		function() require('dial.map').manipulate('decrement', 'gnormal') end
-	)
+	vim.keymap.set('n', '<A-d>', function() require('dial.map').manipulate('increment', 'normal') end)
+	vim.keymap.set('n', '<A-s>', function() require('dial.map').manipulate('decrement', 'normal') end)
+	vim.keymap.set('n', 'g<A-d>', function() require('dial.map').manipulate('increment', 'gnormal') end)
+	vim.keymap.set('n', 'g<A-s>', function() require('dial.map').manipulate('decrement', 'gnormal') end)
 
 	vim.keymap.set('v', '<A-d>', require('dial.map').inc_visual('visual'))
 	vim.keymap.set('v', '<A-s>', require('dial.map').dec_visual('visual'))
@@ -33,33 +17,27 @@ return {
 	{
 		'monaqa/dial.nvim',
 		keys = {
-			'<A-d>',
-			'<A-s>',
-			'g<A-d>',
-			'g<A-s>',
-			'<Leader>d;',
 			{
-				mode = 's',
+				mode = { 's', 'x', 'n' },
 				'<A-d>',
 			},
 			{
-				mode = 's',
+				mode = { 's', 'x', 'n' },
 				'<A-s>',
 			},
 			{
-				mode = 'x',
+				mode = { 'x', 'n' },
 				'g<A-d>',
 			},
 			{
-				mode = 'x',
+				mode = { 'x', 'n' },
 				'g<A-s>',
 			},
 			{
-				mode = 'x',
+				mode = { 'x', 'n' },
 				'<Leader>d;',
 			},
 		},
-		-- FIXME: do you not need to set this up?
 		config = function() -- FIXME: just put the keymaps into keymaps
 			local augend = require('dial.augend')
 			require('dial.config').augends:register_group({

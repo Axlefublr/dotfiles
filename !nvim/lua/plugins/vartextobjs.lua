@@ -1,5 +1,5 @@
 return {
-	'chrisgrieser/nvim-various-textobjs',
+	'chrisgrieser/nvim-various-textobjs', -- MOVE: to mappings
 	lazy = true,
 	keys = {
 		{ mode = { 'o', 'x' }, 'ii', function() require('various-textobjs').indentation('inner', 'inner') end },

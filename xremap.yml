@@ -1097,6 +1097,8 @@ keymap:
       Super-Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
       Super-Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
 
+      Super-u: [ { launch: [fish, -c, 'widget_update update_anki no-increment Anki'] }, super-u ]
+
       CapsLock-Alt-LeftBrace:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:

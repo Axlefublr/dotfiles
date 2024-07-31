@@ -91,20 +91,28 @@ return {
 	},
 	{
 		'windwp/nvim-ts-autotag',
-		ft = 'html', -- FIXME: not on filetype
+		ft = 'html',
 		opts = {},
 	},
 	{
-		'jinh0/eyeliner.nvim', -- FIXME: lazy load on_keys fFtT
-		event = 'User WayAfter',
+		'jinh0/eyeliner.nvim',
+		keys = {
+			{ mode = { 'n', 'x', 'o' }, 'f' },
+			{ mode = { 'n', 'x', 'o' }, 'F' },
+			{ mode = { 'n', 'x', 'o' }, 't' },
+			{ mode = { 'n', 'x', 'o' }, 'T' },
+		},
 		opts = {
 			highlight_on_key = true,
 			dim = false,
 		},
 	},
 	{
-		'kylechui/nvim-surround', -- FIXME: lazyload on keys
-		event = 'User WayAfter',
+		'kylechui/nvim-surround',
+		keys = {
+			'ys', 'cs', 'ds',
+			{ mode = 'x', 'c' }
+		},
 		version = '*',
 		opts = {
 			keymaps = {
