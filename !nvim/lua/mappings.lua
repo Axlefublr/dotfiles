@@ -588,27 +588,11 @@ local normal_mappings = {
 			},
 			{
 				'Listchars',
-				function() vim.opt_local.list = not vim.wo.list end,
+				function() vim.cmd('set list!') end,
 			},
 			{
 				'Relative number',
-				function()
-					if vim.wo.relativenumber then
-						vim.wo.relativenumber = false
-					else
-						vim.wo.relativenumber = true
-					end
-				end,
-			},
-			{
-				'Foldcolumn',
-				function()
-					if vim.wo.foldcolumn == '1' then
-						vim.wo.foldcolumn = '0'
-					else
-						vim.wo.foldcolumn = '1'
-					end
-				end,
+				function() vim.cmd('set relativenumber!') end,
 			},
 			{
 				'Wrap',
