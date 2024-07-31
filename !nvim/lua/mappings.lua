@@ -481,14 +481,6 @@ local function kitty_blank() -- Kitty blank
 			end,
 		},
 		{
-			'Tab Young',
-			function()
-				vim.list_extend(cmd, { '--type', 'tab' })
-				extendor = { '--hold', 'nvim', '-c', 'Young' }
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-		{
 			'Window',
 			function()
 				vim.list_extend(cmd, { '--type', 'window' })
@@ -500,14 +492,6 @@ local function kitty_blank() -- Kitty blank
 			function()
 				vim.list_extend(cmd, { '--type', 'window' })
 				extendor = { '--hold', 'nvim' }
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-		{
-			'Window Young',
-			function()
-				vim.list_extend(cmd, { '--type', 'window' })
-				extendor = { '--hold', 'nvim', '-c', 'Young' }
 				env.select(cwds, { prompt = ' Directory ' })
 			end,
 		},
@@ -710,74 +694,70 @@ local normal_mappings = {
 			end
 			vim.list_extend(options, stashes)
 		end
-		vim.ui.select(
-			options,
-			{
-				prompt = ' Stashes ',
-				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
-			},
-			function(item, index)
-				if not item then return end
-				if index == 1 then
-					env.select({
-						{
-							'',
-							function()
-								local message = env.input('stash message: ')
-								if not message then return end
-								message = vim.fn.shellescape(message)
-								vim.cmd('Git stash push -m ' .. message)
-							end,
-						},
-						{
-							'-S',
-							function()
-								local message = env.input('stash message: ')
-								if not message then return end
-								message = vim.fn.shellescape(message)
-								vim.cmd('Git stash push --staged -m ' .. message)
-							end,
-						},
-						{
-							'-k',
-							function()
-								local message = env.input('stash message: ')
-								if not message then return end
-								message = vim.fn.shellescape(message)
-								vim.cmd('Git stash push -k -m ' .. message)
-							end,
-						},
-						{
-							'-ku',
-							function()
-								local message = env.input('stash message: ')
-								if not message then return end
-								message = vim.fn.shellescape(message)
-								vim.cmd('Git stash push -ku -m ' .. message)
-							end,
-						},
-						{
-							'-u',
-							function()
-								local message = env.input('stash message: ')
-								if not message then return end
-								message = vim.fn.shellescape(message)
-								vim.cmd('Git stash push -u -m ' .. message)
-							end,
-						},
-					}, { prompt = ' Flags ' })
-				else
-					local picked_stash = index - 2 -- stashes are 0 indexed
-					local options = {
-						{ 'pop', function() vim.cmd('Git stash pop stash@\\{' .. picked_stash .. '}') end },
-						{ 'drop', function() vim.cmd('Git stash drop stash@\\{' .. picked_stash .. '}') end },
-						{ 'copy', function() vim.fn.setreg('+', 'stash@\\{' .. picked_stash .. '}') end },
-						{ 'apply', function() vim.cmd('Git stash apply stash@\\{' .. picked_stash .. '}') end },
-					}
-					env.select(options, { prompt = ' Action ' })
-				end
+		vim.ui.select(options, {
+			prompt = ' Stashes ',
+			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
+		}, function(item, index)
+			if not item then return end
+			if index == 1 then
+				env.select({
+					{
+						'',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -m ' .. message)
+						end,
+					},
+					{
+						'-S',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push --staged -m ' .. message)
+						end,
+					},
+					{
+						'-k',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -k -m ' .. message)
+						end,
+					},
+					{
+						'-ku',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -ku -m ' .. message)
+						end,
+					},
+					{
+						'-u',
+						function()
+							local message = env.input('stash message: ')
+							if not message then return end
+							message = vim.fn.shellescape(message)
+							vim.cmd('Git stash push -u -m ' .. message)
+						end,
+					},
+				}, { prompt = ' Flags ' })
+			else
+				local picked_stash = index - 2 -- stashes are 0 indexed
+				local options = {
+					{ 'pop', function() vim.cmd('Git stash pop stash@\\{' .. picked_stash .. '}') end },
+					{ 'drop', function() vim.cmd('Git stash drop stash@\\{' .. picked_stash .. '}') end },
+					{ 'copy', function() vim.fn.setreg('+', 'stash@\\{' .. picked_stash .. '}') end },
+					{ 'apply', function() vim.cmd('Git stash apply stash@\\{' .. picked_stash .. '}') end },
+				}
+				env.select(options, { prompt = ' Action ' })
 			end
-		)
+		end)
 	end,
 	['<Leader>jv'] = function()
 		local result = env.shell({ 'git', 'branch', '-l' }):wait()
@@ -792,46 +772,42 @@ local normal_mappings = {
 			end
 		end
 		table.insert(branches, 1, 'create')
-		vim.ui.select(
-			branches,
-			{
-				prompt = ' Branches ',
-				after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
-			},
-			function(item, index)
-				if not item then return end
-				if index == 1 then
-					local new_branch_name = env.input('branch name: ')
-					if not new_branch_name then return end
-					vim.cmd('Git switch --create ' .. new_branch_name)
-					return
-				end
-				local options = {
-					{ 'switch', function() vim.cmd('Git switch ' .. item) end },
-					{
-						'delete',
-						function()
-							local response = env.confirm('delete branch `' .. item .. '`? ', {
-								{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
-							})
-							if not response then return end
-							response()
-						end,
-					},
-					{
-						'merge',
-						function()
-							local response = env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
-								{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
-							})
-							if not response then return end
-							response()
-						end,
-					},
-				}
-				env.select(options, { prompt = ' Action ' })
+		vim.ui.select(branches, {
+			prompt = ' Branches ',
+			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
+		}, function(item, index)
+			if not item then return end
+			if index == 1 then
+				local new_branch_name = env.input('branch name: ')
+				if not new_branch_name then return end
+				vim.cmd('Git switch --create ' .. new_branch_name)
+				return
 			end
-		)
+			local options = {
+				{ 'switch', function() vim.cmd('Git switch ' .. item) end },
+				{
+					'delete',
+					function()
+						local response = env.confirm('delete branch `' .. item .. '`? ', {
+							{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+						})
+						if not response then return end
+						response()
+					end,
+				},
+				{
+					'merge',
+					function()
+						local response = env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
+							{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+						})
+						if not response then return end
+						response()
+					end,
+				},
+			}
+			env.select(options, { prompt = ' Action ' })
+		end)
 	end,
 	['<Leader>ch'] = function()
 		local result = env.shell({ 'git', 'log', '--oneline', 'HEAD~7..HEAD', '--pretty=format:%s' }):wait()
@@ -1241,6 +1217,52 @@ local visual_mappings = {
 }
 
 local insert_mappings = {
+	['<C-p>'] = function()
+		if require('cmp').visible() then
+			require('cmp').select_prev_item({ behavior = require('cmp').SelectBehavior.Select })
+		else
+			require('cmp').complete()
+		end
+	end,
+	['<C-n>'] = function()
+		if require('cmp').visible() then
+			require('cmp').select_next_item({ behavior = require('cmp').SelectBehavior.Select })
+		else
+			require('cmp').complete()
+		end
+	end,
+	['<A-,>'] = function()
+		require('lazy').load({ plugins = { 'nvim-cmp-buffer-lines' } })
+		require('cmp').complete({
+			config = {
+				sources = {
+					{
+						name = 'buffer-lines',
+						priority = 50,
+						option = {
+							leading_whitespace = false,
+						},
+					},
+				},
+			},
+		})
+	end,
+	['<A-n>'] = function()
+		require('lazy').load({ plugins = { 'cmp-buffer' } })
+		require('cmp').complete({
+			config = {
+				sources = {
+					{ name = 'buffer' },
+				},
+			},
+		})
+	end,
+	['<A-;>'] = function()
+		require('cmp').confirm({
+			select = true,
+			behavior = require('cmp').ConfirmBehavior.Insert,
+		})
+	end,
 	[';'] = function()
 		if require('luasnip').expandable() then
 			require('luasnip').expand()
@@ -1266,7 +1288,6 @@ local insert_mappings = {
 	['<A-s>'] = '<C-d>',
 	['<A-d>'] = '<C-t>',
 	['<A-/>'] = { close_try_save },
-	['<A-;>'] = '',
 	['<A-i>'] = '',
 	['<A-o>'] = '',
 	['<C-h>'] = '<C-o>"_S<Esc><C-o>gI<BS>', -- Delete from the current position to the last character on the previous line
@@ -1409,6 +1430,27 @@ local normal_select_mappings = {
 	['<A-.>'] = vim.lsp.buf.signature_help,
 }
 
+local normal_insert_visual_select_mappings = {
+	['<A-m>'] = function()
+		if require('cmp').visible() then
+			require('cmp').abort()
+		else
+			require('cmp').complete()
+		end
+	end,
+	['<A-.>'] = function(_)
+		if require('cmp').visible() then
+			if require('cmp').visible_docs() then
+				require('cmp').close_docs()
+			else
+				require('cmp').open_docs()
+			end
+		else
+			vim.lsp.buf.signature_help()
+		end
+	end,
+}
+
 local function map(modes, bindee, binding)
 	if type(binding) == 'table' then
 		local opts = binding
@@ -1469,4 +1511,8 @@ end
 
 for bindee, binding in pairs(normal_visual_mappings) do
 	map({ 'n', 'x' }, bindee, binding)
+end
+
+for bindee, binding in pairs(normal_insert_visual_select_mappings) do
+	map({ 'n', 'i', 'x', 's' }, bindee, binding)
 end

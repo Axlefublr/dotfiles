@@ -1,3 +1,4 @@
+---@module "cmp"
 return {
 	{
 		'hrsh7th/cmp-buffer',
@@ -33,8 +34,9 @@ return {
 		'hrsh7th/nvim-cmp',
 		event = 'InsertEnter',
 		dependencies = {
-			{ 'hrsh7th/cmp-path', lazy = true },
-			{ 'hrsh7th/cmp-nvim-lsp', lazy = true },
+			{ 'hrsh7th/cmp-path' },
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'onsails/lspkind.nvim' }
 		},
 		opts = function(_, opts)
 			local cmp = require('cmp')
@@ -58,7 +60,7 @@ return {
 				},
 				window = {
 					completion = {
-						scrolloff = 99,
+						scrolloff = 999,
 						scrollbar = false,
 						border = false,
 					},
@@ -66,68 +68,16 @@ return {
 						border = env.borders,
 					},
 				},
+				-- experimental = {
+				-- 	ghost_text = true
+				-- },
 				view = {
+					entries = {
+						follow_cursor = true
+					},
 					docs = {
 						auto_open = false,
 					},
-				},
-				mapping = {
-					['<A-m>'] = function(_) -- FIXME: make cmp load on lspattach, and move these mappings so they set up cmp
-						if cmp.visible() then
-							cmp.abort()
-						else
-							cmp.complete()
-						end
-					end,
-					['<A-.>'] = function(_)
-						if cmp.visible() then
-							if cmp.visible_docs() then
-								cmp.close_docs()
-							else
-								cmp.open_docs()
-							end
-						else
-							vim.lsp.buf.signature_help()
-						end
-					end,
-					['<A-;>'] = cmp.mapping.confirm({
-						select = true,
-						behavior = cmp.ConfirmBehavior.Insert,
-					}),
-					['<A-,>'] = cmp.mapping.complete({ -- MOVE: into mappings
-						config = {
-							sources = {
-								{
-									name = 'buffer-lines',
-									priority = 50,
-									option = {
-										leading_whitespace = false,
-									},
-								},
-							},
-						},
-					}),
-					['<A-n>'] = cmp.mapping.complete({
-						config = {
-							sources = {
-								{ name = 'buffer' },
-							},
-						},
-					}),
-					['<C-p>'] = function()
-						if cmp.visible() then
-							cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-						else
-							cmp.complete()
-						end
-					end,
-					['<C-n>'] = function()
-						if cmp.visible() then
-							cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-						else
-							cmp.complete()
-						end
-					end,
 				},
 			}
 		end,
