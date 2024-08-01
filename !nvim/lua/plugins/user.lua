@@ -1,4 +1,4 @@
----@type LazyPluginSpec
+---@type LazyPluginSpec[]
 return {
 	{
 		'tpope/vim-repeat',
@@ -167,4 +167,8 @@ return {
 			vim.notify = require('notify').notify
 		end,
 	},
+	{
+		'gabrielpoca/replacer.nvim',
+		lazy = true,
+	}
 }

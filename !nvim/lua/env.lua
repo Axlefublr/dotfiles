@@ -324,7 +324,7 @@ function env.plugopts(plugin)
 end
 
 ---Check if a plugin is avaiable.
-function env.plugalid(plugin) return env.plugetspec(plugn) ~= nil end
+function env.plugalid(plugin) return env.plugetspec(plugin) ~= nil end
 
 ---A safe `require` that silently fails instead of yelling at you.
 ---@param requiree string Module to require.

@@ -946,6 +946,7 @@ local normal_mappings = {
 	["'q"] = function() require('qfetter').mark() end,
 	["'Q"] = function() require('qfetter').unmark() end,
 	["''q"] = function() require('qfetter').clear() end,
+	['<Leader>jj'] = function() require('replacer').run() end,
 
 	-- Edister
 	['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
@@ -1083,7 +1084,6 @@ local normal_mappings = {
 	['<Leader>jh'] = function() require('telescope.builtin').highlights() end,
 	['<Leader>j;'] = function() require('telescope.builtin').filetypes() end,
 	['<Leader>jQ'] = function() require('telescope.builtin').diagnostics() end,
-	['<Leader>jj'] = function() require('telescope.builtin').quickfix() end,
 
 	['go'] = function() require('telescope.builtin').lsp_references() end,
 	['<Leader>li'] = function() require('telescope.builtin').lsp_incoming_calls() end,
