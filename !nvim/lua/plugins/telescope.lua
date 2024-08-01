@@ -207,6 +207,10 @@ local telescope_opts = function()
 				show_line = false,
 			},
 			lsp_definitions = {
+				initial_mode = 'normal',
+				preview = {
+					hide_on_startup = false,
+				},
 				show_line = false,
 			},
 			lsp_type_definitions = {

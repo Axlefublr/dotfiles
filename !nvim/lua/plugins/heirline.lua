@@ -183,8 +183,4 @@ return {
 	'rebelot/heirline.nvim',
 	event = 'UiEnter',
 	opts = build_opts,
-	config = function(_, opts)
-		require('heirline').setup(opts)
-		env.set_high('FoldColumn', { fg = env.color.feeble, bold = true })
-	end,
 }

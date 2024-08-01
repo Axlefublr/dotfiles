@@ -7,14 +7,18 @@ local function trim_trailing_whitespace()
 	vim.fn.setreg('/', search)
 end
 
+---@alias FormatHow
+---| nil Don't format at all
+---| 'format' Format with conform
+---| 'sort' Do a `:sort`
+---@param and_format FormatHow
 local function save(and_format)
 	trim_trailing_whitespace()
 	vim.cmd.nohlsearch()
-	if and_format == true then require('conform').format({ async = false, lsp_format = 'fallback' }) end
-	if type(and_format) == 'string' then vim.cmd('silent ' .. and_format) end
-	---@diagnostic disable-next-line: param-type-mismatch
+	if and_format == 'format' then require('conform').format({ async = false, lsp_format = 'fallback' }) end
+	if and_format == 'sort' then vim.cmd('silent ' .. and_format) end
 	vim.cmd.mkview({ mods = { emsg_silent = true } })
-	pcall(vim.cmd, 'silent update')
+	pcall(vim.cmd --[[@as function]], 'silent update')
 end
 
 local function close_try_save()
@@ -250,7 +254,7 @@ local function execute_this_file()
 		vim.cmd('source')
 		return
 	end
-	save(true)
+	save('format')
 	local repo = get_repo_root()
 	local file = vim.fn.expand('%')
 	local command = { 'kitten', '@', 'launch', '--type', 'window', '--cwd', repo, '--hold' }
@@ -276,7 +280,7 @@ local function execute_this_file()
 end
 
 local function diag_this_file()
-	save(true)
+	save('format')
 	local repo = get_repo_root()
 	local extension = vim.fn.expand('%:e')
 	local command = { 'kitten', '@', 'launch', '--type', 'overlay-main', '--cwd', repo, '--hold' }
@@ -525,7 +529,7 @@ local normal_mappings = {
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>ds'] = edit_magazine,
 	['<Space>'] = save,
-	['d<Space>'] = function() save(true) end,
+	['d<Space>'] = function() save('format') end,
 	['c<Space>'] = function() save('sort') end,
 	K = close_try_save,
 	cd = function() vim.cmd('Young') end,
