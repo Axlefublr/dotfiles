@@ -568,6 +568,23 @@ local normal_mappings = {
 	end,
 	cc = function() open_link_in_instance('main') end,
 	cC = function() open_link_in_instance('content') end,
+	dsi = function()
+		-- select inner indentation
+		require('various-textobjs').indentation('inner', 'inner')
+
+		-- plugin only switches to visual mode when a textobj has been found
+		local notOnIndentedLine = vim.fn.mode():find('V') == nil
+		if notOnIndentedLine then return end
+
+		-- dedent indentation
+		vim.cmd.normal({ '<', bang = true })
+
+		-- delete surrounding lines
+		local endBorderLn = vim.api.nvim_buf_get_mark(0, '>')[1] + 1
+		local startBorderLn = vim.api.nvim_buf_get_mark(0, '<')[1] - 1
+		vim.cmd(tostring(endBorderLn) .. ' delete') -- delete end first so line index is not shifted
+		vim.cmd(tostring(startBorderLn) .. ' delete')
+	end,
 
 	-- Toggles
 	['zs'] = function()
@@ -1383,6 +1400,34 @@ local normal_insert_visual_select_mappings = {
 	end,
 }
 
+local visual_pending_mappings = {
+	['|'] = function() require('various-textobjs').column('inner') end,
+	['iH'] = function() require('various-textobjs').mdEmphasis('inner') end,
+	['aH'] = function() require('various-textobjs').mdEmphasis('outer') end,
+	['ii'] = function() require('various-textobjs').indentation('inner', 'inner') end,
+	['ai'] = function() require('various-textobjs').indentation('outer', 'inner') end,
+	['iI'] = function() require('various-textobjs').indentation('inner', 'inner') end,
+	['aI'] = function() require('various-textobjs').indentation('outer', 'outer') end,
+	['iD'] = function() require('various-textobjs').htmlAttribute('inner') end,
+	['aD'] = function() require('various-textobjs').htmlAttribute('outer') end,
+	['R'] = function() require('various-textobjs').restOfIndentation() end,
+	['ie'] = function() require('various-textobjs').entireBuffer() end,
+	['.'] = function() require('various-textobjs').nearEoL() end,
+	['iv'] = function() require('various-textobjs').value('inner') end,
+	['av'] = function() require('various-textobjs').value('outer') end,
+	['ik'] = function() require('various-textobjs').key('inner') end,
+	['ak'] = function() require('various-textobjs').key('outer') end,
+	['iu'] = function() require('various-textobjs').number('inner') end,
+	['au'] = function() require('various-textobjs').number('outer') end,
+	['gl'] = function() require('various-textobjs').url() end,
+	['il'] = function() require('various-textobjs').lineCharacterwise('inner') end,
+	['al'] = function() require('various-textobjs').lineCharacterwise('outer') end,
+	['iC'] = function() require('various-textobjs').mdFencedCodeBlock('inner') end,
+	['aC'] = function() require('various-textobjs').mdFencedCodeBlock('outer') end,
+	['i|'] = function() require('various-textobjs').shellPipe('inner') end,
+	['a|'] = function() require('various-textobjs').shellPipe('outer') end,
+}
+
 local function map(modes, bindee, binding)
 	if type(binding) == 'table' then
 		local opts = binding
@@ -1447,4 +1492,8 @@ end
 
 for bindee, binding in pairs(normal_insert_visual_select_mappings) do
 	map({ 'n', 'i', 'x', 's' }, bindee, binding)
+end
+
+for bindee, binding in pairs(visual_pending_mappings) do
+	map({ 'x', 'o' }, bindee, binding)
 end
