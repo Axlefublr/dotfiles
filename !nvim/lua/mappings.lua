@@ -983,6 +983,17 @@ local normal_mappings = {
 		local path = require('harp').default_get_path('o')
 		vim.cmd.edit(path)
 	end,
+	['<Leader>si'] = function()
+		local options = vim.fn.glob('~/prog/dotfiles/!nvim/snippets/*', false, true)
+		if #options == 0 then vim.notify('no snippet files') return end
+		options = vim.tbl_map(function(value)
+			return vim.fn.fnamemodify(value, ':t:r')
+		end, options)
+		vim.ui.select(options, { prompt = ' Snippet ' }, function(item, index)
+			if not index then return end
+			vim.cmd.edit('~/prog/dotfiles/!nvim/snippets/' .. item .. '.lua')
+		end)
+	end,
 	['<Leader>s'] = function() require('harp').default_get() end,
 	['<Leader>S'] = function() require('harp').default_set() end,
 	['<Leader>q'] = function() require('harp').global_mark_get() end,
