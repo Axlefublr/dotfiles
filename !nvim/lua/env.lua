@@ -120,6 +120,7 @@ env.icons = {
 	diag_warn = '',
 	debug = '',
 	circle_curcuit = '',
+	magnifying_glass = '󰍉'
 }
 
 function env.to_base_36(number)

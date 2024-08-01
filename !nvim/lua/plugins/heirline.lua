@@ -102,7 +102,43 @@ local function build_opts(_, opts)
 				end,
 				update = 'ModeChanged',
 			},
+			{
+				hl = env.high({ fg = env.color.orange, bold = true }),
+				provider = ' %S'
+			},
 			fill(),
+			{
+				condition = function() return vim.fn.reg_recording() ~= '' end,
+				hl = env.high({ fg = env.color.orange, bold = true }),
+				update = {
+					'RecordingEnter',
+					'RecordingLeave',
+				},
+				{
+					provider = ' ',
+				},
+				{
+					provider = function()
+						return vim.fn.reg_recording()
+					end
+				},
+				padding(),
+			},
+			{
+				condition = function() return vim.v.hlsearch ~= 0 end,
+				{
+					init = function(self)
+						local ok, search = pcall(vim.fn.searchcount)
+						if ok and search.total then self.search = search end
+					end,
+					hl = env.high({ fg = env.color.purple, bold = true }),
+					provider = function(self)
+						local search = self.search
+						return string.format('%s %d/%d', env.icons.magnifying_glass, search.current, search.total)
+					end,
+				},
+				padding(),
+			},
 			{
 				provider = function()
 					local line = vim.fn.line('.')
