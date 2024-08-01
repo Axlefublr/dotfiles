@@ -1128,6 +1128,7 @@ local normal_mappings = {
 	yp = 'yyp',
 	zff = 'zfl',
 	['g:'] = 'g,',
+	['<Leader>lp'] = '<Cmd>Inspect<CR>',
 }
 
 local visual_mappings = {
@@ -1222,8 +1223,9 @@ local insert_mappings = {
 		})
 	end,
 	[';'] = function()
-		if require('luasnip').expandable() then
-			require('luasnip').expand()
+		local luasnip = env.saquire('luasnip')
+		if luasnip and luasnip.expandable() then
+			luasnip.expand()
 		else
 			env.feedkeys(';')
 		end

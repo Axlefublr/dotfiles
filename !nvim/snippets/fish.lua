@@ -1,8 +1,7 @@
+---@diagnostic disable: undefined-global
 return {
-	s(
-		{ filetype = 'fish', trig = 'awm' },
-			{ t('awesome-client '), }
-		),
+	s({ filetype = 'fish', trig = 'ntf' }, fmta('notify-send -t <>', { i(1) })),
+	s({ filetype = 'fish', trig = 'awm' }, { t('awesome-client ') }),
 	s({ filetype = 'fish', trig = 'if' }, {
 		t('if '),
 		i(1),

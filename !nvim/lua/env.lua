@@ -171,7 +171,7 @@ function env.acmd(event, pattern, todo, opts)
 end
 
 ---Try executing a function if `condition` is true or returns true.
----If `todo` is called and *doesn't* return true, also create an autocommand to call that function, using `opts`
+---If `todo` is called and *doesn't* return true, also create an autocommand to call that function, using `opts`.
 ---This is useful for registering autocommands late, so they don't waste startup time.
 ---And can be used for both one-time actions, and "more than one time" actions.
 ---@param condition function|boolean
@@ -327,6 +327,7 @@ end
 function env.plugalid(plugin) return env.plugetspec(plugn) ~= nil end
 
 ---A safe `require` that silently fails instead of yelling at you.
+---@param requiree string Module to require.
 ---@return table? module
 function env.saquire(requiree)
 	local success, module_or_error = pcall(require, requiree)

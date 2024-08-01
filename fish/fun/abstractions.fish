@@ -335,7 +335,7 @@ function update_anki
         if not test "$argv"
             clorange anki increment
         end
-        if test (clorange anki show) -ge 3
+        if test (clorange anki show) -ge 6
             echo due
         end
     else

@@ -1,11 +1,11 @@
 local globals = {
 	mapleader = ',',
-	rust_recommended_style = true
+	rust_recommended_style = true,
 }
 
 local diagnostics = {
 	underline = true,
-	virtual_text = false
+	virtual_text = false,
 }
 
 local options = {
@@ -71,7 +71,7 @@ local options = {
 	wildoptions = 'fuzzy,pum',
 	wrap = true,
 	writebackup = false,
-	laststatus = 3
+	laststatus = 3,
 }
 
 for key, value in pairs(globals) do

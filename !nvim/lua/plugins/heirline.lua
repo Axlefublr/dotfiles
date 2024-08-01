@@ -61,7 +61,7 @@ local function build_opts(_, opts)
 			{
 				static = {
 					mode_hls = {
-						['n'] = env.color.yellow,
+						-- ['n'] = env.color.white,
 						['i'] = env.color.green,
 						['v'] = env.color.mint,
 						['V'] = env.color.cyan,

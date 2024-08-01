@@ -92,7 +92,8 @@ local highlights = {
 	['FloatBorder'] = { bg = color.dark14 },
 	['FloatTitle'] = { bg = color.dark14, fg = color.orange, bold = true },
 
-	['FoldColumn'] = { fg = env.color.grey, bold = true },
+	['FoldColumn'] = { fg = color.grey, bold = true },
+	-- ['CursorLineNr'] = { bg = '#32302f', fg = color.grey },
 
 	['SpecialKey'] = { fg = color.grey },
 
