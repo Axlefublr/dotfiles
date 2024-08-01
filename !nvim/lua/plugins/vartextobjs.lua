@@ -3,13 +3,13 @@ return {
 	'chrisgrieser/nvim-various-textobjs',
 	lazy = true,
 	keys = {
-		{ mode = { 'o', 'x' }, 'g;', function() require('various-textobjs').lastChange('inner') end },
-		{ mode = { 'o', 'x' }, 'is', function() require('various-textobjs').subword('inner') end },
-		{ mode = { 'o', 'x' }, 'as', function() require('various-textobjs').subword('outer') end },
+		{ mode = { 'o', 'x' }, 'g;', [[<Cmd>require('various-textobjs').lastChange('inner')<CR>]] },
+		{ mode = { 'o', 'x' }, 'is', [[<Cmd>require('various-textobjs').subword('inner')<CR>]] },
+		{ mode = { 'o', 'x' }, 'as', [[<Cmd>require('various-textobjs').subword('outer')<CR>]] },
 	},
-	opts = {
-		lookForwardSmall = 2,
-		lookForwardBig = 0,
-		useDefaultKeymaps = false,
-	},
+	-- opts = {
+	-- 	lookForwardSmall = 2,
+	-- 	lookForwardBig = 0,
+	-- 	useDefaultKeymaps = false,
+	-- },
 }
