@@ -34,7 +34,7 @@ local function build_opts(_, opts)
 				provider = function(self) return self.icon and self.icon ~= '' and self.icon .. ' ' end,
 				hl = function(self) return self.icon_hl end,
 				update = { 'FileType', 'WinEnter' },
-				condition = function() return not table.contains({ 'TelescopePrompt' }, vim.bo.filetype) end,
+				condition = function() return vim.bo.filetype ~= '' and not table.contains({ 'TelescopePrompt' }, vim.bo.filetype) end,
 			},
 			{
 				provider = function()
