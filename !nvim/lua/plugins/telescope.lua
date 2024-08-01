@@ -219,6 +219,12 @@ local telescope_opts = function()
 			lsp_implementations = {
 				show_line = false,
 			},
+			oldfiles = {
+				initial_mode = 'normal',
+				preview = {
+					hide_on_startup = false,
+				},
+			},
 		},
 		extensions = {
 			fzf = {

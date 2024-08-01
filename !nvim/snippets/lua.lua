@@ -156,9 +156,8 @@ return {
 	),
 	s(
 		{ filetype = 'lua', trig = 'f' },
-		fmta('f(<>, function()\n\t<>\nend),', {
-			i(1, '1'),
-			i(2),
+		fmta('f(function()\n\t<>\nend),', {
+			i(1),
 		})
 	),
 }

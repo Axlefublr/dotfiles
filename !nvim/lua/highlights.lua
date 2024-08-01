@@ -92,8 +92,8 @@ local highlights = {
 	['FloatBorder'] = { bg = color.dark14 },
 	['FloatTitle'] = { bg = color.dark14, fg = color.orange, bold = true },
 
-	['FoldColumn'] = { fg = color.grey, bold = true },
-	-- ['CursorLineNr'] = { bg = '#32302f', fg = color.grey },
+	-- ['FoldColumn'] = { bg = color.dark12 },
+	['Folded'] = { bg = color.dark14 },
 
 	['SpecialKey'] = { fg = color.grey },
 
@@ -109,7 +109,6 @@ local highlights = {
 	['DiagnosticVirtualTextHint'] = link('Blue'),
 	['DiagnosticVirtualTextInfo'] = link('Blue'),
 	['DiagnosticVirtualTextWarn'] = link('Orange'),
-	['Folded'] = { bg = color.dark14 },
 	['IncSearch'] = { fg = color.level, bg = color.purple, bold = true },
 	['Include'] = { fg = color.blush },
 	['InlayHints'] = { fg = color.grey, italic = true },
