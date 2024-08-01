@@ -34,7 +34,9 @@ local function build_opts(_, opts)
 				provider = function(self) return self.icon and self.icon ~= '' and self.icon .. ' ' end,
 				hl = function(self) return self.icon_hl end,
 				update = { 'FileType', 'WinEnter' },
-				condition = function() return vim.bo.filetype ~= '' and not table.contains({ 'TelescopePrompt' }, vim.bo.filetype) end,
+				condition = function()
+					return vim.bo.filetype ~= '' and not table.contains({ 'TelescopePrompt' }, vim.bo.filetype)
+				end,
 			},
 			{
 				provider = function()
@@ -58,7 +60,7 @@ local function build_opts(_, opts)
 			},
 		},
 		statusline = {
-			{
+			{ -- mode
 				static = {
 					mode_hls = {
 						-- ['n'] = env.color.white,
@@ -102,12 +104,25 @@ local function build_opts(_, opts)
 				end,
 				update = 'ModeChanged',
 			},
-			{
+			{ -- latest :command
+				hl = env.high({ fg = env.color.feeble }),
+				condition = function() return vim.fn.getreg(':') ~= '' end,
+				update = 'CmdlineLeave',
+				padding(),
+				{
+					provider = ':',
+					update = false,
+				},
+				{
+					provider = function() return vim.fn.getreg(':') end,
+				},
+			},
+			{ -- cmdinfo
 				hl = env.high({ fg = env.color.orange, bold = true }),
-				provider = ' %S'
+				provider = ' %S',
 			},
 			fill(),
-			{
+			{ -- macro record
 				condition = function() return vim.fn.reg_recording() ~= '' end,
 				hl = env.high({ fg = env.color.orange, bold = true }),
 				update = {
@@ -118,13 +133,11 @@ local function build_opts(_, opts)
 					provider = ' ',
 				},
 				{
-					provider = function()
-						return vim.fn.reg_recording()
-					end
+					provider = function() return vim.fn.reg_recording() end,
 				},
 				padding(),
 			},
-			{
+			{ -- searches
 				condition = function() return vim.v.hlsearch ~= 0 end,
 				{
 					init = function(self)
@@ -139,27 +152,30 @@ local function build_opts(_, opts)
 				},
 				padding(),
 			},
-			{
+			{ -- ruler
 				provider = function()
 					local line = vim.fn.line('.')
 					local char = vim.fn.virtcol('.')
 					return ('%%%dd:%%-%dd'):format(3, 2):format(line, char)
 				end,
 			},
-			padding(),
-			{
-				provider = function()
-					local text = '%2p%%'
-					local current_line = vim.fn.line('.')
-					if current_line == 1 then
-						text = 'top'
-					elseif current_line == vim.fn.line('$') then
-						text = 'bot'
-					end
-					return text
-				end,
+			{ -- percentage
+				update = 'CursorMoved',
+				padding(),
+				{
+					provider = function()
+						local text = '%2p%%'
+						local current_line = vim.fn.line('.')
+						if current_line == 1 then
+							text = 'top'
+						elseif current_line == vim.fn.line('$') then
+							text = 'bot'
+						end
+						return text
+					end,
+				},
 			},
-			{
+			{ -- filetype
 				provider = function()
 					local filetype = vim.bo.filetype
 					if filetype ~= '' then
@@ -169,46 +185,33 @@ local function build_opts(_, opts)
 					end
 				end,
 				hl = env.high({ bold = true }),
+				update = 'FileType',
 			},
-			{
+			{ -- modified
 				provider = ' ' .. env.icons.circle_dot,
 				condition = function() return vim.bo.modified end,
 			},
 		},
 		statuscolumn = {
 			{
-				provider = function()
-					-- %#Red#%
-					-- {&nu?v:lnum:""}
-					-- %=
-					-- %{&rnu&&(v:lnum%2)?"\ ".v:relnum:""}
-					-- %#LineNr#%
-					-- {&rnu&&!(v:lnum%2)?"\ ".v:relnum:""}
-					-- %{
-					-- %foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#@Comment.error#":""
-					-- %}
-					-- %{
-					-- %v:foldstart==v:lnum?"%#BoldItalic#":""
-					-- %}
-					-- %=
-					-- %{v:relnum?v:relnum:v:lnum}
-					-- %{
-					-- %foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#@Comment.error#":""
-					-- %}
-					-- %{
-					-- %v:foldstart==v:lnum?"%#BoldItalic#":""
-					-- %}
-					-- %=
-					-- %{v:relnum?v:relnum:v:lnum}
-					-- return [[%=%#LineNr#%{foldlevel(v:lnum)>foldlevel(v:lnum-1)?"":v:relnum}%#LineNrReversed#%{foldlevel(v:lnum)>foldlevel(v:lnum-1)?v:relnum:" "} ]]
-					-- return [[%=%{%foldlevel(v:lnum)>foldlevel(v:lnum-1)?"%#LineNrReversed#":""%}%{v:relnum} ]]
+				condition = function() return vim.wo.relativenumber end,
+				init = function(self)
 					local ffi = require('stolen_ffi')
 					local wp = ffi.C.find_window_by_handle(0, ffi.new('Error')) -- get window handler
 					local fold_info = ffi.C.fold_info(wp, vim.v.lnum)
-					local starts_a_fold = fold_info.start == vim.v.lnum and ':' or ' '
-					return [[%{v:virtnum<=0?luaeval('env.to_base_36(_A)', v:relnum):""}%#FoldColumn#]] .. starts_a_fold
+					-- local starts_a_fold =  and '%#FoldColumn# ' or ' '
+					self.starts_a_fold = fold_info.start == vim.v.lnum
+					self.isnt_wrapped = vim.v.virtnum <= 0
 				end,
-				condition = function() return vim.wo.relativenumber end,
+				{
+					condition = function(self) return self.isnt_wrapped end,
+					provider = function() return env.to_base_36(vim.v.relnum) end,
+				},
+				{
+					condition = function(self) return self.isnt_wrapped and self.starts_a_fold end,
+					hl = env.high({ bg = env.color.dark13 }),
+					provider = ' ',
+				},
 			},
 		},
 	}
