@@ -12,14 +12,14 @@ return {
 	s({ filetype = 'fish', trig = '#!' }, {
 		t({ '#!/usr/bin/env fish', '' }), -- {} in a t is a multiline text node, every separate string is its own line
 	}),
-	s({ filetype = 'fish', trig = 'fn' }, {
+	s({ filetype = 'fish', trig = 'fun' }, {
 		t('function '),
 		i(1),
 		t({ '', '    ' }),
 		i(0),
 		t({ '', 'end' }),
 	}),
-	s({ filetype = 'fish', trig = 'fns' }, {
+	s({ filetype = 'fish', trig = 'funs' }, {
 		t('function '),
 		i(1),
 		t({ '', '    ' }),
@@ -40,7 +40,7 @@ return {
 		i(1),
 		t({ '', '    ' }),
 	}),
-	s({ filetype = 'fish', trig = 'fcs' }, {
+	s({ filetype = 'fish', trig = 'funcs' }, {
 		t('funcsave '),
 		i(0),
 		t(' >/dev/null'),

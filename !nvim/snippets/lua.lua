@@ -1,5 +1,6 @@
 ---@diagnostic disable: undefined-global
 return {
+	s({ filetype = 'lua', trig = 'si' }, { t('-- stylua: ignore') }),
 	s({ filetype = 'lua', trig = 'eh' }, fmta('env.high({ <> })', { i(1) })),
 	s({ filetype = 'lua', trig = 'ec' }, { t('env.color.') }),
 	s({ filetype = 'lua', trig = 'keys' }, fmta('keys = {\n\t<>\n},', { i(1) })),
