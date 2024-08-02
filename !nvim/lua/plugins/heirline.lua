@@ -1,8 +1,10 @@
 local function build_opts(_, opts)
 	local function devicons()
+		---@module "nvim-web-devicons"
 		local devicons = env.saquire('nvim-web-devicons')
 		if not devicons then return end
 		local path = vim.api.nvim_buf_get_name(0)
+		if not path or path == '' then return end
 		local tail = vim.fn.fnamemodify(path, ':t')
 		local icon, highlight = devicons.get_icon(tail)
 		return icon, highlight
@@ -28,14 +30,14 @@ local function build_opts(_, opts)
 			{
 				init = function(self)
 					local icon, highlight = devicons()
-					if icon then self.icon = icon end
-					if highlight then self.icon_hl = highlight end
+					self.icon = icon
+					self.icon_hl = highlight
 				end,
 				provider = function(self) return self.icon and self.icon ~= '' and self.icon .. ' ' end,
 				hl = function(self) return self.icon_hl end,
-				update = { 'FileType', 'WinEnter' },
+				update = { 'FileType', 'WinEnter', 'BufEnter' },
 				condition = function()
-					return vim.bo.filetype ~= '' and not table.contains({ 'TelescopePrompt' }, vim.bo.filetype)
+					return vim.bo.filetype ~= '' and vim.api.nvim_buf_get_name(0) ~= ''
 				end,
 			},
 			{
@@ -176,16 +178,13 @@ local function build_opts(_, opts)
 				},
 			},
 			{ -- filetype
-				provider = function()
-					local filetype = vim.bo.filetype
-					if filetype ~= '' then
-						return ' ' .. filetype
-					else
-						return ''
-					end
-				end,
+				padding(),
+				{ provider = function()
+					return vim.bo.filetype
+				end },
+				condition = function() return vim.bo.filetype ~= '' end,
 				hl = env.high({ bold = true }),
-				update = 'FileType',
+				update = { 'FileType', 'BufEnter' },
 			},
 			{ -- modified
 				provider = ' ' .. env.icons.circle_dot,
