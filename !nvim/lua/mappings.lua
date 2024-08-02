@@ -985,10 +985,11 @@ local normal_mappings = {
 	end,
 	['<Leader>si'] = function()
 		local options = vim.fn.glob('~/prog/dotfiles/!nvim/snippets/*', false, true)
-		if #options == 0 then vim.notify('no snippet files') return end
-		options = vim.tbl_map(function(value)
-			return vim.fn.fnamemodify(value, ':t:r')
-		end, options)
+		if #options == 0 then
+			vim.notify('no snippet files')
+			return
+		end
+		options = vim.tbl_map(function(value) return vim.fn.fnamemodify(value, ':t:r') end, options)
 		vim.ui.select(options, { prompt = ' Snippet ' }, function(item, index)
 			if not index then return end
 			vim.cmd.edit('~/prog/dotfiles/!nvim/snippets/' .. item .. '.lua')
@@ -1160,6 +1161,7 @@ local normal_mappings = {
 	yp = 'yyp',
 	zff = 'zfl',
 	['g:'] = 'g,',
+	['&'] = ':.,$s;;;c<Left><Left>',
 	['<Leader>lp'] = '<Cmd>Inspect<CR>',
 }
 
@@ -1190,7 +1192,7 @@ local visual_mappings = {
 		end)
 	end,
 	['#'] = function() require('lupa').selection({ backwards = true }) end,
-	['*'] = function() require('lupa').selection() end,
+	['*'] = function() require('lupa').selection({}) end,
 	['<Leader>#'] = function() require('lupa').selection({ edit = true, backwards = true }) end,
 	['<Leader>*'] = function() require('lupa').selection({ edit = true }) end,
 	['@@'] = function() env.feedkeys_int('ygv<Esc>' .. vim.v.count1 .. 'p') end,
@@ -1205,6 +1207,7 @@ local visual_mappings = {
 	aM = "<Cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>jo2k",
 	['<Leader>dE'] = ghl_file_visual,
 	['<Leader>dR'] = ghl_file_head_visual,
+	['&'] = ':s;\\%V',
 }
 
 local insert_mappings = {
@@ -1456,10 +1459,6 @@ local function map(modes, bindee, binding)
 		vim.notify('modes: ' .. modes .. '\nlhs: ' .. bindee)
 	end
 end
--- map('x', ',,aa', { '<Cmd>write<CR>', expr = true })
--- map('n', ',,ss', { function() vim.cmd('write') end, expr = true })
--- map('s', ',,dd', '<Cmd>write<CR>')
--- map('c', ',,ff', function() vim.cmd('write') end)
 
 for bindee, binding in pairs(normal_mappings) do
 	map('n', bindee, binding)
