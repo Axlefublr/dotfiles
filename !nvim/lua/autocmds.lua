@@ -68,11 +68,13 @@ end)
 env.acmd('FileType', 'help', function()
 	vim.opt_local.list = false
 	vim.opt.relativenumber = true
+	vim.cmd.wincmd('_') -- maximizes the current window, because there's no count passed. `<C-w>_`
 end)
 env.acmd('FileType', 'man', function()
 	vim.keymap.del('n', 'j', { buffer = true })
 	vim.keymap.del('n', 'k', { buffer = true })
 	vim.keymap.del('n', 'q', { buffer = true })
+	vim.cmd.wincmd('_')
 end)
 env.acmd('FileType', 'git', function()
 	pcall(vim.keymap.del, { 'n', 'x', 'o' }, 'K', { buffer = true })
