@@ -1315,6 +1315,10 @@ local command_mappings = {
 	['<A-d>'] = '\\ze',
 	['<A-f>'] = '<C-f>',
 	['<A-;>'] = '<C-l>', -- I use wildcharm, that doesn't recognize <A-;>, but does <C-l>. Hence the remap.
+	['<A-g>'] = function()
+		local cmdline = vim.fn.getcmdline()
+		vim.fn.setcmdline('\\<' .. cmdline .. '\\>')
+	end,
 }
 
 local command_insert_mappings = {
