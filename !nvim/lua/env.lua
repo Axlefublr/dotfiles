@@ -50,6 +50,24 @@ env.temp_mark = 'P'
 env.default_register = '+'
 -- env.soundeffects = vim.fn.expand('~/mus/soundeffects/')
 env.external_extensions = { 'mp4', 'webm', 'mkv', 'jpg', 'png', 'gif', 'svg', 'mp3', 'wav', 'ogg', 'oga' }
+-- stylua: ignore
+env.disabled_default_plugins = {
+	'2html_plugin', 'tohtml', 'gzip', 'netrw', 'netrwPlugin', 'netrwSettings', 'netrwFileHandlers', 'tar', 'tarPlugin', 'spellfile', 'spellfile_plugin', 'zip', 'zipPlugin', 'tutor', 'optwin', 'compiler', 'bugreport',
+	'rplugin', -- allows other processes to talk to nvim
+
+	-- potentially useful
+	'matchit',
+	'editorconfig',
+
+	-- god knows what these do
+	'synmenu',
+	'vimball',
+	'vimballPlugin',
+	'rrhelper',
+	'logipat',
+	'getscript',
+	'getscriptPlugin',
+}
 
 env.treesitters = { 'diff', 'markdown_inline' }
 env.lsps = { 'lua_ls', 'jsonls', 'html', 'cssls', 'emmet_ls', 'marksman', 'pyright', 'taplo', 'yamlls' }
@@ -120,7 +138,7 @@ env.icons = {
 	diag_warn = '',
 	debug = '',
 	circle_curcuit = '',
-	magnifying_glass = '󰍉'
+	magnifying_glass = '󰍉',
 }
 
 function env.to_base_36(number)
@@ -180,7 +198,7 @@ end
 ---@param opts vim.api.keyset.create_autocmd?
 function env.do_and_acmd(condition, todo, opts)
 	local opts = opts or {}
-	if type(condition) == "function" and condition() or condition then
+	if type(condition) == 'function' and condition() or condition then
 		if todo() then return end
 		---@diagnostic disable-next-line: undefined-field
 	end

@@ -15,6 +15,10 @@ end
 require('options')
 require('env')
 
+for _, plugin in ipairs(env.disabled_default_plugins) do
+	vim.g['loaded_' .. plugin] = 1
+end
+
 require('lazy').setup({
 	{ import = 'plugins' },
 }, {
@@ -30,16 +34,7 @@ require('lazy').setup({
 	},
 	performance = {
 		rtp = {
-			disabled_plugins = {
-				'gzip',
-				'netrwPlugin',
-				'tarPlugin',
-				'tohtml',
-				'zipPlugin',
-				'tutor',
-				'spellfile',
-				'editorconfig',
-			},
+			disabled_plugins = env.disabled_default_plugins,
 		},
 	},
 })

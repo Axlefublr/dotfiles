@@ -95,7 +95,7 @@ local highlights = {
 	-- ['FoldColumn'] = { bg = color.dark12 },
 	['Folded'] = { bg = color.dark14 },
 
-	['SpecialKey'] = { fg = color.grey },
+	['SpecialKey'] = { fg = color.feeble },
 
 	-- Simple
 

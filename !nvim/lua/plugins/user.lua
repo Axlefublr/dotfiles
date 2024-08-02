@@ -10,6 +10,7 @@ return {
 	},
 	{
 		'echasnovski/mini.bufremove',
+		opts = {},
 		lazy = true,
 	},
 	{
