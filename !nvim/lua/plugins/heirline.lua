@@ -1,6 +1,5 @@
-local function build_opts(_, opts)
+local function build_opts()
 	local function devicons()
-		---@module "nvim-web-devicons"
 		local devicons = env.saquire('nvim-web-devicons')
 		if not devicons then return end
 		local path = vim.api.nvim_buf_get_name(0)
@@ -42,7 +41,7 @@ local function build_opts(_, opts)
 				provider = function()
 					if vim.bo.filetype == 'oil' then
 						local oil_dir = require('oil').get_current_dir() -- ends with a /
-						local cwd_relative = vim.fn.fnamemodify(oil_dir, ':~:.')
+						local cwd_relative = vim.fn.fnamemodify(oil_dir --[[@as string]], ':~:.')
 						return cwd_relative:sub(1, -2)
 					else
 						return vim.fn.expand('%:~:.')
@@ -147,13 +146,13 @@ local function build_opts(_, opts)
 					hl = env.high({ fg = env.color.purple, bold = true }),
 					provider = function(self)
 						local search = self.search
+						if search.current == 0 and search.total == 0 then return end
 						return string.format('%s %d/%d', env.icons.magnifying_glass, search.current, search.total)
 					end,
 				},
 				padding(),
 			},
-			{
-
+			{ -- diags
 				condition = require('heirline.conditions').has_diagnostics,
 				init = function(self)
 					self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
@@ -163,27 +162,19 @@ local function build_opts(_, opts)
 				end,
 				update = { 'DiagnosticChanged', 'BufEnter' },
 				{
-					provider = function(self)
-						return self.hints > 0 and self.hints .. ' '
-					end,
+					provider = function(self) return self.hints > 0 and self.hints .. ' ' end,
 					hl = 'DiagnosticSignHint',
 				},
 				{
-					provider = function(self)
-						return self.info > 0 and self.info .. ' '
-					end,
+					provider = function(self) return self.info > 0 and self.info .. ' ' end,
 					hl = 'DiagnosticSignInfo',
 				},
 				{
-					provider = function(self)
-						return self.warnings > 0 and self.warnings .. ' '
-					end,
+					provider = function(self) return self.warnings > 0 and self.warnings .. ' ' end,
 					hl = 'DiagnosticSignWarn',
 				},
 				{
-					provider = function(self)
-						return self.errors > 0 and self.errors .. ' '
-					end,
+					provider = function(self) return self.errors > 0 and self.errors .. ' ' end,
 					hl = 'DiagnosticSignError',
 				},
 			},
