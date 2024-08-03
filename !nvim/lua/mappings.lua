@@ -1029,7 +1029,6 @@ local normal_mappings = {
 	['<A-l>'] = '<C-w>>',
 	['<C-n>'] = '<C-w>-',
 	['<C-p>'] = '<C-w>+',
-	["c'"] = '<C-w>p',
 	['<Leader>ah'] = function() vim.cmd('leftabove vsplit') end,
 	['<Leader>aj'] = function() vim.cmd('split') end,
 	['<Leader>ak'] = function() vim.cmd('leftabove split') end,
@@ -1043,7 +1042,8 @@ local normal_mappings = {
 	['cu'] = '<C-w>=',
 	['zh'] = '<C-w>_',
 	['zH'] = '<C-w>|',
-	["d'"] = '<C-w><C-w>',
+	["d'"] = '<C-w>w',
+	["c'"] = '<C-w>W',
 	['[w'] = 'gT',
 	[']w'] = 'gt',
 
