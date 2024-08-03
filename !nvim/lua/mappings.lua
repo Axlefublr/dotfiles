@@ -1127,16 +1127,8 @@ local normal_mappings = {
 	['<Leader>ls'] = function() require('telescope.builtin').lsp_document_symbols() end,
 	['<Leader>lS'] = function() require('telescope.builtin').lsp_workspace_symbols() end,
 
-	['<Leader>jz'] = function()
-		require('lazy').load({ plugins = { 'telescope-zoxide' } })
-		require('telescope').load_extension('zoxide')
-		require('telescope').extensions.zoxide.list()
-	end,
-	['<Leader>jn'] = function()
-		require('lazy').load({ plugins = { 'nvim-notify' } })
-		require('telescope').load_extension('notify')
-		require('telescope').extensions.notify.notify()
-	end,
+	['<Leader>jz'] = function() require('telescope').extensions.zoxide.list() end,
+	['<Leader>jn'] = function() require('telescope').extensions.notify.notify() end,
 
 	-- Kitty blank
 	['do'] = kitty_blank,
@@ -1285,8 +1277,6 @@ local insert_mappings = {
 }
 
 local pending_mappings = {
-	['i%'] = function() vim.cmd('normal! vT%ot%') end,
-	['a%'] = function() vim.cmd('normal! vF%of%') end,
 	[']}'] = function() vim.cmd('normal! V}k') end,
 	['[{'] = function() vim.cmd('normal! V{j') end,
 	['{'] = 'V{',

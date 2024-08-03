@@ -42,6 +42,9 @@ local telescope_opts = function()
 		picked()
 	end
 
+	require('telescope').load_extension('notify')
+	require('telescope').load_extension('fzf')
+	require('telescope').load_extension('zoxide')
 	return {
 		defaults = {
 			prompt_prefix = '',
@@ -268,6 +271,8 @@ return {
 			'nvim-lua/plenary.nvim',
 			'nvim-tree/nvim-web-devicons',
 			'nvim-treesitter/nvim-treesitter',
+			'jvgrootveld/telescope-zoxide',
+			'rcarriga/nvim-notify',
 			{
 				'nvim-telescope/telescope-fzf-native.nvim',
 				lazy = true,
@@ -277,9 +282,5 @@ return {
 		cmd = 'Telescope',
 		lazy = true,
 		opts = telescope_opts,
-		config = function(_, opts)
-			require('telescope').setup(opts)
-			require('telescope').load_extension('fzf')
-		end,
 	},
 }
