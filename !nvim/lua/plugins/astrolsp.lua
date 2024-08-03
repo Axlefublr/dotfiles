@@ -14,7 +14,10 @@ return {
 				semantic_tokens = true,
 			},
 			capabilities = vim.lsp.protocol.make_client_capabilities(),
-			handlers = { function(server, server_opts) require('lspconfig')[server].setup(server_opts) end },
+			handlers = {
+				function(server, server_opts) require('lspconfig')[server].setup(server_opts) end,
+				rust_analyzer = false,
+			},
 			formatting = {
 				disabled = true,
 			},
@@ -93,8 +96,20 @@ return {
 					},
 				},
 				rust_analyzer = {
+					on_attach = function(_, bufnr)
+						pcall(vim.keymap.del, 'n', 'K', { buffer = bufnr })
+						vim.keymap.set(
+							'n',
+							'gl',
+							function() vim.cmd('RustLsp renderDiagnostic current') end,
+							{ buffer = bufnr }
+						)
+					end,
 					settings = {
 						['rust-analyzer'] = {
+							checkOnSave = {
+								command = 'clippy',
+							},
 							cargo = {
 								extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev' },
 								extraArgs = { '--profile', 'rust-analyzer' },
@@ -105,6 +120,8 @@ return {
 							},
 							assist = {
 								expressionFillDefault = 'default',
+								importEnforceGranularity = true,
+								importPrefix = 'crate',
 							},
 							inlayHints = {
 								-- typeHints = { enable = true }
@@ -134,6 +151,7 @@ return {
 								},
 								lifetimeElisionHints = {
 									enable = 'skip_trivial',
+									useParameterNames = true,
 								},
 							},
 							lens = {

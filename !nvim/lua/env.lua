@@ -131,14 +131,13 @@ env.color = {
 	dark10 = '#1a1919',
 }
 env.icons = {
-	circle_dot = '',
 	diag_error = '',
 	diag_hint = '󰌵',
 	diag_info = '󰋼',
 	diag_warn = '',
 	debug = '',
-	circle_curcuit = '',
-	magnifying_glass = '󰍉',
+	circle_dot = '',
+	magnifying_glass = '',
 }
 
 function env.to_base_36(number)
@@ -198,9 +197,14 @@ end
 ---@param opts vim.api.keyset.create_autocmd?
 function env.do_and_acmd(condition, todo, opts)
 	local opts = opts or {}
-	if type(condition) == 'function' and condition() or condition then
-		if todo() then return end
-		---@diagnostic disable-next-line: undefined-field
+	if type(condition) == 'function' then
+		if condition() then
+			if todo() then return end
+		end
+	else
+		if condition then
+			if todo() then return end
+		end
 	end
 	opts.callback = todo
 	local event = opts.event

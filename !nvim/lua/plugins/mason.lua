@@ -3,7 +3,6 @@ return {
 	-- { 'Bilal2453/luvit-meta', lazy = true },
 	{
 		'folke/lazydev.nvim',
-		event = 'User WayAfter',
 		cmd = 'LazyDev',
 		dependencies = {
 			'neovim/nvim-lspconfig'
@@ -47,7 +46,6 @@ return {
 	},
 	{
 		'neovim/nvim-lspconfig',
-		-- event = 'User WayAfter',
 		cmd = { 'LspInfo', 'LspLog', 'LspStart', 'Neoconf' },
 		dependencies = {
 			{ 'folke/neoconf.nvim', opts = {} },

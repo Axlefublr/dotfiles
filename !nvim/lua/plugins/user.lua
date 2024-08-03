@@ -61,7 +61,7 @@ return {
 				env.acmd(
 					'BufWritePost',
 					nil,
-					function(write_args) require('guess-indent').set_from_buffer(wargs.buf, true, true) end,
+					function(write_args) require('guess-indent').set_from_buffer(write_args.buf, true, true) end,
 					{ buffer = args.buf, once = true }
 				)
 			end)

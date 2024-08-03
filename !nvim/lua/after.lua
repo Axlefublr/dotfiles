@@ -13,3 +13,13 @@ env.do_and_acmd(true, function()
 end, { event = 'BufEnter' })
 
 env.emit('User', 'WayAfter')
+
+env.do_and_acmd(function() return vim.fn.expand('%:t') == 'Cargo.toml' end, function()
+	require('cmp').setup.buffer({ sources = { { name = 'crates' } } })
+	require('crates')
+end, { event = 'BufRead', pattern = 'Cargo.toml' })
+
+env.do_and_acmd(function() return vim.bo.filetype == 'lua' end, function()
+	require('lazydev')
+	return true
+end, { event = 'FileType', pattern = 'lua' })
