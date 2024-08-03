@@ -14,7 +14,7 @@ local function build_opts(_, opts)
 		if not amount then amount = 1 end
 		return {
 			provider = string.rep(' ', amount),
-			update = function() return false end,
+			update = false,
 		}
 	end
 
@@ -36,9 +36,7 @@ local function build_opts(_, opts)
 				provider = function(self) return self.icon and self.icon ~= '' and self.icon .. ' ' end,
 				hl = function(self) return self.icon_hl end,
 				update = { 'FileType', 'WinEnter', 'BufEnter' },
-				condition = function()
-					return vim.bo.filetype ~= '' and vim.api.nvim_buf_get_name(0) ~= ''
-				end,
+				condition = function() return vim.bo.filetype ~= '' and vim.api.nvim_buf_get_name(0) ~= '' end,
 			},
 			{
 				provider = function()
@@ -154,6 +152,41 @@ local function build_opts(_, opts)
 				},
 				padding(),
 			},
+			{
+
+				condition = require('heirline.conditions').has_diagnostics,
+				init = function(self)
+					self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+					self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+					self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
+					self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+				end,
+				update = { 'DiagnosticChanged', 'BufEnter' },
+				{
+					provider = function(self)
+						return self.hints > 0 and self.hints .. ' '
+					end,
+					hl = 'DiagnosticSignHint',
+				},
+				{
+					provider = function(self)
+						return self.info > 0 and self.info .. ' '
+					end,
+					hl = 'DiagnosticSignInfo',
+				},
+				{
+					provider = function(self)
+						return self.warnings > 0 and self.warnings .. ' '
+					end,
+					hl = 'DiagnosticSignWarn',
+				},
+				{
+					provider = function(self)
+						return self.errors > 0 and self.errors .. ' '
+					end,
+					hl = 'DiagnosticSignError',
+				},
+			},
 			{ -- ruler
 				provider = function()
 					local line = vim.fn.line('.')
@@ -179,9 +212,7 @@ local function build_opts(_, opts)
 			},
 			{ -- filetype
 				padding(),
-				{ provider = function()
-					return vim.bo.filetype
-				end },
+				{ provider = function() return vim.bo.filetype end },
 				condition = function() return vim.bo.filetype ~= '' end,
 				hl = env.high({ bold = true }),
 				update = { 'FileType', 'BufEnter' },

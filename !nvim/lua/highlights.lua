@@ -97,6 +97,19 @@ local highlights = {
 
 	['SpecialKey'] = { fg = color.feeble },
 
+	['DiagnosticVirtualTextError'] = link('Red'),
+	['DiagnosticVirtualTextWarn'] = link('Orange'),
+	['DiagnosticVirtualTextInfo'] = link('Blue'),
+	['DiagnosticVirtualTextHint'] = link('Blue'),
+	-- ['DiagnosticError'] = link('Red'),
+	['DiagnosticWarn'] = link('Yellow'),
+	-- ['DiagnosticInfo'] = link('Blue'),
+	-- ['DiagnosticHint'] = link('Green'),
+	['DiagnosticSignError'] = link('RedBold'),
+	['DiagnosticSignWarn']  = link('YellowBold'),
+	['DiagnosticSignInfo']  = link('BlueBold'),
+	['DiagnosticSignHint']  = link('GreenBold'),
+
 	-- Simple
 
 	-- Other
@@ -105,10 +118,6 @@ local highlights = {
 	['Constant'] = link('Aqua'),
 	['CurSearch'] = { fg = color.level, bg = color.purple, bold = true },
 	['Define'] = { fg = color.blush },
-	['DiagnosticVirtualTextError'] = link('Red'),
-	['DiagnosticVirtualTextHint'] = link('Blue'),
-	['DiagnosticVirtualTextInfo'] = link('Blue'),
-	['DiagnosticVirtualTextWarn'] = link('Orange'),
 	['IncSearch'] = { fg = color.level, bg = color.purple, bold = true },
 	['Include'] = { fg = color.blush },
 	['InlayHints'] = { fg = color.grey, italic = true },
