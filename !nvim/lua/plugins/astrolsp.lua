@@ -98,7 +98,7 @@ return {
 				rust_analyzer = {
 					on_attach = function(_, bufnr)
 						pcall(vim.keymap.del, 'n', 'K', { buffer = bufnr })
-						vim.keymap.set(
+						env.map(
 							'n',
 							'gl',
 							function() vim.cmd('RustLsp renderDiagnostic current') end,

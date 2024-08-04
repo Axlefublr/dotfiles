@@ -18,10 +18,10 @@ return {
 	},
 	config = function(_, opts)
 		require('leap').setup(opts)
-		vim.keymap.set({ 'n', 'x', 'o' }, 'q', '<Plug>(leap-forward-to)') -- FIXME: move to mappings
-		vim.keymap.set({ 'n', 'x', 'o' }, 'Q', '<Plug>(leap-backward-to)')
-		vim.keymap.set({ 'x', 'o' }, 'x', '<Plug>(leap-forward-till)')
-		vim.keymap.set({ 'x', 'o' }, 'X', '<Plug>(leap-backward-till)')
+		env.map('nxo', 'q', '<Plug>(leap-forward-to)')
+		env.map('nxo', 'Q', '<Plug>(leap-backward-to)')
+		env.map('xo', 'x', '<Plug>(leap-forward-till)')
+		env.map('xo', 'X', '<Plug>(leap-backward-till)')
 
 		env.acmd('User', 'LeapEnter', function()
 			env.set_high('LeapLabelPrimary', { fg = env.color.black, bg = env.color.shell_pink })

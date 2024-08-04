@@ -56,7 +56,7 @@ return {
 	config = function(_, opts)
 		require('oil').setup(opts)
 		env.acmd('FileType', 'oil', function()
-			vim.keymap.set('n', '>', function()
+			env.bmap('n', '>', function()
 				local file_name = require('oil').get_cursor_entry().name
 				local function get_externality(file_name)
 					local external_extensions = env.external_extensions
@@ -71,15 +71,15 @@ return {
 				else
 					require('oil.actions').select.callback()
 				end
-			end, { buffer = true })
+			end)
 
-			vim.keymap.set('n', '<Leader>dt', function()
+			env.bmap('n', '<Leader>dt', function()
 				local oil_cwd = require('oil').get_current_dir()
 				require('oil.actions').cd.callback()
 				os.execute("zoxide add '" .. oil_cwd .. "'")
-			end, { buffer = true })
+			end)
 
-			vim.keymap.set('n', 'gD', function()
+			env.bmap('n', 'gD', function()
 				local options = {
 					{
 						'chmod +x',
@@ -90,9 +90,9 @@ return {
 					},
 				}
 				env.select(options, { prompt = ' Action ' })
-			end, { buffer = true })
+			end)
 
-			vim.keymap.set('n', '<Leader>z', function()
+			env.bmap('n', '<Leader>z', function()
 				local register = env.char('get cd harp: ')
 				if register == nil then return end
 				local output = env.shell({ 'harp', 'get', 'cd_harps', register, '--path' }):wait()
@@ -101,24 +101,24 @@ return {
 				else
 					vim.notify('cd harp ' .. register .. ' is empty')
 				end
-			end, { buffer = true })
+			end)
 
-			vim.keymap.set('n', '<Leader>Z', function()
+			env.bmap('n', '<Leader>Z', function()
 				local register = env.char('set cd harp: ')
 				if register == nil then return end
 				local directory = require('oil').get_current_dir()
 				directory = vim.fn.fnamemodify(directory --[[@as string]], ':~')
 				local output = env.shell({ 'harp', 'update', 'cd_harps', register, '--path', directory }):wait()
 				if output.code == 0 then vim.notify('set cd harp ' .. register) end
-			end, { buffer = true })
+			end)
 
-			vim.keymap.set('n', 'gd', function()
+			env.bmap('n', 'gd', function()
 				local buffer_id = vim.api.nvim_win_get_buf(0)
 				local id = vim.fn.matchbufline(buffer_id, ';\\zs.*\\ze;', vim.fn.line('.'), vim.fn.line('.'))[1].text
 				local link = 'https://www.youtube.com/watch?v=' .. id
 				vim.fn.setreg(env.default_register, link)
 				vim.notify('compiled link')
-			end, { buffer = true })
+			end)
 		end)
 		env.acmd('User', 'OilActionsPost', function(args)
 			if args.data.err then return end

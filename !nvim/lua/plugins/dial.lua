@@ -1,16 +1,16 @@
 local function remaps()
-	vim.keymap.set('n', '<A-d>', function() require('dial.map').manipulate('increment', 'normal') end)
-	vim.keymap.set('n', '<A-s>', function() require('dial.map').manipulate('decrement', 'normal') end)
-	vim.keymap.set('n', 'g<A-d>', function() require('dial.map').manipulate('increment', 'gnormal') end)
-	vim.keymap.set('n', 'g<A-s>', function() require('dial.map').manipulate('decrement', 'gnormal') end)
+	env.map('n', '<A-d>', function() require('dial.map').manipulate('increment', 'normal') end)
+	env.map('n', '<A-s>', function() require('dial.map').manipulate('decrement', 'normal') end)
+	env.map('n', 'g<A-d>', function() require('dial.map').manipulate('increment', 'gnormal') end)
+	env.map('n', 'g<A-s>', function() require('dial.map').manipulate('decrement', 'gnormal') end)
 
-	vim.keymap.set('v', '<A-d>', require('dial.map').inc_visual('visual'))
-	vim.keymap.set('v', '<A-s>', require('dial.map').dec_visual('visual'))
-	vim.keymap.set('x', 'g<A-d>', require('dial.map').inc_gvisual('visual'))
-	vim.keymap.set('x', 'g<A-s>', require('dial.map').dec_visual('visual'))
+	env.map('v', '<A-d>', require('dial.map').inc_visual('visual'))
+	env.map('v', '<A-s>', require('dial.map').dec_visual('visual'))
+	env.map('x', 'g<A-d>', require('dial.map').inc_gvisual('visual'))
+	env.map('x', 'g<A-s>', require('dial.map').dec_visual('visual'))
 
-	vim.keymap.set('n', '<Leader>d;', require('dial.map').inc_normal('toggles'))
-	vim.keymap.set('x', '<Leader>d;', require('dial.map').inc_visual('toggles'))
+	env.map('n', '<Leader>d;', require('dial.map').inc_normal('toggles'))
+	env.map('x', '<Leader>d;', require('dial.map').inc_visual('toggles'))
 end
 
 ---@type LazyPluginSpec
@@ -38,7 +38,7 @@ return {
 			'<Leader>d;',
 		},
 	},
-	config = function() -- FIXME: just put the keymaps into keymaps
+	config = function()
 		local augend = require('dial.augend')
 		require('dial.config').augends:register_group({
 			default = {

@@ -25,12 +25,12 @@ env.acmd(
 env.acmd('BufLeave', '/tmp/pjs', function() vim.fn.matchdelete(vim.b.match_paths) end)
 
 env.acmd({ 'RecordingLeave', 'VimEnter' }, nil, function()
-	vim.keymap.set('n', 'gX', 'qe')
-	vim.keymap.set('i', '<A-x>', '<Esc>qegi')
+	env.map('n', 'gX', 'qe')
+	env.map('i', '<A-x>', '<Esc>qegi')
 end)
 env.acmd('RecordingEnter', nil, function()
-	vim.keymap.set('n', 'gX', 'q')
-	vim.keymap.set('i', '<A-x>', '<Esc>qgi')
+	env.map('n', 'gX', 'q')
+	env.map('i', '<A-x>', '<Esc>qgi')
 end)
 
 env.acmd('InsertEnter', nil, 'set nohlsearch')
@@ -50,7 +50,7 @@ env.acmd('BufWritePre', nil, function(args) -- create parent directories when sa
 	vim.fn.mkdir(vim.fn.fnamemodify(vim.loop.fs_realpath(args.match) or args.match, ':p:h'), 'p')
 end)
 
-env.acmd('CmdwinEnter', nil, function() vim.keymap.set('n', '<CR>', '<CR>', { buffer = true }) end)
+env.acmd('CmdwinEnter', nil, function() env.bmap('n', '<CR>', '<CR>') end)
 
 -- тук тук
 
@@ -79,7 +79,7 @@ end)
 env.acmd('FileType', 'git', function()
 	pcall(vim.keymap.del, { 'n', 'x', 'o' }, 'K', { buffer = true })
 	pcall(vim.keymap.del, 'n', '<CR>', { buffer = true })
-	vim.keymap.set('n', '>', ':<C-U>exe <SNR>37_GF("edit")<CR>', { buffer = true })
+	env.bmap('n', '>', ':<C-U>exe <SNR>37_GF("edit")<CR>')
 end)
 
 env.acmd('User', 'VeryLazy', function()

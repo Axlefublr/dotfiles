@@ -375,6 +375,28 @@ function env.is_valid(bufnr)
 	return bufnr ~= -1 and vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted
 end
 
+---@param mode string|string[]
+---@param lhs string
+---@param rhs string|function
+---@param opts vim.keymap.set.Opts?
+function env.map(mode, lhs, rhs, opts)
+	if type(mode) == 'string' and #mode > 1 then
+		mode = mode:split('\\zs')
+	end
+	vim.keymap.set(mode, lhs, rhs, opts)
+end
+
+---Makes a buffer-local mapping.
+---@param mode string|string[]
+---@param lhs string
+---@param rhs string|function
+---@param opts vim.keymap.set.Opts?
+function env.bmap(mode, lhs, rhs, opts)
+	local opts = opts or {}
+	opts.buffer = true
+	env.map(mode, lhs, rhs, opts)
+end
+
 ---Wrap a function to load a plugin before executing.
 ---@param plugin string
 ---@param module table

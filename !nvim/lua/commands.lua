@@ -60,5 +60,5 @@ vim.api.nvim_create_user_command('KittyInput', function()
 	local pattern = require('harp').filetype_search_get_pattern('f', '')
 	vim.fn.setreg('/', pattern)
 
-	vim.keymap.set('n', 'gy', 'jVnko')
+	env.map('n', 'gy', 'jVnko')
 end, {})

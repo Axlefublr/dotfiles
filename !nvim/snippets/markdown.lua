@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s({ filetype = 'markdown', trig = 'inl' }, {
 		t('['),
