@@ -23,6 +23,7 @@
  󰆓
    
      󰘬
+  
 󱂞 󰻖      󱕂 󱣻 󰹧 󰫠 󱐍 󰯈 󱗈 󰠳 󱄏 󱁖 󰸌 󰮭 󰟕 󰿗       󱑽 󱦡 󰔱 󱘆 󰏍 󰥳 󰏇 󰌪 󰛢 󰈷 󰞸 󰆕 󰶵 󰁳  󰛄 󰢛         󱡷 󰼁 󰼂 󰜃 󰤇 󱢺 󱕅 󱇪       󰥟 󱡊 󰽒 󱁇 󱍢 󱢇 󱁕        󰟟 󰟫 󰜗 󱙷 󰓙 󰁹    ⋯
 ActiveLSP 
 ActiveTS 
@@ -54,11 +55,8 @@ FolderClosed 
 FolderEmpty 
 FolderOpen 
 Git 󰊢
-GitAdd 
 GitBranch 
-GitChange 
 GitConflict 
-GitDelete 
 GitIgnored ◌
 GitRenamed ➜
 GitSign ▎

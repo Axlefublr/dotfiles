@@ -135,6 +135,9 @@ env.icons = {
 	diag_hint = '󰌵',
 	diag_info = '󰋼',
 	diag_warn = '',
+	git_added = '',
+	git_modified = '',
+	git_deleted = '',
 	debug = '',
 	circle_dot = '',
 	magnifying_glass = '',
@@ -369,7 +372,7 @@ end
 ---@return boolean
 function env.is_valid(bufnr)
 	if not bufnr then bufnr = 0 end
-	return vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted
+	return bufnr ~= -1 and vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buflisted
 end
 
 ---Wrap a function to load a plugin before executing.

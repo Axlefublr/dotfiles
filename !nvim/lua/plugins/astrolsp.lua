@@ -180,7 +180,7 @@ return {
 							workspace = {
 								symbol = {
 									search = {
-										kind = 'all_symbols',
+										kind = 'onlyTypes',
 									},
 								},
 							},

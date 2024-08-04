@@ -17,12 +17,10 @@ local function build_opts()
 		}
 	end
 
-	local function fill()
-		return {
-			update = function() return false end,
-			provider = '%=',
-		}
-	end
+	local fill = {
+		update = function() return false end,
+		provider = '%=',
+	}
 
 	return {
 		tabline = {
@@ -49,7 +47,7 @@ local function build_opts()
 				end,
 				update = { 'BufEnter', 'DirChanged' },
 			},
-			fill(),
+			fill,
 			{
 				provider = function()
 					local cwd = vim.fn.getcwd()
@@ -120,7 +118,7 @@ local function build_opts()
 				hl = env.high({ fg = env.color.orange, bold = true }),
 				provider = ' %S',
 			},
-			fill(),
+			fill,
 			{ -- macro record
 				condition = function() return vim.fn.reg_recording() ~= '' end,
 				hl = env.high({ fg = env.color.orange, bold = true }),
@@ -176,6 +174,50 @@ local function build_opts()
 				{
 					provider = function(self) return self.errors > 0 and self.errors .. ' ' end,
 					hl = 'DiagnosticSignError',
+				},
+			},
+			{ -- gitsigns
+				condition = require('heirline.conditions').is_git_repo,
+
+				init = function(self)
+					self.status_dict = vim.b.gitsigns_status_dict
+					self.has_changes = self.status_dict.added ~= 0
+						or self.status_dict.removed ~= 0
+						or self.status_dict.changed ~= 0
+				end,
+
+				{
+					condition = function(self) return self.status_dict.added and self.status_dict.added ~= 0 end,
+					{
+						provider = env.icons.git_added .. ' ',
+					},
+					{
+						provider = function(self) return self.status_dict.added end,
+					},
+					padding(),
+					hl = env.high({ fg = env.color.green, bold = true }),
+				},
+				{
+					condition = function(self) return self.status_dict.changed and self.status_dict.changed ~= 0 end,
+					{
+						provider = env.icons.git_modified .. ' ',
+					},
+					{
+						provider = function(self) return self.status_dict.changed end,
+					},
+					padding(),
+					hl = env.high({ fg = env.color.cyan, bold = true }),
+				},
+				{
+					condition = function(self) return self.status_dict.removed and self.status_dict.removed ~= 0 end,
+					{
+						provider = env.icons.git_deleted .. ' ',
+					},
+					{
+						provider = function(self) return self.status_dict.removed end,
+					},
+					padding(),
+					hl = env.high({ fg = env.color.red, bold = true }),
 				},
 			},
 			{ -- ruler
