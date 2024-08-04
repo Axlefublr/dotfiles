@@ -24,7 +24,7 @@ local function build_opts()
 
 	return {
 		tabline = {
-			{
+			{ -- buffer icon
 				init = function(self)
 					local icon, highlight = devicons()
 					self.icon = icon
@@ -35,7 +35,7 @@ local function build_opts()
 				update = { 'FileType', 'WinEnter', 'BufEnter' },
 				condition = function() return vim.bo.filetype ~= '' and vim.api.nvim_buf_get_name(0) ~= '' end,
 			},
-			{
+			{ -- buffer path
 				provider = function()
 					if vim.bo.filetype == 'oil' then
 						local oil_dir = require('oil').get_current_dir() -- ends with a /
@@ -48,12 +48,26 @@ local function build_opts()
 				update = { 'BufEnter', 'DirChanged' },
 			},
 			fill,
-			{
+			{ -- cwd
 				provider = function()
 					local cwd = vim.fn.getcwd()
 					return vim.fn.fnamemodify(cwd, ':~')
 				end,
 				update = 'DirChanged',
+			},
+			{ -- tabline
+				condition = function() return #vim.api.nvim_list_tabpages() >= 2 end,
+				padding(),
+				require('heirline.utils').make_tablist({
+					provider = function(self) return '%' .. self.tabnr .. 'T ' .. self.tabpage .. ' %T' end,
+					hl = function(self)
+						if not self.is_active then
+							return 'TabLine'
+						else
+							return 'TabLineSel'
+						end
+					end,
+				}),
 			},
 		},
 		statusline = {
