@@ -9,6 +9,7 @@ return {
 		'Oil',
 	},
 	opts = function()
+		---@type oil.setupOpts
 		return {
 			default_file_explorer = true,
 			columns = {
@@ -36,15 +37,20 @@ return {
 				['gt'] = 'actions.toggle_trash',
 			},
 			use_default_keymaps = false,
-			experimental_watch_for_changes = false,
+			watch_for_changes = true,
 			view_options = {
 				show_hidden = true,
 				is_always_hidden = function(name, _) return name == '..' or name == '.git' end,
 				natural_order = true,
 			},
-			float = {
-				padding = 0,
+			preview = {
+				border = env.borders,
+				min_width = 0.65,
+				min_height = 0.25
 			},
+			progress = {
+				border = env.borders
+			}
 		}
 	end,
 	config = function(_, opts)

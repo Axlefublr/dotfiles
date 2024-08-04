@@ -2,8 +2,7 @@ local killring = setmetatable({}, { __index = table })
 
 local function trim_trailing_whitespace()
 	local search = vim.fn.getreg('/')
-	---@diagnostic disable-next-line: param-type-mismatch
-	pcall(vim.cmd, 'silent %s`\\v\\s+$')
+	pcall(vim.cmd --[[@as function]], 'silent %s`\\v\\s+$')
 	vim.fn.setreg('/', search)
 end
 
@@ -757,7 +756,7 @@ local normal_mappings = {
 		if result.code ~= 0 then return end
 		local lines = result.stdout:split('\n')
 		local branches = {}
-		for index, line in ipairs(lines) do
+		for _, line in ipairs(lines) do
 			if line:sub(1, 1) == '*' then
 				table.insert(branches, 1, line:sub(3))
 			else

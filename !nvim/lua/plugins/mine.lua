@@ -1,6 +1,7 @@
 ---@type LazyPluginSpec[]
 return {
 	{
+		---@module "edister"
 		'Axlefublr/edister.nvim',
 		lazy = true,
 		dev = true,
@@ -31,6 +32,7 @@ return {
 			env.func_loads_plugin('selabel.nvim', env, 'select')
 			env.func_loads_plugin('selabel.nvim', vim.ui, 'select')
 		end,
+		---@type SelabelPluginOpts
 		opts = {
 			separator = ' ',
 			-- separator_highlight = 'Orange',

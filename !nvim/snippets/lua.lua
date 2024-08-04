@@ -1,5 +1,11 @@
 ---@diagnostic disable: undefined-global
 return {
+	s({ filetype = 'lua', trig = 'class' }, { t('---@class ') }),
+	s({ filetype = 'lua', trig = 'field' }, { t('---@field ') }),
+	s({ filetype = 'lua', trig = 'fiel' }, { t('@field ') }),
+	s({ filetype = 'lua', trig = 'param' }, { t('---@param ') }),
+	s({ filetype = 'lua', trig = 'returns' }, { t('---@return ') }),
+	s({ filetype = 'lua', trig = 'type' }, { t('---@type ') }),
 	s({ filetype = 'lua', trig = 'as' }, fmta('--' .. '[[@as <>]]', i(1))),
 	s({ filetype = 'lua', trig = 'ic' }, fmta('--' .. '[[<>]]', i(1))),
 	s({ filetype = 'lua', trig = 'si' }, { t('-- stylua: ignore') }),
