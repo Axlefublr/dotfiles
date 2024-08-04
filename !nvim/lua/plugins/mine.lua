@@ -1,11 +1,17 @@
 ---@type LazyPluginSpec[]
 return {
-	{ 'Axlefublr/edister.nvim', lazy = true, dev = true, opts = { border = env.borders } --[[@as table]] },
+	{
+		'Axlefublr/edister.nvim',
+		lazy = true,
+		dev = true,
+		---@type EdisterOpts
+		opts = { border = env.borders },
+	},
 	{
 		'Axlefublr/harp-nvim',
 		lazy = true,
 		dev = true,
-		opts = {} --[[@as table]],
+		opts = {},
 	},
 	{
 		'Axlefublr/qfetter.nvim',
@@ -25,7 +31,6 @@ return {
 			env.func_loads_plugin('selabel.nvim', env, 'select')
 			env.func_loads_plugin('selabel.nvim', vim.ui, 'select')
 		end,
-		---@diagnostic disable-next-line: missing-fields
 		opts = {
 			separator = ' ',
 			-- separator_highlight = 'Orange',
