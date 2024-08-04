@@ -167,31 +167,37 @@ local function build_opts()
 			{ -- diags
 				condition = require('heirline.conditions').has_diagnostics,
 				init = function(self)
-					self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-					self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-					self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
-					self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+					self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+					self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) > 0
+					self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT }) > 0
+					self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO }) > 0
 				end,
 				update = { 'DiagnosticChanged', 'BufEnter' },
 				{
-					provider = function(self) return self.hints > 0 and self.hints .. ' ' end,
+					condition = function(self) return self.hints end,
+					provider = function() return '!' end,
 					hl = 'DiagnosticSignHint',
 				},
 				{
-					provider = function(self) return self.info > 0 and self.info .. ' ' end,
+					condition = function(self) return self.info end,
+					provider = function() return '!' end,
 					hl = 'DiagnosticSignInfo',
 				},
 				{
-					provider = function(self) return self.warnings > 0 and self.warnings .. ' ' end,
+					condition = function(self) return self.warnings end,
+					provider = function() return '!' end,
 					hl = 'DiagnosticSignWarn',
 				},
 				{
-					provider = function(self) return self.errors > 0 and self.errors .. ' ' end,
+					condition = function(self) return self.errors end,
+					provider = function() return '!' end,
 					hl = 'DiagnosticSignError',
 				},
+				padding(),
 			},
 			{ -- gitsigns
 				condition = require('heirline.conditions').is_git_repo,
+				update = { 'TextChanged', 'BufEnter', 'InsertLeave' },
 
 				init = function(self)
 					self.status_dict = vim.b.gitsigns_status_dict
@@ -201,38 +207,33 @@ local function build_opts()
 				end,
 
 				{
-					condition = function(self) return self.status_dict.added and self.status_dict.added ~= 0 end,
+					condition = function(self) return self.has_changes end,
 					{
-						provider = env.icons.git_added .. ' ',
+						condition = function(self) return self.status_dict.added and self.status_dict.added ~= 0 end,
+						{
+							provider = env.icons.git_added,
+						},
+						padding(),
+						hl = env.high({ fg = env.color.green, bold = true }),
 					},
 					{
-						provider = function(self) return self.status_dict.added end,
-					},
-					padding(),
-					hl = env.high({ fg = env.color.green, bold = true }),
-				},
-				{
-					condition = function(self) return self.status_dict.changed and self.status_dict.changed ~= 0 end,
-					{
-						provider = env.icons.git_modified .. ' ',
+						condition = function(self) return self.status_dict.changed and self.status_dict.changed ~= 0 end,
+						{
+							provider = env.icons.git_modified,
+						},
+						padding(),
+						hl = env.high({ fg = env.color.cyan, bold = true }),
 					},
 					{
-						provider = function(self) return self.status_dict.changed end,
+						condition = function(self) return self.status_dict.removed and self.status_dict.removed ~= 0 end,
+						{
+							provider = env.icons.git_deleted,
+						},
+						padding(),
+						hl = env.high({ fg = env.color.red, bold = true }),
 					},
-					padding(),
-					hl = env.high({ fg = env.color.cyan, bold = true }),
-				},
-				{
-					condition = function(self) return self.status_dict.removed and self.status_dict.removed ~= 0 end,
-					{
-						provider = env.icons.git_deleted .. ' ',
-					},
-					{
-						provider = function(self) return self.status_dict.removed end,
-					},
-					padding(),
-					hl = env.high({ fg = env.color.red, bold = true }),
-				},
+					padding()
+				}
 			},
 			{ -- ruler
 				provider = function()
