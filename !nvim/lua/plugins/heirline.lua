@@ -197,7 +197,7 @@ local function build_opts()
 			},
 			{ -- gitsigns
 				condition = require('heirline.conditions').is_git_repo,
-				update = { 'TextChanged', 'BufEnter', 'InsertLeave' },
+				update = { 'TextChanged', 'BufEnter', 'InsertLeave', 'DiagnosticChanged' },
 
 				init = function(self)
 					self.status_dict = vim.b.gitsigns_status_dict
