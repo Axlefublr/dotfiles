@@ -72,7 +72,7 @@ local telescope_opts = function()
 					preview_width = 0.5,
 				},
 				vertical = {
-					preview_height = 10,
+					preview_height = 0.6,
 				},
 			},
 			mappings = {
@@ -202,6 +202,11 @@ local telescope_opts = function()
 				preview = {
 					hide_on_startup = false,
 				},
+				layout_config = {
+					horizontal = {
+						preview_width = 0.7
+					},
+				},
 			},
 			lsp_incoming_calls = {
 				show_line = false,
@@ -215,6 +220,11 @@ local telescope_opts = function()
 					hide_on_startup = false,
 				},
 				show_line = false,
+				layout_config = {
+					horizontal = {
+						preview_width = 0.7
+					},
+				},
 			},
 			lsp_type_definitions = {
 				show_line = false,
