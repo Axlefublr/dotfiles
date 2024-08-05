@@ -23,7 +23,8 @@ local function build_opts()
 	}
 
 	---@param provider string|function
-	local function decreasing_length(provider)
+	---@param side nil|'right'|'left'
+	local function decreasing_length(provider, side)
 		local elements = {
 			{ provider = provider },
 		}
@@ -37,7 +38,11 @@ local function build_opts()
 						output = provider
 					end
 					if length == 0 then return env.icons.etc end
-					return output:sub(1, length) .. env.icons.etc
+					if not side or side == 'right' then
+						return output:sub(1, length) .. env.icons.etc
+					else
+						return env.icons.etc .. output:sub(#output - length)
+					end
 				end,
 			})
 		end
@@ -58,24 +63,30 @@ local function build_opts()
 				condition = function() return vim.bo.filetype ~= '' and vim.api.nvim_buf_get_name(0) ~= '' end,
 			},
 			{ -- buffer path
-				provider = function()
-					if vim.bo.filetype == 'oil' then
-						local oil_dir = require('oil').get_current_dir() -- ends with a /
-						local cwd_relative = vim.fn.fnamemodify(oil_dir --[[@as string]], ':~:.')
-						return cwd_relative:sub(1, -2)
-					else
-						return vim.fn.expand('%:~:.')
-					end
-				end,
-				update = { 'BufEnter', 'DirChanged' },
+				update = { 'BufEnter', 'DirChanged', 'VimResized' },
+				{
+					flexible = 20,
+					decreasing_length(function()
+						if vim.bo.filetype == 'oil' then
+							local oil_dir = require('oil').get_current_dir() -- ends with a /
+							local cwd_relative = vim.fn.fnamemodify(oil_dir --[[@as string]], ':~:.')
+							return cwd_relative:sub(1, -2)
+						else
+							return vim.fn.expand('%:~:.')
+						end
+					end, 'left')
+				},
 			},
 			fill,
 			{ -- cwd
-				provider = function()
-					local cwd = vim.fn.getcwd()
-					return vim.fn.fnamemodify(cwd, ':~')
-				end,
-				update = 'DirChanged',
+				update = { 'DirChanged', 'VimResized' },
+				{
+					flexible = 10,
+					decreasing_length(function()
+						local cwd = vim.fn.getcwd()
+						return vim.fn.fnamemodify(cwd, ':~')
+					end, 'left')
+				}
 			},
 			{ -- tabline
 				condition = function() return #vim.api.nvim_list_tabpages() >= 2 end,
@@ -138,9 +149,9 @@ local function build_opts()
 				update = 'ModeChanged',
 			},
 			{ -- latest insertion
-				hl = env.high({ fg = env.color.feeble }),
+				hl = env.high({ fg = env.color.feeble, italic = true }),
 				condition = function() return vim.fn.getreg('.') ~= '' end,
-				update = { 'InsertLeave', 'CmdlineLeave' },
+				update = { 'InsertLeave', 'CmdlineLeave', 'VimResized' },
 				padding(),
 				{
 					provider = '<',
@@ -158,7 +169,7 @@ local function build_opts()
 			{ -- latest :command
 				hl = env.high({ fg = env.color.feeble }),
 				condition = function() return vim.fn.getreg(':') ~= '' end,
-				update = { 'CmdlineLeave', 'InsertLeave' },
+				update = { 'CmdlineLeave', 'InsertLeave', 'VimResized' },
 				padding(),
 				{
 					provider = ':',
