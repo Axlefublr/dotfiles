@@ -81,5 +81,12 @@ return {
 				},
 			}
 		end,
+		config = function(_, opts)
+			env.set_high('CmpItemKindSnippet', { link = 'Yellow' })
+			env.set_high('CmpItemAbbrMatch', { fg = env.color.shell_yellow, bold = true })
+			env.set_high('CmpItemAbbrMatchFuzzy', { fg = env.color.shell_yellow, bold = true })
+			env.set_high('CmpItemKindClass', { link = 'Orange' })
+			require('cmp').setup(opts)
+		end,
 	},
 }

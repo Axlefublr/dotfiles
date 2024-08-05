@@ -108,6 +108,11 @@ return {
 			highlight_on_key = true,
 			dim = false,
 		},
+		config = function(_, opts)
+			env.set_high('EyelinerPrimary', { fg = env.color.level, bg = env.color.shell_pink, bold = true })
+			env.set_high('EyelinerSecondary', { fg = env.color.level, bg = env.color.shell_yellow, bold = true })
+			require('eyeliner').setup(opts)
+		end,
 	},
 	{
 		'kylechui/nvim-surround',

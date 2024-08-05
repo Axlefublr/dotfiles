@@ -54,7 +54,17 @@ return {
 		}
 	end,
 	config = function(_, opts)
+		env.set_high('OilDir', { link = 'Fg' })
+		env.set_high('OilDirIcon', { fg = env.color.shell_yellow })
+		env.set_high('OilLink', { fg = env.color.blush })
+		env.set_high('OilLinkTarget', { link = 'Red' })
+		env.set_high('OilTrash', { link = 'Orange' })
+		env.set_high('OilRestore', { link = 'Purple' })
+		env.set_high('OilPurge', { link = 'Red' })
+		env.set_high('OilMove', { link = 'Yellow' })
+
 		require('oil').setup(opts)
+
 		env.acmd('FileType', 'oil', function()
 			env.bmap('n', '>', function()
 				local file_name = require('oil').get_cursor_entry().name

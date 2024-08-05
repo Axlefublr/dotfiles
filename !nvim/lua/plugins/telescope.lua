@@ -292,5 +292,17 @@ return {
 		cmd = 'Telescope',
 		lazy = true,
 		opts = telescope_opts,
+		config = function(_, opts)
+			env.set_high('TelescopeResultsDiffUntracked', { fg = env.color.shell_grey })
+			env.set_high('TelescopeResultsDiffDelete', { fg = env.color.shell_red })
+			env.set_high('TelescopeResultsDiffChange', { fg = env.color.shell_cyan })
+			env.set_high('TelescopeResultsDiffAdd', { fg = env.color.shell_salad })
+			env.set_high('TelescopeSelection', { bg = env.color.dark12 })
+			env.set_high('TelescopeMatching', { fg = env.color.shell_yellow, bold = true })
+			env.set_high('TelescopeSelectionCaret', { fg = env.color.shell_yellow, bg = env.color.dark12, bold = true })
+			env.set_high('TelescopeMultiSelection', { link = 'Blue' })
+
+			require('telescope').setup(opts)
+		end,
 	},
 }

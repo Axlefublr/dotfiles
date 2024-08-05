@@ -142,39 +142,6 @@ local highlights = {
 
 	-- Other
 
-	-- Plugins
-
-	['OilDir'] = link('Fg'),
-	['OilDirIcon'] = { fg = color.shell_yellow },
-	['OilLink'] = { fg = color.blush },
-	['OilLinkTarget'] = link('Red'),
-	['OilTrash'] = link('Orange'),
-	['OilRestore'] = link('Purple'),
-	['OilPurge'] = link('Red'),
-	['OilMove'] = link('Yellow'),
-
-	['TelescopeResultsDiffUntracked'] = { fg = color.shell_grey },
-	['TelescopeResultsDiffDelete'] = { fg = color.shell_red },
-	['TelescopeResultsDiffChange'] = { fg = color.shell_cyan },
-	['TelescopeResultsDiffAdd'] = { fg = color.shell_salad },
-	['TelescopeSelection'] = { bg = color.dark12 },
-	['TelescopeMatching'] = { fg = color.shell_yellow, bold = true },
-	['TelescopeSelectionCaret'] = { fg = color.shell_yellow, bg = color.dark12, bold = true },
-	['TelescopeMultiSelection'] = link('Blue'),
-
-	['EyelinerPrimary'] = { fg = color.level, bg = color.shell_pink, bold = true },
-	['EyelinerSecondary'] = { fg = color.level, bg = color.shell_yellow, bold = true },
-	['LuminatePaste'] = { fg = color.level, bg = color.red, bold = true },
-	['HighlightUndo'] = { fg = color.level, bg = color.mint, bold = true },
-	['HighlightRedo'] = { fg = color.level, bg = color.mint, bold = true },
-
-	['CmpItemKindSnippet'] = link('Yellow'),
-	['CmpItemAbbrMatch'] = { fg = color.shell_yellow, bold = true },
-	['CmpItemAbbrMatchFuzzy'] = { fg = color.shell_yellow, bold = true },
-	['CmpItemKindClass'] = link('Orange'),
-
-	-- Plugins
-
 	-- Language
 
 	['Float'] = { fg = color.blush },
