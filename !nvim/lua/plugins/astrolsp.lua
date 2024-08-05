@@ -2,7 +2,6 @@
 return {
 	'AstroNvim/astrolsp',
 	lazy = true,
-	pin = true,
 	---@param prevopts AstroLSPOpts
 	opts = function(_, prevopts)
 		---@type AstroLSPOpts

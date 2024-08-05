@@ -98,6 +98,7 @@ return {
 	},
 	{
 		'jinh0/eyeliner.nvim',
+		pin = true,
 		keys = {
 			{ mode = { 'n', 'x', 'o' }, 'f' },
 			{ mode = { 'n', 'x', 'o' }, 'F' },

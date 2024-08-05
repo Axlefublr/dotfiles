@@ -106,9 +106,9 @@ local highlights = {
 	-- ['DiagnosticInfo'] = link('Blue'),
 	-- ['DiagnosticHint'] = link('Green'),
 	['DiagnosticSignError'] = link('RedBold'),
-	['DiagnosticSignWarn']  = link('YellowBold'),
-	['DiagnosticSignInfo']  = link('BlueBold'),
-	['DiagnosticSignHint']  = link('GreenBold'),
+	['DiagnosticSignWarn'] = link('YellowBold'),
+	['DiagnosticSignInfo'] = link('BlueBold'),
+	['DiagnosticSignHint'] = link('GreenBold'),
 
 	-- Simple
 
