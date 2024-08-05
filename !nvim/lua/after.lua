@@ -12,6 +12,13 @@ env.do_and_acmd(true, function()
 	vim.opt_local.listchars = built_chars
 end, { event = 'BufEnter' })
 
+env.do_and_acmd(
+	function() return vim.fn.expand('%') == '/tmp/pjs' end,
+	function() vim.b.match_paths = vim.fn.matchadd(env.high({ fg = env.color.blush }), '^\\~.*') end,
+	{ event = 'BufEnter', pattern = '/tmp/pjs' }
+)
+env.acmd('BufLeave', '/tmp/pjs', function() vim.fn.matchdelete(vim.b.match_paths) end)
+
 env.emit('User', 'WayAfter')
 
 env.do_and_acmd(function() return vim.fn.expand('%:t') == 'Cargo.toml' end, function()

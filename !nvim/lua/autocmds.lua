@@ -17,13 +17,6 @@ env.acmd({ 'BufEnter', 'FocusGained' }, nil, function(ev)
 	file:close()
 end)
 
-env.acmd(
-	'BufEnter',
-	'/tmp/pjs',
-	function() vim.b.match_paths = vim.fn.matchadd(env.high({ fg = env.color.blush }), '^\\~.*') end
-)
-env.acmd('BufLeave', '/tmp/pjs', function() vim.fn.matchdelete(vim.b.match_paths) end)
-
 env.acmd({ 'RecordingLeave', 'VimEnter' }, nil, function()
 	env.map('n', 'gX', 'qe')
 	env.map('i', '<A-x>', '<Esc>qegi')

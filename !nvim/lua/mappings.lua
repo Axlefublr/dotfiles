@@ -638,10 +638,10 @@ local normal_mappings = {
 		vim.diagnostic.open_float({ border = env.borders, scope = 'buffer' })
 	end,
 	['[e'] = function()
-		count_repeats(function() vim.diagnostic.goto_prev() end)
+		count_repeats(function() vim.diagnostic.goto_prev({ float = { border = env.borders } }) end)
 	end,
 	[']e'] = function()
-		count_repeats(function() vim.diagnostic.goto_next() end)
+		count_repeats(function() vim.diagnostic.goto_next({ float = { border = env.borders } }) end)
 	end,
 	['gh'] = function()
 		vim.lsp.buf.hover()
