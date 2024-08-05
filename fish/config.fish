@@ -32,7 +32,7 @@ if status is-interactive
     bind -M default : repeat-jump-reverse
     bind -M default \; repeat-jump
 
-    bind -M insert -k f2 expand-abbr insert-line-under
+    bind -M insert \e\r expand-abbr insert-line-under
     bind -M insert -k f4 'commandline ""'
 
     bind \eo expand-abbr
