@@ -1103,20 +1103,6 @@ local normal_mappings = {
 		})
 	end,
 	['<Leader>jq'] = function() require('telescope.builtin').help_tags() end,
-	['d,'] = function()
-		local input = env.input('check --help: ')
-		if not input then return end
-		local cmd = input:split(' ')
-		table.insert(cmd, '--help')
-		local output = env.shell(cmd):wait()
-		if output.code ~= 0 then
-			vim.notify('no --help for ' .. input)
-			return
-		end
-		vim.cmd('new')
-		vim.cmd('wincmd _')
-		env.set_lines(output.stdout)
-	end,
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
 	['<Leader>jV'] = function() require('telescope.builtin').git_branches() end,
@@ -1126,7 +1112,6 @@ local normal_mappings = {
 	['<Leader>jw'] = function() require('telescope.builtin').buffers() end,
 	['<Leader>jW'] = function() require('telescope.builtin').oldfiles() end,
 	['<Leader><CR>'] = function() require('telescope.builtin').command_history() end,
-	['dm'] = ':Man ',
 	['<Leader>ji'] = function() require('telescope.builtin').marks() end,
 	['<Leader>jh'] = function() require('telescope.builtin').highlights() end,
 	['<Leader>j;'] = function() require('telescope.builtin').filetypes() end,

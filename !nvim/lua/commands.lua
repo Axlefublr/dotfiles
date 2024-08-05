@@ -1,22 +1,22 @@
-vim.api.nvim_create_user_command('Young', function()
+env.cmd('Young', function()
 	if vim.fn.getcwd() == os.getenv('HOME') then vim.api.nvim_set_current_dir('~/prog/dotfiles') end
 	local file = io.open('/home/axlefublr/.local/share/youngest_nvim_file', 'r')
 	if not file then return end
 	local stored_path = file:read('*a')
 	file:close()
 	if stored_path and stored_path ~= '' then vim.cmd.edit(stored_path) end
-end, {})
+end)
 
-vim.api.nvim_create_user_command('NeolineNi', function()
+env.cmd('NeolineNi', function()
 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 	local text = vim.fn.join(lines, '\n')
 	local file = io.open('/tmp/ni-output', 'w+')
 	if not file then return end
 	file:write(text)
 	file:close()
-end, {})
+end)
 
-vim.api.nvim_create_user_command('NeolineClipboard', function()
+env.cmd('NeolineClipboard', function()
 	vim.bo.filetype = 'markdown'
 	---@diagnostic disable-next-line: redundant-parameter, param-type-mismatch
 	local lines = vim.fn.getreg('+', 1, true)
@@ -26,18 +26,18 @@ vim.api.nvim_create_user_command('NeolineClipboard', function()
 		local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 		vim.fn.setreg('+', vim.fn.join(lines, '\n'))
 	end)
-end, {})
+end)
 
-vim.api.nvim_create_user_command('NeolineClipboardEmpty', function()
+env.cmd('NeolineClipboardEmpty', function()
 	vim.bo.filetype = 'markdown'
 	vim.cmd('startinsert')
 	env.acmd('BufUnload', nil, function()
 		local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 		vim.fn.setreg('+', vim.fn.join(lines, '\n'))
 	end)
-end, {})
+end)
 
-vim.api.nvim_create_user_command('KittyInput', function()
+env.cmd('KittyInput', function()
 	vim.opt_local.relativenumber = false
 	vim.opt_local.laststatus = 0
 	vim.opt_local.showtabline = 0
@@ -61,4 +61,21 @@ vim.api.nvim_create_user_command('KittyInput', function()
 	vim.fn.setreg('/', pattern)
 
 	env.map('n', 'gy', 'jVnko')
-end, {})
+end)
+
+env.cmd('M', function(args)
+	vim.cmd('Man ' .. args.args)
+end, { nargs = '+' })
+
+env.cmd('H', function(args)
+	local cmd = args.fargs
+	table.insert(cmd, '--help')
+	local output = env.shell(cmd):wait()
+	if output.code ~= 0 then
+		vim.notify('no --help for ' .. args.args)
+		return
+	end
+	vim.cmd('new')
+	vim.cmd('wincmd _')
+	env.set_lines(output.stdout)
+end, { nargs = '+' })

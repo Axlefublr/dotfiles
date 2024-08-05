@@ -217,6 +217,27 @@ function env.do_and_acmd(condition, todo, opts)
 	vim.api.nvim_create_autocmd(event, opts)
 end
 
+---@class UserCommandExecuteClosure
+---@field name string Command name.
+---@field args string The args passed to the command, if any.
+---@field fargs string[] The args split by unescaped whitespace (when more than one argument is allowed), if any.
+---@field nargs integer Number of arguments.
+---@field bang boolean "true" if the command was executed with a ! modifier.
+---@field line1 integer The starting line of the command range.
+---@field line2 integer The final line of the command range.
+---@field range 0|1|2 The number of items in the command range.
+---@field count integer Any count supplied.
+---@field reg string The optional register, if specified.
+---@field mods string Command modifiers, if any.
+---@field smods table Command modifiers in a structured format.
+
+---@param name string
+---@param execute string|fun(args: UserCommandExecuteClosure)
+---@param opts vim.api.keyset.user_command?
+function env.cmd(name, execute, opts)
+	vim.api.nvim_create_user_command(name, execute, opts or {})
+end
+
 ---Emit event
 ---@param event string|string[]
 ---@param pattern (string|string[])?
@@ -311,6 +332,17 @@ function env.confirm_same(prompt, options, default)
 	local index = vim.fn.confirm(prompt, options_text, default or 1)
 	if index == 0 then return nil end
 	return options[index]
+end
+
+---@param text string|string[]
+---@param start integer? 0 if nil
+---@param finish integer? last line in the file if nil. which only works if bufnr is also current buffer.
+---@param bufnr integer? 0 if nil
+function env.set_lines(text, start, finish, bufnr)
+	if type(text) == 'string' then
+		text = text:split('\n')
+	end
+	vim.api.nvim_buf_set_lines(bufnr or 0, start or 0, finish or vim.fn.line('$'), false, text)
 end
 
 local function get_selection_col_bounds()
