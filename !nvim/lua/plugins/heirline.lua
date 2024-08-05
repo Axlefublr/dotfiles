@@ -23,7 +23,7 @@ local function build_opts()
 	}
 
 	---@param provider string|function
-	---@param side nil|'right'|'left'
+	---@param side nil|'right'|'left' `'right'` if `nil`
 	local function decreasing_length(provider, side)
 		local elements = {
 			{ provider = provider },
@@ -74,7 +74,7 @@ local function build_opts()
 						else
 							return vim.fn.expand('%:~:.')
 						end
-					end, 'left')
+					end, 'left'),
 				},
 			},
 			fill,
@@ -85,8 +85,8 @@ local function build_opts()
 					decreasing_length(function()
 						local cwd = vim.fn.getcwd()
 						return vim.fn.fnamemodify(cwd, ':~')
-					end, 'left')
-				}
+					end, 'left'),
+				},
 			},
 			{ -- tabline
 				condition = function() return #vim.api.nvim_list_tabpages() >= 2 end,
@@ -148,24 +148,6 @@ local function build_opts()
 				end,
 				update = 'ModeChanged',
 			},
-			{ -- latest insertion
-				hl = env.high({ fg = env.color.feeble, italic = true }),
-				condition = function() return vim.fn.getreg('.') ~= '' end,
-				update = { 'InsertLeave', 'CmdlineLeave', 'VimResized' },
-				padding(),
-				{
-					provider = '<',
-					update = false,
-				},
-				{
-					flexible = 1,
-					decreasing_length(function() return vim.fn.getreg('.') end),
-				},
-				{
-					provider = '>',
-					update = false,
-				},
-			},
 			{ -- latest :command
 				hl = env.high({ fg = env.color.feeble }),
 				condition = function() return vim.fn.getreg(':') ~= '' end,
@@ -185,6 +167,24 @@ local function build_opts()
 				provider = ' %S',
 			},
 			fill,
+			{ -- latest insertion
+				hl = env.high({ fg = env.color.feeble, italic = true }),
+				condition = function() return vim.fn.getreg('.') ~= '' end,
+				update = { 'InsertLeave', 'CmdlineLeave', 'VimResized' },
+				{
+					provider = '<',
+					update = false,
+				},
+				{
+					flexible = 1,
+					decreasing_length(function() return vim.fn.getreg('.') end),
+				},
+				{
+					provider = '>',
+					update = false,
+				},
+				padding(),
+			},
 			{ -- macro record
 				condition = function() return vim.fn.reg_recording() ~= '' end,
 				hl = env.high({ fg = env.color.orange, bold = true }),
