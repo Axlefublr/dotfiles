@@ -141,6 +141,7 @@ env.icons = {
 	debug = '',
 	circle_dot = '',
 	magnifying_glass = '',
+	etc = '…',
 }
 
 function env.to_base_36(number)

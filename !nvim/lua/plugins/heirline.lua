@@ -22,6 +22,28 @@ local function build_opts()
 		provider = '%=',
 	}
 
+	---@param provider string|function
+	local function decreasing_length(provider)
+		local elements = {
+			{ provider = provider },
+		}
+		for length = 80, 0, -5 do
+			table.insert(elements, {
+				provider = function()
+					local output = nil
+					if type(provider) == 'function' then
+						output = provider()
+					else
+						output = provider
+					end
+					if length == 0 then return env.icons.etc end
+					return output:sub(1, length) .. env.icons.etc
+				end,
+			})
+		end
+		return unpack(elements)
+	end
+
 	return {
 		tabline = {
 			{ -- buffer icon
@@ -115,17 +137,36 @@ local function build_opts()
 				end,
 				update = 'ModeChanged',
 			},
+			{ -- latest insertion
+				hl = env.high({ fg = env.color.feeble }),
+				condition = function() return vim.fn.getreg('.') ~= '' end,
+				update = { 'InsertLeave', 'CmdlineLeave' },
+				padding(),
+				{
+					provider = '<',
+					update = false,
+				},
+				{
+					flexible = 1,
+					decreasing_length(function() return vim.fn.getreg('.') end),
+				},
+				{
+					provider = '>',
+					update = false,
+				},
+			},
 			{ -- latest :command
 				hl = env.high({ fg = env.color.feeble }),
 				condition = function() return vim.fn.getreg(':') ~= '' end,
-				update = 'CmdlineLeave',
+				update = { 'CmdlineLeave', 'InsertLeave' },
 				padding(),
 				{
 					provider = ':',
 					update = false,
 				},
 				{
-					provider = function() return vim.fn.getreg(':') end,
+					flexible = 1,
+					decreasing_length(function() return vim.fn.getreg(':') end),
 				},
 			},
 			{ -- cmdinfo
@@ -232,8 +273,8 @@ local function build_opts()
 						padding(),
 						hl = env.high({ fg = env.color.red, bold = true }),
 					},
-					padding()
-				}
+					padding(),
+				},
 			},
 			{ -- ruler
 				provider = function()

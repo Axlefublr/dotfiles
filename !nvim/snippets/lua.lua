@@ -4,6 +4,7 @@ return {
 	s({ filetype = 'lua', trig = 'field' }, { t('---@field ') }),
 	s({ filetype = 'lua', trig = 'fiel' }, { t('@field ') }),
 	s({ filetype = 'lua', trig = 'param' }, { t('---@param ') }),
+	s({ filetype = 'lua', trig = 'para' }, { t('@param ') }),
 	s({ filetype = 'lua', trig = 'returns' }, { t('---@return ') }),
 	s({ filetype = 'lua', trig = 'type' }, { t('---@type ') }),
 	s({ filetype = 'lua', trig = 'as' }, fmta('--' .. '[[@as <>]]', i(1))),
