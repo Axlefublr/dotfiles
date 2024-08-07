@@ -653,6 +653,7 @@ local normal_mappings = {
 	-- Folding
 	zo = 'zx',
 	zi = 'zc',
+	zc = 'zo',
 	['zM'] = function() vim.wo.foldlevel = vim.v.count end,
 	-- ['zM'] = function()
 	-- 	vim.b.ufo_foldlevel = vim.v.count
