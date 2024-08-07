@@ -1105,8 +1105,8 @@ keymap:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      Shift_L-w: { launch: [awesome-client, Ignore_all_urgencies()] }
-      Shift_L-e:
+      Ctrl-Esc: { launch: [awesome-client, Ignore_all_urgencies()] }
+      Alt-Esc:
         { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
 
   - name: Any! media
