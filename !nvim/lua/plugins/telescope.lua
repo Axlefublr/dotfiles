@@ -111,11 +111,12 @@ local telescope_opts = function()
 		pickers = {
 			find_files = {
 				hidden = true,
-				no_ignore = true,
-				no_ignore_parent = true,
+				no_ignore = false,
+				no_ignore_parent = false,
 			},
 			live_grep = {
 				disable_coordinates = true,
+				additional_args = { '--hidden' }
 			},
 			grep_string = {
 				initial_mode = 'normal',
@@ -123,6 +124,7 @@ local telescope_opts = function()
 					hide_on_startup = false,
 				},
 				disable_coordinates = true,
+				additional_args = { '--hidden' }
 			},
 			git_commits = {
 				mappings = {

@@ -1,5 +1,15 @@
 ---@diagnostic disable: undefined-global
 return {
+	s(
+		{ filetype = 'lua', trig = 'diag' },
+		fmta('---@diagnostic <>: ', {
+			c(1, {
+				t('disable-next-line'),
+				t('disable'),
+				t('disable-line'),
+			}),
+		})
+	),
 	s({ filetype = 'lua', trig = 'class' }, { t('---@class ') }),
 	s({ filetype = 'lua', trig = 'field' }, { t('---@field ') }),
 	s({ filetype = 'lua', trig = 'fiel' }, { t('@field ') }),

@@ -58,3 +58,4 @@ abbr -a tm toggle_media
 abbr -a ntf notify-send
 abbr -a chx 'chmod +x'
 abbr -a awm awesome-client
+abbr -a ttyper 'ttyper -l uclanr -w 25'

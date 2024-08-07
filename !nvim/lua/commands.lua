@@ -60,7 +60,7 @@ env.cmd('KittyInput', function()
 	local pattern = require('harp').filetype_search_get_pattern('f', '')
 	vim.fn.setreg('/', pattern)
 
-	env.map('n', 'gy', 'jVnko')
+	env.bmap('n', 'gy', 'jVnko')
 end)
 
 env.cmd('M', function(args)

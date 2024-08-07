@@ -21,8 +21,7 @@ local function save(and_format)
 end
 
 local function close_try_save()
-	---@diagnostic disable-next-line: param-type-mismatch
-	pcall(vim.cmd, 'silent update')
+	pcall(vim.cmd --[[@as function]], 'silent update')
 	vim.cmd('q!')
 end
 
@@ -250,7 +249,7 @@ local function execute_this_file()
 	local filetype = vim.bo.filetype
 	if filetype == 'lua' then
 		save()
-		vim.cmd('source')
+		vim.cmd('%lua')
 		return
 	end
 	save('format')
@@ -1049,24 +1048,9 @@ local normal_mappings = {
 	[']w'] = 'gt',
 
 	-- Telescope
-	['<Leader>ja'] = function() require('telescope.builtin').find_files() end,
-	['<Leader>jA'] = function()
-		require('telescope.builtin').find_files({
-			search_dirs = env.extra_directories,
-		})
-	end,
-	['<Leader>jf'] = function()
-		require('telescope.builtin').find_files({
-			hidden = false,
-			no_ignore = false,
-			no_ignore_parent = false,
-		})
-	end,
+	['<Leader>jf'] = function() require('telescope.builtin').find_files() end,
 	['<Leader>jF'] = function()
 		require('telescope.builtin').find_files({
-			hidden = false,
-			no_ignore = false,
-			no_ignore_parent = false,
 			search_dirs = env.extra_directories,
 		})
 	end,
@@ -1076,32 +1060,7 @@ local normal_mappings = {
 			search_dirs = env.extra_directories,
 		})
 	end,
-	['<Leader>jg'] = function()
-		require('telescope.builtin').live_grep({
-			additional_args = {
-				'--no-ignore',
-				'--hidden',
-			},
-		})
-	end,
-	['<Leader>jG'] = function()
-		require('telescope.builtin').live_grep({
-			search_dirs = env.extra_directories,
-			additional_args = {
-				'--no-ignore',
-				'--hidden',
-			},
-		})
-	end,
 	['<Leader>jr'] = function() require('telescope.builtin').grep_string() end,
-	['<Leader>jt'] = function()
-		require('telescope.builtin').grep_string({
-			additional_args = {
-				'--no-ignore',
-				'--hidden',
-			},
-		})
-	end,
 	['<Leader>jq'] = function() require('telescope.builtin').help_tags() end,
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
