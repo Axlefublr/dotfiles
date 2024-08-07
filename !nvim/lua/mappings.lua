@@ -1055,6 +1055,16 @@ local normal_mappings = {
 		})
 	end,
 	['<Leader>jd'] = function() require('telescope.builtin').live_grep() end,
+	['<Leader>ja'] = function()
+		local args = { '--hidden' }
+		local input = env.input('rg: ')
+		if not input then return end
+		local args = vim.list_extend(input:split('\\s\\+'), args)
+		vim.print(args)
+		require('telescope.builtin').live_grep({
+			additional_args = args
+		})
+	end,
 	['<Leader>jD'] = function()
 		require('telescope.builtin').live_grep({
 			search_dirs = env.extra_directories,
