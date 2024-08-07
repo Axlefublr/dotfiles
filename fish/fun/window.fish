@@ -6,12 +6,12 @@ end
 funcsave get_windows >/dev/null
 
 function matches
-    get_windows | rg $argv[1]
+    get_windows | rg $argv
 end
 funcsave matches >/dev/null
 
 function not_matches
-    if get_windows | rg $argv[1]
+    if get_windows | rg $argv
         return 1
     else
         return 0

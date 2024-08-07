@@ -1128,6 +1128,7 @@ local normal_mappings = {
 	zff = 'zfl',
 	['g:'] = 'g,',
 	['&'] = ':.,$s;;;c<Left><Left>',
+	gss = { 'gcc', remap = true },
 	['<Leader>lp'] = '<Cmd>Inspect<CR>',
 }
 
@@ -1257,7 +1258,6 @@ local pending_mappings = {
 	['}'] = 'V}',
 	['+'] = 'v+',
 	['-'] = 'v-',
-	gs = { 'gc', remap = true },
 	im = '<Cmd>lua require("various-textobjs").indentation("inner", "inner") ; vim.cmd("normal! ok")<CR>',
 	am = '<Cmd>lua require("various-textobjs").indentation("inner", "inner") ; vim.cmd("normal! jok")<CR>',
 	iM = '<Cmd>lua require("various-textobjs").indentation("inner", "inner") ; vim.cmd("normal! o2k")<CR>',
@@ -1314,6 +1314,7 @@ local normal_visual_pending_mappings = {
 	gM = 'M',
 	['g.'] = 'gn',
 	['g>'] = 'gN',
+	gs = { 'gc', remap = true },
 	['<Leader><Space>'] = function() -- test mapping
 	end,
 }
