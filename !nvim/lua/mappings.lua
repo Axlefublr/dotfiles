@@ -1062,7 +1062,14 @@ local normal_mappings = {
 		local args = vim.list_extend(input:split('\\s\\+'), args)
 		vim.print(args)
 		require('telescope.builtin').live_grep({
-			additional_args = args
+			additional_args = args,
+		})
+	end,
+	['<Leader>js'] = function()
+		local files = { vim.api.nvim_buf_get_name(0) }
+		require('telescope.builtin').live_grep({
+			search_dirs = files,
+			path_display = function() return '' end,
 		})
 	end,
 	['<Leader>jD'] = function()
@@ -1075,7 +1082,6 @@ local normal_mappings = {
 	['<Leader>jc'] = function() require('telescope.builtin').git_commits() end,
 	['<Leader>jC'] = function() require('telescope.builtin').git_bcommits() end,
 	['<Leader>jV'] = function() require('telescope.builtin').git_branches() end,
-	-- ['<Leader>jx'] = function() require('telescope.builtin').git_stash() end,
 	['<Leader>je'] = function() require('telescope.builtin').git_status() end,
 	['<Leader>j\\'] = function() require('telescope.builtin').builtin() end,
 	['<Leader>jw'] = function() require('telescope.builtin').buffers() end,
