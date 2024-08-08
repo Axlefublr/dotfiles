@@ -150,16 +150,18 @@ local function build_opts()
 			},
 			{ -- latest :command
 				hl = env.high({ fg = env.color.feeble }),
-				condition = function() return vim.fn.getreg(':') ~= '' end,
 				update = { 'CmdlineLeave', 'VimResized' },
-				padding(),
 				{
-					provider = ':',
-					update = false,
-				},
-				{
-					flexible = 1,
-					decreasing_length(function() return vim.fn.getreg(':') end),
+					condition = function() return vim.fn.getreg(':') ~= '' end,
+					padding(),
+					{
+						provider = ':',
+						update = false,
+					},
+					{
+						flexible = 1,
+						decreasing_length(function() return vim.fn.getreg(':') end),
+					},
 				},
 			},
 			{ -- cmdinfo
@@ -190,108 +192,124 @@ local function build_opts()
 				},
 			},
 			{ -- macro record
-				condition = function() return vim.fn.reg_recording() ~= '' end,
 				hl = env.high({ fg = env.color.orange, bold = true }),
 				update = {
 					'RecordingEnter',
 					'RecordingLeave',
 				},
 				{
-					provider = ' ',
-				},
-				{
-					provider = function() return vim.fn.reg_recording() end,
-				},
-				padding(),
-			},
-			{ -- searches
-				condition = function() return vim.v.hlsearch ~= 0 end,
-				{
-					init = function(self)
-						local ok, search = pcall(vim.fn.searchcount)
-						if ok and search.total then self.search = search end
-					end,
-					hl = env.high({ fg = env.color.purple, bold = true }),
-					provider = function(self)
-						local search = self.search
-						if search.current == 0 and search.total == 0 then return end
-						return string.format('%s %d/%d', env.icons.magnifying_glass, search.current, search.total)
-					end,
-				},
-				padding(),
-			},
-			{ -- diags
-				condition = require('heirline.conditions').has_diagnostics,
-				init = function(self)
-					self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
-					self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) > 0
-					self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT }) > 0
-					self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO }) > 0
-				end,
-				update = { 'DiagnosticChanged', 'BufEnter' },
-				{
-					condition = function(self) return self.hints end,
-					provider = function() return '!' end,
-					hl = 'DiagnosticSignHint',
-				},
-				{
-					condition = function(self) return self.info end,
-					provider = function() return '!' end,
-					hl = 'DiagnosticSignInfo',
-				},
-				{
-					condition = function(self) return self.warnings end,
-					provider = function() return '!' end,
-					hl = 'DiagnosticSignWarn',
-				},
-				{
-					condition = function(self) return self.errors end,
-					provider = function() return '!' end,
-					hl = 'DiagnosticSignError',
-				},
-				padding(),
-			},
-			{ -- gitsigns
-				condition = require('heirline.conditions').is_git_repo,
-				update = { 'TextChanged', 'BufEnter', 'InsertLeave', 'DiagnosticChanged' },
-
-				init = function(self)
-					self.status_dict = vim.b.gitsigns_status_dict
-					self.has_changes = self.status_dict.added ~= 0
-						or self.status_dict.removed ~= 0
-						or self.status_dict.changed ~= 0
-				end,
-
-				{
-					condition = function(self) return self.has_changes end,
+					condition = function() return vim.fn.reg_recording() ~= '' end,
 					{
-						condition = function(self) return self.status_dict.added and self.status_dict.added ~= 0 end,
-						{
-							provider = env.icons.git_added,
-						},
-						padding(),
-						hl = env.high({ fg = env.color.green, bold = true }),
+						provider = ' ',
+						update = false,
 					},
 					{
-						condition = function(self) return self.status_dict.changed and self.status_dict.changed ~= 0 end,
-						{
-							provider = env.icons.git_modified,
-						},
-						padding(),
-						hl = env.high({ fg = env.color.cyan, bold = true }),
-					},
-					{
-						condition = function(self) return self.status_dict.removed and self.status_dict.removed ~= 0 end,
-						{
-							provider = env.icons.git_deleted,
-						},
-						padding(),
-						hl = env.high({ fg = env.color.red, bold = true }),
+						provider = function() return vim.fn.reg_recording() end,
 					},
 					padding(),
 				},
 			},
+			{ -- searches
+				update = { 'CursorMoved', 'InsertEnter', 'InsertLeave', 'CmdlineLeave' },
+				{
+					condition = function() return vim.v.hlsearch ~= 0 end,
+					{
+						init = function(self)
+							local ok, search = pcall(vim.fn.searchcount)
+							if ok and search.total then self.search = search end
+						end,
+						hl = env.high({ fg = env.color.purple, bold = true }),
+						provider = function(self)
+							local search = self.search
+							if search.current == 0 and search.total == 0 then return end
+							return string.format('%s %d/%d', env.icons.magnifying_glass, search.current, search.total)
+						end,
+					},
+					padding(),
+				},
+			},
+			{ -- diags
+				update = { 'DiagnosticChanged', 'BufEnter' },
+				{
+					condition = function() return require('heirline.conditions').has_diagnostics() end,
+					init = function(self)
+						self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+						self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) > 0
+						self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT }) > 0
+						self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO }) > 0
+					end,
+					{
+						condition = function(self) return self.hints end,
+						provider = '!',
+						update = false,
+						hl = 'DiagnosticSignHint',
+					},
+					{
+						condition = function(self) return self.info end,
+						provider = '!',
+						update = false,
+						hl = 'DiagnosticSignInfo',
+					},
+					{
+						condition = function(self) return self.warnings end,
+						provider = '!',
+						update = false,
+						hl = 'DiagnosticSignWarn',
+					},
+					{
+						condition = function(self) return self.errors end,
+						provider = '!',
+						update = false,
+						hl = 'DiagnosticSignError',
+					},
+					padding(),
+				},
+			},
+			{ -- gitsigns
+				update = { 'TextChanged', 'BufEnter', 'InsertLeave', 'DiagnosticChanged' },
+				{
+					condition = function() return require('heirline.conditions').is_git_repo() end,
+					init = function(self)
+						self.status_dict = vim.b.gitsigns_status_dict
+						self.has_changes = self.status_dict.added ~= 0
+							or self.status_dict.removed ~= 0
+							or self.status_dict.changed ~= 0
+					end,
+					{
+						condition = function(self) return self.has_changes end,
+						{
+							condition = function(self) return self.status_dict.added and self.status_dict.added ~= 0 end,
+							{
+								provider = env.icons.git_added,
+								update = false,
+							},
+							padding(),
+							hl = env.high({ fg = env.color.green, bold = true }),
+						},
+						{
+							condition = function(self) return self.status_dict.changed and self.status_dict.changed ~= 0 end,
+							{
+								provider = env.icons.git_modified,
+								update = false,
+							},
+							padding(),
+							hl = env.high({ fg = env.color.cyan, bold = true }),
+						},
+						{
+							condition = function(self) return self.status_dict.removed and self.status_dict.removed ~= 0 end,
+							{
+								provider = env.icons.git_deleted,
+								update = false,
+							},
+							padding(),
+							hl = env.high({ fg = env.color.red, bold = true }),
+						},
+						padding(),
+					},
+				},
+			},
 			{ -- ruler
+				update = 'CursorMoved',
 				provider = function()
 					local line = vim.fn.line('.')
 					local char = vim.fn.virtcol('.')
@@ -315,37 +333,44 @@ local function build_opts()
 				},
 			},
 			{ -- filetype
-				padding(),
-				{ provider = function() return vim.bo.filetype end },
-				condition = function() return vim.bo.filetype ~= '' end,
 				hl = env.high({ bold = true }),
 				update = { 'FileType', 'BufEnter' },
+				{
+					condition = function() return vim.bo.filetype ~= '' end,
+					padding(),
+					{
+						provider = function() return vim.bo.filetype end,
+					},
+				},
 			},
 			{ -- modified
-				provider = ' ' .. env.icons.circle_dot,
-				condition = function() return vim.bo.modified end,
+				update = 'BufModifiedSet',
+				{
+					condition = function() return vim.bo.modified end,
+					provider = ' ' .. env.icons.circle_dot,
+					update = false,
+				},
 			},
 		},
 		statuscolumn = {
+			condition = function() return vim.wo.relativenumber end,
+			init = function(self)
+				local ffi = require('stolen_ffi')
+				local wp = ffi.C.find_window_by_handle(0, ffi.new('Error')) -- get window handler
+				local fold_info = ffi.C.fold_info(wp, vim.v.lnum)
+				-- local starts_a_fold =  and '%#FoldColumn# ' or ' '
+				self.starts_a_fold = fold_info.start == vim.v.lnum
+				self.isnt_wrapped = vim.v.virtnum <= 0
+			end,
 			{
-				condition = function() return vim.wo.relativenumber end,
-				init = function(self)
-					local ffi = require('stolen_ffi')
-					local wp = ffi.C.find_window_by_handle(0, ffi.new('Error')) -- get window handler
-					local fold_info = ffi.C.fold_info(wp, vim.v.lnum)
-					-- local starts_a_fold =  and '%#FoldColumn# ' or ' '
-					self.starts_a_fold = fold_info.start == vim.v.lnum
-					self.isnt_wrapped = vim.v.virtnum <= 0
-				end,
-				{
-					condition = function(self) return self.isnt_wrapped end,
-					provider = function() return env.to_base_36(vim.v.relnum) end,
-				},
-				{
-					condition = function(self) return self.isnt_wrapped and self.starts_a_fold end,
-					hl = env.high({ bg = env.color.dark13 }),
-					provider = ' ',
-				},
+				condition = function(self) return self.isnt_wrapped end,
+				provider = function() return env.to_base_36(vim.v.relnum) end,
+			},
+			{
+				condition = function(self) return self.isnt_wrapped and self.starts_a_fold end,
+				hl = env.high({ bg = env.color.dark13 }),
+				provider = ' ',
+				update = false
 			},
 		},
 	}
