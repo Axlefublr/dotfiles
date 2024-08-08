@@ -167,24 +167,6 @@ local function build_opts()
 				provider = ' %S',
 			},
 			fill,
-			{ -- latest insertion
-				hl = env.high({ fg = env.color.feeble, italic = true }),
-				condition = function() return vim.fn.getreg('.') ~= '' end,
-				update = { 'InsertLeave', 'CmdlineLeave', 'VimResized' },
-				{
-					provider = '<',
-					update = false,
-				},
-				{
-					flexible = 1,
-					decreasing_length(function() return vim.fn.getreg('.') end),
-				},
-				{
-					provider = '>',
-					update = false,
-				},
-				padding(),
-			},
 			{ -- macro record
 				condition = function() return vim.fn.reg_recording() ~= '' end,
 				hl = env.high({ fg = env.color.orange, bold = true }),
