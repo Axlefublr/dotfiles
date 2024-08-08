@@ -8,7 +8,7 @@ env.acmd('BufUnload', '/dev/shm/fish_edit_commandline.fish', function()
 	file:close()
 end)
 
-env.acmd({ 'BufEnter' }, nil, function(ev)
+env.acmd({ 'BufEnter', 'FocusGained' }, nil, function(ev)
 	local path = vim.api.nvim_buf_get_name(ev.buf)
 	if not path or path == '' then return end
 	local file = io.open('/home/axlefublr/.local/share/youngest_nvim_file', 'w+')

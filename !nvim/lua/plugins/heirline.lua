@@ -151,7 +151,7 @@ local function build_opts()
 			{ -- latest :command
 				hl = env.high({ fg = env.color.feeble }),
 				condition = function() return vim.fn.getreg(':') ~= '' end,
-				update = { 'CmdlineLeave', 'InsertLeave', 'VimResized' },
+				update = { 'CmdlineLeave', 'VimResized' },
 				padding(),
 				{
 					provider = ':',
@@ -167,6 +167,28 @@ local function build_opts()
 				provider = ' %S',
 			},
 			fill,
+			{ -- contents of clipboard
+				hl = env.high({ fg = env.color.feeble }),
+				update = { 'TextChanged', 'TextYankPost', 'FocusGained', 'VimResized', 'CmdlineLeave' },
+				{
+					condition = function() return vim.fn.getreg('+') ~= '' end,
+					{
+						flexible = 1,
+						decreasing_length(function()
+							local clipboard = vim.fn.getreg('+')
+							if clipboard == '' then return '' end
+							local no_white = vim.fn.matchstr(clipboard, '\\s*\\zs.*')
+							local has_newlines = no_white:find('\n')
+							if has_newlines then
+								return no_white:sub(1, has_newlines - 1) .. '󱞩'
+							else
+								return no_white
+							end
+						end),
+					},
+					padding(),
+				},
+			},
 			{ -- macro record
 				condition = function() return vim.fn.reg_recording() ~= '' end,
 				hl = env.high({ fg = env.color.orange, bold = true }),
