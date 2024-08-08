@@ -22,14 +22,15 @@ alias --save gx 'glaza --git' >/dev/null
 alias --save tg 'clx && ni | tgpt' >/dev/null
 alias --save ign 'indeed -u .gitignore' >/dev/null
 alias --save py python >/dev/null
-alias --save grf 'git_search_file' > /dev/null
-alias --save grf 'git_search_file' > /dev/null
-alias --save gq 'oil' > /dev/null
-alias --save gt 'git tag' > /dev/null
-alias --save cacl 'cargo clean' > /dev/null
-alias --save xk 'xdotool key' > /dev/null
-alias --save awl 'awesome-client' > /dev/null
-alias --save tm 'toggle_media' > /dev/null
-alias --save ntf 'notify-send' > /dev/null
-alias --save chx 'chmod +x' > /dev/null
-alias --save awm 'awesome-client' > /dev/null
+alias --save grf git_search_file >/dev/null
+alias --save grf git_search_file >/dev/null
+alias --save gq oil >/dev/null
+alias --save gt 'git tag' >/dev/null
+alias --save cacl 'cargo clean' >/dev/null
+alias --save xk 'xdotool key' >/dev/null
+alias --save xt 'xdotool type' >/dev/null
+alias --save awl awesome-client >/dev/null
+alias --save tm toggle_media >/dev/null
+alias --save ntf notify-send >/dev/null
+alias --save chx 'chmod +x' >/dev/null
+alias --save awm awesome-client >/dev/null

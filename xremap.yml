@@ -280,118 +280,118 @@ keymap:
         remap:
           CapsLock-Comma:
             remap:
-              CapsLock-Comma: { launch: [cps.fish, '¡'] }
-              CapsLock-l: { launch: [cps.fish, '≠'] }
-              Shift-Slash: { launch: [cps.fish, '‽'] }
+              CapsLock-Comma: { launch: [cpt.fish, '¡'] }
+              CapsLock-l: { launch: [cpt.fish, '≠'] }
+              Shift-Slash: { launch: [cpt.fish, '‽'] }
           CapsLock-m:
             remap:
-              o: { launch: [cps.fish, '‰'] }
+              o: { launch: [cpt.fish, '‰'] }
           CapsLock-LeftBrace:
             remap:
-              b: { launch: [cps.fish, '₍'] }
-              t: { launch: [cps.fish, '⁽'] }
+              b: { launch: [cpt.fish, '₍'] }
+              t: { launch: [cpt.fish, '⁽'] }
           CapsLock-RightBrace:
             remap:
-              b: { launch: [cps.fish, '₎'] }
-              t: { launch: [cps.fish, '⁾'] }
+              b: { launch: [cpt.fish, '₎'] }
+              t: { launch: [cpt.fish, '⁾'] }
           Dot:
             remap:
-              Dot: { launch: [cps.fish, '…'] }
+              Dot: { launch: [cpt.fish, '…'] }
           Comma:
             remap:
-              Shift-Apostrophe: { launch: [cps.fish, '„'] }
-              Apostrophe: { launch: [cps.fish, '‚'] }
+              Shift-Apostrophe: { launch: [cpt.fish, '„'] }
+              Apostrophe: { launch: [cpt.fish, '‚'] }
           CapsLock-j:
             remap:
-              CapsLock-k: { launch: [cps.fish, '±'] }
-              t: { launch: [cps.fish, '⁺'] }
-              b: { launch: [cps.fish, '₊'] }
+              CapsLock-k: { launch: [cpt.fish, '±'] }
+              t: { launch: [cpt.fish, '⁺'] }
+              b: { launch: [cpt.fish, '₊'] }
           CapsLock-k:
             remap:
-              Dot: { launch: [cps.fish, '–'] }
-              CapsLock-k: { launch: [cps.fish, '—'] }
-              t: { launch: [cps.fish, '⁻'] }
-              b: { launch: [cps.fish, '₋'] }
+              Dot: { launch: [cpt.fish, '–'] }
+              CapsLock-k: { launch: [cpt.fish, '—'] }
+              t: { launch: [cpt.fish, '⁻'] }
+              b: { launch: [cpt.fish, '₋'] }
           Shift-Semicolon:
             remap:
-              CapsLock-k: { launch: [cps.fish, '÷'] }
+              CapsLock-k: { launch: [cpt.fish, '÷'] }
           Shift-Comma:
             remap:
-              Shift-Apostrophe: { launch: [cps.fish, '“'] }
-              Apostrophe: { launch: [cps.fish, '‘'] }
-              CapsLock-l: { launch: [cps.fish, '≤'] }
-              Shift-Comma: { launch: [cps.fish, '«'] }
+              Shift-Apostrophe: { launch: [cpt.fish, '“'] }
+              Apostrophe: { launch: [cpt.fish, '‘'] }
+              CapsLock-l: { launch: [cpt.fish, '≤'] }
+              Shift-Comma: { launch: [cpt.fish, '«'] }
           CapsLock-l:
             remap:
-              b: { launch: [cps.fish, '₌'] }
-              t: { launch: [cps.fish, '⁼'] }
+              b: { launch: [cpt.fish, '₌'] }
+              t: { launch: [cpt.fish, '⁼'] }
           Shift-Dot:
             remap:
-              Shift-Apostrophe: { launch: [cps.fish, '”'] }
-              Apostrophe: { launch: [cps.fish, '’'] }
-              CapsLock-l: { launch: [cps.fish, '≥'] }
-              Shift-Dot: { launch: [cps.fish, '»'] }
+              Shift-Apostrophe: { launch: [cpt.fish, '”'] }
+              Apostrophe: { launch: [cpt.fish, '’'] }
+              CapsLock-l: { launch: [cpt.fish, '≥'] }
+              Shift-Dot: { launch: [cpt.fish, '»'] }
           Shift-Slash:
             remap:
-              CapsLock-Comma: { launch: [cps.fish, '⸘'] }
-              Shift-Slash: { launch: [cps.fish, '¿'] }
+              CapsLock-Comma: { launch: [cpt.fish, '⸘'] }
+              Shift-Slash: { launch: [cpt.fish, '¿'] }
           CapsLock-Alt-Comma:
             remap:
-              CapsLock-Alt-Comma: { launch: [cps.fish, '≈'] }
+              CapsLock-Alt-Comma: { launch: [cpt.fish, '≈'] }
           Super_R-a:
             remap:
-              b: { launch: [cps.fish, '₀'] }
-              t: { launch: [cps.fish, '⁰'] }
+              b: { launch: [cpt.fish, '₀'] }
+              t: { launch: [cpt.fish, '⁰'] }
           Super_R-f:
             remap:
-              b: { launch: [cps.fish, '₁'] }
-              t: { launch: [cps.fish, '¹'] }
+              b: { launch: [cpt.fish, '₁'] }
+              t: { launch: [cpt.fish, '¹'] }
           Super_R-d:
             remap:
-              b: { launch: [cps.fish, '₂'] }
-              t: { launch: [cps.fish, '²'] }
+              b: { launch: [cpt.fish, '₂'] }
+              t: { launch: [cpt.fish, '²'] }
           Super_R-s:
             remap:
-              t: { launch: [cps.fish, '³'] }
-              b: { launch: [cps.fish, '₃'] }
+              t: { launch: [cpt.fish, '³'] }
+              b: { launch: [cpt.fish, '₃'] }
           Super_R-r:
             remap:
-              t: { launch: [cps.fish, '⁴'] }
-              b: { launch: [cps.fish, '₄'] }
+              t: { launch: [cpt.fish, '⁴'] }
+              b: { launch: [cpt.fish, '₄'] }
           Super_R-e:
             remap:
-              t: { launch: [cps.fish, '⁵'] }
-              b: { launch: [cps.fish, '₅'] }
+              t: { launch: [cpt.fish, '⁵'] }
+              b: { launch: [cpt.fish, '₅'] }
           Super_R-w:
             remap:
-              t: { launch: [cps.fish, '⁶'] }
-              b: { launch: [cps.fish, '₆'] }
+              t: { launch: [cpt.fish, '⁶'] }
+              b: { launch: [cpt.fish, '₆'] }
           Super_R-v:
             remap:
-              t: { launch: [cps.fish, '⁷'] }
-              b: { launch: [cps.fish, '₇'] }
+              t: { launch: [cpt.fish, '⁷'] }
+              b: { launch: [cpt.fish, '₇'] }
           Super_R-c:
             remap:
-              t: { launch: [cps.fish, '⁸'] }
-              b: { launch: [cps.fish, '₈'] }
+              t: { launch: [cpt.fish, '⁸'] }
+              b: { launch: [cpt.fish, '₈'] }
           Super_R-x:
             remap:
-              t: { launch: [cps.fish, '⁹'] }
-              b: { launch: [cps.fish, '₉'] }
+              t: { launch: [cpt.fish, '⁹'] }
+              b: { launch: [cpt.fish, '₉'] }
           i:
             remap:
               n:
                 remap:
-                  f: { launch: [cps.fish, '∞'] }
+                  f: { launch: [cpt.fish, '∞'] }
           c:
             remap:
-              e: { launch: [cps.fish, '¢'] }
+              e: { launch: [cpt.fish, '¢'] }
               r:
                 remap:
-                  y: { launch: [cps.fish, '😭'] }
+                  y: { launch: [cpt.fish, '😭'] }
               u:
                 remap:
-                  r: { launch: [cps.fish, '█'] }
+                  r: { launch: [cpt.fish, '█'] }
           e:
             remap:
               n:
@@ -399,18 +399,18 @@ keymap:
                   d: { launch: [cps.fish, 'on EndeavorOS x11 AwesomeWM'] }
               u:
                 remap:
-                  r: { launch: [cps.fish, '€'] }
+                  r: { launch: [cpt.fish, '€'] }
               x:
                 remap:
-                  p: { launch: [cps.fish, '🤯'] }
+                  p: { launch: [cpt.fish, '🤯'] }
           f:
             remap:
               i:
                 remap:
-                  r: { launch: [cps.fish, '🔥'] }
+                  r: { launch: [cpt.fish, '🔥'] }
               w:
                 remap:
-                  k: { launch: [cps.fish, '🎉'] }
+                  k: { launch: [cpt.fish, '🎉'] }
           h:
             remap:
               e:
@@ -425,7 +425,7 @@ keymap:
             remap:
               i:
                 remap:
-                  r: { launch: [cps.fish, '₤'] }
+                  r: { launch: [cpt.fish, '₤'] }
               d:
                 remap:
                   h: { launch: [cps.fish, 'living and dying hell'] }
@@ -433,75 +433,75 @@ keymap:
             remap:
               h:
                 remap:
-                  h: { launch: [cps.fish, '←'] }
+                  h: { launch: [cpt.fish, '←'] }
               j:
                 remap:
-                  j: { launch: [cps.fish, '↓'] }
+                  j: { launch: [cpt.fish, '↓'] }
               k:
                 remap:
-                  k: { launch: [cps.fish, '↑'] }
-                  j: { launch: [cps.fish, '↕'] }
+                  k: { launch: [cpt.fish, '↑'] }
+                  j: { launch: [cpt.fish, '↕'] }
               l:
                 remap:
-                  l: { launch: [cps.fish, '→'] }
-                  h: { launch: [cps.fish, '↔'] }
+                  l: { launch: [cpt.fish, '→'] }
+                  h: { launch: [cpt.fish, '↔'] }
               a:
                 remap:
-                  a: { launch: [cps.fish, '↖'] }
+                  a: { launch: [cpt.fish, '↖'] }
               s:
                 remap:
-                  s: { launch: [cps.fish, '↙'] }
+                  s: { launch: [cpt.fish, '↙'] }
               d:
                 remap:
-                  a: { launch: [cps.fish, '⤡'] }
-                  d: { launch: [cps.fish, '↘'] }
+                  a: { launch: [cpt.fish, '⤡'] }
+                  d: { launch: [cpt.fish, '↘'] }
               f:
                 remap:
-                  s: { launch: [cps.fish, '⤢'] }
-                  f: { launch: [cps.fish, '↗'] }
+                  s: { launch: [cpt.fish, '⤢'] }
+                  f: { launch: [cpt.fish, '↗'] }
           o:
             remap:
-              o: { launch: [cps.fish, '°'] }
+              o: { launch: [cpt.fish, '°'] }
           p:
             remap:
               a:
                 remap:
-                  r: { launch: [cps.fish, '😤'] }
+                  r: { launch: [cpt.fish, '😤'] }
               h:
                 remap:
                   e: { launch: [cps.fish, '😮‍💨'] }
               l:
                 remap:
-                  e: { launch: [cps.fish, '🥺'] }
+                  e: { launch: [cpt.fish, '🥺'] }
               n:
                 remap:
-                  d: { launch: [cps.fish, '£'] }
-                  h: { launch: [cps.fish, '🩷'] }
+                  d: { launch: [cpt.fish, '£'] }
+                  h: { launch: [cpt.fish, '🩷'] }
           r:
             remap:
               u:
                 remap:
-                  b: { launch: [cps.fish, '₽'] }
-                  p: { launch: [cps.fish, '₹'] }
+                  b: { launch: [cpt.fish, '₽'] }
+                  p: { launch: [cpt.fish, '₹'] }
           s:
             remap:
               k:
                 remap:
-                  u: { launch: [cps.fish, '💀'] }
+                  u: { launch: [cpt.fish, '💀'] }
           t:
             remap:
               h:
                 remap:
-                  k: { launch: [cps.fish, '🤔'] }
-              m: { launch: [cps.fish, '™'] }
+                  k: { launch: [cpt.fish, '🤔'] }
+              m: { launch: [cpt.fish, '™'] }
           u:
             remap:
               g:
                 remap:
-                  h: { launch: [cps.fish, '😩'] }
+                  h: { launch: [cpt.fish, '😩'] }
           v:
             remap:
-              Slash: { launch: [cps.fish, '√'] }
+              Slash: { launch: [cpt.fish, '√'] }
           w:
             remap:
               r:
@@ -511,22 +511,22 @@ keymap:
             remap:
               e:
                 remap:
-                  n: { launch: [cps.fish, '¥'] }
+                  n: { launch: [cpt.fish, '¥'] }
               i:
                 remap:
-                  p: { launch: [cps.fish, '🥳'] }
+                  p: { launch: [cpt.fish, '🥳'] }
               l:
                 remap:
-                  h: { launch: [cps.fish, '💛'] }
+                  h: { launch: [cpt.fish, '💛'] }
               u:
                 remap:
-                  m: { launch: [cps.fish, '😋'] }
+                  m: { launch: [cpt.fish, '😋'] }
           x:
             remap:
-              x: { launch: [cps.fish, '×'] }
+              x: { launch: [cpt.fish, '×'] }
           Shift-n:
             remap:
-              o: { launch: [cps.fish, '№'] }
+              o: { launch: [cpt.fish, '№'] }
   - name: Any! chord
     exact_match: true
     remap:
