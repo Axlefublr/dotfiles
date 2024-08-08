@@ -1,7 +1,6 @@
 # /usr/include/linux/input-event-codes.h
 virtual_modifiers:
   - CapsLock
-  - F7
 default_mode: default
 modmap:
   - remap:
@@ -275,6 +274,259 @@ keymap:
       o: end
       p: pagedown
 
+  - name: Any! compose
+    remap:
+      F7:
+        remap:
+          CapsLock-Comma:
+            remap:
+              CapsLock-Comma: { launch: [cps.fish, '¡'] }
+              CapsLock-l: { launch: [cps.fish, '≠'] }
+              Shift-Slash: { launch: [cps.fish, '‽'] }
+          CapsLock-m:
+            remap:
+              o: { launch: [cps.fish, '‰'] }
+          CapsLock-LeftBrace:
+            remap:
+              b: { launch: [cps.fish, '₍'] }
+              t: { launch: [cps.fish, '⁽'] }
+          CapsLock-RightBrace:
+            remap:
+              b: { launch: [cps.fish, '₎'] }
+              t: { launch: [cps.fish, '⁾'] }
+          Dot:
+            remap:
+              Dot: { launch: [cps.fish, '…'] }
+          Comma:
+            remap:
+              Shift-Apostrophe: { launch: [cps.fish, '„'] }
+              Apostrophe: { launch: [cps.fish, '‚'] }
+          CapsLock-j:
+            remap:
+              CapsLock-k: { launch: [cps.fish, '±'] }
+              t: { launch: [cps.fish, '⁺'] }
+              b: { launch: [cps.fish, '₊'] }
+          CapsLock-k:
+            remap:
+              Dot: { launch: [cps.fish, '–'] }
+              CapsLock-k: { launch: [cps.fish, '—'] }
+              t: { launch: [cps.fish, '⁻'] }
+              b: { launch: [cps.fish, '₋'] }
+          Shift-Semicolon:
+            remap:
+              CapsLock-k: { launch: [cps.fish, '÷'] }
+          Shift-Comma:
+            remap:
+              Shift-Apostrophe: { launch: [cps.fish, '“'] }
+              Apostrophe: { launch: [cps.fish, '‘'] }
+              CapsLock-l: { launch: [cps.fish, '≤'] }
+              Shift-Comma: { launch: [cps.fish, '«'] }
+          CapsLock-l:
+            remap:
+              b: { launch: [cps.fish, '₌'] }
+              t: { launch: [cps.fish, '⁼'] }
+          Shift-Dot:
+            remap:
+              Shift-Apostrophe: { launch: [cps.fish, '”'] }
+              Apostrophe: { launch: [cps.fish, '’'] }
+              CapsLock-l: { launch: [cps.fish, '≥'] }
+              Shift-Dot: { launch: [cps.fish, '»'] }
+          Shift-Slash:
+            remap:
+              CapsLock-Comma: { launch: [cps.fish, '⸘'] }
+              Shift-Slash: { launch: [cps.fish, '¿'] }
+          CapsLock-Alt-Comma:
+            remap:
+              CapsLock-Alt-Comma: { launch: [cps.fish, '≈'] }
+          Super_R-a:
+            remap:
+              b: { launch: [cps.fish, '₀'] }
+              t: { launch: [cps.fish, '⁰'] }
+          Super_R-f:
+            remap:
+              b: { launch: [cps.fish, '₁'] }
+              t: { launch: [cps.fish, '¹'] }
+          Super_R-d:
+            remap:
+              b: { launch: [cps.fish, '₂'] }
+              t: { launch: [cps.fish, '²'] }
+          Super_R-s:
+            remap:
+              t: { launch: [cps.fish, '³'] }
+              b: { launch: [cps.fish, '₃'] }
+          Super_R-r:
+            remap:
+              t: { launch: [cps.fish, '⁴'] }
+              b: { launch: [cps.fish, '₄'] }
+          Super_R-e:
+            remap:
+              t: { launch: [cps.fish, '⁵'] }
+              b: { launch: [cps.fish, '₅'] }
+          Super_R-w:
+            remap:
+              t: { launch: [cps.fish, '⁶'] }
+              b: { launch: [cps.fish, '₆'] }
+          Super_R-v:
+            remap:
+              t: { launch: [cps.fish, '⁷'] }
+              b: { launch: [cps.fish, '₇'] }
+          Super_R-c:
+            remap:
+              t: { launch: [cps.fish, '⁸'] }
+              b: { launch: [cps.fish, '₈'] }
+          Super_R-x:
+            remap:
+              t: { launch: [cps.fish, '⁹'] }
+              b: { launch: [cps.fish, '₉'] }
+          i:
+            remap:
+              n:
+                remap:
+                  f: { launch: [cps.fish, '∞'] }
+          c:
+            remap:
+              e: { launch: [cps.fish, '¢'] }
+              r:
+                remap:
+                  y: { launch: [cps.fish, '😭'] }
+              u:
+                remap:
+                  r: { launch: [cps.fish, '█'] }
+          e:
+            remap:
+              n:
+                remap:
+                  d: { launch: [cps.fish, 'on EndeavorOS x11 AwesomeWM'] }
+              u:
+                remap:
+                  r: { launch: [cps.fish, '€'] }
+              x:
+                remap:
+                  p: { launch: [cps.fish, '🤯'] }
+          f:
+            remap:
+              i:
+                remap:
+                  r: { launch: [cps.fish, '🔥'] }
+              w:
+                remap:
+                  k: { launch: [cps.fish, '🎉'] }
+          h:
+            remap:
+              e:
+                remap:
+                  d: { launch: [cps.fish, '🗣️'] }
+          i:
+            remap:
+              d:
+                remap:
+                  k: { launch: [cps.fish, '🤷‍♀️'] }
+          l:
+            remap:
+              i:
+                remap:
+                  r: { launch: [cps.fish, '₤'] }
+              d:
+                remap:
+                  h: { launch: [cps.fish, 'living and dying hell'] }
+          n:
+            remap:
+              h:
+                remap:
+                  h: { launch: [cps.fish, '←'] }
+              j:
+                remap:
+                  j: { launch: [cps.fish, '↓'] }
+              k:
+                remap:
+                  k: { launch: [cps.fish, '↑'] }
+                  j: { launch: [cps.fish, '↕'] }
+              l:
+                remap:
+                  l: { launch: [cps.fish, '→'] }
+                  h: { launch: [cps.fish, '↔'] }
+              a:
+                remap:
+                  a: { launch: [cps.fish, '↖'] }
+              s:
+                remap:
+                  s: { launch: [cps.fish, '↙'] }
+              d:
+                remap:
+                  a: { launch: [cps.fish, '⤡'] }
+                  d: { launch: [cps.fish, '↘'] }
+              f:
+                remap:
+                  s: { launch: [cps.fish, '⤢'] }
+                  f: { launch: [cps.fish, '↗'] }
+          o:
+            remap:
+              o: { launch: [cps.fish, '°'] }
+          p:
+            remap:
+              a:
+                remap:
+                  r: { launch: [cps.fish, '😤'] }
+              h:
+                remap:
+                  e: { launch: [cps.fish, '😮‍💨'] }
+              l:
+                remap:
+                  e: { launch: [cps.fish, '🥺'] }
+              n:
+                remap:
+                  d: { launch: [cps.fish, '£'] }
+                  h: { launch: [cps.fish, '🩷'] }
+          r:
+            remap:
+              u:
+                remap:
+                  b: { launch: [cps.fish, '₽'] }
+                  p: { launch: [cps.fish, '₹'] }
+          s:
+            remap:
+              k:
+                remap:
+                  u: { launch: [cps.fish, '💀'] }
+          t:
+            remap:
+              h:
+                remap:
+                  k: { launch: [cps.fish, '🤔'] }
+              m: { launch: [cps.fish, '™'] }
+          u:
+            remap:
+              g:
+                remap:
+                  h: { launch: [cps.fish, '😩'] }
+          v:
+            remap:
+              Slash: { launch: [cps.fish, '√'] }
+          w:
+            remap:
+              r:
+                remap:
+                  t: { launch: [cps.fish, '✍️'] }
+          y:
+            remap:
+              e:
+                remap:
+                  n: { launch: [cps.fish, '¥'] }
+              i:
+                remap:
+                  p: { launch: [cps.fish, '🥳'] }
+              l:
+                remap:
+                  h: { launch: [cps.fish, '💛'] }
+              u:
+                remap:
+                  m: { launch: [cps.fish, '😋'] }
+          x:
+            remap:
+              x: { launch: [cps.fish, '×'] }
+          Shift-n:
+            remap:
+              o: { launch: [cps.fish, '№'] }
   - name: Any! chord
     exact_match: true
     remap:
@@ -1097,10 +1349,12 @@ keymap:
       Super-Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
       Super-Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
 
-      Super-u: [ { launch: [fish, -c, 'widget_update update_anki no-increment Anki'] }, super-u ]
+      Super-u: [{ launch: [fish, -c, 'widget_update update_anki no-increment Anki'] }, super-u]
 
-      CapsLock-Shift-LeftBrace: { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Shift-RightBrace: { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      CapsLock-Shift-LeftBrace:
+        { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
+      CapsLock-Shift-RightBrace:
+        { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-LeftBrace:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Alt-RightBrace:
@@ -1149,10 +1403,7 @@ keymap:
       Super-c: { launch: [awesome-client, FixBrowserInstance()] }
       Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
       CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
-      Super_R-q: ctrl-shift-u
-      Super_R-g: enter
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
-      Super_R-z: ScrollLock # compose
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
       Super-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }
@@ -1161,7 +1412,7 @@ keymap:
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
       # Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
       Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
-      F8: [ { launch: [clorange, getup, reset] }, { launch: [awesome-client, 'Getup_wd()'] } ]
+      F8: [{ launch: [clorange, getup, reset] }, { launch: [awesome-client, 'Getup_wd()'] }]
       Super-Alt-s:
         {
           launch:
@@ -1215,23 +1466,11 @@ keymap:
     remap:
       Pause: { launch: [fish, -c, suspend] }
 
-  - name: Any soundeffects
-    remap:
-      F7-d: { launch: [fish, -c, 'igrai ~/mus/soundeffects/normal-gunshot.wav 60'] }
-      F7-t: { launch: [fish, -c, 'igrai ~/mus/soundeffects/gunshot-damped.wav 80'] }
-      F7-e: { launch: [fish, -c, 'igrai ~/mus/soundeffects/kvrvist-gunshot.wav 75'] }
-      F7-x: { launch: [fish, -c, 'igrai ~/mus/soundeffects/mp5.wav 60'] }
-      F7-s: { launch: [fish, -c, 'igrai ~/mus/soundeffects/clear-machine-gun-sfx.wav 75'] }
-      F7-v: { launch: [fish, -c, 'igrai ~/mus/soundeffects/gunshot-then-machine-gun.wav 90'] }
-      F7-r: { launch: [fish, -c, 'igrai ~/mus/soundeffects/gun-cock-recharge.wav 95'] }
-
-      F7-f: { launch: [fish, -c, 'igrai ~/mus/soundeffects/audio-volume-change.oga'] }
-      F7-c: { launch: [fish, -c, 'igrai ~/mus/soundeffects/camera-shutter.oga 75'] }
-      F7-z: { launch: [fish, -c, 'igrai ~/mus/soundeffects/confirmation_001.ogg 65'] }
-      F7-a: { launch: [fish, -c, 'igrai ~/mus/soundeffects/multi-pop-2.mp3 65'] }
-
   - name: Any
     remap:
+      Super_R-q: ctrl-shift-u
+      Super_R-g: enter
+      Super_R-z: backspace
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
       CapsLock-f: tab

@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	s({ filetype = 'xcompose', trig = 'mk' }, {
 		t('<Multi_key> <'),
