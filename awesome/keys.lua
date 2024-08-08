@@ -105,8 +105,15 @@ Client_buttons = gears.table.join(
 )
 
 Global_keys = gears.table.join(
-	awful.key({}, '#174', function() -- #174 is the key code for “media stop” on my keyboard, which is what a button on my mouse is remapped to
-		awful.spawn.easy_async_with_shell('pidof boomer && kill boomer || boomer', function() end)
+	awful.key(
+		{},
+		'#174',
+		function() -- #174 is the key code for “media stop” on my keyboard, which is what a button on my mouse is remapped to
+			awful.spawn.easy_async_with_shell('pidof boomer && kill boomer || boomer', function() end)
+		end
+	),
+	awful.key({}, '#208', function()
+		awful.spawn.easy_async_with_shell('toggle_media', function() end)
 	end),
 
 	awful.key({ modkey }, 'l', function() awful.client.focus.byidx(1) end),
