@@ -265,49 +265,6 @@ local function build_opts()
 					padding(),
 				},
 			},
-			{ -- gitsigns
-				update = { 'TextChanged', 'BufEnter', 'InsertLeave', 'DiagnosticChanged' },
-				{
-					condition = function() return require('heirline.conditions').is_git_repo() end,
-					init = function(self)
-						self.status_dict = vim.b.gitsigns_status_dict
-						self.has_changes = self.status_dict.added ~= 0
-							or self.status_dict.removed ~= 0
-							or self.status_dict.changed ~= 0
-					end,
-					{
-						condition = function(self) return self.has_changes end,
-						{
-							condition = function(self) return self.status_dict.added and self.status_dict.added ~= 0 end,
-							{
-								provider = env.icons.git_added,
-								update = false,
-							},
-							padding(),
-							hl = env.high({ fg = env.color.green, bold = true }),
-						},
-						{
-							condition = function(self) return self.status_dict.changed and self.status_dict.changed ~= 0 end,
-							{
-								provider = env.icons.git_modified,
-								update = false,
-							},
-							padding(),
-							hl = env.high({ fg = env.color.cyan, bold = true }),
-						},
-						{
-							condition = function(self) return self.status_dict.removed and self.status_dict.removed ~= 0 end,
-							{
-								provider = env.icons.git_deleted,
-								update = false,
-							},
-							padding(),
-							hl = env.high({ fg = env.color.red, bold = true }),
-						},
-						padding(),
-					},
-				},
-			},
 			{ -- ruler
 				update = 'CursorMoved',
 				provider = function()
