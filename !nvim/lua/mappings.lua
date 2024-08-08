@@ -968,7 +968,7 @@ local normal_mappings = {
 	["'q"] = function() require('qfetter').mark() end,
 	["'Q"] = function() require('qfetter').unmark() end,
 	["''q"] = function() require('qfetter').clear() end,
-	['<Leader>jj'] = function() require('replacer').run() end,
+	['<Leader>jj'] = function() require('quicker').toggle({ focus = true, max_height = math.floor(vim.o.lines / 2) }) end,
 
 	-- Edister
 	['<Leader>g'] = function() require('edister').move_from_one_to_another() end,

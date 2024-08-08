@@ -118,8 +118,10 @@ return {
 	{
 		'kylechui/nvim-surround',
 		keys = {
-			'ys', 'cs', 'ds',
-			{ mode = 'x', 'c' }
+			'ys',
+			'cs',
+			'ds',
+			{ mode = 'x', 'c' },
 		},
 		version = '*',
 		opts = {
@@ -175,7 +177,23 @@ return {
 		end,
 	},
 	{
-		'gabrielpoca/replacer.nvim',
+		'stevearc/quicker.nvim',
 		lazy = true,
-	}
+		---@module "quicker"
+		---@type quicker.SetupOptions
+		opts = {
+			keys = {
+				{
+					'>',
+					function() require('quicker').expand({ add_to_existing = true }) end,
+					desc = 'Expand quickfix context',
+				},
+				{
+					'<',
+					function() require('quicker').collapse() end,
+					desc = 'Collapse quickfix context',
+				},
+			},
+		},
+	},
 }
