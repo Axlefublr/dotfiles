@@ -1,30 +1,6 @@
 ---@diagnostic disable: undefined-global
 return {
 
-	s({ filetype = 'all', trig = 'asi' }, {
-		f(function()
-			local result = env.shell('uclanr'):wait()
-			if result.code ~= 0 then return '' end
-			return result.stdout:trim()
-		end),
-	}),
-
-	s({ filetype = 'all', trig = '~~' }, { f(function() return vim.fn.expand('~') end) }),
-
-	s({ filetype = 'all', trig = 'wd' }, {
-		---@diagnostic disable-next-line: param-type-mismatch
-		f(function() return string.lower(os.date('%A')) end),
-	}),
-	s({ filetype = 'all', trig = 'Wd' }, {
-		f(function() return os.date('%A') end),
-	}),
-	s({ filetype = 'all', trig = 'dt' }, {
-		f(function() return os.date('%y.%m.%d') end),
-	}),
-	s({ filetype = 'all', trig = 'tm' }, {
-		f(function() return os.date('%H:%M') end),
-	}),
-
 	s({ filetype = 'all', trig = 'shred' }, {
 		t('ff2930'),
 	}),
@@ -108,7 +84,7 @@ return {
 		t('292828'),
 	}),
 
-	s({ filetype = 'lua', trig = 'td' }, { t('TODO') }),
+	s({ filetype = 'lua', trig = 'td' }, { t('TODO: ') }),
 	s({ filetype = 'all', trig = 'fx' }, { t('FIXME: ') }),
 	s({ filetype = 'all', trig = 'mov' }, { t('MOVE: ') }),
 }

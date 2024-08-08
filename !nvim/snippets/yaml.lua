@@ -1,7 +1,14 @@
 ---@diagnostic disable: undefined-global
 return {
 	s({ filetype = 'yaml', trig = 're' }, { t({ 'remap:', '  ' }) }),
-	s({ filetype = 'yaml', trig = 'cps' }, fmta("{ launch: [cps.fish, '<>'] }", { i(1) })),
+	s(
+		{ filetype = 'yaml', trig = 'cps' },
+		fmta("{ launch: [cp<>.fish, '<>'] }", { c(1, {
+			t('t'),
+			t('s'),
+			t('h'),
+		}), i(2) })
+	),
 	s({ filetype = 'yaml', trig = '!' }, { t('Alt-') }),
 	s({ filetype = 'yaml', trig = '+' }, { t('Shift-') }),
 	s({ filetype = 'yaml', trig = '^' }, { t('Ctrl-') }),

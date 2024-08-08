@@ -378,11 +378,11 @@ keymap:
             remap:
               t: { launch: [cpt.fish, '⁹'] }
               b: { launch: [cpt.fish, '₉'] }
-          i:
+          a:
             remap:
-              n:
+              s:
                 remap:
-                  f: { launch: [cpt.fish, '∞'] }
+                  i: { launch: [cph.fish, 'uclanr'] }
           c:
             remap:
               e: { launch: [cpt.fish, '¢'] }
@@ -392,6 +392,11 @@ keymap:
               u:
                 remap:
                   r: { launch: [cpt.fish, '█'] }
+              x: { launch: [cpt.fish, '<code>'] }
+              # x: { launch: [fish, -c, 'cps.fish "<code></code>" ; xdotool key Left Left Left Left Left Left Left'] }
+          d:
+            remap:
+              t: { launch: [cph.fish, 'date +%y.%m.%d'] }
           e:
             remap:
               n:
@@ -416,8 +421,12 @@ keymap:
               e:
                 remap:
                   d: { launch: [cps.fish, '🗣️'] }
+              m: { launch: [cps.fish, '/home/axlefublr'] }
           i:
             remap:
+              n:
+                remap:
+                  f: { launch: [cpt.fish, '∞'] }
               d:
                 remap:
                   k: { launch: [cps.fish, '🤷‍♀️'] }
@@ -493,6 +502,7 @@ keymap:
               h:
                 remap:
                   k: { launch: [cpt.fish, '🤔'] }
+              t: { launch: [cph.fish, 'date +%H:%M'] }
               m: { launch: [cpt.fish, '™'] }
           u:
             remap:
@@ -504,6 +514,7 @@ keymap:
               Slash: { launch: [cpt.fish, '√'] }
           w:
             remap:
+              d: { launch: [cph.fish, 'date +%A | string lower'] }
               r:
                 remap:
                   t: { launch: [cps.fish, '✍️'] }
@@ -527,6 +538,9 @@ keymap:
           Shift-n:
             remap:
               o: { launch: [cpt.fish, '№'] }
+          Shift-w:
+            remap:
+              d: { launch: [cph.fish, 'date +%A'] }
   - name: Any! chord
     exact_match: true
     remap:
