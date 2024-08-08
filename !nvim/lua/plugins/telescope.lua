@@ -4,13 +4,6 @@ local telescope_opts = function()
 	local actions_set = require('telescope.actions.set')
 	local actions_state = require('telescope.actions.state')
 
-	local function open_parent_in_oil(bufnr)
-		local selection = actions_state.get_selected_entry().value
-		actions.close(bufnr)
-		local parent_dir = vim.fn.fnamemodify(selection, ':h')
-		require('oil').open(parent_dir)
-	end
-
 	local function git_branch_pick(bufnr)
 		local branch = actions_state.get_selected_entry().value
 		local options = {
@@ -87,7 +80,6 @@ local telescope_opts = function()
 					['L'] = 'preview_scrolling_down',
 					['<C-n>'] = 'move_selection_next',
 					['<C-p>'] = 'move_selection_previous',
-					['<A-q>'] = open_parent_in_oil,
 					['J'] = function(bufnr) actions_set.shift_selection(bufnr, 6) end,
 					['K'] = function(bufnr) actions_set.shift_selection(bufnr, -6) end,
 					['<C-v>'] = false,
@@ -101,7 +93,6 @@ local telescope_opts = function()
 					['<A-U>'] = 'smart_send_to_qflist',
 					['<A-i>'] = layout_actions.toggle_preview,
 					['<S-A-i>'] = layout_actions.cycle_layout_next,
-					['<A-q>'] = open_parent_in_oil,
 					['<C-v>'] = false,
 					['<C-u>'] = false,
 					['<C-d>'] = false,
