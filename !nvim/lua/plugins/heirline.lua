@@ -20,7 +20,7 @@ local function build_opts()
 	local function text(text)
 		return {
 			provider = text,
-			update = false
+			update = false,
 		}
 	end
 
@@ -266,6 +266,27 @@ local function build_opts()
 					padding(),
 				},
 			},
+			{ -- git branch
+				update = { 'User', pattern = { 'GitSignsUpdate' } },
+				{
+					condition = require('heirline.conditions').is_git_repo(),
+					init = function(self)
+						self.dict = vim.b.gitsigns_status_dict
+					end,
+					hl = env.high({ fg = env.color.purple, bold = true }),
+					{
+						condition = function(self)
+							return self.dict
+						end,
+						{
+							provider = function(self)
+								return self.dict.head
+							end
+						},
+						padding(),
+					}
+				},
+			},
 			{ -- ruler
 				update = 'CursorMoved',
 				provider = function()
@@ -305,7 +326,7 @@ local function build_opts()
 				update = 'BufModifiedSet',
 				{
 					condition = function() return vim.bo.modified end,
-					text(' ' .. env.icons.circle_dot)
+					text(' ' .. env.icons.circle_dot),
 				},
 			},
 		},
@@ -326,7 +347,7 @@ local function build_opts()
 			{
 				condition = function(self) return self.isnt_wrapped and self.starts_a_fold end,
 				hl = env.high({ bg = env.color.dark13 }),
-				text(' ')
+				text(' '),
 			},
 		},
 	}
