@@ -313,7 +313,8 @@ return {
 			env.set_high('TelescopeSelection', { bg = env.color.dark12 })
 			env.set_high('TelescopeMatching', { fg = env.color.shell_yellow, bold = true })
 			env.set_high('TelescopeSelectionCaret', { fg = env.color.shell_yellow, bg = env.color.dark12, bold = true })
-			env.set_high('TelescopeMultiSelection', { link = 'Blue' })
+			env.set_high('TelescopeMultiSelection', { fg = env.color.shell_orange, bold = true })
+			env.set_high('TelescopeMultiIcon', { fg = env.color.shell_orange, bold = true })
 
 			require('telescope').setup(opts)
 		end,
