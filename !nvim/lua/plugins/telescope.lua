@@ -70,26 +70,40 @@ local telescope_opts = function()
 			},
 			mappings = {
 				n = {
-					['T'] = 'select_vertical',
-					['t'] = 'select_horizontal',
+					['<Leader>al'] = 'select_vertical',
+					['<Leader>aj'] = 'select_horizontal',
 					['Q'] = 'smart_add_to_qflist',
 					['q'] = 'smart_send_to_qflist',
-					['f'] = layout_actions.toggle_preview,
-					['F'] = layout_actions.cycle_layout_next,
+					['/'] = layout_actions.toggle_preview,
+					['?'] = layout_actions.cycle_layout_next,
 					['H'] = 'preview_scrolling_up',
 					['L'] = 'preview_scrolling_down',
 					['<C-n>'] = 'move_selection_next',
 					['<C-p>'] = 'move_selection_previous',
-					['J'] = function(bufnr) actions_set.shift_selection(bufnr, 6) end,
-					['K'] = function(bufnr) actions_set.shift_selection(bufnr, -6) end,
+					['J'] = function(bufnr)
+						actions.toggle_selection(bufnr)
+						actions.move_selection_next(bufnr)
+					end,
+					['K'] = function(bufnr)
+						actions.toggle_selection(bufnr)
+						actions.move_selection_previous(bufnr)
+					end,
 					['<C-v>'] = false,
 					['<C-u>'] = false,
 					['<C-d>'] = false,
+					['<C-x>'] = false,
+					['<C-t>'] = false,
+					['<A-q>'] = false,
+					['<C-q>'] = false,
 				},
 				i = {
 					['<C-v>'] = false,
 					['<C-u>'] = false,
 					['<C-d>'] = false,
+					['<C-x>'] = false,
+					['<C-t>'] = false,
+					['<A-q>'] = false,
+					['<C-q>'] = false,
 				},
 			},
 		},
@@ -169,6 +183,18 @@ local telescope_opts = function()
 					renamed = '󰕍',
 					untracked = '?',
 				},
+				mappings = {
+					n = {
+						['J'] = function(bufnr)
+							actions.git_staging_toggle(bufnr)
+							actions.move_selection_next(bufnr)
+						end,
+						['K'] = function(bufnr)
+							actions.git_staging_toggle(bufnr)
+							actions.move_selection_previous(bufnr)
+						end,
+					}
+				}
 			},
 			buffers = {
 				ignore_current_buffer = true,
