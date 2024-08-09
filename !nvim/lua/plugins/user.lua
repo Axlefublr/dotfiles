@@ -204,4 +204,12 @@ return {
 			},
 		},
 	},
+	-- {
+	-- 	'mtrajano/tssorter.nvim',
+	-- 	lazy = true,
+	-- 	version = '*',
+	-- 	---@module "tssorter.config"
+	-- 	---@type TssorterOpts
+	-- 	opts = {}
+	-- }
 }
