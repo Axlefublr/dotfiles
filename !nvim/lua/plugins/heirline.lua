@@ -178,27 +178,6 @@ local function build_opts()
 				provider = ' %S',
 			},
 			fill,
-			{ -- contents of clipboard
-				hl = env.high({ fg = env.color.feeble }),
-				update = { 'TextChanged', 'TextYankPost', 'FocusGained' },
-				{
-					condition = function() return vim.fn.getreg('+') ~= '' end,
-					provider = function()
-						local clipboard = vim.fn.getreg('+')
-						if clipboard == '' then return '' end
-						local no_lead_white = vim.fn.matchstr(clipboard, '\\s*\\zs.*')
-						local has_newlines = no_lead_white:find('\n')
-						local pretty_white = no_lead_white:gsub('\t', ''):gsub('\n', '')
-						local preferred_length = 20
-						local is_long = #pretty_white > preferred_length
-						local cut = pretty_white:sub(1, preferred_length)
-						if is_long then cut = cut .. '…' end
-						if has_newlines then cut = cut .. '󱞩' end
-						return cut
-					end,
-					padding(),
-				},
-			},
 			{ -- macro record
 				hl = env.high({ fg = env.color.orange, bold = true }),
 				update = {
