@@ -688,7 +688,7 @@ local normal_mappings = {
 		end
 		vim.ui.select(options, {
 			prompt = ' Stashes ',
-			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
+			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, env.high({ bold = true }), 0, 2, -1) end,
 		}, function(item, index)
 			if not item then return end
 			if index == 1 then
@@ -756,17 +756,18 @@ local normal_mappings = {
 		if result.code ~= 0 then return end
 		local lines = result.stdout:split('\n')
 		local branches = {}
+		local cur_branch = nil
 		for _, line in ipairs(lines) do
 			if line:sub(1, 1) == '*' then
-				table.insert(branches, 1, line:sub(3))
+				cur_branch = line:sub(3)
 			else
 				table.insert(branches, line:sub(3))
 			end
 		end
 		table.insert(branches, 1, 'create')
 		vim.ui.select(branches, {
-			prompt = ' Branches ',
-			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, 'PurpleBold', 0, 2, -1) end,
+			prompt = ' ' .. cur_branch .. ' ',
+			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, env.high({ bold = true }), 0, 2, -1) end,
 		}, function(item, index)
 			if not item then return end
 			if index == 1 then
