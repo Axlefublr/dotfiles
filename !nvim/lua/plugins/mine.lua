@@ -18,6 +18,9 @@ return {
 		'Axlefublr/qfetter.nvim',
 		lazy = true,
 		dev = true,
+		-- ---@module "qfetter"
+		-- ---@type QfetterOpts
+		-- opts = {}
 	},
 	{
 		'Axlefublr/lupa.nvim',

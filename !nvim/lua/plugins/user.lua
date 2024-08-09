@@ -26,6 +26,8 @@ return {
 		keys = {
 			{ mode = { 'x', 'o' }, 'i' },
 			{ mode = { 'x', 'o' }, 'a' },
+			{ mode = { 'x', 'o' }, 'I' },
+			{ mode = { 'x', 'o' }, 'A' },
 		},
 		init = function() vim.g.targets_nl = 'nh' end,
 	},
