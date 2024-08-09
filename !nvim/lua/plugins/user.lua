@@ -53,15 +53,23 @@ return {
 				'nofile',
 				'terminal',
 				'prompt',
+				'qf'
 			},
 		},
 		init = function()
-			env.acmd('BufReadPost', nil, function(args) require('guess-indent').set_from_buffer(args.buf, true, true) end)
+			local dont = { 'qf' }
+			env.acmd('BufReadPost', nil, function(args)
+				if table.contains(dont, vim.bo.filetype) then return end
+				require('guess-indent').set_from_buffer(args.buf, true, true)
+			end)
 			env.acmd('BufNewFile', nil, function(args)
 				env.acmd(
 					'BufWritePost',
 					nil,
-					function(write_args) require('guess-indent').set_from_buffer(write_args.buf, true, true) end,
+					function(write_args)
+						if table.contains(dont, vim.bo.filetype) then return end
+						require('guess-indent').set_from_buffer(write_args.buf, true, true)
+					end,
 					{ buffer = args.buf, once = true }
 				)
 			end)

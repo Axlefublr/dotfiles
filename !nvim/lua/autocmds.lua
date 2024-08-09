@@ -72,7 +72,7 @@ end)
 env.acmd('FileType', 'git', function()
 	pcall(vim.keymap.del, { 'n', 'x', 'o' }, 'K', { buffer = true })
 	pcall(vim.keymap.del, 'n', '<CR>', { buffer = true })
-	env.bmap('n', '>', ':<C-U>exe <SNR>37_GF("edit")<CR>')
+	env.bmap('n', 'cc', ':<C-U>exe <SNR>37_GF("edit")<CR>')
 end)
 
 env.acmd('User', 'VeryLazy', function()

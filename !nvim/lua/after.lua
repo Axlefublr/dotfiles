@@ -19,6 +19,10 @@ env.do_and_acmd(
 )
 env.acmd('BufLeave', '/tmp/pjs', function() vim.fn.matchdelete(vim.b.match_paths) end)
 
+env.acmd('FileType', 'qf', function()
+	env.bmap('n', 'cc', '<CR>')
+end)
+
 env.emit('User', 'WayAfter')
 
 env.do_and_acmd(function() return vim.fn.expand('%:t') == 'Cargo.toml' end, function()
