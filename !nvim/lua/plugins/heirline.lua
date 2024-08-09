@@ -56,6 +56,7 @@ local function build_opts()
 		return unpack(elements)
 	end
 
+	---@type HeirlineConfig
 	return {
 		tabline = {
 			{ -- buffer icon
@@ -164,7 +165,11 @@ local function build_opts()
 					text(':'),
 					{
 						flexible = 1,
-						decreasing_length(function() return vim.fn.getreg(':') end),
+						decreasing_length(function()
+							local register = vim.fn.getreg(':')
+							local cleaned = register:gsub("'", '’')
+							return cleaned
+						end),
 					},
 				},
 			},
@@ -175,7 +180,7 @@ local function build_opts()
 			fill,
 			{ -- contents of clipboard
 				hl = env.high({ fg = env.color.feeble }),
-				update = { 'TextChanged', 'TextYankPost', 'FocusGained', 'VimResized', 'CmdlineLeave' },
+				update = { 'TextChanged', 'TextYankPost', 'FocusGained' },
 				{
 					condition = function() return vim.fn.getreg('+') ~= '' end,
 					provider = function()
@@ -202,10 +207,7 @@ local function build_opts()
 				},
 				{
 					condition = function() return vim.fn.reg_recording() ~= '' end,
-					{
-						provider = ' ',
-						update = false,
-					},
+					text(' '),
 					{
 						provider = function() return vim.fn.reg_recording() end,
 					},
@@ -243,26 +245,22 @@ local function build_opts()
 					end,
 					{
 						condition = function(self) return self.hints end,
-						provider = '!',
-						update = false,
+						text('!'),
 						hl = 'DiagnosticSignHint',
 					},
 					{
 						condition = function(self) return self.info end,
-						provider = '!',
-						update = false,
+						text('!'),
 						hl = 'DiagnosticSignInfo',
 					},
 					{
 						condition = function(self) return self.warnings end,
-						provider = '!',
-						update = false,
+						text('!'),
 						hl = 'DiagnosticSignWarn',
 					},
 					{
 						condition = function(self) return self.errors end,
-						provider = '!',
-						update = false,
+						text('!'),
 						hl = 'DiagnosticSignError',
 					},
 					padding(),
@@ -307,8 +305,7 @@ local function build_opts()
 				update = 'BufModifiedSet',
 				{
 					condition = function() return vim.bo.modified end,
-					provider = ' ' .. env.icons.circle_dot,
-					update = false,
+					text(' ' .. env.icons.circle_dot)
 				},
 			},
 		},
@@ -329,8 +326,7 @@ local function build_opts()
 			{
 				condition = function(self) return self.isnt_wrapped and self.starts_a_fold end,
 				hl = env.high({ bg = env.color.dark13 }),
-				provider = ' ',
-				update = false,
+				text(' ')
 			},
 		},
 	}
