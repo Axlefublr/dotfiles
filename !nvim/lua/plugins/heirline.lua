@@ -1,3 +1,4 @@
+---@diagnostic disable: inject-field
 local function build_opts()
 	local function devicons()
 		local devicons = env.saquire('nvim-web-devicons')
@@ -86,6 +87,28 @@ local function build_opts()
 				},
 			},
 			fill,
+			{ -- git branch
+				update = { 'User', pattern = { 'GitSignsUpdate' } },
+				{
+					condition = require('heirline.conditions').is_git_repo(),
+					init = function(self)
+						self.dict = vim.b.gitsigns_status_dict
+					end,
+					hl = env.high({ fg = env.color.purple, bold = true }),
+					{
+						condition = function(self)
+							return self.dict
+						end,
+						text(''),
+						{
+							provider = function(self)
+								return self.dict.head
+							end
+						},
+						padding(),
+					}
+				},
+			},
 			{ -- cwd
 				update = { 'DirChanged', 'VimResized' },
 				{
@@ -156,6 +179,39 @@ local function build_opts()
 				end,
 				update = 'ModeChanged',
 			},
+			{ -- diags
+				update = { 'DiagnosticChanged', 'BufEnter' },
+				{
+					condition = require('heirline.conditions').has_diagnostics,
+					init = function(self)
+						self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+						self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) > 0
+						self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT }) > 0
+						self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO }) > 0
+					end,
+					padding(),
+					{
+						condition = function(self) return self.errors end,
+						text('!'),
+						hl = 'DiagnosticSignError',
+					},
+					{
+						condition = function(self) return self.warnings end,
+						text('!'),
+						hl = 'DiagnosticSignWarn',
+					},
+					{
+						condition = function(self) return self.info end,
+						text('!'),
+						hl = 'DiagnosticSignInfo',
+					},
+					{
+						condition = function(self) return self.hints end,
+						text('!'),
+						hl = 'DiagnosticSignHint',
+					},
+				},
+			},
 			{ -- latest :command
 				hl = env.high({ fg = env.color.feeble }),
 				update = { 'CmdlineLeave', 'VimResized' },
@@ -210,60 +266,6 @@ local function build_opts()
 						end,
 					},
 					padding(),
-				},
-			},
-			{ -- diags
-				update = { 'DiagnosticChanged', 'BufEnter' },
-				{
-					condition = function() return require('heirline.conditions').has_diagnostics() end,
-					init = function(self)
-						self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
-						self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) > 0
-						self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT }) > 0
-						self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO }) > 0
-					end,
-					{
-						condition = function(self) return self.hints end,
-						text('!'),
-						hl = 'DiagnosticSignHint',
-					},
-					{
-						condition = function(self) return self.info end,
-						text('!'),
-						hl = 'DiagnosticSignInfo',
-					},
-					{
-						condition = function(self) return self.warnings end,
-						text('!'),
-						hl = 'DiagnosticSignWarn',
-					},
-					{
-						condition = function(self) return self.errors end,
-						text('!'),
-						hl = 'DiagnosticSignError',
-					},
-					padding(),
-				},
-			},
-			{ -- git branch
-				update = { 'User', pattern = { 'GitSignsUpdate' } },
-				{
-					condition = require('heirline.conditions').is_git_repo(),
-					init = function(self)
-						self.dict = vim.b.gitsigns_status_dict
-					end,
-					hl = env.high({ fg = env.color.purple, bold = true }),
-					{
-						condition = function(self)
-							return self.dict
-						end,
-						{
-							provider = function(self)
-								return self.dict.head
-							end
-						},
-						padding(),
-					}
 				},
 			},
 			{ -- ruler
