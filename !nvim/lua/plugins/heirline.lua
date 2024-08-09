@@ -88,25 +88,17 @@ local function build_opts()
 			},
 			fill,
 			{ -- git branch
-				update = { 'User', pattern = { 'GitSignsUpdate' } },
+				update = { 'User', pattern = 'GitSignsUpdate' },
+				hl = env.high({ fg = env.color.purple, bold = true }),
 				{
-					condition = require('heirline.conditions').is_git_repo(),
-					init = function(self)
-						self.dict = vim.b.gitsigns_status_dict
-					end,
-					hl = env.high({ fg = env.color.purple, bold = true }),
+					condition = function() return vim.b.gitsigns_head end,
+					text(''),
 					{
-						condition = function(self)
-							return self.dict
+						provider = function()
+							return vim.b.gitsigns_head
 						end,
-						text(''),
-						{
-							provider = function(self)
-								return self.dict.head
-							end
-						},
-						padding(),
-					}
+					},
+					padding(),
 				},
 			},
 			{ -- cwd
