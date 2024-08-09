@@ -17,6 +17,13 @@ local function build_opts()
 		}
 	end
 
+	local function text(text)
+		return {
+			provider = text,
+			update = false
+		}
+	end
+
 	local fill = {
 		update = function() return false end,
 		provider = '%=',
@@ -154,10 +161,7 @@ local function build_opts()
 				{
 					condition = function() return vim.fn.getreg(':') ~= '' end,
 					padding(),
-					{
-						provider = ':',
-						update = false,
-					},
+					text(':'),
 					{
 						flexible = 1,
 						decreasing_length(function() return vim.fn.getreg(':') end),
@@ -174,20 +178,19 @@ local function build_opts()
 				update = { 'TextChanged', 'TextYankPost', 'FocusGained', 'VimResized', 'CmdlineLeave' },
 				{
 					condition = function() return vim.fn.getreg('+') ~= '' end,
-					{
-						flexible = 1,
-						decreasing_length(function()
-							local clipboard = vim.fn.getreg('+')
-							if clipboard == '' then return '' end
-							local no_white = vim.fn.matchstr(clipboard, '\\s*\\zs.*')
-							local has_newlines = no_white:find('\n')
-							if has_newlines then
-								return no_white:sub(1, has_newlines - 1) .. '󱞩'
-							else
-								return no_white
-							end
-						end),
-					},
+					provider = function()
+						local clipboard = vim.fn.getreg('+')
+						if clipboard == '' then return '' end
+						local no_lead_white = vim.fn.matchstr(clipboard, '\\s*\\zs.*')
+						local has_newlines = no_lead_white:find('\n')
+						local pretty_white = no_lead_white:gsub('\t', ''):gsub('\n', '')
+						local preferred_length = 20
+						local is_long = #pretty_white > preferred_length
+						local cut = pretty_white:sub(1, preferred_length)
+						if is_long then cut = cut .. '…' end
+						if has_newlines then cut = cut .. '󱞩' end
+						return cut
+					end,
 					padding(),
 				},
 			},
@@ -327,7 +330,7 @@ local function build_opts()
 				condition = function(self) return self.isnt_wrapped and self.starts_a_fold end,
 				hl = env.high({ bg = env.color.dark13 }),
 				provider = ' ',
-				update = false
+				update = false,
 			},
 		},
 	}
