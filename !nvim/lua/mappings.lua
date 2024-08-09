@@ -530,7 +530,6 @@ local normal_mappings = {
 	['d<Space>'] = function() save('format') end,
 	['c<Space>'] = function() save('sort') end,
 	K = close_try_save,
-	cd = function() vim.cmd('Young') end,
 
 	-- Fixes
 	['<Esc>'] = function()
@@ -688,7 +687,9 @@ local normal_mappings = {
 		end
 		vim.ui.select(options, {
 			prompt = ' Stashes ',
-			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, env.high({ bold = true }), 0, 2, -1) end,
+			after = function(_, buf, namespace)
+				vim.api.nvim_buf_add_highlight(buf, namespace, env.high({ bold = true }), 0, 2, -1)
+			end,
 		}, function(item, index)
 			if not item then return end
 			if index == 1 then
@@ -766,8 +767,10 @@ local normal_mappings = {
 		end
 		table.insert(branches, 1, 'create')
 		vim.ui.select(branches, {
-			prompt = ' ' .. cur_branch .. ' ',
-			after = function(_, buf, namespace) vim.api.nvim_buf_add_highlight(buf, namespace, env.high({ bold = true }), 0, 2, -1) end,
+			prompt = ' ' .. branches[2] .. ' ',
+			after = function(_, buf, namespace)
+				vim.api.nvim_buf_add_highlight(buf, namespace, env.high({ bold = true }), 0, 2, -1)
+			end,
 		}, function(item, index)
 			if not item then return end
 			if index == 1 then
