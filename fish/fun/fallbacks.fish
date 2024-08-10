@@ -34,3 +34,4 @@ alias --save tm toggle_media >/dev/null
 alias --save ntf notify-send >/dev/null
 alias --save chx 'chmod +x' >/dev/null
 alias --save awm awesome-client >/dev/null
+alias --save g 'ghostty' > /dev/null

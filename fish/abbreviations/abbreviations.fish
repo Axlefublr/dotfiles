@@ -59,3 +59,4 @@ abbr -a ntf notify-send
 abbr -a chx 'chmod +x'
 abbr -a awm awesome-client
 abbr -a ttyper 'ttyper -l uclanr -w 25'
+abbr -a g 'ghostty'

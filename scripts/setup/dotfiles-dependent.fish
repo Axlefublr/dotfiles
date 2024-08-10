@@ -103,6 +103,14 @@ cd boomer
 nimble build
 ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
 
+# Ghostty
+cd ~/prog/stored
+gh repo clone https://github.com/ghostty-org/ghostty -- --depth 1
+cd ghostty
+zig build -p $HOME/.local -Doptimize=ReleaseFast -Dapp-runtime=gtk
+mkdir -p ~/.config/ghostty
+ln -sf ~/prog/dotfiles/ghostty.conf ~/.config/ghostty/config
+
 # Zathura
 mkdir -p ~/.config/zathura
 ln -sf ~/prog/dotfiles/zathura ~/.config/zathura/zathurarc
