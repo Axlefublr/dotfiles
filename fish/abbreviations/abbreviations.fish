@@ -44,12 +44,9 @@ abbr -a bl bluetoothctl
 abbr -a sv set_volume
 abbr -a smv set_mic_volume
 abbr -a clx clx
-abbr -a ls 'ez --git-ignore'
-abbr -a la 'ez -a'
-abbr -a lg 'ez -l --git-ignore'
-abbr -a li 'ez -al'
-abbr -a lt 'ez -T --git-ignore'
-abbr -a lr 'ez -aT'
+abbr -a ls 'ez -a'
+abbr -a lg 'ez -al'
+abbr -a lt 'ez -Ta'
 abbr -a read 'read -p rdp'
 abbr -a tg 'clx && ni | tgpt'
 abbr -a gq oil
