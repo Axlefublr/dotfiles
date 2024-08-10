@@ -1384,6 +1384,9 @@ local normal_insert_visual_select_mappings = {
 			if require('cmp').visible_docs() then
 				require('cmp').close_docs()
 			else
+				if not require('cmp').get_selected_index() then
+					require('cmp').select_next_item({ behavior = require('cmp').SelectBehavior.Select })
+				end
 				require('cmp').open_docs()
 			end
 		else
