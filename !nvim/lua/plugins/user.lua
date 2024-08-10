@@ -214,4 +214,25 @@ return {
 	-- 	---@type TssorterOpts
 	-- 	opts = {}
 	-- }
+	{
+		'LudoPinelli/comment-box.nvim',
+		event = 'CmdlineEnter',
+		---@module "comment-box"
+		---@type CommentBoxConfig
+		opts = {
+			doc_width = 100,
+			box_width = 100,
+			line_width = 100,
+			-- borders = { -- symbols used to draw a box
+			-- 	top = '─',
+			-- 	bottom = '─',
+			-- 	left = '│',
+			-- 	right = '│',
+			-- 	top_left = '╭',
+			-- 	top_right = '╮',
+			-- 	bottom_left = '╰',
+			-- 	bottom_right = '╯',
+			-- },
+		},
+	},
 }

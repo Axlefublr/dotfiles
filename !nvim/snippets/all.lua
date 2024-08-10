@@ -84,7 +84,7 @@ return {
 		t('292828'),
 	}),
 
-	s({ filetype = 'lua', trig = 'td' }, { t('TODO: ') }),
+	s({ filetype = 'all', trig = 'td' }, { t('TODO: ') }),
 	s({ filetype = 'all', trig = 'fx' }, { t('FIXME: ') }),
 	s({ filetype = 'all', trig = 'mov' }, { t('MOVE: ') }),
 }

@@ -1,3 +1,5 @@
+-- ┌───────────────────────────────── mappings-specific functions ──────────────────────────────┐
+
 local killring = setmetatable({}, { __index = table })
 
 local function trim_trailing_whitespace()
@@ -507,7 +509,7 @@ local function count_repeats(closure)
 	end
 end
 
--- end of functions
+-- └───────────────────────────────── mappings-specific functions ──────────────────────────────┘
 
 local normal_mappings = {
 	['<Leader>de'] = copy_git_relative,
@@ -519,6 +521,7 @@ local normal_mappings = {
 	['<Leader>dt'] = copy_cwd,
 	['<Leader>dT'] = ghl_repo,
 
+	-- ── killring ───────────────────────────────────────────────────────────────────────────────────
 	["'e"] = killring_pop,
 	["'E"] = killring_pop_tail,
 	["',"] = killring_push,
@@ -526,7 +529,7 @@ local normal_mappings = {
 	["']"] = killring_compile,
 	["'["] = killring_compile_reversed,
 
-	-- System
+	-- ── system ─────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
 	['<Leader>ds'] = edit_magazine,
@@ -535,7 +538,7 @@ local normal_mappings = {
 	['c<Space>'] = function() save('sort') end,
 	K = close_try_save,
 
-	-- Fixes
+	-- ── fixes ──────────────────────────────────────────────────────────────────────────────────────
 	['<Esc>'] = function()
 		vim.cmd('noh')
 		local module = env.saquire('notify')
@@ -545,7 +548,7 @@ local normal_mappings = {
 	['.'] = function() count_repeats_keys('.') end,
 	yie = function() vim.cmd('%y+') end,
 
-	-- Features
+	-- ── features ───────────────────────────────────────────────────────────────────────────────────
 	gW = function() change_case(' LSP convert ', 'lsp') end,
 	gQ = function()
 		local parent = vim.fn.expand('%:h')
@@ -587,7 +590,7 @@ local normal_mappings = {
 		vim.cmd(tostring(startBorderLn) .. ' delete')
 	end,
 
-	-- Toggles
+	-- ── toggles ────────────────────────────────────────────────────────────────────────────────────
 	['zs'] = function()
 		local options = {
 			{
@@ -624,7 +627,7 @@ local normal_mappings = {
 		env.select(options, { prompt = ' Toggle ' })
 	end,
 
-	-- Lsp
+	-- ── lsp ────────────────────────────────────────────────────────────────────────────────────────
 	['gw'] = vim.lsp.buf.rename,
 	['<Leader>lc'] = vim.lsp.buf.code_action,
 	['gl'] = function()
@@ -653,7 +656,7 @@ local normal_mappings = {
 	['<Leader>lz'] = diag_this_file,
 	['<Leader>le'] = interactive_setenv,
 
-	-- Folding
+	-- ── folding ────────────────────────────────────────────────────────────────────────────────────
 	zo = 'zx',
 	zi = 'zc',
 	zu = 'zo',
@@ -676,7 +679,7 @@ local normal_mappings = {
 	-- 	require('ufo').closeFoldsWith(vim.b.ufo_foldlevel)
 	-- end,
 
-	-- Git
+	-- ── git ────────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>jx'] = function()
 		local options = { 'create' }
 		local result = env.shell({ 'git', 'stash', 'list' }):wait()
@@ -771,7 +774,7 @@ local normal_mappings = {
 		end
 		table.insert(branches, 1, 'create')
 		vim.ui.select(branches, {
-			prompt = ' ' .. branches[2] .. ' ',
+			prompt = ' ' .. cur_branch .. ' ',
 			after = function(_, buf, namespace)
 				vim.api.nvim_buf_add_highlight(buf, namespace, env.high({ bold = true }), 0, 2, -1)
 			end,
@@ -879,7 +882,7 @@ local normal_mappings = {
 		})
 	end,
 
-	-- Gaf
+	-- ── gaf ────────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>ca'] = function()
 		local picked = vim.fn.confirm('Choose change type', 'Modified\nNew\nDeleted')
 		if picked == 0 then return end
@@ -948,7 +951,7 @@ local normal_mappings = {
 		end
 	end,
 
-	-- Abstractions
+	-- ── abstractions ───────────────────────────────────────────────────────────────────────────────
 	['dcc'] = '<Cmd>setfiletype css<CR>',
 	['dcC'] = '<Cmd>e ~/t/test.css<CR>',
 	['dcf'] = '<Cmd>setfiletype fish<CR>',
@@ -968,7 +971,7 @@ local normal_mappings = {
 	['dcj'] = '<Cmd>setfiletype jsonc<CR>',
 	['dcJ'] = '<Cmd>e ~/t/test.jsonc<CR>',
 
-	-- Qfetter
+	-- ── qfetter ────────────────────────────────────────────────────────────────────────────────────
 	['[Q'] = function() require('qfetter').another({ backwards = true, next_buffer = true }) end,
 	['[q'] = function() require('qfetter').another({ backwards = true }) end,
 	[']Q'] = function() require('qfetter').another({ next_buffer = true }) end,
@@ -978,13 +981,13 @@ local normal_mappings = {
 	["''q"] = function() require('qfetter').clear() end,
 	['<Leader>jj'] = function() require('quicker').toggle({ focus = true, max_height = math.floor(vim.o.lines / 2) }) end,
 
-	-- Edister
+	-- ── edister ────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
 	['<Leader>G'] = function() require('edister').move_from_one_to_another(nil, nil, 'ask') end,
 	['<Leader>t'] = function() require('edister').edit_register() end,
 	['<Leader>T'] = function() require('edister').edit_register(nil, 'ask') end,
 
-	-- Harp
+	-- ── harp ───────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>z'] = function() require('harp').cd_get() end,
 	['<Leader>Z'] = function() require('harp').cd_set() end,
 	['<Leader>so'] = function()
@@ -1021,7 +1024,7 @@ local normal_mappings = {
 	['M'] = function() require('harp').perbuffer_mark_set() end,
 	['m'] = function() require('harp').perbuffer_mark_get() end,
 
-	-- Moving
+	-- ── moving ─────────────────────────────────────────────────────────────────────────────────────
 	['#'] = function() require('lupa').word({ backwards = true }) end,
 	['*'] = function() require('lupa').word() end,
 	['<Leader>#'] = function() require('lupa').word({ backwards = true, edit = true }) end,
@@ -1033,7 +1036,7 @@ local normal_mappings = {
 	['{'] = function() move_to_blank_line(false) end,
 	['}'] = function() move_to_blank_line(true) end,
 
-	-- Window
+	-- ── window ─────────────────────────────────────────────────────────────────────────────────────
 	['<A-h>'] = '<C-w><',
 	['<A-l>'] = '<C-w>>',
 	['<C-n>'] = '<C-w>-',
@@ -1056,7 +1059,7 @@ local normal_mappings = {
 	['[w'] = 'gT',
 	[']w'] = 'gt',
 
-	-- Telescope
+	-- ── telescope ──────────────────────────────────────────────────────────────────────────────────
 	['<Leader>jf'] = function() require('telescope.builtin').find_files() end,
 	['<Leader>jF'] = function()
 		require('telescope.builtin').find_files({
@@ -1113,11 +1116,11 @@ local normal_mappings = {
 	['<Leader>jz'] = function() require('telescope').extensions.zoxide.list() end,
 	['<Leader>jn'] = function() require('telescope').extensions.notify.notify() end,
 
-	-- Kitty blank
+	-- ── kitty blank ────────────────────────────────────────────────────────────────────────────────
 	['do'] = kitty_blank,
 	['<A-/>'] = function() env.shell({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }):wait() end,
 
-	-- Direct
+	-- ── direct ─────────────────────────────────────────────────────────────────────────────────────
 	U = '<C-r>',
 	zL = 'q',
 	zl = '@',
@@ -1187,6 +1190,7 @@ local visual_mappings = {
 }
 
 local insert_mappings = {
+	-- ── cmp ────────────────────────────────────────────────────────────────────────────────────────
 	['<C-p>'] = function()
 		if require('cmp').visible() then
 			require('cmp').select_prev_item({ behavior = require('cmp').SelectBehavior.Select })
@@ -1241,6 +1245,7 @@ local insert_mappings = {
 			env.feedkeys(';')
 		end
 	end,
+
 	["<A-'>"] = '<C-r><C-p>',
 	["<A-'>'"] = '<C-r><C-p>+',
 	["<A-'><CR>"] = '<C-r><C-p>:',
@@ -1329,6 +1334,7 @@ local normal_visual_pending_mappings = {
 }
 
 local normal_visual_mappings = {
+	-- ── funky enter ────────────────────────────────────────────────────────────────────────────────
 	['<CR>'] = {
 		function()
 			vim.cmd.mkview({ mods = { emsg_silent = true } })
@@ -1344,6 +1350,7 @@ local normal_visual_mappings = {
 		env.feedkeys(':')
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
+
 	['_'] = function() env.feedkeys_int(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
@@ -1368,10 +1375,10 @@ local visual_select_mappings = {
 }
 
 local normal_select_mappings = {
-	['<A-.>'] = vim.lsp.buf.signature_help,
 }
 
 local normal_insert_visual_select_mappings = {
+	-- ── cmp ────────────────────────────────────────────────────────────────────────────────────────
 	['<A-m>'] = function()
 		if require('cmp').visible() then
 			require('cmp').abort()
@@ -1396,6 +1403,7 @@ local normal_insert_visual_select_mappings = {
 }
 
 local visual_pending_mappings = {
+	-- ── vartextobjs ────────────────────────────────────────────────────────────────────────────────
 	['|'] = [[<Cmd>lua require('various-textobjs').column('inner')<CR>]],
 	['iH'] = [[<Cmd>lua require('various-textobjs').mdEmphasis('inner')<CR>]],
 	['aH'] = [[<Cmd>lua require('various-textobjs').mdEmphasis('outer')<CR>]],
@@ -1422,6 +1430,8 @@ local visual_pending_mappings = {
 	['i|'] = [[<Cmd>lua require('various-textobjs').shellPipe('inner')<CR>]],
 	['a|'] = [[<Cmd>lua require('various-textobjs').shellPipe('outer')<CR>]],
 }
+
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ mapping creation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 local function map(modes, bindee, binding)
 	if type(binding) == 'table' then
