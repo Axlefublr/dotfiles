@@ -73,20 +73,6 @@ function Anki_wu()
 	end
 end
 
-Getup_w = text_widget(nil, ' ')
-Getup_bw = wibox.container.background(Getup_w)
-Getup_bw.fg = beautiful.green
-Getup_mw = wibox.container.margin(Getup_bw)
-Getup_mw.left = between
-Getup_mw.right = -10
-Getup_mw.visible = false
-function Getup_we()
-	Getup_mw.visible = true
-end
-function Getup_wd()
-	Getup_mw.visible = false
-end
-
 Clients_w = text_widget(beautiful.jetbrains_font .. ' 14')
 Clients_bw = wibox.container.background(Clients_w)
 Clients_mw = wibox.container.margin(Clients_bw)
@@ -659,7 +645,6 @@ Wibar_w:setup({
 		Muteness_mw,
 		Volume_mw,
 		Clorange_mw,
-		Getup_mw,
 		Anki_mw,
 		Malumn_mw,
 		Window_state_lw,
@@ -682,7 +667,6 @@ local run_once = function()
 		'Wifi',
 		'Bluetooth',
 		'Anki',
-		'Getup',
 		'Processor',
 		'Ram',
 		'Loago',
