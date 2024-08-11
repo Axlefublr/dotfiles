@@ -6,6 +6,14 @@ env.do_and_acmd(true, function()
 	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.cyan, bold = true }), 'MO' .. 'VE:\\=')
 end, { event = 'WinEnter' })
 
+env.acmd('QuickFixCmdPost', 'vimgrep', function()
+	---@diagnostic disable-next-line: duplicate-set-field
+	vim.notify = function() end
+	vim.defer_fn(function()
+		vim.notify = require('notify').notify
+	end, 1)
+end)
+
 env.do_and_acmd(true, function()
 	local spaces = vim.bo.shiftwidth
 	local built_chars = 'tab:→ ,multispace:·,leadmultispace:' .. (' '):rep(spaces - 1)
