@@ -1071,18 +1071,20 @@ local normal_mappings = {
 		local args = { '--hidden' }
 		local input = env.input('rg: ')
 		if not input then return end
+		local curbuffer = false
+		if input:sub(1, 2) == '%' then
+			curbuffer = true
+			input = input:sub(2)
+		end
 		local args = vim.list_extend(input:split('\\s\\+'), args)
-		vim.print(args)
-		require('telescope.builtin').live_grep({
+		local live_grep_args = {
 			additional_args = args,
-		})
-	end,
-	['<Leader>js'] = function()
-		local files = { vim.api.nvim_buf_get_name(0) }
-		require('telescope.builtin').live_grep({
-			search_dirs = files,
-			path_display = function() return '' end,
-		})
+		}
+		if curbuffer then
+			live_grep_args.search_dirs = { vim.api.nvim_buf_get_name(0) }
+			live_grep_args.path_display = function() return '' end
+		end
+		require('telescope.builtin').live_grep(live_grep_args)
 	end,
 	['<Leader>jD'] = function()
 		require('telescope.builtin').live_grep({
@@ -1374,8 +1376,7 @@ local visual_select_mappings = {
 	['<A-f>'] = '<C-g>',
 }
 
-local normal_select_mappings = {
-}
+local normal_select_mappings = {}
 
 local normal_insert_visual_select_mappings = {
 	-- ── cmp ────────────────────────────────────────────────────────────────────────────────────────
