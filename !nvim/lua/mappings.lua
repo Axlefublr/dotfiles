@@ -1403,6 +1403,31 @@ local normal_visual_mappings = {
 				env.select(mapped_styles, prompt)
 			end)
 		elseif mode == 'v' or mode == 'V' then
+			local prompt = { prompt = ' Alignment ' }
+			local alignment = { 'left', 'center' }
+			vim.ui.select(alignment, prompt, function(item, index)
+				if not index then return end
+				command = command .. item:sub(1, 1) .. 'abox'
+				local prompt = { prompt = ' Style ' }
+				local styles = {
+					{ '┌────────────────', 2 },
+					{ '┏━━━━━━━━━━━━━━━━', 3 },
+					{ '╔════════════════', 7 },
+					{ '┌               ┐', 18 },
+				}
+				mapped_styles = {}
+				for _, value in ipairs(styles) do
+					table.insert(mapped_styles, {
+						value[1],
+						function()
+							command = command .. value[2]
+							require('comment-box')
+							vim.cmd(command)
+						end,
+					})
+				end
+				env.select(mapped_styles, prompt)
+			end)
 		end
 	end,
 	['_'] = function() env.feedkeys_int(vim.v.count1 .. 'k$') end,
