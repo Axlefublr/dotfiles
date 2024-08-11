@@ -1070,32 +1070,36 @@ local normal_mappings = {
 	['<Leader>ja'] = function()
 		local input = env.input('rg: ')
 		if not input then return end
-		local curbuffer = false
-		local todos = false
-		if input:sub(1, 2) == '%' then
-			curbuffer = true
-			input = input:sub(2)
-		elseif input:sub(1, 2) == ':' then
-			todos = true
+
+		local special_flags = { '%', ':' }
+		local special_flag = nil
+		local first_char = input:sub(1, 2)
+		if table.contains(special_flags, first_char) then
+			special_flag = first_char
 			input = input:sub(2)
 		end
-		local args = { '--hidden' }
-		local args = vim.list_extend(input:split('\\s\\+'), args)
+
+		local default_args = { '--hidden' }
+		local passed_args = input:split('\\s\\+')
+		local args = vim.list_extend(passed_args, default_args)
+
+		---@type function
+		local picker = require('telescope.builtin').live_grep
 		local picker_args = {
 			additional_args = args,
 		}
-		if curbuffer then
+
+		if special_flag == '%' then
 			picker_args.search_dirs = { vim.api.nvim_buf_get_name(0) }
 			picker_args.path_display = function() return '' end
-		elseif todos then
+		elseif special_flag == ':' then
 			picker_args.use_regex = true
 			picker_args.word_match = '-w'
 			-- I do this silly concatenation so that rg won't match this implementation
 			picker_args.search = 'TO' .. 'DO|MO' .. 'VE|FI' .. 'XME'
-			require('telescope.builtin').grep_string(picker_args)
-			return
+			picker = require('telescope.builtin').grep_string
 		end
-		require('telescope.builtin').live_grep(picker_args)
+		picker(picker_args)
 	end,
 	['<Leader>jD'] = function()
 		require('telescope.builtin').live_grep({
