@@ -11,10 +11,6 @@ abbr -a cab 'cargo build'
 abbr -a cabr 'cargo build -r'
 abbr -a caf 'cargo +nightly fmt'
 
-abbr -a ghrl 'gh repo list -L 1000'
-abbr -a ghgl 'gh gist list -L 1000'
-abbr -a ghrsl 'gh release list -L 1000'
-
 abbr -a ff ffmpeg
 abbr -a ffi 'ffmpeg -i'
 

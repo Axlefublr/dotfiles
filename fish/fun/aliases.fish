@@ -94,19 +94,19 @@ function mkcd
 end
 funcsave mkcd >/dev/null
 
-function ghrclc
+function gh-repo-clone
     gh repo clone $argv -- --depth 1
     z (path basename $argv[1])
     clx
 end
-funcsave ghrclc >/dev/null
+funcsave gh-repo-clone >/dev/null
 
-function ghrfc
+function gh-repo-fork
     gh repo fork $argv --clone --default-branch-only -- --depth 1
     z (path basename $argv[1])
     clx
 end
-funcsave ghrfc >/dev/null
+funcsave gh-repo-fork >/dev/null
 
 function grostart
     killall gromit-mpx

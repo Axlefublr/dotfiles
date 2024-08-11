@@ -308,7 +308,7 @@ function runner_link
 end
 funcsave runner_link >/dev/null
 
-function pjs
+function pjs # TODO: should search for git repositories instead, and create `project.txt`s there by `touch`ing them
     begin
         set empties
         for file in (fd -utf project.txt ~/prog)
