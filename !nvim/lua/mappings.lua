@@ -232,19 +232,6 @@ local function killring_compile_reversed()
 	vim.notify('killring compiled in reverse')
 end
 
-local function harp_cd_get()
-	local register = require('harp').get_char('get cd harp: ')
-	if not register then return end
-	local harp = require('harp').cd_get_path(register)
-	return harp
-end
-
-local function get_buffer_cwd()
-	local buffer = vim.api.nvim_buf_get_name(0)
-	local parent = vim.fn.fnamemodify(buffer, ':h')
-	return parent
-end
-
 ---@param which 'main'|'content'
 local function ensure_browser(which)
 	local index = (which == 'content' and 7 or 2) - 1
@@ -408,83 +395,6 @@ local function change_case(prompt, action_type)
 		},
 	}
 	return env.select(options, { prompt = prompt })
-end
-
-local function kitty_blank() -- Kitty blank
-	local cmd = { 'kitten', '@', 'launch' }
-	local extendor = {}
-	local cwds = {
-		{
-			'Here',
-			function()
-				vim.list_extend(cmd, { '--cwd', vim.fn.getcwd() })
-				vim.list_extend(cmd, extendor)
-				env.shell(cmd)
-			end,
-		},
-		{
-			'Harp',
-			function()
-				local dir = harp_cd_get()
-				if not dir then return end
-				vim.list_extend(cmd, { '--cwd', dir })
-				vim.list_extend(cmd, extendor)
-				env.shell(cmd)
-			end,
-		},
-		{
-			'Buffer',
-			function()
-				vim.list_extend(
-					cmd,
-					{ '--cwd', vim.bo.filetype == 'oil' and require('oil').get_current_dir() or get_buffer_cwd() }
-				)
-				vim.list_extend(cmd, extendor)
-				env.shell(cmd)
-			end,
-		},
-		{
-			'~',
-			function()
-				vim.list_extend(cmd, { '--cwd', '~' })
-				vim.list_extend(cmd, extendor)
-				env.shell(cmd)
-			end,
-		},
-	}
-	local typ = {
-		{
-			'Tab',
-			function()
-				vim.list_extend(cmd, { '--type', 'tab' })
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-		{
-			'Tab Neovim',
-			function()
-				vim.list_extend(cmd, { '--type', 'tab' })
-				extendor = { '--hold', 'nvim' }
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-		{
-			'Window',
-			function()
-				vim.list_extend(cmd, { '--type', 'window' })
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-		{
-			'Window Neovim',
-			function()
-				vim.list_extend(cmd, { '--type', 'window' })
-				extendor = { '--hold', 'nvim' }
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
-		},
-	}
-	env.select(typ, { prompt = ' Type ' })
 end
 
 -- local function store_andor_use_count(what)
@@ -1015,7 +925,6 @@ local normal_mappings = {
 	['<Leader>W'] = function() require('harp').global_search_set({ ask = true }) end,
 	['<Leader>e'] = function() require('harp').perbuffer_search_get() end,
 	['<Leader>E'] = function() require('harp').perbuffer_search_set({ ask = true }) end,
-	['<Leader>f'] = function() require('harp').filetype_search_get() end,
 	['<Leader>F'] = function() require('harp').filetype_search_set({ ask = true }) end,
 	['<Leader>x'] = function() require('harp').percwd_get() end,
 	['<Leader>X'] = function() require('harp').percwd_set() end,
@@ -1067,40 +976,7 @@ local normal_mappings = {
 		})
 	end,
 	['<Leader>jd'] = function() require('telescope.builtin').live_grep() end,
-	['<Leader>ja'] = function()
-		local input = env.input('rg: ')
-		if not input then return end
-
-		local special_flags = { '%', ':' }
-		local special_flag = nil
-		local first_char = input:sub(1, 2)
-		if table.contains(special_flags, first_char) then
-			special_flag = first_char
-			input = input:sub(2)
-		end
-
-		local default_args = { '--hidden' }
-		local passed_args = input:split('\\s\\+')
-		local args = vim.list_extend(passed_args, default_args)
-
-		---@type function
-		local picker = require('telescope.builtin').live_grep
-		local picker_args = {
-			additional_args = args,
-		}
-
-		if special_flag == '%' then
-			picker_args.search_dirs = { vim.api.nvim_buf_get_name(0) }
-			picker_args.path_display = function() return '' end
-		elseif special_flag == ':' then
-			picker_args.use_regex = true
-			picker_args.word_match = '-w'
-			-- I do this silly concatenation so that rg won't match this implementation
-			picker_args.search = 'TO' .. 'DO|MO' .. 'VE|FI' .. 'XME'
-			picker = require('telescope.builtin').grep_string
-		end
-		picker(picker_args)
-	end,
+	['<Leader>ja'] = require('functions').live_grep_with_args,
 	['<Leader>jD'] = function()
 		require('telescope.builtin').live_grep({
 			search_dirs = env.extra_directories,
@@ -1134,7 +1010,7 @@ local normal_mappings = {
 	['<Leader>jn'] = function() require('telescope').extensions.notify.notify() end,
 
 	-- ── kitty blank ────────────────────────────────────────────────────────────────────────────────
-	['do'] = kitty_blank,
+	['do'] = require('functions').kitty_blank,
 	['<A-/>'] = function() env.shell({ 'kitten', '@', 'launch', '--cwd', vim.fn.getcwd() }):wait() end,
 
 	-- ── direct ─────────────────────────────────────────────────────────────────────────────────────
@@ -1368,68 +1244,8 @@ local normal_visual_mappings = {
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
 
-	gS = function()
-		local command = 'CB'
-		local mode = vim.fn.mode()
-		if mode == 'n' then
-			command = command .. 'l'
-			local prompt = { prompt = ' Alignment ' }
-			local options = { 'left', 'center' }
-			vim.ui.select(options, prompt, function(
-				item --[[@as string]],
-				index
-			)
-				if not index then return end
-				command = command .. item:sub(1, 1) .. 'line'
-				local prompt = { prompt = ' Style ' }
-				local styles = {
-					{ '─── title ───────', 1 },
-					{ '┌── title ───────', 4 },
-					{ '└── title ───────', 5 },
-					{ '━━━ title ━━━━━━━', 9 },
-					{ '════ title ══════', 13 },
-				}
-				mapped_styles = {}
-				for index, value in ipairs(styles) do
-					table.insert(mapped_styles, {
-						value[1],
-						function()
-							command = command .. value[2]
-							require('comment-box')
-							vim.cmd(command)
-						end,
-					})
-				end
-				env.select(mapped_styles, prompt)
-			end)
-		elseif mode == 'v' or mode == 'V' then
-			local prompt = { prompt = ' Alignment ' }
-			local alignment = { 'left', 'center' }
-			vim.ui.select(alignment, prompt, function(item, index)
-				if not index then return end
-				command = command .. item:sub(1, 1) .. 'abox'
-				local prompt = { prompt = ' Style ' }
-				local styles = {
-					{ '┌────────────────', 2 },
-					{ '┏━━━━━━━━━━━━━━━━', 3 },
-					{ '╔════════════════', 7 },
-					{ '┌               ┐', 18 },
-				}
-				mapped_styles = {}
-				for _, value in ipairs(styles) do
-					table.insert(mapped_styles, {
-						value[1],
-						function()
-							command = command .. value[2]
-							require('comment-box')
-							vim.cmd(command)
-						end,
-					})
-				end
-				env.select(mapped_styles, prompt)
-			end)
-		end
-	end,
+	gS = require('functions').interactive_comment_box,
+	['<Leader>f'] = function() require('harp').filetype_search_get() end,
 	['_'] = function() env.feedkeys_int(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
@@ -1492,7 +1308,7 @@ local visual_pending_mappings = {
 	['iD'] = [[<Cmd>lua require('various-textobjs').doubleSquareBrackets('inner')<CR>]],
 	['aD'] = [[<Cmd>lua require('various-textobjs').doubleSquareBrackets('outer')<CR>]],
 	['R'] = [[<Cmd>lua require('various-textobjs').restOfIndentation()<CR>]],
-	['ie'] = [[<Cmd>lua require('various-textobjs').entireBuffer()<CR>]],
+	['iE'] = [[<Cmd>lua require('various-textobjs').entireBuffer()<CR>]],
 	['.'] = [[<Cmd>lua require('various-textobjs').nearEoL()<CR>]],
 	['iv'] = [[<Cmd>lua require('various-textobjs').value('inner')<CR>]],
 	['av'] = [[<Cmd>lua require('various-textobjs').value('outer')<CR>]],

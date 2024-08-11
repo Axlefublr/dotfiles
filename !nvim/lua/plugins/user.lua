@@ -154,6 +154,7 @@ return {
 		'rcarriga/nvim-notify',
 		lazy = true,
 		init = function() env.func_loads_plugin('nvim-notify', vim, 'notify') end,
+		---@type notify.Config
 		opts = {
 			background_colour = '#292828',
 			render = 'wrapped-compact',
@@ -208,7 +209,7 @@ return {
 	-- 	---@module "tssorter.config"
 	-- 	---@type TssorterOpts
 	-- 	opts = {}
-	-- }
+	-- },
 	{
 		'LudoPinelli/comment-box.nvim',
 		event = 'CmdlineEnter',
