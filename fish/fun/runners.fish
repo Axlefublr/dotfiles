@@ -308,17 +308,32 @@ function runner_link
 end
 funcsave runner_link >/dev/null
 
-function pjs # TODO: should search for git repositories instead, and create `project.txt`s there by `touch`ing them
+function project_paths
+    echo dotfiles
+    for path in (ls -A ~/prog/proj)
+        echo proj/$path
+    end
+    for path in (ls -A ~/prog/forks)
+        echo forks/$path
+    end
+    for path in (ls -A ~/prog/stored)
+        echo stored/$path
+    end
+end
+funcsave project_paths >/dev/null
+
+function pjs
     begin
         set empties
-        for file in (fd -utf project.txt ~/prog)
-            set pretty_file (string replace "$HOME" '~' $file)
-            if test -s $file
-                echo $pretty_file
-                cat $file
+        for file in (project_paths)
+            set -l project_file_path ~/prog/$file/project.txt
+            touch $project_file_path
+            if test -s $project_file_path
+                echo $file
+                cat $project_file_path
                 echo
             else
-                set empties $empties $pretty_file
+                set empties $empties $file
             end
         end
         printf '%s\n' $empties

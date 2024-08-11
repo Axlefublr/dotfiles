@@ -14,10 +14,19 @@ end, { event = 'BufEnter' })
 
 env.do_and_acmd(
 	function() return vim.fn.expand('%') == '/tmp/pjs' end,
-	function() vim.b.match_paths = vim.fn.matchadd(env.high({ fg = env.color.blush }), '^\\~.*') end,
+	function()
+		vim.b.match_paths = vim.fn.matchadd(env.high({ fg = env.color.blush }), '^\\(dotfile\\|proj\\|forks\\|stored\\).\\+')
+	end,
 	{ event = 'BufEnter', pattern = '/tmp/pjs' }
 )
 env.acmd('BufLeave', '/tmp/pjs', function() vim.fn.matchdelete(vim.b.match_paths) end)
+env.do_and_acmd(function() return vim.fn.expand('%') == '/tmp/pjs' end, function()
+	env.bmap('n', 'gf', function()
+		local line = vim.fn.getline('.')
+		vim.cmd.edit(vim.fn.expand('~') .. '/prog/' .. line .. '/project.txt')
+	end)
+	return true
+end, { event = 'BufEnter', pattern = '/tmp/pjs' })
 
 env.acmd('FileType', 'qf', function() env.bmap('n', 'cc', '<CR>') end)
 
