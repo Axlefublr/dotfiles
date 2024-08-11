@@ -115,15 +115,14 @@ local telescope_opts = function()
 			},
 			live_grep = {
 				disable_coordinates = true,
-				additional_args = { '--hidden' }
+				additional_args = { '--hidden' },
 			},
 			grep_string = {
 				initial_mode = 'normal',
-				preview = {
-					hide_on_startup = false,
-				},
+				preview = { hide_on_startup = false },
+				layout_strategy = 'vertical',
 				disable_coordinates = true,
-				additional_args = { '--hidden' }
+				additional_args = { '--hidden' },
 			},
 			git_commits = {
 				mappings = {
@@ -193,8 +192,8 @@ local telescope_opts = function()
 							actions.git_staging_toggle(bufnr)
 							actions.move_selection_previous(bufnr)
 						end,
-					}
-				}
+					},
+				},
 			},
 			buffers = {
 				ignore_current_buffer = true,
@@ -217,7 +216,7 @@ local telescope_opts = function()
 				},
 				layout_config = {
 					horizontal = {
-						preview_width = 0.7
+						preview_width = 0.7,
 					},
 				},
 			},
@@ -235,7 +234,7 @@ local telescope_opts = function()
 				show_line = false,
 				layout_config = {
 					horizontal = {
-						preview_width = 0.7
+						preview_width = 0.7,
 					},
 				},
 			},

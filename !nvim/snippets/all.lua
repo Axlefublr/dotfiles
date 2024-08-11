@@ -84,7 +84,11 @@ return {
 		t('292828'),
 	}),
 
-	s({ filetype = 'all', trig = 'td' }, { t('TODO: ') }),
-	s({ filetype = 'all', trig = 'fx' }, { t('FIXME: ') }),
-	s({ filetype = 'all', trig = 'mov' }, { t('MOVE: ') }),
+	-- ╔══════════════════════════════════════════════════════════════════════╗
+	-- ║ I do this silly concatenation so that grepping for the various todos ║
+	-- ║ doesn't show the implementation unecessarily                         ║
+	-- ╚══════════════════════════════════════════════════════════════════════╝
+	s({ filetype = 'all', trig = 'td' }, { t('TO' .. 'DO: ') }),
+	s({ filetype = 'all', trig = 'fx' }, { t('FI' .. 'XME: ') }),
+	s({ filetype = 'all', trig = 'mov' }, { t('MO' .. 'VE: ') }),
 }

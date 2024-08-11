@@ -1,9 +1,9 @@
 env.saquire('mappings')
 
 env.do_and_acmd(true, function()
-	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.orange, bold = true }), 'FIXME:\\=')
-	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.green, bold = true }), 'TODO:\\=')
-	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.cyan, bold = true }), 'MOVE:\\=')
+	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.orange, bold = true }), 'FI' .. 'XME:\\=')
+	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.green, bold = true }), 'TO' .. 'DO:\\=')
+	vim.fn.matchadd(env.high({ fg = env.color.level, bg = env.color.cyan, bold = true }), 'MO' .. 'VE:\\=')
 end, { event = 'WinEnter' })
 
 env.do_and_acmd(true, function()
@@ -19,9 +19,7 @@ env.do_and_acmd(
 )
 env.acmd('BufLeave', '/tmp/pjs', function() vim.fn.matchdelete(vim.b.match_paths) end)
 
-env.acmd('FileType', 'qf', function()
-	env.bmap('n', 'cc', '<CR>')
-end)
+env.acmd('FileType', 'qf', function() env.bmap('n', 'cc', '<CR>') end)
 
 env.emit('User', 'WayAfter')
 
