@@ -10,6 +10,8 @@ return {
 			}),
 		})
 	),
+	s({ filetype = 'lua', trig = 'cast' }, { t('---@cast ') }),
+	s({ filetype = 'lua', trig = 'cas' }, { t('@cast ') }),
 	s({ filetype = 'lua', trig = 'class' }, { t('---@class ') }),
 	s({ filetype = 'lua', trig = 'field' }, { t('---@field ') }),
 	s({ filetype = 'lua', trig = 'fiel' }, { t('@field ') }),

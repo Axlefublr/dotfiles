@@ -1368,6 +1368,43 @@ local normal_visual_mappings = {
 		vim.schedule(function() vim.fn.setcmdline('.,$') end)
 	end,
 
+	gS = function()
+		local command = 'CB'
+		local mode = vim.fn.mode()
+		if mode == 'n' then
+			command = command .. 'l'
+			local prompt = { prompt = ' Alignment ' }
+			local options = { 'left', 'center' }
+			vim.ui.select(options, prompt, function(
+				item --[[@as string]],
+				index
+			)
+				if not index then return end
+				command = command .. item:sub(1, 1) .. 'line'
+				local prompt = { prompt = ' Style ' }
+				local styles = {
+					{ '─── title ───────', 1 },
+					{ '┌── title ───────', 4 },
+					{ '└── title ───────', 5 },
+					{ '━━━ title ━━━━━━━', 9 },
+					{ '════ title ══════', 13 },
+				}
+				mapped_styles = {}
+				for index, value in ipairs(styles) do
+					table.insert(mapped_styles, {
+						value[1],
+						function()
+							command = command .. value[2]
+							require('comment-box')
+							vim.cmd(command)
+						end,
+					})
+				end
+				env.select(mapped_styles, prompt)
+			end)
+		elseif mode == 'v' or mode == 'V' then
+		end
+	end,
 	['_'] = function() env.feedkeys_int(vim.v.count1 .. 'k$') end,
 	["';"] = '":',
 	["''"] = '"_',
