@@ -442,6 +442,11 @@ local normal_mappings = {
 	-- ── system ─────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>K'] = function() vim.cmd('q!') end,
 	['<Leader>dm'] = '<Cmd>messages<CR>',
+	['<Leader>dsj'] = '<Cmd>e ~/prog/dotfiles/project.txt<CR>',
+	['<Leader>dsJ'] = function()
+		env.shell({ 'fish', '-c', 'pjs' }):wait()
+		vim.cmd.edit('/tmp/pjs')
+	end,
 	['<Leader>ds'] = edit_magazine,
 	['<Space>'] = save,
 	['d<Space>'] = function() save('format') end,
@@ -900,13 +905,8 @@ local normal_mappings = {
 	-- ── harp ───────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>z'] = function() require('harp').cd_get() end,
 	['<Leader>Z'] = function() require('harp').cd_set() end,
-	['<Leader>so'] = function()
-		env.shell({ 'fish', '-c', 'pjs' }):wait()
-		local path = require('harp').default_get_path('o')
-		vim.cmd.edit(path)
-	end,
 	['<Leader>si'] = function()
-		local options = vim.fn.glob('~/prog/dotfiles/!nvim/snippets/*', false, true)
+		local options = vim.fn.glob('~/prog/dotfiles/aanvim/snippets/*', false, true)
 		if #options == 0 then
 			vim.notify('no snippet files')
 			return
@@ -914,7 +914,7 @@ local normal_mappings = {
 		options = vim.tbl_map(function(value) return vim.fn.fnamemodify(value, ':t:r') end, options)
 		vim.ui.select(options, { prompt = ' Snippet ' }, function(item, index)
 			if not index then return end
-			vim.cmd.edit('~/prog/dotfiles/!nvim/snippets/' .. item .. '.lua')
+			vim.cmd.edit('~/prog/dotfiles/aanvim/snippets/' .. item .. '.lua')
 		end)
 	end,
 	['<Leader>s'] = function() require('harp').default_get() end,

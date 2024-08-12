@@ -98,28 +98,56 @@ funcsave runner_symbol_name >/dev/null
 
 function magazine_get
     magazine_view $argv[1] 2000
-    cat ~/.local/share/magazine/$argv[1] | xclip -selection clipboard -r
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    cat $path | xclip -selection clipboard -r
     notify-send -t 1000 "get $argv[1]"
 end
 funcsave magazine_get >/dev/null
 
 function magazine_set
-    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
-    xclip -selection clipboard -o >~/.local/share/magazine/$argv[1]
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    cat $path >/tmp/magazine_$argv[1]
+    xclip -selection clipboard -o >$path
     notify-send -t 1000 "set $argv[1]"
     update_magazine $argv[1]
 end
 funcsave magazine_set >/dev/null
 
 function magazine_edit
-    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
-    neoline ~/.local/share/magazine/$argv[1]
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    cat $path >/tmp/magazine_$argv[1]
+    neoline $path
     update_magazine $argv[1]
 end
 funcsave magazine_edit >/dev/null
 
 function magazine_view
-    set text (cat ~/.local/share/magazine/$argv[1] | string collect)
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    set text (cat $path | string collect)
     if test -z $text
         notify-send -t 1000 "register $argv[1] is empty"
     else
@@ -131,8 +159,15 @@ funcsave magazine_view >/dev/null
 
 function magazine_truncate
     magazine_view $argv[1] 3000
-    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
-    truncate -s 0 ~/.local/share/magazine/$argv[1]
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    cat $path >/tmp/magazine_$argv[1]
+    truncate -s 0 $path
     notify-send -t 1000 "truncate $argv[1]"
     update_magazine $argv[1]
 end
@@ -150,8 +185,15 @@ function magazine_write
         return 1
     end
     set -e result[-1]
-    cat ~/.local/share/magazine/$argv[1] >/tmp/magazine_$argv[1]
-    printf "$result" >~/.local/share/magazine/$argv[1]
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    cat $path >/tmp/magazine_$argv[1]
+    printf "$result" >$path
     notify-send -t 1000 "write $argv[1]"
     update_magazine $argv[1]
 end
@@ -164,7 +206,14 @@ function magazine_append
     end
     set -e result[-1]
     set result "$result"
-    indeed ~/.local/share/magazine/$argv[1] -- $result
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    indeed $path -- $result
     notify-send -t 1000 "append $argv[1]"
     update_magazine $argv[1]
 end
@@ -185,7 +234,14 @@ end
 funcsave magazine_append_link >/dev/null
 
 function magazine_appset
-    indeed ~/.local/share/magazine/$argv[1] "$(xclip -selection clipboard -o)"
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    indeed $path "$(xclip -selection clipboard -o)"
     notify-send -t 1000 "append clip $argv[1]"
     update_magazine $argv[1]
 end
@@ -218,21 +274,27 @@ end
 funcsave magazine_restore >/dev/null
 
 function magazine_filter
-    set result (rofi_multi_select -input ~/.local/share/magazine/$argv[1] 2>/dev/null ; echo $status)
+    set -f path ~/.local/share/magazine/$argv[1]
+    if test "$argv[1]" = pjs
+        set path (pick_project_path)
+        if not test "$path"
+            return
+        end
+    end
+    set result (rofi_multi_select -input $path 2>/dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end
     set -e result[-1]
-    set file_path ~/.local/share/magazine/$argv[1]
-    for line in (cat $file_path)
+    for line in (cat $path)
         if contains "$line" $result
             continue
         end
         set collected $collected $line
     end
-    cp -f $file_path /tmp/magazine_$argv[1]
+    cp -f $path /tmp/magazine_$argv[1]
     set multiline (printf '%s\n' $collected | string collect)
-    echo -n $multiline >$file_path
+    echo -n $multiline >$path
     notify-send -t 1000 "filter $argv[1]"
     update_magazine $argv[1]
 end
@@ -322,6 +384,11 @@ function project_paths
 end
 funcsave project_paths >/dev/null
 
+function pick_project_path
+    echo ~/prog/(project_paths | rofi -dmenu 2>/dev/null)/project.txt
+end
+funcsave pick_project_path >/dev/null
+
 function pjs
     begin
         set empties
@@ -330,7 +397,7 @@ function pjs
             touch $project_file_path
             if test -s $project_file_path
                 echo $file
-                cat $project_file_path
+                echo "$(cat $project_file_path)"
                 echo
             else
                 set empties $empties $file
