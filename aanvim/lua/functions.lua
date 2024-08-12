@@ -197,9 +197,9 @@ function m.exec_in_shell(should_scream)
 	if should_scream == false then
 		env.shell(args)
 	elseif should_scream == 'only_errors' then
-		env.shell_display(args, { only_errors = true })
+		env.shay(args, true)
 	else
-		env.shell_display(args)
+		env.shay(args)
 	end
 end
 

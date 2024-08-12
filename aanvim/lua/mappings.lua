@@ -621,8 +621,7 @@ local normal_mappings = {
 						function()
 							local message = env.input('stash message: ')
 							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -m ' .. message)
+							env.shay({ 'git', 'stash', 'push', '-m', message })
 						end,
 					},
 					{
@@ -630,8 +629,7 @@ local normal_mappings = {
 						function()
 							local message = env.input('stash message: ')
 							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push --staged -m ' .. message)
+							env.shay({ 'git', 'stash', 'push', '--staged', '-m', message })
 						end,
 					},
 					{
@@ -639,8 +637,7 @@ local normal_mappings = {
 						function()
 							local message = env.input('stash message: ')
 							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -k -m ' .. message)
+							env.shay({ 'git', 'stash', 'push', '-k', '-m', message })
 						end,
 					},
 					{
@@ -648,8 +645,7 @@ local normal_mappings = {
 						function()
 							local message = env.input('stash message: ')
 							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -ku -m ' .. message)
+							env.shay({ 'git', 'stash', 'push', '-ku', '-m', 'message' })
 						end,
 					},
 					{
@@ -657,18 +653,26 @@ local normal_mappings = {
 						function()
 							local message = env.input('stash message: ')
 							if not message then return end
-							message = vim.fn.shellescape(message)
-							vim.cmd('Git stash push -u -m ' .. message)
+							env.shay({ 'git', 'stash', 'push', '-u', '-m', message })
 						end,
 					},
 				}, { prompt = ' Flags ' })
 			else
 				local picked_stash = index - 2 -- stashes are 0 indexed
 				local options = {
-					{ 'pop', function() vim.cmd('Git stash pop stash@\\{' .. picked_stash .. '}') end },
-					{ 'drop', function() vim.cmd('Git stash drop stash@\\{' .. picked_stash .. '}') end },
+					{
+						'pop',
+						function() env.shay({ 'git', 'stash', 'pop', 'stash@\\{' .. picked_stash .. '}' }) end,
+					},
+					{
+						'drop',
+						function() env.shay({ 'git', 'stash', 'drop', 'stash@\\{' .. picked_stash .. '}' }) end,
+					},
 					{ 'copy', function() vim.fn.setreg('+', 'stash@\\{' .. picked_stash .. '}') end },
-					{ 'apply', function() vim.cmd('Git stash apply stash@\\{' .. picked_stash .. '}') end },
+					{
+						'apply',
+						function() env.shay({ 'git', 'stash', 'apply', 'stash@\\{' .. picked_stash .. '}' }) end,
+					},
 				}
 				env.select(options, { prompt = ' Action ' })
 			end
@@ -698,16 +702,16 @@ local normal_mappings = {
 			if index == 1 then
 				local new_branch_name = env.input('branch name: ')
 				if not new_branch_name then return end
-				vim.cmd('Git switch --create ' .. new_branch_name)
+				env.shay({ 'git', 'switch', '--create', new_branch_name })
 				return
 			end
 			local options = {
-				{ 'switch', function() vim.cmd('Git switch ' .. item) end },
+				{ 'switch', function() env.shay({ 'git', 'switch', item }) end },
 				{
 					'delete',
 					function()
 						local response = env.confirm('delete branch `' .. item .. '`? ', {
-							{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+							{ 'Jes', function() env.shay({ 'git', 'branch', '-d', item }) end },
 						})
 						if not response then return end
 						response()
@@ -717,7 +721,7 @@ local normal_mappings = {
 					'merge',
 					function()
 						local response = env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
-							{ 'Jes', function() vim.cmd('Git branch -d ' .. item) end },
+							{ 'Jes', function() env.shay({ 'git', 'branch', '-d', item }) end },
 						})
 						if not response then return end
 						response()
@@ -745,12 +749,12 @@ local normal_mappings = {
 			return
 		end
 		local state = {
-			{ 'Jes', 'silent G clean -df' },
+			{ 'Jes', 'git clean -df' },
 			{ 'Ko', nil },
 		}
-		local result = env.confirm(output, state)
+		local result = env.confirm(output, state) --[[@as string?]]
 		if not result then return end
-		vim.cmd(result)
+		env.shay(result:split(), true)
 	end,
 	['<Leader>cc'] = '<Cmd>silent G commit -q<CR>',
 	['<Leader>cz'] = function()
@@ -769,13 +773,13 @@ local normal_mappings = {
 			},
 			{
 				'git commit --amend --no-edit',
-				function(item) env.shell_display(item:split(' '), { only_errors = true }) end,
+				function(item) env.shay(item:split(' '), true) end,
 			},
 		}
 		env.select(options, { prompt = ' Commit ' })
 	end,
-	['<Leader>cA'] = function() env.shell_display({ 'git', 'add', '.' }) end,
-	['<Leader>cU'] = function() env.shell_display({ 'git', 'restore', '--staged', '.' }) end,
+	['<Leader>cA'] = function() env.shay({ 'git', 'add', '.' }) end,
+	['<Leader>cU'] = function() env.shay({ 'git', 'restore', '--staged', '.' }) end,
 	['cm'] = require('functions').exec_in_shell,
 	['cM'] = function()
 		vim.opt_local.cmdheight = 1

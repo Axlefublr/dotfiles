@@ -44,7 +44,7 @@ function string.trim(str, what) return vim.fn.trim(str, what or '') end
 
 function string.rtrim(str, what) return vim.fn.trim(str, what or '', 2) end
 
-function string.split(str, separator) return vim.fn.split(str, separator) end
+function string.split(str, separator) return vim.fn.split(str, separator or '\\s\\+') end
 
 env.temp_mark = 'P'
 env.default_register = '+'
@@ -288,11 +288,14 @@ function env.shell(cmd, opts, on_exit)
 	return vim.system(cmd, opts, on_exit)
 end
 
+--- `env.shell`, but display the output in a `vim.notify` if it's a single line
+--- and in a new split, if there are multiple lines of output.
 --- Will be syncronous.
-function env.shell_display(cmd, opts)
+--- @param only_errors boolean? Only display output if there are errors
+function env.shay(cmd, only_errors, opts)
 	local output = env.shell(cmd, opts):wait()
 	local successful = output.code == 0
-	if opts.only_errors and successful then return end
+	if only_errors and successful then return end
 	local output_text = ''
 	local stdout = output.stdout:rtrim()
 	local stderr = output.stderr:rtrim()
