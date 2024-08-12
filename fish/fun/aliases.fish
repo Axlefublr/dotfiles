@@ -17,7 +17,7 @@ alias --save tgpt 'tgpt -q' >/dev/null
 alias --save yt-dlp 'yt-dlp $argv ; bell' >/dev/null
 alias --save scrot 'scrot -i -l color=#ffafd7,mode=edge,width=2' >/dev/null
 alias --save suspend 'systemctl suspend' >/dev/null
-alias --save screenkey 'screenkey --no-systray --position top --font-size small --key-mode translated --bak-mode full --mods-mod normal --font "JetBrainsMonoNL Nerd Font" --font-color "#d4be98" --bg-color "#1a1919" --opacity 0.7 --compr-cnt 3 --mouse -g 500x1080+1420-15' >/dev/null
+alias --save screenkey 'screenkey --no-systray --position top --font-size small --key-mode translated --bak-mode full --mods-mod normal --font "JetBrainsMonoNL Nerd Font" --font-color "#d4be98" --bg-color "#1f1e1e" --opacity 1.0 --compr-cnt 3 -g 400x800+1520-325' >/dev/null
 alias --save rofi_multi_select 'rofi -dmenu -multi-select -ballot-selected-str " " -ballot-unselected-str "  "' >/dev/null
 alias --save awart 'awesome-client "awesome.restart()"' >/dev/null
 alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' >/dev/null
