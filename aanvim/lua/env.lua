@@ -40,11 +40,11 @@ function table.into_keys(tbl)
 	return keys
 end
 
-function string.trim(string, what) return vim.fn.trim(string, what or '') end
+function string.trim(str, what) return vim.fn.trim(str, what or '') end
 
-function string.rtrim(string, what) return vim.fn.trim(string, what or '', 2) end
+function string.rtrim(str, what) return vim.fn.trim(str, what or '', 2) end
 
-function string.split(string, separator) return vim.fn.split(string, separator) end
+function string.split(str, separator) return vim.fn.split(str, separator) end
 
 env.temp_mark = 'P'
 env.default_register = '+'
@@ -234,9 +234,7 @@ end
 ---@param name string
 ---@param execute string|fun(args: UserCommandExecuteClosure)
 ---@param opts vim.api.keyset.user_command?
-function env.cmd(name, execute, opts)
-	vim.api.nvim_create_user_command(name, execute, opts or {})
-end
+function env.cmd(name, execute, opts) vim.api.nvim_create_user_command(name, execute, opts or {}) end
 
 ---Emit event
 ---@param event string|string[]
@@ -263,6 +261,8 @@ function env.emit_bufs(event, opts)
 	end
 end
 
+---@param chunks string|string[]|[string, string][]
+---@param history boolean?
 function env.echo(chunks, history)
 	if history == nil then history = false end
 	if type(chunks) == 'string' then
@@ -283,12 +283,104 @@ end
 
 function env.shell(cmd, opts, on_exit)
 	if type(cmd) == 'string' then cmd = { cmd } end
-	return vim.system(cmd, vim.tbl_deep_extend('force', { text = true }, opts or {}), on_exit)
+	local opts = vim.tbl_deep_extend('force', { text = true }, opts or {})
+	if not opts.cwd then opts.cwd = vim.fn.getcwd() end
+	return vim.system(cmd, opts, on_exit)
 end
 
+--- Will be syncronous.
+function env.shell_display(cmd, opts)
+	local output = env.shell(cmd, opts):wait()
+	local successful = output.code == 0
+	if opts.only_errors and successful then return end
+	local output_text = ''
+	local stdout = output.stdout:rtrim()
+	local stderr = output.stderr:rtrim()
+
+	if #stdout > 0 then
+		output_text = output_text .. stdout
+	end
+	if #stderr > 0 then
+		if #output_text == 0 then
+			output_text = output_text .. stderr
+		else
+			output_text = output_text .. '\n' .. stderr
+		end
+	end
+
+	if #output_text == 0 then
+		if not successful then
+			vim.notify('exitcode: ' .. output.code, vim.log.levels.ERROR)
+		end
+		return
+	end
+
+	local lines = output_text:split('\n')
+
+	if #lines == 1 then
+		vim.notify(unpack(lines), successful and vim.log.levels.OFF or vim.log.levels.ERROR)
+		return
+	end
+
+	vim.cmd('new')
+	env.set_lines(lines)
+end
+
+---@alias InputCompletion
+---| nil
+---| 'arglist' file names in argument list
+---| 'augroup' autocmd groups
+---| 'buffer' buffer names
+---| 'behave' :behave suboptions
+---| 'color' color schemes
+---| 'command' Ex command (and arguments)
+---| 'compiler' compilers
+---| 'dir' directory names
+---| 'environment' environment variable names
+---| 'event' autocommand events
+---| 'expression' Vim expression
+---| 'file' file and directory names
+---| 'file_in_path' file and directory names in |'path'|
+---| 'filetype' filetype names |'filetype'|
+---| 'function' function name
+---| 'help' help subjects
+---| 'highlight' highlight groups
+---| 'history' :history suboptions
+---| 'keymap' keyboard mappings
+---| 'locale' locale names (as output of locale -a)
+---| 'lua' Lua expression |:lua|
+---| 'mapclear' buffer argument
+---| 'mapping' mapping name
+---| 'menu' menus
+---| 'messages' |:messages| suboptions
+---| 'option' options
+---| 'packadd' optional package |pack-add| names
+---| 'shellcmd' Shell command
+---| 'sign' |:sign| suboptions
+---| 'syntax' syntax file names |'syntax'|
+---| 'syntime' |:syntime| suboptions
+---| 'tag' tags
+---| 'tag_listfiles' tags, file names are shown when CTRL-D is hit
+---| 'user' user names
+---| 'var' user variables
+---| 'custom' {func} custom completion, defined via {func}
+---| 'customlist' {func} custom completion, defined via {func}
+
+---@param prompt string|[string, string]|nil
+---@param default string?
+---@param completion InputCompletion?
 ---@return string|nil
-function env.input(prompt, default)
-	local output = vim.fn.input({ prompt = prompt, default = default, cancelreturn = '\127' })
+function env.input(prompt, default, completion)
+	local specified_highlight = type(prompt) == 'table'
+	local prompt_text = prompt
+	if specified_highlight then
+		---@cast prompt -?
+		prompt_text = prompt[1]
+		vim.cmd.echohl(prompt[2])
+	end
+	local output =
+		vim.fn.input({ prompt = prompt_text, default = default, cancelreturn = '\127', completion = completion })
+	if specified_highlight then vim.cmd.echohl('None') end
 	if output == '\127' then
 		return nil
 	else
@@ -339,9 +431,7 @@ end
 ---@param finish integer? last line in the file if nil. which only works if bufnr is also current buffer.
 ---@param bufnr integer? 0 if nil
 function env.set_lines(text, start, finish, bufnr)
-	if type(text) == 'string' then
-		text = text:split('\n')
-	end
+	if type(text) == 'string' then text = text:split('\n') end
 	vim.api.nvim_buf_set_lines(bufnr or 0, start or 0, finish or vim.fn.line('$'), false, text)
 end
 
@@ -413,9 +503,7 @@ end
 ---@param rhs string|function
 ---@param opts vim.keymap.set.Opts?
 function env.map(mode, lhs, rhs, opts)
-	if type(mode) == 'string' and #mode > 1 then
-		mode = mode:split('\\zs')
-	end
+	if type(mode) == 'string' and #mode > 1 then mode = mode:split('\\zs') end
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 

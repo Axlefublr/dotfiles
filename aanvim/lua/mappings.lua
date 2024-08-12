@@ -769,26 +769,17 @@ local normal_mappings = {
 			},
 			{
 				'git commit --amend --no-edit',
-				function() vim.cmd('silent Git commit --amend --no-edit') end,
+				function(item) env.shell_display(item:split(' '), { only_errors = true }) end,
 			},
 		}
 		env.select(options, { prompt = ' Commit ' })
 	end,
-	['<Leader>cA'] = '<Cmd>silent G add .<CR>',
-	['<Leader>cU'] = '<Cmd>silent G restore --staged .<CR>',
-	['cm'] = function()
-		vim.opt_local.cmdheight = 1
-		env.feedkeys(':Git ')
-		vim.api.nvim_create_autocmd('CmdlineLeave', {
-			callback = function()
-				vim.opt_local.cmdheight = 0
-				return true
-			end,
-		})
-	end,
+	['<Leader>cA'] = function() env.shell_display({ 'git', 'add', '.' }) end,
+	['<Leader>cU'] = function() env.shell_display({ 'git', 'restore', '--staged', '.' }) end,
+	['cm'] = require('functions').exec_in_shell,
 	['cM'] = function()
 		vim.opt_local.cmdheight = 1
-		env.feedkeys(':silent Git ')
+		env.feedkeys(':Git ')
 		vim.api.nvim_create_autocmd('CmdlineLeave', {
 			callback = function()
 				vim.opt_local.cmdheight = 0

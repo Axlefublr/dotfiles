@@ -156,6 +156,7 @@ return {
 		init = function() env.func_loads_plugin('nvim-notify', vim, 'notify') end,
 		---@type notify.Config
 		opts = {
+			max_width = vim.o.columns,
 			background_colour = '#292828',
 			render = 'wrapped-compact',
 			stages = 'static',

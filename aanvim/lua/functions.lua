@@ -159,9 +159,7 @@ function m.kitty_blank() -- Kitty blank
 	local app = {
 		{
 			'Terminal',
-			function()
-				env.select(cwds, { prompt = ' Directory ' })
-			end,
+			function() env.select(cwds, { prompt = ' Directory ' }) end,
 		},
 		{
 			'Neovim',
@@ -188,6 +186,21 @@ function m.kitty_blank() -- Kitty blank
 		},
 	}
 	env.select(typ, { prompt = ' Type ' })
+end
+
+---@param should_scream boolean|'only_errors'|nil
+function m.exec_in_shell(should_scream)
+	local input = env.input({ '󱕅 ', env.high({ fg = env.color.shell_yellow }) }, nil, 'shellcmd')
+	if not input then return end
+
+	local args = { 'fish', '-c', input }
+	if should_scream == false then
+		env.shell(args)
+	elseif should_scream == 'only_errors' then
+		env.shell_display(args, { only_errors = true })
+	else
+		env.shell_display(args)
+	end
 end
 
 return m
