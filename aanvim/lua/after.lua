@@ -49,3 +49,5 @@ env.do_and_acmd(function() return vim.bo.filetype == 'lua' end, function()
 	require('lazydev')
 	return true
 end, { event = 'FileType', pattern = 'lua' })
+
+vim.cmd('silent! LspStart')

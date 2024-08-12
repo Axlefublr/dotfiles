@@ -1,6 +1,5 @@
 ---@type LazyPluginSpec[]
 return {
-	-- { 'Bilal2453/luvit-meta', lazy = true },
 	{
 		'folke/lazydev.nvim',
 		cmd = 'LazyDev',
@@ -10,7 +9,7 @@ return {
 		opts = {
 			library = {
 				{ path = 'luvit-meta/library', words = { 'vim%.uv' } },
-				{ path = 'astrolsp', words = { 'AstroLSP' } },
+				-- { path = 'astrolsp', words = { 'AstroLSP' } },
 				{ path = 'lazy.nvim', words = { 'Lazy' } },
 			},
 		},
@@ -55,7 +54,6 @@ return {
 		config = function(_, opts)
 			vim.tbl_map(require('astrolsp').lsp_setup, require('astrolsp').config.servers)
 			env.emit_bufs('FileType', { group = 'lspconfig' })
-			vim.cmd('silent! LspStart')
 		end,
 	},
 }

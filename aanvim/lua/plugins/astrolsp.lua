@@ -57,7 +57,7 @@ return {
 								workspaceWord = false,
 							},
 							diagnostics = {
-								disable = { 'lowercase-global', 'redefined-local' },
+								disable = { 'lowercase-global', 'redefined-local', 'duplicate-set-field' },
 								workspaceDelay = 0,
 							},
 							format = {
