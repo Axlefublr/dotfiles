@@ -188,19 +188,17 @@ function m.kitty_blank() -- Kitty blank
 	env.select(typ, { prompt = ' Type ' })
 end
 
----@param should_scream boolean|'only_errors'|nil
-function m.exec_in_shell(should_scream)
+function m.exec_in_shell()
 	local input = env.input({ '󱕅 ', env.high({ fg = env.color.shell_yellow }) }, nil, 'shellcmd')
 	if not input then return end
 
-	local args = { 'fish', '-c', input }
-	if should_scream == false then
-		env.shell(args)
-	elseif should_scream == 'only_errors' then
-		env.shay(args, true)
-	else
-		env.shay(args)
+	local only_errors = false
+	if input:sub(1, 1) == ';' then
+		input = input:sub(2)
+		only_errors = true
 	end
+	local args = { 'fish', '-c', input }
+	env.shay(args, only_errors)
 end
 
 return m
