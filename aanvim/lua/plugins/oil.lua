@@ -46,11 +46,11 @@ return {
 			preview = {
 				border = env.borders,
 				min_width = 0.65,
-				min_height = 0.25
+				min_height = 0.25,
 			},
 			progress = {
-				border = env.borders
-			}
+				border = env.borders,
+			},
 		}
 	end,
 	config = function(_, opts)
@@ -64,6 +64,10 @@ return {
 		env.set_high('OilMove', { link = 'Yellow' })
 
 		require('oil').setup(opts)
+
+		local function oil_tail()
+			return vim.fn.fnamemodify(require('oil').get_current_dir() --[[@as string]], ':h:t')
+		end
 
 		env.acmd('FileType', 'oil', function()
 			env.bmap('n', '>', function()
@@ -99,6 +103,80 @@ return {
 						end,
 					},
 				}
+
+				-- ╔══════════════════════════════════════════════════════════════════════╗
+				-- ║ If I'm in `content`, big chance I'm watching an anime                ║
+				-- ║ I don't want to restrict the pathmatching to just specifically anime ║
+				-- ║ because *maybe* in the future I decide to download some series       ║
+				-- ║ into a playlist, and name it in a way where it will work             ║
+				-- ║ with this `glaza` integration                                        ║
+				-- ║                                                                      ║
+				-- ║ But for now this is meant to provide shortcuts for doing `glaza`     ║
+				-- ║ commands while watching anime                                        ║
+				-- ║ I provide only the 4 main actions that I do the most commonly,       ║
+				-- ║ and are related directly to the process of watching a show;          ║
+				-- ║ Because executing commands from the environment where I was just     ║
+				-- ║ watching the show, makes sense                                       ║
+				-- ╚══════════════════════════════════════════════════════════════════════╝
+				if require('oil').get_current_dir():gmatch(vim.fn.expand('~/vid/content/')) then
+					-- FIXME: should be some *working* variation of (integer, integer)|nil (but that specific thingy doesn't actually work)
+					---@return integer?, integer?
+					local function get_minmax_episodes()
+						local cur_dir = require('oil').get_current_dir() --[[@as string]]
+						local episodes = vim.fn.glob(cur_dir .. '*', true, true)
+						local only_numerical = vim.tbl_map(function(path)
+							local maybe_episode_number = tonumber(vim.fn.fnamemodify(path, ':t:s;\\..*;;'))
+							if not maybe_episode_number then return end
+							return maybe_episode_number
+						end, episodes)
+						if #only_numerical == 0 then
+							vim.notify('no episodes')
+							return
+						end
+						table.sort(only_numerical)
+						return only_numerical[1], only_numerical[#only_numerical]
+					end
+
+					table.insert(options, {
+						'episode',
+						function()
+							local min, _ = get_minmax_episodes()
+							if not min then return end
+							local output = env.shell({ 'glaza', '-g', 'episode', oil_tail(), min - 1 }):wait()
+							vim.notify(output.stderr)
+						end,
+					})
+					table.insert(options, {
+						'download',
+						function()
+							local _, max = get_minmax_episodes()
+							if not max then return end
+							local output = env.shell({ 'glaza', '-g', 'download', oil_tail(), max }):wait()
+							vim.notify(output.stderr)
+						end,
+					})
+
+					---@param which 'finish'|'drop'
+					local function finish_or_drop(which)
+						return function()
+							local anime_dir = require('oil').get_current_dir() --[[@as string]]
+							local output = env.shell({ 'glaza', '-g', which, oil_tail() }):wait()
+							require('oil.actions').parent.callback()
+							env.shell({ 'rm', '-fr', anime_dir }):wait()
+							vim.notify(output.stderr)
+						end
+					end
+
+					table.insert(options, {
+						'finish',
+						finish_or_drop('finish'),
+					})
+					table.insert(options, {
+						'drop',
+						finish_or_drop('drop'),
+					})
+				end
+
 				env.select(options, { prompt = ' Action ' })
 			end)
 
