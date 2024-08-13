@@ -48,4 +48,24 @@ return {
 			env.select = require('selabel').select_nice
 		end,
 	},
+	{
+		'Axlefublr/dress.nvim',
+		dev = true,
+		lazy = true,
+		init = function()
+			env.func_loads_plugin('dress.nvim', env, 'inpice')
+			env.func_loads_plugin('dress.nvim', vim.ui, 'input')
+		end,
+		---@module "dress"
+		---@type DressOpts
+		opts = {
+			win_opts = {
+				border = env.borders
+			}
+		},
+		config = function(_, opts)
+			require('dress').setup(opts)
+			env.inpice = require('dress').valid_input
+		end,
+	},
 }
