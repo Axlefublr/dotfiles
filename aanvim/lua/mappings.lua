@@ -1187,6 +1187,8 @@ local command_mappings = {
 	['<A-g>'] = function()
 		local cmdline = vim.fn.getcmdline()
 		vim.fn.setcmdline('\\<' .. cmdline .. '\\>')
+		env.feedkeys(' ')
+		env.feedkeys_int('<BS>')
 	end,
 }
 
