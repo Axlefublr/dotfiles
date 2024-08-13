@@ -41,6 +41,9 @@ return {
 		opts = function()
 			local cmp = require('cmp')
 			return {
+				completion = {
+					autocomplete = false,
+				},
 				sources = {
 					{ name = 'nvim_lsp', priority = 1000 },
 					{ name = 'path', priority = 250 },
