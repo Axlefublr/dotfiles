@@ -391,6 +391,14 @@ function env.input(prompt, default, completion)
 	end
 end
 
+function env.inpice(...)
+	require('dress').valid_input(...)
+end
+
+function env.select(...)
+	require('selabel').select_nice(...)
+end
+
 function env.feedkeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end
 
 function env.feedkeys_int(keys)
