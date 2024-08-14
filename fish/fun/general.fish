@@ -300,7 +300,7 @@ function c
         case p phind
             $BROWSER "https://www.phind.com/search?q=$input" >/dev/null
         case github
-            $BROWSER "https://www.google.com/search?q=$input%20github&sourceid=chrome&ie=UTF-8" >/dev/null
+            $BROWSER "https://github.com/search?q=$input" >/dev/null
         case '*'
             $BROWSER "https://www.google.com/search?q=$input&sourceid=chrome&ie=UTF-8" >/dev/null
     end
