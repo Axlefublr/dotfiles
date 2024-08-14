@@ -40,9 +40,9 @@ function table.into_keys(tbl)
 	return keys
 end
 
-function string.trim(str, what) return vim.fn.trim(str, what or '') end
+function string.trim(str) return vim.trim(str) end
 
-function string.rtrim(str, what) return vim.fn.trim(str, what or '', 2) end
+function string.rtrim(str) return str:gsub('%s*$', '') end
 
 function string.split(str, separator) return vim.fn.split(str, separator or '\\s\\+') end
 
@@ -300,9 +300,7 @@ function env.shay(cmd, only_errors, opts)
 	local stdout = output.stdout:rtrim()
 	local stderr = output.stderr:rtrim()
 
-	if #stdout > 0 then
-		output_text = output_text .. stdout
-	end
+	if #stdout > 0 then output_text = output_text .. stdout end
 	if #stderr > 0 then
 		if #output_text == 0 then
 			output_text = output_text .. stderr
@@ -312,9 +310,7 @@ function env.shay(cmd, only_errors, opts)
 	end
 
 	if #output_text == 0 then
-		if not successful then
-			vim.notify('exitcode: ' .. output.code, vim.log.levels.ERROR)
-		end
+		if not successful then vim.notify('exitcode: ' .. output.code, vim.log.levels.ERROR) end
 		return
 	end
 
@@ -381,8 +377,12 @@ function env.input(prompt, default, completion)
 		prompt_text = prompt[1]
 		vim.cmd.echohl(prompt[2])
 	end
-	local output =
-		vim.fn.input({ prompt = prompt_text, default = default, cancelreturn = '\127', completion = completion })
+	local output = vim.fn.input({
+		prompt = prompt_text,
+		default = default,
+		cancelreturn = '\127',
+		completion = completion,
+	})
 	if specified_highlight then vim.cmd.echohl('None') end
 	if output == '\127' then
 		return nil
