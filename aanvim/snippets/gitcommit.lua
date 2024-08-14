@@ -1,5 +1,6 @@
 ---@diagnostic disable: undefined-global
 return {
+	s({ filetype = 'gitcommit', trig = 't' }, fmta('default<>: <>', { i(2), i(1) })),
 	s({ filetype = 'gitcommit', trig = 'v' }, fmta('nvim<>: <>', { i(2), i(1) })),
 	s({ filetype = 'gitcommit', trig = 'c' }, fmta('chore<>: <>', { i(2), i(1) })),
 	s({ filetype = 'gitcommit', trig = 'f' }, fmta('feat<>: <>', { i(2), i(1) })),

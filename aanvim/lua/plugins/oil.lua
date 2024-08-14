@@ -37,7 +37,7 @@ return {
 				['gt'] = 'actions.toggle_trash',
 			},
 			use_default_keymaps = false,
-			watch_for_changes = true,
+			watch_for_changes = false,
 			view_options = {
 				show_hidden = true,
 				is_always_hidden = function(name, _) return name == '..' or name == '.git' end,
@@ -119,7 +119,6 @@ return {
 				-- ║ watching the show, makes sense                                       ║
 				-- ╚══════════════════════════════════════════════════════════════════════╝
 				if require('oil').get_current_dir():gmatch(vim.fn.expand('~/vid/content/')) then
-					-- FIXME: should be some *working* variation of (integer, integer)|nil (but that specific thingy doesn't actually work)
 					---@return integer?, integer?
 					local function get_minmax_episodes()
 						local cur_dir = require('oil').get_current_dir() --[[@as string]]

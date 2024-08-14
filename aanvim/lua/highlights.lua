@@ -164,6 +164,7 @@ local highlights = {
 
 	-- Language lua
 
+	['@variable.parameter.builtin.lua'] = { fg = color.red },
 	['@lsp.type.macro.lua'] = { fg = color.red, bold = true },
 	['@property.lua'] = link('Normal'),
 	['@lsp.type.class.lua'] = link('Blue'),
