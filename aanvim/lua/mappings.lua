@@ -24,10 +24,6 @@ end
 
 local function close_try_save()
 	pcall(vim.cmd --[[@as function]], 'silent update')
-	if vim.bo.filetype == 'qf' then
-		vim.cmd('cclose')
-		return
-	end
 	vim.cmd('q!')
 end
 
