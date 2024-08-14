@@ -57,4 +57,15 @@ return {
 			}
 		},
 	},
+	{
+		'Axlefublr/wife.nvim',
+		dev = true,
+		lazy = true,
+		---@type WifeOpts
+		opts = {},
+		config = function(_, opts)
+			env.set_high('WifePrompt', { fg = env.color.shell_yellow, bold = true })
+			require('wife').setup(opts)
+		end,
+	},
 }

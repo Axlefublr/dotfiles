@@ -188,17 +188,4 @@ function m.kitty_blank() -- Kitty blank
 	env.select(typ, { prompt = ' Type ' })
 end
 
-function m.exec_in_shell()
-	local input = env.input({ '󱕅 ', env.high({ fg = env.color.shell_yellow }) }, nil, 'shellcmd')
-	if not input then return end
-
-	local only_errors = false
-	if input:sub(1, 1) == ';' then
-		input = input:sub(2)
-		only_errors = true
-	end
-	local args = { 'fish', '-c', input }
-	env.shay(args, only_errors)
-end
-
 return m

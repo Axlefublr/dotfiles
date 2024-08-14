@@ -144,6 +144,26 @@ env.icons = {
 	etc = '…',
 }
 
+function env.shell(...)
+	return require('wife').shell(...)
+end
+
+function env.shay(...)
+	require('wife').shell_display(...)
+end
+
+function env.inpice(...)
+	require('dress').valid_input(...)
+end
+
+function env.select(...)
+	require('selabel').select_nice(...)
+end
+
+function env.input(...)
+	require('wife').input(...)
+end
+
 function env.to_base_36(number)
 	if number < 0 or number > 35 then
 		return '?'
@@ -279,124 +299,6 @@ function env.echo(chunks, history)
 		chunks = { { tostring(chunks) } }
 	end
 	vim.api.nvim_echo(chunks, history, {})
-end
-
-function env.shell(cmd, opts, on_exit)
-	if type(cmd) == 'string' then cmd = { cmd } end
-	local opts = vim.tbl_deep_extend('force', { text = true }, opts or {})
-	if not opts.cwd then opts.cwd = vim.fn.getcwd() end
-	return vim.system(cmd, opts, on_exit)
-end
-
---- `env.shell`, but display the output in a `vim.notify` if it's a single line
---- and in a new split, if there are multiple lines of output.
---- Will be syncronous.
---- @param only_errors boolean? Only display output if there are errors
-function env.shay(cmd, only_errors, opts)
-	local output = env.shell(cmd, opts):wait()
-	local successful = output.code == 0
-	if only_errors and successful then return end
-	local output_text = ''
-	local stdout = output.stdout:rtrim()
-	local stderr = output.stderr:rtrim()
-
-	if #stdout > 0 then output_text = output_text .. stdout end
-	if #stderr > 0 then
-		if #output_text == 0 then
-			output_text = output_text .. stderr
-		else
-			output_text = output_text .. '\n' .. stderr
-		end
-	end
-
-	if #output_text == 0 then
-		if not successful then vim.notify('exitcode: ' .. output.code, vim.log.levels.ERROR) end
-		return
-	end
-
-	local lines = output_text:split('\n')
-
-	if #lines == 1 then
-		vim.notify(unpack(lines), successful and vim.log.levels.OFF or vim.log.levels.ERROR)
-		return
-	end
-
-	vim.cmd('new')
-	env.set_lines(lines)
-end
-
----@alias InputCompletion
----| nil
----| 'arglist' file names in argument list
----| 'augroup' autocmd groups
----| 'buffer' buffer names
----| 'behave' :behave suboptions
----| 'color' color schemes
----| 'command' Ex command (and arguments)
----| 'compiler' compilers
----| 'dir' directory names
----| 'environment' environment variable names
----| 'event' autocommand events
----| 'expression' Vim expression
----| 'file' file and directory names
----| 'file_in_path' file and directory names in |'path'|
----| 'filetype' filetype names |'filetype'|
----| 'function' function name
----| 'help' help subjects
----| 'highlight' highlight groups
----| 'history' :history suboptions
----| 'keymap' keyboard mappings
----| 'locale' locale names (as output of locale -a)
----| 'lua' Lua expression |:lua|
----| 'mapclear' buffer argument
----| 'mapping' mapping name
----| 'menu' menus
----| 'messages' |:messages| suboptions
----| 'option' options
----| 'packadd' optional package |pack-add| names
----| 'shellcmd' Shell command
----| 'sign' |:sign| suboptions
----| 'syntax' syntax file names |'syntax'|
----| 'syntime' |:syntime| suboptions
----| 'tag' tags
----| 'tag_listfiles' tags, file names are shown when CTRL-D is hit
----| 'user' user names
----| 'var' user variables
----| 'custom' {func} custom completion, defined via {func}
----| 'customlist' {func} custom completion, defined via {func}
-
----@param prompt string|[string, string]|nil
----@param default string?
----@param completion InputCompletion?
----@return string|nil
-function env.input(prompt, default, completion)
-	local specified_highlight = type(prompt) == 'table'
-	local prompt_text = prompt
-	if specified_highlight then
-		---@cast prompt -?
-		prompt_text = prompt[1]
-		vim.cmd.echohl(prompt[2])
-	end
-	local output = vim.fn.input({
-		prompt = prompt_text,
-		default = default,
-		cancelreturn = '\127',
-		completion = completion,
-	})
-	if specified_highlight then vim.cmd.echohl('None') end
-	if output == '\127' then
-		return nil
-	else
-		return output
-	end
-end
-
-function env.inpice(...)
-	require('dress').valid_input(...)
-end
-
-function env.select(...)
-	require('selabel').select_nice(...)
 end
 
 function env.feedkeys(keys) vim.api.nvim_feedkeys(keys, 'n', false) end

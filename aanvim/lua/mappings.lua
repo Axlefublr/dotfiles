@@ -783,7 +783,7 @@ local normal_mappings = {
 	end,
 	['<Leader>cA'] = function() env.shay({ 'git', 'add', '.' }) end,
 	['<Leader>cU'] = function() env.shay({ 'git', 'restore', '--staged', '.' }) end,
-	['cm'] = require('functions').exec_in_shell,
+	['cm'] = function() require('wife').interactive_shell() end,
 	['cM'] = function()
 		vim.opt_local.cmdheight = 1
 		env.feedkeys(':Git ')
