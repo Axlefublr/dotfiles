@@ -615,41 +615,46 @@ local normal_mappings = {
 					{
 						'',
 						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							env.shay({ 'git', 'stash', 'push', '-m', message })
+							env.inpice(
+								'stash message: ',
+								function(input) env.shay({ 'git', 'stash', 'push', '-m', input }) end
+							)
 						end,
 					},
 					{
 						'-S',
 						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							env.shay({ 'git', 'stash', 'push', '--staged', '-m', message })
+							env.inpice(
+								'stash message: ',
+								function(input) env.shay({ 'git', 'stash', 'push', '--staged', '-m', input }) end
+							)
 						end,
 					},
 					{
 						'-k',
 						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							env.shay({ 'git', 'stash', 'push', '-k', '-m', message })
+							env.inpice(
+								'stash message: ',
+								function(input) env.shay({ 'git', 'stash', 'push', '-k', '-m', input }) end
+							)
 						end,
 					},
 					{
 						'-ku',
 						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							env.shay({ 'git', 'stash', 'push', '-ku', '-m', 'message' })
+							env.inpice(
+								'stash message: ',
+								function(input) env.shay({ 'git', 'stash', 'push', '-ku', '-m', input }) end
+							)
 						end,
 					},
 					{
 						'-u',
 						function()
-							local message = env.input('stash message: ')
-							if not message then return end
-							env.shay({ 'git', 'stash', 'push', '-u', '-m', message })
+							env.inpice(
+								'stash message: ',
+								function(input) env.shay({ 'git', 'stash', 'push', '-u', '-m', input }) end
+							)
 						end,
 					},
 				}, { prompt = ' Flags ' })
@@ -696,9 +701,10 @@ local normal_mappings = {
 		}, function(item, index)
 			if not item then return end
 			if index == 1 then
-				local new_branch_name = env.input('branch name: ')
-				if not new_branch_name then return end
-				env.shay({ 'git', 'switch', '--create', new_branch_name })
+				env.inpice(
+					'branch name: ',
+					function(new_branch_name) env.shay({ 'git', 'switch', '--create', new_branch_name }) end
+				)
 				return
 			end
 			local options = {
@@ -716,9 +722,10 @@ local normal_mappings = {
 				{
 					'merge',
 					function()
-						local response = env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
-							{ 'Jes', function() env.shay({ 'git', 'branch', '-d', item }) end },
-						})
+						local response =
+							env.confirm('merge branch `' .. item .. '` into `' .. branches[2] .. '`? ', {
+								{ 'Jes', function() env.shay({ 'git', 'branch', '-d', item }) end },
+							})
 						if not response then return end
 						response()
 					end,
@@ -885,7 +892,9 @@ local normal_mappings = {
 	["'q"] = function() require('qfetter').mark() end,
 	["'Q"] = function() require('qfetter').unmark() end,
 	["''q"] = function() require('qfetter').clear() end,
-	['<Leader>jj'] = function() require('quicker').toggle({ focus = true, max_height = math.floor(vim.o.lines / 2) }) end,
+	['<Leader>jj'] = function()
+		require('quicker').toggle({ focus = true, max_height = math.floor(vim.o.lines / 2) })
+	end,
 
 	-- ── edister ────────────────────────────────────────────────────────────────────────────────────
 	['<Leader>g'] = function() require('edister').move_from_one_to_another() end,
