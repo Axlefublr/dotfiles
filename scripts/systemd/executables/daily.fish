@@ -36,10 +36,6 @@ if test (date '+%d') -eq 27
     task 'tinkoff premium (200) tomorrow'
 end
 
-if test (date '+%A') = Saturday
-    task 'new music'
-end
-
 if test (date '+%A') = Sunday
     task ask
 end
