@@ -4,7 +4,7 @@ decorations = 'None'
 padding = { x = 8 }
 
 [font]
-normal = { family = 'JetBrainsMono NF', style = 'Regular' }
+normal = { family = 'Input Mono', style = 'Regular' }
 size = 15
 
 [colors]
