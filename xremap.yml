@@ -1343,6 +1343,12 @@ keymap:
       CapsLock-Alt-n: shift_r-2
       CapsLock-m: shift_r-5
 
+      # ── for helix ─────────────────────────────────────────────────────────────────────────────────────
+      CapsLock-Alt-LeftBrace: shift-alt-9
+      CapsLock-Alt-RightBrace: shift-alt-0
+      CapsLock-Shift-u: alt-grave
+
+
   - name: Any! wm
     exact_match: true
     remap:
@@ -1370,9 +1376,9 @@ keymap:
         { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Shift-RightBrace:
         { launch: [sh, -c, 'brillo -S 100 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Alt-LeftBrace:
+      CapsLock-Ctrl-LeftBrace:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      CapsLock-Alt-RightBrace:
+      CapsLock-Ctrl-RightBrace:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       Ctrl-Esc: { launch: [awesome-client, Ignore_all_urgencies()] }
       Alt-Esc:
