@@ -244,14 +244,6 @@ function is_internet
 end
 funcsave is_internet >/dev/null
 
-function emoji_picker_clipboard
-    kitty -T emoji-picker --start-as maximized sh -c "kitty +kitten unicode_input --tab $argv[1] > /dev/shm/unicode_input"
-    if test -s /dev/shm/unicode_input
-        cat /dev/shm/unicode_input | xclip -r -selection clipboard
-    end
-end
-funcsave emoji_picker_clipboard >/dev/null
-
 function get_hunger
     set times (loago list -m eat | string match -gr 'eat — \\d+d (\\d+)h (\\d+)m')
     set hours $times[1]

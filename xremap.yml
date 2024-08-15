@@ -570,8 +570,6 @@ keymap:
 
           w: { launch: [fish, -c, runner_symbol] }
           e: { launch: [fish, -c, runner_symbol_name] }
-          Shift-w: { launch: [fish, -c, 'emoji_picker_clipboard code'] }
-          Shift-e: { launch: [fish, -c, 'emoji_picker_clipboard name'] }
           CapsLock-m: { launch: [fish, -c, runner_math] }
 
           m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
