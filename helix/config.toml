@@ -1,0 +1,65 @@
+theme = 'gruvbox_material'
+
+[editor]
+scrolloff = 99
+shell = ['fish', '-c']
+line-number = 'relative'
+auto-completion = true
+auto-format = true
+# idle-timeout = 250
+completion-timeout = 5
+preview-completion-insert = true
+completion-trigger-len = 2
+auto-info = true
+# bufferline = 'multiple'
+color-modes = true
+text-width = 100
+default-line-ending = 'lf'
+insert-final-newline = false
+jump-label-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 0
+wrap-indicator = '' # ↪
+
+[editor.smart-tab]
+enable = false # If set to true, then when the cursor is in a position with non-whitespace to its left, instead of inserting a tab, it will run move_parent_node_end. If there is only whitespace to the left, then it inserts a tab as normal. With the default bindings, to explicitly insert a tab character, press Shift-tab.
+supersede-menu = true # Normally, when a menu is on screen, such as when auto complete is triggered, the tab key is bound to cycling through the items. This means when menus are on screen, one cannot use the tab key to trigger the smart-tab command. If this option is set to true, the smart-tab command always takes precedence, which means one cannot use the tab key to cycle through menu items. One of the other bindings must be used instead, such as arrow keys or C-n/C-p.
+  
+[editor.cursor-shape]
+insert = 'bar'
+select = 'underline'
+
+[editor.auto-pairs]
+'<' = '>'
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'`' = '`'
+
+[editor.auto-save]
+focus-lost = true
+
+[editor.statusline]
+separator = ''
+mode.normal = 'normal'
+mode.insert = 'insert'
+mode.select = 'select'
+left = ['mode', 'version-control', 'diagnostics']
+center = ['file-name', 'read-only-indicator', 'file-modification-indicator']
+right = ['spinner', 'register', 'selections', 'primary-selection-length', 'position', 'position-percentage', 'file-encoding']
+
+[editor.gutters]
+layout = ['line-numbers', 'spacer', 'diff']
+
+[editor.gutters.line-numbers]
+min-width = 2
+
+[editor.lsp]
+auto-signature-help = true
+display-inlay-hints = true
+display-signature-help-docs = true
+goto-reference-include-declaration = false

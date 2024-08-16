@@ -29,6 +29,9 @@ for file in ~/prog/dotfiles/!nvim/.*
     ln -sf $file ~/.config/nvim
 end
 
+# Helix
+ln -sf ~/prog/dotfiles/helix ~/.config
+
 # Fish shell
 chsh -s /usr/bin/fish
 mkdir -p ~/.config/fish
