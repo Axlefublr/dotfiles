@@ -29,7 +29,7 @@ supersede-menu = true # Normally, when a menu is on screen, such as when auto co
 
 [editor.cursor-shape]
 insert = 'bar'
-select = 'underline'
+# select = 'underline'
 
 [editor.auto-pairs]
 '<' = '>'
@@ -78,11 +78,28 @@ L = 'page_cursor_half_down'
 ret = 'command_mode'
 ':' = 'flip_selections'
 'A-;' = 'ensure_selections_forward'
+"'" = 'select_register'
+V = 'extend_line_above'
+v = 'extend_line_below'
+x = 'select_mode'
+A-m = 'merge_selections'
+A-M = 'merge_consecutive_selections'
+D = 'copy_selection_on_prev_line'
+
+'"' = 'no_op'
 
 [keys.normal.space]
 p = ':config-reload'
 T = ':tree-sitter-scopes'
 t = ':tree-sitter-highlight-name'
+f = 'file_picker_in_current_directory'
+F = 'file_picker_in_current_buffer_directory'
+e = 'buffer_picker'
+n = ':new'
+space = ':w'
+
+j = 'no_op'
+b = 'no_op'
 
 [keys.normal.g]
 h = 'goto_first_nonwhitespace'
@@ -92,15 +109,31 @@ m = 'goto_last_accessed_file'
 M = 'goto_last_modified_file'
 o = 'goto_last_line'
 i = 'goto_file_start'
+J = 'join_selections_space'
+K = 'remove_selections'
+
 g = 'no_op'
+a = 'no_op'
 
 [keys.select]
 ':' = 'flip_selections'
 'A-;' = 'ensure_selections_forward'
+"'" = 'select_register'
+V = 'extend_line_above'
+v = 'extend_line_below'
+x = 'normal_mode'
+A-m = 'merge_selections'
+A-M = 'merge_consecutive_selections'
+D = 'copy_selection_on_prev_line'
+
+'"' = 'no_op'
 
 [keys.select.g]
 o = 'goto_last_line'
 i = 'goto_file_start'
+J = 'join_selections_space'
+K = 'remove_selections'
+
 g = 'no_op'
 
 [keys.insert]

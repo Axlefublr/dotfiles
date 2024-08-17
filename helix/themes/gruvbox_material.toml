@@ -1,7 +1,10 @@
 # ------------------------------------------------cursor------------------------------------------------
-'ui.cursor'       = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.match' = { fg = 'orange', bg = 'orange_supporting' }
-'ui.selection'    = { bg = 'orange_supporting' }
+'ui.cursor.primary'        = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
+'ui.cursor.primary.select' = { bg = 'cyan',   fg = 'dark12', modifiers = ['bold'] }
+'ui.cursor'                = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
+'ui.cursor.match'          = { fg = 'orange', bg = 'orange_supporting' }
+'ui.selection.primary'     = { bg = 'orange_supporting' }
+'ui.selection'             = { bg = 'orange_supporting' }
 
 'ui.linenr' = 'linenr'
 'ui.linenr.selected' = 'grey'
@@ -132,3 +135,4 @@ mint = '#78bf84'
 cyan = '#7daea3'
 
 orange_supporting = '#5f472d'
+yellow_supporting = '#5f4f2c'
