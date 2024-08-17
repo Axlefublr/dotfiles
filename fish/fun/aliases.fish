@@ -142,12 +142,21 @@ function vids
 end
 funcsave vids >/dev/null
 
-function q
-    $argv --help | nvim -c +Man!
-end
-funcsave q >/dev/null
-
 function ocr
     tesseract $argv - 2>/dev/null
 end
 funcsave ocr >/dev/null
+
+function m
+    set harp (harp get cd_harps $argv --path | string replace '~' $HOME)
+    if test "$harp"
+        z "$harp"
+    end
+end
+funcsave m >/dev/null
+
+function M
+    harp update cd_harps $argv --path (string replace $HOME '~' $PWD)
+    and echo "bookmark $argv set"
+end
+funcsave M >/dev/null
