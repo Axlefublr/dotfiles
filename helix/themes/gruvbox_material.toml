@@ -1,21 +1,49 @@
+# --------------------------------------------------ui--------------------------------------------------
+'ui.popup' = { fg = 'grey2', bg = 'bg2' }
+'ui.window' = { fg = 'grey0', bg = 'level' }
+'ui.help' = { fg = 'white', bg = 'bg2' }
+'ui.text' = 'white'
+'ui.text.focus' = 'white'
+'ui.menu' = { fg = 'white', bg = 'bg3' }
+'ui.menu.selected' = { fg = 'level', bg = 'cyan', modifiers = ['bold'] }
+'ui.virtual.whitespace' = { fg = 'bg4' }
+'ui.virtual.indent-guide' = { fg = 'bg4' }
+'ui.virtual.ruler' = { bg = 'bg3' }
+
+# -------------------------------------------------base-------------------------------------------------
+'ui.background' = { bg = 'level' }
+'ui.background.separator' = 'grey'
+
 # ------------------------------------------------cursor------------------------------------------------
-'ui.cursor.primary'        = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.primary.select' = { bg = 'cyan',   fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor'                = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.match'          = { fg = 'orange', bg = 'orange_supporting' }
-'ui.selection.primary'     = { bg = 'orange_supporting' }
-'ui.selection'             = { bg = 'orange_supporting' }
+'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
+'ui.cursor.primary.select' = { bg = 'cyan', fg = 'dark12', modifiers = [
+  'bold',
+] }
+'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
+'ui.cursor.match' = { fg = 'orange', bg = 'orange_supporting' }
+'ui.selection.primary' = { bg = 'orange_supporting' }
+'ui.selection' = { bg = 'orange_supporting' }
+
+'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = ['bold'] }
 
 'ui.linenr' = 'linenr'
 'ui.linenr.selected' = 'grey'
 
+# ----------------------------------------------statusline----------------------------------------------
+'ui.statusline' = { fg = 'white' }
+'ui.statusline.normal' = { fg = 'white', modifiers = ['bold'] }
+'ui.statusline.insert' = { fg = 'green', modifiers = ['bold'] }
+'ui.statusline.select' = { fg = 'cyan', modifiers = ['bold'] }
+# 'ui.bufferline' = { fg = 'grey0', bg = 'bg1' }
+# 'ui.bufferline.active' = { fg = 'white', bg = 'bg3', modifiers = ['bold'] }
+
 # -----------------------------------------------markdown-----------------------------------------------
-'markup.heading.1' = { fg = 'red',    modifiers = ['bold'] }
+'markup.heading.1' = { fg = 'red', modifiers = ['bold'] }
 'markup.heading.2' = { fg = 'orange', modifiers = ['bold'] }
 'markup.heading.3' = { fg = 'yellow', modifiers = ['bold'] }
-'markup.heading.4' = { fg = 'green',  modifiers = ['bold'] }
-'markup.heading.5' = { fg = 'cyan',   modifiers = ['bold'] }
-'markup.heading.6' = { fg = 'blush',  modifiers = ['bold'] }
+'markup.heading.4' = { fg = 'green', modifiers = ['bold'] }
+'markup.heading.5' = { fg = 'cyan', modifiers = ['bold'] }
+'markup.heading.6' = { fg = 'blush', modifiers = ['bold'] }
 
 'markup.heading.marker' = 'grey2'
 'markup.list' = 'red'
@@ -30,25 +58,6 @@
 'diff.plus.gutter' = 'green'
 'diff.delta.gutter' = 'cyan'
 'diff.minus.gutter' = 'red'
-
-'ui.background' = { bg = 'level' }
-'ui.background.separator' = 'grey'
-'ui.statusline' = { fg = 'white' }
-'ui.statusline.normal' = { fg = 'white', modifiers = ['bold'] }
-'ui.statusline.insert' = { fg = 'green', modifiers = ['bold'] }
-'ui.statusline.select' = { fg = 'cyan', modifiers = ['bold'] }
-'ui.bufferline' = { fg = 'grey0', bg = 'bg1' }
-'ui.bufferline.active' = { fg = 'white', bg = 'bg3', modifiers = ['bold'] }
-'ui.popup' = { fg = 'grey2', bg = 'bg2' }
-'ui.window' = { fg = 'grey0', bg = 'level' }
-'ui.help' = { fg = 'white', bg = 'bg2' }
-'ui.text' = 'white'
-'ui.text.focus' = 'white'
-'ui.menu' = { fg = 'white', bg = 'bg3' }
-'ui.menu.selected' = { fg = 'level', bg = 'cyan', modifiers = ['bold'] }
-'ui.virtual.whitespace' = { fg = 'bg4' }
-'ui.virtual.indent-guide' = { fg = 'bg4' }
-'ui.virtual.ruler' = { bg = 'bg3' }
 
 'hint' = 'cyan'
 'info' = 'mint'

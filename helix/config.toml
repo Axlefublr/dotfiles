@@ -61,7 +61,8 @@ right = [
 ]
 
 [editor.gutters]
-layout = ['diff', 'line-numbers', 'spacer',]
+# layout = ['diff', 'spacer']
+layout = []
 
 [editor.gutters.line-numbers]
 min-width = 2
@@ -85,8 +86,11 @@ x = 'select_mode'
 A-m = 'merge_selections'
 A-M = 'merge_consecutive_selections'
 D = 'copy_selection_on_prev_line'
+G = 'keep_selections'
+K = ':xa!'
 
 '"' = 'no_op'
+C-c = 'no_op'
 
 [keys.normal.space]
 p = ':config-reload'
@@ -96,24 +100,29 @@ f = 'file_picker_in_current_directory'
 F = 'file_picker_in_current_buffer_directory'
 e = 'buffer_picker'
 n = ':new'
-space = ':w'
-
+space = ':wa!'
+ 
 j = 'no_op'
 b = 'no_op'
+c = 'no_op'
+A-c = 'no_op'
 
 [keys.normal.g]
 h = 'goto_first_nonwhitespace'
 H = 'goto_line_start'
-s = 'no_op'
+s = 'toggle_comments'
 m = 'goto_last_accessed_file'
 M = 'goto_last_modified_file'
 o = 'goto_last_line'
 i = 'goto_file_start'
 J = 'join_selections_space'
-K = 'remove_selections'
+G = 'remove_selections'
+u = 'goto_word'
 
 g = 'no_op'
 a = 'no_op'
+w = 'no_op'
+e = 'no_op'
 
 [keys.select]
 ':' = 'flip_selections'
@@ -125,6 +134,7 @@ x = 'normal_mode'
 A-m = 'merge_selections'
 A-M = 'merge_consecutive_selections'
 D = 'copy_selection_on_prev_line'
+G = 'keep_selections'
 
 '"' = 'no_op'
 
@@ -132,9 +142,13 @@ D = 'copy_selection_on_prev_line'
 o = 'goto_last_line'
 i = 'goto_file_start'
 J = 'join_selections_space'
-K = 'remove_selections'
+G = 'remove_selections'
+u = 'extend_to_word'
 
 g = 'no_op'
+w = 'no_op'
+e = 'no_op'
 
 [keys.insert]
 "A-'" = 'insert_register'
+'C-v' = 'paste_clipboard_before'
