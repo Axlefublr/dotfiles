@@ -79,9 +79,9 @@ awful.rules.rules = {
 			floating = true,
 			ontop = true,
 			x = 310,
-			y = 41,
+			y = 35,
 			width = 1300,
-			height = 240,
+			height = 260,
 		},
 	},
 
