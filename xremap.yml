@@ -1343,11 +1343,10 @@ keymap:
       CapsLock-Alt-p: shift_r-2
       CapsLock-m: shift_r-5
 
-      # ── for helix ─────────────────────────────────────────────────────────────────────────────────────
+      # -- for helix -------------------------------------------------------------------------------------
       CapsLock-Alt-LeftBrace: shift-alt-9
       CapsLock-Alt-RightBrace: shift-alt-0
-      CapsLock-Shift-u: alt-grave
-
+      CapsLock-Alt-u: alt-grave
 
   - name: Any! wm
     exact_match: true
@@ -1494,7 +1493,8 @@ keymap:
       Super_R-z: backspace
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
-      CapsLock-f: tab
+      CapsLock-n: tab # TODO: alt acts as shift
+      CapsLock-Alt-n: shift-tab
       CapsLock-Shift-o: ctrl-z
       CapsLock-Shift-u: ctrl-y
       CapsLock-Alt-d: ctrl-a
