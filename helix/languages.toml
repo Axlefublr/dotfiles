@@ -1,0 +1,35 @@
+[language-server.rust-analyzer.config]
+checkOnSave.command = 'clippy'
+cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev'
+cargo.extraArgs = ['--profile', 'rust-analyzer']
+cargo.features = 'all'
+rustfmt.extraArgs = ['+nightly']
+assist.expressionFillDefault = 'default'
+assist.importEnforceGranularity = true
+assist.importPrefix = 'crate'
+inlayHints.bindingModeHints.enable = true
+inlayHints.closingBraceHints.minLines = 11
+inlayHints.closureCaptureHints.enable = true
+inlayHints.closureReturnTypeHints.enable = 'with_block'
+inlayHints.closureStyle = 'rust_analyzer'
+inlayHints.discriminantHints.enable = 'fieldless'
+inlayHints.parameterHints.enable = true
+inlayHints.rangeExclusiveHints.enable = true
+inlayHints.renderColons = false
+inlayHints.expressionAdjustmentHints.enable = 'reborrow'
+inlayHints.expressionAdjustmentHints.mode = 'prefer_postfix'
+inlayHints.lifetimeElisionHints.enable = 'skip_trivial'
+inlayHints.lifetimeElisionHints.useParameterNames = true
+lens.run.enable = false
+completion.fullFunctionSignatures.enable = true
+procMacro.enable = true
+typing.autoClosingAngleBrackets.enable = true
+semanticHighlighting.operator.specialization.enable = true
+semanticHighlighting.punctuation.separate.macro.bang = true
+semanticHighlighting.punctuation.enable = true
+# workspace.symbol.search.kind = 'onlyTypes'
+signatureInfo.documentation.enable = true
+
+[[language]]
+name = 'toml'
+auto-format = true

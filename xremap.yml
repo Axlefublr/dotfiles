@@ -6,7 +6,7 @@ modmap:
   - remap:
       Esc: F8
       Tab: Esc
-      Compose: Super_R # For me, Compose is the Menu key. You'd usually remap this on a lower level, so this is just a safeguard.
+      Compose: Super_R # For me, Compose is the menu key. you'd usually remap this on a lower level, so this is just a safeguard.
       Alt_r: F7
 
   - name: Game side mouse buttons fix

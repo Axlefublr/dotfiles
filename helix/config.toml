@@ -118,17 +118,21 @@ c = 'no_op'
 A-c = 'no_op'
 
 [keys.normal.g]
-h = 'goto_first_nonwhitespace'
-H = 'goto_line_start'
-s = 'toggle_comments'
+h = 'extend_to_first_nonwhitespace'
+H = 'extend_to_line_start'
+l = 'extend_to_line_end'
+L = 'extend_to_line_end_newline'
+
 m = 'goto_last_accessed_file'
 M = 'goto_last_modified_file'
+
 o = 'goto_last_line'
 i = 'goto_file_start'
+
+u = 'goto_word'
+s = 'toggle_comments'
 J = 'join_selections_space'
 G = 'remove_selections'
-u = 'goto_word'
-L = 'goto_line_end_newline'
 
 g = 'no_op'
 a = 'no_op'
