@@ -16,7 +16,7 @@ color-modes = true
 text-width = 100
 default-line-ending = 'lf'
 insert-final-newline = false
-jump-label-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+jump-label-alphabet = 'fjdkslaeiwoghruxcz/vmtyqp'
 
 [editor.soft-wrap]
 enable = true
@@ -88,20 +88,30 @@ A-M = 'merge_consecutive_selections'
 D = 'copy_selection_on_prev_line'
 G = 'keep_selections'
 K = ':xa!'
+h = 'extend_char_left'
+l = 'extend_char_right'
+A-f = 'move_parent_node_end'
 
-'"' = 'no_op'
-C-c = 'no_op'
+'"'   = 'no_op'
+C-c   = 'no_op'
+'A-`' = 'no_op'
+A-C   = 'no_op'
+left  = 'no_op'
+right = 'no_op'
+up    = 'no_op'
+down  = 'no_op'
 
 [keys.normal.space]
 p = ':config-reload'
+P = ':open ~/prog/dotfiles/helix/config.toml'
 T = ':tree-sitter-scopes'
 t = ':tree-sitter-highlight-name'
 f = 'file_picker_in_current_directory'
 F = 'file_picker_in_current_buffer_directory'
 e = 'buffer_picker'
-n = ':new'
 space = ':wa!'
- 
+n = ':new'
+
 j = 'no_op'
 b = 'no_op'
 c = 'no_op'
@@ -118,11 +128,12 @@ i = 'goto_file_start'
 J = 'join_selections_space'
 G = 'remove_selections'
 u = 'goto_word'
+L = 'goto_line_end_newline'
 
 g = 'no_op'
 a = 'no_op'
-w = 'no_op'
 e = 'no_op'
+w = 'no_op'
 
 [keys.select]
 ':' = 'flip_selections'
@@ -144,6 +155,7 @@ i = 'goto_file_start'
 J = 'join_selections_space'
 G = 'remove_selections'
 u = 'extend_to_word'
+L = 'goto_line_end_newline'
 
 g = 'no_op'
 w = 'no_op'
