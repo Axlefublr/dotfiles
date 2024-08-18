@@ -571,8 +571,6 @@ keymap:
           e: { launch: [fish, -c, runner_symbol_name] }
           CapsLock-m: { launch: [fish, -c, runner_math] }
 
-          m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
-
           o: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
           u: { launch: [kitty] }
           y: { launch: [fish, -c, screenkey] }
@@ -1351,18 +1349,19 @@ keymap:
   - name: Any! wm
     exact_match: true
     remap:
-      CapsLock-Alt-h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
-      CapsLock-Alt-j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
-      CapsLock-Alt-k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
-      CapsLock-Alt-l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
-      CapsLock-Alt-u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
-      CapsLock-Alt-o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+      CapsLock-Super-h: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.left)'] }
+      CapsLock-Super-j: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.bottom)'] }
+      CapsLock-Super-k: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile.top)'] }
+      CapsLock-Super-l: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.tile)'] }
+      CapsLock-Super-u: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair)'] }
+      CapsLock-Super-o: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.fair.horizontal)'] }
+      CapsLock-Super-m: { launch: [awesome-client, 'awful.layout.set(awful.layout.suit.max)'] }
 
-      CapsLock-Alt-i: { launch: [awesome-client, awful.client.floating.toggle()] }
-      CapsLock-Alt-p: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-      CapsLock-Alt-m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
-      CapsLock-Alt-y: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
-      CapsLock-Alt-b: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
+      CapsLock-Super-i: { launch: [awesome-client, awful.client.floating.toggle()] }
+      CapsLock-Super-p: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
+      CapsLock-Super-Shift-m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+      CapsLock-Super-y: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
+      CapsLock-Super-b: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
 
       Super-Ctrl-Apostrophe: { launch: [awesome-client, Unminimize_all_on_tag()] }
       Super-Alt-Apostrophe: { launch: [awesome-client, 'client.focus.minimized = true'] }
