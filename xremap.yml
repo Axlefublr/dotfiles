@@ -437,6 +437,9 @@ keymap:
               d:
                 remap:
                   h: { launch: [cps.fish, 'living and dying hell'] }
+              Shift-s: { launch: [cps.fish, '─'] }
+              Shift-d: { launch: [cps.fish, '═'] }
+              Shift-t: { launch: [cps.fish, '━'] }
           n:
             remap:
               h:
