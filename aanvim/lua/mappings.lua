@@ -244,7 +244,7 @@ local function execute_this_file()
 	save('format')
 	local repo = get_repo_root()
 	local file = vim.fn.expand('%')
-	local command = { 'kitten', '@', 'launch', '--type', 'window', '--cwd', repo, '--hold' }
+	local command = { 'kitten', '@', 'launch', '--type', 'overlay-main', '--cwd', repo, '--hold' }
 	local run = function(diag_command, opts)
 		-- require('astrocore').cmd(vim.list_extend(command, diag_command))
 		env.shell(vim.list_extend(command, diag_command), opts):wait()
