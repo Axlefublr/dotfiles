@@ -48,7 +48,7 @@ separator = ''
 mode.normal = 'normal'
 mode.insert = 'insert'
 mode.select = 'select'
-left = ['mode', 'version-control', 'diagnostics']
+left = ['mode', 'version-control', 'spacer', 'diagnostics']
 center = ['file-name', 'read-only-indicator', 'file-modification-indicator']
 right = [
   'spinner',
