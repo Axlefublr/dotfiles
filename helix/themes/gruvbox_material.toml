@@ -76,7 +76,7 @@
 'constant' = 'purple'
 'constant.character.escape' = 'orange'
 'constant.numeric' = 'blush'
-'constructor' = 'yellow'
+'constructor' = 'blush'
 'function' = 'green'
 'function.builtin' = 'cyan'
 'function.macro' = 'mint'

@@ -31,5 +31,16 @@ semanticHighlighting.punctuation.enable = true
 signatureInfo.documentation.enable = true
 
 [[language]]
+name = 'rust'
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[[language]]
 name = 'toml'
 auto-format = true
