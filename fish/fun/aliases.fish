@@ -24,7 +24,7 @@ alias --save gromit 'gromit-mpx -o 1 -k "none" -u "none"' >/dev/null
 alias --save dust 'dust -r' >/dev/null
 alias --save neomax 'kitty -T neomax nvim' >/dev/null
 function neoline
-    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --type os-window --os-window-title neoline --no-response nvim $argv
+    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --type os-window --os-window-title neoline --no-response helix $argv
 end
 funcsave neoline >/dev/null
 function neoline_hold

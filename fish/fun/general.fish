@@ -245,16 +245,12 @@ end
 funcsave oil >/dev/null
 
 function ni
-    set filetype
-    if test "$argv[1]"
-        set filetype -c setfiletype $argv[1]
-    end
     if status is-interactive
-        nvim -c NeolineNi $filetype >&2
+        helix "/tmp/ni-output$argv[1]" >&2
     else
-        neoline_hold -c NeolineNi $filetype >&2
+        neoline_hold "/tmp/ni-output$argv[1]" >&2
     end
-    cat /tmp/ni-output | string collect
+    cat "/tmp/ni-output$argv[1]" | string collect
 end
 funcsave ni >/dev/null
 
