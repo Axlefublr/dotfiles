@@ -1463,24 +1463,9 @@ keymap:
           { launch: [awesome-client, Mouse_wd()] },
           { launch: [fish, -c, runner_notification] },
         ]
-      CapsLock-Enter: { launch: [fish, -c, 'xpc >/dev/shm/clipboard_edit.md ; neoline /dev/shm/clipboard_edit.md; cat /dev/shm/clipboard_edit.md | xcp'] }
-      CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 /dev/shm/clipboard_edit.md ; neoline /dev/shm/clipboard_edit.md ; cat /dev/shm/clipboard_edit.md | xcp'] }
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'neoline -c "NeolineClipboard"'] },
-        ]
-      CapsLock-Alt-Enter:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, 'neoline -c "NeolineClipboardEmpty"'] },
-        ]
-      CapsLock-Ctrl-Enter:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, runner_clipboard] },
-        ]
+      CapsLock-Enter: { launch: [fish, -c, 'xpc >/dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md; cat /dev/shm/clipboard_edit.md | xcp'] }
+      CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 /dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md ; cat /dev/shm/clipboard_edit.md | xcp'] }
+      CapsLock-Ctrl-Enter: { launch: [fish, -c, runner_clipboard] }
 
   - name: Any functionality
     remap:
