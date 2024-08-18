@@ -263,7 +263,7 @@ keymap:
   - name: Arr
     mode: arrows
     remap:
-      CapsLock-p: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      CapsLock-f: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
       h: left
       j: down
       k: up
@@ -1336,10 +1336,10 @@ keymap:
       CapsLock-j: shift-equal
       CapsLock-k: minus
       CapsLock-l: equal
-      CapsLock-n: shift_r-3
+      CapsLock-p: shift_r-3
       CapsLock-o: shift_r-4
       CapsLock-u: grave
-      CapsLock-Alt-n: shift_r-2
+      CapsLock-Alt-p: shift_r-2
       CapsLock-m: shift_r-5
 
       # ── for helix ─────────────────────────────────────────────────────────────────────────────────────
@@ -1399,7 +1399,7 @@ keymap:
   - name: Any!
     exact_match: true
     remap:
-      CapsLock-p: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
       Super-r:
