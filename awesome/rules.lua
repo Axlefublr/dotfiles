@@ -78,10 +78,10 @@ awful.rules.rules = {
 		properties = {
 			floating = true,
 			ontop = true,
-			x = 310,
+			x = 210,
 			y = 35,
-			width = 1300,
-			height = 260,
+			width = 1500,
+			height = 300,
 		},
 	},
 
