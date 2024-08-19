@@ -53,8 +53,9 @@ keymap:
       CapsLock-Alt-Semicolon: ctrl-w
       Ctrl-Alt-u: f4
       Ctrl-Enter: f2
-      Ctrl-j: f6
+      # Ctrl-j: f6
       Shift-Alt-Semicolon: f5
+      Alt-Apostrophe: ctrl-r
 
   - name: Move!
     exact_match: true

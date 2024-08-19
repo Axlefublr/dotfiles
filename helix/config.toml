@@ -73,13 +73,16 @@ display-inlay-hints = true
 display-signature-help-docs = true
 goto-reference-include-declaration = false
 
+# #################################################mappings#################################################
+
+# --------------------------------------------------normal--------------------------------------------------
+
 [keys.normal]
 H = 'page_cursor_half_up'
 L = 'page_cursor_half_down'
 ret = 'command_mode'
 ':' = 'flip_selections'
 'A-;' = 'ensure_selections_forward'
-"'" = 'select_register'
 V = 'extend_line_above'
 v = 'extend_line_below'
 x = 'select_mode'
@@ -88,15 +91,16 @@ A-M = 'merge_consecutive_selections'
 D = 'copy_selection_on_prev_line'
 G = 'keep_selections'
 K = ':xa!'
-h = 'extend_char_left'
-l = 'extend_char_right'
 A-f = 'move_parent_node_end'
-'"' = ':wa!'
+"'" = ':wa!'
 M = 'save_selection'
 A-h = 'select_prev_sibling'
 A-l = 'select_next_sibling'
 C-n = 'shrink_selection'
 C-p = 'expand_selection'
+'\' = ['select_all', 'delete_selection_noyank', 'shell_append_output']
+'{' = 'goto_prev_paragraph'
+'}' = 'goto_next_paragraph'
 
 C-s = 'no_op'
 C-c = 'no_op'
@@ -116,7 +120,6 @@ F = 'file_picker_in_current_buffer_directory'
 e = 'buffer_picker'
 K = ':qa!'
 n = ':new'
-j = ':fmt'
 
 b = 'no_op'
 c = 'no_op'
@@ -124,6 +127,28 @@ A-c = 'no_op'
 
 [keys.normal.z]
 g = 'select_all_children'
+
+z = 'no_op'
+c = 'no_op'
+t = 'no_op'
+b = 'no_op'
+m = 'no_op'
+up = 'no_op'
+down = 'no_op'
+j = 'no_op'
+k = 'no_op'
+pageup = 'no_op'
+pagedown = 'no_op'
+C-b = 'no_op'
+C-f = 'no_op'
+C-u = 'no_op'
+C-d = 'no_op'
+backspace = 'no_op'
+space = 'no_op'
+'/' = 'no_op'
+'?' = 'no_op'
+n = 'no_op'
+N = 'no_op'
 
 [keys.normal.g]
 h = 'goto_first_nonwhitespace'
@@ -147,10 +172,11 @@ a = 'no_op'
 e = 'no_op'
 w = 'no_op'
 
+# --------------------------------------------------select--------------------------------------------------
+
 [keys.select]
 ':' = 'flip_selections'
 'A-;' = 'ensure_selections_forward'
-"'" = 'select_register'
 V = 'extend_line_above'
 v = 'extend_line_below'
 x = 'normal_mode'
@@ -162,8 +188,8 @@ A-h = 'select_prev_sibling'
 A-l = 'select_next_sibling'
 C-n = 'shrink_selection'
 C-p = 'expand_selection'
-
-'"' = 'no_op'
+'{' = 'goto_prev_paragraph'
+'}' = 'goto_next_paragraph'
 
 [keys.select.g]
 o = 'goto_last_line'
@@ -177,7 +203,11 @@ g = 'no_op'
 w = 'no_op'
 e = 'no_op'
 
+# --------------------------------------------------insert--------------------------------------------------
+
 [keys.insert]
 "A-'" = 'insert_register'
 'C-v' = 'paste_clipboard_before'
 'A-/' = ':xa!'
+'C-j' = ['normal_mode', 'open_below']
+'C-k' = ['normal_mode', 'open_above']
