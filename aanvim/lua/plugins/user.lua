@@ -76,7 +76,7 @@ return {
 		'Wansmer/treesj',
 		lazy = true,
 		keys = {
-			{ '<Leader>dj', function() require('treesj').join() end }, -- MOVE
+			{ '<Leader>dj', function() require('treesj').join() end },
 			{ '<Leader>dk', function() require('treesj').split() end },
 			{ '<Leader>dJ', function() require('treesj').join({ split = { recursive = true } }) end },
 			{ '<Leader>dK', function() require('treesj').split({ split = { recursive = true } }) end },

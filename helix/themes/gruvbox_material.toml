@@ -1,15 +1,22 @@
 # --------------------------------------------------ui--------------------------------------------------
-'ui.popup' = { fg = 'grey2', bg = 'bg2' }
-'ui.window' = { fg = 'grey0', bg = 'level' }
-'ui.help' = { fg = 'white', bg = 'bg2' }
 'ui.text' = 'white'
-'ui.text.focus' = 'white'
-'ui.menu' = { fg = 'white', bg = 'bg3' }
-'ui.menu.selected' = { fg = 'level', bg = 'cyan', modifiers = ['bold'] }
-'ui.virtual.whitespace' = { fg = 'bg4' }
-'ui.virtual.indent-guide' = { fg = 'bg4' }
-'ui.virtual.ruler' = { bg = 'bg3' }
+'ui.text.focus' = { bg = 'dark12', modifiers = ['bold'] }
+
+# -----------------------------------------------hidden ui-----------------------------------------------
+'ui.virtual.whitespace' = { fg = 'linenr' }
+'ui.virtual.indent-guide' = { fg = 'linenr' }
+'ui.virtual.ruler' = { bg = 'linenr' }
 'ui.virtual.inlay-hint' = { fg = 'grey', modifiers = ['italic'] }
+'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = ['bold'] }
+'ui.linenr' = 'linenr'
+'ui.linenr.selected' = 'grey'
+
+# -------------------------------------------------menus-------------------------------------------------
+'ui.popup' = { fg = 'white', bg = 'dark13' }
+'ui.window' = { fg = 'linenr', bg = 'level' }
+'ui.help' = { fg = 'white', bg = 'dark13' }
+'ui.menu' = { fg = 'white', bg = 'dark12' }
+'ui.menu.selected' = { fg = 'dark12', bg = 'orange', modifiers = ['bold'] }
 
 # -------------------------------------------------base-------------------------------------------------
 'ui.background' = { bg = 'level' }
@@ -21,22 +28,15 @@
   'bold',
 ] }
 'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.match' = { fg = 'orange', bg = 'orange_supporting' }
+'ui.cursor.match' = { fg = 'orange', bg = 'dark10', modifiers = ['bold'] }
 'ui.selection.primary' = { bg = 'orange_supporting' }
 'ui.selection' = { bg = 'orange_supporting' }
-
-'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = ['bold'] }
-
-'ui.linenr' = 'linenr'
-'ui.linenr.selected' = 'grey'
 
 # ----------------------------------------------statusline----------------------------------------------
 'ui.statusline' = { fg = 'white' }
 'ui.statusline.normal' = { fg = 'white', modifiers = ['bold'] }
 'ui.statusline.insert' = { fg = 'green', modifiers = ['bold'] }
 'ui.statusline.select' = { fg = 'cyan', modifiers = ['bold'] }
-# 'ui.bufferline' = { fg = 'grey0', bg = 'bg1' }
-# 'ui.bufferline.active' = { fg = 'white', bg = 'bg3', modifiers = ['bold'] }
 
 # -----------------------------------------------markdown-----------------------------------------------
 'markup.heading.1' = { fg = 'red', modifiers = ['bold'] }
@@ -46,13 +46,13 @@
 'markup.heading.5' = { fg = 'cyan', modifiers = ['bold'] }
 'markup.heading.6' = { fg = 'blush', modifiers = ['bold'] }
 
-'markup.heading.marker' = 'grey2'
+'markup.heading.marker' = 'grey'
 'markup.list' = 'red'
 'markup.bold' = { modifiers = ['bold'] }
 'markup.italic' = { modifiers = ['italic'] }
 'markup.link.url' = { fg = 'cyan', modifiers = ['underlined'] }
 'markup.link.text' = 'purple'
-'markup.quote' = 'grey2'
+'markup.quote' = 'cyan'
 'markup.raw' = 'green'
 
 # --------------------------------------------------diff--------------------------------------------------
@@ -64,21 +64,24 @@
 'info' = 'mint'
 'warning' = 'yellow'
 'error' = 'red'
+
 'diagnostic' = { underline = { style = 'curl' } }
-'diagnostic.hint' = { underline = { color = 'cyan', style = 'dotted' } }
-'diagnostic.info' = { underline = { color = 'mint', style = 'dotted' } }
+'diagnostic.hint' = { underline = { color = 'cyan', style = 'curl' } }
+'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
 'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
 'diagnostic.error' = { underline = { color = 'red', style = 'curl' } }
+'diagnostic.deprecated' = { modifiers = ['crossed-out'] }
+'diagnostic.unnecessary' = { fg = 'grey' }
 
 # ------------------------------------------------language------------------------------------------------
 'attribute' = 'mint'
 'comment' = 'grey'
 'constant' = 'purple'
-'constant.character.escape' = 'orange'
+'constant.character.escape' = 'grey'
 'constant.numeric' = 'blush'
 'constructor' = 'blush'
 'function' = 'green'
-'function.builtin' = 'cyan'
+'function.builtin' = 'blush'
 'function.macro' = 'mint'
 'keyword' = 'red'
 'keyword.directive' = 'mint'
@@ -89,7 +92,8 @@
 'punctuation' = 'white'
 'punctuation.bracket' = 'white'
 'punctuation.delimiter' = 'white'
-'special' = 'orange'
+# this is apparently the fuzzy matching text in the file picker. nope it is not mentioned once in the docs lol. discovered this by bruteforcing :3
+'special' = { fg = 'orange', modifiers = ['bold'] }
 'string' = 'yellow'
 'string.regexp' = 'cyan'
 'tag' = 'yellow'
@@ -108,29 +112,10 @@ dark14 = '#242323'
 dark13 = '#212121'
 dark12 = '#1f1e1e'
 dark10 = '#1a1919'
-bg1 = '#32302f'
-bg2 = '#32302f'
-bg3 = '#45403d'
-bg4 = '#45403d'
-bg5 = '#5a524c'
-
-bg_statusline1 = '#32302f'
-bg_statusline2 = '#3a3735'
-bg_statusline3 = '#504945'
-bg_diff_green = '#34381b'
-bg_visual_green = '#3b4439'
-bg_diff_red = '#402120'
-bg_visual_red = '#4c3432'
-bg_diff_cyan = '#0e363e'
-bg_visual_cyan = '#374141'
-bg_current_word = '#3c3836'
 
 white = '#d4be98'
 grey = '#928374'
 linenr = '#5a524c'
-
-grey0 = '#7c6f64'
-grey2 = '#a89984'
 
 shell_pink = '#ffafd7'
 shell_yellow = '#ffd75f'
@@ -145,4 +130,4 @@ mint = '#78bf84'
 cyan = '#7daea3'
 
 orange_supporting = '#5f472d'
-yellow_supporting = '#5f4f2c'
+blush_supporting = '#5e2d40'

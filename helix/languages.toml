@@ -44,3 +44,6 @@ name = 'rust'
 [[language]]
 name = 'toml'
 auto-format = true
+
+[[language]]
+name = 'fish'
