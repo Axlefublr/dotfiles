@@ -48,13 +48,17 @@ separator = ''
 mode.normal = 'normal'
 mode.insert = 'insert'
 mode.select = 'select'
-left = ['mode', 'version-control', 'spacer', 'diagnostics']
+left = [
+  'version-control',
+  'spacer',
+  'diagnostics',
+  'primary-selection-length',
+  'selections',
+]
 center = ['file-name', 'read-only-indicator', 'file-modification-indicator']
 right = [
   'spinner',
   'register',
-  'selections',
-  'primary-selection-length',
   'position',
   'position-percentage',
   'file-encoding',
@@ -150,6 +154,29 @@ space = 'no_op'
 n = 'no_op'
 N = 'no_op'
 
+[keys.normal.Z]
+z = 'no_op'
+c = 'no_op'
+t = 'no_op'
+b = 'no_op'
+m = 'no_op'
+up = 'no_op'
+down = 'no_op'
+j = 'no_op'
+k = 'no_op'
+pageup = 'no_op'
+pagedown = 'no_op'
+C-b = 'no_op'
+C-f = 'no_op'
+C-u = 'no_op'
+C-d = 'no_op'
+backspace = 'no_op'
+space = 'no_op'
+'/' = 'no_op'
+'?' = 'no_op'
+n = 'no_op'
+N = 'no_op'
+
 [keys.normal.g]
 h = 'goto_first_nonwhitespace'
 H = 'goto_line_start'
@@ -175,6 +202,8 @@ w = 'no_op'
 # --------------------------------------------------select--------------------------------------------------
 
 [keys.select]
+H = 'page_cursor_half_up'
+L = 'page_cursor_half_down'
 ':' = 'flip_selections'
 'A-;' = 'ensure_selections_forward'
 V = 'extend_line_above'
