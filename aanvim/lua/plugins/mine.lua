@@ -61,11 +61,10 @@ return {
 		'Axlefublr/wife.nvim',
 		dev = true,
 		lazy = true,
+		---@module "wife"
 		---@type WifeOpts
-		opts = {},
-		config = function(_, opts)
-			env.set_high('WifePrompt', { fg = env.color.shell_yellow, bold = true })
-			require('wife').setup(opts)
-		end,
+		opts = {
+			prompt = 'fish'
+		},
 	},
 }

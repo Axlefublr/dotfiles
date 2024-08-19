@@ -122,6 +122,8 @@ env.color = {
 	grey = '#928374',
 	feeble = '#5a524c',
 
+	orange_supporting = '#5f472d',
+
 	light25 = '#403f3f',
 	light19 = '#313030',
 	level = '#292828',

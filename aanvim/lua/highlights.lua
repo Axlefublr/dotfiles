@@ -89,6 +89,10 @@ local highlights = {
 	['NormalFloat'] = { bg = color.dark14 },
 	['NormalNC'] = link('Normal'),
 
+	['Cursor'] = { fg = color.dark12, bg = color.orange },
+	['Visual'] = { bg = color.orange_supporting },
+	['VisualNOS'] = { bg = color.orange_supporting },
+
 	['FloatBorder'] = { bg = color.dark14 },
 	['FloatTitle'] = { bg = color.dark14, fg = color.orange, bold = true },
 
