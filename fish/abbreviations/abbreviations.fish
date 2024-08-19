@@ -22,8 +22,6 @@ abbr -a v nvim
 
 abbr -a h 'z ~ && clx'
 abbr -a u 'z - && clx'
-abbr -a X exit
-abbr -a x kitten @ close-window
 abbr -a xcp 'xclip -r -selection clipboard'
 abbr -a xpc 'xclip -selection clipboard -o'
 abbr -a jf 'clx && exec fish'
@@ -52,5 +50,5 @@ abbr -a ntf notify-send
 abbr -a chx 'chmod +x'
 abbr -a awm awesome-client
 abbr -a ttyper 'ttyper -l uclanr -w 25'
-abbr -a g 'ghostty'
-abbr -a e 'helix'
+abbr -a g ghostty
+abbr -a e helix
