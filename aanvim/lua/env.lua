@@ -162,8 +162,71 @@ function env.select(...)
 	require('selabel').select_nice(...)
 end
 
-function env.input(...)
-	require('wife').input(...)
+---@alias InputCompletion
+---| nil
+---| 'arglist' file names in argument list
+---| 'augroup' autocmd groups
+---| 'buffer' buffer names
+---| 'behave' :behave suboptions
+---| 'color' color schemes
+---| 'command' Ex command (and arguments)
+---| 'compiler' compilers
+---| 'dir' directory names
+---| 'environment' environment variable names
+---| 'event' autocommand events
+---| 'expression' Vim expression
+---| 'file' file and directory names
+---| 'file_in_path' file and directory names in |'path'|
+---| 'filetype' filetype names |'filetype'|
+---| 'function' function name
+---| 'help' help subjects
+---| 'highlight' highlight groups
+---| 'history' :history suboptions
+---| 'keymap' keyboard mappings
+---| 'locale' locale names (as output of locale -a)
+---| 'lua' Lua expression |:lua|
+---| 'mapclear' buffer argument
+---| 'mapping' mapping name
+---| 'menu' menus
+---| 'messages' |:messages| suboptions
+---| 'option' options
+---| 'packadd' optional package |pack-add| names
+---| 'shellcmd' Shell command
+---| 'sign' |:sign| suboptions
+---| 'syntax' syntax file names |'syntax'|
+---| 'syntime' |:syntime| suboptions
+---| 'tag' tags
+---| 'tag_listfiles' tags, file names are shown when CTRL-D is hit
+---| 'user' user names
+---| 'var' user variables
+---| 'custom' {func} custom completion, defined via {func}
+---| 'customlist' {func} custom completion, defined via {func}
+
+---A more convenient api for `:h input()`
+---@param prompt string|[string, string]|nil
+---@param default string?
+---@param completion InputCompletion?
+---@return string|nil
+function env.input(prompt, default, completion)
+	local specified_highlight = type(prompt) == 'table'
+	local prompt_text = prompt
+	if specified_highlight then
+		---@cast prompt -?
+		prompt_text = prompt[1]
+		vim.cmd.echohl(prompt[2])
+	end
+	local output = vim.fn.input({
+		prompt = prompt_text,
+		default = default,
+		cancelreturn = '\127',
+		completion = completion,
+	})
+	if specified_highlight then vim.cmd.echohl('None') end
+	if output == '\127' then
+		return nil
+	else
+		return output
+	end
 end
 
 function env.to_base_36(number)
