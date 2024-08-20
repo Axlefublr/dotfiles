@@ -572,6 +572,7 @@ keymap:
           k: { launch: [fish, -c, 'install_yt_video longform'] }
           l: { launch: [fish, -c, 'install_yt_video asmr'] }
 
+          a: { launch: [fish, -c, runner_interactive_unicode]}
           w: { launch: [fish, -c, runner_symbol] }
           e: { launch: [fish, -c, runner_symbol_name] }
           CapsLock-m: { launch: [fish, -c, runner_math] }

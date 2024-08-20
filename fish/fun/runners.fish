@@ -422,3 +422,17 @@ function runner_notification
     notify-send -t 0 "$result"
 end
 funcsave runner_notification >/dev/null
+
+function runner_interactive_unicode
+    set result (rofi -input ~/.local/share/magazine/e -sync -dmenu 2>/dev/null ; echo $status)
+    if test $result[-1] -ne 0
+        return 1
+    end
+    set -e result[-1]
+    if test -z $result
+        return 1
+    end
+    print '\U'(string split ' ' $result)[1] | xclip -r -selection clipboard
+    xdotool key ctrl+v
+end
+funcsave runner_interactive_unicode >/dev/null
