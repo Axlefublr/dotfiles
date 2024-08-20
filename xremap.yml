@@ -1316,16 +1316,16 @@ keymap:
       Super_R-c: '8'
       Super_R-x: '9'
 
-      Super_R-Alt-f: { launch: [fish, -c, 'copyq read 0 | xclip -selection clipboard'] }
-      Super_R-Alt-d: { launch: [fish, -c, 'copyq read 1 | xclip -selection clipboard'] }
-      Super_R-Alt-s: { launch: [fish, -c, 'copyq read 2 | xclip -selection clipboard'] }
-      Super_R-Alt-r: { launch: [fish, -c, 'copyq read 3 | xclip -selection clipboard'] }
-      Super_R-Alt-e: { launch: [fish, -c, 'copyq read 4 | xclip -selection clipboard'] }
-      Super_R-Alt-w: { launch: [fish, -c, 'copyq read 5 | xclip -selection clipboard'] }
-      Super_R-Alt-v: { launch: [fish, -c, 'copyq read 6 | xclip -selection clipboard'] }
-      Super_R-Alt-c: { launch: [fish, -c, 'copyq read 7 | xclip -selection clipboard'] }
-      Super_R-Alt-x: { launch: [fish, -c, 'copyq read 8 | xclip -selection clipboard'] }
-      Super_R-Alt-a: { launch: [fish, -c, 'copyq read 9 | xclip -selection clipboard'] }
+      Super_R-Alt-f: { launch: [fish, -c, 'copyq read 0 | xclip -sel clip'] }
+      Super_R-Alt-d: { launch: [fish, -c, 'copyq read 1 | xclip -sel clip'] }
+      Super_R-Alt-s: { launch: [fish, -c, 'copyq read 2 | xclip -sel clip'] }
+      Super_R-Alt-r: { launch: [fish, -c, 'copyq read 3 | xclip -sel clip'] }
+      Super_R-Alt-e: { launch: [fish, -c, 'copyq read 4 | xclip -sel clip'] }
+      Super_R-Alt-w: { launch: [fish, -c, 'copyq read 5 | xclip -sel clip'] }
+      Super_R-Alt-v: { launch: [fish, -c, 'copyq read 6 | xclip -sel clip'] }
+      Super_R-Alt-c: { launch: [fish, -c, 'copyq read 7 | xclip -sel clip'] }
+      Super_R-Alt-x: { launch: [fish, -c, 'copyq read 8 | xclip -sel clip'] }
+      Super_R-Alt-a: { launch: [fish, -c, 'copyq read 9 | xclip -sel clip'] }
 
       CapsLock-Alt-Dot: shift-7
       CapsLock-Alt-Slash: shift-backslash

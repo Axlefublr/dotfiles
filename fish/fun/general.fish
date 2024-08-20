@@ -25,7 +25,7 @@ funcsave abbrad >/dev/null
 
 function ats
     set -l shark (alien_temple shark)
-    prli $shark
+    printf '%s\n' $shark
     echo $shark[1] | xclip -r -selection clipboard
 end
 funcsave ats >/dev/null
