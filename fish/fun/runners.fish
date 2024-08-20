@@ -396,15 +396,20 @@ function pjs
             set -l project_file_path ~/prog/$file/project.txt
             touch $project_file_path
             if test -s $project_file_path
+                set_color '#e491b2'
                 echo $file
+                set_color normal
                 echo "$(cat $project_file_path)"
                 echo
             else
                 set empties $empties $file
             end
         end
-        printf '%s\n' $empties
-    end >/tmp/pjs
+        for file in $empties
+            set_color '#e491b2'
+            printf '%s\n' $file
+        end
+    end | less
 end
 funcsave pjs >/dev/null
 
