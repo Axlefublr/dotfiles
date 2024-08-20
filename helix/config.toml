@@ -24,12 +24,18 @@ max-wrap = 0
 wrap-indicator = ''
 
 [editor.smart-tab]
-enable = false        # If set to true, then when the cursor is in a position with non-whitespace to its left, instead of inserting a tab, it will run move_parent_node_end. If there is only whitespace to the left, then it inserts a tab as normal. With the default bindings, to explicitly insert a tab character, press Shift-tab.
+enable = true         # If set to true, then when the cursor is in a position with non-whitespace to its left, instead of inserting a tab, it will run move_parent_node_end. If there is only whitespace to the left, then it inserts a tab as normal. With the default bindings, to explicitly insert a tab character, press Shift-tab.
 supersede-menu = true # Normally, when a menu is on screen, such as when auto complete is triggered, the tab key is bound to cycling through the items. This means when menus are on screen, one cannot use the tab key to trigger the smart-tab command. If this option is set to true, the smart-tab command always takes precedence, which means one cannot use the tab key to cycle through menu items. One of the other bindings must be used instead, such as arrow keys or C-n/C-p.
 
 [editor.cursor-shape]
 insert = 'bar'
 # select = 'underline'
+
+[editor.whitespace.render]
+newline = 'all'
+
+[editor.whitespace.characters]
+newline = '↪'
 
 [editor.auto-pairs]
 '<' = '>'
@@ -49,8 +55,8 @@ mode.normal = 'normal'
 mode.insert = 'insert'
 mode.select = 'select'
 left = [
-  'version-control',
-  'spacer',
+  # 'version-control',
+  # 'spacer',
   'diagnostics',
   'primary-selection-length',
   'selections',
@@ -105,6 +111,7 @@ C-p = 'expand_selection'
 '\' = ['select_all', 'delete_selection_noyank', 'shell_append_output']
 '{' = 'goto_prev_paragraph'
 '}' = 'goto_next_paragraph'
+'#' = 'toggle_comments'
 
 C-s = 'no_op'
 C-c = 'no_op'
@@ -190,11 +197,11 @@ o = 'goto_last_line'
 i = 'goto_file_start'
 
 u = 'goto_word'
-s = 'toggle_comments'
 J = 'join_selections_space'
 G = 'remove_selections'
 g = 'select_all_siblings'
 
+s = 'no_op'
 a = 'no_op'
 e = 'no_op'
 w = 'no_op'
