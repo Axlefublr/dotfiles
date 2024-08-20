@@ -38,3 +38,4 @@ alias --save g ghostty >/dev/null
 alias --save e helix >/dev/null
 alias --save x 'kitten @ close-window' >/dev/null
 alias --save X exit >/dev/null
+alias --save gd 'git diff' > /dev/null

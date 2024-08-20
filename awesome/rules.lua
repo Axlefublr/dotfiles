@@ -63,25 +63,14 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = 'Alacritty', name = 'neomax' },
-		properties = {
-			floating = true,
-			x = 10,
-			y = 45,
-			width = 1894,
-			height = 1019,
-		},
-	},
-
-	{
 		rule = { class = 'kitty', name = 'neoline' },
 		properties = {
 			floating = true,
 			ontop = true,
-			x = 210,
-			y = 35,
-			width = 1500,
-			height = 300,
+			x = 0,
+			y = 0,
+			width = 1920,
+			height = 340,
 		},
 	},
 

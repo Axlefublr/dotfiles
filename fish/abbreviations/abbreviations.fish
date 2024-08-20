@@ -52,3 +52,4 @@ abbr -a awm awesome-client
 abbr -a ttyper 'ttyper -l uclanr -w 25'
 abbr -a g ghostty
 abbr -a e helix
+abbr -a gd 'git diff'
