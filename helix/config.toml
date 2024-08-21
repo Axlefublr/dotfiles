@@ -203,6 +203,7 @@ u = 'goto_word'
 J = 'join_selections_space'
 G = 'remove_selections'
 g = 'select_all_siblings'
+'/' = 'make_search_word_bounded'
 
 s = 'no_op'
 a = 'no_op'
@@ -247,7 +248,7 @@ e = 'no_op'
 
 [keys.insert]
 "A-'" = 'insert_register'
-'C-v' = 'paste_clipboard_before'
+'C-v' = 'paste_clipboard_after'
 'A-/' = ':xa!'
 'C-j' = ['normal_mode', 'open_below']
 'C-k' = ['normal_mode', 'open_above']
