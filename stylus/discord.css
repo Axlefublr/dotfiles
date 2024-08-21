@@ -171,7 +171,8 @@
 [aria-label="Show Member List"],
 [href="https://support.discord.com"],
 [aria-label="Add Friends to DM"],
-.iconContainer_d0200f {
+.iconContainer_d0200f,
+.channelAppLauncher_df39bd {
 	display: none;
 }
 
