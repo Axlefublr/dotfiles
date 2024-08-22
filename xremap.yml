@@ -573,7 +573,6 @@ keymap:
           l: { launch: [fish, -c, 'install_yt_video asmr'] }
 
           a: { launch: [fish, -c, runner_interactive_unicode]}
-          w: { launch: [fish, -c, runner_symbol] }
           e: { launch: [fish, -c, runner_symbol_name] }
           CapsLock-m: { launch: [fish, -c, runner_math] }
 
@@ -1406,6 +1405,9 @@ keymap:
       CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
+      Super_R-q: ctrl-shift-u
+      Super_R-z: { launch: [fish, -c, runner_symbol] }
+
       Super-r:
         {
           launch:
@@ -1476,9 +1478,6 @@ keymap:
 
   - name: Any
     remap:
-      Super_R-q: ctrl-shift-u
-      Super_R-g: enter
-      Super_R-z: backspace
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
       CapsLock-n: tab # TODO: alt acts as shift

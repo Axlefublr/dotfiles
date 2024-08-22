@@ -77,9 +77,10 @@ function runner_symbol
     end
     set output ''
     for code in (string split ' ' $result)
-        set output $output'\U'(string pad --char 0 --width 8 $code)
+        set output $output"\U$code"
     end
     printf $output 2>/dev/null | xclip -r -selection clipboard
+    xdotool key ctrl+v
 end
 funcsave runner_symbol >/dev/null
 
@@ -432,7 +433,7 @@ function runner_interactive_unicode
     if test -z $result
         return 1
     end
-    print '\U'(string split ' ' $result)[1] | xclip -r -selection clipboard
+    echo (string split ' ' $result)[1] | xclip -r -sel clip
     xdotool key ctrl+v
 end
 funcsave runner_interactive_unicode >/dev/null
