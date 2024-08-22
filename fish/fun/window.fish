@@ -61,3 +61,13 @@ function minigun_apply
     xdotool mousemove $coords[1] $coords[2]
 end
 funcsave minigun_apply >/dev/null
+
+function ensure_browser
+    switch "$argv"
+        case main
+            wmctrl -s 1
+        case content
+            wmctrl -s 6
+    end
+end
+funcsave ensure_browser >/dev/null

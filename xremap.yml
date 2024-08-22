@@ -565,8 +565,8 @@ keymap:
           f: { launch: [fish, -c, 'runner_link 1 open'] }
           Shift-f: { launch: [fish, -c, 'runner_link 6 open'] }
           s: { launch: [fish, -c, 'runner_link'] }
-          g: { launch: [fish, -c, 'wmctrl -s 1 ; xdg-open (xclip -selection clipboard -o)'] }
-          Shift-g: { launch: [fish, -c, 'wmctrl -s 6 ; xdg-open (xclip -selection clipboard -o)'] }
+          g: { launch: [fish, -c, 'ensure_browser main ; xdg-open (xclip -selection clipboard -o)'] }
+          Shift-g: { launch: [fish, -c, 'ensure_browser content ; xdg-open (xclip -selection clipboard -o)'] }
 
           j: { launch: [fish, -c, install_yt_video] }
           k: { launch: [fish, -c, 'install_yt_video longform'] }
