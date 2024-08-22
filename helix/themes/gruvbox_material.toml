@@ -53,7 +53,7 @@
 'markup.link.url' = { fg = 'cyan', modifiers = ['underlined'] }
 'markup.link.text' = 'purple'
 'markup.quote' = 'cyan'
-'markup.raw' = 'green'
+'markup.raw' = 'yellow'
 
 # --------------------------------------------------diff--------------------------------------------------
 'diff.plus.gutter' = 'green'
