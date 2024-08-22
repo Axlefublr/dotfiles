@@ -141,6 +141,10 @@ A-c = 'no_op'
 
 [keys.normal.z]
 g = 'select_all_children'
+h = 'extend_to_first_nonwhitespace'
+H = 'extend_to_line_start'
+l = 'extend_to_line_end'
+L = 'extend_to_line_end_newline'
 
 z = 'no_op'
 c = 'no_op'
@@ -248,7 +252,9 @@ e = 'no_op'
 
 [keys.insert]
 "A-'" = 'insert_register'
-'C-v' = 'paste_clipboard_after'
+'C-v' = 'paste_clipboard_before'
 'A-/' = ':xa!'
 'C-j' = ['normal_mode', 'open_below']
 'C-k' = ['normal_mode', 'open_above']
+'A-,' = 'unindent'
+'A-.' = 'indent'

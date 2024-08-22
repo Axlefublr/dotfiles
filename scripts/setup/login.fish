@@ -10,7 +10,7 @@ for script in ~/prog/dotfiles/scripts/widget_update/*.fish
     $script 2>>/tmp/log/user.txt & disown
 end
 
-ydotoold 2>>/tmp/log/user.txt & disown
+# ydotoold 2>>/tmp/log/user.txt & disown
 # ollama serve 2>>/tmp/log/user.txt & disown
 picom 2>>/tmp/log/user.txt & disown
 gromit.fish 2>>/tmp/log/user.txt & disown
@@ -24,7 +24,7 @@ xrestart.fish
 kitty -T meow 2>>/tmp/log/user.txt & disown
 oil.fish ~/vid/content 2>>/tmp/log/user.txt & disown
 
-kitty -T editor -d ~/prog/dotfiles --hold nvim -c Young 2>>/tmp/log/user.txt & disown
+kitty -T editor -d ~/prog/dotfiles --hold helix 2>>/tmp/log/user.txt & disown
 # win_wait 'neovide — Neovide' 0.5 0 200
 # kitty -T terminal -d ~/prog/dotfiles 2>>/tmp/log/user.txt & disown
 
@@ -40,7 +40,7 @@ anki 2>>/tmp/log/user.txt & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
-notify-send -t 2000 'spotify'
+notify-send -t 2000 spotify
 loopuntil is_internet 0.5 0 60
 spotify-launcher -v 2>>/tmp/log/user.txt & disown
 
