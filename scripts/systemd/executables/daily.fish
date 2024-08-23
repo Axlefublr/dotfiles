@@ -25,7 +25,7 @@ daily_parse
 task (whensies.py)
 
 if test (math (clorange megafon show) % 30) -eq 0
-    task 'megafon (504) tomorrow'
+    task 'megafon (579) tomorrow'
 end
 
 if test (date '+%d') -eq 17
