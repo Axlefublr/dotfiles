@@ -19,6 +19,28 @@ begin
     echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"'
 end | sudo tee /etc/udev/rules.d/backlight.rules
 
+# Awesome wm
+mkdir -p ~/.config/awesome
+ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
+ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
+
+# Helix
+ln -sf ~/prog/dotfiles/helix ~/.config
+
+# Fish shell
+chsh -s /usr/bin/fish
+mkdir -p ~/.config/fish
+ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
+
+# Kitty terminal
+mkdir -p ~/.config/kitty
+ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
+
+# Lazygit
+mkdir -p ~/.config/lazygit
+ln -sf ~/prog/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
+
 # Neovim
 trash-put ~/.config/nvim
 mkdir -p ~/.config/nvim
@@ -29,22 +51,9 @@ for file in ~/prog/dotfiles/!nvim/.*
     ln -sf $file ~/.config/nvim
 end
 
-# Helix
-ln -sf ~/prog/dotfiles/helix ~/.config
-
-# Fish shell
-chsh -s /usr/bin/fish
-mkdir -p ~/.config/fish
-ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
-
 # Alacritty
-mkdir -p ~/.config/alacritty
-ln -sf ~/prog/dotfiles/alacritty.toml ~/.config/alacritty.toml
-
-# Kitty terminal
-mkdir -p ~/.config/kitty
-ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
-ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
+# mkdir -p ~/.config/alacritty
+# ln -sf ~/prog/dotfiles/alacritty.toml ~/.config/alacritty.toml
 
 # Vscode
 # mkdir -p ~/.config/Code/User
@@ -53,11 +62,6 @@ ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
 # Needed for the CSS & JS extension
 # sudo chown -R $(whoami) $(which code)
 # sudo chown -R $(whoami) /opt/visual-studio-code
-
-# Awesome wm
-mkdir -p ~/.config/awesome
-ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
-ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
 
 # Picom
 mkdir -p ~/.config/picom

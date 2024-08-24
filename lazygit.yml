@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+quitOnTopLevelReturn: true
+disableStartupPopups: true
+gui:
+  scrollHeight: 4
+  scrollPastBottom: false
+  scrollOffMargin: 99
+  skipNoStagedFilesWarning: true
+  expandFocusedSidePanel: true
+  enlargedSideViewLocation: top
+  timeFormat: '06.01.02'
+  shortTimeFormat: '15:04'
+  showFileTree: false
+  showBottomLine: false
+  showPanelJumps: false
+  nerdFontsVersion: '3'
+  showDivergenceFromBaseBranch: arrowAndNumber
+  border: single
+  statusPanelView: allBranchesLog
+  authorColors:
+    Axlefublr: '#ffafd7'
+  branchColors:
+    main: '#af87ff'
+  theme:
+    activeBorderColor:
+      - yellow
+      - bold
+    searchingActiveBorderColor:
+      - '#b58cc6'
+      - bold
+    optionsTextColor:
+      - '#78bf84'
+    selectedLineBgColor:
+      - '#5f472d'
+      # - reverse
+git:
+  autoFetch: false
+  paging:
+    pager: diff-so-fancy
+  merging:
+    manualCommit: true
+    squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
+  truncateCopiedCommitHashesTo: 12
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
+  
+update:
+  method: never
+os:
+  editPreset: helix
+
+keybinding:
+  universal:
+    # return: h
+    # goInto: l
+    # scrollLeft: h
+    # scrollRight: l
+
+    prevPage: '<disabled>'
+    nextPage: <disabled>
+
+    nextScreenMode: l
+    prevScreenMode: h
+    prevBlock-alt: ','
+    nextBlock-alt: .
+    scrollUpMain-alt1: H
+    scrollDownMain-alt1: L
+    quit: K
+    togglePanel: J
