@@ -47,3 +47,4 @@ set -U small_threshold 46
 set -U head F8:5C:7D:3E:67:1F
 set -U ear 68:D6:ED:18:9A:56
 set -U speaker F8:5C:7E:09:29:AD
+set -U controller 41:42:BB:7B:70:04
