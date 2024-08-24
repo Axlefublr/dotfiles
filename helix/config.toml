@@ -209,6 +209,7 @@ J = 'join_selections_space'
 G = 'remove_selections'
 g = 'select_all_siblings'
 '/' = 'global_search'
+';' = ':char'
 
 s = 'no_op'
 a = 'no_op'

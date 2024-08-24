@@ -10,7 +10,7 @@ for script in ~/prog/dotfiles/scripts/widget_update/*.fish
     $script 2>>/tmp/log/user.txt & disown
 end
 
-# ydotoold 2>>/tmp/log/user.txt & disown
+ydotoold 2>>/tmp/log/user.txt & disown
 # ollama serve 2>>/tmp/log/user.txt & disown
 picom 2>>/tmp/log/user.txt & disown
 gromit.fish 2>>/tmp/log/user.txt & disown
