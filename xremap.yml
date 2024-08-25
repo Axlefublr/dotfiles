@@ -331,7 +331,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_get f'] }
           g: { launch: [fish, -c, 'magazine_get g'] }
           h: { launch: [fish, -c, 'magazine_get h'] }
-          j: { launch: [fish, -c, 'magazine_get pjs'] }
+          j: { launch: [fish, -c, 'magazine_get literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_get k'] }
           l: { launch: [fish, -c, 'magazine_get l'] }
           z: { launch: [fish, -c, 'magazine_get z'] }
@@ -357,7 +357,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_get F'] }
           Shift-g: { launch: [fish, -c, 'magazine_get G'] }
           Shift-h: { launch: [fish, -c, 'magazine_get H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_get J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_get pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_get K'] }
           Shift-l: { launch: [fish, -c, 'magazine_get L'] }
           Shift-z: { launch: [fish, -c, 'magazine_get Z'] }
@@ -396,7 +396,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_cut f'] }
           g: { launch: [fish, -c, 'magazine_cut g'] }
           h: { launch: [fish, -c, 'magazine_cut h'] }
-          j: { launch: [fish, -c, 'magazine_cut pjs'] }
+          j: { launch: [fish, -c, 'magazine_cut literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_cut k'] }
           l: { launch: [fish, -c, 'magazine_cut l'] }
           z: { launch: [fish, -c, 'magazine_cut z'] }
@@ -422,7 +422,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_cut F'] }
           Shift-g: { launch: [fish, -c, 'magazine_cut G'] }
           Shift-h: { launch: [fish, -c, 'magazine_cut H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_cut J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_cut pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_cut K'] }
           Shift-l: { launch: [fish, -c, 'magazine_cut L'] }
           Shift-z: { launch: [fish, -c, 'magazine_cut Z'] }
@@ -461,7 +461,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_truncate f'] }
           g: { launch: [fish, -c, 'magazine_truncate g'] }
           h: { launch: [fish, -c, 'magazine_truncate h'] }
-          j: { launch: [fish, -c, 'magazine_truncate pjs'] }
+          j: { launch: [fish, -c, 'magazine_truncate literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_truncate k'] }
           l: { launch: [fish, -c, 'magazine_truncate l'] }
           z: { launch: [fish, -c, 'magazine_truncate z'] }
@@ -487,7 +487,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_truncate F'] }
           Shift-g: { launch: [fish, -c, 'magazine_truncate G'] }
           Shift-h: { launch: [fish, -c, 'magazine_truncate H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_truncate J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_truncate pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_truncate K'] }
           Shift-l: { launch: [fish, -c, 'magazine_truncate L'] }
           Shift-z: { launch: [fish, -c, 'magazine_truncate Z'] }
@@ -526,7 +526,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_edit f'] }
           g: { launch: [fish, -c, 'magazine_edit g'] }
           h: { launch: [fish, -c, 'magazine_edit h'] }
-          j: { launch: [fish, -c, 'magazine_edit pjs'] }
+          j: { launch: [fish, -c, 'magazine_edit literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_edit k'] }
           l: { launch: [fish, -c, 'magazine_edit l'] }
           z: { launch: [fish, -c, 'magazine_edit z'] }
@@ -552,7 +552,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_edit F'] }
           Shift-g: { launch: [fish, -c, 'magazine_edit G'] }
           Shift-h: { launch: [fish, -c, 'magazine_edit H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_edit J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_edit pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_edit K'] }
           Shift-l: { launch: [fish, -c, 'magazine_edit L'] }
           Shift-z: { launch: [fish, -c, 'magazine_edit Z'] }
@@ -591,7 +591,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_append f'] }
           g: { launch: [fish, -c, 'magazine_append g'] }
           h: { launch: [fish, -c, 'magazine_append h'] }
-          j: { launch: [fish, -c, 'magazine_append pjs'] }
+          j: { launch: [fish, -c, 'magazine_append literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_append k'] }
           l: { launch: [fish, -c, 'magazine_append_link'] }
           z: { launch: [fish, -c, 'magazine_append z'] }
@@ -617,7 +617,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_append F'] }
           Shift-g: { launch: [fish, -c, 'magazine_append G'] }
           Shift-h: { launch: [fish, -c, 'magazine_append H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_append J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_append pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_append K'] }
           Shift-l: { launch: [fish, -c, 'magazine_append L'] }
           Shift-z: { launch: [fish, -c, 'magazine_append Z'] }
@@ -656,7 +656,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_write f'] }
           g: { launch: [fish, -c, 'magazine_write g'] }
           h: { launch: [fish, -c, 'magazine_write h'] }
-          j: { launch: [fish, -c, 'magazine_write pjs'] }
+          j: { launch: [fish, -c, 'magazine_write literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_write k'] }
           l: { launch: [fish, -c, 'magazine_write_link'] }
           z: { launch: [fish, -c, 'magazine_write z'] }
@@ -682,7 +682,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_write F'] }
           Shift-g: { launch: [fish, -c, 'magazine_write G'] }
           Shift-h: { launch: [fish, -c, 'magazine_write H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_write J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_write pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_write K'] }
           Shift-l: { launch: [fish, -c, 'magazine_write L'] }
           Shift-z: { launch: [fish, -c, 'magazine_write Z'] }
@@ -705,68 +705,68 @@ keymap:
       Shift_L-v:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_appset q'] }
-          w: { launch: [fish, -c, 'magazine_appset w'] }
-          e: { launch: [fish, -c, 'magazine_appset e'] }
-          r: { launch: [fish, -c, 'magazine_appset r'] }
-          t: { launch: [fish, -c, 'magazine_appset t'] }
-          y: { launch: [fish, -c, 'magazine_appset y'] }
-          u: { launch: [fish, -c, 'magazine_appset u'] }
-          i: { launch: [fish, -c, 'magazine_appset i'] }
-          o: { launch: [fish, -c, 'magazine_appset o'] }
-          p: { launch: [fish, -c, 'magazine_appset p'] }
-          a: { launch: [fish, -c, 'magazine_appset a'] }
-          s: { launch: [fish, -c, 'magazine_appset s'] }
-          d: { launch: [fish, -c, 'magazine_appset d'] }
-          f: { launch: [fish, -c, 'magazine_appset f'] }
-          g: { launch: [fish, -c, 'magazine_appset g'] }
-          h: { launch: [fish, -c, 'magazine_appset h'] }
-          j: { launch: [fish, -c, 'magazine_appset pjs'] }
-          k: { launch: [fish, -c, 'magazine_appset k'] }
-          l: { launch: [fish, -c, 'magazine_appset l'] }
-          z: { launch: [fish, -c, 'magazine_appset z'] }
-          x: { launch: [fish, -c, 'magazine_appset x'] }
-          c: { launch: [fish, -c, 'magazine_appset c'] }
-          v: { launch: [fish, -c, 'magazine_appset v'] }
-          b: { launch: [fish, -c, 'magazine_appset b'] }
-          n: { launch: [fish, -c, 'magazine_appset n'] }
-          m: { launch: [fish, -c, 'magazine_appset m'] }
-          Shift-q: { launch: [fish, -c, 'magazine_appset Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_appset W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_appset E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_appset R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_appset T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_appset Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_appset U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_appset I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_appset O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_appset P'] }
-          Shift-a: { launch: [fish, -c, 'magazine_appset A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_appset S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_appset D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_appset F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_appset G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_appset H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_appset J'] }
-          Shift-k: { launch: [fish, -c, 'magazine_appset K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_appset L'] }
-          Shift-z: { launch: [fish, -c, 'magazine_appset Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_appset X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_appset C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_appset V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_appset B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_appset N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_appset M'] }
-          Super_R-f: { launch: [fish, -c, 'magazine_appset 1'] }
-          Super_R-d: { launch: [fish, -c, 'magazine_appset 2'] }
-          Super_R-s: { launch: [fish, -c, 'magazine_appset 3'] }
-          Super_R-r: { launch: [fish, -c, 'magazine_appset 4'] }
-          Super_R-e: { launch: [fish, -c, 'magazine_appset 5'] }
-          Super_R-w: { launch: [fish, -c, 'magazine_appset 6'] }
-          Super_R-v: { launch: [fish, -c, 'magazine_appset 7'] }
-          Super_R-c: { launch: [fish, -c, 'magazine_appset 8'] }
-          Super_R-x: { launch: [fish, -c, 'magazine_appset 9'] }
-          Super_R-a: { launch: [fish, -c, 'magazine_appset 0'] }
+          q: { launch: [fish, -c, 'magazine_appclip q'] }
+          w: { launch: [fish, -c, 'magazine_appclip w'] }
+          e: { launch: [fish, -c, 'magazine_appclip e'] }
+          r: { launch: [fish, -c, 'magazine_appclip r'] }
+          t: { launch: [fish, -c, 'magazine_appclip t'] }
+          y: { launch: [fish, -c, 'magazine_appclip y'] }
+          u: { launch: [fish, -c, 'magazine_appclip u'] }
+          i: { launch: [fish, -c, 'magazine_appclip i'] }
+          o: { launch: [fish, -c, 'magazine_appclip o'] }
+          p: { launch: [fish, -c, 'magazine_appclip p'] }
+          a: { launch: [fish, -c, 'magazine_appclip a'] }
+          s: { launch: [fish, -c, 'magazine_appclip s'] }
+          d: { launch: [fish, -c, 'magazine_appclip d'] }
+          f: { launch: [fish, -c, 'magazine_appclip f'] }
+          g: { launch: [fish, -c, 'magazine_appclip g'] }
+          h: { launch: [fish, -c, 'magazine_appclip h'] }
+          j: { launch: [fish, -c, 'magazine_appclip literal ~/prog/dotfiles/project.txt'] }
+          k: { launch: [fish, -c, 'magazine_appclip k'] }
+          l: { launch: [fish, -c, 'magazine_appclip l'] }
+          z: { launch: [fish, -c, 'magazine_appclip z'] }
+          x: { launch: [fish, -c, 'magazine_appclip x'] }
+          c: { launch: [fish, -c, 'magazine_appclip c'] }
+          v: { launch: [fish, -c, 'magazine_appclip v'] }
+          b: { launch: [fish, -c, 'magazine_appclip b'] }
+          n: { launch: [fish, -c, 'magazine_appclip n'] }
+          m: { launch: [fish, -c, 'magazine_appclip m'] }
+          Shift-q: { launch: [fish, -c, 'magazine_appclip Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_appclip W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_appclip E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_appclip R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_appclip T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_appclip Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_appclip U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_appclip I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_appclip O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_appclip P'] }
+          Shift-a: { launch: [fish, -c, 'magazine_appclip A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_appclip S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_appclip D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_appclip F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_appclip G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_appclip H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_appclip pjs'] }
+          Shift-k: { launch: [fish, -c, 'magazine_appclip K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_appclip L'] }
+          Shift-z: { launch: [fish, -c, 'magazine_appclip Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_appclip X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_appclip C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_appclip V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_appclip B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_appclip N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_appclip M'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_appclip 1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_appclip 2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_appclip 3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_appclip 4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_appclip 5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_appclip 6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_appclip 7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_appclip 8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_appclip 9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_appclip 0'] }
       Shift_L-Alt-v:
         exact_match: true
         remap:
@@ -786,7 +786,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_set f'] }
           g: { launch: [fish, -c, 'magazine_set g'] }
           h: { launch: [fish, -c, 'magazine_set h'] }
-          j: { launch: [fish, -c, 'magazine_set pjs'] }
+          j: { launch: [fish, -c, 'magazine_set literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_set k'] }
           l: { launch: [fish, -c, 'magazine_set l'] }
           z: { launch: [fish, -c, 'magazine_set z'] }
@@ -851,7 +851,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_restore f'] }
           g: { launch: [fish, -c, 'magazine_restore g'] }
           h: { launch: [fish, -c, 'magazine_restore h'] }
-          j: { launch: [fish, -c, 'magazine_restore pjs'] }
+          j: { launch: [fish, -c, 'magazine_restore literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_restore k'] }
           l: { launch: [fish, -c, 'magazine_restore l'] }
           z: { launch: [fish, -c, 'magazine_restore z'] }
@@ -916,7 +916,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_filter f'] }
           g: { launch: [fish, -c, 'magazine_filter g'] }
           h: { launch: [fish, -c, 'magazine_filter h'] }
-          j: { launch: [fish, -c, 'magazine_filter pjs'] }
+          j: { launch: [fish, -c, 'magazine_filter literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_filter k'] }
           l: { launch: [fish, -c, 'magazine_filter l'] }
           z: { launch: [fish, -c, 'magazine_filter z'] }
@@ -981,7 +981,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_view f'] }
           g: { launch: [fish, -c, 'magazine_view g'] }
           h: { launch: [fish, -c, 'magazine_view h'] }
-          j: { launch: [fish, -c, 'magazine_view pjs'] }
+          j: { launch: [fish, -c, 'magazine_view literal ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_view k'] }
           l: { launch: [fish, -c, 'magazine_view l'] }
           z: { launch: [fish, -c, 'magazine_view z'] }
