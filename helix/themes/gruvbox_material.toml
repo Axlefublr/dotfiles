@@ -24,7 +24,7 @@
 
 # ------------------------------------------------cursor------------------------------------------------
 'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.primary.select' = { bg = 'cyan', fg = 'dark12', modifiers = [
+'ui.cursor.primary.select' = { bg = 'mint', fg = 'dark12', modifiers = [
   'bold',
 ] }
 'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
@@ -36,7 +36,7 @@
 'ui.statusline' = { fg = 'white' }
 'ui.statusline.normal' = { fg = 'white', modifiers = ['bold'] }
 'ui.statusline.insert' = { fg = 'green', modifiers = ['bold'] }
-'ui.statusline.select' = { fg = 'cyan', modifiers = ['bold'] }
+'ui.statusline.select' = { fg = 'mint', modifiers = ['bold'] }
 
 # -----------------------------------------------markdown-----------------------------------------------
 'markup.heading.1' = { fg = 'red', modifiers = ['bold'] }
