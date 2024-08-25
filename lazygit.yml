@@ -60,10 +60,10 @@ keybinding:
     scrollLeft: '<disabled>'
     scrollRight: '<disabled>'
     
-    nextScreenMode: l
-    prevScreenMode: h
-    prevBlock-alt: ','
-    nextBlock-alt: .
+    nextScreenMode: .
+    prevScreenMode: ','
+    prevBlock-alt: h
+    nextBlock-alt: l
     scrollUpMain-alt1: H
     scrollDownMain-alt1: L
     quit-alt1: K
