@@ -6,8 +6,8 @@ awful.rules.rules = {
 			border_color = beautiful.border_normal,
 			focus = awful.client.focus.filter,
 			raise = true,
-			keys = Client_keys,
-			buttons = Client_buttons,
+			keys = ClientKeys,
+			buttons = ClientButtons,
 			screen = awful.screen.preferred,
 			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
 			floating = false,
@@ -15,6 +15,7 @@ awful.rules.rules = {
 		},
 	},
 
+	-- ---------------------------------------always floating & on top---------------------------------------
 	{
 		rule_any = {
 			class = {
@@ -31,37 +32,17 @@ awful.rules.rules = {
 		},
 	},
 
+	-- -------------------------------------------always fullscreen-------------------------------------------
 	{
-		rule = { class = 'Zathura' },
-		properties = { tag = screen.primary.tags[4] }
-	},
-
-	{
-		rule = { class = 'Spotify' },
-		properties = { tag = screen.primary.tags[6] },
-	},
-
-	{
-		rule = { class = 'Gimp' },
-		properties = { tag = screen.primary.tags[14] },
-	},
-
-	{
-		rule = { class = 'obs' },
-		properties = { tag = screen.primary.tags[13] },
-	},
-
-	{
-		rule = { class = 'kitty', name = 'neomax' },
-		properties = {
-			floating = true,
-			x = 10,
-			y = 45,
-			width = 1894,
-			height = 1019,
+		rule_any = {
+			class = {'Modded Slay the Spire', 'com-evacipated-cardcrawl-modthespire-Loader'},
 		},
+		properties = {
+			fullscreen = true
+		}
 	},
 
+	-- ------------------------------------------------neoline------------------------------------------------
 	{
 		rule = { class = 'kitty', name = 'neoline' },
 		properties = {
@@ -74,23 +55,7 @@ awful.rules.rules = {
 		},
 	},
 
-	{
-		rule = { class = 'kitty', name = 'screen_record' },
-		properties = {
-			tag = screen.primary.tags[4]
-		},
-	},
-
-	{
-		rule = { class = 'kitty', name = 'oil-content' },
-		properties = { tag = screen.primary.tags[15], urgent = false },
-	},
-
-	{
-		rule = { class = 'Alacritty', name = 'oil-content' },
-		properties = { tag = screen.primary.tags[15], urgent = false },
-	},
-
+	-- -------------------------------------------------tag o-------------------------------------------------
 	{
 		rule = { class = 'kitty', name = 'meow' },
 		properties = {
@@ -99,14 +64,25 @@ awful.rules.rules = {
 		},
 	},
 
+	-- -------------------------------------------------tag p-------------------------------------------------
 	{
-		rule = { class = 'Alacritty', name = 'meow' },
+		rule_any = { class = 'Zathura' },
+		properties = { tag = screen.primary.tags[4] }
+	},
+	{
+		rule = { class = 'kitty', name = 'screen_record' },
 		properties = {
-			tag = screen.primary.tags[3],
-			urgent = false,
+			tag = screen.primary.tags[4]
 		},
 	},
 
+	-- -------------------------------------------------tag ,-------------------------------------------------
+	{
+		rule_any = { class = 'Spotify' },
+		properties = { tag = screen.primary.tags[6] },
+	},
+
+	-- -------------------------------------------------tag O-------------------------------------------------
 	{
 		rule = { class = 'kitty', name = 'timer' },
 		properties = {
@@ -115,31 +91,31 @@ awful.rules.rules = {
 		},
 	},
 
-	{
-		rule = { class = 'Alacritty', name = 'timer' },
-		properties = {
-			tag = screen.primary.tags[11],
-			urgent = false,
-		},
-	},
-
+	-- -------------------------------------------------tag P-------------------------------------------------
 	{
 		rule = { class = 'kitty', name = 'link-download' },
 		properties = { tag = screen.primary.tags[12] },
 	},
 
+	-- -------------------------------------------------tag M-------------------------------------------------
+	{
+		rule = { class = 'obs' },
+		properties = { tag = screen.primary.tags[13] },
+	},
+
+	-- -------------------------------------------------tag <-------------------------------------------------
+	{
+		rule = { class = 'Gimp' },
+		properties = { tag = screen.primary.tags[14] },
+	},
 	{
 		rule = { class = 'kitty', name = 'uboot' },
 		properties = { tag = screen.primary.tags[14] },
 	},
 
+	-- -------------------------------------------------tag >-------------------------------------------------
 	{
-		rule = { class = 'Alacritty', name = 'link-download' },
-		properties = { tag = screen.primary.tags[12] },
-	},
-
-	{
-		rule = { class = 'Alacritty', name = 'uboot' },
-		properties = { tag = screen.primary.tags[14] },
+		rule = { class = 'kitty', name = 'oil-content' },
+		properties = { tag = screen.primary.tags[15], urgent = false },
 	},
 }
