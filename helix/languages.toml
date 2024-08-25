@@ -1,3 +1,38 @@
+[language-server.lua-language-server.config.Lua]
+codelens.enable = true
+completion.enable = true
+completion.callSnippet = 'Replace'
+completion.keywordSnippet = 'Disable'
+completion.postfix = '@'
+completion.showParams = true
+completion.workspaceWord = false
+completion.showWord = 'Enable'
+diagnostics.disable = [
+  'lowercase-global',
+  'redefined-local',
+  'duplicate-set-field',
+]
+diagnostics.workspaceDelay = 0
+format.enable = false
+hint.enable = true
+hint.arrayIndex = 'Disable'
+hint.await = true
+hint.paramName = 'Disable'
+hint.paramType = true
+hint.semicolon = 'Disable'
+hint.setType = true
+hover.enable = true
+hover.expandAlias = true
+hover.viewNumber = true
+hover.viewString = true
+hover.enumsLimit = 9999
+hover.previewFields = 9999
+semantic.enable = false # TODO: enable this once helix supports them
+semantic.keyword = false
+semantic.variable = true
+type.weakNilCheck = false
+workspace.checkThirdParty = false
+
 [language-server.rust-analyzer.config]
 checkOnSave.command = 'clippy'
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev'
@@ -46,4 +81,6 @@ name = 'toml'
 auto-format = true
 
 [[language]]
-name = 'fish'
+name = 'lua'
+indent = { tab-width = 3, unit = '\t' }
+formatter = { command = 'stylua', args = ['-'] }
