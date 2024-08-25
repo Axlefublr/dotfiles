@@ -28,7 +28,7 @@
   'bold',
 ] }
 'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.match' = { fg = 'dark12', bg = 'purple', modifiers = ['bold'] }
+'ui.cursor.match' = { bg = 'purple_supporting', modifiers = ['bold'] }
 'ui.selection.primary' = { bg = 'orange_supporting' }
 'ui.selection' = { bg = 'orange_supporting' }
 
@@ -131,4 +131,5 @@ mint = '#78bf84'
 cyan = '#7daea3'
 
 orange_supporting = '#5f472d'
+purple_supporting = '#502c5f'
 blush_supporting = '#5e2d40'
