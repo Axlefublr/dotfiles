@@ -1,0 +1,234 @@
+[manager]
+
+keymap = [
+  { on = '<Esc>', run = 'escape', desc = 'Exit visual mode, clear selected, or cancel search' },
+  { on = 'q', run = 'quit', desc = 'Exit the process' },
+  { on = 'K', run = 'quit', desc = 'Exit the process' },
+  { on = 'Q', run = 'quit --no-cwd-file', desc = 'Exit the process without writing cwd-file' },
+  { on = 'w', run = 'tasks_show', desc = 'Show task manager' },
+  { on = 'T', run = 'close', desc = 'Close the current tab, or quit if it is last tab' },
+  { on = '<C-z>', run = 'suspend', desc = 'Suspend the process' },
+  { on = 'J', run = 'help', desc = 'Open help' },
+
+  { on = 'e', run = 'shell --block --confirm helix', desc = 'Run helix here' },
+
+  # ----------------------------------------------Navigation----------------------------------------------
+  { on = 'k', run = 'arrow -1', desc = 'Move cursor up' },
+  { on = 'j', run = 'arrow 1', desc = 'Move cursor down' },
+
+  { on = 'H', run = 'arrow -50%', desc = 'Scroll up by half a page' },
+  { on = 'L', run = 'arrow 50%', desc = 'Scroll down by half a page' },
+
+  { on = 'h', run = 'leave', desc = 'Go back to the parent directory' },
+  { on = 'l', run = 'enter', desc = 'Enter the child directory' },
+
+  # { on = 'H', run = 'back', desc = 'Go back to the previous directory' },
+  # { on = 'L', run = 'forward', desc = 'Go forward to the next directory' },
+
+  { on = [
+    'g',
+    'i',
+  ], run = 'arrow -99999999', desc = 'Go to top' },
+  { on = [
+    'g',
+    'o',
+  ], run = 'arrow 99999999', desc = 'Go to bottom' },
+
+  # -----------------------------------------------Selection-----------------------------------------------
+  { on = '<Space>', run = [
+    'select --state=none',
+    'arrow 1',
+  ], desc = 'Toggle the current selection state' },
+  { on = 'x', run = 'visual_mode', desc = 'Enter visual mode (selection mode)' },
+  { on = 'v', run = 'visual_mode --unset', desc = 'Enter visual mode (unset mode)' },
+  { on = '<C-r>', run = 'select_all', desc = 'Inverse selection of all files' },
+  { on = '%', run = 'select_all --state=true', desc = 'Select all' },
+
+  # ----------------------------------------------Operation----------------------------------------------
+  { on = 'o', run = 'create --force', desc = 'Create a blob' },
+
+  { on = 'O', run = 'open --interactive', desc = 'Open selected files interactively' },
+  { on = '<Enter>', run = 'open', desc = 'Open selected files' },
+
+  { on = 'd', run = 'remove --force', desc = 'Trash selected' },
+  { on = 'D', run = 'remove --hovered --force', desc = 'Trash hovered' },
+
+  { on = '-', run = 'link --force', desc = 'Symlink' },
+  { on = '_', run = 'hardlink --force --follow', desc = 'Hardlink' },
+
+  { on = 'y', run = 'yank', desc = 'Yank selected files (copy)' },
+  { on = 'Y', run = 'yank --cut', desc = 'Yank selected files (cut)' },
+  { on = 'X', run = 'unyank', desc = 'Cancel the yank status' },
+  { on = 'p', run = 'paste', desc = 'Paste yanked files' },
+  { on = 'P', run = 'paste --force', desc = 'Paste yanked files (overwrite if the destination exists)' },
+
+  { on = ':', run = 'shell --interactive', desc = 'Run a shell command' },
+  { on = ';', run = 'shell --block --interactive', desc = 'Run a shell command (block until finishes)' },
+
+  { on = 'r', run = 'rename --cursor=before_ext', desc = 'Rename selected file(s)' },
+
+  # ------------------------------------------------Search------------------------------------------------
+
+  { on = '.', run = 'hidden toggle', desc = 'Toggle the visibility of hidden files' },
+
+  { on = '/', run = 'find --smart', desc = 'Find next file' },
+  { on = '?', run = 'find --previous --smart', desc = 'Find previous file' },
+  { on = 'n', run = 'find_arrow', desc = 'Go to the next found' },
+  { on = 'N', run = 'find_arrow --previous', desc = 'Go to the previous found' },
+
+  { on = 'f', run = 'filter --smart', desc = 'Filter files' },
+  { on = 'z', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
+  { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
+  { on = 's', run = 'search fd', desc = 'Search files by name using fd' },
+  { on = 'S', run = 'search rg', desc = 'Search files by content using ripgrep' },
+  { on = '<C-c>', run = 'escape --search', desc = 'Cancel the ongoing search' },
+
+  # -----------------------------------------------Linemode-----------------------------------------------
+  { on = [
+    'm',
+    's',
+  ], run = 'linemode size', desc = 'Set linemode to size' },
+  { on = [
+    'm',
+    'c',
+  ], run = 'linemode ctime', desc = 'Set linemode to ctime' },
+  { on = [
+    'm',
+    'o',
+  ], run = 'linemode mtime', desc = 'Set linemode to mtime' },
+  { on = [
+    'm',
+    'm',
+  ], run = 'linemode none', desc = 'Set linemode to none' },
+
+  # -------------------------------------------------Copy-------------------------------------------------
+  { on = [
+    'c',
+    'c',
+  ], run = 'copy path', desc = 'Copy the file path' },
+  { on = [
+    'c',
+    'd',
+  ], run = 'copy dirname', desc = 'Copy the directory path' },
+  { on = [
+    'c',
+    'f',
+  ], run = 'copy filename', desc = 'Copy the filename' },
+  { on = [
+    'c',
+    'n',
+  ], run = 'copy name_without_ext', desc = 'Copy the filename without extension' },
+
+  # -----------------------------------------------Sorting-----------------------------------------------
+  { on = [
+    ',',
+    'm',
+  ], run = [
+    'sort modified --reverse=no',
+    'linemode mtime',
+  ], desc = 'Sort by modified time' },
+  { on = [
+    ',',
+    'M',
+  ], run = [
+    'sort modified --reverse',
+    'linemode mtime',
+  ], desc = 'Sort by modified time (reverse)' },
+  { on = [
+    ',',
+    'c',
+  ], run = [
+    'sort created --reverse=no',
+    'linemode ctime',
+  ], desc = 'Sort by created time' },
+  { on = [
+    ',',
+    'C',
+  ], run = [
+    'sort created --reverse',
+    'linemode ctime',
+  ], desc = 'Sort by created time (reverse)' },
+  { on = [
+    ',',
+    'e',
+  ], run = 'sort extension --reverse=no', desc = 'Sort by extension' },
+  { on = [
+    ',',
+    'E',
+  ], run = 'sort extension --reverse', desc = 'Sort by extension (reverse)' },
+  { on = [
+    ',',
+    'a',
+  ], run = 'sort alphabetical --reverse=no', desc = 'Sort alphabetically' },
+  { on = [
+    ',',
+    'A',
+  ], run = 'sort alphabetical --reverse', desc = 'Sort alphabetically (reverse)' },
+  { on = [
+    ',',
+    'n',
+  ], run = 'sort natural --reverse=no', desc = 'Sort naturally' },
+  { on = [
+    ',',
+    'N',
+  ], run = 'sort natural --reverse', desc = 'Sort naturally (reverse)' },
+  { on = [
+    ',',
+    's',
+  ], run = [
+    'sort size --reverse=no',
+    'linemode size',
+  ], desc = 'Sort by size' },
+  { on = [
+    ',',
+    'S',
+  ], run = [
+    'sort size --reverse',
+    'linemode size',
+  ], desc = 'Sort by size (reverse)' },
+  { on = [
+    ',',
+    'r',
+  ], run = 'sort random --reverse=no', desc = 'Sort randomly' },
+
+  # -------------------------------------------------Tabs-------------------------------------------------
+  { on = 't', run = 'tab_create --current', desc = 'Create a new tab with CWD' },
+
+  { on = '1', run = 'tab_switch 0', desc = 'Switch to the first tab' },
+  { on = '2', run = 'tab_switch 1', desc = 'Switch to the second tab' },
+  { on = '3', run = 'tab_switch 2', desc = 'Switch to the third tab' },
+  { on = '4', run = 'tab_switch 3', desc = 'Switch to the fourth tab' },
+  { on = '5', run = 'tab_switch 4', desc = 'Switch to the fifth tab' },
+  { on = '6', run = 'tab_switch 5', desc = 'Switch to the sixth tab' },
+  { on = '7', run = 'tab_switch 6', desc = 'Switch to the seventh tab' },
+  { on = '8', run = 'tab_switch 7', desc = 'Switch to the eighth tab' },
+  { on = '9', run = 'tab_switch 8', desc = 'Switch to the ninth tab' },
+
+  { on = '[', run = 'tab_switch -1 --relative', desc = 'Switch to the previous tab' },
+  { on = ']', run = 'tab_switch 1 --relative', desc = 'Switch to the next tab' },
+
+  { on = '{', run = 'tab_swap -1', desc = 'Swap current tab with previous tab' },
+  { on = '}', run = 'tab_swap 1', desc = 'Swap current tab with next tab' },
+]
+
+[input]
+append_keymap = [
+  { on = '%', run = [
+    'move -999',
+    'visual',
+    'move 999',
+  ], desc = 'Enter visual mode and select all' },
+  { on = [
+    'g',
+    'h',
+  ], run = 'move -999', desc = 'Move to the BOL' },
+  { on = [
+    'g',
+    'l',
+  ], run = 'move 999', desc = 'Move to the EOL' },
+  { on = 'U', run = 'redo', desc = 'Redo the last operation' },
+  { on = 'J', run = 'help', desc = 'Open help' },
+]
+
+[help]
+append_keymap = [{ on = 'K', run = 'close', desc = 'Hide the help' }]

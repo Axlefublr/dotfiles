@@ -1,0 +1,52 @@
+[manager]
+# hovered = { bg = '#5f472d' }
+hovered = { fg = '#e49641' }
+cwd = { fg = '#ffafd7', bold = true }
+
+find_keyword = { fg = '#1f1e1e', bg = '#b58cc6', bold = true }
+find_position = { fg = '#1f1e1e', bg = '#b58cc6', bold = true }
+
+marker_selected = { bg = '#e49641' }
+marker_copied = { bg = '#d3ad5c' }
+marker_cut = { bg = '#ea6962' }
+
+tab_active = { fg = 'white', bg = '#1a1919', bold = true }
+
+[status]
+separator_open = ''
+separator_close = ''
+separator_style = { fg = 'white', bg = '#e49641' }
+
+mode_normal = { fg = 'white', bg = '#292828', bold = true }
+mode_select = { fg = '#78bf84', bg = '#292828', bold = true }
+mode_unset = { fg = '#ea6962', bg = '#292828', bold = true }
+
+[select]
+border = { fg = '#b58cc6', bg = '#292828', bold = true }
+active = { fg = '#e49641', bold = true }
+
+[input]
+border = { fg = '#b58cc6', bg = '#292828', bold = true }
+
+[completion]
+border = { fg = '#b58cc6', bg = '#292828', bold = true }
+
+[tasks]
+border = { fg = '#b58cc6', bg = '#292828', bold = true }
+
+[which]
+cols = 2
+mask = { bg = '#212121' }
+separator_style = { fg = 'white' }
+
+[help]
+hovered = { bg = '#5f472d' }
+footer = { fg = 'white', bg = '#292828' }
+
+[filetype]
+rules = [
+  { mime = 'inode/x-empty', fg = 'cyan' },   # empty file
+  { name = '*', is = 'orphan', fg = 'red' }, # orphan symbolic links
+  # { name = '*', fg = 'white' },
+  { name = '*/', fg = '#78bf84' },
+]

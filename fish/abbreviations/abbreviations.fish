@@ -53,4 +53,5 @@ abbr -a ttyper 'ttyper -l uclanr -w 25'
 abbr -a g ghostty
 abbr -a e helix
 abbr -a gd 'git diff'
-abbr -a l 'lazygit'
+abbr -a l lazygit
+abbr -a Y yazi

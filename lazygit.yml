@@ -57,12 +57,14 @@ keybinding:
 
     prevPage: '<disabled>'
     nextPage: <disabled>
-
+    scrollLeft: '<disabled>'
+    scrollRight: '<disabled>'
+    
     nextScreenMode: l
     prevScreenMode: h
     prevBlock-alt: ','
     nextBlock-alt: .
     scrollUpMain-alt1: H
     scrollDownMain-alt1: L
-    quit: K
+    quit-alt1: K
     togglePanel: J
