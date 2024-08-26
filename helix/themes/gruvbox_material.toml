@@ -28,7 +28,7 @@
   'bold',
 ] }
 'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.match' = { bg = 'purple_supporting', modifiers = ['bold'] }
+'ui.cursor.match' = { modifiers = ['bold', 'underlined'] }
 'ui.selection.primary' = { bg = 'orange_supporting' }
 'ui.selection' = { bg = 'orange_supporting' }
 
