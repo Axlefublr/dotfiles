@@ -272,7 +272,7 @@ X = 'merge_consecutive_selections'
 
 [keys.insert]
 "A-'" = 'insert_register'
-'C-v' = 'paste_clipboard_before'
+'C-v' = ['collapse_selection', 'paste_clipboard_before']
 'A-/' = ':xa!'
 'C-j' = ['normal_mode', 'open_below']
 'C-k' = ['normal_mode', 'open_above']
