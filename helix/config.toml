@@ -24,7 +24,7 @@ max-wrap = 0
 wrap-indicator = ''
 
 [editor.smart-tab]
-enable = true         # If set to true, then when the cursor is in a position with non-whitespace to its left, instead of inserting a tab, it will run move_parent_node_end. If there is only whitespace to the left, then it inserts a tab as normal. With the default bindings, to explicitly insert a tab character, press Shift-tab.
+enable = false        # If set to true, then when the cursor is in a position with non-whitespace to its left, instead of inserting a tab, it will run move_parent_node_end. If there is only whitespace to the left, then it inserts a tab as normal. With the default bindings, to explicitly insert a tab character, press Shift-tab.
 supersede-menu = true # Normally, when a menu is on screen, such as when auto complete is triggered, the tab key is bound to cycling through the items. This means when menus are on screen, one cannot use the tab key to trigger the smart-tab command. If this option is set to true, the smart-tab command always takes precedence, which means one cannot use the tab key to cycle through menu items. One of the other bindings must be used instead, such as arrow keys or C-n/C-p.
 
 [editor.cursor-shape]
@@ -101,7 +101,6 @@ x = 'select_mode'
 D = 'copy_selection_on_prev_line'
 G = 'keep_selections'
 K = ':xa!'
-A-f = 'move_parent_node_end'
 "'" = ':wa!'
 M = 'save_selection'
 A-h = 'select_prev_sibling'
@@ -110,6 +109,8 @@ C-n = 'shrink_selection'
 C-p = 'expand_selection'
 A-j = 'shrink_selection'
 A-k = 'expand_selection'
+A-i = 'move_parent_node_start'
+A-o = 'move_parent_node_end'
 '\' = ['select_all', 'delete_selection_noyank', 'shell_append_output']
 '{' = 'goto_prev_paragraph'
 '}' = 'goto_next_paragraph'
@@ -240,6 +241,8 @@ A-h = 'select_prev_sibling'
 A-l = 'select_next_sibling'
 C-n = 'shrink_selection'
 C-p = 'expand_selection'
+A-i = 'extend_parent_node_start'
+A-o = 'extend_parent_node_end'
 '{' = 'goto_prev_paragraph'
 '}' = 'goto_next_paragraph'
 
@@ -271,6 +274,8 @@ X = 'merge_consecutive_selections'
 # --------------------------------------------------insert--------------------------------------------------
 
 [keys.insert]
+A-i = 'move_parent_node_start'
+A-o = 'move_parent_node_end'
 "A-'" = 'insert_register'
 'C-v' = ['collapse_selection', 'paste_clipboard_before']
 'A-/' = ':xa!'
