@@ -149,6 +149,7 @@ H = ['collapse_selection', 'extend_to_line_start']
 l = ['collapse_selection', 'extend_to_line_end']
 L = ['collapse_selection', 'extend_to_line_end_newline']
 '/' = 'make_search_word_bounded'
+"'" = 'rotate_view_reverse'
 
 x = 'merge_selections'
 X = 'merge_consecutive_selections'
@@ -215,6 +216,7 @@ g = 'select_all_siblings'
 '/' = 'global_search'
 ';' = ':char'
 X = 'join_selections_space'
+"'" = 'rotate_view'
 
 s = 'no_op'
 a = 'no_op'
