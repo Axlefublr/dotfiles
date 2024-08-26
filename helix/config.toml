@@ -115,6 +115,8 @@ A-k = 'expand_selection'
 '}' = 'goto_next_paragraph'
 '#' = 'toggle_comments'
 r = ['collapse_selection', 'replace']
+i = ['collapse_selection', 'insert_mode']
+a = ['collapse_selection', 'append_mode']
 
 C-s = 'no_op'
 C-c = 'no_op'
