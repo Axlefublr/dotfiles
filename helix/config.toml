@@ -144,10 +144,10 @@ A-c = 'no_op'
 
 [keys.normal.z]
 g = 'select_all_children'
-h = 'extend_to_first_nonwhitespace'
-H = 'extend_to_line_start'
-l = 'extend_to_line_end'
-L = 'extend_to_line_end_newline'
+h = ['collapse_selection', 'extend_to_first_nonwhitespace']
+H = ['collapse_selection', 'extend_to_line_start']
+l = ['collapse_selection', 'extend_to_line_end']
+L = ['collapse_selection', 'extend_to_line_end_newline']
 '/' = 'make_search_word_bounded'
 
 x = 'merge_selections'
@@ -242,18 +242,27 @@ C-p = 'expand_selection'
 '}' = 'goto_next_paragraph'
 
 [keys.select.g]
+h = 'extend_to_first_nonwhitespace'
+H = 'extend_to_line_start'
+l = 'extend_to_line_end'
+L = 'extend_to_line_end_newline'
+
 o = 'goto_last_line'
 i = 'goto_file_start'
 X = 'join_selections_space'
 G = 'remove_selections'
 u = 'extend_to_word'
-L = 'goto_line_end_newline'
 
 g = 'no_op'
 w = 'no_op'
 e = 'no_op'
 
 [keys.select.z]
+h = ['collapse_selection', 'goto_first_nonwhitespace']
+H = ['collapse_selection', 'goto_line_start']
+l = ['collapse_selection', 'goto_line_end']
+L = ['collapse_selection', 'goto_line_end_newline']
+
 x = 'merge_selections'
 X = 'merge_consecutive_selections'
 
