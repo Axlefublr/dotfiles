@@ -114,6 +114,7 @@ A-k = 'expand_selection'
 '{' = 'goto_prev_paragraph'
 '}' = 'goto_next_paragraph'
 '#' = 'toggle_comments'
+r = ['collapse_selection', 'replace']
 
 C-s = 'no_op'
 C-c = 'no_op'
