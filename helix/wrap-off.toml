@@ -19,7 +19,7 @@ insert-final-newline = false
 jump-label-alphabet = 'fjdkslaeiwoghruxcz/vmtyqp'
 
 [editor.soft-wrap]
-enable = true
+enable = false
 max-wrap = 0
 wrap-indicator = ''
 
@@ -32,7 +32,7 @@ insert = 'bar'
 # select = 'underline'
 
 [editor.whitespace.render]
-newline = 'all'
+newline = 'none'
 
 [editor.whitespace.characters]
 newline = '↪'
