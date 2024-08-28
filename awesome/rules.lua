@@ -35,7 +35,7 @@ awful.rules.rules = {
 	-- -------------------------------------------always fullscreen-------------------------------------------
 	{
 		rule_any = {
-			class = {'Modded Slay the Spire', 'com-evacipated-cardcrawl-modthespire-Loader'},
+			class = {'Modded Slay the Spire'},
 		},
 		properties = {
 			fullscreen = true
