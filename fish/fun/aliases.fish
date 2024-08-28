@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+#-------------------default behavior-------------------
+alias --save unimatrix 'unimatrix -s 95 -abf'
 alias --save fd 'fd --no-require-git' >/dev/null
 alias --save rg 'rg --engine auto' >/dev/null
 alias --save less 'less --use-color -R' >/dev/null
@@ -161,7 +163,7 @@ function M
 end
 funcsave M >/dev/null
 
-function y
+function l
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
@@ -170,4 +172,4 @@ function y
     rm -f -- "$tmp"
     commandline -f repaint
 end
-funcsave y >/dev/null
+funcsave l >/dev/null

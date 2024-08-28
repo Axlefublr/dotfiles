@@ -63,10 +63,4 @@ return {
 	s({ filetype = 'fish', trig = 'read' }, {
 		t('read -p rdp'),
 	}),
-	s({ filetype = 'fish', trig = 'xcp' }, {
-		t('xclip -r -selection clipboard'),
-	}),
-	s({ filetype = 'fish', trig = 'xpc' }, {
-		t('xclip -selection clipboard -o'),
-	}),
 }
