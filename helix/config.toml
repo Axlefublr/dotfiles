@@ -130,8 +130,6 @@ up = 'no_op'
 down = 'no_op'
 
 [keys.normal.space]
-p = ':config-reload'
-P = ':open ~/prog/dotfiles/helix/config.toml'
 T = ':tree-sitter-scopes'
 t = ':tree-sitter-highlight-name'
 f = 'file_picker_in_current_directory'
