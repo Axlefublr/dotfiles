@@ -11,6 +11,9 @@ keymap = [
   { on = 'J', run = 'help', desc = 'Open help' },
 
   { on = 'e', run = 'shell --block --confirm helix', desc = 'Run helix here' },
+  { on = '<A-u>', run = 'shell --confirm "kitten @ launch --type tab --cwd current"', desc = 'Kitty tab' },
+  { on = '<A-i>', run = 'shell --confirm "kitten @ launch --type window --cwd current"', desc = 'Kitty window' },
+  { on = '<A-o>', run = 'shell --confirm "kitten @ launch --type overlay-main --cwd current"', desc = 'Kitty overlay' },
 
   # ----------------------------------------------Navigation----------------------------------------------
   { on = 'k', run = 'arrow -1', desc = 'Move cursor up' },
