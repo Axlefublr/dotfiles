@@ -90,10 +90,9 @@ goto-reference-include-declaration = false
 
 # #################################################mappings#################################################
 
-# --------------------------------------------------normal--------------------------------------------------
+# ———————————————————————————————————————————————————normal———————————————————————————————————————————————————
 
 [keys.normal]
-
 H = 'page_cursor_half_up'
 L = 'page_cursor_half_down'
 ret = 'command_mode'
@@ -126,6 +125,7 @@ r = ['collapse_selection', 'replace']
 i = ['collapse_selection', 'insert_mode']
 a = ['collapse_selection', 'append_mode']
 
+Z = 'no_op'
 C-s = 'no_op'
 C-c = 'no_op'
 A-C = 'no_op'
@@ -141,21 +141,38 @@ f = 'file_picker_in_current_directory'
 F = 'file_picker_in_current_buffer_directory'
 e = 'buffer_picker'
 K = ':qa!'
-n = ':new'
+c = 'code_action'
 
+w = 'no_op'
+C = 'no_op'
+Y = 'no_op'
+p = 'no_op'
+P = 'no_op'
+G = 'no_op'
+a = 'no_op'
+g = 'no_op'
+j = 'no_op'
 b = 'no_op'
-c = 'no_op'
 A-c = 'no_op'
 '/' = 'no_op'
 
 [keys.normal.z]
 g = 'select_all_children'
+'/' = 'make_search_word_bounded'
+
+k = 'rotate_view_reverse'
+j = 'rotate_view'
+J = 'hsplit'
+K = ':hsplit-new'
+';' = 'wclose'
+n = ':new'
+i = 'transpose_view'
+o = 'wonly'
+
 h = ['collapse_selection', 'extend_to_first_nonwhitespace']
 H = ['collapse_selection', 'extend_to_line_start']
 l = ['collapse_selection', 'extend_to_line_end']
 L = ['collapse_selection', 'extend_to_line_end_newline']
-'/' = 'make_search_word_bounded'
-"'" = 'rotate_view_reverse'
 
 x = 'merge_selections'
 X = 'merge_consecutive_selections'
@@ -167,8 +184,6 @@ b = 'no_op'
 m = 'no_op'
 up = 'no_op'
 down = 'no_op'
-j = 'no_op'
-k = 'no_op'
 pageup = 'no_op'
 pagedown = 'no_op'
 C-b = 'no_op'
@@ -178,31 +193,30 @@ C-d = 'no_op'
 backspace = 'no_op'
 space = 'no_op'
 '?' = 'no_op'
-n = 'no_op'
 N = 'no_op'
 
-[keys.normal.Z]
-z = 'no_op'
-c = 'no_op'
-t = 'no_op'
-b = 'no_op'
-m = 'no_op'
-up = 'no_op'
-down = 'no_op'
-j = 'no_op'
-k = 'no_op'
-pageup = 'no_op'
-pagedown = 'no_op'
-C-b = 'no_op'
-C-f = 'no_op'
-C-u = 'no_op'
-C-d = 'no_op'
-backspace = 'no_op'
-space = 'no_op'
-'/' = 'no_op'
-'?' = 'no_op'
-n = 'no_op'
-N = 'no_op'
+# [keys.normal.Z]
+# z = 'no_op'
+# c = 'no_op'
+# t = 'no_op'
+# b = 'no_op'
+# m = 'no_op'
+# up = 'no_op'
+# down = 'no_op'
+# j = 'no_op'
+# k = 'no_op'
+# pageup = 'no_op'
+# pagedown = 'no_op'
+# C-b = 'no_op'
+# C-f = 'no_op'
+# C-u = 'no_op'
+# C-d = 'no_op'
+# backspace = 'no_op'
+# space = 'no_op'
+# '/' = 'no_op'
+# '?' = 'no_op'
+# n = 'no_op'
+# N = 'no_op'
 
 [keys.normal.g]
 h = 'goto_first_nonwhitespace'
@@ -221,7 +235,6 @@ G = 'remove_selections'
 g = 'select_all_siblings'
 '/' = 'global_search'
 X = 'join_selections_space'
-"'" = 'rotate_view'
 u = 'goto_reference'
 
 D = 'no_op'
@@ -234,7 +247,7 @@ a = 'no_op'
 e = 'no_op'
 w = 'no_op'
 
-# --------------------------------------------------select--------------------------------------------------
+# ———————————————————————————————————————————————————select———————————————————————————————————————————————————
 
 [keys.select]
 H = 'page_cursor_half_up'
@@ -281,7 +294,7 @@ L = ['collapse_selection', 'goto_line_end_newline']
 x = 'merge_selections'
 X = 'merge_consecutive_selections'
 
-# --------------------------------------------------insert--------------------------------------------------
+# ———————————————————————————————————————————————————insert———————————————————————————————————————————————————
 
 [keys.insert]
 A-i = 'move_parent_node_start'
