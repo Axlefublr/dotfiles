@@ -16,6 +16,9 @@ configuration {
 
 	kb-primary-paste: "";
 	kb-toggle-case-sensitivity: "";
+	kb-element-next: "";
+	kb-element-previous: "";
+	kb-accept-alt: "";
 
 	kb-clear-line: "Control+Alt+u";
 	kb-secondary-paste: "Control+v";
@@ -23,15 +26,17 @@ configuration {
 	kb-move-end: "Control+e,End";
 	kb-remove-word-back: "Control+w,Control+BackSpace";
 	kb-remove-word-forward: "Control+Delete";
-	kb-accept-entry: "Return";
-	kb-accept-alt: "Tab";
 	kb-row-first: "Control+Home";
 	kb-row-last: "Control+End";
-	kb-row-select: "Alt+[47]"; // 47 is ; on qwerty
 	kb-row-up: "Up,Control+p,Alt+k";
 	kb-row-down: "Down,Control+n,Alt+j";
-	kb-element-next: "";
-	kb-element-previous: "";
+
+	kb-row-select: "Alt+[47]"; // 47 is ; on qwerty
+	kb-accept-entry: "Return";
+	kb-accept-custom: "Shift+Return";
+	kb-custom-1: "Alt+Return";
+	kb-custom-2: "Shift+Alt+Return";
+	kb-custom-3: "Control+Return";
 
 	kb-select-1: "Control+1";
 	kb-select-2: "Control+2";
