@@ -47,9 +47,8 @@ abbr -a gz glaza
 abbr -a gx 'glaza -g'
 abbr -a at alien_temple
 
-abbr -a ls 'ez -a'
-abbr -a lg 'ez -al'
-abbr -a lt 'ez -Ta'
+abbr -a ls 'ezagit -a'
+abbr -a lg 'ezagit -al'
+abbr -a lt 'ezagit -Ta'
 
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
-abbr -a ttyper 'ttyper -l uclanr -w 25' # should be an alias
