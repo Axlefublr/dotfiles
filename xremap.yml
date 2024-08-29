@@ -309,6 +309,199 @@ keymap:
           Shift-y: { launch: [kill, screenkey] }
           i: { launch: [awesome-client, 'WriteClientInfo()'] }
 
+          b:
+            remap:
+              q: { launch: [fish, -c, 'bookmark_open q'] }
+              w: { launch: [fish, -c, 'bookmark_open w'] }
+              e: { launch: [fish, -c, 'bookmark_open e'] }
+              r: { launch: [fish, -c, 'bookmark_open r'] }
+              t: { launch: [fish, -c, 'bookmark_open t'] }
+              y: { launch: [fish, -c, 'bookmark_open y'] }
+              u: { launch: [fish, -c, 'bookmark_open u'] }
+              i: { launch: [fish, -c, 'bookmark_open i'] }
+              o: { launch: [fish, -c, 'bookmark_open o'] }
+              p: { launch: [fish, -c, 'bookmark_open p'] }
+              a: { launch: [fish, -c, 'bookmark_open a'] }
+              s: { launch: [fish, -c, 'bookmark_open s'] }
+              d: { launch: [fish, -c, 'bookmark_open d'] }
+              f: { launch: [fish, -c, 'bookmark_open f'] }
+              g: { launch: [fish, -c, 'bookmark_open g'] }
+              h: { launch: [fish, -c, 'bookmark_open h'] }
+              j: { launch: [fish, -c, 'bookmark_open j'] }
+              k: { launch: [fish, -c, 'bookmark_open k'] }
+              l: { launch: [fish, -c, 'bookmark_open l'] }
+              z: { launch: [fish, -c, 'bookmark_open z'] }
+              x: { launch: [fish, -c, 'bookmark_open x'] }
+              c: { launch: [fish, -c, 'bookmark_open c'] }
+              v: { launch: [fish, -c, 'bookmark_open v'] }
+              b: { launch: [fish, -c, 'bookmark_open b'] }
+              n: { launch: [fish, -c, 'bookmark_open n'] }
+              m: { launch: [fish, -c, 'bookmark_open m'] }
+              Shift-q: { launch: [fish, -c, 'bookmark_open Q'] }
+              Shift-w: { launch: [fish, -c, 'bookmark_open W'] }
+              Shift-e: { launch: [fish, -c, 'bookmark_open E'] }
+              Shift-r: { launch: [fish, -c, 'bookmark_open R'] }
+              Shift-t: { launch: [fish, -c, 'bookmark_open T'] }
+              Shift-y: { launch: [fish, -c, 'bookmark_open Y'] }
+              Shift-u: { launch: [fish, -c, 'bookmark_open U'] }
+              Shift-i: { launch: [fish, -c, 'bookmark_open I'] }
+              Shift-o: { launch: [fish, -c, 'bookmark_open O'] }
+              Shift-p: { launch: [fish, -c, 'bookmark_open P'] }
+              Shift-a: { launch: [fish, -c, 'bookmark_open A'] }
+              Shift-s: { launch: [fish, -c, 'bookmark_open S'] }
+              Shift-d: { launch: [fish, -c, 'bookmark_open D'] }
+              Shift-f: { launch: [fish, -c, 'bookmark_open F'] }
+              Shift-g: { launch: [fish, -c, 'bookmark_open G'] }
+              Shift-h: { launch: [fish, -c, 'bookmark_open H'] }
+              Shift-j: { launch: [fish, -c, 'bookmark_open J'] }
+              Shift-k: { launch: [fish, -c, 'bookmark_open K'] }
+              Shift-l: { launch: [fish, -c, 'bookmark_open L'] }
+              Shift-z: { launch: [fish, -c, 'bookmark_open Z'] }
+              Shift-x: { launch: [fish, -c, 'bookmark_open X'] }
+              Shift-c: { launch: [fish, -c, 'bookmark_open C'] }
+              Shift-v: { launch: [fish, -c, 'bookmark_open V'] }
+              Shift-b: { launch: [fish, -c, 'bookmark_open B'] }
+              Shift-n: { launch: [fish, -c, 'bookmark_open N'] }
+              Shift-m: { launch: [fish, -c, 'bookmark_open M'] }
+              Super_R-f: { launch: [fish, -c, 'bookmark_open 1'] }
+              Super_R-d: { launch: [fish, -c, 'bookmark_open 2'] }
+              Super_R-s: { launch: [fish, -c, 'bookmark_open 3'] }
+              Super_R-r: { launch: [fish, -c, 'bookmark_open 4'] }
+              Super_R-e: { launch: [fish, -c, 'bookmark_open 5'] }
+              Super_R-w: { launch: [fish, -c, 'bookmark_open 6'] }
+              Super_R-v: { launch: [fish, -c, 'bookmark_open 7'] }
+              Super_R-c: { launch: [fish, -c, 'bookmark_open 8'] }
+              Super_R-x: { launch: [fish, -c, 'bookmark_open 9'] }
+              Super_R-a: { launch: [fish, -c, 'bookmark_open 0'] }
+          Shift-b:
+            remap:
+              q: { launch: [fish, -c, 'bookmark_open q content'] }
+              w: { launch: [fish, -c, 'bookmark_open w content'] }
+              e: { launch: [fish, -c, 'bookmark_open e content'] }
+              r: { launch: [fish, -c, 'bookmark_open r content'] }
+              t: { launch: [fish, -c, 'bookmark_open t content'] }
+              y: { launch: [fish, -c, 'bookmark_open y content'] }
+              u: { launch: [fish, -c, 'bookmark_open u content'] }
+              i: { launch: [fish, -c, 'bookmark_open i content'] }
+              o: { launch: [fish, -c, 'bookmark_open o content'] }
+              p: { launch: [fish, -c, 'bookmark_open p content'] }
+              a: { launch: [fish, -c, 'bookmark_open a content'] }
+              s: { launch: [fish, -c, 'bookmark_open s content'] }
+              d: { launch: [fish, -c, 'bookmark_open d content'] }
+              f: { launch: [fish, -c, 'bookmark_open f content'] }
+              g: { launch: [fish, -c, 'bookmark_open g content'] }
+              h: { launch: [fish, -c, 'bookmark_open h content'] }
+              j: { launch: [fish, -c, 'bookmark_open j content'] }
+              k: { launch: [fish, -c, 'bookmark_open k content'] }
+              l: { launch: [fish, -c, 'bookmark_open l content'] }
+              z: { launch: [fish, -c, 'bookmark_open z content'] }
+              x: { launch: [fish, -c, 'bookmark_open x content'] }
+              c: { launch: [fish, -c, 'bookmark_open c content'] }
+              v: { launch: [fish, -c, 'bookmark_open v content'] }
+              b: { launch: [fish, -c, 'bookmark_open b content'] }
+              n: { launch: [fish, -c, 'bookmark_open n content'] }
+              m: { launch: [fish, -c, 'bookmark_open m content'] }
+              Shift-q: { launch: [fish, -c, 'bookmark_open Q content'] }
+              Shift-w: { launch: [fish, -c, 'bookmark_open W content'] }
+              Shift-e: { launch: [fish, -c, 'bookmark_open E content'] }
+              Shift-r: { launch: [fish, -c, 'bookmark_open R content'] }
+              Shift-t: { launch: [fish, -c, 'bookmark_open T content'] }
+              Shift-y: { launch: [fish, -c, 'bookmark_open Y content'] }
+              Shift-u: { launch: [fish, -c, 'bookmark_open U content'] }
+              Shift-i: { launch: [fish, -c, 'bookmark_open I content'] }
+              Shift-o: { launch: [fish, -c, 'bookmark_open O content'] }
+              Shift-p: { launch: [fish, -c, 'bookmark_open P content'] }
+              Shift-a: { launch: [fish, -c, 'bookmark_open A content'] }
+              Shift-s: { launch: [fish, -c, 'bookmark_open S content'] }
+              Shift-d: { launch: [fish, -c, 'bookmark_open D content'] }
+              Shift-f: { launch: [fish, -c, 'bookmark_open F content'] }
+              Shift-g: { launch: [fish, -c, 'bookmark_open G content'] }
+              Shift-h: { launch: [fish, -c, 'bookmark_open H content'] }
+              Shift-j: { launch: [fish, -c, 'bookmark_open J content'] }
+              Shift-k: { launch: [fish, -c, 'bookmark_open K content'] }
+              Shift-l: { launch: [fish, -c, 'bookmark_open L content'] }
+              Shift-z: { launch: [fish, -c, 'bookmark_open Z content'] }
+              Shift-x: { launch: [fish, -c, 'bookmark_open X content'] }
+              Shift-c: { launch: [fish, -c, 'bookmark_open C content'] }
+              Shift-v: { launch: [fish, -c, 'bookmark_open V content'] }
+              Shift-b: { launch: [fish, -c, 'bookmark_open B content'] }
+              Shift-n: { launch: [fish, -c, 'bookmark_open N content'] }
+              Shift-m: { launch: [fish, -c, 'bookmark_open M content'] }
+              Super_R-f: { launch: [fish, -c, 'bookmark_open 1 content'] }
+              Super_R-d: { launch: [fish, -c, 'bookmark_open 2 content'] }
+              Super_R-s: { launch: [fish, -c, 'bookmark_open 3 content'] }
+              Super_R-r: { launch: [fish, -c, 'bookmark_open 4 content'] }
+              Super_R-e: { launch: [fish, -c, 'bookmark_open 5 content'] }
+              Super_R-w: { launch: [fish, -c, 'bookmark_open 6 content'] }
+              Super_R-v: { launch: [fish, -c, 'bookmark_open 7 content'] }
+              Super_R-c: { launch: [fish, -c, 'bookmark_open 8 content'] }
+              Super_R-x: { launch: [fish, -c, 'bookmark_open 9 content'] }
+              Super_R-a: { launch: [fish, -c, 'bookmark_open 0 content'] }
+          Alt-b:
+            remap:
+              q: { launch: [fish, -c, 'bookmark_set q "$(ypoc)"'] }
+              w: { launch: [fish, -c, 'bookmark_set w "$(ypoc)"'] }
+              e: { launch: [fish, -c, 'bookmark_set e "$(ypoc)"'] }
+              r: { launch: [fish, -c, 'bookmark_set r "$(ypoc)"'] }
+              t: { launch: [fish, -c, 'bookmark_set t "$(ypoc)"'] }
+              y: { launch: [fish, -c, 'bookmark_set y "$(ypoc)"'] }
+              u: { launch: [fish, -c, 'bookmark_set u "$(ypoc)"'] }
+              i: { launch: [fish, -c, 'bookmark_set i "$(ypoc)"'] }
+              o: { launch: [fish, -c, 'bookmark_set o "$(ypoc)"'] }
+              p: { launch: [fish, -c, 'bookmark_set p "$(ypoc)"'] }
+              a: { launch: [fish, -c, 'bookmark_set a "$(ypoc)"'] }
+              s: { launch: [fish, -c, 'bookmark_set s "$(ypoc)"'] }
+              d: { launch: [fish, -c, 'bookmark_set d "$(ypoc)"'] }
+              f: { launch: [fish, -c, 'bookmark_set f "$(ypoc)"'] }
+              g: { launch: [fish, -c, 'bookmark_set g "$(ypoc)"'] }
+              h: { launch: [fish, -c, 'bookmark_set h "$(ypoc)"'] }
+              j: { launch: [fish, -c, 'bookmark_set j "$(ypoc)"'] }
+              k: { launch: [fish, -c, 'bookmark_set k "$(ypoc)"'] }
+              l: { launch: [fish, -c, 'bookmark_set l "$(ypoc)"'] }
+              z: { launch: [fish, -c, 'bookmark_set z "$(ypoc)"'] }
+              x: { launch: [fish, -c, 'bookmark_set x "$(ypoc)"'] }
+              c: { launch: [fish, -c, 'bookmark_set c "$(ypoc)"'] }
+              v: { launch: [fish, -c, 'bookmark_set v "$(ypoc)"'] }
+              b: { launch: [fish, -c, 'bookmark_set b "$(ypoc)"'] }
+              n: { launch: [fish, -c, 'bookmark_set n "$(ypoc)"'] }
+              m: { launch: [fish, -c, 'bookmark_set m "$(ypoc)"'] }
+              Shift-q: { launch: [fish, -c, 'bookmark_set Q "$(ypoc)"'] }
+              Shift-w: { launch: [fish, -c, 'bookmark_set W "$(ypoc)"'] }
+              Shift-e: { launch: [fish, -c, 'bookmark_set E "$(ypoc)"'] }
+              Shift-r: { launch: [fish, -c, 'bookmark_set R "$(ypoc)"'] }
+              Shift-t: { launch: [fish, -c, 'bookmark_set T "$(ypoc)"'] }
+              Shift-y: { launch: [fish, -c, 'bookmark_set Y "$(ypoc)"'] }
+              Shift-u: { launch: [fish, -c, 'bookmark_set U "$(ypoc)"'] }
+              Shift-i: { launch: [fish, -c, 'bookmark_set I "$(ypoc)"'] }
+              Shift-o: { launch: [fish, -c, 'bookmark_set O "$(ypoc)"'] }
+              Shift-p: { launch: [fish, -c, 'bookmark_set P "$(ypoc)"'] }
+              Shift-a: { launch: [fish, -c, 'bookmark_set A "$(ypoc)"'] }
+              Shift-s: { launch: [fish, -c, 'bookmark_set S "$(ypoc)"'] }
+              Shift-d: { launch: [fish, -c, 'bookmark_set D "$(ypoc)"'] }
+              Shift-f: { launch: [fish, -c, 'bookmark_set F "$(ypoc)"'] }
+              Shift-g: { launch: [fish, -c, 'bookmark_set G "$(ypoc)"'] }
+              Shift-h: { launch: [fish, -c, 'bookmark_set H "$(ypoc)"'] }
+              Shift-j: { launch: [fish, -c, 'bookmark_set J "$(ypoc)"'] }
+              Shift-k: { launch: [fish, -c, 'bookmark_set K "$(ypoc)"'] }
+              Shift-l: { launch: [fish, -c, 'bookmark_set L "$(ypoc)"'] }
+              Shift-z: { launch: [fish, -c, 'bookmark_set Z "$(ypoc)"'] }
+              Shift-x: { launch: [fish, -c, 'bookmark_set X "$(ypoc)"'] }
+              Shift-c: { launch: [fish, -c, 'bookmark_set C "$(ypoc)"'] }
+              Shift-v: { launch: [fish, -c, 'bookmark_set V "$(ypoc)"'] }
+              Shift-b: { launch: [fish, -c, 'bookmark_set B "$(ypoc)"'] }
+              Shift-n: { launch: [fish, -c, 'bookmark_set N "$(ypoc)"'] }
+              Shift-m: { launch: [fish, -c, 'bookmark_set M "$(ypoc)"'] }
+              Super_R-f: { launch: [fish, -c, 'bookmark_set 1 "$(ypoc)"'] }
+              Super_R-d: { launch: [fish, -c, 'bookmark_set 2 "$(ypoc)"'] }
+              Super_R-s: { launch: [fish, -c, 'bookmark_set 3 "$(ypoc)"'] }
+              Super_R-r: { launch: [fish, -c, 'bookmark_set 4 "$(ypoc)"'] }
+              Super_R-e: { launch: [fish, -c, 'bookmark_set 5 "$(ypoc)"'] }
+              Super_R-w: { launch: [fish, -c, 'bookmark_set 6 "$(ypoc)"'] }
+              Super_R-v: { launch: [fish, -c, 'bookmark_set 7 "$(ypoc)"'] }
+              Super_R-c: { launch: [fish, -c, 'bookmark_set 8 "$(ypoc)"'] }
+              Super_R-x: { launch: [fish, -c, 'bookmark_set 9 "$(ypoc)"'] }
+              Super_R-a: { launch: [fish, -c, 'bookmark_set 0 "$(ypoc)"'] }
+
   - name: Any! magazine
     exact_match: true
     application:

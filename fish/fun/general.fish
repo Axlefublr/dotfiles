@@ -324,3 +324,19 @@ function regen_highs
     nvim -c '%g;^\\S.*\\n \\{19};j' -c '%sort' -c q ~/t/highlights.txt
 end
 funcsave regen_highs >/dev/null
+
+function bookmark_open
+    set -f browser_window main
+    if test "$(count $argv)" -ge 2
+        set browser_window $argv[-1]
+    end
+    ensure_browser $browser_window
+    $BROWSER "$(harp get bookmarks $argv[1] --path)"
+end
+funcsave bookmark_open >/dev/null
+
+function bookmark_set
+    harp update bookmarks $argv[1] --path $argv[2]
+    notify-send -t 2000 "set bookmark $argv[1] to $argv[2]"
+end
+funcsave bookmark_set >/dev/null
