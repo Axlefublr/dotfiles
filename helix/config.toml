@@ -36,6 +36,11 @@ newline = 'all'
 
 [editor.whitespace.characters]
 newline = '↪'
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+tabpad = " "
 
 [editor.auto-pairs]
 '<' = '>'
