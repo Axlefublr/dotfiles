@@ -171,15 +171,10 @@ end
 funcsave runner_notification >/dev/null
 
 function runner_interactive_unicode
-    set result (rofi -input ~/.local/share/magazine/e -sync -dmenu 2>/dev/null ; echo $status)
-    if test $result[-1] -ne 0
+    set result (rofi -input ~/.local/share/magazine/e -dmenu 2>/dev/null ; echo $status)
+    if not contains $result[2] 0 10 11 12
         return 1
     end
-    set -e result[-1]
-    if test -z $result
-        return 1
-    end
-    echo (string split ' ' $result)[1] | xclip -r -sel clip
-    xdotool key ctrl+v
+    echo (string split ' ' $result[1])[1] | copy
 end
 funcsave runner_interactive_unicode >/dev/null
