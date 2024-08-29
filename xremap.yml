@@ -814,7 +814,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_set F'] }
           Shift-g: { launch: [fish, -c, 'magazine_set G'] }
           Shift-h: { launch: [fish, -c, 'magazine_set H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_set J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_set pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_set K'] }
           Shift-l: { launch: [fish, -c, 'magazine_set L'] }
           Shift-z: { launch: [fish, -c, 'magazine_set Z'] }
@@ -879,7 +879,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_restore F'] }
           Shift-g: { launch: [fish, -c, 'magazine_restore G'] }
           Shift-h: { launch: [fish, -c, 'magazine_restore H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_restore J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_restore pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_restore K'] }
           Shift-l: { launch: [fish, -c, 'magazine_restore L'] }
           Shift-z: { launch: [fish, -c, 'magazine_restore Z'] }
@@ -944,7 +944,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_filter F'] }
           Shift-g: { launch: [fish, -c, 'magazine_filter G'] }
           Shift-h: { launch: [fish, -c, 'magazine_filter H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_filter J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_filter pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_filter K'] }
           Shift-l: { launch: [fish, -c, 'magazine_filter L'] }
           Shift-z: { launch: [fish, -c, 'magazine_filter Z'] }
@@ -1009,7 +1009,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_view F'] }
           Shift-g: { launch: [fish, -c, 'magazine_view G'] }
           Shift-h: { launch: [fish, -c, 'magazine_view H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_view J'] }
+          Shift-j: { launch: [fish, -c, 'magazine_view pjs'] }
           Shift-k: { launch: [fish, -c, 'magazine_view K'] }
           Shift-l: { launch: [fish, -c, 'magazine_view L'] }
           Shift-z: { launch: [fish, -c, 'magazine_view Z'] }
