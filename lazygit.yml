@@ -68,3 +68,5 @@ keybinding:
     scrollDownMain-alt1: L
     quit-alt1: K
     togglePanel: J
+    select: v
+    toggleRangeSelect: x
