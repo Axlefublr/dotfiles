@@ -35,14 +35,18 @@ keymap = [
   ], run = 'arrow 99999999', desc = 'Go to bottom' },
 
   # -----------------------------------------------Selection-----------------------------------------------
-  { on = '<Space>', run = [
+  { on = 'V', run = [
+    'select --state=none',
+    'arrow -1',
+  ], desc = 'Toggle the current selection state' },
+  { on = 'v', run = [
     'select --state=none',
     'arrow 1',
   ], desc = 'Toggle the current selection state' },
-  { on = 'x', run = 'visual_mode', desc = 'Enter visual mode (selection mode)' },
-  { on = 'v', run = 'visual_mode --unset', desc = 'Enter visual mode (unset mode)' },
+  { on = 'x', run = 'visual_mode', desc = 'Enter visual mode' },
   { on = '<C-r>', run = 'select_all', desc = 'Inverse selection of all files' },
   { on = '%', run = 'select_all --state=true', desc = 'Select all' },
+  { on = '<Space>', run = 'select_all --state=false', desc = 'Deselect all' },
 
   # ----------------------------------------------Operation----------------------------------------------
   { on = 'o', run = 'create --force', desc = 'Create a blob' },
