@@ -433,3 +433,8 @@ function toggle_screen_record
     end
 end
 funcsave toggle_screen_record >/dev/null
+
+function load-sts
+    cp -f $argv ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
+end
+funcsave load-sts >/dev/null
