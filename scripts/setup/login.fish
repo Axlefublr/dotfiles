@@ -21,12 +21,9 @@ playerctld daemon
 
 xrestart.fish
 
-kitty -T meow 2>>/tmp/log/user.txt & disown
-oil.fish ~/vid/content 2>>/tmp/log/user.txt & disown
-
-kitty -T editor -d ~/prog/dotfiles --hold helix 2>>/tmp/log/user.txt & disown
-# win_wait 'neovide — Neovide' 0.5 0 200
-# kitty -T terminal -d ~/prog/dotfiles 2>>/tmp/log/user.txt & disown
+kitty -T editor -d ~/prog/dotfiles --hold fish -c l 2>>/tmp/log/user.txt & disown
+kitty -T men helix 2>>/tmp/log/user.txt & disown
+kitty -T oil-content -d ~/vid/content --hold fish -c l 2>>/tmp/log/user.txt & disown
 
 vivaldi-stable --force-dark-mode 2>>/tmp/log/user.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
