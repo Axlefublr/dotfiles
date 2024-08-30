@@ -50,7 +50,7 @@ funcsave magazine_set >/dev/null
 function magazine_edit
     set -f path (magazine_resolve_path $argv)
     cat $path >/tmp/magazine_$argv[1]
-    neoline $path
+    neoline_hold $path
     update_magazine $argv
 end
 funcsave magazine_edit >/dev/null
