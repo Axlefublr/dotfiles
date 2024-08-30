@@ -245,16 +245,6 @@ keymap:
       CapsLock-k: { launch: ['ydotool', 'click', '82'] }
       CapsLock-l: { launch: ['ydotool', 'click', '81'] }
 
-      # down and up events of modifiers
-      CapsLock-f: { launch: [ydotool, key, '125:1'] } # super down
-      CapsLock-r: { launch: [ydotool, key, '125:0'] } # super up
-      CapsLock-s: { launch: [ydotool, key, '42:1'] } # shift
-      CapsLock-w: { launch: [ydotool, key, '42:0'] }
-      CapsLock-d: { launch: [ydotool, key, '56:1'] } # alt
-      CapsLock-e: { launch: [ydotool, key, '56:0'] }
-      CapsLock-g: { launch: [ydotool, key, '29:1'] } # ctrl
-      CapsLock-t: { launch: [ydotool, key, '29:0'] }
-
   - name: Mousemove
     mode: [mouse, move]
     remap:
