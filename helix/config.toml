@@ -124,6 +124,8 @@ A-o = 'move_parent_node_end'
 r = ['collapse_selection', 'replace']
 i = ['collapse_selection', 'insert_mode']
 a = ['collapse_selection', 'append_mode']
+'C-j' = ['normal_mode', 'open_below']
+'C-k' = ['normal_mode', 'open_above']
 
 Z = 'no_op'
 C-s = 'no_op'
