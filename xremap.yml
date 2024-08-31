@@ -61,6 +61,8 @@ keymap:
       Shift-Alt-n: shift-alt-f8
       Ctrl-o: alt-left
       Ctrl-i: alt-right
+      Ctrl-Alt-r: shift-alt-f9
+      Ctrl-Shift-Alt-r: shift-alt-f10
 
   - name: Anki!
     exact_match: true
