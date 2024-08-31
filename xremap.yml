@@ -25,6 +25,42 @@ keymap:
     remap:
       Alt-j: shift-f9
       Alt-k: shift-f10
+      Alt-o: ctrl-shift-alt-f1
+      Ctrl-Shift-RightBrace: ctrl-shift-alt-f2
+      Alt-q: ctrl-shift-alt-f3
+      Alt-z: ctrl-shift-alt-f4
+      Alt-a: ctrl-shift-alt-f5
+      Ctrl-Alt-s: ctrl-shift-alt-f6
+      Ctrl-Alt-d: ctrl-shift-alt-f7
+      Ctrl-Alt-f: ctrl-shift-alt-f8
+      Ctrl-Alt-w: ctrl-shift-alt-f9
+      Alt-e: ctrl-shift-alt-f10
+      Shift-Alt-e: ctrl-shift-alt-f11
+      Ctrl-p: ctrl-shift-alt-f12
+      Alt-p: ctrl-shift-f1
+      Alt-w: ctrl-shift-f2
+      Ctrl-Comma: ctrl-shift-f3
+      Ctrl-Dot: ctrl-shift-f4
+      Shift-Alt-w: ctrl-shift-f5
+      Alt-Comma: ctrl-shift-f8
+      Alt-Dot: ctrl-shift-f7
+      Ctrl-Alt-Comma: ctrl-shift-f6
+      Ctrl-Alt-Dot: ctrl-shift-f9
+      Alt-h: ctrl-shift-f10
+      Alt-l: ctrl-shift-f11
+      Alt-Semicolon: ctrl-shift-f12
+      Shift-Alt-j: shift-alt-f1
+      Shift-Alt-k: shift-alt-f2
+      Shift-Alt-l: shift-alt-f3
+      Shift-Alt-h: shift-alt-f4
+      Alt-m: shift-alt-f5
+      Alt-r: ctrl-r
+      Shift-Alt-r: shift-alt-f6
+      Alt-Slash: ctrl-f
+      Alt-n: shift-alt-f7
+      Shift-Alt-n: shift-alt-f8
+      Ctrl-o: alt-left
+      Ctrl-i: alt-right
 
   - name: Anki!
     exact_match: true
