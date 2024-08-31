@@ -84,3 +84,7 @@ function task
     update_magazine 3
 end
 funcsave task >/dev/null
+
+alias --save win 'kitten @ launch --type window --cwd current' >/dev/null
+alias --save over 'kitten @ launch --type overlay-main --cwd current' >/dev/null
+alias --save tab 'kitten @ launch --type tab --cwd current' >/dev/null
