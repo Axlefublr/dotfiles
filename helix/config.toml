@@ -52,7 +52,7 @@ tabpad = " "
 '`' = '`'
 
 [editor.auto-save]
-focus-lost = true
+focus-lost = false
 
 [editor.statusline]
 separator = ''
