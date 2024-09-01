@@ -1,0 +1,12 @@
+(defsrc)
+
+(deflayermap (base)
+  a (tap-hold-press 80 80 a lmet)
+  s (tap-hold-press 80 80 s lsft)
+  d (tap-hold-press 80 80 d lctl)
+  f (tap-hold-press 80 80 f lalt)
+  m (tap-hold-press 80 80 m ralt)
+  Comma (tap-hold-press 80 80 Comma rctl)
+  Period (tap-hold-press 80 80 Period rsft)
+  Slash (tap-hold-press 80 80 Slash rmet)
+)
