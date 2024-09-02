@@ -63,6 +63,7 @@ keymap:
       Ctrl-i: alt-right
       Ctrl-Alt-r: shift-alt-f9
       Ctrl-Shift-Alt-r: shift-alt-f10
+      Alt-Apostrophe: shift-alt-f11
 
   - name: Anki!
     exact_match: true
