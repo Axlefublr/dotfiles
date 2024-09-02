@@ -16,9 +16,7 @@ def triple_parse(date):
         this_year = today.year
         this_month = today.month
         try:
-            parsed_date = datetime.datetime.strptime(
-                f'{this_year}.{date}', '%Y.%m.%d'
-            ).date()
+            parsed_date = datetime.datetime.strptime(f'{this_year}.{date}', '%Y.%m.%d').date()
         except ValueError:
             try:
                 parsed_date = datetime.datetime.strptime(

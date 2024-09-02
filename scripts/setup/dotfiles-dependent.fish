@@ -134,6 +134,10 @@ xdg-mime default display.desktop image/png
 xdg-mime default display.desktop image/jpeg
 xdg-mime default display.desktop image/gif
 
+# Ruff
+mkdir -p ~/.config/ruff
+ln -sf ~/prog/dotfiles/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
+
 # Postgresql
 ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
 sudo -iu postgres initdb -D /var/lib/postgres/data

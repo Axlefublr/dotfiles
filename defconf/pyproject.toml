@@ -1,0 +1,6 @@
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.format]
+docstring-code-format = true
+quote-style = 'single'
