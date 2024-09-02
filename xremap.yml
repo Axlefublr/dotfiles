@@ -323,6 +323,8 @@ keymap:
           g: { launch: [fish, -c, 'ensure_browser main ; xdg-open (xclip -selection clipboard -o)'] }
           Shift-g: { launch: [fish, -c, 'ensure_browser content ; xdg-open (xclip -selection clipboard -o)'] }
 
+          Shift-s: { launch: [fish, -c, 'pick-sts-boss']}
+
           j: { launch: [fish, -c, install_yt_video] }
           k: { launch: [fish, -c, 'install_yt_video longform'] }
           l: { launch: [fish, -c, 'install_yt_video asmr'] }
