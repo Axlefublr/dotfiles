@@ -46,12 +46,13 @@ awful.rules.rules = {
 	{
 		rule = { class = 'kitty', name = 'neoline' },
 		properties = {
-			floating = true,
-			ontop = true,
-			x = 0,
-			y = 0,
-			width = 1920,
-			height = 540,
+			maximized = true,
+			-- floating = true,
+			-- ontop = true,
+			-- x = 0,
+			-- y = 0,
+			-- width = 1920,
+			-- height = 540,
 		},
 	},
 
