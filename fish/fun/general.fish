@@ -73,6 +73,11 @@ end
 funcsave smdr >/dev/null
 
 function uboot
+    sudo -v
+    for package in (cat ~/.local/share/magazine/C)
+        paru -Rns --noconfirm $package
+    end
+    truncate -s 0 ~/.local/share/magazine/C
     for dir in (eza -aD ~/docs)
         kitten @ launch --type os-window --os-window-title link-download --cwd ~/docs/$dir httrack --update
     end
