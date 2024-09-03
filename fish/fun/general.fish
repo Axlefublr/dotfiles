@@ -73,14 +73,18 @@ end
 funcsave smdr >/dev/null
 
 function uboot
+    for dir in (eza -aD ~/docs)
+        kitten @ launch --type os-window --os-window-title link-download --cwd ~/docs/$dir httrack --update
+    end
     sudo -v
     if test (math (clorange updates show) % 5) -eq 0
         rustup update
     end
+    sudo -v
     if test (math (clorange updates show) % 3) -eq 0
         cargo install-update -a
     end
-    notify-send 'system update expects input'
+    sudo -v
     paru
     pacclean
     clorange updates increment
