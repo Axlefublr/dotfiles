@@ -69,61 +69,6 @@ signatureInfo.documentation.enable = true
 command = 'ruff'
 args = ['server']
 
-# [language-server.ruff.config]
-
-[language-server.ruff.config.lint]
-select = [
-  # pycodestyle
-  'E',
-  # Pyflakes
-  'F',
-  # pyupgrade
-  'UP',
-  # flake8-bugbear
-  'B',
-  # flake8-simplify
-  'SIM',
-  # isort
-  'I',
-  # make sure noqa is suppressing what it is saying it's suppressing
-  'RUF100',
-
-  #-----------------------------------------------------------------------------------------------------------
-  #                                 not recommended when using ruff formatter
-  #                                  even though I would use these otherwise
-  #-----------------------------------------------------------------------------------------------------------
-
-  # point out when a string has avoidable escaped quotes inside of it, rather than just using the other type of quote
-  # 'Q003',
-  # ensure there are trailing commas, to make diffs nicer
-  # 'COM812',
-  # when concatenating multiple strings on multiple lines, () then and then use implicit string concatenation, instead of backslashes
-  # 'ISC002',
-]
-
-ignore = [
-  # tab indentation
-  'W191',
-  # indentation with a non-multiple of 4 spaces
-  'E111',
-  # apparently the same thing
-  'E114',
-  # docstrings that are indented with tabs
-  'D206',
-  # triple single quotes, rather than double quotes
-  'D300',
-  # single quoted string
-  'Q000',
-  # singe quoted multiline string
-  'Q001',
-  # inconsistent quotes used for a docstring
-  'Q002',
-  # trailing commas where they aren't needed
-  'COM819',
-  # implicit string concatenation
-  'ISC001',
-]
-
 [[language]]
 name = 'rust'
 
