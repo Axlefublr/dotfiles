@@ -66,4 +66,5 @@ alias --save ls 'ez -a'
 alias --save lg 'ez -al'
 alias --save lt 'ez -Ta'
 
+alias --save hrtrack httrack >/dev/nul
 alias --save tg 'clx && ni | tgpt' >/dev/null # is an alias only because it's too wordy
