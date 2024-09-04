@@ -80,8 +80,13 @@ end
 funcsave eat >/dev/null
 
 function task
-    indeed ~/.local/share/magazine/3 $argv
-    _magazine_update 3
+    set mag 3
+    argparse 'm/mag=' -- $argv
+    and test "$_flag_mag"
+    and set mag $_flag_mag
+    indeed ~/.local/share/magazine/$mag -- $argv
+    _magazine_update $mag
+    _magazine_commit ~/.local/share/magazine/$mag task
 end
 funcsave task >/dev/null
 
