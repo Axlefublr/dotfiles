@@ -2,7 +2,7 @@
 quitOnTopLevelReturn: true
 disableStartupPopups: true
 gui:
-  scrollHeight: 4
+  scrollHeight: 10
   scrollPastBottom: false
   scrollOffMargin: 99
   skipNoStagedFilesWarning: true
