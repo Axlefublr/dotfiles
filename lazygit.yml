@@ -55,18 +55,18 @@ keybinding:
     # scrollLeft: h
     # scrollRight: l
 
-    prevPage: '<disabled>'
-    nextPage: <disabled>
+    # prevPage: '<disabled>'
+    # nextPage: <disabled>
     scrollLeft: '<disabled>'
     scrollRight: '<disabled>'
     
-    nextScreenMode: .
-    prevScreenMode: ','
+    nextScreenMode: J
+    # prevScreenMode: ','
     prevBlock-alt: h
     nextBlock-alt: l
     scrollUpMain-alt1: H
     scrollDownMain-alt1: L
     quit-alt1: K
-    togglePanel: J
+    # togglePanel: J
     select: v
     toggleRangeSelect: x
