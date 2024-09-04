@@ -30,23 +30,19 @@ if test (date '+%A') = Sunday
     task ask
 end
 
+cd ~/prog/backup
+
 cp -fr ~/.local/share/harp/harp.yml ~/prog/backup/automatic/harp.yml
-if git status -s | rg harp.yml
-    git add automatic/harp.yml
-    git commit -m "sync harp $(date '+%y.%m.%d')"
-end
+git add automatic/harp.yml
+and git commit -m "sync harp"
 
 cp -fr ~/.local/share/loago/loago.json ~/prog/backup/automatic/loago.json
-if git status -s | rg loago.json
-    git add automatic/loago.json
-    git commit -m "sync loago $(date '+%y.%m.%d')"
-end
+git add automatic/loago.json
+and git commit -m "sync loago"
 
 cp -fr ~/.local/share/axleizer_invalid.json ~/prog/backup/automatic/axleizer_invalid.json
-if git status -s | rg axleizer_invalid.json
-    git add automatic/axleizer_invalid.json
-    git commit -m "sync axleizer $(date '+%y.%m.%d')"
-end
+git add automatic/axleizer_invalid.json
+and git commit -m "sync axleizer"
 
 twemoji.fish
 loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sleep, it hasn't connected to wifi at that point, but *has* started executing this script. so what ends up happening is gpp fails to push all the directories because it doesn't have internet to do so yet.
