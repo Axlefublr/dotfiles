@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+#----------------------------------------------------rust----------------------------------------------------
+
 function rust_release
     if not set -q argv[1]
         echo 'set the version'
@@ -131,3 +133,11 @@ function rust_init
         git commit -m "first commit"
 end
 funcsave rust_init >/dev/null
+
+#---------------------------------------------------python---------------------------------------------------
+
+function py-project
+    cd (git rev-parse --show-toplevel)
+    cp -f ~/prog/dotfiles/defconf/pyproject.toml .
+end
+funcsave py-project >/dev/null

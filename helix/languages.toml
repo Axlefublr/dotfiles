@@ -1,3 +1,8 @@
+[[language]]
+name = 'lua'
+indent = { tab-width = 3, unit = '\t' }
+formatter = { command = 'stylua', args = ['-'] }
+
 [language-server.lua-language-server.config.Lua]
 codelens.enable = true
 completion.enable = true
@@ -33,6 +38,9 @@ semantic.variable = true
 type.weakNilCheck = false
 workspace.checkThirdParty = false
 
+[[language]]
+name = 'rust'
+
 [language-server.rust-analyzer.config]
 checkOnSave.command = 'clippy'
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev'
@@ -65,12 +73,32 @@ semanticHighlighting.punctuation.enable = true
 # workspace.symbol.search.kind = 'onlyTypes'
 signatureInfo.documentation.enable = true
 
+[[language]]
+name = 'python'
+language-servers = ['basedpyright', 'ruff']
+auto-format = true
+
+[language-server.basedpyright.config.basedpyright]
+analysis.autoImportCompletions = true
+
 [language-server.ruff]
 command = 'ruff'
 args = ['server']
 
-[[language]]
-name = 'rust'
+[language-server.basedpyright]
+command = 'basedpyright-langserver'
+args = ['--stdio']
+
+[language-server.basedpyright.config]
+# ['a', 3, True] will be interpreted as list[str | int | bool] rather than list[Any]
+strictListInference = true
+# { 'a': 1, 'b': 'c' } will be interpretes as dict[str, int | str] rather than dict[str, Any]
+strictDictionaryInference = true
+# { 'a', 1, True } will be set[str, int, bool] rather than set[Any]
+strictSetInference = true
+enableReachabilityAnalysis = true
+typeCheckingMode = 'strict'
+reportUnusedVariable = false
 
 [language.auto-pairs]
 '(' = ')'
@@ -79,17 +107,8 @@ name = 'rust'
 '"' = '"'
 '`' = '`'
 '<' = '>'
+"'" = "'"
 
 [[language]]
 name = 'toml'
-auto-format = true
-
-[[language]]
-name = 'lua'
-indent = { tab-width = 3, unit = '\t' }
-formatter = { command = 'stylua', args = ['-'] }
-
-[[language]]
-name = 'python'
-language-servers = ['ruff']
 auto-format = true

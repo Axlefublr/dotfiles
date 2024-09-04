@@ -57,3 +57,16 @@ ignore = [
   # implicit string concatenation
   'ISC001',
 ]
+
+[tool.basedpyright]
+# ['a', 3, True] will be interpreted as list[str | int | bool] rather than list[Any]
+strictListInference = true
+# { 'a': 1, 'b': 'c' } will be interpretes as dict[str, int | str] rather than dict[str, Any]
+strictDictionaryInference = true
+# { 'a', 1, True } will be set[str, int, bool] rather than set[Any]
+strictSetInference = true
+typeCheckingMode = 'strict'
+reportUnusedVariable = false
+reportUnusedImport = 'warning'
+reportUnknownMemberType = false
+reportUnknownVariableType = false
