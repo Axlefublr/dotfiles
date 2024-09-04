@@ -30,18 +30,18 @@ if test (date '+%A') = Sunday
     task ask
 end
 
-cd ~/prog/backup
+cd ~/prog/autocommit
 
-cp -fr ~/.local/share/harp/harp.yml ~/prog/backup/automatic/harp.yml
-git add automatic/harp.yml
+cp -fr ~/.local/share/harp/harp.yml ~/prog/autocommit/harp.yml
+git add harp.yml
 and git commit -m "sync harp"
 
-cp -fr ~/.local/share/loago/loago.json ~/prog/backup/automatic/loago.json
-git add automatic/loago.json
+cp -fr ~/.local/share/loago/loago.json ~/prog/autocommit/loago.json
+git add loago.json
 and git commit -m "sync loago"
 
-cp -fr ~/.local/share/axleizer_invalid.json ~/prog/backup/automatic/axleizer_invalid.json
-git add automatic/axleizer_invalid.json
+cp -fr ~/.local/share/axleizer_invalid.json ~/prog/autocommit/axleizer_invalid.json
+git add axleizer_invalid.json
 and git commit -m "sync axleizer"
 
 twemoji.fish
