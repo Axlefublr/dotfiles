@@ -19,10 +19,12 @@ funcsave magazine_resolve_path >/dev/null
 
 function _magazine_notify
     if test "$argv[1]" = literal
-        if test "$argv[2]" = ~/prog/dotfiles/project.txt # TODO: check if basename is project.txt
-            notify-send -t 1000 "$argv[3..] pjs dotfiles"
-        else
-            notify-send -t 1000 "$argv[3..] $argv[2]"
+        set -l base (path basename "$argv[2]")
+        set -l head (path dirname "$argv[2]")
+        if test $base = project.txt # pjs all has a common base, the head is what differentiates it
+            notify-send -t 1000 "$argv[3..] pjs $dirname"
+        else # in all other filepaths, just the base is (usually) enough
+            notify-send -t 1000 "$argv[3..] $base"
         end
     else
         notify-send -t 1000 "$argv[2..] $argv[1]"
@@ -72,8 +74,8 @@ function magazine_truncate
     magazine_view literal $path
     cat $path >/tmp/magazine_$argv[1]
     truncate -s 0 $path
-    _magazine_notify $argv truncate
     update_magazine $argv
+    _magazine_notify $argv truncate
 end
 funcsave magazine_truncate >/dev/null
 
@@ -152,7 +154,7 @@ function magazine_restore
     else
         _magazine_notify $argv restore
     end
-    update_magazine $argv[1]
+    update_magazine $argv
 end
 funcsave magazine_restore >/dev/null
 
@@ -168,7 +170,8 @@ end
 funcsave magazine_filled >/dev/null
 
 function update_magazine
-    if test $argv[-1] -ge 0 -a $argv[-1] -le 9
+    set -l magazine (path basename $argv[-1])
+    if test $magazine -ge 0 -a $magazine -le 9
         awesome-client 'Registers_wu()'
     end
 end
