@@ -4,20 +4,10 @@ clorange megafon increment
 
 trash-empty -f 1
 
-for file in ~/.local/share/magazine/*
-    if not test -s $file
-        rm -fr $file
-    end
-end
-cp -fr ~/.local/share/magazine ~/prog/backup
-cd ~/prog/backup
-
-set -l changed_magazines (git status -s | rg magazine | wc -l)
-if test "$changed_magazines" -gt 0
-    git add magazine/
-    git commit -m "sync magazine $(date '+%y.%m.%d'): $changed_magazines changes"
-    truncate -s 0 ~/.local/share/magazine/d
-end
+cd ~/.local/share/magazine
+git add .
+and git commit -m leftovers
+truncate -s 0 ~/.local/share/magazine/d
 
 yeared_parse
 yearless_parse
@@ -65,4 +55,5 @@ for dir in ~/prog/stored/*
     cd $dir
     git pull
 end
+
 gpp

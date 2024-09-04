@@ -24,16 +24,11 @@ funcsave gsa >/dev/null
 
 function gpp
     set -l prevDir (pwd)
-    set -l directories (cat ~/.local/share/magazine/R | string split '\n')
-
-    for dir in $directories
-
+    for dir in (cat ~/.local/share/magazine/R)
         set dir (string replace -r "^~" "$HOME" $dir)
         cd $dir
         git push
-
     end
-
     cd $prevDir
 end
 funcsave gpp >/dev/null
