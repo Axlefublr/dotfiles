@@ -1,195 +1,150 @@
 #!/usr/bin/env fish
 
-function magazine_resolve_path
-    if test "$(count $argv)" -ge 2
-        path resolve $argv[-1]
-        return
-    end
-    if test "$argv" = pjs
-        set path (pick_project_path)
-        if not test "$path"
-            exit # this function is always used from the context of hotkeys, that do `fish -c`
-        end
-        echo $path
-        return
-    end
-    echo ~/.local/share/magazine/$argv[-1]
-end
-funcsave magazine_resolve_path >/dev/null
-
-function _magazine_notify
-    if test "$argv[1]" = literal
-        set -l base (path basename "$argv[2]")
-        set -l head (path dirname "$argv[2]")
-        if test $base = project.txt # pjs all has a common base, the head is what differentiates it
-            notify-send -t 1000 "$argv[3..] pjs $dirname"
-        else # in all other filepaths, just the base is (usually) enough
-            notify-send -t 1000 "$argv[3..] $base"
-        end
-    else
-        notify-send -t 1000 "$argv[2..] $argv[1]"
-    end
-end
-funcsave _magazine_notify >/dev/null
+#--------------------------------------------------classical--------------------------------------------------
 
 function magazine_get
-    set -f path (magazine_resolve_path $argv)
-    magazine_view literal $path
-    cat $path | xclip -selection clipboard -r
+    not test "$argv" && return
+    cat $argv | copy
     _magazine_notify $argv get
 end
 funcsave magazine_get >/dev/null
 
 function magazine_set
-    set -f path (magazine_resolve_path $argv)
-    cat $path >/tmp/magazine_$argv[1]
-    xclip -selection clipboard -o >$path
+    not test "$argv" && return
+    ypoc >$argv
+    _magazine_update $argv
     _magazine_notify $argv set
-    update_magazine $argv
+    _magazine_commit $argv set
 end
 funcsave magazine_set >/dev/null
 
 function magazine_edit
-    set -f path (magazine_resolve_path $argv)
-    cat $path >/tmp/magazine_$argv[1]
-    neoline_hold $path
-    update_magazine $argv
+    not test "$argv" && return
+    neoline_hold $argv
+    _magazine_update $argv
+    _magazine_commit $argv edit
 end
 funcsave magazine_edit >/dev/null
 
-function magazine_view
-    set -f path (magazine_resolve_path $argv)
-    set text "$(cat $path)"
-    if not test "$text"
-        _magazine_notify $argv empty
-    else
-        notify-send -t 3000 -- $text
-    end
-    update_magazine $argv
-end
-funcsave magazine_view >/dev/null
-
 function magazine_truncate
-    set -f path (magazine_resolve_path $argv)
-    magazine_view literal $path
-    cat $path >/tmp/magazine_$argv[1]
-    truncate -s 0 $path
-    update_magazine $argv
+    not test "$argv" && return
+    truncate -s 0 $argv
+    _magazine_update $argv
     _magazine_notify $argv truncate
+    _magazine_commit $argv truncate
 end
 funcsave magazine_truncate >/dev/null
 
-function magazine_cut
-    set -f path (magazine_resolve_path $argv)
-    magazine_get literal $path
-    magazine_truncate literal $path
-end
-funcsave magazine_cut >/dev/null
-
 function magazine_write
-    set -f path (magazine_resolve_path $argv)
-    set result (rofi -dmenu 2> /dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
-    end
-    set -e result[-1]
-    cat $path >/tmp/magazine_$argv[1]
-    printf "$result" >$path
+    not test "$argv" && return
+    set result (rofi -dmenu 2>/dev/null ; echo $status)
+    test $result[-1] -ne 0 && return || set -e result[-1]
+    printf "$result" >$argv
+    _magazine_update $argv
     _magazine_notify $argv write
-    update_magazine $argv
+    _magazine_commit $argv write
 end
 funcsave magazine_write >/dev/null
 
 function magazine_append
-    set -f path (magazine_resolve_path $argv)
+    not test "$argv" && return
     set result (rofi -dmenu 2>/dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
-    end
-    set -e result[-1]
-    set result "$result"
-    indeed $path -- $result
+    test $result[-1] -ne 0 && return || set -e result[-1]
+    indeed $argv -- $result
+    _magazine_update $argv
     _magazine_notify $argv append
-    update_magazine $argv
+    _magazine_commit $argv append
 end
 funcsave magazine_append >/dev/null
 
 function magazine_appclip
-    set -f path (magazine_resolve_path $argv)
-    indeed $path "$(xclip -selection clipboard -o)"
+    not test "$argv" && return
+    set result (rofi -dmenu 2>/dev/null ; echo $status)
+    test $result[-1] -ne 0 && return || set -e result[-1]
+    indeed $argv -- "$(ypoc)"
+    _magazine_update $argv
     _magazine_notify $argv appclip
-    update_magazine $argv
+    _magazine_commit $argv appclip
 end
 funcsave magazine_appclip >/dev/null
 
 function magazine_filter
-    set -f path (magazine_resolve_path $argv)
+    not test "$argv" && return
     set result (rofi_multi_select -input $path 2>/dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
-    end
-    set -e result[-1]
-    for line in (cat $path)
+    test $result[-1] -ne 0 && return || set -e result[-1]
+    for line in (cat $argv)
         if contains "$line" $result
             continue
         end
         set collected $collected $line
     end
-    cp -f $path /tmp/magazine_$argv[1]
     set multiline (printf '%s\n' $collected | string collect)
-    echo -n $multiline >$path
+    echo -n $multiline >$argv
+    _magazine_update $argv
     _magazine_notify $argv filter
-    update_magazine $argv
+    _magazine_commit $argv filter
 end
 funcsave magazine_filter >/dev/null
 
-function magazine_restore
-    if not set -q argv[1]
-        echo please specify the register name >&2
-        return 1
-    end
-    cp -f /tmp/magazine_$argv[1] ~/.local/share/magazine/$argv[1]
-    if status is-interactive
-        echo "restore $argv[1]"
-    else
-        _magazine_notify $argv restore
-    end
-    update_magazine $argv
-end
-funcsave magazine_restore >/dev/null
+#-------------------------------------------------combinatory-------------------------------------------------
 
-function magazine_filled
-    set registers ''
-    for file in ~/.local/share/magazine/*
-        if test -s $file
-            set registers $registers(basename $file)
-        end
-    end
-    notify-send -t 0 $registers
+function magazine_cut
+    magazine_get $argv
+    magazine_truncate $argv
 end
-funcsave magazine_filled >/dev/null
+funcsave magazine_cut >/dev/null
 
-function update_magazine
-    set -l magazine (path basename $argv[-1])
-    if test $magazine -ge 0 -a $magazine -le 9
-        awesome-client 'Registers_wu()'
-    end
-end
-funcsave update_magazine >/dev/null
+#---------------------------------------------------special---------------------------------------------------
 
 function magazine_append_link
     set result (rofi -dmenu 2>/dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
-    end
-    set -e result[-1]
-    set result "$result"
-    set link (xclip -selection clipboard -o)
+    test $result[-1] -ne 0 && return || set -e result[-1]
+    set link (ypoc)
     indeed -u ~/.local/share/magazine/l "$result — $link"\n
     silly_sort.py ~/.local/share/magazine/l
-    notify-send -t 2000 "append l with $link"
+    notify-send -t 2000 "append link $link"
 end
 funcsave magazine_append_link >/dev/null
+
+#--------------------------------------------------internal--------------------------------------------------
+
+function _magazine_notify
+    set display (path basename $argv[1])
+    if test $display = project.txt
+        set display (path dirname $argv[1] | path basename)
+    end
+    notify-send -t 2000 "$argv[2..] $display"
+end
+funcsave _magazine_notify >/dev/null
+
+function _magazine_update
+    set -l mag (path basename $argv)
+    if test $mag -ge 0 -a $mag -le 9
+        awesome-client 'Registers_wu()'
+    end
+end
+funcsave _magazine_update >/dev/null
+
+function _magazine_commit
+    set parent_path (path dirname $argv[1])
+    set head (path basename $parent_path)
+    set base (path basename $argv[1])
+    set mag $base
+    if test $parent_path != ~/.local/share/magazine
+        if test $base = project.txt
+            cp -f $argv[1] ~/.local/share/magazine/$head
+            set mag $head
+        else
+            cp -f $argv[1] ~/.local/share/magazine
+        end
+    end
+    cd ~/.local/share/magazine
+    git add $mag
+    and git commit -m "$argv[2..] $mag"
+end
+funcsave _magazine_commit >/dev/null
+
+#-------------------------------------------------projectual-------------------------------------------------
 
 function project_paths
     echo dotfiles
@@ -230,6 +185,7 @@ function pjs
             set_color '#e491b2'
             printf '%s\n' $file
         end
-    end | less
+    end
 end
 funcsave pjs >/dev/null
+alias --save pjsi 'pjs | less' >/dev/null
