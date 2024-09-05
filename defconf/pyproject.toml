@@ -70,3 +70,4 @@ reportUnusedVariable = false
 reportUnusedImport = 'warning'
 reportUnknownMemberType = false
 reportUnknownVariableType = false
+reportUnknownArgumentType = false
