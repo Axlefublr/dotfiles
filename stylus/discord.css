@@ -156,7 +156,7 @@
 /* between add server and discover servers */
 .listItem_c96c45:has(.guildSeparator_d0c57e),
 .listItem_c96c45:has([aria-label="Download Apps"]),
-.listItem_c96c45:has([aria-label="Explore Discoverable Servers"]),
+/* .listItem_c96c45:has([aria-label="Explore Discoverable Servers"]), */
 /* shop */
 .channel__0aef5.shyButton__30111.container__3792d,
 /* nitro */
