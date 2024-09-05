@@ -59,8 +59,6 @@ funcsave magazine_append >/dev/null
 
 function magazine_appclip
     not test "$argv" && return
-    set result (rofi -dmenu 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return || set -e result[-1]
     indeed $argv -- "$(ypoc)"
     _magazine_update $argv
     _magazine_notify $argv appclip
