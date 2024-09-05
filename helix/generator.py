@@ -235,6 +235,7 @@ normal_select_mappings: dict[str, Any] = {
     'a': ['collapse_selection', 'append_mode'],
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
+    'Y': 'yank_to_clipboard',
     'space': {
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
