@@ -50,7 +50,7 @@ editor: dict[str, Any] = {
     'completion-trigger-len': 2,
     'auto-info': True,
     'color-modes': True,
-    'text-width': 100,
+    'text-width': 110,
     'default-line-ending': 'lf',
     'insert-final-newline': False,
     'jump-label-alphabet': 'fjdkslaeiwoghruxcz/vmtyqp',
