@@ -186,7 +186,7 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
     for key, value in english_dict.items():
         russian_key = transform(key)
         if russian_key is None:
-            sys.stderr.write(f"I don't know {key}\n")
+            # sys.stderr.write(f"I don't know {key}\n")
             continue
         if isinstance(value, dict):
             russian_dict[russian_key] = rusify(value)
@@ -338,6 +338,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-k': ['normal_mode', 'open_above'],
     'Y': 'yank_to_clipboard',
     'A-m': 'split_selection_on_newline',
+    'A-p': ':sh over lazygit &>/dev/null',
     'space': {
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
