@@ -45,6 +45,9 @@ begin
     echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"'
 end | sudo tee /etc/udev/rules.d/backlight.rules
 
+# Ttyper
+ln -sf ~/.local/share/magazine/U ~/.config/ttyper/language/uclanr
+
 # Neovim
 trash-put ~/.config/nvim
 mkdir -p ~/.config/nvim
