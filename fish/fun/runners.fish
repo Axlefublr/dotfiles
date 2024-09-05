@@ -85,7 +85,7 @@ end
 funcsave runner_symbol >/dev/null
 
 function runner_symbol_name
-    set result (rofi -input ~/prog/backup/unicodes.txt -sync -dmenu 2> /dev/null ; echo $status)
+    set result (rofi -input ~/.local/share/magazine/E -sync -dmenu 2> /dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end
