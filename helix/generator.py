@@ -409,10 +409,10 @@ normal_select_mappings: dict[str, Any] = {
         'H': ['collapse_selection', 'extend_to_line_start'],
         'l': ['collapse_selection', 'extend_to_line_end'],
         'L': ['collapse_selection', 'extend_to_line_end_newline'],
-        'x': 'merge_selections',
-        'X': 'merge_consecutive_selections',
-        'm': ':sort',
-        'M': ':rsort',
+        'M': 'merge_consecutive_selections',
+        'm': 'merge_selections',
+        ',': ':sort',
+        '<': ':rsort',
         **disable(
             [
                 'z',
