@@ -6,7 +6,6 @@ set -Ux HISTSIZE 100000
 set -Ux SAVEHIST 100000
 set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
 set -Ux DOTNET_CLI_TELEMETRY_OPTOUT true
-set -Ux MANPAGER 'nvim +Man!'
 set -Ux LESSKEYIN /opt/lesskey
 set -Ux XMODIFIERS @im=none
 set -Ux QT_QPA_PLATFORMTHEME gtk3
