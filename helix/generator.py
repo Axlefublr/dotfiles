@@ -348,22 +348,7 @@ normal_select_mappings: dict[str, Any] = {
         'K': ':qa!',
         'c': 'code_action',
         'd': magazine_openers,
-        **disable(
-            [
-                'D',
-                'w',
-                'C',
-                'Y',
-                'p',
-                'P',
-                'G',
-                'a',
-                'g',
-                'b',
-                'A-c',
-                '/',
-            ]
-        ),
+        **disable(['D', 'w', 'C', 'Y', 'p', 'P', 'G', 'a', 'g', 'b', 'A-c', '/', 'h']),
     },
     'g': {
         'h': 'goto_first_nonwhitespace',
@@ -380,19 +365,8 @@ normal_select_mappings: dict[str, Any] = {
         'g': 'select_all_siblings',
         'X': 'join_selections_space',
         'u': 'goto_reference',
-        **disable(
-            [
-                'D',
-                't',
-                'b',
-                'c',
-                'r',
-                's',
-                'a',
-                'e',
-                'w',
-            ]
-        ),
+        'U': 'select_references_to_symbol_under_cursor',
+        **disable(['D', 't', 'b', 'c', 'r', 's', 'a', 'e', 'w']),
     },
     'z': {
         'g': 'select_all_children',
@@ -434,19 +408,7 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
     },
-    **disable(
-        [
-            'Z',
-            'C-s',
-            'C-c',
-            'A-C',
-            'left',
-            'right',
-            'up',
-            'down',
-            'A-s',
-        ]
-    ),
+    **disable(['Z', 'C-s', 'C-c', 'A-C', 'left', 'right', 'up', 'down', 'A-s']),
 }
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
