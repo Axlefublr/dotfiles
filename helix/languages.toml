@@ -1,4 +1,25 @@
 [[language]]
+name = 'markdown'
+file-types = [
+  'md',
+  'markdown',
+  'mdx',
+  'mkd',
+  'mkdn',
+  'mdwn',
+  'mdown',
+  'markdn',
+  'mdtxt',
+  'mdtext',
+  'workbook',
+  { glob = 'PULLREQ_EDITMSG' },
+  { glob = '**/magazine/A' },
+  { glob = '**/magazine/s' },
+  { glob = '**/magazine/d' },
+]
+indent = { tab-width = 3, unit = '\t' }
+
+[[language]]
 name = 'lua'
 indent = { tab-width = 3, unit = '\t' }
 formatter = { command = 'stylua', args = ['-'] }
