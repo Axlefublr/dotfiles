@@ -1,81 +1,53 @@
-theme = 'gruvbox_material'
+theme = "gruvbox_material"
 
 [editor]
 scrolloff = 99
-shell = ['fish', '-c']
-line-number = 'relative'
+shell = [ "fish", "-c",]
+line-number = "relative"
 auto-completion = true
 auto-format = true
-# idle-timeout = 250
 completion-timeout = 5
 preview-completion-insert = true
 completion-trigger-len = 2
 auto-info = true
-# bufferline = 'multiple'
 color-modes = true
-text-width = 100
-default-line-ending = 'lf'
+text-width = 110
+default-line-ending = "lf"
 insert-final-newline = false
-jump-label-alphabet = 'fjdkslaeiwoghruxcz/vmtyqp'
+jump-label-alphabet = "fjdkslaeiwoghruxcz/vmtyqp"
 
 [editor.soft-wrap]
 enable = false
 max-wrap = 0
-wrap-indicator = ''
+wrap-indicator = ""
 
 [editor.smart-tab]
-enable = false        # If set to true, then when the cursor is in a position with non-whitespace to its left, instead of inserting a tab, it will run move_parent_node_end. If there is only whitespace to the left, then it inserts a tab as normal. With the default bindings, to explicitly insert a tab character, press Shift-tab.
-supersede-menu = true # Normally, when a menu is on screen, such as when auto complete is triggered, the tab key is bound to cycling through the items. This means when menus are on screen, one cannot use the tab key to trigger the smart-tab command. If this option is set to true, the smart-tab command always takes precedence, which means one cannot use the tab key to cycle through menu items. One of the other bindings must be used instead, such as arrow keys or C-n/C-p.
+enable = false
+supercede-menu = true
 
 [editor.cursor-shape]
-insert = 'bar'
-# select = 'underline'
-
-[editor.whitespace.render]
-newline = 'none'
-
-[editor.whitespace.characters]
-newline = '↪'
-
-[editor.auto-pairs]
-'<' = '>'
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-"'" = "'"
-'`' = '`'
+insert = "bar"
 
 [editor.auto-save]
-focus-lost = true
+focus-lost = false
 
-[editor.statusline]
-separator = ''
-mode.normal = 'normal'
-mode.insert = 'insert'
-mode.select = 'select'
-left = [
-  # 'version-control',
-  # 'spacer',
-  'diagnostics',
-  'primary-selection-length',
-  'selections',
-]
-center = ['file-name', 'read-only-indicator', 'file-modification-indicator']
-right = [
-  'spinner',
-  'register',
-  'position',
-  'position-percentage',
-  'file-encoding',
-]
+[editor.auto-pairs]
+"<" = ">"
+"(" = ")"
+"{" = "}"
+"[" = "]"
+"\"" = "\""
+"'" = "'"
+"`" = "`"
 
 [editor.gutters]
-# layout = ['diff', 'spacer']
 layout = []
 
-[editor.gutters.line-numbers]
-min-width = 2
+[editor.statusline]
+separator = ""
+left = [ "diagnostics", "primary-selection-length", "selections",]
+center = [ "file-name", "read-only-indicator", "file-modification-indicator",]
+right = [ "spinner", "register", "position", "position-percentage", "file-encoding",]
 
 [editor.lsp]
 auto-signature-help = true
@@ -83,210 +55,615 @@ display-inlay-hints = true
 display-signature-help-docs = true
 goto-reference-include-declaration = false
 
-# #################################################mappings#################################################
-
-# --------------------------------------------------normal--------------------------------------------------
-
 [keys.normal]
-
-H = 'page_cursor_half_up'
-L = 'page_cursor_half_down'
-ret = 'command_mode'
-',' = 'flip_selections'
-':' = 'ensure_selections_forward'
-'+' = 'remove_primary_selection'
-J = 'keep_primary_selection'
-X = 'join_selections'
-V = 'extend_line_above'
-v = 'extend_line_below'
-x = 'select_mode'
-D = 'copy_selection_on_prev_line'
-G = 'keep_selections'
-K = ':xa!'
-"'" = ':wa!'
-M = 'save_selection'
-A-h = 'select_prev_sibling'
-A-l = 'select_next_sibling'
-C-n = 'shrink_selection'
-C-p = 'expand_selection'
-A-j = 'shrink_selection'
-A-k = 'expand_selection'
-A-i = 'move_parent_node_start'
-A-o = 'move_parent_node_end'
-'\' = ['select_all', 'delete_selection_noyank', 'shell_append_output']
-'{' = 'goto_prev_paragraph'
-'}' = 'goto_next_paragraph'
-'#' = 'toggle_comments'
-r = ['collapse_selection', 'replace']
-i = ['collapse_selection', 'insert_mode']
-a = ['collapse_selection', 'append_mode']
-
-C-s = 'no_op'
-C-c = 'no_op'
-A-C = 'no_op'
-left = 'no_op'
-right = 'no_op'
-up = 'no_op'
-down = 'no_op'
-
-[keys.normal.space]
-p = ':config-reload'
-P = ':open ~/prog/dotfiles/helix/config.toml'
-T = ':tree-sitter-scopes'
-t = ':tree-sitter-highlight-name'
-f = 'file_picker_in_current_directory'
-F = 'file_picker_in_current_buffer_directory'
-e = 'buffer_picker'
-K = ':qa!'
-n = ':new'
-
-b = 'no_op'
-c = 'no_op'
-A-c = 'no_op'
-'/' = 'no_op'
-
-[keys.normal.z]
-g = 'select_all_children'
-h = ['collapse_selection', 'extend_to_first_nonwhitespace']
-H = ['collapse_selection', 'extend_to_line_start']
-l = ['collapse_selection', 'extend_to_line_end']
-L = ['collapse_selection', 'extend_to_line_end_newline']
-'/' = 'make_search_word_bounded'
-"'" = 'rotate_view_reverse'
-
-x = 'merge_selections'
-X = 'merge_consecutive_selections'
-
-z = 'no_op'
-c = 'no_op'
-t = 'no_op'
-b = 'no_op'
-m = 'no_op'
-up = 'no_op'
-down = 'no_op'
-j = 'no_op'
-k = 'no_op'
-pageup = 'no_op'
-pagedown = 'no_op'
-C-b = 'no_op'
-C-f = 'no_op'
-C-u = 'no_op'
-C-d = 'no_op'
-backspace = 'no_op'
-space = 'no_op'
-'?' = 'no_op'
-n = 'no_op'
-N = 'no_op'
-
-[keys.normal.Z]
-z = 'no_op'
-c = 'no_op'
-t = 'no_op'
-b = 'no_op'
-m = 'no_op'
-up = 'no_op'
-down = 'no_op'
-j = 'no_op'
-k = 'no_op'
-pageup = 'no_op'
-pagedown = 'no_op'
-C-b = 'no_op'
-C-f = 'no_op'
-C-u = 'no_op'
-C-d = 'no_op'
-backspace = 'no_op'
-space = 'no_op'
-'/' = 'no_op'
-'?' = 'no_op'
-n = 'no_op'
-N = 'no_op'
-
-[keys.normal.g]
-h = 'goto_first_nonwhitespace'
-H = 'goto_line_start'
-l = 'goto_line_end'
-L = 'goto_line_end_newline'
-
-m = 'goto_last_accessed_file'
-M = 'goto_last_modified_file'
-
-o = 'goto_file_end'
-i = 'goto_file_start'
-
-';' = 'goto_word'
-G = 'remove_selections'
-g = 'select_all_siblings'
-'/' = 'global_search'
-X = 'join_selections_space'
-"'" = 'rotate_view'
-u = 'goto_reference'
-
-D = 'no_op'
-t = 'no_op'
-b = 'no_op'
-c = 'no_op'
-r = 'no_op'
-s = 'no_op'
-a = 'no_op'
-e = 'no_op'
-w = 'no_op'
-
-# --------------------------------------------------select--------------------------------------------------
+x = "select_mode"
+r = [ "collapse_selection", "replace",]
+j = "move_visual_line_down"
+k = "move_visual_line_up"
+"ч" = "select_mode"
+"к" = [ "collapse_selection", "replace",]
+"о" = "move_visual_line_down"
+"л" = "move_visual_line_up"
+A-i = "move_parent_node_start"
+A-o = "move_parent_node_end"
+"A-ш" = "move_parent_node_start"
+"A-щ" = "move_parent_node_end"
+H = "page_cursor_half_up"
+L = "page_cursor_half_down"
+ret = "command_mode"
+"," = "flip_selections"
+":" = "ensure_selections_forward"
+"+" = "remove_primary_selection"
+J = "keep_primary_selection"
+X = "join_selections"
+V = "extend_line_above"
+v = "extend_line_below"
+D = "copy_selection_on_prev_line"
+G = "keep_selections"
+K = ":xa!"
+"'" = ":wa!"
+M = "save_selection"
+A-h = "select_prev_sibling"
+A-l = "select_next_sibling"
+C-n = "shrink_selection"
+A-j = "shrink_selection"
+C-p = "expand_selection"
+A-k = "expand_selection"
+"\\" = [ "select_all", "delete_selection_noyank", "shell_append_output",]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+"#" = "toggle_comments"
+i = [ "collapse_selection", "insert_mode",]
+a = [ "collapse_selection", "append_mode",]
+C-j = [ "normal_mode", "open_below",]
+C-k = [ "normal_mode", "open_above",]
+Y = "yank_to_clipboard"
+A-m = "split_selection_on_newline"
+A-p = ":sh over lazygit &>/dev/null"
+Z = "no_op"
+C-s = "no_op"
+C-c = "no_op"
+A-C = "no_op"
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
+A-s = "no_op"
+"Р" = "page_cursor_half_up"
+"Д" = "page_cursor_half_down"
+"б" = "flip_selections"
+"Ж" = "ensure_selections_forward"
+"О" = "keep_primary_selection"
+"Ч" = "join_selections"
+"М" = "extend_line_above"
+"м" = "extend_line_below"
+"В" = "copy_selection_on_prev_line"
+"П" = "keep_selections"
+"Л" = ":xa!"
+"э" = ":wa!"
+"Ь" = "save_selection"
+"A-р" = "select_prev_sibling"
+"A-д" = "select_next_sibling"
+"C-т" = "shrink_selection"
+"A-о" = "shrink_selection"
+"C-з" = "expand_selection"
+"A-л" = "expand_selection"
+"Х" = "goto_prev_paragraph"
+"Ъ" = "goto_next_paragraph"
+"ш" = [ "collapse_selection", "insert_mode",]
+"ф" = [ "collapse_selection", "append_mode",]
+"C-о" = [ "normal_mode", "open_below",]
+"C-л" = [ "normal_mode", "open_above",]
+"Н" = "yank_to_clipboard"
+"A-ь" = "split_selection_on_newline"
+"A-з" = ":sh over lazygit &>/dev/null"
+"Я" = "no_op"
+"C-ы" = "no_op"
+"C-с" = "no_op"
+"A-С" = "no_op"
+"A-ы" = "no_op"
 
 [keys.select]
-H = 'page_cursor_half_up'
-L = 'page_cursor_half_down'
-',' = 'flip_selections'
-':' = 'ensure_selections_forward'
-X = 'keep_primary_selection'
-V = 'extend_line_above'
-v = 'extend_line_below'
-x = 'normal_mode'
-D = 'copy_selection_on_prev_line'
-G = 'keep_selections'
-A-h = 'select_prev_sibling'
-A-l = 'select_next_sibling'
-C-n = 'shrink_selection'
-C-p = 'expand_selection'
-A-i = 'extend_parent_node_start'
-A-o = 'extend_parent_node_end'
-'{' = 'goto_prev_paragraph'
-'}' = 'goto_next_paragraph'
-
-[keys.select.g]
-h = 'extend_to_first_nonwhitespace'
-H = 'extend_to_line_start'
-l = 'extend_to_line_end'
-L = 'extend_to_line_end_newline'
-
-o = 'goto_file_end'
-i = 'goto_file_start'
-X = 'join_selections_space'
-G = 'remove_selections'
-';' = 'extend_to_word'
-
-g = 'no_op'
-w = 'no_op'
-e = 'no_op'
-
-[keys.select.z]
-h = ['collapse_selection', 'goto_first_nonwhitespace']
-H = ['collapse_selection', 'goto_line_start']
-l = ['collapse_selection', 'goto_line_end']
-L = ['collapse_selection', 'goto_line_end_newline']
-
-x = 'merge_selections'
-X = 'merge_consecutive_selections'
-
-# --------------------------------------------------insert--------------------------------------------------
+A-i = "extend_parent_node_start"
+A-o = "extend_parent_node_end"
+x = "normal_mode"
+j = "extend_visual_line_down"
+k = "extend_visual_line_up"
+w = "no_op"
+e = "no_op"
+"A-ш" = "extend_parent_node_start"
+"A-щ" = "extend_parent_node_end"
+"ч" = "normal_mode"
+"о" = "extend_visual_line_down"
+"л" = "extend_visual_line_up"
+"ц" = "no_op"
+"у" = "no_op"
+H = "page_cursor_half_up"
+L = "page_cursor_half_down"
+ret = "command_mode"
+"," = "flip_selections"
+":" = "ensure_selections_forward"
+"+" = "remove_primary_selection"
+J = "keep_primary_selection"
+X = "join_selections"
+V = "extend_line_above"
+v = "extend_line_below"
+D = "copy_selection_on_prev_line"
+G = "keep_selections"
+K = ":xa!"
+"'" = ":wa!"
+M = "save_selection"
+A-h = "select_prev_sibling"
+A-l = "select_next_sibling"
+C-n = "shrink_selection"
+A-j = "shrink_selection"
+C-p = "expand_selection"
+A-k = "expand_selection"
+"\\" = [ "select_all", "delete_selection_noyank", "shell_append_output",]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+"#" = "toggle_comments"
+i = [ "collapse_selection", "insert_mode",]
+a = [ "collapse_selection", "append_mode",]
+C-j = [ "normal_mode", "open_below",]
+C-k = [ "normal_mode", "open_above",]
+Y = "yank_to_clipboard"
+A-m = "split_selection_on_newline"
+A-p = ":sh over lazygit &>/dev/null"
+Z = "no_op"
+C-s = "no_op"
+C-c = "no_op"
+A-C = "no_op"
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
+A-s = "no_op"
+"Р" = "page_cursor_half_up"
+"Д" = "page_cursor_half_down"
+"б" = "flip_selections"
+"Ж" = "ensure_selections_forward"
+"О" = "keep_primary_selection"
+"Ч" = "join_selections"
+"М" = "extend_line_above"
+"м" = "extend_line_below"
+"В" = "copy_selection_on_prev_line"
+"П" = "keep_selections"
+"Л" = ":xa!"
+"э" = ":wa!"
+"Ь" = "save_selection"
+"A-р" = "select_prev_sibling"
+"A-д" = "select_next_sibling"
+"C-т" = "shrink_selection"
+"A-о" = "shrink_selection"
+"C-з" = "expand_selection"
+"A-л" = "expand_selection"
+"Х" = "goto_prev_paragraph"
+"Ъ" = "goto_next_paragraph"
+"ш" = [ "collapse_selection", "insert_mode",]
+"ф" = [ "collapse_selection", "append_mode",]
+"C-о" = [ "normal_mode", "open_below",]
+"C-л" = [ "normal_mode", "open_above",]
+"Н" = "yank_to_clipboard"
+"A-ь" = "split_selection_on_newline"
+"A-з" = ":sh over lazygit &>/dev/null"
+"Я" = "no_op"
+"C-ы" = "no_op"
+"C-с" = "no_op"
+"A-С" = "no_op"
+"A-ы" = "no_op"
 
 [keys.insert]
-A-i = 'move_parent_node_start'
-A-o = 'move_parent_node_end'
-"A-'" = 'insert_register'
-'C-v' = ['collapse_selection', 'paste_clipboard_before']
-'A-/' = ':xa!'
-'C-j' = ['normal_mode', 'open_below']
-'C-k' = ['normal_mode', 'open_above']
-'A-,' = 'unindent'
-'A-.' = 'indent'
+"A-'" = "insert_register"
+C-v = [ "collapse_selection", "paste_clipboard_before",]
+"A-/" = ":xa!"
+C-j = [ "normal_mode", "open_below",]
+C-k = [ "normal_mode", "open_above",]
+"A-," = "unindent"
+"A-." = "indent"
+"A-э" = "insert_register"
+"C-м" = [ "collapse_selection", "paste_clipboard_before",]
+"C-о" = [ "normal_mode", "open_below",]
+"C-л" = [ "normal_mode", "open_above",]
+"A-б" = "unindent"
+"A-ю" = "indent"
+A-i = "move_parent_node_start"
+A-o = "move_parent_node_end"
+"A-ш" = "move_parent_node_start"
+"A-щ" = "move_parent_node_end"
+
+[editor.whitespace.render]
+newline = "none"
+tab = "all"
+
+[editor.whitespace.characters]
+newline = "↪"
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "➜"
+tabpad = " "
+
+[editor.gutters.line-numbers]
+min-width = 2
+
+[editor.statusline.mode]
+normal = "normal"
+insert = "insert"
+select = "select"
+
+[keys.normal.space]
+T = ":tree-sitter-scopes"
+t = ":tree-sitter-highlight-name"
+f = "file_picker_in_current_directory"
+j = "file_picker_in_current_buffer_directory"
+e = "buffer_picker"
+K = ":qa!"
+c = "code_action"
+D = "no_op"
+w = "no_op"
+C = "no_op"
+Y = "no_op"
+p = "no_op"
+P = "no_op"
+G = "no_op"
+a = "no_op"
+g = "no_op"
+b = "no_op"
+A-c = "no_op"
+"/" = "no_op"
+
+[keys.normal.g]
+h = "goto_first_nonwhitespace"
+H = "goto_line_start"
+l = "goto_line_end"
+L = "goto_line_end_newline"
+m = "goto_last_accessed_file"
+M = "goto_last_modified_file"
+o = "goto_file_end"
+i = "goto_file_start"
+";" = "goto_word"
+"/" = "global_search"
+G = "remove_selections"
+g = "select_all_siblings"
+X = "join_selections_space"
+u = "goto_reference"
+D = "no_op"
+t = "no_op"
+b = "no_op"
+c = "no_op"
+r = "no_op"
+s = "no_op"
+a = "no_op"
+e = "no_op"
+w = "no_op"
+
+[keys.normal.z]
+g = "select_all_children"
+"/" = "make_search_word_bounded"
+k = "rotate_view_reverse"
+j = "rotate_view"
+J = "hsplit"
+K = ":hsplit-new"
+";" = "wclose"
+n = ":new"
+i = "transpose_view"
+o = "wonly"
+h = [ "collapse_selection", "extend_to_first_nonwhitespace",]
+H = [ "collapse_selection", "extend_to_line_start",]
+l = [ "collapse_selection", "extend_to_line_end",]
+L = [ "collapse_selection", "extend_to_line_end_newline",]
+x = "merge_selections"
+X = "merge_consecutive_selections"
+m = ":sort"
+M = ":rsort"
+z = "no_op"
+c = "no_op"
+t = "no_op"
+b = "no_op"
+up = "no_op"
+down = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+C-b = "no_op"
+C-f = "no_op"
+C-u = "no_op"
+C-d = "no_op"
+backspace = "no_op"
+space = "no_op"
+"?" = "no_op"
+N = "no_op"
+
+[keys.normal."п"]
+"р" = "goto_first_nonwhitespace"
+"Р" = "goto_line_start"
+"д" = "goto_line_end"
+"Д" = "goto_line_end_newline"
+"ь" = "goto_last_accessed_file"
+"Ь" = "goto_last_modified_file"
+"щ" = "goto_file_end"
+"ш" = "goto_file_start"
+"ж" = "goto_word"
+"П" = "remove_selections"
+"п" = "select_all_siblings"
+"Ч" = "join_selections_space"
+"г" = "goto_reference"
+"В" = "no_op"
+"е" = "no_op"
+"и" = "no_op"
+"с" = "no_op"
+"к" = "no_op"
+"ы" = "no_op"
+"ф" = "no_op"
+"у" = "no_op"
+"ц" = "no_op"
+
+[keys.normal."я"]
+"п" = "select_all_children"
+"л" = "rotate_view_reverse"
+"о" = "rotate_view"
+"О" = "hsplit"
+"Л" = ":hsplit-new"
+"ж" = "wclose"
+"т" = ":new"
+"ш" = "transpose_view"
+"щ" = "wonly"
+"р" = [ "collapse_selection", "extend_to_first_nonwhitespace",]
+"Р" = [ "collapse_selection", "extend_to_line_start",]
+"д" = [ "collapse_selection", "extend_to_line_end",]
+"Д" = [ "collapse_selection", "extend_to_line_end_newline",]
+"ч" = "merge_selections"
+"Ч" = "merge_consecutive_selections"
+"ь" = ":sort"
+"Ь" = ":rsort"
+"я" = "no_op"
+"с" = "no_op"
+"е" = "no_op"
+"и" = "no_op"
+"C-и" = "no_op"
+"C-а" = "no_op"
+"C-г" = "no_op"
+"C-в" = "no_op"
+"Т" = "no_op"
+
+[keys.select.g]
+h = "goto_first_nonwhitespace"
+H = "goto_line_start"
+l = "goto_line_end"
+L = "goto_line_end_newline"
+m = "goto_last_accessed_file"
+M = "goto_last_modified_file"
+o = "goto_file_end"
+i = "goto_file_start"
+";" = "goto_word"
+"/" = "global_search"
+G = "remove_selections"
+g = "select_all_siblings"
+X = "join_selections_space"
+u = "goto_reference"
+D = "no_op"
+t = "no_op"
+b = "no_op"
+c = "no_op"
+r = "no_op"
+s = "no_op"
+a = "no_op"
+e = "no_op"
+w = "no_op"
+
+[keys.select."п"]
+"р" = "goto_first_nonwhitespace"
+"Р" = "goto_line_start"
+"д" = "goto_line_end"
+"Д" = "goto_line_end_newline"
+"ь" = "goto_last_accessed_file"
+"Ь" = "goto_last_modified_file"
+"щ" = "goto_file_end"
+"ш" = "goto_file_start"
+"ж" = "goto_word"
+"П" = "remove_selections"
+"п" = "select_all_siblings"
+"Ч" = "join_selections_space"
+"г" = "goto_reference"
+"В" = "no_op"
+"е" = "no_op"
+"и" = "no_op"
+"с" = "no_op"
+"к" = "no_op"
+"ы" = "no_op"
+"ф" = "no_op"
+"у" = "no_op"
+"ц" = "no_op"
+
+[keys.select.space]
+T = ":tree-sitter-scopes"
+t = ":tree-sitter-highlight-name"
+f = "file_picker_in_current_directory"
+j = "file_picker_in_current_buffer_directory"
+e = "buffer_picker"
+K = ":qa!"
+c = "code_action"
+D = "no_op"
+w = "no_op"
+C = "no_op"
+Y = "no_op"
+p = "no_op"
+P = "no_op"
+G = "no_op"
+a = "no_op"
+g = "no_op"
+b = "no_op"
+A-c = "no_op"
+"/" = "no_op"
+
+[keys.select.z]
+g = "select_all_children"
+"/" = "make_search_word_bounded"
+k = "rotate_view_reverse"
+j = "rotate_view"
+J = "hsplit"
+K = ":hsplit-new"
+";" = "wclose"
+n = ":new"
+i = "transpose_view"
+o = "wonly"
+h = [ "collapse_selection", "extend_to_first_nonwhitespace",]
+H = [ "collapse_selection", "extend_to_line_start",]
+l = [ "collapse_selection", "extend_to_line_end",]
+L = [ "collapse_selection", "extend_to_line_end_newline",]
+x = "merge_selections"
+X = "merge_consecutive_selections"
+m = ":sort"
+M = ":rsort"
+z = "no_op"
+c = "no_op"
+t = "no_op"
+b = "no_op"
+up = "no_op"
+down = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+C-b = "no_op"
+C-f = "no_op"
+C-u = "no_op"
+C-d = "no_op"
+backspace = "no_op"
+space = "no_op"
+"?" = "no_op"
+N = "no_op"
+
+[keys.select."я"]
+"п" = "select_all_children"
+"л" = "rotate_view_reverse"
+"о" = "rotate_view"
+"О" = "hsplit"
+"Л" = ":hsplit-new"
+"ж" = "wclose"
+"т" = ":new"
+"ш" = "transpose_view"
+"щ" = "wonly"
+"р" = [ "collapse_selection", "extend_to_first_nonwhitespace",]
+"Р" = [ "collapse_selection", "extend_to_line_start",]
+"д" = [ "collapse_selection", "extend_to_line_end",]
+"Д" = [ "collapse_selection", "extend_to_line_end_newline",]
+"ч" = "merge_selections"
+"Ч" = "merge_consecutive_selections"
+"ь" = ":sort"
+"Ь" = ":rsort"
+"я" = "no_op"
+"с" = "no_op"
+"е" = "no_op"
+"и" = "no_op"
+"C-и" = "no_op"
+"C-а" = "no_op"
+"C-г" = "no_op"
+"C-в" = "no_op"
+"Т" = "no_op"
+
+[keys.normal.space.d]
+q = ":open ~/.local/share/magazine/q"
+w = ":open ~/.local/share/magazine/w"
+e = ":open ~/.local/share/magazine/e"
+r = ":open ~/.local/share/magazine/r"
+t = ":open ~/.local/share/magazine/t"
+y = ":open ~/.local/share/magazine/y"
+u = ":open ~/.local/share/magazine/u"
+i = ":open ~/.local/share/magazine/i"
+o = ":open ~/.local/share/magazine/o"
+p = ":open ~/.local/share/magazine/p"
+a = ":open ~/.local/share/magazine/a"
+s = ":open ~/.local/share/magazine/s"
+d = ":open ~/.local/share/magazine/d"
+f = ":open ~/.local/share/magazine/f"
+g = ":open ~/.local/share/magazine/g"
+h = ":open ~/.local/share/magazine/h"
+j = ":open ~/prog/dotfiles/project.txt"
+k = ":open ~/.local/share/magazine/k"
+l = ":open ~/.local/share/magazine/l"
+z = ":open ~/.local/share/magazine/z"
+x = ":open ~/.local/share/magazine/x"
+c = ":open ~/.local/share/magazine/c"
+v = ":open ~/.local/share/magazine/v"
+b = ":open ~/.local/share/magazine/b"
+n = ":open ~/.local/share/magazine/n"
+m = ":open ~/.local/share/magazine/m"
+Q = ":open ~/.local/share/magazine/Q"
+W = ":open ~/.local/share/magazine/W"
+E = ":open ~/.local/share/magazine/E"
+R = ":open ~/.local/share/magazine/R"
+T = ":open ~/.local/share/magazine/T"
+Y = ":open ~/.local/share/magazine/Y"
+U = ":open ~/.local/share/magazine/U"
+I = ":open ~/.local/share/magazine/I"
+O = ":open ~/.local/share/magazine/O"
+P = ":open ~/.local/share/magazine/P"
+A = ":open ~/.local/share/magazine/A"
+S = ":open ~/.local/share/magazine/S"
+D = ":open ~/.local/share/magazine/D"
+F = ":open ~/.local/share/magazine/F"
+G = ":open ~/.local/share/magazine/G"
+H = ":open ~/.local/share/magazine/H"
+J = ":open project.txt"
+K = ":open ~/.local/share/magazine/K"
+L = ":open ~/.local/share/magazine/L"
+Z = ":open ~/.local/share/magazine/Z"
+X = ":open ~/.local/share/magazine/X"
+C = ":open ~/.local/share/magazine/C"
+V = ":open ~/.local/share/magazine/V"
+B = ":open ~/.local/share/magazine/B"
+N = ":open ~/.local/share/magazine/N"
+M = ":open ~/.local/share/magazine/M"
+0 = ":open ~/.local/share/magazine/0"
+1 = ":open ~/.local/share/magazine/1"
+2 = ":open ~/.local/share/magazine/2"
+3 = ":open ~/.local/share/magazine/3"
+4 = ":open ~/.local/share/magazine/4"
+5 = ":open ~/.local/share/magazine/5"
+6 = ":open ~/.local/share/magazine/6"
+7 = ":open ~/.local/share/magazine/7"
+8 = ":open ~/.local/share/magazine/8"
+9 = ":open ~/.local/share/magazine/9"
+
+[keys.select.space.d]
+q = ":open ~/.local/share/magazine/q"
+w = ":open ~/.local/share/magazine/w"
+e = ":open ~/.local/share/magazine/e"
+r = ":open ~/.local/share/magazine/r"
+t = ":open ~/.local/share/magazine/t"
+y = ":open ~/.local/share/magazine/y"
+u = ":open ~/.local/share/magazine/u"
+i = ":open ~/.local/share/magazine/i"
+o = ":open ~/.local/share/magazine/o"
+p = ":open ~/.local/share/magazine/p"
+a = ":open ~/.local/share/magazine/a"
+s = ":open ~/.local/share/magazine/s"
+d = ":open ~/.local/share/magazine/d"
+f = ":open ~/.local/share/magazine/f"
+g = ":open ~/.local/share/magazine/g"
+h = ":open ~/.local/share/magazine/h"
+j = ":open ~/prog/dotfiles/project.txt"
+k = ":open ~/.local/share/magazine/k"
+l = ":open ~/.local/share/magazine/l"
+z = ":open ~/.local/share/magazine/z"
+x = ":open ~/.local/share/magazine/x"
+c = ":open ~/.local/share/magazine/c"
+v = ":open ~/.local/share/magazine/v"
+b = ":open ~/.local/share/magazine/b"
+n = ":open ~/.local/share/magazine/n"
+m = ":open ~/.local/share/magazine/m"
+Q = ":open ~/.local/share/magazine/Q"
+W = ":open ~/.local/share/magazine/W"
+E = ":open ~/.local/share/magazine/E"
+R = ":open ~/.local/share/magazine/R"
+T = ":open ~/.local/share/magazine/T"
+Y = ":open ~/.local/share/magazine/Y"
+U = ":open ~/.local/share/magazine/U"
+I = ":open ~/.local/share/magazine/I"
+O = ":open ~/.local/share/magazine/O"
+P = ":open ~/.local/share/magazine/P"
+A = ":open ~/.local/share/magazine/A"
+S = ":open ~/.local/share/magazine/S"
+D = ":open ~/.local/share/magazine/D"
+F = ":open ~/.local/share/magazine/F"
+G = ":open ~/.local/share/magazine/G"
+H = ":open ~/.local/share/magazine/H"
+J = ":open project.txt"
+K = ":open ~/.local/share/magazine/K"
+L = ":open ~/.local/share/magazine/L"
+Z = ":open ~/.local/share/magazine/Z"
+X = ":open ~/.local/share/magazine/X"
+C = ":open ~/.local/share/magazine/C"
+V = ":open ~/.local/share/magazine/V"
+B = ":open ~/.local/share/magazine/B"
+N = ":open ~/.local/share/magazine/N"
+M = ":open ~/.local/share/magazine/M"
+0 = ":open ~/.local/share/magazine/0"
+1 = ":open ~/.local/share/magazine/1"
+2 = ":open ~/.local/share/magazine/2"
+3 = ":open ~/.local/share/magazine/3"
+4 = ":open ~/.local/share/magazine/4"
+5 = ":open ~/.local/share/magazine/5"
+6 = ":open ~/.local/share/magazine/6"
+7 = ":open ~/.local/share/magazine/7"
+8 = ":open ~/.local/share/magazine/8"
+9 = ":open ~/.local/share/magazine/9"

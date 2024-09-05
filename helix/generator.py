@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys
+import sys  # noqa: F401
 from typing import Any
 
 import toml
@@ -465,4 +465,10 @@ entire_config: dict[str, Any] = {
 }
 
 with open('/home/axlefublr/prog/dotfiles/helix/config.toml', 'w') as file:
+    toml.dump(entire_config, file)
+
+entire_config['editor']['whitespace']['render']['newline'] = 'none'
+entire_config['editor']['soft-wrap']['enable'] = False
+
+with open('/home/axlefublr/prog/dotfiles/helix/wrap-off.toml', 'w') as file:
     toml.dump(entire_config, file)
