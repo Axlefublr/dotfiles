@@ -27,7 +27,7 @@ awful.tag.add("m", {
 awful.tag.add(",", {
 	layout              = awful.layout.suit.tile.bottom,
 	master_fill_policy  = "expand",
-	master_width_factor = 0.89,
+	master_width_factor = 0.87,
 })
 awful.tag.add(".", {
 	layout              = awful.layout.suit.tile,
