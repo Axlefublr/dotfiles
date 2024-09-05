@@ -41,7 +41,7 @@ if status is-interactive
 
     #--------------------------------------------------core--------------------------------------------------
     bind_both \el l # believe it or not, this is yazi
-    bind_both \ep lazygit
+    bind_both \ep 'over lazygit &>/dev/null'
 
     #-------------------------------------------------other-------------------------------------------------
     bind_both \eo expand-abbr
