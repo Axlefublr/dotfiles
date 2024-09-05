@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 from typing import Any
 
 import toml
@@ -68,13 +69,13 @@ editor: dict[str, Any] = {
     'cursor-shape': {'insert': 'bar'},
     'auto-save': {'focus-lost': False},
     'whitespace': {
-        'render': {'newline': 'all'},
+        'render': {'newline': 'all', 'tab': 'all'},
         'characters': {
             'newline': '↪',
             'space': '·',
             'nbsp': '⍽',
             'nnbsp': '␣',
-            'tab': '→',
+            'tab': '➜',
             'tabpad': ' ',
         },
     },
@@ -103,15 +104,113 @@ def disable(mappings: list[str]) -> dict[str, str]:
     return {item: 'no_op' for item in mappings}
 
 
+def transform(char: str):
+    to_russian = {
+        'q': 'й',
+        'w': 'ц',
+        'e': 'у',
+        'r': 'к',
+        't': 'е',
+        'y': 'н',
+        'u': 'г',
+        'i': 'ш',
+        'o': 'щ',
+        'p': 'з',
+        '[': 'х',
+        ']': 'ъ',
+        'a': 'ф',
+        's': 'ы',
+        'd': 'в',
+        'f': 'а',
+        'g': 'п',
+        'h': 'р',
+        'j': 'о',
+        'k': 'л',
+        'l': 'д',
+        ';': 'ж',
+        "'": 'э',
+        'z': 'я',
+        'x': 'ч',
+        'c': 'с',
+        'v': 'м',
+        'b': 'и',
+        'n': 'т',
+        'm': 'ь',
+        ',': 'б',
+        '.': 'ю',
+        'Q': 'Й',
+        'W': 'Ц',
+        'E': 'У',
+        'R': 'К',
+        'T': 'Е',
+        'Y': 'Н',
+        'U': 'Г',
+        'I': 'Ш',
+        'O': 'Щ',
+        'P': 'З',
+        '{': 'Х',
+        '}': 'Ъ',
+        'A': 'Ф',
+        'S': 'Ы',
+        'D': 'В',
+        'F': 'А',
+        'G': 'П',
+        'H': 'Р',
+        'J': 'О',
+        'K': 'Л',
+        'L': 'Д',
+        ':': 'Ж',
+        '"': 'Э',
+        'Z': 'Я',
+        'X': 'Ч',
+        'C': 'С',
+        'V': 'М',
+        'B': 'И',
+        'N': 'Т',
+        'M': 'Ь',
+        '<': 'Б',
+        '>': 'Ю',
+    }
+    new_key = to_russian.get(char)
+    if new_key is not None:
+        return new_key
+    if char.startswith('A-') or char.startswith('C-'):
+        subkey = to_russian.get(char[2:])
+        if subkey is not None:
+            return char[:2] + subkey
+
+
+def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
+    russian_dict = {}
+
+    for key, value in english_dict.items():
+        russian_key = transform(key)
+        if russian_key is None:
+            sys.stderr.write(f"I don't know {key}\n")
+            continue
+        if isinstance(value, dict):
+            russian_dict[russian_key] = rusify(value)
+        else:
+            russian_dict[russian_key] = value
+
+    return russian_dict
+
+
 normal_mappings: dict[str, Any] = {
     'x': 'select_mode',
     'r': ['collapse_selection', 'replace'],
+    'j': 'move_visual_line_down',
+    'k': 'move_visual_line_up',
 }
+
+normal_mappings.update(**rusify(normal_mappings))
 
 select_mappings: dict[str, Any] = {
     'A-i': 'extend_parent_node_start',
     'A-o': 'extend_parent_node_end',
     'x': 'normal_mode',
+    'j': 'extend_visual_line_down',
+    'k': 'extend_visual_line_up',
     **disable(
         [
             'g',
@@ -120,6 +219,7 @@ select_mappings: dict[str, Any] = {
         ]
     ),
 }
+select_mappings.update(**rusify(select_mappings))
 
 insert_mappings: dict[str, Any] = {
     "A-'": 'insert_register',
@@ -130,12 +230,13 @@ insert_mappings: dict[str, Any] = {
     'A-,': 'unindent',
     'A-.': 'indent',
 }
+insert_mappings.update(**rusify(insert_mappings))
 
 normal_insert_mappings: dict[str, Any] = {
     'A-i': 'move_parent_node_start',
     'A-o': 'move_parent_node_end',
 }
-
+normal_insert_mappings.update(**rusify(normal_insert_mappings))
 normal_mappings.update(**normal_insert_mappings)
 insert_mappings.update(**normal_insert_mappings)
 
@@ -236,6 +337,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     'Y': 'yank_to_clipboard',
+    'A-m': 'split_selection_on_newline',
     'space': {
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
@@ -308,13 +410,14 @@ normal_select_mappings: dict[str, Any] = {
         'L': ['collapse_selection', 'extend_to_line_end_newline'],
         'x': 'merge_selections',
         'X': 'merge_consecutive_selections',
+        'm': ':sort',
+        'M': ':rsort',
         **disable(
             [
                 'z',
                 'c',
                 't',
                 'b',
-                'm',
                 'up',
                 'down',
                 'pageup',
@@ -340,10 +443,11 @@ normal_select_mappings: dict[str, Any] = {
             'right',
             'up',
             'down',
+            'A-s',
         ]
     ),
 }
-
+normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
 select_mappings.update(**normal_select_mappings)
 
