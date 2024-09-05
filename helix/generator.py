@@ -209,7 +209,7 @@ normal_select_mappings: dict[str, Any] = {
     'H': 'page_cursor_half_up',
     'L': 'page_cursor_half_down',
     'ret': 'command_mode',
-    ',': 'command_mode',
+    ',': 'flip_selections',
     ':': 'ensure_selections_forward',
     '+': 'remove_primary_selection',
     'J': 'keep_primary_selection',
