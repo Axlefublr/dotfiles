@@ -377,7 +377,7 @@ normal_select_mappings: dict[str, Any] = {
         'K': ':hsplit-new',
         ';': 'wclose',
         'n': ':new',
-        'i': 'transpose_view',
+        'u': 'transpose_view',
         'o': 'wonly',
         'h': ['collapse_selection', 'extend_to_first_nonwhitespace'],
         'H': ['collapse_selection', 'extend_to_line_start'],
@@ -387,6 +387,8 @@ normal_select_mappings: dict[str, Any] = {
         'm': 'merge_selections',
         ',': ':sort',
         '<': ':rsort',
+        'i': 'insert_mode',
+        'a': 'append_mode',
         **disable(
             [
                 'z',
