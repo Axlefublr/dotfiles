@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "2/28/2024, 8:08:33 PM",
-	"time": 1709122113578,
+	"@time": "9/6/2024, 8:58:06 PM",
+	"time": 1725627486566,
 	"environment": {
-		"extension": "1.99.994",
+		"extension": "2.11.3",
 		"platform": "linux",
-		"chromium": 120
+		"chromium": 128
 	},
 	"allBrowserUrls": true,
 	"autoDarkMode": 1,
@@ -57,6 +57,9 @@
 		"unmap gs",
 		"unmap p",
 		"unmap P",
+		"unmap /",
+		"unmap n",
+		"unmap N",
 		"",
 		"map ,f LinkHints.activateWithQueue",
 		"map yc LinkHints.activateCopyLinkText",
