@@ -23,9 +23,7 @@ client.connect_signal('unmanage', function(_)
 	Floating_state_wu(false)
 end)
 
-client.connect_signal('property::minimized', function(client)
-	Clients_wu(screen.primary.selected_tag)
-end)
+client.connect_signal('property::minimized', function(client) Clients_wu(screen.primary.selected_tag) end)
 
 client.connect_signal('property::maximized', function(client)
 	Clients_wu(screen.primary.selected_tag)
