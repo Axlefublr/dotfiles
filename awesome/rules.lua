@@ -35,11 +35,11 @@ awful.rules.rules = {
 	----------------------------------------------always fullscreen--------------------------------------------
 	{
 		rule_any = {
-			class = {'Modded Slay the Spire'},
+			class = { 'Modded Slay the Spire' },
 		},
 		properties = {
-			fullscreen = true
-		}
+			fullscreen = true,
+		},
 	},
 
 	---------------------------------------------------neoline-------------------------------------------------
@@ -68,12 +68,12 @@ awful.rules.rules = {
 	----------------------------------------------------tag p--------------------------------------------------
 	{
 		rule_any = { class = 'Zathura' },
-		properties = { tag = screen.primary.tags[4] }
+		properties = { tag = screen.primary.tags[4] },
 	},
 	{
 		rule = { class = 'kitty', name = 'screen_record' },
 		properties = {
-			tag = screen.primary.tags[4]
+			tag = screen.primary.tags[4],
 		},
 	},
 

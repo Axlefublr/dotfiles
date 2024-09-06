@@ -17,9 +17,7 @@ end
 
 ---@param index BrowserInstance|integer
 function FixBrowserInstance(index)
-	if type(index) == 'string' then
-		index = index == 'content' and 7 or 2
-	end
+	if type(index) == 'string' then index = index == 'content' and 7 or 2 end
 	local prev_tag = screen.primary.selected_tag
 	activate_tag(index or 2)
 	activate_tag(prev_tag)
