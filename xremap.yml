@@ -334,8 +334,7 @@ keymap:
           e: { launch: [fish, -c, runner_symbol_name] }
           CapsLock-m: { launch: [fish, -c, runner_math] }
 
-          o: { launch: [kitty, --hold, -d, '~/prog/dotfiles', nvim, -c, 'Young'] }
-          u: { launch: [kitty] }
+          CapsLock-u: { launch: [kitty] }
           y: { launch: [fish, -c, screenkey] }
           Shift-y: { launch: [kill, screenkey] }
           i: { launch: [awesome-client, 'WriteClientInfo()'] }
