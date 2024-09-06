@@ -19,6 +19,10 @@ ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
 ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
 
 # Helix
+cd ~/prog/stored
+gh-repo-clone https://github.com/helix-editor/helix
+cd ~/prog/stored/helix
+cargo build -r
 ln -sf ~/prog/dotfiles/helix ~/.config
 
 # Fish shell
