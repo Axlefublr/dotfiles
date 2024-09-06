@@ -3,8 +3,8 @@
 hovered = { fg = '#e49641' }
 cwd = { fg = '#ffafd7', bold = true }
 
-find_keyword = { fg = '#1f1e1e', bg = '#b58cc6', bold = true }
-find_position = { fg = '#1f1e1e', bg = '#b58cc6', bold = true }
+find_keyword = { fg = '#b58cc6', bold = true }
+find_position = { fg = '#b58cc6', bold = true }
 
 marker_selected = { bg = '#e49641' }
 marker_copied = { bg = '#d3ad5c' }
