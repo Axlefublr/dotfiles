@@ -1,3 +1,7 @@
 #!/usr/bin/env fish
 
-stylua **.lua
+stylua -c **.lua
+or begin
+    stylua **.lua
+    exit 1
+end
