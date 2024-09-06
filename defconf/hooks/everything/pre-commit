@@ -5,3 +5,9 @@ or begin
     stylua **.lua
     exit 1
 end
+
+ruff format --check
+or begin
+    ruff format
+    exit 1
+end
