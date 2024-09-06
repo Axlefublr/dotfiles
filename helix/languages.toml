@@ -22,6 +22,7 @@ indent = { tab-width = 3, unit = '\t' }
 [[language]]
 name = 'lua'
 indent = { tab-width = 3, unit = '\t' }
+auto-format = true
 formatter = { command = 'stylua', args = ['-'] }
 
 [language-server.lua-language-server.config.Lua]
