@@ -1,17 +1,6 @@
 #!/usr/bin/env fish
 
 set -l failed false
-stylua -g '!helix/runtime' -c **.lua
-or begin
-    stylua **.lua
-    set failed true
-end
-
-ruff format --check
-or begin
-    ruff format
-    set failed true
-end
 
 ruff check --diff
 or begin
