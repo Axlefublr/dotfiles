@@ -197,6 +197,8 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 
 normal_mappings: dict[str, Any] = {
+    'h': 'move_char_left',
+    'l': 'move_char_right',
     'x': 'select_mode',
     'r': ['collapse_selection', 'replace'],
     'j': 'move_visual_line_down',
@@ -206,18 +208,13 @@ normal_mappings: dict[str, Any] = {
 normal_mappings.update(**rusify(normal_mappings))
 
 select_mappings: dict[str, Any] = {
+    'h': 'extend_char_left',
+    'l': 'extend_char_right',
     'A-i': 'extend_parent_node_start',
     'A-o': 'extend_parent_node_end',
     'x': 'normal_mode',
     'j': 'extend_visual_line_down',
     'k': 'extend_visual_line_up',
-    **disable(
-        [
-            'g',
-            'w',
-            'e',
-        ]
-    ),
 }
 select_mappings.update(**rusify(select_mappings))
 
@@ -229,6 +226,7 @@ insert_mappings: dict[str, Any] = {
     'C-k': ['normal_mode', 'open_above'],
     'A-,': 'unindent',
     'A-.': 'indent',
+    'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
 }
 insert_mappings.update(**rusify(insert_mappings))
 
@@ -307,6 +305,8 @@ magazine_openers: dict[str, Any] = {
 }
 
 normal_select_mappings: dict[str, Any] = {
+    'o': 'open_below',
+    'O': 'open_above',
     'H': 'page_cursor_half_up',
     'L': 'page_cursor_half_down',
     'ret': 'command_mode',
