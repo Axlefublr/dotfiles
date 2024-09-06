@@ -1,13 +1,24 @@
 #!/usr/bin/env fish
 
+set -l failed false
 stylua -c **.lua
 or begin
     stylua **.lua
-    exit 1
+    set failed true
 end
 
 ruff format --check
 or begin
     ruff format
+    set failed true
+end
+
+ruff check --diff
+or begin
+    ruff check --fix
+    set failed true
+end
+
+if $failed
     exit 1
 end

@@ -29,7 +29,7 @@ def triple_parse(date):
 
 lines_to_keep = []
 
-with open(file_path, 'r') as file:
+with open(file_path) as file:
     lines = file.readlines()
 
 for line in lines:

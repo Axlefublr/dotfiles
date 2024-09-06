@@ -8,7 +8,7 @@ if len(sys.argv) < 2:
 
 path = sys.argv[1]
 
-with open(path, 'r') as file:
+with open(path) as file:
     lines = file.readlines()
 
 lines.sort()
