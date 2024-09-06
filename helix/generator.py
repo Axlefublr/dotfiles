@@ -350,7 +350,7 @@ normal_select_mappings: dict[str, Any] = {
         'c': 'code_action',
         '/': 'command_palette',
         'd': magazine_openers,
-        **disable(['D', 'w', 'C', 'Y', 'p', 'P', 'G', 'a', 'g', 'b', 'A-c', 'h', '?']),
+        **disable(['D', 'w', 'C', 'Y', 'p', 'P', 'G', 'a', 'g', 'b', 'A-c', 'h', '?', 'F', 'y']),
     },
     'g': {
         'h': 'goto_first_nonwhitespace',

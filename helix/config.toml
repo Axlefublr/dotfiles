@@ -305,6 +305,8 @@ b = "no_op"
 A-c = "no_op"
 h = "no_op"
 "?" = "no_op"
+F = "no_op"
+y = "no_op"
 
 [keys.normal.g]
 h = "goto_first_nonwhitespace"
@@ -447,6 +449,8 @@ b = "no_op"
 A-c = "no_op"
 h = "no_op"
 "?" = "no_op"
+F = "no_op"
+y = "no_op"
 
 [keys.select.g]
 h = "goto_first_nonwhitespace"
