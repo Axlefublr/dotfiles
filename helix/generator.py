@@ -227,6 +227,7 @@ insert_mappings: dict[str, Any] = {
     'A-,': 'unindent',
     'A-.': 'indent',
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
+    'C-u': 'kill_to_line_start',
 }
 insert_mappings.update(**rusify(insert_mappings))
 
