@@ -36,6 +36,7 @@ set -U fish_color_operator e491b2
 set -U fish_color_escape 928374
 set -U fish_color_autosuggestion 928374
 set -U fish_color_cancel ffafd7
+set -U fish_color_selection -b 5f472d
 
 set -U fish_cursor_default block
 set -U fish_cursor_insert line

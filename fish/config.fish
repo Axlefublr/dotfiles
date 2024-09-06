@@ -13,46 +13,4 @@ if status is-interactive
     for file in ~/prog/dotfiles/fish/abbreviations/*.fish
         source $file
     end
-
-    function bind_both
-        bind -M insert $argv
-        bind -M insert $argv
-    end
-
-    #------------------------------------------------vim mode------------------------------------------------
-    bind -M default daw forward-single-char forward-single-char backward-word kill-word delete-char
-    bind -M default daW forward-single-char forward-single-char backward-bigword kill-bigword delete-char
-
-    bind -M default -m insert caw forward-single-char forward-single-char backward-word kill-word delete-char repaint-mode
-    bind -M default -m insert caW forward-single-char forward-single-char backward-bigword kill-bigword delete-char repaint-mode
-
-    bind -M default X delete-char forward-single-char backward-char
-    bind -M default x begin-selection kill-selection end-selection repaint-mode
-
-    bind -M default -m insert cie 'commandline ""'
-    bind -M default die 'commandline ""'
-    bind -M default Y 'commandline | xclip -r -selection clipboard'
-
-    bind -M default v edit_command_buffer
-    bind -M default : repeat-jump-reverse
-    bind -M default \; repeat-jump
-
-    bind K exit
-
-    #--------------------------------------------------core--------------------------------------------------
-    bind_both \el l # believe it or not, this is yazi
-    bind_both \ep 'over lazygit &>/dev/null'
-
-    #-------------------------------------------------other-------------------------------------------------
-    bind_both \eo expand-abbr
-    bind -M insert / expand-abbr self-insert
-
-    bind -M insert \e\r expand-abbr insert-line-under
-    bind -M insert -k f4 'commandline ""' # is ctrl+alt+u
-
-    bind_both -k f5 forward-word # is shift+alt+;
-    bind_both \e\; accept-autosuggestion
-
-    bind_both \ed clear-screen repaint
-    bind_both \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
 end

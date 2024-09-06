@@ -124,10 +124,10 @@ end
 funcsave _magazine_update >/dev/null
 
 function _magazine_commit
-    set parent_path (path dirname $argv[1])
-    set head (path basename $parent_path)
-    set base (path basename $argv[1])
-    set mag $base
+    set -l parent_path (path dirname $argv[1])
+    set -l head (path basename $parent_path)
+    set -l base (path basename $argv[1])
+    set -l mag $base
     if test $parent_path != ~/.local/share/magazine
         if test $base = project.txt
             cp -f $argv[1] ~/.local/share/magazine/$head
