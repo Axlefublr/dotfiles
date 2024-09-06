@@ -22,7 +22,8 @@ ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
 cd ~/prog/stored
 gh-repo-clone https://github.com/helix-editor/helix
 cd ~/prog/stored/helix
-cargo build -r
+cargo install --path helix-term --locked
+# ln -sf ~/.cargo/bin/hx ~/prog/binaries/helix
 ln -sf ~/prog/dotfiles/helix ~/.config
 
 # Fish shell
