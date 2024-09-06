@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 set -l failed false
-stylua -c **.lua
+stylua -g '!helix/runtime' -c **.lua
 or begin
     stylua **.lua
     set failed true
