@@ -317,7 +317,7 @@ normal_select_mappings: dict[str, Any] = {
     'X': 'join_selections',
     'V': 'extend_line_above',
     'v': 'extend_line_below',
-    'D': 'copy_selection_on_prev_line',
+    'D': ['delete_selection', 'move_char_left'],
     'G': 'keep_selections',
     'K': ':xa!',
     "'": ':wa!',
@@ -410,7 +410,7 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
     },
-    **disable(['Z', 'C-s', 'C-c', 'A-C', 'left', 'right', 'up', 'down', 'A-s']),
+    **disable(['Z', 'C-s', 'C-c', 'left', 'right', 'up', 'down', 'A-s']),
 }
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
