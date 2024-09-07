@@ -1189,10 +1189,10 @@ keymap:
       CapsLock-Super-y: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
       CapsLock-Super-b: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
 
-      Super-Ctrl-Apostrophe: { launch: [awesome-client, Unminimize_all_on_tag()] }
-      Super-Alt-Apostrophe: { launch: [awesome-client, 'client.focus.minimized = true'] }
       Super-Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
       Super-Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
+      CapsLock-z: { launch: [awesome-client, 'client.focus.minimized = true'] }
+      CapsLock-Alt-z: { launch: [awesome-client, Unminimize_all_on_tag()] }
 
       Super-u: [{ launch: [fish, -c, 'widget_update update_anki no-increment Anki'] }, super-u]
 
