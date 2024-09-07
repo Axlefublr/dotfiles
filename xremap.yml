@@ -1285,12 +1285,7 @@ keymap:
       Super-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
       Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
       Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
-      CapsLock-Shift-Enter:
-        [
-          { set_mode: default },
-          { launch: [awesome-client, Mouse_wd()] },
-          { launch: [fish, -c, runner_notification] },
-        ]
+      Super-k: { launch: [fish, -c, runner_notification] }
       CapsLock-Enter: { launch: [fish, -c, 'ypoc >/dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md; cat /dev/shm/clipboard_edit.md | copy'] }
       CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 /dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md ; cat /dev/shm/clipboard_edit.md | copy'] }
 
