@@ -56,16 +56,6 @@ function runner_math
 end
 funcsave runner_math >/dev/null
 
-function runner_clipboard
-    set result (rofi -dmenu 2> /dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
-    end
-    set -e result[-1]
-    string collect $result | xclip -selection clipboard -r
-end
-funcsave runner_clipboard >/dev/null
-
 function runner_symbol
     set result (rofi -dmenu 2> /dev/null ; echo $status)
     if test $result[-1] -ne 0

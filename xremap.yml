@@ -1293,7 +1293,6 @@ keymap:
         ]
       CapsLock-Enter: { launch: [fish, -c, 'ypoc >/dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md; cat /dev/shm/clipboard_edit.md | copy'] }
       CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 /dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md ; cat /dev/shm/clipboard_edit.md | copy'] }
-      CapsLock-Ctrl-Enter: { launch: [fish, -c, runner_clipboard] }
 
   - name: Any functionality
     remap:
