@@ -15,8 +15,9 @@ echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d
 
 # Awesome wm
 mkdir -p ~/.config/awesome
+rm -fr ~/.config/awesome
+ln -sf ~/prog/dotfiles/awesome ~/.config/
 ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
-ln -sf ~/prog/dotfiles/awesome/* ~/.config/awesome
 
 # Helix
 cd ~/prog/stored

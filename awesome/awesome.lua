@@ -59,6 +59,7 @@ editor = os.getenv('EDITOR') or 'nano'
 editor_cmd = terminal .. ' -e ' .. editor
 modkey = 'Mod4'
 
+require('global')
 require('layouts')
 require('screen')
 require('keys')
