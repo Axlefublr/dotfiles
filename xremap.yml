@@ -1189,10 +1189,10 @@ keymap:
       CapsLock-Super-y: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
       CapsLock-Super-b: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
 
-      Super-Alt-Semicolon: { launch: [wmctrl, -c, ':ACTIVE:'] }
-      Super-Ctrl-Semicolon: { launch: [xdotool, getwindowfocus, windowkill] }
       CapsLock-z: { launch: [awesome-client, 'client.focus.minimized = true'] }
       CapsLock-Alt-z: { launch: [awesome-client, Unminimize_all_on_tag()] }
+      CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
+      CapsLock-Alt-q: { launch: [xdotool, getwindowfocus, windowkill] }
 
       Super-u: [{ launch: [fish, -c, 'widget_update update_anki no-increment Anki'] }, super-u]
 
@@ -1313,6 +1313,5 @@ keymap:
       CapsLock-Shift-d: ctrl-shift-v
       CapsLock-d: ctrl-v
       CapsLock-g: ctrl-a
-      CapsLock-q: enter
       CapsLock-r: delete
       CapsLock-s: ctrl-c
