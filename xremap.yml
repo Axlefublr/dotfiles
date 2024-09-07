@@ -1280,8 +1280,8 @@ keymap:
       CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
       CapsLock-Alt-v: { launch: [mpv, '--start=0', '/home/axlefublr/vid/rec.mp4'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
-      Super-k: { launch: [fish, -c, runner_kill] }
       Super-Alt-Semicolon: { launch: [rofi, -show, drun] }
+      Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
       Super-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
       Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
       Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
