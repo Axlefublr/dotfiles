@@ -20,12 +20,13 @@ ln -sf ~/prog/dotfiles/awesome ~/.config/
 ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
 
 # Helix
-cd ~/prog/stored
-gh-repo-clone https://github.com/helix-editor/helix
-cd ~/prog/stored/helix
+cd ~/prog/forks
+gh-repo-clone Axlefublr/helix
+cd ~/prog/forks/helix
 cargo install --path helix-term --locked
-# ln -sf ~/.cargo/bin/hx ~/prog/binaries/helix
 ln -sf ~/prog/dotfiles/helix ~/.config
+mkdir -p ~/.cargo/bin/
+ln -sf ~/prog/forks/helix/runtime ~/.cargo/bin/
 
 # Fish shell
 chsh -s /usr/bin/fish
