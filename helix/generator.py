@@ -309,6 +309,8 @@ magazine_openers: dict[str, Any] = {
 }
 
 normal_select_mappings: dict[str, Any] = {
+    'A-,': 'decrement',
+    'A-.': 'increment',
     'o': 'open_below',
     'O': 'open_above',
     'H': 'page_cursor_half_up',
@@ -421,7 +423,7 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
     },
-    **disable(['Z', 'C-s', 'C-c', 'left', 'right', 'up', 'down', 'A-s', 'A-.', 'A-:']),
+    **disable(['Z', 'C-s', 'C-c', 'left', 'right', 'up', 'down', 'A-s', 'A-:']),
 }
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
