@@ -92,6 +92,12 @@ function magazine_cut
 end
 funcsave magazine_cut >/dev/null
 
+function magazine_commit
+    _magazine_notify $argv commit
+    _magazine_commit $argv commit
+end
+funcsave magazine_commit >/dev/null
+
 #---------------------------------------------------special---------------------------------------------------
 
 function magazine_append_link

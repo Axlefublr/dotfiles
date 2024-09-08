@@ -797,6 +797,71 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/0'] }
+      Shift_L-Alt-d:
+        exact_match: true
+        remap:
+          q: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/q'] }
+          w: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/w'] }
+          e: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/e'] }
+          r: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/r'] }
+          t: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/t'] }
+          y: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/y'] }
+          u: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/u'] }
+          i: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/i'] }
+          o: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/o'] }
+          p: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/p'] }
+          a: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/a'] }
+          s: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/s'] }
+          d: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/d'] }
+          f: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/f'] }
+          g: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/g'] }
+          h: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/h'] }
+          j: { launch: [fish, -c, 'magazine_commit ~/prog/dotfiles/project.txt'] }
+          k: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/k'] }
+          l: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/l'] }
+          z: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/z'] }
+          x: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/x'] }
+          c: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/c'] }
+          v: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/v'] }
+          b: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/b'] }
+          n: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/n'] }
+          m: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/m'] }
+          Shift-q: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/P'] }
+          Shift-a: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_commit (pick_project_path)'] }
+          Shift-k: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/L'] }
+          Shift-z: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/M'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/0'] }
       Shift_L-s:
         exact_match: true
         remap:
