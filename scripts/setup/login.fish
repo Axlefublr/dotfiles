@@ -21,7 +21,7 @@ playerctld daemon
 
 xrestart.fish
 
-kitty -T editor -d ~/prog/dotfiles --hold fish -c l 2>>/tmp/log/user.txt & disown
+kitty -T editor -d ~/prog/dotfiles --hold helix . 2>>/tmp/log/user.txt & disown
 kitty -T men helix 2>>/tmp/log/user.txt & disown
 kitty -T oil-content -d ~/vid/content --hold fish -c l 2>>/tmp/log/user.txt & disown
 
