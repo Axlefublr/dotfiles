@@ -1,2 +1,4 @@
 helix/runtime
 awesome/rc.lua
+helix/wrap-off.toml
+helix/config.toml
