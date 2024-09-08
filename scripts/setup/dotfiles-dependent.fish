@@ -26,6 +26,7 @@ cd ~/prog/forks/helix
 cargo install --path helix-term --locked
 ln -sf ~/prog/dotfiles/helix ~/.config
 mkdir -p ~/.cargo/bin/
+rm -fr ~/.cargo/bin/runtime
 ln -sf ~/prog/forks/helix/runtime ~/.cargo/bin/
 
 # Fish shell
