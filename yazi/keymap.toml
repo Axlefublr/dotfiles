@@ -64,8 +64,8 @@ keymap = [
   { on = '-', run = 'link --force', desc = 'Symlink' },
   { on = '_', run = 'link --force --relative', desc = 'Symlink relatively' },
 
-  { on = 'y', run = 'yank', desc = 'Yank selected files (copy)' },
-  { on = 'Y', run = 'yank --cut', desc = 'Yank selected files (cut)' },
+  { on = 's', run = 'yank', desc = 'Yank selected files (copy)' },
+  { on = 'S', run = 'yank --cut', desc = 'Yank selected files (cut)' },
   { on = 'X', run = 'unyank', desc = 'Cancel the yank status' },
   { on = 'p', run = 'paste', desc = 'Paste yanked files' },
   { on = 'P', run = 'paste --force', desc = 'Paste yanked files (overwrite if the destination exists)' },
@@ -87,8 +87,8 @@ keymap = [
   { on = 'f', run = 'filter --smart', desc = 'Filter files' },
   { on = 'z', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
   { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
-  { on = 's', run = 'search fd', desc = 'Search files by name using fd' },
-  { on = 'S', run = 'search rg', desc = 'Search files by content using ripgrep' },
+  { on = 'y', run = 'search fd', desc = 'Search files by name using fd' },
+  { on = 'Y', run = 'search rg', desc = 'Search files by content using ripgrep' },
   { on = '<C-c>', run = 'escape --search', desc = 'Cancel the ongoing search' },
 
   # -----------------------------------------------Linemode-----------------------------------------------
