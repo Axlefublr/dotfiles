@@ -348,6 +348,7 @@ normal_select_mappings: dict[str, Any] = {
     'S': 'yank_to_clipboard',
     'y': 'select_regex',
     'Y': 'split_selection',
+    'A-s': 'select_all',
     'A-m': 'split_selection_on_newline',
     'A-p': ':sh over lazygit &>/dev/null',
     'space': {
@@ -426,7 +427,7 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
     },
-    **disable(['Z', 'C-s', 'C-c', 'left', 'right', 'up', 'down', 'A-s', 'A-:']),
+    **disable(['Z', 'C-s', 'C-c', 'left', 'right', 'up', 'down', 'A-:']),
 }
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
