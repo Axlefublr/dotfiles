@@ -337,7 +337,10 @@ normal_select_mappings: dict[str, Any] = {
     'a': ['collapse_selection', 'append_mode'],
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
-    'Y': 'yank_to_clipboard',
+    's': 'yank',
+    'S': 'yank_to_clipboard',
+    'y': 'select_regex',
+    'Y': 'split_selection',
     'A-m': 'split_selection_on_newline',
     'A-p': ':sh over lazygit &>/dev/null',
     'space': {
