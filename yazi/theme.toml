@@ -45,8 +45,10 @@ footer = { fg = 'white', bg = '#292828' }
 
 [filetype]
 rules = [
-  { mime = 'inode/x-empty', fg = 'cyan' },   # empty file
-  { name = '*', is = 'orphan', fg = 'red' }, # orphan symbolic links
+  { mime = 'inode/x-empty', fg = 'red' },      # empty file
+  { name = '*', is = 'orphan', fg = 'red' },   # orphan symbolic links
+  { name = '*', is = 'exec', fg = 'green' },   # executables
+  { name = '*', is = 'link', fg = '#78bf84' }, # symbolic links
   # { name = '*', fg = 'white' },
-  { name = '*/', fg = '#78bf84' },
+  { name = '*/', fg = 'blue' },
 ]
