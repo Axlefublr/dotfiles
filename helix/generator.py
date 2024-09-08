@@ -382,10 +382,10 @@ normal_select_mappings: dict[str, Any] = {
         'u': 'goto_reference',
         'U': 'select_references_to_symbol_under_cursor',
         'g': ':reset-diff-change',
+        '*': 'make_search_word_bounded',
         **disable(['D', 't', 'c', 'r', 's', 'a']),
     },
     'z': {
-        '/': 'make_search_word_bounded',
         'k': 'rotate_view_reverse',
         'j': 'rotate_view',
         'J': 'hsplit',
