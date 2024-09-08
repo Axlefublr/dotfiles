@@ -364,6 +364,10 @@ normal_select_mappings: dict[str, Any] = {
         **disable(['D', 'w', 'C', 'Y', 'p', 'P', 'G', 'a', 'g', 'b', 'A-c', 'h', 'F', 'y']),
     },
     'g': {
+        'e': 'move_next_sub_word_end',
+        'w': 'move_next_sub_word_start',
+        # '': 'move_prev_sub_word_end',
+        'b': 'move_prev_sub_word_start',
         'h': 'goto_first_nonwhitespace',
         'H': 'goto_line_start',
         'l': 'goto_line_end',
@@ -377,7 +381,7 @@ normal_select_mappings: dict[str, Any] = {
         'u': 'goto_reference',
         'U': 'select_references_to_symbol_under_cursor',
         'g': ':reset-diff-change',
-        **disable(['D', 't', 'b', 'c', 'r', 's', 'a', 'e', 'w']),
+        **disable(['D', 't', 'c', 'r', 's', 'a']),
     },
     'z': {
         '/': 'make_search_word_bounded',
