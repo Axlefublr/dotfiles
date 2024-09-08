@@ -91,7 +91,7 @@ editor: dict[str, Any] = {
     'gutters': {
         'line-numbers': {'min-width': 2},
         'layout': [
-            # 'diff',
+            'diff',
             # 'spacer',
         ],
     },

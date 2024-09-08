@@ -41,7 +41,7 @@ focus-lost = false
 "`" = "`"
 
 [editor.gutters]
-layout = []
+layout = [ "diff",]
 
 [editor.statusline]
 separator = ""
