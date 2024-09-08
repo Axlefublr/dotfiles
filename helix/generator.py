@@ -397,6 +397,7 @@ normal_select_mappings: dict[str, Any] = {
         'a': 'append_mode',
         'n': 'select_all_siblings',
         'N': 'select_all_children',
+        "'": ':reload',
         **disable(
             [
                 'z',
