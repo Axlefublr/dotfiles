@@ -39,7 +39,7 @@ function magazine_write
     not test "$argv" && return
     set result (rofi -dmenu 2>/dev/null ; echo $status)
     test $result[-1] -ne 0 && return || set -e result[-1]
-    printf "$result" >$argv
+    echo "$result" >$argv
     _magazine_update $argv
     _magazine_notify $argv write
     _magazine_commit $argv write
@@ -50,7 +50,7 @@ function magazine_append
     not test "$argv" && return
     set result (rofi -dmenu 2>/dev/null ; echo $status)
     test $result[-1] -ne 0 && return || set -e result[-1]
-    indeed $argv -- $result
+    indeed -n $argv -- $result
     _magazine_update $argv
     _magazine_notify $argv append
     _magazine_commit $argv append
@@ -59,7 +59,7 @@ funcsave magazine_append >/dev/null
 
 function magazine_appclip
     not test "$argv" && return
-    indeed $argv -- "$(ypoc)"
+    indeed -n $argv -- "$(ypoc)"
     _magazine_update $argv
     _magazine_notify $argv appclip
     _magazine_commit $argv appclip
@@ -77,7 +77,7 @@ function magazine_filter
         set collected $collected $line
     end
     set multiline (printf '%s\n' $collected | string collect)
-    echo -n $multiline >$argv
+    echo $multiline >$argv
     _magazine_update $argv
     _magazine_notify $argv filter
     _magazine_commit $argv filter
@@ -98,7 +98,7 @@ function magazine_append_link
     set result (rofi -dmenu 2>/dev/null ; echo $status)
     test $result[-1] -ne 0 && return || set -e result[-1]
     set link (ypoc)
-    indeed -u ~/.local/share/magazine/l "$result — $link"\n
+    indeed -nu ~/.local/share/magazine/l "$result — $link"
     silly_sort.py ~/.local/share/magazine/l
     notify-send -t 2000 "append link $link"
 end
