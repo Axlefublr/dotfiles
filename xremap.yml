@@ -1259,7 +1259,7 @@ keymap:
       CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
       CapsLock-Alt-q: { launch: [xdotool, getwindowfocus, windowkill] }
 
-      Super-u: [{ launch: [fish, -c, 'widget_update update_anki no-increment Anki'] }, super-u]
+      Super-u: [{ launch: [fish, -c, 'widget_update update-anki no-increment Anki'] }, super-u]
 
       CapsLock-Shift-LeftBrace:
         { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
