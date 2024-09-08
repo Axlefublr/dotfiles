@@ -203,6 +203,9 @@ normal_mappings: dict[str, Any] = {
     'r': ['collapse_selection', 'replace'],
     'j': 'move_visual_line_down',
     'k': 'move_visual_line_up',
+    '`': ['collapse_selection', 'switch_to_lowercase'],
+    'A-`': ['collapse_selection', 'switch_to_uppercase'],
+    '~': ['collapse_selection', 'switch_case'],
 }
 
 normal_mappings.update(**rusify(normal_mappings))
