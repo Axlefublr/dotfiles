@@ -13,7 +13,7 @@ auto-info = true
 color-modes = true
 text-width = 110
 default-line-ending = "lf"
-insert-final-newline = false
+insert-final-newline = true
 jump-label-alphabet = "fjdkslaeiwoghruxcz/vmtyqp"
 
 [editor.soft-wrap]

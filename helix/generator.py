@@ -53,7 +53,7 @@ editor: dict[str, Any] = {
     'color-modes': True,
     'text-width': 110,
     'default-line-ending': 'lf',
-    'insert-final-newline': False,
+    'insert-final-newline': True,
     'jump-label-alphabet': 'fjdkslaeiwoghruxcz/vmtyqp',
     # 'bufferline': 'multiple',
     # 'idle-timeout': 250,
