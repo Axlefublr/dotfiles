@@ -356,7 +356,6 @@ normal_select_mappings: dict[str, Any] = {
     'T': 'find_prev_char',
     'A-s': 'select_all',
     'A-m': 'split_selection_on_newline',
-    'A-p': ':sh over lazygit &>/dev/null',
     'space': {
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
@@ -368,7 +367,12 @@ normal_select_mappings: dict[str, Any] = {
         '?': 'command_palette',
         'd': magazine_openers,
         '$': 'shell_keep_pipe',
-        **disable(['D', 'w', 'C', 'Y', 'p', 'P', 'G', 'a', 'g', 'b', 'A-c', 'h', 'F', 'y']),
+        'u': ':sh tab &>/dev/null',
+        'i': ':sh win &>/dev/null',
+        'o': ':sh over &>/dev/null',
+        'p': ':sh over lazygit &>/dev/null',
+        'l': ':sh over yazi &>/dev/null',
+        **disable(['D', 'w', 'C', 'Y', 'P', 'G', 'a', 'g', 'b', 'A-c', 'h', 'F', 'y']),
     },
     'g': {
         'e': 'move_next_sub_word_end',
