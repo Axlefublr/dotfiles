@@ -19,9 +19,7 @@ client.connect_signal('property::urgent', function(client)
 	if client.class == 'Spotify' then client.urgent = false end
 end)
 
-client.connect_signal('property::name', function(client)
-	if client.name == 'Modded Slay the Spire' then client.fullscreen = true end
-end)
+-- client.connect_signal('property::name', function(_) end)
 
 client.connect_signal('property::minimized', function(_) Clients_wu(screen.primary.selected_tag) end)
 
