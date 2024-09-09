@@ -1,5 +1,5 @@
 local activate_tag = function(tag)
-	local screen = awful.screen.focused()
+	local screen = screen.primary
 	local tag = type(tag) == 'number' and screen.tags[tag] or tag
 	if tag then tag:view_only() end
 end
@@ -52,7 +52,7 @@ function Ignore_all_urgencies()
 end
 
 function Unminimize_all_on_tag(tag)
-	local tag = tag or awful.tag.selected(awful.screen.focused())
+	local tag = tag or awful.tag.selected(screen.primary)
 	for _, client in ipairs(tag:clients()) do
 		if client.minimized then client.minimized = false end
 	end
@@ -78,7 +78,7 @@ function WriteClientInfo()
 		end
 		text = text .. '\n'
 	end
-	local file = io.open('/home/axlefublr/.local/share/magazine/i', 'w')
+	local file = io.open('/home/axlefublr/.local/share/magazine/o', 'w')
 	if file then
 		file:write(text)
 		file:close()
