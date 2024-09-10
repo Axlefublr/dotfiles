@@ -336,7 +336,7 @@ normal_select_mappings: dict[str, Any] = {
     'A-j': 'shrink_selection',
     'C-p': 'expand_selection',
     'A-k': 'expand_selection',
-    '\\': ['select_all', 'delete_selection_noyank', 'shell_append_output'],
+    '\\': 'shell_replace_with_output',
     '{': 'goto_prev_paragraph',
     '}': 'goto_next_paragraph',
     '#': 'toggle_comments',
