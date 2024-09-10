@@ -78,9 +78,11 @@ function uboot
         paru -Rns --noconfirm $package
     end
     truncate -s 0 ~/.local/share/magazine/C
-    for dir in (eza -aD ~/docs)
-        kitten @ launch --type os-window --os-window-title link-download --cwd ~/docs/$dir httrack --update
-    end
+    clorange docs increment
+    set -l doc_dirs (eza -aD ~/docs)
+    set -l count_doc_dirs (count $doc_dirs)
+    set -l current_doc_dir (clorange doc_dirs increment ; math "$(clorange doc_dirs show) % $count_doc_dirs + 1")
+    kitten @ launch --type os-window --os-window-title link-download --cwd ~/docs/$doc_dirs[$current_doc_dir] httrack --update
     sudo -v
     if test (math (clorange updates show) % 5) -eq 0
         rustup update
