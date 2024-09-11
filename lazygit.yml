@@ -70,3 +70,14 @@ keybinding:
     quit-alt1: K
     select: v
     toggleRangeSelect: x
+customCommands:
+    - key: "e"
+      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
+      description: 'Edit file at this point in history'
+      context: "commitFiles"
+      subprocess: true
+    - key: "E"
+      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
+      description: 'Edit file at the commit before this point in history'
+      context: "commitFiles"
+      subprocess: true
