@@ -43,16 +43,12 @@ funcsave runner_kill >/dev/null
 
 function runner_math
     set input (rofi -dmenu 2> /dev/null ; echo $status)
-    if test $input[-1] -ne 0
-        return 1
-    end
-    set -e input[-1]
-    set input (string collect $input)
-    if test -n $input
-        set result (math "$input" | string collect)
-        notify-send -t 2000 $result
-        echo $result >~/.local/share/magazine/o
-    end
+    test $input[-1] -ne 0 && return 1 || set -e input[-1]
+    test $input || return 1
+    set result (math $input)
+    notify-send -t 0 $result
+    echo $result >~/.local/share/magazine/o
+    _magazine_commit ~/.local/share/magazine/o math
 end
 funcsave runner_math >/dev/null
 
