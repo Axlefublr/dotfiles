@@ -52,21 +52,21 @@ keybinding:
   universal:
     # return: h
     # goInto: l
-    # scrollLeft: h
-    # scrollRight: l
+    # togglePanel: J
 
     # prevPage: '<disabled>'
     # nextPage: <disabled>
-    scrollLeft: '<disabled>'
-    scrollRight: '<disabled>'
     
+    scrollLeft:  ','
+    scrollRight: '.'
+    prevPage: '<'
+    nextPage: '>'
     nextScreenMode: J
-    # prevScreenMode: ','
+    # prevScreenMode:
     prevBlock-alt: h
     nextBlock-alt: l
     scrollUpMain-alt1: H
     scrollDownMain-alt1: L
     quit-alt1: K
-    # togglePanel: J
     select: v
     toggleRangeSelect: x
