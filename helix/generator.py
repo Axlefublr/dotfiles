@@ -408,6 +408,11 @@ normal_select_mappings: dict[str, Any] = {
         'L': ':sh over --cwd=%w yazi',
         'p': ':sh over lazygit',
         # 'space': ':sh echo {path}',
+        ':': ':lang',
+        ';': {
+            'h': ':lang html',
+            'm': ':lang markdown',
+        },
         **disable(['A-c', 'C', 'D', 'F', 'G', 'P', 'Y', 'a', 'b', 'g', 'h', 'w', 'y']),
     },
     'g': {
