@@ -117,3 +117,17 @@ function tab
     kitten @ launch --type tab --cwd $cwd $argv &>/dev/null
 end
 funcsave tab >/dev/null
+
+function ?
+    if builtin -q $argv[1]
+        ?? $argv
+        return
+    end
+    $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
+end
+funcsave ? >/dev/null
+
+function ??
+    man $argv 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml
+end
+funcsave ?? >/dev/null

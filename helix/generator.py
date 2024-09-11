@@ -500,6 +500,11 @@ with open('/home/axlefublr/prog/dotfiles/helix/config.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['whitespace']['render']['newline'] = 'none'
+entire_config['editor']['gutters']['layout'] = []
+
+with open('/home/axlefublr/prog/dotfiles/helix/man.toml', 'w') as file:
+    toml.dump(entire_config, file)
+
 entire_config['editor']['soft-wrap']['enable'] = False
 
 with open('/home/axlefublr/prog/dotfiles/helix/wrap-off.toml', 'w') as file:
