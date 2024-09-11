@@ -408,7 +408,7 @@ normal_select_mappings: dict[str, Any] = {
         'L': ':sh over --cwd=%w yazi',
         'p': ':sh over lazygit',
         # 'space': ':sh echo {path}',
-        **disable(['D', 'w', 'C', 'Y', 'P', 'G', 'a', 'g', 'b', 'A-c', 'h', 'F', 'y']),
+        **disable(['A-c', 'C', 'D', 'F', 'G', 'P', 'Y', 'a', 'b', 'g', 'h', 'w', 'y']),
     },
     'g': {
         'e': 'move_next_sub_word_end',
@@ -429,7 +429,7 @@ normal_select_mappings: dict[str, Any] = {
         'U': 'select_references_to_symbol_under_cursor',
         'g': ':reset-diff-change',
         '*': 'make_search_word_bounded',
-        **disable(['D', 't', 'c', 'r', 's', 'a']),
+        **disable(['D', 'a', 'c', 'r', 's', 't']),
     },
     'z': {
         'k': 'rotate_view_reverse',
@@ -455,25 +455,25 @@ normal_select_mappings: dict[str, Any] = {
         "'": ':reload',
         **disable(
             [
-                'z',
-                'c',
-                't',
-                'b',
-                'up',
-                'down',
-                'pageup',
-                'pagedown',
+                '?',
                 'C-b',
+                'C-d',
                 'C-f',
                 'C-u',
-                'C-d',
+                'b',
                 'backspace',
+                'c',
+                'down',
+                'pagedown',
+                'pageup',
                 'space',
-                '?',
+                't',
+                'up',
+                'z',
             ]
         ),
     },
-    **disable(['Z', 'C-s', 'C-c', 'left', 'right', 'up', 'down', 'A-:']),
+    **disable(['A-:', 'C-c', 'C-s', 'Z', 'down', 'left', 'right', 'up']),
 }
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
