@@ -19,6 +19,9 @@ end
 funcsave bind_both >/dev/null
 
 function fish_user_key_bindings
+    #------------------------------------------------disabling------------------------------------------------
+    bind_all \es true
+
     #------------------------------------------------helix mode------------------------------------------------
     bind w forward-word
     bind b backward-word
@@ -37,7 +40,7 @@ function fish_user_key_bindings
 
     bind -m visual % beginning-of-buffer begin-selection end-of-buffer
 
-    bind Y 'commandline | copy'
+    bind S 'commandline | copy'
 
     bind_both e edit_command_buffer
 
