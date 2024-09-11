@@ -53,6 +53,8 @@ function fish_user_key_bindings
     #-------------------------------------------------other-------------------------------------------------
     bind_all \ej complete
     bind_all \ek complete-and-search
+    bind_all \cn complete
+    bind_all \cp complete-and-search
     bind_all \eo expand-abbr
     bind -M insert / expand-abbr self-insert
 
