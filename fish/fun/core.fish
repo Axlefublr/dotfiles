@@ -90,7 +90,30 @@ function task
 end
 funcsave task >/dev/null
 
-alias --save win 'kitten @ launch --type window --cwd current' >/dev/null
-alias --save over 'kitten @ launch --type overlay-main --cwd current' >/dev/null
-alias --save tab 'kitten @ launch --type tab --cwd current' >/dev/null
-alias --save os 'kitten @ launch --type os-window --cwd current' >/dev/null
+function win
+    argparse cwd= -- $argv || return 1
+    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
+    kitten @ launch --type window --cwd $cwd $argv &>/dev/null
+end
+funcsave win >/dev/null
+
+function over
+    argparse cwd= -- $argv || return 1
+    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
+    kitten @ launch --type overlay-main --cwd $cwd $argv &>/dev/null
+end
+funcsave over >/dev/null
+
+function os
+    argparse cwd= -- $argv || return 1
+    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
+    kitten @ launch --type os-window --cwd $cwd $argv &>/dev/null
+end
+funcsave os >/dev/null
+
+function tab
+    argparse cwd= -- $argv || return 1
+    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
+    kitten @ launch --type tab --cwd $cwd $argv &>/dev/null
+end
+funcsave tab >/dev/null
