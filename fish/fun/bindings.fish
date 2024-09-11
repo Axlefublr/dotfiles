@@ -48,6 +48,8 @@ function fish_user_key_bindings
     bind_all \ep 'over lazygit &>/dev/null'
 
     #-------------------------------------------------other-------------------------------------------------
+    bind_all \ej complete
+    bind_all \ek complete-and-search
     bind_all \eo expand-abbr
     bind -M insert / expand-abbr self-insert
 
