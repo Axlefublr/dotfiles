@@ -7,7 +7,6 @@ modmap:
       Esc: F8
       Tab: Esc
       Compose: Super_R # For me, Compose is the menu key. you'd usually remap this on a lower level, so this is just a safeguard.
-      Alt_R: F7
 
   - name: Game side mouse buttons fix
     remap:
@@ -87,9 +86,6 @@ keymap:
     application:
       only: [Alacritty, kitty]
     remap:
-      # Alt-j: ctrl-n
-      # Alt-k: ctrl-p
-      # Alt-Apostrophe: ctrl-r
       CapsLock-Alt-Semicolon: ctrl-w
       Ctrl-Alt-u: f4
       Ctrl-Enter: f2
@@ -1316,7 +1312,6 @@ keymap:
       Super-c: { launch: [awesome-client, FixBrowserInstance()] }
       Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
       CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
-      F7: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }]
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
       Super-v: { launch: [boomer] }
