@@ -332,7 +332,7 @@ keymap:
           CapsLock-u: { launch: [kitty] }
           y: { launch: [fish, -c, screenkey] }
           Shift-y: { launch: [kill, screenkey] }
-          i: { launch: [awesome-client, 'WriteClientInfo()'] }
+          i: { launch: [fish, -c, magazine_client_info] }
 
           b:
             remap:

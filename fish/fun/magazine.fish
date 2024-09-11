@@ -110,6 +110,12 @@ function magazine_append_link
 end
 funcsave magazine_append_link >/dev/null
 
+function magazine_client_info
+    awesome-client 'WriteClientInfo()'
+    _magazine_commit ~/.local/share/magazine/o clients
+end
+funcsave magazine_client_info >/dev/null
+
 #--------------------------------------------------internal--------------------------------------------------
 
 function _magazine_notify
