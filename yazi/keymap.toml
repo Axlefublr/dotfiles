@@ -62,6 +62,7 @@ keymap = [
   { on = 'D', run = 'remove --hovered --force', desc = 'Trash hovered' },
 
   { on = '-', run = 'link --force', desc = 'Symlink' },
+  { on = '+', run = 'hardlink --force --follow', desc = 'Hardlink' },
   { on = '_', run = 'link --force --relative', desc = 'Symlink relatively' },
 
   { on = 's', run = 'yank', desc = 'Yank selected files (copy)' },
