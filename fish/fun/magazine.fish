@@ -70,6 +70,7 @@ function magazine_filter
     not test "$argv" && return
     set result (rofi_multi_select -input $argv 2>/dev/null ; echo $status)
     test $result[-1] -ne 0 && return || set -e result[-1]
+    echo $result | copy
     for line in (cat $argv)
         if contains "$line" $result
             continue
