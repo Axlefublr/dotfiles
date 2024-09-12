@@ -123,11 +123,19 @@ function ?
         ?? $argv
         return
     end
-    $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
+    if status is-interactive
+        $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
+    else
+        $argv --help
+    end
 end
 funcsave ? >/dev/null
 
 function ??
-    man $argv 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml
+    if status is-interactive
+        man $argv &| helix -c ~/prog/dotfiles/helix/man.toml
+    else
+        man $argv
+    end
 end
 funcsave ?? >/dev/null
