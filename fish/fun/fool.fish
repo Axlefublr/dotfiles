@@ -2,6 +2,7 @@
 
 function loago
     command loago $argv
+    test $argv[1] = --help && return
     if contains $argv[1] do remove
         set prevdir $PWD
         cd ~/prog/autocommit
