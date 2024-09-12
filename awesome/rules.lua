@@ -58,6 +58,10 @@ awful.rules.rules = {
 
 	---------------------------------------------------tag o/3-------------------------------------------------
 	{
+		rule_any = { class = 'Zathura' },
+		properties = { tag = screen.primary.tags[3] },
+	},
+	{
 		rule = { class = 'kitty', name = 'men' },
 		properties = {
 			tag = screen.primary.tags[3],
@@ -67,15 +71,15 @@ awful.rules.rules = {
 
 	----------------------------------------------------tag p--------------------------------------------------
 	{
-		rule_any = { class = 'Zathura' },
-		properties = { tag = screen.primary.tags[4] },
-	},
-	{
 		rule = { class = 'kitty', name = 'screen_record' },
 		properties = {
 			tag = screen.primary.tags[4],
 		},
 	},
+	-- {
+	-- 	rule_any = { class = '' },
+	-- 	properties = { tag = screen.primary.tags[4] },
+	-- },
 
 	----------------------------------------------------tag ,--------------------------------------------------
 	{
