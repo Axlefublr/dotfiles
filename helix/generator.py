@@ -95,6 +95,9 @@ editor: dict[str, Any] = {
             # 'spacer',
         ],
     },
+    'file-picker': {
+        'hidden': False,  # also shows "dot files" in results
+    },
     'statusline': statusline,
     'lsp': lsp,
 }
