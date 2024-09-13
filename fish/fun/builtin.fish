@@ -5,19 +5,6 @@ end
 funcsave fish_greeting >/dev/null
 
 function fish_title
-    if set -q title && not test "$title" = ''
-        echo $title
-        return
-    end
-
-    set -l command_name
-    if set -q argv[1]
-        set command_name ':'(string match -r '^\\s*\w+' $argv[1])
-    else
-        set command_name ''
-    end
-    set -l cwd (string replace -r "^$HOME" "~" "$PWD")
-    echo (basename $cwd)$command_name
 end
 funcsave fish_title >/dev/null
 
