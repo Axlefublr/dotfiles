@@ -49,7 +49,7 @@ loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sle
 
 for dir in ~/prog/stored/*
     cd $dir
-    git fetch
+    git pull
 end
 
 gpp
