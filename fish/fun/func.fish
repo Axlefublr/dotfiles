@@ -1,8 +1,12 @@
 #!/usr/bin/env fish
 
+#------------------------------------------------------------------------------------------------------------
+#          for special logic and "functionality", often app-specific or in other ways hyperspecific          
+#------------------------------------------------------------------------------------------------------------
+
 #----------------------------------------------------anki----------------------------------------------------
 
-function anki-update
+function anki_update
     if test (anki-due) -gt 0
         if not test "$argv"
             clorange anki increment
@@ -14,7 +18,7 @@ function anki-update
         clorange anki reset
     end
 end
-funcsave anki-update >/dev/null
+funcsave anki_update >/dev/null
 
 function anki-due
     curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "is:due" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
