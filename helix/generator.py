@@ -99,6 +99,11 @@ editor: dict[str, Any] = {
     'file-picker': {
         'hidden': False,  # also shows "dot files" in results
     },
+    'inline-diagnostics': {
+        'cursor-line': 'info',
+        'other-lines': 'info',
+        'max-wrap': 0,
+    },
     'statusline': statusline,
     'lsp': lsp,
 }

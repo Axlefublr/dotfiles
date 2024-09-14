@@ -65,13 +65,19 @@
 'warning' = 'yellow'
 'error' = 'red'
 
-'diagnostic' = { underline = { style = 'curl' } }
-'diagnostic.hint' = { underline = { color = 'cyan', style = 'curl' } }
-'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
-'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
-'diagnostic.error' = { underline = { color = 'red', style = 'curl' } }
+'diagnostic' = {}
+'diagnostic.hint' = {}
+'diagnostic.info' = {}
+'diagnostic.warning' = {}
+'diagnostic.error' = {}
 'diagnostic.deprecated' = { modifiers = ['crossed-out'] }
 'diagnostic.unnecessary' = { fg = 'grey' }
+# 'diagnostic' = { underline = { style = 'curl' } }
+# 'diagnostic.hint' = { underline = { color = 'cyan', style = 'curl' } }
+# 'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
+# 'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
+# 'diagnostic.error' = { underline = { color = 'red', style = 'curl' } }
+# 'diagnostic.deprecated' = { modifiers = ['crossed-out'] }
 
 # ------------------------------------------------language------------------------------------------------
 'attribute' = 'mint'
