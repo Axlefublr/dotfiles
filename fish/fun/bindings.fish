@@ -38,6 +38,11 @@ function fish_user_key_bindings
     bind_visual v down-line
     bind_visual V up-line
 
+    bind_both -m visual zl begin-selection end-of-line
+    bind_both -m visual zh begin-selection beginning-of-line
+    bind_both gh beginning-of-line
+    bind_both gl end-of-line
+
     bind -m visual % beginning-of-buffer begin-selection end-of-buffer
 
     bind S 'commandline | copy'
