@@ -29,3 +29,15 @@ function anki-sync
     curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
 end
 funcsave anki-sync >/dev/null
+
+#--------------------------------------------------terminal--------------------------------------------------
+
+function set_tab_title
+    read -P 'title: ' new_title
+    if not test "$new_title"
+        kitten @ set-tab-title ""
+        return
+    end
+    kitten @ set-tab-title " $new_title"
+end
+funcsave set_tab_title >/dev/null
