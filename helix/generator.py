@@ -37,6 +37,7 @@ lsp: dict[str, Any] = {
     'auto-signature-help': True,
     'display-inlay-hints': True,
     'display-signature-help-docs': True,
+    'snippets': True,
     'goto-reference-include-declaration': False,
 }
 
@@ -330,8 +331,8 @@ normal_select_mappings: dict[str, Any] = {
     'D': ['delete_selection', 'move_char_left'],
     ':': 'repeat_last_motion',
     '$': 'keep_selections',
-    'K': ':xa!',
-    "'": ':wa!',
+    'K': ':write-quit-all',
+    "'": ':write-all',
     'M': 'save_selection',
     'A-h': 'select_prev_sibling',
     'A-l': 'select_next_sibling',
@@ -390,7 +391,7 @@ normal_select_mappings: dict[str, Any] = {
         'f': 'file_picker_in_current_directory',
         'j': 'file_picker_in_current_buffer_directory',
         'e': 'buffer_picker',
-        'K': ':qa!',
+        'K': ':quit-all!',
         'c': 'code_action',
         '?': 'command_palette',
         'd': magazine_openers,
