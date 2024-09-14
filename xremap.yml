@@ -1309,8 +1309,8 @@ keymap:
               'truncate -s 0 /tmp/tesseract.txt ; xclip -selection clipboard -o -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && xclip -r -selection clipboard /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
-      Super-c: { launch: [awesome-client, FixBrowserInstance()] }
-      Super-Alt-c: { launch: [awesome-client, FixBrowserInstance(7)] }
+      Super-c: { launch: [fish, -c, 'ensure_browser main --and-back'] }
+      Super-Alt-c: { launch: [fish, -c, 'ensure_browser content --and-back'] }
       CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }

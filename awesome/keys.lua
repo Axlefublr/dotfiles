@@ -11,18 +11,6 @@ local toggle_window_on_tag = function(index)
 	end
 end
 
----@alias BrowserInstance
----| 'main'
----| 'content'
-
----@param index BrowserInstance|integer
-function FixBrowserInstance(index)
-	if type(index) == 'string' then index = index == 'content' and 7 or 2 end
-	local prev_tag = screen.primary.selected_tag
-	activate_tag(index or 2)
-	activate_tag(prev_tag)
-end
-
 function MoveVideoPopout(client, x, y, width, height)
 	local client = client or client.focus
 	local x = x or 0

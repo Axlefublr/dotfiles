@@ -50,12 +50,23 @@ function move_all
 end
 funcsave move_all >/dev/null
 
+function get_current_desktop
+    wmctrl -d | awk '$2 == "*" { print $1 }'
+end
+funcsave get_current_desktop >/dev/null
+
 function ensure_browser
-    switch "$argv"
+    if test "$argv[2]"
+        set -f prev_desk (get_current_desktop)
+    end
+    switch "$argv[1]"
         case main
             wmctrl -s 1
         case content
             wmctrl -s 6
+    end
+    if test "$argv[2]"
+        wmctrl -s $prev_desk
     end
 end
 funcsave ensure_browser >/dev/null
