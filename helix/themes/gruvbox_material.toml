@@ -19,7 +19,7 @@
 'ui.menu.selected' = { fg = 'dark12', bg = 'orange', modifiers = ['bold'] }
 
 #---------------------------------------------------picker---------------------------------------------------
-'ui.picker.header' = { bg = '#313030' }
+'ui.picker.header' = {}
 'ui.picker.header.column' = { fg = 'white', modifiers = ['bold'] }
 'ui.picker.header.column.active' = { modifiers = ['underlined', 'bold'] }
 
