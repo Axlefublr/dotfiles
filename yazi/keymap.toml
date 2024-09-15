@@ -37,6 +37,12 @@ keymap = [
     'g',
     'o',
   ], run = 'arrow 99999999', desc = 'Go to bottom' },
+  { on = [
+    'g',
+    'q',
+  ], run = '''
+  	shell 'ya pub dds-cd --str "$(git rev-parse --show-toplevel)"' --confirm
+  ''', desc = 'Go to repo root' },
 
   # -----------------------------------------------Selection-----------------------------------------------
   { on = 'V', run = [
