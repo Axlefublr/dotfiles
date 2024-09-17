@@ -44,3 +44,4 @@ spotify-launcher -v 2>>/tmp/log/user.txt & disown
 RUST_LOG=debug axleizer &>/tmp/log/axleizer.txt & disown
 
 notify-send -t 0 'logged in'
+awesome-client 'Ignore_all_urgencies()'
