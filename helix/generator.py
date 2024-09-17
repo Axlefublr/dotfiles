@@ -412,6 +412,8 @@ normal_select_mappings: dict[str, Any] = {
         'p': ':sh over lazygit',
         # 'space': ':sh echo {path}',
         ':': ':lang',
+        'l': 'symbol_picker',
+        'L': 'workspace_symbol_picker',
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
