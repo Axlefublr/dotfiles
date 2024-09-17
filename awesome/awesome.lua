@@ -1,7 +1,9 @@
+awm = {}
+env = {}
+
 -- Standard awesome library
 gears = require('gears')
 awful = require('awful')
-require('awful.autofocus')
 -- Widget and layout library
 wibox = require('wibox')
 -- Theme handling library
@@ -10,6 +12,10 @@ beautiful = require('beautiful')
 naughty = require('naughty')
 menubar = require('menubar')
 hotkeys_popup = require('awful.hotkeys_popup')
+
+-- change the focused window on various useful events automatically
+-- god knows what those are!
+require('awful.autofocus')
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to

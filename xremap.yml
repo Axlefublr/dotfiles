@@ -1266,8 +1266,8 @@ keymap:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       Ctrl-Esc: { launch: [awesome-client, Ignore_all_urgencies()] }
       Ctrl-Alt-Esc: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
-      Alt-Esc: { launch: [awesome-client, "DestroySidedNotification('oldest')"] }
-      Shift-Alt-Esc: { launch: [awesome-client, "DestroySidedNotification('latest')"] }
+      Alt-Esc: { launch: [awesome-client, "env.destroy_sided_notification('oldest')"] }
+      Shift-Alt-Esc: { launch: [awesome-client, "env.destroy_sided_notification('latest')"] }
 
   - name: Any! media
     exact_match: true
