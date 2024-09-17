@@ -27,7 +27,7 @@ end
 funcsave ocr >/dev/null
 
 function m
-    set harp (harp get cd_harps $argv --path | string replace '~' $HOME)
+    set harp (harp get harp_dirs $argv --path | string replace '~' $HOME)
     if test "$harp"
         z "$harp"
     end
@@ -35,7 +35,7 @@ end
 funcsave m >/dev/null
 
 function M
-    harp update cd_harps $argv --path (string replace $HOME '~' $PWD)
+    harp update harp_dirs $argv --path (string replace $HOME '~' $PWD)
     and echo "bookmark $argv set"
 end
 funcsave M >/dev/null
