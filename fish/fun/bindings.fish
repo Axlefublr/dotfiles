@@ -52,8 +52,8 @@ function fish_user_key_bindings
     bind_both K exit
 
     #--------------------------------------------------core--------------------------------------------------
-    bind_all \el l # believe it or not, this is yazi
-    bind_all \ep 'over lazygit &>/dev/null'
+    bind_all \em yazi-cd
+    bind_all \ep 'over lazygit'
 
     #-------------------------------------------------other-------------------------------------------------
     bind_all \ej complete

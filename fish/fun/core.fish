@@ -40,7 +40,7 @@ function M
 end
 funcsave M >/dev/null
 
-function l
+function yazi-cd
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
@@ -49,7 +49,7 @@ function l
     commandline -f repaint
     rm -f -- "$tmp"
 end
-funcsave l >/dev/null
+funcsave yazi-cd >/dev/null
 
 function neoline
     kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --type os-window --os-window-title neoline --no-response helix $argv
