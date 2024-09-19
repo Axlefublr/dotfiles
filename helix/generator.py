@@ -51,6 +51,7 @@ editor: dict[str, Any] = {
     'preview-completion-insert': True,
     'completion-trigger-len': 2,
     'auto-info': True,
+    'whichkey': False,
     'color-modes': True,
     'text-width': 110,
     'default-line-ending': 'lf',
