@@ -54,6 +54,7 @@ function fish_user_key_bindings
     #--------------------------------------------------core--------------------------------------------------
     bind_all \em yazi-cd
     bind_all \ep 'over lazygit'
+    bind_all \eh 'zi && commandline -f repaint'
 
     #-------------------------------------------------other-------------------------------------------------
     bind_all \ej complete

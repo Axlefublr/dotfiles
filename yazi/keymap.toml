@@ -92,7 +92,7 @@ keymap = [
   { on = 'N', run = 'find_arrow --previous', desc = 'Go to the previous found' },
 
   { on = 'f', run = 'filter --smart', desc = 'Filter files' },
-  { on = 'z', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
+  { on = '<A-h>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
   { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
   { on = 'y', run = 'search fd', desc = 'Search files by name using fd' },
   { on = 'Y', run = 'search rg', desc = 'Search files by content using ripgrep' },
