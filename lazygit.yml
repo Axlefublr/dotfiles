@@ -61,8 +61,8 @@ keybinding:
     scrollRight: '.'
     prevPage: '<'
     nextPage: '>'
-    nextScreenMode: '"'
-    prevScreenMode: J
+    nextScreenMode: '+'
+    prevScreenMode: '-'
     prevBlock-alt: h
     nextBlock-alt: l
     scrollUpMain-alt1: H
