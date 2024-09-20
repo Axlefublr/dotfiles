@@ -65,14 +65,14 @@ configuration {
 	orange-supporting: #5f472d;
 	yellow: #ffd75f;
 	white: #d4be98;
-	darkness: #1a1919;
+	dark12: #1f1e1e;
 	black: #0f0f0f;
 
-	highlight: bold #b58cc6;
+	highlight: bold #e49641;
 	scrollbar: false;
 
 	foreground: var(white);
-	background: var(darkness);
+	background: var(dark12);
 
 	normal-background: var(background);
 	normal-foreground: var(white);
@@ -90,7 +90,7 @@ window {
 	width: 60%;
 	border: 0;
 	location: north;
-	y-offset: 35px;
+	// y-offset: 35px;
 	padding: 2px;
 	border-radius: 0 0 10px 10px;
 }
@@ -132,7 +132,7 @@ element-text {
 	padding: 0 7px 0;
 }
 element-text selected {
-	highlight: bold #b58cc6;
+	highlight: bold #e49641;
 }
 element-icon {
 	size: 1.3em;
