@@ -62,12 +62,13 @@ configuration {
 
 @theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
 * {
+	orange-supporting: #5f472d;
 	yellow: #ffd75f;
 	white: #d4be98;
 	darkness: #1a1919;
 	black: #0f0f0f;
 
-	highlight: underline;
+	highlight: bold #b58cc6;
 	scrollbar: false;
 
 	foreground: var(white);
@@ -79,13 +80,13 @@ configuration {
 	alternate-normal-background: var(background);
 	alternate-normal-foreground: var(white);
 
-	selected-normal-foreground: var(black);
-	selected-normal-background: var(yellow);
+	selected-normal-foreground: var(white);
+	selected-normal-background: var(orange-supporting);
 
 	separatorcolor: var(yellow);
 }
 window {
-	font: "JetBrainsMonoNL NF 16";
+	font: "Input Mono 16";
 	width: 60%;
 	border: 0;
 	location: north;
@@ -104,7 +105,7 @@ listview {
 	spacing: 0;
 	fixed-height: false;
 	dynamic: true;
-	lines: 10;
+	lines: 6;
 	require-input: false;
 }
 element {
@@ -127,11 +128,11 @@ textbox-prompt-sep {
 }
 element-text {
 	vertical-align: 0.5;
-	highlight: underline #ffd75f;
+	highlight: #ffd75f;
 	padding: 0 7px 0;
 }
 element-text selected {
-	highlight: underline bold #0f0f0f;
+	highlight: bold #b58cc6;
 }
 element-icon {
 	size: 1.3em;
