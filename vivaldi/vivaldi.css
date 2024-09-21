@@ -280,3 +280,8 @@ svg.svg-tab-selection {
 .tabs-bottom:not(.density-on) .tab-strip:not(.horizontal-scrolling) .tab.active:not(.marked, .tab-mini, .tab-in-accordion):before {
 	display: none;
 }
+
+/* weird white little cum stain on the bottom right of hibernated pinned tabs */
+.tabs-bottom .tab-position .tab.unread {
+	background-image: none;
+}
