@@ -42,6 +42,8 @@ function fish_user_key_bindings
     bind_both -m visual zh begin-selection beginning-of-line
     bind_both gh beginning-of-line
     bind_both gl end-of-line
+    bind_both gi beginning-of-buffer
+    bind_both go end-of-buffer
 
     bind -m visual % beginning-of-buffer begin-selection end-of-buffer
 
