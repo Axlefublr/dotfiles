@@ -211,6 +211,15 @@ div#header {
 	padding: 0 0 0 7px;
 }
 
+/* thingy that holds the non-focused non-highlighted url bar
+ * and needs to be slighly lower
+ * to match up with how the text moves slightly, 
+ * when the url bar is focused.
+ * this change makes it so it doesn't move around jarringly */
+.UrlFragments.UrlFragment-Wrapper {
+	height: calc(var(--extra-bar-height) - 1px);
+}
+
 .UrlFragment-Wrapper {
 	height: var(--extra-bar-height);
 	line-height: var(--extra-bar-height);
