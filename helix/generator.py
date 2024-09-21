@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import sys  # noqa: F401
 from typing import Any
 
 import toml
@@ -368,23 +367,6 @@ normal_select_mappings: dict[str, Any] = {
     'A-s': 'select_all',
     'A-m': 'split_selection_on_newline',
     'm': {
-        'p': '@mip',
-        'P': '@map',
-        't': '@mit',
-        'T': '@mat',
-        'f': '@mif',
-        'F': '@maf',
-        'g': '@mig',
-        'G': '@mag',
-        'w': '@miw',
-        'W': '@miW',
-        'e': '@maw',
-        'E': '@maW',
-        'v': '@mim',
-        'V': '@mam',
-        "'": "@mi'",
-        '"': '@mi"',
-        '`': '@mi`',
         '(': '@mi(',
         '{': '@mi{',
         '[': '@mi[',
