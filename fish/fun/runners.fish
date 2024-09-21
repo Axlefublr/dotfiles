@@ -149,11 +149,20 @@ end
 funcsave runner_link >/dev/null
 
 function runner_notification
-    set result (rofi -dmenu 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return 1 || set -e result[-1]
-    notify-send -t 0 "$result"
-    echo "$result" >~/.local/share/magazine/o
-    _magazine_commit ~/.local/share/magazine/o notif
+    set -f do_it_again true
+    while $do_it_again
+        set do_it_again false
+        set result (rofi -dmenu 2>/dev/null ; echo $status)
+        if test $result[-1] -eq 10
+            set do_it_again true
+        else if $result[-1] -ne 0
+            return 1
+        end
+        set -e result[-1]
+        notify-send -t 0 "$result"
+        echo "$result" >~/.local/share/magazine/o
+        _magazine_commit ~/.local/share/magazine/o notif
+    end
 end
 funcsave runner_notification >/dev/null
 
