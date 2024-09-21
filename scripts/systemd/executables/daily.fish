@@ -9,6 +9,7 @@ git add .
 and git commit -m leftovers
 truncate -s 0 ~/.local/share/magazine/d
 
+# these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 yeared_parse
 yearless_parse
 daily_parse
@@ -44,7 +45,12 @@ cp -fr ~/.local/share/axleizer_invalid.json ~/prog/autocommit/axleizer_invalid.j
 git add axleizer_invalid.json
 and git commit -m "sync axleizer"
 
-twemoji.fish
+set -l autocommitted (~/pic/twemoji-svg ~/pic/tree ~/pic/tools)
+for dir in $autocommitted
+    cd $dir
+    autocommit
+end
+
 loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sleep, it hasn't connected to wifi at that point, but *has* started executing this script. so what ends up happening is gpp fails to push all the directories because it doesn't have internet to do so yet.
 
 for dir in ~/prog/stored/*
