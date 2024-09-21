@@ -209,12 +209,8 @@ normal_mappings: dict[str, Any] = {
     'h': 'move_char_left',
     'l': 'move_char_right',
     'x': 'select_mode',
-    'r': ['collapse_selection', 'replace'],
     'j': 'move_visual_line_down',
     'k': 'move_visual_line_up',
-    '`': ['collapse_selection', 'switch_to_lowercase'],
-    'A-`': ['collapse_selection', 'switch_to_uppercase'],
-    '~': ['collapse_selection', 'switch_case'],
     'D': ['collapse_selection', 'move_char_left', 'delete_selection'],
 }
 
@@ -350,8 +346,6 @@ normal_select_mappings: dict[str, Any] = {
     '{': 'goto_prev_paragraph',
     '}': 'goto_next_paragraph',
     '#': 'toggle_comments',
-    'i': ['collapse_selection', 'insert_mode'],
-    'a': ['collapse_selection', 'append_mode'],
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     's': 'yank',
