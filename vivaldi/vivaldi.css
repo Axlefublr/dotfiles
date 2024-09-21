@@ -1,109 +1,109 @@
 * {
 	--border-radius: 14px;
+	--extra-bar-height: 25px;
 }
 
-#browser.linux, #browser.linux ~ div, #browser.linux button, #browser.linux input, #browser.linux select, #browser.linux textarea {
+#browser.linux,
+#browser.linux~div,
+#browser.linux button,
+#browser.linux input,
+#browser.linux select,
+#browser.linux textarea {
 	font-family: Ubuntu Nerd Font, Cantarell, 'Noto Sans', Helvetica, system-ui, sans-serif;
 }
 
-.tab-position .tab .tab-header {
-	flex: 0 0 31px;
+/* shield and lock buttons to the left of address bar */
+.UrlBar-AddressField>.toolbar,
+#titlebar button.vivaldi,
+/* button to create new tab */
+div.button-toolbar.newtab,
+div.startpage>nav.startpage-navigation.toolbar-medium,
+/* Ugly ahhh title bar when you hide ui */
+div#header {
+	display: none;
 }
 
 .tabs-bottom#browser .tab-position .tab.active {
 	padding: unset;
 }
 
-#titlebar button.vivaldi {
-	display: none;
-}
-
-.linux #tabs-container:not(.none).top {
-	padding-left: 0;
-}
-
-div.button-toolbar.newtab {
-	display: none;
-}
-
-div.startpage > nav.startpage-navigation.toolbar-medium {
-	display: none;
-}
-
+/* no strange half-transparency on icons for tabs */
 #tabs-container .tab.isdiscarded .favicon {
 	filter: none;
 }
 
 /* address bar */
-.mainbar > .toolbar-mainbar {
-	height: 29px;
+.mainbar .toolbar-mainbar {
+	height: var(--extra-bar-height);
 }
 
 #tabs-tabbar-container {
-	height: 29px;
 	padding-top: 0px;
 }
+
 #tabs-tabbar-container.bottom {
 	padding: 0;
-}
-
-/* Ugly ahhh title bar when you hide ui */
-div#header {
-	display: none;
 }
 
 /* positioning of the start page searcher */
 .SpeedDialView-Head {
 	margin: calc(50vh - 33px) auto;
 }
+
 /* start page searcher holder */
 .on-speeddial {
 	min-width: 50vw;
 }
+
 /* start page searcher inputbox */
 .sdwrapper .iconmenu-container.SearchField {
 	font-size: 18px;
 	height: 2em;
 }
+
+/* outline on focused enabled url bar */
+.color-behind-tabs-off .UrlBar-AddressField:focus-within,
 .color-behind-tabs-off .SearchField:focus-within {
-	outline: 2px solid transparent;
+	outline: none;
 }
-.color-behind-tabs-off .SearchField:not(:focus-within) {
-	outline: 2px solid #ffd75f;
-}
+
 /* each div holding search results */
 .OmniLinkItem {
 	--item-height: 1.7em;
 }
-/* a singular search result */
-.OmniLinkItem-Url {
-	height: 1.2em;
+
+/* each individual text span in suggestions of speed dial searcher */
+.SpeedDialView-SearchField .OmniLinkItem-DisplayText {
+	height: 24px;
 }
 
-/* panel */
-#panels-container:not(.switcher) > #panels > .panel-group {
-	/* min-width: 40vw; */
+/* each individual text span in suggestions of url bar searcher */
+.OmniLinkItem-DisplayText {
+	height: 14px;
 }
+
+/* useless apps icons in sidebar */
 #panels-container.icons {
 	display: none;
 }
+
+/* useless apps sidebar */
 #panels-container {
 	width: 0 !important;
 }
-#panels-container > #panels > #switch {
+
+#panels-container>#panels>#switch {
 	display: none;
 }
-#panels-container > #panels > .panel-group {
+
+#panels-container>#panels>.panel-group {
 	left: 0 !important;
 }
 
-/* history results */
-.ReactVirtualized__Grid.ReactVirtualized__List {
-	font-size: 14px;
-}
-
-/* Thin line on the top of the bottom tab bar */
-.address-top #tabs-tabbar-container.bottom, .address-top-off #tabs-tabbar-container.bottom, .address-bottom-off #tabs-tabbar-container.bottom {
+/* thin line on the top of the bottom tab bar */
+.address-top #tabs-tabbar-container.bottom,
+.address-top-off #tabs-tabbar-container.bottom,
+.address-bottom-off #tabs-tabbar-container.bottom {
 	border-top-width: 0;
 	padding: unset;
 }
@@ -136,15 +136,19 @@ div#header {
 	border-radius: var(--border-radius);
 	font-size: 13px;
 }
+
 .tabs-bottom .tab-position .tab.tab-accordion {
 	border-radius: var(--border-radius) 0 0 0;
 }
+
 .tabs-bottom .tab-position .tab.tab-in-accordion {
 	border-radius: unset;
 }
+
 .tabs-bottom .tab-position .tab.tab-first-in-group {
 	border-top-left-radius: var(--border-radius);
 }
+
 .tabs-bottom .tab-position .tab.tab-last-in-group {
 	border-top-right-radius: var(--border-radius);
 }
@@ -153,16 +157,18 @@ div#header {
 :not(.ui-transparent-tabs).color-behind-tabs-off .tab-position .tab.marked {
 	background-color: #ffd75f;
 }
+
 #browser .tab-position .tab.active.marked {
 	background-color: #ffafd7;
 }
+
 /* text in selected tabs */
-:not(.ui-transparent-tabs).color-behind-tabs-off .tab-position .tab.marked > .tab-header {
+:not(.ui-transparent-tabs).color-behind-tabs-off .tab-position .tab.marked>.tab-header {
 	color: #0f0f0f;
 }
 
 /* unloaded tab headers */
-.tab.isdiscarded > .tab-header {
+.tab.isdiscarded>.tab-header {
 	color: #928374;
 }
 
@@ -178,7 +184,8 @@ div#header {
 }
 
 /* favicon in the current tab highlighted in white */
-.theme-dark .tab-position .tab.active .tab-header .favicon:not(.svg), .acc-dark.color-behind-tabs-off .tab-position .tab.active .tab-header .favicon:not(.svg) {
+.theme-dark .tab-position .tab.active .tab-header .favicon:not(.svg),
+.acc-dark.color-behind-tabs-off .tab-position .tab.active .tab-header .favicon:not(.svg) {
 	filter: unset;
 }
 
@@ -189,40 +196,54 @@ div#header {
 .toolbar .toolbar-spacer-flexible {
 	flex: 0
 }
-.UrlBar-SearchField, .UrlBar-AddressField {
-	height: 29px;
+
+.UrlBar-SearchField,
+.UrlBar-AddressField {
+	height: var(--extra-bar-height);
 	border: unset !important;
-	background-color: hsl(0, 1%, 10%);
+	background-color: #292828;
 	padding: unset;
 	margin: 0;
 	border-radius: 10px;
 }
+
+#app .UrlBar-UrlField {
+	padding: 0 0 0 7px;
+}
+
+.UrlFragment-Wrapper {
+	height: var(--extra-bar-height);
+	line-height: var(--extra-bar-height);
+	padding: 0 0 0 7px;
+}
+
 /* address bar, extensions, etc holder */
 .color-behind-tabs-off .mainbar {
 	background-color: #292828;
 }
+
 /* border on the top of address bar, etc-holder */
 .address-bottom .mainbar {
 	border-top: unset;
 }
 
 /* panel and extension buttons */
-.toolbar-mainbar > .button-toolbar > button,
-.toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
+.toolbar-mainbar>.button-toolbar>button,
+.toolbar-mainbar .toolbar-extensions>.button-toolbar>button {
 	color: #d4be98;
 	height: 29px;
 }
 
-.color-behind-tabs-off .toolbar-mainbar > .button-toolbar > button:hover,
-.color-behind-tabs-off .toolbar-mainbar .toolbar-extensions > .button-toolbar > button:hover {
+.color-behind-tabs-off .toolbar-mainbar>.button-toolbar>button:hover,
+.color-behind-tabs-off .toolbar-mainbar .toolbar-extensions>.button-toolbar>button:hover {
 	background-color: hsl(0, 1%, 10%);
 }
 
-.button-toolbar > button.ToolbarButton-Button[name="PanelToggle"] {
+.button-toolbar>button.ToolbarButton-Button[name="PanelToggle"] {
 	border-radius: 0 10px 10px 0;
 }
 
-.toolbar-extensions > .button-toolbar > button.ToolbarButton-Button[name="Extensions"] {
+.toolbar-extensions>.button-toolbar>button.ToolbarButton-Button[name="Extensions"] {
 	border-radius: 10px 0 0 10px;
 }
 
