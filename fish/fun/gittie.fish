@@ -21,14 +21,3 @@ function gsa
     cd $prevDir
 end
 funcsave gsa >/dev/null
-
-function gpp
-    set -l prevDir (pwd)
-    for dir in (cat ~/.local/share/magazine/R)
-        set dir (string replace -r "^~" "$HOME" $dir)
-        cd $dir
-        git push
-    end
-    cd $prevDir
-end
-funcsave gpp >/dev/null

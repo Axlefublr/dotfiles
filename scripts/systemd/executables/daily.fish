@@ -58,4 +58,8 @@ for dir in ~/prog/stored/*
     git pull
 end
 
-gpp
+for dir in (cat ~/.local/share/magazine/R)
+    set dir (string replace -r "^~" "$HOME" $dir)
+    cd $dir
+    git push
+end
