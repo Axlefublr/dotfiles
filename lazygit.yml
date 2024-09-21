@@ -40,9 +40,12 @@ git:
   merging:
     manualCommit: true
     squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
+  log:
+    showGraph: never
+    showWholeGraph: false
   truncateCopiedCommitHashesTo: 12
   branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
-  
+    
 update:
   method: never
 os:
