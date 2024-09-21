@@ -231,20 +231,35 @@ div#header {
 .toolbar-mainbar>.button-toolbar>button,
 .toolbar-mainbar .toolbar-extensions>.button-toolbar>button {
 	color: #d4be98;
-	height: 29px;
+	height: var(--extra-bar-height);
 }
 
+/* div that holds extensions button */
+.color-behind-tabs-off .ExtensionToggleIcon.ExtensionToggleIcon--extensionsExpanded {
+	background-color: #292828;
+}
+
+/* hovered extensions button */
 .color-behind-tabs-off .toolbar-mainbar>.button-toolbar>button:hover,
 .color-behind-tabs-off .toolbar-mainbar .toolbar-extensions>.button-toolbar>button:hover {
-	background-color: hsl(0, 1%, 10%);
+	background-color: #292828;
+}
+
+/* extensions button icon */
+.toolbar-large .button-toolbar .button-icon:not(.favicon) {
+	width: var(--extra-bar-height);
+	height: var(--extra-bar-height);
+}
+
+/* min width of each extension button */
+.toolbar-mainbar .toolbar-extensions>.button-toolbar>button,
+/* min width of toggle extensions button, when collapsed */
+.toolbar-mainbar .toolbar-extensions:not(:empty) {
+	min-width: 28px;
 }
 
 .button-toolbar>button.ToolbarButton-Button[name="PanelToggle"] {
 	border-radius: 0 10px 10px 0;
-}
-
-.toolbar-extensions>.button-toolbar>button.ToolbarButton-Button[name="Extensions"] {
-	border-radius: 10px 0 0 10px;
 }
 
 svg.svg-tab-selection {
