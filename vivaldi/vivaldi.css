@@ -274,3 +274,9 @@ div#header {
 svg.svg-tab-selection {
 	display: none;
 }
+
+/* weird black dots before and after current tab */
+.tab-strip:not(.horizontal-scrolling) .tab.active:not(.marked, .tab-mini, .tab-in-accordion):after,
+.tabs-bottom:not(.density-on) .tab-strip:not(.horizontal-scrolling) .tab.active:not(.marked, .tab-mini, .tab-in-accordion):before {
+	display: none;
+}
