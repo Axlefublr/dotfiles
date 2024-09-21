@@ -63,3 +63,8 @@ for dir in (cat ~/.local/share/magazine/R)
     cd $dir
     git push
 end
+
+for dir in ~/prog/forks/*
+    cd $dir
+    git fetch upstream
+end
