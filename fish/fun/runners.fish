@@ -50,6 +50,7 @@ function runner_math
     set result (math $input)
     notify-send -t 0 $result
     echo $result >~/.local/share/magazine/o
+    echo $result | copy
     _magazine_commit ~/.local/share/magazine/o math
 end
 funcsave runner_math >/dev/null
