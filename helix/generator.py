@@ -381,7 +381,7 @@ normal_select_mappings: dict[str, Any] = {
         'I': ':sh win --cwd=%w',
         'O': ':sh over --cwd=%w',
         'M': ':sh over --cwd=%w yazi',
-        'h': ':sh over lazygit',
+        'h': ':sh over --cwd=%h lazygit',
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
         'f': 'file_picker_in_current_directory',
