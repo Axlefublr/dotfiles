@@ -52,8 +52,8 @@ function fish_user_key_bindings
 
     #--------------------------------------------------core--------------------------------------------------
     binds -vid \em yazi-cd
-    binds -vid \ep 'over lazygit'
-    binds -vid \eh 'zi && commandline -f repaint'
+    binds -vid \eh 'over lazygit'
+    binds -vid \el 'zi && commandline -f repaint'
 
     #-------------------------------------------------other-------------------------------------------------
     binds -vid \ej complete

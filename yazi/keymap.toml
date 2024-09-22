@@ -14,7 +14,7 @@ keymap = [
   { on = '<A-u>', run = 'shell --confirm "kitten @ launch --type tab --cwd current"', desc = 'Kitty tab' },
   { on = '<A-i>', run = 'shell --confirm "kitten @ launch --type window --cwd current"', desc = 'Kitty window' },
   { on = '<A-o>', run = 'shell --confirm "kitten @ launch --type overlay-main --cwd current"', desc = 'Kitty overlay' },
-  { on = '<A-p>', run = 'shell --confirm --block "lazygit"' },
+  { on = '<A-h>', run = 'shell --confirm --block "lazygit"' },
 
   # ----------------------------------------------Navigation----------------------------------------------
   { on = 'k', run = 'arrow -1', desc = 'Move cursor up' },
@@ -92,7 +92,7 @@ keymap = [
   { on = 'N', run = 'find_arrow --previous', desc = 'Go to the previous found' },
 
   { on = 'f', run = 'filter --smart', desc = 'Filter files' },
-  { on = '<A-h>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
+  { on = '<A-l>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
   { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
   { on = 'y', run = 'search fd', desc = 'Search files by name using fd' },
   { on = 'Y', run = 'search rg', desc = 'Search files by content using ripgrep' },

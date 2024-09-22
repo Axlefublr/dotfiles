@@ -381,7 +381,7 @@ normal_select_mappings: dict[str, Any] = {
         'I': ':sh win --cwd=%w',
         'O': ':sh over --cwd=%w',
         'M': ':sh over --cwd=%w yazi',
-        'p': ':sh over lazygit',
+        'h': ':sh over lazygit',
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
         'f': 'file_picker_in_current_directory',
@@ -400,7 +400,7 @@ normal_select_mappings: dict[str, Any] = {
             'm': ':lang markdown',
         },
         # 'space': ':sh echo {path}',
-        **disable(['A-c', 'C', 'D', 'G', 'P', 'Y', 'a', 'b', 'g', 'w', 'y', 'h']),
+        **disable(['A-c', 'C', 'D', 'G', 'P', 'Y', 'a', 'b', 'g', 'w', 'y']),
     },
     'g': {
         'e': 'move_next_sub_word_end',
