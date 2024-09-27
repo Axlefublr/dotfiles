@@ -62,9 +62,14 @@ function ffcombine --description='INPUT1 INPUT2 OUTPUT'
 end
 funcsave ffcombine >/dev/null
 
+function ffto-mp3
+    ffmpeg -i $argv[1] -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 $argv[1])
+end
+funcsave ffto-mp3 >/dev/null
+
 function mp43 --description='All mp4 here into mp3'
     for file in (ls)
-        ffmpeg -i $file -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 $file)
+        ffto-mp3 $file
         trash-put $file
     end
     bell
