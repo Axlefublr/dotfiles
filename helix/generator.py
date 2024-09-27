@@ -3,6 +3,8 @@
 from typing import Any
 
 import toml
+from magazine_openers import magazine_openers
+from russian_dict import russian_dict
 
 statusline: dict[str, Any] = {
     'separator': '',
@@ -114,77 +116,11 @@ def disable(mappings: list[str]) -> dict[str, str]:
 
 
 def transform(char: str):
-    to_russian = {
-        'q': 'й',
-        'w': 'ц',
-        'e': 'у',
-        'r': 'к',
-        't': 'е',
-        'y': 'н',
-        'u': 'г',
-        'i': 'ш',
-        'o': 'щ',
-        'p': 'з',
-        '[': 'х',
-        ']': 'ъ',
-        'a': 'ф',
-        's': 'ы',
-        'd': 'в',
-        'f': 'а',
-        'g': 'п',
-        'h': 'р',
-        'j': 'о',
-        'k': 'л',
-        'l': 'д',
-        ';': 'ж',
-        "'": 'э',
-        'z': 'я',
-        'x': 'ч',
-        'c': 'с',
-        'v': 'м',
-        'b': 'и',
-        'n': 'т',
-        'm': 'ь',
-        ',': 'б',
-        '.': 'ю',
-        'Q': 'Й',
-        'W': 'Ц',
-        'E': 'У',
-        'R': 'К',
-        'T': 'Е',
-        'Y': 'Н',
-        'U': 'Г',
-        'I': 'Ш',
-        'O': 'Щ',
-        'P': 'З',
-        '{': 'Х',
-        '}': 'Ъ',
-        'A': 'Ф',
-        'S': 'Ы',
-        'D': 'В',
-        'F': 'А',
-        'G': 'П',
-        'H': 'Р',
-        'J': 'О',
-        'K': 'Л',
-        'L': 'Д',
-        ':': 'Ж',
-        '"': 'Э',
-        'Z': 'Я',
-        'X': 'Ч',
-        'C': 'С',
-        'V': 'М',
-        'B': 'И',
-        'N': 'Т',
-        'M': 'Ь',
-        '<': 'Б',
-        '>': 'Ю',
-    }
-    new_key = to_russian.get(char)
+    new_key = russian_dict.get(char)
     if new_key is not None:
         return new_key
     if char.startswith('A-') or char.startswith('C-'):
-        subkey = to_russian.get(char[2:])
+        subkey = russian_dict.get(char[2:])
         if subkey is not None:
             return char[:2] + subkey
 
@@ -247,72 +183,6 @@ normal_insert_mappings: dict[str, Any] = {
 normal_insert_mappings.update(**rusify(normal_insert_mappings))
 normal_mappings.update(**normal_insert_mappings)
 insert_mappings.update(**normal_insert_mappings)
-
-magazine_openers: dict[str, Any] = {
-    # TODO: magazine openers
-    'q': ':open ~/.local/share/magazine/q',
-    'w': ':open ~/.local/share/magazine/w',
-    'e': ':open ~/.local/share/magazine/e',
-    'r': ':open ~/.local/share/magazine/r',
-    't': ':open ~/.local/share/magazine/t',
-    'y': ':open ~/.local/share/magazine/y',
-    'u': ':open ~/.local/share/magazine/u',
-    'i': ':open ~/.local/share/magazine/i',
-    'o': ':open ~/.local/share/magazine/o',
-    'p': ':open ~/.local/share/magazine/p',
-    'a': ':open ~/.local/share/magazine/a',
-    's': ':open ~/.local/share/magazine/s',
-    'd': ':open ~/.local/share/magazine/d',
-    'f': ':open ~/.local/share/magazine/f',
-    'g': ':open ~/.local/share/magazine/g',
-    'h': ':open ~/.local/share/magazine/h',
-    'j': ':open ~/prog/dotfiles/project.txt',
-    'k': ':open ~/.local/share/magazine/k',
-    'l': ':open ~/.local/share/magazine/l',
-    'z': ':open ~/.local/share/magazine/z',
-    'x': ':open ~/.local/share/magazine/x',
-    'c': ':open ~/.local/share/magazine/c',
-    'v': ':open ~/.local/share/magazine/v',
-    'b': ':open ~/.local/share/magazine/b',
-    'n': ':open ~/.local/share/magazine/n',
-    'm': ':open ~/.local/share/magazine/m',
-    'Q': ':open ~/.local/share/magazine/Q',
-    'W': ':open ~/.local/share/magazine/W',
-    'E': ':open ~/.local/share/magazine/E',
-    'R': ':open ~/.local/share/magazine/R',
-    'T': ':open ~/.local/share/magazine/T',
-    'Y': ':open ~/.local/share/magazine/Y',
-    'U': ':open ~/.local/share/magazine/U',
-    'I': ':open ~/.local/share/magazine/I',
-    'O': ':open ~/.local/share/magazine/O',
-    'P': ':open ~/.local/share/magazine/P',
-    'A': ':open ~/.local/share/magazine/A',
-    'S': ':open ~/.local/share/magazine/S',
-    'D': ':open ~/.local/share/magazine/D',
-    'F': ':open ~/.local/share/magazine/F',
-    'G': ':open ~/.local/share/magazine/G',
-    'H': ':open ~/.local/share/magazine/H',
-    'J': ':open project.txt',
-    'K': ':open ~/.local/share/magazine/K',
-    'L': ':open ~/.local/share/magazine/L',
-    'Z': ':open ~/.local/share/magazine/Z',
-    'X': ':open ~/.local/share/magazine/X',
-    'C': ':open ~/.local/share/magazine/C',
-    'V': ':open ~/.local/share/magazine/V',
-    'B': ':open ~/.local/share/magazine/B',
-    'N': ':open ~/.local/share/magazine/N',
-    'M': ':open ~/.local/share/magazine/M',
-    '0': ':open ~/.local/share/magazine/0',
-    '1': ':open ~/.local/share/magazine/1',
-    '2': ':open ~/.local/share/magazine/2',
-    '3': ':open ~/.local/share/magazine/3',
-    '4': ':open ~/.local/share/magazine/4',
-    '5': ':open ~/.local/share/magazine/5',
-    '6': ':open ~/.local/share/magazine/6',
-    '7': ':open ~/.local/share/magazine/7',
-    '8': ':open ~/.local/share/magazine/8',
-    '9': ':open ~/.local/share/magazine/9',
-}
 
 normal_select_mappings: dict[str, Any] = {
     'A-,': 'decrement',

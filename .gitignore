@@ -3,3 +3,4 @@ awesome/rc.lua
 helix/wrap-off.toml
 helix/config.toml
 helix/man.toml
+__pycache__
