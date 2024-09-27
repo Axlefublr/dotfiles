@@ -186,6 +186,8 @@ function c
             $BROWSER "https://docs.python.org/3/search.html?q=$input" >/dev/null
         case sts spire
             $BROWSER "https://slay-the-spire.fandom.com/wiki/Special:Search?query=$input&scope=internal&navigationSearch=true" >/dev/null
+        case emoji e
+            $BROWSER "https://emojipedia.org/search?q=$input" >/dev/null
         case '*'
             $BROWSER "https://www.google.com/search?q=$input&sourceid=chrome&ie=UTF-8" >/dev/null
     end
