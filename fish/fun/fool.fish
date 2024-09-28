@@ -30,10 +30,28 @@ function gh
                 z (path basename $argv[3])
                 clx
             case *
-                gh repo $argv $argv[2..]
+                gh $argv
         end
         return
     end
     gh $argv
 end
 funcsave gh >/dev/null
+
+function alien_temple
+    if test !"$argv"
+        ? alien_temple
+        return 1
+    end
+    switch $argv[1]
+        case shark s
+            set -l shark (alien_temple shark)
+            printf '%s\n' $shark
+            echo $shark[1] | copy
+        case consent c
+            alien_temple consent | tee /dev/tty | copy
+        case *
+            alien_temple $argv
+    end
+end
+funcsave alien_temple >/dev/null
