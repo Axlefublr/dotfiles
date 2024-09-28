@@ -37,11 +37,11 @@ anki 2>>/tmp/log/user.txt & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
+RUST_LOG=debug axleizer &>/tmp/log/axleizer.txt & disown
+
 notify-send -t 2000 spotify
 loopuntil is_internet 0.5 0 60
-spotify-launcher -v 2>>/tmp/log/user.txt & disown
-
-RUST_LOG=debug axleizer &>/tmp/log/axleizer.txt & disown
+# spotify-launcher -v 2>>/tmp/log/user.txt & disown
 
 notify-send -t 0 'logged in'
 awesome-client 'Ignore_all_urgencies()'
