@@ -44,4 +44,4 @@ loopuntil is_internet 0.5 0 60
 # spotify-launcher -v 2>>/tmp/log/user.txt & disown
 
 notify-send -t 0 'logged in'
-awesome-client 'Ignore_all_urgencies()'
+ignore_urgencies

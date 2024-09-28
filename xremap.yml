@@ -1263,7 +1263,7 @@ keymap:
         { launch: [sh, -c, 'brillo -U 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       CapsLock-Ctrl-RightBrace:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
-      Ctrl-Esc: { launch: [awesome-client, Ignore_all_urgencies()] }
+      Ctrl-Esc: { launch: [fish, -c, ignore_urgencies] }
       Ctrl-Alt-Esc: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
       Alt-Esc: { launch: [awesome-client, "env.destroy_sided_notification('oldest')"] }
       Shift-Alt-Esc: { launch: [awesome-client, "env.destroy_sided_notification('latest')"] }

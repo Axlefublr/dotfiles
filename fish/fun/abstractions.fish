@@ -414,3 +414,8 @@ function toggle_screen_record
     end
 end
 funcsave toggle_screen_record >/dev/null
+
+function ignore_urgencies
+    awesome-client 'Ignore_all_urgencies()'
+end
+funcsave ignore_urgencies >/dev/null
