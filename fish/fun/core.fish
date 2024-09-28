@@ -120,9 +120,9 @@ funcsave tab >/dev/null
 
 function _?
     if status is-interactive
-        $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
+        command $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
     else
-        $argv --help
+        command $argv --help
     end
 end
 funcsave _? >/dev/null

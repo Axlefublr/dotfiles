@@ -37,17 +37,3 @@ function rdp
     set_color normal
 end
 funcsave rdp >/dev/null
-
-function gh-repo-clone
-    gh repo clone $argv -- --depth 1
-    z (path basename $argv[1])
-    clx
-end
-funcsave gh-repo-clone >/dev/null
-
-function gh-repo-fork
-    gh repo fork $argv --clone --default-branch-only -- --depth 1
-    z (path basename $argv[1])
-    clx
-end
-funcsave gh-repo-fork >/dev/null
