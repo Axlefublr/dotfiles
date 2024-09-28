@@ -531,10 +531,8 @@ function Registers_wu()
 		local file = io.open(filename, 'r')
 
 		if file then
-			local size = file:seek('end') -- Check file size
-			if size > 0 then -- If the file is not empty, add the number to widget
-				widget = widget .. num
-			end
+			local text = file:read('a')
+			if text and #text > 0 and text ~= '\n' then widget = widget .. num end
 			file:close()
 		end
 	end
