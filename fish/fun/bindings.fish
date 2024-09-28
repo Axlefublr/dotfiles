@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function binds
-    argparse v/visual d/default i/insert -- $argv
+    argparse -i v/visual d/default i/insert -- $argv
     or return 1
     if test "$_flag_visual"
         bind -M visual $argv
