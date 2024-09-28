@@ -1,17 +1,12 @@
 awm = {}
 env = {}
 
--- Standard awesome library
-gears = require('gears')
+awm.gears = require('gears')
 awful = require('awful')
--- Widget and layout library
 wibox = require('wibox')
--- Theme handling library
 beautiful = require('beautiful')
--- Notification library
 naughty = require('naughty')
 menubar = require('menubar')
-hotkeys_popup = require('awful.hotkeys_popup')
 
 -- change the focused window on various useful events automatically
 -- god knows what those are!

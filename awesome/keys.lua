@@ -74,9 +74,9 @@ function WriteClientInfo()
 end
 
 -- Buttons
-root.buttons(gears.table.join(awful.button({}, 3, function() Menu_w:toggle() end)))
+root.buttons(awm.gears.table.join(awful.button({}, 3, function() Menu_w:toggle() end)))
 
-ClientButtons = gears.table.join(
+ClientButtons = awm.gears.table.join(
 	awful.button({}, 1, function(client)
 		if client.class == 'Display' then
 			awful.mouse.client.move(client)
@@ -98,7 +98,7 @@ ClientButtons = gears.table.join(
 	end)
 )
 
-Global_keys = gears.table.join(
+Global_keys = awm.gears.table.join(
 	awful.key(
 		{},
 		'#174',
@@ -191,7 +191,7 @@ Global_keys = gears.table.join(
 
 root.keys(Global_keys)
 
-ClientKeys = gears.table.join(awful.key({ modkey, 'Shift' }, 'w', function(client)
+ClientKeys = awm.gears.table.join(awful.key({ modkey, 'Shift' }, 'w', function(client)
 	local current_tag = screen.primary.selected_tag
 	if current_tag then
 		for _, other_client in ipairs(current_tag:clients()) do

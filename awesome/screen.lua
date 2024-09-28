@@ -6,7 +6,7 @@ function Set_wallpaper(s)
 		local wallpaper = beautiful.wallpaper
 		-- If wallpaper is a function, call it with the screen
 		if type(wallpaper) == 'function' then wallpaper = wallpaper(s) end
-		gears.wallpaper.maximized(wallpaper, s, true)
+		awm.gears.wallpaper.maximized(wallpaper, s, true)
 	end
 end
 
@@ -545,7 +545,7 @@ function Registers_wu()
 	end
 end
 
-local taglist_buttons = gears.table.join(
+local taglist_buttons = awm.gears.table.join(
 	awful.button({}, 1, function(tag) tag:view_only() end),
 	awful.button({}, 3, awful.tag.viewtoggle),
 	awful.button({}, 5, function(tag) awful.tag.viewnext(tag.screen) end),
@@ -687,4 +687,4 @@ local run_once = function()
 	Tile_wu(screen.primary.selected_tag)
 	return false
 end
-gears.timer.start_new(0, run_once)
+awm.gears.timer.start_new(0, run_once)
