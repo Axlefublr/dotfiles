@@ -22,19 +22,19 @@ function gh
     if test $argv[1] = repo
         switch $argv[2]
             case clone
-                gh repo clone $argv[3..] -- --depth 1
+                command gh repo clone $argv[3..] -- --depth 1
                 z (path basename $argv[3])
                 clx
             case fork
-                gh repo fork $argv[3..] --clone --default-branch-only -- --depth 1
+                command gh repo fork $argv[3..] --clone --default-branch-only -- --depth 1
                 z (path basename $argv[3])
                 clx
             case *
-                gh $argv
+                command gh $argv
         end
         return
     end
-    gh $argv
+    command gh $argv
 end
 funcsave gh >/dev/null
 
@@ -45,13 +45,13 @@ function alien_temple
     end
     switch $argv[1]
         case shark s
-            set -l shark (alien_temple shark)
+            set -l shark (command alien_temple shark)
             printf '%s\n' $shark
             echo $shark[1] | copy
         case consent c
-            alien_temple consent | tee /dev/tty | copy
+            command alien_temple consent | tee /dev/tty | copy
         case *
-            alien_temple $argv
+            command alien_temple $argv
     end
 end
 funcsave alien_temple >/dev/null
