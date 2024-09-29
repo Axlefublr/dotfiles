@@ -9,7 +9,7 @@
 #browser.linux input,
 #browser.linux select,
 #browser.linux textarea {
-	font-family: Ubuntu Nerd Font, Cantarell, 'Noto Sans', Helvetica, system-ui, sans-serif;
+	font-family: Inter, Ubuntu Nerd Font, Cantarell, 'Noto Sans', Helvetica, system-ui, sans-serif;
 }
 
 /* shield and lock buttons to the left of address bar */
