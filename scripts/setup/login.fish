@@ -23,7 +23,7 @@ xrestart.fish
 
 kitty -T editor -d ~/prog/dotfiles --hold helix . 2>>/tmp/log/user.txt & disown
 kitty -T men 2>>/tmp/log/user.txt & disown
-kitty -T oil-content -d ~/vid/content --hold fish -c l 2>>/tmp/log/user.txt & disown
+kitty -T oil-content -d ~/vid/content --hold fish -c yazi 2>>/tmp/log/user.txt & disown
 
 vivaldi-stable --force-dark-mode 2>>/tmp/log/user.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
