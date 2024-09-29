@@ -1,11 +1,13 @@
 * {
 	--codeblock-margin: 10px;
-	--monospace-font-family: JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF, JetBrainsMono, Consolas, Roboto Mono, Droid Sans Mono, monospace;
+	--monospace-font-family: Input Mono, InputMonoGrafted, JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF, JetBrainsMono, Consolas, Roboto Mono, Droid Sans Mono, monospace;
+	--normal-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
+	--font-size: 22px;
 }
 
 .card {
-	font-family: Ubuntu Nerd Font, Ubuntu;
-	font-size: 22px;
+	font-family: var(--normal-font-family);
+	font-size: var(--font-size);
 	text-align: center;
 	line-height: 1.3;
 }
@@ -88,7 +90,8 @@ hr#answer {
 	padding: 7px;
 }
 
-.codeblock:has(left), .left {
+.codeblock:has(left),
+.left {
 	text-align: left;
 }
 
@@ -109,7 +112,7 @@ code {
 
 input {
 	font-family: var(--monospace-font-family) !important;
-	font-size: 22px !important;
+	font-size: var(--font-size) !important;
 	padding: 7px;
 	text-align: center;
 	border-radius: 5px;
@@ -128,7 +131,7 @@ code#typeans {
 	display: block;
 	border-radius: 5px;
 	border: transparent solid 1px !important;
-	font-size: 22px;
+	font-size: var(--font-size);
 	padding: 7px;
 	line-height: 1.5;
 	background-color: hsl(0, 1%, 30%);
@@ -136,6 +139,16 @@ code#typeans {
 
 /* ↓ arrow and newline after it removed, to give us the ability to define the line height between the diff in a nicer way */
 span#typearrow,
-span#typearrow ~ br {
+span#typearrow~br {
 	display: none;
+}
+
+@font-face {
+	font-family: InputMonoGrafted;
+	src: url("_InputMono-Regular.ttf");
+}
+
+@font-face {
+	font-family: InterGrafted;
+	src: url("_Inter_18pt-Regular.ttf");
 }
