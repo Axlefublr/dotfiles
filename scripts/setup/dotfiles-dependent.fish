@@ -149,6 +149,10 @@ xdg-mime default display.desktop image/gif
 mkdir -p ~/.config/ruff
 ln -sf ~/prog/dotfiles/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
 
+# Krita
+mkdir -p ~/.local/share/color-schemes
+ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
+
 # Postgresql
 ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
 sudo -iu postgres initdb -D /var/lib/postgres/data
