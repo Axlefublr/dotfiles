@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
 fish_add_path "$HOME/.cargo/bin"
-bash "$HOME/.cargo/env"
 fish_add_path "$HOME/.cargo/env"
+bash "$HOME/.cargo/env"
 rustup update
 rustup default stable
 rustup toolchain install nightly

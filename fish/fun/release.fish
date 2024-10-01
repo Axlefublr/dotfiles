@@ -2,7 +2,7 @@
 
 #----------------------------------------------------rust----------------------------------------------------
 
-function rust_release
+function rust-release
     if not set -q argv[1]
         echo 'set the version'
         return 1
@@ -50,7 +50,7 @@ function rust_release
         return 1
     end
 
-    rust_ci
+    rust-ci
     indeed -u .gitignore release-notes.txt
     cargo +nightly fmt
 
@@ -62,9 +62,9 @@ function rust_release
     truncate -s 0 release-notes.txt
     cargo publish
 end
-funcsave rust_release >/dev/null
+funcsave rust-release >/dev/null
 
-function rust_publish
+function rust-publish
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1
@@ -79,9 +79,9 @@ function rust_publish
     end
     cargo publish
 end
-funcsave rust_publish >/dev/null
+funcsave rust-publish >/dev/null
 
-function rust_fmt --description 'Bring in format config and format with it'
+function rust-fmt --description 'Bring in format config and format with it'
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1
@@ -89,9 +89,9 @@ function rust_fmt --description 'Bring in format config and format with it'
     cp -f ~/prog/dotfiles/defconf/rustfmt.toml ./.rustfmt.toml &&
         cargo +nightly fmt
 end
-funcsave rust_fmt >/dev/null
+funcsave rust-fmt >/dev/null
 
-function rust_ci --description 'Bring in on tag push github action'
+function rust-ci --description 'Bring in on tag push github action'
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1
@@ -100,9 +100,9 @@ function rust_ci --description 'Bring in on tag push github action'
         cp -f ~/prog/dotfiles/defconf/gh-action-rust.yml ./.github/workflows/ci.yml &&
         sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
 end
-funcsave rust_ci >/dev/null
+funcsave rust-ci >/dev/null
 
-function rust_bin
+function rust-bin
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1
@@ -118,9 +118,9 @@ function rust_bin
         cd $prevdir
     end
 end
-funcsave rust_bin >/dev/null
+funcsave rust-bin >/dev/null
 
-function rust_init
+function rust-init
     cargo init
     cp -f ~/prog/dotfiles/defconf/rust-metadata.toml ./Cargo.toml
     sd '%project_name%' (basename $PWD) Cargo.toml
@@ -128,11 +128,11 @@ function rust_init
     touch release-notes.txt
     touch project.txt
     indeed -u .gitignore release-notes.txt project.txt
-    rust_ci
+    rust-ci
     git add . &&
         git commit -m "first commit"
 end
-funcsave rust_init >/dev/null
+funcsave rust-init >/dev/null
 
 #---------------------------------------------------python---------------------------------------------------
 
