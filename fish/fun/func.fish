@@ -41,3 +41,19 @@ function set_tab_title
     kitten @ set-tab-title " $new_title"
 end
 funcsave set_tab_title >/dev/null
+
+#---------------------------------------------------helix---------------------------------------------------
+
+function execute_somehow -d 'expects cwd, then full path to the buffer as args'
+    if not test "$argv[2]"
+        return
+    end
+    set -l extension (path extension $argv[2] | cut -c 2-)
+    switch $extension
+        case py
+            python $argv[2]
+        case fish
+            fish $argv[2]
+    end
+end
+funcsave execute_somehow >/dev/null

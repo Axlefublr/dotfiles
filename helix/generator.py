@@ -266,12 +266,13 @@ normal_select_mappings: dict[str, Any] = {
         'l': 'symbol_picker',
         'L': 'workspace_symbol_picker',
         'j': 'global_search',
+        'a': ":sh execute_somehow '%w' '%p'",
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
         },
         # 'space': ':sh echo {path}',
-        **disable(['A-c', 'C', 'D', 'G', 'P', 'Y', 'a', 'b', 'g', 'w', 'y']),
+        **disable(['A-c', 'C', 'D', 'G', 'P', 'Y', 'b', 'g', 'w', 'y']),
     },
     'g': {
         'e': 'move_next_sub_word_end',
