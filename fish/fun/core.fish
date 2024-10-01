@@ -91,21 +91,21 @@ end
 funcsave task >/dev/null
 
 function win
-    argparse cwd= -- $argv || return 1
+    argparse -i cwd= -- $argv || return 1
     test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
     kitten @ launch --type window --cwd $cwd $argv &>/dev/null
 end
 funcsave win >/dev/null
 
 function over
-    argparse cwd= -- $argv || return 1
+    argparse -i cwd= -- $argv || return 1
     test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
     kitten @ launch --type overlay-main --cwd $cwd $argv &>/dev/null
 end
 funcsave over >/dev/null
 
 function os
-    argparse cwd= -- $argv || return 1
+    argparse -i cwd= -- $argv || return 1
     test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
     kitten @ launch --type os-window --cwd $cwd $argv &>/dev/null
 end
