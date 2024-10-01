@@ -285,3 +285,12 @@ svg.svg-tab-selection {
 .tabs-bottom .tab-position .tab.unread {
 	background-image: none;
 }
+
+/* panel popout */
+.panel-group:has(.panel-collapse-guard[aria-hidden="false"]) {
+	width: 40vw !important;
+}
+
+.panel-collapse-guard[aria-hidden="false"] {
+	max-width: 40vw !important;
+}
