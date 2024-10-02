@@ -124,8 +124,8 @@ end
 funcsave _alarm >/dev/null
 
 function yeared_parse
-    for line in (cat ~/prog/noties/anniversaries.txt | string split '\n')
-        set -l match (string match -gr '(\\d+).(\\d+.\\d+) — (.*)' $line)
+    for line in (cat ~/.local/share/magazine/v)
+        set -l match (string match -gr '(\\d+).(\\d+.\\d+) - (.*)' $line)
         set -l year $match[1]
         set -l date $match[2]
         set -l description $match[3]
@@ -139,7 +139,7 @@ end
 funcsave yeared_parse >/dev/null
 
 function yearless_parse
-    for line in (cat ~/prog/noties/yearly.txt | string split '\n')
+    for line in (cat ~/.local/share/magazine/Q)
         set -l match (string match -gr '(\\d+.\\d+) — (.*)' $line)
         set -l date $match[1]
         set -l description $match[2]
