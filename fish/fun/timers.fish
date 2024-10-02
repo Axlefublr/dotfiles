@@ -150,17 +150,3 @@ function yearless_parse
     end
 end
 funcsave yearless_parse >/dev/null
-
-function daily_parse
-    for line in (cat ~/prog/noties/once.txt | string split '\n')
-        set -l match (string match -gr '(\\d+.\\d+.\\d+) (\\d+:\\d+) — (.*)' $line)
-        set -l date $match[1]
-        set -l time $match[2]
-        set -l description $match[3]
-        if not test $date = (date '+%y.%m.%d')
-            continue
-        end
-        task "today at $time — $description"
-    end
-end
-funcsave daily_parse >/dev/null

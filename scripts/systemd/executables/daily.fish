@@ -12,7 +12,6 @@ truncate -s 0 ~/.local/share/magazine/d
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 yeared_parse
 yearless_parse
-daily_parse
 task (whensies.py)
 
 if test (math (clorange megafon show) % 30) -eq 0
