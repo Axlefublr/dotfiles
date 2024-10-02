@@ -76,7 +76,7 @@ function mp43 --description='All mp4 here into mp3'
 end
 funcsave mp43 >/dev/null
 
-function rename-all-random # MOVE: to somewhere
+function rename-all-random
     for file in (ls)
         mv $file (uclanr -j - 3)(path extension $file)
     end

@@ -144,6 +144,7 @@ xdg-mime default display.desktop image/svg+xml
 xdg-mime default display.desktop image/png
 xdg-mime default display.desktop image/jpeg
 xdg-mime default display.desktop image/gif
+xdg-mime default display.desktop image/webp
 
 # Ruff
 mkdir -p ~/.config/ruff
