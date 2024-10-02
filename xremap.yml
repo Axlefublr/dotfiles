@@ -72,7 +72,9 @@ keymap:
       Ctrl-k: up
       Ctrl-j: down
       Ctrl-Semicolon: ctrl-shift-x
-      Ctrl-Slash: ctrl-shift-alt-c
+      Ctrl-Comma: { launch: [fish, -c, 'xdotool mousemove 650 305 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
+      Ctrl-Dot: { launch: [fish, -c, 'xdotool mousemove 650 355 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
+      Ctrl-Slash: { launch: [fish, -c, 'xdotool mousemove 650 405 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
 
   - name: Spotify!
     exact_match: true
