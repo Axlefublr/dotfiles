@@ -230,6 +230,7 @@ normal_select_mappings: dict[str, Any] = {
     'T': 'find_prev_char',
     'A-s': 'select_all',
     'A-m': 'split_selection_on_newline',
+    'A-+': 'reverse_selection_contents',
     'm': {
         '(': '@mi(',
         '{': '@mi{',

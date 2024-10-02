@@ -1295,6 +1295,7 @@ keymap:
       CapsLock-Alt-LeftBrace: shift-alt-9
       CapsLock-Alt-RightBrace: shift-alt-0
       CapsLock-Alt-u: alt-grave
+      CapsLock-Alt-j: shift-alt-equal
 
   - name: Any! wm
     exact_match: true
