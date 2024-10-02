@@ -85,6 +85,14 @@ function magazine_filter
 end
 funcsave magazine_filter >/dev/null
 
+function magazine_copy
+    not test "$argv" && return
+    set result (rofi_multi_select -input $argv 2>/dev/null ; echo $status)
+    test $result[-1] -ne 0 && return || set -e result[-1]
+    echo $result | copy
+end
+funcsave magazine_copy >/dev/null
+
 #-------------------------------------------------combinatory-------------------------------------------------
 
 function magazine_cut
