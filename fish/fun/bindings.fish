@@ -1,5 +1,21 @@
 #!/usr/bin/env fish
 
+function _replace_selection_with_clipboard
+    set -l buffer (commandline)
+    set -l start (math (commandline -B) + 1)
+    set -l finish (commandline -E)
+    set -l resulting (string replace (string sub -s $start -e $finish $buffer) (ypoc) $buffer)
+    commandline "$resulting"
+    commandline -f end-selection repaint
+end
+funcsave _replace_selection_with_clipboard >/dev/null
+
+function _replace_character_with_clipboard
+    commandline -f delete-char
+    commandline -i (ypoc)
+end
+funcsave _replace_character_with_clipboard >/dev/null
+
 function binds
     argparse -i v/visual d/default i/insert s/sub -- $argv
     or return 1
@@ -78,6 +94,9 @@ function fish_user_key_bindings
     binds -vs -m insert a 'commandline -C "$(commandline -E)" ; commandline -f end-selection'
 
     binds -ds -m visual % beginning-of-buffer begin-selection end-of-buffer
+
+    binds -d R _replace_character_with_clipboard
+    binds -sv -m default R _replace_selection_with_clipboard
 
     bind S 'commandline | copy'
     binds -vs S fish_clipboard_copy
