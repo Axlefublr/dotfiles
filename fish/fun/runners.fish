@@ -128,9 +128,9 @@ function runner_link
     set file ~/.local/share/magazine/l
     set result (cat $file | sd ' — .+$' '' | rofi -format 'i' -dmenu 2> /dev/null ; echo $status)
     test $result[-1] -eq 1 && return 1
-    if test $result[-1] -eq 0
+    if test $result[-1] -eq 0 -a !"$argv[1]"
         ensure_browser main
-    else if test $result[-1] -eq 10
+    else if test $result[-1] -eq 10 -a !"$argv[1]"
         ensure_browser content
     end
     set -e result[-1]
