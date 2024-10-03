@@ -307,12 +307,8 @@ keymap:
     remap:
       CapsLock-Apostrophe:
         remap:
-          c: { launch: [fish, -c, 'c github'] }
-          Shift-c: { launch: [fish, -c, 'c github neoline'] }
-          v: { launch: [fish, -c, 'c google'] }
-          Shift-v: { launch: [fish, -c, 'c google neoline'] }
-          x: { launch: [fish, -c, 'c yandex'] }
-          Shift-x: { launch: [fish, -c, 'c yandex neoline'] }
+          c: { launch: [fish, -c, 'engined_search google'] }
+          Shift-c: { launch: [fish, -c, 'engined_search'] }
 
           d: { launch: [fish, -c, 'runner_doc 1'] }
           Shift-d: { launch: [fish, -c, 'runner_doc 6'] }
