@@ -104,14 +104,8 @@ function runner_doc
         named_html 'awm/awesomewm.org/doc/api/libraries' awm lib
         named_directory 'kitty/sw.kovidgoyal.net/kitty' kitty
     end | rofi -dmenu 2>/dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
-    end
-    if test "$argv"
-        wmctrl -s $argv
-    end
-    set -e result[-1]
-    set result "$result"
+    test $result[-1] -ne 0 && return 1 || set -e result[-1]
+    ensure_browser main
     set last_element (string split ' ' $result)[-1]
     switch $result
         case 'awm lib *'

@@ -310,10 +310,9 @@ keymap:
           c: { launch: [fish, -c, 'engined_search google'] }
           Shift-c: { launch: [fish, -c, 'engined_search'] }
 
-          d: { launch: [fish, -c, 'runner_doc 1'] }
-          Shift-d: { launch: [fish, -c, 'runner_doc 6'] }
           f: { launch: [fish, -c, 'runner_link 1 open'] }
           Shift-f: { launch: [fish, -c, 'runner_link 6 open'] }
+          d: { launch: [fish, -c, 'runner_doc'] }
           s: { launch: [fish, -c, 'runner_link'] }
           g: { launch: [fish, -c, 'ensure_browser main ; xdg-open (xclip -selection clipboard -o)'] }
           Shift-g: { launch: [fish, -c, 'ensure_browser content ; xdg-open (xclip -selection clipboard -o)'] }
