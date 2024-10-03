@@ -1180,7 +1180,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/0'] }
-      Shift_L-x:
+      Shift_L-g:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/q'] }
