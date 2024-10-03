@@ -71,6 +71,7 @@ function engined_search
                 echo icons8
                 echo phind
                 echo slay the spire
+                echo kitty
             end | rofi -no-custom -dmenu 2>/dev/null ; echo $status
         )
         test $engine[-1] -eq 1 && return 1 || set -e engine[-1]
@@ -104,6 +105,8 @@ function engined_search
             $BROWSER "https://icons8.ru/icons/set/$input" >/dev/null
         case google
             $BROWSER "https://www.google.com/search?q=$input&sourceid=chrome&ie=UTF-8" >/dev/null
+        case kitty
+            $BROWSER "https://sw.kovidgoyal.net/kitty/search/?q=$input&check_keywords=yes&area=default"
     end
 end
 funcsave engined_search >/dev/null
