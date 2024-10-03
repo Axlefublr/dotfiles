@@ -127,17 +127,19 @@ funcsave runner_doc >/dev/null
 function runner_link
     set file ~/.local/share/magazine/l
     set result (cat $file | sd ' — .+$' '' | rofi -format 'i' -dmenu 2> /dev/null ; echo $status)
-    if test $result[-1] -ne 0
-        return 1
+    test $result[-1] -eq 1 && return 1
+    if test $result[-1] -eq 0
+        ensure_browser main
+    else if test $result[-1] -eq 10
+        ensure_browser content
     end
-    wmctrl -s $argv[1]
     set -e result[-1]
     set line (math $result + 1)
     set link (awk "NR==$line { print \$NF }" $file)
-    if test "$argv[2]"
+    if test "$argv[1]"
         $BROWSER $link
     else
-        echo $link | xclip -r -selection clipboard
+        echo $link | copy
         notify-send -t 2000 "copied link: $link"
     end
 end
