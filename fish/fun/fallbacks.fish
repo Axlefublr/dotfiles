@@ -18,8 +18,7 @@ alias --save ypoc 'xclip -selection clipboard -o' >/dev/null
 
 alias --save h 'z ~ && clx' >/dev/null
 alias --save u 'z - && clx' >/dev/null
-alias --save x 'kitten @ close-window' >/dev/null
-alias --save X exit >/dev/null
+alias --save X 'kitten @ close-window' >/dev/null
 
 alias --save hime 'history merge' >/dev/null
 alias --save jf 'clx && exec fish' >/dev/null
@@ -62,8 +61,8 @@ alias --save gz glaza >/dev/null
 alias --save gx 'glaza --git' >/dev/null
 alias --save at alien_temple >/dev/null
 
-alias --save ls 'ez -a'
-alias --save lg 'ez -al'
-alias --save lt 'ez -Ta'
+alias --save ls 'ez -a' >/dev/null
+alias --save lg 'ez -al' >/dev/null
+alias --save lt 'ez -Ta' >/dev/null
 
-alias --save hrtrack httrack >/dev/nul
+alias --save hrtrack httrack >/dev/null

@@ -7,6 +7,7 @@ abbr -a chx 'chmod +x'
 
 abbr -a h 'z ~ && clx'
 abbr -a u 'z - && clx'
+abbr -a x exit
 
 abbr -a hime 'history merge'
 abbr -a jf 'clx && exec fish'
