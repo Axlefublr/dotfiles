@@ -86,44 +86,6 @@ function runner_symbol_name
 end
 funcsave runner_symbol_name >/dev/null
 
-function runner_doc
-    function named_html
-        for entry in (fd -e html . ~/docs/$argv[1] | path basename | path change-extension '')
-            echo $argv[2..] $entry
-        end
-    end
-    function named_directory
-        for entry in (fd -e html . ~/docs/$argv[1] | path dirname | path basename)
-            echo $argv[2..] $entry
-        end
-    end
-    set result (begin
-        ls ~/docs
-        named_html 'fish/cmds' fish
-        named_html 'awm/awesomewm.org/doc/api/classes' awm class
-        named_html 'awm/awesomewm.org/doc/api/libraries' awm lib
-        named_directory 'kitty/sw.kovidgoyal.net/kitty' kitty
-    end | rofi -dmenu 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return 1 || set -e result[-1]
-    ensure_browser main
-    set last_element (string split ' ' $result)[-1]
-    switch $result
-        case 'awm lib *'
-            $BROWSER ~/docs/awm/awesomewm.org/doc/api/libraries/$last_element.html
-        case 'awm class *'
-            $BROWSER ~/docs/awm/awesomewm.org/doc/api/classes/$last_element.html
-        case 'fish *'
-            $BROWSER ~/docs/fish/cmds/$last_element.html
-        case 'kitty *'
-            $BROWSER ~/docs/kitty/sw.kovidgoyal.net/kitty/$last_element/index.html
-        case '*.pdf'
-            zathura "~/docs/$result" & disown
-        case '*'
-            $BROWSER "~/docs/$result/index.html"
-    end
-end
-funcsave runner_doc >/dev/null
-
 function runner_link
     set file ~/.local/share/magazine/l
     set result (cat $file | sd ' — .+$' '' | rofi -format 'i' -dmenu 2> /dev/null ; echo $status)

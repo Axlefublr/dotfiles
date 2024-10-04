@@ -310,11 +310,10 @@ keymap:
           c: { launch: [fish, -c, 'engined_search google'] }
           Shift-c: { launch: [fish, -c, 'engined_search'] }
 
-          d: { launch: [fish, -c, 'runner_doc'] }
           f: { launch: [fish, -c, 'runner_link open'] }
           s: { launch: [fish, -c, 'runner_link'] }
-          g: { launch: [fish, -c, 'ensure_browser main ; xdg-open (ypoc)'] }
-          Shift-g: { launch: [fish, -c, 'ensure_browser content ; xdg-open (ypoc)'] }
+          d: { launch: [fish, -c, 'ensure_browser main ; xdg-open (ypoc)'] }
+          Shift-d: { launch: [fish, -c, 'ensure_browser content ; xdg-open (ypoc)'] }
 
           Shift-s: { launch: [fish, -c, 'pick-sts-boss']}
 
