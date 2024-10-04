@@ -78,8 +78,8 @@ keymap = [
   { on = 'p', run = 'paste', desc = 'Paste yanked files' },
   { on = 'P', run = 'paste --force', desc = 'Paste yanked files (overwrite if the destination exists)' },
 
-  { on = ':', run = 'shell --interactive', desc = 'Run a shell command' },
-  { on = ';', run = 'shell --block --interactive', desc = 'Run a shell command (block until finishes)' },
+  { on = ';', run = 'shell --interactive', desc = 'Run a shell command' },
+  { on = ':', run = 'shell --block --interactive', desc = 'Run a blocking shell command' },
 
   { on = 'r', run = 'rename --cursor=before_ext', desc = 'Rename selected file(s)' },
 
