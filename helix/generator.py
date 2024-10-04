@@ -273,7 +273,7 @@ normal_select_mappings: dict[str, Any] = {
             'm': ':lang markdown',
         },
         # 'space': ':sh echo {path}',
-        **disable(['A-c', 'C', 'D', 'G', 'P', 'Y', 'b', 'g', 'w', 'y']),
+        **disable(['A-c', 'C', 'D', 'G', 'Y', 'b', 'g', 'w', 'y']),
     },
     'g': {
         'e': 'move_next_sub_word_end',
