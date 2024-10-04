@@ -95,6 +95,12 @@ function fish_user_key_bindings
 
     binds -ds -m visual % beginning-of-buffer begin-selection end-of-buffer
 
+    binds -vds f forward-jump
+    binds -vds t backward-jump
+    binds -vds F forward-jump-till
+    binds -vds T backward-jump-till
+    binds -vds R repeat-jump
+
     binds -d : _replace_character_with_clipboard
     binds -sv -m default : _replace_selection_with_clipboard
 
