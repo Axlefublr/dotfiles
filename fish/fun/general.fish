@@ -1,28 +1,5 @@
 #!/usr/bin/env fish
 
-function new --description='Creates new files or directories and all required parent directories'
-    for arg in $argv
-        if string match -rq '/$' -- "$arg"
-            mkdir -p "$arg"
-        else
-            set -l dir (string match -rg '(.*)/.+?$' -- "$arg")
-            and mkdir -p "$dir"
-
-            touch "$arg"
-        end
-
-        echo (realpath "$arg")
-    end
-end
-funcsave new >/dev/null
-
-function abbrad
-    abbr -a $argv
-    indeed ~/prog/dotfiles/fish/abbreviations/abbreviations.fish "abbr -a $argv[1] '$argv[2..]'"
-    indeed ~/prog/dotfiles/fish/fun/fallbacks.fish "alias --save $argv[1] '$argv[2..]' > /dev/null"
-end
-funcsave abbrad >/dev/null
-
 function smdn
     set -l name $argv[1]
 
@@ -96,30 +73,6 @@ function uboot
 end
 funcsave uboot >/dev/null
 
-function perc
-    set -l total 0
-    for arg in $argv[..-2]
-        set total (math $total + $arg)
-    end
-    math "$total + ($total / 100 * $argv[-1])"
-end
-funcsave perc >/dev/null
-
-function bak
-    set -l full_path $argv[1]
-    set -l file_name (basename $full_path)
-    set -l extension (path extension $full_path)
-    mkdir -p $full_path.bak
-    clorange $file_name increment
-    set -l current (clorange $file_name show)
-    cp -f $full_path $full_path.bak/$current$extension
-    set -l cutoff (math $current - 50)
-    if test $cutoff -ge 1
-        rm -fr $full_path.bak/$cutoff$extension
-    end
-end
-funcsave bak >/dev/null
-
 function loopuntil
     set -l counter 0
     while true
@@ -148,7 +101,7 @@ function loopuntil
 end
 funcsave loopuntil >/dev/null
 
-function fn_clear
+function fn-clear
     set list (cat ~/prog/dotfiles/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
     for file in ~/.config/fish/functions/*.fish
         set function_name (basename $file '.fish')
@@ -158,71 +111,7 @@ function fn_clear
         end
     end
 end
-funcsave fn_clear >/dev/null
-
-function s
-    set -g s (realpath $argv)
-end
-funcsave s >/dev/null
-
-function fbp
-    glaza shows | string match -gr '(.*?)\\s+-\\s+ep\\d+\\s+-\\s+dn\\d+' | fzf
-end
-funcsave fbp >/dev/null
-
-function edit_commandline
-    set temp '/dev/shm/fish_edit_commandline.fish'
-    truncate -s 0 $temp
-    commandline >$temp
-    helix $temp
-    set -l editor_status $status
-    if test $editor_status -eq 0
-        if test -s $temp # this shouldn't be needed, but strangely is
-            commandline -r -- (command cat $temp)
-        else
-            commandline ''
-        end
-    end
-    commandline -f repaint
-
-    # set cursor_location /dev/shm/fish_edit_commandline_cursor
-    # truncate -s 0 $cursor_location || touch $cursor_location
-
-    # set -l offset (commandline --cursor)
-    # set -l lines (commandline)\n
-    # set -l line 1
-    # while test $offset -ge (string length -- $lines[1])
-    #     set offset (math $offset - (string length -- $lines[1]))
-    #     set line (math $line + 1)
-    #     set -e lines[1]
-    # end
-    # set column (math $offset + 1)
-
-    # nvim -c "call cursor($line, $column)" $temp 2>/dev/null
-
-    # set -l editor_status $status
-
-    # if test $editor_status -eq 0
-    #     if test -s $temp # this shouldn't be needed, but strangely is
-    #         commandline -r -- (command cat $temp)
-    #     else
-    #         commandline ''
-    #     end
-    #     set -l position (cat $cursor_location | string split ' ')
-    #     set -l line $position[1]
-    #     set -l column $position[2]
-    #     commandline -C 0
-    #     for _line in (seq $line)[2..]
-    #         commandline -f down-line
-    #     end
-    #     commandline -f beginning-of-line
-    #     for _column in (seq $column)[2..]
-    #         commandline -f forward-single-char
-    #     end
-    # end
-    # commandline -f repaint
-end
-funcsave edit_commandline >/dev/null
+funcsave fn-clear >/dev/null
 
 function pacclean --description 'clean pacman and paru cache' # based on https://gist.github.com/ericmurphyxyz/37baa4c9da9d3b057a522f20a9ad6eba (cool youtuber btw)
     set aur_cache_dir "$HOME/.cache/paru/clone"
@@ -238,22 +127,6 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
 end
 funcsave pacclean >/dev/null
 
-function oil
-    if set -q argv[1]
-        z $argv[1] || return 1
-    end
-    if status is-interactive
-        nvim .
-        return
-    end
-    if test "$argv[1]" = "$HOME/vid/content"
-        kitty -T oil-content nvim .
-        return
-    end
-    kitty -T oil nvim .
-end
-funcsave oil >/dev/null
-
 function ni
     if status is-interactive
         helix "/tmp/ni-output$argv[1]" >&2
@@ -263,50 +136,6 @@ function ni
     cat "/tmp/ni-output$argv[1]" | string collect
 end
 funcsave ni >/dev/null
-
-function install_yt_video
-    if set -q argv[1]
-        set extra $argv[1]
-    else
-        set extra youtube
-    end
-    set file (mktemp /dev/shm/install_yt_video.XXXXXX)
-    set clipboard (xclip -selection clipboard -o)
-    kitty -T link-download yt-dlp \
-        -o "~/vid/content/$extra/%(channel)s — %(title)s — ;%(id)s;.%(ext)s" \
-        --print-to-file "%(channel)s — %(title)s" $file \
-        $clipboard
-    notify-send -t 3000 "downloaded: $(cat $file)"
-    rm -fr $file
-end
-funcsave install_yt_video >/dev/null
-
-function multiple_dot
-    echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
-end
-funcsave multiple_dot >/dev/null
-
-function regen_highs
-    nvim --headless -c 'Lazy load all' -c high -c q &>~/t/highlights.txt
-    nvim -c '%g;^\\S.*\\n \\{19};j' -c '%sort' -c q ~/t/highlights.txt
-end
-funcsave regen_highs >/dev/null
-
-function bookmark_open
-    set -f browser_window main
-    if test "$(count $argv)" -ge 2
-        set browser_window $argv[-1]
-    end
-    ensure_browser $browser_window
-    $BROWSER "$(harp get bookmarks $argv[1] --path)"
-end
-funcsave bookmark_open >/dev/null
-
-function bookmark_set
-    harp update bookmarks $argv[1] --path $argv[2]
-    notify-send -t 2000 "set bookmark $argv[1] to $argv[2]"
-end
-funcsave bookmark_set >/dev/null
 
 function autocommit
     if not git status --porcelain

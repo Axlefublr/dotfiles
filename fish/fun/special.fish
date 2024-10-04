@@ -23,3 +23,25 @@ function pick_sts_boss
     cp -f ~/prog/binaries/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
 end
 funcsave pick_sts_boss >/dev/null
+
+function install_yt_video
+    if set -q argv[1]
+        set extra $argv[1]
+    else
+        set extra youtube
+    end
+    set file (mktemp /dev/shm/install_yt_video.XXXXXX)
+    set clipboard (xclip -selection clipboard -o)
+    kitty -T link-download yt-dlp \
+        -o "~/vid/content/$extra/%(channel)s — %(title)s — ;%(id)s;.%(ext)s" \
+        --print-to-file "%(channel)s — %(title)s" $file \
+        $clipboard
+    notify-send -t 3000 "downloaded: $(cat $file)"
+    rm -fr $file
+end
+funcsave install_yt_video >/dev/null
+
+function multiple_dot
+    echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+funcsave multiple_dot >/dev/null

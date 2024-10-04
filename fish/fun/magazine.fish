@@ -125,6 +125,24 @@ function magazine_client_info
 end
 funcsave magazine_client_info >/dev/null
 
+#--------------------------------------------not really magazines--------------------------------------------
+
+function bookmark_open
+    set -f browser_window main
+    if test "$(count $argv)" -ge 2
+        set browser_window $argv[-1]
+    end
+    ensure_browser $browser_window
+    $BROWSER "$(harp get bookmarks $argv[1] --path)"
+end
+funcsave bookmark_open >/dev/null
+
+function bookmark_set
+    harp update bookmarks $argv[1] --path $argv[2]
+    notify-send -t 2000 "set bookmark $argv[1] to $argv[2]"
+end
+funcsave bookmark_set >/dev/null
+
 #--------------------------------------------------internal--------------------------------------------------
 
 function _magazine_notify
