@@ -15,6 +15,7 @@ abbr -a jf 'clx && exec fish'
 abbr -a p lazygit
 abbr -a L yazi
 abbr -a e helix
+abbr -a v vivaldi
 
 #------------------------other------------------------
 abbr -a gs 'clx ; git status -s'

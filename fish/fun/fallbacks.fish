@@ -24,8 +24,8 @@ alias --save hime 'history merge' >/dev/null
 alias --save jf 'clx && exec fish' >/dev/null
 
 alias --save p lazygit >/dev/null
-alias --save L yazi >/dev/null
 alias --save e helix >/dev/null
+alias --save v vivaldi >/dev/null
 
 alias --save ate 'loago list -m eat' >/dev/null
 
