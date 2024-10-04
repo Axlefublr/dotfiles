@@ -95,8 +95,8 @@ function fish_user_key_bindings
 
     binds -ds -m visual % beginning-of-buffer begin-selection end-of-buffer
 
-    binds -d R _replace_character_with_clipboard
-    binds -sv -m default R _replace_selection_with_clipboard
+    binds -d : _replace_character_with_clipboard
+    binds -sv -m default : _replace_selection_with_clipboard
 
     bind S 'commandline | copy'
     binds -vs S fish_clipboard_copy
