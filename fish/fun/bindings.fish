@@ -95,6 +95,8 @@ function fish_user_key_bindings
 
     binds -ds -m visual % beginning-of-buffer begin-selection end-of-buffer
 
+    binds -vs -m replace_one r repaint-mode
+
     binds -vds f forward-jump
     binds -vds t backward-jump
     binds -vds F forward-jump-till
