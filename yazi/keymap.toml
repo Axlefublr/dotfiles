@@ -11,7 +11,7 @@ keymap = [
 
   { on = 'J', run = 'plugin --sync hide-preview', desc = 'Toggle preview' },
 
-  { on = 'e', run = 'shell --block --confirm "fish -c edit-repo-root-or-cwd"', desc = 'Run helix here' },
+  { on = 'e', run = 'shell --block --confirm "fish -c edit_repo_root_or_cwd"', desc = 'Run helix here' },
   { on = '<A-u>', run = 'shell --confirm "kitten @ launch --type tab --cwd current"', desc = 'Kitty tab' },
   { on = '<A-i>', run = 'shell --confirm "kitten @ launch --type window --cwd current"', desc = 'Kitty window' },
   { on = '<A-o>', run = 'shell --confirm "kitten @ launch --type overlay-main --cwd current"', desc = 'Kitty overlay' },

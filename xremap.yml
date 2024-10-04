@@ -315,7 +315,7 @@ keymap:
           d: { launch: [fish, -c, 'ensure_browser main ; xdg-open (ypoc)'] }
           Shift-d: { launch: [fish, -c, 'ensure_browser content ; xdg-open (ypoc)'] }
 
-          Shift-s: { launch: [fish, -c, 'pick-sts-boss']}
+          Shift-s: { launch: [fish, -c, 'pick_sts_boss']}
 
           j: { launch: [fish, -c, install_yt_video] }
           k: { launch: [fish, -c, 'install_yt_video longform'] }

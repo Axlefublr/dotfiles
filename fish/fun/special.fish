@@ -1,11 +1,11 @@
 #!/usr/bin/env fish
 
-function edit-repo-root-or-cwd
+function edit_repo_root_or_cwd
     helix -w (git rev-parse --show-toplevel || echo $PWD) .
 end
-funcsave edit-repo-root-or-cwd >/dev/null
+funcsave edit_repo_root_or_cwd >/dev/null
 
-function pick-sts-boss
+function pick_sts_boss
     set input (
         begin
             echo NoAwakenedOne
@@ -22,4 +22,4 @@ function pick-sts-boss
     set -e input[-1]
     cp -f ~/prog/binaries/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
 end
-funcsave pick-sts-boss >/dev/null
+funcsave pick_sts_boss >/dev/null
