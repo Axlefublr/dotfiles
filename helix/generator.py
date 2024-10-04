@@ -43,6 +43,8 @@ lsp: dict[str, Any] = {
 }
 
 editor: dict[str, Any] = {
+    'should-statusline': False,
+    'whichkey': False,
     'scrolloff': 99,
     'shell': ['fish', '-c'],
     'line-number': 'relative',
@@ -52,7 +54,6 @@ editor: dict[str, Any] = {
     'preview-completion-insert': True,
     'completion-trigger-len': 2,
     'auto-info': True,
-    'whichkey': False,
     'color-modes': True,
     'text-width': 110,
     'default-line-ending': 'lf',
@@ -270,12 +271,13 @@ normal_select_mappings: dict[str, Any] = {
         'j': 'global_search',
         'a': ":sh execute_somehow '%w' '%p'",
         ':': 'replace_selections_with_clipboard',
+        'y': ':toggle should-statusline',
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
         },
         # 'space': ':sh echo {path}',
-        **disable(['A-c', 'C', 'D', 'G', 'Y', 'b', 'g', 'w', 'y']),
+        **disable(['A-c', 'C', 'D', 'G', 'Y', 'b', 'g', 'w']),
     },
     'g': {
         'e': 'move_next_sub_word_end',
