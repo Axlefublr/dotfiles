@@ -257,6 +257,7 @@ normal_select_mappings: dict[str, Any] = {
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
         'f': 'file_picker_in_current_directory',
+        'F': 'file_picker_in_current_buffer_directory',
         'e': 'buffer_picker',
         'K': ':quit-all!',
         'c': 'code_action',
