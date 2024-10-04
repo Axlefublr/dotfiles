@@ -24,8 +24,8 @@ abbr -a gm 'git commit'
 abbr -a gp 'git push'
 abbr -a gt 'git tag'
 abbr -a gd 'git diff'
-abbr -a grf git_search_file
-abbr -a grf git_search_file
+abbr -a grf git-search-file
+abbr -a grf git-search-file
 
 abbr -a py python
 abbr -a car 'RUST_LOG=trace cargo run'

@@ -36,8 +36,8 @@ alias --save gm 'git commit' >/dev/null
 alias --save gp 'git push' >/dev/null
 alias --save gt 'git tag' >/dev/null
 alias --save gd 'git diff' >/dev/null
-alias --save grf git_search_file >/dev/null
-alias --save grf git_search_file >/dev/null
+alias --save grf git-search-file >/dev/null
+alias --save grf git-search-file >/dev/null
 
 alias --save py python >/dev/null
 alias --save car 'RUST_LOG=trace cargo run' >/dev/null

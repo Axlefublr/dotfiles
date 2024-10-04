@@ -332,7 +332,7 @@ function bl_battery
 end
 funcsave bl_battery >/dev/null
 
-function git_search_file
+function git-search-file
     if not test "$argv[1]"
         echo 'the first argument should be the filepath where you want to search for a string' >&2
     end
@@ -354,9 +354,9 @@ function git_search_file
         end
     end
 end
-funcsave git_search_file >/dev/null
+funcsave git-search-file >/dev/null
 
-function git_search
+function git-search
     if not test "$argv[1]"
         echo 'missing arguments for `rg`' >&2
         return 1
@@ -383,7 +383,7 @@ function git_search
         end
     end
 end
-funcsave git_search >/dev/null
+funcsave git-search >/dev/null
 
 function igrai
     if not test "$argv[1]"
