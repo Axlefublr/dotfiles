@@ -46,6 +46,7 @@ ln -sf ~/prog/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
 # Yazi
 rm -fr ~/.config/yazi
 ln -s ~/prog/dotfiles/yazi ~/.config
+ya pack -a yazi-rs/plugins:hide-preview
 
 # Brillo
 begin

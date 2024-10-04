@@ -1,0 +1,1 @@
+require('hide-preview'):entry()

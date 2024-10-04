@@ -1,7 +1,7 @@
 '$schema' = 'https://yazi-rs.github.io/schemas/yazi.json'
 
 [manager]
-ratio = [0, 8, 0]
+ratio = [0, 2, 1]
 sort_by = 'natural'
 show_hidden = true
 scrolloff = 255
