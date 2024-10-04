@@ -332,59 +332,6 @@ function bl_battery
 end
 funcsave bl_battery >/dev/null
 
-function git-search-file
-    if not test "$argv[1]"
-        echo 'the first argument should be the filepath where you want to search for a string' >&2
-    end
-    if not test "$argv[2]"
-        echo 'the second argument and beyond are expected argument(s) to `rg`' >&2
-        return 1
-    end
-    set commits (git log --format=format:"%h" -- $argv[1])
-    for commit in $commits
-        truncate -s 0 /dev/shm/git_search
-        git show $commit:$argv[1] 2>/dev/null | rg --color=always $argv[2..] >>/dev/shm/git_search
-        and git show --color=always --oneline $commit -- $argv[1] >>/dev/shm/git_search
-        if test -s /dev/shm/git_search
-            cat /dev/shm/git_search | diff-so-fancy | less
-            read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
-            if test "$continue" = q
-                break
-            end
-        end
-    end
-end
-funcsave git-search-file >/dev/null
-
-function git-search
-    if not test "$argv[1]"
-        echo 'missing arguments for `rg`' >&2
-        return 1
-    end
-    set commits (git log --format=format:"%h")
-    for commit in $commits
-        truncate -s 0 /dev/shm/git_search
-        set files (git show --format=format:'' --name-only $commit)
-        set -l matched_files
-        for file in $files
-            git show $commit:$file 2>/dev/null | rg --color=always $argv >>/dev/shm/git_search
-            and set matched_files $matched_files $file
-            and echo (set_color '#e491b2')$file(set_color normal) >>/dev/shm/git_search
-        end
-        if test "$matched_files"
-            git show --color=always --oneline $commit -- $matched_files >>/dev/shm/git_search
-        end
-        if test -s /dev/shm/git_search
-            cat /dev/shm/git_search | diff-so-fancy | less
-            read -P 'press any key to continue, `q` to quit: ' -ln 1 continue
-            if test "$continue" = q
-                break
-            end
-        end
-    end
-end
-funcsave git-search >/dev/null
-
 function igrai
     if not test "$argv[1]"
         echo "no sound effect path provided" >&2
