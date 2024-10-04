@@ -1,4 +1,8 @@
 [[language]]
+name = 'mojo'
+file-types = ["mojo", "🔥", { glob = 'kitty.conf' }]
+
+[[language]]
 name = 'markdown'
 file-types = [
   'md',
