@@ -61,8 +61,4 @@ alias --save gz glaza >/dev/null
 alias --save gx 'glaza --git' >/dev/null
 alias --save at alien_temple >/dev/null
 
-alias --save ls 'ez -a' >/dev/null
-alias --save lg 'ez -al' >/dev/null
-alias --save lt 'ez -Ta' >/dev/null
-
 alias --save hrtrack httrack >/dev/null
