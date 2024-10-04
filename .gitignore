@@ -4,4 +4,4 @@ helix/wrap-off.toml
 helix/config.toml
 helix/man.toml
 __pycache__
-yazi/plugins
+yazi/plugins/hide-preview.yazi

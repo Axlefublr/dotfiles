@@ -18,8 +18,8 @@ keymap = [
   { on = '<A-h>', run = 'shell --confirm --block "lazygit"' },
 
   # ----------------------------------------------Navigation----------------------------------------------
-  { on = 'k', run = 'arrow -1', desc = 'Move cursor up' },
-  { on = 'j', run = 'arrow 1', desc = 'Move cursor down' },
+  { on = 'k', run = 'plugin --sync arrow --args=-1', desc = 'Move cursor up' },
+  { on = 'j', run = 'plugin --sync arrow --args=1', desc = 'Move cursor down' },
 
   { on = 'H', run = 'arrow -50%', desc = 'Scroll up by half a page' },
   { on = 'L', run = 'arrow 50%', desc = 'Scroll down by half a page' },
