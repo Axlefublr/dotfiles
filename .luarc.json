@@ -5,6 +5,8 @@
     "client",
     "screen",
     "cx",
-    "ya"
+    "ya",
+    "Status",
+    "ui"
   ]
 }
