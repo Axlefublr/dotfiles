@@ -1421,10 +1421,8 @@ keymap:
       CapsLock-Alt-Semicolon: ctrl-backspace
       CapsLock-n: tab # TODO: alt acts as shift
       CapsLock-Alt-n: shift-tab
-      CapsLock-Shift-o: ctrl-z
-      CapsLock-Shift-u: ctrl-y
-      CapsLock-Alt-d: ctrl-a
-      CapsLock-Alt-s: ctrl-x
+      CapsLock-Alt-s: ctrl-z
+      CapsLock-Alt-d: ctrl-y
       CapsLock-Ctrl-d: ctrl-shift-v
       CapsLock-Shift-d: ctrl-shift-v
       CapsLock-d: ctrl-v
