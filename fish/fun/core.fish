@@ -137,22 +137,30 @@ end
 funcsave _?? >/dev/null
 
 function ?
-    if builtin -q $argv[1]
-        _?? $argv
+    set -l helppage $argv
+    if not test "$helppage"
+        set helppage (ypoc)
+    end
+    if builtin -q $helppage[1]
+        _?? $helppage
         return
     end
     # doesn't try to fall back on manpages because some programs output a help page *and* set a non-zero statuscode
     # I don't know of a general way to check whether --help exists or not, considering that
-    _? $argv
+    _? $helppage
 end
 funcsave ? >/dev/null
 
 function ??
-    man --where $argv &>/dev/null
+    set -l manpage $argv
+    if not test "$manpage"
+        set manpage (ypoc)
+    end
+    man --where $manpage &>/dev/null
     if test $status -eq 16 # 16 means "manpage not found"
-        _? $argv
+        _? $manpage
         return
     end
-    _?? $argv
+    _?? $manpage
 end
 funcsave ?? >/dev/null
