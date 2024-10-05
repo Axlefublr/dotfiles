@@ -21,7 +21,7 @@ playerctld daemon
 
 xrestart.fish
 
-kitty -T editor -d ~/prog/dotfiles --hold helix . 2>>/tmp/log/user.txt & disown
+kitty -T editor -d ~/prog/dotfiles --hold helix 2>>/tmp/log/user.txt & disown
 kitty -T men 2>>/tmp/log/user.txt & disown
 kitty -T oil-content -d ~/vid/content --hold fish -c yazi 2>>/tmp/log/user.txt & disown
 
@@ -32,6 +32,8 @@ set discord (win_wait 'Vivaldi-stable — .*(Discord|Mastodon|Messenger)' 0.1 0 
 move_all 5 $discord
 set youtube (win_wait 'Vivaldi-stable — .*YouTube' 0.1 0 50)
 move_all 7 $youtube
+set spotify (win_wait 'Vivaldi-stable — .*Spotify' 0.1 0 50)
+move_all 7 $spotify
 
 anki 2>>/tmp/log/user.txt & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
@@ -39,8 +41,8 @@ move_all 8 $ankis
 
 RUST_LOG=debug axleizer &>/tmp/log/axleizer.txt & disown
 
-notify-send -t 2000 spotify
-loopuntil is_internet 0.5 0 60
+# notify-send -t 2000 spotify
+# loopuntil is_internet 0.5 0 60
 # spotify-launcher -v 2>>/tmp/log/user.txt & disown
 
 notify-send -t 0 'logged in'
