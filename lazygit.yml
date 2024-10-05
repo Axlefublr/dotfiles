@@ -73,6 +73,7 @@ keybinding:
     quit-alt1: K
     select: v
     toggleRangeSelect: x
+    executeShellCommand: ';'
 customCommands:
     - key: 'e'
       command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
