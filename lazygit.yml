@@ -84,3 +84,9 @@ customCommands:
       description: 'Edit file at the commit before this point in history'
       context: "commitFiles"
       subprocess: true
+    - key: 'P'
+      command: 'git push {{.SelectedRemote.Name}} {{.SelectedLocalCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
+      context: 'commits'
+      loadingText: 'Pushing commit...'
+      description: 'Push a specific commit (and any preceding)'
+      stream: true
