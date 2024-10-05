@@ -1257,16 +1257,16 @@ keymap:
       Super_R-c: '8'
       Super_R-x: '9'
 
-      Super_R-Alt-f: { launch: [fish, -c, 'copyq read 0 | xclip -sel clip'] }
-      Super_R-Alt-d: { launch: [fish, -c, 'copyq read 1 | xclip -sel clip'] }
-      Super_R-Alt-s: { launch: [fish, -c, 'copyq read 2 | xclip -sel clip'] }
-      Super_R-Alt-r: { launch: [fish, -c, 'copyq read 3 | xclip -sel clip'] }
-      Super_R-Alt-e: { launch: [fish, -c, 'copyq read 4 | xclip -sel clip'] }
-      Super_R-Alt-w: { launch: [fish, -c, 'copyq read 5 | xclip -sel clip'] }
-      Super_R-Alt-v: { launch: [fish, -c, 'copyq read 6 | xclip -sel clip'] }
-      Super_R-Alt-c: { launch: [fish, -c, 'copyq read 7 | xclip -sel clip'] }
-      Super_R-Alt-x: { launch: [fish, -c, 'copyq read 8 | xclip -sel clip'] }
-      Super_R-Alt-a: { launch: [fish, -c, 'copyq read 9 | xclip -sel clip'] }
+      Super_R-Alt-f: { launch: [fish, -c, 'copyq read 0 | copy'] }
+      Super_R-Alt-d: { launch: [fish, -c, 'copyq read 1 | copy'] }
+      Super_R-Alt-s: { launch: [fish, -c, 'copyq read 2 | copy'] }
+      Super_R-Alt-r: { launch: [fish, -c, 'copyq read 3 | copy'] }
+      Super_R-Alt-e: { launch: [fish, -c, 'copyq read 4 | copy'] }
+      Super_R-Alt-w: { launch: [fish, -c, 'copyq read 5 | copy'] }
+      Super_R-Alt-v: { launch: [fish, -c, 'copyq read 6 | copy'] }
+      Super_R-Alt-c: { launch: [fish, -c, 'copyq read 7 | copy'] }
+      Super_R-Alt-x: { launch: [fish, -c, 'copyq read 8 | copy'] }
+      Super_R-Alt-a: { launch: [fish, -c, 'copyq read 9 | copy'] }
 
       CapsLock-Alt-Dot: shift-7
       CapsLock-Alt-Slash: shift-backslash
@@ -1358,7 +1358,7 @@ keymap:
             [
               fish,
               -c,
-              'truncate -s 0 /tmp/tesseract.txt ; scrot -s - | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && xclip -r -selection clipboard /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
+              'truncate -s 0 /tmp/tesseract.txt ; scrot -s - | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
       Super-Alt-r:
@@ -1367,7 +1367,7 @@ keymap:
             [
               fish,
               -c,
-              'truncate -s 0 /tmp/tesseract.txt ; xclip -selection clipboard -o -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && xclip -r -selection clipboard /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
+              'truncate -s 0 /tmp/tesseract.txt ; ypoc -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
       Super-c: { launch: [fish, -c, 'ensure_browser main --and-back'] }
@@ -1380,24 +1380,23 @@ keymap:
       Super-f: { launch: [gromit-mpx, --toggle] }
       Super-Alt-f: { launch: [gromit-mpx, --clear] }
       Super-Shift-f: { launch: [gromit-mpx, --visibility] }
-      # Btn_Extra: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
-      Super-s: { launch: [fish, -c, 'scrot -s - | xclip -selection clipboard -t image/png'] }
+      Super-s: { launch: [fish, -c, 'scrot -s - | copy -t image/png'] }
       Super-Alt-s:
         {
           launch:
             [
               fish,
               -c,
-              "scrot -u - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took window'",
+              "scrot -u - | copy -t image/png ; notify-send -t 1000 'took window'",
             ],
         }
       Super-Shift-s:
         {
           launch:
-            [fish, -c, "scrot - | xclip -selection clipboard -t image/png ; notify-send -t 1000 'took screen'"],
+            [fish, -c, "scrot - | copy -t image/png ; notify-send -t 1000 'took screen'"],
         }
       Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
-      Super-Alt-w: { launch: [fish, -c, 'xclip -selection clipboard -t image/png -o 2> /dev/null | display'] }
+      Super-Alt-w: { launch: [fish, -c, 'ypoc -t image/png 2>/dev/null | display'] }
       CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
       CapsLock-Alt-v: { launch: [mpv, '--start=0', '/home/axlefublr/vid/rec.mp4'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
