@@ -174,6 +174,7 @@ insert_mappings: dict[str, Any] = {
     'A-.': 'indent',
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
     'C-u': 'kill_to_line_start',
+    'A-;': ['collapse_selection', 'paste_before'],
 }
 insert_mappings.update(**rusify(insert_mappings))
 
