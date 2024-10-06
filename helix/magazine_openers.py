@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-magazine_openers: dict[str, str] = {
+from typing import Any
+
+magazine_openers: dict[str, Any] = {
     'q': ':open ~/.local/share/magazine/q',
     'w': ':open ~/.local/share/magazine/w',
     'e': ':open ~/.local/share/magazine/e',
@@ -17,7 +19,7 @@ magazine_openers: dict[str, str] = {
     'f': ':open ~/.local/share/magazine/f',
     'g': ':open ~/.local/share/magazine/g',
     'h': ':open ~/.local/share/magazine/h',
-    'j': ':open ~/prog/dotfiles/project.txt',
+    'j': [':open ~/prog/dotfiles/project.txt', ':reload'],
     'k': ':open ~/.local/share/magazine/k',
     'l': ':open ~/.local/share/magazine/l',
     'z': ':open ~/.local/share/magazine/z',
@@ -43,7 +45,7 @@ magazine_openers: dict[str, str] = {
     'F': ':open ~/.local/share/magazine/F',
     'G': ':open ~/.local/share/magazine/G',
     'H': ':open ~/.local/share/magazine/H',
-    'J': ':open project.txt',
+    'J': [':open project.txt', ':reload'],
     'K': ':open ~/.local/share/magazine/K',
     'L': ':open ~/.local/share/magazine/L',
     'Z': ':open ~/.local/share/magazine/Z',
