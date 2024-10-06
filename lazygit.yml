@@ -2,6 +2,7 @@
 quitOnTopLevelReturn: true
 disableStartupPopups: true
 gui:
+  commitAuthorLongLength: 9
   scrollHeight: 10
   scrollPastBottom: false
   scrollOffMargin: 99
