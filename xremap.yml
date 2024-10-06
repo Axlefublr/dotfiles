@@ -308,7 +308,7 @@ keymap:
       CapsLock-Apostrophe:
         remap:
           c: { launch: [fish, -c, 'engined_search google'] }
-          Shift-c: { launch: [fish, -c, 'engined_search'] }
+          v: { launch: [fish, -c, 'engined_search'] }
 
           f: { launch: [fish, -c, 'runner_link open'] }
           s: { launch: [fish, -c, 'runner_link'] }
@@ -1407,7 +1407,7 @@ keymap:
       Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
       Super-k: { launch: [fish, -c, runner_notification] }
       Super-Semicolon: { launch: [fish, -c, runner_math] }
-      CapsLock-Enter: { launch: [fish, -c, 'ypoc >/dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md; cat /dev/shm/clipboard_edit.md | copy'] }
+      CapsLock-Enter: { launch: [fish, -c, 'ypoc >/dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md ; cat /dev/shm/clipboard_edit.md | copy'] }
       CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 /dev/shm/clipboard_edit.md ; neoline_hold /dev/shm/clipboard_edit.md ; cat /dev/shm/clipboard_edit.md | copy'] }
 
   - name: Any functionality
