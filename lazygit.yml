@@ -53,6 +53,9 @@ os:
   editPreset: helix
 
 keybinding:
+  branches:
+    createPullRequest: <disabled>
+    viewPullRequestOptions: <disabled>
   universal:
     # return: h
     # goInto: l
@@ -92,3 +95,8 @@ customCommands:
       loadingText: 'Pushing commit...'
       description: 'Push a specific commit (and any preceding)'
       stream: true
+    - key: 'o'
+      command: 'gh pr create'
+      context: localBranches
+      subprocess: true
+      description: 'Create pull request'
