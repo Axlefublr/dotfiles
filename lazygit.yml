@@ -22,6 +22,7 @@ gui:
     Axlefublr: '#ffafd7'
   branchColors:
     main: '#af87ff'
+    master: '#af87ff'
   theme:
     activeBorderColor:
       - yellow
