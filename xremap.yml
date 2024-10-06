@@ -1333,10 +1333,8 @@ keymap:
   - name: Any! media
     exact_match: true
     remap:
-      CapsLock-w: { launch: [fish, -c, 'set_volume -5'] }
-      CapsLock-e: { launch: [fish, -c, 'set_volume +5'] }
-      CapsLock-Alt-w: { launch: [fish, -c, 'set_mic_volume -5'] }
-      CapsLock-Alt-e: { launch: [fish, -c, 'set_mic_volume +5'] }
+      CapsLock-Alt-w: { launch: [fish, -c, 'set_volume -5'] }
+      CapsLock-Alt-e: { launch: [fish, -c, 'set_volume +5'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
       CapsLock-Alt-Shift-d: { launch: [fish, -c, media_prev] }
@@ -1418,10 +1416,10 @@ keymap:
     remap:
       CapsLock-Semicolon: backspace
       CapsLock-Alt-Semicolon: ctrl-backspace
-      CapsLock-n: tab # TODO: alt acts as shift
+      CapsLock-n: tab
       CapsLock-Alt-n: shift-tab
-      CapsLock-Alt-s: ctrl-z
-      CapsLock-Alt-d: ctrl-y
+      CapsLock-w: ctrl-z
+      CapsLock-e: ctrl-y
       CapsLock-Ctrl-d: ctrl-shift-v
       CapsLock-Shift-d: ctrl-shift-v
       CapsLock-d: ctrl-v
