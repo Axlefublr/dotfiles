@@ -22,8 +22,8 @@ keymap:
     application:
       only: Vivaldi-stable
     remap:
-      Alt-j: shift-f9
-      Alt-k: shift-f10
+      # Alt-j: shift-f9 # Focus Tab Bar
+      # Alt-k: shift-f10
       Alt-o: ctrl-shift-alt-f1
       Ctrl-Shift-RightBrace: ctrl-shift-alt-f2
       Alt-q: ctrl-shift-alt-f3
@@ -41,8 +41,8 @@ keymap:
       Ctrl-Comma: ctrl-shift-f3
       Ctrl-Dot: ctrl-shift-f4
       Shift-Alt-w: ctrl-shift-f5
-      Alt-Comma: ctrl-shift-f8
-      Alt-Dot: ctrl-shift-f7
+      Alt-k: ctrl-shift-f8
+      Alt-j: ctrl-shift-f7
       Ctrl-Alt-Comma: ctrl-shift-f6
       Ctrl-Alt-Dot: ctrl-shift-f9
       Alt-h: ctrl-shift-f10
