@@ -96,7 +96,7 @@ customCommands:
       loadingText: 'Pushing commit...'
       description: 'Push a specific commit (and any preceding)'
       stream: true
-    - key: 'o'
+    - key: 'O'
       command: 'gh pr create'
       context: localBranches
       subprocess: true
