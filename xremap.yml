@@ -22,7 +22,6 @@ keymap:
     application:
       only: Vivaldi-stable
     remap:
-      Alt-o: ctrl-shift-alt-f1
       Ctrl-Shift-RightBrace: ctrl-shift-alt-f2
       Alt-x: shift-f9 # focus tab bar
       Alt-c: shift-f10 # built in browser "right click" emulation button
@@ -47,7 +46,6 @@ keymap:
       Ctrl-Alt-Dot: ctrl-shift-f9
       Alt-h: ctrl-shift-f10
       Alt-l: ctrl-shift-f11
-      Alt-Semicolon: ctrl-shift-f12
       Shift-Alt-j: shift-alt-f1
       Shift-Alt-k: shift-alt-f2
       Shift-Alt-l: shift-alt-f3
@@ -63,6 +61,7 @@ keymap:
       Ctrl-Alt-r: shift-alt-f9
       Ctrl-Shift-Alt-r: shift-alt-f10
       Alt-Apostrophe: shift-alt-f11
+      Alt-Semicolon: ctrl-shift-f12 # quick commands
 
   - name: Anki!
     exact_match: true
