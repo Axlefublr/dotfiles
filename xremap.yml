@@ -54,6 +54,8 @@ keymap:
       Shift-Alt-n: shift-alt-f8 # find previous in page
       Ctrl-o: alt-left # history back
       Ctrl-i: alt-right # history forward
+      Shift-Alt-l: shift-alt-f3 # select previous tab
+      Shift-Alt-h: shift-alt-f4 # select next tab
 
   - name: Anki!
     exact_match: true
