@@ -109,6 +109,15 @@ editor: dict[str, Any] = {
     },
     'statusline': statusline,
     'lsp': lsp,
+    'persistence': {
+        'old-files': True,
+        'commands': False,
+        'search': False,
+        'clipboard': True,
+        'old-files-trim': 200,
+        # 'search-trim': 200,
+        # 'commands-trim': 200,
+    },
 }
 
 
