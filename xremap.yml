@@ -24,6 +24,7 @@ keymap:
     remap:
       Alt-x: shift-f9 # focus tab bar
       Alt-c: shift-f10 # built in browser "right click" emulation button
+      Alt-t: F12
       Alt-q: ctrl-shift-alt-f3
       Alt-z: ctrl-shift-alt-f4
       Alt-a: ctrl-shift-alt-f5
