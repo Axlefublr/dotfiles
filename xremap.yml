@@ -38,12 +38,12 @@ keymap:
       Alt-w: ctrl-shift-f2 # close tab
       Alt-k: ctrl-shift-f8
       Alt-j: ctrl-shift-f7
-      Ctrl-Alt-Comma: ctrl-shift-f6
-      Ctrl-Alt-Dot: ctrl-shift-f9
       Alt-h: ctrl-shift-f10
       Alt-l: ctrl-shift-f11
       Shift-Alt-k: shift-alt-f2
       Alt-m: shift-alt-f5
+      Ctrl-Alt-h: ctrl-shift-f6 # move active tab backward
+      Ctrl-Alt-l: ctrl-shift-f9 # move active tab forward
       Alt-Semicolon: ctrl-shift-f12 # quick commands
       Shift-Alt-j: shift-alt-f1 # stack tabs
       Alt-Apostrophe: shift-alt-f11 # focus address field
