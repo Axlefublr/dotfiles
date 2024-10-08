@@ -101,3 +101,11 @@ customCommands:
       context: localBranches
       subprocess: true
       description: 'Create pull request'
+    - key: 'o'
+      prompts:
+        - type: 'input'
+          title: 'PR id:'
+      command: 'gh browse {{index .PromptResponses 0}} ; gh pr checkout {{index .PromptResponses 0}}'
+      context: 'localBranches'
+      loadingText: 'checking out PR'
+      description: 'Checkout PR'
