@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
-mkdir -p ~/.local/share/magazine
+cd ~/.local/share
+gh repo clone Axlefublr/magazine
 mkdir -p ~/docs
 mkdir -p ~/ups

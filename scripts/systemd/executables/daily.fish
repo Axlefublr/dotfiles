@@ -44,7 +44,7 @@ cp -fr ~/.local/share/axleizer_invalid.json ~/prog/autocommit/axleizer_invalid.j
 git add axleizer_invalid.json
 and git commit -m "sync axleizer"
 
-set -l autocommitted ~/pic/twemoji-svg ~/pic/tree ~/pic/tools
+set -l autocommitted ~/pic/twemoji-svg ~/pic/tree ~/pic/tools ~/prog/binaries
 for dir in $autocommitted
     cd $dir
     autocommit
