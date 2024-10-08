@@ -22,7 +22,6 @@ keymap:
     application:
       only: Vivaldi-stable
     remap:
-      Ctrl-Shift-RightBrace: ctrl-shift-alt-f2
       Alt-x: shift-f9 # focus tab bar
       Alt-c: shift-f10 # built in browser "right click" emulation button
       Alt-q: ctrl-shift-alt-f3
@@ -33,13 +32,9 @@ keymap:
       Ctrl-Alt-f: ctrl-shift-alt-f8
       Ctrl-Alt-w: ctrl-shift-alt-f9
       Alt-e: ctrl-shift-alt-f10
-      Shift-Alt-e: ctrl-shift-alt-f11
       Ctrl-p: ctrl-shift-alt-f12
       Alt-p: ctrl-shift-f1
       Alt-w: ctrl-shift-f2
-      Ctrl-Comma: ctrl-shift-f3
-      Ctrl-Dot: ctrl-shift-f4
-      Shift-Alt-w: ctrl-shift-f5
       Alt-k: ctrl-shift-f8
       Alt-j: ctrl-shift-f7
       Ctrl-Alt-Comma: ctrl-shift-f6
@@ -48,8 +43,6 @@ keymap:
       Alt-l: ctrl-shift-f11
       Shift-Alt-j: shift-alt-f1
       Shift-Alt-k: shift-alt-f2
-      Shift-Alt-l: shift-alt-f3
-      Shift-Alt-h: shift-alt-f4
       Alt-m: shift-alt-f5
       Alt-r: ctrl-r
       Shift-Alt-r: shift-alt-f6
@@ -58,8 +51,6 @@ keymap:
       Shift-Alt-n: shift-alt-f8
       Ctrl-o: alt-left
       Ctrl-i: alt-right
-      Ctrl-Alt-r: shift-alt-f9
-      Ctrl-Shift-Alt-r: shift-alt-f10
       Alt-Apostrophe: shift-alt-f11
       Alt-Semicolon: ctrl-shift-f12 # quick commands
 
