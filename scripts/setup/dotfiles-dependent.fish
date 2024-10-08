@@ -169,6 +169,14 @@ rm -fr ~/prog/stored/eww
 rm -fr ~/.config/eww
 rm -fr ~/prog/binaries/eww
 
+# Bubbly
+curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
+
+# !Bubbly
+# rm -fr ~/.local/share/bubbly
+# rm -fr ~/.config/bubbly
+# rm -fr ~/.local/share/applications/bubbly.desktop
+
 # Postgresql
 ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
 sudo -iu postgres initdb -D /var/lib/postgres/data
