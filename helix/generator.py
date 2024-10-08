@@ -324,7 +324,7 @@ normal_select_mappings: dict[str, Any] = {
         'a': 'append_mode',
         'n': 'select_all_siblings',
         'N': 'select_all_children',
-        "'": ':reload',  # TODO: reload-all from the PR, so that it only updates safe buffers
+        "'": ':reload-all',
         **disable(
             [
                 '?',
