@@ -32,28 +32,28 @@ keymap:
       Ctrl-Alt-d: ctrl-shift-alt-f7
       Ctrl-Alt-f: ctrl-shift-alt-f8
       Ctrl-Alt-w: ctrl-shift-alt-f9
-      Alt-e: ctrl-shift-alt-f10
-      Ctrl-p: ctrl-shift-alt-f12
-      Alt-p: ctrl-shift-f1
-      Alt-w: ctrl-shift-f2
+      Alt-e: ctrl-shift-alt-f10 # new tab
+      Ctrl-p: ctrl-shift-alt-f12 # duplicate selected tabs
+      Alt-p: ctrl-shift-f1 # pin / unpin tab
+      Alt-w: ctrl-shift-f2 # close tab
       Alt-k: ctrl-shift-f8
       Alt-j: ctrl-shift-f7
       Ctrl-Alt-Comma: ctrl-shift-f6
       Ctrl-Alt-Dot: ctrl-shift-f9
       Alt-h: ctrl-shift-f10
       Alt-l: ctrl-shift-f11
-      Shift-Alt-j: shift-alt-f1
       Shift-Alt-k: shift-alt-f2
       Alt-m: shift-alt-f5
-      Alt-r: ctrl-r
-      Shift-Alt-r: shift-alt-f6
-      Alt-Slash: ctrl-f
-      Alt-n: shift-alt-f7
-      Shift-Alt-n: shift-alt-f8
-      Ctrl-o: alt-left
-      Ctrl-i: alt-right
-      Alt-Apostrophe: shift-alt-f11
       Alt-Semicolon: ctrl-shift-f12 # quick commands
+      Shift-Alt-j: shift-alt-f1 # stack tabs
+      Alt-Apostrophe: shift-alt-f11 # focus address field
+      Alt-r: F5 # reload page
+      Shift-Alt-r: shift-alt-f6 # force page reload
+      Alt-Slash: ctrl-f # find in page
+      Alt-n: shift-alt-f7 # find next in page
+      Shift-Alt-n: shift-alt-f8 # find previous in page
+      Ctrl-o: alt-left # history back
+      Ctrl-i: alt-right # history forward
 
   - name: Anki!
     exact_match: true
