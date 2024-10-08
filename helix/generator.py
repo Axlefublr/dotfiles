@@ -206,7 +206,7 @@ normal_select_mappings: dict[str, Any] = {
     'R': 'repeat_last_motion',
     '$': 'keep_selections',
     'K': ':write-quit-all!',
-    "'": ':write-all!',
+    "'": ':write!',
     'M': 'save_selection',
     'A-h': 'select_prev_sibling',
     'A-l': 'select_next_sibling',
@@ -324,7 +324,7 @@ normal_select_mappings: dict[str, Any] = {
         'a': 'append_mode',
         'n': 'select_all_siblings',
         'N': 'select_all_children',
-        "'": ':reload-all',
+        "'": ':reload',  # TODO: reload-all from the PR, so that it only updates safe buffers
         **disable(
             [
                 '?',
