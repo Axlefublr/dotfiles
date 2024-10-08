@@ -38,7 +38,6 @@ keymap:
       Alt-w: ctrl-shift-f2 # close tab
       Alt-k: ctrl-shift-f8
       Alt-j: ctrl-shift-f7
-      Shift-Alt-k: shift-alt-f2
       Alt-m: shift-alt-f5
       Ctrl-Alt-h: ctrl-shift-f6 # move active tab backward
       Ctrl-Alt-l: ctrl-shift-f9 # move active tab forward
@@ -46,6 +45,7 @@ keymap:
       Alt-l: ctrl-shift-f11 # next tab (by order)
       Alt-Semicolon: ctrl-shift-f12 # quick commands
       Shift-Alt-j: shift-alt-f1 # stack tabs
+      Shift-Alt-k: shift-alt-f2 # remove from tab stack
       Alt-Apostrophe: shift-alt-f11 # focus address field
       Alt-r: F5 # reload page
       Shift-Alt-r: shift-alt-f6 # force page reload
