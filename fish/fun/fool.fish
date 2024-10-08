@@ -29,7 +29,7 @@ function gh
                 command gh repo fork $argv[3..] --clone --default-branch-only -- --depth 1
                 z (path basename $argv[3])
                 clx
-            case *
+            case '*'
                 command gh $argv
         end
         return
@@ -39,7 +39,7 @@ end
 funcsave gh >/dev/null
 
 function alien_temple
-    if test !"$argv"
+    if not test "$argv"
         ? alien_temple
         return 1
     end
@@ -50,7 +50,10 @@ function alien_temple
             echo $shark[1] | copy
         case consent c
             command alien_temple consent | tee /dev/tty | copy
-        case *
+        case play
+            command alien_temple $argv
+            loago do liked
+        case '*'
             command alien_temple $argv
     end
 end

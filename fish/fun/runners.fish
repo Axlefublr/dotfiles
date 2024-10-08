@@ -23,10 +23,6 @@ function runner
     else
         source /dev/shm/runner_input
     end
-    if rg '^at play' /dev/shm/runner_input
-        loago do liked
-        widget_update mature_tasks_line Loago
-    end
     if rg '^loago do' /dev/shm/runner_input
         widget_update mature_tasks_line Loago
     end

@@ -270,7 +270,7 @@ function filter_mature_tasks
                 if_print $days $name 60
             case vacuum floor dust
                 if_print $days $name 6
-            case towels lamp nose wash music
+            case towels lamp nose wash disc
                 if_print $days $name 7
             case cloths fscrub bscrub liked cazor audio brushes helix
                 if_print $days $name 10
