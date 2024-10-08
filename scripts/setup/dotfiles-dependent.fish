@@ -155,6 +155,20 @@ ln -sf ~/prog/dotfiles/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
 mkdir -p ~/.local/share/color-schemes
 ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
 
+# Eww
+cd ~/prog/stored
+git clone https://github.com/elkowar/eww
+cd eww
+cargo build --release --no-default-features --features x11
+ln $PWD/target/release/eww ~/prog/binaries
+mkdir -p ~/.config/eww
+touch ~/.config/eww/eww.yuck
+
+# !Eww
+rm -fr ~/prog/stored/eww
+rm -fr ~/.config/eww
+rm -fr ~/prog/binaries/eww
+
 # Postgresql
 ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
 sudo -iu postgres initdb -D /var/lib/postgres/data
