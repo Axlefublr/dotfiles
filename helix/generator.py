@@ -252,6 +252,8 @@ normal_select_mappings: dict[str, Any] = {
         ']': '@ma]',
     },
     'space': {
+        'z': 'harp_cwd_get',
+        'Z': 'harp_cwd_set',
         's': 'harp_file_get',
         'S': 'harp_file_set',
         '/': 'harp_search_get',
