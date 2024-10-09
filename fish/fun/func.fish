@@ -73,6 +73,7 @@ function engined_search
                 echo slay the spire
                 echo kitty
                 echo fish
+                echo krita
             end | rofi -no-custom -dmenu 2>/dev/null ; echo $status
         )
         test $engine[-1] -eq 1 && return 1 || set -e engine[-1]
@@ -110,6 +111,8 @@ function engined_search
             $BROWSER "https://sw.kovidgoyal.net/kitty/search/?q=$input&check_keywords=yes&area=default" >/dev/null
         case fish
             $BROWSER "https://fishshell.com/docs/current/search.html?q=$input" >/dev/null
+        case krita
+            $BROWSER "https://docs.krita.org/en/search.html?q=$input&check_keywords=yes&area=default" >/dev/null
     end
 end
 funcsave engined_search >/dev/null
