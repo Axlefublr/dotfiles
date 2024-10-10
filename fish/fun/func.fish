@@ -58,6 +58,18 @@ function execute_somehow -d 'expects cwd, then full path to the buffer as args'
 end
 funcsave execute_somehow >/dev/null
 
+function diag_somehow -d 'expects cwd, then full path to the buffer as args'
+    if not test "$argv[2]"
+        return
+    end
+    set -l base (path basename $argv[2])
+    set -l extension (path extension $argv[2] | cut -c 2-)
+    if test $extension = rs -o $base = 'Cargo.toml'
+        over --hold cargo clippy
+    end
+end
+funcsave diag_somehow >/dev/null
+
 function engined_search
     set -l engine $argv[1]
     if not test "$argv[1]"

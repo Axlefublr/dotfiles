@@ -282,6 +282,7 @@ normal_select_mappings: dict[str, Any] = {
         'L': 'workspace_symbol_picker',
         'j': 'global_search',
         'a': ":sh execute_somehow '%w' '%p'",
+        'A': ":sh diag_somehow '%w' '%p'",
         ':': 'replace_selections_with_clipboard',
         'y': ':toggle should-statusline',
         ';': {
