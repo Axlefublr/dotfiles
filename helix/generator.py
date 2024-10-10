@@ -318,7 +318,7 @@ normal_select_mappings: dict[str, Any] = {
         'j': 'rotate_view',
         'J': 'hsplit',
         'K': ':hsplit-new',
-        ':': 'wclose',
+        ':': ':quit!',
         ';': ':write-quit!',
         'u': 'transpose_view',
         'o': 'wonly',
