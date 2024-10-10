@@ -96,6 +96,18 @@ customCommands:
       loadingText: 'Pushing commit...'
       description: 'Push a specific commit (and any preceding)'
       stream: true
+    - key: 't'
+      context: 'commits'
+      prompts:
+        - type: 'menu'
+          title: 'How to revert?'
+          options:
+            - value: 'revert'
+              name: 'With a commit'
+            - value: 'revert -n'
+              name: 'Into index'
+      command: 'git {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}}'
+      description: 'View reverting options...'
     - key: 'O'
       command: 'gh pr create'
       context: localBranches
