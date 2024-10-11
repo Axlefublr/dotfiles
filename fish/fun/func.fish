@@ -90,6 +90,9 @@ function engined_search
                 echo kitty
                 echo fish
                 echo krita
+                echo iask
+                echo iask concise
+                echo iask detailed
             end | rofi -no-custom -dmenu 2>/dev/null ; echo $status
         )
         test $engine[-1] -eq 1 && return 1 || set -e engine[-1]
@@ -129,6 +132,12 @@ function engined_search
             $BROWSER "https://fishshell.com/docs/current/search.html?q=$input" >/dev/null
         case krita
             $BROWSER "https://docs.krita.org/en/search.html?q=$input&check_keywords=yes&area=default" >/dev/null
+        case iask
+            $BROWSER "https://iask.ai/?mode=question&q=$input" >/dev/null
+        case 'iask concise'
+            $BROWSER "https://iask.ai/?mode=question&options%5Bdetail_level%5D=concise&q=$input" >/dev/null
+        case 'iask detailed'
+            $BROWSER "https://iask.ai/?mode=question&options%5Bdetail_level%5D=detailed&q=$input" >/dev/null
     end
 end
 funcsave engined_search >/dev/null
