@@ -2,11 +2,10 @@
  * urls on the domain
  */
 
-body > .fade.show {
-	&.modal-backdrop {
-		display: none;
-	}
-	&.modal {
-		display: none !important;
-	}
+.fade.show.modal-backdrop {
+	display: none;
+}
+
+body>[role=dialog] {
+	display: none !important;
 }
