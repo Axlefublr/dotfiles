@@ -13,6 +13,7 @@ alias --save chx 'chmod +x' >/dev/null
 
 # no abbreviation equivalents because the expansion is too wordy
 alias --save copy 'xclip -r -selection clipboard' >/dev/null
+alias --save copyi 'xclip -selection clipboard -t image/png' >/dev/null
 alias --save copyn 'xclip -selection clipboard' >/dev/null
 alias --save ypoc 'xclip -selection clipboard -o' >/dev/null
 
