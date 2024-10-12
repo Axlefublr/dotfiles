@@ -212,7 +212,7 @@ function pjs
             touch $project_file_path
             if test -s $project_file_path
                 # set_color '#e491b2'
-                echo $file
+                echo '~/prog/'$file
                 # set_color normal
                 echo "$(cat $project_file_path)"
                 echo
