@@ -60,7 +60,7 @@ keymap = [
   { on = '<Space>', run = 'select_all --state=false', desc = 'Deselect all' },
 
   # ----------------------------------------------Operation----------------------------------------------
-  { on = 'o', run = 'create --force', desc = 'Create a blob' },
+  { on = 'a', run = 'create --force', desc = 'Create a blob' },
 
   { on = 'O', run = 'open --interactive', desc = 'Open selected files interactively' },
   { on = '<Enter>', run = 'open', desc = 'Open selected files' },
