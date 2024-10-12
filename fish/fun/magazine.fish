@@ -193,9 +193,9 @@ function project_paths
     for path in (ls -A ~/prog/forks)
         echo forks/$path
     end
-    for path in (ls -A ~/prog/stored)
-        echo stored/$path
-    end
+    # for path in (ls -A ~/prog/stored)
+    #     echo stored/$path
+    # end
 end
 funcsave project_paths >/dev/null
 
