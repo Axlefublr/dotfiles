@@ -62,7 +62,8 @@ keymap = [
   # ----------------------------------------------Operation----------------------------------------------
   { on = 'a', run = 'create --force', desc = 'Create a blob' },
 
-  { on = 'O', run = 'open --interactive', desc = 'Open selected files interactively' },
+  { on = 'O', run = 'plugin open-with-cmd --args=block', desc = 'Open selected with command in the terminal' },
+  { on = 'o', run = 'plugin open-with-cmd', desc = 'Open selected with command' },
   { on = '<Enter>', run = 'open', desc = 'Open selected files' },
 
   { on = 'd', run = 'remove --force', desc = 'Trash selected' },

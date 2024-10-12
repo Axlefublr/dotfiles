@@ -49,6 +49,7 @@ ln -s ~/prog/dotfiles/yazi ~/.config
 ya pack -a yazi-rs/plugins:hide-preview
 ya pack -a yazi-rs/plugins:chmod
 ya pack -a yazi-rs/plugins:jump-to-char
+ya pack -a Ape/open-with-cmd
 
 # Brillo
 begin
