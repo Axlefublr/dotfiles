@@ -6,3 +6,4 @@ helix/man.toml
 __pycache__
 yazi/plugins/hide-preview.yazi
 yazi/plugins/chmod.yazi
+yazi/plugins/jump-to-char.yazi
