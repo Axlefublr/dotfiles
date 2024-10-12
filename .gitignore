@@ -5,3 +5,4 @@ helix/config.toml
 helix/man.toml
 __pycache__
 yazi/plugins/hide-preview.yazi
+yazi/plugins/chmod.yazi
