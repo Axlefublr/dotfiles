@@ -135,6 +135,10 @@ keymap = [
     'c',
     'n',
   ], run = 'copy name_without_ext', desc = 'Copy the filename without extension' },
+  { on = [
+    'c',
+    'a',
+  ], run = 'plugin compress', desc = 'Archive selected files' },
 
   # -----------------------------------------------Sorting-----------------------------------------------
   { on = [
