@@ -187,7 +187,6 @@ funcsave _magazine_commit >/dev/null
 #-------------------------------------------------projectual-------------------------------------------------
 
 function project_paths
-    echo dotfiles
     for path in (ls -A ~/prog/proj)
         echo proj/$path
     end
@@ -212,9 +211,9 @@ function pjs
             set -l project_file_path ~/prog/$file/project.txt
             touch $project_file_path
             if test -s $project_file_path
-                set_color '#e491b2'
+                # set_color '#e491b2'
                 echo $file
-                set_color normal
+                # set_color normal
                 echo "$(cat $project_file_path)"
                 echo
             else
@@ -222,10 +221,9 @@ function pjs
             end
         end
         for file in $empties
-            set_color '#e491b2'
+            # set_color '#e491b2'
             printf '%s\n' $file
         end
-    end
+    end >/tmp/pjs
 end
 funcsave pjs >/dev/null
-alias --save pjsi 'pjs | less' >/dev/null
