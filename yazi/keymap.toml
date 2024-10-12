@@ -135,10 +135,6 @@ keymap = [
     'c',
     'n',
   ], run = 'copy name_without_ext', desc = 'Copy the filename without extension' },
-  { on = [
-    'c',
-    'm',
-  ], run = 'plugin chmod', desc = 'Chmod selected files' },
 
   # -----------------------------------------------Sorting-----------------------------------------------
   { on = [
