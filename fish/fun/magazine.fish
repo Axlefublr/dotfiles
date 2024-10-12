@@ -114,7 +114,7 @@ function magazine_append_link
     test $result[-1] -ne 0 && return || set -e result[-1]
     set link (ypoc)
     indeed -nu ~/.local/share/magazine/l "$result — $link"
-    silly_sort.py ~/.local/share/magazine/l
+    _magazine_commit ~/.local/share/magazine/l append
     notify-send -t 2000 "append link $link"
 end
 funcsave magazine_append_link >/dev/null
