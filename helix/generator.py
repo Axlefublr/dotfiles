@@ -247,6 +247,7 @@ normal_select_mappings: dict[str, Any] = {
     'a': 'append_mode',
     'I': 'insert_at_line_start',
     'A': 'insert_at_line_end',
+    'd': 'delete_selection',
     'm': {
         '(': '@mi(',
         '{': '@mi{',
