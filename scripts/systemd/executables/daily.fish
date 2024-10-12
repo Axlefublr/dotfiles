@@ -52,18 +52,19 @@ end
 
 loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sleep, it hasn't connected to wifi at that point, but *has* started executing this script. so what ends up happening is gpp fails to push all the directories because it doesn't have internet to do so yet.
 
+for dir in ~/prog/forks/*
+    cd $dir
+    git fetch
+end
+
 for dir in ~/prog/stored/*
     cd $dir
-    git pull
+    git fetch
+    git reset --hard origin/(git branch --show-current)
 end
 
 for dir in (cat ~/.local/share/magazine/R)
     set dir (string replace -r "^~" "$HOME" $dir)
     cd $dir
     git push
-end
-
-for dir in ~/prog/forks/*
-    cd $dir
-    git fetch upstream
 end
