@@ -780,7 +780,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/0'] }
-      Shift_L-Alt-d:
+      Shift_L-e:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/q'] }
