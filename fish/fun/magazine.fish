@@ -167,6 +167,9 @@ function _magazine_commit
     set -l head (path basename $parent_path)
     set -l base (path basename $argv[1])
     set -l mag $base
+    if string match $argv[1] (cat ~/.local/share/magazine/O | string replace -r '^~' "$HOME")
+        silly_sort.py $argv[1]
+    end
     if test $parent_path != ~/.local/share/magazine
         if test $base = project.txt
             cp -f $argv[1] ~/.local/share/magazine/$head
