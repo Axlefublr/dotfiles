@@ -44,6 +44,7 @@ lsp: dict[str, Any] = {
 
 editor: dict[str, Any] = {
     'should-statusline': False,
+    'ephemeral-messages': True,
     'whichkey': False,
     'scrolloff': 99,
     'shell': ['fish', '-c'],
