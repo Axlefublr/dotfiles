@@ -45,3 +45,13 @@ function multiple_dot
     echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
 funcsave multiple_dot >/dev/null
+
+function github_read_notifs
+    # -H 'X-GitHub-Api-Version: 2022-11-28' \
+    gh api \
+        --method PUT \
+        -H 'Accept: application/vnd.github+json' \
+        /notifications \
+        -F 'read=true'
+end
+funcsave github_read_notifs >/dev/null

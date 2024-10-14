@@ -708,7 +708,7 @@ keymap:
           Super_R-f: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/3'] }
-          Super_R-r: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/4'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/4 ; github_read_notifs'] }
           Super_R-e: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/5'] }
           Super_R-w: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/6'] }
           Super_R-v: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/7'] }
