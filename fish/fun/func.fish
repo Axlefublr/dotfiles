@@ -98,7 +98,7 @@ function engined_search
         test $engine[-1] -eq 1 && return 1 || set -e engine[-1]
     end
 
-    set input (rofi -dmenu 2> /dev/null | string escape --style=url ; echo $status)
+    set input (rofi -dmenu 2>/dev/null ; echo $status)
     test $input[-1] -eq 1 && return 1
     not test "$input" && return 1
 
@@ -108,6 +108,7 @@ function engined_search
         ensure_browser content
     end
     set -e input[-1]
+    set input (string escape --style=url $input)
 
     switch $engine # I ignore output so that I don't see "Opening in existing browser session." in my runner ouput every time I search for something
         case yandex
