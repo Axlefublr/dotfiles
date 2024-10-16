@@ -292,7 +292,6 @@ normal_select_mappings: dict[str, Any] = {
         'a': ":sh execute_somehow '%w' '%p'",
         'A': ":sh diag_somehow '%w' '%p'",
         ':': 'replace_selections_with_clipboard',
-        'y': ':toggle should-statusline',
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
@@ -346,7 +345,9 @@ normal_select_mappings: dict[str, Any] = {
         'f': ':echo %R',
         'F': ':echo %P',
         'd': ':echo %W',
+        's': ':toggle should-statusline',
         'e': ':lang',
+        'w': ':toggle whichkey',
         **disable(
             [
                 '?',
