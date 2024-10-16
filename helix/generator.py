@@ -21,7 +21,6 @@ statusline: dict[str, Any] = {
         'selections',
     ],
     'center': [
-        'file-name',
         'read-only-indicator',
         'file-modification-indicator',
     ],
@@ -240,7 +239,6 @@ normal_select_mappings: dict[str, Any] = {
     'T': 'till_prev_char',
     'f': 'find_next_char',
     't': 'find_prev_char',
-    'A-s': 'select_all',
     'A-m': 'split_selection_on_newline',
     'A-+': 'reverse_selection_contents',
     ':': 'replace_with_yanked',
