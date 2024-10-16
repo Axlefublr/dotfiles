@@ -96,7 +96,6 @@ editor: dict[str, Any] = {
         'line-numbers': {'min-width': 2},
         'layout': [
             'diff',
-            # 'spacer',
         ],
     },
     'file-picker': {
