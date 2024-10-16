@@ -294,8 +294,13 @@ normal_select_mappings: dict[str, Any] = {
             'h': ':lang html',
             'm': ':lang markdown',
         },
+        'g': {
+            'f': ':sh ghl %r | copy',
+            'F': ':sh ghl -pb HEAD %r | copy',
+            'd': ':sh ghl | copy',
+        },
         # 'space': ':sh echo ##',
-        **disable(['A-c', 'C', 'D', 'G', 'Y', 'b', 'g', 'w']),
+        **disable(['A-c', 'C', 'D', 'G', 'Y', 'b', 'w']),
     },
     'g': {
         'e': 'move_next_sub_word_end',
