@@ -54,6 +54,8 @@ function execute_somehow -d 'expects cwd, then full path to the buffer as args'
         xrestart.fish
     else if test $argv[1] = ~/prog/forks/helix
         win --hold ./build.fish
+    else if test $extension = rs -o $base = Cargo.toml
+        over --hold cargo run
     else if test $extension = py
         python $argv[2]
     else if test $extension = fish
