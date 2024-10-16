@@ -343,6 +343,10 @@ normal_select_mappings: dict[str, Any] = {
         'n': 'select_all_siblings',
         'N': 'select_all_children',
         "'": ':reload-all',
+        'f': ':echo %R',
+        'F': ':echo %P',
+        'd': ':echo %W',
+        'e': ':lang',
         **disable(
             [
                 '?',
