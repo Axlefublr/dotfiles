@@ -392,8 +392,8 @@ with open('/home/axlefublr/prog/dotfiles/helix/config.toml', 'w') as file:
 
 entire_config['editor']['whitespace']['render']['newline'] = 'none'
 entire_config['editor']['gutters']['layout'] = []
-entire_config['keys']['normal']['K'] = ['yank_to_clipboard', ':write-quit-all!']
-entire_config['keys']['select']['K'] = ['yank_to_clipboard', ':write-quit-all!']
+entire_config['keys']['normal']['K'] = ['yank_to_clipboard', ':quit-all!']
+entire_config['keys']['select']['K'] = ['yank_to_clipboard', ':quit-all!']
 
 with open('/home/axlefublr/prog/dotfiles/helix/man.toml', 'w') as file:
     toml.dump(entire_config, file)
