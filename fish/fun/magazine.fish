@@ -128,12 +128,18 @@ funcsave magazine_client_info >/dev/null
 #--------------------------------------------not really magazines--------------------------------------------
 
 function bookmark_open
+    set -l bookmark (harp get bookmarks $argv[1] --path)
+    not test "$bookmark"
+    and begin
+        notify-send -t 2000 "bookmark $argv[1] doesn't exist"
+        return 1
+    end
     set -f browser_window main
     if test "$(count $argv)" -ge 2
         set browser_window $argv[-1]
     end
     ensure_browser $browser_window
-    $BROWSER "$(harp get bookmarks $argv[1] --path)"
+    $BROWSER $bookmark
 end
 funcsave bookmark_open >/dev/null
 
