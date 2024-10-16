@@ -322,7 +322,7 @@ keymap:
           Shift-y: { launch: [kill, screenkey] }
           i: { launch: [fish, -c, magazine_client_info] }
 
-          b:
+          w:
             remap:
               q: { launch: [fish, -c, 'bookmark_open q'] }
               w: { launch: [fish, -c, 'bookmark_open w'] }
@@ -386,7 +386,7 @@ keymap:
               Super_R-c: { launch: [fish, -c, 'bookmark_open 8'] }
               Super_R-x: { launch: [fish, -c, 'bookmark_open 9'] }
               Super_R-a: { launch: [fish, -c, 'bookmark_open 0'] }
-          Shift-b:
+          Shift-w:
             remap:
               q: { launch: [fish, -c, 'bookmark_open q content'] }
               w: { launch: [fish, -c, 'bookmark_open w content'] }
@@ -450,7 +450,7 @@ keymap:
               Super_R-c: { launch: [fish, -c, 'bookmark_open 8 content'] }
               Super_R-x: { launch: [fish, -c, 'bookmark_open 9 content'] }
               Super_R-a: { launch: [fish, -c, 'bookmark_open 0 content'] }
-          Alt-b:
+          Alt-w:
             remap:
               q: { launch: [fish, -c, 'bookmark_set q "$(ypoc)"'] }
               w: { launch: [fish, -c, 'bookmark_set w "$(ypoc)"'] }
