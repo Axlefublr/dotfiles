@@ -13,6 +13,24 @@ truncate -s 0 ~/.local/share/magazine/d
 yeared_parse
 yearless_parse
 task (whensies.py)
+clorange habit increment
+set even (test (math (clorange habit show) % 2) -eq 0)
+if test $even
+    begin
+        echo magazine D
+        echo anki
+        echo exercise
+        echo head
+    end >~/.local/share/magazine/x
+else
+    begin
+        echo shave
+        echo anki
+        echo commits
+        echo exercise
+        echo shower
+    end >~/.local/share/magazine/x
+end
 
 if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (579) tomorrow'
