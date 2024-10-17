@@ -2,7 +2,7 @@
 
 clorange megafon increment
 
-trash-empty -f 1
+trash-empty -f 2
 
 cd ~/.local/share/magazine
 git add .
