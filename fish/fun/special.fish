@@ -55,3 +55,8 @@ function github_read_notifs
         -F 'read=true'
 end
 funcsave github_read_notifs >/dev/null
+
+function alphabet
+    printf 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[];\',./{}:"<>?'
+end
+funcsave alphabet >/dev/null
