@@ -56,22 +56,6 @@ end
 funcsave toggle_internet >/dev/null
 
 alias --save media_state 'playerctl status' >/dev/null
-function update_media_state
-    set state (media_state 2>/dev/null)
-    if test -z "$state"
-        return 1
-    end
-    if test $state = Paused
-        echo '󰏤'
-    else if test $state = Playing
-        echo '󰐊'
-    else if test $state = Stopped
-        echo '󰓛'
-    else
-        echo ''
-    end
-end
-funcsave update_media_state >/dev/null
 
 alias --save media_next 'playerctl next' >/dev/null
 alias --save media_prev 'playerctl previous' >/dev/null
@@ -94,7 +78,6 @@ funcsave set_media_volume >/dev/null
 
 function toggle_media
     playerctl play-pause
-    widget_update update_media_state Media_state
 end
 funcsave toggle_media >/dev/null
 

@@ -324,22 +324,6 @@ function Brightness_wu()
 	end)
 end
 
-Media_state_w = text_widget(beautiful.jetbrains_font .. ' 15')
-Media_state_mw = wibox.container.margin(Media_state_w)
-Media_state_mw.right = between
-Media_state_mw.visible = false
-function Media_state_wu()
-	local file = io.open('/dev/shm/Media_state_f', 'r')
-	if file then
-		local text = file:read('*a')
-		file:close()
-		if #text > 0 then
-			Media_state_mw.visible = true
-			Media_state_w:set_text(text)
-		end
-	end
-end
-
 Malumn_w = text_widget()
 Malumn_mw = wibox.container.margin(Malumn_w)
 Malumn_mw.left = between
@@ -647,7 +631,6 @@ Wibar_w:setup({
 		Malumn_mw,
 		Window_state_lw,
 		Mouse_mw,
-		Media_state_mw,
 		Dnd_mw,
 		Bluetooth_mw,
 		Wifi_mw,
@@ -659,7 +642,6 @@ Wibar_w:setup({
 local run_once = function()
 	local frequents = {
 		'Layout',
-		'Media_state',
 		'Mic_volume',
 		'Volume',
 		'Wifi',
