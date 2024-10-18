@@ -334,6 +334,8 @@ keymap:
               i: { launch: [fish, -c, 'bookmark_open i'] }
               o: { launch: [fish, -c, 'bookmark_open o'] }
               p: { launch: [fish, -c, 'bookmark_open p'] }
+              LeftBrace: { launch: [fish, -c, 'bookmark_open leftbrace'] }
+              RightBrace: { launch: [fish, -c, 'bookmark_open rightbrace'] }
               a: { launch: [fish, -c, 'bookmark_open a'] }
               s: { launch: [fish, -c, 'bookmark_open s'] }
               d: { launch: [fish, -c, 'bookmark_open d'] }
@@ -343,6 +345,8 @@ keymap:
               j: { launch: [fish, -c, 'bookmark_open j'] }
               k: { launch: [fish, -c, 'bookmark_open k'] }
               l: { launch: [fish, -c, 'bookmark_open l'] }
+              Semicolon: { launch: [fish, -c, 'bookrmark_open semicolon'] }
+              Apostrophe: { launch: [fish, -c, 'bookrmark_open apostrophe'] }
               z: { launch: [fish, -c, 'bookmark_open z'] }
               x: { launch: [fish, -c, 'bookmark_open x'] }
               c: { launch: [fish, -c, 'bookmark_open c'] }
@@ -350,6 +354,9 @@ keymap:
               b: { launch: [fish, -c, 'bookmark_open b'] }
               n: { launch: [fish, -c, 'bookmark_open n'] }
               m: { launch: [fish, -c, 'bookmark_open m'] }
+              Comma: { launch: [fish, -c, 'bookmark_open comma'] }
+              Dot: { launch: [fish, -c, 'bookmark_open dot'] }
+              Slash: { launch: [fish, -c, 'bookmark_open slash'] }
               Shift-q: { launch: [fish, -c, 'bookmark_open Q'] }
               Shift-w: { launch: [fish, -c, 'bookmark_open W'] }
               Shift-e: { launch: [fish, -c, 'bookmark_open E'] }
@@ -360,6 +367,8 @@ keymap:
               Shift-i: { launch: [fish, -c, 'bookmark_open I'] }
               Shift-o: { launch: [fish, -c, 'bookmark_open O'] }
               Shift-p: { launch: [fish, -c, 'bookmark_open P'] }
+              Shift-LeftBrace: { launch: [fish, -c, 'bookmark_open leftcurl'] }
+              Shift-RightBrace: { launch: [fish, -c, 'bookmark_open rightcurl'] }
               Shift-a: { launch: [fish, -c, 'bookmark_open A'] }
               Shift-s: { launch: [fish, -c, 'bookmark_open S'] }
               Shift-d: { launch: [fish, -c, 'bookmark_open D'] }
@@ -369,6 +378,8 @@ keymap:
               Shift-j: { launch: [fish, -c, 'bookmark_open J'] }
               Shift-k: { launch: [fish, -c, 'bookmark_open K'] }
               Shift-l: { launch: [fish, -c, 'bookmark_open L'] }
+              Shift-Semicolon: { launch: [fish, -c, 'bookmark_open colon'] }
+              Shift-Apostrophe: { launch: [fish, -c, 'bookmark_open doublequote'] }
               Shift-z: { launch: [fish, -c, 'bookmark_open Z'] }
               Shift-x: { launch: [fish, -c, 'bookmark_open X'] }
               Shift-c: { launch: [fish, -c, 'bookmark_open C'] }
@@ -376,6 +387,9 @@ keymap:
               Shift-b: { launch: [fish, -c, 'bookmark_open B'] }
               Shift-n: { launch: [fish, -c, 'bookmark_open N'] }
               Shift-m: { launch: [fish, -c, 'bookmark_open M'] }
+              Shift-Comma: { launch: [fish, -c, 'bookmark_open leftpointy'] }
+              Shift-Dot: { launch: [fish, -c, 'bookmark_open rightpointy'] }
+              Shift-Slash: { launch: [fish, -c, 'bookmark_open question'] }
               Super_R-f: { launch: [fish, -c, 'bookmark_open 1'] }
               Super_R-d: { launch: [fish, -c, 'bookmark_open 2'] }
               Super_R-s: { launch: [fish, -c, 'bookmark_open 3'] }
@@ -398,6 +412,8 @@ keymap:
               i: { launch: [fish, -c, 'bookmark_open i content'] }
               o: { launch: [fish, -c, 'bookmark_open o content'] }
               p: { launch: [fish, -c, 'bookmark_open p content'] }
+              LeftBrace: { launch: [fish, -c, 'bookmark_open leftbrace content'] }
+              RightBrace: { launch: [fish, -c, 'bookmark_open rightbrace content'] }
               a: { launch: [fish, -c, 'bookmark_open a content'] }
               s: { launch: [fish, -c, 'bookmark_open s content'] }
               d: { launch: [fish, -c, 'bookmark_open d content'] }
@@ -407,6 +423,8 @@ keymap:
               j: { launch: [fish, -c, 'bookmark_open j content'] }
               k: { launch: [fish, -c, 'bookmark_open k content'] }
               l: { launch: [fish, -c, 'bookmark_open l content'] }
+              Semicolon: { launch: [fish, -c, 'bookrmark_open semicolon content'] }
+              Apostrophe: { launch: [fish, -c, 'bookrmark_open apostrophe content'] }
               z: { launch: [fish, -c, 'bookmark_open z content'] }
               x: { launch: [fish, -c, 'bookmark_open x content'] }
               c: { launch: [fish, -c, 'bookmark_open c content'] }
@@ -414,6 +432,9 @@ keymap:
               b: { launch: [fish, -c, 'bookmark_open b content'] }
               n: { launch: [fish, -c, 'bookmark_open n content'] }
               m: { launch: [fish, -c, 'bookmark_open m content'] }
+              Comma: { launch: [fish, -c, 'bookmark_open comma content'] }
+              Dot: { launch: [fish, -c, 'bookmark_open dot content'] }
+              Slash: { launch: [fish, -c, 'bookmark_open slash content'] }
               Shift-q: { launch: [fish, -c, 'bookmark_open Q content'] }
               Shift-w: { launch: [fish, -c, 'bookmark_open W content'] }
               Shift-e: { launch: [fish, -c, 'bookmark_open E content'] }
@@ -424,6 +445,8 @@ keymap:
               Shift-i: { launch: [fish, -c, 'bookmark_open I content'] }
               Shift-o: { launch: [fish, -c, 'bookmark_open O content'] }
               Shift-p: { launch: [fish, -c, 'bookmark_open P content'] }
+              Shift-LeftBrace: { launch: [fish, -c, 'bookmark_open leftcurl content'] }
+              Shift-RightBrace: { launch: [fish, -c, 'bookmark_open rightcurl content'] }
               Shift-a: { launch: [fish, -c, 'bookmark_open A content'] }
               Shift-s: { launch: [fish, -c, 'bookmark_open S content'] }
               Shift-d: { launch: [fish, -c, 'bookmark_open D content'] }
@@ -433,6 +456,8 @@ keymap:
               Shift-j: { launch: [fish, -c, 'bookmark_open J content'] }
               Shift-k: { launch: [fish, -c, 'bookmark_open K content'] }
               Shift-l: { launch: [fish, -c, 'bookmark_open L content'] }
+              Shift-Semicolon: { launch: [fish, -c, 'bookmark_open colon content'] }
+              Shift-Apostrophe: { launch: [fish, -c, 'bookmark_open doublequote content'] }
               Shift-z: { launch: [fish, -c, 'bookmark_open Z content'] }
               Shift-x: { launch: [fish, -c, 'bookmark_open X content'] }
               Shift-c: { launch: [fish, -c, 'bookmark_open C content'] }
@@ -440,6 +465,9 @@ keymap:
               Shift-b: { launch: [fish, -c, 'bookmark_open B content'] }
               Shift-n: { launch: [fish, -c, 'bookmark_open N content'] }
               Shift-m: { launch: [fish, -c, 'bookmark_open M content'] }
+              Shift-Comma: { launch: [fish, -c, 'bookmark_open leftpointy content'] }
+              Shift-Dot: { launch: [fish, -c, 'bookmark_open rightpointy content'] }
+              Shift-Slash: { launch: [fish, -c, 'bookmark_open question content'] }
               Super_R-f: { launch: [fish, -c, 'bookmark_open 1 content'] }
               Super_R-d: { launch: [fish, -c, 'bookmark_open 2 content'] }
               Super_R-s: { launch: [fish, -c, 'bookmark_open 3 content'] }
@@ -462,6 +490,8 @@ keymap:
               i: { launch: [fish, -c, 'bookmark_set i "$(ypoc)"'] }
               o: { launch: [fish, -c, 'bookmark_set o "$(ypoc)"'] }
               p: { launch: [fish, -c, 'bookmark_set p "$(ypoc)"'] }
+              LeftBrace: { launch: [fish, -c, 'bookmark_set leftbrace "$(ypoc)"'] }
+              RightBrace: { launch: [fish, -c, 'bookmark_set rightbrace "$(ypoc)"'] }
               a: { launch: [fish, -c, 'bookmark_set a "$(ypoc)"'] }
               s: { launch: [fish, -c, 'bookmark_set s "$(ypoc)"'] }
               d: { launch: [fish, -c, 'bookmark_set d "$(ypoc)"'] }
@@ -471,6 +501,8 @@ keymap:
               j: { launch: [fish, -c, 'bookmark_set j "$(ypoc)"'] }
               k: { launch: [fish, -c, 'bookmark_set k "$(ypoc)"'] }
               l: { launch: [fish, -c, 'bookmark_set l "$(ypoc)"'] }
+              Semicolon: { launch: [fish, -c, 'bookrmark_set semicolon "$(ypoc)"'] }
+              Apostrophe: { launch: [fish, -c, 'bookrmark_set apostrophe "$(ypoc)"'] }
               z: { launch: [fish, -c, 'bookmark_set z "$(ypoc)"'] }
               x: { launch: [fish, -c, 'bookmark_set x "$(ypoc)"'] }
               c: { launch: [fish, -c, 'bookmark_set c "$(ypoc)"'] }
@@ -478,6 +510,9 @@ keymap:
               b: { launch: [fish, -c, 'bookmark_set b "$(ypoc)"'] }
               n: { launch: [fish, -c, 'bookmark_set n "$(ypoc)"'] }
               m: { launch: [fish, -c, 'bookmark_set m "$(ypoc)"'] }
+              Comma: { launch: [fish, -c, 'bookmark_set comma "$(ypoc)}"'] }
+              Dot: { launch: [fish, -c, 'bookmark_set dot "$(ypoc)}"'] }
+              Slash: { launch: [fish, -c, 'bookmark_set slash "$(ypoc)}"'] }
               Shift-q: { launch: [fish, -c, 'bookmark_set Q "$(ypoc)"'] }
               Shift-w: { launch: [fish, -c, 'bookmark_set W "$(ypoc)"'] }
               Shift-e: { launch: [fish, -c, 'bookmark_set E "$(ypoc)"'] }
@@ -488,6 +523,8 @@ keymap:
               Shift-i: { launch: [fish, -c, 'bookmark_set I "$(ypoc)"'] }
               Shift-o: { launch: [fish, -c, 'bookmark_set O "$(ypoc)"'] }
               Shift-p: { launch: [fish, -c, 'bookmark_set P "$(ypoc)"'] }
+              Shift-LeftBrace: { launch: [fish, -c, 'bookmark_set leftcurl "$(ypoc)"'] }
+              Shift-RightBrace: { launch: [fish, -c, 'bookmark_set rightcurl "$(ypoc)"'] }
               Shift-a: { launch: [fish, -c, 'bookmark_set A "$(ypoc)"'] }
               Shift-s: { launch: [fish, -c, 'bookmark_set S "$(ypoc)"'] }
               Shift-d: { launch: [fish, -c, 'bookmark_set D "$(ypoc)"'] }
@@ -497,6 +534,8 @@ keymap:
               Shift-j: { launch: [fish, -c, 'bookmark_set J "$(ypoc)"'] }
               Shift-k: { launch: [fish, -c, 'bookmark_set K "$(ypoc)"'] }
               Shift-l: { launch: [fish, -c, 'bookmark_set L "$(ypoc)"'] }
+              Shift-Semicolon: { launch: [fish, -c, 'bookmark_set colon "$(ypoc)"'] }
+              Shift-Apostrophe: { launch: [fish, -c, 'bookmark_set doublequote "$(ypoc)"'] }
               Shift-z: { launch: [fish, -c, 'bookmark_set Z "$(ypoc)"'] }
               Shift-x: { launch: [fish, -c, 'bookmark_set X "$(ypoc)"'] }
               Shift-c: { launch: [fish, -c, 'bookmark_set C "$(ypoc)"'] }
@@ -504,6 +543,9 @@ keymap:
               Shift-b: { launch: [fish, -c, 'bookmark_set B "$(ypoc)"'] }
               Shift-n: { launch: [fish, -c, 'bookmark_set N "$(ypoc)"'] }
               Shift-m: { launch: [fish, -c, 'bookmark_set M "$(ypoc)"'] }
+              Shift-Comma: { launch: [fish, -c, 'bookmark_set leftpointy "$(ypoc)"'] }
+              Shift-Dot: { launch: [fish, -c, 'bookmark_set rightpointy "$(ypoc)"'] }
+              Shift-Slash: { launch: [fish, -c, 'bookmark_set question "$(ypoc)"'] }
               Super_R-f: { launch: [fish, -c, 'bookmark_set 1 "$(ypoc)"'] }
               Super_R-d: { launch: [fish, -c, 'bookmark_set 2 "$(ypoc)"'] }
               Super_R-s: { launch: [fish, -c, 'bookmark_set 3 "$(ypoc)"'] }
@@ -533,6 +575,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/d'] }
@@ -542,6 +586,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_get ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/c'] }
@@ -549,6 +595,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/E'] }
@@ -559,6 +608,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/D'] }
@@ -568,6 +619,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_get (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/C'] }
@@ -575,6 +628,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/3'] }
@@ -598,6 +654,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/d'] }
@@ -607,6 +665,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_cut ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/c'] }
@@ -614,6 +674,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/E'] }
@@ -624,6 +687,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/D'] }
@@ -633,6 +698,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_cut (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/C'] }
@@ -640,6 +707,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/3'] }
@@ -663,6 +733,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/d'] }
@@ -672,6 +744,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_truncate ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/c'] }
@@ -679,6 +753,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/E'] }
@@ -689,6 +766,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/D'] }
@@ -698,6 +777,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_truncate (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/C'] }
@@ -705,6 +786,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/3'] }
@@ -728,6 +812,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/d'] }
@@ -737,6 +823,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_edit ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/c'] }
@@ -744,6 +832,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/E'] }
@@ -754,6 +845,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/D'] }
@@ -763,6 +856,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_edit (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/C'] }
@@ -770,6 +865,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/3'] }
@@ -793,6 +891,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/d'] }
@@ -802,6 +902,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_commit ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/c'] }
@@ -809,6 +911,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/E'] }
@@ -819,6 +924,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/D'] }
@@ -828,6 +935,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_commit (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/C'] }
@@ -835,6 +944,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/3'] }
@@ -858,6 +970,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/d'] }
@@ -867,6 +981,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_append ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_append_link']}
+          Semicolon: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/c'] }
@@ -874,6 +990,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/E'] }
@@ -884,6 +1003,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/D'] }
@@ -893,6 +1014,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_append (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/C'] }
@@ -900,6 +1023,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/3'] }
@@ -923,6 +1049,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/d'] }
@@ -932,6 +1060,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_write ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/c'] }
@@ -939,6 +1069,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/E'] }
@@ -949,6 +1082,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/D'] }
@@ -958,6 +1093,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_write (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/C'] }
@@ -965,6 +1102,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_write ~/.local/share/magazine/3'] }
@@ -988,6 +1128,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/d'] }
@@ -997,6 +1139,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_appclip ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/c'] }
@@ -1004,6 +1148,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/E'] }
@@ -1014,6 +1161,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/D'] }
@@ -1023,6 +1172,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_appclip (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/C'] }
@@ -1030,6 +1181,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/3'] }
@@ -1053,6 +1207,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/d'] }
@@ -1062,6 +1218,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_set ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/c'] }
@@ -1069,6 +1227,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/E'] }
@@ -1079,6 +1240,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/D'] }
@@ -1088,6 +1251,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_set (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/C'] }
@@ -1095,6 +1260,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/3'] }
@@ -1118,6 +1286,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/d'] }
@@ -1127,6 +1297,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_filter ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/c'] }
@@ -1134,6 +1306,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/E'] }
@@ -1144,6 +1319,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/D'] }
@@ -1153,6 +1330,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_filter (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/C'] }
@@ -1160,6 +1339,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/3'] }
@@ -1183,6 +1365,8 @@ keymap:
           i: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/i'] }
           o: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/o'] }
           p: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/rightbrace'] }
           a: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/a'] }
           s: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/s'] }
           d: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/d'] }
@@ -1192,6 +1376,8 @@ keymap:
           j: { launch: [fish, -c, 'magazine_copy ~/prog/dotfiles/project.txt'] }
           k: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/apostrophe'] }
           z: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/z'] }
           x: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/x'] }
           c: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/c'] }
@@ -1199,6 +1385,9 @@ keymap:
           b: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/b'] }
           n: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/n'] }
           m: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/slash'] }
           Shift-q: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/Q'] }
           Shift-w: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/W'] }
           Shift-e: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/E'] }
@@ -1209,6 +1398,8 @@ keymap:
           Shift-i: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/I'] }
           Shift-o: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/O'] }
           Shift-p: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/rightcurl'] }
           Shift-a: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/A'] }
           Shift-s: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/D'] }
@@ -1218,6 +1409,8 @@ keymap:
           Shift-j: { launch: [fish, -c, 'magazine_copy (pick_project_path)'] }
           Shift-k: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/doublequote'] }
           Shift-z: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/Z'] }
           Shift-x: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/X'] }
           Shift-c: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/C'] }
@@ -1225,6 +1418,9 @@ keymap:
           Shift-b: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/B'] }
           Shift-n: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/N'] }
           Shift-m: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/question'] }
           Super_R-f: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/3'] }
