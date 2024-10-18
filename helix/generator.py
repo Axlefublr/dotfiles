@@ -230,6 +230,8 @@ normal_select_mappings: dict[str, Any] = {
     'C-k': ['normal_mode', 'open_above'],
     's': 'yank',
     'S': 'yank_to_clipboard',
+    'y': 'move_prev_word_end',
+    'Y': 'move_prev_long_word_end',
     '@': 'replay_macro',
     'q': 'select_regex',
     'Q': 'split_selection',
@@ -303,7 +305,7 @@ normal_select_mappings: dict[str, Any] = {
     'g': {
         'e': 'move_next_sub_word_end',
         'w': 'move_next_sub_word_start',
-        # '': 'move_prev_sub_word_end',
+        'y': 'move_prev_sub_word_end',
         'b': 'move_prev_sub_word_start',
         'h': 'goto_first_nonwhitespace',
         'H': 'goto_line_start',
