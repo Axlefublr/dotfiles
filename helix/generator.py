@@ -151,6 +151,10 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 
 normal_mappings: dict[str, Any] = {
+    'F': 'find_till_char',
+    'T': 'till_prev_char',
+    'f': 'find_next_char',
+    't': 'find_prev_char',
     'h': 'move_char_left',
     'l': 'move_char_right',
     'x': 'select_mode',
@@ -162,6 +166,10 @@ normal_mappings: dict[str, Any] = {
 normal_mappings.update(**rusify(normal_mappings))
 
 select_mappings: dict[str, Any] = {
+    'F': 'extend_till_char',
+    'T': 'extend_till_prev_char',
+    'f': 'extend_next_char',
+    't': 'extend_prev_char',
     'h': 'extend_char_left',
     'l': 'extend_char_right',
     'A-i': 'extend_parent_node_start',
@@ -235,10 +243,6 @@ normal_select_mappings: dict[str, Any] = {
     '@': 'replay_macro',
     'q': 'select_regex',
     'Q': 'split_selection',
-    'F': 'find_till_char',
-    'T': 'till_prev_char',
-    'f': 'find_next_char',
-    't': 'find_prev_char',
     'A-m': 'split_selection_on_newline',
     'A-+': 'reverse_selection_contents',
     ':': 'replace_with_yanked',
