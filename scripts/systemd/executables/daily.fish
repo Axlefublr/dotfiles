@@ -20,7 +20,7 @@ if test $even
         echo magazine D
         echo anki
         echo exercise
-        echo head
+        echo shower
     end >~/.local/share/magazine/x
 else
     begin
@@ -28,7 +28,7 @@ else
         echo anki
         echo commits
         echo exercise
-        echo shower
+        echo head
     end >~/.local/share/magazine/x
 end
 
