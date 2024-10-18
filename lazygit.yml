@@ -117,7 +117,7 @@ customCommands:
       prompts:
         - type: 'input'
           title: 'PR id:'
-      command: 'gh browse {{index .PromptResponses 0}} ; gh pr checkout {{index .PromptResponses 0}}'
+      command: 'gh pr checkout {{index .PromptResponses 0}}'
       context: 'localBranches'
       loadingText: 'checking out PR'
       description: 'Checkout PR'
