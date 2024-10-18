@@ -320,6 +320,7 @@ normal_select_mappings: dict[str, Any] = {
         'g': ':reset-diff-change',
         '*': 'make_search_word_bounded',
         '@': 'record_macro',
+        's': 'goto_type_definition',
         **disable(['D', 'a', 'c', 'r', 's', 't']),
     },
     'z': {
