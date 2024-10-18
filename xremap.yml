@@ -1428,42 +1428,6 @@ keymap:
           b: { launch: [fish, -c, 'clipboard_harp_get b'] }
           n: { launch: [fish, -c, 'clipboard_harp_get n'] }
           m: { launch: [fish, -c, 'clipboard_harp_get m'] }
-          Shift-q: { launch: [fish, -c, 'clipboard_harp_get Q'] }
-          Shift-w: { launch: [fish, -c, 'clipboard_harp_get W'] }
-          Shift-e: { launch: [fish, -c, 'clipboard_harp_get E'] }
-          Shift-r: { launch: [fish, -c, 'clipboard_harp_get R'] }
-          Shift-t: { launch: [fish, -c, 'clipboard_harp_get T'] }
-          Shift-y: { launch: [fish, -c, 'clipboard_harp_get Y'] }
-          Shift-u: { launch: [fish, -c, 'clipboard_harp_get U'] }
-          Shift-i: { launch: [fish, -c, 'clipboard_harp_get I'] }
-          Shift-o: { launch: [fish, -c, 'clipboard_harp_get O'] }
-          Shift-p: { launch: [fish, -c, 'clipboard_harp_get P'] }
-          Shift-a: { launch: [fish, -c, 'clipboard_harp_get A'] }
-          Shift-s: { launch: [fish, -c, 'clipboard_harp_get S'] }
-          Shift-d: { launch: [fish, -c, 'clipboard_harp_get D'] }
-          Shift-f: { launch: [fish, -c, 'clipboard_harp_get F'] }
-          Shift-g: { launch: [fish, -c, 'clipboard_harp_get G'] }
-          Shift-h: { launch: [fish, -c, 'clipboard_harp_get H'] }
-          Shift-j: { launch: [fish, -c, 'clipboard_harp_get )'] }
-          Shift-k: { launch: [fish, -c, 'clipboard_harp_get K'] }
-          Shift-l: { launch: [fish, -c, 'clipboard_harp_get L'] }
-          Shift-z: { launch: [fish, -c, 'clipboard_harp_get Z'] }
-          Shift-x: { launch: [fish, -c, 'clipboard_harp_get X'] }
-          Shift-c: { launch: [fish, -c, 'clipboard_harp_get C'] }
-          Shift-v: { launch: [fish, -c, 'clipboard_harp_get V'] }
-          Shift-b: { launch: [fish, -c, 'clipboard_harp_get B'] }
-          Shift-n: { launch: [fish, -c, 'clipboard_harp_get N'] }
-          Shift-m: { launch: [fish, -c, 'clipboard_harp_get M'] }
-          Super_R-f: { launch: [fish, -c, 'clipboard_harp_get 1'] }
-          Super_R-d: { launch: [fish, -c, 'clipboard_harp_get 2'] }
-          Super_R-s: { launch: [fish, -c, 'clipboard_harp_get 3'] }
-          Super_R-r: { launch: [fish, -c, 'clipboard_harp_get 4'] }
-          Super_R-e: { launch: [fish, -c, 'clipboard_harp_get 5'] }
-          Super_R-w: { launch: [fish, -c, 'clipboard_harp_get 6'] }
-          Super_R-v: { launch: [fish, -c, 'clipboard_harp_get 7'] }
-          Super_R-c: { launch: [fish, -c, 'clipboard_harp_get 8'] }
-          Super_R-x: { launch: [fish, -c, 'clipboard_harp_get 9'] }
-          Super_R-a: { launch: [fish, -c, 'clipboard_harp_get 0'] }
       CapsLock-Super_R-g:
         exact_match: true
         remap:
@@ -1493,42 +1457,6 @@ keymap:
           b: { launch: [fish, -c, 'clipboard_harp_set b 0'] }
           n: { launch: [fish, -c, 'clipboard_harp_set n 0'] }
           m: { launch: [fish, -c, 'clipboard_harp_set m 0'] }
-          Shift-q: { launch: [fish, -c, 'clipboard_harp_set Q 0'] }
-          Shift-w: { launch: [fish, -c, 'clipboard_harp_set W 0'] }
-          Shift-e: { launch: [fish, -c, 'clipboard_harp_set E 0'] }
-          Shift-r: { launch: [fish, -c, 'clipboard_harp_set R 0'] }
-          Shift-t: { launch: [fish, -c, 'clipboard_harp_set T 0'] }
-          Shift-y: { launch: [fish, -c, 'clipboard_harp_set Y 0'] }
-          Shift-u: { launch: [fish, -c, 'clipboard_harp_set U 0'] }
-          Shift-i: { launch: [fish, -c, 'clipboard_harp_set I 0'] }
-          Shift-o: { launch: [fish, -c, 'clipboard_harp_set O 0'] }
-          Shift-p: { launch: [fish, -c, 'clipboard_harp_set P 0'] }
-          Shift-a: { launch: [fish, -c, 'clipboard_harp_set A 0'] }
-          Shift-s: { launch: [fish, -c, 'clipboard_harp_set S 0'] }
-          Shift-d: { launch: [fish, -c, 'clipboard_harp_set D 0'] }
-          Shift-f: { launch: [fish, -c, 'clipboard_harp_set F 0'] }
-          Shift-g: { launch: [fish, -c, 'clipboard_harp_set G 0'] }
-          Shift-h: { launch: [fish, -c, 'clipboard_harp_set H 0'] }
-          Shift-j: { launch: [fish, -c, 'clipboard_harp_set ) 0'] }
-          Shift-k: { launch: [fish, -c, 'clipboard_harp_set K 0'] }
-          Shift-l: { launch: [fish, -c, 'clipboard_harp_set L 0'] }
-          Shift-z: { launch: [fish, -c, 'clipboard_harp_set Z 0'] }
-          Shift-x: { launch: [fish, -c, 'clipboard_harp_set X 0'] }
-          Shift-c: { launch: [fish, -c, 'clipboard_harp_set C 0'] }
-          Shift-v: { launch: [fish, -c, 'clipboard_harp_set V 0'] }
-          Shift-b: { launch: [fish, -c, 'clipboard_harp_set B 0'] }
-          Shift-n: { launch: [fish, -c, 'clipboard_harp_set N 0'] }
-          Shift-m: { launch: [fish, -c, 'clipboard_harp_set M 0'] }
-          Super_R-f: { launch: [fish, -c, 'clipboard_harp_set 1 0'] }
-          Super_R-d: { launch: [fish, -c, 'clipboard_harp_set 2 0'] }
-          Super_R-s: { launch: [fish, -c, 'clipboard_harp_set 3 0'] }
-          Super_R-r: { launch: [fish, -c, 'clipboard_harp_set 4 0'] }
-          Super_R-e: { launch: [fish, -c, 'clipboard_harp_set 5 0'] }
-          Super_R-w: { launch: [fish, -c, 'clipboard_harp_set 6 0'] }
-          Super_R-v: { launch: [fish, -c, 'clipboard_harp_set 7 0'] }
-          Super_R-c: { launch: [fish, -c, 'clipboard_harp_set 8 0'] }
-          Super_R-x: { launch: [fish, -c, 'clipboard_harp_set 9 0'] }
-          Super_R-a: { launch: [fish, -c, 'clipboard_harp_set 0 0'] }
       Shift-Super_R-g:
         exact_match: true
         remap:
@@ -1558,42 +1486,6 @@ keymap:
           b: { launch: [fish, -c, 'clipboard_harp_set b 1'] }
           n: { launch: [fish, -c, 'clipboard_harp_set n 1'] }
           m: { launch: [fish, -c, 'clipboard_harp_set m 1'] }
-          Shift-q: { launch: [fish, -c, 'clipboard_harp_set Q 1'] }
-          Shift-w: { launch: [fish, -c, 'clipboard_harp_set W 1'] }
-          Shift-e: { launch: [fish, -c, 'clipboard_harp_set E 1'] }
-          Shift-r: { launch: [fish, -c, 'clipboard_harp_set R 1'] }
-          Shift-t: { launch: [fish, -c, 'clipboard_harp_set T 1'] }
-          Shift-y: { launch: [fish, -c, 'clipboard_harp_set Y 1'] }
-          Shift-u: { launch: [fish, -c, 'clipboard_harp_set U 1'] }
-          Shift-i: { launch: [fish, -c, 'clipboard_harp_set I 1'] }
-          Shift-o: { launch: [fish, -c, 'clipboard_harp_set O 1'] }
-          Shift-p: { launch: [fish, -c, 'clipboard_harp_set P 1'] }
-          Shift-a: { launch: [fish, -c, 'clipboard_harp_set A 1'] }
-          Shift-s: { launch: [fish, -c, 'clipboard_harp_set S 1'] }
-          Shift-d: { launch: [fish, -c, 'clipboard_harp_set D 1'] }
-          Shift-f: { launch: [fish, -c, 'clipboard_harp_set F 1'] }
-          Shift-g: { launch: [fish, -c, 'clipboard_harp_set G 1'] }
-          Shift-h: { launch: [fish, -c, 'clipboard_harp_set H 1'] }
-          Shift-j: { launch: [fish, -c, 'clipboard_harp_set ) 1'] }
-          Shift-k: { launch: [fish, -c, 'clipboard_harp_set K 1'] }
-          Shift-l: { launch: [fish, -c, 'clipboard_harp_set L 1'] }
-          Shift-z: { launch: [fish, -c, 'clipboard_harp_set Z 1'] }
-          Shift-x: { launch: [fish, -c, 'clipboard_harp_set X 1'] }
-          Shift-c: { launch: [fish, -c, 'clipboard_harp_set C 1'] }
-          Shift-v: { launch: [fish, -c, 'clipboard_harp_set V 1'] }
-          Shift-b: { launch: [fish, -c, 'clipboard_harp_set B 1'] }
-          Shift-n: { launch: [fish, -c, 'clipboard_harp_set N 1'] }
-          Shift-m: { launch: [fish, -c, 'clipboard_harp_set M 1'] }
-          Super_R-f: { launch: [fish, -c, 'clipboard_harp_set 1 1'] }
-          Super_R-d: { launch: [fish, -c, 'clipboard_harp_set 2 1'] }
-          Super_R-s: { launch: [fish, -c, 'clipboard_harp_set 3 1'] }
-          Super_R-r: { launch: [fish, -c, 'clipboard_harp_set 4 1'] }
-          Super_R-e: { launch: [fish, -c, 'clipboard_harp_set 5 1'] }
-          Super_R-w: { launch: [fish, -c, 'clipboard_harp_set 6 1'] }
-          Super_R-v: { launch: [fish, -c, 'clipboard_harp_set 7 1'] }
-          Super_R-c: { launch: [fish, -c, 'clipboard_harp_set 8 1'] }
-          Super_R-x: { launch: [fish, -c, 'clipboard_harp_set 9 1'] }
-          Super_R-a: { launch: [fish, -c, 'clipboard_harp_set 1 1'] }
 
   - name: Any functionality
     remap:
