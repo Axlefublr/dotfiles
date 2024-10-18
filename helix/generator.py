@@ -230,8 +230,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-k': ['normal_mode', 'open_above'],
     's': 'yank',
     'S': 'yank_to_clipboard',
-    'Y': 'record_macro',
-    'y': 'replay_macro',
+    '@': 'replay_macro',
     'q': 'select_regex',
     'Q': 'split_selection',
     'F': 'find_till_char',
@@ -320,6 +319,7 @@ normal_select_mappings: dict[str, Any] = {
         'U': 'select_references_to_symbol_under_cursor',
         'g': ':reset-diff-change',
         '*': 'make_search_word_bounded',
+        '@': 'record_macro',
         **disable(['D', 'a', 'c', 'r', 's', 't']),
     },
     'z': {
