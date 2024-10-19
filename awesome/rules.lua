@@ -68,6 +68,10 @@ awful.rules.rules = {
 			urgent = false,
 		},
 	},
+	{
+		rule = { class = 'kitty', name = 'oil-content' },
+		properties = { tag = screen.primary.tags[3], urgent = false },
+	},
 
 	----------------------------------------------------tag p--------------------------------------------------
 	{
@@ -119,9 +123,5 @@ awful.rules.rules = {
 		properties = { tag = screen.primary.tags[14] },
 	},
 
-	----------------------------------------------------tag >--------------------------------------------------
-	{
-		rule = { class = 'kitty', name = 'oil-content' },
-		properties = { tag = screen.primary.tags[15], urgent = false },
-	},
+	---------------------------------------------------tag >/15-------------------------------------------------
 }
