@@ -318,6 +318,7 @@ keymap:
           e: { launch: [fish, -c, runner_symbol_name] }
 
           CapsLock-u: { launch: [kitty] }
+          CapsLock-i: { launch: [vivaldi, --force-dark-mode]}
           y: { launch: [fish, -c, screenkey] }
           Shift-y: { launch: [kill, screenkey] }
           i: { launch: [fish, -c, magazine_client_info] }
