@@ -14,8 +14,7 @@ yeared_parse
 yearless_parse
 task (whensies.py)
 clorange habit increment
-set even (test (math (clorange habit show) % 2) -eq 0)
-if test $even
+if test (math (clorange habit show) % 2) -eq 0
     begin
         echo magazine D
         echo anki
