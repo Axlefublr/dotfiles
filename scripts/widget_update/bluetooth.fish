@@ -5,6 +5,6 @@ while true
     if test "$(cat /dev/shm/Charge_f)" -lt 100 &>/dev/null
         sleep 5
     else
-        sleep 0.1
+        sleep 1
     end
 end
