@@ -249,20 +249,16 @@ function filter_mature_tasks
         set -l name $match[1]
         set -l days $match[2]
         switch $name
-            case filter rilter
+            case filter
                 if_print $days $name 60
-            case vacuum floor dust
-                if_print $days $name 6
-            case towels lamp nose wash disc
+            case towels nose wash vacuum floor dust
                 if_print $days $name 7
-            case cloths fscrub bscrub liked cazor audio brushes helix
+            case cloths brushes glasses
                 if_print $days $name 10
-            case nails
+            case disc liked nails
                 if_print $days $name 14
             case wilter bottle photos
                 if_print $days $name 15
-            case razor
-                if_print $days $name 25
             case tails iso keyboard
                 if_print $days $name 30
             case '*'
