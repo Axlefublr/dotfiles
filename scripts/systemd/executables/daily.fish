@@ -35,6 +35,10 @@ if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (579) tomorrow'
 end
 
+if test (math (clorange course show) % 31) -eq 0
+    task 'course (5825) tomorrow'
+end
+
 if test (date '+%d') -eq 17
     task 'dom.ru (760) tomorrow'
 end
