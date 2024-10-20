@@ -309,8 +309,7 @@ keymap:
 
           f: { launch: [fish, -c, 'runner_link open'] }
           s: { launch: [fish, -c, 'runner_link'] }
-          d: { launch: [fish, -c, 'ensure_browser main ; xdg-open (ypoc)'] }
-          Shift-d: { launch: [fish, -c, 'ensure_browser content ; xdg-open (ypoc)'] }
+          d: { launch: [fish, -c, 'xdg-open (ypoc) ; ensure_browser'] }
 
           Shift-s: { launch: [fish, -c, 'pick_sts_boss']}
 
@@ -406,84 +405,6 @@ keymap:
               Super_R-x: { launch: [fish, -c, 'bookmark_open 9'] }
               Super_R-a: { launch: [fish, -c, 'bookmark_open 0'] }
           Shift-w:
-            remap:
-              q: { launch: [fish, -c, 'bookmark_open q content'] }
-              w: { launch: [fish, -c, 'bookmark_open w content'] }
-              e: { launch: [fish, -c, 'bookmark_open e content'] }
-              r: { launch: [fish, -c, 'bookmark_open r content'] }
-              t: { launch: [fish, -c, 'bookmark_open t content'] }
-              y: { launch: [fish, -c, 'bookmark_open y content'] }
-              u: { launch: [fish, -c, 'bookmark_open u content'] }
-              i: { launch: [fish, -c, 'bookmark_open i content'] }
-              o: { launch: [fish, -c, 'bookmark_open o content'] }
-              p: { launch: [fish, -c, 'bookmark_open p content'] }
-              LeftBrace: { launch: [fish, -c, 'bookmark_open leftbrace content'] }
-              RightBrace: { launch: [fish, -c, 'bookmark_open rightbrace content'] }
-              a: { launch: [fish, -c, 'bookmark_open a content'] }
-              s: { launch: [fish, -c, 'bookmark_open s content'] }
-              d: { launch: [fish, -c, 'bookmark_open d content'] }
-              f: { launch: [fish, -c, 'bookmark_open f content'] }
-              g: { launch: [fish, -c, 'bookmark_open g content'] }
-              h: { launch: [fish, -c, 'bookmark_open h content'] }
-              j: { launch: [fish, -c, 'bookmark_open j content'] }
-              k: { launch: [fish, -c, 'bookmark_open k content'] }
-              l: { launch: [fish, -c, 'bookmark_open l content'] }
-              Semicolon: { launch: [fish, -c, 'bookrmark_open semicolon content'] }
-              Apostrophe: { launch: [fish, -c, 'bookrmark_open apostrophe content'] }
-              z: { launch: [fish, -c, 'bookmark_open z content'] }
-              x: { launch: [fish, -c, 'bookmark_open x content'] }
-              c: { launch: [fish, -c, 'bookmark_open c content'] }
-              v: { launch: [fish, -c, 'bookmark_open v content'] }
-              b: { launch: [fish, -c, 'bookmark_open b content'] }
-              n: { launch: [fish, -c, 'bookmark_open n content'] }
-              m: { launch: [fish, -c, 'bookmark_open m content'] }
-              Comma: { launch: [fish, -c, 'bookmark_open comma content'] }
-              Dot: { launch: [fish, -c, 'bookmark_open dot content'] }
-              Slash: { launch: [fish, -c, 'bookmark_open slash content'] }
-              Shift-q: { launch: [fish, -c, 'bookmark_open Q content'] }
-              Shift-w: { launch: [fish, -c, 'bookmark_open W content'] }
-              Shift-e: { launch: [fish, -c, 'bookmark_open E content'] }
-              Shift-r: { launch: [fish, -c, 'bookmark_open R content'] }
-              Shift-t: { launch: [fish, -c, 'bookmark_open T content'] }
-              Shift-y: { launch: [fish, -c, 'bookmark_open Y content'] }
-              Shift-u: { launch: [fish, -c, 'bookmark_open U content'] }
-              Shift-i: { launch: [fish, -c, 'bookmark_open I content'] }
-              Shift-o: { launch: [fish, -c, 'bookmark_open O content'] }
-              Shift-p: { launch: [fish, -c, 'bookmark_open P content'] }
-              Shift-LeftBrace: { launch: [fish, -c, 'bookmark_open leftcurl content'] }
-              Shift-RightBrace: { launch: [fish, -c, 'bookmark_open rightcurl content'] }
-              Shift-a: { launch: [fish, -c, 'bookmark_open A content'] }
-              Shift-s: { launch: [fish, -c, 'bookmark_open S content'] }
-              Shift-d: { launch: [fish, -c, 'bookmark_open D content'] }
-              Shift-f: { launch: [fish, -c, 'bookmark_open F content'] }
-              Shift-g: { launch: [fish, -c, 'bookmark_open G content'] }
-              Shift-h: { launch: [fish, -c, 'bookmark_open H content'] }
-              Shift-j: { launch: [fish, -c, 'bookmark_open J content'] }
-              Shift-k: { launch: [fish, -c, 'bookmark_open K content'] }
-              Shift-l: { launch: [fish, -c, 'bookmark_open L content'] }
-              Shift-Semicolon: { launch: [fish, -c, 'bookmark_open colon content'] }
-              Shift-Apostrophe: { launch: [fish, -c, 'bookmark_open doublequote content'] }
-              Shift-z: { launch: [fish, -c, 'bookmark_open Z content'] }
-              Shift-x: { launch: [fish, -c, 'bookmark_open X content'] }
-              Shift-c: { launch: [fish, -c, 'bookmark_open C content'] }
-              Shift-v: { launch: [fish, -c, 'bookmark_open V content'] }
-              Shift-b: { launch: [fish, -c, 'bookmark_open B content'] }
-              Shift-n: { launch: [fish, -c, 'bookmark_open N content'] }
-              Shift-m: { launch: [fish, -c, 'bookmark_open M content'] }
-              Shift-Comma: { launch: [fish, -c, 'bookmark_open leftpointy content'] }
-              Shift-Dot: { launch: [fish, -c, 'bookmark_open rightpointy content'] }
-              Shift-Slash: { launch: [fish, -c, 'bookmark_open question content'] }
-              Super_R-f: { launch: [fish, -c, 'bookmark_open 1 content'] }
-              Super_R-d: { launch: [fish, -c, 'bookmark_open 2 content'] }
-              Super_R-s: { launch: [fish, -c, 'bookmark_open 3 content'] }
-              Super_R-r: { launch: [fish, -c, 'bookmark_open 4 content'] }
-              Super_R-e: { launch: [fish, -c, 'bookmark_open 5 content'] }
-              Super_R-w: { launch: [fish, -c, 'bookmark_open 6 content'] }
-              Super_R-v: { launch: [fish, -c, 'bookmark_open 7 content'] }
-              Super_R-c: { launch: [fish, -c, 'bookmark_open 8 content'] }
-              Super_R-x: { launch: [fish, -c, 'bookmark_open 9 content'] }
-              Super_R-a: { launch: [fish, -c, 'bookmark_open 0 content'] }
-          Alt-w:
             remap:
               q: { launch: [fish, -c, 'bookmark_set q "$(ypoc)"'] }
               w: { launch: [fish, -c, 'bookmark_set w "$(ypoc)"'] }
@@ -1560,8 +1481,7 @@ keymap:
               'truncate -s 0 /tmp/tesseract.txt ; ypoc -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
-      Super-c: { launch: [fish, -c, 'ensure_browser main --and-back ; widget_update anki_update no-increment Anki'] }
-      Super-Alt-c: { launch: [fish, -c, 'ensure_browser content --and-back'] }
+      Super-c: { launch: [fish, -c, 'widget_update anki_update no-increment Anki'] }
       CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }

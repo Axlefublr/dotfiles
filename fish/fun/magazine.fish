@@ -134,12 +134,8 @@ function bookmark_open
         notify-send -t 2000 "bookmark $argv[1] doesn't exist"
         return 1
     end
-    set -f browser_window main
-    if test "$(count $argv)" -ge 2
-        set browser_window $argv[-1]
-    end
-    ensure_browser $browser_window
     $BROWSER $bookmark
+    ensure_browser
 end
 funcsave bookmark_open >/dev/null
 

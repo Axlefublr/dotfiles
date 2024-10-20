@@ -81,18 +81,13 @@ funcsave runner_symbol_name >/dev/null
 
 function runner_link
     set file ~/.local/share/magazine/l
-    set result (cat $file | sd ' — .+$' '' | rofi -format 'i' -dmenu 2> /dev/null ; echo $status)
-    test $result[-1] -eq 1 && return 1
-    if test $result[-1] -eq 0 -a !"$argv[1]"
-        ensure_browser main
-    else if test $result[-1] -eq 10 -a !"$argv[1]"
-        ensure_browser content
-    end
-    set -e result[-1]
+    set result (cat $file | sd ' — .+$' '' | rofi -format 'i' -dmenu 2> /dev/null)
+    test $status -ne 0 && return 1
     set line (math $result + 1)
     set link (awk "NR==$line { print \$NF }" $file)
     if test "$argv[1]"
         $BROWSER $link
+        ensure_browser
     else
         echo $link | copy
         notify-send -t 2000 "copied link: $link"

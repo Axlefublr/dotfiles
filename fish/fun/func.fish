@@ -94,21 +94,13 @@ function engined_search
                 echo krita
                 echo iask
                 echo rust
-            end | rofi -no-custom -dmenu 2>/dev/null ; echo $status
+            end | rofi -no-custom -dmenu 2>/dev/null
         )
-        test $engine[-1] -eq 1 && return 1 || set -e engine[-1]
+        test $status -ne 0 && return 1
     end
 
-    set input (rofi -dmenu 2>/dev/null ; echo $status)
-    test $input[-1] -eq 1 && return 1
-    not test "$input" && return 1
-
-    if test $input[-1] -eq 0
-        ensure_browser main
-    else if test $input[-1] -eq 10
-        ensure_browser content
-    end
-    set -e input[-1]
+    set input (rofi -dmenu 2>/dev/null)
+    test $status -ne 0 && return 1
     set input (string escape --style=url $input)
 
     switch $engine # I ignore output so that I don't see "Opening in existing browser session." in my runner ouput every time I search for something
@@ -139,6 +131,7 @@ function engined_search
         case rust
             $BROWSER "https://doc.rust-lang.org/std/?search=$input" >/dev/null
     end
+    ensure_browser
 end
 funcsave engined_search >/dev/null
 
