@@ -25,6 +25,8 @@ keymap:
       Alt-x: shift-f9 # focus tab bar
       Alt-c: shift-f10 # built in browser "right click" emulation button
       Alt-t: F12
+      Ctrl-h: ctrl-shift-alt-f1 # switch to tab 1
+      Ctrl-l: ctrl-shift-alt-f2 # switch to the last tab
       Alt-q: ctrl-shift-alt-f3
       Alt-z: ctrl-shift-alt-f4
       Alt-a: ctrl-shift-alt-f5
