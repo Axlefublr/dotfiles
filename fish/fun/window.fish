@@ -56,17 +56,8 @@ end
 funcsave get_current_desktop >/dev/null
 
 function ensure_browser
-    if test "$argv[2]"
-        set -f prev_desk (get_current_desktop)
-    end
-    switch "$argv[1]"
-        case main
-            wmctrl -s 1
-        case content
-            wmctrl -s 6
-    end
-    if test "$argv[2]"
-        wmctrl -s $prev_desk
+    if not test (get_current_desktop) -eq 1
+        wmctrl -s 1
     end
 end
 funcsave ensure_browser >/dev/null
