@@ -75,7 +75,6 @@ funcsave clx >/dev/null
 function eat
     loago do eat
     notify-send -t 2000 'ate!'
-    awesome-client 'Hunger_wu()'
 end
 funcsave eat >/dev/null
 

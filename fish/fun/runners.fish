@@ -23,9 +23,6 @@ function runner
     else
         source /dev/shm/runner_input
     end
-    if rg '^loago do' /dev/shm/runner_input
-        widget_update mature_tasks_line Loago
-    end
     _magazine_commit ~/.local/share/magazine/H command history
     _magazine_commit ~/.local/share/magazine/o command output
 end
