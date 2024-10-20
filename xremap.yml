@@ -38,6 +38,8 @@ keymap:
       Ctrl-p: ctrl-shift-alt-f12 # duplicate selected tabs
       Alt-p: ctrl-shift-f1 # pin / unpin tab
       Alt-w: ctrl-shift-f2 # close tab
+      Ctrl-Shift-h: ctrl-shift-f3 # close tabs to the left
+      Ctrl-Shift-l: ctrl-shift-f4 # close tabs to the right
       Alt-k: ctrl-shift-f8 # previous workspace
       Alt-j: ctrl-shift-f7 # next workspace
       Ctrl-Alt-h: ctrl-shift-f6 # move active tab backward
