@@ -24,7 +24,7 @@ anki 2>>/tmp/log/user.txt & disown
 set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
 move_all 2 $vivaldis
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
-move_all 4 $ankis
+move_all 8 $ankis
 
 ydotoold 2>>/tmp/log/user.txt & disown
 # ollama serve 2>>/tmp/log/user.txt & disown

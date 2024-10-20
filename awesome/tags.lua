@@ -5,12 +5,12 @@ awful.tag.add('u', {
 	selected = true,
 })
 awful.tag.add('i', {
-	layout = awful.layout.suit.tile,
+	layout = awful.layout.suit.tile.bottom,
 	master_fill_policy = 'expand',
 	master_width_factor = 0.5,
 })
 awful.tag.add('o', {
-	layout = awful.layout.suit.tile.bottom,
+	layout = awful.layout.suit.max,
 	master_fill_policy = 'expand',
 	master_width_factor = 0.5,
 })
