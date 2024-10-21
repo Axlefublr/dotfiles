@@ -12,7 +12,6 @@ funcsave magazine_get >/dev/null
 function magazine_set
     not test "$argv" && return
     ypoc >$argv
-    _magazine_update $argv
     _magazine_notify $argv set
     _magazine_commit $argv set
 end
@@ -21,7 +20,6 @@ funcsave magazine_set >/dev/null
 function magazine_edit
     not test "$argv" && return
     neoline_hold $argv
-    _magazine_update $argv
     _magazine_commit $argv edit
 end
 funcsave magazine_edit >/dev/null
@@ -29,7 +27,6 @@ funcsave magazine_edit >/dev/null
 function magazine_truncate
     not test "$argv" && return
     truncate -s 0 $argv
-    _magazine_update $argv
     _magazine_notify $argv truncate
     _magazine_commit $argv truncate
 end
@@ -40,7 +37,6 @@ function magazine_write
     set result (rofi -dmenu 2>/dev/null ; echo $status)
     test $result[-1] -ne 0 && return || set -e result[-1]
     echo "$result" >$argv
-    _magazine_update $argv
     _magazine_notify $argv write
     _magazine_commit $argv write
 end
@@ -51,7 +47,6 @@ function magazine_append
     set result (rofi -dmenu 2>/dev/null ; echo $status)
     test $result[-1] -ne 0 && return || set -e result[-1]
     indeed -n $argv -- $result
-    _magazine_update $argv
     _magazine_notify $argv append
     _magazine_commit $argv append
 end
@@ -60,7 +55,6 @@ funcsave magazine_append >/dev/null
 function magazine_appclip
     not test "$argv" && return
     indeed -n $argv -- "$(ypoc)"
-    _magazine_update $argv
     _magazine_notify $argv appclip
     _magazine_commit $argv appclip
 end
@@ -79,7 +73,6 @@ function magazine_filter
     end
     set multiline (printf '%s\n' $collected | string collect)
     echo $multiline >$argv
-    _magazine_update $argv
     _magazine_notify $argv filter
     _magazine_commit $argv filter
 end
@@ -177,14 +170,6 @@ function _magazine_notify
     notify-send -t 2000 "$argv[2..] $display"
 end
 funcsave _magazine_notify >/dev/null
-
-function _magazine_update
-    set -l mag (path basename $argv)
-    if test $mag -ge 0 -a $mag -le 9
-        awesome-client 'Registers_wu()'
-    end
-end
-funcsave _magazine_update >/dev/null
 
 function _magazine_commit
     set -l parent_path (path dirname $argv[1])

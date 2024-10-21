@@ -84,7 +84,6 @@ function task
     and test "$_flag_mag"
     and set mag $_flag_mag
     indeed -u ~/.local/share/magazine/$mag -- $argv
-    _magazine_update $mag
     _magazine_commit ~/.local/share/magazine/$mag task
 end
 funcsave task >/dev/null
