@@ -33,7 +33,7 @@ function install_yt_video
     set file (mktemp /dev/shm/install_yt_video.XXXXXX)
     set clipboard (xclip -selection clipboard -o)
     kitty -T link-download yt-dlp \
-        --proxy (cat ~/.local/share/magazine/p) \
+        --proxy (cat ~/.local/share/magazine/p)[1] \
         -o "~/vid/content/$extra/%(channel)s — %(title)s — ;%(id)s;.%(ext)s" \
         --print-to-file "%(channel)s — %(title)s" $file \
         $clipboard

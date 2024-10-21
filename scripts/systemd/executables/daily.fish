@@ -76,12 +76,13 @@ loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sle
 for dir in ~/prog/forks/*
     cd $dir
     git fetch
+    git fetch upstream
 end
 
 for dir in ~/prog/stored/*
     cd $dir
     git fetch
-    git reset --hard origin/(git branch --show-current)
+    git reset --hard origin/HEAD
 end
 
 for dir in (cat ~/.local/share/magazine/R)
