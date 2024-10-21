@@ -61,6 +61,32 @@ keymap:
       Shift-Alt-l: shift-alt-f3 # select previous tab
       Shift-Alt-h: shift-alt-f4 # select next tab
 
+  - name: Firefox
+    exact_match: true
+    application:
+      only: firefox
+    remap:
+      Ctrl-o: alt-left # history back
+      Ctrl-i: alt-right # history forward
+      Ctrl-Alt-s: ctrl-minus # zoom in 
+      Ctrl-Alt-d: ctrl-equal # zoom out
+      Ctrl-Alt-f: ctrl-0 # zoom reset
+      Alt-Slash: ctrl-f # find in this page
+      Alt-n: ctrl-g # find again
+      Shift-Alt-n: ctrl-shift-g # find previous
+      Alt-w: ctrl-w # close tab
+      Alt-h: ctrl-pageup # go one tab to the left
+      Alt-l: ctrl-pagedown # go one tab to the right
+      Ctrl-h: alt-1 # go to tab 1
+      Ctrl-l: alt-9 # go to last tab
+      Ctrl-Alt-h: ctrl-shift-pageup # move tab left
+      Ctrl-Alt-l: ctrl-shift-pagedown # move tab right
+      Alt-e: ctrl-t # new tab
+      Ctrl-Apostrophe: f6
+      Ctrl-j: down
+      Ctrl-k: up
+      # TODO: ctrl-h # history sidebar
+
   - name: Anki!
     exact_match: true
     application:
