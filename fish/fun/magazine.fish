@@ -112,6 +112,22 @@ function magazine_append_link
 end
 funcsave magazine_append_link >/dev/null
 
+function magazine_append_symbol
+    set symbol_name (rofi -dmenu 2>/dev/null)
+    test $status -ne 0 && return 1
+    set symbol_text (ypoc)
+    indeed -nu ~/.local/share/magazine/e (begin
+        echo -n $symbol_text
+        for thingy in (string split '' $symbol_text)
+            printf '%x ' \'$thingy
+        end
+        echo -n $symbol_name
+    end)
+    _magazine_commit ~/.local/share/magazine/e append
+    notify-send -t 2000 "append symbol $symbol_text"
+end
+funcsave magazine_append_symbol >/dev/null
+
 function magazine_client_info
     awesome-client 'WriteClientInfo()'
     _magazine_commit ~/.local/share/magazine/o clients

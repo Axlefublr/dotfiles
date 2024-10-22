@@ -1,12 +1,11 @@
-" option hintdelay
-
+" set hintdelay
 set hintchars fjdkslaeiwoghruxcz/vmtyqp
 set hintshift true
 set modeindicator true
 set modeindicatorshowkeys true
 set relatedopenpos next
 set scrollduration 100
-set smoothscroll true
+set smoothscroll false
 set theme shydactyl
 set urlparentignorefragment true
 
@@ -14,19 +13,21 @@ set urlparentignorefragment true
 unbind --mode=browser <C-6>
 unbind --mode=browser <CS-6>
 
-unbind ;y
-unbind ;p
+unbind /
 unbind ;#
-unbind ;k
 unbind ;K
-unbind s
+unbind ;k
+unbind ;p
+unbind ;y
+unbind <C-b>
+unbind <C-d>
+unbind <C-f>
+unbind <C-u>
 unbind J
 unbind K
-unbind <C-f>
-unbind <C-b>
-unbind <C-u>
-unbind <C-d>
-unbind /
+unbind s
+
+" hint -h selects an element as if with the mouse
 
 " pick a link to copy
 bind sf hint -y
@@ -36,4 +37,5 @@ bind sd hint -p
 bind s# hint -#
 " kill an element (-K lets you restore)
 bind K hint -k
-" hint -h selects an element as if with the mouse
+bind j scrollline 1
+bind k scrollline -1

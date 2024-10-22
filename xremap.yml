@@ -914,7 +914,7 @@ keymap:
         remap:
           q: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/q'] }
           w: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/w'] }
-          e: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/e'] }
+          e: { launch: [fish, -c, 'magazine_append_symbol'] }
           r: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/r'] }
           t: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/t'] }
           y: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/y'] }
