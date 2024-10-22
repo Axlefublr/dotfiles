@@ -194,7 +194,7 @@ function _magazine_commit
     set -l mag $base
     if string match $argv[1] (cat ~/.local/share/magazine/O | string replace -r '^~' "$HOME")
         or test $base = project.txt
-        silly_sort.py $argv[1]
+        sort.py $argv[1]
     end
     if test $parent_path != ~/.local/share/magazine
         if test $base = project.txt
