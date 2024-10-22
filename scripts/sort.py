@@ -3,8 +3,12 @@
 import sys
 
 if len(sys.argv) < 2:
-    sys.stderr.write('No file to silly sort\n')
-    exit(1)
+    lines = []
+    for line in sys.stdin:
+        lines.append(line)
+    lines.sort()
+    print(*lines, sep='', end='')
+    exit(0)
 
 path = sys.argv[1]
 
