@@ -1387,17 +1387,6 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      Super_R-a: '0'
-      Super_R-f: '1'
-      Super_R-d: '2'
-      Super_R-s: '3'
-      Super_R-r: '4'
-      Super_R-e: '5'
-      Super_R-w: '6'
-      Super_R-v: '7'
-      Super_R-c: '8'
-      Super_R-x: '9'
-
       Super_R-Alt-f: { launch: [fish, -c, 'copyq read 0 | copy'] }
       Super_R-Alt-d: { launch: [fish, -c, 'copyq read 1 | copy'] }
       Super_R-Alt-s: { launch: [fish, -c, 'copyq read 2 | copy'] }
@@ -1433,6 +1422,19 @@ keymap:
       CapsLock-Alt-RightBrace: shift-alt-0
       CapsLock-Alt-u: alt-grave
       CapsLock-Alt-j: shift-alt-equal
+
+  - name: Any numbers & special symbols
+    remap:
+      Super_R-a: '0'
+      Super_R-f: '1'
+      Super_R-d: '2'
+      Super_R-s: '3'
+      Super_R-r: '4'
+      Super_R-e: '5'
+      Super_R-w: '6'
+      Super_R-v: '7'
+      Super_R-c: '8'
+      Super_R-x: '9'
 
   - name: Any! wm
     exact_match: true
