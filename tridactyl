@@ -1,0 +1,39 @@
+" option hintdelay
+
+set hintchars fjdkslaeiwoghruxcz/vmtyqp
+set hintshift true
+set modeindicator true
+set modeindicatorshowkeys true
+set relatedopenpos next
+set scrollduration 100
+set smoothscroll true
+set theme shydactyl
+set urlparentignorefragment true
+
+" these do :tab #
+unbind --mode=browser <C-6>
+unbind --mode=browser <CS-6>
+
+unbind ;y
+unbind ;p
+unbind ;#
+unbind ;k
+unbind ;K
+unbind s
+unbind J
+unbind K
+unbind <C-f>
+unbind <C-b>
+unbind <C-u>
+unbind <C-d>
+unbind /
+
+" pick a link to copy
+bind sf hint -y
+" pick an element to copy the text of
+bind sd hint -p
+" pick an anchor (heading) to copy the link of
+bind s# hint -#
+" kill an element (-K lets you restore)
+bind K hint -k
+" hint -h selects an element as if with the mouse

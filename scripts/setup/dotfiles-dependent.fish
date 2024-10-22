@@ -180,6 +180,12 @@ curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
 # rm -fr ~/.config/bubbly
 # rm -fr ~/.local/share/applications/bubbly.desktop
 
+# Tridactyl
+# :nativeinstall
+# to copy the command to execute
+mkdir -p ~/.config/tridactyl
+ln -f ~/prog/dotfiles/tridactyl ~/.config/tridactyl/tridactylrc
+
 # Postgresql
 ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
 sudo -iu postgres initdb -D /var/lib/postgres/data
