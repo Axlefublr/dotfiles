@@ -235,7 +235,7 @@ function pjs
         set empties
         for file in (project_paths)
             set -l project_file_path ~/prog/$file/project.txt
-            touch $project_file_path
+            not test -f $project_file_path && touch $project_file_path
             if test -s $project_file_path
                 # set_color '#e491b2'
                 echo '~/prog/'$file
