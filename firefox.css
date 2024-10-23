@@ -35,7 +35,7 @@
       box-shadow: unset !important;
 
       &[selected] {
-        background-color: #3a3939 !important;
+        background-color: #5f472d !important;
       }
     }
 
@@ -60,6 +60,9 @@
       >#urlbar-container {
         margin-inline: 0px !important;
         min-height: unset !important;
+        /* align-items: unset !important; */
+        padding-block: 0 !important;
+        /* --urlbar-container-height: 15px !important; */
 
         >#urlbar {
           font-size: unset !important;
@@ -77,6 +80,15 @@
             }
 
             >#page-action-buttons {
+              >#urlbar-zoom-button {
+                font-size: unset !important;
+                padding: 0 !important;
+                border-radius: unset !important;
+                background-color: unset !important;
+                margin-block: unset !important;
+                margin-inline: unset !important;
+              }
+
               >#star-button-box {
                 display: none !important;
               }
