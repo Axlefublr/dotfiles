@@ -74,12 +74,6 @@ awful.rules.rules = {
 	},
 
 	----------------------------------------------------tag p--------------------------------------------------
-	{
-		rule = { class = 'kitty', name = 'screen_record' },
-		properties = {
-			tag = screen.primary.tags[4],
-		},
-	},
 	-- {
 	-- 	rule_any = { class = '' },
 	-- 	properties = { tag = screen.primary.tags[4] },
@@ -102,6 +96,12 @@ awful.rules.rules = {
 	},
 
 	----------------------------------------------------tag P--------------------------------------------------
+	{
+		rule = { class = 'kitty', name = 'screen_record' },
+		properties = {
+			tag = screen.primary.tags[12],
+		},
+	},
 	{
 		rule = { class = 'kitty', name = 'link-download' },
 		properties = { tag = screen.primary.tags[12] },
