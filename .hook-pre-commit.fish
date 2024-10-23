@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-ibsort.fish (git diff --name-only)
+ibsort.fish (git diff --cached --name-only)
