@@ -304,7 +304,19 @@ normal_select_mappings: dict[str, Any] = {
             'd': ':sh ghl | copy',
         },
         # 'space': ':sh echo ##',
-        **disable(['A-c', 'C', 'D', 'G', 'Y', 'b', 'w']),
+        **disable(
+            [
+                # [[sort on]]
+                'A-c',
+                'C',
+                'D',
+                'G',
+                'Y',
+                'b',
+                'w',
+                # [[sort off]]
+            ]
+        ),
     },
     'g': {
         'e': 'move_next_sub_word_end',
@@ -327,7 +339,18 @@ normal_select_mappings: dict[str, Any] = {
         '*': 'make_search_word_bounded',
         '@': 'record_macro',
         's': 'goto_type_definition',
-        **disable(['D', 'a', 'c', 'r', 's', 't']),
+        **disable(
+            [
+                # [[sort on]]
+                'D',
+                'a',
+                'c',
+                'r',
+                's',
+                't',
+                # [[sort off]]
+            ]
+        ),
     },
     'z': {
         'k': 'rotate_view_reverse',
@@ -359,6 +382,7 @@ normal_select_mappings: dict[str, Any] = {
         'w': ':toggle whichkey',
         **disable(
             [
+                # [[sort on]]
                 '?',
                 'C-b',
                 'C-d',
@@ -373,10 +397,24 @@ normal_select_mappings: dict[str, Any] = {
                 't',
                 'up',
                 'z',
+                # [[sort off]]
             ]
         ),
     },
-    **disable(['A-:', 'C-c', 'C-s', 'Z', 'down', 'left', 'right', 'up']),
+    **disable(
+        [
+            # [[sort on]]
+            'A-:',
+            'C-c',
+            'C-s',
+            'Z',
+            'down',
+            'left',
+            'right',
+            'up',
+            # [[sort off]]
+        ]
+    ),
 }
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
