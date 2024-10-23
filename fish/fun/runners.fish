@@ -106,7 +106,7 @@ function runner_notification
             return 1
         end
         set -e result[-1]
-        notify-send -t 0 "$result"
+        notify-send -t 0 -- "$result"
         echo "$result" >~/.local/share/magazine/o
         _magazine_commit ~/.local/share/magazine/o notif
     end
