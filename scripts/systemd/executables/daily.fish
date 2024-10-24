@@ -15,20 +15,9 @@ yearless_parse
 task (whensies.py)
 clorange habit increment
 if test (math (clorange habit show) % 2) -eq 0
-    begin
-        echo magazine D
-        echo anki
-        echo exercise
-        echo shower
-    end >~/.local/share/magazine/x
+    cat ~/.local/share/magazine/leftbrace >~/.local/share/magazine/x
 else
-    begin
-        echo shave
-        echo anki
-        echo commits
-        echo exercise
-        echo head
-    end >~/.local/share/magazine/x
+    cat ~/.local/share/magazine/rightbrace >~/.local/share/magazine/x
 end
 
 if test (math (clorange megafon show) % 30) -eq 0
