@@ -43,6 +43,10 @@ if test (date '+%d') -eq 17
     task 'dom.ru (760) tomorrow'
 end
 
+if test (date '+%d') -eq 18
+    task 'proxy renewal tomorrow'
+end
+
 if test (date '+%d') -eq 19
     task 'tinkoff subscription (299) tomorrow'
 end
