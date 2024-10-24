@@ -39,6 +39,11 @@ function install_yt_video
         case asmr
             set -f where_links ~/.local/share/magazine/i
     end
+    if not test -s $where_links
+        or test "$(cat $where_links)" = '\n'
+        notify-send -t 2000 'no stored links'
+        return 1
+    end
     set -l how_many (clorange youtube show)
     for link in (head -n $how_many $where_links)
         install-yt-video.fish $extra $link &
