@@ -25,20 +25,26 @@ end
 funcsave pick_sts_boss >/dev/null
 
 function install_yt_video
-    if set -q argv[1]
-        set extra $argv[1]
-    else
-        set extra youtube
+    set extra (begin
+        echo youtube
+        echo longform
+        echo asmr
+    end | rofi -dmenu -no-custom 2>/dev/null)
+    test $status -ne 0 && return 1
+    switch $extra
+        case youtube
+            set -f where_links ~/.local/share/magazine/k
+        case longform
+            set -f where_links ~/.local/share/magazine/K
+        case asmr
+            set -f where_links ~/.local/share/magazine/i
     end
-    set file (mktemp /dev/shm/install_yt_video.XXXXXX)
-    set clipboard (xclip -selection clipboard -o)
-    kitty -T link-download yt-dlp \
-        --proxy (cat ~/.local/share/magazine/p)[1] \
-        -o "~/vid/content/$extra/%(channel)s — %(title)s — ;%(id)s;.%(ext)s" \
-        --print-to-file "%(channel)s — %(title)s" $file \
-        $clipboard
-    notify-send -t 3000 "downloaded: $(cat $file)"
-    rm -fr $file
+    set -l how_many (clorange youtube show)
+    for link in (head -n $how_many $where_links)
+        install-yt-video.fish $extra $link &
+    end
+    tail -n "+$(math $how_many + 1)" $where_links | sponge $where_links
+    _magazine_commit $where_links install
 end
 funcsave install_yt_video >/dev/null
 

@@ -349,9 +349,7 @@ keymap:
 
           Shift-s: { launch: [fish, -c, 'pick_sts_boss']}
 
-          j: { launch: [fish, -c, install_yt_video] }
-          k: { launch: [fish, -c, 'install_yt_video longform'] }
-          l: { launch: [fish, -c, 'install_yt_video asmr'] }
+          k: { launch: [fish, -c, install_yt_video] }
 
           a: { launch: [fish, -c, runner_interactive_unicode]}
           e: { launch: [fish, -c, runner_symbol_name] }
