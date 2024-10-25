@@ -20,28 +20,33 @@
 #navigator-toolbox {
 	border-bottom: none !important;
 
-	.tabbrowser-tab {
-		padding: 0 !important;
+	#TabsToolbar-customization-target {
+		--toolbarbutton-inner-padding: 0 !important;
+		> #tabbrowser-tabs {
+			.tabbrowser-tab {
+				padding: 0 !important;
 
-		.tab-background {
-			border-radius: 0px !important;
-			margin-block: 0px !important;
-			/***/
-			min-height: 16px !important;
-			outline: unset !important;
-			/***/
-			outline-offset: 0px !important;
-			/***/
-			box-shadow: unset !important;
+				.tab-background {
+					border-radius: 0px !important;
+					margin-block: 0px !important;
+					/***/
+					min-height: 1px !important;
+					outline: unset !important;
+					/***/
+					outline-offset: 0px !important;
+					/***/
+					box-shadow: unset !important;
 
-			&[selected] {
-				background-color: #5f472d !important;
-			}
-		}
+					&[selected] {
+						background-color: #5f472d !important;
+					}
+				}
 
-		.tab-content {
-			.tab-label-container {
-				height: 2em !important;
+				.tab-content {
+					.tab-label-container {
+						height: 1.6em !important;
+					}
+				}
 			}
 		}
 	}
@@ -49,8 +54,10 @@
 	> #nav-bar {
 		border-top: 0 !important;
 		background-color: #292828 !important;
+		min-height: 1px !important;
 
 		> #nav-bar-customization-target {
+			/* margin: 0 0 0 7px !important; */
 			> #back-button,
 			> #forward-button {
 				display: none !important;
@@ -65,14 +72,27 @@
 
 				> #urlbar {
 					font-size: unset !important;
+					width: 100% !important;
+					left: 0 !important;
+					--toolbar-field-color: #d4be98;
 
 					> #urlbar-background {
-						background-color: unset !important;
+						box-shadow: none !important;
+						outline: none !important;
+						border: none !important;
+						background-color: #292828 !important;
 					}
 
 					> .urlbar-input-container {
 						border: none !important;
-						padding: 0 0 0 6px !important;
+						padding: 0 !important;
+
+						.urlbar-input-box {
+							padding-left: 7px !important;
+							> #urlbar-input {
+								background-color: #5f472d !important;
+							}
+						}
 
 						> #tracking-protection-icon-container {
 							display: none !important;
