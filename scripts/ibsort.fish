@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 for file in $argv
+    not test -f $file && continue
     begin
         set -l to_sort
         set -l grabbing false
