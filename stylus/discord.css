@@ -4,8 +4,8 @@
 
 :root {
 	--font-code: Input Mono, JetBrainsMono NF, JetBrainsMono Nerd Font, Consolas, 'Andale Mono WT', 'Andale Mono',
-		'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
-		'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+		'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
+		'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 	--font-primary: Inter, 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Symbols';
 	--font-weight-semibold-1x-light-theme: 500;
 	--smooth-black: hsl(0, 0%, 6.7%);

@@ -1,4 +1,8 @@
 [[language]]
+name = 'css'
+formatter = { command = 'prettier', args = ['--parser', 'css'] }
+
+[[language]]
 name = 'mojo'
 file-types = ["mojo", "🔥", { glob = 'kitty.conf' }]
 
