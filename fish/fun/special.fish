@@ -46,15 +46,17 @@ function install_yt_video
     end
     set -l how_many (clorange youtube show)
     set -l stored_links (count (cat $where_links))
+    tail -n "+$(math $how_many + 1)" $where_links | sponge $where_links
     if test $stored_links -lt $how_many
         notify-send -t 3000 "asked for $how_many, only has $stored_links"
     else if test $stored_links -eq $how_many
         notify-send -t 3000 "asked for $how_many, which is exact stored"
+    else
+        notify-send -t 3000 "$(math $stored_links - $how_many) links left"
     end
     for link in (head -n $how_many $where_links)
         install-yt-video.fish $extra $link &
     end
-    tail -n "+$(math $how_many + 1)" $where_links | sponge $where_links
     _magazine_commit $where_links install
 end
 funcsave install_yt_video >/dev/null
