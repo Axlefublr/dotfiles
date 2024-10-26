@@ -15,6 +15,10 @@ toolbar .toolbaritem-combined-buttons {
 	margin-inline: 0 !important;
 }
 
+* {
+	--link-color: #ffd75f !important;
+}
+
 #navigator-toolbox {
 	border-bottom: none !important;
 
@@ -129,6 +133,8 @@ toolbar .toolbaritem-combined-buttons {
 					> .urlbarView {
 						--urlbarView-highlight-background: #5f472d !important;
 						--urlbarView-highlight-color: #d4be98 !important;
+						--urlbarView-item-inline-padding: 0 !important;
+						--urlbarView-item-block-padding: 0.25em !important;
 					}
 				}
 			}
