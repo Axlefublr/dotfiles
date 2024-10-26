@@ -117,7 +117,7 @@ function magazine_append_symbol
     test $status -ne 0 && return 1
     set symbol_text (ypoc)
     indeed -nu ~/.local/share/magazine/e (begin
-        echo -n $symbol_text
+        echo -n $symbol_text' '
         for thingy in (string split '' $symbol_text)
             printf '%x ' \'$thingy
         end
