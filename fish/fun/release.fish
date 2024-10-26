@@ -9,7 +9,7 @@ function rust-release
     end
     set -l taggedVersion $argv[1]
 
-    if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
+    if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD # TODO: just cd into repo root
         echo "you're not in repo root"
         return 1
     end
@@ -91,7 +91,7 @@ function rust-fmt --description 'Bring in format config and format with it'
 end
 funcsave rust-fmt >/dev/null
 
-function rust-ci --description 'Bring in on tag push github action'
+function rust-ci --description 'Bring in on tag push github action' # TODO: should hard-link, unless already exists
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1

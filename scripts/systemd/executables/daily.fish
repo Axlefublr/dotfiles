@@ -13,8 +13,7 @@ truncate -s 0 ~/.local/share/magazine/d
 yeared_parse
 yearless_parse
 task (whensies.py)
-clorange habit increment
-if test (math (clorange habit show) % 2) -eq 0
+if test (math (clorange habit increment) % 2) -eq 0
     cat ~/.local/share/magazine/leftbrace >~/.local/share/magazine/x
 else
     cat ~/.local/share/magazine/rightbrace >~/.local/share/magazine/x
@@ -24,7 +23,7 @@ if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (579) tomorrow'
 end
 
-if test (math (clorange course show) % 31) -eq 0
+if test (date '+%d') -eq 16
     task 'course (5825) tomorrow'
 end
 
