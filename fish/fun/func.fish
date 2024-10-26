@@ -25,6 +25,11 @@ function anki-due
 end
 funcsave anki-due >/dev/null
 
+function anki-onces
+    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "deck:Once is:new" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+end
+funcsave anki-onces >/dev/null
+
 function anki-sync
     curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
 end
