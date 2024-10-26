@@ -11,12 +11,6 @@
 	display: none !important;
 }
 
-#tabbrowser-tabs {
-	border-inline-start: none !important;
-	padding-inline-start: 0 !important;
-	margin-inline-start: 0 !important;
-}
-
 toolbar .toolbaritem-combined-buttons {
 	margin-inline: 0 !important;
 }
@@ -26,7 +20,16 @@ toolbar .toolbaritem-combined-buttons {
 
 	#TabsToolbar-customization-target {
 		--toolbarbutton-inner-padding: 0 !important;
+
 		> #tabbrowser-tabs {
+			border-inline-start: none !important;
+			padding-inline-start: 0 !important;
+			margin-inline-start: 0 !important;
+
+			#tabbrowser-arrowscrollbox-periphery {
+				display: none !important;
+			}
+
 			.tabbrowser-tab {
 				padding: 0 !important;
 
@@ -121,6 +124,11 @@ toolbar .toolbaritem-combined-buttons {
 						> #identity-box {
 							display: none !important;
 						}
+					}
+
+					> .urlbarView {
+						--urlbarView-highlight-background: #5f472d !important;
+						--urlbarView-highlight-color: #d4be98 !important;
 					}
 				}
 			}
