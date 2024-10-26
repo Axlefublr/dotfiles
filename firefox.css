@@ -48,7 +48,7 @@ toolbar .toolbaritem-combined-buttons {
 
 				.tab-content {
 					.tab-label-container {
-						height: 1.6em !important;
+						height: 1.7em !important;
 					}
 				}
 			}
@@ -59,7 +59,7 @@ toolbar .toolbaritem-combined-buttons {
 		border-top: 0 !important;
 		background-color: #292828 !important;
 		min-height: 1px !important;
-		height: 1.6em !important;
+		height: 1.7em !important;
 
 		> #nav-bar-customization-target {
 			/* margin: 0 0 0 7px !important; */
@@ -78,7 +78,7 @@ toolbar .toolbaritem-combined-buttons {
 					width: 100% !important;
 					left: 0 !important;
 					--toolbar-field-color: #d4be98;
-					--urlbar-height: 1.6em !important;
+					--urlbar-height: 1.7em !important;
 					--urlbar-min-height: 1px !important;
 
 					> #urlbar-background {
