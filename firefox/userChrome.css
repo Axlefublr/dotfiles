@@ -17,6 +17,8 @@ toolbar .toolbaritem-combined-buttons {
 
 * {
 	--link-color: #ffd75f !important;
+	/* --tridactyl-bg: #292828 !important; */
+	/* --tridactyl-firefox-2021-redesign-background: #292828 !important; */
 }
 
 #navigator-toolbox {
