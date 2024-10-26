@@ -88,7 +88,7 @@ toolbar .toolbaritem-combined-buttons {
 					left: 0 !important;
 					--toolbar-field-color: #d4be98;
 					--urlbar-height: 1.7em !important;
-					--urlbar-min-height: 1px !important;
+					--urlbar-min-height: 1.7em !important;
 
 					> #urlbar-background {
 						box-shadow: none !important;
@@ -122,7 +122,8 @@ toolbar .toolbaritem-combined-buttons {
 								margin-inline: unset !important;
 							}
 
-							> #star-button-box {
+							> #star-button-box,
+							> #reader-mode-button {
 								display: none !important;
 							}
 						}
