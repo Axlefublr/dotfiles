@@ -135,6 +135,8 @@ toolbar .toolbaritem-combined-buttons {
 						--urlbarView-highlight-color: #d4be98 !important;
 						--urlbarView-item-inline-padding: 0 !important;
 						--urlbarView-item-block-padding: 0.25em !important;
+						--urlbarView-favicon-margin-start: 0.4em !important;
+						--urlbarView-favicon-margin-end: 0.6em !important;
 					}
 				}
 			}
