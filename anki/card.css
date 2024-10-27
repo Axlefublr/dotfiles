@@ -47,6 +47,10 @@ cdab {
 	margin: auto;
 }
 
+@media (min-width: 1000px) {
+	.codeblock {
+		width: 50%;
+	}
 }
 
 .codeblock:has(left),
