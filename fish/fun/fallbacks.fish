@@ -28,6 +28,9 @@ alias --save p lazygit >/dev/null
 alias --save e helix >/dev/null
 alias --save v firefox >/dev/null
 
+#----------------------------------------------------silly----------------------------------------------------
+alias --save ඞ suspend >/dev/null
+
 #------------------------other------------------------
 alias --save gs 'clx ; git status -s' >/dev/null
 alias --save ga 'git add' >/dev/null

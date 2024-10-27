@@ -17,6 +17,9 @@ abbr -a L yazi
 abbr -a e helix
 abbr -a v firefox
 
+#----------------------------------------------------silly----------------------------------------------------
+abbr -a ඞ suspend
+
 #------------------------other------------------------
 abbr -a gs 'clx ; git status -s'
 abbr -a ga 'git add'
