@@ -61,7 +61,7 @@ function runner_symbol
     for code in (string split ' ' $result)
         set output $output"\U$code"
     end
-    printf $output 2>/dev/null | xclip -r -selection clipboard
+    printf $output 2>/dev/null | copy
     xdotool key ctrl+v
 end
 funcsave runner_symbol >/dev/null

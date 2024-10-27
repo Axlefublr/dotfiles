@@ -1600,75 +1600,39 @@ keymap:
       CapsLock-Super_R-g:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'clipboard_harp_set q 0'] }
-          w: { launch: [fish, -c, 'clipboard_harp_set w 0'] }
-          e: { launch: [fish, -c, 'clipboard_harp_set e 0'] }
-          r: { launch: [fish, -c, 'clipboard_harp_set r 0'] }
-          t: { launch: [fish, -c, 'clipboard_harp_set t 0'] }
-          y: { launch: [fish, -c, 'clipboard_harp_set y 0'] }
-          u: { launch: [fish, -c, 'clipboard_harp_set u 0'] }
-          i: { launch: [fish, -c, 'clipboard_harp_set i 0'] }
-          o: { launch: [fish, -c, 'clipboard_harp_set o 0'] }
-          p: { launch: [fish, -c, 'clipboard_harp_set p 0'] }
-          LeftBrace: { launch: [fish, -c, 'clipboard_harp_set leftbrace 0'] }
-          RightBrace: { launch: [fish, -c, 'clipboard_harp_set rightbrace 0'] }
-          a: { launch: [fish, -c, 'clipboard_harp_set a 0'] }
-          s: { launch: [fish, -c, 'clipboard_harp_set s 0'] }
-          d: { launch: [fish, -c, 'clipboard_harp_set d 0'] }
-          f: { launch: [fish, -c, 'clipboard_harp_set f 0'] }
-          g: { launch: [fish, -c, 'clipboard_harp_set g 0'] }
-          h: { launch: [fish, -c, 'clipboard_harp_set h 0'] }
-          j: { launch: [fish, -c, 'clipboard_harp_set t 0'] }
-          k: { launch: [fish, -c, 'clipboard_harp_set k 0'] }
-          l: { launch: [fish, -c, 'clipboard_harp_set l 0'] }
-          Semicolon: { launch: [fish, -c, 'clipboard_harp_set semicolon 0'] }
-          Apostrophe: { launch: [fish, -c, 'clipboard_harp_set apostrophe 0'] }
-          z: { launch: [fish, -c, 'clipboard_harp_set z 0'] }
-          x: { launch: [fish, -c, 'clipboard_harp_set x 0'] }
-          c: { launch: [fish, -c, 'clipboard_harp_set c 0'] }
-          v: { launch: [fish, -c, 'clipboard_harp_set v 0'] }
-          b: { launch: [fish, -c, 'clipboard_harp_set b 0'] }
-          n: { launch: [fish, -c, 'clipboard_harp_set n 0'] }
-          m: { launch: [fish, -c, 'clipboard_harp_set m 0'] }
-          Comma: { launch: [fish, -c, 'clipboard_harp_set comma 0'] }
-          Dot: { launch: [fish, -c, 'clipboard_harp_set dot 0'] }
-          Slash: { launch: [fish, -c, 'clipboard_harp_set slash 0'] }
-      Shift-Super_R-g:
-        exact_match: true
-        remap:
-          q: { launch: [fish, -c, 'clipboard_harp_set q 1'] }
-          w: { launch: [fish, -c, 'clipboard_harp_set w 1'] }
-          e: { launch: [fish, -c, 'clipboard_harp_set e 1'] }
-          r: { launch: [fish, -c, 'clipboard_harp_set r 1'] }
-          t: { launch: [fish, -c, 'clipboard_harp_set t 1'] }
-          y: { launch: [fish, -c, 'clipboard_harp_set y 1'] }
-          u: { launch: [fish, -c, 'clipboard_harp_set u 1'] }
-          i: { launch: [fish, -c, 'clipboard_harp_set i 1'] }
-          o: { launch: [fish, -c, 'clipboard_harp_set o 1'] }
-          p: { launch: [fish, -c, 'clipboard_harp_set p 1'] }
-          LeftBrace: { launch: [fish, -c, 'clipboard_harp_set leftbrace 1'] }
-          RightBrace: { launch: [fish, -c, 'clipboard_harp_set rightbrace 1'] }
-          a: { launch: [fish, -c, 'clipboard_harp_set a 1'] }
-          s: { launch: [fish, -c, 'clipboard_harp_set s 1'] }
-          d: { launch: [fish, -c, 'clipboard_harp_set d 1'] }
-          f: { launch: [fish, -c, 'clipboard_harp_set f 1'] }
-          g: { launch: [fish, -c, 'clipboard_harp_set g 1'] }
-          h: { launch: [fish, -c, 'clipboard_harp_set h 1'] }
-          j: { launch: [fish, -c, 'clipboard_harp_set t 1'] }
-          k: { launch: [fish, -c, 'clipboard_harp_set k 1'] }
-          l: { launch: [fish, -c, 'clipboard_harp_set l 1'] }
-          Semicolon: { launch: [fish, -c, 'clipboard_harp_set semicolon 1'] }
-          Apostrophe: { launch: [fish, -c, 'clipboard_harp_set apostrophe 1'] }
-          z: { launch: [fish, -c, 'clipboard_harp_set z 1'] }
-          x: { launch: [fish, -c, 'clipboard_harp_set x 1'] }
-          c: { launch: [fish, -c, 'clipboard_harp_set c 1'] }
-          v: { launch: [fish, -c, 'clipboard_harp_set v 1'] }
-          b: { launch: [fish, -c, 'clipboard_harp_set b 1'] }
-          n: { launch: [fish, -c, 'clipboard_harp_set n 1'] }
-          m: { launch: [fish, -c, 'clipboard_harp_set m 1'] }
-          Comma: { launch: [fish, -c, 'clipboard_harp_set comma 1'] }
-          Dot: { launch: [fish, -c, 'clipboard_harp_set dot 1'] }
-          Slash: { launch: [fish, -c, 'clipboard_harp_set slash 1'] }
+          q: { launch: [fish, -c, 'clipboard_harp_set q'] }
+          w: { launch: [fish, -c, 'clipboard_harp_set w'] }
+          e: { launch: [fish, -c, 'clipboard_harp_set e'] }
+          r: { launch: [fish, -c, 'clipboard_harp_set r'] }
+          t: { launch: [fish, -c, 'clipboard_harp_set t'] }
+          y: { launch: [fish, -c, 'clipboard_harp_set y'] }
+          u: { launch: [fish, -c, 'clipboard_harp_set u'] }
+          i: { launch: [fish, -c, 'clipboard_harp_set i'] }
+          o: { launch: [fish, -c, 'clipboard_harp_set o'] }
+          p: { launch: [fish, -c, 'clipboard_harp_set p'] }
+          LeftBrace: { launch: [fish, -c, 'clipboard_harp_set leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'clipboard_harp_set rightbrace'] }
+          a: { launch: [fish, -c, 'clipboard_harp_set a'] }
+          s: { launch: [fish, -c, 'clipboard_harp_set s'] }
+          d: { launch: [fish, -c, 'clipboard_harp_set d'] }
+          f: { launch: [fish, -c, 'clipboard_harp_set f'] }
+          g: { launch: [fish, -c, 'clipboard_harp_set g'] }
+          h: { launch: [fish, -c, 'clipboard_harp_set h'] }
+          j: { launch: [fish, -c, 'clipboard_harp_set t'] }
+          k: { launch: [fish, -c, 'clipboard_harp_set k'] }
+          l: { launch: [fish, -c, 'clipboard_harp_set l'] }
+          Semicolon: { launch: [fish, -c, 'clipboard_harp_set semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'clipboard_harp_set apostrophe'] }
+          z: { launch: [fish, -c, 'clipboard_harp_set z'] }
+          x: { launch: [fish, -c, 'clipboard_harp_set x'] }
+          c: { launch: [fish, -c, 'clipboard_harp_set c'] }
+          v: { launch: [fish, -c, 'clipboard_harp_set v'] }
+          b: { launch: [fish, -c, 'clipboard_harp_set b'] }
+          n: { launch: [fish, -c, 'clipboard_harp_set n'] }
+          m: { launch: [fish, -c, 'clipboard_harp_set m'] }
+          Comma: { launch: [fish, -c, 'clipboard_harp_set comma'] }
+          Dot: { launch: [fish, -c, 'clipboard_harp_set dot'] }
+          Slash: { launch: [fish, -c, 'clipboard_harp_set slash'] }
 
   - name: Any functionality
     remap:

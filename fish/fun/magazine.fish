@@ -155,23 +155,18 @@ end
 funcsave bookmark_set >/dev/null
 
 function clipboard_harp_get -a register
-    set output (harp get clipboard $register --line --extra)
+    set output (harp get clipboard $register --extra)
     if not test $status -eq 0
         notify-send -t 2000 "clipboard harp $register is unset"
         return 1
     end
-    set text "$output[2]"
-    if test $output[1] -eq 1
-        echo $text | copy
-        xdotool key ctrl+v
-    else
-        xdotool type $text
-    end
+    echo "$output[1]" | copy
+    xdotool key ctrl+v
 end
 funcsave clipboard_harp_get >/dev/null
 
-function clipboard_harp_set -a register should_paste -d 'second argument is 1 to paste, not 1 to type'
-    harp update clipboard $register --line $should_paste --extra "$(ypoc)"
+function clipboard_harp_set -a register
+    harp update clipboard $register --extra "$(ypoc)"
     notify-send -t 2000 "set clipboard harp $register"
 end
 funcsave clipboard_harp_set >/dev/null
