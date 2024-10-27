@@ -73,7 +73,10 @@ editor: dict[str, Any] = {
     'cursor-shape': {'insert': 'bar'},
     'auto-save': {'focus-lost': False},
     'whitespace': {
-        'render': {'newline': 'all', 'tab': 'all'},
+        'render': {
+            'newline': 'all',
+            # 'tab': 'all',
+        },
         'characters': {
             'newline': '↪',
             'space': '·',
