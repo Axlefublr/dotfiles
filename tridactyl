@@ -90,8 +90,6 @@ unbind A
 unbind D
 unbind G
 unbind H
-unbind J
-unbind K
 unbind L
 unbind M
 unbind O
@@ -165,6 +163,8 @@ bind [c urlincrement -1
 
 bind j scrollpx 0 50
 bind k scrollpx 0 -50
+bind J scrollpage 0.5
+bind K scrollpage -0.5
 bind gl scrollto 100 x
 bind gh scrollto 0 x
 bind gi scrollto 0
