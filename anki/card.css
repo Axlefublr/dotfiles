@@ -83,11 +83,11 @@ code {
 /* acts as equivalent margin as provided by hr#answer */
 /* used exclusively by cloze note type */
 .margin {
-	height: 30px;
+	height: calc(1em - 2px);
 }
 
 hr#answer {
-	margin: 14px;
+	margin: 0.5em;
 }
 
 b {
