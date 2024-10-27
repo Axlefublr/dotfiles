@@ -14,9 +14,9 @@ yeared_parse
 yearless_parse
 task (whensies.py)
 if test (math (clorange habit increment) % 2) -eq 0
-    cat ~/.local/share/magazine/leftbrace >~/.local/share/magazine/x
+    indeed -nu ~/.local/share/magazine/x (cat ~/.local/share/magazine/leftbrace)
 else
-    cat ~/.local/share/magazine/rightbrace >~/.local/share/magazine/x
+    indeed -nu ~/.local/share/magazine/x (cat ~/.local/share/magazine/rightbrace)
 end
 
 if test (math (clorange megafon show) % 30) -eq 0
