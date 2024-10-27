@@ -72,6 +72,7 @@ keymap:
       # TODO: ctrl-h # history sidebar
       Alt-Slash: ctrl-f # find in this page
       Alt-e: ctrl-t # new tab
+      Alt-f: f1 # extension: dark reader
       Alt-h: ctrl-pageup # go one tab to the left
       Alt-l: ctrl-pagedown # go one tab to the right
       Alt-n: ctrl-g # find again
