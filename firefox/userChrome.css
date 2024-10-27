@@ -71,7 +71,12 @@ toolbar .toolbaritem-combined-buttons {
 		height: 1.7em !important;
 
 		> #nav-bar-customization-target {
-			/* margin: 0 0 0 7px !important; */
+			> #unified-extensions-button {
+				> .toolbarbutton-icon {
+					margin-top: -1px !important;
+				}
+			}
+
 			> #back-button,
 			> #forward-button {
 				display: none !important;
@@ -113,6 +118,14 @@ toolbar .toolbaritem-combined-buttons {
 						}
 
 						> #page-action-buttons {
+							> .urlbar-page-action {
+								width: unset !important;
+								> .toolbarbutton-icon {
+									margin-top: -1px !important;
+								}
+								height: unset !important;
+							}
+
 							> #urlbar-zoom-button {
 								font-size: unset !important;
 								padding: 0 !important;
