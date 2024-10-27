@@ -19,11 +19,11 @@ for script in ~/prog/dotfiles/scripts/widget_update/*.fish
     $script 2>>/tmp/log/user.txt & disown
 end
 
-vivaldi --force-dark-mode 2>>/tmp/log/user.txt & disown
+firefox 2>>/tmp/log/user.txt & disown
 anki 2>>/tmp/log/user.txt & disown
-set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
-move_all 2 $vivaldis
-set ankis (win_wait 'anki\.Anki' 0.1 0 50)
+# set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
+# move_all 2 $vivaldis
+# set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
 ydotoold 2>>/tmp/log/user.txt & disown

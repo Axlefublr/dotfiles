@@ -26,7 +26,7 @@ alias --save jf 'clx && exec fish' >/dev/null
 
 alias --save p lazygit >/dev/null
 alias --save e helix >/dev/null
-alias --save v vivaldi >/dev/null
+alias --save v firefox >/dev/null
 
 #------------------------other------------------------
 alias --save gs 'clx ; git status -s' >/dev/null
