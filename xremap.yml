@@ -65,6 +65,7 @@ keymap:
 
   - name: Firefox
     exact_match: true
+    mode: default
     application:
       only: firefox
     remap:
