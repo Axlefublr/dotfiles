@@ -87,7 +87,7 @@ configuration {
 }
 window {
 	font: "Input Mono 16";
-	width: 60%;
+	width: 70%;
 	border: 0;
 	location: north;
 	// y-offset: 35px;
