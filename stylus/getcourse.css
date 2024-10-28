@@ -1,7 +1,9 @@
-/* starts with
- * https://svoboda09.ru
+/* player02.getcourse.ru
+ * domain
  */
 
-.mst-root.js-click-not-close-menu {
-  display: none;
+/* "omg you have a vpn!!" popup */
+.mst-root.js-click-not-close-menu,
+.vpn-badge {
+	display: none;
 }
