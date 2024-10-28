@@ -48,7 +48,10 @@ cdab {
 }
 
 @media (min-width: 1000px) {
-	.codeblock {
+	.codeblock,
+	cda,
+	cdb,
+	cdab {
 		width: 50%;
 	}
 }
