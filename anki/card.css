@@ -76,6 +76,12 @@ cdab {
 	margin-bottom: var(--codeblock-margin);
 }
 
+cda,
+cdb,
+cdab {
+	display: block;
+}
+
 code {
 	font-family: var(--monospace-font-family);
 	background-color: #242323;
