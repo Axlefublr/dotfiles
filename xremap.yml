@@ -71,6 +71,7 @@ keymap:
     remap:
       # [[sort on]]
       # TODO: ctrl-h # history sidebar
+      Alt-Apostrophe: f6 # move to next frame, pop-up # possible thanks to the ui.key.menuAccessKeyFocuses option
       Alt-Slash: ctrl-f # find in this page
       Alt-c: ctrl-shift-c # inspect element
       Alt-e: ctrl-t # new tab
@@ -79,7 +80,6 @@ keymap:
       Alt-l: ctrl-pagedown # go one tab to the right
       Alt-n: ctrl-g # find again
       Alt-w: ctrl-w # close tab
-      Capslock-Space: f6 # move to next frame, pop-up
       Ctrl-Alt-d: ctrl-equal # zoom out
       Ctrl-Alt-f: ctrl-0 # zoom reset
       Ctrl-Alt-h: ctrl-shift-pageup # move tab left
