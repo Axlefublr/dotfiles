@@ -15,8 +15,13 @@ c {
 }
 
 .header {
+	font-weight: bold;
 	color: #ffafd7;
 	height: var(--heady-height);
+}
+
+.header:empty {
+	display: none;
 }
 
 .card {
