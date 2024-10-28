@@ -11,6 +11,11 @@
 	display: none !important;
 }
 
+#sidebar-box,
+#sidebar-splitter {
+	display: none !important;
+}
+
 toolbar .toolbaritem-combined-buttons {
 	margin-inline: 0 !important;
 }
