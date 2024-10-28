@@ -383,6 +383,8 @@ normal_select_mappings: dict[str, Any] = {
         's': ':toggle should-statusline',
         'e': ':lang',
         'w': ':toggle whichkey',
+        'a': ':set gutters.layout []',
+        'A': ':set gutters.layout ["diff"]',
         **disable(
             [
                 # [[sort on]]
