@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "9/6/2024, 8:58:06 PM",
-	"time": 1725627486566,
+	"@time": "10/28/2024, 3:29:46 PM",
+	"time": 1730100586081,
 	"environment": {
-		"extension": "2.11.3",
+		"extension": "1.99.997",
 		"platform": "linux",
-		"chromium": 128
+		"firefox": 131
 	},
 	"allBrowserUrls": true,
 	"autoDarkMode": 1,
@@ -13,7 +13,7 @@
 	"exclusionRules": [],
 	"grabBackFocus": true,
 	"hideHud": true,
-	"keyLayout": 18,
+	"keyLayout": 146,
 	"keyMappings": [
 		"#!no-check",
 		"unmap <a-f>",
@@ -77,24 +77,27 @@
 		"unmap ^",
 		"unmap v",
 		"unmap V",
+		"unmap H",
+		"unmap L",
+		"unmap gf",
+		"unmap gF",
 		"",
-		"map sd LinkHints.activateCopyLinkText",
-		"map sf LinkHints.activateCopyLinkUrl",
+		"map d LinkHints.activateCopyLinkText",
+		"map s LinkHints.activateCopyLinkUrl",
 		"map x LinkHints.activateFocus",
 		"map r LinkHints.activateHover",
 		"map R LinkHints.unhoverLast",
+		"map a nextFrame",
+		"map A mainFrame",
 		"",
 		"map gi scrollToTop",
 		"map go scrollToBottom",
 		"map gh scrollToLeft",
 		"map gl scrollToRight",
-		"map L scrollPageDown",
-		"map H scrollPageUp",
+		"map J scrollPageDown",
+		"map K scrollPageUp",
 		"map j scrollDown keepHover=\"false\"",
 		"map k scrollUp keepHover=\"false\"",
-		"",
-		"map M Marks.activateCreate",
-		"map m Marks.activate",
 		""
 	],
 	"keyupTime": 50,
@@ -210,5 +213,6 @@
 		""
 	],
 	"vimSync": true,
-	"ignoreCapsLock": 2
+	"ignoreCapsLock": 2,
+	"mapModifier": 2
 }
