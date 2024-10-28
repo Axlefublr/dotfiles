@@ -78,6 +78,7 @@ keymap:
       Alt-l: ctrl-pagedown # go one tab to the right
       Alt-n: ctrl-g # find again
       Alt-w: ctrl-w # close tab
+      Alt-x: ctrl-shift-c # inspect element
       Capslock-Space: f6 # move to next frame, pop-up
       Ctrl-Alt-d: ctrl-equal # zoom out
       Ctrl-Alt-f: ctrl-0 # zoom reset
