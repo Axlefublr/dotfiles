@@ -1,7 +1,7 @@
 /* #ui */
 /* hint labels */
 .D > .LH {
-	background: #ffafd7;
+	background: #ffd75f;
 }
 
 /* div that actually holds the / search inputbox */
@@ -30,7 +30,7 @@ div.R.UI.HUD.D:after {
 
 /* notifications, like when you get in insert mode */
 .HUD.D:not(.UI) {
-	font-family: Ubuntu Nerd Font, Ubuntu;
+	font-family: Inter;
 	bottom: 5px;
 	max-width: unset;
 	min-width: unset;
@@ -49,56 +49,6 @@ div.R.UI.HUD.D:after {
 .Frame {
 	border: 5px solid #ffd75f;
 }
-
-/* #find */
-/* the inner inputbox of the / search */
-.r {
-	box-shadow: none;
-	border-radius: 5px;
-	border-style: solid;
-	border-color: hsl(0, 1%, 40%);
-	border-width: 0;
-	height: auto;
-	padding: unset;
-}
-.r.D {
-	font-size: 16px;
-	font-family: Ubuntu Nerd Font, Ubuntu;
-	padding: 5px 7px;
-	background-color: hsl(0, 1%, 10%);
-	color: #d4be98;
-}
 * {
 	font: unset;
-}
-
-/* span that holds amount of matches */
-#c {
-	margin-top: 1px;
-	height: auto;
-	margin-left: 5px;
-}
-
-/* amount of matches */
-#c::after {
-	color: #ffd75f;
-	font-size: 14px;
-}
-
-/* height of the searched for text */
-#i {
-	height: auto;
-	padding-bottom: 1px;
-	margin-left: 0;
-}
-
-/* `/` character before the search */
-#s {
-	display: none;
-}
-
-/* #find:selection */
-::selection {
-	color: #0f0f0f;
-	background: #ffafd7 !important;
 }
