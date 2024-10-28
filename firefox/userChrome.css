@@ -17,6 +17,7 @@ toolbar .toolbaritem-combined-buttons {
 
 * {
 	--link-color: #ffd75f !important;
+	--tabpanel-background-color: #292828 !important;
 }
 
 #navigator-toolbox {
