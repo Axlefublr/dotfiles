@@ -1410,16 +1410,16 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      Super_R-Alt-f: { launch: [fish, -c, 'copyq read 0 | copy'] }
-      Super_R-Alt-d: { launch: [fish, -c, 'copyq read 1 | copy'] }
-      Super_R-Alt-s: { launch: [fish, -c, 'copyq read 2 | copy'] }
-      Super_R-Alt-r: { launch: [fish, -c, 'copyq read 3 | copy'] }
-      Super_R-Alt-e: { launch: [fish, -c, 'copyq read 4 | copy'] }
-      Super_R-Alt-w: { launch: [fish, -c, 'copyq read 5 | copy'] }
-      Super_R-Alt-v: { launch: [fish, -c, 'copyq read 6 | copy'] }
-      Super_R-Alt-c: { launch: [fish, -c, 'copyq read 7 | copy'] }
-      Super_R-Alt-x: { launch: [fish, -c, 'copyq read 8 | copy'] }
-      Super_R-Alt-a: { launch: [fish, -c, 'copyq read 9 | copy'] }
+      CapsLock-Super_R-f: { launch: [fish, -c, 'copyq read 0 | copy'] }
+      CapsLock-Super_R-d: { launch: [fish, -c, 'copyq read 1 | copy'] }
+      CapsLock-Super_R-s: { launch: [fish, -c, 'copyq read 2 | copy'] }
+      CapsLock-Super_R-r: { launch: [fish, -c, 'copyq read 3 | copy'] }
+      CapsLock-Super_R-e: { launch: [fish, -c, 'copyq read 4 | copy'] }
+      CapsLock-Super_R-w: { launch: [fish, -c, 'copyq read 5 | copy'] }
+      CapsLock-Super_R-v: { launch: [fish, -c, 'copyq read 6 | copy'] }
+      CapsLock-Super_R-c: { launch: [fish, -c, 'copyq read 7 | copy'] }
+      CapsLock-Super_R-x: { launch: [fish, -c, 'copyq read 8 | copy'] }
+      CapsLock-Super_R-a: { launch: [fish, -c, 'copyq read 9 | copy'] }
 
       # [[sort on]]
       CapsLock-Alt-Comma: shift_r-grave
