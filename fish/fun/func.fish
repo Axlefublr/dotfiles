@@ -99,6 +99,7 @@ function engined_search
                 echo krita
                 echo iask
                 echo rust
+                echo anki
             end | rofi -no-custom -dmenu 2>/dev/null
         )
         test $status -ne 0 && return 1
@@ -135,6 +136,8 @@ function engined_search
             $BROWSER "https://iask.ai/?mode=question&q=$input" >/dev/null
         case rust
             $BROWSER "https://doc.rust-lang.org/std/?search=$input" >/dev/null
+        case anki
+            $BROWSER "https://docs.ankiweb.net/?search=$input" >/dev/null
     end
     ensure_browser
 end
