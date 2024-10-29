@@ -1476,7 +1476,7 @@ keymap:
 
       CapsLock-Super-i: { launch: [awesome-client, awful.client.floating.toggle()] }
       CapsLock-Super-p: { launch: [awesome-client, 'client.focus.ontop = not client.focus.ontop'] }
-      CapsLock-Super-Shift-m: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
+      CapsLock-Super-Semicolon: { launch: [awesome-client, 'client.focus.maximized = not client.focus.maximized'] }
       CapsLock-Super-y: { launch: [awesome-client, 'client.focus.sticky = not client.focus.sticky'] }
       CapsLock-Super-b: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
 
