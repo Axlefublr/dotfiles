@@ -125,7 +125,7 @@ funcsave _alarm >/dev/null
 
 function yeared_parse
     for line in (cat ~/.local/share/magazine/v)
-        set -l match (string match -gr '(\\d+).(\\d+.\\d+) - (.*)' $line)
+        set -l match (string match -gr '(\\d+).(\\d+.\\d+) — (.*)' $line)
         set -l year $match[1]
         set -l date $match[2]
         set -l description $match[3]
