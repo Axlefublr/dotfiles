@@ -9,13 +9,13 @@
 function anki_update
     if test (anki-due) -gt 0
         if not test "$argv"
-            clorange anki increment
+            clorange anki increment >/dev/null
         end
         if test (clorange anki show) -ge 6
             echo due
         end
     else
-        clorange anki reset
+        clorange anki reset >/dev/null
     end
 end
 funcsave anki_update >/dev/null
