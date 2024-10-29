@@ -12,7 +12,6 @@ abbr -a x exit
 abbr -a hime 'history merge'
 abbr -a jf 'clx && exec fish'
 
-abbr -a p lazygit
 abbr -a L yazi
 abbr -a e helix
 abbr -a v firefox

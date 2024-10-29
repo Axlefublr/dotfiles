@@ -13,9 +13,13 @@ alias --save chx 'chmod +x' >/dev/null
 
 # no abbreviation equivalents because the expansion is too wordy
 alias --save copy 'xclip -r -selection clipboard' >/dev/null
+alias --save s 'xclip -r -selection clipboard' >/dev/null
 alias --save copyi 'xclip -selection clipboard -t image/png' >/dev/null
+alias --save si 'xclip -selection clipboard -t image/png' >/dev/null
 alias --save copyn 'xclip -selection clipboard' >/dev/null
+alias --save sn 'xclip -selection clipboard' >/dev/null
 alias --save ypoc 'xclip -selection clipboard -o' >/dev/null
+alias --save p 'xclip -selection clipboard -o' >/dev/null
 
 alias --save h 'z ~ && clx' >/dev/null
 alias --save u 'z - && clx' >/dev/null
@@ -24,7 +28,6 @@ alias --save X 'kitten @ close-window' >/dev/null
 alias --save hime 'history merge' >/dev/null
 alias --save jf 'clx && exec fish' >/dev/null
 
-alias --save p lazygit >/dev/null
 alias --save e helix >/dev/null
 alias --save v firefox >/dev/null
 
