@@ -72,6 +72,7 @@ keymap:
       # [[sort on]]
       # TODO: ctrl-h # history sidebar
       Alt-Apostrophe: f6 # move to next frame, pop-up # possible thanks to the ui.key.menuAccessKeyFocuses option
+      Alt-Semicolon: shift-f1 # (sidebery) unload all tabs in inactive panels
       Alt-Slash: ctrl-f # find in this page
       Alt-c: ctrl-shift-c # inspect element
       Alt-e: f4 # (sidebery) open a new tab after the active tab (needed to open a new tab after the current one, rather than at the end)
