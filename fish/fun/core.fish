@@ -26,6 +26,8 @@ function ocr
 end
 funcsave ocr >/dev/null
 
+alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
+
 function m
     set harp (harp get harp_dirs $argv --path | string replace '~' $HOME)
     if test "$harp"
