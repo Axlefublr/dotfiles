@@ -1,0 +1,9 @@
+/* developer.mozilla.org
+ * domain
+*/
+
+@media (min-width: 769px) {
+	.main-wrapper {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 6fr);
+	}
+}
