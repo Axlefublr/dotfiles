@@ -128,6 +128,8 @@ function fish_user_key_bindings
     binds -i \e\r expand-abbr insert-line-under
     binds -i -k f4 'commandline ""' # is ctrl+alt+u
 
+    binds -vs -m insert \n end-selection execute
+    binds -vs -m insert \r end-selection execute
     binds -vids -k f5 forward-word # is shift+alt+;
     binds -vids \e\; accept-autosuggestion
 
