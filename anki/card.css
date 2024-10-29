@@ -87,7 +87,8 @@ cdab {
 	display: block;
 }
 
-code {
+code,
+o {
 	font-family: var(--monospace-font-family);
 	background-color: #242323;
 	padding: 2px 5px;
