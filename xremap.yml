@@ -1410,16 +1410,16 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      CapsLock-Super_R-f: { launch: [fish, -c, 'copyq read 0 | copy'] }
-      CapsLock-Super_R-d: { launch: [fish, -c, 'copyq read 1 | copy'] }
-      CapsLock-Super_R-s: { launch: [fish, -c, 'copyq read 2 | copy'] }
-      CapsLock-Super_R-r: { launch: [fish, -c, 'copyq read 3 | copy'] }
-      CapsLock-Super_R-e: { launch: [fish, -c, 'copyq read 4 | copy'] }
-      CapsLock-Super_R-w: { launch: [fish, -c, 'copyq read 5 | copy'] }
-      CapsLock-Super_R-v: { launch: [fish, -c, 'copyq read 6 | copy'] }
-      CapsLock-Super_R-c: { launch: [fish, -c, 'copyq read 7 | copy'] }
-      CapsLock-Super_R-x: { launch: [fish, -c, 'copyq read 8 | copy'] }
-      CapsLock-Super_R-a: { launch: [fish, -c, 'copyq read 9 | copy'] }
+      CapsLock-Super_R-f: { launch: [fish, -c, 'index_clipboard 0'] }
+      CapsLock-Super_R-d: { launch: [fish, -c, 'index_clipboard 1'] }
+      CapsLock-Super_R-s: { launch: [fish, -c, 'index_clipboard 2'] }
+      CapsLock-Super_R-r: { launch: [fish, -c, 'index_clipboard 3'] }
+      CapsLock-Super_R-e: { launch: [fish, -c, 'index_clipboard 4'] }
+      CapsLock-Super_R-w: { launch: [fish, -c, 'index_clipboard 5'] }
+      CapsLock-Super_R-v: { launch: [fish, -c, 'index_clipboard 6'] }
+      CapsLock-Super_R-c: { launch: [fish, -c, 'index_clipboard 7'] }
+      CapsLock-Super_R-x: { launch: [fish, -c, 'index_clipboard 8'] }
+      CapsLock-Super_R-a: { launch: [fish, -c, 'index_clipboard 9'] }
 
       # [[sort on]]
       CapsLock-Alt-Comma: shift_r-grave

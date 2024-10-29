@@ -86,3 +86,8 @@ function lazyfloat
     kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd ~/.local/share/magazine --type os-window --os-window-title neoline --no-response lazygit
 end
 funcsave lazyfloat >/dev/null
+
+function index_clipboard -a index
+    notify-send -t 2000 "$(copyq read $index | pee 'xclip -sel clip -r' 'head -c 100')"
+end
+funcsave index_clipboard >/dev/null
