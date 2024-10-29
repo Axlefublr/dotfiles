@@ -81,3 +81,8 @@ function alphabet
     printf 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[];\',./{}:"<>?'
 end
 funcsave alphabet >/dev/null
+
+function lazyfloat
+    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd ~/.local/share/magazine --type os-window --os-window-title neoline --no-response lazygit
+end
+funcsave lazyfloat >/dev/null
