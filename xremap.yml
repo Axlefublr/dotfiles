@@ -97,6 +97,13 @@ keymap:
       Shift-Alt-n: ctrl-shift-g # find previous
       # [[sort off]]
 
+  - name: Krita!
+    exact_match: true
+    application:
+      only: krita
+    remap:
+      CapsLock-e: ctrl-shift-z
+
   - name: Anki!
     exact_match: true
     application:
