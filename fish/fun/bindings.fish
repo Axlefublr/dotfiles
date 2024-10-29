@@ -67,7 +67,8 @@ function fish_user_key_bindings
     bind d delete-char forward-single-char backward-char
     binds -vs -m default d kill-selection end-selection
 
-    binds -ds -m visual x begin-selection
+    binds -s -m visual x true
+    binds -d -m visual x begin-selection
     binds -v -m default x end-selection
     binds -vs \; begin-selection
 
