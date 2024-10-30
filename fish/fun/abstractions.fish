@@ -257,7 +257,7 @@ function filter_mature_tasks
                 if_print $days $name 10
             case disc liked nails
                 if_print $days $name 14
-            case wilter bottle photos
+            case wilter bottle photos audio
                 if_print $days $name 15
             case tails iso keyboard
                 if_print $days $name 30
