@@ -343,6 +343,7 @@ normal_select_mappings: dict[str, Any] = {
         '*': 'make_search_word_bounded',
         '@': 'record_macro',
         's': 'goto_type_definition',
+        'q': [':cd %h', ':cd %g'],
         **disable(
             [
                 # [[sort on]]
