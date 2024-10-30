@@ -12,11 +12,35 @@ def useful_assert(expected: str, actual: str):
         print(actual + ' vs ' + expected)
 
 
-test_date = datetime.date(datetime(2024, 3, 30))
-
-actual_lines, _ = whensies.check_file(
-    '/home/axlefublr/prog/dotfiles/scripts/whensies-test-data.txt', test_date
+print('day')
+test_date = datetime.date(datetime(2024, 3, 31))
+actual_lines = whensies.check_lines(
+    [
+        '31 before',
+        '1 after',
+    ],
+    test_date,
 )
+print(actual_lines)
 
-useful_assert('tomorrow only day, this month', actual_lines[0])
-useful_assert('today only day, today, this month', actual_lines[1])
+print('month')
+test_date = datetime.date(datetime(2024, 12, 31))
+actual_lines = whensies.check_lines(
+    [
+        '12.31 before',
+        '1.1 after',
+    ],
+    test_date,
+)
+print(actual_lines)
+
+print('year')
+test_date = datetime.date(datetime(2024, 12, 31))
+actual_lines = whensies.check_lines(
+    [
+        '24.12.31 before',
+        '25.1.1 after',
+    ],
+    test_date,
+)
+print(actual_lines)
