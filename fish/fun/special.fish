@@ -1,10 +1,5 @@
 #!/usr/bin/env fish
 
-function edit_repo_root_or_cwd
-    helix -w (git rev-parse --show-toplevel || echo $PWD) .
-end
-funcsave edit_repo_root_or_cwd >/dev/null
-
 function pick_sts_boss
     set input (
         begin
