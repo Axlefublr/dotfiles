@@ -254,6 +254,7 @@ normal_select_mappings: dict[str, Any] = {
     'I': 'insert_at_line_start',
     'A': 'insert_at_line_end',
     'd': 'delete_selection',
+    '%': ['save_selection', 'select_all'],
     'm': {
         '(': '@mi(',
         '{': '@mi{',
