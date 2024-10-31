@@ -7,9 +7,10 @@ unique = False
 
 with contextlib.suppress(Exception):
     unique = sys.argv[1] == '-u'
-    sys.argv.pop(1)
+    if unique:
+        sys.argv.pop(1)
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 1:
     lines = []
     for line in sys.stdin:
         lines.append(line)
