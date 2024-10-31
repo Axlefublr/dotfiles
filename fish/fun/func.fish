@@ -1,54 +1,5 @@
 #!/usr/bin/env fish
 
-#------------------------------------------------------------------------------------------------------------
-#          for special logic and "functionality", often app-specific or in other ways hyperspecific          
-#------------------------------------------------------------------------------------------------------------
-
-#----------------------------------------------------anki----------------------------------------------------
-
-function anki_update
-    if test (anki-due) -gt 0
-        if not test "$argv"
-            clorange anki increment >/dev/null
-        end
-        if test (clorange anki show) -ge 6
-            echo due
-        end
-    else
-        clorange anki reset >/dev/null
-    end
-end
-funcsave anki_update >/dev/null
-
-function anki-due
-    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "is:due" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
-end
-funcsave anki-due >/dev/null
-
-function anki-onces
-    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "deck:Once is:new" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
-end
-funcsave anki-onces >/dev/null
-
-function anki-sync
-    curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
-end
-funcsave anki-sync >/dev/null
-
-#--------------------------------------------------terminal--------------------------------------------------
-
-function set_tab_title
-    read -P 'title: ' new_title
-    if not test "$new_title"
-        kitten @ set-tab-title ""
-        return
-    end
-    kitten @ set-tab-title " $new_title"
-end
-funcsave set_tab_title >/dev/null
-
-#---------------------------------------------------helix---------------------------------------------------
-
 function execute_somehow -d 'expects cwd, then full path to the buffer as args'
     if not test "$argv[2]"
         return
@@ -143,8 +94,6 @@ function engined_search
 end
 funcsave engined_search >/dev/null
 
-#-----------------------------------------------------git-----------------------------------------------------
-
 function git-search-file
     if not test "$argv[1]"
         echo 'the first argument should be the filepath where you want to search for a string' >&2
@@ -198,4 +147,90 @@ function git-search
 end
 funcsave git-search >/dev/null
 
-#-----------------------------------------------------etc-----------------------------------------------------
+function uboot
+    sudo -v
+    for package in (cat ~/.local/share/magazine/C)
+        paru -Rns --noconfirm $package
+    end
+    truncate -s 0 ~/.local/share/magazine/C
+    clorange docs increment
+    set -l doc_dirs (eza -aD ~/docs)
+    set -l count_doc_dirs (count $doc_dirs)
+    set -l current_doc_dir (math "$(clorange doc_dirs increment) % $count_doc_dirs + 1")
+    kitten @ launch --type os-window --os-window-title link-download --cwd ~/docs/$doc_dirs[$current_doc_dir] httrack --update
+    sudo -v
+    if test (math (clorange updates show) % 5) -eq 0
+        rustup update
+    end
+    sudo -v
+    if test (math (clorange updates show) % 3) -eq 0
+        cargo install-update -a
+    end
+    sudo -v
+    paru
+    pacclean
+    clorange updates increment
+    loago do update
+    notify-send 'finished updating, what to do now?'
+    read -p rdp -ln 1 response
+    if test $response = r
+        reboot
+    else if test $response = l
+        logout
+    else if test $response = s
+        poweroff
+    end
+end
+funcsave uboot >/dev/null
+
+function pacclean --description 'clean pacman and paru cache' # based on https://gist.github.com/ericmurphyxyz/37baa4c9da9d3b057a522f20a9ad6eba (cool youtuber btw)
+    set aur_cache_dir "$HOME/.cache/paru/clone"
+    function aur_cache_dirs_fmt
+        fd . $HOME/.cache/paru/clone -d 1 -t d | awk '{ print "-c" $1 }'
+    end
+    set uninstalled_target (aur_cache_dirs_fmt)
+    echo $uninstalled_target[1]
+    paccache -ruvk0 $uninstalled_target
+    set installed_target (aur_cache_dirs_fmt) # we do this twice because uninstalled package directories got removed
+    paccache -qruk1
+    paccache -qrk2 -c /var/cache/pacman/pkg $installed_target
+end
+funcsave pacclean >/dev/null
+
+function install_yt_video
+    set extra (begin
+        echo youtube
+        echo longform
+        echo asmr
+    end | rofi -dmenu -no-custom 2>/dev/null)
+    test $status -ne 0 && return 1
+    switch $extra
+        case youtube
+            set -f where_links ~/.local/share/magazine/k
+        case longform
+            set -f where_links ~/.local/share/magazine/K
+        case asmr
+            set -f where_links ~/.local/share/magazine/i
+    end
+    if not test -s $where_links
+        or test "$(cat $where_links)" = '\n'
+        notify-send -t 2000 'no stored links'
+        return 1
+    end
+    set -l how_many (clorange youtube show)
+    set -l stored_links (count (cat $where_links))
+    set -l links_to_install (head -n $how_many $where_links)
+    tail -n "+$(math $how_many + 1)" $where_links | sponge $where_links
+    if test $stored_links -lt $how_many
+        notify-send -t 3000 "asked for $how_many, only has $stored_links"
+    else if test $stored_links -eq $how_many
+        notify-send -t 3000 "asked for $how_many, which is exact stored"
+    else
+        notify-send -t 3000 "$(math $stored_links - $how_many) links left"
+    end
+    for link in $links_to_install
+        install-yt-video.fish $extra $link &
+    end
+    _magazine_commit $where_links install
+end
+funcsave install_yt_video >/dev/null

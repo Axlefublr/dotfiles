@@ -19,44 +19,6 @@ function pick_sts_boss
 end
 funcsave pick_sts_boss >/dev/null
 
-function install_yt_video
-    set extra (begin
-        echo youtube
-        echo longform
-        echo asmr
-    end | rofi -dmenu -no-custom 2>/dev/null)
-    test $status -ne 0 && return 1
-    switch $extra
-        case youtube
-            set -f where_links ~/.local/share/magazine/k
-        case longform
-            set -f where_links ~/.local/share/magazine/K
-        case asmr
-            set -f where_links ~/.local/share/magazine/i
-    end
-    if not test -s $where_links
-        or test "$(cat $where_links)" = '\n'
-        notify-send -t 2000 'no stored links'
-        return 1
-    end
-    set -l how_many (clorange youtube show)
-    set -l stored_links (count (cat $where_links))
-    set -l links_to_install (head -n $how_many $where_links)
-    tail -n "+$(math $how_many + 1)" $where_links | sponge $where_links
-    if test $stored_links -lt $how_many
-        notify-send -t 3000 "asked for $how_many, only has $stored_links"
-    else if test $stored_links -eq $how_many
-        notify-send -t 3000 "asked for $how_many, which is exact stored"
-    else
-        notify-send -t 3000 "$(math $stored_links - $how_many) links left"
-    end
-    for link in $links_to_install
-        install-yt-video.fish $extra $link &
-    end
-    _magazine_commit $where_links install
-end
-funcsave install_yt_video >/dev/null
-
 function multiple_dot
     echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
@@ -86,3 +48,91 @@ function index_clipboard -a index
     notify-send -t 2000 "$(copyq read $index | pee 'xclip -sel clip -r' 'head -c 100')"
 end
 funcsave index_clipboard >/dev/null
+
+function anki_update
+    if test (anki-due) -gt 0
+        if not test "$argv"
+            clorange anki increment >/dev/null
+        end
+        if test (clorange anki show) -ge 6
+            echo due
+        end
+    else
+        clorange anki reset >/dev/null
+    end
+end
+funcsave anki_update >/dev/null
+
+function anki-due
+    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "is:due" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+end
+funcsave anki-due >/dev/null
+
+function anki-onces
+    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "deck:Once is:new" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+end
+funcsave anki-onces >/dev/null
+
+function anki-sync
+    curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
+end
+funcsave anki-sync >/dev/null
+
+function set_tab_title
+    read -P 'title: ' new_title
+    if not test "$new_title"
+        kitten @ set-tab-title ""
+        return
+    end
+    kitten @ set-tab-title " $new_title"
+end
+funcsave set_tab_title >/dev/null
+
+function smdn
+    set -l name $argv[1]
+
+    set -l executable /home/axlefublr/prog/dotfiles/scripts/systemd/executables/$name.fish
+    printf '#!/usr/bin/env fish' >$executable
+    chmod +x $executable
+    code $executable
+
+    set -l service ~/prog/dotfiles/scripts/systemd/services/$name.service
+    printf "[Service]
+    ExecStartPre=/home/axlefublr/prog/dotfiles/scripts/processwait.fish
+    ExecStart=$executable" >$service
+
+    set -l timer ~/prog/dotfiles/scripts/systemd/timers/$name.timer
+    printf '[Timer]
+    OnCalendar=*-*-8 05:00:00
+    Persistent=true
+
+    [Install]
+    WantedBy=timers.target' >$timer
+    code $timer
+
+    printf "
+
+    systemctl --user enable --now $name.timer" >>~/prog/dotfiles/scripts/systemd/definition.fish
+end
+funcsave smdn >/dev/null
+
+function smdr
+    set -l name $argv[1]
+    rm -fr ~/prog/dotfiles/scripts/systemd/{services,timers,executables}/$name.*
+    sd "
+
+    systemctl --user enable --now $name.timer" '' ~/prog/dotfiles/scripts/systemd/definition.fish
+end
+funcsave smdr >/dev/null
+
+function fn-clear
+    set list (cat ~/prog/dotfiles/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
+    for file in ~/.config/fish/functions/*.fish
+        set function_name (basename $file '.fish')
+        if not contains $function_name $list
+            rm $file
+            echo 'cleared: '$function_name
+        end
+    end
+end
+funcsave fn-clear >/dev/null
