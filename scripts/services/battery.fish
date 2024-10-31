@@ -1,10 +1,11 @@
 #!/usr/bin/env fish
 
-function update_battery
+function battery_percentage
     acpi | string match -gr '(\\d+)%'
 end
 
 while true
-    widget_update update_battery Charge
+    set -U battery_charge (battery_percentage)
+    widget_update echo $battery_charge Charge
     sleep 30
 end
