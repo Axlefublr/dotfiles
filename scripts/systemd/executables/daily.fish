@@ -23,22 +23,6 @@ if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (579) tomorrow'
 end
 
-if test (date '+%d') -eq 16
-    task 'course (5825) tomorrow'
-end
-
-if test (date '+%d') -eq 17
-    task 'dom.ru (760) tomorrow'
-end
-
-if test (date '+%d') -eq 18
-    task 'proxy renewal tomorrow'
-end
-
-if test (date '+%d') -eq 19
-    task 'tinkoff subscription (299) tomorrow'
-end
-
 if test (date '+%A') = Sunday
     task ask
 end
