@@ -2,7 +2,7 @@
 
 while true
     widget_update update_bluetooth Bluetooth
-    if test "$(cat /dev/shm/Charge_f)" -lt 100 &>/dev/null
+    if test "$battery_charge" -lt 100 &>/dev/null
         sleep 5
     else
         sleep 1
