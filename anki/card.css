@@ -94,26 +94,21 @@ i {
 	color: #af87ff;
 }
 
-.header.red,
 .header:has(red),
 .subheader:has(red) {
 	color: #ff2930;
 }
 
-.header.orange,
 .header:has(orange),
 .subheader:has(orange) {
 	color: #ff9f1a;
 }
 
-.header.yellow,
 .header:has(yellow),
 .subheader:has(yellow) {
 	color: #ffd75f;
 }
 
-.header.salad,
-.header.green,
 .header:has(green),
 .header:has(salad),
 .subheader:has(green),
@@ -121,57 +116,14 @@ i {
 	color: #87ff5f;
 }
 
-.header.cyan,
 .header:has(cyan),
 .subheader:has(cyan) {
 	color: #00d7ff;
 }
 
-.header.purple,
 .header:has(purple),
 .subheader:has(purple) {
 	color: #af87ff;
-}
-
-/* singular diffed letters in inputbox result */
-.typeBad,
-.typeMissed,
-.typeGood {
-	color: #f6f6f6;
-	background: transparent;
-}
-
-input {
-	font-family: var(--monospace-font-family) !important;
-	font-size: var(--font-size) !important;
-	padding: 7px;
-	text-align: center;
-	border-radius: 5px;
-	border: hsl(0, 1%, 80%) dashed 1px;
-	background-color: #403f3f;
-	line-height: 1.5;
-}
-
-/* by keeping a transparent border, the inputbox doesn't jump when it turns into the answer box */
-input:active,
-input:focus {
-	border: transparent solid 1px !important;
-}
-
-code#typeans {
-	display: block;
-	border-radius: 5px;
-	border: transparent solid 1px !important;
-	font-size: var(--font-size);
-	padding: 7px;
-	line-height: 1.5;
-	background-color: hsl(0, 1%, 30%);
-}
-
-/* ↓ arrow and newline after it removed, to give us the ability to define the line height between the diff in a nicer way */
-span#typearrow,
-span#typearrow ~ br {
-	display: none;
 }
 
 @font-face {
