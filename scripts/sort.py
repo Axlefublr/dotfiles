@@ -10,7 +10,7 @@ with contextlib.suppress(Exception):
     if unique:
         sys.argv.pop(1)
 
-if len(sys.argv) < 1:
+if len(sys.argv) < 2:
     lines = []
     for line in sys.stdin:
         lines.append(line)
