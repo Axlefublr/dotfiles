@@ -164,6 +164,11 @@ normal_mappings: dict[str, Any] = {
     'j': 'move_visual_line_down',
     'k': 'move_visual_line_up',
     'D': ['collapse_selection', 'move_char_left', 'delete_selection'],
+    'y': 'move_prev_word_end',
+    'Y': 'move_prev_long_word_end',
+    'g': {
+        'y': 'move_prev_sub_word_end',
+    },
 }
 
 normal_mappings.update(**rusify(normal_mappings))
@@ -180,6 +185,11 @@ select_mappings: dict[str, Any] = {
     'x': 'normal_mode',
     'j': 'extend_visual_line_down',
     'k': 'extend_visual_line_up',
+    'y': 'extend_prev_word_end',
+    'Y': 'extend_prev_long_word_end',
+    'g': {
+        'y': 'extend_prev_sub_word_end',
+    },
 }
 select_mappings.update(**rusify(select_mappings))
 
@@ -241,8 +251,6 @@ normal_select_mappings: dict[str, Any] = {
     'C-k': ['normal_mode', 'open_above'],
     's': 'yank',
     'S': 'yank_to_clipboard',
-    'y': 'move_prev_word_end',
-    'Y': 'move_prev_long_word_end',
     '@': 'replay_macro',
     'q': 'select_regex',
     'Q': 'split_selection',
@@ -325,7 +333,6 @@ normal_select_mappings: dict[str, Any] = {
     'g': {
         'e': 'move_next_sub_word_end',
         'w': 'move_next_sub_word_start',
-        'y': 'move_prev_sub_word_end',
         'b': 'move_prev_sub_word_start',
         'h': 'goto_first_nonwhitespace',
         'H': 'goto_line_start',
