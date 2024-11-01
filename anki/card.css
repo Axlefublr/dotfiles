@@ -1,5 +1,4 @@
 * {
-	--codeblock-margin: 0.4em;
 	--monospace-font-family: Input Mono, InputMonoGrafted, JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF,
 		JetBrainsMono, Consolas, Roboto Mono, Droid Sans Mono, monospace;
 	--normal-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
@@ -81,12 +80,6 @@ o {
 	background-color: #242323;
 	padding: 2px 5px;
 	border-radius: 5px;
-}
-
-/* acts as equivalent margin as provided by hr#answer */
-/* used exclusively by cloze note type */
-.margin {
-	height: calc(1em - 2px);
 }
 
 hr#answer {
