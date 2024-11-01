@@ -49,8 +49,7 @@ cd {
 	background-color: #242323;
 	border-radius: 5px;
 	padding: 0.25em;
-	width: 100%;
-	margin: auto;
+	margin: 0.35em 0;
 }
 
 @media (min-width: 1000px) {
@@ -59,7 +58,8 @@ cd {
 	cdb,
 	cdab,
 	cd {
-		width: 50%;
+		width: 50vw;
+		margin: 0.35em auto;
 	}
 }
 
@@ -70,18 +70,6 @@ cdab:has(left),
 cd:has(left),
 .left {
 	text-align: left;
-}
-
-.above,
-cda,
-cdab {
-	margin-top: var(--codeblock-margin);
-}
-
-.below,
-cdb,
-cdab {
-	margin-bottom: var(--codeblock-margin);
 }
 
 cda,
