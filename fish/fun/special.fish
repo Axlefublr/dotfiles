@@ -136,3 +136,10 @@ function fn-clear
     end
 end
 funcsave fn-clear >/dev/null
+
+function clean_old_tag
+    set -l clip "$(ypoc)"
+    string match -gr '^<c>(?<tag>.*?)</c>\\s+(?<else>.*)' $clip
+    echo "$else" | copy
+end
+funcsave clean_old_tag >/dev/null

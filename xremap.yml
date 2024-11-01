@@ -23,44 +23,6 @@ keymap:
       only: Vivaldi-stable
     remap:
       # [[sort on]]
-      Alt-Apostrophe: shift-alt-f11 # focus address field
-      Alt-Semicolon: ctrl-shift-f12 # quick commands
-      Alt-Slash: ctrl-f # find in page
-      Alt-a: ctrl-shift-alt-f5
-      Alt-c: shift-f10 # built in browser "right click" emulation button
-      Alt-e: ctrl-shift-alt-f10 # new tab
-      Alt-h: ctrl-shift-f10 # previous tab (by order)
-      Alt-j: ctrl-shift-f7 # next workspace
-      Alt-k: ctrl-shift-f8 # previous workspace
-      Alt-l: ctrl-shift-f11 # next tab (by order)
-      Alt-m: shift-alt-f5 # unmute all tabs
-      Alt-n: shift-alt-f7 # find next in page
-      Alt-p: ctrl-shift-f1 # pin / unpin tab
-      Alt-q: ctrl-shift-alt-f3
-      Alt-r: F5 # reload page
-      Alt-t: F12
-      Alt-w: ctrl-shift-f2 # close tab
-      Alt-x: shift-f9 # focus tab bar
-      Alt-z: ctrl-shift-alt-f4
-      Ctrl-Alt-d: ctrl-shift-alt-f7
-      Ctrl-Alt-f: ctrl-shift-alt-f8
-      Ctrl-Alt-h: ctrl-shift-f6 # move active tab backward
-      Ctrl-Alt-l: ctrl-shift-f9 # move active tab forward
-      Ctrl-Alt-s: ctrl-shift-alt-f6
-      Ctrl-Alt-w: ctrl-shift-alt-f9
-      Ctrl-Shift-h: ctrl-shift-f3 # close tabs to the left
-      Ctrl-Shift-l: ctrl-shift-f4 # close tabs to the right
-      Ctrl-h: ctrl-shift-alt-f1 # switch to tab 1
-      Ctrl-i: alt-right # history forward
-      Ctrl-l: ctrl-shift-alt-f2 # switch to the last tab
-      Ctrl-o: alt-left # history back
-      Ctrl-p: ctrl-shift-alt-f12 # duplicate selected tabs
-      Shift-Alt-h: shift-alt-f4 # select next tab
-      Shift-Alt-j: shift-alt-f1 # stack tabs
-      Shift-Alt-k: shift-alt-f2 # remove from tab stack
-      Shift-Alt-l: shift-alt-f3 # select previous tab
-      Shift-Alt-n: shift-alt-f8 # find previous in page
-      Shift-Alt-r: shift-alt-f6 # force page reload
       # [[sort off]]
 
   - name: Firefox
@@ -70,32 +32,6 @@ keymap:
       only: firefox
     remap:
       # [[sort on]]
-      # TODO: ctrl-h # history sidebar
-      Alt-Apostrophe: f6 # move to next frame, pop-up # possible thanks to the ui.key.menuAccessKeyFocuses option
-      Alt-Semicolon: shift-f1 # (sidebery) unload all tabs in inactive panels
-      Alt-Slash: ctrl-f # find in this page
-      Alt-c: ctrl-shift-c # inspect element
-      Alt-e: f4 # (sidebery) open a new tab after the active tab (needed to open a new tab after the current one, rather than at the end)
-      Alt-f: f1 # extension: dark reader
-      Alt-h: ctrl-pageup # go one tab to the left
-      Alt-l: ctrl-pagedown # go one tab to the right
-      Alt-n: ctrl-g # find again
-      Alt-w: ctrl-w # close tab
-      Ctrl-Alt-d: ctrl-equal # zoom out
-      Ctrl-Alt-f: ctrl-0 # zoom reset
-      Ctrl-Alt-h: ctrl-shift-pageup # move tab left
-      Ctrl-Alt-l: ctrl-shift-pagedown # move tab right
-      Ctrl-Alt-s: ctrl-minus # zoom in 
-      Ctrl-Shift-Alt-h: f8 # (sidebery) move selected (or active) tabs to panel start
-      Ctrl-Shift-Alt-l: f10 # (sidebery) move selected (or active) tabs to panel end
-      Ctrl-Shift-h: f2 # (sidebery) close tabs above (in current panel)
-      Ctrl-i: alt-right # history forward
-      Ctrl-j: down
-      Ctrl-k: up
-      Ctrl-o: alt-left # history back
-      Shift-Alt-h: alt-1 # go to tab 1
-      Shift-Alt-l: alt-9 # go to last tab
-      Shift-Alt-n: ctrl-shift-g # find previous
       # [[sort off]]
 
   - name: Krita!
@@ -111,13 +47,6 @@ keymap:
       only: Anki
     remap:
       # [[sort on]]
-      CapsLock-Space: { launch: [fish, -c, 'ypoc | string lower | sponge | copy'] }
-      Ctrl-Comma: { launch: [fish, -c, 'xdotool mousemove 650 305 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
-      Ctrl-Dot: { launch: [fish, -c, 'xdotool mousemove 650 355 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
-      Ctrl-Semicolon: ctrl-shift-x
-      Ctrl-Slash: { launch: [fish, -c, 'xdotool mousemove 650 405 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
-      Ctrl-j: down
-      Ctrl-k: up
       # [[sort off]]
 
   - name: Spotify!
@@ -126,7 +55,6 @@ keymap:
       only: Spotify
     remap:
       # [[sort on]]
-      Alt-f: shift-alt-b
       # [[sort off]]
 
   - name: Term!
@@ -135,10 +63,6 @@ keymap:
       only: [Alacritty, kitty]
     remap:
       # [[sort on]]
-      CapsLock-Alt-Semicolon: ctrl-w
-      Ctrl-Alt-u: f4
-      Ctrl-Enter: f2
-      Shift-Alt-Semicolon: f5
       # [[sort off]]
 
   - name: Move!
@@ -1422,32 +1346,10 @@ keymap:
       CapsLock-Super_R-a: { launch: [fish, -c, 'index_clipboard 9'] }
 
       # [[sort on]]
-      CapsLock-Alt-Comma: shift_r-grave
-      CapsLock-Alt-Dot: shift-7
-      CapsLock-Alt-Slash: shift-backslash
-      CapsLock-Alt-p: shift_r-2
-      CapsLock-Comma: shift_r-1
-      CapsLock-Dot: shift-minus
-      CapsLock-LeftBrace: shift-9
-      CapsLock-RightBrace: shift-0
-      CapsLock-Slash: backslash
-      CapsLock-h: shift-6
-      CapsLock-i: shift-8
-      CapsLock-j: shift-equal
-      CapsLock-k: minus
-      CapsLock-l: equal
-      CapsLock-m: shift_r-5
-      CapsLock-o: shift_r-4
-      CapsLock-p: shift_r-3
-      CapsLock-u: grave
       # [[sort off]]
 
       # -- for helix -------------------------------------------------------------------------------------
       # [[sort on]]
-      CapsLock-Alt-LeftBrace: shift-alt-9
-      CapsLock-Alt-RightBrace: shift-alt-0
-      CapsLock-Alt-j: shift-alt-equal
-      CapsLock-Alt-u: alt-grave
       # [[sort off]]
 
   - name: Any numbers & special symbols
@@ -1655,16 +1557,4 @@ keymap:
   - name: Any
     remap:
       # [[sort on]]
-      CapsLock-Alt-Semicolon: ctrl-backspace
-      CapsLock-Alt-n: shift-tab
-      CapsLock-Ctrl-d: ctrl-shift-v
-      CapsLock-Semicolon: backspace
-      CapsLock-Shift-d: ctrl-shift-v
-      CapsLock-d: ctrl-v
-      CapsLock-e: ctrl-y
-      CapsLock-g: ctrl-a
-      CapsLock-n: tab
-      CapsLock-r: delete
-      CapsLock-s: ctrl-c
-      CapsLock-w: ctrl-z
       # [[sort off]]
