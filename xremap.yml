@@ -86,8 +86,6 @@ keymap:
       Ctrl-Alt-h: ctrl-shift-pageup # move tab left
       Ctrl-Alt-l: ctrl-shift-pagedown # move tab right
       Ctrl-Alt-s: ctrl-minus # zoom in 
-      Ctrl-Shift-Alt-h: f8 # (sidebery) move selected (or active) tabs to panel start
-      Ctrl-Shift-Alt-l: f10 # (sidebery) move selected (or active) tabs to panel end
       Ctrl-Shift-h: f2 # (sidebery) close tabs above (in current panel)
       Ctrl-i: alt-right # history forward
       Ctrl-j: down
