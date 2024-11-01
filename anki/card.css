@@ -4,24 +4,6 @@
 		JetBrainsMono, Consolas, Roboto Mono, Droid Sans Mono, monospace;
 	--normal-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
 	--font-size: 22px;
-	--heady-height: 1.5em;
-}
-
-c {
-	font-family: var(--monospace-font-family);
-	font-weight: bold;
-	display: block;
-	height: var(--heady-height);
-}
-
-.header {
-	font-weight: bold;
-	color: #ffafd7;
-	height: var(--heady-height);
-}
-
-.header:empty {
-	display: none;
 }
 
 .card {
@@ -29,6 +11,20 @@ c {
 	font-size: var(--font-size);
 	text-align: center;
 	line-height: 1.3;
+}
+
+.header {
+	color: #ffafd7;
+	font-weight: bold;
+	display: block;
+}
+
+c,
+.subheader {
+	font-family: var(--monospace-font-family);
+	color: #ffd75f;
+	font-weight: bold;
+	display: block;
 }
 
 .cloze {
@@ -105,28 +101,42 @@ i {
 	color: #af87ff;
 }
 
-.header.red {
+.header.red,
+.header:has(red),
+.subheader:has(red) {
 	color: #ff2930;
 }
 
-.header.orange {
+.header.orange,
+.header:has(orange),
+.subheader:has(orange) {
 	color: #ff9f1a;
 }
 
-.header.yellow {
+.header.yellow,
+.header:has(yellow),
+.subheader:has(yellow) {
 	color: #ffd75f;
 }
 
 .header.salad,
-.header.green {
+.header.green,
+.header:has(green),
+.header:has(salad),
+.subheader:has(green),
+.subheader:has(salad) {
 	color: #87ff5f;
 }
 
-.header.cyan {
+.header.cyan,
+.header:has(cyan),
+.subheader:has(cyan) {
 	color: #00d7ff;
 }
 
-.header.purple {
+.header.purple,
+.header:has(purple),
+.subheader:has(purple) {
 	color: #af87ff;
 }
 
