@@ -127,14 +127,14 @@ function _?
 end
 funcsave _? >/dev/null
 
-function _??
+function _%
     if status is-interactive
         man $argv 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml
     else
         man $argv
     end
 end
-funcsave _?? >/dev/null
+funcsave _% >/dev/null
 
 function ?
     set -l helppage $argv
@@ -142,7 +142,7 @@ function ?
         set helppage (ypoc)
     end
     if builtin -q $helppage[1]
-        _?? $helppage
+        _% $helppage
         return
     end
     # doesn't try to fall back on manpages because some programs output a help page *and* set a non-zero statuscode
@@ -151,7 +151,7 @@ function ?
 end
 funcsave ? >/dev/null
 
-function ??
+function %
     set -l manpage $argv
     if not test "$manpage"
         set manpage (ypoc)
@@ -161,6 +161,6 @@ function ??
         _? $manpage
         return
     end
-    _?? $manpage
+    _% $manpage
 end
-funcsave ?? >/dev/null
+funcsave % >/dev/null
