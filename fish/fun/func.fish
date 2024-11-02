@@ -51,6 +51,7 @@ function engined_search
                 echo iask
                 echo rust
                 echo anki
+                echo mdn
             end | rofi -no-custom -dmenu 2>/dev/null
         )
         test $status -ne 0 && return 1
@@ -89,6 +90,8 @@ function engined_search
             $BROWSER "https://doc.rust-lang.org/std/?search=$input" >/dev/null
         case anki
             $BROWSER "https://docs.ankiweb.net/?search=$input" >/dev/null
+        case mdn
+            $BROWSER "https://developer.mozilla.org/en-US/search?q=$input" >/dev/null
     end
     ensure_browser
 end
