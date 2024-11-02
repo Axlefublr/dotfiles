@@ -35,6 +35,7 @@ toolbar .toolbaritem-combined-buttons {
 			border-inline-start: none !important;
 			padding-inline-start: 0 !important;
 			margin-inline-start: 0 !important;
+			--tab-label-mask-size: 0 !important;
 
 			#tabbrowser-arrowscrollbox-periphery {
 				display: none !important;
