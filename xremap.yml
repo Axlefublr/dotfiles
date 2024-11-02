@@ -532,7 +532,8 @@ keymap:
     application:
       not: /Terraria/
     remap:
-      Shift_L-Alt-e: { launch: [fish, -c, lazyfloat] }
+      Shift_L-Alt-e: { launch: [fish, -c, 'lazyfloat ~/.local/share/magazine'] }
+      Shift_L-Shift_R-Alt-e: { launch: [fish, -c, 'lazyfloat ~/.local/share/alien_temple'] }
       Shift_L-c:
         exact_match: true
         remap:
