@@ -40,28 +40,38 @@ toolbar .toolbaritem-combined-buttons {
 				display: none !important;
 			}
 
-			.tabbrowser-tab {
-				padding: 0 !important;
+			> #tabbrowser-arrowscrollbox {
+				> .tabbrowser-tab {
+					padding: 0 !important;
 
-				.tab-background {
-					border-radius: 0px !important;
-					margin-block: 0px !important;
-					/***/
-					min-height: 1px !important;
-					outline: unset !important;
-					/***/
-					outline-offset: 0px !important;
-					/***/
-					box-shadow: unset !important;
-
-					&[selected] {
-						background-color: #5f472d !important;
+					&:not([pinned]) {
+						max-width: 100vw !important;
 					}
-				}
 
-				.tab-content {
-					.tab-label-container {
-						height: 1.7em !important;
+					&:not([pinned], [fadein]) {
+						max-width: 0.1px !important;
+					}
+
+					.tab-background {
+						border-radius: 0px !important;
+						margin-block: 0px !important;
+						/***/
+						min-height: 1px !important;
+						outline: unset !important;
+						/***/
+						outline-offset: 0px !important;
+						/***/
+						box-shadow: unset !important;
+
+						&[selected] {
+							background-color: #5f472d !important;
+						}
+					}
+
+					.tab-content {
+						.tab-label-container {
+							height: 1.7em !important;
+						}
 					}
 				}
 			}
