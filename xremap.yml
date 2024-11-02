@@ -109,7 +109,7 @@ keymap:
       only: Anki
     remap:
       # [[sort on]]
-      CapsLock-Space: { launch: [fish, -c, 'ypoc | string lower | sponge | copy'] }
+      CapsLock-Space: { launch: [fish, -c, special_anki_edit_action] }
       Ctrl-Comma: { launch: [fish, -c, 'xdotool mousemove 650 305 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
       Ctrl-Dot: { launch: [fish, -c, 'xdotool mousemove 650 355 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
       Ctrl-Semicolon: ctrl-shift-x

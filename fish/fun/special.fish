@@ -137,9 +137,9 @@ function fn-clear
 end
 funcsave fn-clear >/dev/null
 
-function clean_old_tag
+function special_anki_edit_action
     set -l clip "$(ypoc)"
     string match -gr '^<c>(?<tag>.*?)</c>\\s+(?<else>.*)' $clip
     echo "$else" | copy
 end
-funcsave clean_old_tag >/dev/null
+funcsave special_anki_edit_action >/dev/null
