@@ -72,6 +72,8 @@ keymap:
       # [[sort on]]
       # TODO: ctrl-h # history sidebar
       Alt-Apostrophe: f6 # move to next frame, pop-up # possible thanks to the ui.key.menuAccessKeyFocuses option
+      Alt-Comma: up
+      Alt-Dot: down
       Alt-Semicolon: shift-f1 # (sidebery) unload all tabs in inactive panels
       Alt-Slash: ctrl-f # find in this page
       Alt-c: ctrl-shift-c # inspect element
@@ -88,8 +90,6 @@ keymap:
       Ctrl-Alt-s: ctrl-minus # zoom in 
       Ctrl-Shift-h: f2 # (sidebery) close tabs above (in current panel)
       Ctrl-i: alt-right # history forward
-      Ctrl-j: down
-      Ctrl-k: up
       Ctrl-o: alt-left # history back
       Shift-Alt-h: alt-1 # go to tab 1
       Shift-Alt-l: alt-9 # go to last tab
