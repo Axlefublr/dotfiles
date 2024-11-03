@@ -64,7 +64,7 @@ end
 funcsave anki_update >/dev/null
 
 function anki-due
-    ankuery is:due
+    ankuery is:due is:learn
 end
 funcsave anki-due >/dev/null
 
