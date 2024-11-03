@@ -74,9 +74,24 @@ end
 funcsave anki-once >/dev/null
 
 function anki-should
-    math "round(log2($(anki-once)) x 1.7 - 1)"
+    anki_should (anki-once)
 end
 funcsave anki-should >/dev/null
+
+function anki_should -a onces
+    math "round(log2($onces) x 2) - 2"
+end
+funcsave anki_should >/dev/null
+
+function anki-should-test
+    for num in (seq 10 10 200)
+        echo -n $num' '
+        set -l shoulds (anki_should $num)
+        echo -n "$shoulds "
+        math "round $num / $shoulds"
+    end
+end
+funcsave anki-should-test >/dev/null
 
 function anki-ram
     ankuery (cat ~/.local/share/magazine/G)
