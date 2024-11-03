@@ -78,6 +78,11 @@ function anki-should
 end
 funcsave anki-should >/dev/null
 
+function anki-ram
+    ankuery (cat ~/.local/share/magazine/G)
+end
+funcsave anki-ram >/dev/null
+
 function anki-sync
     curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
 end
