@@ -18,7 +18,7 @@ configuration {
 	kb-toggle-case-sensitivity: "";
 	kb-element-next: "";
 	kb-element-previous: "";
-	kb-accept-alt: "";
+	kb-accept-alt: "Alt+l";
 
 	kb-clear-line: "Control+Alt+u";
 	kb-secondary-paste: "Control+v";
