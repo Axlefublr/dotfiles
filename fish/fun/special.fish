@@ -139,7 +139,7 @@ funcsave fn-clear >/dev/null
 
 function special_anki_edit_action
     set -l clip "$(ypoc)"
-    string match -gr '^<c>(?<tag>.*?)</c>\\s+(?<else>.*)' $clip
+    string match -gr '^<c>(?<tag>.*?)</c>\\s*(?<else>.*)' $clip
     echo "$else" | copy
 end
 funcsave special_anki_edit_action >/dev/null
