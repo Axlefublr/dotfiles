@@ -69,21 +69,14 @@ end
 funcsave anki-due >/dev/null
 
 function anki-once
-    set -l onces (anki_onces)
-    set -l shoulds (anki_should_onces $onces)
-    notify-send -t 3000 "$onces $shoulds"
+    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "deck:Once is:new" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
 end
 funcsave anki-once >/dev/null
 
-function anki_onces
-    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "deck:Once is:new" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+function anki-should
+    math "round(log2($(anki-once)) x 1.7 - 1)"
 end
-funcsave anki_onces >/dev/null
-
-function anki_should_onces -a onces
-    math "round(log2($onces) x 1.7 - 1)"
-end
-funcsave anki_should_onces >/dev/null
+funcsave anki-should >/dev/null
 
 function anki-sync
     curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
