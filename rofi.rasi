@@ -22,8 +22,8 @@ configuration {
 
 	kb-clear-line: "Control+Alt+u";
 	kb-secondary-paste: "Control+v";
-	kb-move-front: "Control+a,Home";
-	kb-move-end: "Control+e,End";
+	kb-move-front: "Control+a,Home,Alt+[59]";
+	kb-move-end: "Control+e,End,Alt+[60]";
 	kb-remove-word-back: "Control+w,Control+BackSpace";
 	kb-remove-word-forward: "Control+Delete";
 	kb-row-first: "Control+Home";
@@ -31,7 +31,7 @@ configuration {
 	kb-row-up: "Up,Control+p,Alt+k";
 	kb-row-down: "Down,Control+n,Alt+j";
 
-	kb-row-select: "Alt+[47]"; // 47 is ; on qwerty
+	kb-row-select: "Alt+[47]"; // 47 is ; on qwerty (figured out using `xev`)
 	kb-accept-entry: "Return";
 	kb-accept-custom: "Shift+Return";
 	kb-custom-1: "Alt+Return";
