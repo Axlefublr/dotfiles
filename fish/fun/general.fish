@@ -94,3 +94,8 @@ function lhg
     helix /tmp/lhg$extension
 end
 funcsave lhg >/dev/null
+
+function ankuery -a query
+    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "'$query'" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+end
+funcsave ankuery >/dev/null

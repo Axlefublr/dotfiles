@@ -64,12 +64,12 @@ end
 funcsave anki_update >/dev/null
 
 function anki-due
-    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "is:due" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+    ankuery is:due
 end
 funcsave anki-due >/dev/null
 
 function anki-once
-    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "deck:Once is:new" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+    ankuery 'deck:Once is:new'
 end
 funcsave anki-once >/dev/null
 
