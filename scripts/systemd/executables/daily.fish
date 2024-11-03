@@ -5,6 +5,9 @@ clorange megafon increment
 trash-empty -f 2
 
 cd ~/.local/share/magazine
+for file in ~/.local/share/magazine/*
+    _magazine_commit $file left
+end
 git add .
 and git commit -m leftovers
 truncate -s 0 ~/.local/share/magazine/d

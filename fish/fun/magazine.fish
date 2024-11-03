@@ -183,6 +183,7 @@ end
 funcsave _magazine_notify >/dev/null
 
 function _magazine_commit
+    not test -f $argv[1] && return
     set -l parent_path (path dirname $argv[1])
     set -l head (path basename $parent_path)
     set -l base (path basename $argv[1])
