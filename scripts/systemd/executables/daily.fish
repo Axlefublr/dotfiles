@@ -27,6 +27,8 @@ if test (date '+%A') = Sunday
     task ask
 end
 
+awesome-client 'Registers_wu()'
+
 cd ~/prog/autocommit
 
 cp -fr ~/.local/share/harp/harp.yml ~/prog/autocommit/harp.yml
