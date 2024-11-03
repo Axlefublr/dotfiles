@@ -69,12 +69,13 @@ keymap:
     application:
       only: firefox
     remap:
+      # alt-based hotkeys are possible thanks to the ui.key.menuAccessKeyFocuses option
       # [[sort on]]
       # TODO: ctrl-h # history sidebar
-      Alt-Apostrophe: f6 # move to next frame, pop-up # possible thanks to the ui.key.menuAccessKeyFocuses option
+      Alt-Apostrophe: ctrl-l # focus address bar
       Alt-Comma: up
       Alt-Dot: down
-      Alt-Semicolon: shift-f1 # (sidebery) unload all tabs in inactive panels
+      Alt-Semicolon: shift-f1 # (sidebery) unload other tabs panel
       Alt-Slash: ctrl-f # find in this page
       Alt-c: ctrl-shift-c # inspect element
       Alt-e: f4 # (sidebery) open a new tab after the active tab (needed to open a new tab after the current one, rather than at the end)
@@ -91,6 +92,8 @@ keymap:
       Ctrl-Shift-h: f2 # (sidebery) close tabs above (in current panel)
       Ctrl-i: alt-right # history forward
       Ctrl-o: alt-left # history back
+      Shift-Alt-Apostrophe: { launch: [fish, -c, 'xdotool mousemove 0 1080 click 1']}
+      Shift-Alt-Semicolon: shift-f2 # (sidebery) unload all tabs in inactive panels
       Shift-Alt-h: alt-1 # go to tab 1
       Shift-Alt-l: alt-9 # go to last tab
       Shift-Alt-n: ctrl-shift-g # find previous
