@@ -9,7 +9,8 @@ function rust-release
     end
     set -l taggedVersion $argv[1]
 
-    if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD # TODO: just cd into repo root
+    cd (git rev-parse --show-toplevel)
+    if not test (git rev-parse --show-toplevel 2>/dev/null) = $PWD
         echo "you're not in repo root"
         return 1
     end
@@ -23,12 +24,12 @@ function rust-release
         return 1
     end
 
-    if not test -f release-notes.txt
-        echo 'no release notes'
+    if not test -f curtag.txt
+        echo 'no tag notes'
         return 1
     end
-    if not test -s release-notes.txt
-        echo 'release notes empty'
+    if not test -s curtag.txt
+        echo 'tag notes empty'
         return 1
     end
 
@@ -37,38 +38,33 @@ function rust-release
         return 1
     end
 
-    echo 'did you update the README?'
-    echo 'did you update --help?'
-    echo 'your ci pipeline is going to get updated if necessary'
-    read -p rdp -ln 1 should_continue
-    if not test $should_continue
-        return 1
-    end
+    echo '1. update README'
+    echo '2. update --help'
+    echo '3. ci will get updated'
+    read -P 'proceed?: ' -ln 1 should_continue
+    not test $should_continue && return 1
 
     if not rg -q "^version = \"$taggedVersion\"" Cargo.toml
-        echo "you didn't update the version in Cargo.toml"
+        echo "update version in Cargo.toml"
         return 1
     end
 
+    # TODO: check and *tell* rustfmt is hardlink or real file (this helps notice if it's intentional or not yet converted into the hardlink meta)
     rust-ci
-    indeed -u .gitignore release-notes.txt
     cargo +nightly fmt
 
     git add . &&
         git commit -m $taggedVersion &&
         git push &&
-        git tag $taggedVersion -F release-notes.txt &&
+        git tag $taggedVersion -F curtag.txt &&
         git push origin $taggedVersion
-    truncate -s 0 release-notes.txt
+    truncate -s 0 curtag.txt
     cargo publish
 end
 funcsave rust-release >/dev/null
 
 function rust-publish
-    if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
-        echo "you're not in repo root"
-        return 1
-    end
+    cd (git rev-parse --show-toplevel)
     if rg -q '^description \= ""$' Cargo.toml
         echo 'no description in Cargo.toml'
         return 1
@@ -81,8 +77,8 @@ function rust-publish
 end
 funcsave rust-publish >/dev/null
 
-function rust-fmt --description 'Bring in format config and format with it'
-    if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
+function rust-fmt --description 'Bring in format config and format with it' # TODO: should hardlink; if exists, tell if it's a hardlink or real file
+    if not test (git rev-parse --show-toplevel 2>/dev/null) = $PWD
         echo "you're not in repo root"
         return 1
     end
@@ -91,7 +87,7 @@ function rust-fmt --description 'Bring in format config and format with it'
 end
 funcsave rust-fmt >/dev/null
 
-function rust-ci --description 'Bring in on tag push github action' # TODO: should hard-link, unless already exists
+function rust-ci --description 'Bring in on tag push github action'
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1
@@ -102,7 +98,9 @@ function rust-ci --description 'Bring in on tag push github action' # TODO: shou
 end
 funcsave rust-ci >/dev/null
 
-function rust-bin
+# TODO: require commit message
+function rust-bin # TODO: should hardlink to binaries instead of copying, if file already exists, asks what to do with it
+    cd (git rev-parse --show-toplevel)
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1
@@ -113,7 +111,7 @@ function rust-bin
     if set -q argv[1]
         set -l newVersion $argv[1]
         set -l prevdir (pwd)
-        cd ~/prog/binaries
+        cd ~/prog/binaries # TODO: specify git repo via flag
         git add $name && git commit -m "$name: $newVersion"
         cd $prevdir
     end
@@ -125,9 +123,8 @@ function rust-init
     cp -f ~/prog/dotfiles/defconf/rust-metadata.toml ./Cargo.toml
     sd '%project_name%' (basename $PWD) Cargo.toml
     touch README.md
-    touch release-notes.txt
+    touch curtag.txt
     touch project.txt
-    indeed -u .gitignore release-notes.txt project.txt
     rust-ci
     git add . &&
         git commit -m "first commit"
@@ -137,7 +134,7 @@ funcsave rust-init >/dev/null
 #---------------------------------------------------python---------------------------------------------------
 
 function py-project
-    cd (git rev-parse --show-toplevel)
+    cd (git rev-parse --show-toplevel) # TODO: this can fail
     cp -f ~/prog/dotfiles/defconf/pyproject.toml .
 end
 funcsave py-project >/dev/null
