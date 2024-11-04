@@ -49,9 +49,8 @@ function rust-release
         return 1
     end
 
-    # TODO: check and *tell* rustfmt is hardlink or real file (this helps notice if it's intentional or not yet converted into the hardlink meta)
+    rust-fmt
     rust-ci
-    cargo +nightly fmt
 
     git add . &&
         git commit -m $taggedVersion &&
@@ -77,13 +76,13 @@ function rust-publish
 end
 funcsave rust-publish >/dev/null
 
-function rust-fmt --description 'Bring in format config and format with it' # TODO: should hardlink; if exists, tell if it's a hardlink or real file
+function rust-fmt --description 'Bring in format config and format with it'
     if not test (git rev-parse --show-toplevel 2>/dev/null) = $PWD
         echo "you're not in repo root"
         return 1
     end
-    cp -f ~/prog/dotfiles/defconf/rustfmt.toml ./.rustfmt.toml &&
-        cargo +nightly fmt
+    lnkj ~/prog/dotfiles/defconf/rustfmt.toml ./.rustfmt.toml
+    and cargo +nightly fmt
 end
 funcsave rust-fmt >/dev/null
 
@@ -99,15 +98,15 @@ end
 funcsave rust-ci >/dev/null
 
 # TODO: require commit message
-function rust-bin # TODO: should hardlink to binaries instead of copying, if file already exists, asks what to do with it
+function rust-bin
     cd (git rev-parse --show-toplevel)
     if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
         echo "you're not in repo root"
         return 1
     end
     set -l name (basename $PWD)
-    cargo build -r &&
-        cp -f ./target/release/$name ~/prog/binaries
+    cargo build -r
+    and lnkj ./target/release/$name ~/prog/binaries/$name
     if set -q argv[1]
         set -l newVersion $argv[1]
         set -l prevdir (pwd)
@@ -127,14 +126,14 @@ function rust-init
     touch project.txt
     rust-ci
     git add . &&
-        git commit -m "first commit"
+        git commit -m 'first commit'
 end
 funcsave rust-init >/dev/null
 
 #---------------------------------------------------python---------------------------------------------------
 
-function py-project
+function py-init
     cd (git rev-parse --show-toplevel) # TODO: this can fail
-    cp -f ~/prog/dotfiles/defconf/pyproject.toml .
+    lnkj ~/prog/dotfiles/defconf/pyproject.toml ./pyproject.toml
 end
-funcsave py-project >/dev/null
+funcsave py-init >/dev/null
