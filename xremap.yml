@@ -71,7 +71,6 @@ keymap:
     remap:
       # alt-based hotkeys are possible thanks to the ui.key.menuAccessKeyFocuses option
       # [[sort on]]
-      # TODO: ctrl-h # history sidebar
       Alt-Apostrophe: ctrl-l # focus address bar
       Alt-Comma: up
       Alt-Dot: down
@@ -1596,7 +1595,7 @@ keymap:
           f: { launch: [fish, -c, 'clipboard_harp_get f'] }
           g: { launch: [fish, -c, 'clipboard_harp_get g'] }
           h: { launch: [fish, -c, 'clipboard_harp_get h'] }
-          j: { launch: [fish, -c, 'clipboard_harp_get t'] }
+          j: { launch: [fish, -c, 'clipboard_harp_get j'] }
           k: { launch: [fish, -c, 'clipboard_harp_get k'] }
           l: { launch: [fish, -c, 'clipboard_harp_get l'] }
           Semicolon: { launch: [fish, -c, 'clipboard_harp_get semicolon'] }
@@ -1632,7 +1631,7 @@ keymap:
           f: { launch: [fish, -c, 'clipboard_harp_set f'] }
           g: { launch: [fish, -c, 'clipboard_harp_set g'] }
           h: { launch: [fish, -c, 'clipboard_harp_set h'] }
-          j: { launch: [fish, -c, 'clipboard_harp_set t'] }
+          j: { launch: [fish, -c, 'clipboard_harp_set j'] }
           k: { launch: [fish, -c, 'clipboard_harp_set k'] }
           l: { launch: [fish, -c, 'clipboard_harp_set l'] }
           Semicolon: { launch: [fish, -c, 'clipboard_harp_set semicolon'] }
