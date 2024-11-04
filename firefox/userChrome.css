@@ -168,6 +168,10 @@ toolbar .toolbaritem-combined-buttons {
 						--urlbarView-item-block-padding: 0.25em !important;
 						--urlbarView-favicon-margin-start: 0.4em !important;
 						--urlbarView-favicon-margin-end: 0.6em !important;
+
+						> .search-one-offs {
+							display: none !important;
+						}
 					}
 				}
 			}
