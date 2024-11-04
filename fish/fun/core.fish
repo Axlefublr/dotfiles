@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 
+function arebesties -a fileone filetwo
+    test (stat -c %i $fileone) -eq (stat -c %i $filetwo)
+end
+funcsave arebesties >/dev/null
+
 function mkcd
     mkdir -p $argv && z $argv && clx
 end
