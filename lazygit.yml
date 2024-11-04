@@ -106,8 +106,14 @@ customCommands:
               name: 'With a commit'
             - value: 'revert -n'
               name: 'Into index'
-      command: 'git {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}}'
-      description: 'View reverting options...'
+    - key: '<C-t>'
+      context: 'commits'
+      prompts:
+        - type: 'input'
+          title: 'Tag name:'
+      command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
+      stream: true
+      description: 'Create pre-filled tag'
     - key: 'O'
       command: 'gh pr create'
       context: localBranches
