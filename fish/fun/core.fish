@@ -5,6 +5,25 @@ function arebesties -a fileone filetwo
 end
 funcsave arebesties >/dev/null
 
+function lnkj -a fileone filetwo
+    if not set -q fileone
+        or not set -q filetwo
+        echo 'missing arguments' >&2
+        return 1
+    end
+    if not test -f $filetwo
+        ln $fileone $filetwo
+    else if not arebesties $fileone $filetwo
+        echo "$filetwo is not hardlink"
+        read -P 'override? [j]es / [k]o: ' -ln 1 response
+        if not test "$response" = j
+            return
+        end
+        ln -f $fileone $filetwo
+    end
+end
+funcsave lnkj >/dev/null
+
 function mkcd
     mkdir -p $argv && z $argv && clx
 end
