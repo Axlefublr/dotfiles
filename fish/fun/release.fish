@@ -93,7 +93,7 @@ function rust-bin -a message
     set -l name (basename $PWD)
     cargo build -r
     and cp -f ./target/release/$name ~/prog/binaries/$name
-    git add -C ~/prog/binaries $name && git commit -C ~/prog/binaries -m "$name: $message"
+    git -C ~/prog/binaries add $name && git -C ~/prog/binaries commit -m "$name: $message"
 end
 funcsave rust-bin >/dev/null
 
