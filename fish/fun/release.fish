@@ -87,19 +87,16 @@ function rust-ci --description 'Bring in on tag push github action'
 end
 funcsave rust-ci >/dev/null
 
-# TODO: require commit message
-function rust-bin
+function rust-bin -a message
+    not set -q message && return 121
     gq || return 1
     set -l name (basename $PWD)
     cargo build -r
-    and lnkj ./target/release/$name ~/prog/binaries/$name
-    if set -q argv[1]
-        set -l newVersion $argv[1]
-        set -l prevdir (pwd)
-        cd ~/prog/binaries # TODO: specify git repo via flag
-        git add $name && git commit -m "$name: $newVersion"
-        cd $prevdir
-    end
+    and cp -f ./target/release/$name ~/prog/binaries/$name
+    set -l prevdir (pwd)
+    cd ~/prog/binaries # TODO: specify git repo via flag
+    git add $name && git commit -m "$name: $message"
+    cd $prevdir
 end
 funcsave rust-bin >/dev/null
 
