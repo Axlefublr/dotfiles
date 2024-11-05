@@ -9,11 +9,7 @@ function rust-release
     end
     set -l taggedVersion $argv[1]
 
-    cd (git rev-parse --show-toplevel)
-    if not test (git rev-parse --show-toplevel 2>/dev/null) = $PWD
-        echo "you're not in repo root"
-        return 1
-    end
+    gq || return 1
 
     if not test -f README.md
         echo 'no readme'
@@ -63,7 +59,7 @@ end
 funcsave rust-release >/dev/null
 
 function rust-publish
-    cd (git rev-parse --show-toplevel)
+    gq || return 1
     if rg -q '^description \= ""$' Cargo.toml
         echo 'no description in Cargo.toml'
         return 1
@@ -77,20 +73,14 @@ end
 funcsave rust-publish >/dev/null
 
 function rust-fmt --description 'Bring in format config and format with it'
-    if not test (git rev-parse --show-toplevel 2>/dev/null) = $PWD
-        echo "you're not in repo root"
-        return 1
-    end
+    gq || return 1
     lnkj ~/prog/dotfiles/defconf/rustfmt.toml ./.rustfmt.toml
     and cargo +nightly fmt
 end
 funcsave rust-fmt >/dev/null
 
 function rust-ci --description 'Bring in on tag push github action'
-    if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
-        echo "you're not in repo root"
-        return 1
-    end
+    gq || return 1
     mkdir -p ./.github/workflows &&
         cp -f ~/prog/dotfiles/defconf/gh-action-rust.yml ./.github/workflows/ci.yml &&
         sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
@@ -99,11 +89,7 @@ funcsave rust-ci >/dev/null
 
 # TODO: require commit message
 function rust-bin
-    cd (git rev-parse --show-toplevel)
-    if not test (git rev-parse --show-toplevel 2> /dev/null) = $PWD
-        echo "you're not in repo root"
-        return 1
-    end
+    gq || return 1
     set -l name (basename $PWD)
     cargo build -r
     and lnkj ./target/release/$name ~/prog/binaries/$name
@@ -133,7 +119,7 @@ funcsave rust-init >/dev/null
 #---------------------------------------------------python---------------------------------------------------
 
 function py-init
-    cd (git rev-parse --show-toplevel) # TODO: this can fail
+    gq || return 1
     lnkj ~/prog/dotfiles/defconf/pyproject.toml ./pyproject.toml
 end
 funcsave py-init >/dev/null
