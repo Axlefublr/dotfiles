@@ -110,7 +110,7 @@ function confirm -a message
         test $status -ne 0 && return 121
         set valids $valids $key
     end
-    echo $message
+    echo $message >&2
     while not contains "$response" $valids
         read -P "$(string join ' / ' $options) " -fn 1 response || break 130
     end
@@ -119,3 +119,25 @@ function confirm -a message
     end
 end
 funcsave confirm >/dev/null
+
+function lnkj -a fileone filetwo
+    if not set -q fileone
+        or not set -q filetwo
+        echo 'missing arguments' >&2
+        return 1
+    end
+    if not test -f $filetwo
+        ln $fileone $filetwo
+    else if not arebesties $fileone $filetwo
+        confirm "$filetwo is not a hardlink. make it be one?" '[j]es' '[k]o' '[c]opy over'
+        set -l exitcode $status
+        if test $exitcode -eq 1
+            ln -f $fileone $filetwo
+        else if test $exitcode -eq 3
+            cp -f $fileone $filetwo
+        else
+            return $status
+        end
+    end
+end
+funcsave lnkj >/dev/null
