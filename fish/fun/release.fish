@@ -93,10 +93,7 @@ function rust-bin -a message
     set -l name (basename $PWD)
     cargo build -r
     and cp -f ./target/release/$name ~/prog/binaries/$name
-    set -l prevdir (pwd)
-    cd ~/prog/binaries # TODO: specify git repo via flag
-    git add $name && git commit -m "$name: $message"
-    cd $prevdir
+    git add -C ~/prog/binaries $name && git commit -C ~/prog/binaries -m "$name: $message"
 end
 funcsave rust-bin >/dev/null
 
