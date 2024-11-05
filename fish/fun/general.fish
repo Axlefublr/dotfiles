@@ -99,3 +99,23 @@ function ankuery
     curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "'"$argv"'" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
 end
 funcsave ankuery >/dev/null
+
+function confirm -a message
+    not set -q message && return 121
+    not set -q argv[3] && return 121
+    set -l options $argv[2..]
+    set -l valids
+    for option in $options
+        set -l key (string match -gr '\\[(.)\\]' $option)
+        test $status -ne 0 && return 121
+        set valids $valids $key
+    end
+    echo $message
+    while not contains "$response" $valids
+        read -P "$(string join ' / ' $options) " -fn 1 response || break 130
+    end
+    for num in (seq (count $valids))
+        test "$response" = $valids[$num] && return $num
+    end
+end
+funcsave confirm >/dev/null
