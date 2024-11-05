@@ -534,8 +534,84 @@ keymap:
     application:
       not: /Terraria/
     remap:
-      Shift_L-Alt-e: { launch: [fish, -c, 'lazyfloat ~/.local/share/magazine'] }
-      Shift_L-Shift_R-Alt-e: { launch: [fish, -c, 'lazyfloat ~/.local/share/alien_temple'] }
+      Shift_L-Alt-e:
+        remap:
+          q: { launch: [fish, -c, 'lazyfloat q'] }
+          w: { launch: [fish, -c, 'lazyfloat w'] }
+          e: { launch: [fish, -c, 'lazyfloat e'] }
+          r: { launch: [fish, -c, 'lazyfloat r'] }
+          t: { launch: [fish, -c, 'lazyfloat t'] }
+          y: { launch: [fish, -c, 'lazyfloat y'] }
+          u: { launch: [fish, -c, 'lazyfloat u'] }
+          i: { launch: [fish, -c, 'lazyfloat i'] }
+          o: { launch: [fish, -c, 'lazyfloat o'] }
+          p: { launch: [fish, -c, 'lazyfloat p'] }
+          LeftBrace: { launch: [fish, -c, 'lazyfloat ['] }
+          RightBrace: { launch: [fish, -c, 'lazyfloat ]'] }
+          a: { launch: [fish, -c, 'lazyfloat a'] }
+          s: { launch: [fish, -c, 'lazyfloat s'] }
+          d: { launch: [fish, -c, 'lazyfloat d'] }
+          f: { launch: [fish, -c, 'lazyfloat f'] }
+          g: { launch: [fish, -c, 'lazyfloat g'] }
+          h: { launch: [fish, -c, 'lazyfloat h'] }
+          j: { launch: [fish, -c, 'lazyfloat j'] }
+          k: { launch: [fish, -c, 'lazyfloat k'] }
+          l: { launch: [fish, -c, 'lazyfloat l'] }
+          Semicolon: { launch: [fish, -c, 'lazyfloat \;'] }
+          Apostrophe: { launch: [fish, -c, 'lazyfloat '''] }
+          z: { launch: [fish, -c, 'lazyfloat z'] }
+          x: { launch: [fish, -c, 'lazyfloat x'] }
+          c: { launch: [fish, -c, 'lazyfloat c'] }
+          v: { launch: [fish, -c, 'lazyfloat v'] }
+          b: { launch: [fish, -c, 'lazyfloat b'] }
+          n: { launch: [fish, -c, 'lazyfloat n'] }
+          m: { launch: [fish, -c, 'lazyfloat m'] }
+          Comma: { launch: [fish, -c, 'lazyfloat ,'] }
+          Dot: { launch: [fish, -c, 'lazyfloat .'] }
+          Slash: { launch: [fish, -c, 'lazyfloat /'] }
+          Shift-q: { launch: [fish, -c, 'lazyfloat Q'] }
+          Shift-w: { launch: [fish, -c, 'lazyfloat W'] }
+          Shift-e: { launch: [fish, -c, 'lazyfloat E'] }
+          Shift-r: { launch: [fish, -c, 'lazyfloat R'] }
+          Shift-t: { launch: [fish, -c, 'lazyfloat T'] }
+          Shift-y: { launch: [fish, -c, 'lazyfloat Y'] }
+          Shift-u: { launch: [fish, -c, 'lazyfloat U'] }
+          Shift-i: { launch: [fish, -c, 'lazyfloat I'] }
+          Shift-o: { launch: [fish, -c, 'lazyfloat O'] }
+          Shift-p: { launch: [fish, -c, 'lazyfloat P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'lazyfloat \{'] }
+          Shift-RightBrace: { launch: [fish, -c, 'lazyfloat \}'] }
+          Shift-a: { launch: [fish, -c, 'lazyfloat A'] }
+          Shift-s: { launch: [fish, -c, 'lazyfloat S'] }
+          Shift-d: { launch: [fish, -c, 'lazyfloat D'] }
+          Shift-f: { launch: [fish, -c, 'lazyfloat F'] }
+          Shift-g: { launch: [fish, -c, 'lazyfloat G'] }
+          Shift-h: { launch: [fish, -c, 'lazyfloat H'] }
+          Shift-j: { launch: [fish, -c, 'lazyfloat J'] }
+          Shift-k: { launch: [fish, -c, 'lazyfloat K'] }
+          Shift-l: { launch: [fish, -c, 'lazyfloat L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'lazyfloat :'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'lazyfloat \"'] }
+          Shift-z: { launch: [fish, -c, 'lazyfloat Z'] }
+          Shift-x: { launch: [fish, -c, 'lazyfloat X'] }
+          Shift-c: { launch: [fish, -c, 'lazyfloat C'] }
+          Shift-v: { launch: [fish, -c, 'lazyfloat V'] }
+          Shift-b: { launch: [fish, -c, 'lazyfloat B'] }
+          Shift-n: { launch: [fish, -c, 'lazyfloat N'] }
+          Shift-m: { launch: [fish, -c, 'lazyfloat M'] }
+          Shift-Comma: { launch: [fish, -c, 'lazyfloat <'] }
+          Shift-Dot: { launch: [fish, -c, 'lazyfloat >'] }
+          Shift-Slash: { launch: [fish, -c, 'lazyfloat ?'] }
+          Super_R-f: { launch: [fish, -c, 'lazyfloat 1'] }
+          Super_R-d: { launch: [fish, -c, 'lazyfloat 2'] }
+          Super_R-s: { launch: [fish, -c, 'lazyfloat 3'] }
+          Super_R-r: { launch: [fish, -c, 'lazyfloat 4'] }
+          Super_R-e: { launch: [fish, -c, 'lazyfloat 5'] }
+          Super_R-w: { launch: [fish, -c, 'lazyfloat 6'] }
+          Super_R-v: { launch: [fish, -c, 'lazyfloat 7'] }
+          Super_R-c: { launch: [fish, -c, 'lazyfloat 8'] }
+          Super_R-x: { launch: [fish, -c, 'lazyfloat 9'] }
+          Super_R-a: { launch: [fish, -c, 'lazyfloat 0'] }
       Shift_L-c:
         exact_match: true
         remap:

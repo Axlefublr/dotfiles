@@ -39,7 +39,8 @@ function alphabet
 end
 funcsave alphabet >/dev/null
 
-function lazyfloat -a cwd
+function lazyfloat -a harp
+    set -l cwd (harp get harp_dirs $harp --path)
     kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window --os-window-title neoline --no-response lazygit
 end
 funcsave lazyfloat >/dev/null
