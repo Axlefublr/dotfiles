@@ -1,5 +1,17 @@
 #!/usr/bin/env fish
 
+function gq
+    set -l repo_root (git rev-parse --show-toplevel)
+    if test $status -ne 0
+        echo "you're not in a repo" >&2
+        return 1
+    end
+    if test "$PWD" != "$repo_root"
+        cd $repo_root
+    end
+end
+funcsave gq >/dev/null
+
 function arebesties -a fileone filetwo
     test (stat -c %i $fileone) -eq (stat -c %i $filetwo)
 end
