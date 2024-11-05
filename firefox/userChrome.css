@@ -44,6 +44,7 @@ toolbar .toolbaritem-combined-buttons {
 			> #tabbrowser-arrowscrollbox {
 				> .tabbrowser-tab {
 					padding: 0 !important;
+					transition: none !important;
 
 					&:not([pinned]) {
 						max-width: 100vw !important;
