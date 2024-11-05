@@ -276,6 +276,8 @@ normal_select_mappings: dict[str, Any] = {
         'Z': 'harp_cwd_set',
         's': 'harp_file_get',
         'S': 'harp_file_set',
+        'r': 'harp_relative_file_get',
+        'R': 'harp_relative_file_set',
         'x': 'harp_project_file_get',
         'X': 'harp_project_file_set',
         '/': 'harp_search_get',
