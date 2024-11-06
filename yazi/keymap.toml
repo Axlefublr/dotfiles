@@ -40,6 +40,12 @@ keymap = [
   ], run = 'arrow 99999999', desc = 'Go to bottom' },
   { on = [
     'g',
+    'd',
+  ], run = '''
+    shell --confirm 'yazi-convert-to-link.fish "$0"'
+  ''', desc = 'Copy link to this video' },
+  { on = [
+    'g',
     'q',
   ], run = '''
   	shell 'ya pub dds-cd --str "$(git rev-parse --show-toplevel)"' --confirm
