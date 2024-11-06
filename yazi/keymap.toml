@@ -60,10 +60,10 @@ keymap = [
   { on = '<Space>', run = 'select_all --state=false', desc = 'Deselect all' },
 
   # ----------------------------------------------Operation----------------------------------------------
-  { on = 'a', run = 'create --force', desc = 'Create a blob' },
+  { on = 'o', run = 'create --force', desc = 'Create a blob' },
 
-  { on = 'O', run = 'plugin open-with-cmd --args=block', desc = 'Open selected with command in the terminal' },
-  { on = 'o', run = 'plugin open-with-cmd', desc = 'Open selected with command' },
+  { on = 'A', run = 'plugin open-with-cmd --args=block', desc = 'Open selected with command in the terminal' },
+  { on = 'a', run = 'plugin open-with-cmd', desc = 'Open selected with command' },
   { on = '<Enter>', run = 'open', desc = 'Open selected files' },
 
   { on = 'd', run = 'remove --force', desc = 'Trash selected' },
