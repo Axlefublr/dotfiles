@@ -44,7 +44,7 @@ cd {
 	background-color: #242323;
 	border-radius: 5px;
 	padding: 0.25em;
-	margin: 0.35em 0;
+	margin: 0.25em 0;
 }
 
 @media (min-width: 1000px) {
@@ -54,7 +54,7 @@ cd {
 	cdab,
 	cd {
 		width: 50vw;
-		margin: 0.35em auto;
+		margin: 0.25em auto;
 	}
 }
 
