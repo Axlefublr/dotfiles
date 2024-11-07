@@ -68,3 +68,4 @@ alias --save gx 'glaza --git' >/dev/null
 alias --save at alien_temple >/dev/null
 
 alias --save hrtrack httrack >/dev/null
+alias --save q qalc >/dev/null

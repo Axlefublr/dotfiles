@@ -58,3 +58,4 @@ abbr -a lt 'ezagit -Ta'
 
 abbr -a hrtrack httrack
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
+abbr -a q qalc

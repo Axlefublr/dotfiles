@@ -159,21 +159,21 @@ mkdir -p ~/.local/share/color-schemes
 ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
 
 # Eww
-cd ~/prog/stored
-git clone https://github.com/elkowar/eww
-cd eww
-cargo build --release --no-default-features --features x11
-ln $PWD/target/release/eww ~/prog/binaries
-mkdir -p ~/.config/eww
-touch ~/.config/eww/eww.yuck
+# cd ~/prog/stored
+# git clone https://github.com/elkowar/eww
+# cd eww
+# cargo build --release --no-default-features --features x11
+# ln $PWD/target/release/eww ~/prog/binaries
+# mkdir -p ~/.config/eww
+# touch ~/.config/eww/eww.yuck
 
 # !Eww
-rm -fr ~/prog/stored/eww
-rm -fr ~/.config/eww
-rm -fr ~/prog/binaries/eww
+# rm -fr ~/prog/stored/eww
+# rm -fr ~/.config/eww
+# rm -fr ~/prog/binaries/eww
 
 # Bubbly
-curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
+# curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
 
 # !Bubbly
 # rm -fr ~/.local/share/bubbly
@@ -183,8 +183,13 @@ curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
 # Tridactyl
 # :nativeinstall
 # to copy the command to execute
-mkdir -p ~/.config/tridactyl
-ln -f ~/prog/dotfiles/tridactyl ~/.config/tridactyl/tridactylrc
+# mkdir -p ~/.config/tridactyl
+# ln -f ~/prog/dotfiles/tridactyl ~/.config/tridactyl/tridactylrc
+
+# Qalculate
+# set vspace off
+# set curconv off
+# set update exchange rates 1
 
 # Postgresql
 ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
