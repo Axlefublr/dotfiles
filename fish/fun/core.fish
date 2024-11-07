@@ -71,14 +71,14 @@ end
 funcsave yazi-cd >/dev/null
 
 function neoline
-    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --type os-window --os-window-title neoline --no-response helix $argv
+    scratchpad --wintitle=max helix $argv
 end
 funcsave neoline >/dev/null
 
 function neoline_hold
     neoline $argv
-    win_wait 'kitty\\.kitty — neoline'
-    win_wait_closed 'kitty\\.kitty — neoline'
+    win_wait 'kitty\\.kitty — max'
+    win_wait_closed 'kitty\\.kitty — max'
 end
 funcsave neoline_hold >/dev/null
 
@@ -129,11 +129,19 @@ end
 funcsave os >/dev/null
 
 function tab
-    argparse cwd= -- $argv || return 1
+    argparse -i cwd= -- $argv || return 1
     test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
     kitten @ launch --type tab --cwd $cwd $argv &>/dev/null
 end
 funcsave tab >/dev/null
+
+function scratchpad
+    argparse -i cwd= wintitle= -- $argv || return 1
+    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
+    test "$_flag_wintitle" && set -l wintitle --os-window-title $_flag_wintitle
+    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv
+end
+funcsave scratchpad >/dev/null
 
 function _?
     if status is-interactive

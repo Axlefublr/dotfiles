@@ -41,7 +41,7 @@ funcsave alphabet >/dev/null
 
 function lazyfloat -a harp
     set -l cwd (harp get harp_dirs $harp --path)
-    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window --os-window-title neoline --no-response lazygit
+    scratchpad --wintitle=max --cwd=$cwd lazygit
 end
 funcsave lazyfloat >/dev/null
 
@@ -95,7 +95,7 @@ end
 funcsave anki-should-test >/dev/null
 
 function anki-ram
-    ankuery (cat ~/.local/share/magazine/G)
+    ankuery "$(cat ~/.local/share/magazine/G)"
 end
 funcsave anki-ram >/dev/null
 
