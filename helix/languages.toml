@@ -21,7 +21,6 @@ file-types = [
   'mdtext',
   'workbook',
   { glob = 'PULLREQ_EDITMSG' },
-  { glob = '**/magazine/A' },
   { glob = '**/magazine/s' },
   { glob = '**/magazine/d' },
   { glob = '**/magazine/c' },
