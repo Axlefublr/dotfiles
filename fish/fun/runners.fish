@@ -37,10 +37,10 @@ end
 funcsave runner_kill >/dev/null
 
 function runner_math
-    set input (rofi -dmenu 2> /dev/null ; echo $status)
-    test $input[-1] -ne 0 && return 1 || set -e input[-1]
-    test $input || return 1
-    set result (math $input)
+    set input (rofi -dmenu 2> /dev/null)
+    test $status -ne 0 && return 1
+    test -n "$input" || return 1
+    set result (qalc $input)
     notify-send -t 0 $result
     echo $result >~/.local/share/magazine/o
     echo $result | copy
