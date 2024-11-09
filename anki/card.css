@@ -38,27 +38,15 @@ cd {
 	font-family: var(--monospace-font-family);
 	background-color: #242323;
 	border-radius: 5px;
-	padding: 0.25em;
-	margin: 0.25em 0;
-}
-
-@media (min-width: 1000px) {
-	.codeblock,
-	cda,
-	cdb,
-	cdab,
-	cd {
-		width: 50vw;
-		margin: 0.25em auto;
-	}
+	padding: 0.25em 0.35em;
+	margin: 0.25em auto;
+	display: block;
+	box-sizing: border-box;
+	width: fit-content;
 }
 
 cd:has(left) {
 	text-align: left;
-}
-
-cd {
-	display: block;
 }
 
 code,
