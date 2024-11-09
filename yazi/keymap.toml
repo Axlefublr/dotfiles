@@ -99,8 +99,8 @@ keymap = [
   { on = 'n', run = 'find_arrow', desc = 'Go to the next found' },
   { on = 'N', run = 'find_arrow --previous', desc = 'Go to the previous found' },
 
-  { on = 'z', run = 'plugin harp --args=get', desc = 'Travel to a cwd harp' },
-  { on = 'Z', run = 'plugin harp --args=set', desc = 'Set a cwd harp' },
+  { on = 'm', run = 'plugin harp --args=get', desc = 'Travel to a cwd harp' },
+  { on = 'M', run = 'plugin harp --args=set', desc = 'Set a cwd harp' },
 
   { on = 'f', run = 'plugin jump-to-char', desc = 'Jump to char' },
   { on = '<A-l>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
@@ -111,19 +111,19 @@ keymap = [
 
   # -----------------------------------------------Linemode-----------------------------------------------
   { on = [
-    'm',
+    'z',
     's',
   ], run = 'linemode size', desc = 'Set linemode to size' },
   { on = [
-    'm',
+    'z',
     'c',
   ], run = 'linemode ctime', desc = 'Set linemode to ctime' },
   { on = [
-    'm',
+    'z',
     'o',
   ], run = 'linemode mtime', desc = 'Set linemode to mtime' },
   { on = [
-    'm',
+    'z',
     'm',
   ], run = 'linemode none', desc = 'Set linemode to none' },
 
