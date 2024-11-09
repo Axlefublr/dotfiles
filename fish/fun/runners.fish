@@ -3,7 +3,7 @@
 function runner
     set preset ~/.local/share/magazine/L
     set histori ~/.local/share/magazine/H
-    truncate -s 0 /dev/shm/runner_input
+    truncate -s 0 ~/bs/runner_input
     for line in (echo "$(cat $histori)" | tac | awk '!seen[$0]++' | tac)
         if not contains $line (cat $preset)
             echo $line
@@ -15,13 +15,13 @@ function runner
     begin
         echo "$(cat $preset)"
         cat $histori
-    end | rofi -dmenu 2>/dev/null >/dev/shm/runner_input
-    indeed $histori (cat /dev/shm/runner_input)
+    end | rofi -dmenu 2>/dev/null >~/bs/runner_input
+    indeed $histori (cat ~/bs/runner_input)
     if set -q argv[1]
-        set output "$(source /dev/shm/runner_input &| tee ~/.local/share/magazine/o)"
+        set output "$(source ~/bs/runner_input &| tee ~/.local/share/magazine/o)"
         notify-send -t 2000 "$output"
     else
-        source /dev/shm/runner_input
+        source ~/bs/runner_input
     end
     _magazine_commit ~/.local/share/magazine/H command history
     _magazine_commit ~/.local/share/magazine/o command output
