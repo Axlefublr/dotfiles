@@ -18,7 +18,6 @@
 	display: block;
 }
 
-c,
 .subheader {
 	font-family: var(--monospace-font-family);
 	color: #ffd75f;
@@ -35,10 +34,6 @@ c,
 	color: #ffafd7;
 }
 
-.codeblock,
-cda,
-cdb,
-cdab,
 cd {
 	font-family: var(--monospace-font-family);
 	background-color: #242323;
@@ -58,18 +53,10 @@ cd {
 	}
 }
 
-.codeblock:has(left),
-cda:has(left),
-cdb:has(left),
-cdab:has(left),
-cd:has(left),
-.left {
+cd:has(left) {
 	text-align: left;
 }
 
-cda,
-cdb,
-cdab,
 cd {
 	display: block;
 }
