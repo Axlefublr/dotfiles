@@ -25,12 +25,9 @@
 	display: block;
 }
 
-.cloze {
-	font-weight: bold;
-	color: #ffafd7;
-}
-
+.cloze,
 .nightMode .cloze {
+	font-weight: bold;
 	color: #ffafd7;
 }
 
@@ -38,7 +35,7 @@ cd {
 	font-family: var(--monospace-font-family);
 	background-color: #242323;
 	border-radius: 5px;
-	padding: 0.25em 0.35em;
+	padding: 0.25em 0.45em;
 	margin: 0.25em auto;
 	display: block;
 	box-sizing: border-box;
