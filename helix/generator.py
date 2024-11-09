@@ -265,6 +265,8 @@ normal_select_mappings: dict[str, Any] = {
     'd': 'delete_selection',
     '%': ['save_selection', 'select_all'],
     'm': {
+        'G': ':set gutters.layout []',
+        'g': ':set gutters.layout ["diff"]',
     },
     'space': {
         'z': 'harp_cwd_get',
@@ -385,8 +387,6 @@ normal_select_mappings: dict[str, Any] = {
         's': ':toggle should-statusline',
         'e': ':lang',
         'w': ':toggle whichkey',
-        'a': ':set gutters.layout []',
-        'A': ':set gutters.layout ["diff"]',
         **disable(
             [
                 # [[sort on]]
