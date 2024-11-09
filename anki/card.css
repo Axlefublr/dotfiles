@@ -5,6 +5,11 @@
 	--font-size: 22px;
 }
 
+div.header:has(hide),
+div.subheader:has(hide) {
+	display: none;
+}
+
 .card {
 	font-family: var(--normal-font-family);
 	font-size: var(--font-size);
