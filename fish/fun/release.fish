@@ -104,7 +104,7 @@ function rust-init
     touch README.md
     touch curtag.txt
     touch project.txt
-    rust-ci
+    rust-fmt
     git add . &&
         git commit -m 'first commit'
 end
