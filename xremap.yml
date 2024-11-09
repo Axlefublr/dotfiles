@@ -352,8 +352,8 @@ keymap:
     remap:
       CapsLock-Apostrophe:
         remap:
-          c: { launch: [fish, -c, 'engined_search google'] }
-          v: { launch: [fish, -c, 'engined_search'] }
+          v: { launch: [fish, -c, 'engined_search google'] }
+          c: { launch: [fish, -c, 'engined_search'] }
 
           f: { launch: [fish, -c, 'runner_link open'] }
           s: { launch: [fish, -c, 'runner_link'] }
