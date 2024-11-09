@@ -81,23 +81,25 @@ keybinding:
     executeShellCommand: ';'
 customCommands:
     - key: 'e'
+      context: 'commitFiles'
       command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
+      subprocess: true
       description: 'Edit file at this point in history'
-      context: 'commitFiles'
-      subprocess: true
     - key: 'E'
-      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
-      description: 'Edit file at the commit before this point in history'
       context: 'commitFiles'
+      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
       subprocess: true
+      description: 'Edit file at the commit before this point in history'
+
     - key: 'P'
-      command: 'git push {{.SelectedRemote.Name}} {{.SelectedLocalCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
       context: 'commits'
+      command: 'git push {{.SelectedRemote.Name}} {{.SelectedLocalCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
+      stream: true
       loadingText: 'Pushing commit...'
       description: 'Push a specific commit (and any preceding)'
-      stream: true
     - key: 't'
       context: 'commits'
+      command: 'git {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}}'
       prompts:
         - type: 'menu'
           title: 'How to revert?'
@@ -106,24 +108,35 @@ customCommands:
               name: 'With a commit'
             - value: 'revert -n'
               name: 'Into index'
+      description: 'View reverting options...'
     - key: '<C-t>'
       context: 'commits'
+      command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
       prompts:
         - type: 'input'
           title: 'Tag name:'
-      command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
-      stream: true
       description: 'Create pre-filled tag'
+    - key: o
+      context: 'commits'
+      command: 'fish -c ''git diff {{.SelectedLocalCommit.Sha}}^..{{.SelectedLocalCommit.Sha}} >~/bs/commit.diff ; helix ~/bs/commit.diff'''
+      subprocess: true
+      description: 'Edit commit diff in editor'
+
     - key: 'O'
-      command: 'gh pr create'
       context: localBranches
+      command: 'gh pr create'
       subprocess: true
       description: 'Create pull request'
+    # - key: 'P'
+    #   context: localBranches
+    #   command: 'git push origin {{.SelectedLocalBranch.Name}}'
+    #   loadingText: 'pushing selected branch'
+    #   description: 'Push selected branch'
     - key: 'o'
+      context: 'localBranches'
+      command: 'gh pr checkout {{index .PromptResponses 0}}'
       prompts:
         - type: 'input'
           title: 'PR id:'
-      command: 'gh pr checkout {{index .PromptResponses 0}}'
-      context: 'localBranches'
       loadingText: 'checking out PR'
       description: 'Checkout PR'
