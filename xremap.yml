@@ -115,6 +115,7 @@ keymap:
       Ctrl-Comma: { launch: [fish, -c, 'xdotool mousemove 650 305 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
       Ctrl-Dot: { launch: [fish, -c, 'xdotool mousemove 650 355 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
       Ctrl-Semicolon: ctrl-shift-x
+      Ctrl-Shift-i: { launch: [fish, -c, 'anki-import'] }
       Ctrl-Slash: { launch: [fish, -c, 'xdotool mousemove 650 405 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
       Ctrl-j: down
       Ctrl-k: up
@@ -371,6 +372,8 @@ keymap:
           y: { launch: [fish, -c, screenkey] }
           Shift-y: { launch: [kill, screenkey] }
           i: { launch: [fish, -c, magazine_client_info] }
+
+          n: { launch: [fish, -c, anki-add-card] }
 
           w:
             remap:

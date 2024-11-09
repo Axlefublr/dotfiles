@@ -104,6 +104,22 @@ function anki-sync
 end
 funcsave anki-sync >/dev/null
 
+function anki-add-card
+    neoline_hold ~/bs/anki_card.html
+    test (count (cat ~/bs/anki_card.html)) -le 3 && return 1
+    begin
+        indeed -n ~/.local/share/magazine/A "$(cat ~/bs/anki_card.html | string join ';')"
+        _magazine_commit ~/.local/share/magazine/A card
+    end
+    head -n 2 ~/bs/anki_card.html | sponge ~/bs/anki_card.html
+end
+funcsave anki-add-card >/dev/null
+
+function anki-import
+    curl localhost:8765 -X POST -d '{ "action": "guiImportFile", "version": 6, "params": { "path": "/home/axlefublr/.local/share/magazine/A.txt" } }'
+end
+funcsave anki-import >/dev/null
+
 function set_tab_title
     read -P 'title: ' new_title
     if not test "$new_title"
