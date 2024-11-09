@@ -267,6 +267,7 @@ normal_select_mappings: dict[str, Any] = {
     'm': {
         'G': ':set gutters.layout []',
         'g': ':set gutters.layout ["diff"]',
+        'l': ':toggle should-statusline',
     },
     'space': {
         'z': 'harp_cwd_get',
@@ -384,7 +385,6 @@ normal_select_mappings: dict[str, Any] = {
         'f': ':echopy %R',
         'F': ':echopy %P',
         'd': ':echopy %W',
-        's': ':toggle should-statusline',
         'e': ':lang',
         'w': ':toggle whichkey',
         **disable(
