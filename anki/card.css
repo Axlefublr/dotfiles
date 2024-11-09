@@ -12,17 +12,22 @@
 	line-height: 1.3;
 }
 
-.header {
-	color: #ffafd7;
+.headers {
+	display: block;
+}
+
+.headers > div {
+	font-family: var(--monospace-font-family);
 	font-weight: bold;
 	display: block;
 }
 
+.header {
+	color: #ffafd7;
+}
+
 .subheader {
-	font-family: var(--monospace-font-family);
 	color: #ffd75f;
-	font-weight: bold;
-	display: block;
 }
 
 .cloze,
