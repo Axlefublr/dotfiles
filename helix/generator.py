@@ -270,6 +270,9 @@ normal_select_mappings: dict[str, Any] = {
         'l': ':toggle should-statusline',
         'e': ':lang',
         'w': ':toggle whichkey',
+        'f': ':echopy %R',
+        'F': ':echopy %P',
+        'z': ':echopy %W',
     },
     'space': {
         'z': 'harp_cwd_get',
@@ -384,9 +387,6 @@ normal_select_mappings: dict[str, Any] = {
         'n': 'select_all_siblings',
         'N': 'select_all_children',
         "'": ':reload-all',
-        'f': ':echopy %R',
-        'F': ':echopy %P',
-        'd': ':echopy %W',
         **disable(
             [
                 # [[sort on]]
