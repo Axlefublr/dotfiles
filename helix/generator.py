@@ -273,6 +273,13 @@ normal_select_mappings: dict[str, Any] = {
         'f': ':echopy %R',
         'F': ':echopy %P',
         'z': ':echopy %W',
+        'v': ':sh ghl %r | copy',
+        'V': ':sh ghl -pb HEAD %r | copy',
+        'Z': ':sh ghl | copy',
+        # "'": ':set harp.default-relativity "global"',
+        # ',': ':set harp.default-relativity "buffer"',
+        # '.': ':set harp.default-relativity "cwd"',
+        # ';': ':set harp.default-relativity "filetype"',
     },
     'space': {
         'z': 'harp_cwd_get',
@@ -311,11 +318,6 @@ normal_select_mappings: dict[str, Any] = {
         'a': ":sh execute_somehow '%w' '%p'",
         'A': ":sh diag_somehow '%w' '%p'",
         ':': 'replace_selections_with_clipboard',
-        'g': {
-            'f': ':sh ghl %r | copy',
-            'F': ':sh ghl -pb HEAD %r | copy',
-            'd': ':sh ghl | copy',
-        },
         # 'space': ':sh echo ##',
         **disable(
             [
@@ -326,7 +328,6 @@ normal_select_mappings: dict[str, Any] = {
                 'G',
                 'Y',
                 'b',
-                'w',
                 # [[sort off]]
             ]
         ),
