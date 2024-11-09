@@ -128,6 +128,14 @@ function magazine_append_symbol
 end
 funcsave magazine_append_symbol >/dev/null
 
+function magazine_truncate_imports
+    set -l file_path ~/.local/share/magazine/A
+    head -n 3 $file_path | sponge $file_path
+    _magazine_notify $file_path import
+    _magazine_commit $file_path import
+end
+funcsave magazine_truncate_imports >/dev/null
+
 function magazine_client_info
     awesome-client 'WriteClientInfo()'
     _magazine_commit ~/.local/share/magazine/o clients

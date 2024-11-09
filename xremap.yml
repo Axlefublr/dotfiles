@@ -821,7 +821,7 @@ keymap:
           Shift-p: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/P'] }
           Shift-LeftBrace: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/leftcurl'] }
           Shift-RightBrace: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/rightcurl'] }
-          Shift-a: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/A'] }
+          Shift-a: { launch: [fish, -c, 'magazine_truncate_imports'] }
           Shift-s: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/S'] }
           Shift-d: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/D'] }
           Shift-f: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/F'] }
