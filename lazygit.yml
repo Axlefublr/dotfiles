@@ -80,6 +80,12 @@ keybinding:
     toggleRangeSelect: x
     executeShellCommand: ';'
 customCommands:
+    - key: o
+      context: files
+      command: 'fish -c ''git show HEAD:{{.SelectedPath}} >~/bs/lazygit(path extension {{.SelectedPath}}) ; helix ~/bs/lazygit(path extension {{.SelectedPath}})'''
+      subprocess: true
+      description: 'Edit file at HEAD'
+
     - key: 'e'
       context: 'commitFiles'
       command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
