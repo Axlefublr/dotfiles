@@ -204,6 +204,7 @@ insert_mappings: dict[str, Any] = {
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
     'C-u': 'kill_to_line_start',
     'A-;': ['collapse_selection', 'paste_before'],
+    'A-"': 'harp_register_get',
 }
 insert_mappings.update(**rusify(insert_mappings))
 
@@ -278,10 +279,10 @@ normal_select_mappings: dict[str, Any] = {
         'S': 'harp_file_set',
         'r': 'harp_relative_file_get',
         'R': 'harp_relative_file_set',
-        'x': 'harp_project_file_get',
-        'X': 'harp_project_file_set',
-        '/': 'harp_search_get',
-        '?': 'harp_search_set',
+        'x': 'harp_search_get',
+        'X': 'harp_search_set',
+        'w': 'harp_register_get',
+        'W': 'harp_register_set',
         'U': ':sh tab --cwd=%h',
         'I': ':sh win --cwd=%h',
         'O': ':sh over --cwd=%h',
@@ -360,7 +361,6 @@ normal_select_mappings: dict[str, Any] = {
                 'D',
                 'c',
                 'r',
-                's',
                 't',
                 # [[sort off]]
             ]
