@@ -384,6 +384,7 @@ normal_select_mappings: dict[str, Any] = {
         'n': 'select_all_siblings',
         'N': 'select_all_children',
         "'": ':reload-all',
+        'z': ':config-reload',
         **disable(
             [
                 # [[sort on]]
@@ -400,7 +401,6 @@ normal_select_mappings: dict[str, Any] = {
                 'space',
                 't',
                 'up',
-                'z',
                 # [[sort off]]
             ]
         ),
