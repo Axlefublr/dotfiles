@@ -188,13 +188,11 @@ function _magazine_commit
     set -l head (path basename $parent_path)
     set -l base (path basename $argv[1])
     set -l mag $base
-    if string match $argv[1] (cat ~/.local/share/magazine/P | string replace -r '^~' "$HOME")
-        or test $base = project.txt
-        cat $argv[1] | dedup | sponge $argv[1]
-    end
     if string match $argv[1] (cat ~/.local/share/magazine/O | string replace -r '^~' "$HOME")
         or test $base = project.txt
-        sort.py $argv[1]
+        sort.py -u $argv[1]
+    else if string match $argv[1] (cat ~/.local/share/magazine/P | string replace -r '^~' "$HOME")
+        cat $argv[1] | dedup | sponge $argv[1]
     end
     if test $parent_path != ~/.local/share/magazine
         if test $base = project.txt
