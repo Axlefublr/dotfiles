@@ -303,10 +303,6 @@ normal_select_mappings: dict[str, Any] = {
         'a': ":sh execute_somehow '%w' '%p'",
         'A': ":sh diag_somehow '%w' '%p'",
         ':': 'replace_selections_with_clipboard',
-        ';': {
-            'h': ':lang html',
-            'm': ':lang markdown',
-        },
         'g': {
             'f': ':sh ghl %r | copy',
             'F': ':sh ghl -pb HEAD %r | copy',
