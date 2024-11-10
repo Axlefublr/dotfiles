@@ -111,12 +111,11 @@ keymap:
       only: Anki
     remap:
       # [[sort on]]
+      Alt-j: { launch: [fish, -c, 'anki-deck Once'] }
+      Alt-k: { launch: [fish, -c, 'anki-deck Freq'] }
       CapsLock-Space: { launch: [fish, -c, special_anki_edit_action] }
-      Ctrl-Comma: { launch: [fish, -c, 'xdotool mousemove 650 305 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
-      Ctrl-Dot: { launch: [fish, -c, 'xdotool mousemove 650 355 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
       Ctrl-Semicolon: ctrl-shift-x
       Ctrl-Shift-i: { launch: [fish, -c, 'anki-import'] }
-      Ctrl-Slash: { launch: [fish, -c, 'xdotool mousemove 650 405 click 1 ; sleep 0.1 ; xdotool mousemove 1100 320 click 1 mousemove 100 900'] }
       Ctrl-j: down
       Ctrl-k: up
       # [[sort off]]
@@ -360,7 +359,7 @@ keymap:
           s: { launch: [fish, -c, 'runner_link'] }
           d: { launch: [fish, -c, 'xdg-open (ypoc) ; ensure_browser'] }
 
-          Shift-s: { launch: [fish, -c, 'pick_sts_boss']}
+          Shift-s: { launch: [fish, -c, 'pick-sts-boss']}
 
           k: { launch: [fish, -c, install_yt_video] }
 

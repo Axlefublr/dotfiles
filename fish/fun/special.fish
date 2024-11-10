@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-function pick_sts_boss
+function pick-sts-boss
     set input (
         begin
             echo NoAwakenedOne
@@ -17,7 +17,7 @@ function pick_sts_boss
     set -e input[-1]
     cp -f ~/prog/binaries/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
 end
-funcsave pick_sts_boss >/dev/null
+funcsave pick-sts-boss >/dev/null
 
 function multiple_dot
     echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
@@ -119,6 +119,17 @@ function anki-import
     curl localhost:8765 -X POST -d '{ "action": "guiImportFile", "version": 6, "params": { "path": "/home/axlefublr/.local/share/magazine/A.txt" } }'
 end
 funcsave anki-import >/dev/null
+
+function anki-deck -a deck
+    curl localhost:8765 -X POST -d '{
+        "action": "guiDeckOverview",
+        "version": 6,
+        "params": {
+            "name": "'$deck'"
+        }
+    }'
+end
+funcsave anki-deck >/dev/null
 
 function set_tab_title
     read -P 'title: ' new_title
