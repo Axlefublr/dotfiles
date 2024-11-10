@@ -1649,8 +1649,8 @@ keymap:
       Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
       Super-k: { launch: [fish, -c, runner_notification] }
       Super-Semicolon: { launch: [fish, -c, runner_math] }
-      CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neoline_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
-      CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neoline_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
+      CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
+      CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
 
       Super_R-g:
         exact_match: true

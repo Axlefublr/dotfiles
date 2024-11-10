@@ -56,7 +56,7 @@ awful.rules.rules = {
 		},
 	},
 	{
-		rule = { class = 'kitty', name = 'topsmall' },
+		rule = { class = 'kitty', name = 'line' },
 		properties = {
 			floating = true,
 			ontop = true,

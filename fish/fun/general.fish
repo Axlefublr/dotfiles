@@ -32,7 +32,7 @@ function ni
     if status is-interactive
         helix "/tmp/ni-output$argv[1]" >&2
     else
-        neoline_hold "/tmp/ni-output$argv[1]" >&2
+        neomax_hold "/tmp/ni-output$argv[1]" >&2
     end
     cat "/tmp/ni-output$argv[1]" | string collect
 end

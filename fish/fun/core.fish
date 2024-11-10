@@ -71,16 +71,28 @@ end
 funcsave yazi-cd >/dev/null
 
 function neoline
-    scratchpad --wintitle=max helix $argv
+    scratchpad --wintitle=line helix $argv
 end
 funcsave neoline >/dev/null
 
 function neoline_hold
     neoline $argv
+    win_wait 'kitty\\.kitty — line'
+    win_wait_closed 'kitty\\.kitty — line'
+end
+funcsave neoline_hold >/dev/null
+
+function neomax
+    scratchpad --wintitle=max helix $argv
+end
+funcsave neomax >/dev/null
+
+function neomax_hold
+    neomax $argv
     win_wait 'kitty\\.kitty — max'
     win_wait_closed 'kitty\\.kitty — max'
 end
-funcsave neoline_hold >/dev/null
+funcsave neomax_hold >/dev/null
 
 function clx
     if test "$TERM" != xterm-kitty
