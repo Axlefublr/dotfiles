@@ -314,6 +314,10 @@ normal_select_mappings: dict[str, Any] = {
         'a': ":sh execute_somehow '%w' '%p'",
         'A': ":sh diag_somehow '%w' '%p'",
         ':': 'replace_selections_with_clipboard',
+        ';': {
+            'h': ':lang html',
+            'm': ':lang markdown',
+        },
         # 'space': ':sh echo ##',
         **disable(
             [
