@@ -106,9 +106,13 @@ funcsave anki-sync >/dev/null
 
 function anki-add-card
     neoline_hold ~/bs/anki_card.html
-    test (count (cat ~/bs/anki_card.html)) -le 3 && return 1
+    set -l fields (cat ~/bs/anki_card.html)
+    test (count $fields) -le 2 && return 1
     begin
-        indeed -n ~/.local/share/magazine/A "$(cat ~/bs/anki_card.html | string join ';')"
+        test (count $fields) -eq 3 && set fields $fields '' '' ''
+        test (count $fields) -eq 4 && set fields $fields '' ''
+        test (count $fields) -eq 5 && set fields $fields ''
+        indeed -n ~/.local/share/magazine/A "$(string join ';' $fields)"
         _magazine_commit ~/.local/share/magazine/A card
     end
     head -n 2 ~/bs/anki_card.html | sponge ~/bs/anki_card.html
