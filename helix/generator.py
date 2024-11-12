@@ -385,6 +385,7 @@ normal_select_mappings: dict[str, Any] = {
         'N': 'select_all_children',
         "'": ':reload-all',
         'z': ':config-reload',
+        'i': 'hover',
         **disable(
             [
                 # [[sort on]]
