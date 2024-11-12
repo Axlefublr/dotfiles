@@ -1,4 +1,4 @@
-@-moz-document url("about:newtab") {
+@-moz-document url('about:newtab'), url('about:blank'), url('about:home') {
 	body {
 		background-color: #292828 !important;
 	}

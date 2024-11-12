@@ -94,7 +94,8 @@ toolbar .toolbaritem-combined-buttons {
 			}
 
 			> #back-button,
-			> #forward-button {
+			> #forward-button,
+			> #home-button {
 				display: none !important;
 			}
 

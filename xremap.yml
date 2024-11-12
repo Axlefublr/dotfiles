@@ -82,6 +82,7 @@ keymap:
       Alt-h: ctrl-pageup # go one tab to the left
       Alt-l: ctrl-pagedown # go one tab to the right
       Alt-n: ctrl-g # find again
+      Alt-s: alt-home # home
       Alt-w: ctrl-w # close tab
       Ctrl-Alt-d: ctrl-equal # zoom out
       Ctrl-Alt-f: ctrl-0 # zoom reset
