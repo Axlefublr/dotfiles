@@ -353,9 +353,6 @@ keymap:
     remap:
       CapsLock-Apostrophe:
         remap:
-          v: { launch: [fish, -c, 'engined_search google'] }
-          c: { launch: [fish, -c, 'engined_search'] }
-
           f: { launch: [fish, -c, 'runner_link open'] }
           s: { launch: [fish, -c, 'runner_link'] }
           d: { launch: [fish, -c, 'xdg-open (ypoc) ; ensure_browser'] }
@@ -1652,6 +1649,7 @@ keymap:
       Super-Semicolon: { launch: [fish, -c, runner_math] }
       CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
       CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
+      Super-b: { launch: [fish, -c, 'engined_search'] }
 
       Super_R-g:
         exact_match: true
