@@ -71,3 +71,5 @@ for dir in (cat ~/.local/share/magazine/R)
     cd $dir
     git push
 end
+
+notify-send -t 0 "$(random-fav-emoji)"

@@ -115,3 +115,13 @@ function special_anki_edit_action
     echo "$else" | copy
 end
 funcsave special_anki_edit_action >/dev/null
+
+function random-fav-emoji
+    while not set -q emoji || contains $emoji ~/bs/fav-emoji-history
+        set -f emoji (shuf -n 1 ~/.local/share/magazine/e | string split ' ')[1]
+    end
+    echo $emoji
+    indeed -nu ~/bs/fav-emoji-history $emoji
+    tail -n 30 ~/bs/fav-emoji-history | sponge ~/bs/fav-emoji-history
+end
+funcsave random-fav-emoji >/dev/null
