@@ -33,66 +33,20 @@ end
 funcsave diag_somehow >/dev/null
 
 function engined_search
-    set -l engine $argv[1]
-    if not test "$argv[1]"
-        set engine (
-            begin
-                echo google
-                echo github
-                echo yandex
-                echo python
-                echo emoji
-                echo icons8
-                echo phind
-                echo slay the spire
-                echo kitty
-                echo fish
-                echo krita
-                echo iask
-                echo rust
-                echo anki
-                echo mdn
-            end | rofi -no-custom -dmenu 2>/dev/null
-        )
-        test $status -ne 0 && return 1
-    end
-
-    set input (rofi -dmenu 2>/dev/null)
+    set -l input (
+        for line in (cat ~/.local/share/magazine/B)
+            echo !(string split ' ' $line)[1]!
+        end | rofi -dmenu 2>/dev/null
+    )
     test $status -ne 0 && return 1
-    set input (string escape --style=url $input)
 
-    switch $engine # I ignore output so that I don't see "Opening in existing browser session." in my runner ouput every time I search for something
-        case yandex
-            $BROWSER "https://yandex.com/search?text=$input" >/dev/null
-        case phind
-            $BROWSER "https://www.phind.com/search?q=$input" >/dev/null
-        case github
-            $BROWSER "https://github.com/search?q=$input" >/dev/null
-        case python
-            $BROWSER "https://docs.python.org/3/search.html?q=$input" >/dev/null
-        case 'slay the spire'
-            $BROWSER "https://slay-the-spire.fandom.com/wiki/Special:Search?query=$input&scope=internal&navigationSearch=true" >/dev/null
-        case emoji
-            $BROWSER "https://emojipedia.org/search?q=$input" >/dev/null
-        case icons8
-            $BROWSER "https://icons8.ru/icons/set/$input" >/dev/null
-        case google
-            $BROWSER "https://www.google.com/search?q=$input&sourceid=chrome&ie=UTF-8" >/dev/null
-        case kitty
-            $BROWSER "https://sw.kovidgoyal.net/kitty/search/?q=$input&check_keywords=yes&area=default" >/dev/null
-        case fish
-            $BROWSER "https://fishshell.com/docs/current/search.html?q=$input" >/dev/null
-        case krita
-            $BROWSER "https://docs.krita.org/en/search.html?q=$input&check_keywords=yes&area=default" >/dev/null
-        case iask
-            $BROWSER "https://iask.ai/?mode=question&q=$input" >/dev/null
-        case rust
-            $BROWSER "https://doc.rust-lang.org/std/?search=$input" >/dev/null
-        case anki
-            $BROWSER "https://docs.ankiweb.net/?search=$input" >/dev/null
-        case mdn
-            $BROWSER "https://developer.mozilla.org/en-US/search?q=$input" >/dev/null
-    end
+    string match -gr '^(?:!(?<engine>.*)! )?(?<only_search>.*)' $input
+    not test "$engine" && set engine google
+    set clean_input (string escape --style=url $only_search)
+
+    cat ~/.local/share/magazine/B | string match -gr "^$engine (?<engine_url>.*)"
+
+    $BROWSER (string replace %% $clean_input $engine_url)
     ensure_browser
 end
 funcsave engined_search >/dev/null
