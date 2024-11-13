@@ -59,7 +59,6 @@ awful.rules.rules = {
 		rule = { class = 'kitty', name = 'line' },
 		properties = {
 			floating = true,
-			ontop = true,
 			x = 0,
 			y = 0,
 			width = 1920,
