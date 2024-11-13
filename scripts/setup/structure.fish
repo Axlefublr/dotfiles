@@ -5,9 +5,6 @@ mkdir -p docs ups pic vid prog bs t
 git clone https://github.com/Axlefublr/deleted-bangers
 mv deleted-bangers mus
 
-cd ~/vid
-mkdir -p content/{anime,asmr,longform,youtube}
-
 cd ~/pic
 git clone https://github.com/Axlefublr/pictures-tree
 mv pictures-tree tree

@@ -13,7 +13,7 @@ xrestart.fish
 
 kitty -T editor -d ~/prog/dotfiles --hold helix 2>>/tmp/log/user.txt & disown
 # kitty -T men 2>>/tmp/log/user.txt & disown
-kitty -T oil-content -d ~/vid/content --hold yazi 2>>/tmp/log/user.txt & disown
+kitty -T oil-content -d /mnt/usb --hold yazi 2>>/tmp/log/user.txt & disown
 
 for script in ~/prog/dotfiles/scripts/services/*.fish
     $script 2>>/tmp/log/user.txt & disown
