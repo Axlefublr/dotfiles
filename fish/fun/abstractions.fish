@@ -301,8 +301,8 @@ function widget_update
 end
 funcsave widget_update >/dev/null
 
-function disk_usage
-    df -h /dev/nvme0n1p2 | tail -n 1 | awk '{print $5}' | string replace '%' '' | string collect
+function disk_usage -a drive
+    df -h $drive | tail -n 1 | awk '{print $5}' | string replace '%' '' | string collect
 end
 funcsave disk_usage >/dev/null
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 awesome-client 'Hunger_wu()'
-widget_update disk_usage Disk_usage
+widget_update disk_usage /dev/nvme0n1p2 Disk_usage
 pjs
 set notifications (gh api notifications | jq -r '.[] | "\\(.repository.full_name): \\(.subject.title)"')
 if test "$notifications"
