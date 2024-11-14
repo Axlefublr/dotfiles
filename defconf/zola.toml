@@ -1,0 +1,11 @@
+base_url = 'https://example.com'
+generate_feeds = true
+feed_filenames = ['rss.xml']
+hard_link_static = true
+author = 'Axlefublr'
+build_search_index = false
+
+[markdown]
+highlight_code = true
+highlight_theme = 'gruvbox-dark'
+external_links_target_blank = true # opens external links in a new tab always (this is to make my readers actually remember about finishing reading my blog, lol)
