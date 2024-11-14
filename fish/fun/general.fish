@@ -134,6 +134,16 @@ function lnkj -a fileone filetwo
         if test $exitcode -eq 1
             ln -f $fileone $filetwo
         else if test $exitcode -eq 3
+            rm -f $filetwo
+            cp -f $fileone $filetwo
+        else
+            return $status
+        end
+    else
+        confirm "$fileone and $filetwo are besties." 'alrigh[j] then' '[c]opy over'
+        set -l exitcode $status
+        if test $exitcode -eq 2
+            rm -f $filetwo
             cp -f $fileone $filetwo
         else
             return $status
