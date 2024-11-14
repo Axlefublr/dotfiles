@@ -276,6 +276,31 @@ function Disk_usage_wu()
 	end
 end
 
+Usb_w = text_widget(beautiful.jetbrains_font .. ' 14', '󱇰 ')
+Usb_mw = wibox.container.margin(Usb_w)
+Usb_mw.left = larger
+Usb_mw.right = -7
+Usb_mw.visible = false
+
+Usb_usage_w = text_widget()
+Usb_usage_mw = wibox.container.margin(Usb_usage_w)
+Usb_usage_mw.visible = false
+function Usb_usage_wu()
+	local file = io.open('/dev/shm/Usb_usage_f', 'r')
+	if file then
+		local text = file:read('*a')
+		file:close()
+		if #text > 0 then
+			Usb_usage_mw.visible = true
+			Usb_mw.visible = true
+			Usb_usage_w:set_text(text)
+		else
+			Usb_usage_mw.visible = false
+			Usb_mw.visible = false
+		end
+	end
+end
+
 Battery_w = text_widget(nil, ' ')
 Battery_mw = wibox.container.margin(Battery_w)
 Battery_mw.left = larger
@@ -612,6 +637,8 @@ Wibar_w:setup({
 		-- wibox.widget.systray(),
 		Battery_mw,
 		Charge_mw,
+		Usb_mw,
+		Usb_usage_mw,
 		Disk_mw,
 		Disk_usage_mw,
 		Brain_mw,
@@ -651,6 +678,7 @@ local run_once = function()
 		'Ram',
 		'Loago',
 		'Disk_usage',
+		'Usb_usage',
 		'Charge',
 	}
 	for _, frequent_ in ipairs(frequents) do
