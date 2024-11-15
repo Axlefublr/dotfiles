@@ -84,6 +84,7 @@ keymap:
       Alt-n: ctrl-g # find again
       Alt-s: alt-home # home
       Alt-w: ctrl-w # close tab
+      Ctrl-Alt-Apostrophe: { launch: [fish, -c, 'xdotool mousemove 0 1080 click 1']}
       Ctrl-Alt-d: ctrl-equal # zoom out
       Ctrl-Alt-f: ctrl-0 # zoom reset
       Ctrl-Alt-h: ctrl-shift-pageup # move tab left
@@ -92,7 +93,6 @@ keymap:
       Ctrl-Shift-h: f2 # (sidebery) close tabs above (in current panel)
       Ctrl-i: alt-right # history forward
       Ctrl-o: alt-left # history back
-      Shift-Alt-Apostrophe: { launch: [fish, -c, 'xdotool mousemove 0 1080 click 1']}
       Shift-Alt-Semicolon: shift-f2 # (sidebery) unload all tabs in inactive panels
       Shift-Alt-h: alt-1 # go to tab 1
       Shift-Alt-l: alt-9 # go to last tab
