@@ -264,6 +264,7 @@ normal_select_mappings: dict[str, Any] = {
     'A': 'insert_at_line_end',
     'd': 'delete_selection',
     '%': ['save_selection', 'select_all'],
+    'Z': 'harp_cwd_get',
     'm': {
         'G': ':set gutters.layout []',
         'g': ':set gutters.layout ["diff"]',
@@ -416,7 +417,6 @@ normal_select_mappings: dict[str, Any] = {
             'A-:',
             'C-c',
             'C-s',
-            'Z',
             'down',
             'left',
             'right',
