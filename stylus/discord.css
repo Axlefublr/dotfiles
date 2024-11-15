@@ -173,7 +173,11 @@
 [href="https://support.discord.com"],
 [aria-label="Add Friends to DM"],
 .iconContainer_d0200f,
-.channelAppLauncher_df39bd {
+.channelAppLauncher_df39bd,
+div[role="group"]:has(#message-search-google),
+div[role="group"]:has(#message-search-google)+[role="separator"],
+#message-tts,
+div[role="group"]:has(#message-copy)+[role="separator"] {
 	display: none;
 }
 
