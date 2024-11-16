@@ -96,16 +96,26 @@ customCommands:
       command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/lazygit(path extension {{.SelectedPath}})'''
       subprocess: true
       description: 'Edit file at the commit before this point in history'
+    - key: 'q'
+      context: 'commitFiles'
+      command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to file at this commit'
+    - key: 'Q'
+      context: 'commitFiles'
+      command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to file at *previous* commit'
 
     - key: 'P'
       context: 'commits'
-      command: 'git push {{.SelectedRemote.Name}} {{.SelectedLocalCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
+      command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
       stream: true
       loadingText: 'Pushing commit...'
       description: 'Push a specific commit (and any preceding)'
     - key: 't'
       context: 'commits'
-      command: 'git {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}}'
+      command: 'git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}'
       prompts:
         - type: 'menu'
           title: 'How to revert?'
@@ -117,22 +127,58 @@ customCommands:
       description: 'View reverting options...'
     - key: '<C-t>'
       context: 'commits'
-      command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedLocalCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
+      command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
       prompts:
         - type: 'input'
           title: 'Tag name:'
       description: 'Create pre-filled tag'
     - key: o
       context: 'commits'
-      command: 'fish -c ''git diff {{.SelectedLocalCommit.Sha}}^..{{.SelectedLocalCommit.Sha}} >~/bs/commit.diff ; helix ~/bs/commit.diff'''
+      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >~/bs/commit.diff ; helix ~/bs/commit.diff'''
       subprocess: true
       description: 'Edit commit diff in editor'
+    - key: o
+      context: subCommits
+      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >~/bs/commit.diff ; helix ~/bs/commit.diff'''
+      subprocess: true
+      description: 'Edit commit diff in editor'
+    - key: q
+      context: commits
+      command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to repo at this point in history'
+    - key: q
+      context: subCommits # I know that the 'commits, subCommits' syntax works, but my lsp complains so it's simply easier this way
+      command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to repo at this point in history'
+
+    - key: q
+      context: 'tags'
+      command: 'fish -c ''ghl -b {{.SelectedTag.Name}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to repo at this tag'
+    - key: Q
+      context: 'tags'
+      command: 'fish -c ''ghl -pb {{.SelectedTag.Name}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to repo at this tag, parsing it into commit'
 
     - key: 'O'
       context: localBranches
       command: 'gh pr create'
       subprocess: true
       description: 'Create pull request'
+    - key: 'q'
+      context: localBranches
+      command: 'fish -c ''ghl -b {{.SelectedLocalBranch.Name}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to repo in this branch'
+    - key: 'Q'
+      context: localBranches
+      command: 'fish -c ''ghl -pb {{.SelectedLocalBranch.Name}} | copy'''
+      loadingText: 'maybe copied link'
+      description: 'Copy link to repo in this branch, parsing into commit hash'
     # - key: 'P'
     #   context: localBranches
     #   command: 'git push origin {{.SelectedLocalBranch.Name}}'
