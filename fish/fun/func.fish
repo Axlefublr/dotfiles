@@ -190,6 +190,6 @@ function install_yt_video
     end
     _magazine_commit $where_links install
     wait
-    notify-send -t 3000 'links finished downloading'
+    notify-send -t 5000 'links finished downloading'
 end
 funcsave install_yt_video >/dev/null
