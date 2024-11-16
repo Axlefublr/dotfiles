@@ -31,7 +31,7 @@ end
 funcsave anki-should >/dev/null
 
 function anki-should-impl -a onces
-    math "round(log2($onces) x 2) - 2"
+    math "round(log2($onces) x 2) - 3"
 end
 funcsave anki-should-impl >/dev/null
 
