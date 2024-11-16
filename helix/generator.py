@@ -354,6 +354,7 @@ normal_select_mappings: dict[str, Any] = {
         '@': 'record_macro',
         's': 'goto_type_definition',
         'q': [':cd %h', ':cd %g'],
+        'Q': ':cd %h',
         'a': 'rename_symbol',
         **disable(
             [
