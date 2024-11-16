@@ -46,9 +46,19 @@ funcsave ocr >/dev/null
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
 function m
-    set harp (harp get harp_dirs $argv --path | string replace '~' $HOME)
-    if test "$harp"
-        z "$harp"
+    for arg in $argv
+        # if the arg starts with a dot, get from section harp_dirs_$PWD and remove the `.` at the start
+        if test (string sub -l 1 $arg) = '.'
+            set harp (harp get harp_dirs_$PWD (string sub -s 2 $arg) --path | string replace '~' $HOME)
+            if test "$harp"
+                z "$harp"
+            end
+        else
+            set harp (harp get harp_dirs $arg --path | string replace '~' $HOME)
+            if test "$harp"
+                z "$harp"
+            end
+        end
     end
 end
 funcsave m >/dev/null
