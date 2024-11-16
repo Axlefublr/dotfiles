@@ -90,7 +90,6 @@ keymap:
       Ctrl-Alt-h: ctrl-shift-pageup # move tab left
       Ctrl-Alt-l: ctrl-shift-pagedown # move tab right
       Ctrl-Alt-s: ctrl-minus # zoom in 
-      Ctrl-Shift-h: f2 # (sidebery) close tabs above (in current panel)
       Ctrl-i: alt-right # history forward
       Ctrl-o: alt-left # history back
       Shift-Alt-Semicolon: shift-f2 # (sidebery) unload all tabs in inactive panels
@@ -1611,7 +1610,7 @@ keymap:
               'truncate -s 0 /tmp/tesseract.txt ; ypoc -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
-      Super-c: { launch: [fish, -c, 'widget_update anki_update no-increment Anki'] }
+      Super-c: { launch: [fish, -c, 'widget_update anki-update no-increment Anki'] }
       CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }

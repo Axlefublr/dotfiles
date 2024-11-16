@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-function anki_update
+function anki-update
     if test (anki-due) -gt 0
         if not test "$argv"
             clorange anki increment >/dev/null
@@ -12,7 +12,7 @@ function anki_update
         clorange anki reset >/dev/null
     end
 end
-funcsave anki_update >/dev/null
+funcsave anki-update >/dev/null
 
 function anki-due
     ankuery is:due is:learn
@@ -25,19 +25,19 @@ end
 funcsave anki-once >/dev/null
 
 function anki-should
-    anki_should (anki-once)
+    anki-should-impl (anki-once)
 end
 funcsave anki-should >/dev/null
 
-function anki_should -a onces
+function anki-should-impl -a onces
     math "round(log2($onces) x 2) - 2"
 end
-funcsave anki_should >/dev/null
+funcsave anki-should-impl >/dev/null
 
 function anki-should-test
     for num in (seq 10 10 200)
         echo -n $num' '
-        set -l shoulds (anki_should $num)
+        set -l shoulds (anki-should-impl $num)
         echo -n "$shoulds "
         math "round $num / $shoulds"
     end
