@@ -165,49 +165,16 @@ function scratchpad
 end
 funcsave scratchpad >/dev/null
 
-function _?
-    if status is-interactive
-        command $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
-    else
-        command $argv --help
-    end
-end
-funcsave _? >/dev/null
-
-function _%
-    if status is-interactive
-        man $argv 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml
-    else
-        man $argv
-    end
-end
-funcsave _% >/dev/null
-
 function ?
     set -l helppage $argv
-    if not test "$helppage"
-        set helppage (ypoc)
-    end
-    if builtin -q $helppage[1]
-        _% $helppage
-        return
-    end
-    # doesn't try to fall back on manpages because some programs output a help page *and* set a non-zero statuscode
-    # I don't know of a general way to check whether --help exists or not, considering that
-    _? $helppage
+    not test "$helppage" && set helppage (ypoc)
+    $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
 end
 funcsave ? >/dev/null
 
 function %
     set -l manpage $argv
-    if not test "$manpage"
-        set manpage (ypoc)
-    end
-    man --where $manpage &>/dev/null
-    if test $status -eq 16 # 16 means "manpage not found"
-        _? $manpage
-        return
-    end
-    _% $manpage
+    not test "$manpage" && set manpage (ypoc)
+    man $manpage 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml
 end
 funcsave % >/dev/null
