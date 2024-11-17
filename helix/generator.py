@@ -245,6 +245,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-p': 'expand_selection',
     'A-k': 'expand_selection',
     '\\': 'shell_pipe',
+    '|': 'shell_pipe_to',
     '{': 'goto_prev_paragraph',
     '}': 'goto_next_paragraph',
     '#': 'toggle_comments',
