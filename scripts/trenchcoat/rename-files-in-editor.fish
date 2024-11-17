@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-r $argv
+r (path basename $argv)
