@@ -109,10 +109,3 @@ function ffmpeg-remove-metadata
     mv -f _$input $input
 end
 funcsave ffmpeg-remove-metadata >/dev/null
-
-function rename-all-random
-    for file in (ls)
-        mv $file (uclanr -j - 3)(path extension $file)
-    end
-end
-funcsave rename-all-random >/dev/null

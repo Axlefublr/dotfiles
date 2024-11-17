@@ -123,3 +123,10 @@ function random-fav-emoji
     tail -n 30 ~/bs/fav-emoji-history | sponge ~/bs/fav-emoji-history
 end
 funcsave random-fav-emoji >/dev/null
+
+function randomize-file-names
+    for file in $argv
+        mv $file (uclanr 3 -j '-')(path extension $file)
+    end
+end
+funcsave randomize-file-names >/dev/null
