@@ -178,3 +178,15 @@ function %
     man $manpage 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml
 end
 funcsave % >/dev/null
+
+function r
+    printf %s\n $argv >~/bs/rename-files-in-editor
+    $EDITOR ~/bs/rename-files-in-editor
+    set -l counter 0
+    for line in (cat ~/bs/rename-files-in-editor)
+        set counter (math $counter + 1)
+        mv $argv[$counter] ~/bs/rename-files-in-editor-temporary
+        mv ~/bs/rename-files-in-editor-temporary "$line"
+    end
+end
+funcsave r >/dev/null
