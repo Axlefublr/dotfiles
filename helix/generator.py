@@ -278,6 +278,8 @@ normal_select_mappings: dict[str, Any] = {
         'v': ':sh ghl %r | copy',
         'V': ':sh ghl -pb HEAD %r | copy',
         'Z': ':sh ghl | copy',
+        'K': ':set inline-diagnostics.max-diagnostics 0',
+        'k': ':set inline-diagnostics.max-diagnostics 999',
     },
     'space': {
         'z': 'harp_cwd_get',
