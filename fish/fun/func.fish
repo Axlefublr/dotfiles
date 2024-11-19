@@ -189,7 +189,5 @@ function install_yt_video
         install-yt-video.fish $extra $link &
     end
     _magazine_commit $where_links install
-    wait
-    notify-send -t 5000 'links finished downloading'
 end
 funcsave install_yt_video >/dev/null

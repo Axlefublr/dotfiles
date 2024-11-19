@@ -16,3 +16,4 @@ kitty -T link-download yt-dlp \
     $link
 notify-send -t 3000 "downloaded: $(cat $file)"
 rm -fr $file
+not_matches 'kitty — link-download' && notify-send -t 5000 'downloads finished'
