@@ -51,6 +51,9 @@ ya pack -a yazi-rs/plugins:jump-to-char
 ya pack -a Ape/open-with-cmd
 ya pack -a KKV9/compress
 
+# Ruby
+gem install solargraph
+
 # Brillo
 begin
     echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"'
