@@ -1,37 +1,5 @@
 #!/usr/bin/env fish
 
-function execute_somehow -d 'expects cwd, then full path to the buffer as args'
-    if not test "$argv[2]"
-        return
-    end
-    set -l extension (path extension $argv[2] | cut -c 2-)
-    set -l base (path basename $argv[2])
-    if test $base = xremap.yml
-        xrestart.fish
-    else if test $argv[1] = ~/prog/forks/helix
-        win --hold ./build.fish
-    else if test $extension = rs -o $base = Cargo.toml
-        over --hold cargo run
-    else if test $extension = py
-        python $argv[2]
-    else if test $extension = fish
-        fish $argv[2]
-    end
-end
-funcsave execute_somehow >/dev/null
-
-function diag_somehow -d 'expects cwd, then full path to the buffer as args'
-    if not test "$argv[2]"
-        return
-    end
-    set -l base (path basename $argv[2])
-    set -l extension (path extension $argv[2] | cut -c 2-)
-    if test $extension = rs -o $base = 'Cargo.toml'
-        over --hold cargo clippy
-    end
-end
-funcsave diag_somehow >/dev/null
-
 function engined_search
     set -l input (
         for line in (cat ~/.local/share/magazine/B)
