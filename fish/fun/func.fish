@@ -155,7 +155,7 @@ end
 funcsave pacclean >/dev/null
 
 function install_yt_video
-    set extra (begin
+    set -l extra (begin
         echo youtube
         echo longform
         echo asmr
@@ -170,11 +170,11 @@ function install_yt_video
             set -f where_links ~/.local/share/magazine/i
     end
     if not test -s $where_links
-        or test "$(cat $where_links)" = '\n'
         notify-send -t 2000 'no stored links'
         return 1
     end
-    set -l how_many (clorange youtube show)
+    set -l how_many (rofi -dmenu 2>/dev/null)
+    test $status -ne 0 && return 1
     set -l stored_links (count (cat $where_links))
     set -l links_to_install (head -n $how_many $where_links)
     tail -n "+$(math $how_many + 1)" $where_links | sponge $where_links
