@@ -292,6 +292,9 @@ normal_select_mappings: dict[str, Any] = {
         'W': 'harp_search_set',
         'q': 'harp_register_get',
         'Q': 'harp_register_set',
+        'a': 'harp_command_get',
+        # I want to move this space *before* the `harp_command_set`
+        'A': ' harp_command_set',
         'U': ':sh tab --cwd=%h',
         'I': ':sh win --cwd=%h',
         'O': ':sh over --cwd=%h',
@@ -315,8 +318,6 @@ normal_select_mappings: dict[str, Any] = {
         'l': 'symbol_picker',
         'L': 'workspace_symbol_picker',
         'j': 'global_search',
-        'a': ":sh execute_somehow '%w' '%p'",
-        'A': ":sh diag_somehow '%w' '%p'",
         ':': 'replace_selections_with_clipboard',
         ';': {
             'h': ':lang html',
