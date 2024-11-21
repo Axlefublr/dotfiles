@@ -4,6 +4,16 @@
 ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
 ln -sf ~/prog/dotfiles/x11/.XCompose ~/.XCompose
 
+# Fish shell
+chsh -s /usr/bin/fish
+mkdir -p ~/.config/fish
+ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
+for file in ~/prog/dotfiles/fish/fun/*.fish
+    $file
+end
+~/prog/dotfiles/fish/once.fish
+~/prog/dotfiles/fish/universal.fish
+
 # Paru
 mkdir -p ~/.config/paru
 ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
@@ -29,11 +39,6 @@ mkdir -p ~/.cargo/bin/
 rm -fr ~/.cargo/bin/runtime
 ln -sf ~/prog/forks/helix/runtime ~/.cargo/bin/
 
-# Fish shell
-chsh -s /usr/bin/fish
-mkdir -p ~/.config/fish
-ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
-
 # Kitty terminal
 mkdir -p ~/.config/kitty
 ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
@@ -53,6 +58,9 @@ ya pack -a KKV9/compress
 
 # Ruby
 gem install solargraph
+
+# Scriptisto
+scriptisto new crystal >~/prog/the
 
 # Brillo
 begin

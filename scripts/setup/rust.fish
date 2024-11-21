@@ -11,4 +11,4 @@ cargo login
 
 cargo binstall -y cargo-quickinstall
 cargo binstall -y cargo-info
-cargo binstall -y irust
+cargo binstall -y scriptisto
