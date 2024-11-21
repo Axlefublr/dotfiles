@@ -75,7 +75,7 @@
 'diagnostic.info' = {}
 'diagnostic.warning' = {}
 'diagnostic.error' = {}
-'diagnostic.deprecated' = { modifiers = ['crossed-out'] }
+'diagnostic.deprecated' = { modifiers = ['crossed_out'] }
 'diagnostic.unnecessary' = { fg = 'grey' }
 # 'diagnostic' = { underline = { style = 'curl' } }
 # 'diagnostic.hint' = { underline = { color = 'cyan', style = 'curl' } }
