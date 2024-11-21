@@ -1,0 +1,12 @@
+/* crystal-lang.org
+ * domain
+ */
+
+.md-sidebar {
+	flex-shrink: 1;
+	flex-grow: 1;
+}
+
+.md-content {
+	margin-left: 3em;
+}
