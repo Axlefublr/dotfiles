@@ -1,4 +1,20 @@
 [[language]]
+name = 'crystal'
+auto-format = false
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+"'" = "'"
+
+[language.indent]
+tab-width = 3
+unit = '\t'
+
+[[language]]
 name = 'ruby'
 language-servers = ['solargraph', 'rubocop']
 auto-format = true
