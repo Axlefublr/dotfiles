@@ -1,4 +1,13 @@
 [[language]]
+name = 'ruby'
+language-servers = ['solargraph', 'rubocop']
+auto-format = true
+
+[language-server.rubocop]
+command = 'rubocop'
+args = ['--lsp']
+
+[[language]]
 name = 'css'
 formatter = { command = 'prettier', args = ['--parser', 'css'] }
 
