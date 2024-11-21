@@ -293,8 +293,7 @@ normal_select_mappings: dict[str, Any] = {
         'q': 'harp_register_get',
         'Q': 'harp_register_set',
         'a': 'harp_command_get',
-        # I want to move this space *before* the `harp_command_set`
-        'A': ' harp_command_set',
+        'A': 'harp_command_set',
         'U': ':sh tab --cwd=%h',
         'I': ':sh win --cwd=%h',
         'O': ':sh over --cwd=%h',

@@ -90,7 +90,7 @@
 'constant' = 'purple'
 'constant.character.escape' = 'grey'
 'constant.numeric' = 'blush'
-'constructor' = 'blush'
+'constructor' = 'cyan'
 'function' = 'green'
 'function.builtin' = 'blush'
 'function.macro' = 'mint'

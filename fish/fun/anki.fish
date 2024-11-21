@@ -26,7 +26,7 @@ funcsave anki-once >/dev/null
 
 function anki-should
     anki-should-impl (anki-once)
-    shuf -n 1 -e freq freq dont
+    shuf -n 1 -e freq dont
 end
 funcsave anki-should >/dev/null
 
@@ -66,7 +66,6 @@ function anki-add-card
         indeed -n ~/.local/share/magazine/A "$(string join ';' $fields)"
         _magazine_commit ~/.local/share/magazine/A card
     end
-    head -n 2 ~/bs/anki_card.html | sponge ~/bs/anki_card.html
 end
 funcsave anki-add-card >/dev/null
 
