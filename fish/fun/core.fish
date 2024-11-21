@@ -33,6 +33,13 @@ function imgs
 end
 funcsave imgs >/dev/null
 
+function imgsw
+    imgs $argv[1]
+    magick $argv[1].png $argv[1].webp
+    rm -f $argv[1].png
+end
+funcsave imgsw >/dev/null
+
 function vids
     cp -f ~/vid/rec.mp4 $argv[1].mp4
 end
