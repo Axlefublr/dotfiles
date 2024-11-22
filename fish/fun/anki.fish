@@ -26,7 +26,7 @@ funcsave anki-once >/dev/null
 
 function anki-should
     anki-should-impl (anki-once)
-    shuf -n 1 -e freq dont
+    shuf -n 1 -e freq dont dont
 end
 funcsave anki-should >/dev/null
 
