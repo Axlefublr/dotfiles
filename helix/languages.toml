@@ -1,4 +1,8 @@
 [[language]]
+name = 'nim'
+language-servers = ['nimlsp']
+
+[[language]]
 name = 'crystal'
 auto-format = false
 # grammar = 'crystal'
