@@ -74,6 +74,7 @@ toolbar .toolbaritem-combined-buttons {
 					}
 
 					.tab-content {
+						padding: 0 0.5rem !important;
 						.tab-label-container {
 							height: 1.7em !important;
 							flex-direction: row !important;
