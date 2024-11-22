@@ -76,7 +76,13 @@ toolbar .toolbaritem-combined-buttons {
 					.tab-content {
 						.tab-label-container {
 							height: 1.7em !important;
+							flex-direction: row !important;
 							mask-image: none !important;
+							> .tab-text {
+								/* half of the total width of the favicon */
+								padding: 0 21.5px 0 0 !important;
+							}
+
 						}
 					}
 				}
