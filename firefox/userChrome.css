@@ -107,6 +107,8 @@ toolbar .toolbaritem-combined-buttons {
 
 		> #nav-bar-customization-target {
 			> #unified-extensions-button {
+				padding-inline-start: 5px !important;
+
 				> .toolbarbutton-icon {
 					margin-top: -1px !important;
 				}
@@ -164,7 +166,7 @@ toolbar .toolbaritem-combined-buttons {
 
 							> #urlbar-zoom-button {
 								font-size: unset !important;
-								padding: 0 !important;
+								padding: 0 4px 0 9px !important;
 								border-radius: unset !important;
 								background-color: unset !important;
 								margin-block: unset !important;
