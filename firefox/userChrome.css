@@ -78,11 +78,19 @@ toolbar .toolbaritem-combined-buttons {
 							height: 1.7em !important;
 							flex-direction: row !important;
 							mask-image: none !important;
+
+							&:has(.tab-secondary-label[muted]) > .tab-text {
+								text-decoration: line-through solid !important;
+							}
+
 							> .tab-text {
 								/* half of the total width of the favicon */
 								padding: 0 21.5px 0 0 !important;
 							}
 
+							> .tab-secondary-label {
+								display: none !important;
+							}
 						}
 					}
 				}
