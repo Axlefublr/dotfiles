@@ -192,8 +192,9 @@ function r
     set -l counter 0
     for line in (cat ~/bs/rename-files-in-editor)
         set counter (math $counter + 1)
-        mv $argv[$counter] ~/bs/rename-files-in-editor-temporary
-        mv ~/bs/rename-files-in-editor-temporary "$line"
+        set -l dirname (path dirname "$line")
+        test "$dirname" != '.' && mkdir -p $dirname
+        mv -f $argv[$counter] "$line"
     end
 end
 funcsave r >/dev/null
