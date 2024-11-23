@@ -73,38 +73,16 @@ end
 funcsave git-search >/dev/null
 
 function uboot
-    sudo -v
     for package in (cat ~/.local/share/magazine/C)
-        paru -Rns --noconfirm $package
+        cat ~/prog/info/pswds/sudo | sudo -S pacman -Rns --noconfirm $package
     end
     truncate -s 0 ~/.local/share/magazine/C
-    clorange docs increment
-    set -l doc_dirs (eza -aD ~/docs)
-    set -l count_doc_dirs (count $doc_dirs)
-    set -l current_doc_dir (math "$(clorange doc_dirs increment) % $count_doc_dirs + 1")
-    kitten @ launch --type os-window --os-window-title link-download --cwd ~/docs/$doc_dirs[$current_doc_dir] httrack --update
-    sudo -v
-    if test (math (clorange updates show) % 5) -eq 0
+    if test (math (clorange updates increment) % 14) -eq 0
         rustup update
-    end
-    sudo -v
-    if test (math (clorange updates show) % 3) -eq 0
         cargo install-update -a
     end
-    sudo -v
-    paru
+    cat ~/prog/info/pswds/sudo | sudo -S pacman -Syyu
     pacclean
-    clorange updates increment
-    loago do update
-    notify-send 'finished updating, what to do now?'
-    read -p rdp -ln 1 response
-    if test $response = r
-        reboot
-    else if test $response = l
-        logout
-    else if test $response = s
-        poweroff
-    end
 end
 funcsave uboot >/dev/null
 

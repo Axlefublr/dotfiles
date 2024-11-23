@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function anki-update
-    if test (anki-due-learninng) -gt 0
+    if test (anki-due-learning) -gt 0
         if not test "$argv"
             clorange anki increment >/dev/null
         end
@@ -14,10 +14,10 @@ function anki-update
 end
 funcsave anki-update >/dev/null
 
-function anki-due-learninng
+function anki-due-learning
     ankuery is:due is:learn
 end
-funcsave anki-due-learninng >/dev/null
+funcsave anki-due-learning >/dev/null
 
 function anki-due
     ankuery is:due
@@ -31,7 +31,7 @@ funcsave anki-once >/dev/null
 
 function anki-should
     anki-should-impl (anki-once)
-    if test "$(ankuery 'deck:Freq is:due')" -le 30
+    if test "$(ankuery 'deck:Freq is:due')" -le 35
         echo freq
     else
         echo dont

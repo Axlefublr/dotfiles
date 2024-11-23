@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-clorange megafon increment
-
 trash-empty -f 2
 
 cd ~/.local/share/magazine
@@ -22,7 +20,7 @@ else
     indeed -nu ~/.local/share/magazine/x (cat ~/.local/share/magazine/rightbrace)
 end
 
-if test (math (clorange megafon show) % 30) -eq 0
+if test (math (clorange megafon increment) % 30) -eq 0
     task 'megafon (579) tomorrow'
 end
 
@@ -55,21 +53,19 @@ end
 loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sleep, it hasn't connected to wifi at that point, but *has* started executing this script. so what ends up happening is gpp fails to push all the directories because it doesn't have internet to do so yet.
 
 for dir in ~/prog/forks/*
-    cd $dir
-    git fetch
-    git fetch upstream
+    git -C $dir fetch
+    git -C $dir fetch upstream
 end
 
 for dir in ~/prog/stored/*
-    cd $dir
-    git fetch
-    git reset --hard origin/HEAD
+    git -C $dir fetch
+    git -C $dir reset --hard origin/HEAD
 end
 
 for dir in (cat ~/.local/share/magazine/R)
-    set dir (string replace -r "^~" "$HOME" $dir)
-    cd $dir
-    git push
+    git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
 notify-send -t 0 "$(random-fav-emoji)"
+
+ubootf
