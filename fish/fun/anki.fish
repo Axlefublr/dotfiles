@@ -26,7 +26,11 @@ funcsave anki-once >/dev/null
 
 function anki-should
     anki-should-impl (anki-once)
-    shuf -n 1 -e freq dont dont
+    if test (math (clorange freqs increment) % 4) -eq 0
+        echo freq
+    else
+        echo dont
+    end
 end
 funcsave anki-should >/dev/null
 
