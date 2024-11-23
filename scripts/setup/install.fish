@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-sudo pacman -Syu
+sudo pacman -Syyu
 
 for package_name in (cat ~/.local/share/magazine/Z)
     sudo pacman -S --noconfirm $package_name
