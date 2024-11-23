@@ -26,7 +26,7 @@ if test (math (clorange megafon show) % 30) -eq 0
     task 'megafon (579) tomorrow'
 end
 
-if test (date '+%A') = Sunday
+if test (date '+%A') = Thursday
     task ask
 end
 

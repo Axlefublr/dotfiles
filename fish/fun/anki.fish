@@ -31,7 +31,7 @@ funcsave anki-once >/dev/null
 
 function anki-should
     anki-should-impl (anki-once)
-    if test (math (clorange freqs increment) % 4) -eq 0
+    if test "$(ankuery 'deck:Freq is:due')" -le 30
         echo freq
     else
         echo dont
