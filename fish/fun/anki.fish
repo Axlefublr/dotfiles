@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function anki-update
-    if test (anki-due) -gt 0
+    if test (anki-due-learninng) -gt 0
         if not test "$argv"
             clorange anki increment >/dev/null
         end
@@ -14,8 +14,13 @@ function anki-update
 end
 funcsave anki-update >/dev/null
 
-function anki-due
+function anki-due-learninng
     ankuery is:due is:learn
+end
+funcsave anki-due-learninng >/dev/null
+
+function anki-due
+    ankuery is:due
 end
 funcsave anki-due >/dev/null
 
