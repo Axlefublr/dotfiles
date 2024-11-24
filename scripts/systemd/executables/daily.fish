@@ -66,6 +66,6 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
-notify-send -t 0 "$(random-fav-emoji)"
+indeed -nu ~/.local/share/magazine/semicolon "$(random-fav-emoji)"
 
 ubootf
