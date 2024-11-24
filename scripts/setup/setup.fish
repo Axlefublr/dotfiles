@@ -18,5 +18,9 @@ begin
     echo 'nameserver 8.8.8.8' # google DNS server
 end | sudo tee /etc/resolv.conf
 
+# keep lowering this until it's okay
+ping -c 4 -M do -s 1472 google.com
+sudo ip link set dev wlan0 mtu $optimal_value
+
 # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
 # Gruvbox Dark BL — https://www.gnome-look.org/p/1681313

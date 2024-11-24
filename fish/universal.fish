@@ -16,6 +16,8 @@ set -Ux PYTHONSTARTUP ~/prog/dotfiles/pyrc.py
 set -Ux TELOXIDE_TOKEN (cat ~/prog/info/pswds/axleizer-api)
 set -Ux XDG_CONFIG_HOME ~/.config
 set -Ux _ZO_MAXAGE 30000
+set -Ux http_proxy http://(cat ~/.local/share/magazine/p)[1]
+set -Ux https_proxy http://(cat ~/.local/share/magazine/p)[1]
 
 set -U fish_lazy_load_completions true
 set -U fish_lazy_load_functions true

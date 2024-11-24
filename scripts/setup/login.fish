@@ -21,9 +21,7 @@ end
 
 firefox 2>>/tmp/log/user.txt & disown
 anki 2>>/tmp/log/user.txt & disown
-# set vivaldis (win_wait 'Vivaldi-stable' 0.1 5 200)
-# move_all 2 $vivaldis
-# set ankis (win_wait 'anki\.Anki' 0.1 0 50)
+set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
 ydotoold 2>>/tmp/log/user.txt & disown
@@ -31,7 +29,7 @@ ydotoold 2>>/tmp/log/user.txt & disown
 gromit.fish 2>>/tmp/log/user.txt & disown
 copyq 2>>/tmp/log/user.txt & disown
 playerctld daemon
-RUST_LOG=debug axleizer &>/tmp/log/axleizer.txt & disown
+axleizer &>/tmp/log/axleizer.txt & disown
 
 # notify-send -t 2000 spotify
 # loopuntil is_internet 0.5 0 60
