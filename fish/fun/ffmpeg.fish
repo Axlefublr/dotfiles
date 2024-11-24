@@ -13,8 +13,8 @@ function ffmpeg-convert-video
     read -P 'output: ' -f output || return 121
     if not test "$output"
         set -f output (uclanr 3 -j -)$extension
-    else if test -z "$(string extension $output)"
-        set output output$extension
+    else if test -z "$(path extension $output)"
+        set output $output$extension
     end
     set output (string replace -a '!!' $input_basename $output)
 
@@ -30,11 +30,15 @@ function ffmpeg-convert-video
     read -P 'to: ' -l to || return 121
     if test "$to"
         set to -to $to
+    else
+        set -e to
     end
+    confirm 'copy over audio channel?' '[j]es' '[k]o'
+    test $status -eq 1 && set -f copy_audio -c:a copy
 
-    ffmpeg -i $input $from $to -c:a copy $output
+    ffmpeg -i $input $from $to $copy_audio $output
     set_color -o a9b665
-    echo "ffmpeg -i $input $from $to -c:a copy $output"
+    echo "ffmpeg -i $input $from $to $copy_audio $output"
 end
 funcsave ffmpeg-convert-video >/dev/null
 
@@ -52,7 +56,7 @@ function ffmpeg-compress-video
     if not test "$output"
         set -f output (uclanr 3 -j -)$extension
     else if test -z "$(string extension $output)"
-        set output output$extension
+        set output $output$extension
     end
     set output (string replace -a '!!' $input_basename $output)
 
@@ -80,7 +84,7 @@ function ffmpeg-combine-two-videos-into-one
     if not test "$output"
         set -f output (uclanr 3 -j -)$extension
     else if test -z "$(string extension $output)"
-        set output output$extension
+        set output $output$extension
     end
     set output (string replace -a '!!' $input_basename $output)
 
@@ -98,6 +102,8 @@ function ffmpeg-convert-to-mp3
     read -P 'input: ' -l input || return 121
     not test -f "$input" && return 121
     ffmpeg -i $input -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 $input)
+    confirm 'delete input video?' '[j]es' '[k]o'
+    test $status -eq 1 && rm -f $input
 end
 funcsave ffmpeg-convert-to-mp3 >/dev/null
 
