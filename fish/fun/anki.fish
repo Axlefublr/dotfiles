@@ -30,8 +30,18 @@ end
 funcsave anki-once >/dev/null
 
 function anki-should
-    anki-should-impl (anki-once)
-    if test "$(ankuery 'deck:Freq is:due')" -le 35
+    if set -q argv[1]
+        anki-should-impl $argv[1]
+    else
+        anki-should-impl (anki-once)
+    end
+    if set -q argv[2]
+        and set -q argv[3]
+        set -f freqs (math $argv[2] + $argv[3])
+    else
+        set -f freqs (ankuery 'deck:Freq is:due')
+    end
+    if test $freqs -le 35
         echo freq
     else
         echo dont
