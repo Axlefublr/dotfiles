@@ -282,6 +282,7 @@ normal_select_mappings: dict[str, Any] = {
         'K': ':set inline-diagnostics.max-diagnostics 0',
         'c': ':pipe wc -c',
         'C': ':pipe wc -l',
+        'o': ':toggle auto-format',
     },
     'space': {
         'z': 'harp_cwd_get',
