@@ -4,11 +4,11 @@ language-servers = ['nimlsp']
 
 [[language]]
 name = 'fish'
-# language-servers = ['fish-lsp']
+language-servers = ['fish-lsp']
 
-# [language-server.fish-lsp]
-# command = 'fish-lsp'
-# args = ['start']
+[language-server.fish-lsp]
+command = 'fish-lsp'
+args = ['start']
 
 [[language]]
 name = 'crystal'
