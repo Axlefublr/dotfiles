@@ -25,7 +25,9 @@ set -Ux fish_lsp_format_tabsize 4
 set -Ux fish_lsp_all_indexed_paths ~/prog/dotfiles/fish/fun ~/.config/fish /usr/share/fish
 # set -Ux fish_lsp_modifiable_paths
 # 2003 is "universal variable defined not in interactive session"
-set -Ux fish_lsp_diagnostic_disable_error_codes 2003
+# 2001 is something about single quotes being used for an expandable thing
+# 2002 is "alias used, prefer functions instead" like WOW that is one of the stupidest lints I have ever seen
+set -Ux fish_lsp_diagnostic_disable_error_codes 2003 2001 2002
 set -Ux fish_lsp_show_client_popups false
 
 set -U fish_lazy_load_completions true
