@@ -166,11 +166,12 @@ normal_mappings: dict[str, Any] = {
     'D': ['collapse_selection', 'move_char_left', 'delete_selection'],
     'y': 'move_prev_word_end',
     'Y': 'move_prev_long_word_end',
+}
+normal_overrides: dict[str, Any] = {
     'g': {
         'y': 'move_prev_sub_word_end',
     },
 }
-
 normal_mappings.update(**rusify(normal_mappings))
 
 select_mappings: dict[str, Any] = {
@@ -187,6 +188,8 @@ select_mappings: dict[str, Any] = {
     'k': 'extend_visual_line_up',
     'y': 'extend_prev_word_end',
     'Y': 'extend_prev_long_word_end',
+}
+select_overrides: dict[str, Any] = {
     'g': {
         'y': 'extend_prev_sub_word_end',
     },
@@ -435,6 +438,8 @@ normal_select_mappings: dict[str, Any] = {
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
 select_mappings.update(**normal_select_mappings)
+normal_mappings['g'].update(**normal_overrides['g'])
+select_mappings['g'].update(**select_overrides['g'])
 
 mappings: dict[str, Any] = {
     'normal': normal_mappings,
