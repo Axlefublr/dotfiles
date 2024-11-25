@@ -21,10 +21,11 @@ set -Ux https_proxy http://(cat ~/.local/share/magazine/p)[1]
 
 set -Ux fish_lsp_enabled_handlers formatting complete hover rename definition references diagnostics signatureHelp codeAction index
 # set -Ux fish_lsp_disabled_handlers
-set -Ux fish_lsp_format_tabsize 3
+set -Ux fish_lsp_format_tabsize 4
 set -Ux fish_lsp_all_indexed_paths ~/prog/dotfiles/fish/fun ~/.config/fish /usr/share/fish
 # set -Ux fish_lsp_modifiable_paths
-# set -Ux fish_lsp_diagnostic_disable_error_codes
+# 2003 is "universal variable defined not in interactive session"
+set -Ux fish_lsp_diagnostic_disable_error_codes 2003
 set -Ux fish_lsp_show_client_popups false
 
 set -U fish_lazy_load_completions true
