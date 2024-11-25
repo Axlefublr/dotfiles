@@ -111,11 +111,11 @@ keymap:
       only: Anki
     remap:
       # [[sort on]]
+      # Ctrl-Shift-i: { launch: [fish, -c, 'anki-import'] }
       Alt-j: { launch: [fish, -c, 'anki-deck Once'] }
       Alt-k: { launch: [fish, -c, 'anki-deck Freq'] }
       CapsLock-Space: { launch: [fish, -c, special_anki_edit_action] }
       Ctrl-Semicolon: ctrl-shift-x
-      Ctrl-Shift-i: { launch: [fish, -c, 'anki-import'] }
       Ctrl-j: down
       Ctrl-k: up
       # [[sort off]]
@@ -1637,7 +1637,7 @@ keymap:
       Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
       Super-Alt-w: { launch: [fish, -c, 'ypoc -t image/png 2>/dev/null | display'] }
       CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
-      CapsLock-Alt-v: { launch: [mpv, '--start=0', '/home/axlefublr/vid/rec.mp4'] }
+      CapsLock-Alt-v: { launch: [mpv, '--start=0', '/home/axlefublr/z.mp4'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
       Super-Alt-b: { launch: [fish, -c, 'scratchpad --wintitle=line --cwd=~'] }
       Super-Alt-Semicolon: { launch: [rofi, -show, drun] }

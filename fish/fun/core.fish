@@ -41,7 +41,7 @@ end
 funcsave imgsw >/dev/null
 
 function vids
-    cp -f ~/vid/rec.mp4 $argv[1].mp4
+    cp -f ~/z.mp4 $argv[1].mp4
 end
 funcsave vids >/dev/null
 
