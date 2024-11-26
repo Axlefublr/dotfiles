@@ -74,15 +74,19 @@ function anki-sync
 end
 funcsave anki-sync >/dev/null
 
-function anki-add-card
+function anki-add-card # TODO: rewrite logic in nim
     neoline_hold ~/bs/anki_card.html
+    _magazine_commit ~/bs/anki_card.html attard
     set -l fields (cat ~/bs/anki_card.html)
-    test (count $fields) -le 2 && return 1
+    test (count -- $fields) -le 2
+    and begin
+        notify-send -t 3000 'less than 3 fields'
+    end
     begin
         test (count $fields) -eq 3 && set fields $fields '' '' ''
         test (count $fields) -eq 4 && set fields $fields '' ''
         test (count $fields) -eq 5 && set fields $fields ''
-        indeed -n ~/.local/share/magazine/A "$(string join ';' $fields)"
+        indeed -n ~/.local/share/magazine/A -- "$(string join ';' -- $fields)" # FIXME: should wrap fields 3+ in quotes
         _magazine_commit ~/.local/share/magazine/A card
     end
 end

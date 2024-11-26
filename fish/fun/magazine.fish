@@ -106,7 +106,7 @@ function magazine_append_link
     set result (rofi -dmenu 2>/dev/null ; echo $status)
     test $result[-1] -ne 0 && return || set -e result[-1]
     set link (ypoc)
-    indeed -nu ~/.local/share/magazine/l "$result — $link"
+    indeed -nu ~/.local/share/magazine/l -- "$result — $link"
     _magazine_commit ~/.local/share/magazine/l append
     notify-send -t 2000 "append link $link"
 end
@@ -116,7 +116,7 @@ function magazine_append_symbol
     set symbol_name (rofi -dmenu 2>/dev/null)
     test $status -ne 0 && return 1
     set symbol_text (ypoc)
-    indeed -nu ~/.local/share/magazine/e (begin
+    indeed -nu ~/.local/share/magazine/e -- (begin
         echo -n $symbol_text' '
         for thingy in (string split '' $symbol_text)
             printf '%x ' \'$thingy
