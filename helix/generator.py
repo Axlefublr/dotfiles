@@ -207,7 +207,9 @@ insert_mappings: dict[str, Any] = {
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
     'C-u': 'kill_to_line_start',
     'A-;': ['collapse_selection', 'paste_before'],
-    'A-"': 'harp_register_get',
+    'C-n': 'completion',
+    'C-p': 'completion',
+    'A-u': 'signature_help',
 }
 insert_mappings.update(**rusify(insert_mappings))
 
@@ -383,7 +385,8 @@ normal_select_mappings: dict[str, Any] = {
         'K': ':hsplit-new',
         ':': ':quit!',
         ';': ':write-quit-all',
-        'u': 'transpose_view',
+        'u': 'signature_help',
+        # 'u': 'transpose_view',
         'o': 'wclose',
         'O': 'wonly',
         'h': ['collapse_selection', 'extend_to_first_nonwhitespace'],
