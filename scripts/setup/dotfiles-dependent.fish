@@ -271,3 +271,16 @@ function inst-postgresql
     rm -fr dvdrental.tar
     psql -U postgres -d dvdrental -c 'SELECT count(*) FROM film;' -c 'SELECT version();'
 end
+
+function inst-ocaml
+    opam init -y
+    opam update
+    opam upgrade
+    eval (opam env)
+    opam switch create ocaml-base-compiler
+    opam switch set ocaml-base-compiler
+    eval (opam env)
+    opam install ocaml-lsp-server
+    opam install ocamlformat
+    opam install utop
+end

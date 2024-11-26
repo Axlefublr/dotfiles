@@ -8,6 +8,7 @@ set -gx VISUAL helix
 set -gx MANPAGER cat
 
 zoxide init fish | source
+eval (opam env)
 
 if status is-interactive
     for file in ~/prog/dotfiles/fish/abbreviations/*.fish
