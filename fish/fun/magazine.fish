@@ -130,6 +130,8 @@ funcsave magazine_append_symbol >/dev/null
 
 function magazine_truncate_imports
     set -l file_path ~/.local/share/magazine/A
+    set -l cards (tail -n +4 ~/.local/share/magazine/A | wc -l)
+    notify-send -t 3000 $cards
     head -n 3 $file_path | sponge $file_path
     _magazine_notify $file_path import
     _magazine_commit $file_path import
