@@ -5,3 +5,9 @@ function mst -a tag
     echo "<$tag>$the</$tag>"
 end
 funcsave mst >/dev/null
+
+function msi -a left right
+    read -zl the
+    echo "$left$the$right"
+end
+funcsave msi >/dev/null
