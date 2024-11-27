@@ -68,7 +68,7 @@ file-types = [
   { glob = '**/magazine/d' },
   { glob = '**/magazine/c' },
 ]
-indent = { tab-width = 3, unit = '\t' }
+indent = { tab-width = 2, unit = '  ' }
 
 [[language]]
 name = 'lua'
