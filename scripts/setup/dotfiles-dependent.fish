@@ -284,3 +284,17 @@ function inst-ocaml
     opam install ocamlformat
     opam install utop
 end
+
+function inst-newsboat
+    mkdir -p ~/.newsboat
+    ln -sf ~/prog/dotfiles/newsboat ~/.newsboat/config
+end
+
+function uninst-newsboat
+    rm -fr ~/.newsboat
+end
+
+function inst-nom
+    mkdir -p ~/.config/nom
+    ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
+end

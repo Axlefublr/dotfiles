@@ -1,0 +1,23 @@
+configpath: /home/axlefublr/.config/nom/config.yml
+showfavourites: false
+version: ""
+feeds:
+  - url: https://nanotipsforvim.prose.sh/rss
+    name: chris grieser
+  - url: https://ficd.ca/feed.xml
+    name: ficd
+  - url: https://matklad.github.io/feed.xml
+    name: matklad
+  - url: https://project-mage.org/rss.xml
+    name: project mage
+  - url: https://vhyrro.github.io/rss.xml
+    name: vhyrro
+  - url: https://xkcd.com/rss.xml
+    name: xkcd
+theme:
+  glamour: dark
+  titleColor: "#e49641"
+  filterColor: "#e49641"
+  selectedItemColor: "#e49641"
+http:
+  mintls: TLS 1.2
