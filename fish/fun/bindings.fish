@@ -136,5 +136,11 @@ function fish_user_key_bindings
 
     binds -vids \ed clear-screen repaint
     binds -vids \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
+
+    # function asdf
+    #     commandline -o
+    # end
+    # funcsave asdf
+    # binds -vds L asdf
 end
 funcsave fish_user_key_bindings >/dev/null

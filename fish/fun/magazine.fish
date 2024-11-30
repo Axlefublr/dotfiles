@@ -44,8 +44,8 @@ funcsave magazine_write >/dev/null
 
 function magazine_append
     not test "$argv" && return
-    set result (rofi -dmenu 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return || set -e result[-1]
+    set -l result "$(get-input)"
+    test $status -eq 1 && return
     indeed -n $argv -- $result
     _magazine_notify $argv append
     _magazine_commit $argv append
@@ -103,8 +103,8 @@ funcsave magazine_commit >/dev/null
 #---------------------------------------------------special---------------------------------------------------
 
 function magazine_append_link
-    set result (rofi -dmenu 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return || set -e result[-1]
+    set -l result "$(get-input)"
+    test $status -eq 1 && return
     set link (ypoc)
     indeed -nu ~/.local/share/magazine/l -- "$result — $link"
     _magazine_commit ~/.local/share/magazine/l append

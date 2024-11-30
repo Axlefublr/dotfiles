@@ -50,7 +50,7 @@ end
 funcsave runner_math >/dev/null
 
 function runner_symbol
-    set result (rofi -dmenu 2> /dev/null ; echo $status)
+    set result (rofi -dmenu 2>/dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end
@@ -68,7 +68,7 @@ end
 funcsave runner_symbol >/dev/null
 
 function runner_symbol_name
-    set result (rofi -input ~/.local/share/magazine/E -sync -dmenu 2> /dev/null ; echo $status)
+    set result (rofi -input ~/.local/share/magazine/E -dmenu 2> /dev/null ; echo $status)
     if test $result[-1] -ne 0
         return 1
     end
