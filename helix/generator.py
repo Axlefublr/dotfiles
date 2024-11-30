@@ -326,6 +326,7 @@ normal_select_mappings: dict[str, Any] = {
         'L': 'workspace_symbol_picker',
         'j': 'global_search',
         ':': 'replace_selections_with_clipboard',
+        'k': 'select_first_and_last_chars',
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
