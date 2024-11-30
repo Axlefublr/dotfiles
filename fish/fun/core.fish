@@ -198,3 +198,16 @@ function r
     end
 end
 funcsave r >/dev/null
+
+function get-input
+    set -q argv[1] && set -f input_file -input $argv[1]
+    set -l input (rofi -dmenu $input_file 2>/dev/null)
+    test $status -eq 1 && return 1
+    if test (string sub -s -2 -- $input) = '%%'
+        string sub -e -2 -- $input >~/bs/get-input
+        neomax_hold ~/bs/get-input
+        set input "$(cat ~/bs/get-input)"
+    end
+    echo $input
+end
+funcsave get-input >/dev/null
