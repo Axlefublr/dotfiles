@@ -149,6 +149,10 @@ keymap = [
     'c',
     'a',
   ], run = 'plugin compress', desc = 'Archive selected files' },
+  { on = [
+    'c',
+    'i',
+  ], run = 'shell --confirm "copyi.fish $0"', desc = 'Copy image to clipboard' },
 
   # -----------------------------------------------Sorting-----------------------------------------------
   { on = [

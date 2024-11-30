@@ -94,7 +94,7 @@ funcsave neoline >/dev/null
 
 function neoline_hold
     neoline $argv
-    win_wait 'kitty\\.kitty — line'
+    win_wait 'kitty\\.kitty — line' >/dev/null
     win_wait_closed 'kitty\\.kitty — line'
 end
 funcsave neoline_hold >/dev/null
@@ -106,7 +106,7 @@ funcsave neomax >/dev/null
 
 function neomax_hold
     neomax $argv
-    win_wait 'kitty\\.kitty — max'
+    win_wait 'kitty\\.kitty — max' >/dev/null
     win_wait_closed 'kitty\\.kitty — max'
 end
 funcsave neomax_hold >/dev/null
@@ -168,7 +168,7 @@ function scratchpad
     argparse -i cwd= wintitle= -- $argv || return 1
     test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
     test "$_flag_wintitle" && set -l wintitle --os-window-title $_flag_wintitle
-    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv
+    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv &>/dev/null
 end
 funcsave scratchpad >/dev/null
 
