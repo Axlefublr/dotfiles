@@ -43,8 +43,8 @@ function runner_math
     set result "$(qalc $input)"
     notify-send -t 0 $result
     qalc -t $input | tee ~/.local/share/magazine/o | copy
-    indeed -nu ~/bs/qalc_history $input
-    tail -n 10 ~/bs/qalc_history | sponge ~/bs/qalc_history
+    indeed -n ~/bs/qalc_history $input
+    tail -n 1 ~/bs/qalc_history | sponge ~/bs/qalc_history
     _magazine_commit ~/.local/share/magazine/o math
 end
 funcsave runner_math >/dev/null
