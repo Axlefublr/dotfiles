@@ -55,7 +55,7 @@ function runner_symbol
         return 1
     end
     set -e result[-1]
-    if test -z $result
+    if test -z "$result"
         return 1
     end
     set output ''
@@ -73,7 +73,7 @@ function runner_symbol_name
         return 1
     end
     set -e result[-1]
-    if test -z $result
+    if test -z "$result"
         return 1
     end
     printf '\U'(string pad --char 0 --width 8 (string split ' ' $result)[1]) 2>/dev/null | xclip -r -selection clipboard
