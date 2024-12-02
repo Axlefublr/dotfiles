@@ -315,7 +315,7 @@ normal_select_mappings: dict[str, Any] = {
         'T': ':tree-sitter-scopes',
         't': ':tree-sitter-highlight-name',
         'f': 'file_picker_in_current_directory',
-        'F': 'file_browser_in_current_buffer_directory',
+        'k': 'file_browser_in_current_buffer_directory',
         'e': 'buffer_picker',
         'K': ':buffer-close!',
         'c': 'code_action',
@@ -326,7 +326,6 @@ normal_select_mappings: dict[str, Any] = {
         'L': 'workspace_symbol_picker',
         'j': 'global_search',
         ':': 'replace_selections_with_clipboard',
-        'k': 'select_first_and_last_chars',
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
@@ -405,10 +404,10 @@ normal_select_mappings: dict[str, Any] = {
         "'": ':reload-all',
         'z': ':config-reload',
         'i': 'hover',
+        '?': 'select_first_and_last_chars',
         **disable(
             [
                 # [[sort on]]
-                '?',
                 'C-b',
                 'C-d',
                 'C-f',
