@@ -11,3 +11,13 @@ function msi -a left right
     echo "$left$the$right"
 end
 funcsave msi >/dev/null
+
+function htmlize
+    read -zl | string replace -a '&' '&amp;' | string replace -a '<' '&lt;' | string replace -a '>' '&gt;'
+end
+funcsave htmlize >/dev/null
+
+function htmlace
+    read -z | string replace -a ' ' '&nbsp;'
+end
+funcsave htmlace >/dev/null
