@@ -46,6 +46,10 @@ name = 'css'
 formatter = { command = 'prettier', args = ['--parser', 'css'] }
 
 [[language]]
+name = 'html'
+# formatter = { command = 'prettier', args = ['--parser', 'html'] }
+
+[[language]]
 name = 'mojo'
 file-types = ["mojo", "🔥", { glob = 'kitty.conf' }]
 

@@ -13,11 +13,13 @@ end
 funcsave msi >/dev/null
 
 function htmlize
-    read -zl | string replace -a '&' '&amp;' | string replace -a '<' '&lt;' | string replace -a '>' '&gt;'
+    read -z | string replace -a '&' '&amp;' | string replace -a '<' '&lt;' | string replace -a '>' '&gt;' | sd \n '<br>' | sd '<br>$' '\n'
+    true
 end
 funcsave htmlize >/dev/null
 
 function htmlace
     read -z | string replace -a ' ' '&nbsp;'
+    true
 end
 funcsave htmlace >/dev/null
