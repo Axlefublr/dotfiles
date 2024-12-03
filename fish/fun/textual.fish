@@ -23,3 +23,9 @@ function htmlace
     true
 end
 funcsave htmlace >/dev/null
+
+function tritace
+    read -z | sd '(?m)[ \\t]+$' ''
+    true
+end
+funcsave tritace >/dev/null
