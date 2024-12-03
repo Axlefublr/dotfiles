@@ -86,6 +86,22 @@ function magazine_copy
 end
 funcsave magazine_copy >/dev/null
 
+function magazine_randomize
+    not test "$argv" && return
+    shuf $argv | sponge $argv
+    _magazine_notify $argv random
+    _magazine_commit $argv random
+end
+funcsave magazine_randomize >/dev/null
+
+function magazine_reverse
+    not test "$argv" && return
+    tac $argv | sponge $argv
+    _magazine_notify $argv reverse
+    _magazine_commit $argv reverse
+end
+funcsave magazine_reverse >/dev/null
+
 #-------------------------------------------------combinatory-------------------------------------------------
 
 function magazine_cut
