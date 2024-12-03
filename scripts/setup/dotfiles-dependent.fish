@@ -298,3 +298,9 @@ function inst-nom
     mkdir -p ~/.config/nom
     ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
 end
+
+function inst-firefox
+    # version 133.0
+    # /etc/pacman.conf
+    # IgnorePkg=firefox
+end
