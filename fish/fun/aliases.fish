@@ -1,13 +1,13 @@
 #!/usr/bin/env fish
 
 #----------------------------------------------default behavior----------------------------------------------
-alias --save unimatrix 'unimatrix -s 95 -abf'
+alias --save unimatrix 'unimatrix -s 95 -abf' >/dev/null
 alias --save fd 'fd --no-require-git' >/dev/null
 alias --save rg 'rg --engine auto' >/dev/null
 alias --save less 'less --use-color -R' >/dev/null
 alias --save termdown 'termdown -W -f roman' >/dev/null
 alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git -I bin -I obj -I target -I .vscode' >/dev/null
-alias --save ttyper 'ttyper -l uclanr -w 25'
+alias --save ttyper 'ttyper -l uclanr -w 25' >/dev/null
 alias --save icat 'kitten icat --align left' >/dev/null
 alias --save tgpt 'tgpt -q' >/dev/null
 alias --save yt-dlp 'yt-dlp $argv ; bell' >/dev/null
@@ -21,6 +21,7 @@ alias --save octogit-set "octogit --color-all-commits ffd75f \
 alias --save rofi_multi_select 'rofi -dmenu -multi-select -ballot-selected-str " " -ballot-unselected-str "  "' >/dev/null # you can't put the default ballot thingies in your config, this unfortunately has to be an alias (last I checked; could've changed)
 alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
+alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -s' >/dev/null
 
 #----------------------------------------------------direct----------------------------------------------------
 alias --save bell 'printf \a' >/dev/null
