@@ -9,9 +9,8 @@ set -l link $argv[2]
 
 set -l file (mktemp /dev/shm/install_yt_video.XXXXXX)
 set -l clipboard (xclip -selection clipboard -o)
-kitty -T link-download yt-dlp \
-    --proxy (cat ~/.local/share/magazine/p)[1] \
-    -o "/mnt/usb/$extra/%(channel)s — %(title)s — ;%(id)s;.%(ext)s" \
+kitty -T link-download yt-dlp.fish \
+    /mnt/usb/$extra \
     --print-to-file "%(channel)s — %(title)s" $file \
     $link
 notify-send -t 3000 "downloaded: $(cat $file)"
