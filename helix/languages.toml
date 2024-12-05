@@ -47,7 +47,8 @@ formatter = { command = 'prettier', args = ['--parser', 'css'] }
 
 [[language]]
 name = 'html'
-# formatter = { command = 'prettier', args = ['--parser', 'html'] }
+auto-format = false
+formatter = { command = 'prettier', args = ['--parser', 'html'] }
 
 [[language]]
 name = 'mojo'
