@@ -262,7 +262,6 @@ normal_select_mappings: dict[str, Any] = {
     'q': 'select_regex',
     'Q': 'split_selection',
     'A-m': 'split_selection_on_newline',
-    'A-+': 'reverse_selection_contents',
     ':': 'replace_with_yanked',
     'i': 'insert_mode',
     'a': 'append_mode',
@@ -405,6 +404,7 @@ normal_select_mappings: dict[str, Any] = {
         'z': ':config-reload',
         'i': 'hover',
         '?': 'select_first_and_last_chars',
+        '/': 'reverse_selection_contents',
         **disable(
             [
                 # [[sort on]]
