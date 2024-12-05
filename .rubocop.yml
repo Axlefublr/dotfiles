@@ -1,5 +1,39 @@
 Layout/LineLength:
   Max: 111
+
+Layout/EmptyLines:
+  Severity: refactor
+
+Layout/IndentationStyle:
+  EnforcedStyle: tabs
+  IndentationWidth: 3
+
+Layout/IndentationWidth:
+  Width: 1
+  Enabled: true
+
+Layout/TrailingEmptyLines:
+  Severity: refactor
+
+Layout/TrailingWhitespace:
+  Severity: refactor
  
+Lint/UselessAssignment:
+  Severity: refactor
+
 Style/BlockDelimiters:
   Enabled: false
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Severity: refactor
+  # AutoCorrect: always
+  # SafeAutocorrect: false
+
+Style/VariableInterpolation:
+  Severity: refactor

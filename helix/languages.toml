@@ -37,6 +37,10 @@ name = 'ruby'
 language-servers = ['solargraph', 'rubocop']
 auto-format = true
 
+[language.indent]
+tab-width = 3
+unit = '\t'
+
 [language-server.rubocop]
 command = 'rubocop'
 args = ['--lsp']
