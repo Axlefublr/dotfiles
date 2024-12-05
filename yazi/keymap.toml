@@ -36,6 +36,10 @@ keymap = [
   ], run = 'arrow -99999999', desc = 'Go to top' },
   { on = [
     'g',
+    'h',
+  ], run = 'cd ~', desc = 'Go home' },
+  { on = [
+    'g',
     'o',
   ], run = 'arrow 99999999', desc = 'Go to bottom' },
   { on = [
