@@ -205,7 +205,7 @@ function get-input
     test $status -eq 1 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >~/bs/get-input
-        neomax_hold ~/bs/get-input
+        neomax_hold "~/bs/get-input$(calculate-eof-position ~/bs/get-input)"
         set input "$(cat ~/bs/get-input)"
     end
     echo $input

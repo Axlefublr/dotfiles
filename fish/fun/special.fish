@@ -130,3 +130,11 @@ function randomize-file-names
     end
 end
 funcsave randomize-file-names >/dev/null
+
+function calculate-eof-position -a file
+    set -l last_line (wc -l $file | string split ' ')[1]
+    echo -n :$last_line:
+    set -l last_column (zat -s $last_line -e $last_line $file | wc -c | string split ' ')[1]
+    echo -n $last_column
+end
+funcsave calculate-eof-position >/dev/null
