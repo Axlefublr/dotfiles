@@ -300,4 +300,20 @@ function inst-firefox
     # version 133.0
     # /etc/pacman.conf
     # IgnorePkg=firefox
+    # widget.use-xdg-desktop-portal.file-picker 1
+end
+
+function inst-termfilechooser
+    fish_add_path /usr/lib
+    set -Ux TERMCMD kitty
+    set -Ux GDK_DEBUG portals
+    set -Ux GTK_USE_PORTAL 1
+    mkdir -p ~/.config/xdg-desktop-portal-termfilechooser
+    ln -sf ~/prog/dotfiles/termfilechooser/config ~/.config/xdg-desktop-portal-termfilechooser/config
+    sudo mkdir -p /usr/local/share/xdg-desktop-portal-termfilechooser
+    sudo ln -sf ~/prog/dotfiles/termfilechooser/yazi-wrapper.sh /usr/local/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+    mkdir -p ~/.config/xdg-desktop-portal
+    ln -sf ~/prog/dotfiles/termfilechooser/portals.conf ~/.config/xdg-desktop-portal/portals.conf
+    systemctl --user restart xdg-desktop-portal.service
+    systemctl --user restart xdg-desktop-portal-termfilechooser.service
 end
