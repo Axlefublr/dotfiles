@@ -535,7 +535,7 @@ Registers_mw.left = between
 function Registers_wu()
 	local widget = ''
 
-	for num = 0, 9 do
+	for num = 1, 9 do
 		local filename = os.getenv('HOME') .. '/.local/share/magazine/' .. tostring(num)
 		local file = io.open(filename, 'r')
 
