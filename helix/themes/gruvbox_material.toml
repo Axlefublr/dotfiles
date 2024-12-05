@@ -106,7 +106,7 @@
 # this is apparently the fuzzy matching text in the file picker. nope it is not mentioned once in the docs lol. discovered this by bruteforcing :3
 'special' = { fg = 'orange', modifiers = ['bold'] }
 'string' = 'yellow'
-'string.regexp' = 'cyan'
+'string.regexp' = 'mint'
 'tag' = 'yellow'
 'type' = 'cyan'
 'variable' = 'white'

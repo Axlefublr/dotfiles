@@ -83,7 +83,6 @@ function uboot
     end
     cat ~/prog/info/pswds/sudo | sudo -S pacman -Syyu
     pacclean
-    read -n 1
 end
 funcsave uboot >/dev/null
 
