@@ -186,19 +186,6 @@ function %
 end
 funcsave % >/dev/null
 
-function r
-    printf %s\n $argv >~/bs/rename-files-in-editor
-    $EDITOR ~/bs/rename-files-in-editor
-    set -l counter 0
-    for line in (cat ~/bs/rename-files-in-editor)
-        set counter (math $counter + 1)
-        set -l dirname (path dirname "$line")
-        test "$dirname" != '.' && mkdir -p $dirname
-        mv -f $argv[$counter] "$line"
-    end
-end
-funcsave r >/dev/null
-
 function get-input
     set -q argv[1] && set -f input_file -input $argv[1]
     set -l input (rofi -dmenu $input_file 2>/dev/null)

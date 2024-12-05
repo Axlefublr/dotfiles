@@ -88,8 +88,10 @@ keymap = [
   { on = ';', run = 'shell --interactive', desc = 'Run a shell command' },
   { on = ':', run = 'shell --block --interactive', desc = 'Run a blocking shell command' },
 
-  { on = 'r', run = 'shell --block --confirm "rename-files-in-editor.fish $@"', desc = 'Rename selected file(s)' },
-  { on = 'R', run = 'shell --block --confirm "randomize-file-names.fish $@"', desc = 'Randomize names of selected file(s)' },
+  { on = 'r', run = 'rename --cursor=before_ext', desc = 'Rename selected file(s)' },
+  { on = 'R', run = '''
+    shell --block --confirm 'randomize-file-names.fish "$@"'
+  ''', desc = 'Randomize names of selected file(s)' },
 
   # ------------------------------------------------Search------------------------------------------------
 
