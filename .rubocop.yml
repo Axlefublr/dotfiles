@@ -1,0 +1,5 @@
+Layout/LineLength:
+  Max: 111
+ 
+Style/BlockDelimiters:
+  Enabled: false

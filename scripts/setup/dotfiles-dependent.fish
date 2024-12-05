@@ -73,11 +73,8 @@ end
 
 function inst-ruby
     gem install solargraph
-end
-
-function inst-scriptisto
-    scriptisto new crystal >~/prog/the/crystalthe.cr
-    scriptisto new elixir >~/prog/the/elixirthe.ex
+    mkdir -p ~/.config/rubocop
+    ln -sf ~/prog/dotfiles/.rubocop.yml ~/.config/rubocop/config.yml
 end
 
 function inst-brillo
