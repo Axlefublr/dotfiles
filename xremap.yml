@@ -1576,8 +1576,8 @@ keymap:
 
       # [[sort on]]
       CapsLock-Alt-Comma: shift_r-grave
-      CapsLock-Alt-Dot: shift-7
-      CapsLock-Alt-Slash: shift-backslash
+      CapsLock-Alt-j: shift-7
+      CapsLock-Alt-k: shift-backslash
       CapsLock-Alt-p: shift_r-2
       CapsLock-Comma: shift_r-1
       CapsLock-Dot: shift-minus
@@ -1599,7 +1599,6 @@ keymap:
       # [[sort on]]
       CapsLock-Alt-LeftBrace: shift-alt-9
       CapsLock-Alt-RightBrace: shift-alt-0
-      CapsLock-Alt-j: shift-alt-equal
       CapsLock-Alt-u: alt-grave
       # [[sort off]]
 
