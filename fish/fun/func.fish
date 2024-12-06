@@ -81,7 +81,8 @@ function uboot
         rustup update
         cargo install-update -a
     end
-    cat ~/prog/info/pswds/sudo | sudo -S pacman -Syyu
+    cat ~/prog/info/pswds/sudo | sudo -Sv
+    yes | sudo pacman -Syyu
     pacclean
 end
 funcsave uboot >/dev/null
