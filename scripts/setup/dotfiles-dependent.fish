@@ -269,6 +269,10 @@ function inst-postgresql
     psql -U postgres -d dvdrental -c 'SELECT count(*) FROM film;' -c 'SELECT version();'
 end
 
+function uninst-postgresql
+    sudo systemctl disable postgresql
+end
+
 function inst-ocaml
     opam init -y
     opam update

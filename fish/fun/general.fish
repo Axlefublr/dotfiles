@@ -28,16 +28,6 @@ function loopuntil
 end
 funcsave loopuntil >/dev/null
 
-function ni
-    if status is-interactive
-        helix "/tmp/ni-output$argv[1]" >&2
-    else
-        neomax_hold "/tmp/ni-output$argv[1]" >&2
-    end
-    cat "/tmp/ni-output$argv[1]" | string collect
-end
-funcsave ni >/dev/null
-
 function autocommit
     if not git status --porcelain
         return
