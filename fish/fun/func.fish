@@ -100,7 +100,7 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
 end
 funcsave pacclean >/dev/null
 
-function install_yt_video
+function batch-link-downloader
     set -l extra (begin
         echo youtube
         echo longform
@@ -136,4 +136,4 @@ function install_yt_video
     end
     _magazine_commit $where_links install
 end
-funcsave install_yt_video >/dev/null
+funcsave batch-link-downloader >/dev/null

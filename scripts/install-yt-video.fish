@@ -7,7 +7,7 @@ end
 set -l extra $argv[1]
 set -l link $argv[2]
 
-set -l file (mktemp /dev/shm/install_yt_video.XXXXXX)
+set -l file (mktemp /dev/shm/install-yt-video.XXXXXX)
 set -l clipboard (xclip -selection clipboard -o)
 kitty -T link-download yt-dlp.fish \
     /mnt/usb/$extra \

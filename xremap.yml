@@ -358,7 +358,7 @@ keymap:
 
           Shift-s: { launch: [fish, -c, 'pick-sts-boss']}
 
-          k: { launch: [fish, -c, install_yt_video] }
+          k: { launch: [fish, -c, batch-link-downloader] }
 
           a: { launch: [fish, -c, runner_interactive_unicode]}
           e: { launch: [fish, -c, runner_symbol_name] }
