@@ -1,6 +1,9 @@
 Layout/LineLength:
   Max: 111
 
+Layout/EmptyLineBetweenDefs:
+  Severity: refactor
+
 Layout/EmptyLines:
   Severity: refactor
 
@@ -12,16 +15,28 @@ Layout/IndentationWidth:
   Width: 1
   Enabled: true
 
+Layout/SpaceInsideArrayLiteralBrackets:
+  Severity: refactor
+
 Layout/TrailingEmptyLines:
   Severity: refactor
 
 Layout/TrailingWhitespace:
   Severity: refactor
  
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
 Lint/UselessAssignment:
   Severity: refactor
 
 Style/BlockDelimiters:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/ColonMethodDefinition:
   Enabled: false
 
 Style/ColonMethodCall:
@@ -34,6 +49,15 @@ Style/EmptyMethod:
   Severity: refactor
   # AutoCorrect: always
   # SafeAutocorrect: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Severity: refactor
 
 Style/VariableInterpolation:
   Severity: refactor

@@ -41,6 +41,16 @@ auto-format = true
 tab-width = 3
 unit = '\t'
 
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+"'" = "'"
+'|' = '|'
+
 [language-server.rubocop]
 command = 'rubocop'
 args = ['--lsp']
