@@ -37,8 +37,7 @@ div.subheader:has(hide) {
 
 .cloze,
 .nightMode .cloze {
-	text-decoration-line: underline;
-	text-underline-offset: 0.3em;
+	color: #ff9f1a;
 }
 
 cd {
