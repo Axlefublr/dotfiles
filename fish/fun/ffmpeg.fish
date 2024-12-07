@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function ffmpeg-convert-video
-    echo 'convert video to (maybe) another format, not reencoding the audio. optionally, you can cut out only some portion of the video' >&2
+    echo 'convert video to maybe another format, maybe not reencoding the audio, maybe removing it.'\n'optionally, you can cut out only some portion of the video' >&2
     read -P 'input: ' -l input || return 121
     not test -f "$input" && return 121
     set -l input_basename (path basename $input | path change-extension '')
@@ -26,6 +26,7 @@ function ffmpeg-convert-video
         echo 'skip if you want to assume "end of video"' >&2
     else
         echo 'skip to not cut at all' >&2
+        set -e from
     end
     read -P 'to: ' -l to || return 121
     if test "$to"
@@ -33,12 +34,21 @@ function ffmpeg-convert-video
     else
         set -e to
     end
-    confirm 'copy over audio channel?' '[j]es' '[k]o'
-    test $status -eq 1 && set -f copy_audio -c:a copy
+    confirm 'copy over audio channel?' '[j]es' '[k]o' '[m]ute audio instead'
+    set -l audio $status
+    if test $audio -eq 1
+        set -f copy_audio -c:a copy
+    else if test $audio -eq 3
+        set -f copy_audio -an
+    else
+        set -e copy_audio
+    end
+    confirm 'copy over video channel?'\n'(this makes no sense if you are doing something with the video)' '[j]es' '[k]o'
+    test $status -eq 1 && set copy_video -c:v copy || set -e copy_video
 
-    ffmpeg -i $input $from $to $copy_audio $output
+    ffmpeg -i "$input" $from $to $copy_audio $copy_video "$output"
     set_color -o a9b665
-    echo "ffmpeg -i $input $from $to $copy_audio $output"
+    echo "ffmpeg -i $input $from $to $copy_audio $copy_video $output"
 end
 funcsave ffmpeg-convert-video >/dev/null
 
@@ -60,7 +70,7 @@ function ffmpeg-compress-video
     end
     set output (string replace -a '!!' $input_basename $output)
 
-    ffmpeg -i $input -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $output
+    ffmpeg -i "$input" -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart "$output"
     set_color -o a9b665
     echo "ffmpeg -i $input -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $output"
 end
@@ -88,11 +98,11 @@ function ffmpeg-combine-two-videos-into-one
     end
     set output (string replace -a '!!' $input_basename $output)
 
-    ffmpeg -i $input -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
-    ffmpeg -i $input2 -c copy -bsf:v h264_mp4toannexb -f mpegts input2.ts
+    ffmpeg -i "$input" -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
+    ffmpeg -i "$input2" -c copy -bsf:v h264_mp4toannexb -f mpegts input2.ts
     echo "file 'input1.ts'
     file 'input2.ts'" >inputs.txt
-    ffmpeg -f concat -safe 0 -i inputs.txt -c copy $output
+    ffmpeg -f concat -safe 0 -i inputs.txt -c copy "$output"
     rm inputs.txt input1.ts input2.ts
 end
 funcsave ffmpeg-combine-two-videos-into-one >/dev/null
@@ -101,7 +111,7 @@ function ffmpeg-convert-to-mp3
     echo 'metadata is removed' >&2
     read -P 'input: ' -l input || return 121
     not test -f "$input" && return 121
-    ffmpeg -i $input -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 $input)
+    ffmpeg -i "$input" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$input")
     confirm 'delete input video?' '[j]es' '[k]o'
     test $status -eq 1 && rm -f $input
 end
@@ -111,7 +121,7 @@ function ffmpeg-remove-metadata
     echo 'from video *or* audio' >&2
     read -P 'input: ' -l input || return 121
     not test -f "$input" && return 121
-    ffmpeg -i $input -c:a copy -c:v copy -map_metadata -1 _$input
+    ffmpeg -i "$input" -c:a copy -c:v copy -map_metadata -1 "_$input"
     mv -f _$input $input
 end
 funcsave ffmpeg-remove-metadata >/dev/null
