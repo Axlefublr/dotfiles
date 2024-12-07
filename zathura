@@ -3,18 +3,8 @@ set guioptions ""
 set recolor-darkcolor "#D4BE98"
 set recolor-lightcolor "#292828"
 
-map t scroll half-left
-map y scroll half-right
-map T scroll full-left
-map Y scroll full-right
-
-map D scroll full-down
-map U scroll full-up
-map d scroll half-down
-map ; scroll half-down
-map u scroll half-up
-map q scroll half-up
+map J scroll half-down
+map K scroll half-up
 
 map , navigate previous
 map . navigate next
-map <C-d> toggle_page_mode
