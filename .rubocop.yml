@@ -18,6 +18,9 @@ Layout/IndentationWidth:
 Layout/SpaceInsideArrayLiteralBrackets:
   Severity: refactor
 
+Layout/SpaceInsideBlockBraces:
+  Severity: refactor
+
 Layout/TrailingEmptyLines:
   Severity: refactor
 
@@ -58,6 +61,9 @@ Style/MethodDefParentheses:
 
 Style/TrailingCommaInArrayLiteral:
   Severity: refactor
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
 
 Style/VariableInterpolation:
   Severity: refactor
