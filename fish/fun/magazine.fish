@@ -102,6 +102,12 @@ function magazine_reverse
 end
 funcsave magazine_reverse >/dev/null
 
+function magazine_count
+    not test "$argv" && return
+    _magazine_notify $argv count "$(wc -l $argv | string split ' ')[1]"
+end
+funcsave magazine_count >/dev/null
+
 #-------------------------------------------------combinatory-------------------------------------------------
 
 function magazine_cut
@@ -159,6 +165,12 @@ function magazine_client_info
     _magazine_commit ~/.local/share/magazine/o clients
 end
 funcsave magazine_client_info >/dev/null
+
+function magazine_count_anki_cards
+    not test "$argv" && return
+    _magazine_notify $argv count "$(math $(wc -l $argv | string split ' ')[1] - 3)"
+end
+funcsave magazine_count_anki_cards >/dev/null
 
 #--------------------------------------------not really magazines--------------------------------------------
 

@@ -7,6 +7,9 @@ Layout/EmptyLineBetweenDefs:
 Layout/EmptyLines:
   Severity: refactor
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Severity: refactor
+
 Layout/IndentationStyle:
   EnforcedStyle: tabs
   IndentationWidth: 3
@@ -53,6 +56,9 @@ Style/ColonMethodCall:
 
 Style/Documentation:
   Enabled: false
+
+Style/EmptyBlockParameter:
+  Severity: refactor
 
 Style/EmptyMethod:
   Severity: refactor
