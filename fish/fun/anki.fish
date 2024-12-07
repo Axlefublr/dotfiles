@@ -31,9 +31,9 @@ funcsave anki-once >/dev/null
 
 function anki-should
     if set -q argv[1]
-        anki-should-impl $argv[1]
+        anki-should-impl.rb $argv[1]
     else
-        anki-should-impl (anki-once)
+        anki-should-impl.rb (anki-once)
     end
     # if set -q argv[2]
     #     and set -q argv[3]
@@ -49,15 +49,10 @@ function anki-should
 end
 funcsave anki-should >/dev/null
 
-function anki-should-impl -a onces
-    math "min(round(log2($onces) x 2.2) - 2, 15)"
-end
-funcsave anki-should-impl >/dev/null
-
 function anki-should-test
     for num in (seq 10 10 200)
         echo -n $num' '
-        set -l shoulds (anki-should-impl $num)
+        set -l shoulds (anki-should-impl.rb $num)
         echo -n "$shoulds "
         math "round $num / $shoulds"
     end

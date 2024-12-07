@@ -15,6 +15,9 @@ Layout/IndentationWidth:
   Width: 1
   Enabled: true
 
+Layout/SpaceAroundOperators:
+  Severity: refactor
+
 Layout/SpaceInsideArrayLiteralBrackets:
   Severity: refactor
 
@@ -32,6 +35,9 @@ Lint/AmbiguousBlockAssociation:
 
 Lint/UselessAssignment:
   Severity: refactor
+
+Naming/FileName:
+  Enabled: false
 
 Style/BlockDelimiters:
   Enabled: false
