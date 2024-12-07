@@ -2,7 +2,11 @@
 
 function ffmpeg-convert-video
     echo 'convert video to maybe another format, maybe not reencoding the audio, maybe removing it.'\n'optionally, you can cut out only some portion of the video' >&2
-    read -P 'input: ' -l input || return 121
+    if set -q argv[1]
+        set -f input $argv[1]
+    else
+        read -P 'input: ' -f input || return 121
+    end
     not test -f "$input" && return 121
     set -l input_basename (path basename $input | path change-extension '')
     set -l extension (path extension $input)
@@ -109,7 +113,11 @@ funcsave ffmpeg-combine-two-videos-into-one >/dev/null
 
 function ffmpeg-convert-to-mp3
     echo 'metadata is removed' >&2
-    read -P 'input: ' -l input || return 121
+    if set -q argv[1]
+        set -f input $argv[1]
+    else
+        read -P 'input: ' -f input || return 121
+    end
     not test -f "$input" && return 121
     ffmpeg -i "$input" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$input")
     confirm 'delete input video?' '[j]es' '[k]o'

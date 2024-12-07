@@ -159,6 +159,18 @@ keymap = [
     'c',
     'i',
   ], run = 'shell --confirm "copyi.fish $0"', desc = 'Copy image to clipboard' },
+  { on = [
+    'c',
+    'm',
+  ], run = '''
+    shell --block --confirm 'ffmpeg-convert-to-mp3.fish "$@"'
+  ''', desc = 'Convert to mp3' },
+  { on = [
+    'c',
+    'v',
+  ], run = '''
+    shell --block --confirm 'ffmpeg-convert-video.fish "$@"'
+  ''', desc = 'Convert video' },
 
   # -----------------------------------------------Sorting-----------------------------------------------
   { on = [
