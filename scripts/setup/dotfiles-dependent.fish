@@ -298,6 +298,7 @@ end
 function inst-nom
     mkdir -p ~/.config/nom
     ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
+    ln -sf ~/prog/autocommit/nom.db ~/.config/nom/nom.db
 end
 
 function inst-firefox
