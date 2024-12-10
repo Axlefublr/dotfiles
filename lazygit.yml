@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
-quitOnTopLevelReturn: true
+quitOnTopLevelReturn: false
 disableStartupPopups: true
 gui:
   commitAuthorLongLength: 9
