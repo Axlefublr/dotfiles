@@ -287,6 +287,7 @@ normal_select_mappings: dict[str, Any] = {
         'c': ':pipe wc -c',
         'C': ':pipe wc -l',
         'o': ':toggle auto-format',
+        'q': 'count_selections',
     },
     'space': {
         'z': 'harp_cwd_get',
