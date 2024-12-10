@@ -1,4 +1,13 @@
 [[language]]
+name = 'hocon'
+file-types = [
+  'conf',
+  { glob = '**/src/*/resources/**/*.conf' },
+  { glob = '*scalafmt*.conf' },
+  { glob = '*scalafix*.conf' },
+]
+
+[[language]]
 name = 'nim'
 language-servers = ['nimlsp']
 
