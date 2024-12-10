@@ -39,19 +39,19 @@ Clock_mw.right = between
 
 Loago_w = text_widget('Comfortaa 13')
 Loago_mw = wibox.container.margin(Loago_w)
-function Loago_wu()
-	local file = io.open('/dev/shm/Loago_f', 'r')
-	if file then
-		local text = file:read('*a')
-		file:close()
-		if #text > 0 then
-			Loago_mw.visible = true
-			Loago_w:set_text(text)
-		else
-			Loago_mw.visible = false
-		end
-	end
-end
+-- function Loago_wu()
+-- 	local file = io.open('/dev/shm/Loago_f', 'r')
+-- 	if file then
+-- 		local text = file:read('*a')
+-- 		file:close()
+-- 		if #text > 0 then
+-- 			Loago_mw.visible = true
+-- 			Loago_w:set_text(text)
+-- 		else
+-- 			Loago_mw.visible = false
+-- 		end
+-- 	end
+-- end
 
 Anki_w = text_widget(nil, '󰟟 ')
 Anki_bw = wibox.container.background(Anki_w)
@@ -676,7 +676,7 @@ local run_once = function()
 		'Anki',
 		'Processor',
 		'Ram',
-		'Loago',
+		-- 'Loago',
 		'Disk_usage',
 		'Usb_usage',
 		'Charge',

@@ -1,4 +1,4 @@
 #!/usr/bin/env fish
 
-widget_update mature_tasks_line Loago
+filter_mature_tasks >~/.local/share/magazine/doublequote
 widget_update anki-update Anki
