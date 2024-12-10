@@ -3,6 +3,8 @@
  */
 
 .vpn-badge,
-.cnf-root {
+.cnf-root,
+/* internet speed is not enough for playback popup */
+.erm-root {
 	display: none;
 }
