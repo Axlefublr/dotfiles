@@ -59,6 +59,7 @@ editor: dict[str, Any] = {
     'default-line-ending': 'lf',
     'insert-final-newline': True,
     'jump-label-alphabet': 'fjdkslaeiwoghruxcz/vmtyqp',
+    'default-yank-register': '+',
     # 'bufferline': 'multiple',
     # 'idle-timeout': 250,
     'soft-wrap': {
@@ -198,7 +199,6 @@ select_mappings.update(**rusify(select_mappings))
 
 insert_mappings: dict[str, Any] = {
     "A-'": 'insert_register',
-    'C-v': ['collapse_selection', 'paste_clipboard_before'],
     'A-/': ':xa!',
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
@@ -257,7 +257,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     's': 'yank',
-    'S': 'yank_to_clipboard',
+    'S': 'yank_joined',
     '@': 'replay_macro',
     'q': 'select_regex',
     'Q': 'split_selection',
@@ -324,7 +324,6 @@ normal_select_mappings: dict[str, Any] = {
         'l': 'symbol_picker',
         'L': 'workspace_symbol_picker',
         'j': 'global_search',
-        ':': 'replace_selections_with_clipboard',
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
