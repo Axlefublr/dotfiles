@@ -324,6 +324,8 @@ normal_select_mappings: dict[str, Any] = {
         'l': 'symbol_picker',
         'L': 'workspace_symbol_picker',
         'j': 'global_search',
+        'p': ['add_newline_below', 'move_line_down', 'paste_before'],
+        'P': ['add_newline_above', 'move_line_up', 'paste_before'],
         ';': {
             'h': ':lang html',
             'm': ':lang markdown',
