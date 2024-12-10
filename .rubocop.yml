@@ -1,3 +1,9 @@
+AllCops:
+  NewCops: enable
+
+Layout/DefEndAlignment:
+  Enabled: false
+
 Layout/LineLength:
   Max: 111
 
@@ -8,6 +14,9 @@ Layout/EmptyLines:
   Severity: refactor
 
 Layout/EmptyLinesAroundAttributeAccessor:
+  Severity: refactor
+
+Layout/EmptyLinesAroundClassBody:
   Severity: refactor
 
 Layout/IndentationStyle:
@@ -36,6 +45,9 @@ Layout/TrailingWhitespace:
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
+Lint/EmptyClass:
+  Enabled: false
+
 Lint/UselessAssignment:
   Severity: refactor
 
@@ -61,7 +73,8 @@ Style/EmptyBlockParameter:
   Severity: refactor
 
 Style/EmptyMethod:
-  Severity: refactor
+  Enabled: false
+  # Severity: refactor
   # AutoCorrect: always
   # SafeAutocorrect: false
 
@@ -71,11 +84,18 @@ Style/GlobalVars:
 Style/MethodDefParentheses:
   Enabled: false
 
+Style/RedundantInitialize:
+  Enabled: false
+
 Style/TrailingCommaInArrayLiteral:
   Severity: refactor
 
 Style/TrailingCommaInHashLiteral:
   Enabled: false
+
+Style/TrivialAccessors:
+  Enabled: true
+  AutoCorrect: always
 
 Style/VariableInterpolation:
   Severity: refactor
