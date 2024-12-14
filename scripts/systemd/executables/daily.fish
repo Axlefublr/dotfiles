@@ -70,6 +70,4 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
-indeed -nu ~/.local/share/magazine/semicolon "$(random-fav-emoji)"
-
 ubootf
