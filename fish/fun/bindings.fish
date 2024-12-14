@@ -16,6 +16,12 @@ function _replace_character_with_clipboard
 end
 funcsave _replace_character_with_clipboard >/dev/null
 
+function _help_the_commandline
+    set -f commandline (commandline -o)
+    $commandline --help &| helix -c ~/prog/dotfiles/helix/man.toml
+end
+funcsave _help_the_commandline >/dev/null
+
 function binds
     argparse -i v/visual d/default i/insert s/sub -- $argv
     or return 1
@@ -136,6 +142,9 @@ function fish_user_key_bindings
 
     binds -vids \ed clear-screen repaint
     binds -vids \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
+
+    binds -vds M 'man (commandline -o)[1] | helix -c ~/prog/dotfiles/helix/man.toml'
+    binds -vds ? _help_the_commandline
 
     # function asdf
     #     commandline -o

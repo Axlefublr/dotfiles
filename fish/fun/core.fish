@@ -172,20 +172,6 @@ function scratchpad
 end
 funcsave scratchpad >/dev/null
 
-function ?
-    set -l helppage $argv
-    not test "$helppage" && set helppage (ypoc)
-    $argv --help &| helix -c ~/prog/dotfiles/helix/man.toml
-end
-funcsave ? >/dev/null
-
-function %
-    set -l manpage $argv
-    not test "$manpage" && set manpage (ypoc)
-    man $manpage 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml
-end
-funcsave % >/dev/null
-
 function get-input
     set -q argv[1] && set -f input_file -input $argv[1]
     set -l input (rofi -dmenu $input_file 2>/dev/null)
