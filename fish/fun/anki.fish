@@ -69,7 +69,7 @@ function anki-sync
 end
 funcsave anki-sync >/dev/null
 
-function anki-add-card # TODO: rewrite logic in nim
+function anki-add-card # TODO: rewrite logic in ruby
     neoline_hold ~/bs/anki_card.html
     _magazine_commit ~/bs/anki_card.html attard
     set -l fields (cat ~/bs/anki_card.html)
@@ -83,6 +83,7 @@ function anki-add-card # TODO: rewrite logic in nim
     indeed -n ~/.local/share/magazine/A -- "$(string join ';' -- $fields)" # FIXME: should wrap fields 3+ in quotes
     _magazine_commit ~/.local/share/magazine/A card
     notify-send -t 5000 "$(tail -n 1 ~/.local/share/magazine/A)"
+    notify-send -t 5000 "$(tail -n +4 ~/.local/share/magazine/A | wc -l)"
 end
 funcsave anki-add-card >/dev/null
 
