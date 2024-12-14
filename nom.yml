@@ -14,6 +14,8 @@ feeds:
     name: vhyrro
   - url: https://xkcd.com/rss.xml
     name: xkcd
+  - url: https://jvns.ca/atom.xml
+    name: julia evans
 theme:
   glamour: dark
   titleColor: "#e49641"
