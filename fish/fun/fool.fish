@@ -15,11 +15,11 @@ end
 funcsave loago >/dev/null
 
 function gh
-    if test "$argv[1..2]" = 'repo clone'
+    if test "$argv[1..2]" = 'repo clonef'
         command gh repo clone $argv[3..] -- --depth 1
         z (path basename $argv[3])
         clx
-    else if test "$argv[1..2]" = 'repo fork'
+    else if test "$argv[1..2]" = 'repo forkf'
         command gh repo fork $argv[3..] --clone --default-branch-only -- --depth 1
         z (path basename $argv[3])
         clx
