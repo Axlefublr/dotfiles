@@ -405,6 +405,7 @@ normal_select_mappings: dict[str, Any] = {
         'n': 'select_all_siblings',
         'N': 'select_all_children',
         "'": ':reload-all',
+        '"': ':reload!',
         'z': ':config-reload',
         'i': 'hover',
         '?': 'select_first_and_last_chars',
