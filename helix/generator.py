@@ -45,6 +45,7 @@ editor: dict[str, Any] = {
     'should-statusline': False,
     'ephemeral-messages': True,
     'whichkey': False,
+    'continue-comments': False,
     'scrolloff': 99,
     'shell': ['fish', '-c'],
     'line-number': 'relative',
