@@ -322,3 +322,7 @@ function inst-termfilechooser
     systemctl --user restart xdg-desktop-portal.service
     systemctl --user restart xdg-desktop-portal-termfilechooser.service
 end
+
+function inst-gtk-theme
+    sudo ln -sf ~/prog/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
+end
