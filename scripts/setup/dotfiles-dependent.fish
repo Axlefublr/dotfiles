@@ -6,6 +6,7 @@ function inst-x
 end
 
 function inst-fish
+    sudo pacman -S fish
     chsh -s /usr/bin/fish
     mkdir -p ~/.config/fish
     ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
@@ -34,6 +35,7 @@ function inst-xremap
 end
 
 function inst-awm
+    sudo pacman -S awesome
     mkdir -p ~/.config/awesome
     rm -fr ~/.config/awesome
     ln -sf ~/prog/dotfiles/awesome ~/.config/
@@ -52,17 +54,20 @@ function inst-helix
 end
 
 function inst-kitty
+    sudo pacman -S kitty
     mkdir -p ~/.config/kitty
     ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
     ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
 end
 
 function inst-lazygit
+    sudo pacman -S lazygit
     mkdir -p ~/.config/lazygit
     ln -sf ~/prog/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
 end
 
 function inst-yazi
+    sudo pacman -S yazi
     rm -fr ~/.config/yazi
     ln -s ~/prog/dotfiles/yazi ~/.config
     ya pack -a yazi-rs/plugins:hide-preview
@@ -72,6 +77,7 @@ function inst-yazi
 end
 
 function inst-ruby
+    sudo pacman -S rubocop
     gem install solargraph
     mkdir -p ~/.config/rubocop
     ln -sf ~/prog/dotfiles/.rubocop.yml ~/.config/rubocop/config.yml
@@ -85,10 +91,12 @@ function inst-brillo
 end
 
 function inst-ttyper
+    sudo pacman -S ttyper
     ln -sf ~/.local/share/magazine/U ~/.config/ttyper/language/uclanr
 end
 
 function inst-nvim
+    sudo pacman -S neovim
     trash-put ~/.config/nvim
     mkdir -p ~/.config/nvim
     for file in ~/prog/dotfiles/!nvim/*
@@ -100,68 +108,87 @@ function inst-nvim
 end
 
 function inst-alacritty
+    sudo pacman -S alacritty
     mkdir -p ~/.config/alacritty
     ln -sf ~/prog/dotfiles/alacritty.toml ~/.config/alacritty.toml
 end
 
-# Vscode
-# mkdir -p ~/.config/Code/User
-# ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
-# ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
-# Needed for the CSS & JS extension
-# sudo chown -R $(whoami) $(which code)
-# sudo chown -R $(whoami) /opt/visual-studio-code
+function inst-vscode
+    mkdir -p ~/.config/Code/User
+    ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
+    ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
+    Needed for the CSS & JS extension
+    sudo chown -R $(whoami) $(which code)
+    sudo chown -R $(whoami) /opt/visual-studio-code
+end
 
-# Picom
-mkdir -p ~/.config/picom
-ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
+function inst-picom
+    sudo pacman -S picom
+    mkdir -p ~/.config/picom
+    ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
+end
 
-# Gromit-mpx
-ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
-sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
+function inst-gromit-mpx
+    ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
+    sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
+end
 
-# Rust formatting
-mkdir -p ~/.config/rustfmt
-ln -sf ~/prog/dotfiles/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
+function inst-rustfmt
+    mkdir -p ~/.config/rustfmt
+    ln -sf ~/prog/dotfiles/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
+end
 
-# Bacon
-mkdir -p ~/.config/bacon
-ln -sf ~/prog/dotfiles/bacon/prefs.toml ~/.config/bacon/prefs.toml
+function inst-bacon
+    sudo pacman -S bacon
+    mkdir -p ~/.config/bacon
+    ln -sf ~/prog/dotfiles/bacon/prefs.toml ~/.config/bacon/prefs.toml
+end
 
-# Yt-dlp
-ln -sf ~/prog/dotfiles/yt-dlp.conf ~/yt-dlp.conf
+function inst-yt-dlp
+    sudo pacman -S yt-dlp
+    ln -sf ~/prog/dotfiles/yt-dlp.conf ~/yt-dlp.conf
+end
 
-# Less
-sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
+function inst-less
+    sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
+end
 
-# Twemoji
-sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
+function inst-twemoji
+    sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
+end
 
-# Mpv
-mkdir -p ~/.config/mpv
-ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
-xdg-mime default mpv.desktop video/webm
-xdg-mime default mpv.desktop video/mp4
-xdg-mime default mpv.desktop video/x-matroska
+function inst-mpv
+    sudo pacman -S mpv
+    sudo pacman -S mpv-mpris
+    mkdir -p ~/.config/mpv
+    ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
+    xdg-mime default mpv.desktop video/webm
+    xdg-mime default mpv.desktop video/mp4
+    xdg-mime default mpv.desktop video/x-matroska
+end
 
-# Rofi
-mkdir -p ~/.config/rofi
-ln -sf ~/prog/dotfiles/rofi.rasi ~/.config/rofi/config.rasi
-sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
+function inst-rofi
+    sudo pacman -S rofi
+    mkdir -p ~/.config/rofi
+    ln -sf ~/prog/dotfiles/rofi.rasi ~/.config/rofi/config.rasi
+    sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
+end
 
-# Screenkey
-sudo ln -sf ~/prog/dotfiles/desktop/screenkey.desktop /usr/share/applications
+function inst-screenkey
+    sudo pacman -S screenkey
+    sudo ln -sf ~/prog/dotfiles/desktop/screenkey.desktop /usr/share/applications
+end
 
-function install-nim
+function inst-nim
     curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 end
 
-function install-nim-tooling
+function inst-nim-tooling
     # nimble install nimlangserver
     nimble install nimlsp
 end
 
-function install-boomer
+function inst-boomer
     cd ~/prog/forks
     git clone https://github.com/Axlefublr/boomer
     cd boomer
@@ -169,7 +196,7 @@ function install-boomer
     ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
 end
 
-function install-ghostty
+function inst-ghostty
     cd ~/prog/stored
     git clone --depth=1 https://github.com/ghostty-org/ghostty
     cd ghostty
@@ -178,13 +205,15 @@ function install-ghostty
     ln -sf ~/prog/dotfiles/ghostty.conf ~/.config/ghostty/config
 end
 
-function install-zathura
+function inst-zathura
+    sudo pacman -S zathura
+    sudo pacman -S zathura-pdf-mupdf
     mkdir -p ~/.config/zathura
     ln -sf ~/prog/dotfiles/zathura ~/.config/zathura/zathurarc
     xdg-mime default org.pwmt.zathura.desktop application/pdf
 end
 
-function install-display
+function inst-display
     ln -sf ~/prog/dotfiles/desktop/display.desktop ~/.local/share/applications/display.desktop
     xdg-mime default display.desktop image/svg+xml
     xdg-mime default display.desktop image/png
@@ -193,12 +222,13 @@ function install-display
     xdg-mime default display.desktop image/webp
 end
 
-function install-ruff
+function inst-ruff
+    sudo pacman -S ruff
     mkdir -p ~/.config/ruff
     ln -sf ~/prog/dotfiles/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
 end
 
-function install-krita
+function inst-krita
     mkdir -p ~/.local/share/color-schemes
     ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
 end
@@ -237,12 +267,14 @@ function inst-tridactyl
 end
 
 function inst-qalc
+    sudo pacman -S libqalculate
     # set vspace off
     # set curconv off
     # set update exchange rates 1
 end
 
 function inst-postgresql
+    sudo pacman -S postgresql
     ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
     sudo -iu postgres initdb -D /var/lib/postgres/data
     sudo systemctl start postgresql
@@ -274,6 +306,8 @@ function uninst-postgresql
 end
 
 function inst-ocaml
+    sudo pacman -S dune
+    sudo pacman -S opam
     opam init -y
     opam update
     opam upgrade
@@ -302,6 +336,7 @@ function inst-nom
 end
 
 function inst-firefox
+    sudo pacman -S firefox
     # version 133.0
     # /etc/pacman.conf
     # IgnorePkg=firefox
@@ -309,6 +344,7 @@ function inst-firefox
 end
 
 function inst-termfilechooser
+    sudo pacman -S xdg-desktop-portal-gtk
     fish_add_path /usr/lib
     set -Ux TERMCMD kitty
     set -Ux GDK_DEBUG portals

@@ -143,7 +143,7 @@ function fish_user_key_bindings
     binds -vids \ed clear-screen repaint
     binds -vids \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
 
-    binds -vds M 'man (commandline -o)[1] | helix -c ~/prog/dotfiles/helix/man.toml'
+    binds -vds M 'man (commandline -o)[1] 2>/dev/null | helix -c ~/prog/dotfiles/helix/man.toml'
     binds -vds ? _help_the_commandline
 
     # function asdf
