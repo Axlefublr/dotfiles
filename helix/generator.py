@@ -208,6 +208,7 @@ insert_mappings: dict[str, Any] = {
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
     'C-u': 'kill_to_line_start',
     'A-;': ['collapse_selection', 'paste_before'],
+    'C-v': ['collapse_selection', 'paste_before'],
     'C-n': 'completion',
     'C-p': 'completion',
     'A-u': 'signature_help',
