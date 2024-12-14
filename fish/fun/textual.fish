@@ -29,3 +29,8 @@ function tritace
     true
 end
 funcsave tritace >/dev/null
+
+function slf
+    string replace '%' (read -z) "$argv"
+end
+funcsave slf >/dev/null
