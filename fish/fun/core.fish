@@ -171,6 +171,7 @@ function scratchpad
     kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv &>/dev/null
 end
 funcsave scratchpad >/dev/null
+alias --save int scratchpad >/dev/null
 
 function get-input
     set -q argv[1] && set -f input_file -input $argv[1]
