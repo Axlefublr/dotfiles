@@ -35,7 +35,7 @@
 'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
 'ui.cursor.match' = { modifiers = ['bold', 'underlined'] }
 'ui.selection.primary' = { bg = 'orange_supporting' }
-'ui.selection' = { bg = 'orange_supporting' }
+'ui.selection' = { bg = 'yellow_supporting' }
 
 # ----------------------------------------------statusline----------------------------------------------
 'ui.statusline' = { fg = 'white' }
@@ -142,5 +142,6 @@ mint = '#78bf84'
 cyan = '#7daea3'
 
 orange_supporting = '#5f472d'
+yellow_supporting = '#5f542d'
 purple_supporting = '#502c5f'
 blush_supporting = '#5e2d40'
