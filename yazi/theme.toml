@@ -10,7 +10,7 @@ marker_selected = { bg = '#e49641' }
 marker_copied = { bg = '#d3ad5c' }
 marker_cut = { bg = '#ea6962' }
 
-tab_active = { fg = 'white', bg = '#68622c', bold = true }
+tab_active = { fg = 'white', bg = '#5f472d', bold = true }
 
 [status]
 separator_open = ''
@@ -40,7 +40,7 @@ mask = { bg = '#212121' }
 separator_style = { fg = 'white' }
 
 [help]
-hovered = { bg = '#68622c' }
+hovered = { bg = '#5f472d' }
 footer = { fg = 'white', bg = '#292828' }
 
 [filetype]

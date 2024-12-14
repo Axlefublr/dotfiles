@@ -62,7 +62,7 @@ configuration {
 
 @theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
 * {
-	orange-supporting: #68622c;
+	orange-supporting: #5f472d;
 	yellow: #ffd75f;
 	white: #d4be98;
 	dark12: #1f1e1e;

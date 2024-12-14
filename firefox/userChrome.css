@@ -64,7 +64,7 @@ toolbar .toolbaritem-combined-buttons {
 						box-shadow: unset !important;
 
 						&[selected] {
-							background-color: #68622c !important;
+							background-color: #5f472d !important;
 						}
 					}
 
@@ -159,7 +159,7 @@ toolbar .toolbaritem-combined-buttons {
 						padding-left: 7px !important;
 						padding-right: 0 !important;
 						/* margin-left: 7px !important; */
-						--lwt-toolbar-field-highlight: #68622c !important;
+						--lwt-toolbar-field-highlight: #5f472d !important;
 						--lwt-toolbar-field-highlight-text: #d4be98 !important;
 						/* color: #d4be98 !important; */
 					}
@@ -194,7 +194,7 @@ toolbar .toolbaritem-combined-buttons {
 				}
 
 				.urlbarView {
-					--urlbarView-highlight-background: #68622c !important;
+					--urlbarView-highlight-background: #5f472d !important;
 					--urlbarView-highlight-color: #d4be98 !important;
 					--urlbarView-item-inline-padding: 0 !important;
 					--urlbarView-item-block-padding: 0.25em !important;
