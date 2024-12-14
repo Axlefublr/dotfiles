@@ -11,6 +11,7 @@ alias --save mkd 'mkdir -p' >/dev/null
 alias --save real realpath >/dev/null
 alias --save chx 'chmod +x' >/dev/null
 alias --save c echo >/dev/null
+alias --save f fg >/dev/null
 
 # no abbreviation equivalents because the expansion is too wordy
 alias --save copy 'xclip -r -selection clipboard' >/dev/null
