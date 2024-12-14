@@ -27,6 +27,9 @@ Layout/IndentationWidth:
   Width: 1
   Enabled: true
 
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
 Layout/SpaceAroundOperators:
   Severity: refactor
 
