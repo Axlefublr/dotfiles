@@ -7,5 +7,5 @@ total_new_cards = Float(ARGV[0])
 crunched = Math.log2 total_new_cards
 inflated = crunched * 2.2
 lowered = inflated - 2
-capped = [lowered, 15].min.round
+capped = [lowered, 12].min.round
 puts capped
