@@ -33,7 +33,7 @@ gui:
     optionsTextColor:
       - '#78bf84'
     selectedLineBgColor:
-      - '#5f472d'
+      - '#68622c'
       # - reverse
 git:
   autoFetch: false
