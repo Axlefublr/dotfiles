@@ -70,4 +70,6 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
+indeed -nu ~/.local/share/magazine/semicolon -- (shuf -n 1 ~/.local/share/magazine/s)
+
 ubootf
