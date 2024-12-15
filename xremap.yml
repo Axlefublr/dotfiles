@@ -1767,7 +1767,7 @@ keymap:
               'truncate -s 0 /tmp/tesseract.txt ; ypoc -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
-      Super-c: { launch: [fish, -c, 'widget_update anki-update no-increment Anki'] }
+      # Super-c: { launch: [fish, -c, 'widget_update anki-update no-increment Anki'] }
       CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
@@ -1807,6 +1807,7 @@ keymap:
       CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax_hold "~/bs/clipboard_edit.md$(calculate-eof-position ~/bs/clipboard_edit.md)" ; cat ~/bs/clipboard_edit.md | copy'] }
       CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
       Super-b: { launch: [fish, -c, 'engined_search'] }
+      Super-c: { launch: [fish, -c, pick-and-copy-color]}
 
       Super_R-g:
         exact_match: true

@@ -138,3 +138,10 @@ function calculate-eof-position -a file
     echo -n $last_column
 end
 funcsave calculate-eof-position >/dev/null
+
+function pick-and-copy-color
+    set -l picked_color (xcolor)
+    notify-send -t 3000 "$picked_color"
+    echo $picked_color | copy
+end
+funcsave pick-and-copy-color >/dev/null
