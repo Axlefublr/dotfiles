@@ -242,7 +242,7 @@ normal_select_mappings: dict[str, Any] = {
     'D': ['delete_selection', 'move_char_left'],
     'R': 'repeat_last_motion',
     '$': 'keep_selections',
-    'K': ':write-buffer-close',
+    'K': ':write-buffer-close-or-quit',
     "'": ':write-all',
     'M': 'save_selection',
     'A-h': 'select_prev_sibling',
@@ -259,7 +259,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     's': 'yank',
-    'S': 'yank_joined',
+    'S': ':buffer-close-or-quit!',
     '@': 'replay_macro',
     'q': 'select_regex',
     'Q': 'split_selection',
@@ -272,6 +272,7 @@ normal_select_mappings: dict[str, Any] = {
     'd': 'delete_selection',
     '%': ['save_selection', 'select_all'],
     'Z': 'harp_cwd_get',
+    'A-s': 'yank_joined',
     'm': {
         'g': ':set gutters.layout ["diff"]',
         'G': ':set gutters.layout []',
@@ -314,12 +315,11 @@ normal_select_mappings: dict[str, Any] = {
         'o': ':sh over --cwd=%w',
         'm': ':sh over --cwd=%w yazi',
         'h': ':sh over --cwd=%w lazygit',
-        'T': ':tree-sitter-scopes',
-        't': ':tree-sitter-highlight-name',
         'f': 'file_picker_in_current_directory',
-        'k': 'file_browser_in_current_buffer_directory',
+        'F': 'file_picker_in_current_buffer_directory',
+        'k': 'file_browser_in_current_directory',
+        'K': 'file_browser_in_current_buffer_directory',
         'e': 'buffer_picker',
-        'K': ':buffer-close!',
         'c': 'code_action',
         'J': 'command_palette',
         'd': magazine_openers,
@@ -386,8 +386,8 @@ normal_select_mappings: dict[str, Any] = {
         'j': 'rotate_view',
         'J': 'hsplit',
         'K': ':hsplit-new',
-        ':': ':quit!',
-        ';': ':write-quit-all',
+        ';': [':write-all', ':buffer-close-all'],
+        ':': ':buffer-close-all!',
         'u': 'signature_help',
         # 'u': 'transpose_view',
         'o': 'wclose',
@@ -464,12 +464,18 @@ entire_config: dict[str, Any] = {
 with open('/home/axlefublr/prog/dotfiles/helix/config.toml', 'w') as file:
     toml.dump(entire_config, file)
 
+entire_config['keys']['normal']['K'] = ':write-quit-all'
+entire_config['keys']['select']['K'] = ':write-quit-all'
+entire_config['keys']['normal']['S'] = ':quit-all!'
+entire_config['keys']['select']['S'] = ':quit-all!'
+
+with open('/home/axlefublr/prog/dotfiles/helix/quit.toml', 'w') as file:
+    toml.dump(entire_config, file)
+
 entire_config['editor']['whitespace']['render']['newline'] = 'none'
 entire_config['editor']['gutters']['layout'] = []
 entire_config['keys']['normal']['K'] = ':quit-all!'
 entire_config['keys']['select']['K'] = ':quit-all!'
-entire_config['keys']['normal']['z'][';'] = ':quit-all!'
-entire_config['keys']['select']['z'][';'] = ':quit-all!'
 
 with open('/home/axlefublr/prog/dotfiles/helix/man.toml', 'w') as file:
     toml.dump(entire_config, file)

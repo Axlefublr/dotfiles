@@ -8,3 +8,4 @@ yazi/plugins/hide-preview.yazi
 yazi/plugins/jump-to-char.yazi
 yazi/plugins/open-with-cmd.yazi
 yazi/plugins/compress.yazi
+helix/quit.toml
