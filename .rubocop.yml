@@ -1,5 +1,6 @@
 AllCops:
   NewCops: enable
+  TargetRubyVersion: 3.3.5
 
 Layout/DefEndAlignment:
   Enabled: false
@@ -88,6 +89,9 @@ Style/MethodDefParentheses:
   Enabled: false
 
 Style/RedundantInitialize:
+  Enabled: false
+
+Style/SingleLineDoEndBlock:
   Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
