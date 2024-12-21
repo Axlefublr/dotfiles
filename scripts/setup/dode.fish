@@ -332,7 +332,7 @@ end
 function inst-nom
     mkdir -p ~/.config/nom
     ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
-    ln -sf ~/prog/autocommit/nom.db ~/.config/nom/nom.db
+    ln -sf ~/auto/nom.db ~/.config/nom/nom.db
 end
 
 function inst-firefox
@@ -361,4 +361,14 @@ end
 
 function inst-gtk-theme
     sudo ln -sf ~/prog/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
+end
+
+# automounting setup
+function inst-fstab
+    sudo blkid # take UUIDs for the partitions here
+    sudo -E helix /etc/fstab
+    id -u # user_id
+    id -g # group_id
+    # UUID=the_uuid /mnt/usb ext4 defaults 0 2
+    # UUID=the_uuid /mnt/fatusb exfat defaults,uid=user_id,gid=group_id,dmask=0222,fmask=0111 0 0
 end
