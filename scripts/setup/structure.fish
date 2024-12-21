@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 cd ~
-mkdir -p docs ups pic vid prog bs t
+mkdir -p ups pic vid prog bs t trans
 git clone https://github.com/Axlefublr/deleted-bangers
 mv deleted-bangers mus
 git clone https://github.com/Axlefublr/autocommit
