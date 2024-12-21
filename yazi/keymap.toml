@@ -77,7 +77,7 @@ keymap = [
   { on = '<Enter>', run = 'open', desc = 'Open selected files' },
 
   { on = 'd', run = 'remove --force', desc = 'Trash selected' },
-  { on = 'D', run = 'remove --hovered --force', desc = 'Trash hovered' },
+  { on = 'D', run = 'remove --permanently --force', desc = 'Delete selected' },
 
   { on = '-', run = 'link --force', desc = 'Symlink' },
   { on = '+', run = 'hardlink --force --follow', desc = 'Hardlink' },
