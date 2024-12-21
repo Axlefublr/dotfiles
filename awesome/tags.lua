@@ -5,7 +5,7 @@ awful.tag.add('u', {
 	selected = true,
 })
 awful.tag.add('i', {
-	layout = awful.layout.suit.tile.bottom,
+	layout = awful.layout.suit.max,
 	master_fill_policy = 'expand',
 	master_width_factor = 0.5,
 })
@@ -20,7 +20,7 @@ awful.tag.add('p', {
 	master_width_factor = 0.5,
 })
 awful.tag.add('m', {
-	layout = awful.layout.suit.tile.bottom,
+	layout = awful.layout.suit.max,
 	master_fill_policy = 'expand',
 	master_width_factor = 0.5,
 })
@@ -35,7 +35,7 @@ awful.tag.add('.', {
 	master_width_factor = 0.5,
 })
 awful.tag.add('/', {
-	layout = awful.layout.suit.fair,
+	layout = awful.layout.suit.max,
 	master_fill_policy = 'expand',
 	master_width_factor = 0.5,
 })
