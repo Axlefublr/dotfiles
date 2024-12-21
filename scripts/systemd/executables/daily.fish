@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-trash-empty -f 2
+trash-empty -f 1
 
 cd ~/.local/share/magazine
 for file in ~/.local/share/magazine/*
