@@ -1,5 +1,7 @@
 #-------------------------core-------------------------
 abbr -a rm trash-put
+abbr -a rmf 'rm -fr'
+abbr -a cp 'rsync -r'
 abbr -a trr trash-restore
 abbr -a mkd 'mkdir -p'
 abbr -a real realpath

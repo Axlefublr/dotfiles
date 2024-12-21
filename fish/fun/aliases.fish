@@ -22,6 +22,7 @@ alias --save rofi_multi_select 'rofi -dmenu -multi-select -ballot-selected-str "
 alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -s' >/dev/null
+alias --save rsync 'rsync --mkpath -P' >/dev/null
 
 #----------------------------------------------------direct----------------------------------------------------
 alias --save bell 'printf \a' >/dev/null
