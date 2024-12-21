@@ -66,7 +66,7 @@ keymap = [
   ], desc = 'Toggle the current selection state' },
   { on = 'x', run = 'visual_mode', desc = 'Enter visual mode' },
   { on = '<C-r>', run = 'select_all', desc = 'Inverse selection of all files' },
-  { on = '%', run = 'select_all --state=true', desc = 'Select all' },
+  { on = '%', run = 'toggle_all --state=true', desc = 'Select all' },
   { on = '<Space>', run = 'select_all --state=false', desc = 'Deselect all' },
 
   # ----------------------------------------------Operation----------------------------------------------
