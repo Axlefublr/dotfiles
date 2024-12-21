@@ -3,7 +3,7 @@
 [manager]
 ratio = [0, 2, 1]
 sort_by = 'natural'
-show_hidden = true
+show_hidden = false
 scrolloff = 255
 
 [preview]
