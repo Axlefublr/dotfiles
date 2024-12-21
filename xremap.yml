@@ -1793,7 +1793,7 @@ keymap:
         }
       Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
       Super-Alt-w: { launch: [fish, -c, 'ypoc -t image/png 2>/dev/null | display'] }
-      CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
+      CapsLock-v: { launch: [fish, -c, 'toggle-screen-record'] }
       CapsLock-Alt-v: { launch: [mpv, '--start=0', '/home/axlefublr/z.mp4'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
       Super-Alt-b: { launch: [fish, -c, 'scratchpad --wintitle=line --cwd=~'] }

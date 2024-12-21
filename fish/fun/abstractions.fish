@@ -332,14 +332,14 @@ function igrai
 end
 funcsave igrai >/dev/null
 
-function toggle_screen_record
-    if matches 'kitty — screen_record' &>/dev/null
-        kitten @ --to unix:/tmp/screen_record_kitty_socket signal-child SIGINT
+function toggle-screen-record
+    if matches 'kitty — screen-record' &>/dev/null
+        kitten @ --to unix:/home/axlefublr/bs/screen-record-kitty-socket signal-child SIGINT
     else
-        kitty -T screen_record --listen-on unix:/tmp/screen_record_kitty_socket screen_record.fish
+        kitty -T screen-record --listen-on unix:/home/axlefublr/bs/screen-record-kitty-socket screen-record.fish
     end
 end
-funcsave toggle_screen_record >/dev/null
+funcsave toggle-screen-record >/dev/null
 
 function ignore_urgencies
     awesome-client 'Ignore_all_urgencies()'

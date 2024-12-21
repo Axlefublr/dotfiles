@@ -109,7 +109,7 @@ awful.rules.rules = {
 
 	----------------------------------------------------tag P--------------------------------------------------
 	{
-		rule = { class = 'kitty', name = 'screen_record' },
+		rule = { class = 'kitty', name = 'screen-record' },
 		properties = {
 			tag = screen.primary.tags[12],
 		},
