@@ -30,21 +30,21 @@ end
 
 awesome-client 'Registers_wu()'
 
-cd ~/prog/autocommit
+cd ~/auto
 
-cp -fr ~/.local/share/harp/harp.yml ~/prog/autocommit/harp.yml
+cp -fr ~/.local/share/harp/harp.yml ~/auto/harp.yml
 git add harp.yml
 and git commit -m "sync harp"
 
-cp -fr ~/.local/share/loago/loago.json ~/prog/autocommit/loago.json
+cp -fr ~/.local/share/loago/loago.json ~/auto/loago.json
 git add loago.json
 and git commit -m "sync loago"
 
-cp -fr ~/.local/share/axleizer_invalid.json ~/prog/autocommit/axleizer_invalid.json
+cp -fr ~/.local/share/axleizer_invalid.json ~/auto/axleizer_invalid.json
 git add axleizer_invalid.json
 and git commit -m "sync axleizer"
 
-cp -fr ~/.config/nom/nom.db ~/prog/autocommit/nom.db
+cp -fr ~/.config/nom/nom.db ~/auto/nom.db
 git add nom.db
 and git commit -m "sync nom"
 
