@@ -1,5 +1,45 @@
 #!/usr/bin/env fish
 
+function inst-other
+    sudo loginctl enable-linger $USER
+    sudo systemctl enable --now sddm
+    sudo systemctl enable --now bluetooth.service
+    sudo systemctl enable --now paccache.timer
+end
+
+function inst-dns
+    begin
+        echo 'nameserver 1.1.1.1' # cloudflare DNS server
+        echo 'nameserver 8.8.8.8' # google DNS server
+        sudo cat /etc/resolv.conf
+    end | sponge | sudo tee /etc/resolv.conf
+
+    # keep lowering this until it's okay
+    ping -c 4 -M do -s 1472 google.com
+    sudo ip link set dev wlan0 mtu $optimal_value
+end
+
+function inst-git
+    sudo pacman -Syyu git
+    # [[sort on]]
+    git config --global branch.sort -committerdate
+    git config --global checkout.defaultRemote origin
+    git config --global commit.verbose true
+    git config --global core.editor helix
+    git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+    git config --global credential.helper store
+    git config --global diff.colormoved default
+    git config --global diff.colormovedws allow-indentation-change
+    git config --global init.defaultBranch main
+    git config --global interactive.singleKey true
+    git config --global pull.ff only
+    git config --global push.autoSetupRemote true
+    git config --global rerere.enabled true
+    git config --global user.email 101342105+Axlefublr@users.noreply.github.com
+    git config --global user.name Axlefublr
+    # [[sort off]]
+end
+
 function inst-x
     ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
     ln -sf ~/prog/dotfiles/x11/.XCompose ~/.XCompose
@@ -131,6 +171,17 @@ end
 function inst-gromit-mpx
     ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
     sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
+end
+
+function inst-rust
+    fish_add_path "$HOME/.cargo/bin"
+    fish_add_path "$HOME/.cargo/env"
+    bash "$HOME/.cargo/env"
+    rustup update
+    rustup default stable
+    rustup toolchain install nightly
+    rustup component add rust-analyzer
+    cargo login
 end
 
 function inst-rustfmt
@@ -360,6 +411,7 @@ function inst-termfilechooser
 end
 
 function inst-gtk-theme
+    # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
     sudo ln -sf ~/prog/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 end
 
@@ -371,4 +423,9 @@ function inst-fstab
     id -g # group_id
     # UUID=the_uuid /mnt/usb ext4 defaults 0 2
     # UUID=the_uuid /mnt/fatusb exfat defaults,uid=user_id,gid=group_id,dmask=0222,fmask=0111 0 0
+end
+
+function inst-gh
+    gh auth login
+    gh auth refresh -h github.com -s delete_repo
 end
