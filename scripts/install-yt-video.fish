@@ -10,7 +10,7 @@ set -l link $argv[2]
 set -l file (mktemp /dev/shm/install-yt-video.XXXXXX)
 set -l clipboard (xclip -selection clipboard -o)
 kitty -T link-download yt-dlp.fish \
-    /mnt/usb/$extra \
+    ~/vid/$extra \
     --print-to-file "%(channel)s — %(title)s" $file \
     $link
 notify-send -t 3000 "downloaded: $(cat $file)"
