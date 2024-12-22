@@ -43,6 +43,7 @@ end
 function inst-x
     ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
     ln -sf ~/prog/dotfiles/x11/.XCompose ~/.XCompose
+    set -Ux XMODIFIERS @im=none
 end
 
 function inst-fish
@@ -61,6 +62,16 @@ function inst-fish-lsp
     git clone https://github.com/ndonfris/fish-lsp ~/prog/stored/fish-lsp
     cd ~/prog/stored/fish-lsp
     yarn install
+    set -Ux fish_lsp_enabled_handlers formatting complete hover rename definition references diagnostics signatureHelp codeAction index
+    # set -Ux fish_lsp_disabled_handlers
+    set -Ux fish_lsp_format_tabsize 4
+    set -Ux fish_lsp_all_indexed_paths ~/prog/dotfiles/fish/fun ~/.config/fish /usr/share/fish
+    # set -Ux fish_lsp_modifiable_paths
+    # 2003 is "universal variable defined not in interactive session"
+    # 2001 is something about single quotes being used for an expandable thing
+    # 2002 is "alias used, prefer functions instead" like WOW that is one of the stupidest lints I have ever seen
+    set -Ux fish_lsp_diagnostic_disable_error_codes 2003 2001 2002
+    set -Ux fish_lsp_show_client_popups false
 end
 
 function inst-paru
@@ -121,6 +132,7 @@ function inst-ruby
     gem install solargraph
     mkdir -p ~/.config/rubocop
     ln -sf ~/prog/dotfiles/.rubocop.yml ~/.config/rubocop/config.yml
+    fish_add_path "$HOME/.local/share/gem/ruby/3.3.0/bin"
 end
 
 function inst-brillo
@@ -232,6 +244,7 @@ end
 
 function inst-nim
     curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+    fish_add_path "$HOME/.nimble/bin"
 end
 
 function inst-nim-tooling
@@ -311,8 +324,8 @@ function uninst-bubbly
 end
 
 function inst-tridactyl
-    :nativeinstall
-    to copy the command to execute
+    # :nativeinstall
+    # to copy the command to execute
     mkdir -p ~/.config/tridactyl
     ln -f ~/prog/dotfiles/tridactyl ~/.config/tridactyl/tridactylrc
 end
@@ -350,6 +363,8 @@ function inst-postgresql
     pg_restore -U postgres --dbname=dvdrental --verbose dvdrental.tar
     rm -fr dvdrental.tar
     psql -U postgres -d dvdrental -c 'SELECT count(*) FROM film;' -c 'SELECT version();'
+    # set -Ux PGDATABASE dvdrental
+    # set -Ux PGUSER postgres
 end
 
 function uninst-postgresql
@@ -428,4 +443,42 @@ end
 function inst-gh
     gh auth login
     gh auth refresh -h github.com -s delete_repo
+end
+
+function inst-bottom
+    sudo pacman -S --noconfirm bottom
+    ln -sf ~/prog/dotfiles/bottom.toml ~/.config/bottom/bottom.toml
+end
+
+function inst-zoxide
+    set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
+    set -Ux _ZO_MAXAGE 30000
+end
+
+function inst-dotnet
+    set -Ux DOTNET_CLI_TELEMETRY_OPTOUT true
+    fish_add_path "$HOME/.dotnet/tools"
+end
+
+function inst-neovide
+    set -Ux NEOVIDE_FORK false
+end
+
+function inst-python
+    set -Ux PYTHONSTARTUP ~/prog/dotfiles/pyrc.py
+end
+
+function inst-go
+    fish_add_path "$HOME/go/bin"
+end
+
+function inst-serpl
+    sudo pacman -S --noconfirm serpl
+    paru -Sa --noconfirm ast-grep-bin
+    mkdir -p ~/.config/serpl
+    ln -sf ~/prog/dotfiles/serpl.yml ~/.config/serpl/serpl.yml
+end
+
+function inst-repgrep
+    sudo pacman -S --noconfirm repgrep
 end
