@@ -16,6 +16,8 @@ feeds:
     name: xkcd
   - url: https://jvns.ca/atom.xml
     name: julia evans
+  - url: https://terminaltrove.com/new.xml
+    name: terminal trove
 theme:
   glamour: dark
   titleColor: "#e49641"
