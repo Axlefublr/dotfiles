@@ -86,12 +86,12 @@ customCommands:
       subprocess: true
       description: 'Edit file at HEAD'
 
-    - key: 'e'
+    - key: 'o'
       context: 'commitFiles'
       command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >~/bs/lazygit(path extension {{.SelectedPath}}) ; helix ~/bs/lazygit(path extension {{.SelectedPath}}) ; rm ~/bs/lazygit(path extension {{.SelectedPath}})'''
       subprocess: true
       description: 'Edit file at this point in history'
-    - key: 'E'
+    - key: 'O'
       context: 'commitFiles'
       command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >~/bs/lazygit(path extension {{.SelectedPath}}) ; helix ~/bs/lazygit(path extension {{.SelectedPath}}) ; rm ~/bs/lazygit(path extension {{.SelectedPath}})'''
       subprocess: true
