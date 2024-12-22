@@ -480,5 +480,6 @@ function inst-serpl
 end
 
 function inst-repgrep
-    sudo pacman -S --noconfirm repgrep
+    # sudo pacman -S --noconfirm repgrep
+    # you forked this
 end
