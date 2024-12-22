@@ -75,11 +75,13 @@ function inst-fish-lsp
 end
 
 function inst-paru
+    sudo pacman -S --noconfirm paru
     mkdir -p ~/.config/paru
     ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
 end
 
 function inst-xremap
+    sudo pacman -S --noconfirm xremap-x11-bin
     sudo usermod -aG input $USER
     sudo usermod -aG video $USER
     echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
@@ -136,6 +138,7 @@ function inst-ruby
 end
 
 function inst-brillo
+    sudo pacman -S --noconfirm brillo
     begin
         echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"'
         echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"'
@@ -148,7 +151,7 @@ function inst-ttyper
 end
 
 function inst-nvim
-    sudo pacman -S neovim
+    sudo pacman -S neovim luarocks
     trash-put ~/.config/nvim
     mkdir -p ~/.config/nvim
     for file in ~/prog/dotfiles/!nvim/*
@@ -175,17 +178,19 @@ function inst-vscode
 end
 
 function inst-picom
-    sudo pacman -S picom
+    sudo pacman -S --noconfirm picom
     mkdir -p ~/.config/picom
     ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
 end
 
 function inst-gromit-mpx
+    sudo pacman -S --noconfirm gromit-mpx
     ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
     sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
 end
 
 function inst-rust
+    sudo pacman -S --noconfirm rustup
     fish_add_path "$HOME/.cargo/bin"
     fish_add_path "$HOME/.cargo/env"
     bash "$HOME/.cargo/env"
@@ -194,6 +199,8 @@ function inst-rust
     rustup toolchain install nightly
     rustup component add rust-analyzer
     cargo login
+    sudo pacman -S --noconfirm cargo-binstall
+    sudo pacman -S --noconfirm cargo-update
 end
 
 function inst-rustfmt
@@ -396,6 +403,7 @@ function uninst-newsboat
 end
 
 function inst-nom
+    paru -Sa --noconfirm nom
     mkdir -p ~/.config/nom
     ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
     ln -sf ~/auto/nom.db ~/.config/nom/nom.db
@@ -411,6 +419,7 @@ end
 
 function inst-termfilechooser
     sudo pacman -S xdg-desktop-portal-gtk
+    paru -Sa --noconfirm xdg-desktop-portal-termfilechooser-git
     fish_add_path /usr/lib
     set -Ux TERMCMD kitty
     set -Ux GDK_DEBUG portals
@@ -427,6 +436,7 @@ end
 
 function inst-gtk-theme
     # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
+    sudo pacman -S --noconfirm gtk3-demo
     sudo ln -sf ~/prog/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 end
 
@@ -441,6 +451,7 @@ function inst-fstab
 end
 
 function inst-gh
+    sudo pacman -S --noconfirm github-cli
     gh auth login
     gh auth refresh -h github.com -s delete_repo
 end
@@ -451,6 +462,7 @@ function inst-bottom
 end
 
 function inst-zoxide
+    sudo pacman -S --noconfirm zoxide
     set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
     set -Ux _ZO_MAXAGE 30000
 end
@@ -465,10 +477,16 @@ function inst-neovide
 end
 
 function inst-python
+    sudo pacman -S --noconfirm python3 python-pip python-pipx python-docs python-toml
     set -Ux PYTHONSTARTUP ~/prog/dotfiles/pyrc.py
 end
 
+function inst-python-lang
+    paru -Sa --noconfirm basedpyright-git
+end
+
 function inst-go
+    sudo pacman -S --noconfirm go
     fish_add_path "$HOME/go/bin"
 end
 
@@ -482,4 +500,25 @@ end
 function inst-repgrep
     # sudo pacman -S --noconfirm repgrep
     # you forked this
+end
+
+function inst-copyq
+    sudo pacman -S --noconfirm copyq
+end
+
+function inst-java
+    sudo pacman -S --noconfirm jdk8-openjdk maven
+    paru -Sa --noconfirm intellij-idea-community-edition-jre
+end
+
+function inst-zola
+    sudo pacman -S --noconfirm zola
+end
+
+function inst-crystal
+    sudo pacman -S --noconfirm crystal shards
+end
+
+function inst-elixir
+    sudo pacman -S --noconfirm elixir
 end
