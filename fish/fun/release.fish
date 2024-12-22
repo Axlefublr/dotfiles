@@ -87,10 +87,14 @@ function rust-ci --description 'Bring in on tag push github action'
 end
 funcsave rust-ci >/dev/null
 
-function rust-bin -a message
+function rust-bin -a message other_name
     not set -q message && return 121
     gq || return 1
-    set -l name (basename $PWD)
+    if set -q other_name
+        set -f name $other_name
+    else
+        set -f name (basename $PWD)
+    end
     cargo build -r
     and cp -f ./target/release/$name ~/prog/binaries/$name
     git -C ~/prog/binaries add $name && git -C ~/prog/binaries commit -m "$name: $message"
