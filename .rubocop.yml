@@ -59,6 +59,9 @@ Lint/AmbiguousBlockAssociation:
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
 
+Lint/DuplicateMethods:
+  Severity: refactor
+
 Lint/EmptyClass:
   Enabled: false
 

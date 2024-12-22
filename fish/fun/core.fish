@@ -92,12 +92,12 @@ function neoline
 end
 funcsave neoline >/dev/null
 
-function neoline_hold
+function neoline-hold
     neoline $argv
     win_wait 'kitty\\.kitty — line' >/dev/null
     win_wait_closed 'kitty\\.kitty — line'
 end
-funcsave neoline_hold >/dev/null
+funcsave neoline-hold >/dev/null
 
 function neomax
     scratchpad --wintitle=max -- helix -c ~/prog/dotfiles/helix/quit.toml $argv

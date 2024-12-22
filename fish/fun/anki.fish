@@ -70,9 +70,9 @@ end
 funcsave anki-sync >/dev/null
 
 function anki-add-card # TODO: rewrite logic in ruby
-    neoline_hold ~/bs/anki_card.html
-    _magazine_commit ~/bs/anki_card.html attard
-    set -l fields (cat ~/bs/anki_card.html)
+    neoline-hold ~/bs/anki-card.html
+    _magazine_commit ~/bs/anki-card.html attard
+    set -l fields (cat ~/bs/anki-card.html)
     test (count $fields) -le 2
     and begin
         notify-send -t 3000 'less than 3 fields'
