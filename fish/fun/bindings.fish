@@ -156,6 +156,8 @@ function fish_user_key_bindings
     binds -vds M _man_the_commandline
     binds -vds ? _help_the_commandline
 
+    binds -vids \cz fg
+
     # function asdf
     #     commandline -o
     # end
