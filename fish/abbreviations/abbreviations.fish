@@ -8,6 +8,7 @@ abbr -a real realpath
 abbr -a chx 'chmod +x'
 abbr -a c echo
 abbr -a f fg
+abbr -a j jobs
 
 abbr -a h 'z ~ && clx'
 abbr -a u 'z - && clx'
