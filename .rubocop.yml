@@ -26,6 +26,9 @@ Layout/EmptyLinesAroundClassBody:
 Layout/EndAlignment:
   Severity: refactor
   
+Layout/ExtraSpacing:
+  Severity: refactor
+
 Layout/IndentationStyle:
   EnforcedStyle: tabs
   IndentationWidth: 3
@@ -108,6 +111,9 @@ Style/RedundantInitialize:
   Enabled: false
 
 Style/SingleLineDoEndBlock:
+  Enabled: false
+
+Style/StringConcatenation:
   Enabled: false
 
 Style/TrailingCommaInArrayLiteral:

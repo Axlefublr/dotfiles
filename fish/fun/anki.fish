@@ -69,20 +69,17 @@ function anki-sync
 end
 funcsave anki-sync >/dev/null
 
-function anki-add-card # TODO: rewrite logic in ruby
+function anki-add-card
     neoline-hold ~/bs/anki-card.html
     _magazine_commit ~/bs/anki-card.html attard
-    set -l fields (cat ~/bs/anki-card.html)
-    test (count $fields) -le 2
-    and begin
-        notify-send -t 3000 'less than 3 fields'
+    set -l card (anki-add-card.rb 2>~/bs/anki-card-errors)
+    set -l exitcode $status
+    if test -s ~/bs/anki-card-errors
+        notify-send -t 2000 "$(cat ~/bs/anki-card-errors)"
     end
-    test (count $fields) -eq 3 && set fields $fields '' '' ''
-    test (count $fields) -eq 4 && set fields $fields '' ''
-    test (count $fields) -eq 5 && set fields $fields ''
-    indeed -n ~/.local/share/magazine/A -- "$(string join ';' -- $fields)" # FIXME: should wrap fields 3+ in quotes
+    test $exitcode -ne 0 && return
+    indeed -nu ~/.local/share/magazine/A -- "$(anki-add-card.rb)"
     _magazine_commit ~/.local/share/magazine/A card
-    notify-send -t 5000 "$(tail -n 1 ~/.local/share/magazine/A)"
     notify-send -t 5000 "$(tail -n +4 ~/.local/share/magazine/A | wc -l)"
 end
 funcsave anki-add-card >/dev/null
