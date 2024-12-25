@@ -32,6 +32,12 @@ function _man_the_commandline
 end
 funcsave _man_the_commandline >/dev/null
 
+function _match_helix_cwd
+    z (cat /tmp/helix-cwd-suspend)
+    commandline -f repaint
+end
+funcsave _match_helix_cwd >/dev/null
+
 function binds
     argparse -i v/visual d/default i/insert s/sub -- $argv
     or return 1
@@ -157,6 +163,7 @@ function fish_user_key_bindings
     binds -vds ? _help_the_commandline
 
     binds -vids \cz fg
+    binds -vids \cy _match_helix_cwd
 
     # function asdf
     #     commandline -o
