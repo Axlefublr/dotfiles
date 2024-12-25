@@ -34,7 +34,7 @@ statusline: dict[str, Any] = {
 }
 
 lsp: dict[str, Any] = {
-    'auto-signature-help': True,
+    'auto-signature-help': False,
     'display-inlay-hints': True,
     'display-signature-help-docs': True,
     'snippets': True,
