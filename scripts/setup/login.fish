@@ -11,9 +11,9 @@ redshift -O 5700 2>>/tmp/log/user.txt
 xset s off -dpms 2>>/tmp/log/user.txt
 xrestart.fish
 
-kitty -T editor -d ~/prog/dotfiles --hold 'fish -ic helix' 2>>/tmp/log/user.txt & disown
+kitty -T editor -d ~/prog/dotfiles --hold fish -ic helix 2>>/tmp/log/user.txt & disown
 # kitty -T men 2>>/tmp/log/user.txt & disown
-kitty -T oil-content -d ~/vid --hold 'fish -ic yazi-cd' 2>>/tmp/log/user.txt & disown
+kitty -T oil-content -d ~/vid --hold fish -ic yazi-cd 2>>/tmp/log/user.txt & disown
 
 for script in ~/prog/dotfiles/scripts/services/*.fish
     $script 2>>/tmp/log/user.txt & disown

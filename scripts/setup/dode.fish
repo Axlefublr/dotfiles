@@ -490,6 +490,10 @@ function inst-go
     fish_add_path "$HOME/go/bin"
 end
 
+function inst-go-lang
+    sudo pacman -S --noconfirm gopls
+end
+
 function inst-serpl
     sudo pacman -S --noconfirm serpl
     paru -Sa --noconfirm ast-grep-bin
@@ -521,4 +525,8 @@ end
 
 function inst-elixir
     sudo pacman -S --noconfirm elixir
+end
+
+function inst-kotlin
+    sudo pacman -S --noconfirm kotlin jre-openjdk
 end
