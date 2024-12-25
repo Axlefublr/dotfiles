@@ -34,7 +34,7 @@ function inst-git
     git config --global interactive.singleKey true
     git config --global pull.ff only
     git config --global push.autoSetupRemote true
-    git config --global rerere.enabled true
+    git config --global rerere.enabled false
     git config --global user.email 101342105+Axlefublr@users.noreply.github.com
     git config --global user.name Axlefublr
     # [[sort off]]
