@@ -45,6 +45,7 @@ editor: dict[str, Any] = {
     'should-statusline': False,
     'ephemeral-messages': True,
     'whichkey': False,
+    'disable-dot-repeat': True,
     'continue-comments': False,
     'scrolloff': 99,
     'shell': ['fish', '-c'],
@@ -224,6 +225,7 @@ normal_mappings.update(**normal_insert_mappings)
 insert_mappings.update(**normal_insert_mappings)
 
 normal_select_mappings: dict[str, Any] = {
+    '.': 'toggle_line_select',
     'A-,': 'decrement',
     'A-.': 'increment',
     'o': 'open_below',
