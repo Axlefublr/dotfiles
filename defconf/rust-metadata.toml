@@ -9,7 +9,4 @@ readme = "README.md"
 homepage = "https://github.com/Axlefublr/%project_name%"
 repository = "https://github.com/Axlefublr/%project_name%"
 
-[lints.rustdoc]
-unescaped_backticks = "deny"
-
 [dependencies]
