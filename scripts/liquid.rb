@@ -17,8 +17,8 @@ end
 LIQUID_COST = 580
 MONTH = 30.5
 
-amount_used_ml = amount_used 58, 9.4, 4
-per_day_ml = per_day amount_used_ml, 3
+amount_used_ml = amount_used 58, 9.4, 2
+per_day_ml = per_day amount_used_ml, 4
 days_per_100 = days_per_amount per_day_ml, 100
 liquids_per_month = MONTH / days_per_100
 total_per_month = liquids_per_month * LIQUID_COST

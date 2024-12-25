@@ -71,6 +71,9 @@ Lint/UselessAssignment:
 Naming/FileName:
   Enabled: false
 
+Naming/VariableNumber:
+  Enabled: false
+
 Style/BlockDelimiters:
   Enabled: false
 
@@ -108,7 +111,8 @@ Style/SingleLineDoEndBlock:
   Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
-  Severity: refactor
+  Enabled: false
+  # Severity: refactor
 
 Style/TrailingCommaInHashLiteral:
   Enabled: false
