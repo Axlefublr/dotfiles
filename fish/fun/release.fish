@@ -90,7 +90,7 @@ funcsave rust-ci >/dev/null
 function rust-bin -a message other_name
     not set -q message && return 121
     gq || return 1
-    if set -q other_name
+    if test $other_name
         set -f name $other_name
     else
         set -f name (basename $PWD)
