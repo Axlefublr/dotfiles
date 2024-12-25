@@ -44,4 +44,4 @@ lines = lines.map do |line|
 	'"' + line + '"'
 end.to_a
 
-puts lines.join "\t"
+puts lines.join ';'
