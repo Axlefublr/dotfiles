@@ -1749,7 +1749,7 @@ keymap:
       Super_R-q: ctrl-shift-u
       Super_R-z: { launch: [fish, -c, runner_symbol] }
 
-      Super-r:
+      Super_L-r:
         {
           launch:
             [
@@ -1758,7 +1758,7 @@ keymap:
               'truncate -s 0 /tmp/tesseract.txt ; scrot -s - | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
-      Super-Alt-r:
+      Super_L-Alt-r:
         {
           launch:
             [
@@ -1767,17 +1767,17 @@ keymap:
               'truncate -s 0 /tmp/tesseract.txt ; ypoc -t image/png | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
-      # Super-c: { launch: [fish, -c, 'widget_update anki-update no-increment Anki'] }
+      # Super_L-c: { launch: [fish, -c, 'widget_update anki-update no-increment Anki'] }
       CapsLock-y: [CapsLock, { launch: [fish, -c, 'widget_update update_layout Layout'] }] # toggle capslock toggle
       Super_L-Space: { launch: [fish, -c, toggle_layout] }
       # Btn_Side: { launch: [fish, -c, 'pidof boomer && xdotool key q || boomer'] }
-      Super-v: { launch: [boomer] }
+      Super_L-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }
-      Super-f: { launch: [gromit-mpx, --toggle] }
-      Super-Alt-f: { launch: [gromit-mpx, --clear] }
-      Super-Shift-f: { launch: [gromit-mpx, --visibility] }
-      Super-s: { launch: [fish, -c, 'scrot -s - | copy -t image/png'] }
-      Super-Alt-s:
+      Super_L-f: { launch: [gromit-mpx, --toggle] }
+      Super_L-Alt-f: { launch: [gromit-mpx, --clear] }
+      Super_L-Shift-f: { launch: [gromit-mpx, --visibility] }
+      Super_L-s: { launch: [fish, -c, 'scrot -s - | copy -t image/png'] }
+      Super_L-Alt-s:
         {
           launch:
             [
@@ -1786,28 +1786,28 @@ keymap:
               "scrot -u - | copy -t image/png ; notify-send -t 1000 'took window'",
             ],
         }
-      Super-Shift-s:
+      Super_L-Shift-s:
         {
           launch:
             [fish, -c, "scrot - | copy -t image/png ; notify-send -t 1000 'took screen'"],
         }
-      Super-w: { launch: [fish, -c, 'scrot -s - | display'] }
-      Super-Alt-w: { launch: [fish, -c, 'ypoc -t image/png 2>/dev/null | display'] }
+      Super_L-w: { launch: [fish, -c, 'scrot -s - | display'] }
+      Super_L-Alt-w: { launch: [fish, -c, 'ypoc -t image/png 2>/dev/null | display'] }
       CapsLock-v: { launch: [fish, -c, 'toggle-screen-record'] }
       CapsLock-Alt-v: { launch: [mpv, '--start=0', '/home/axlefublr/z.mp4'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
       Super-Alt-b: { launch: [fish, -c, 'scratchpad --wintitle=line --cwd=~'] }
       Super-Alt-Semicolon: { launch: [rofi, -show, drun] }
       Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
-      Super-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
-      Super-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
-      Super-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
+      Super_L-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
+      Super_L-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
+      Super_L-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
       Super-k: { launch: [fish, -c, runner_notification] }
       Super-Semicolon: { launch: [fish, -c, runner_math] }
       CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax_hold "~/bs/clipboard_edit.md$(calculate-eof-position ~/bs/clipboard_edit.md)" ; cat ~/bs/clipboard_edit.md | copy'] }
       CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
       Super-b: { launch: [fish, -c, 'engined_search'] }
-      Super-c: { launch: [fish, -c, pick-and-copy-color]}
+      Super_L-c: { launch: [fish, -c, pick-and-copy-color]}
 
       Super_R-g:
         exact_match: true
