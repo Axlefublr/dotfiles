@@ -14,6 +14,7 @@ use std::fs::File;
 use std::fs::OpenOptions;
 use std::io::Read;
 use std::io::Write;
+use std::os::unix::fs::PermissionsExt;
 use std::path::Component;
 use std::path::Path;
 use std::path::PathBuf;
@@ -52,7 +53,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .collect::<Vec<String>>()
         .join("\n");
 
-    let target_file = maybe_filepath.unwrap_or_else(extract_filepath_from_lines);
+    let target_file_path = maybe_filepath.unwrap_or_else(extract_filepath_from_lines);
 
     let rest_of_file: String = main_file
         .collect::<Vec<_>>()
@@ -62,7 +63,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .create(true)
         .truncate(true)
         .write(true)
-        .open(target_file)
+        .open(target_file_path.as_path())
         .unwrap();
 
     writeln!(
@@ -70,6 +71,13 @@ fn main() -> Result<(), Box<dyn Error>> {
         "{SCRIPT_FILLER}{cargo_file}\n//! ```\n{rest_of_file}"
     )
     .unwrap();
+
+    let mut permissions = target_file
+        .metadata()
+        .unwrap()
+        .permissions();
+    permissions.set_mode(0o755); // rwxr-xr-x
+    fs::set_permissions(target_file_path, permissions).unwrap();
 
     Ok(())
 }
