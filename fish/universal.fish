@@ -20,7 +20,7 @@ set -U fish_user_paths "$HOME/prog/binaries" \
     "$HOME/prog/dotfiles/fish/fun" \
     "$HOME/prog/dotfiles/scripts" \
     "$HOME/prog/dotfiles/scripts/trenchcoat" \
-    "$HOME/prog/dotfiles/scripts/assassin" \
+    "$HOME/prog/dotfiles/scripts/scriptister" \
     "$HOME/.local/bin"
 set -U fish_features qmark-noglob
 

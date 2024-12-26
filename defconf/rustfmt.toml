@@ -1,6 +1,6 @@
 # array_width = 60
 # attr_fn_like_width = 70
-# chain_width = 60
+chain_width = 35
 # fn_call_width = 60
 fn_params_layout = "Tall"
 force_explicit_abi = true
