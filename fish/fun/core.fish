@@ -185,3 +185,8 @@ function get-input
     echo $input
 end
 funcsave get-input >/dev/null
+
+function f
+    set -q argv && fg (velvidek.rs $argv) || fg
+end
+funcsave f >/dev/null
