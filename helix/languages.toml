@@ -143,6 +143,15 @@ workspace.checkThirdParty = false
 [[language]]
 name = 'rust'
 
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'|' = '|'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
 [language-server.rust-analyzer.config]
 checkOnSave.command = 'clippy'
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev'

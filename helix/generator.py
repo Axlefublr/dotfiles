@@ -35,7 +35,7 @@ statusline: dict[str, Any] = {
 
 lsp: dict[str, Any] = {
     'auto-signature-help': False,
-    'display-inlay-hints': True,
+    'display-inlay-hints': False,
     'display-signature-help-docs': True,
     'snippets': True,
     'goto-reference-include-declaration': False,
@@ -278,7 +278,7 @@ normal_select_mappings: dict[str, Any] = {
     'm': {
         'g': ':set gutters.layout ["diff"]',
         'G': ':set gutters.layout []',
-        'l': ':toggle should-statusline',
+        'p': ':toggle should-statusline',
         'e': ':lang',
         'w': ':toggle whichkey',
         'f': ':echopy %R',
@@ -293,6 +293,7 @@ normal_select_mappings: dict[str, Any] = {
         'C': ':pipe wc -l',
         'o': ':toggle auto-format',
         'q': 'count_selections',
+        'l': ':toggle lsp.display-inlay-hints',
     },
     'space': {
         'z': 'harp_cwd_get',
