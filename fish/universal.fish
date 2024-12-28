@@ -15,13 +15,6 @@ set -U fish_lazy_load_completions true
 set -U fish_lazy_load_functions true
 set -U fish_escape_delay_ms 10
 set -U fish_handle_reflow 1
-set -U fish_user_paths "$HOME/prog/binaries" \
-    "$HOME/prog/dotfiles/fish" \
-    "$HOME/prog/dotfiles/fish/fun" \
-    "$HOME/prog/dotfiles/scripts" \
-    "$HOME/prog/dotfiles/scripts/trenchcoat" \
-    "$HOME/prog/dotfiles/scripts/scriptister" \
-    "$HOME/.local/bin"
 set -U fish_features qmark-noglob
 
 set -U fish_color_normal d4be98
