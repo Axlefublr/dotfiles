@@ -1,7 +1,6 @@
-#!/usr/bin/env run-cargo-script
-//! ```cargo
-//! [dependencies]
-//! ```
+// begin Cargo.toml
+// [dependencies]
+// end Cargo.toml
 // /home/axlefublr/prog/dotfiles/scripts/scriptister/export-rust-script.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -15,14 +14,11 @@ use std::fs::OpenOptions;
 use std::io::Read;
 use std::io::Write;
 use std::os::unix::fs::PermissionsExt;
+use std::os::unix::process::CommandExt;
 use std::path::Component;
 use std::path::Path;
 use std::path::PathBuf;
-
-const SCRIPT_FILLER: &str = "\
-#!/usr/bin/env run-cargo-script
-//! ```cargo
-";
+use std::process::Command;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let maybe_filepath: Option<PathBuf> = env::args()
@@ -49,7 +45,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let cargo_file = cargo_file
         .lines()
         .skip_while(|&line| line != "[dependencies]")
-        .map(|line| format!("//! {line}"))
+        .map(|line| format!("// {line}"))
         .collect::<Vec<String>>()
         .join("\n");
 
@@ -68,16 +64,16 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     writeln!(
         target_file,
-        "{SCRIPT_FILLER}{cargo_file}\n//! ```\n{rest_of_file}"
+        "// begin Cargo.toml\n{cargo_file}\n// end Cargo.toml\n{rest_of_file}"
     )
     .unwrap();
 
-    let mut permissions = target_file
-        .metadata()
-        .unwrap()
-        .permissions();
-    permissions.set_mode(0o755); // rwxr-xr-x
-    fs::set_permissions(target_file_path, permissions).unwrap();
+    let target_file_path_name = target_file_path
+        .file_name()
+        .unwrap();
 
+    Command::new("compile-rust-script.fish")
+        .arg(target_file_path_name)
+        .exec();
     Ok(())
 }

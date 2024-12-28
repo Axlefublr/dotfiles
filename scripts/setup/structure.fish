@@ -35,3 +35,6 @@ git clone https://github.com/Axlefublr/music
 mv music alien_temple
 git clone https://github.com/Axlefublr/shows
 mv shows glaza
+
+cd ~/.cache
+mkdir -p wks

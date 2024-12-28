@@ -1,8 +1,7 @@
-#!/usr/bin/env run-cargo-script
-//! ```cargo
-//! [dependencies]
-//! # clap = { version = "4.5.23", features = ["wrap_help", "derive"] }
-//! ```
+// begin Cargo.toml
+// [dependencies]
+// # clap = { version = "4.5.23", features = ["wrap_help", "derive"] }
+// end Cargo.toml
 // /home/axlefublr/prog/dotfiles/scripts/velvidek.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]

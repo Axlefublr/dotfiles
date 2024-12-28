@@ -1,7 +1,6 @@
-#!/usr/bin/env run-cargo-script
-//! ```cargo
-//! [dependencies]
-//! ```
+// begin Cargo.toml
+// [dependencies]
+// end Cargo.toml
 // /home/axlefublr/prog/dotfiles/scripts/scriptister/import-rust-script.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -23,18 +22,22 @@ fn main() -> Result<(), Box<dyn Error>> {
         .parse()
         .expect("provided argument is not a file path");
     let file = fs::read_to_string(maybe_filepath).unwrap();
-    let lines: Vec<&str> = file.lines().skip(2).collect();
+    let lines: Vec<&str> = file.lines().skip(1).collect();
 
     let cargo_file = lines
         .iter()
-        .take_while(|&&line| line != "//! ```")
-        .map(|line| line.chars().skip(4).collect::<String>())
+        .take_while(|&&line| line != "// end Cargo.toml")
+        .map(|line| {
+            line.chars()
+                .skip(3)
+                .collect::<String>()
+        })
         .collect::<Vec<_>>()
         .join("\n");
 
     let main_file = lines
         .iter()
-        .skip_while(|&&line| line != "//! ```")
+        .skip_while(|&&line| line != "// end Cargo.toml")
         .skip(1)
         .map(|&line| line.to_owned())
         .collect::<Vec<_>>()
