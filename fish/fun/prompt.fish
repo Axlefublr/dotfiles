@@ -96,22 +96,19 @@ function fish_prompt
         printf '\n'
     end
     if git rev-parse --is-inside-work-tree &>/dev/null
+        set -l curr_branch (git branch --show-current 2> /dev/null)
         set_color -o af87ff
-        echo -n ' '
+        if test $curr_branch
+            echo -n ''$curr_branch' '
+        else
+            set -l curr_commit (git rev-parse --short HEAD 2> /dev/null)
+            echo -n ''$curr_commit' '
+        end
         set_color normal
-        # set -l curr_branch (git branch --show-current 2> /dev/null)
-        # set_color -o af87ff
-        # if test $curr_branch
-        #     echo -n ''$curr_branch' '
-        # else
-        #     set -l curr_commit (git rev-parse --short HEAD 2> /dev/null)
-        #     echo -n ''$curr_commit' '
-        # end
-        # set_color normal
-        # # command -q octogit && octogit-set
-        # if test $COLUMNS -lt $small_threshold
-        #     printf '\n'
-        # end
+        # command -q octogit && octogit-set
+        if test $COLUMNS -lt $small_threshold
+            printf '\n'
+        end
     end
     fish_prompt_status $fullstatuses
     set_color ffd75f
