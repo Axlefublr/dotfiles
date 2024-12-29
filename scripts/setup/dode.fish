@@ -191,8 +191,8 @@ end
 
 function inst-rust
     sudo pacman -S --noconfirm rustup
-    fish_add_path "$HOME/.cargo/bin"
-    fish_add_path "$HOME/.cargo/env"
+    fish_add_path ~/.cargo/bin
+    fish_add_path ~/.cargo/env
     bash "$HOME/.cargo/env"
     rustup update
     rustup default stable
@@ -391,6 +391,7 @@ function inst-ocaml
     opam install ocaml-lsp-server
     opam install ocamlformat
     opam install utop
+    echo 'eval (opam env)' >>~/.config/fish/config.fish
 end
 
 function inst-newsboat
@@ -529,4 +530,15 @@ end
 
 function inst-kotlin
     sudo pacman -S --noconfirm kotlin jre-openjdk
+end
+
+function inst-jj
+    sudo pacman -S --noconfirm jj lazyjj
+    echo 'jj util completion fish | source' >>~/.config/fish/config.fish
+    jj config set --user user.name Axlefublr
+    jj config set --user user.email '101342105+Axlefublr@users.noreply.github.com'
+    jj config set --user ui.pager :builtin
+    jj config set --user ui.paginate never
+    jj config set --user ui.diff-editor :builtin
+    jj config set --user ui.default-command status
 end
