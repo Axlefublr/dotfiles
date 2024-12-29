@@ -6,6 +6,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
+use std::borrow::Cow;
 use std::env::args;
 use std::env::{self};
 use std::error::Error;
@@ -18,23 +19,25 @@ use std::path::Path;
 use std::path::PathBuf;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let maybe_layer_number: Option<String> = args().nth(1);
-    let Some(layer_number) = maybe_layer_number else {
-        return Ok(());
-    };
-    let actual_number = match &layer_number[..] {
-        "f" => 1,
-        "d" => 2,
-        "s" => 3,
-        "r" => 4,
-        "e" => 5,
-        "w" => 6,
-        "v" => 7,
-        "c" => 8,
-        "x" => 9,
-        "a" => 10,
-        _ => unimplemented!("numbers above 10"),
-    };
-    println!("%{actual_number}");
+    args()
+        .skip(1)
+        .map(|arg| {
+            arg.chars()
+                .map(|chr| match chr {
+                    'f' => '1',
+                    'd' => '2',
+                    's' => '3',
+                    'r' => '4',
+                    'e' => '5',
+                    'w' => '6',
+                    'v' => '7',
+                    'c' => '8',
+                    'x' => '9',
+                    'a' => '0',
+                    other => other,
+                })
+                .collect::<Cow<str>>()
+        })
+        .for_each(|transformed_number| println!("{transformed_number}"));
     Ok(())
 }
