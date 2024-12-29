@@ -46,6 +46,7 @@ editor: dict[str, Any] = {
     'ephemeral-messages': True,
     'whichkey': False,
     'disable-dot-repeat': True,
+    'show-diagnostics': True,
     'continue-comments': False,
     'scrolloff': 99,
     'shell': ['fish', '-c'],
