@@ -33,7 +33,13 @@ end
 funcsave _man_the_commandline >/dev/null
 
 function _match_helix_cwd
-    z (cat /tmp/helix-cwd-suspend)
+    set -l helix_cwd (cat /tmp/helix-cwd-suspend)
+    set -l helix_buf_head (cat /tmp/helix-buffer-head-suspend)
+    if test "$PWD" = "$helix_cwd"
+        z $helix_buf_head
+    else
+        z $helix_cwd
+    end
     commandline -f repaint
 end
 funcsave _match_helix_cwd >/dev/null
