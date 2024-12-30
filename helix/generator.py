@@ -43,7 +43,7 @@ lsp: dict[str, Any] = {
 
 editor: dict[str, Any] = {
     'should-statusline': False,
-    'ephemeral-messages': True,
+    'ephemeral-messages': False,
     'whichkey': False,
     'disable-dot-repeat': True,
     'show-diagnostics': True,
