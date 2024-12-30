@@ -187,6 +187,10 @@ end
 funcsave get-input >/dev/null
 
 function f
-    set -q argv && fg "%$(velvidek.rs $argv)" || fg
+    if set -q argv
+        fg %(velvidek.rs $argv)
+    else
+        fg
+    end
 end
 funcsave f >/dev/null
