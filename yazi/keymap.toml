@@ -9,7 +9,7 @@ keymap = [
   { on = 'T', run = 'close', desc = 'Close the current tab, or quit if it is last tab' },
   { on = '<C-z>', run = 'suspend', desc = 'Suspend the process' },
 
-  { on = 'J', run = 'plugin --sync hide-preview', desc = 'Toggle preview' },
+  { on = 'J', run = 'plugin hide-preview', desc = 'Toggle preview' },
 
   { on = 'e', run = 'shell --block --confirm "helix $@"', desc = 'Open in helix' },
   { on = '<A-u>', run = 'shell --confirm "kitten @ launch --type tab --cwd current"', desc = 'Kitty tab' },
