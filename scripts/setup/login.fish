@@ -28,7 +28,7 @@ ydotoold 2>>/tmp/log/user.txt & disown
 # ollama serve 2>>/tmp/log/user.txt & disown
 gromit.fish 2>>/tmp/log/user.txt & disown
 copyq 2>>/tmp/log/user.txt & disown
-playerctld daemon
+playerctld daemon &>/tmp/log/user.txt
 axleizer &>/tmp/log/axleizer.txt & disown
 
 # notify-send -t 2000 spotify

@@ -2,7 +2,7 @@
 // [dependencies]
 // # clap = { version = "4.5.23", features = ["wrap_help", "derive"] }
 // end Cargo.toml
-// /home/axlefublr/prog/dotfiles/scripts/trenchcoat/strip-wrapper-type.rs
+// /home/axlefublr/prog/dotfiles/scripts/strip-wrapper-type.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
@@ -42,15 +42,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         _ => unimplemented!("(){{}}<>[]||"),
     };
     let mut the = String::new();
-    let stdin = stdin()
-        .read_to_string(&mut the)
-        .expect("stdin");
-    let left = the
-        .find(surrounding_left)
-        .expect("left delimiter");
-    let right = the
-        .rfind(surrounding_right)
-        .expect("right delimiter");
+    let stdin = stdin().read_to_string(&mut the).expect("stdin");
+    let left = the.find(surrounding_left).expect("left delimiter");
+    let right = the.rfind(surrounding_right).expect("right delimiter");
     print!("{}", &the[(left + 1)..right]);
     Ok(())
 }
