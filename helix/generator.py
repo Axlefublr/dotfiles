@@ -325,8 +325,6 @@ normal_select_mappings: dict[str, Any] = {
         'H': ':sh over --cwd=%h lazygit',
         'f': 'file_picker_in_current_directory',
         'F': 'file_picker_in_current_buffer_directory',
-        'k': 'file_browser_in_current_directory',
-        'K': 'file_browser_in_current_buffer_directory',
         'e': 'buffer_picker',
         'c': 'code_action',
         'J': 'command_palette',
