@@ -101,6 +101,8 @@ function fish_user_key_bindings
     binds -vs \; begin-selection
 
     binds -vs , swap-selection-start-stop
+    binds -vds -m insert a insert-line-under repaint-mode
+    binds -vds -m insert A insert-line-over repaint-mode
 
     binds -d -m visual v beginning-of-line begin-selection end-of-line
     binds -d -m visual V end-of-line begin-selection beginning-of-line
@@ -120,7 +122,12 @@ function fish_user_key_bindings
     bind -m insert c delete-char
 
     binds -vs -m insert i 'commandline -C "$(commandline -B)" ; commandline -f end-selection'
-    binds -vs -m insert a 'commandline -C "$(commandline -E)" ; commandline -f end-selection'
+    binds -vs -m insert p 'commandline -C "$(commandline -E)" ; commandline -f end-selection'
+
+    binds -d -m insert p forward-single-char repaint-mode
+    binds -vds -m insert P end-of-line repaint-mode
+    binds -vds o forward-char yank
+    binds -vds O yank
 
     binds -ds -m visual % beginning-of-buffer begin-selection end-of-buffer
 
@@ -135,8 +142,8 @@ function fish_user_key_bindings
     binds -d : _replace_character_with_clipboard
     binds -sv -m default : _replace_selection_with_clipboard
 
-    bind S 'commandline | copy'
-    binds -vs S fish_clipboard_copy
+    bind s 'commandline | copy'
+    binds -vs s fish_clipboard_copy
     binds -vds K exit
 
     binds -vds q edit_command_buffer
@@ -168,7 +175,7 @@ function fish_user_key_bindings
     binds -vds M _man_the_commandline
     binds -vds ? _help_the_commandline
 
-    binds -vids \cz fg
+    binds -vids \cz 'fg &>/dev/null'
     binds -vids \cy _match_helix_cwd
 
     # function asdf

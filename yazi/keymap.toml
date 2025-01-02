@@ -53,11 +53,11 @@ keymap = [
 
   # -----------------------------------------------Selection-----------------------------------------------
   { on = 'V', run = [
-    'select --state=none',
+    'toggle --state=none',
     'arrow -1',
   ], desc = 'Toggle the current selection state' },
   { on = 'v', run = [
-    'select --state=none',
+    'toggle --state=none',
     'arrow 1',
   ], desc = 'Toggle the current selection state' },
   { on = 'x', run = 'visual_mode', desc = 'Enter visual mode' },
@@ -66,10 +66,10 @@ keymap = [
   { on = '<Space>', run = 'select_all --state=false', desc = 'Deselect all' },
 
   # ----------------------------------------------Operation----------------------------------------------
-  { on = 'o', run = 'create --force', desc = 'Create a blob' },
+  { on = 'a', run = 'create --force', desc = 'Create a blob' },
 
-  { on = 'A', run = 'plugin open-with-cmd --args=block', desc = 'Open selected with command in the terminal' },
-  { on = 'a', run = 'plugin open-with-cmd', desc = 'Open selected with command' },
+  { on = 'P', run = 'plugin open-with-cmd --args=block', desc = 'Open selected with command in the terminal' },
+  { on = 'p', run = 'plugin open-with-cmd', desc = 'Open selected with command' },
   { on = '<Enter>', run = 'open', desc = 'Open selected files' },
 
   { on = 'd', run = 'remove --force', desc = 'Trash selected' },
@@ -82,8 +82,8 @@ keymap = [
   { on = 's', run = 'yank', desc = 'Yank selected files (copy)' },
   { on = 'S', run = 'yank --cut', desc = 'Yank selected files (cut)' },
   { on = 'X', run = 'unyank', desc = 'Cancel the yank status' },
-  { on = 'p', run = 'paste', desc = 'Paste yanked files' },
-  { on = 'P', run = 'paste --force', desc = 'Paste yanked files (overwrite if the destination exists)' },
+  { on = 'o', run = 'paste', desc = 'Paste yanked files' },
+  { on = 'O', run = 'paste --force', desc = 'Paste yanked files (overwrite if the destination exists)' },
 
   { on = ';', run = 'shell --interactive', desc = 'Run a shell command' },
   { on = ':', run = 'shell --block --interactive', desc = 'Run a blocking shell command' },
