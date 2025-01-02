@@ -96,6 +96,7 @@ file-types = [
   { glob = '**/magazine/d' },
   { glob = '**/magazine/c' },
   { glob = '**/magazine/G' },
+  { glob = '**/magazine/0' },
 ]
 indent = { tab-width = 2, unit = '  ' }
 
