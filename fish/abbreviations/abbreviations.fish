@@ -8,9 +8,9 @@ abbr -a real realpath
 abbr -a chx 'chmod +x'
 abbr -a c echo
 abbr -a j jobs
+abbr -a u pueue
 
 abbr -a h 'z ~ && clx'
-abbr -a u 'z - && clx'
 abbr -a x exit
 
 abbr -a hime 'history merge'

@@ -34,6 +34,7 @@ function inst-git
     git config --global interactive.singleKey true
     git config --global pull.ff only
     git config --global push.autoSetupRemote true
+    git config --global rebase.updateRefs true
     git config --global rerere.enabled false
     git config --global user.email 101342105+Axlefublr@users.noreply.github.com
     git config --global user.name Axlefublr
@@ -541,4 +542,12 @@ function inst-jj
     jj config set --user ui.paginate never
     jj config set --user ui.diff-editor :builtin
     jj config set --user ui.default-command status
+end
+
+function inst-pueue
+    sudo pacman -S --noconfirm pueue
+    systemctl --user start pueued
+    systemctl --user enable pueued
+    systemctl --user status pueued
+    ln -sf ~/prog/dotfiles/pueue.yml ~/.config/pueue/pueue.yml
 end

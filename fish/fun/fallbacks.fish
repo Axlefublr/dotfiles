@@ -13,6 +13,7 @@ alias --save real realpath >/dev/null
 alias --save chx 'chmod +x' >/dev/null
 alias --save c echo >/dev/null
 alias --save j jobs >/dev/null
+alias --save u pueue >/dev/null
 
 # no abbreviation equivalents because the expansion is too wordy
 alias --save copy 'xclip -r -selection clipboard' >/dev/null
@@ -25,7 +26,6 @@ alias --save ypoc 'xclip -selection clipboard -o' >/dev/null
 alias --save p 'xclip -selection clipboard -o' >/dev/null
 
 alias --save h 'z ~ && clx' >/dev/null
-alias --save u 'z - && clx' >/dev/null
 alias --save X 'kitten @ close-window' >/dev/null
 
 alias --save hime 'history merge' >/dev/null
