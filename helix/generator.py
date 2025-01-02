@@ -371,6 +371,7 @@ normal_select_mappings: dict[str, Any] = {
         'q': [':cd %h', ':cd %g'],
         'Q': ':cd %h',
         'a': 'rename_symbol',
+        'I': 'goto_implementation',
         **disable(
             [
                 # [[sort on]]
