@@ -200,8 +200,6 @@ function inst-rust
     rustup toolchain install nightly
     rustup component add rust-analyzer
     cargo login
-    sudo pacman -S --noconfirm cargo-binstall
-    sudo pacman -S --noconfirm cargo-update
 end
 
 function inst-rustfmt
@@ -550,4 +548,9 @@ function inst-pueue
     systemctl --user enable pueued
     systemctl --user status pueued
     ln -sf ~/prog/dotfiles/pueue.yml ~/.config/pueue/pueue.yml
+end
+
+function uninst-cargo-script
+    rm -fr ~/.cargo/binary_cache
+    rm -fr ~/.cargo/script_cache
 end
