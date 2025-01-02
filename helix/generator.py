@@ -297,6 +297,7 @@ normal_select_mappings: dict[str, Any] = {
         'o': ':toggle auto-format',
         'q': 'count_selections',
         'l': ':toggle lsp.display-inlay-hints',
+        't': 'surround_add_tag',
         'e': {
             '(': ':pipe strip-wrapper-type.rs b',
             '{': ':pipe strip-wrapper-type.rs B',
