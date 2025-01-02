@@ -284,7 +284,7 @@ normal_select_mappings: dict[str, Any] = {
         'g': ':set gutters.layout ["diff"]',
         'G': ':set gutters.layout []',
         'p': ':toggle should-statusline',
-        'w': ':toggle whichkey',
+        # 'w': ':toggle whichkey',
         'f': ':echopy %R',
         'F': ':echopy %P',
         'z': ':echopy %W',
@@ -298,12 +298,19 @@ normal_select_mappings: dict[str, Any] = {
         'q': 'count_selections',
         'l': ':toggle lsp.display-inlay-hints',
         't': 'surround_add_tag',
-        'e': {
+        'w': {
             '(': ':pipe strip-wrapper-type.rs b',
             '{': ':pipe strip-wrapper-type.rs B',
             '[': ':pipe strip-wrapper-type.rs s',
             '<': ':pipe strip-wrapper-type.rs t',
             '|': ':pipe strip-wrapper-type.rs p',
+        },
+        'e': {
+            '(': ':pipe wrap-in-block.rs b',
+            '{': ':pipe wrap-in-block.rs B',
+            '[': ':pipe wrap-in-block.rs s',
+            '<': ':pipe wrap-in-block.rs t',
+            '|': ':pipe wrap-in-block.rs p',
         },
     },
     'space': {
