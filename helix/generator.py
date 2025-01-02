@@ -226,6 +226,8 @@ normal_mappings.update(**normal_insert_mappings)
 insert_mappings.update(**normal_insert_mappings)
 
 normal_select_mappings: dict[str, Any] = {
+    '`': 'switch_case',
+    '~': 'switch_to_lowercase',
     '.': 'toggle_line_select',
     'A-,': 'decrement',
     'A-.': 'increment',
