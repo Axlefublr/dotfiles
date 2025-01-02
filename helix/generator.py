@@ -409,6 +409,7 @@ normal_select_mappings: dict[str, Any] = {
         '"': ':reload!',
         'z': ':config-reload',
         'i': 'hover',
+        'I': 'hover_dump',
         '?': 'select_first_and_last_chars',
         '/': 'reverse_selection_contents',
         **disable(
