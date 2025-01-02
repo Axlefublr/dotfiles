@@ -1809,6 +1809,8 @@ keymap:
       Super-b: { launch: [fish, -c, 'engined_search'] }
       Super_L-c: { launch: [fish, -c, pick-and-copy-color]}
 
+      Super_R-t: { launch: [fish, -c, 'igrai ~/mus/soundeffects/audio-volume-change.oga'] }
+
       Super_R-g:
         exact_match: true
         remap:
