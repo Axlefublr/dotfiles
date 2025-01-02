@@ -173,29 +173,29 @@ keymap = [
     ',',
     'm',
   ], run = [
-    'sort modified --reverse=no',
+    'sort mtime --reverse=no',
     'linemode mtime',
   ], desc = 'Sort by modified time' },
   { on = [
     ',',
     'M',
   ], run = [
-    'sort modified --reverse',
+    'sort mtime --reverse',
     'linemode mtime',
   ], desc = 'Sort by modified time (reverse)' },
   { on = [
     ',',
     'c',
   ], run = [
-    'sort created --reverse=no',
-    'linemode ctime',
+    'sort btime --reverse=no',
+    'linemode btime',
   ], desc = 'Sort by created time' },
   { on = [
     ',',
     'C',
   ], run = [
-    'sort created --reverse',
-    'linemode ctime',
+    'sort btime --reverse',
+    'linemode btime',
   ], desc = 'Sort by created time (reverse)' },
   { on = [
     ',',
