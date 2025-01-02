@@ -11,7 +11,7 @@ configuration {
 	dpi: 126;
 	scroll-method: 1;
 	max-history-size: 50;
-	matching-negate-char: '!';
+	// matching-negate-char: '!';
 	steal-focus: true;
 
 	kb-primary-paste: "";
