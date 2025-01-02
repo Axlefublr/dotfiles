@@ -403,7 +403,8 @@ function uninst-newsboat
 end
 
 function inst-nom
-    paru -Sa --noconfirm nom
+    # paru -Sa --noconfirm nom
+    eget --to ~/.local/bin/ https://github.com/guyfedwards/nom
     mkdir -p ~/.config/nom
     ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
     ln -sf ~/auto/nom.db ~/.config/nom/nom.db
