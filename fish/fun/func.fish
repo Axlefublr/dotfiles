@@ -8,7 +8,7 @@ function engined_search
     )
     test $status -ne 0 && return 1
 
-    string match -gr '^(?:-(?<engine>.*)- )?(?<only_search>.*)' $input
+    string match -gr '^(?:-(?<engine>.*)- )?(?<only_search>.*)' -- $input
     not test "$engine" && set engine google
     set clean_input (string escape --style=url $only_search)
 
@@ -96,8 +96,8 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
     echo $uninstalled_target[1]
     paccache -ruvk0 $uninstalled_target
     set installed_target (aur_cache_dirs_fmt) # we do this twice because uninstalled package directories got removed
-    paccache -qruk1
-    paccache -qrk2 -c /var/cache/pacman/pkg $installed_target
+    paccache -qruk0
+    paccache -qrk0 -c /var/cache/pacman/pkg $installed_target
 end
 funcsave pacclean >/dev/null
 
