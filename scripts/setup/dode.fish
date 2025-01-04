@@ -562,3 +562,7 @@ function inst-eget
     paru -Sa --noconfirm eget-bin
     set -Ux EGET_BIN ~/.local/bin
 end
+
+function inst-steam
+    sudo pacman -S --noconfirm steam
+end

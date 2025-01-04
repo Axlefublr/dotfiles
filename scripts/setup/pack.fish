@@ -27,6 +27,6 @@ function pack-rust
     sudo pacman -S --noconfirm cargo-update
     cargo binstall -y cargo-quickinstall
     cargo binstall -y cargo-info
-    # cargo binstall -y scriptisto
+    cargo binstall -y scriptisto
     # cargo binstall -y cargo-script
 end
