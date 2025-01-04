@@ -1,6 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
-// textwrap = "0.16.1"
+// itertools = "0.14.0"
+// # textwrap = "0.16.1"
 // # clap = { version = "4.5.23", features = ["wrap_help", "derive"] }
 // end Cargo.toml
 // /home/axlefublr/prog/dotfiles/scripts/wrap-in-block.rs
@@ -20,7 +21,13 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
 
-use textwrap::dedent;
+use itertools::Itertools;
+
+#[derive(PartialEq, Eq, Hash)]
+enum Indent {
+    Tab,
+    Space(u32),
+}
 
 fn main() -> Result<(), Box<dyn Error>> {
     let surrounding_left: String = args()
@@ -41,27 +48,47 @@ fn main() -> Result<(), Box<dyn Error>> {
         "<" => ">",
         "[" => "]",
         "|" => "|",
-        "do" => "end",
         "begin" => "end",
-        "then" => "end",
         _ => unimplemented!("(){{}}<>[]||"),
     };
-    let mut output = String::new();
-    output.push_str(surrounding_left);
-    output.push('\n');
-    let mut buf = String::new();
-    stdin()
-        .read_to_string(&mut buf)
-        .expect("read stdin");
-    let buf: String = dedent(&buf)
+    let stdins: Vec<String> = stdin()
         .lines()
-        .fold(String::new(), |mut text, line| {
-            writeln!(text, "    {line}").unwrap();
-            text
-        });
-    output.push_str(&buf);
-    output.push_str(surrounding_right);
-    output.push('\n');
-    print!("{output}");
+        .map(Result::unwrap)
+        .collect();
+    stdins
+        .iter()
+        .filter(|&line| !line.trim().is_empty())
+        .map(|line| {
+            line.chars()
+                .take_while(|&chr| chr == ' ' || chr == '\t')
+                .collect::<String>()
+        })
+        .filter(|indent| !indent.is_empty())
+        // TODO: should be a map + maybe collect
+        .fold(Vec::new(), |mut decided_indent, line_indent| {
+            let len = line_indent.len();
+            if line_indent
+                .chars()
+                .any(|chr| chr == '\t')
+            {
+                decided_indent.push(Indent::Tab);
+            } else if len % 4 == 0 {
+                decided_indent.push(Indent::Space(4));
+            } else if len % 2 == 0 {
+                decided_indent.push(Indent::Space(2));
+            } else if len % 3 == 0 {
+                decided_indent.push(Indent::Space(3));
+            } else {
+                panic!("strange indentation")
+            }
+            decided_indent
+        })
+        .into_iter()
+        .counts()
+        .into_iter()
+        .max_by_key(|&(_, likelyhood)| likelyhood)
+        .map(|(result_indent, _)| result_indent)
+        .unwrap_or(Indent::Space(4));
+    // print!("{output}");
     Ok(())
 }
