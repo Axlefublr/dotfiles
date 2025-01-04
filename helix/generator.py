@@ -39,6 +39,7 @@ lsp: dict[str, Any] = {
     'display-signature-help-docs': True,
     'snippets': True,
     'goto-reference-include-declaration': False,
+    'display-messages': True,
 }
 
 editor: dict[str, Any] = {
