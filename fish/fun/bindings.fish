@@ -187,6 +187,8 @@ function fish_user_key_bindings
 
     binds -vids \cr _wrap_in_pueue
 
+    binds -i \a/ history-pager repaint-mode
+
     # function asdf
     #     commandline -o
     # end
