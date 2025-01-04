@@ -24,7 +24,6 @@ use std::path::PathBuf;
 use std::process::Command;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    println!("yipeee");
     let mut args = args().skip(1);
     let mut cmd = Command::new("/usr/bin/gh");
 
@@ -39,24 +38,23 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
     }
 
-    let mut cmd = dbg!(cmd);
     let Some(subcommand) = args.next() else { etc(cmd) };
     cmd.arg(&subcommand);
 
-    let mut cmd = dbg!(cmd);
     match &subcommand[..] {
         "repo" => {
             let Some(next_arg) = args.next() else { etc(cmd) };
-            cmd.arg(&next_arg);
 
             match &next_arg[..] {
                 "clonef" => {
+                    cmd.arg("clone");
                     blammo(&mut cmd, &mut args);
                     cmd.arg("--")
                         .arg("--depth")
                         .arg("1");
                 },
                 "forkf" => {
+                    cmd.arg("fork");
                     blammo(&mut cmd, &mut args);
                     cmd.arg("--clone")
                         .arg("--default-branch-only")
@@ -64,12 +62,14 @@ fn main() -> Result<(), Box<dyn Error>> {
                         .arg("--depth")
                         .arg("1");
                 },
-                other => blammo(&mut cmd, &mut args),
+                other => {
+                    cmd.arg(other);
+                    blammo(&mut cmd, &mut args)
+                },
             }
         },
         other => blammo(&mut cmd, &mut args),
     }
-    let mut cmd = dbg!(cmd);
     cmd.exec();
     Ok(())
 }
