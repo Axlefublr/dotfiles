@@ -44,6 +44,13 @@ function _match_helix_cwd
 end
 funcsave _match_helix_cwd >/dev/null
 
+function _wrap_in_pueue
+    set -l cmd "$(commandline)"
+    commandline "pueue add -- '$cmd'"
+    commandline -f execute
+end
+funcsave _wrap_in_pueue >/dev/null
+
 function binds
     argparse -i v/visual d/default i/insert s/sub -- $argv
     or return 1
@@ -170,13 +177,15 @@ function fish_user_key_bindings
     binds -vids \e\; accept-autosuggestion
 
     binds -vids \ed clear-screen repaint
-    binds -vids \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
+    # binds -vids \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
 
     binds -vds M _man_the_commandline
     binds -vds ? _help_the_commandline
 
     binds -vids \cz 'fg &>/dev/null'
     binds -vids \cy _match_helix_cwd
+
+    binds -vids \cr _wrap_in_pueue
 
     # function asdf
     #     commandline -o
