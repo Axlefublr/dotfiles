@@ -32,14 +32,14 @@ fn main() -> Result<(), Box<dyn Error>> {
     let cmd_start = args.next().unwrap_or_default();
     let cmd_end = args.next().unwrap_or_default();
 
-    // let command = command
-    //     .split_whitespace()
-    //     .next()
-    //     .unwrap_or_default();
+    if ["k", "K", "i"].contains(&group.as_str()) {
+        return Ok(());
+    }
 
     let success_symbol = match &success[..] {
         "Success" => "",
         "Failed" => "󱎘",
+        "Killed" => "󰆐",
         other => other,
     };
 
