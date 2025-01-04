@@ -43,8 +43,12 @@ fn main() -> Result<(), Box<dyn Error>> {
         other => other,
     };
 
-    // TODO: Success is checkmark, Failure is opposite; on single line
-    // checkmark at end, not start
+    let command = if command.len() >= 40 {
+        format!("{}…", &command[0..40])
+    } else {
+        command
+    };
+
     let output = format!("{command} {success_symbol} ");
 
     Command::new("notify-send")
