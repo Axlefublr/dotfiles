@@ -1,0 +1,9 @@
+[alias]
+c = 'clippy'
+f = '+nightly fmt'
+rr = 'run --release'
+br = 'build --release'
+a = 'add'
+
+[env]
+RUST_LOG = 'trace'

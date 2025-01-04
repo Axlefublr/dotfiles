@@ -48,10 +48,7 @@ alias --save grf git-search-file >/dev/null
 alias --save grf git-search-file >/dev/null
 
 alias --save py python >/dev/null
-alias --save car 'RUST_LOG=trace cargo run' >/dev/null
-alias --save carr 'RUST_LOG=warn cargo run -r' >/dev/null
-alias --save cab 'cargo build' >/dev/null
-alias --save caf 'cargo +nightly fmt' >/dev/null
+alias --save ca cargo >/dev/null
 
 alias --save ff ffmpeg >/dev/null
 alias --save ffi 'ffmpeg -i' >/dev/null

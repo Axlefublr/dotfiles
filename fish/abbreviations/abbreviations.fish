@@ -34,10 +34,7 @@ abbr -a grf git-search-file
 abbr -a grf git-search-file
 
 abbr -a py python
-abbr -a car 'RUST_LOG=trace cargo run'
-abbr -a carr 'RUST_LOG=warn cargo run -r'
-abbr -a cab 'cargo build'
-abbr -a caf 'cargo +nightly fmt'
+abbr -a ca cargo
 
 abbr -a ff ffmpeg
 abbr -a ffi 'ffmpeg -i'

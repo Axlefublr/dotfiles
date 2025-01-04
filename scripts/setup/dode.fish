@@ -194,12 +194,14 @@ function inst-rust
     sudo pacman -S --noconfirm rustup
     fish_add_path ~/.cargo/bin
     fish_add_path ~/.cargo/env
+    mkdir -p ~/.cargo/{bin,env}
     bash "$HOME/.cargo/env"
     rustup update
     rustup default stable
     rustup toolchain install nightly
     rustup component add rust-analyzer
     cargo login
+    ln -sf ~/prog/dotfiles/cargo.toml ~/.cargo/config.toml
 end
 
 function inst-rustfmt
