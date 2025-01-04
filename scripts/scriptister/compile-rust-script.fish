@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
 
-cargo build --release
-read -P 'press enter to continue' -ln1 the
+pueue add -g c -- 'cargo build --release'
+trash-put ~/prog/binaries/wks/$argv[1]
 rsync ./target/release/wks ~/prog/binaries/wks/$argv[1]

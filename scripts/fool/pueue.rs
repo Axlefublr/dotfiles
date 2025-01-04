@@ -47,6 +47,21 @@ fn main() -> Result<(), Box<dyn Error>> {
         "ll" => {
             cmd.arg("parallel");
         },
+        "u" => {
+            cmd.arg("pause");
+        },
+        "r" => {
+            cmd.arg("start");
+        },
+        "s" => {
+            cmd.arg("status");
+        },
+        "l" => {
+            cmd.arg("log");
+        },
+        "a" => {
+            cmd.arg("add");
+        },
         other => {
             cmd.arg(other);
         },
