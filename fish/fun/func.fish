@@ -77,7 +77,7 @@ function uboot
         cat ~/prog/info/pswds/sudo | sudo -S pacman -Rns --noconfirm $package
     end
     truncate -s 0 ~/.local/share/magazine/C
-    if test (math (clorange updates increment) % 14) -eq 0
+    if test (math (clorange updates increment) % 7) -eq 0
         rustup update
         cargo install-update -a
     end
