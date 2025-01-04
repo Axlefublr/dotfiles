@@ -12,7 +12,9 @@ client:
 daemon:
   pause_group_on_failure: true
   pause_all_on_failure: false
-  callback: null
+  # exit_code
+  callback: |
+    pueue-callback.rs '{{ id }}' '{{ command }}' '{{ path }}' '{{ result }}' '{{ exit_code }}' '{{ group }}' '{{ output }} {{ start }} {{ end }}'
   env_vars: {}
   callback_log_lines: 10
   shell_command: ['fish', '-c', '{{ pueue_command_string }}']
