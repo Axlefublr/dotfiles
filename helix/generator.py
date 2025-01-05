@@ -312,6 +312,8 @@ normal_select_mappings: dict[str, Any] = {
             '[': ':pipe wrap-in-block.rs s',
             '<': ':pipe wrap-in-block.rs t',
             '|': ':pipe wrap-in-block.rs p',
+            '`': ':pipe wrap-in-block.rs `',
+            'e': ':pipe wrap-in-block.rs begin',
         },
     },
     'space': {

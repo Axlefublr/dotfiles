@@ -6,6 +6,7 @@
 use std::env;
 use std::env::args;
 use std::error::Error;
+use std::fmt;
 use std::fs;
 use std::fs::File;
 use std::fs::OpenOptions;
