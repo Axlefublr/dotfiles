@@ -562,6 +562,11 @@ function inst-steam
     sudo pacman -S --noconfirm steam
 end
 
+function inst-bat
+    sudo pacman -S --noconfirm bat
+    set -Ux BAT_THEME ansi
+end
+
 function inst-tuisky
     cargo binstall -y tuisky
 end
