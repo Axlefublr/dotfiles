@@ -5,8 +5,6 @@
 # I could still use what I'm used to
 
 #------------------------core------------------------
-alias --save rm trash-put >/dev/null
-alias --save rmf 'rm -fr' >/dev/null
 alias --save trr trash-restore >/dev/null
 alias --save mkd 'mkdir -p' >/dev/null
 alias --save real realpath >/dev/null
