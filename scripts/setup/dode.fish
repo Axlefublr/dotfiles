@@ -537,12 +537,7 @@ end
 function inst-jj
     sudo pacman -S --noconfirm jj lazyjj
     echo 'jj util completion fish | source' >>~/.config/fish/config.fish
-    jj config set --user user.name Axlefublr
-    jj config set --user user.email '101342105+Axlefublr@users.noreply.github.com'
-    jj config set --user ui.pager :builtin
-    jj config set --user ui.paginate never
-    jj config set --user ui.diff-editor :builtin
-    jj config set --user ui.default-command status
+    ln -sf ~/prog/dotfiles/jj.toml ~/.config/jj/config.toml
 end
 
 function inst-pueue

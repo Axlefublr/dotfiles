@@ -7,7 +7,7 @@ abbr -a mkd 'mkdir -p'
 abbr -a real realpath
 abbr -a chx 'chmod +x'
 abbr -a c echo
-abbr -a j jobs
+abbr -a o jobs
 abbr -a u pueue
 
 abbr -a h 'z ~ && clx'
@@ -19,6 +19,7 @@ abbr -a jf 'clx && exec fish'
 abbr -a L yazi
 abbr -a e helix
 abbr -a v firefox
+abbr -a j jj
 
 #----------------------------------------------------silly----------------------------------------------------
 abbr -a ඞ suspend
