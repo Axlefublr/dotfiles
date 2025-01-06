@@ -243,7 +243,7 @@ function fish_user_key_bindings
     binds -vids \cz 'fg &>/dev/null'
     binds -vids \cy _match_helix_cwd
 
-    binds -vids \cr _wrap_in_pueue
+    binds -vids \eu _wrap_in_pueue
 
     binds -vids \e/ _fzf_history
 end
