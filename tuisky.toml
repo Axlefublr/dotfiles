@@ -1,0 +1,15 @@
+[keybindings.global]
+Ctrl-c = 'Quit'
+
+[keybindings.column]
+j = 'NextItem'
+k = 'PrevItem'
+Ctrl-n = 'NextItem'
+Ctrl-p = 'PrevItem'
+a = 'NewPost'
+Esc = 'Back'
+h = 'Back'
+l = 'Enter'
+
+[watcher.intervals]
+feed = 20

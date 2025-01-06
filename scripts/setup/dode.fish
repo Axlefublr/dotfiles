@@ -561,3 +561,7 @@ end
 function inst-steam
     sudo pacman -S --noconfirm steam
 end
+
+function inst-tuisky
+    cargo binstall -y tuisky
+end
