@@ -567,6 +567,10 @@ function inst-bat
     set -Ux BAT_THEME ansi
 end
 
+function inst-tiptop
+    pipx install tiptop
+end
+
 function inst-tuisky
     cargo binstall -y tuisky
 end
