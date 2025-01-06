@@ -511,6 +511,7 @@ end
 
 function inst-copyq
     sudo pacman -S --noconfirm copyq
+    pipx install git+https://github.com/cjbassi/rofi-copyq
 end
 
 function inst-java
@@ -536,7 +537,7 @@ end
 
 function inst-jj
     sudo pacman -S --noconfirm jj lazyjj
-    echo 'jj util completion fish | source' >>~/.config/fish/config.fish
+    jj util completion fish | source
     ln -sf ~/prog/dotfiles/jj.toml ~/.config/jj/config.toml
 end
 

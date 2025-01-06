@@ -19,7 +19,6 @@ end
 
 function pack-pip
     pipx install exrex
-    pipx install git+https://github.com/cjbassi/rofi-copyq
 end
 
 function pack-rust
