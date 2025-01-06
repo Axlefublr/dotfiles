@@ -32,7 +32,6 @@ alias --save hime 'history merge' >/dev/null
 alias --save jf 'clx && exec fish' >/dev/null
 
 alias --save e helix >/dev/null
-alias --save v firefox >/dev/null
 alias --save j jj >/dev/null
 
 #----------------------------------------------------silly----------------------------------------------------

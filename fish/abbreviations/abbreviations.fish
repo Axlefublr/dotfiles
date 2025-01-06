@@ -18,7 +18,6 @@ abbr -a jf 'clx && exec fish'
 
 abbr -a L yazi
 abbr -a e helix
-abbr -a v firefox
 abbr -a j jj
 
 #----------------------------------------------------silly----------------------------------------------------
