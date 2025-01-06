@@ -17,7 +17,7 @@ function fish_prompt_pwd
         set -l repo_segment (path basename $git_repo_full)
         set -l rest_pwd (string replace $git_repo_full '' $PWD)
         echo -n "$(string replace -r "^$home" '' $above_repo/)"
-        set_color -io ffafd7
+        set_color -o ffd75f
         echo -n $repo_segment
         set_color normal
         set_color -o ffafd7
@@ -95,21 +95,21 @@ function fish_prompt
     else
         printf '\n'
     end
-    if git rev-parse --is-inside-work-tree &>/dev/null
-        set -l curr_branch (git branch --show-current 2> /dev/null)
-        set_color -o af87ff
-        if test $curr_branch
-            echo -n ''$curr_branch' '
-        else
-            set -l curr_commit (git rev-parse --short HEAD 2> /dev/null)
-            echo -n ''$curr_commit' '
-        end
-        set_color normal
-        # command -q octogit && octogit-set
-        if test $COLUMNS -lt $small_threshold
-            printf '\n'
-        end
-    end
+    # if git rev-parse --is-inside-work-tree &>/dev/null
+    #     set -l curr_branch (git branch --show-current 2> /dev/null)
+    #     set_color -o af87ff
+    #     if test $curr_branch
+    #         echo -n ''$curr_branch' '
+    #     else
+    #         set -l curr_commit (git rev-parse --short HEAD 2> /dev/null)
+    #         echo -n ''$curr_commit' '
+    #     end
+    #     set_color normal
+    #     # command -q octogit && octogit-set
+    #     if test $COLUMNS -lt $small_threshold
+    #         printf '\n'
+    #     end
+    # end
     fish_prompt_status $fullstatuses
     set_color ffd75f
     printf '󱕅 '
