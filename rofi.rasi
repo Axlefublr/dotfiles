@@ -26,8 +26,8 @@ configuration {
 	kb-move-end: "Control+e,End,Alt+[60]";
 	kb-remove-word-back: "Control+w,Control+BackSpace";
 	kb-remove-word-forward: "Control+Delete";
-	kb-row-first: "Control+Home";
-	kb-row-last: "Control+End";
+	kb-row-first: "Control+Home,Alt+i";
+	kb-row-last: "Control+End,Alt+o";
 	kb-row-up: "Up,Control+p,Alt+k";
 	kb-row-down: "Down,Control+n,Alt+j";
 
