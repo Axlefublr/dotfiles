@@ -566,6 +566,7 @@ end
 function inst-bat
     sudo pacman -S --noconfirm bat
     set -Ux BAT_THEME ansi
+    set -Ux BAT_STYLE plain
 end
 
 function inst-tiptop
