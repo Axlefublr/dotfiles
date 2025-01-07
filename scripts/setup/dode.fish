@@ -596,3 +596,7 @@ function uninst-rofi-calc
     sudo pacman -Rns rofi-calc
     rm -fr ~/.local/share/rofi/rofi_calc_history
 end
+
+function inst-tz
+    paru -Sa --noconfirm tz
+end
