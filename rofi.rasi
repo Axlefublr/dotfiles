@@ -83,7 +83,7 @@ configuration {
 	selected-normal-foreground: var(white);
 	selected-normal-background: var(orange-supporting);
 
-	separatorcolor: var(yellow);
+	separatorcolor: var(white);
 }
 window {
 	font: "Input Mono 16";
@@ -95,9 +95,9 @@ window {
 	border-radius: 0 0 10px 10px;
 }
 message {
-	padding:      7px ;
-	border-color: var(separatorcolor);
-	border:       2px 0px 0px ;
+	padding:      7px;
+	// border-color: var(separatorcolor);
+	border:       0;
 }
 listview {
 	border: 0;
