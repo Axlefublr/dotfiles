@@ -586,3 +586,12 @@ function inst-fifc
     # set -Ux fifc_fd_opts -u
     set -Ux fifc_keybinding \ej
 end
+
+function inst-rofi-calc
+    sudo pacman -S --noconfirm rofi-calc
+end
+
+function uninst-rofi-calc
+    sudo pacman -Rns rofi-calc
+    rm -fr ~/.local/share/rofi/rofi_calc_history
+end

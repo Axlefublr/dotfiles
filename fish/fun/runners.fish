@@ -37,15 +37,10 @@ end
 funcsave runner_kill >/dev/null
 
 function runner_math
-    set input (rofi -dmenu -input ~/bs/qalc_history 2>/dev/null)
+    set result "$(rofi -show calc -modi calc -no-show-match -no-sort -terse -hint-welcome Result:)"
     test $status -ne 0 && return 1
-    test -n "$input" || return 1
-    set result "$(qalc $input)"
+    test "$result" || return 1
     notify-send -t 0 $result
-    qalc -t $input | tee ~/.local/share/magazine/o | copy
-    indeed -n ~/bs/qalc_history $input
-    tail -n 1 ~/bs/qalc_history | sponge ~/bs/qalc_history
-    _magazine_commit ~/.local/share/magazine/o math
 end
 funcsave runner_math >/dev/null
 
