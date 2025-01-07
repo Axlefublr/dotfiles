@@ -29,3 +29,7 @@ function pack-rust
     cargo binstall -y scriptisto
     # cargo binstall -y cargo-script
 end
+
+function pack-fish
+    sudo pacman -S --noconfirm fisher
+end

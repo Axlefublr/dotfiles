@@ -579,3 +579,10 @@ end
 function inst-qrc
     eget fumiyas/qrc
 end
+
+function inst-fifc
+    fisher install gazorby/fifc
+    set -Ux fifc_editor helix
+    # set -Ux fifc_fd_opts -u
+    set -Ux fifc_keybinding \ej
+end

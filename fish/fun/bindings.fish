@@ -219,9 +219,9 @@ function fish_user_key_bindings
     binds -vids \el 'zi && commandline -f repaint'
 
     #-------------------------------------------------other-------------------------------------------------
-    binds -vids \ej complete
+    # binds -vids \ej complete
     binds -vids \ek complete-and-search
-    binds -vids \cn complete
+    # binds -vids \cn complete
     binds -vids \cp complete-and-search
     binds -vids \eo expand-abbr
     binds -i / expand-abbr self-insert
