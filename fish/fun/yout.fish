@@ -22,7 +22,11 @@ function batch-link-downloader
         notify-send -t 2000 'no stored links'
         return 1
     end
-    set -l how_many (rofi -dmenu 2>/dev/null)
+    if test $extra = youtube -o $extra = asmr
+        set -f how_many 30
+    else
+        set -f how_many 1
+    end
     test $status -ne 0 && return 1
     set -l stored_links (count (cat $where_links))
     set -l links_to_install (shift.rs $where_links $how_many)
