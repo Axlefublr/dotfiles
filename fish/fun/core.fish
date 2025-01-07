@@ -167,7 +167,7 @@ funcsave tab >/dev/null
 function scratchpad
     argparse -i cwd= wintitle= -- $argv || return 1
     test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
-    test "$_flag_wintitle" && set -l wintitle --os-window-title $_flag_wintitle
+    test "$_flag_wintitle" && set -l wintitle --os-window-title $_flag_wintitle || set -l wintitle --os-window-title max
     kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv &>/dev/null
 end
 funcsave scratchpad >/dev/null
