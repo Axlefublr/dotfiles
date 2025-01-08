@@ -547,6 +547,12 @@ function inst-pueue
     systemctl --user enable pueued
     systemctl --user status pueued
     ln -sf ~/prog/dotfiles/pueue.yml ~/.config/pueue/pueue.yml
+    pueue group add k
+    pueue group add K
+    pueue group add i
+    pueue group add c
+    pueue group add s
+    pueue parallel -g s 99
 end
 
 function uninst-cargo-script
@@ -599,4 +605,9 @@ end
 
 function inst-tz
     paru -Sa --noconfirm tz
+end
+
+function inst-ydotool
+    sudo pacman -S --noconfirm ydotool
+    pueue add -g s ydotoold
 end

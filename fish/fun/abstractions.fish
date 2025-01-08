@@ -1,6 +1,5 @@
 #!/usr/bin/env fish
 
-alias --save logout "killall xremap ; awesome-client 'awesome.quit()'" >/dev/null
 alias --save ubootf 'kitty -T uboot fish -c uboot' >/dev/null
 alias --save screen_off 'xset dpms force "off"' >/dev/null
 
@@ -186,31 +185,6 @@ function update_bluetooth
     end
 end
 funcsave update_bluetooth >/dev/null
-
-function toggle_compositor
-    if pidof picom
-        if pidof gromit-mpx
-            killall gromit-mpx
-        end
-        killall picom
-    else
-        picom &>/tmp/log/picom.txt & disown
-        if pidof gromit-mpx
-            killall gromit-mpx
-        end
-        gromit &>/tmp/log/gromit.txt & disown
-    end
-end
-funcsave toggle_compositor >/dev/null
-
-function update_compositor
-    if pidof picom &>/dev/null
-        echo ''
-    else
-        echo no
-    end
-end
-funcsave update_compositor >/dev/null
 
 function is_internet
     set -l response (nmcli networking connectivity check)

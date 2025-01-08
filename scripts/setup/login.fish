@@ -6,34 +6,31 @@ else
     mkdir -p /tmp/log
 end
 
-picom 2>>/tmp/log/user.txt & disown
-redshift -O 5700 2>>/tmp/log/user.txt
-xset s off -dpms 2>>/tmp/log/user.txt
+redshift -O 5700
+xset s off -dpms
+playerctld daemon
+
+picom &>/tmp/log/picom.txt & disown
+gromit.fish &>/tmp/log/gromit.txt & disown
+copyq &>/tmp/log/copyq.txt & disown
+
 xrestart.fish
 
-kitty -T editor -d ~/prog/dotfiles 2>>/tmp/log/user.txt & disown
-# kitty -T men 2>>/tmp/log/user.txt & disown
-kitty -T oil-content -d ~/vid 2>>/tmp/log/user.txt & disown
+# pueue add -g s 'RUST_LOG=debug axleizer'
 
-for script in ~/prog/dotfiles/scripts/services/*.fish
-    $script 2>>/tmp/log/user.txt & disown
-end
+# for script in ~/prog/dotfiles/scripts/services/*.fish
+#     pueue add -g s (path basename $script)
+# end
 
-firefox 2>>/tmp/log/user.txt & disown
-anki 2>>/tmp/log/user.txt & disown
+kitty -T editor -d ~/prog/dotfiles & disown
+kitty -T oil-content -d ~/vid & disown
+
+firefox & disown
+anki & disown
 set ankis (win_wait 'anki\.Anki' 0.1 0 50)
 move_all 8 $ankis
 
-ydotoold 2>>/tmp/log/user.txt & disown
-# ollama serve 2>>/tmp/log/user.txt & disown
-gromit.fish 2>>/tmp/log/user.txt & disown
-copyq 2>>/tmp/log/user.txt & disown
-playerctld daemon &>/tmp/log/user.txt
-axleizer &>/tmp/log/axleizer.txt & disown
+loopuntil is_internet 0.5 0 60
+pueue restart -g s
 
-# notify-send -t 2000 spotify
-# loopuntil is_internet 0.5 0 60
-# spotify-launcher -v 2>>/tmp/log/user.txt & disown
-
-notify-send -t 0 'logged in'
 ignore_urgencies
