@@ -16,12 +16,12 @@ use std::path::Path;
 use std::path::PathBuf;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let maybe_filepath: PathBuf = env::args()
+    let script_path: PathBuf = env::args()
         .nth(1)
         .expect("no arguments provided")
         .parse()
         .expect("provided argument is not a file path");
-    let file = fs::read_to_string(maybe_filepath).unwrap();
+    let file = fs::read_to_string(&script_path).unwrap();
     let lines: Vec<&str> = file.lines().skip(1).collect();
 
     let cargo_file = lines
@@ -43,11 +43,43 @@ fn main() -> Result<(), Box<dyn Error>> {
         .collect::<Vec<_>>()
         .join("\n");
 
+    let script_name = script_path
+        .file_name()
+        .expect("no script name");
+
+    let cache_dir = {
+        let mut the = PathBuf::from("/home/axlefublr/.cache/wks/");
+        the.push(script_name);
+        the
+    };
+
+    let main_parent = {
+        let mut the = cache_dir.clone();
+        the.push("src");
+        the
+    };
+
+    if !fs::exists(&main_parent).expect("main_parent existence check") {
+        fs::create_dir_all(&main_parent).expect("couldn't create directories");
+    }
+
+    let main_path = {
+        let mut the = main_parent;
+        the.push("main.rs");
+        the
+    };
+
+    let cargo_path = {
+        let mut the = cache_dir;
+        the.push("Cargo.toml");
+        the
+    };
+
     let mut file = OpenOptions::new()
         .create(true)
         .truncate(true)
         .write(true)
-        .open("/home/axlefublr/prog/wks/src/main.rs")
+        .open(main_path)
         .unwrap();
     writeln!(file, "{}", main_file).unwrap();
 
@@ -62,7 +94,7 @@ edition = "2021"
         .create(true)
         .truncate(true)
         .write(true)
-        .open("/home/axlefublr/prog/wks/Cargo.toml")
+        .open(cargo_path)
         .unwrap();
     writeln!(file, "{CARGO_BULLSHIT}{}", cargo_file).unwrap();
 
