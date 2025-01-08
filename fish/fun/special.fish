@@ -24,7 +24,7 @@ function multiple_dot
 end
 funcsave multiple_dot >/dev/null
 
-function github_read_notifs
+function github-read-notifs
     # -H 'X-GitHub-Api-Version: 2022-11-28' \
     gh api \
         --method PUT \
@@ -32,7 +32,7 @@ function github_read_notifs
         /notifications \
         -F 'read=true'
 end
-funcsave github_read_notifs >/dev/null
+funcsave github-read-notifs >/dev/null
 
 function alphabet
     printf 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[];\',./{}:"<>?'

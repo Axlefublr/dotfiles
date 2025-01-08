@@ -27,10 +27,10 @@ function batch-link-downloader
     else
         set -f how_many 1
     end
-    test $status -ne 0 && return 1
     set -l stored_links (count (cat $where_links))
     set -l links_to_install (shift.rs $where_links $how_many)
-    notify-send -t 3000 "$(math \"min($stored_links - $how_many,0)\") links left"
+    set -l left (math "min($stored_links - $how_many, 0)")
+    notify-send -t 3000 "$left links left"
     for link in $links_to_install
         pueue add -g $group -- "install-yt-video $extra $link"
     end

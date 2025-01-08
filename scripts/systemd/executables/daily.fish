@@ -25,11 +25,11 @@ if test (math (clorange megafon increment) % 30) -eq 0
 end
 
 if test (date '+%A') = Monday
-    task ask y
+    task 'ask y'
 end
 
 if test (date '+%A') = Wednesday
-    task ask x
+    task 'ask x'
 end
 
 awesome-client 'Registers_wu()'
