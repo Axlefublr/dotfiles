@@ -9,7 +9,6 @@ alias --save trr trash-restore >/dev/null
 alias --save mkd 'mkdir -p' >/dev/null
 alias --save real realpath >/dev/null
 alias --save chx 'chmod +x' >/dev/null
-alias --save c echo >/dev/null
 alias --save o jobs >/dev/null
 alias --save u pueue >/dev/null
 

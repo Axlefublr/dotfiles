@@ -6,7 +6,6 @@ abbr -a trr trash-restore
 abbr -a mkd 'mkdir -p'
 abbr -a real realpath
 abbr -a chx 'chmod +x'
-abbr -a c echo
 abbr -a o jobs
 abbr -a u pueue
 
