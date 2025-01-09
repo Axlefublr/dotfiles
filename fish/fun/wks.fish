@@ -14,8 +14,9 @@ function wks
         sd %% "$script_path" ~/.cache/wks/$script_name/src/main.rs
         cp -f ~/prog/dotfiles/defconf/wks/blank.toml ~/.cache/wks/$script_name/Cargo.toml
     end
+    not test -d ~/.cache/wks/$script_name/target && mkdir ~/.cache/wks/$script_name/target
 
-    ln -sfn ~/.cache/wks/$script_name/target $PWD/target
+    ln -sf ~/.cache/wks/$script_name/target $PWD/target
     ln -sf ~/.cache/wks/$script_name/src/main.rs $PWD/src/main.rs
     ln -sf ~/.cache/wks/$script_name/Cargo.toml $PWD/Cargo.toml
     ln -sf ~/.cache/wks/$script_name/Cargo.lock $PWD/Cargo.lock
