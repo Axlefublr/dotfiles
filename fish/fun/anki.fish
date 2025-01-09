@@ -72,15 +72,15 @@ funcsave anki-sync >/dev/null
 function anki-add-card
     neoline-hold ~/bs/anki-card.html
     _magazine_commit ~/bs/anki-card.html attard
-    set -l card (anki-add-card.rb 2>~/bs/anki-card-errors)
+    set -l card (anki-add-card.rs 2>~/bs/anki-card-errors)
     set -l exitcode $status
     if test -s ~/bs/anki-card-errors
         notify-send -t 2000 "$(cat ~/bs/anki-card-errors)"
     end
     test $exitcode -ne 0 && return
-    indeed -nu ~/.local/share/magazine/A -- "$(anki-add-card.rb)"
+    indeed -nu ~/.local/share/magazine/A -- "$card"
     _magazine_commit ~/.local/share/magazine/A card
-    notify-send -t 5000 "$(tail -n +4 ~/.local/share/magazine/A | wc -l)"
+    notify-send -t 3000 "$(tail -n +4 ~/.local/share/magazine/A | wc -l)"
 end
 funcsave anki-add-card >/dev/null
 
