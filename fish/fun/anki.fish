@@ -70,7 +70,11 @@ end
 funcsave anki-sync >/dev/null
 
 function anki-add-card
+    set -l previous_card "$(cat ~/bs/anki-card.html)"
     neoline-hold ~/bs/anki-card.html
+    if test $previous_card = "$(cat ~/bs/anki-card.html)"
+        return 1
+    end
     _magazine_commit ~/bs/anki-card.html attard
     set -l card (anki-add-card.rs 2>~/bs/anki-card-errors)
     set -l exitcode $status
