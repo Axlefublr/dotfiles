@@ -422,6 +422,7 @@ normal_select_mappings: dict[str, Any] = {
         'I': 'hover_dump',
         '/': 'select_first_and_last_chars',
         '?': 'reverse_selection_contents',
+        'w': [':cd ~/prog/wks', ':e src/main.rs'],
         **disable(
             [
                 # [[sort on]]
