@@ -1,0 +1,13 @@
+/* domain
+ * doc.rust-lang.org
+ */
+
+body {
+	font-family: Inter;
+}
+
+code,
+pre,
+.code-header {
+	font-family: Input Mono;
+}
