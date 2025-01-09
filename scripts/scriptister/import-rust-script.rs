@@ -59,8 +59,18 @@ fn main() -> Result<(), Box<dyn Error>> {
         the
     };
 
+    let target_dir = {
+        let mut the = cache_dir.clone();
+        the.push("target");
+        the
+    };
+
     if !fs::exists(&main_parent).expect("main_parent existence check") {
         fs::create_dir_all(&main_parent).expect("couldn't create directories");
+    }
+
+    if !fs::exists(&target_dir).expect("target_dir existence check") {
+        fs::create_dir(&target_dir).expect("couldn't create directories");
     }
 
     let main_path = {
