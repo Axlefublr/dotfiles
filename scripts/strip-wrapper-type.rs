@@ -42,9 +42,26 @@ fn main() -> Result<(), Box<dyn Error>> {
         _ => unimplemented!("(){{}}<>[]||"),
     };
     let mut the = String::new();
-    let stdin = stdin().read_to_string(&mut the).expect("stdin");
-    let left = the.find(surrounding_left).expect("left delimiter");
-    let right = the.rfind(surrounding_right).expect("right delimiter");
-    print!("{}", &the[(left + 1)..right]);
+    let stdin = stdin()
+        .read_to_string(&mut the)
+        .expect("stdin");
+    let left = the.find(surrounding_left);
+    let right = the.rfind(surrounding_right);
+    print!(
+        "{}",
+        &the[{
+            if let Some(left) = left {
+                left + 1
+            } else {
+                0
+            }
+        }..{
+            if let Some(right) = right {
+                right
+            } else {
+                the.len()
+            }
+        }]
+    );
     Ok(())
 }
