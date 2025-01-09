@@ -314,7 +314,6 @@ function inst-eww
     mkdir -p ~/.config/eww
     touch ~/.config/eww/eww.yuck
 end
-
 function uninst-eww
     rm -fr ~/prog/stored/eww
     rm -fr ~/.config/eww
@@ -324,7 +323,6 @@ end
 function inst-bubbly
     curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
 end
-
 function uninst-bubbly
     rm -fr ~/.local/share/bubbly
     rm -fr ~/.config/bubbly
@@ -374,7 +372,6 @@ function inst-postgresql
     # set -Ux PGDATABASE dvdrental
     # set -Ux PGUSER postgres
 end
-
 function uninst-postgresql
     sudo systemctl disable postgresql
 end
@@ -399,7 +396,6 @@ function inst-newsboat
     mkdir -p ~/.newsboat
     ln -sf ~/prog/dotfiles/newsboat ~/.newsboat/config
 end
-
 function uninst-newsboat
     rm -fr ~/.newsboat
 end
@@ -597,7 +593,6 @@ end
 function inst-rofi-calc
     sudo pacman -S --noconfirm rofi-calc
 end
-
 function uninst-rofi-calc
     sudo pacman -Rns rofi-calc
     rm -fr ~/.local/share/rofi/rofi_calc_history
@@ -610,4 +605,19 @@ end
 function inst-ydotool
     sudo pacman -S --noconfirm ydotool
     pueue add -g s ydotoold
+end
+
+function inst-kondo
+    sudo pacman -S --noconfirm kondo
+    kondo --completions fish
+end
+
+function inst-fork-cleaner
+    eget https://github.com/caarlos0/fork-cleaner
+    # https://github.com/settings/tokens/new?scopes=repo,delete_repo&description=fork-cleaner
+    fork-cleaner --token (read)
+end
+function uninst-fork-cleaner
+    # delete the token
+    rm -fr ~/.local/bin/fork-cleaner
 end
