@@ -17,7 +17,7 @@ function fish_prompt_pwd
         set -l repo_segment (path basename $git_repo_full)
         set -l rest_pwd (string replace $git_repo_full '' $PWD)
         echo -n "$(string replace -r "^$home" '' $above_repo/)"
-        set_color -o af87ff
+        set_color -o ff8787
         echo -n $repo_segment
         set_color normal
         set_color -o ffafd7
