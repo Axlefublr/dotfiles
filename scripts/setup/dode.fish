@@ -622,3 +622,10 @@ function uninst-fork-cleaner
     # delete the token
     rm -fr ~/.local/bin/fork-cleaner
 end
+
+function inst-ov
+    paru -Sa --noconfirm ov-bin
+    ov --completion fish >~/.config/fish/completions/ov.fish
+    mkdir -p ~/.config/ov
+    ln -sf ~/prog/dotfiles/ov.yaml ~/.config/ov/config.yaml
+end
