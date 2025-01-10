@@ -217,7 +217,8 @@ end
 
 function inst-yt-dlp
     sudo pacman -S yt-dlp
-    ln -sf ~/prog/dotfiles/yt-dlp.conf ~/yt-dlp.conf
+    mkdir -p ~/.config/yt-dlp
+    ln -sf ~/prog/dotfiles/yt-dlp.conf ~/.config/yt-dlp/config
 end
 
 function inst-less
