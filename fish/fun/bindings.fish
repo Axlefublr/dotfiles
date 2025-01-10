@@ -47,7 +47,7 @@ funcsave _match_helix_cwd >/dev/null
 function _wrap_in_pueue
     set -l cmd "$(commandline)"
     commandline "pueue add -- '$cmd'"
-    commandline -f execute
+    commandline -C 10
 end
 funcsave _wrap_in_pueue >/dev/null
 
