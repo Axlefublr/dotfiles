@@ -194,3 +194,12 @@ function f
     end
 end
 funcsave f >/dev/null
+
+function b
+    if set -q argv
+        bg %(velvidek.rs $argv)
+    else
+        bg
+    end
+end
+funcsave b >/dev/null
