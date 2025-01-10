@@ -227,6 +227,7 @@ normal_mappings.update(**normal_insert_mappings)
 insert_mappings.update(**normal_insert_mappings)
 
 normal_select_mappings: dict[str, Any] = {
+    'Z': 'copy_selection_on_prev_line',
     '`': 'switch_case',
     '~': 'switch_to_lowercase',
     '.': 'toggle_line_select',
@@ -279,7 +280,6 @@ normal_select_mappings: dict[str, Any] = {
     'P': 'insert_at_line_end',
     'd': 'delete_selection',
     '%': ['save_selection', 'select_all'],
-    'Z': 'harp_cwd_get',
     'A-s': 'yank_joined',
     'm': {
         'g': ':set gutters.layout ["diff"]',
