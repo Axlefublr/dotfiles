@@ -203,3 +203,8 @@ function b
     end
 end
 funcsave b >/dev/null
+
+function cwd
+    echo $PWD | copy
+end
+funcsave cwd >/dev/null
