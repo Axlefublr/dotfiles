@@ -19,16 +19,14 @@ funcsave _replace_character_with_clipboard >/dev/null
 function _help_the_commandline
     set -f commandline (commandline -o)
     $commandline --help &>~/bs/current-help.txt
-    commandline 'helix -c ~/prog/dotfiles/helix/man.toml ~/bs/current-help.txt'
-    commandline -f execute
+    helix -c ~/prog/dotfiles/helix/man.toml ~/bs/current-help.txt
 end
 funcsave _help_the_commandline >/dev/null
 
 function _man_the_commandline
     set -f commandline (commandline -o)[1]
     man $commandline 2>/dev/null >~/bs/current-man.txt
-    commandline 'helix -c ~/prog/dotfiles/helix/man.toml ~/bs/current-man.txt'
-    commandline -f execute
+    helix -c ~/prog/dotfiles/helix/man.toml ~/bs/current-man.txt
 end
 funcsave _man_the_commandline >/dev/null
 

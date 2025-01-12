@@ -9,14 +9,14 @@ alias --save get_layout 'xkblayout-state print "%n"' >/dev/null
 function update_layout
     set layout (get_layout)
     set capslock (get_capslock)
-    if test $layout = English
-        if test $capslock = on
+    if test "$layout" = English
+        if test "$capslock" = on
             echo ENG
         else
             echo eng
         end
-    else if test $layout = Russian
-        if test $capslock = on
+    else if test "$layout" = Russian
+        if test "$capslock" = on
             echo RUS
         else
             echo rus

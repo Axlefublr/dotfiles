@@ -487,6 +487,7 @@ end
 
 function inst-go
     sudo pacman -S --noconfirm go
+    mkdir -p ~/go/bin
     fish_add_path ~/go/bin
 end
 
