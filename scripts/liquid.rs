@@ -22,6 +22,8 @@ use std::path::PathBuf;
 use std::process::Command;
 
 const ML_PER_DAY: f32 = 11.4;
+const HEIGHT_100_BOTTLE: f32 = 10.5;
+const ML_IN_BOTTLE: f32 = 100.;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let total_ml = args()
@@ -35,14 +37,12 @@ fn main() -> Result<(), Box<dyn Error>> {
                 .unwrap();
             let max_cm = split
                 .next()
-                .unwrap()
-                .parse::<f32>()
-                .unwrap();
+                .and_then(|the| the.parse::<f32>().ok())
+                .unwrap_or(HEIGHT_100_BOTTLE);
             let max_ml = split
                 .next()
-                .unwrap()
-                .parse::<f32>()
-                .unwrap();
+                .and_then(|the| the.parse::<f32>().ok())
+                .unwrap_or(ML_IN_BOTTLE);
             let ratio = current_cm / max_cm;
             max_ml * ratio
         })
