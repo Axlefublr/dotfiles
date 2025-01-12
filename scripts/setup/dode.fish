@@ -624,7 +624,11 @@ function uninst-fork-cleaner
 end
 
 function inst-ov
-    paru -Sa --noconfirm ov-bin
+    # paru -Sa --noconfirm ov-bin
+    cd ~/prog/forks
+    gh repo clonef Axlefublr/ov
+    make
+    sudo install ov ~/.local/bin
     ov --completion fish >~/.config/fish/completions/ov.fish
     mkdir -p ~/.config/ov
     ln -sf ~/prog/dotfiles/ov.yaml ~/.config/ov/config.yaml
