@@ -18,6 +18,7 @@ xrestart.fish
 
 # pueue add -g s 'RUST_LOG=debug axleizer'
 
+layout.fish &>/tmp/log/layout.txt & disown # has to be ran from user
 # for script in ~/prog/dotfiles/scripts/services/*.fish
 #     pueue add -g s (path basename $script)
 # end
