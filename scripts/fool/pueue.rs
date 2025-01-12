@@ -32,7 +32,19 @@ fn main() -> Result<(), Box<dyn Error>> {
         unreachable!("process didn't transfer as expected");
     }
 
-    let Some(subcommand) = args.next() else { etc(cmd) };
+    let Some(subcommand) = args.next() else {
+        let mut cmd = Command::new("ov");
+        cmd.args([
+            "--section-delimiter",
+            "^Group",
+            "-M",
+            "Failed,Running,Queued,Success,,,,Paused",
+            "-e",
+            "--",
+            "/usr/bin/pueue",
+        ]);
+        etc(cmd)
+    };
 
     match &subcommand[..] {
         "g" => {
