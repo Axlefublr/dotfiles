@@ -634,3 +634,10 @@ function inst-ov
     mkdir -p ~/.config/ov
     ln -sf ~/prog/dotfiles/ov.yaml ~/.config/ov/config.yaml
 end
+
+function inst-calcure
+    paru -Sa --noconfirm calcure
+    mkdir -p ~/.config/calcure
+    ln -sf ~/prog/dotfiles/calcure.ini ~/.config/calcure/config.ini
+    cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
+end

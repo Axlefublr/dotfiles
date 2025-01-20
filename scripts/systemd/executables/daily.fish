@@ -44,6 +44,10 @@ cp -fr ~/.local/share/axleizer_invalid.json ~/auto/axleizer_invalid.json
 git add axleizer_invalid.json
 and git commit -m "sync axleizer"
 
+cp -fr ~/.config/calcure/events.csv ~/auto/calcure.csv
+git add calcure.csv
+and git commit -m 'sync calcure'
+
 cp -fr ~/.config/nom/nom.db ~/auto/nom.db
 git add nom.db
 and git commit -m "sync nom"
