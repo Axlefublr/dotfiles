@@ -235,6 +235,8 @@ function filter_mature_tasks
                 if_print $days $name 15
             case tails iso keyboard fsrs disc liked
                 if_print $days $name 30
+            case toothbrush
+                if_print $days $name 90
             case '*'
                 echo "$name — $(math $days - 5)"
         end

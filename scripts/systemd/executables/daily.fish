@@ -20,10 +20,6 @@ else
     indeed -n ~/.local/share/magazine/x (cat ~/.local/share/magazine/rightbrace)
 end
 
-if test (math (clorange megafon increment) % 30) -eq 0
-    task 'megafon (579) tomorrow'
-end
-
 if test (date '+%A') = Monday
     task 'ask y'
 end
