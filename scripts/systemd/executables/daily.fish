@@ -12,7 +12,6 @@ truncate -s 0 ~/.local/share/magazine/d
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 yeared_parse
-yearless_parse
 task (whensies.py)
 if test (math (clorange habit increment) % 2) -eq 0
     indeed -n ~/.local/share/magazine/x (cat ~/.local/share/magazine/leftbrace)

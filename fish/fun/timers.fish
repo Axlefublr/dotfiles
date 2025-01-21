@@ -137,13 +137,3 @@ function yeared_parse
     end
 end
 funcsave yeared_parse >/dev/null
-
-function yearless_parse
-    for line in (cat ~/.local/share/magazine/Q)
-        set -l match (string match -gr '^(?<date>\\d+\\.\\d+) — (?<description>.*)' $line)
-        if test $date = (date +%m.%d)
-            task "$description"
-        end
-    end
-end
-funcsave yearless_parse >/dev/null
