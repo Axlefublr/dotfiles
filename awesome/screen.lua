@@ -645,8 +645,8 @@ Wibar_w:setup({
 		Ram_mw,
 		Fire_mw,
 		Processor_mw,
-		Meat_mw,
-		Hunger_mw,
+		-- Meat_mw,
+		-- Hunger_mw,
 		Monitor_mw,
 		Brightness_mw,
 		Mic_muteness_mw,
@@ -691,7 +691,7 @@ local run_once = function()
 	Clorange_wu()
 	Registers_wu()
 	Brightness_wu()
-	Hunger_wu()
+	-- Hunger_wu()
 	Malumn_wu(screen.primary.selected_tag)
 	Dnd_wu()
 	Tile_wu(screen.primary.selected_tag)
