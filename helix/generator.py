@@ -203,7 +203,6 @@ select_mappings.update(**rusify(select_mappings))
 
 insert_mappings: dict[str, Any] = {
     "A-'": 'insert_register',
-    'A-/': ':xa!',
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     'A-,': 'unindent',
@@ -377,8 +376,8 @@ normal_select_mappings: dict[str, Any] = {
         '*': 'make_search_word_bounded',
         '@': 'record_macro',
         's': 'goto_type_definition',
-        'q': [':cd %h', ':cd %g'],
         'Q': ':cd %h',
+        'q': [':cd %h', ':cd %g'],
         'a': 'rename_symbol',
         'I': 'goto_implementation',
         **disable(
