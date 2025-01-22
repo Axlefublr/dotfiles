@@ -24,15 +24,15 @@ cd ~/auto
 
 cp -fr ~/.local/share/harp/harp.yml ~/auto/harp.yml
 git add harp.yml
-and git commit -m "sync harp"
+and git commit -m 'sync harp'
 
 cp -fr ~/.local/share/loago/loago.json ~/auto/loago.json
 git add loago.json
-and git commit -m "sync loago"
+and git commit -m 'sync loago'
 
 cp -fr ~/.local/share/axleizer_invalid.json ~/auto/axleizer_invalid.json
 git add axleizer_invalid.json
-and git commit -m "sync axleizer"
+and git commit -m 'sync axleizer'
 
 cp -fr ~/.config/calcure/events.csv ~/auto/calcure.csv
 git add calcure.csv
@@ -40,7 +40,7 @@ and git commit -m 'sync calcure'
 
 cp -fr ~/.config/nom/nom.db ~/auto/nom.db
 git add nom.db
-and git commit -m "sync nom"
+and git commit -m 'sync nom'
 
 set -l autocommitted ~/pic/twemoji-svg ~/pic/tree ~/pic/tools ~/prog/binaries
 for dir in $autocommitted
