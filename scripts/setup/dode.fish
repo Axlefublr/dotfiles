@@ -641,3 +641,9 @@ function inst-calcure
     ln -sf ~/prog/dotfiles/calcure.ini ~/.config/calcure/config.ini
     cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
 end
+
+function inst-qrtool
+    sudo pacman -S --noconfirm qrtool
+    qrtool --generate-completion
+    qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
+end
