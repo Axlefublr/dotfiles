@@ -9,7 +9,7 @@ alias --save trr trash-restore >/dev/null
 alias --save mkd 'mkdir -p' >/dev/null
 alias --save real realpath >/dev/null
 alias --save chx 'chmod +x' >/dev/null
-alias --save o jobs >/dev/null
+alias --save p jobs >/dev/null
 alias --save u pueue >/dev/null
 
 # no abbreviation equivalents because the expansion is too wordy
@@ -20,7 +20,7 @@ alias --save si 'xclip -selection clipboard -t image/png' >/dev/null
 alias --save copyn 'xclip -selection clipboard' >/dev/null
 alias --save sn 'xclip -selection clipboard' >/dev/null
 alias --save ypoc 'xclip -selection clipboard -o' >/dev/null
-alias --save p 'xclip -selection clipboard -o' >/dev/null
+alias --save o 'xclip -selection clipboard -o' >/dev/null
 
 alias --save h 'z ~ && clx' >/dev/null
 alias --save X 'kitten @ close-window' >/dev/null
