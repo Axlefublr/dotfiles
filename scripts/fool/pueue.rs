@@ -37,6 +37,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         cmd.args([
             "--section-delimiter",
             "^Group",
+            "--hide-other-section",
             "-M",
             "Failed,Running,Queued,Success,,,,Paused",
             "-e",
