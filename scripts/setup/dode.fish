@@ -1,6 +1,8 @@
 #!/usr/bin/env fish
 
-alias dode-aichat 'sudo pacman -S --noconfirm aichat'
+function dode-aichat
+    sudo pacman -S --noconfirm aichat
+end
 
 function dode-alacritty
     sudo pacman -S alacritty
@@ -8,7 +10,18 @@ function dode-alacritty
     ln -sf ~/prog/dotfiles/alacritty.toml ~/.config/alacritty.toml
 end
 
-alias dode-ascii-image-converter 'paru -Sa --noconfirm ascii-image-converter-bin'
+function dode-anki
+    paru -Sa --noconfirm anki
+    # paru -Sa --noconfirm anki-bin
+end
+
+function dode-ascii-image-converter
+    paru -Sa --noconfirm ascii-image-converter-bin
+end
+
+function dode-asciinema
+    sudo pacman -S --noconfirm asciinema
+end
 
 function dode-awm
     sudo pacman -S awesome
@@ -61,15 +74,33 @@ function dode-calcure
     cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
 end
 
-alias dode-cargo-script 'cargo binstall -y cargo-script'
+function dode-cargo-script
+    cargo binstall -y cargo-script
+end
 function edod-cargo-script
     rm -fr ~/.cargo/binary_cache
     rm -fr ~/.cargo/script_cache
 end
 
+function dode-cava
+    paru -Sa --noconfirm cava
+end
+function edod-cava
+    paru -Rns cava
+    rm -fr ~/.config/cava
+end
+
+function dode-cbonsai
+    paru -Sa --noconfirm cbonsai
+end
+
 function dode-copyq
     sudo pacman -S --noconfirm copyq
     pipx install git+https://github.com/cjbassi/rofi-copyq
+end
+
+function dode-cowsay
+    sudo pacman -S --noconfirm cowsay
 end
 
 function dode-display
@@ -93,7 +124,13 @@ function dode-dns
     sudo ip link set dev wlan0 mtu $optimal_value
 end
 
-alias dode-exrex 'pipx install exrex'
+function dode-etcher
+    paru -Sa --noconfirm etcher-cli-bin
+end
+
+function dode-exrex
+    pipx install exrex
+end
 
 function dode-eww
     cd ~/prog/stored
@@ -117,6 +154,10 @@ function dode-fifc
     set -Ux fifc_keybinding \ej
 end
 
+function dode-figlet
+    sudo pacman -S --noconfirm figlet
+end
+
 function dode-firefox
     sudo pacman -S firefox
     # version 133.0
@@ -136,6 +177,7 @@ function dode-fstab
 end
 
 function dode-fonts
+    sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
     paru -Sa --noconfirm ttf-comfortaa
 end
 
@@ -162,7 +204,7 @@ function dode-ghostty
 end
 
 function dode-git
-    sudo pacman -Syyu git
+    sudo pacman -Syyu git diff-so-fancy
     # [[sort on]]
     git config --global branch.sort -committerdate
     git config --global checkout.defaultRemote origin
@@ -196,6 +238,8 @@ function dode-gtk-theme
 end
 
 function dode-helix
+    sudo pacman -S --noconfirm marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua
+    paru -Sa --noconfirm prettierd
     cd ~/prog/forks
     git clone --depth=1 https://github.com/Axlefublr/helix
     cd ~/prog/forks/helix
@@ -206,10 +250,18 @@ function dode-helix
     ln -sf ~/prog/forks/helix/runtime ~/.cargo/bin
 end
 
+function dode-httrack
+    sudo pacman -S --noconfirm httrack
+end
+
 function dode-jj
     sudo pacman -S --noconfirm jj lazyjj
     jj util completion fish | source
     ln -sf ~/prog/dotfiles/jj.toml ~/.config/jj/config.toml
+end
+
+function dode-jpeg2png
+    paru -Sa --noconfirm jpeg2png
 end
 
 function dode-kitty
@@ -225,8 +277,13 @@ function dode-kondo
 end
 
 function dode-krita
+    sudo pacman -S --noconfirm krita
     mkdir -p ~/.local/share/color-schemes
     ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
+end
+
+function dode-kruler
+    sudo pacman -S --noconfirm kruler
 end
 
 function dode-lazygit
@@ -237,6 +294,18 @@ end
 
 function dode-less
     sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
+end
+
+function dode-libreoffice
+    sudo pacman -S --noconfirm libreoffice-still
+end
+
+function dode-lolcat
+    sudo pacman -S lolcat
+end
+
+function dode-lxappearance
+    sudo pacman -S --noconfirm lxappearance gtk-engine-murrine qt5ct
 end
 
 function dode-mapscii
@@ -265,6 +334,7 @@ end
 function dode-nom
     # paru -Sa --noconfirm nom
     eget https://github.com/guyfedwards/nom
+    indeed -nu ~/.local/share/magazine/W https://github.com/guyfedwards/nom
     mkdir -p ~/.config/nom
     ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
     ln -sf ~/auto/nom.db ~/.config/nom/nom.db
@@ -310,6 +380,11 @@ function dode-picom
     sudo pacman -S --noconfirm picom
     mkdir -p ~/.config/picom
     ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
+end
+
+function dode-pipes
+    # visual lines going all over the screen
+    paru -Sa --noconfirm bash-pipes
 end
 
 function dode-postgresql
@@ -366,6 +441,10 @@ function dode-qalc
     # set update exchange rates 1
 end
 
+function dode-qbittorrent
+    sudo pacman -S --noconfirm qbittorrent
+end
+
 function dode-qrtool
     sudo pacman -S --noconfirm qrtool
     qrtool --generate-completion
@@ -384,13 +463,17 @@ function dode-rofi
     sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 end
 
-alias dode-rofi-calc 'sudo pacman -S --noconfirm rofi-calc'
+function dode-rofi-calc
+    sudo pacman -S --noconfirm rofi-calc
+end
 function edod-rofi-calc
     sudo pacman -Rns rofi-calc
     rm -fr ~/.local/share/rofi/rofi_calc_history
 end
 
-alias dode-scriptisto 'cargo binstall -y scriptisto'
+function dode-sd
+    sudo pacman -S --noconfirm sd
+end
 
 function dode-serpl
     sudo pacman -S --noconfirm serpl
@@ -399,9 +482,22 @@ function dode-serpl
     ln -sf ~/prog/dotfiles/serpl.yml ~/.config/serpl/serpl.yml
 end
 
+function dode-scc
+    eget https://github.com/boyter/scc
+    indeed -nu ~/.local/share/magazine/W https://github.com/boyter/scc
+end
+
 function dode-screenkey
     sudo pacman -S screenkey
     sudo ln -sf ~/prog/dotfiles/desktop/screenkey.desktop /usr/share/applications
+end
+
+function dode-scriptisto
+    cargo binstall -y scriptisto
+end
+
+function dode-speedtest
+    sudo pacman -S --noconfirm speedtest-cli
 end
 
 function dode-steam
@@ -425,7 +521,13 @@ function dode-termfilechooser
     systemctl --user restart xdg-desktop-portal-termfilechooser.service
 end
 
-alias dode-tiptop 'pipx install tiptop'
+function dode-tiptop
+    pipx install tiptop
+end
+
+function dode-traceroute
+    sudo pacman -S --noconfirm traceroute
+end
 
 function dode-tridactyl
     # :nativeinstall
@@ -439,14 +541,26 @@ function dode-ttyper
     ln -sf ~/.local/share/magazine/U ~/.config/ttyper/language/uclanr
 end
 
-alias dode-tuisky 'cargo binstall -y tuisky'
+function dode-tuisky
+    cargo binstall -y tuisky
+end
 
 function dode-twemoji
     paru -Sa --noconfirm ttf-twemoji
     sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 end
 
-alias dode-tz 'paru -Sa --noconfirm tz'
+function dode-tz
+    eget https://github.com/oz/tz
+    indeed -nu ~/.local/share/magazine/W https://github.com/oz/tz
+end
+
+function dode-unimatrix
+    paru -Sa --noconfirm unimatrix-git
+end
+function edod-unimatrix
+    paru -Rns unimatrix-git
+end
 
 function dode-vscode
     mkdir -p ~/.config/Code/User
@@ -455,6 +569,15 @@ function dode-vscode
     Needed for the CSS & JS extension
     sudo chown -R $(whoami) $(which code)
     sudo chown -R $(whoami) /opt/visual-studio-code
+end
+
+function dode-whois
+    sudo pacman -S --noconfirm whois
+end
+
+function dode-wtf
+    # “wtf is curl” — quickly explains a program
+    paru -Sa --noconfirm wtf
 end
 
 function dode-x
@@ -486,7 +609,7 @@ function dode-ydotool
 end
 
 function dode-yt-dlp
-    sudo pacman -S yt-dlp
+    sudo pacman -S yt-dlp python-mutagen
     mkdir -p ~/.config/yt-dlp
     ln -sf ~/prog/dotfiles/yt-dlp.conf ~/.config/yt-dlp/config
 end
@@ -501,6 +624,10 @@ end
 
 function dode-zola
     sudo pacman -S --noconfirm zola
+end
+
+function dode-zoom
+    paru -Sa --noconfirm zoom
 end
 
 function dode-zoxide
