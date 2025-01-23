@@ -40,3 +40,5 @@ function rdp
     set_color normal
 end
 funcsave rdp >/dev/null
+
+alias --save dodepack 'source ~/prog/dotfiles/scripts/setup/dode.fish ; source ~/prog/dotfiles/scripts/setup/pack.fish' >/dev/null
