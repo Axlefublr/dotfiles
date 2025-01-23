@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-alias --save ubootf 'kitty -T uboot fish -c uboot' >/dev/null
+alias --save ubootf 'kitty -T uboot uboot.fish' >/dev/null
 alias --save screen_off 'xset dpms force "off"' >/dev/null
 
 alias --save get_capslock "xset -q | string match -gr 'Caps Lock:\\s* (off|on)'" >/dev/null

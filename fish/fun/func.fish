@@ -72,21 +72,6 @@ function git-search
 end
 funcsave git-search >/dev/null
 
-function uboot
-    for package in (cat ~/.local/share/magazine/C)
-        cat ~/prog/info/pswds/sudo | sudo -S pacman -Rns --noconfirm $package
-    end
-    truncate -s 0 ~/.local/share/magazine/C
-    if test (math (clorange updates increment) % 7) -eq 0
-        rustup update
-        cargo install-update -a
-    end
-    cat ~/prog/info/pswds/sudo | sudo -Sv
-    yes | sudo pacman -Syyu
-    pacclean
-end
-funcsave uboot >/dev/null
-
 function pacclean --description 'clean pacman and paru cache' # based on https://gist.github.com/ericmurphyxyz/37baa4c9da9d3b057a522f20a9ad6eba (cool youtuber btw)
     set aur_cache_dir "$HOME/.cache/paru/clone"
     function aur_cache_dirs_fmt
