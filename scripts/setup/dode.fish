@@ -1,16 +1,16 @@
 #!/usr/bin/env fish
 
-alias inst-aichat 'sudo pacman -S --noconfirm aichat'
+alias dode-aichat 'sudo pacman -S --noconfirm aichat'
 
-function inst-alacritty
+function dode-alacritty
     sudo pacman -S alacritty
     mkdir -p ~/.config/alacritty
     ln -sf ~/prog/dotfiles/alacritty.toml ~/.config/alacritty.toml
 end
 
-alias inst-ascii-image-converter 'paru -Sa --noconfirm ascii-image-converter-bin'
+alias dode-ascii-image-converter 'paru -Sa --noconfirm ascii-image-converter-bin'
 
-function inst-awm
+function dode-awm
     sudo pacman -S awesome
     mkdir -p ~/.config/awesome
     rm -fr ~/.config/awesome
@@ -18,13 +18,13 @@ function inst-awm
     ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
 end
 
-function inst-bat
+function dode-bat
     sudo pacman -S --noconfirm bat
     set -Ux BAT_THEME ansi
     set -Ux BAT_STYLE plain
 end
 
-function inst-brillo
+function dode-brillo
     sudo pacman -S --noconfirm brillo
     begin
         echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"'
@@ -32,7 +32,7 @@ function inst-brillo
     end | sudo tee /etc/udev/rules.d/backlight.rules
 end
 
-function inst-boomer
+function dode-boomer
     cd ~/prog/forks
     git clone https://github.com/Axlefublr/boomer
     cd boomer
@@ -40,12 +40,12 @@ function inst-boomer
     ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
 end
 
-function inst-bottom
+function dode-bottom
     sudo pacman -S --noconfirm bottom
     ln -sf ~/prog/dotfiles/bottom.toml ~/.config/bottom/bottom.toml
 end
 
-function inst-bubbly
+function dode-bubbly
     curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
 end
 function uninst-bubbly
@@ -54,25 +54,25 @@ function uninst-bubbly
     rm -fr ~/.local/share/applications/bubbly.desktop
 end
 
-function inst-calcure
+function dode-calcure
     paru -Sa --noconfirm calcure
     mkdir -p ~/.config/calcure
     ln -sf ~/prog/dotfiles/calcure.ini ~/.config/calcure/config.ini
     cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
 end
 
-alias inst-cargo-script 'cargo binstall -y cargo-script'
+alias dode-cargo-script 'cargo binstall -y cargo-script'
 function uninst-cargo-script
     rm -fr ~/.cargo/binary_cache
     rm -fr ~/.cargo/script_cache
 end
 
-function inst-copyq
+function dode-copyq
     sudo pacman -S --noconfirm copyq
     pipx install git+https://github.com/cjbassi/rofi-copyq
 end
 
-function inst-display
+function dode-display
     ln -sf ~/prog/dotfiles/desktop/display.desktop ~/.local/share/applications/display.desktop
     xdg-mime default display.desktop image/svg+xml
     xdg-mime default display.desktop image/png
@@ -81,7 +81,7 @@ function inst-display
     xdg-mime default display.desktop image/webp
 end
 
-function inst-dns
+function dode-dns
     begin
         echo 'nameserver 1.1.1.1' # cloudflare DNS server
         echo 'nameserver 8.8.8.8' # google DNS server
@@ -93,9 +93,9 @@ function inst-dns
     sudo ip link set dev wlan0 mtu $optimal_value
 end
 
-alias inst-exrex 'pipx install exrex'
+alias dode-exrex 'pipx install exrex'
 
-function inst-eww
+function dode-eww
     cd ~/prog/stored
     git clone https://github.com/elkowar/eww
     cd eww
@@ -110,14 +110,14 @@ function uninst-eww
     rm -fr ~/prog/binaries/eww
 end
 
-function inst-fifc
+function dode-fifc
     fisher install gazorby/fifc
     set -Ux fifc_editor helix
     # set -Ux fifc_fd_opts -u
     set -Ux fifc_keybinding \ej
 end
 
-function inst-firefox
+function dode-firefox
     sudo pacman -S firefox
     # version 133.0
     # /etc/pacman.conf
@@ -125,7 +125,7 @@ function inst-firefox
     # widget.use-xdg-desktop-portal.file-picker 1
 end
 
-function inst-fstab
+function dode-fstab
     # automounting setup
     sudo blkid # take UUIDs for the partitions here
     sudo -E helix /etc/fstab
@@ -135,20 +135,24 @@ function inst-fstab
     # UUID=the_uuid /mnt/fatusb exfat defaults,uid=user_id,gid=group_id,dmask=0222,fmask=0111 0 0
 end
 
-function pack-fuck
+function dode-fonts
+    paru -Sa --noconfirm ttf-comfortaa
+end
+
+function dode-fuck
     sudo pacman -Rns --noconfirm eos-update-notifier
     sudo pacman -Rns --noconfirm nano-syntax-highlighting
     sudo pacman -Rns --noconfirm htop
     sudo pacman -Rns --noconfirm meld
 end
 
-function inst-gh
+function dode-gh
     sudo pacman -S --noconfirm github-cli
     gh auth login
     gh auth refresh -h github.com -s delete_repo
 end
 
-function inst-ghostty
+function dode-ghostty
     cd ~/prog/stored
     git clone --depth=1 https://github.com/ghostty-org/ghostty
     cd ghostty
@@ -157,7 +161,7 @@ function inst-ghostty
     ln -sf ~/prog/dotfiles/ghostty.conf ~/.config/ghostty/config
 end
 
-function inst-git
+function dode-git
     sudo pacman -Syyu git
     # [[sort on]]
     git config --global branch.sort -committerdate
@@ -179,19 +183,19 @@ function inst-git
     # [[sort off]]
 end
 
-function inst-gromit-mpx
+function dode-gromit-mpx
     sudo pacman -S --noconfirm gromit-mpx
     ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
     sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
 end
 
-function inst-gtk-theme
+function dode-gtk-theme
     # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
     sudo pacman -S --noconfirm gtk3-demo
     sudo ln -sf ~/prog/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 end
 
-function inst-helix
+function dode-helix
     cd ~/prog/forks
     git clone --depth=1 https://github.com/Axlefublr/helix
     cd ~/prog/forks/helix
@@ -202,40 +206,48 @@ function inst-helix
     ln -sf ~/prog/forks/helix/runtime ~/.cargo/bin
 end
 
-function inst-jj
+function dode-jj
     sudo pacman -S --noconfirm jj lazyjj
     jj util completion fish | source
     ln -sf ~/prog/dotfiles/jj.toml ~/.config/jj/config.toml
 end
 
-function inst-kitty
+function dode-kitty
     sudo pacman -S kitty
     mkdir -p ~/.config/kitty
     ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
     ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
 end
 
-function inst-kondo
+function dode-kondo
     sudo pacman -S --noconfirm kondo
     kondo --completions fish
 end
 
-function inst-krita
+function dode-krita
     mkdir -p ~/.local/share/color-schemes
     ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
 end
 
-function inst-lazygit
+function dode-lazygit
     sudo pacman -S lazygit
     mkdir -p ~/.config/lazygit
     ln -sf ~/prog/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
 end
 
-function inst-less
+function dode-less
     sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
 end
 
-function inst-mpv
+function dode-mapscii
+    paru -Sa --noconfirm nodejs-mapscii
+end
+function edod-mapscii
+    paru -Rns nodejs-mapscii
+    rm -fr ~/.mapscii
+end
+
+function dode-mpv
     sudo pacman -S mpv
     sudo pacman -S mpv-mpris
     mkdir -p ~/.config/mpv
@@ -245,12 +257,12 @@ function inst-mpv
     xdg-mime default mpv.desktop video/x-matroska
 end
 
-function inst-neovide
+function dode-neovide
     sudo pacman -S --noconfirm neovide
     set -Ux NEOVIDE_FORK false
 end
 
-function inst-nom
+function dode-nom
     # paru -Sa --noconfirm nom
     eget https://github.com/guyfedwards/nom
     mkdir -p ~/.config/nom
@@ -258,7 +270,7 @@ function inst-nom
     ln -sf ~/auto/nom.db ~/.config/nom/nom.db
 end
 
-function inst-nvim
+function dode-nvim
     sudo pacman -S neovim luarocks
     trash-put ~/.config/nvim
     mkdir -p ~/.config/nvim
@@ -270,14 +282,14 @@ function inst-nvim
     end
 end
 
-function inst-other
+function dode-other
     sudo loginctl enable-linger $USER
     sudo systemctl enable --now sddm
     sudo systemctl enable --now bluetooth.service
     sudo systemctl enable --now paccache.timer
 end
 
-function inst-ov
+function dode-ov
     # paru -Sa --noconfirm ov-bin
     cd ~/prog/forks
     gh repo clonef Axlefublr/ov
@@ -288,19 +300,19 @@ function inst-ov
     ln -sf ~/prog/dotfiles/ov.yaml ~/.config/ov/config.yaml
 end
 
-function inst-paru
+function dode-paru
     sudo pacman -S --noconfirm paru
     mkdir -p ~/.config/paru
     ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
 end
 
-function inst-picom
+function dode-picom
     sudo pacman -S --noconfirm picom
     mkdir -p ~/.config/picom
     ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
 end
 
-function inst-postgresql
+function dode-postgresql
     sudo pacman -S postgresql
     ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
     sudo -iu postgres initdb -D /var/lib/postgres/data
@@ -329,11 +341,11 @@ function inst-postgresql
     # set -Ux PGDATABASE dvdrental
     # set -Ux PGUSER postgres
 end
-function uninst-postgresql
+function dode-postgresql
     sudo systemctl disable postgresql
 end
 
-function inst-pueue
+function dode-pueue
     sudo pacman -S --noconfirm pueue
     systemctl --user start pueued
     systemctl --user enable pueued
@@ -347,56 +359,56 @@ function inst-pueue
     pueue parallel -g s 99
 end
 
-function inst-qalc
+function dode-qalc
     sudo pacman -S libqalculate
     # set vspace off
     # set curconv off
     # set update exchange rates 1
 end
 
-function inst-qrtool
+function dode-qrtool
     sudo pacman -S --noconfirm qrtool
     qrtool --generate-completion
     qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 end
 
-function inst-repgrep
+function dode-repgrep
     # sudo pacman -S --noconfirm repgrep
     # you forked this
 end
 
-function inst-rofi
+function dode-rofi
     sudo pacman -S rofi
     mkdir -p ~/.config/rofi
     ln -sf ~/prog/dotfiles/rofi.rasi ~/.config/rofi/config.rasi
     sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 end
 
-alias inst-rofi-calc 'sudo pacman -S --noconfirm rofi-calc'
+alias dode-rofi-calc 'sudo pacman -S --noconfirm rofi-calc'
 function uninst-rofi-calc
     sudo pacman -Rns rofi-calc
     rm -fr ~/.local/share/rofi/rofi_calc_history
 end
 
-alias inst-scriptisto 'cargo binstall -y scriptisto'
+alias dode-scriptisto 'cargo binstall -y scriptisto'
 
-function inst-serpl
+function dode-serpl
     sudo pacman -S --noconfirm serpl
     paru -Sa --noconfirm ast-grep-bin
     mkdir -p ~/.config/serpl
     ln -sf ~/prog/dotfiles/serpl.yml ~/.config/serpl/serpl.yml
 end
 
-function inst-screenkey
+function dode-screenkey
     sudo pacman -S screenkey
     sudo ln -sf ~/prog/dotfiles/desktop/screenkey.desktop /usr/share/applications
 end
 
-function inst-steam
+function dode-steam
     sudo pacman -S --noconfirm steam
 end
 
-function inst-termfilechooser
+function dode-termfilechooser
     sudo pacman -S xdg-desktop-portal-gtk
     paru -Sa --noconfirm xdg-desktop-portal-termfilechooser-git
     fish_add_path /usr/lib
@@ -413,30 +425,30 @@ function inst-termfilechooser
     systemctl --user restart xdg-desktop-portal-termfilechooser.service
 end
 
-alias inst-tiptop 'pipx install tiptop'
+alias dode-tiptop 'pipx install tiptop'
 
-function inst-tridactyl
+function dode-tridactyl
     # :nativeinstall
     # to copy the command to execute
     mkdir -p ~/.config/tridactyl
     ln -f ~/prog/dotfiles/tridactyl ~/.config/tridactyl/tridactylrc
 end
 
-function inst-ttyper
+function dode-ttyper
     sudo pacman -S ttyper
     ln -sf ~/.local/share/magazine/U ~/.config/ttyper/language/uclanr
 end
 
-alias inst-tuisky 'cargo binstall -y tuisky'
+alias dode-tuisky 'cargo binstall -y tuisky'
 
-function inst-twemoji
+function dode-twemoji
     paru -Sa --noconfirm ttf-twemoji
     sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 end
 
-alias inst-tz 'paru -Sa --noconfirm tz'
+alias dode-tz 'paru -Sa --noconfirm tz'
 
-function inst-vscode
+function dode-vscode
     mkdir -p ~/.config/Code/User
     ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
     ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
@@ -445,20 +457,20 @@ function inst-vscode
     sudo chown -R $(whoami) /opt/visual-studio-code
 end
 
-function inst-x
+function dode-x
     ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
     ln -sf ~/prog/dotfiles/x11/.XCompose ~/.XCompose
     set -Ux XMODIFIERS @im=none
 end
 
-function inst-xremap
+function dode-xremap
     sudo pacman -S --noconfirm xremap-x11-bin
     sudo usermod -aG input $USER
     sudo usermod -aG video $USER
     echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
 end
 
-function inst-yazi
+function dode-yazi
     sudo pacman -S yazi
     rm -fr ~/.config/yazi
     ln -s ~/prog/dotfiles/yazi ~/.config
@@ -468,18 +480,18 @@ function inst-yazi
     ya pack -a KKV9/compress
 end
 
-function inst-ydotool
+function dode-ydotool
     sudo pacman -S --noconfirm ydotool
     pueue add -g s ydotoold
 end
 
-function inst-yt-dlp
+function dode-yt-dlp
     sudo pacman -S yt-dlp
     mkdir -p ~/.config/yt-dlp
     ln -sf ~/prog/dotfiles/yt-dlp.conf ~/.config/yt-dlp/config
 end
 
-function inst-zathura
+function dode-zathura
     sudo pacman -S zathura
     sudo pacman -S zathura-pdf-mupdf
     mkdir -p ~/.config/zathura
@@ -487,11 +499,11 @@ function inst-zathura
     xdg-mime default org.pwmt.zathura.desktop application/pdf
 end
 
-function inst-zola
+function dode-zola
     sudo pacman -S --noconfirm zola
 end
 
-function inst-zoxide
+function dode-zoxide
     sudo pacman -S --noconfirm zoxide
     set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
     set -Ux _ZO_MAXAGE 30000
