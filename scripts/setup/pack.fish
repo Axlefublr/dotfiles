@@ -1,17 +1,20 @@
 #!/usr/bin/env fish
 
+alias paccy 'sudo pacman -S --needed --noconfirm --disable-download-timeout'
+alias aurie 'paru -Sa --needed --noconfirm --disable-download-timeout'
+
 function pack-man
-    sudo pacman -Syyu
+    sudo pacman -Syu
     for package_name in (cat ~/.local/share/magazine/Z)
-        sudo pacman -S --noconfirm $package_name
+        paccy $package_name
     end
     for package_name in (cat ~/.local/share/magazine/X)
-        paru --noconfirm -aS $package_name
+        aurie $package_name
     end
 end
 
 function pack-crystal
-    sudo pacman -S --noconfirm crystal shards
+    paccy crystal shards
 end
 
 function pack-dotnet
@@ -20,16 +23,16 @@ function pack-dotnet
 end
 
 function pack-eget-pack
-    paru -Sa --noconfirm eget-bin
+    aurie eget-bin
     set -Ux EGET_BIN ~/.local/bin
 end
 
 function pack-elixir
-    sudo pacman -S --noconfirm elixir
+    paccy elixir
 end
 
 function pack-fish
-    sudo pacman -S --noconfirm fish
+    paccy fish
     chsh -s /usr/bin/fish
     mkdir -p ~/.config/fish
     ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
@@ -40,7 +43,7 @@ function pack-fish
     ~/prog/dotfiles/fish/universal.fish
 end
 function pack-fish-pack
-    sudo pacman -S --noconfirm fisher
+    paccy fisher
 end
 function pack-fish-lang
     git clone https://github.com/ndonfris/fish-lsp ~/prog/stored/fish-lsp
@@ -59,21 +62,21 @@ function pack-fish-lang
 end
 
 function pack-go
-    sudo pacman -S --noconfirm go
+    paccy go
     mkdir -p ~/go/bin
     fish_add_path ~/go/bin
 end
 function pack-go-lang
-    sudo pacman -S --noconfirm gopls
+    paccy gopls
 end
 
 function pack-java
-    sudo pacman -S --noconfirm jdk8-openjdk maven
-    paru -Sa --noconfirm intellij-idea-community-edition-jre
+    paccy jdk8-openjdk maven
+    aurie intellij-idea-community-edition-jre
 end
 
 function pack-kotlin
-    sudo pacman -S --noconfirm kotlin jre-openjdk
+    paccy kotlin jre-openjdk
 end
 
 function pack-nim
@@ -96,7 +99,7 @@ function pack-ruby-lang
 end
 
 function pack-rust
-    sudo pacman -S --noconfirm rustup
+    paccy rustup
     fish_add_path ~/.cargo/bin
     fish_add_path ~/.cargo/env
     mkdir -p ~/.cargo/{bin,env}
@@ -108,8 +111,8 @@ function pack-rust
     ln -sf ~/prog/dotfiles/cargo.toml ~/.cargo/config.toml
 end
 function pack-rust-pack
-    sudo pacman -S --noconfirm cargo-binstall
-    sudo pacman -S --noconfirm cargo-update
+    paccy cargo-binstall
+    paccy cargo-update
     cargo binstall -y cargo-quickinstall
 end
 function pack-rust-lang
@@ -137,12 +140,12 @@ function pack-ocaml-lang
 end
 
 function pack-python
-    sudo pacman -S --noconfirm python3 python-docs
-    sudo pacman -S --noconfirm python-toml # helix config generator
+    paccy python3 python-docs
+    paccy python-toml # helix config generator
     set -Ux PYTHONSTARTUP ~/prog/dotfiles/pyrc.py
 end
 function pack-python-lang
-    paru -Sa --noconfirm basedpyright-git
+    aurie basedpyright-git
     sudo pacman -S ruff
     mkdir -p ~/.config/ruff
     ln -sf ~/prog/dotfiles/defconf/pyproject.toml ~/.config/ruff/pyproject.toml

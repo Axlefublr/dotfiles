@@ -1,7 +1,10 @@
 #!/usr/bin/env fish
 
+alias paccy 'sudo pacman -S --needed --noconfirm --disable-download-timeout'
+alias aurie 'paru -Sa --needed --noconfirm --disable-download-timeout'
+
 function dode-aichat
-    sudo pacman -S --noconfirm aichat
+    paccy aichat
 end
 
 function dode-alacritty
@@ -11,16 +14,16 @@ function dode-alacritty
 end
 
 function dode-anki
-    paru -Sa --noconfirm anki
-    # paru -Sa --noconfirm anki-bin
+    aurie anki
+    # aurie anki-bin
 end
 
 function dode-ascii-image-converter
-    paru -Sa --noconfirm ascii-image-converter-bin
+    aurie ascii-image-converter-bin
 end
 
 function dode-asciinema
-    sudo pacman -S --noconfirm asciinema
+    paccy asciinema
 end
 
 function dode-awm
@@ -32,13 +35,13 @@ function dode-awm
 end
 
 function dode-bat
-    sudo pacman -S --noconfirm bat
+    paccy bat
     set -Ux BAT_THEME ansi
     set -Ux BAT_STYLE plain
 end
 
 function dode-brillo
-    sudo pacman -S --noconfirm brillo
+    paccy brillo
     begin
         echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"'
         echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"'
@@ -54,7 +57,7 @@ function dode-boomer
 end
 
 function dode-bottom
-    sudo pacman -S --noconfirm bottom
+    paccy bottom
     ln -sf ~/prog/dotfiles/bottom.toml ~/.config/bottom/bottom.toml
 end
 
@@ -68,7 +71,7 @@ function edod-bubbly
 end
 
 function dode-calcure
-    paru -Sa --noconfirm calcure
+    aurie calcure
     mkdir -p ~/.config/calcure
     ln -sf ~/prog/dotfiles/calcure.ini ~/.config/calcure/config.ini
     cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
@@ -83,7 +86,7 @@ function edod-cargo-script
 end
 
 function dode-cava
-    paru -Sa --noconfirm cava
+    aurie cava
 end
 function edod-cava
     paru -Rns cava
@@ -91,16 +94,16 @@ function edod-cava
 end
 
 function dode-cbonsai
-    paru -Sa --noconfirm cbonsai
+    aurie cbonsai
 end
 
 function dode-copyq
-    sudo pacman -S --noconfirm copyq
+    paccy copyq
     pipx install git+https://github.com/cjbassi/rofi-copyq
 end
 
 function dode-cowsay
-    sudo pacman -S --noconfirm cowsay
+    paccy cowsay
 end
 
 function dode-display
@@ -125,7 +128,7 @@ function dode-dns
 end
 
 function dode-etcher
-    paru -Sa --noconfirm etcher-cli-bin
+    aurie etcher-cli-bin
 end
 
 function dode-exrex
@@ -155,7 +158,7 @@ function dode-fifc
 end
 
 function dode-figlet
-    sudo pacman -S --noconfirm figlet
+    paccy figlet
 end
 
 function dode-firefox
@@ -177,8 +180,8 @@ function dode-fstab
 end
 
 function dode-fonts
-    sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
-    paru -Sa --noconfirm ttf-comfortaa
+    paccy ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
+    aurie ttf-comfortaa
 end
 
 function dode-fuck
@@ -189,7 +192,7 @@ function dode-fuck
 end
 
 function dode-gh
-    sudo pacman -S --noconfirm github-cli
+    paccy github-cli
     gh auth login
     gh auth refresh -h github.com -s delete_repo
 end
@@ -226,20 +229,20 @@ function dode-git
 end
 
 function dode-gromit-mpx
-    sudo pacman -S --noconfirm gromit-mpx
+    paccy gromit-mpx
     ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
     sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
 end
 
 function dode-gtk-theme
     # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
-    sudo pacman -S --noconfirm gtk3-demo
+    paccy gtk3-demo
     sudo ln -sf ~/prog/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 end
 
 function dode-helix
-    sudo pacman -S --noconfirm marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua
-    paru -Sa --noconfirm prettierd
+    paccy marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua
+    aurie prettierd
     cd ~/prog/forks
     git clone --depth=1 https://github.com/Axlefublr/helix
     cd ~/prog/forks/helix
@@ -251,17 +254,17 @@ function dode-helix
 end
 
 function dode-httrack
-    sudo pacman -S --noconfirm httrack
+    paccy httrack
 end
 
 function dode-jj
-    sudo pacman -S --noconfirm jj lazyjj
+    paccy jj lazyjj
     jj util completion fish | source
     ln -sf ~/prog/dotfiles/jj.toml ~/.config/jj/config.toml
 end
 
 function dode-jpeg2png
-    paru -Sa --noconfirm jpeg2png
+    aurie jpeg2png
 end
 
 function dode-kitty
@@ -272,18 +275,18 @@ function dode-kitty
 end
 
 function dode-kondo
-    sudo pacman -S --noconfirm kondo
+    paccy kondo
     kondo --completions fish
 end
 
 function dode-krita
-    sudo pacman -S --noconfirm krita
+    paccy krita
     mkdir -p ~/.local/share/color-schemes
     ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
 end
 
 function dode-kruler
-    sudo pacman -S --noconfirm kruler
+    paccy kruler
 end
 
 function dode-lazygit
@@ -297,7 +300,7 @@ function dode-less
 end
 
 function dode-libreoffice
-    sudo pacman -S --noconfirm libreoffice-still
+    paccy libreoffice-still
 end
 
 function dode-lolcat
@@ -305,11 +308,11 @@ function dode-lolcat
 end
 
 function dode-lxappearance
-    sudo pacman -S --noconfirm lxappearance gtk-engine-murrine qt5ct
+    paccy lxappearance gtk-engine-murrine qt5ct
 end
 
 function dode-mapscii
-    paru -Sa --noconfirm nodejs-mapscii
+    aurie nodejs-mapscii
 end
 function edod-mapscii
     paru -Rns nodejs-mapscii
@@ -327,12 +330,12 @@ function dode-mpv
 end
 
 function dode-neovide
-    sudo pacman -S --noconfirm neovide
+    paccy neovide
     set -Ux NEOVIDE_FORK false
 end
 
 function dode-nom
-    # paru -Sa --noconfirm nom
+    # aurie nom
     eget https://github.com/guyfedwards/nom
     indeed -nu ~/.local/share/magazine/W https://github.com/guyfedwards/nom
     mkdir -p ~/.config/nom
@@ -360,7 +363,7 @@ function dode-other
 end
 
 function dode-ov
-    # paru -Sa --noconfirm ov-bin
+    # aurie ov-bin
     cd ~/prog/forks
     gh repo clonef Axlefublr/ov
     make
@@ -371,20 +374,20 @@ function dode-ov
 end
 
 function dode-paru
-    sudo pacman -S --noconfirm paru
+    paccy paru
     mkdir -p ~/.config/paru
     ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
 end
 
 function dode-picom
-    sudo pacman -S --noconfirm picom
+    paccy picom
     mkdir -p ~/.config/picom
     ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
 end
 
 function dode-pipes
     # visual lines going all over the screen
-    paru -Sa --noconfirm bash-pipes
+    aurie bash-pipes
 end
 
 function dode-postgresql
@@ -421,7 +424,7 @@ function dode-postgresql
 end
 
 function dode-pueue
-    sudo pacman -S --noconfirm pueue
+    paccy pueue
     systemctl --user start pueued
     systemctl --user enable pueued
     systemctl --user status pueued
@@ -442,17 +445,17 @@ function dode-qalc
 end
 
 function dode-qbittorrent
-    sudo pacman -S --noconfirm qbittorrent
+    paccy qbittorrent
 end
 
 function dode-qrtool
-    sudo pacman -S --noconfirm qrtool
+    paccy qrtool
     qrtool --generate-completion
     qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 end
 
 function dode-repgrep
-    # sudo pacman -S --noconfirm repgrep
+    # paccy repgrep
     # you forked this
 end
 
@@ -464,7 +467,7 @@ function dode-rofi
 end
 
 function dode-rofi-calc
-    sudo pacman -S --noconfirm rofi-calc
+    paccy rofi-calc
 end
 function edod-rofi-calc
     sudo pacman -Rns rofi-calc
@@ -472,12 +475,12 @@ function edod-rofi-calc
 end
 
 function dode-sd
-    sudo pacman -S --noconfirm sd
+    paccy sd
 end
 
 function dode-serpl
-    sudo pacman -S --noconfirm serpl
-    paru -Sa --noconfirm ast-grep-bin
+    paccy serpl
+    aurie ast-grep-bin
     mkdir -p ~/.config/serpl
     ln -sf ~/prog/dotfiles/serpl.yml ~/.config/serpl/serpl.yml
 end
@@ -497,16 +500,16 @@ function dode-scriptisto
 end
 
 function dode-speedtest
-    sudo pacman -S --noconfirm speedtest-cli
+    paccy speedtest-cli
 end
 
 function dode-steam
-    sudo pacman -S --noconfirm steam
+    paccy steam
 end
 
 function dode-termfilechooser
     sudo pacman -S xdg-desktop-portal-gtk
-    paru -Sa --noconfirm xdg-desktop-portal-termfilechooser-git
+    aurie xdg-desktop-portal-termfilechooser-git
     fish_add_path /usr/lib
     set -Ux TERMCMD kitty
     set -Ux GDK_DEBUG portals
@@ -526,7 +529,7 @@ function dode-tiptop
 end
 
 function dode-traceroute
-    sudo pacman -S --noconfirm traceroute
+    paccy traceroute
 end
 
 function dode-tridactyl
@@ -546,7 +549,7 @@ function dode-tuisky
 end
 
 function dode-twemoji
-    paru -Sa --noconfirm ttf-twemoji
+    aurie ttf-twemoji
     sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 end
 
@@ -556,7 +559,7 @@ function dode-tz
 end
 
 function dode-unimatrix
-    paru -Sa --noconfirm unimatrix-git
+    aurie unimatrix-git
 end
 function edod-unimatrix
     paru -Rns unimatrix-git
@@ -572,12 +575,12 @@ function dode-vscode
 end
 
 function dode-whois
-    sudo pacman -S --noconfirm whois
+    paccy whois
 end
 
 function dode-wtf
     # “wtf is curl” — quickly explains a program
-    paru -Sa --noconfirm wtf
+    aurie wtf
 end
 
 function dode-x
@@ -587,7 +590,7 @@ function dode-x
 end
 
 function dode-xremap
-    sudo pacman -S --noconfirm xremap-x11-bin
+    paccy xremap-x11-bin
     sudo usermod -aG input $USER
     sudo usermod -aG video $USER
     echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
@@ -604,7 +607,7 @@ function dode-yazi
 end
 
 function dode-ydotool
-    sudo pacman -S --noconfirm ydotool
+    paccy ydotool
     pueue add -g s ydotoold
 end
 
@@ -623,15 +626,15 @@ function dode-zathura
 end
 
 function dode-zola
-    sudo pacman -S --noconfirm zola
+    paccy zola
 end
 
 function dode-zoom
-    paru -Sa --noconfirm zoom
+    aurie zoom
 end
 
 function dode-zoxide
-    sudo pacman -S --noconfirm zoxide
+    paccy zoxide
     set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
     set -Ux _ZO_MAXAGE 30000
 end
