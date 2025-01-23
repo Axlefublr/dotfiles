@@ -48,7 +48,7 @@ end
 function dode-bubbly
     curl https://raw.githubusercontent.com/siduck/bubbly/buttons/install.sh | sh
 end
-function uninst-bubbly
+function edod-bubbly
     rm -fr ~/.local/share/bubbly
     rm -fr ~/.config/bubbly
     rm -fr ~/.local/share/applications/bubbly.desktop
@@ -62,7 +62,7 @@ function dode-calcure
 end
 
 alias dode-cargo-script 'cargo binstall -y cargo-script'
-function uninst-cargo-script
+function edod-cargo-script
     rm -fr ~/.cargo/binary_cache
     rm -fr ~/.cargo/script_cache
 end
@@ -104,7 +104,7 @@ function dode-eww
     mkdir -p ~/.config/eww
     touch ~/.config/eww/eww.yuck
 end
-function uninst-eww
+function edod-eww
     rm -fr ~/prog/stored/eww
     rm -fr ~/.config/eww
     rm -fr ~/prog/binaries/eww
@@ -385,7 +385,7 @@ function dode-rofi
 end
 
 alias dode-rofi-calc 'sudo pacman -S --noconfirm rofi-calc'
-function uninst-rofi-calc
+function edod-rofi-calc
     sudo pacman -Rns rofi-calc
     rm -fr ~/.local/share/rofi/rofi_calc_history
 end
