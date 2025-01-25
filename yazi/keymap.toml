@@ -7,7 +7,7 @@ keymap = [
   { on = 'Q', run = 'quit --no-cwd-file', desc = 'Exit the process without writing cwd-file' },
   { on = 'w', run = 'tasks_show', desc = 'Show task manager' },
   { on = 'T', run = 'close', desc = 'Close the current tab, or quit if it is last tab' },
-  { on = '<C-z>', run = 'suspend', desc = 'Suspend the process' },
+  { on = '<C-z>', run = 'plugin storecwd', desc = 'Suspend the process' },
 
   { on = 'J', run = 'plugin hide-preview', desc = 'Toggle preview' },
 

@@ -59,6 +59,7 @@ function ya.notify(opts) end
 
 ---@alias ManagerCommands
 ---| 'cd'
+---| 'suspend'
 
 ---@param cmd ManagerCommands
 ---@param args table<string|number, Sendable>
