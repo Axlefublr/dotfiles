@@ -35,7 +35,7 @@
     "paused": false,
     "period": 900,
     "pinned": true,
-    "prepends": "💤",
+    "prepends": "",
     "simultaneous-jobs": 10,
     "startup-pinned": false,
     "startup-release-pinned": false,

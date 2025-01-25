@@ -320,8 +320,8 @@ function edod-mapscii
 end
 
 function dode-mpv
-    sudo pacman -S mpv
-    sudo pacman -S mpv-mpris
+    paccy mpv
+    paccy --asdeps mpv-mpris
     mkdir -p ~/.config/mpv
     ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
     xdg-mime default mpv.desktop video/webm
@@ -612,7 +612,8 @@ function dode-ydotool
 end
 
 function dode-yt-dlp
-    sudo pacman -S yt-dlp python-mutagen
+    paccy yt-dlp
+    paccy --asdeps python-mutagen
     mkdir -p ~/.config/yt-dlp
     ln -sf ~/prog/dotfiles/yt-dlp.conf ~/.config/yt-dlp/config
 end

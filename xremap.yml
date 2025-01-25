@@ -1887,6 +1887,7 @@ keymap:
   - name: Any functionality
     remap:
       Pause: { launch: [fish, -c, suspend] }
+      KPDot: { launch: [fish, -c, suspend] }
 
   - name: Any
     remap:
