@@ -111,7 +111,7 @@ function fish_prompt
     #     end
     # end
     fish_prompt_status $fullstatuses
-    set_color ffd75f
+    set -q matched_cwd && set_color $matched_cwd || set_color normal
     printf '󱕅 '
     set_color normal
 end

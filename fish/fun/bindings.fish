@@ -31,12 +31,18 @@ end
 funcsave _man_the_commandline >/dev/null
 
 function _match_helix_cwd
-    set -l helix_cwd (cat /tmp/helix-cwd-suspend)
-    set -l helix_buf_head (cat /tmp/helix-buffer-head-suspend)
-    if test "$PWD" = "$helix_cwd"
-        z $helix_buf_head
+    set -l current (math (clorange _match_helix_cwd increment) % 3 + 1)
+    if test "$current" -eq 1
+        set -U matched_cwd ffd75f
+        z (cat /tmp/helix-cwd-suspend)
+    else if test "$current" -eq 2
+        set -U matched_cwd ff9f1a
+        z (cat /tmp/helix-buffer-head-suspend)
+    else if test "$current" -eq 3
+        set -U matched_cwd af87ff
+        z (cat /tmp/yazi-cwd-suspend)
     else
-        z $helix_cwd
+        set -U matched_cwd ?
     end
     commandline -f repaint
 end
