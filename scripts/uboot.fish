@@ -6,7 +6,7 @@ end
 truncate -s 0 ~/.local/share/magazine/C
 
 for package in (cat ~/.local/share/magazine/W)
-    eget $package
+    echo $package | xargs eget --upgrade-only
 end
 
 rustup update
