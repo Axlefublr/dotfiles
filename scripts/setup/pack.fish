@@ -132,6 +132,9 @@ function pack-ocaml
     opam switch set ocaml-base-compiler
     echo 'eval (opam env)' >>~/.config/fish/config.fish
 end
+function unpack-ocaml
+    paru -Rns dune opam
+end
 function pack-ocaml-lang
     eval (opam env)
     opam install ocaml-lsp-server

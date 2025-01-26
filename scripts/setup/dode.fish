@@ -6,6 +6,10 @@ alias aurie 'paru -Sa --needed --noconfirm --disable-download-timeout'
 function dode-aichat
     paccy aichat
 end
+function edod-aichat
+    paru -Rns aichat
+    rm -fr ~/.config/aichat
+end
 
 function dode-alacritty
     sudo pacman -S alacritty
@@ -267,6 +271,10 @@ function dode-jpeg2png
     aurie jpeg2png
 end
 
+function dode-kbt
+    paccy kbt
+end
+
 function dode-kitty
     sudo pacman -S kitty
     mkdir -p ~/.config/kitty
@@ -505,6 +513,11 @@ end
 
 function dode-steam
     paccy steam
+end
+
+function dode-sttr
+    eget -a tar.gz -a '^sbom.json' https://github.com/abhimanyu003/sttr
+    indeed -nu ~/.local/share/magazine/W '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
 end
 
 function dode-termfilechooser
