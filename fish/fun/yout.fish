@@ -2,8 +2,8 @@
 
 function batch-link-downloader
     set -l extra (begin
-        echo youtube
         echo longform
+        echo youtube
         echo asmr
     end | rofi -dmenu -no-custom 2>/dev/null)
     test $status -ne 0 && return 1
