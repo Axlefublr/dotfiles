@@ -244,7 +244,7 @@ function fish_user_key_bindings
     binds -vids \e. _man_the_commandline
     binds -vids \e, _help_the_commandline
 
-    binds -vids \cz 'fg &>/dev/null'
+    binds -vids \cz fg
     binds -vids \cy _match_helix_cwd
 
     binds -vids \cr _wrap_in_pueue
