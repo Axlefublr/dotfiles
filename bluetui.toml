@@ -1,8 +1,8 @@
 toggle_scanning = "s"
 
 [paired_device]
-unpair = "e"
-toggle_connect = "c"
+unpair = "a"
+toggle_connect = "e"
 toggle_trust = "t"
 rename = "r"
 
