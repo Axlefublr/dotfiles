@@ -23,31 +23,31 @@ keymap:
       only: Vivaldi-stable
     remap:
       # [[sort on]]
-      Alt-Apostrophe: shift-alt-f11 # focus address field
-      Alt-Semicolon: ctrl-shift-f12 # quick commands
-      Alt-Slash: ctrl-f # find in page
-      Alt-a: ctrl-shift-alt-f5
-      Alt-c: shift-f10 # built in browser "right click" emulation button
-      Alt-e: ctrl-shift-alt-f10 # new tab
-      Alt-h: ctrl-shift-f10 # previous tab (by order)
-      Alt-j: ctrl-shift-f7 # next workspace
-      Alt-k: ctrl-shift-f8 # previous workspace
-      Alt-l: ctrl-shift-f11 # next tab (by order)
-      Alt-m: shift-alt-f5 # unmute all tabs
-      Alt-n: shift-alt-f7 # find next in page
-      Alt-p: ctrl-shift-f1 # pin / unpin tab
-      Alt-q: ctrl-shift-alt-f3
-      Alt-r: F5 # reload page
-      Alt-t: F12
-      Alt-w: ctrl-shift-f2 # close tab
-      Alt-x: shift-f9 # focus tab bar
-      Alt-z: ctrl-shift-alt-f4
-      Ctrl-Alt-d: ctrl-shift-alt-f7
-      Ctrl-Alt-f: ctrl-shift-alt-f8
-      Ctrl-Alt-h: ctrl-shift-f6 # move active tab backward
-      Ctrl-Alt-l: ctrl-shift-f9 # move active tab forward
-      Ctrl-Alt-s: ctrl-shift-alt-f6
-      Ctrl-Alt-w: ctrl-shift-alt-f9
+      Alt_L-Apostrophe: shift-alt-f11 # focus address field
+      Alt_L-Semicolon: ctrl-shift-f12 # quick commands
+      Alt_L-Slash: ctrl-f # find in page
+      Alt_L-a: ctrl-shift-alt-f5
+      Alt_L-c: shift-f10 # built in browser "right click" emulation button
+      Alt_L-e: ctrl-shift-alt-f10 # new tab
+      Alt_L-h: ctrl-shift-f10 # previous tab (by order)
+      Alt_L-j: ctrl-shift-f7 # next workspace
+      Alt_L-k: ctrl-shift-f8 # previous workspace
+      Alt_L-l: ctrl-shift-f11 # next tab (by order)
+      Alt_L-m: shift-alt-f5 # unmute all tabs
+      Alt_L-n: shift-alt-f7 # find next in page
+      Alt_L-p: ctrl-shift-f1 # pin / unpin tab
+      Alt_L-q: ctrl-shift-alt-f3
+      Alt_L-r: F5 # reload page
+      Alt_L-t: F12
+      Alt_L-w: ctrl-shift-f2 # close tab
+      Alt_L-x: shift-f9 # focus tab bar
+      Alt_L-z: ctrl-shift-alt-f4
+      Ctrl-Alt_L-d: ctrl-shift-alt-f7
+      Ctrl-Alt_L-f: ctrl-shift-alt-f8
+      Ctrl-Alt_L-h: ctrl-shift-f6 # move active tab backward
+      Ctrl-Alt_L-l: ctrl-shift-f9 # move active tab forward
+      Ctrl-Alt_L-s: ctrl-shift-alt-f6
+      Ctrl-Alt_L-w: ctrl-shift-alt-f9
       Ctrl-Shift-h: ctrl-shift-f3 # close tabs to the left
       Ctrl-Shift-l: ctrl-shift-f4 # close tabs to the right
       Ctrl-h: ctrl-shift-alt-f1 # switch to tab 1
@@ -55,12 +55,12 @@ keymap:
       Ctrl-l: ctrl-shift-alt-f2 # switch to the last tab
       Ctrl-o: alt-left # history back
       Ctrl-p: ctrl-shift-alt-f12 # duplicate selected tabs
-      Shift-Alt-h: shift-alt-f4 # select next tab
-      Shift-Alt-j: shift-alt-f1 # stack tabs
-      Shift-Alt-k: shift-alt-f2 # remove from tab stack
-      Shift-Alt-l: shift-alt-f3 # select previous tab
-      Shift-Alt-n: shift-alt-f8 # find previous in page
-      Shift-Alt-r: shift-alt-f6 # force page reload
+      Shift-Alt_L-h: shift-alt-f4 # select next tab
+      Shift-Alt_L-j: shift-alt-f1 # stack tabs
+      Shift-Alt_L-k: shift-alt-f2 # remove from tab stack
+      Shift-Alt_L-l: shift-alt-f3 # select previous tab
+      Shift-Alt_L-n: shift-alt-f8 # find previous in page
+      Shift-Alt_L-r: shift-alt-f6 # force page reload
       # [[sort off]]
 
   - name: Firefox
@@ -71,31 +71,31 @@ keymap:
     remap:
       # alt-based hotkeys are possible thanks to the ui.key.menuAccessKeyFocuses option
       # [[sort on]]
-      Alt-Apostrophe: ctrl-l # focus address bar
-      Alt-Comma: up
-      Alt-Dot: down
-      Alt-Semicolon: shift-f1 # (sidebery) unload other tabs panel
-      Alt-Slash: ctrl-f # find in this page
-      Alt-c: ctrl-shift-c # inspect element
-      Alt-e: f4 # (sidebery) open a new tab after the active tab (needed to open a new tab after the current one, rather than at the end)
-      Alt-f: f1 # extension: dark reader
-      Alt-h: ctrl-pageup # go one tab to the left
-      Alt-l: ctrl-pagedown # go one tab to the right
-      Alt-n: ctrl-g # find again
-      Alt-s: alt-home # home
-      Alt-w: ctrl-w # close tab
-      Ctrl-Alt-Apostrophe: { launch: [fish, -c, 'xdotool mousemove 0 1080 click 1']}
-      Ctrl-Alt-d: ctrl-equal # zoom out
-      Ctrl-Alt-f: ctrl-0 # zoom reset
-      Ctrl-Alt-h: ctrl-shift-pageup # move tab left
-      Ctrl-Alt-l: ctrl-shift-pagedown # move tab right
-      Ctrl-Alt-s: ctrl-minus # zoom in 
+      Alt_L-Apostrophe: ctrl-l # focus address bar
+      Alt_L-Comma: up
+      Alt_L-Dot: down
+      Alt_L-Semicolon: shift-f1 # (sidebery) unload other tabs panel
+      Alt_L-Slash: ctrl-f # find in this page
+      Alt_L-c: ctrl-shift-c # inspect element
+      Alt_L-e: f4 # (sidebery) open a new tab after the active tab (needed to open a new tab after the current one, rather than at the end)
+      Alt_L-f: f1 # extension: dark reader
+      Alt_L-h: ctrl-pageup # go one tab to the left
+      Alt_L-l: ctrl-pagedown # go one tab to the right
+      Alt_L-n: ctrl-g # find again
+      Alt_L-s: alt-home # home
+      Alt_L-w: ctrl-w # close tab
+      Ctrl-Alt_L-Apostrophe: { launch: [fish, -c, 'xdotool mousemove 0 1080 click 1']}
+      Ctrl-Alt_L-d: ctrl-equal # zoom out
+      Ctrl-Alt_L-f: ctrl-0 # zoom reset
+      Ctrl-Alt_L-h: ctrl-shift-pageup # move tab left
+      Ctrl-Alt_L-l: ctrl-shift-pagedown # move tab right
+      Ctrl-Alt_L-s: ctrl-minus # zoom in 
       Ctrl-i: alt-right # history forward
       Ctrl-o: alt-left # history back
-      Shift-Alt-Semicolon: shift-f2 # (sidebery) unload all tabs in inactive panels
-      Shift-Alt-h: alt-1 # go to tab 1
-      Shift-Alt-l: alt-9 # go to last tab
-      Shift-Alt-n: ctrl-shift-g # find previous
+      Shift-Alt_L-Semicolon: shift-f2 # (sidebery) unload all tabs in inactive panels
+      Shift-Alt_L-h: alt-1 # go to tab 1
+      Shift-Alt_L-l: alt-9 # go to last tab
+      Shift-Alt_L-n: ctrl-shift-g # find previous
       # [[sort off]]
 
   - name: Krita!
@@ -112,8 +112,8 @@ keymap:
     remap:
       # [[sort on]]
       # Ctrl-Shift-i: { launch: [fish, -c, 'anki-import'] }
-      Alt-j: { launch: [fish, -c, 'anki-deck Once'] }
-      Alt-k: { launch: [fish, -c, 'anki-deck Freq'] }
+      Alt_L-j: { launch: [fish, -c, 'anki-deck Once'] }
+      Alt_L-k: { launch: [fish, -c, 'anki-deck Freq'] }
       CapsLock-Space: { launch: [fish, -c, special_anki_edit_action] }
       Ctrl-Semicolon: ctrl-shift-x
       Ctrl-j: down
@@ -125,7 +125,7 @@ keymap:
     application:
       only: Spotify
     remap:
-      Alt-f: shift-alt-b
+      Alt_L-f: shift-alt-b
 
   - name: Term!
     exact_match: true
@@ -133,10 +133,10 @@ keymap:
       only: [Alacritty, kitty]
     remap:
       # [[sort on]]
-      CapsLock-Alt-Semicolon: ctrl-w
-      Ctrl-Alt-u: f4
+      CapsLock-Alt_L-Semicolon: ctrl-w
+      Ctrl-Alt_L-u: f4
       Ctrl-Enter: f2
-      Shift-Alt-Semicolon: f5
+      Shift-Alt_L-Semicolon: f5
       # [[sort off]]
 
   - name: Move!
@@ -531,7 +531,7 @@ keymap:
     application:
       not: /Terraria/
     remap:
-      Shift_L-Alt-e:
+      Shift_L-Alt_L-e:
         remap:
           q: { launch: [fish, -c, 'lazyfloat q'] }
           w: { launch: [fish, -c, 'lazyfloat w'] }
@@ -767,7 +767,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/0'] }
-      Shift_L-Alt-c:
+      Shift_L-Alt_L-c:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/q'] }
@@ -1162,7 +1162,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/0'] }
-      Shift_L-Alt-s:
+      Shift_L-Alt_L-s:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/q'] }
@@ -1241,7 +1241,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/0'] }
-      Shift_L-Alt-d:
+      Shift_L-Alt_L-d:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/q'] }
@@ -1399,7 +1399,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/0'] }
-      Shift_L-Alt-v:
+      Shift_L-Alt_L-v:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/q'] }
@@ -1557,7 +1557,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/0'] }
-      Shift_L-Alt-f:
+      Shift_L-Alt_L-f:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/q'] }
@@ -1652,10 +1652,10 @@ keymap:
       CapsLock-Super_R-a: { launch: [fish, -c, 'index_clipboard 9'] }
 
       # [[sort on]]
-      CapsLock-Alt-Comma: shift_r-grave
-      CapsLock-Alt-j: shift-7
-      CapsLock-Alt-k: shift-backslash
-      CapsLock-Alt-p: shift_r-2
+      CapsLock-Alt_L-Comma: shift_r-grave
+      CapsLock-Alt_L-j: shift-7
+      CapsLock-Alt_L-k: shift-backslash
+      CapsLock-Alt_L-p: shift_r-2
       CapsLock-Comma: shift_r-1
       CapsLock-Dot: shift-minus
       CapsLock-LeftBrace: shift-9
@@ -1674,9 +1674,9 @@ keymap:
 
       # -- for helix -------------------------------------------------------------------------------------
       # [[sort on]]
-      CapsLock-Alt-LeftBrace: shift-alt-9
-      CapsLock-Alt-RightBrace: shift-alt-0
-      CapsLock-Alt-u: alt-grave
+      CapsLock-Alt_L-LeftBrace: shift-alt-9
+      CapsLock-Alt_L-RightBrace: shift-alt-0
+      CapsLock-Alt_L-u: alt-grave
       # [[sort off]]
 
   - name: Any numbers & special symbols
@@ -1710,9 +1710,9 @@ keymap:
       CapsLock-Super-b: { launch: [awesome-client, 'client.focus.fullscreen = not client.focus.fullscreen'] }
 
       CapsLock-z: { launch: [awesome-client, 'client.focus.minimized = true'] }
-      CapsLock-Alt-z: { launch: [awesome-client, Unminimize_all_on_tag()] }
+      CapsLock-Alt_L-z: { launch: [awesome-client, Unminimize_all_on_tag()] }
       CapsLock-q: { launch: [wmctrl, -c, ':ACTIVE:'] }
-      CapsLock-Alt-q: { launch: [xdotool, getwindowfocus, windowkill] }
+      CapsLock-Alt_L-q: { launch: [xdotool, getwindowfocus, windowkill] }
 
       CapsLock-Shift-LeftBrace:
         { launch: [sh, -c, 'brillo -S 0 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
@@ -1723,19 +1723,19 @@ keymap:
       CapsLock-Ctrl-RightBrace:
         { launch: [sh, -c, 'brillo -A 5 ; xset s off -dpms ; awesome-client "Brightness_wu()"'] }
       Ctrl-Esc: { launch: [fish, -c, ignore_urgencies] }
-      Ctrl-Alt-Esc: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
-      Alt-Esc: { launch: [awesome-client, "env.destroy_sided_notification('oldest')"] }
-      Shift-Alt-Esc: { launch: [awesome-client, "env.destroy_sided_notification('latest')"] }
+      Ctrl-Alt_L-Esc: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
+      Alt_L-Esc: { launch: [awesome-client, "env.destroy_sided_notification('oldest')"] }
+      Shift-Alt_L-Esc: { launch: [awesome-client, "env.destroy_sided_notification('latest')"] }
 
   - name: Any! media
     exact_match: true
     remap:
-      CapsLock-Alt-w: { launch: [fish, -c, 'set_volume -5'] }
-      CapsLock-Alt-e: { launch: [fish, -c, 'set_volume +5'] }
+      CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume -5'] }
+      CapsLock-Alt_L-e: { launch: [fish, -c, 'set_volume +5'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
-      CapsLock-Alt-a: { launch: [fish, -c, 'toggle_mute'] }
-      CapsLock-Alt-Shift-d: { launch: [fish, -c, media_prev] }
-      CapsLock-Alt-d: { launch: [fish, -c, media_next] }
+      CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mute'] }
+      CapsLock-Alt_L-Shift-d: { launch: [fish, -c, media_prev] }
+      CapsLock-Alt_L-d: { launch: [fish, -c, media_next] }
       CapsLock-t: { launch: [fish, -c, toggle_media] }
 
   - name: Any!
@@ -1762,7 +1762,7 @@ keymap:
               'truncate -s 0 /tmp/tesseract.txt ; scrot -s - | tesseract - /tmp/tesseract ; test -s /tmp/tesseract.txt && copy /tmp/tesseract.txt && notify-send -t 2000 "ocr"',
             ],
         }
-      Super_L-Alt-r:
+      Super_L-Alt_L-r:
         {
           launch:
             [
@@ -1778,10 +1778,10 @@ keymap:
       Super_L-v: { launch: [boomer] }
       Super-Apostrophe: { launch: [rofi-copyq] }
       Super_L-f: { launch: [gromit-mpx, --toggle] }
-      Super_L-Alt-f: { launch: [gromit-mpx, --clear] }
+      Super_L-Alt_L-f: { launch: [gromit-mpx, --clear] }
       Super_L-Shift-f: { launch: [gromit-mpx, --visibility] }
       Super_L-s: { launch: [fish, -c, 'scrot -s - | copy -t image/png'] }
-      Super_L-Alt-s:
+      Super_L-Alt_L-s:
         {
           launch:
             [
@@ -1796,20 +1796,20 @@ keymap:
             [fish, -c, "scrot - | copy -t image/png ; notify-send -t 1000 'took screen'"],
         }
       Super_L-w: { launch: [fish, -c, 'scrot -s - | display'] }
-      Super_L-Alt-w: { launch: [fish, -c, 'ypoc -t image/png 2>/dev/null | display'] }
+      Super_L-Alt_L-w: { launch: [fish, -c, 'ypoc -t image/png 2>/dev/null | display'] }
       CapsLock-v: { launch: [fish, -c, 'toggle-screen-record'] }
-      CapsLock-Alt-v: { launch: [mpv, '--start=0', '/home/axlefublr/z.mp4'] }
+      CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '/home/axlefublr/z.mp4'] }
       Super-j: { launch: [fish, -c, 'runner show'] }
-      Super-Alt-b: { launch: [fish, -c, 'scratchpad --wintitle=line --cwd=~'] }
-      Super-Alt-Semicolon: { launch: [rofi, -show, drun] }
-      Super-Alt-Apostrophe: { launch: [fish, -c, runner_kill] }
+      Super-Alt_L-b: { launch: [fish, -c, 'scratchpad --wintitle=line --cwd=~'] }
+      Super-Alt_L-Semicolon: { launch: [rofi, -show, drun] }
+      Super-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
       Super_L-d: { launch: [sh, -c, 'clorange widget increment ; awesome-client "Clorange_wu()"'] }
-      Super_L-Alt-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
+      Super_L-Alt_L-d: { launch: [sh, -c, 'clorange widget reset ; awesome-client "Clorange_wu()"'] }
       Super_L-Shift-d: { launch: [sh, -c, 'clorange widget decrement ; awesome-client "Clorange_wu()"'] }
       Super-k: { launch: [fish, -c, runner_notification] }
       Super-Semicolon: { launch: [fish, -c, runner_math] }
       CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax_hold "~/bs/clipboard_edit.md$(calculate-eof-position ~/bs/clipboard_edit.md)" ; cat ~/bs/clipboard_edit.md | copy'] }
-      CapsLock-Alt-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
+      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
       Super-b: { launch: [fish, -c, 'engined_search'] }
       Super_L-c: { launch: [fish, -c, pick-and-copy-color]}
 
@@ -1896,8 +1896,8 @@ keymap:
   - name: Any
     remap:
       # [[sort on]]
-      CapsLock-Alt-Semicolon: ctrl-backspace
-      CapsLock-Alt-n: shift-tab
+      CapsLock-Alt_L-Semicolon: ctrl-backspace
+      CapsLock-Alt_L-n: shift-tab
       CapsLock-Ctrl-d: ctrl-shift-v
       CapsLock-Semicolon: backspace
       CapsLock-Shift-d: ctrl-shift-v
