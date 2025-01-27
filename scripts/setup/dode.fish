@@ -44,6 +44,12 @@ function dode-bat
     set -Ux BAT_STYLE plain
 end
 
+function dode-bluetui
+    paccy bluetui
+    mkdir -p ~/.config/bluetui
+    ln -sf ~/prog/dotfiles/bluetui.toml ~/.config/bluetui/config.toml
+end
+
 function dode-brillo
     paccy brillo
     begin

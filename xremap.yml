@@ -1748,6 +1748,7 @@ keymap:
       Alt_R-f: { launch: [firefox]}
       Alt_R-c: { launch: [fish, -c, 'int calcure']}
       Alt_R-q: { launch: [fish, -c, 'int tiptop']}
+      Alt_R-e: { launch: [fish, -c, 'int bluetui']}
 
       Super_R-q: ctrl-shift-u
       Super_R-z: { launch: [fish, -c, runner_symbol] }

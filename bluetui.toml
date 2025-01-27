@@ -1,0 +1,15 @@
+toggle_scanning = "s"
+
+[paired_device]
+unpair = "e"
+toggle_connect = "c"
+toggle_trust = "t"
+rename = "r"
+
+[adapter]
+toggle_pairing = "i"
+toggle_power = "o"
+toggle_discovery = "d"
+
+[new_device]
+pair = "a"
