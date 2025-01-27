@@ -363,8 +363,6 @@ keymap:
           s: { launch: [fish, -c, runner_interactive_unicode]}
           e: { launch: [fish, -c, runner_symbol_name] }
 
-          CapsLock-u: { launch: [kitty] }
-          CapsLock-i: { launch: [firefox]}
           y: { launch: [fish, -c, screenkey] }
           Shift-y: { launch: [kill, screenkey] }
           i: { launch: [fish, -c, magazine_client_info] }
@@ -1745,6 +1743,11 @@ keymap:
     remap:
       CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+
+      Alt_R-d: { launch: [kitty] }
+      Alt_R-f: { launch: [firefox]}
+      Alt_R-c: { launch: [fish, -c, 'int calcure']}
+      Alt_R-q: { launch: [fish, -c, 'int tiptop']}
 
       Super_R-q: ctrl-shift-u
       Super_R-z: { launch: [fish, -c, runner_symbol] }
