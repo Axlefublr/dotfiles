@@ -4,7 +4,7 @@ virtual_modifiers:
 default_mode: default
 modmap:
   - remap:
-      Esc: F8
+      Esc: Pause
       Tab: Esc
       Compose: Super_R # For me, Compose is the menu key. you'd usually remap this on a lower level, so this is just a safeguard.
 
@@ -1890,8 +1890,7 @@ keymap:
 
   - name: Any functionality
     remap:
-      Pause: { launch: [fish, -c, suspend] }
-      KPDot: { launch: [fish, -c, suspend] }
+      Pause: { launch: [systemctl, suspend] }
 
   - name: Any
     remap:
