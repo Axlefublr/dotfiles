@@ -1,37 +1,19 @@
 #!/usr/bin/env fish
 
-if test -d /tmp/log
-    return 1
-else
-    mkdir -p /tmp/log
-end
-
-redshift -O 5700
-xset s off -dpms
-playerctld daemon
-
-picom &>/tmp/log/picom.txt & disown
-gromit.fish &>/tmp/log/gromit.txt & disown
-copyq &>/tmp/log/copyq.txt & disown
-
-xrestart.fish
+# playerctld daemon
+# copyq &>/tmp/log/copyq.txt & disown
 
 # pueue add -g s 'RUST_LOG=debug axleizer'
 
-layout.fish &>/tmp/log/layout.txt & disown # has to be ran from user
-# for script in ~/prog/dotfiles/scripts/services/*.fish
-#     pueue add -g s (path basename $script)
-# end
+xremap ~/r/dot/xremap.yml & disown
 
-kitty -T editor -d ~/prog/dotfiles & disown
-kitty -T oil-content -d ~/vid & disown
+wlr-randr --output HDMI-A-1 --mode 1920x1080@75
 
+kitty -T editor -d ~/r/dot & disown
 firefox & disown
-anki & disown
-set ankis (win_wait 'anki\.Anki' 0.1 0 50)
-move_all 8 $ankis
+niri msg action do-screen-transition -d 1000
 
-loopuntil is_internet 0.5 0 60
+xwayland-satellite & disown
+
+# loopuntil is_internet 0.5 0 60
 pueue restart -g s
-
-ignore_urgencies

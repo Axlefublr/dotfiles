@@ -348,6 +348,11 @@ function dode-neovide
     set -Ux NEOVIDE_FORK false
 end
 
+function dode-niri
+    sudo pacman -S --needed --noconfirm --disable-download-timeout niri
+    ln -sf ~/r/dot/niri.kdl ~/.config/niri/config.kdl
+end
+
 function dode-nom
     # aurie nom
     eget https://github.com/guyfedwards/nom
