@@ -15,53 +15,6 @@ modmap:
       only: /Terraria/
 
 keymap:
-  - name: Vivaldi!
-    exact_match: true
-    mode: default
-    application:
-      only: Vivaldi-stable
-    remap:
-      # [[sort on]]
-      Alt_L-Apostrophe: shift-alt-f11 # focus address field
-      Alt_L-Semicolon: ctrl-shift-f12 # quick commands
-      Alt_L-Slash: ctrl-f # find in page
-      Alt_L-a: ctrl-shift-alt-f5
-      Alt_L-c: shift-f10 # built in browser "right click" emulation button
-      Alt_L-e: ctrl-shift-alt-f10 # new tab
-      Alt_L-h: ctrl-shift-f10 # previous tab (by order)
-      Alt_L-j: ctrl-shift-f7 # next workspace
-      Alt_L-k: ctrl-shift-f8 # previous workspace
-      Alt_L-l: ctrl-shift-f11 # next tab (by order)
-      Alt_L-m: shift-alt-f5 # unmute all tabs
-      Alt_L-n: shift-alt-f7 # find next in page
-      Alt_L-p: ctrl-shift-f1 # pin / unpin tab
-      Alt_L-q: ctrl-shift-alt-f3
-      Alt_L-r: F5 # reload page
-      Alt_L-t: F12
-      Alt_L-w: ctrl-shift-f2 # close tab
-      Alt_L-x: shift-f9 # focus tab bar
-      Alt_L-z: ctrl-shift-alt-f4
-      Ctrl-Alt_L-d: ctrl-shift-alt-f7
-      Ctrl-Alt_L-f: ctrl-shift-alt-f8
-      Ctrl-Alt_L-h: ctrl-shift-f6 # move active tab backward
-      Ctrl-Alt_L-l: ctrl-shift-f9 # move active tab forward
-      Ctrl-Alt_L-s: ctrl-shift-alt-f6
-      Ctrl-Alt_L-w: ctrl-shift-alt-f9
-      Ctrl-Shift-h: ctrl-shift-f3 # close tabs to the left
-      Ctrl-Shift-l: ctrl-shift-f4 # close tabs to the right
-      Ctrl-h: ctrl-shift-alt-f1 # switch to tab 1
-      Ctrl-i: alt-right # history forward
-      Ctrl-l: ctrl-shift-alt-f2 # switch to the last tab
-      Ctrl-o: alt-left # history back
-      Ctrl-p: ctrl-shift-alt-f12 # duplicate selected tabs
-      Shift-Alt_L-h: shift-alt-f4 # select next tab
-      Shift-Alt_L-j: shift-alt-f1 # stack tabs
-      Shift-Alt_L-k: shift-alt-f2 # remove from tab stack
-      Shift-Alt_L-l: shift-alt-f3 # select previous tab
-      Shift-Alt_L-n: shift-alt-f8 # find previous in page
-      Shift-Alt_L-r: shift-alt-f6 # force page reload
-      # [[sort off]]
-
   - name: Firefox
     exact_match: true
     mode: default
