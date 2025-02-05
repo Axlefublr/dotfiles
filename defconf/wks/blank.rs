@@ -1,4 +1,4 @@
-// /home/axlefublr/prog/dotfiles/scripts/%%
+// /home/axlefublr/r/dot/scripts/%%
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]

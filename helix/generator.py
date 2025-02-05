@@ -421,7 +421,7 @@ normal_select_mappings: dict[str, Any] = {
         'I': 'hover_dump',
         '/': 'select_first_and_last_chars',
         '?': 'reverse_selection_contents',
-        'w': [':cd ~/prog/wks', ':e src/main.rs'],
+        'w': [':cd ~/r/wks', ':e src/main.rs'],
         **disable(
             [
                 # [[sort on]]
@@ -473,7 +473,7 @@ entire_config: dict[str, Any] = {
     'keys': mappings,
 }
 
-with open('/home/axlefublr/prog/dotfiles/helix/config.toml', 'w') as file:
+with open('/home/axlefublr/r/dot/helix/config.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['keys']['normal']['K'] = ':write-quit-all'
@@ -481,7 +481,7 @@ entire_config['keys']['select']['K'] = ':write-quit-all'
 entire_config['keys']['normal']['S'] = ':quit-all!'
 entire_config['keys']['select']['S'] = ':quit-all!'
 
-with open('/home/axlefublr/prog/dotfiles/helix/quit.toml', 'w') as file:
+with open('/home/axlefublr/r/dot/helix/quit.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['whitespace']['render']['newline'] = 'none'
@@ -489,11 +489,11 @@ entire_config['editor']['gutters']['layout'] = []
 entire_config['keys']['normal']['K'] = ':quit-all!'
 entire_config['keys']['select']['K'] = ':quit-all!'
 
-with open('/home/axlefublr/prog/dotfiles/helix/man.toml', 'w') as file:
+with open('/home/axlefublr/r/dot/helix/man.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['soft-wrap']['enable'] = False
 entire_config['editor']['scrolloff'] = 0
 
-with open('/home/axlefublr/prog/dotfiles/helix/wrap-off.toml', 'w') as file:
+with open('/home/axlefublr/r/dot/helix/wrap-off.toml', 'w') as file:
     toml.dump(entire_config, file)

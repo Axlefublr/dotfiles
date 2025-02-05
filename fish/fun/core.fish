@@ -88,7 +88,7 @@ end
 funcsave yazi-cd >/dev/null
 
 function neoline
-    scratchpad --wintitle=line -- helix -c ~/prog/dotfiles/helix/quit.toml $argv
+    scratchpad --wintitle=line -- helix -c ~/r/dot/helix/quit.toml $argv
 end
 funcsave neoline >/dev/null
 
@@ -100,7 +100,7 @@ end
 funcsave neoline-hold >/dev/null
 
 function neomax
-    scratchpad --wintitle=max -- helix -c ~/prog/dotfiles/helix/quit.toml $argv
+    scratchpad --wintitle=max -- helix -c ~/r/dot/helix/quit.toml $argv
 end
 funcsave neomax >/dev/null
 

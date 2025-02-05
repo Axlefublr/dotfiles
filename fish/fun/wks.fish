@@ -6,13 +6,13 @@ function wks
     set -l script_path $argv[1]
     set -l script_name (path basename $script_path)
 
-    cd ~/prog/wks
+    cd ~/r/wks
 
     if not test -d ~/.cache/wks/$script_name
         mkdir -p ~/.cache/wks/$script_name/{src,target}
-        cp -f ~/prog/dotfiles/defconf/wks/blank.rs ~/.cache/wks/$script_name/src/main.rs
+        cp -f ~/r/dot/defconf/wks/blank.rs ~/.cache/wks/$script_name/src/main.rs
         sd %% "$script_path" ~/.cache/wks/$script_name/src/main.rs
-        cp -f ~/prog/dotfiles/defconf/wks/blank.toml ~/.cache/wks/$script_name/Cargo.toml
+        cp -f ~/r/dot/defconf/wks/blank.toml ~/.cache/wks/$script_name/Cargo.toml
     end
     not test -d ~/.cache/wks/$script_name/target && mkdir ~/.cache/wks/$script_name/target
 

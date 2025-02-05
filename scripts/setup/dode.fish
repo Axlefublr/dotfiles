@@ -14,7 +14,7 @@ end
 function dode-alacritty
     sudo pacman -S alacritty
     mkdir -p ~/.config/alacritty
-    ln -sf ~/prog/dotfiles/alacritty.toml ~/.config/alacritty.toml
+    ln -sf ~/r/dot/alacritty.toml ~/.config/alacritty.toml
 end
 
 function dode-anki
@@ -34,8 +34,8 @@ function dode-awm
     sudo pacman -S awesome
     mkdir -p ~/.config/awesome
     rm -fr ~/.config/awesome
-    ln -sf ~/prog/dotfiles/awesome ~/.config/
-    ln -sf ~/prog/dotfiles/awesome/awesome.lua ~/.config/awesome/rc.lua
+    ln -sf ~/r/dot/awesome ~/.config/
+    ln -sf ~/r/dot/awesome/awesome.lua ~/.config/awesome/rc.lua
 end
 
 function dode-bat
@@ -47,7 +47,7 @@ end
 function dode-bluetui
     paccy bluetui
     mkdir -p ~/.config/bluetui
-    ln -sf ~/prog/dotfiles/bluetui.toml ~/.config/bluetui/config.toml
+    ln -sf ~/r/dot/bluetui.toml ~/.config/bluetui/config.toml
 end
 
 function dode-brillo
@@ -59,16 +59,16 @@ function dode-brillo
 end
 
 function dode-boomer
-    cd ~/prog/forks
+    cd ~/r/forks
     git clone https://github.com/Axlefublr/boomer
     cd boomer
     nimble build
-    ln -sf ~/prog/dotfiles/boomer.conf ~/.config/boomer/config
+    ln -sf ~/r/dot/boomer.conf ~/.config/boomer/config
 end
 
 function dode-bottom
     paccy bottom
-    ln -sf ~/prog/dotfiles/bottom.toml ~/.config/bottom/bottom.toml
+    ln -sf ~/r/dot/bottom.toml ~/.config/bottom/bottom.toml
 end
 
 function dode-bubbly
@@ -83,7 +83,7 @@ end
 function dode-calcure
     aurie calcure
     mkdir -p ~/.config/calcure
-    ln -sf ~/prog/dotfiles/calcure.ini ~/.config/calcure/config.ini
+    ln -sf ~/r/dot/calcure.ini ~/.config/calcure/config.ini
     cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
 end
 
@@ -117,7 +117,7 @@ function dode-cowsay
 end
 
 function dode-display
-    ln -sf ~/prog/dotfiles/desktop/display.desktop ~/.local/share/applications/display.desktop
+    ln -sf ~/r/dot/desktop/display.desktop ~/.local/share/applications/display.desktop
     xdg-mime default display.desktop image/svg+xml
     xdg-mime default display.desktop image/png
     xdg-mime default display.desktop image/jpeg
@@ -213,7 +213,7 @@ function dode-ghostty
     cd ghostty
     zig build -p $HOME/.local -Doptimize=ReleaseFast -Dapp-runtime=gtk
     mkdir -p ~/.config/ghostty
-    ln -sf ~/prog/dotfiles/ghostty.conf ~/.config/ghostty/config
+    ln -sf ~/r/dot/ghostty.conf ~/.config/ghostty/config
 end
 
 function dode-git
@@ -240,27 +240,27 @@ end
 
 function dode-gromit-mpx
     paccy gromit-mpx
-    ln -sf ~/prog/dotfiles/gromit.cfg ~/.config/gromit-mpx.cfg
-    sudo ln -sf ~/prog/dotfiles/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
+    ln -sf ~/r/dot/gromit.cfg ~/.config/gromit-mpx.cfg
+    sudo ln -sf ~/r/dot/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
 end
 
 function dode-gtk-theme
     # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
     paccy gtk3-demo
-    sudo ln -sf ~/prog/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
+    sudo ln -sf ~/r/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 end
 
 function dode-helix
     paccy marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua
     aurie prettierd
-    cd ~/prog/forks
+    cd ~/r/forks
     git clone --depth=1 https://github.com/Axlefublr/helix
-    cd ~/prog/forks/helix
+    cd ~/r/forks/helix
     cargo install --path helix-term --locked
-    ln -sf ~/prog/dotfiles/helix ~/.config
+    ln -sf ~/r/dot/helix ~/.config
     mkdir -p ~/.cargo/bin
     rm -fr ~/.cargo/bin/runtime
-    ln -sf ~/prog/forks/helix/runtime ~/.cargo/bin
+    ln -sf ~/r/forks/helix/runtime ~/.cargo/bin
 end
 
 function dode-httrack
@@ -270,7 +270,7 @@ end
 function dode-jj
     paccy jj lazyjj
     jj util completion fish | source
-    ln -sf ~/prog/dotfiles/jj.toml ~/.config/jj/config.toml
+    ln -sf ~/r/dot/jj.toml ~/.config/jj/config.toml
 end
 
 function dode-jpeg2png
@@ -284,8 +284,8 @@ end
 function dode-kitty
     sudo pacman -S kitty
     mkdir -p ~/.config/kitty
-    ln -sf ~/prog/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
-    ln -sf ~/prog/dotfiles/kitty/theme.conf ~/.config/kitty/current-theme.conf
+    ln -sf ~/r/dot/kitty/kitty.conf ~/.config/kitty/kitty.conf
+    ln -sf ~/r/dot/kitty/theme.conf ~/.config/kitty/current-theme.conf
 end
 
 function dode-kondo
@@ -296,7 +296,7 @@ end
 function dode-krita
     paccy krita
     mkdir -p ~/.local/share/color-schemes
-    ln -f ~/prog/dotfiles/krita/gruvbox.colors ~/.local/share/krita/color-schemes
+    ln -f ~/r/dot/krita/gruvbox.colors ~/.local/share/krita/color-schemes
 end
 
 function dode-kruler
@@ -306,11 +306,11 @@ end
 function dode-lazygit
     sudo pacman -S lazygit
     mkdir -p ~/.config/lazygit
-    ln -sf ~/prog/dotfiles/lazygit.yml ~/.config/lazygit/config.yml
+    ln -sf ~/r/dot/lazygit.yml ~/.config/lazygit/config.yml
 end
 
 function dode-less
-    sudo ln -sf ~/prog/dotfiles/lesskey /opt/lesskey
+    sudo ln -sf ~/r/dot/lesskey /opt/lesskey
 end
 
 function dode-libreoffice
@@ -337,7 +337,7 @@ function dode-mpv
     paccy mpv
     paccy --asdeps mpv-mpris
     mkdir -p ~/.config/mpv
-    ln -sf ~/prog/dotfiles/mpv/* ~/.config/mpv
+    ln -sf ~/r/dot/mpv/* ~/.config/mpv
     xdg-mime default mpv.desktop video/webm
     xdg-mime default mpv.desktop video/mp4
     xdg-mime default mpv.desktop video/x-matroska
@@ -353,7 +353,7 @@ function dode-nom
     eget https://github.com/guyfedwards/nom
     indeed -nu ~/.local/share/magazine/W https://github.com/guyfedwards/nom
     mkdir -p ~/.config/nom
-    ln -sf ~/prog/dotfiles/nom.yml ~/.config/nom/config.yml
+    ln -sf ~/r/dot/nom.yml ~/.config/nom/config.yml
     ln -sf ~/auto/nom.db ~/.config/nom/nom.db
 end
 
@@ -361,10 +361,10 @@ function dode-nvim
     sudo pacman -S neovim luarocks
     trash-put ~/.config/nvim
     mkdir -p ~/.config/nvim
-    for file in ~/prog/dotfiles/!nvim/*
+    for file in ~/r/dot/!nvim/*
         ln -sf $file ~/.config/nvim
     end
-    for file in ~/prog/dotfiles/!nvim/.*
+    for file in ~/r/dot/!nvim/.*
         ln -sf $file ~/.config/nvim
     end
 end
@@ -378,25 +378,25 @@ end
 
 function dode-ov
     # aurie ov-bin
-    cd ~/prog/forks
+    cd ~/r/forks
     gh repo clonef Axlefublr/ov
     make
     sudo install ov ~/.local/bin
     ov --completion fish >~/.config/fish/completions/ov.fish
     mkdir -p ~/.config/ov
-    ln -sf ~/prog/dotfiles/ov.yaml ~/.config/ov/config.yaml
+    ln -sf ~/r/dot/ov.yaml ~/.config/ov/config.yaml
 end
 
 function dode-paru
     paccy paru
     mkdir -p ~/.config/paru
-    ln -sf ~/prog/dotfiles/paru.conf ~/.config/paru/paru.conf
+    ln -sf ~/r/dot/paru.conf ~/.config/paru/paru.conf
 end
 
 function dode-picom
     paccy picom
     mkdir -p ~/.config/picom
-    ln -sf ~/prog/dotfiles/picom.conf ~/.config/picom/picom.conf
+    ln -sf ~/r/dot/picom.conf ~/.config/picom/picom.conf
 end
 
 function dode-pipes
@@ -406,7 +406,7 @@ end
 
 function dode-postgresql
     sudo pacman -S postgresql
-    ln -sf ~/prog/dotfiles/psqlrc ~/.psqlrc
+    ln -sf ~/r/dot/psqlrc ~/.psqlrc
     sudo -iu postgres initdb -D /var/lib/postgres/data
     sudo systemctl start postgresql
     sudo systemctl enable postgresql
@@ -442,7 +442,7 @@ function dode-pueue
     systemctl --user start pueued
     systemctl --user enable pueued
     systemctl --user status pueued
-    ln -sf ~/prog/dotfiles/pueue.yml ~/.config/pueue/pueue.yml
+    ln -sf ~/r/dot/pueue.yml ~/.config/pueue/pueue.yml
     pueue group add k
     pueue group add K
     pueue group add i
@@ -476,7 +476,7 @@ end
 function dode-rofi
     sudo pacman -S rofi
     mkdir -p ~/.config/rofi
-    ln -sf ~/prog/dotfiles/rofi.rasi ~/.config/rofi/config.rasi
+    ln -sf ~/r/dot/rofi.rasi ~/.config/rofi/config.rasi
     sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 end
 
@@ -496,7 +496,7 @@ function dode-serpl
     paccy serpl
     aurie ast-grep-bin
     mkdir -p ~/.config/serpl
-    ln -sf ~/prog/dotfiles/serpl.yml ~/.config/serpl/serpl.yml
+    ln -sf ~/r/dot/serpl.yml ~/.config/serpl/serpl.yml
 end
 
 function dode-scc
@@ -506,7 +506,7 @@ end
 
 function dode-screenkey
     sudo pacman -S screenkey
-    sudo ln -sf ~/prog/dotfiles/desktop/screenkey.desktop /usr/share/applications
+    sudo ln -sf ~/r/dot/desktop/screenkey.desktop /usr/share/applications
 end
 
 function dode-scriptisto
@@ -534,11 +534,11 @@ function dode-termfilechooser
     set -Ux GDK_DEBUG portals
     set -Ux GTK_USE_PORTAL 1
     mkdir -p ~/.config/xdg-desktop-portal-termfilechooser
-    ln -sf ~/prog/dotfiles/termfilechooser/config ~/.config/xdg-desktop-portal-termfilechooser/config
+    ln -sf ~/r/dot/termfilechooser/config ~/.config/xdg-desktop-portal-termfilechooser/config
     sudo mkdir -p /usr/local/share/xdg-desktop-portal-termfilechooser
-    sudo ln -sf ~/prog/dotfiles/termfilechooser/yazi-wrapper.sh /usr/local/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+    sudo ln -sf ~/r/dot/termfilechooser/yazi-wrapper.sh /usr/local/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
     mkdir -p ~/.config/xdg-desktop-portal
-    ln -sf ~/prog/dotfiles/termfilechooser/portals.conf ~/.config/xdg-desktop-portal/portals.conf
+    ln -sf ~/r/dot/termfilechooser/portals.conf ~/.config/xdg-desktop-portal/portals.conf
     systemctl --user restart xdg-desktop-portal.service
     systemctl --user restart xdg-desktop-portal-termfilechooser.service
 end
@@ -555,7 +555,7 @@ function dode-tridactyl
     # :nativeinstall
     # to copy the command to execute
     mkdir -p ~/.config/tridactyl
-    ln -f ~/prog/dotfiles/tridactyl ~/.config/tridactyl/tridactylrc
+    ln -f ~/r/dot/tridactyl ~/.config/tridactyl/tridactylrc
 end
 
 function dode-ttyper
@@ -586,8 +586,8 @@ end
 
 function dode-vscode
     mkdir -p ~/.config/Code/User
-    ln -sf ~/prog/dotfiles/vscode/settings.jsonc ~/.config/Code/User/settings.json
-    ln -sf ~/prog/dotfiles/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
+    ln -sf ~/r/dot/vscode/settings.jsonc ~/.config/Code/User/settings.json
+    ln -sf ~/r/dot/vscode/keybindings.jsonc ~/.config/Code/User/keybindings.json
     Needed for the CSS & JS extension
     sudo chown -R $(whoami) $(which code)
     sudo chown -R $(whoami) /opt/visual-studio-code
@@ -603,8 +603,8 @@ function dode-wtf
 end
 
 function dode-x
-    ln -sf ~/prog/dotfiles/x11/xresources ~/.Xresources
-    ln -sf ~/prog/dotfiles/x11/.XCompose ~/.XCompose
+    ln -sf ~/r/dot/x11/xresources ~/.Xresources
+    ln -sf ~/r/dot/x11/.XCompose ~/.XCompose
     set -Ux XMODIFIERS @im=none
 end
 
@@ -618,7 +618,7 @@ end
 function dode-yazi
     sudo pacman -S yazi
     rm -fr ~/.config/yazi
-    ln -s ~/prog/dotfiles/yazi ~/.config
+    ln -s ~/r/dot/yazi ~/.config
     ya pack -a yazi-rs/plugins:hide-preview
     ya pack -a yazi-rs/plugins:jump-to-char
     ya pack -a Ape/open-with-cmd
@@ -634,14 +634,14 @@ function dode-yt-dlp
     paccy yt-dlp
     paccy --asdeps python-mutagen
     mkdir -p ~/.config/yt-dlp
-    ln -sf ~/prog/dotfiles/yt-dlp.conf ~/.config/yt-dlp/config
+    ln -sf ~/r/dot/yt-dlp.conf ~/.config/yt-dlp/config
 end
 
 function dode-zathura
     sudo pacman -S zathura
     sudo pacman -S zathura-pdf-mupdf
     mkdir -p ~/.config/zathura
-    ln -sf ~/prog/dotfiles/zathura ~/.config/zathura/zathurarc
+    ln -sf ~/r/dot/zathura ~/.config/zathura/zathurarc
     xdg-mime default org.pwmt.zathura.desktop application/pdf
 end
 

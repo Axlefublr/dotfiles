@@ -143,7 +143,7 @@ end
 funcsave lnkj >/dev/null
 
 function ffh
-    set -l picked_function (rg '^function ffmpeg-' ~/prog/dotfiles/fish/fun/ffmpeg.fish | string match -gr 'ffmpeg-(.*)' | string replace -a '-' ' ' | fzf)
+    set -l picked_function (rg '^function ffmpeg-' ~/r/dot/fish/fun/ffmpeg.fish | string match -gr 'ffmpeg-(.*)' | string replace -a '-' ' ' | fzf)
     test $status -ne 0 && return 1
     set picked_function (string replace -a ' ' '-' $picked_function)
     ffmpeg-$picked_function

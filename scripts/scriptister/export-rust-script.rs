@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/prog/dotfiles/scripts/scriptister/export-rust-script.rs
+// /home/axlefublr/r/dot/scripts/scriptister/export-rust-script.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
@@ -25,7 +25,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .nth(1)
         .and_then(|maybe_filepath| maybe_filepath.parse().ok());
 
-    let main_file = fs::read_to_string("/home/axlefublr/prog/wks/src/main.rs").unwrap();
+    let main_file = fs::read_to_string("/home/axlefublr/r/wks/src/main.rs").unwrap();
     let main_file = main_file.lines();
 
     let extract_filepath_from_lines = || -> PathBuf {
@@ -41,7 +41,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             .expect("first line should be a path")
     };
 
-    let cargo_file = fs::read_to_string("/home/axlefublr/prog/wks/Cargo.toml").unwrap();
+    let cargo_file = fs::read_to_string("/home/axlefublr/r/wks/Cargo.toml").unwrap();
     let cargo_file = cargo_file
         .lines()
         .skip_while(|&line| line != "[dependencies]")

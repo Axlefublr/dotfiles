@@ -35,24 +35,24 @@ function pack-fish
     paccy fish
     chsh -s /usr/bin/fish
     mkdir -p ~/.config/fish
-    ln -sf ~/prog/dotfiles/fish/config.fish ~/.config/fish/config.fish
-    for file in ~/prog/dotfiles/fish/fun/*.fish
+    ln -sf ~/r/dot/fish/config.fish ~/.config/fish/config.fish
+    for file in ~/r/dot/fish/fun/*.fish
         $file
     end
-    ~/prog/dotfiles/fish/once.fish
-    ~/prog/dotfiles/fish/universal.fish
+    ~/r/dot/fish/once.fish
+    ~/r/dot/fish/universal.fish
 end
 function pack-fish-pack
     paccy fisher
 end
 function pack-fish-lang
-    git clone https://github.com/ndonfris/fish-lsp ~/prog/stored/fish-lsp
-    cd ~/prog/stored/fish-lsp
+    git clone https://github.com/ndonfris/fish-lsp ~/r/stored/fish-lsp
+    cd ~/r/stored/fish-lsp
     yarn install
     set -Ux fish_lsp_enabled_handlers formatting complete hover rename definition references diagnostics signatureHelp codeAction index
     # set -Ux fish_lsp_disabled_handlers
     set -Ux fish_lsp_format_tabsize 4
-    set -Ux fish_lsp_all_indexed_paths ~/prog/dotfiles/fish/fun ~/.config/fish /usr/share/fish
+    set -Ux fish_lsp_all_indexed_paths ~/r/dot/fish/fun ~/.config/fish /usr/share/fish
     # set -Ux fish_lsp_modifiable_paths
     # 2003 is "universal variable defined not in interactive session"
     # 2001 is something about single quotes being used for an expandable thing
@@ -95,7 +95,7 @@ end
 function pack-ruby-lang
     gem install solargraph
     mkdir -p ~/.config/rubocop
-    ln -sf ~/prog/dotfiles/.rubocop.yml ~/.config/rubocop/config.yml
+    ln -sf ~/r/dot/.rubocop.yml ~/.config/rubocop/config.yml
 end
 
 function pack-rust
@@ -108,7 +108,7 @@ function pack-rust
     rustup default stable
     rustup toolchain install nightly
     cargo login
-    ln -sf ~/prog/dotfiles/cargo.toml ~/.cargo/config.toml
+    ln -sf ~/r/dot/cargo.toml ~/.cargo/config.toml
 end
 function pack-rust-pack
     paccy cargo-binstall
@@ -118,7 +118,7 @@ end
 function pack-rust-lang
     rustup component add rust-analyzer
     mkdir -p ~/.config/rustfmt
-    ln -sf ~/prog/dotfiles/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
+    ln -sf ~/r/dot/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
 end
 
 function pack-ocaml
@@ -145,11 +145,11 @@ end
 function pack-python
     paccy python3 python-docs
     paccy python-toml # helix config generator
-    set -Ux PYTHONSTARTUP ~/prog/dotfiles/pyrc.py
+    set -Ux PYTHONSTARTUP ~/r/dot/pyrc.py
 end
 function pack-python-lang
     aurie basedpyright-git
     sudo pacman -S ruff
     mkdir -p ~/.config/ruff
-    ln -sf ~/prog/dotfiles/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
+    ln -sf ~/r/dot/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
 end

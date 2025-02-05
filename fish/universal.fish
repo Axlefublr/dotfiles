@@ -6,7 +6,7 @@ set -Ux LESSKEYIN /opt/lesskey
 set -Ux HISTSIZE 100000
 set -Ux SAVEHIST 100000
 set -Ux QT_QPA_PLATFORMTHEME gtk3
-set -Ux TELOXIDE_TOKEN (cat ~/prog/info/pswds/axleizer-api)
+set -Ux TELOXIDE_TOKEN (cat ~/r/info/pswds/axleizer-api)
 set -Ux XDG_CONFIG_HOME ~/.config
 set -Ux http_proxy http://(cat ~/.local/share/magazine/p)[1]
 set -Ux https_proxy http://(cat ~/.local/share/magazine/p)[1]

@@ -1,20 +1,20 @@
 #!/usr/bin/env fish
 
 cd ~
-mkdir -p ups pic vid prog bs t trans
+mkdir -p ups pic vid prog bs t trans .local/bin
 git clone https://github.com/Axlefublr/deleted-bangers
 mv deleted-bangers mus
 git clone https://github.com/Axlefublr/autocommit
 mv autocommit auto
 
-cd ~/pic
+cd ~/i
 git clone https://github.com/Axlefublr/pictures-tree
 mv pictures-tree tree
 git clone https://github.com/Axlefublr/twemoji-svg
 git clone https://github.com/Axlefublr/video-creation-tools
 mv video-creation-tools tools
 
-cd ~/prog
+cd ~/r
 mkdir -p forks proj stored the
 git clone https://github.com/Axlefublr/dotfiles
 git clone https://github.com/Axlefublr/binaries
@@ -22,7 +22,7 @@ git clone https://github.com/Axlefublr/backup
 git clone https://github.com/Axlefublr/info
 git clone https://github.com/Axlefublr/job
 
-cd ~/prog/forks
+cd ~/r/forks
 git clone https://github.com/Axlefublr/helix
 
 cd ~/.local/share

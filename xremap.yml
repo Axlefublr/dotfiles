@@ -630,7 +630,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_get ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_get ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/semicolon'] }
@@ -709,7 +709,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_count ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_count ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/semicolon'] }
@@ -788,7 +788,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_cut ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_cut ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/semicolon'] }
@@ -867,7 +867,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_truncate ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_truncate ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/semicolon'] }
@@ -946,7 +946,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_edit ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_edit ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/semicolon'] }
@@ -1025,7 +1025,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_commit ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_commit ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/semicolon'] }
@@ -1104,7 +1104,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_append ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_append ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_append_link']}
           Semicolon: { launch: [fish, -c, 'magazine_append ~/.local/share/magazine/semicolon'] }
@@ -1183,7 +1183,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_reverse ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_reverse ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/semicolon'] }
@@ -1262,7 +1262,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_randomize ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_randomize ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/semicolon'] }
@@ -1341,7 +1341,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_appclip ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_appclip ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_appclip ~/.local/share/magazine/semicolon'] }
@@ -1420,7 +1420,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_set ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_set ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_set ~/.local/share/magazine/semicolon'] }
@@ -1499,7 +1499,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_filter ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_filter ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/semicolon'] }
@@ -1578,7 +1578,7 @@ keymap:
           f: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/f'] }
           g: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/g'] }
           h: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_copy ~/prog/dotfiles/project.txt'] }
+          j: { launch: [fish, -c, 'magazine_copy ~/r/dot/project.txt'] }
           k: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/k'] }
           l: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/l'] }
           Semicolon: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/semicolon'] }
@@ -1813,7 +1813,7 @@ keymap:
       Super-b: { launch: [fish, -c, 'engined_search'] }
       Super_L-c: { launch: [fish, -c, pick-and-copy-color]}
 
-      Super_R-t: { launch: [fish, -c, 'igrai ~/mus/soundeffects/audio-volume-change.oga'] }
+      Super_R-t: { launch: [fish, -c, 'igrai ~/m/soundeffects/audio-volume-change.oga'] }
 
       Super_R-g:
         exact_match: true

@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/prog/dotfiles/scripts/fool/qrtool.rs
+// /home/axlefublr/r/dot/scripts/fool/qrtool.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]

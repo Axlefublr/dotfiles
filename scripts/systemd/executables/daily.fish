@@ -42,7 +42,7 @@ cp -fr ~/.config/nom/nom.db ~/auto/nom.db
 git add nom.db
 and git commit -m 'sync nom'
 
-set -l autocommitted ~/pic/twemoji-svg ~/pic/tree ~/pic/tools ~/prog/binaries
+set -l autocommitted ~/i/twemoji-svg ~/i/e ~/i/tools ~/r/binaries
 for dir in $autocommitted
     cd $dir
     autocommit
@@ -52,12 +52,12 @@ loopuntil is_internet 0.5 0 60 # otherwise, as soon as I wake my laptop from sle
 
 nom refresh
 
-for dir in ~/prog/forks/*
+for dir in ~/r/forks/*
     git -C $dir fetch
     git -C $dir fetch upstream
 end
 
-for dir in ~/prog/stored/*
+for dir in ~/r/stored/*
     git -C $dir fetch
     git -C $dir reset --hard origin/HEAD
 end

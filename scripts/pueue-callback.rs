@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/prog/dotfiles/scripts/pueue-callback.rs
+// /home/axlefublr/r/dot/scripts/pueue-callback.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]

@@ -9,7 +9,7 @@ set -gx MANPAGER cat
 zoxide init fish | source
 
 if status is-interactive
-    for file in ~/prog/dotfiles/fish/abbreviations/*.fish
+    for file in ~/r/dot/fish/abbreviations/*.fish
         source $file
     end
 end

@@ -74,7 +74,7 @@ funcsave rust-publish >/dev/null
 
 function rust-fmt --description 'Bring in format config and format with it'
     gq || return 1
-    lnkj ~/prog/dotfiles/defconf/rustfmt.toml ./.rustfmt.toml
+    lnkj ~/r/dot/defconf/rustfmt.toml ./.rustfmt.toml
     and cargo +nightly fmt
 end
 funcsave rust-fmt >/dev/null
@@ -82,7 +82,7 @@ funcsave rust-fmt >/dev/null
 function rust-ci --description 'Bring in on tag push github action'
     gq || return 1
     mkdir -p ./.github/workflows &&
-        cp -f ~/prog/dotfiles/defconf/gh-action-rust.yml ./.github/workflows/ci.yml &&
+        cp -f ~/r/dot/defconf/gh-action-rust.yml ./.github/workflows/ci.yml &&
         sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
 end
 funcsave rust-ci >/dev/null
@@ -96,14 +96,14 @@ function rust-bin -a message other_name
         set -f name (basename $PWD)
     end
     cargo build -r
-    and cp -f ./target/release/$name ~/prog/binaries/$name
-    git -C ~/prog/binaries add $name && git -C ~/prog/binaries commit -m "$name: $message"
+    and cp -f ./target/release/$name ~/r/binaries/$name
+    git -C ~/r/binaries add $name && git -C ~/r/binaries commit -m "$name: $message"
 end
 funcsave rust-bin >/dev/null
 
 function rust-init
     cargo init
-    cp -f ~/prog/dotfiles/defconf/rust-metadata.toml ./Cargo.toml
+    cp -f ~/r/dot/defconf/rust-metadata.toml ./Cargo.toml
     sd '%project_name%' (basename $PWD) Cargo.toml
     touch README.md
     touch curtag.txt
@@ -118,6 +118,6 @@ funcsave rust-init >/dev/null
 
 function py-init
     gq || return 1
-    lnkj ~/prog/dotfiles/defconf/pyproject.toml ./pyproject.toml
+    lnkj ~/r/dot/defconf/pyproject.toml ./pyproject.toml
 end
 funcsave py-init >/dev/null

@@ -23,7 +23,7 @@ alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
 alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -s' >/dev/null
 alias --save rsync 'rsync --mkpath -P' >/dev/null
-alias --save tuisky 'tuisky -c ~/prog/dotfiles/tuisky.toml' >/dev/null
+alias --save tuisky 'tuisky -c ~/r/dot/tuisky.toml' >/dev/null
 
 #----------------------------------------------------direct----------------------------------------------------
 alias --save bell 'printf \a' >/dev/null
@@ -41,4 +41,4 @@ function rdp
 end
 funcsave rdp >/dev/null
 
-alias --save dodepack 'source ~/prog/dotfiles/scripts/setup/dode.fish ; source ~/prog/dotfiles/scripts/setup/pack.fish' >/dev/null
+alias --save dodepack 'source ~/r/dot/scripts/setup/dode.fish ; source ~/r/dot/scripts/setup/pack.fish' >/dev/null
