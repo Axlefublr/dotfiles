@@ -26,7 +26,7 @@ keymap:
       Alt_L-Apostrophe: ctrl-l # focus address bar
       Alt_L-Comma: up
       Alt_L-Dot: down
-      Alt_L-Semicolon: shift-f1 # (sidebery) unload other tabs panel
+      Alt_L-Semicolon: shift-f1 # (auto tab discard) discard all other tabs
       Alt_L-Slash: ctrl-f # find in this page
       Alt_L-c: ctrl-shift-c # inspect element
       Alt_L-e: f4 # (sidebery) open a new tab after the active tab (needed to open a new tab after the current one, rather than at the end)
@@ -44,7 +44,6 @@ keymap:
       Ctrl-Alt_L-s: ctrl-minus # zoom in 
       Ctrl-i: alt-right # history forward
       Ctrl-o: alt-left # history back
-      Shift-Alt_L-Semicolon: shift-f2 # (sidebery) unload all tabs in inactive panels
       Shift-Alt_L-h: alt-1 # go to tab 1
       Shift-Alt_L-l: alt-9 # go to last tab
       Shift-Alt_L-n: ctrl-shift-g # find previous
@@ -71,13 +70,6 @@ keymap:
       Ctrl-j: down
       Ctrl-k: up
       # [[sort off]]
-
-  - name: Spotify!
-    exact_match: true
-    application:
-      only: Spotify
-    remap:
-      Alt_L-f: shift-alt-b
 
   - name: Term!
     exact_match: true
@@ -307,8 +299,6 @@ keymap:
           f: { launch: [fish, -c, 'runner_link open'] }
           a: { launch: [fish, -c, 'runner_link'] }
           d: { launch: [fish, -c, 'xdg-open (ypoc) ; ensure_browser'] }
-
-          Shift-s: { launch: [fish, -c, 'pick-sts-boss']}
 
           k: { launch: [fish, -c, batch-link-downloader] }
 

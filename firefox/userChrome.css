@@ -26,10 +26,18 @@ toolbar .toolbaritem-combined-buttons {
 #navigator-toolbox {
 	border-bottom: none !important;
 
+	>#TabsToolbar {
+
+		.titlebar-spacer,
+		.titlebar-buttonbox-container {
+			display: none !important;
+		}
+	}
+
 	#TabsToolbar-customization-target {
 		--toolbarbutton-inner-padding: 0 !important;
 
-		> #tabbrowser-tabs {
+		>#tabbrowser-tabs {
 			border-inline-start: none !important;
 			padding-inline-start: 0 !important;
 			margin-inline-start: 0 !important;
@@ -39,8 +47,8 @@ toolbar .toolbaritem-combined-buttons {
 				display: none !important;
 			}
 
-			> #tabbrowser-arrowscrollbox {
-				> .tabbrowser-tab {
+			>#tabbrowser-arrowscrollbox {
+				>.tabbrowser-tab {
 					padding: 0 !important;
 					transition: none !important;
 
@@ -68,27 +76,28 @@ toolbar .toolbaritem-combined-buttons {
 						}
 					}
 
-					&[pending] .tab-content > .tab-label-container > .tab-text {
+					&[pending] .tab-content>.tab-label-container>.tab-text {
 						color: #928374 !important;
 					}
 
 					.tab-content {
 						padding: 0 0.5rem !important;
+
 						.tab-label-container {
 							height: 1.7em !important;
 							flex-direction: row !important;
 							mask-image: none !important;
 
-							&:has(.tab-secondary-label[muted]) > .tab-text {
+							&:has(.tab-secondary-label[muted])>.tab-text {
 								text-decoration: line-through solid !important;
 							}
 
-							> .tab-text {
+							>.tab-text {
 								/* half of the total width of the favicon */
 								padding: 0 21.5px 0 0 !important;
 							}
 
-							> .tab-secondary-label {
+							>.tab-secondary-label {
 								display: none !important;
 							}
 						}
@@ -98,38 +107,39 @@ toolbar .toolbaritem-combined-buttons {
 		}
 	}
 
-	> #nav-bar {
+	>#nav-bar {
 		border-top: 0 !important;
 		background-color: #292828 !important;
 		min-height: 1px !important;
 		height: 1.7em !important;
 
-		> #nav-bar-customization-target {
-			> #unified-extensions-button {
+		>#nav-bar-customization-target {
+			>#unified-extensions-button {
 				padding-inline-start: 5px !important;
 
-				> .toolbarbutton-icon {
+				>.toolbarbutton-icon {
 					margin-top: -1px !important;
 				}
 			}
 
-			> #back-button,
-			> #forward-button,
-			> #home-button {
+			>#back-button,
+			>#forward-button,
+			>#home-button {
 				display: none !important;
 			}
 
-			> #urlbar-container {
+			>#urlbar-container {
 				margin-inline: 0px !important;
 				min-height: 1px !important;
 				padding-block: 0 !important;
 
-				> #urlbar {
+				>#urlbar {
 					font-size: 1em !important;
 					--toolbar-field-color: #d4be98;
 					--urlbar-height: 1.7em !important;
 					--urlbar-min-height: 1.7em !important;
 					--urlbar-container-height: 1.7em !important;
+
 					&[breakout] {
 						margin-left: 0 !important;
 						width: 1391px !important;
@@ -164,20 +174,22 @@ toolbar .toolbaritem-combined-buttons {
 						/* color: #d4be98 !important; */
 					}
 
-					> #tracking-protection-icon-container {
+					>#tracking-protection-icon-container {
 						display: none !important;
 					}
 
-					> #page-action-buttons {
-						> .urlbar-page-action {
+					>#page-action-buttons {
+						>.urlbar-page-action {
 							width: unset !important;
-							> .toolbarbutton-icon {
+
+							>.toolbarbutton-icon {
 								margin-top: -1px !important;
 							}
+
 							height: unset !important;
 						}
 
-						> #urlbar-zoom-button {
+						>#urlbar-zoom-button {
 							font-size: unset !important;
 							padding: 0 4px 0 9px !important;
 							border-radius: unset !important;
@@ -186,8 +198,8 @@ toolbar .toolbaritem-combined-buttons {
 							margin-inline: unset !important;
 						}
 
-						> #star-button-box,
-						> #reader-mode-button {
+						>#star-button-box,
+						>#reader-mode-button {
 							display: none !important;
 						}
 					}
@@ -201,7 +213,7 @@ toolbar .toolbaritem-combined-buttons {
 					--urlbarView-favicon-margin-start: 0.4em !important;
 					--urlbarView-favicon-margin-end: 0.6em !important;
 
-					> .search-one-offs {
+					>.search-one-offs {
 						display: none !important;
 					}
 				}
