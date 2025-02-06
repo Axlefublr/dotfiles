@@ -632,6 +632,17 @@ function dode-whois
     sudo pacman -S --needed --noconfirm --disable-download-timeout whois
 end
 
+function dode-wooz
+    sudo pacman -S --needed --noconfirm --disable-download-timeout meson ninja cmake wayland-protocols
+    cd ~/r/stored
+    gh repo clonef https://github.com/negrel/wooz
+    cd wooz
+    export CFLAGS="-O3"
+    meson build
+    ninja -C build
+    cp -f ./build/wooz ~/r/binaries/wooz
+end
+
 function dode-wtf
     # “wtf is curl” — quickly explains a rRam
     paru -Sa --needed --disable-download-timeout wtf
