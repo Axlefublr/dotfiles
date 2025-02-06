@@ -109,7 +109,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 0
+    gaps 16
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -120,6 +120,7 @@ layout {
     center-focused-column "never"
 
     always-center-single-column
+    empty-workspace-above-first
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
