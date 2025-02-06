@@ -1,10 +1,7 @@
 #!/usr/bin/env fish
 
-alias paccy 'sudo pacman -S --needed --noconfirm --disable-download-timeout'
-alias aurie 'paru -Sa --needed --noconfirm --disable-download-timeout'
-
 function dode-aichat
-    paccy aichat
+    sudo pacman -S --needed --noconfirm --disable-download-timeout aichat
 end
 function edod-aichat
     paru -Rns aichat
@@ -18,16 +15,16 @@ function dode-alacritty
 end
 
 function dode-anki
-    aurie anki
-    # aurie anki-bin
+    paru -Sa --needed --disable-download-timeout anki
+    # paru -Sa --needed --disable-download-timeout anki-bin
 end
 
 function dode-ascii-image-converter
-    aurie ascii-image-converter-bin
+    paru -Sa --needed --disable-download-timeout ascii-image-converter-bin
 end
 
 function dode-asciinema
-    paccy asciinema
+    sudo pacman -S --needed --noconfirm --disable-download-timeout asciinema
 end
 
 function dode-awm
@@ -39,19 +36,19 @@ function dode-awm
 end
 
 function dode-bat
-    paccy bat
+    sudo pacman -S --needed --noconfirm --disable-download-timeout bat
     set -Ux BAT_THEME ansi
     set -Ux BAT_STYLE plain
 end
 
 function dode-bluetui
-    paccy bluetui
+    sudo pacman -S --needed --noconfirm --disable-download-timeout bluetui
     mkdir -p ~/.config/bluetui
     ln -sf ~/r/dot/bluetui.toml ~/.config/bluetui/config.toml
 end
 
 function dode-brillo
-    paccy brillo
+    sudo pacman -S --needed --noconfirm --disable-download-timeout brillo
     begin
         echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"'
         echo 'ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"'
@@ -71,7 +68,7 @@ function dode-bottles
 end
 
 function dode-bottom
-    paccy bottom
+    sudo pacman -S --needed --noconfirm --disable-download-timeout bottom
     ln -sf ~/r/dot/bottom.toml ~/.config/bottom/bottom.toml
 end
 
@@ -85,7 +82,7 @@ function edod-bubbly
 end
 
 function dode-calcure
-    aurie calcure
+    paru -Sa --needed --disable-download-timeout calcure
     mkdir -p ~/.config/calcure
     ln -sf ~/r/dot/calcure.ini ~/.config/calcure/config.ini
     cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
@@ -100,7 +97,7 @@ function edod-cargo-script
 end
 
 function dode-cava
-    aurie cava
+    paru -Sa --needed --disable-download-timeout cava
 end
 function edod-cava
     paru -Rns cava
@@ -108,16 +105,17 @@ function edod-cava
 end
 
 function dode-cbonsai
-    aurie cbonsai
+    paru -Sa --needed --disable-download-timeout cbonsai
 end
 
 function dode-copyq
-    paccy copyq
+    sudo pacman -S --needed --noconfirm --disable-download-timeout copyq
     pipx install git+https://github.com/cjbassi/rofi-copyq
 end
 
 function dode-cowsay
-    paccy cowsay
+    sudo pacman -S --needed --noconfirm --disable-download-timeout cowsay
+end
 
 function dode-cursors
     # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
@@ -131,6 +129,7 @@ function dode-cursors
 end
 
 function dode-display
+    mkdir -p ~/.local/share/applications/
     ln -sf ~/r/dot/desktop/display.desktop ~/.local/share/applications/display.desktop
     xdg-mime default display.desktop image/svg+xml
     xdg-mime default display.desktop image/png
@@ -152,7 +151,7 @@ function dode-dns
 end
 
 function dode-etcher
-    aurie etcher-cli-bin
+    paru -Sa --needed --disable-download-timeout etcher-cli-bin
 end
 
 function dode-exrex
@@ -160,29 +159,29 @@ function dode-exrex
 end
 
 function dode-eww
-    cd ~/prog/stored
+    cd ~/r/stored
     git clone https://github.com/elkowar/eww
     cd eww
     cargo build --release --no-default-features --features x11
-    ln $PWD/target/release/eww ~/prog/binaries
+    ln $PWD/target/release/eww ~/r/binaries
     mkdir -p ~/.config/eww
     touch ~/.config/eww/eww.yuck
 end
 function edod-eww
-    rm -fr ~/prog/stored/eww
+    rm -fr ~/r/stored/eww
     rm -fr ~/.config/eww
-    rm -fr ~/prog/binaries/eww
+    rm -fr ~/r/binaries/eww
 end
 
 function dode-fifc
     fisher install gazorby/fifc
     set -Ux fifc_editor helix
     # set -Ux fifc_fd_opts -u
-    set -Ux fifc_keybinding \ej
+    set -Ux fifc_keybinding \cn
 end
 
 function dode-figlet
-    paccy figlet
+    sudo pacman -S --needed --noconfirm --disable-download-timeout figlet
 end
 
 function dode-firefox
@@ -211,8 +210,8 @@ function dode-fstab
 end
 
 function dode-fonts
-    paccy ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
-    aurie ttf-comfortaa
+    sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
+    paru -Sa --needed --disable-download-timeout ttf-comfortaa
 end
 
 function dode-fuck
@@ -223,13 +222,13 @@ function dode-fuck
 end
 
 function dode-gh
-    paccy github-cli
+    sudo pacman -S --needed --noconfirm --disable-download-timeout github-cli
     gh auth login
     gh auth refresh -h github.com -s delete_repo
 end
 
 function dode-ghostty
-    cd ~/prog/stored
+    cd ~/r/stored
     git clone --depth=1 https://github.com/ghostty-org/ghostty
     cd ghostty
     zig build -p $HOME/.local -Doptimize=ReleaseFast -Dapp-runtime=gtk
@@ -260,20 +259,20 @@ function dode-git
 end
 
 function dode-gromit-mpx
-    paccy gromit-mpx
+    sudo pacman -S --needed --noconfirm --disable-download-timeout gromit-mpx
     ln -sf ~/r/dot/gromit.cfg ~/.config/gromit-mpx.cfg
     sudo ln -sf ~/r/dot/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
 end
 
 function dode-gtk-theme
-    # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
-    paccy gtk3-demo
+    gh repo clonef Axlefublr/gruvbox-material-gtk-theme
     sudo ln -sf ~/r/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
+    set -Ux GTK_THEME gruvbox-material
 end
 
 function dode-helix
-    paccy marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua
-    aurie prettierd
+    sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua python-toml
+    paru -Sa --needed --disable-download-timeout prettierd
     cd ~/r/forks
     git clone --depth=1 https://github.com/Axlefublr/helix
     cd ~/r/forks/helix
@@ -285,21 +284,21 @@ function dode-helix
 end
 
 function dode-httrack
-    paccy httrack
+    sudo pacman -S --needed --noconfirm --disable-download-timeout httrack
 end
 
 function dode-jj
-    paccy jj lazyjj
+    sudo pacman -S --needed --noconfirm --disable-download-timeout jj lazyjj
     jj util completion fish | source
     ln -sf ~/r/dot/jj.toml ~/.config/jj/config.toml
 end
 
 function dode-jpeg2png
-    aurie jpeg2png
+    paru -Sa --needed --disable-download-timeout jpeg2png
 end
 
 function dode-kbt
-    paccy kbt
+    sudo pacman -S --needed --noconfirm --disable-download-timeout kbt
 end
 
 function dode-kitty
@@ -310,22 +309,22 @@ function dode-kitty
 end
 
 function dode-kondo
-    paccy kondo
+    sudo pacman -S --needed --noconfirm --disable-download-timeout kondo
     kondo --completions fish
 end
 
 function dode-krita
-    paccy krita
+    sudo pacman -S --needed --noconfirm --disable-download-timeout krita
     mkdir -p ~/.local/share/color-schemes
     ln -f ~/r/dot/krita/gruvbox.colors ~/.local/share/krita/color-schemes
 end
 
 function dode-kruler
-    paccy kruler
+    sudo pacman -S --needed --noconfirm --disable-download-timeout kruler
 end
 
 function dode-lazygit
-    sudo pacman -S lazygit
+    sudo pacman -S --needed --noconfirm --disable-download-timeout lazygit
     mkdir -p ~/.config/lazygit
     ln -sf ~/r/dot/lazygit.yml ~/.config/lazygit/config.yml
 end
@@ -335,7 +334,7 @@ function dode-less
 end
 
 function dode-libreoffice
-    paccy libreoffice-still
+    sudo pacman -S --needed --noconfirm --disable-download-timeout libreoffice-still
 end
 
 function dode-lolcat
@@ -343,11 +342,11 @@ function dode-lolcat
 end
 
 function dode-lxappearance
-    paccy lxappearance gtk-engine-murrine qt5ct
+    sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance gtk-engine-murrine qt5ct
 end
 
 function dode-mapscii
-    aurie nodejs-mapscii
+    paru -Sa --needed --disable-download-timeout nodejs-mapscii
 end
 function edod-mapscii
     paru -Rns nodejs-mapscii
@@ -355,8 +354,8 @@ function edod-mapscii
 end
 
 function dode-mpv
-    paccy mpv
-    paccy --asdeps mpv-mpris
+    sudo pacman -S --needed --noconfirm --disable-download-timeout mpv
+    sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps mpv-mpris
     mkdir -p ~/.config/mpv
     ln -sf ~/r/dot/mpv/* ~/.config/mpv
     xdg-mime default mpv.desktop video/webm
@@ -365,7 +364,7 @@ function dode-mpv
 end
 
 function dode-neovide
-    paccy neovide
+    sudo pacman -S --needed --noconfirm --disable-download-timeout neovide
     set -Ux NEOVIDE_FORK false
 end
 
@@ -375,7 +374,7 @@ function dode-niri
 end
 
 function dode-nom
-    # aurie nom
+    # paru -Sa --needed --disable-download-timeout nom
     eget https://github.com/guyfedwards/nom
     indeed -nu ~/.local/share/magazine/W https://github.com/guyfedwards/nom
     mkdir -p ~/.config/nom
@@ -397,8 +396,6 @@ end
 
 function dode-other
     sudo loginctl enable-linger $USER
-    sudo systemctl enable --now sddm
-    sudo systemctl enable --now bluetooth.service
     sudo systemctl enable --now paccache.timer
 end
 
@@ -407,9 +404,10 @@ function dode-ouch
 end
 
 function dode-ov
-    # aurie ov-bin
+    # paru -Sa --needed --disable-download-timeout ov-bin
     cd ~/r/forks
     gh repo clonef Axlefublr/ov
+    cd ov
     make
     sudo install ov ~/.local/bin
     ov --completion fish >~/.config/fish/completions/ov.fish
@@ -418,20 +416,20 @@ function dode-ov
 end
 
 function dode-paru
-    paccy paru
+    sudo pacman -S --needed --noconfirm --disable-download-timeout paru
     mkdir -p ~/.config/paru
     ln -sf ~/r/dot/paru.conf ~/.config/paru/paru.conf
 end
 
 function dode-picom
-    paccy picom
+    sudo pacman -S --needed --noconfirm --disable-download-timeout picom
     mkdir -p ~/.config/picom
     ln -sf ~/r/dot/picom.conf ~/.config/picom/picom.conf
 end
 
 function dode-pipes
     # visual lines going all over the screen
-    aurie bash-pipes
+    paru -Sa --needed --disable-download-timeout bash-pipes
 end
 
 function dode-postgresql
@@ -468,17 +466,14 @@ function dode-postgresql
 end
 
 function dode-pueue
-    paccy pueue
+    sudo pacman -S --needed --noconfirm --disable-download-timeout pueue
     systemctl --user start pueued
     systemctl --user enable pueued
     systemctl --user status pueued
     ln -sf ~/r/dot/pueue.yml ~/.config/pueue/pueue.yml
     pueue group add k
-    pueue group add K
-    pueue group add i
-    pueue group add c
     pueue group add s
-    pueue parallel -g s 99
+    pueue parallel -g s 0
 end
 
 function dode-qalc
@@ -489,12 +484,11 @@ function dode-qalc
 end
 
 function dode-qbittorrent
-    paccy qbittorrent
+    sudo pacman -S --needed --noconfirm --disable-download-timeout qbittorrent
 end
 
 function dode-qrtool
-    paccy qrtool
-    qrtool --generate-completion
+    sudo pacman -S --needed --noconfirm --disable-download-timeout qrtool
     qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 end
 
@@ -504,8 +498,7 @@ function dode-radeon-gpu
 end
 
 function dode-repgrep
-    # paccy repgrep
-    # you forked this
+    # sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
 end
 
 function dode-rofi
@@ -516,7 +509,7 @@ function dode-rofi
 end
 
 function dode-rofi-calc
-    paccy rofi-calc
+    sudo pacman -S --needed --noconfirm --disable-download-timeout rofi-calc
 end
 function edod-rofi-calc
     sudo pacman -Rns rofi-calc
@@ -524,12 +517,17 @@ function edod-rofi-calc
 end
 
 function dode-sd
-    paccy sd
+    sudo pacman -S --needed --noconfirm --disable-download-timeout sd
+end
+
+function dode-sddm
+    sudo pacman -S --needed --noconfirm --disable-download-timeout sddm
+    sudo systemctl enable --now sddm
 end
 
 function dode-serpl
-    paccy serpl
-    aurie ast-grep-bin
+    sudo pacman -S --needed --noconfirm --disable-download-timeout serpl
+    paru -Sa --needed --disable-download-timeout ast-grep-bin
     mkdir -p ~/.config/serpl
     ln -sf ~/r/dot/serpl.yml ~/.config/serpl/serpl.yml
 end
@@ -549,21 +547,21 @@ function dode-scriptisto
 end
 
 function dode-speedtest
-    paccy speedtest-cli
+    sudo pacman -S --needed --noconfirm --disable-download-timeout speedtest-cli
 end
 
 function dode-steam
-    paccy steam
+    sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runtime
 end
 
 function dode-sttr
     eget -a tar.gz -a '^sbom.json' https://github.com/abhimanyu003/sttr
-    indeed -nu ~/.local/share/magazine/W '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
+    indeed -nu ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
 end
 
 function dode-termfilechooser
     sudo pacman -S xdg-desktop-portal-gtk
-    aurie xdg-desktop-portal-termfilechooser-git
+    paru -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git
     fish_add_path /usr/lib
     set -Ux TERMCMD kitty
     set -Ux GDK_DEBUG portals
@@ -585,7 +583,7 @@ function dode-tiptop
 end
 
 function dode-traceroute
-    paccy traceroute
+    sudo pacman -S --needed --noconfirm --disable-download-timeout traceroute
 end
 
 function dode-tridactyl
@@ -605,7 +603,7 @@ function dode-tuisky
 end
 
 function dode-twemoji
-    aurie ttf-twemoji
+    paru -Sa --needed --disable-download-timeout ttf-twemoji
     sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 end
 
@@ -615,7 +613,7 @@ function dode-tz
 end
 
 function dode-unimatrix
-    aurie unimatrix-git
+    paru -Sa --needed --disable-download-timeout unimatrix-git
 end
 function edod-unimatrix
     paru -Rns unimatrix-git
@@ -631,12 +629,12 @@ function dode-vscode
 end
 
 function dode-whois
-    paccy whois
+    sudo pacman -S --needed --noconfirm --disable-download-timeout whois
 end
 
 function dode-wtf
-    # “wtf is curl” — quickly explains a program
-    aurie wtf
+    # “wtf is curl” — quickly explains a rRam
+    paru -Sa --needed --disable-download-timeout wtf
 end
 
 function dode-x
@@ -646,7 +644,7 @@ function dode-x
 end
 
 function dode-xremap
-    paccy xremap-x11-bin
+    sudo pacman -S --needed --noconfirm --disable-download-timeout xremap-x11-bin
     sudo usermod -aG input $USER
     sudo usermod -aG video $USER
     echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
@@ -668,13 +666,13 @@ function dode-yazi
 end
 
 function dode-ydotool
-    paccy ydotool
+    sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool
     pueue add -g s ydotoold
 end
 
 function dode-yt-dlp
-    paccy yt-dlp
-    paccy --asdeps python-mutagen
+    sudo pacman -S --needed --noconfirm --disable-download-timeout yt-dlp
+    sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps python-mutagen
     mkdir -p ~/.config/yt-dlp
     ln -sf ~/r/dot/yt-dlp.conf ~/.config/yt-dlp/config
 end
@@ -688,15 +686,15 @@ function dode-zathura
 end
 
 function dode-zola
-    paccy zola
+    sudo pacman -S --needed --noconfirm --disable-download-timeout zola
 end
 
 function dode-zoom
-    aurie zoom
+    paru -Sa --needed --disable-download-timeout zoom
 end
 
 function dode-zoxide
-    paccy zoxide
+    sudo pacman -S --needed --noconfirm --disable-download-timeout zoxide
     set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
     set -Ux _ZO_MAXAGE 30000
 end

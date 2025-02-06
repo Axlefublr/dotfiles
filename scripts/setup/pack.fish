@@ -1,20 +1,17 @@
 #!/usr/bin/env fish
 
-alias paccy 'sudo pacman -S --needed --noconfirm --disable-download-timeout'
-alias aurie 'paru -Sa --needed --noconfirm --disable-download-timeout'
-
 function pack-man
     sudo pacman -Syu
     for package_name in (cat ~/.local/share/magazine/Z)
-        paccy $package_name
+        sudo pacman -S --needed --noconfirm --disable-download-timeout $package_name
     end
     for package_name in (cat ~/.local/share/magazine/X)
-        aurie $package_name
+        paru -Sa --needed --noconfirm --disable-download-timeout $package_name
     end
 end
 
 function pack-crystal
-    paccy crystal shards
+    sudo pacman -S --needed --noconfirm --disable-download-timeout crystal shards
 end
 
 function pack-dotnet
@@ -23,16 +20,16 @@ function pack-dotnet
 end
 
 function pack-eget-pack
-    aurie eget-bin
+    paru -Sa --needed --noconfirm --disable-download-timeout eget-bin
     set -Ux EGET_BIN ~/.local/bin
 end
 
 function pack-elixir
-    paccy elixir
+    sudo pacman -S --needed --noconfirm --disable-download-timeout elixir
 end
 
 function pack-fish
-    paccy fish
+    sudo pacman -S --needed --noconfirm --disable-download-timeout fish
     chsh -s /usr/bin/fish
     mkdir -p ~/.config/fish
     ln -sf ~/r/dot/fish/config.fish ~/.config/fish/config.fish
@@ -43,7 +40,7 @@ function pack-fish
     ~/r/dot/fish/universal.fish
 end
 function pack-fish-pack
-    paccy fisher
+    sudo pacman -S --needed --noconfirm --disable-download-timeout fisher
 end
 function pack-fish-lang
     git clone https://github.com/ndonfris/fish-lsp ~/r/stored/fish-lsp
@@ -67,21 +64,21 @@ function pack-flatpack
 end
 
 function pack-go
-    paccy go
+    sudo pacman -S --needed --noconfirm --disable-download-timeout go
     mkdir -p ~/go/bin
     fish_add_path ~/go/bin
 end
 function pack-go-lang
-    paccy gopls
+    sudo pacman -S --needed --noconfirm --disable-download-timeout gopls
 end
 
 function pack-java
-    paccy jdk8-openjdk maven
-    aurie intellij-idea-community-edition-jre
+    sudo pacman -S --needed --noconfirm --disable-download-timeout jdk8-openjdk maven
+    paru -Sa --needed --noconfirm --disable-download-timeout intellij-idea-community-edition-jre
 end
 
 function pack-kotlin
-    paccy kotlin jre-openjdk
+    sudo pacman -S --needed --noconfirm --disable-download-timeout kotlin jre-openjdk
 end
 
 function pack-nim
@@ -94,7 +91,7 @@ function pack-nim-lang
 end
 
 function pack-ruby
-    sudo pacman -S rubocop
+    sudo pacman -S --needed --noconfirm --disable-download-timeout ruby rubocop
     fish_add_path "$HOME/.local/share/gem/ruby/3.3.0/bin"
 end
 function pack-ruby-lang
@@ -104,7 +101,7 @@ function pack-ruby-lang
 end
 
 function pack-rust
-    paccy rustup
+    sudo pacman -S --needed --noconfirm --disable-download-timeout rustup
     fish_add_path ~/.cargo/bin
     fish_add_path ~/.cargo/env
     mkdir -p ~/.cargo/{bin,env}
@@ -116,8 +113,8 @@ function pack-rust
     ln -sf ~/r/dot/cargo.toml ~/.cargo/config.toml
 end
 function pack-rust-pack
-    paccy cargo-binstall
-    paccy cargo-update
+    sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-binstall
+    sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-update
     cargo binstall -y cargo-quickinstall
 end
 function pack-rust-lang
@@ -148,12 +145,11 @@ function pack-ocaml-lang
 end
 
 function pack-python
-    paccy python3 python-docs
-    paccy python-toml # helix config generator
+    sudo pacman -S --needed --noconfirm --disable-download-timeout python3 python-docs
     set -Ux PYTHONSTARTUP ~/r/dot/pyrc.py
 end
 function pack-python-lang
-    aurie basedpyright-git
+    paru -Sa --needed --noconfirm --disable-download-timeout basedpyright-git
     sudo pacman -S ruff
     mkdir -p ~/.config/ruff
     ln -sf ~/r/dot/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
