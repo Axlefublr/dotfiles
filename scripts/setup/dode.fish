@@ -187,10 +187,17 @@ end
 
 function dode-firefox
     sudo pacman -S firefox
+    set -Ux MOZ_ENABLE_WAYLAND 1
+    set -Ux GTK_THEME Adwaita:dark
+    set -l prof_dir ~/.mozilla/firefox/fqigcjz6.default-release
+    mkdir $prof_dir/chrome
+    ln -sf ~/r/dot/firefox/userChrome.css $prof_dir/chrome
+    ln -sf ~/r/dot/firefox/userContent.css $prof_dir/chrome
     # version 133.0
     # /etc/pacman.conf
     # IgnorePkg=firefox
-    # widget.use-xdg-desktop-portal.file-picker 1
+
+    # enable shortcuts in address bar
 end
 
 function dode-fstab
@@ -569,6 +576,8 @@ function dode-termfilechooser
     ln -sf ~/r/dot/termfilechooser/portals.conf ~/.config/xdg-desktop-portal/portals.conf
     systemctl --user restart xdg-desktop-portal.service
     systemctl --user restart xdg-desktop-portal-termfilechooser.service
+    # for firefox
+    # widget.use-xdg-desktop-portal.file-picker 1
 end
 
 function dode-tiptop
