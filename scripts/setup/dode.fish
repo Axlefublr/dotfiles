@@ -192,6 +192,9 @@ function dode-firefox
     mkdir $prof_dir/chrome
     ln -sf ~/r/dot/firefox/userChrome.css $prof_dir/chrome
     ln -sf ~/r/dot/firefox/userContent.css $prof_dir/chrome
+    # devtools.debugger.prompt-connection
+    # devtools.inspector.remote
+
     # version 133.0
     # /etc/pacman.conf
     # IgnorePkg=firefox
