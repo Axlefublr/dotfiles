@@ -66,6 +66,10 @@ function dode-boomer
     ln -sf ~/r/dot/boomer.conf ~/.config/boomer/config
 end
 
+function dode-bottles
+    flatpak install com.usebottles.bottles
+end
+
 function dode-bottom
     paccy bottom
     ln -sf ~/r/dot/bottom.toml ~/.config/bottom/bottom.toml
