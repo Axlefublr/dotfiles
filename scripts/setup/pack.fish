@@ -61,6 +61,11 @@ function pack-fish-lang
     set -Ux fish_lsp_show_client_popups false
 end
 
+function pack-flatpack
+    sudo pacman -S --needed --noconfirm --disable-download-timeout flatpak
+    flatpak install flathub
+end
+
 function pack-go
     paccy go
     mkdir -p ~/go/bin
