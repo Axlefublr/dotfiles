@@ -395,6 +395,10 @@ function dode-other
     sudo systemctl enable --now paccache.timer
 end
 
+function dode-ouch
+    sudo pacman -S --needed --noconfirm --disable-download-timeout ouch
+end
+
 function dode-ov
     # aurie ov-bin
     cd ~/r/forks
