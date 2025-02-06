@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function get_windows
-    wmctrl -xl | awk '{printf "%s — %s —", $1, $3; for (i=5; i<=NF; i++) printf " %s", $i; print ""}'
+    niri msg windows | sd '\n  ' ';' | sd '\n\n' '\n'
 end
 funcsave get_windows >/dev/null
 

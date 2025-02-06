@@ -1685,10 +1685,11 @@ keymap:
       # Super-Alt_L-Semicolon: { launch: [rofi, -show, drun] }
       # Super-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
       # Super-Semicolon: { launch: [fish, -c, runner_math] }
-      CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax_hold "~/bs/clipboard_edit.md$(calculate-eof-position ~/bs/clipboard_edit.md)" ; cat ~/bs/clipboard_edit.md | copy'] }
-      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax_hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
+      CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax-hold "~/bs/clipboard_edit.md$(calculate-eof-position ~/bs/clipboard_edit.md)" ; cat ~/bs/clipboard_edit.md | copy'] }
+      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'truncate -s 0 ~/bs/clipboard_edit.md ; neomax-hold ~/bs/clipboard_edit.md ; cat ~/bs/clipboard_edit.md | copy'] }
       Super-b: { launch: [fish, -c, 'engined_search'] }
       # Super_L-c: { launch: [fish, -c, pick-and-copy-color]}
+      Super_L-v: { launch: [wooz]}
 
       Super_R-t: { launch: [fish, -c, 'igrai ~/m/soundeffects/audio-volume-change.oga'] }
 

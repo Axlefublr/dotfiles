@@ -309,7 +309,7 @@ end
 funcsave igrai >/dev/null
 
 function toggle-screen-record
-    if matches 'kitty — screen-record' &>/dev/null
+    if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
         kitten @ --to unix:/home/axlefublr/bs/screen-record-kitty-socket signal-child SIGINT
     else
         kitty -T screen-record --listen-on unix:/home/axlefublr/bs/screen-record-kitty-socket screen-record.fish

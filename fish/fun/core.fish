@@ -94,8 +94,8 @@ funcsave neoline >/dev/null
 
 function neoline-hold
     neoline $argv
-    win_wait 'kitty\\.kitty — line' >/dev/null
-    win_wait_closed 'kitty\\.kitty — line'
+    win_wait 'Title: "line";App ID: "kitty"' >/dev/null
+    win_wait_closed 'Title: "line";App ID: "kitty"' >/dev/null
 end
 funcsave neoline-hold >/dev/null
 
@@ -104,12 +104,12 @@ function neomax
 end
 funcsave neomax >/dev/null
 
-function neomax_hold
+function neomax-hold
     neomax $argv
-    win_wait 'kitty\\.kitty — max' >/dev/null
-    win_wait_closed 'kitty\\.kitty — max'
+    win_wait 'Title: "max";App ID: "kitty"' >/dev/null
+    win_wait_closed 'Title: "max";App ID: "kitty"' >/dev/null
 end
-funcsave neomax_hold >/dev/null
+funcsave neomax-hold >/dev/null
 
 function clx
     if test "$TERM" != xterm-kitty
