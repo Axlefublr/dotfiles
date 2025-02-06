@@ -36,6 +36,7 @@ toolbar .toolbaritem-combined-buttons {
 
 	#TabsToolbar-customization-target {
 		--toolbarbutton-inner-padding: 0 !important;
+		background-color: #292828 !important;
 
 		>#tabbrowser-tabs {
 			border-inline-start: none !important;
@@ -87,6 +88,8 @@ toolbar .toolbaritem-combined-buttons {
 							height: 1.7em !important;
 							flex-direction: row !important;
 							mask-image: none !important;
+							--tab-label-line-height: 1.7em !important;
+							font-size: 1.2em !important;
 
 							&:has(.tab-secondary-label[muted])>.tab-text {
 								text-decoration: line-through solid !important;
@@ -111,7 +114,7 @@ toolbar .toolbaritem-combined-buttons {
 		border-top: 0 !important;
 		background-color: #292828 !important;
 		min-height: 1px !important;
-		height: 1.7em !important;
+		height: 2.0em !important;
 
 		>#nav-bar-customization-target {
 			>#unified-extensions-button {
@@ -124,7 +127,12 @@ toolbar .toolbaritem-combined-buttons {
 
 			>#back-button,
 			>#forward-button,
-			>#home-button {
+			>#home-button,
+			>#stop-reload-button,
+			>#customizableui-special-spring1,
+			>#customizableui-special-spring2,
+			>#save-to-pocket-button,
+			>#fxa-toolbar-menu-button {
 				display: none !important;
 			}
 
@@ -134,19 +142,20 @@ toolbar .toolbaritem-combined-buttons {
 				padding-block: 0 !important;
 
 				>#urlbar {
-					font-size: 1em !important;
+					font-size: 1.2em !important;
 					--toolbar-field-color: #d4be98;
-					--urlbar-height: 1.7em !important;
-					--urlbar-min-height: 1.7em !important;
-					--urlbar-container-height: 1.7em !important;
+					--urlbar-height: 29px !important;
+					--urlbar-min-height: 29px !important;
+					--urlbar-container-height: 29px !important;
 
 					&[breakout] {
 						margin-left: 0 !important;
-						width: 1391px !important;
+						/* width: 1450px !important; */
 					}
 				}
 
-				#identity-box {
+				#identity-box,
+				#urlbar-go-button {
 					display: none !important;
 				}
 
@@ -155,10 +164,6 @@ toolbar .toolbaritem-combined-buttons {
 					outline: none !important;
 					border: none !important;
 					background-color: #292828 !important;
-				}
-
-				#urlbar-go-button {
-					display: none !important;
 				}
 
 				.urlbar-input-container {
