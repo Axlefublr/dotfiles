@@ -71,7 +71,7 @@ function runner_symbol_name
     if test -z "$result"
         return 1
     end
-    printf '\U'(string pad --char 0 --width 8 (string split ' ' $result)[1]) 2>/dev/null | xclip -r -selection clipboard
+    printf '\U'(string pad --char 0 --width 8 (string split ' ' $result)[1]) 2>/dev/null | copy
 end
 funcsave runner_symbol_name >/dev/null
 

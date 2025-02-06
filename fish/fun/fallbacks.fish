@@ -13,14 +13,14 @@ alias --save p jobs >/dev/null
 alias --save u pueue >/dev/null
 
 # no abbreviation equivalents because the expansion is too wordy
-alias --save copy 'xclip -r -selection clipboard' >/dev/null
-alias --save s 'xclip -r -selection clipboard' >/dev/null
-alias --save copyi 'xclip -selection clipboard -t image/png' >/dev/null
-alias --save si 'xclip -selection clipboard -t image/png' >/dev/null
-alias --save copyn 'xclip -selection clipboard' >/dev/null
-alias --save sn 'xclip -selection clipboard' >/dev/null
-alias --save ypoc 'xclip -selection clipboard -o' >/dev/null
-alias --save o 'xclip -selection clipboard -o' >/dev/null
+alias --save copy 'wl-copy -n' >/dev/null
+alias --save copyi 'wl-copy -t image/png' >/dev/null
+alias --save copyn wl-copy >/dev/null
+alias --save ypoc 'wl-paste -n' >/dev/null
+alias --save s copy >/dev/null
+alias --save si copyi >/dev/null
+alias --save sn copyn >/dev/null
+alias --save o ypoc >/dev/null
 
 alias --save h 'z ~ && clx' >/dev/null
 alias --save X 'kitten @ close-window' >/dev/null

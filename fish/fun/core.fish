@@ -29,7 +29,7 @@ end
 funcsave rename >/dev/null
 
 function imgs
-    xclip -selection clipboard -o >$argv[1].png
+    wl-paste >$argv[1].png
 end
 funcsave imgs >/dev/null
 
