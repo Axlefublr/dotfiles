@@ -487,6 +487,11 @@ function dode-qrtool
     qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 end
 
+function dode-radeon-gpu
+    paru -Sa --needed --disable-download-timeout radeon-profile-git radeon-profile-daemon-git
+    sudo systemctl enable --now radeon-profile-daemon
+end
+
 function dode-repgrep
     # paccy repgrep
     # you forked this
