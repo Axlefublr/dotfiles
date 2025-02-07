@@ -373,7 +373,9 @@ end
 
 function dode-niri
     sudo pacman -S --needed --noconfirm --disable-download-timeout niri
+    sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring
     ln -sf ~/r/dot/niri.kdl ~/.config/niri/config.kdl
+    mkdir -p ~/.config/systemd/user/niri.service.wants
 end
 
 function dode-nom
@@ -560,6 +562,15 @@ end
 function dode-sttr
     eget -a tar.gz -a '^sbom.json' https://github.com/abhimanyu003/sttr
     indeed -nu ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
+end
+
+function dode-swaybg
+    sudo pacman -S --needed --noconfirm --disable-download-timeout swaybg
+    ln -sf ~/i/e/themes/fall.jpg ~/r/dot/background-image
+    ln -sf ~/r/dot/swaybg/swaybg.service ~/.config/systemd/user/swaybg.service
+    systemctl --user daemon-reload
+    ln -s ~/.config/systemd/user/swaybg.service ~/.config/systemd/user/niri.service.wants/
+    systemctl --user restart swaybg.service # reload swaybg
 end
 
 function dode-termfilechooser
