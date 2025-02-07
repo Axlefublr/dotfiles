@@ -176,7 +176,8 @@ binds {
 
     Mod+N { switch-preset-column-width; }
     Mod+M { switch-preset-window-height; }
-    Mod+Semicolon { maximize-column; }
+    Mod+Alt+N { maximize-column; }
+
     Mod+Alt+Slash       { toggle-window-floating; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
 
