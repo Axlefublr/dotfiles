@@ -176,6 +176,7 @@ binds {
 
     Mod+N { switch-preset-column-width; }
     Mod+M { switch-preset-window-height; }
+    Mod+Alt+M { reset-window-height; }
     Mod+Alt+N { maximize-column; }
 
     Mod+Alt+Slash       { toggle-window-floating; }
