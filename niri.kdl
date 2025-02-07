@@ -174,7 +174,7 @@ binds {
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+U { switch-preset-column-width; }
+    Mod+N { switch-preset-column-width; }
     Mod+M { switch-preset-window-height; }
     Mod+Semicolon { maximize-column; }
     Mod+Alt+Slash       { toggle-window-floating; }
