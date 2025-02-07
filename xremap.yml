@@ -1637,12 +1637,6 @@ keymap:
   - name: Any! wm
     exact_match: true
     remap:
-      # CapsLock-z: { launch: [awesome-client, 'client.focus.minimized = true'] }
-      # CapsLock-Alt_L-z: { launch: [awesome-client, Unminimize_all_on_tag()] }
-      CapsLock-q: { launch: [niri, msg, action, 'close-window'] }
-      # CapsLock-Alt_L-q: { launch: [xdotool, getwindowfocus, windowkill] }
-
-      # Ctrl-Esc: { launch: [fish, -c, ignore_urgencies] }
       # Ctrl-Alt_L-Esc: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
       # Alt_L-Esc: { launch: [awesome-client, "env.destroy_sided_notification('oldest')"] }
       # Shift-Alt_L-Esc: { launch: [awesome-client, "env.destroy_sided_notification('latest')"] }
