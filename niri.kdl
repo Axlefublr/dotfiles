@@ -254,6 +254,9 @@ hotkey-overlay {
 }
 
 window-rule {
+    draw-border-with-background false
+    geometry-corner-radius 16
+    clip-to-geometry true
 }
 
 window-rule {
