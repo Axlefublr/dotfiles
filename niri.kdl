@@ -158,10 +158,10 @@ binds {
 
     Mod+Semicolon { close-window; }
 
-    Mod+H     { focus-column-left; }
+    Mod+H     { focus-column-left-or-last; }
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
-    Mod+L     { focus-column-right; }
+    Mod+L     { focus-column-right-or-first; }
 
     Mod+Alt+H     { move-column-left; }
     Mod+Alt+J     { move-window-down-or-to-workspace-down; }
