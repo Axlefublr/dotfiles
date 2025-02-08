@@ -14,7 +14,10 @@ alias --save u pueue >/dev/null
 
 # no abbreviation equivalents because the expansion is too wordy
 alias --save copy 'wl-copy -n' >/dev/null
-alias --save copyi 'wl-copy -t image/png' >/dev/null
+function copyi
+    wl-copy -t image/png <$argv[1]
+end
+funcsave copyi >/dev/null
 alias --save copyn wl-copy >/dev/null
 alias --save ypoc 'wl-paste -n' >/dev/null
 alias --save s copy >/dev/null
