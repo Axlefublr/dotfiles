@@ -74,6 +74,13 @@ function autocommit
 end
 funcsave autocommit >/dev/null
 
+function lh
+    set -l raw_link (string replace 'github.com' 'raw.githubusercontent.com' $argv[1] | string replace blob refs/heads)
+    set -l file_path (string replace -r '^~' $HOME $argv[2])
+    curl $raw_link >$file_path
+end
+funcsave lh >/dev/null
+
 function lhg
     # https://github.com/Axlefublr/dotfiles/blob/main/fish/fun/general.fish
     # into
