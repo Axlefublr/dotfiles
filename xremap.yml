@@ -1658,7 +1658,7 @@ keymap:
       CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
 
-      Alt_R-d: { launch: [kitty] }
+      Alt_R-d: { launch: [fish, -c, scratchkitty] }
       Alt_R-a: { launch: [anki] }
       Alt_R-f: { launch: [firefox]}
       Alt_R-c: { launch: [fish, -c, 'int calcure']}

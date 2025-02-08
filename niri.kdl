@@ -155,7 +155,7 @@ binds {
     Mod+Shift+E { quit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return { spawn "kitty"; }
+    Mod+Return { spawn "fish" "-c" "scratchkitty"; }
 
     Mod+Semicolon { close-window; }
 

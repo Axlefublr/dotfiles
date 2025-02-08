@@ -173,6 +173,11 @@ end
 funcsave scratchpad >/dev/null
 alias --save int scratchpad >/dev/null
 
+function scratchkitty
+    pgrep kitty &>/dev/null && scratchpad --hold || kitty
+end
+funcsave scratchkitty >/dev/null
+
 function get-input
     set -q argv[1] && set -f input_file -input $argv[1]
     set -l input (rofi -dmenu $input_file 2>/dev/null)
