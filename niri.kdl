@@ -138,6 +138,7 @@ layout {
     focus-ring {
         width 2
         active-gradient from="#ffd75f" to="#ffafd7"
+        inactive-color "#292828"
     }
 
     insert-hint {
@@ -237,7 +238,7 @@ animations {
     }
 
     screenshot-ui-open {
-        duration-ms 200
+        duration-ms 250
         curve "ease-out-quad"
     }
 }
@@ -262,7 +263,13 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"^anki$"# title="^Import File$"
+    match app-id=r#"^python$"# title="^Import$"
+    match app-id=r#"firefox$"# title="^File Upload$"
+    open-floating false
+}
+
+window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"dev.negrel.wooz"#
     open-floating true
 }
