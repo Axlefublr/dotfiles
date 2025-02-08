@@ -507,7 +507,7 @@ function dode-repgrep
 end
 
 function dode-rofi
-    sudo pacman -S rofi
+    sudo pacman -S rofi-wayland
     mkdir -p ~/.config/rofi
     ln -sf ~/r/dot/rofi.rasi ~/.config/rofi/config.rasi
     sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
