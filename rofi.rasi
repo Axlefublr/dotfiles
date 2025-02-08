@@ -8,10 +8,9 @@ configuration {
 	case-sensitive: false;
 	cycle: true;
 	matching: "normal";
-	dpi: 126;
 	scroll-method: 1;
 	max-history-size: 50;
-	// matching-negate-char: '!';
+	matching-negate-char: '!';
 	steal-focus: true;
 
 	kb-primary-paste: "";
@@ -63,77 +62,97 @@ configuration {
 @theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
 * {
 	orange-supporting: #5f472d;
-	yellow: #ffd75f;
 	white: #d4be98;
 	dark12: #1f1e1e;
-	black: #0f0f0f;
+	dark12-trans: #1f1e1eaa;
 
-	highlight: bold #e49641;
+	highlight: bold #ffd75f;
 	scrollbar: false;
 
 	foreground: var(white);
-	background: var(dark12);
+	background: var(dark12-trans);
 
-	normal-background: var(background);
+	normal-background: transparent;
 	normal-foreground: var(white);
 
-	alternate-normal-background: var(background);
+	alternate-normal-background: transparent;
 	alternate-normal-foreground: var(white);
 
 	selected-normal-foreground: var(white);
-	selected-normal-background: var(orange-supporting);
+	selected-normal-background: #68622cbb;
 
 	separatorcolor: var(white);
 }
+
 window {
 	font: "Input Mono 16";
-	width: 70%;
-	border: 0;
+	width: 50%;
 	location: north;
-	// y-offset: 35px;
-	padding: 2px;
-	border-radius: 0 0 10px 10px;
+	y-offset: 40%;
+	padding: 0;
+	border: 2px;
+	border-radius: 18px;
+	border-color: #ffd75f;
+	background-color: var(dark12-trans);
 }
+
 message {
-	padding:      7px;
-	// border-color: var(separatorcolor);
-	border:       0;
+	padding: 0 7px 2px;
+	border: 0;
+	background-color: transparent;
 }
+
+textbox {
+	background-color: transparent;
+}
+
 listview {
 	border: 0;
 	padding: 0;
 	spacing: 0;
 	fixed-height: false;
 	dynamic: true;
-	lines: 6;
+	lines: 8;
 	require-input: false;
+	background-color: transparent;
 }
+
 element {
 	children: [element-text, element-icon];
 	spacing: 0;
 	padding: 0;
 }
+
 inputbar {
-	padding: 7px;
+	padding: 10px 7px 7px;
+	background-color: transparent;
 	children: [/*prompt,*/ entry];
 }
+
 entry {
 	text-color: var(white);
+	background-color: transparent;
 	horizontal-align: 0.5;
 	blink: false;
 }
+
 textbox-prompt-sep {
 	str: ":";
 	margin: 0;
 }
+
 element-text {
 	vertical-align: 0.5;
 	highlight: #ffd75f;
 	padding: 0 7px 0;
+	background-color: transparent;
 }
+
 element-text selected {
-	highlight: bold #e49641;
+	highlight: bold #ffd75f;
 }
+
 element-icon {
 	size: 1.3em;
+	background-color: transparent;
 }

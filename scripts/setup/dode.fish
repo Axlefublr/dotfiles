@@ -213,7 +213,7 @@ function dode-fstab
 end
 
 function dode-fonts
-    sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
+    sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono papirus-icon-theme
     paru -Sa --needed --disable-download-timeout ttf-comfortaa
 end
 
