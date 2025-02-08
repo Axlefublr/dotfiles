@@ -88,7 +88,7 @@ window {
 	font: "Input Mono 16";
 	width: 50%;
 	location: north;
-	y-offset: 40%;
+	y-offset: 35%;
 	padding: 0;
 	border: 2px;
 	border-radius: 18px;
