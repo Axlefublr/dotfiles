@@ -263,18 +263,19 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^anki$"# title="^Import File$"
-    match app-id=r#"^python$"# title="^Import$"
-    match app-id=r#"firefox$"# title="^File Upload$"
+    match app-id="^anki$" title="^Import File$"
+    match app-id="^python$" title="^Import$"
+    match app-id="firefox$" title="^File Upload$"
     open-floating false
 }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="firefox$" title="^Picture-in-Picture$"
     open-floating true
 }
 
 window-rule {
-    match app-id=r#"waybar"#
+    match app-id="^waybar$"
+    match app-id="^kitty$" title="^uboot$"
     open-focused false
 }
