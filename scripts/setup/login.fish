@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-# playerctld daemon
-# copyq & disown
+playerctld daemon
+copyq & disown
 
 # pueue add -g s 'RUST_LOG=debug axleizer'
 
