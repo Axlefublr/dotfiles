@@ -40,7 +40,7 @@ cp -fr ~/.config/nom/nom.db ~/auto/nom.db
 git add nom.db
 and git commit -m 'sync nom'
 
-set -l autocommitted ~/i/twemoji-svg ~/i/e ~/i/tools ~/r/binaries
+set -l autocommitted ~/i/twemoji-svg ~/i/e ~/i/tools ~/r/binaries ~/r/backup
 for dir in $autocommitted
     cd $dir
     autocommit
