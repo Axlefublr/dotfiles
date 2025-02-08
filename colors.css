@@ -7,7 +7,7 @@
 	--cyan: #00d7ff;
 	--blue: #8599ff;
 	--purple: #af87ff;
-	--pink: #ffafd7;
+	--pink: #ffafd7 rgb(255, 175, 215);
 	--coral: #ff8787;
 	--grey: #878787;
 }
@@ -29,9 +29,9 @@
 	--light25: #403f3f;
 	--light19: #313030;
 	--dark13: #212121;
-	--dark12: #1f1e1e;
+	--dark12: #1f1e1e rgb(31, 30, 30);
 	--dark10: #1a1919;
-	--level: #292828;
+	--level: #292828 rgb(41, 40, 40);
 }
 
 .supporters {

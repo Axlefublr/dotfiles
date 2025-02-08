@@ -224,6 +224,10 @@ function dode-fuck
     sudo pacman -Rns --noconfirm meld
 end
 
+function dode-gamescope
+    sudo pacman -S --needed --noconfirm --disable-download-timeout gamescope
+end
+
 function dode-gh
     sudo pacman -S --needed --noconfirm --disable-download-timeout github-cli
     gh auth login
@@ -640,6 +644,15 @@ function dode-vscode
     Needed for the CSS & JS extension
     sudo chown -R $(whoami) $(which code)
     sudo chown -R $(whoami) /opt/visual-studio-code
+end
+
+function dode-waybar
+    sudo pacman -S --needed --noconfirm --disable-download-timeout waybar
+    sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps otf-font-awesome
+    mkdir -p ~/.config/waybar
+    ln -sf ~/r/dot/waybar/waybar.jsonc ~/.config/waybar/config.jsonc
+    ln -sf ~/r/dot/waybar/waybar.css ~/.config/waybar/style.css
+    ln -sf /usr/lib/systemd/user/waybar.service ~/.config/systemd/user/niri.service.wants/waybar.service
 end
 
 function dode-whois
