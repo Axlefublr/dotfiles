@@ -174,7 +174,7 @@ funcsave scratchpad >/dev/null
 alias --save int scratchpad >/dev/null
 
 function scratchkitty
-    pgrep kitty &>/dev/null && scratchpad --hold || kitty
+    pgrep kitty &>/dev/null && scratchpad --hold --cwd ~ || kitty
 end
 funcsave scratchkitty >/dev/null
 
