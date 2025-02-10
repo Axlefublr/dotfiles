@@ -1,10 +1,11 @@
 '$schema' = 'https://yazi-rs.github.io/schemas/yazi.json'
 
 [manager]
-ratio = [0, 2, 1]
+ratio = [0, 1, 1]
 sort_by = 'natural'
 show_hidden = false
 scrolloff = 255
 
 [preview]
 tab_size = 3
+max_width = 1000

@@ -29,7 +29,7 @@ keymap = [
   { on = [
     'g',
     'i',
-  ], run = 'arrow -99999999', desc = 'Go to top' },
+  ], run = 'arrow top', desc = 'Go to top' },
   { on = [
     'g',
     'h',
@@ -37,7 +37,7 @@ keymap = [
   { on = [
     'g',
     'o',
-  ], run = 'arrow 99999999', desc = 'Go to bottom' },
+  ], run = 'arrow bot', desc = 'Go to bottom' },
   { on = [
     'g',
     'd',
