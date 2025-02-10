@@ -1,7 +1,7 @@
 .shell {
 	--red: #ff2930;
 	--orange: #ff9f1a;
-	--yellow: #ffd75f;
+	--yellow: #ffd75f rgb(255, 215, 95);
 	--salad: #87ff5f;
 	--green: #3dff47;
 	--cyan: #00d7ff;
