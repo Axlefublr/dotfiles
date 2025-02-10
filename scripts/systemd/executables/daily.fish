@@ -2,6 +2,8 @@
 
 trash-empty -f 1
 
+randomize-wallpaper.fish
+
 cd ~/.local/share/magazine
 for file in ~/.local/share/magazine/*
     _magazine_commit $file left
