@@ -9,6 +9,11 @@ for package in (cat ~/.local/share/magazine/W)
     echo $package | xargs eget --upgrade-only
 end
 
+for curlie in (cat ~/.local/share/magazine/Q)
+    set -l bits (string split ' ' $curlie)
+    curl $bits[1] -o (string replace -r '^~' $HOME $bits[2])
+end
+
 rustup update
 cargo install-update -a
 

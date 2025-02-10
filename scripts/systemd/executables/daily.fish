@@ -68,9 +68,4 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
-for curlie in (cat ~/.local/share/magazine/Q)
-    set -l bits (string split ' ' $curlie)
-    curl $bits[1] -o (string replace -r '^~' $HOME $bits[2])
-end
-
 ubootf
