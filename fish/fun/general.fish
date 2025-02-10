@@ -75,9 +75,7 @@ end
 funcsave autocommit >/dev/null
 
 function lh
-    set -l raw_link (string replace 'github.com' 'raw.githubusercontent.com' $argv[1] | string replace blob refs/heads)
-    set -l file_path (string replace -r '^~' $HOME $argv[2])
-    curl $raw_link >$file_path
+    read | string replace 'github.com' 'raw.githubusercontent.com' | string replace blob refs/heads
 end
 funcsave lh >/dev/null
 
