@@ -159,28 +159,28 @@ binds {
 
     Mod+Semicolon { close-window; }
 
-    Mod+H     { focus-column-left-or-last; }
-    Mod+J     { focus-window-or-workspace-down; }
-    Mod+K     { focus-window-or-workspace-up; }
-    Mod+L     { focus-column-right-or-first; }
+    Mod+H { focus-column-left-or-last; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
+    Mod+L { focus-column-right-or-first; }
 
-    Mod+Alt+H     { move-column-left; }
-    Mod+Alt+J     { move-window-down-or-to-workspace-down; }
-    Mod+Alt+K     { move-window-up-or-to-workspace-up; }
-    Mod+Alt+L     { move-column-right; }
+    Mod+Alt+H { move-column-left; }
+    Mod+Alt+J { move-window-down-or-to-workspace-down; }
+    Mod+Alt+K { move-window-up-or-to-workspace-up; }
+    Mod+Alt+L { move-column-right; }
 
     Mod+WheelScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
     Mod+WheelScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
 
-    Mod+Comma  { consume-or-expel-window-left; }
-    Mod+Period { consume-or-expel-window-right; }
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
 
     Mod+N { switch-preset-column-width; }
     Mod+M { switch-preset-window-height; }
     Mod+Alt+M { reset-window-height; }
     Mod+Alt+N { maximize-column; }
 
-    Mod+Alt+Slash       { toggle-window-floating; }
+    Mod+Alt+Slash { toggle-window-floating; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
 
     Mod+s { screenshot; }
@@ -260,6 +260,7 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 16
     clip-to-geometry true
+    opacity 0.97
 }
 
 window-rule {
@@ -278,4 +279,9 @@ window-rule {
     match app-id="^waybar$"
     match app-id="^kitty$" title="^uboot$"
     open-focused false
+}
+
+window-rule {
+    match app-id="^kitty$"
+    opacity 1.0
 }
