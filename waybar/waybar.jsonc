@@ -7,18 +7,21 @@
   "margin-right": 6,
   "reload_style_on_change": true,
   "modules-left": [
-    "clock",
+    "clock#date",
     "clock#weekday",
     "clock#time",
-    "custom/magazines"
+    "niri/language",
+    "custom/magazines",
   ],
   "modules-center": [],
   "modules-right": [
+    "pulseaudio",
+    "memory",
     "disk",
     "temperature#gpu",
     "temperature#cpu",
   ],
-  "clock": {
+  "clock#date": {
     "interval": 60,
     "format": "{:%y.%m.%d}"
   },
@@ -31,12 +34,34 @@
     "interval": 1,
     "format": "{:%H:%M:%S}"
   },
+  "niri/language": {
+    "format-en": "en",
+    "format-ru": "ru",
+  },
+  "keyboard-state": {
+    "format": {
+      "capslock": "{icon}"
+    },
+    "format-icons": {
+      "locked": "H",
+      "unlocked": "h",
+    },
+    "capslock": true
+  },
   "custom/magazines": {
     "exec": "/home/axlefublr/r/dot/waybar/magazines.fish",
     "format": "{}",
     "hide-empty-text": true
   },
-  "disk": {},
+  "pulseaudio": {
+    "format-muted": "×",
+  },
+  "memory": {
+    "format": "{used}*",
+  },
+  "disk": {
+    "format": "{percentage_used}%",
+  },
   "temperature#gpu": {
     "format": "{temperatureC}°",
     "hwmon-path": "/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon3/temp1_input",
