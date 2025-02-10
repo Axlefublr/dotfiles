@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
-trash-empty -f 1
-
 randomize-wallpaper.fish
+
+trash-empty -f 1
 
 cd ~/.local/share/magazine
 for file in ~/.local/share/magazine/*
@@ -19,6 +19,8 @@ if test (math (clorange habit increment) % 2) -eq 0
 else
     indeed -n ~/.local/share/magazine/x (cat ~/.local/share/magazine/rightbrace)
 end
+
+indeed -nu ~/.local/share/magazine/semicolon -- (shuf -n 1 ~/.local/share/magazine/s)
 
 cd ~/auto
 
@@ -66,6 +68,9 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
-indeed -nu ~/.local/share/magazine/semicolon -- (shuf -n 1 ~/.local/share/magazine/s)
+for curlie in (cat ~/.local/share/magazine/Q)
+    set -l bits (string split ' ' $curlie)
+    curl $bits[1] -o (string replace -r '^~' $HOME $bits[2])
+end
 
 ubootf
