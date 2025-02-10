@@ -1664,7 +1664,7 @@ keymap:
       Alt_R-c: { launch: [fish, -c, 'int calcure']}
       Alt_R-q: { launch: [fish, -c, 'int tiptop']}
       Alt_R-e: { launch: [fish, -c, 'int bluetui']}
-      Alt_R-z: { launch: [systemctl, --user, restart, waybar.service] }
+      Alt_R-z: { launch: [fuzzel] }
       Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75'] }
 
       Super_R-q: ctrl-shift-u

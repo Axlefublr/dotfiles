@@ -224,6 +224,12 @@ function dode-fuck
     sudo pacman -Rns --noconfirm meld
 end
 
+function dode-fuzzel
+    sudo pacman -S --needed --noconfirm --disable-download-timeout fuzzel
+    mkdir -p ~/.config/fuzzel
+    ln -sf ~/r/dot/fuzzel.ini ~/.config/fuzzel/fuzzel.ini
+end
+
 function dode-gamescope
     sudo pacman -S --needed --noconfirm --disable-download-timeout gamescope
 end
