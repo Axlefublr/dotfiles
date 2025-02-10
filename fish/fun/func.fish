@@ -85,3 +85,39 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
     paccache -qrk0 -c /var/cache/pacman/pkg $installed_target
 end
 funcsave pacclean >/dev/null
+
+function filter_mature_tasks
+    function if_print
+        test "$argv[1]" -ge $argv[3] && echo "$argv[2] — $(math $argv[1] - $argv[3])" || printf ''
+    end
+    set oldest (loago list -e razor -e rilter -e eat -e wick -e coils | awk '$3 > 4')
+    for task in $oldest
+        set -l match (string match -gr '^(\\S+)\\s+— (\\d+)$' $task)
+        set -l name $match[1]
+        set -l days $match[2]
+        switch $name
+            case filter
+                if_print $days $name 60
+            case towels nose wash vacuum floor dust
+                if_print $days $name 7
+            case cloths brushes glasses
+                if_print $days $name 10
+            case nails
+                if_print $days $name 14
+            case wilter bottle photos audio
+                if_print $days $name 15
+            case tails iso keyboard fsrs disc liked
+                if_print $days $name 30
+            case toothbrush
+                if_print $days $name 90
+            case '*'
+                echo "$name — $(math $days - 5)"
+        end
+    end | sort -g -k 3 -r | column -t -s '—' -o '—'
+end
+funcsave filter_mature_tasks >/dev/null
+
+function mature_tasks_line
+    filter_mature_tasks | awk '{print $1}' | string join ' '
+end
+funcsave mature_tasks_line >/dev/null

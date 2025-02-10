@@ -1644,10 +1644,10 @@ keymap:
   - name: Any! media
     exact_match: true
     remap:
-      CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume -5'] }
-      CapsLock-Alt_L-e: { launch: [fish, -c, 'set_volume +5'] }
-      CapsLock-a: { launch: [fish, -c, 'toggle_mic_mute'] }
-      CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mute'] }
+      CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume 0.02-'] }
+      CapsLock-Alt_L-e: { launch: [fish, -c, 'set_volume 0.02+'] }
+      CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mic_mute'] }
+      CapsLock-a: { launch: [fish, -c, 'toggle_mute'] }
       CapsLock-Alt_L-Shift-d: { launch: [fish, -c, media_prev] }
       CapsLock-Alt_L-d: { launch: [fish, -c, media_next] }
       CapsLock-t: { launch: [fish, -c, toggle_media] }
