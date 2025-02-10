@@ -3,7 +3,6 @@
   // "layer": "top", // Waybar at top layer
   "position": "top", // (top|bottom|left|right)
   "height": 35, // Waybar height (to be removed for auto height)
-  "spacing": 10, // Gaps between modules (4px)
   "margin-left": 6,
   "margin-right": 6,
   "reload_style_on_change": true,
@@ -11,9 +10,14 @@
     "clock",
     "clock#weekday",
     "clock#time",
+    "custom/magazines"
   ],
   "modules-center": [],
-  "modules-right": [],
+  "modules-right": [
+    "disk",
+    "temperature#gpu",
+    "temperature#cpu",
+  ],
   "clock": {
     "interval": 60,
     "format": "{:%y.%m.%d}"
@@ -26,5 +30,23 @@
   "clock#time": {
     "interval": 1,
     "format": "{:%H:%M:%S}"
-  }
+  },
+  "custom/magazines": {
+    "exec": "/home/axlefublr/r/dot/waybar/magazines.fish",
+    "format": "{}",
+    "hide-empty-text": true
+  },
+  "disk": {},
+  "temperature#gpu": {
+    "format": "{temperatureC}°",
+    "hwmon-path": "/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon3/temp1_input",
+    "interval": 10,
+    "critical-threshold": 90,
+  },
+  "temperature#cpu": {
+    "format": "{temperatureC}°",
+    "hwmon-path": "/sys/devices/platform/nct6775.656/hwmon/hwmon4/temp2_input",
+    "interval": 10,
+    "critical-threshold": 75,
+  },
 }

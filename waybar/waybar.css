@@ -1,24 +1,3 @@
-* {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, Inter, sans-serif;
-  font-size: 20;
-}
-
-window#waybar {
-  background-color: rgba(31, 30, 30, 0.9);
-  color: #d4be98;
-  transition-property: background-color;
-  transition-duration: .5s;
-  border: 1.4px solid #ffd75f;
-  border-top: none;
-  border-radius: 0 0 16 16;
-}
-
-#waybar>* {
-  padding: 2px;
-  padding-top: 0px;
-}
-
 button {
   /* Use box-shadow instead of border so the text isn't offset */
   box-shadow: inset 0 -3px transparent;
@@ -33,25 +12,84 @@ button:hover {
   box-shadow: inset 0 -3px #ffffff;
 }
 
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, Input Mono, sans-serif;
+  font-size: 20;
+}
+
+window#waybar {
+  background-color: rgba(31, 30, 30, 0.9);
+  color: #d4be98;
+  transition-property: background-color;
+  transition-duration: .5s;
+  border: 2px solid #d4be98;
+  border-top: none;
+  border-radius: 0 0 16 16;
+}
+
+#waybar>* {
+  padding-bottom: 3px;
+}
+
+.module {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
 .modules-left:first-child {
-  margin-left: 8;
+  margin-left: 6px;
 }
 
 .modules-right:last-child {
-  margin-right: 8;
+  margin-right: 6px;
 }
 
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
+.modules-left>widget:first-child {
+  color: #ea6962;
 }
 
-#clock {
-  font-family: Input Mono;
+.modules-left>widget:first-child~widget {
+  color: #e49641;
+}
+
+.modules-left>widget:first-child~widget~widget {
+  color: #d3ad5c;
+}
+
+.modules-left>widget:first-child~widget~widget~widget {
+  color: #a9b665;
+}
+
+.modules-left>widget:first-child~widget~widget~widget~widget {
+  color: #78bf84;
+}
+
+.modules-left>widget:first-child~widget~widget~widget~widget~widget {
+  color: #7daea3;
+}
+
+.modules-left>widget:first-child~widget~widget~widget~widget~widget~widget {
+  color: #b58cc6;
+}
+
+.modules-left>widget:first-child~widget~widget~widget~widget~widget~widget~widget {
+  color: #e491b2;
 }
 
 #clock.weekday {
-  margin-left: 2;
+  margin-left: 8;
+}
+
+#disk {
+  color: #d3ad5c;
+}
+
+#temperature.gpu {
+  color: #e49641;
+  margin-right: 4;
+}
+
+#temperature.cpu {
+  color: #ea6962;
 }
