@@ -19,7 +19,7 @@ button:hover {
 }
 
 window#waybar {
-  background-color: rgba(31, 30, 30, 0.9);
+  background-color: rgba(31, 30, 30, 0.7);
   color: #d4be98;
   transition-property: background-color;
   transition-duration: .5s;
