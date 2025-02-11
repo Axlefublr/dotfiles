@@ -42,10 +42,6 @@ abbr -a bl bluetoothctl
 abbr -a tm toggle_media
 abbr -a sv set_volume
 abbr -a smv set_mic_volume
-abbr -a xk 'xdotool key'
-abbr -a xt 'xdotool type'
-abbr -a awm awesome-client
-abbr -a ntf notify-send
 
 abbr -a gz glaza
 abbr -a gx 'glaza -g'

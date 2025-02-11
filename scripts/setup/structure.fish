@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 cd ~
-mkdir -p ups pic vid prog bs t trans .local/bin
+mkdir -p ups pic vid prog bs t trans .local/bin .cache/mine
 git clone https://github.com/Axlefublr/deleted-bangers
 mv deleted-bangers mus
 git clone https://github.com/Axlefublr/autocommit
@@ -26,7 +26,7 @@ cd ~/r/forks
 git clone https://github.com/Axlefublr/helix
 
 cd ~/.local/share
-mkdir -p harp loago
+mkdir -p harp loago mine
 cp -f ~/auto/harp.yml ~/.local/share/harp/harp.yml
 cp -f ~/auto/loago.json ~/.local/share/loago/loago.json
 cp -f ~/auto/axleizer_invalid.json ~/.local/share/axleizer_invalid.json

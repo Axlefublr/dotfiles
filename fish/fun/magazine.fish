@@ -32,16 +32,6 @@ function magazine_truncate
 end
 funcsave magazine_truncate >/dev/null
 
-function magazine_write
-    not test "$argv" && return
-    set result (rofi -dmenu 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return || set -e result[-1]
-    echo "$result" >$argv
-    _magazine_notify $argv write
-    _magazine_commit $argv write
-end
-funcsave magazine_write >/dev/null
-
 function magazine_append
     not test "$argv" && return
     set -l result "$(get-input)"
@@ -62,8 +52,8 @@ funcsave magazine_appclip >/dev/null
 
 function magazine_filter
     not test "$argv" && return
-    set result (rofi_multi_select -input $argv 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return || set -e result[-1]
+    set result (cat $argv | fuzzel -d 2>/dev/null)
+    test $status -ne 0 && return 1
     echo $result | copy
     for line in (cat $argv)
         if contains "$line" $result
@@ -80,9 +70,9 @@ funcsave magazine_filter >/dev/null
 
 function magazine_copy
     not test "$argv" && return
-    set result (rofi_multi_select -input $argv 2>/dev/null ; echo $status)
-    test $result[-1] -ne 0 && return || set -e result[-1]
-    echo $result | copy
+    set input (cat $argv | fuzzel -d 2>/dev/null)
+    test $status -ne 0 && return 1
+    echo $input | copy
 end
 funcsave magazine_copy >/dev/null
 
@@ -135,7 +125,7 @@ end
 funcsave magazine_append_link >/dev/null
 
 function magazine_append_symbol
-    set symbol_name (rofi -dmenu 2>/dev/null)
+    set symbol_name (fuzzel -dl 0 2>/dev/null)
     test $status -ne 0 && return 1
     set symbol_text (ypoc)
     indeed -nu ~/.local/share/magazine/e -- (begin
@@ -262,7 +252,7 @@ end
 funcsave project_paths >/dev/null
 
 function pick_project_path
-    echo ~/r/(project_paths | rofi -dmenu 2>/dev/null)/project.txt
+    echo ~/r/(project_paths | fuzzel -dl 0 2>/dev/null)/project.txt
 end
 funcsave pick_project_path >/dev/null
 

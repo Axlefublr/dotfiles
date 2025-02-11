@@ -5,7 +5,7 @@ function batch-link-downloader
         echo youtube
         echo longform
         echo asmr
-    end | rofi -dmenu -no-custom 2>/dev/null)
+    end | fuzzel -d 2>/dev/null)
     test $status -ne 0 && return 1
     switch $extra
         case youtube

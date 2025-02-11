@@ -179,13 +179,12 @@ end
 funcsave scratchkitty >/dev/null
 
 function get-input
-    set -q argv[1] && set -f input_file -input $argv[1]
-    set -l input (rofi -dmenu $input_file 2>/dev/null)
+    set -l input (fuzzel -dl 0 2>/dev/null)
     test $status -eq 1 && return 1
     if test (string sub -s -2 -- $input) = '%%'
-        string sub -e -2 -- $input >~/bs/get-input
-        neomax_hold "~/bs/get-input$(calculate-eof-position ~/bs/get-input)"
-        set input "$(cat ~/bs/get-input)"
+        string sub -e -2 -- $input >~/.cache/mine/get-input
+        neomax-hold "~/.cache/mine/get-input$(calculate-eof-position ~/.cache/mine/get-input)"
+        set input "$(cat ~/.cache/mine/get-input)"
     end
     echo $input
 end

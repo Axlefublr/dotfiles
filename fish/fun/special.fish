@@ -9,12 +9,11 @@ function pick-sts-boss
             echo YesAwakenedOne
             echo YesDonuDeca
             echo YesTimeEater
-        end | rofi -dmenu 2> /dev/null ; echo $status
+        end | fuzzel -d 2>/dev/null
     )
-    if test $input[-1] -ne 0
+    if test $status -ne 0
         return 1
     end
-    set -e input[-1]
     cp -f ~/r/binaries/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
 end
 funcsave pick-sts-boss >/dev/null

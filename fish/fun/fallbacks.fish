@@ -57,10 +57,6 @@ alias --save bl bluetoothctl >/dev/null
 alias --save tm toggle_media >/dev/null
 alias --save sv set_volume >/dev/null
 alias --save smv set_mic_volume >/dev/null
-alias --save xk 'xdotool key' >/dev/null
-alias --save xt 'xdotool type' >/dev/null
-alias --save ntf notify-send >/dev/null
-alias --save awm awesome-client >/dev/null
 
 alias --save gz glaza >/dev/null
 alias --save gx 'glaza --git' >/dev/null
