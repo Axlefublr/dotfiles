@@ -266,7 +266,7 @@ window-rule {
 window-rule {
     match app-id="^anki$" title="^Import File$"
     match app-id="^python$" title="^Import$"
-    match app-id="firefox$" title="^File Upload$"
+    match app-id="firefox$" title="^(File Upload)|(Save Image)$"
     open-floating false
 }
 

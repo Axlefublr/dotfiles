@@ -1676,7 +1676,7 @@ keymap:
       CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '/home/axlefublr/z.mp4'] }
       Super-i: { launch: [fish, -c, 'runner show'] }
       Super-o: { launch: [fish, -c, runner_notification] }
-      Super-Alt_L-Semicolon: { launch: [rofi, -show, drun] }
+      Super-Alt_L-Semicolon: { launch: [fuzzel] }
       Super-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
       Super-p: { launch: [fish, -c, runner_math] }
       CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/bs/clipboard_edit.md ; neomax-hold "~/bs/clipboard_edit.md$(calculate-eof-position ~/bs/clipboard_edit.md)" ; cat ~/bs/clipboard_edit.md | copy'] }
