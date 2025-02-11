@@ -150,6 +150,12 @@ function dode-dns
     sudo ip link set dev wlan0 mtu $optimal_value
 end
 
+function dode-dunst
+    sudo pacman -S --needed --noconfirm --disable-download-timeout dunst
+    mkdir -p ~/.config/dunst
+    ln -sf ~/r/dot/dunst.ini ~/.config/dunst/dunstrc
+end
+
 function dode-etcher
     paru -Sa --needed --disable-download-timeout etcher-cli-bin
 end
