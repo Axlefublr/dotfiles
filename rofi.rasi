@@ -17,6 +17,7 @@ configuration {
 	kb-toggle-case-sensitivity: "";
 	kb-element-next: "";
 	kb-element-previous: "";
+	kb-accept-custom-alt: "";
 	kb-accept-alt: "Alt+l";
 
 	kb-clear-line: "Control+Alt+u";
@@ -30,12 +31,11 @@ configuration {
 	kb-row-up: "Up,Control+p,Alt+k";
 	kb-row-down: "Down,Control+n,Alt+j";
 
-	kb-row-select: "Alt+[47]"; // 47 is ; on qwerty (figured out using `xev`)
+	kb-row-select: "Control+[47]"; // 47 is ; on qwerty (figured out using `xev`)
 	kb-accept-entry: "Return";
 	kb-accept-custom: "Shift+Return";
-	kb-custom-1: "Alt+Return";
-	kb-custom-2: "Shift+Alt+Return";
-	kb-custom-3: "Control+Return";
+	kb-custom-1: "Control+Return";
+	kb-custom-2: "Control+Shift+Return";
 
 	kb-select-1: "Control+1";
 	kb-select-2: "Control+2";
@@ -86,12 +86,12 @@ configuration {
 
 window {
 	font: "Input Mono 16";
-	width: 50%;
-	location: north;
-	y-offset: 35%;
+	width: 55ch;
+	location: center;
+	// y-offset: 35%;
 	padding: 0;
 	border: 2px;
-	border-radius: 18px;
+	border-radius: 9px;
 	border-color: #ffd75f;
 	background-color: var(dark12-trans);
 }
@@ -110,8 +110,8 @@ listview {
 	border: 0;
 	padding: 0;
 	spacing: 0;
-	fixed-height: false;
-	dynamic: true;
+	fixed-height: true;
+	dynamic: false;
 	lines: 8;
 	require-input: false;
 	background-color: transparent;
@@ -132,7 +132,7 @@ inputbar {
 entry {
 	text-color: var(white);
 	background-color: transparent;
-	horizontal-align: 0.5;
+	// horizontal-align: 0.5;
 	blink: false;
 }
 
