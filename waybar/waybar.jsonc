@@ -57,7 +57,7 @@
     "format-muted": "×",
   },
   "memory": {
-    "format": "{used}*",
+    "format": "{percentage}*",
   },
   "disk": {
     "format": "{percentage_used}%",
