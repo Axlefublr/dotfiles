@@ -364,6 +364,12 @@ function dode-lxappearance
     sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance gtk-engine-murrine qt5ct
 end
 
+function dode-mako
+    sudo pacman -S --needed --noconfirm --disable-download-timeout mako
+    mkdir -p ~/.config/mako
+    ln -sf ~/r/dot/mako.ini ~/.config/mako/config
+end
+
 function dode-mapscii
     paru -Sa --needed --disable-download-timeout nodejs-mapscii
 end
