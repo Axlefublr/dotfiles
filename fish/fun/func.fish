@@ -3,12 +3,12 @@
 function engined_search
     set -l input (
         for line in (cat ~/.local/share/magazine/B)
-            echo -(string split ' ' $line)[1]-
-        end | rofi -dmenu 2>/dev/null
+            echo (string split ' ' $line)[1]!
+        end | fuzzel -d 2>/dev/null
     )
     test $status -ne 0 && return 1
 
-    string match -gr '^(?:-(?<engine>.*)- )?(?<only_search>.*)' -- $input
+    string match -gr '^(?:(?<engine>.*)! )?(?<only_search>.*)' -- $input
     not test "$engine" && set engine google
     set clean_input (string escape --style=url $only_search)
 
