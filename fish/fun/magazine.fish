@@ -35,7 +35,7 @@ funcsave magazine_truncate >/dev/null
 function magazine_append
     not test "$argv" && return
     set -l result "$(get-input)"
-    test $status -eq 1 && return
+    test $status -ne 0 && return
     indeed -n $argv -- $result
     _magazine_notify $argv append
     _magazine_commit $argv append
