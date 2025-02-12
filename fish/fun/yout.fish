@@ -7,21 +7,13 @@ function batch-link-downloader
         echo asmr
     end | fuzzel -d 2>/dev/null)
     test $status -ne 0 && return 1
-    switch $extra
-        case youtube
-            set -f group k
-        case longform
-            set -f group K
-        case asmr
-            set -f group i
-    end
     set -l links (ypoc | sttr extract-url)
     if not test "$links"
         notify-send -t 2000 'no copied links'
         return 1
     end
     for link in $links
-        pueue add -g $group -- "install-yt-video $extra $link"
+        pueue add -g k -- "install-yt-video $extra $link"
     end
 end
 funcsave batch-link-downloader >/dev/null

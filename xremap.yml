@@ -1637,9 +1637,8 @@ keymap:
   - name: Any! wm
     exact_match: true
     remap:
-      # Ctrl-Alt_L-Esc: { launch: [awesome-client, 'if not naughty.is_suspended() then naughty.destroy_all_notifications() end'] }
-      # Alt_L-Esc: { launch: [awesome-client, "env.destroy_sided_notification('oldest')"] }
-      # Shift-Alt_L-Esc: { launch: [awesome-client, "env.destroy_sided_notification('latest')"] }
+      Alt_L-Esc: { launch: [fish, -c, ntf-dismiss-old] }
+      Super_L-u: { launch: [fish, -c, ntf-pick-dismiss] }
 
   - name: Any! media
     exact_match: true

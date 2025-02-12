@@ -202,6 +202,12 @@ function dode-firefox
     # enable shortcuts in address bar
 end
 
+function dode-fnott
+    sudo pacman -S --needed --noconfirm --disable-download-timeout fnott
+    mkdir -p ~/.config/fnott
+    ln -sf ~/r/dot/fnott.ini ~/.config/fnott/fnott.ini
+end
+
 function dode-fstab
     # automounting setup
     sudo blkid # take UUIDs for the partitions here
@@ -384,6 +390,7 @@ end
 function dode-niri
     sudo pacman -S --needed --noconfirm --disable-download-timeout niri
     sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring
+    sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps clang # for building from source
     ln -sf ~/r/dot/niri.kdl ~/.config/niri/config.kdl
     mkdir -p ~/.config/systemd/user/niri.service.wants
 end

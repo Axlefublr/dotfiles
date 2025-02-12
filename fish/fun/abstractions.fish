@@ -75,6 +75,18 @@ function bl_reconnect
 end
 funcsave bl_reconnect >/dev/null
 
+function ntf-dismiss-old
+    fnottctl dismiss
+end
+funcsave ntf-dismiss-old >/dev/null
+
+function ntf-pick-dismiss
+    set -l result (fnottctl list | rg '^\\d' | fuzzel -d 2>/dev/null)
+    test $status -ne 0 && return 1
+    fnottctl dismiss (echo $result | string match -gr '^(\\d+)')
+end
+funcsave ntf-pick-dismiss >/dev/null
+
 function toggle-screen-record
     if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
         kitten @ --to unix:/home/axlefublr/bs/screen-record-kitty-socket signal-child SIGINT
