@@ -108,9 +108,8 @@ function dode-cbonsai
     paru -Sa --needed --disable-download-timeout cbonsai
 end
 
-function dode-copyq
-    sudo pacman -S --needed --noconfirm --disable-download-timeout copyq
-    pipx install git+https://github.com/cjbassi/rofi-copyq
+function dode-cliphist
+    sudo pacman -S --needed --noconfirm --disable-download-timeout cliphist
 end
 
 function dode-cowsay

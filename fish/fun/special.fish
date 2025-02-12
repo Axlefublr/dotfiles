@@ -44,11 +44,6 @@ function lazyfloat -a harp
 end
 funcsave lazyfloat >/dev/null
 
-function index_clipboard -a index
-    notify-send -t 2000 "$(copyq read $index | pee 'wl-copy -n' 'head -c 100')"
-end
-funcsave index_clipboard >/dev/null
-
 function set_tab_title
     read -P 'title: ' new_title
     if not test "$new_title"

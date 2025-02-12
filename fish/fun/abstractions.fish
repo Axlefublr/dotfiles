@@ -87,6 +87,18 @@ function ntf-pick-dismiss
 end
 funcsave ntf-pick-dismiss >/dev/null
 
+function clipboard-pick
+    set -l result (cliphist list | fuzzel -d)
+    test $status -ne 0 && return 1
+    echo $result | cliphist decode | copy
+end
+funcsave clipboard-pick >/dev/null
+
+function clipboard-index -a index
+    notify-send -t 2000 "$(copyq read $index | pee 'wl-copy -n' 'head -c 100')"
+end
+funcsave clipboard-index >/dev/null
+
 function toggle-screen-record
     if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
         kitten @ --to unix:/home/axlefublr/bs/screen-record-kitty-socket signal-child SIGINT
