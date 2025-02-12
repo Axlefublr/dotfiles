@@ -565,6 +565,11 @@ function dode-speedtest
     sudo pacman -S --needed --noconfirm --disable-download-timeout speedtest-cli
 end
 
+function dode-spotify
+    sudo pacman -S --needed --noconfirm --disable-download-timeout spotify-launcher
+    # edit /usr/share/applications/spotify-launcher.desktop to have `env DISPLAY=:1.0` in exec
+end
+
 function dode-steam
     sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runtime
 end
