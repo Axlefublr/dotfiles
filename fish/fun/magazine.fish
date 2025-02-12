@@ -252,7 +252,7 @@ end
 funcsave project_paths >/dev/null
 
 function pick_project_path
-    echo ~/r/(project_paths | fuzzel -dl 0 2>/dev/null)/project.txt
+    echo ~/r/(project_paths | fuzzel -d 2>/dev/null)/project.txt
 end
 funcsave pick_project_path >/dev/null
 

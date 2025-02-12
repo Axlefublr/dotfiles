@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 function fish_greeting
+    filter_mature_tasks
 end
 funcsave fish_greeting >/dev/null
 

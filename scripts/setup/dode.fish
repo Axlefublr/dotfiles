@@ -185,7 +185,7 @@ function dode-figlet
 end
 
 function dode-firefox
-    sudo pacman -S firefox
+    sudo pacman -S --needed --noconfirm --disable-download-timeout firefox
     set -Ux MOZ_ENABLE_WAYLAND 1
     set -Ux GTK_THEME Adwaita:dark
     set -l prof_dir ~/.mozilla/firefox/fqigcjz6.default-release
