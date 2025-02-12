@@ -38,7 +38,7 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
-    workspace-auto-back-and-forth
+    // workspace-auto-back-and-forth
 }
 
 // You can configure outputs by their name, which you can find
@@ -105,8 +105,8 @@ layout {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
-        proportion 0.5
         proportion 0.33333
+        // proportion 0.5
         proportion 0.66667
 
         // Fixed sets the width in logical pixels exactly.
@@ -147,10 +147,12 @@ layout {
 }
 
 binds {
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
     XF86AudioMute        allow-when-locked=true { spawn "fish" "-c" "toggle_mute"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "fish" "-c" "toggle_mic_mute"; }
+    Mod+WheelScrollDown { spawn "fish" "-c" "set_volume 0.02+"; }
+    Mod+WheelScrollUp   { spawn "fish" "-c" "set_volume 0.02-"; }
 
     Mod+Shift+E { quit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -169,23 +171,24 @@ binds {
     Mod+Alt+K { move-window-up-or-to-workspace-up; }
     Mod+Alt+L { move-column-right; }
 
-    Mod+WheelScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-    Mod+WheelScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    // Mod+Comma  { consume-or-expel-window-left; }
+    // Mod+Period { consume-or-expel-window-right; }
+    // Mod+Comma  { consume-window-into-column; }
+    // Mod+Period { expel-window-from-column; }
 
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
+    // Mod+M { switch-preset-window-height; }
+    // Mod+Alt+M { reset-window-height; }
+    Mod+Comma { set-column-width "50%"; }
+    Mod+Period { switch-preset-column-width; }
+    Mod+Slash { set-column-width "100%"; }
+    // Mod+Period { maximize-column; }
 
-    Mod+N { switch-preset-column-width; }
-    Mod+M { switch-preset-window-height; }
-    Mod+Alt+M { reset-window-height; }
-    Mod+Alt+N { maximize-column; }
+    Mod+Alt+M { toggle-window-floating; }
+    Mod+M { switch-focus-between-floating-and-tiling; }
 
-    Mod+Alt+Slash { toggle-window-floating; }
-    Mod+Slash { switch-focus-between-floating-and-tiling; }
-
-    Mod+s { screenshot; }
-    Mod+Shift+s { screenshot-screen; }
-    Mod+Alt+s { screenshot-window; }
+    Mod+S { screenshot; }
+    Mod+Shift+S { screenshot-screen; }
+    Mod+Alt+S { screenshot-window; }
 }
 
 // Add lines like this to spawn processes at startup.
