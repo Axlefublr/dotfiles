@@ -127,16 +127,6 @@ function dode-cursors
     end
 end
 
-function dode-display
-    mkdir -p ~/.local/share/applications/
-    ln -sf ~/r/dot/desktop/display.desktop ~/.local/share/applications/display.desktop
-    xdg-mime default display.desktop image/svg+xml
-    xdg-mime default display.desktop image/png
-    xdg-mime default display.desktop image/jpeg
-    xdg-mime default display.desktop image/gif
-    xdg-mime default display.desktop image/webp
-end
-
 function dode-dns
     begin
         echo 'nameserver 1.1.1.1' # cloudflare DNS server
@@ -584,6 +574,16 @@ function dode-swaybg
     systemctl --user daemon-reload
     ln -s ~/.config/systemd/user/swaybg.service ~/.config/systemd/user/niri.service.wants/
     systemctl --user restart swaybg.service # reload swaybg
+end
+
+function dode-swayimg
+    mkdir -p ~/.local/share/applications/
+    ln -sf ~/r/dot/desktop/swayimg.desktop ~/.local/share/applications/swayimg.desktop
+    xdg-mime default swayimg.desktop image/svg+xml
+    xdg-mime default swayimg.desktop image/png
+    xdg-mime default swayimg.desktop image/jpeg
+    xdg-mime default swayimg.desktop image/gif
+    xdg-mime default swayimg.desktop image/webp
 end
 
 function dode-termfilechooser

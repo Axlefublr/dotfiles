@@ -23,6 +23,7 @@ alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%
 alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -s' >/dev/null
 alias --save rsync 'rsync --mkpath -P' >/dev/null
 alias --save tuisky 'tuisky -c ~/r/dot/tuisky.toml' >/dev/null
+alias --save pv 'pv -g' >/dev/null
 
 #----------------------------------------------------direct----------------------------------------------------
 alias --save bell 'printf \a' >/dev/null
