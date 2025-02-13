@@ -51,6 +51,10 @@ window#waybar {
   color: #78bf84;
 }
 
+#custom-cpu-fan {
+  color: #7daea3;
+}
+
 #pulseaudio {
   color: #78bf84;
   margin-right: 10;
