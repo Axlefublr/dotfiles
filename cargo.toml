@@ -4,6 +4,7 @@ f = '+nightly fmt'
 rr = 'run --release'
 br = 'build --release'
 a = 'add'
+maybe = 'add --dry-run'
 
 [env]
 RUST_LOG = 'trace'

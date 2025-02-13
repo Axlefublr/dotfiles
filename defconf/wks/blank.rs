@@ -1,16 +1,15 @@
-// /home/axlefublr/r/dot/scripts/%%
+// %%
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
 use std::env;
-use std::env::args;
 use std::error::Error;
 use std::fmt;
 use std::fs;
 use std::fs::File;
 use std::fs::OpenOptions;
-use std::io::stdin;
+use std::io;
 use std::io::Read;
 use std::io::Write;
 use std::path::Path;
