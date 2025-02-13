@@ -279,6 +279,7 @@ window-rule {
 window-rule {
     match app-id="^waybar$"
     match app-id="^kitty$" title="^uboot$"
+    match app-id="^kitty$" title="^screen-record$"
     open-focused false
 }
 

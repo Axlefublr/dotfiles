@@ -101,9 +101,9 @@ funcsave clipboard-index >/dev/null
 
 function toggle-screen-record
     if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
-        kitten @ --to unix:/home/axlefublr/bs/screen-record-kitty-socket signal-child SIGINT
+        kitten @ --to unix:/home/axlefublr/.cache/mine/screen-record-kitty-socket signal-child SIGINT
     else
-        kitty -T screen-record --listen-on unix:/home/axlefublr/bs/screen-record-kitty-socket screen-record.fish
+        kitty -T screen-record --listen-on unix:/home/axlefublr/.cache/mine/screen-record-kitty-socket screen-record.fish
     end
 end
 funcsave toggle-screen-record >/dev/null

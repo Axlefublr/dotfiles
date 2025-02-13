@@ -676,6 +676,10 @@ function dode-whois
     sudo pacman -S --needed --noconfirm --disable-download-timeout whois
 end
 
+function dode-wf-recorder
+    sudo pacman -S --needed --noconfirm --disable-download-timeout wf-recorder
+end
+
 function dode-wooz
     sudo pacman -S --needed --noconfirm --disable-download-timeout meson ninja cmake wayland-protocols
     cd ~/r/stored
