@@ -529,14 +529,6 @@ function dode-rofi
     sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 end
 
-function dode-rofi-calc
-    sudo pacman -S --needed --noconfirm --disable-download-timeout rofi-calc
-end
-function edod-rofi-calc
-    sudo pacman -Rns rofi-calc
-    rm -fr ~/.local/share/rofi/rofi_calc_history
-end
-
 function dode-sd
     sudo pacman -S --needed --noconfirm --disable-download-timeout sd
 end
