@@ -110,7 +110,7 @@ keymap:
           s: { launch: [fish, -c, runner_interactive_unicode]}
           e: { launch: [fish, -c, runner_symbol_name] }
 
-          i: { launch: [fish, -c, magazine_client_info] }
+          i: { launch: [fish, -c, write-window-info] }
 
           n: { launch: [fish, -c, anki-add-card] }
 

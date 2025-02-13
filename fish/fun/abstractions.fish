@@ -104,11 +104,15 @@ function clipboard-index -a index
 end
 funcsave clipboard-index >/dev/null
 
-function toggle-screen-record
-    if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
-        kitten @ --to unix:/home/axlefublr/.cache/mine/screen-record-kitty-socket signal-child SIGINT
-    else
-        kitty -T screen-record --listen-on unix:/home/axlefublr/.cache/mine/screen-record-kitty-socket screen-record.fish
-    end
+function write-window-info
+    niri msg windows >~/.local/share/magazine/o
+    _magazine_commit ~/.local/share/magazine/o clients
 end
-funcsave toggle-screen-record >/dev/null
+funcsave write-window-info >/dev/null
+
+function pick-and-copy-color
+    set -l picked_color (xcolor)
+    notify-send -t 3000 "$picked_color"
+    echo $picked_color | copy
+end
+funcsave pick-and-copy-color >/dev/null

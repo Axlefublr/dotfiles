@@ -150,12 +150,6 @@ function magazine_truncate_imports
 end
 funcsave magazine_truncate_imports >/dev/null
 
-function magazine_client_info
-    awesome-client 'WriteClientInfo()'
-    _magazine_commit ~/.local/share/magazine/o clients
-end
-funcsave magazine_client_info >/dev/null
-
 function magazine_count_anki_cards
     not test "$argv" && return
     _magazine_notify $argv count "$(math $(wc -l $argv | string split ' ')[1] - 3)"
