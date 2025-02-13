@@ -95,7 +95,7 @@ end
 funcsave clipboard-pick >/dev/null
 
 function clipboard-index -a index
-    notify-send -t 2000 "$(copyq read $index | pee 'wl-copy -n' 'head -c 100')"
+    notify-send -t 2000 "$(cliphist list | sed -n $index'p' | cliphist decode | pee 'wl-copy -n' 'head -c 100')"
 end
 funcsave clipboard-index >/dev/null
 

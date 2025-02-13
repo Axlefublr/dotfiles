@@ -1582,16 +1582,16 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      CapsLock-Super_R-f: { launch: [fish, -c, 'clipboard-index 0'] }
-      CapsLock-Super_R-d: { launch: [fish, -c, 'clipboard-index 1'] }
-      CapsLock-Super_R-s: { launch: [fish, -c, 'clipboard-index 2'] }
-      CapsLock-Super_R-r: { launch: [fish, -c, 'clipboard-index 3'] }
-      CapsLock-Super_R-e: { launch: [fish, -c, 'clipboard-index 4'] }
-      CapsLock-Super_R-w: { launch: [fish, -c, 'clipboard-index 5'] }
-      CapsLock-Super_R-v: { launch: [fish, -c, 'clipboard-index 6'] }
-      CapsLock-Super_R-c: { launch: [fish, -c, 'clipboard-index 7'] }
-      CapsLock-Super_R-x: { launch: [fish, -c, 'clipboard-index 8'] }
-      CapsLock-Super_R-a: { launch: [fish, -c, 'clipboard-index 9'] }
+      CapsLock-Super_R-f: { launch: [fish, -c, 'clipboard-index 1'] }
+      CapsLock-Super_R-d: { launch: [fish, -c, 'clipboard-index 2'] }
+      CapsLock-Super_R-s: { launch: [fish, -c, 'clipboard-index 3'] }
+      CapsLock-Super_R-r: { launch: [fish, -c, 'clipboard-index 4'] }
+      CapsLock-Super_R-e: { launch: [fish, -c, 'clipboard-index 5'] }
+      CapsLock-Super_R-w: { launch: [fish, -c, 'clipboard-index 6'] }
+      CapsLock-Super_R-v: { launch: [fish, -c, 'clipboard-index 7'] }
+      CapsLock-Super_R-c: { launch: [fish, -c, 'clipboard-index 8'] }
+      CapsLock-Super_R-x: { launch: [fish, -c, 'clipboard-index 9'] }
+      CapsLock-Super_R-a: { launch: [fish, -c, 'clipboard-index 10'] }
 
       # [[sort on]]
       CapsLock-Alt_L-Comma: shift_r-grave
