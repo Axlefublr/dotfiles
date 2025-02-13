@@ -88,9 +88,9 @@ end
 funcsave ntf-pick-dismiss >/dev/null
 
 function clipboard-pick
-    set -l result (cliphist list | fuzzel -d)
+    set -l result (cliphist list | tee ~/.cache/mine/cliphist | cut -f 2- | fuzzel -d --index)
     test $status -ne 0 && return 1
-    echo $result | cliphist decode | copy
+    sed -n (math $result + 1)'p' ~/.cache/mine/cliphist | cliphist decode | copy
 end
 funcsave clipboard-pick >/dev/null
 
