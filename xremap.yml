@@ -83,205 +83,10 @@ keymap:
       Shift-Alt_L-Semicolon: f5
       # [[sort off]]
 
-  - name: Move!
-    exact_match: true
-    mode: [move]
-    remap:
-      g: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
-
-      q: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 0, 35, 490, 500)'] }
-      r: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 1428, 35, 490, 500)'] }
-      w: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 0, 802, 490, 500)'] }
-      e: { launch: [awesome-client, 'MoveVideoPopout(client.focus, 1428, 802, 490, 500)'] }
-
-      h: { launch: [awesome-client, 'client.focus:relative_move(-1, 0, 0, 0)'] }
-      l: { launch: [awesome-client, 'client.focus:relative_move(1, 0, 0, 0)'] }
-      j: { launch: [awesome-client, 'client.focus:relative_move(0, 1, 0, 0)'] }
-      k: { launch: [awesome-client, 'client.focus:relative_move(0, -1, 0, 0)'] }
-
-      Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -1, 0)'] }
-      Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 1, 0)'] }
-      Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 1)'] }
-      Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -1)'] }
-
-      a:
-        remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-15, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(15, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 15, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -15, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-15, -15, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-15, 15, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(15, 15, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(15, -15, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 15)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -15)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, -15)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -15, 15)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, 15)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 15, -15)'] }
-
-      s:
-        remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-45, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(45, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 45, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -45, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-45, -45, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-45, 45, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(45, 45, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(45, -45, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 45)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -45)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, -45)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -45, 45)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, 45)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 45, -45)'] }
-
-      d:
-        remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-135, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(135, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 135, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -135, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-135, -135, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-135, 135, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(135, 135, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(135, -135, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 135)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -135)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, -135)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -135, 135)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, 135)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 135, -135)'] }
-
-      f:
-        remap:
-          h: { launch: [awesome-client, 'client.focus:relative_move(-405, 0, 0, 0)'] }
-          l: { launch: [awesome-client, 'client.focus:relative_move(405, 0, 0, 0)'] }
-          j: { launch: [awesome-client, 'client.focus:relative_move(0, 405, 0, 0)'] }
-          k: { launch: [awesome-client, 'client.focus:relative_move(0, -405, 0, 0)'] }
-          a: { launch: [awesome-client, 'client.focus:relative_move(-405, -405, 0, 0)'] }
-          s: { launch: [awesome-client, 'client.focus:relative_move(-405, 405, 0, 0)'] }
-          d: { launch: [awesome-client, 'client.focus:relative_move(405, 405, 0, 0)'] }
-          f: { launch: [awesome-client, 'client.focus:relative_move(405, -405, 0, 0)'] }
-          Shift-h: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, 0)'] }
-          Shift-l: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, 0)'] }
-          Shift-k: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, 405)'] }
-          Shift-j: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 0, -405)'] }
-          Shift-a: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, -405)'] }
-          Shift-s: { launch: [awesome-client, 'client.focus:relative_move(0, 0, -405, 405)'] }
-          Shift-d: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, 405)'] }
-          Shift-f: { launch: [awesome-client, 'client.focus:relative_move(0, 0, 405, -405)'] }
-
-  - name: Mouse!
-    mode: [mouse]
-    exact_match: true
-    remap:
-      g: [{ set_mode: move }, { launch: [awesome-client, "Mouse_we('green')"] }]
-
-      h: { launch: [xdotool, mousemove_relative, '--', '-1', '0'] }
-      l: { launch: [xdotool, mousemove_relative, '--', '1', '0'] }
-      j: { launch: [xdotool, mousemove_relative, '--', '0', '1'] }
-      k: { launch: [xdotool, mousemove_relative, '--', '0', '-1'] }
-
-      a:
-        remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-15', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '15', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '15'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-15'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-15', '-15'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-15', '15'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '15', '15'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '15', '-15'] }
-
-      s:
-        remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-45', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '45', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '45'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-45'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-45', '-45'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-45', '45'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '45', '45'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '45', '-45'] }
-
-      d:
-        remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-135', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '135', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '135'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-135'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-135', '-135'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-135', '135'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '135', '135'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '135', '-135'] }
-
-      f:
-        remap:
-          h: { launch: [xdotool, mousemove_relative, '--', '-405', '0'] }
-          l: { launch: [xdotool, mousemove_relative, '--', '405', '0'] }
-          j: { launch: [xdotool, mousemove_relative, '--', '0', '405'] }
-          k: { launch: [xdotool, mousemove_relative, '--', '0', '-405'] }
-          a: { launch: [xdotool, mousemove_relative, '--', '-405', '-405'] }
-          s: { launch: [xdotool, mousemove_relative, '--', '-405', '405'] }
-          d: { launch: [xdotool, mousemove_relative, '--', '405', '405'] }
-          f: { launch: [xdotool, mousemove_relative, '--', '405', '-405'] }
-
-  - name: Mouse
-    mode: [mouse]
-    remap:
-      # mouse wheel
-      m: { launch: ['ydotool', 'mousemove', '-w', '--', '-1', '0'] } # left
-      Comma: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '1'] } # up
-      Dot: { launch: ['ydotool', 'mousemove', '-w', '--', '0', '-1'] } # down
-      Slash: { launch: ['ydotool', 'mousemove', '-w', '--', '1', '0'] } # up
-
-  - name: Mousemove!
-    mode: [mouse, move]
-    exact_match: true
-    remap:
-      CapsLock-b: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
-
-      q: { launch: [xdotool, mousemove, '128', '120'] }
-      r: { launch: [xdotool, mousemove, '1792', '120'] }
-      w: { launch: [xdotool, mousemove, '128', '960'] }
-      e: { launch: [xdotool, mousemove, '1792', '960'] }
-
-      z: { launch: [xdotool, mousemove, '128', '540'] }
-      x: { launch: [xdotool, mousemove, '960', '960'] }
-      c: { launch: [xdotool, mousemove, '960', '120'] }
-      v: { launch: [xdotool, mousemove, '1792', '540'] }
-
-      p: { launch: [xdotool, mousemove, '0', '1080'] }
-      Semicolon: { launch: [xdotool, mousemove, '960', '540'] }
-
-      # down and up events of mouse clicks
-      CapsLock-u: { launch: ['ydotool', 'click', '40'] }
-      CapsLock-i: { launch: ['ydotool', 'click', '42'] }
-      CapsLock-o: { launch: ['ydotool', 'click', '41'] }
-      CapsLock-j: { launch: ['ydotool', 'click', '80'] }
-      CapsLock-k: { launch: ['ydotool', 'click', '82'] }
-      CapsLock-l: { launch: ['ydotool', 'click', '81'] }
-
-  - name: Mousemove
-    mode: [mouse, move]
-    remap:
-      u: { launch: ['ydotool', 'click', 'c0'] } # c0 — left click
-      i: { launch: ['ydotool', 'click', 'c2'] } # c2 — middle click
-      o: { launch: ['ydotool', 'click', 'c1'] } # c1 — right click
-
   - name: Arr
     mode: arrows
     remap:
-      CapsLock-f: [{ set_mode: default }, { launch: [awesome-client, Mouse_wd()] }]
+      CapsLock-f: { set_mode: default }
       h: left
       j: down
       k: up
@@ -305,8 +110,6 @@ keymap:
           s: { launch: [fish, -c, runner_interactive_unicode]}
           e: { launch: [fish, -c, runner_symbol_name] }
 
-          y: { launch: [fish, -c, screenkey] }
-          Shift-y: { launch: [kill, screenkey] }
           i: { launch: [fish, -c, magazine_client_info] }
 
           n: { launch: [fish, -c, anki-add-card] }
@@ -1684,8 +1487,6 @@ keymap:
       Super-b: { launch: [fish, -c, 'engined_search'] }
       # Super_L-c: { launch: [fish, -c, pick-and-copy-color]}
       Super_L-v: { launch: [wooz]}
-
-      Super_R-t: { launch: [fish, -c, 'igrai ~/m/soundeffects/audio-volume-change.oga'] }
 
       Super_R-g:
         exact_match: true
