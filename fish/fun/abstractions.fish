@@ -80,6 +80,11 @@ function ntf-dismiss-old
 end
 funcsave ntf-dismiss-old >/dev/null
 
+function ntf-dismiss-all
+    fnottctl dismiss all
+end
+funcsave ntf-dismiss-all >/dev/null
+
 function ntf-pick-dismiss
     set -l result (fnottctl list | rg '^\\d' | fuzzel -d 2>/dev/null)
     test $status -ne 0 && return 1

@@ -1638,6 +1638,7 @@ keymap:
     exact_match: true
     remap:
       Alt_L-Esc: { launch: [fish, -c, ntf-dismiss-old] }
+      Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf-dismiss-all] }
       Super_L-u: { launch: [fish, -c, ntf-pick-dismiss] }
 
   - name: Any! media
