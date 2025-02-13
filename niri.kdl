@@ -151,8 +151,8 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
     XF86AudioMute        allow-when-locked=true { spawn "fish" "-c" "toggle_mute"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "fish" "-c" "toggle_mic_mute"; }
-    Mod+WheelScrollDown { spawn "fish" "-c" "set_volume 0.02+"; }
-    Mod+WheelScrollUp   { spawn "fish" "-c" "set_volume 0.02-"; }
+    Mod+WheelScrollDown { spawn "fish" "-c" "set_volume 0.02-"; }
+    Mod+WheelScrollUp   { spawn "fish" "-c" "set_volume 0.02+"; }
 
     Mod+Shift+E { quit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -182,6 +182,7 @@ binds {
     Mod+Alt+N { maximize-column; }
 
     Mod+Alt+Slash { toggle-window-floating; }
+    Mod+Alt+B { fullscreen-window; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
 
     Mod+S { screenshot; }
