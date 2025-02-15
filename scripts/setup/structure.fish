@@ -7,6 +7,8 @@ mv deleted-bangers mus
 git clone https://github.com/Axlefublr/autocommit
 mv autocommit auto
 
+fish_add_path ~/.local/bin
+
 cd ~/i
 git clone https://github.com/Axlefublr/pictures-tree
 mv pictures-tree tree
@@ -16,11 +18,21 @@ mv video-creation-tools tools
 
 cd ~/r
 mkdir -p forks proj stored the
-git clone https://github.com/Axlefublr/dotfiles
+git clone https://github.com/Axlefublr/dotfiles dot
 git clone https://github.com/Axlefublr/binaries
 git clone https://github.com/Axlefublr/backup
 git clone https://github.com/Axlefublr/info
 git clone https://github.com/Axlefublr/job
+
+fish_add_path ~/r/binaries
+fish_add_path ~/r/binaries/wks
+fish_add_path ~/r/dot/fish
+fish_add_path ~/r/dot/fish/fun
+fish_add_path ~/r/dot/scripts
+fish_add_path ~/r/dot/scripts/trenchcoat
+fish_add_path ~/r/dot/scripts/scriptister
+fish_add_path ~/r/dot/scripts/fool
+fish_add_path ~/r/dot/scripts/services
 
 cd ~/r/forks
 git clone https://github.com/Axlefublr/helix

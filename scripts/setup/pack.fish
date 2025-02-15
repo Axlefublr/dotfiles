@@ -111,6 +111,7 @@ function pack-rust
     rustup toolchain install nightly
     cargo login
     ln -sf ~/r/dot/cargo.toml ~/.cargo/config.toml
+    fish_add_path ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin
 end
 function pack-rust-pack
     sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-binstall
