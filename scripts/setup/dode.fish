@@ -110,6 +110,8 @@ end
 
 function dode-cliphist
     sudo pacman -S --needed --noconfirm --disable-download-timeout cliphist
+    pueue add -g s -- 'wl-paste --type image --watch cliphist store'
+    pueue add -g s -- 'wl-paste --type text --watch cliphist store'
 end
 
 function dode-cowsay
@@ -704,6 +706,7 @@ end
 function dode-xwayland-satellite
     sudo pacman -S --needed --noconfirm --disable-download-timeout xwayland-satellite
     set -Ux DISPLAY :0
+    pueue add -g s -- xwayland-satellite
 end
 
 function dode-yazi

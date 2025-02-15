@@ -9,9 +9,6 @@ kitty -d ~/r/dot & disown
 firefox & disown
 
 playerctld daemon
-wl-paste --type text --watch cliphist store & disown
-wl-paste --type image --watch cliphist store & disown
-xwayland-satellite & disown
 
 sleep 10
 pueue restart -g s
