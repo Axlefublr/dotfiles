@@ -7,7 +7,6 @@
 #------------------------core------------------------
 alias --save trr trash-restore >/dev/null
 alias --save mkd 'mkdir -p' >/dev/null
-alias --save real realpath >/dev/null
 alias --save chx 'chmod +x' >/dev/null
 alias --save p jobs >/dev/null
 alias --save u pueue >/dev/null
@@ -18,10 +17,17 @@ function copyi
     wl-copy -t image/png <$argv[1]
 end
 funcsave copyi >/dev/null
+function copyl
+    for filepath in $argv
+        echo file://(path resolve $filepath)
+    end | wl-copy -t text/uri-list
+end
+funcsave copyl >/dev/null
 alias --save copyn wl-copy >/dev/null
 alias --save ypoc 'wl-paste -n' >/dev/null
 alias --save s copy >/dev/null
 alias --save si copyi >/dev/null
+alias --save sl copyl >/dev/null
 alias --save sn copyn >/dev/null
 alias --save o ypoc >/dev/null
 
