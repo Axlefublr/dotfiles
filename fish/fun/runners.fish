@@ -1,29 +1,20 @@
 #!/usr/bin/env fish
 
 function runner
-    set preset ~/.local/share/magazine/L
-    set histori ~/.local/share/magazine/H
-    truncate -s 0 ~/.cache/mine/runner-input
-    for line in (echo "$(cat $histori)" | tac | awk '!seen[$0]++' | tac)
-        if not contains $line (cat $preset)
-            echo $line
-        end
-    end | while read -l line
-        set last $last $line
-    end
-    printf '%s\n' $last | tail -n 30 >$histori
-    begin
-        echo "$(cat $preset)"
-        cat $histori
-    end | fuzzel -d 2>/dev/null >~/.cache/mine/runner-input
-    indeed $histori (cat ~/.cache/mine/runner-input)
+    set runned ~/.local/share/magazine/L
+    set -l input (tac $runned | fuzzel -d 2>/dev/null)
+    test $status -ne 0 && return 1
+    set input_file ~/.cache/mine/runner-command
+    echo $input >$input_file
     if set -q argv[1]
-        set output "$(source ~/.cache/mine/runner-input &| tee ~/.local/share/magazine/o)"
-        notify-send -t 2000 "$output"
+        set output "$(source $input_file &| tee ~/.local/share/magazine/o)"
+        notify-send "$output"
     else
-        source ~/.cache/mine/runner-input
+        source $input_file
     end
-    _magazine_commit ~/.local/share/magazine/H command history
+    indeed.rs -u $runned -- $input
+    tail -n 30 $runned | sponge $runned
+    _magazine_commit ~/.local/share/magazine/L command history
     _magazine_commit ~/.local/share/magazine/o command output
 end
 funcsave runner >/dev/null
