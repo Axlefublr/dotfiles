@@ -13,5 +13,5 @@ wl-paste --type text --watch cliphist store & disown
 wl-paste --type image --watch cliphist store & disown
 xwayland-satellite & disown
 
-loopuntil is_internet 0.5 0 60
+sleep 10
 pueue restart -g s
