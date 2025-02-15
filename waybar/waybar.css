@@ -37,6 +37,7 @@ window#waybar {
 
 #clock.weekday {
   color: #e49641;
+  margin-left: 10;
 }
 
 #clock.time {
@@ -45,6 +46,7 @@ window#waybar {
 
 #language {
   color: #a9b665;
+  margin-left: 10;
 }
 
 #custom-magazines {
