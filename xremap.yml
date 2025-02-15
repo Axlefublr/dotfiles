@@ -1476,7 +1476,7 @@ keymap:
       CapsLock-y: CapsLock # toggle capslock toggle
       Super-Apostrophe: { launch: [fish, -c, 'clipboard-pick'] }
       CapsLock-v: { launch: [fish, -c, 'toggle-screen-record'] }
-      CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '/home/axlefublr/z.mp4'] }
+      CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '/home/axlefublr/i/s/original.mkv'] }
       Super-i: { launch: [fish, -c, 'runner show'] }
       Super-o: { launch: [fish, -c, runner_notification] }
       Super-Alt_L-Semicolon: { launch: [fuzzel] }
