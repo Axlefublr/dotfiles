@@ -51,6 +51,7 @@ abbr -a ls 'ezagit -a'
 abbr -a lg 'ezagit -al'
 abbr -a lt 'ezagit -Ta'
 
+abbr -a qrtool qrtool.rs
 abbr -a hrtrack httrack
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
 abbr -a q qalc

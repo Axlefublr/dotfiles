@@ -131,7 +131,7 @@ function task
     argparse 'm/mag=' -- $argv
     and test "$_flag_mag"
     and set mag $_flag_mag
-    indeed -u ~/.local/share/magazine/$mag -- $argv
+    indeed.rs -u ~/.local/share/magazine/$mag -- $argv
     _magazine_commit ~/.local/share/magazine/$mag task
 end
 funcsave task >/dev/null
@@ -180,7 +180,7 @@ funcsave scratchkitty >/dev/null
 
 function get-input
     set -l input (fuzzel -dl 0 2>/dev/null)
-    test $status -eq 1 && return 1
+    test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >~/.cache/mine/get-input
         neomax-hold "~/.cache/mine/get-input$(calculate-eof-position ~/.cache/mine/get-input)"

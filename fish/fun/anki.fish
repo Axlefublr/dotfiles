@@ -82,7 +82,7 @@ function anki-add-card
         notify-send -t 2000 "$(cat ~/bs/anki-card-errors)"
     end
     test $exitcode -ne 0 && return
-    indeed -nu ~/.local/share/magazine/A -- "$card"
+    indeed.rs -u ~/.local/share/magazine/A -- "$card"
     _magazine_commit ~/.local/share/magazine/A card
     notify-send -t 3000 "$(tail -n +4 ~/.local/share/magazine/A | wc -l)"
 end

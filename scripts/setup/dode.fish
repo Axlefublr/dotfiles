@@ -387,7 +387,7 @@ end
 function dode-nom
     # paru -Sa --needed --disable-download-timeout nom
     eget https://github.com/guyfedwards/nom
-    indeed -nu ~/.local/share/magazine/W https://github.com/guyfedwards/nom
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/guyfedwards/nom
     mkdir -p ~/.config/nom
     ln -sf ~/r/dot/nom.yml ~/.config/nom/config.yml
     ln -sf ~/auto/nom.db ~/.config/nom/nom.db
@@ -537,7 +537,7 @@ end
 
 function dode-scc
     eget https://github.com/boyter/scc
-    indeed -nu ~/.local/share/magazine/W https://github.com/boyter/scc
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/boyter/scc
 end
 
 function dode-screenkey
@@ -564,7 +564,7 @@ end
 
 function dode-sttr
     eget -a tar.gz -a '^sbom.json' https://github.com/abhimanyu003/sttr
-    indeed -nu ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
+    indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
 end
 
 function dode-swaybg
@@ -636,7 +636,7 @@ end
 
 function dode-tz
     eget https://github.com/oz/tz
-    indeed -nu ~/.local/share/magazine/W https://github.com/oz/tz
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/oz/tz
 end
 
 function dode-unimatrix
@@ -695,7 +695,7 @@ function dode-x
 end
 
 function dode-xremap
-    sudo pacman -S --needed --noconfirm --disable-download-timeout xremap-x11-bin
+    sudo pacman -S --needed --noconfirm --disable-download-timeout xremap-wlroots-bin
     sudo usermod -aG input $USER
     sudo usermod -aG video $USER
     echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-uinput.rules
