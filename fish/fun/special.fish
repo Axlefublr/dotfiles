@@ -38,12 +38,6 @@ function alphabet
 end
 funcsave alphabet >/dev/null
 
-function lazyfloat -a harp
-    set -l cwd (harp get harp_dirs $harp --path)
-    scratchpad --wintitle=max --cwd=$cwd lazygit
-end
-funcsave lazyfloat >/dev/null
-
 function set_tab_title
     read -P 'title: ' new_title
     if not test "$new_title"
