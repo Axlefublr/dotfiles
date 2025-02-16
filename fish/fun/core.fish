@@ -165,10 +165,10 @@ end
 funcsave tab >/dev/null
 
 function scratchpad
-    argparse -i cwd= wintitle= -- $argv || return 1
+    argparse -i cwd= wintitle= -- $argv || return 121
     test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
     test "$_flag_wintitle" && set -l wintitle --os-window-title $_flag_wintitle || set -l wintitle --os-window-title scratchpad
-    kitten @ --to unix:(fd kitty_instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv &>/dev/null
+    kitten @ --to unix:(fd cami-kitty-instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv &>/dev/null
 end
 funcsave scratchpad >/dev/null
 alias --save int scratchpad >/dev/null

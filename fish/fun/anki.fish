@@ -70,6 +70,7 @@ end
 funcsave anki-sync >/dev/null
 
 function anki-add-card
+    touch ~/.cache/mine/anki-card.html
     set -l previous_card "$(cat ~/.cache/mine/anki-card.html)"
     neoline-hold ~/.cache/mine/anki-card.html
     if test $previous_card = "$(cat ~/.cache/mine/anki-card.html)"

@@ -325,8 +325,8 @@ end
 
 function dode-krita
     sudo pacman -S --needed --noconfirm --disable-download-timeout krita
-    mkdir -p ~/.local/share/color-schemes
-    ln -f ~/r/dot/krita/gruvbox.colors ~/.local/share/krita/color-schemes
+    mkdir -p ~/.local/share/krita/color-schemes
+    ln -f ~/r/dot/krita/gruvbox.colors ~/.local/share/krita/color-schemes/gruvbox.colors
 end
 
 function dode-kruler

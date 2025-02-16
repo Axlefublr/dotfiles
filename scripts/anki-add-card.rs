@@ -24,7 +24,7 @@ const VALID_DECKS: [&str; 2] = ["Once", "Freq"];
 const VALID_NOTE_TYPES: [&str; 5] = ["b", "d", "f", "fb", "h"];
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let contents = fs::read_to_string("/home/axlefublr/bs/anki-card.html").expect("read card file");
+    let contents = fs::read_to_string("/home/axlefublr/.cache/mine/anki-card.html").expect("read card file");
     let mut lines = contents.lines().map(str::trim);
 
     let deck = lines.next().unwrap();
