@@ -347,6 +347,14 @@ function dode-libreoffice
     sudo pacman -S --needed --noconfirm --disable-download-timeout libreoffice-still
 end
 
+function dode-locale
+    # edit /etc/locale.conf to set what locale you want to use for what
+    # edit /etc/locale.gen to make that locale generate
+    sudo locale-gen # generate locales
+    reboot
+    locale # check locale health
+end
+
 function dode-lolcat
     sudo pacman -S lolcat
 end
