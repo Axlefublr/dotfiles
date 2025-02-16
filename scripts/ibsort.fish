@@ -2,7 +2,7 @@
 
 for file in $argv
     not test -f $file && continue
-    begin
+    set -l result_file "$(begin
         set -l to_sort
         set -l grabbing false
         for line in (cat $file)
@@ -24,5 +24,8 @@ for file in $argv
         if $grabbing
             printf '%s\n' $to_sort | sort.py
         end
-    end | sponge $file
+    end)"
+    if test "$(cat $file)" != $result_file
+        echo $result_file >$file
+    end
 end
