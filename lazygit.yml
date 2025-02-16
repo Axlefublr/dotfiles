@@ -82,18 +82,18 @@ keybinding:
 customCommands:
     - key: o
       context: files
-      command: 'fish -c ''git show HEAD:{{.SelectedPath}} >~/bs/lazygit(path extension {{.SelectedPath}}) ; helix ~/bs/lazygit(path extension {{.SelectedPath}})'''
+      command: 'fish -c ''git show HEAD:{{.SelectedPath}} >~/.cache/mine/lazygit(path extension {{.SelectedPath}}) ; helix ~/.cache/mine/lazygit(path extension {{.SelectedPath}})'''
       subprocess: true
       description: 'Edit file at HEAD'
 
     - key: 'o'
       context: 'commitFiles'
-      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >~/bs/lazygit(path extension {{.SelectedPath}}) ; helix ~/bs/lazygit(path extension {{.SelectedPath}}) ; rm ~/bs/lazygit(path extension {{.SelectedPath}})'''
+      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >~/.cache/mine/lazygit(path extension {{.SelectedPath}}) ; helix ~/.cache/mine/lazygit(path extension {{.SelectedPath}}) ; rm ~/.cache/mine/lazygit(path extension {{.SelectedPath}})'''
       subprocess: true
       description: 'Edit file at this point in history'
     - key: 'O'
       context: 'commitFiles'
-      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >~/bs/lazygit(path extension {{.SelectedPath}}) ; helix ~/bs/lazygit(path extension {{.SelectedPath}}) ; rm ~/bs/lazygit(path extension {{.SelectedPath}})'''
+      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >~/.cache/mine/lazygit(path extension {{.SelectedPath}}) ; helix ~/.cache/mine/lazygit(path extension {{.SelectedPath}}) ; rm ~/.cache/mine/lazygit(path extension {{.SelectedPath}})'''
       subprocess: true
       description: 'Edit file at the commit before this point in history'
     - key: 'q'
@@ -134,12 +134,12 @@ customCommands:
       description: 'Create pre-filled tag'
     - key: o
       context: 'commits'
-      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >~/bs/commit.diff ; helix ~/bs/commit.diff'''
+      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >~/.cache/mine/lazygit-commit.diff ; helix ~/.cache/mine/lazygit-commit.diff'''
       subprocess: true
       description: 'Edit commit diff in editor'
     - key: o
       context: subCommits
-      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >~/bs/commit.diff ; helix ~/bs/commit.diff'''
+      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >~/.cache/mine/lazygit-commit.diff ; helix ~/.cache/mine/lazygit-commit.diff'''
       subprocess: true
       description: 'Edit commit diff in editor'
     - key: q

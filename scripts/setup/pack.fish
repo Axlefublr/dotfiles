@@ -102,9 +102,9 @@ end
 
 function pack-rust
     sudo pacman -S --needed --noconfirm --disable-download-timeout rustup
+    mkdir -p ~/.cargo/{bin,env}
     fish_add_path ~/.cargo/bin
     fish_add_path ~/.cargo/env
-    mkdir -p ~/.cargo/{bin,env}
     bash "$HOME/.cargo/env"
     rustup update
     rustup default stable

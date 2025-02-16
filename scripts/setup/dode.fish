@@ -571,7 +571,6 @@ end
 
 function dode-swaybg
     sudo pacman -S --needed --noconfirm --disable-download-timeout swaybg
-    ln -sf ~/i/e/themes/fall.jpg ~/bs/background-image
     ln -sf ~/r/dot/swaybg/swaybg.service ~/.config/systemd/user/swaybg.service
     systemctl --user daemon-reload
     ln -s ~/.config/systemd/user/swaybg.service ~/.config/systemd/user/niri.service.wants/

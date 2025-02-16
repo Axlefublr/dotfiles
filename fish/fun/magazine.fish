@@ -270,6 +270,6 @@ function pjs
             # set_color '#e491b2'
             printf '%s\n' $file
         end
-    end >~/bs/pjs
+    end >~/.cache/mine/pjs
 end
 funcsave pjs >/dev/null

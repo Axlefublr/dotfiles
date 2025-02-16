@@ -12,6 +12,6 @@ while true
     end
 end
 set -l wallpaper_path (string replace -r '^~' $HOME $decided_path)
-ln -sf $wallpaper_path ~/bs/background-image
+ln -sf $wallpaper_path ~/.cache/mine/background-image
 systemctl --user restart swaybg.service
 niri msg action do-screen-transition

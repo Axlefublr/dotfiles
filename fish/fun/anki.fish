@@ -70,16 +70,16 @@ end
 funcsave anki-sync >/dev/null
 
 function anki-add-card
-    set -l previous_card "$(cat ~/bs/anki-card.html)"
-    neoline-hold ~/bs/anki-card.html
-    if test $previous_card = "$(cat ~/bs/anki-card.html)"
+    set -l previous_card "$(cat ~/.cache/mine/anki-card.html)"
+    neoline-hold ~/.cache/mine/anki-card.html
+    if test $previous_card = "$(cat ~/.cache/mine/anki-card.html)"
         return 1
     end
-    _magazine_commit ~/bs/anki-card.html attard
-    set -l card (anki-add-card.rs 2>~/bs/anki-card-errors)
+    _magazine_commit ~/.cache/mine/anki-card.html attard
+    set -l card (anki-add-card.rs 2>~/.cache/mine/anki-card-errors)
     set -l exitcode $status
-    if test -s ~/bs/anki-card-errors
-        notify-send -t 2000 "$(cat ~/bs/anki-card-errors)"
+    if test -s ~/.cache/mine/anki-card-errors
+        notify-send -t 2000 "$(cat ~/.cache/mine/anki-card-errors)"
     end
     test $exitcode -ne 0 && return
     indeed.rs -u ~/.local/share/magazine/A -- "$card"

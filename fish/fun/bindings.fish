@@ -18,15 +18,15 @@ funcsave _replace_character_with_clipboard >/dev/null
 
 function _help_the_commandline
     set -f commandline (commandline -o)
-    $commandline --help &>~/bs/current-help.txt
-    helix -c ~/r/dot/helix/man.toml ~/bs/current-help.txt
+    $commandline --help &>~/.cache/mine/current-help.txt
+    helix -c ~/r/dot/helix/man.toml ~/.cache/mine/current-help.txt
 end
 funcsave _help_the_commandline >/dev/null
 
 function _man_the_commandline
     set -f commandline (commandline -o)[1]
-    man $commandline 2>/dev/null >~/bs/current-man.txt
-    helix -c ~/r/dot/helix/man.toml ~/bs/current-man.txt
+    man $commandline 2>/dev/null >~/.cache/mine/current-man.txt
+    helix -c ~/r/dot/helix/man.toml ~/.cache/mine/current-man.txt
 end
 funcsave _man_the_commandline >/dev/null
 
@@ -40,7 +40,7 @@ function _match_helix_cwd
         z (cat /tmp/helix-buffer-head-suspend)
     else if test "$current" -eq 3
         set -U matched_cwd af87ff
-        z (cat /tmp/yazi-cwd-suspend)
+        z (cat ~/.cache/mine/yazi-cwd-suspend)
     else
         set -U matched_cwd ?
     end

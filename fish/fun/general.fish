@@ -85,8 +85,8 @@ function lhg
     # https://raw.githubusercontent.com/Axlefublr/dotfiles/refs/heads/main/fish/fun/general.fish
     set -l raw_link (ypoc | string replace 'github.com' 'raw.githubusercontent.com' | string replace blob refs/heads)
     set -l extension (path extension $raw_link)
-    curl $raw_link >~/bs/lhg$extension
-    helix ~/bs/lhg$extension
+    curl $raw_link >~/.cache/mine/lhg$extension
+    helix ~/.cache/mine/lhg$extension
 end
 funcsave lhg >/dev/null
 
