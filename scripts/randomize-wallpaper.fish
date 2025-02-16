@@ -5,9 +5,9 @@ while true
     set -l stored_count (count (cat ~/.local/share/magazine/T))
     test $stored_count -eq 0 && exit 1
     set -l desired_non_repeat (math "floor($stored_count / 3)")
-    if not contains $decided_path (cat ~/bs/recent-wallpapers)
-        echo $decided_path >>~/bs/recent-wallpapers
-        tail -n $desired_non_repeat ~/bs/recent-wallpapers | sponge ~/bs/recent-wallpapers
+    if not contains $decided_path (cat ~/.cache/mine/recent-wallpapers)
+        echo $decided_path >>~/.cache/mine/recent-wallpapers
+        tail -n $desired_non_repeat ~/.cache/mine/recent-wallpapers | sponge ~/.cache/mine/recent-wallpapers
         break
     end
 end

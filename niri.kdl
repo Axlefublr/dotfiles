@@ -286,5 +286,12 @@ window-rule {
 
 window-rule {
     match app-id="^kitty$"
+    match app-id="^swayimg$"
+
     opacity 1.0
+}
+
+window-rule {
+    match app-id="^swayimg$"
+    // default-column-width {}
 }

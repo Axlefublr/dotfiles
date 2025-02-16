@@ -586,6 +586,8 @@ function dode-swayimg
     xdg-mime default swayimg.desktop image/jpeg
     xdg-mime default swayimg.desktop image/gif
     xdg-mime default swayimg.desktop image/webp
+    mkdir -p ~/.config/swayimg
+    ln -sf ~/r/dot/swayimg.ini ~/.config/swayimg/config
 end
 
 function dode-termfilechooser
