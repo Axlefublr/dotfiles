@@ -753,4 +753,5 @@ function dode-zoxide
     sudo pacman -S --needed --noconfirm --disable-download-timeout zoxide
     set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
     set -Ux _ZO_MAXAGE 30000
+    cp -fr ~/auto/zoxide.db ~/.local/share/zoxide/db.zo
 end
