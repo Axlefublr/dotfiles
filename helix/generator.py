@@ -276,6 +276,7 @@ normal_select_mappings: dict[str, Any] = {
     'd': 'delete_selection',
     '%': ['save_selection', 'select_all'],
     'A-s': 'yank_joined',
+    'A-S': ':yank-join space',
     'm': {
         'g': ':set gutters.layout ["diff"]',
         'G': ':set gutters.layout []',
@@ -313,6 +314,7 @@ normal_select_mappings: dict[str, Any] = {
     },
     'space': {
         'z': 'harp_cwd_get',
+        'v': 'harp_fuzzy_get',
         'Z': 'harp_cwd_set',
         's': 'harp_file_get',
         'S': 'harp_file_set',
