@@ -1390,7 +1390,7 @@ keymap:
       Alt_R-q: { launch: [fish, -c, 'int tiptop']}
       Alt_R-e: { launch: [fish, -c, 'int bluetui']}
       Alt_R-z: { launch: [fuzzel] }
-      Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75'] }
+      Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
 
       Super_R-q: ctrl-shift-u
       Super_R-z: { launch: [fish, -c, runner_symbol] }
