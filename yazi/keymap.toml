@@ -102,8 +102,8 @@ keymap = [
   { on = 'n', run = 'find_arrow', desc = 'Go to the next found' },
   { on = 'N', run = 'find_arrow --previous', desc = 'Go to the previous found' },
 
-  { on = 'm', run = 'plugin harp get', desc = 'Travel to a cwd harp' },
-  { on = 'M', run = 'plugin harp set', desc = 'Set a cwd harp' },
+  { on = 'm', run = 'plugin harp -- get', desc = 'Travel to a cwd harp' },
+  { on = 'M', run = 'plugin harp -- set', desc = 'Set a cwd harp' },
 
   { on = 'f', run = 'plugin jump-to-char', desc = 'Jump to char' },
   { on = '<A-l>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
