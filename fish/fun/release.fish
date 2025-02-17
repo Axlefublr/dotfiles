@@ -75,7 +75,7 @@ funcsave rust-publish >/dev/null
 function rust-fmt --description 'Bring in format config and format with it'
     gq || return 1
     lnkj ~/r/dot/defconf/rustfmt.toml ./.rustfmt.toml
-    and cargo +nightly fmt
+    rustup run nightly rustfmt
 end
 funcsave rust-fmt >/dev/null
 

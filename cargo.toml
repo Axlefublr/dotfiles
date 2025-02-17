@@ -1,6 +1,6 @@
 [alias]
 c = 'clippy'
-f = '+nightly fmt'
+f = 'fmt'
 rr = 'run --release'
 br = 'build --release'
 a = 'add'
