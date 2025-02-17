@@ -218,8 +218,6 @@ function fish_user_key_bindings
     binds -vds q edit_command_buffer
 
     #--------------------------------------------------core--------------------------------------------------
-    binds -vids \em yazi-cd
-    binds -vids \eh 'over lazygit'
     binds -vids \el 'zi && commandline -f repaint'
 
     #-------------------------------------------------other-------------------------------------------------

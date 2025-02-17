@@ -121,3 +121,184 @@ function mature_tasks_line
     filter_mature_tasks | awk '{print $1}' | string join ' '
 end
 funcsave mature_tasks_line >/dev/null
+
+function down
+    if status is-interactive
+        _down $argv
+    else
+        kitty -T timer fish -c "_down $(string escape $argv)" 2>/dev/null
+    end
+end
+funcsave down >/dev/null
+
+function _down
+    termdown $argv
+    if not status is-interactive
+        and test "$argv" # termdown with no arguments counts up, which can only exit if I specifically close it myself
+        notify-send -t 0 "timer for $argv is up!"
+    end
+end
+funcsave _down >/dev/null
+
+function timer
+    if status is-interactive
+        _timer "$argv"
+    else
+        kitty -T timer fish -c "_timer $(string escape $argv)" 2>/dev/null
+    end
+end
+funcsave timer >/dev/null
+
+function _timer
+    while true
+        termdown $argv || break
+        read -p rdp -ln 1 response
+        if not test $response
+            break
+        end
+        if test $response = ' '
+            clx
+            continue
+        else if test $response = e
+            exit
+        else
+            break
+        end
+    end
+    clx
+end
+funcsave _timer >/dev/null
+
+function alarm
+    if status is-interactive
+        _alarm "$argv"
+    else
+        kitty -T timer fish -c "_alarm $(string escape $argv)"
+    end
+end
+funcsave alarm >/dev/null
+
+function _alarm
+    set -l input $argv[1]
+    set -l first (string sub -l 1 $input)
+    if test $first != 0 && test $first != 1 && test $first != 2
+        set input '0'$input
+    end
+    set -l input (string pad -r -c 0 -w 6 $input)
+    echo "set time: $input"
+    echo "current:  $(date +%H%M%S)"
+    if test $input -lt (date +%H%M%S)
+        echo 'input lower than current, reversing'
+        while test $input -lt (date +%H%M%S)
+            sleep 0.1
+        end
+        echo 'finished reversing'
+    end
+    while test $input -gt (date +%H%M%S)
+        sleep 0.1
+    end
+    if status is-interactive
+        bell
+    else
+        notify-send -t 0 "alarm set for $argv[1] is ringing!"
+    end
+end
+funcsave _alarm >/dev/null
+
+function yeared_parse
+    for line in (cat ~/.local/share/magazine/v)
+        set -l match (string match -gr '(\\d+).(\\d+.\\d+) — (.*)' $line)
+        set -l year $match[1]
+        set -l date $match[2]
+        set -l description $match[3]
+        if not test $date = (date +%m.%d)
+            continue
+        end
+        set year (math (date +%y) - $year)
+        task "$year years ago: $description"
+    end
+end
+funcsave yeared_parse >/dev/null
+
+function autocommit
+    if not git status --porcelain
+        return
+    end
+    set -l new_files
+    set -l deleted_files
+    set -l modified_files
+    set -l renamed_from
+    set -l renamed_to
+    git add .
+    for change in (git status --porcelain)
+        set -l bits (string split -n ' ' $change)
+        set type $bits[1]
+        set path "$(echo $bits[2..])"
+        if test $type = A
+            set new_files $new_files (string trim -c '"' $path)
+        else if test $type = D
+            set deleted_files $deleted_files (string trim -c '"' $path)
+        else if test $type = M
+            set modified_files $modified_files (string trim -c '"' $path)
+        else if test $type = R
+            set two_paths (string split ' -> ' -- $path)
+            set renamed_from $renamed_from (string trim -c '"' $two_paths[1])
+            set renamed_to $renamed_to (string trim -c '"' $two_paths[2])
+        end
+    end
+    git restore --staged .
+    for deletion in $deleted_files
+        git add $deletion
+        and git commit -m "remove $deletion"
+    end
+    for addition in $new_files
+        git add $addition
+        and git commit -m "add $addition"
+    end
+    for modification in $modified_files
+        git add $modification
+        and git commit -m "change $modification"
+    end
+    for index in (seq (count $renamed_from))
+        git add $renamed_from[$index] $renamed_to[$index]
+        and git commit -m "move $renamed_from[$index] -> $renamed_to[$index]"
+    end
+end
+funcsave autocommit >/dev/null
+
+function smdn
+    set -l name $argv[1]
+
+    set -l executable /home/axlefublr/r/dot/scripts/systemd/executables/$name.fish
+    printf '#!/usr/bin/env fish' >$executable
+    chmod +x $executable
+    code $executable
+
+    set -l service ~/r/dot/scripts/systemd/services/$name.service
+    printf "[Service]
+    ExecStartPre=/home/axlefublr/r/dot/scripts/processwait.fish
+    ExecStart=$executable" >$service
+
+    set -l timer ~/r/dot/scripts/systemd/timers/$name.timer
+    printf '[Timer]
+    OnCalendar=*-*-8 05:00:00
+    Persistent=true
+
+    [Install]
+    WantedBy=timers.target' >$timer
+    code $timer
+
+    printf "
+
+    systemctl --user enable --now $name.timer" >>~/r/dot/scripts/systemd/definition.fish
+end
+funcsave smdn >/dev/null
+
+function smdr
+    set -l name $argv[1]
+    rm -fr ~/r/dot/scripts/systemd/{services,timers,executables}/$name.*
+    sd "
+
+    systemctl --user enable --now $name.timer" '' ~/r/dot/scripts/systemd/definition.fish
+end
+funcsave smdr >/dev/null

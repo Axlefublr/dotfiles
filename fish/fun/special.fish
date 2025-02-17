@@ -33,71 +33,6 @@ function github-read-notifs
 end
 funcsave github-read-notifs >/dev/null
 
-function alphabet
-    printf 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[];\',./{}:"<>?'
-end
-funcsave alphabet >/dev/null
-
-function set_tab_title
-    read -P 'title: ' new_title
-    if not test "$new_title"
-        kitten @ set-tab-title ""
-        return
-    end
-    kitten @ set-tab-title " $new_title"
-end
-funcsave set_tab_title >/dev/null
-
-function smdn
-    set -l name $argv[1]
-
-    set -l executable /home/axlefublr/r/dot/scripts/systemd/executables/$name.fish
-    printf '#!/usr/bin/env fish' >$executable
-    chmod +x $executable
-    code $executable
-
-    set -l service ~/r/dot/scripts/systemd/services/$name.service
-    printf "[Service]
-    ExecStartPre=/home/axlefublr/r/dot/scripts/processwait.fish
-    ExecStart=$executable" >$service
-
-    set -l timer ~/r/dot/scripts/systemd/timers/$name.timer
-    printf '[Timer]
-    OnCalendar=*-*-8 05:00:00
-    Persistent=true
-
-    [Install]
-    WantedBy=timers.target' >$timer
-    code $timer
-
-    printf "
-
-    systemctl --user enable --now $name.timer" >>~/r/dot/scripts/systemd/definition.fish
-end
-funcsave smdn >/dev/null
-
-function smdr
-    set -l name $argv[1]
-    rm -fr ~/r/dot/scripts/systemd/{services,timers,executables}/$name.*
-    sd "
-
-    systemctl --user enable --now $name.timer" '' ~/r/dot/scripts/systemd/definition.fish
-end
-funcsave smdr >/dev/null
-
-function fn-clear
-    set list (cat ~/r/dot/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
-    for file in ~/.config/fish/functions/*.fish
-        set function_name (basename $file '.fish')
-        if not contains $function_name $list
-            and not string match -qr '^_?fifc' $function_name
-            rm $file
-            echo 'cleared: '$function_name
-        end
-    end
-end
-funcsave fn-clear >/dev/null
-
 function special_anki_edit_action
     ypoc | string lower | sponge | copy
 end
@@ -127,3 +62,35 @@ function toggle-screen-record
     end
 end
 funcsave toggle-screen-record >/dev/null
+
+function ntf-pick-dismiss
+    set -l result (fnottctl list | rg '^\\d' | fuzzel -d 2>/dev/null)
+    test $status -ne 0 && return 1
+    fnottctl dismiss (echo $result | string match -gr '^(\\d+)')
+end
+funcsave ntf-pick-dismiss >/dev/null
+
+function clipboard-pick
+    set -l result (cliphist list | tee ~/.cache/mine/cliphist | cut -f 2- | fuzzel -d --index)
+    test $status -ne 0 && return 1
+    sed -n (math $result + 1)'p' ~/.cache/mine/cliphist | cliphist decode | copy
+end
+funcsave clipboard-pick >/dev/null
+
+function clipboard-index -a index
+    notify-send -t 2000 "$(cliphist list | sed -n $index'p' | cliphist decode | pee 'wl-copy -n' 'head -c 100')"
+end
+funcsave clipboard-index >/dev/null
+
+function write-window-info
+    niri msg windows >~/.local/share/magazine/o
+    _magazine_commit ~/.local/share/magazine/o clients
+end
+funcsave write-window-info >/dev/null
+
+function pick-and-copy-color
+    set -l picked_color (xcolor)
+    notify-send -t 3000 "$picked_color"
+    echo $picked_color | copy
+end
+funcsave pick-and-copy-color >/dev/null
