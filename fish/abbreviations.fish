@@ -30,6 +30,7 @@ abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a bui
 abbr -a rm trash-put
 abbr -a rmf 'rm -fr'
 abbr -a trr trash-restore
+abbr -a tz 'tz -q'
 abbr -a u pueue
 abbr -a v yazi-cd
 abbr -a x exit
