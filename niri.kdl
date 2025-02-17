@@ -158,6 +158,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "fish" "-c" "scratchkitty"; }
+    Mod+Alt+Return { spawn "fish" "-c" "scratchpad --cwd ~ yazi"; }
 
     Mod+Semicolon { close-window; }
 
