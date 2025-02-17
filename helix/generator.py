@@ -395,7 +395,7 @@ normal_select_mappings: dict[str, Any] = {
         'J': 'hsplit',
         'K': ':hsplit-new',
         ';': [':write-all', ':buffer-close-all'],
-        ':': ':buffer-close-all!',
+        ':': ':quit-all',
         'u': 'signature_help',
         # 'u': 'transpose_view',
         'o': 'wclose',
