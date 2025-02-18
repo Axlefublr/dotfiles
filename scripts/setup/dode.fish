@@ -514,8 +514,16 @@ function dode-qrtool
 end
 
 function dode-radeon-gpu
-    paru -Sa --needed --disable-download-timeout radeon-profile-git radeon-profile-daemon-git
-    sudo systemctl enable --now radeon-profile-daemon
+    # paru -Sa --needed --disable-download-timeout radeon-profile-git radeon-profile-daemon-git
+    # sudo systemctl enable --now radeon-profile-daemon
+    sudo pacman -S --needed --noconfirm --disable-download-timeout amdvlk lib32-amdvlk
+    # in `lspci -k`, "kernel driver in use" should be amdgpu
+    # if it's not, do the following:
+    sudo -E helix /boot/grub/grub.cfg
+    # append the line that starts with `linux` (on the first entry; the one that's booted) with:
+    # radeon.si_support=0 amdgpu.si_support=1
+    # radeon.cik_support=0 amdgpu.cik_support=1
+    # after rebooting with these in play, `lspci -k` should now display the amdgpu driver
 end
 
 function dode-repgrep
