@@ -214,6 +214,12 @@ function dode-fonts
     paru -Sa --needed --disable-download-timeout ttf-comfortaa
 end
 
+function dode-foot
+    sudo pacman -S --needed --noconfirm --disable-download-timeout foot
+    mkdir -p ~/.config/foot
+    ln -sf ~/r/dot/foot.ini ~/.config/foot/foot.ini
+end
+
 function dode-fuck
     sudo pacman -Rns --noconfirm eos-update-notifier
     sudo pacman -Rns --noconfirm nano-syntax-highlighting
