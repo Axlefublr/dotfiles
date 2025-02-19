@@ -76,7 +76,7 @@ function M
 end
 funcsave M >/dev/null
 
-function yazi-cd
+function yazi_cd
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
@@ -85,19 +85,19 @@ function yazi-cd
     commandline -f repaint
     rm -f -- "$tmp"
 end
-funcsave yazi-cd >/dev/null
+funcsave yazi_cd >/dev/null
 
 function neoline
     scratchpad --wintitle=line -- helix -c ~/r/dot/helix/quit.toml $argv
 end
 funcsave neoline >/dev/null
 
-function neoline-hold
+function neoline_hold
     neoline $argv
     win_wait 'Title: "line";App ID: "kitty"' 0.05 >/dev/null
     win_wait_closed 'Title: "line";App ID: "kitty"' 0.05 >/dev/null
 end
-funcsave neoline-hold >/dev/null
+funcsave neoline_hold >/dev/null
 
 function neomax
     scratchpad --wintitle=max -- helix -c ~/r/dot/helix/quit.toml $argv

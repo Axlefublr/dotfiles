@@ -62,9 +62,9 @@ keymap:
       only: Anki
     remap:
       # [[sort on]]
-      # Ctrl-Shift-i: { launch: [fish, -c, 'anki-import'] }
-      Alt_L-j: { launch: [fish, -c, 'anki-deck Once'] }
-      Alt_L-k: { launch: [fish, -c, 'anki-deck Freq'] }
+      # Ctrl-Shift-i: { launch: [fish, -c, 'anki_import'] }
+      Alt_L-j: { launch: [fish, -c, 'anki_deck Once'] }
+      Alt_L-k: { launch: [fish, -c, 'anki_deck Freq'] }
       CapsLock-Space: { launch: [fish, -c, special_anki_edit_action] }
       Ctrl-Semicolon: ctrl-shift-x
       Ctrl-j: down
@@ -112,7 +112,7 @@ keymap:
 
           i: { launch: [fish, -c, write-window-info] }
 
-          n: { launch: [fish, -c, anki-add-card] }
+          n: { launch: [fish, -c, anki_add_card] }
 
           w:
             remap:

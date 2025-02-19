@@ -32,5 +32,5 @@ abbr -a rmf 'rm -fr'
 abbr -a trr trash-restore
 abbr -a tz 'tz -q'
 abbr -a u pueue
-abbr -a v yazi-cd
+abbr -a v yazi_cd
 abbr -a x exit
