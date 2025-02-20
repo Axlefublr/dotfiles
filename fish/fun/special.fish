@@ -94,3 +94,10 @@ function pick-and-copy-color
     echo $picked_color | copy
 end
 funcsave pick-and-copy-color >/dev/null
+
+function piped_in_overlay
+    set -l file /tmp/cami-helix-overlay
+    read -z >$file
+    footclient -T overlay -N helix -c ~/r/dot/helix/wrap-off.toml $file
+end
+funcsave piped_in_overlay >/dev/null

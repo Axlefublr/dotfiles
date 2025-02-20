@@ -98,9 +98,9 @@ function filter_mature_tasks
         switch $name
             case filter
                 if_print $days $name 60
-            case towels nose wash vacuum floor dust
+            case towels nose wash vacuum floor dust fate
                 if_print $days $name 7
-            case cloths brushes glasses
+            case brushes glasses
                 if_print $days $name 10
             case nails
                 if_print $days $name 14

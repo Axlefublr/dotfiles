@@ -50,7 +50,7 @@ end
 funcsave runner_symbol >/dev/null
 
 function runner_symbol_name
-    set input (cat ~/.local/share/magazine/E | fuzzel -d 2>/dev/null)
+    set input (cat ~/.local/share/magazine/E | fuzzel -d --match-mode exact 2>/dev/null)
     test $status -eq 1 && return 1
     not test "$input" && return 1
     printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | copy

@@ -19,8 +19,8 @@ alias --save media_next 'playerctl next' >/dev/null
 alias --save media_position 'playerctl position' >/dev/null
 alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_state 'playerctl status' >/dev/null
-alias --save ntf-dismiss-all 'fnottctl dismiss all' >/dev/null
-alias --save ntf-dismiss-old 'fnottctl dismiss' >/dev/null
+alias --save ntf_dismiss_all 'fnottctl dismiss all' >/dev/null
+alias --save ntf_dismiss_old 'fnottctl dismiss' >/dev/null
 alias --save o ypoc >/dev/null
 alias --save s copy >/dev/null
 alias --save set_media_volume 'playerctl volume' >/dev/null

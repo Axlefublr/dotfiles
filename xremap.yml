@@ -102,12 +102,12 @@ keymap:
       CapsLock-Apostrophe:
         remap:
           f: { launch: [fish, -c, 'runner_link open'] }
-          a: { launch: [fish, -c, 'runner_link'] }
+          s: { launch: [fish, -c, 'runner_link'] }
           d: { launch: [fish, -c, 'xdg-open (ypoc) ; ensure_browser'] }
 
           k: { launch: [fish, -c, batch-link-downloader] }
 
-          s: { launch: [fish, -c, runner_interactive_unicode]}
+          a: { launch: [fish, -c, runner_interactive_unicode]}
           e: { launch: [fish, -c, runner_symbol_name] }
 
           i: { launch: [fish, -c, write-window-info] }
@@ -1362,8 +1362,8 @@ keymap:
   - name: Any! wm
     exact_match: true
     remap:
-      Alt_L-Esc: { launch: [fish, -c, ntf-dismiss-old] }
-      Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf-dismiss-all] }
+      Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
+      Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_all] }
       Super_L-u: { launch: [fish, -c, ntf-pick-dismiss] }
 
   - name: Any! media
@@ -1398,7 +1398,7 @@ keymap:
       CapsLock-y: CapsLock # toggle capslock toggle
       Super-Apostrophe: { launch: [fish, -c, 'clipboard-pick'] }
       CapsLock-v: { launch: [fish, -c, 'toggle-screen-record'] }
-      CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '/home/axlefublr/i/s/original.mkv'] }
+      CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '--fullscreen', '/home/axlefublr/i/s/original.mp4'] }
       Super-i: { launch: [fish, -c, 'runner show'] }
       Super-o: { launch: [fish, -c, runner_notification] }
       Super-Alt_L-Semicolon: { launch: [fuzzel] }
