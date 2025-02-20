@@ -24,7 +24,7 @@
 'ui.picker.header.column.active' = { modifiers = ['underlined', 'bold'] }
 
 # -------------------------------------------------base-------------------------------------------------
-'ui.background' = { bg = 'level' }
+'ui.background' = { bg = 'none' }
 'ui.background.separator' = 'grey'
 
 # ------------------------------------------------cursor------------------------------------------------
