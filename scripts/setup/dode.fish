@@ -218,6 +218,8 @@ function dode-foot
     sudo pacman -S --needed --noconfirm --disable-download-timeout foot
     mkdir -p ~/.config/foot
     ln -sf ~/r/dot/foot.ini ~/.config/foot/foot.ini
+    systemctl --user enable foot-server.socket
+    systemctl --user start foot-server.socket
 end
 
 function dode-fuck
