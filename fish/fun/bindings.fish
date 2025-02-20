@@ -236,9 +236,6 @@ function fish_user_key_bindings
     binds -vids -k f5 forward-word # is shift+alt+;
     binds -vids \e\; accept-autosuggestion
 
-    binds -vids \ed clear-screen repaint
-    # binds -vids \eu 'for cmd in sudo doas please; if command -q $cmd; fish_commandline_prepend $cmd; break; end; end'
-
     binds -vids \e. _man_the_commandline
     binds -vids \e, _help_the_commandline
 

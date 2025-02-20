@@ -158,7 +158,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "fish" "-c" "scratchkitty"; }
-    Mod+Alt+Return { spawn "fish" "-c" "scratchpad --cwd ~ yazi"; }
+    Mod+Alt+Return { spawn "foot"; }
 
     Mod+Semicolon { close-window; }
 
@@ -267,6 +267,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="org.kde.kruler"
+    geometry-corner-radius 0
+    clip-to-geometry false
+}
+
+window-rule {
     match app-id="^anki$" title="^Import File$"
     match app-id="^anki$" title="^Options for "
     match app-id="^python$" title="^Import$"
@@ -276,6 +282,7 @@ window-rule {
 
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="org.kde.kruler"
     open-floating true
 }
 
@@ -289,11 +296,18 @@ window-rule {
 window-rule {
     match app-id="^kitty$"
     match app-id="^swayimg$"
-
+    match app-id="^foot"
     opacity 1.0
 }
 
 window-rule {
-    match app-id="^swayimg$"
-    // default-column-width {}
+    match app-id="^anki$" title="^Add|Edit"
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="^foot" title="^overlay$"
+    open-floating true
+    default-column-width { fixed 1888; }
+    default-window-height { fixed 1013; }
 }
