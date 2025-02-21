@@ -39,12 +39,24 @@ alias --save ypoc 'wl-paste -n' >/dev/null
 alias --save ypoci 'wl-paste -t image/png' >/dev/null
 # [[sort off]]
 
-function rdp
-    set_color '#ffd75f'
-    printf '󱕅 '
-    set_color normal
+function bl_reconnect
+    if not test "$argv"
+        echo 'missing bluetooth device MAC address' >&2
+        return 1
+    end
+    bluetoothctl disconnect $argv
+    bluetoothctl connect $argv
 end
-funcsave rdp >/dev/null
+funcsave bl_reconnect >/dev/null
+
+function clx
+    if test "$TERM" != xterm-kitty
+        clear -x
+    else
+        printf '\e[H\e[22J'
+    end
+end
+funcsave clx >/dev/null
 
 function copyi
     wl-copy -t image/png <$argv[1]
@@ -58,14 +70,10 @@ function copyl
 end
 funcsave copyl >/dev/null
 
-function clx
-    if test "$TERM" != xterm-kitty
-        clear -x
-    else
-        printf '\e[H\e[22J'
-    end
+function cwd
+    echo $PWD | copy
 end
-funcsave clx >/dev/null
+funcsave cwd >/dev/null
 
 function eat
     loago do eat
@@ -82,12 +90,9 @@ function get_media_volume
 end
 funcsave get_media_volume >/dev/null
 
-function bl_reconnect
-    if not test "$argv"
-        echo 'missing bluetooth device MAC address' >&2
-        return 1
-    end
-    bluetoothctl disconnect $argv
-    bluetoothctl connect $argv
+function rdp
+    set_color '#ffd75f'
+    printf '󱕅 '
+    set_color normal
 end
-funcsave bl_reconnect >/dev/null
+funcsave rdp >/dev/null

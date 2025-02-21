@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-randomize-file-names $argv
+randomize_file_names $argv

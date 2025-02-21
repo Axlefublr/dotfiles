@@ -19,7 +19,7 @@ funcsave magazine_set >/dev/null
 
 function magazine_edit
     not test "$argv" && return
-    neomax-hold $argv
+    neomax_hold $argv
     _magazine_commit $argv edit
 end
 funcsave magazine_edit >/dev/null
@@ -34,7 +34,7 @@ funcsave magazine_truncate >/dev/null
 
 function magazine_append
     not test "$argv" && return
-    set -l result (get-input)
+    set -l result (get_input)
     test $status -ne 0 && return
     indeed.rs $argv -- $result
     _magazine_notify $argv append
@@ -115,7 +115,7 @@ funcsave magazine_commit >/dev/null
 #---------------------------------------------------special---------------------------------------------------
 
 function magazine_append_link
-    set -l result "$(get-input)"
+    set -l result "$(get_input)"
     test $status -eq 1 && return
     set link (ypoc)
     indeed.rs -u ~/.local/share/magazine/l -- "$result — $link"

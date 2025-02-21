@@ -113,7 +113,7 @@ keymap:
           a: { launch: [fish, -c, runner_interactive_unicode]}
           e: { launch: [fish, -c, runner_symbol_name] }
 
-          i: { launch: [fish, -c, write-window-info] }
+          i: { launch: [fish, -c, write_window_info] }
 
           n: { launch: [fish, -c, anki_add_card] }
 
@@ -588,7 +588,7 @@ keymap:
           Super_R-f: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/3'] }
-          Super_R-r: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/4 ; github-read-notifs'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/4 ; github_read_notifs'] }
           Super_R-e: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/5'] }
           Super_R-w: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/6'] }
           Super_R-v: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/7'] }
@@ -1220,7 +1220,7 @@ keymap:
           Super_R-f: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/1'] }
           Super_R-d: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/2'] }
           Super_R-s: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/3'] }
-          Super_R-r: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/4 ; test -s ~/.local/share/magazine/4 || github-read-notifs'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/4 ; test -s ~/.local/share/magazine/4 || github_read_notifs'] }
           Super_R-e: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/5'] }
           Super_R-w: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/6'] }
           Super_R-v: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/7'] }
@@ -1311,7 +1311,7 @@ keymap:
     exact_match: true
     remap:
       # [[sort on]]
-      # Super_L-c: { launch: [fish, -c, pick-and-copy-color]}
+      # Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
       Alt_R-a: { launch: [anki] }
       Alt_R-c: { launch: [fish, -c, 'int calcure']}
@@ -1321,30 +1321,30 @@ keymap:
       Alt_R-q: { launch: [fish, -c, 'int tiptop']}
       Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
       Alt_R-z: { launch: [fuzzel] }
-      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'truncate -s 0 ~/.cache/mine/clipboard-edit.md ; neomax-hold ~/.cache/mine/clipboard-edit.md ; cat ~/.cache/mine/clipboard-edit.md | copy'] }
+      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'edit_blank_clipboard'] }
       CapsLock-Alt_L-Shift-d: { launch: [fish, -c, media_prev] }
       CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt_L-d: { launch: [fish, -c, media_next] }
       CapsLock-Alt_L-e: { launch: [fish, -c, 'set_volume 0.02+'] }
       CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '--fullscreen', '/home/axlefublr/i/s/original.mp4'] }
       CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume 0.02-'] }
-      CapsLock-Enter: { launch: [fish, -c, 'ypoc >~/.cache/mine/clipboard-edit.md ; neomax-hold "~/.cache/mine/clipboard-edit.md$(calculate-eof-position ~/.cache/mine/clipboard-edit.md)" ; cat ~/.cache/mine/clipboard-edit.md | copy'] }
+      CapsLock-Enter: { launch: [fish, -c, 'edit_clipboard'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mute'] }
       CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
       CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
       CapsLock-t: { launch: [fish, -c, toggle_media] }
-      CapsLock-v: { launch: [fish, -c, 'toggle-screen-record'] }
+      CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
       CapsLock-y: CapsLock # toggle capslock toggle
       Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_all] }
       Pause: { launch: [systemctl, suspend] }
       Super-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
       Super-Alt_L-Semicolon: { launch: [fuzzel] }
-      Super-Apostrophe: { launch: [fish, -c, 'clipboard-pick'] }
+      Super-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
       Super-b: { launch: [fish, -c, 'engined_search'] }
       Super-i: { launch: [fish, -c, 'runner show'] }
       Super-o: { launch: [fish, -c, runner_notification] }
       Super-p: { launch: [fish, -c, runner-math] }
-      Super_L-u: { launch: [fish, -c, ntf-pick-dismiss] }
+      Super_L-u: { launch: [fish, -c, ntf_pick_dismiss] }
       Super_L-v: { launch: [wooz]}
       Super_R-q: ctrl-shift-u
       Super_R-z: { launch: [fish, -c, runner_symbol] }
@@ -1426,16 +1426,16 @@ keymap:
   - name: Any! numbers & special symbols
     exact_match: true
     remap:
-      CapsLock-Super_R-f: { launch: [fish, -c, 'clipboard-index 1'] }
-      CapsLock-Super_R-d: { launch: [fish, -c, 'clipboard-index 2'] }
-      CapsLock-Super_R-s: { launch: [fish, -c, 'clipboard-index 3'] }
-      CapsLock-Super_R-r: { launch: [fish, -c, 'clipboard-index 4'] }
-      CapsLock-Super_R-e: { launch: [fish, -c, 'clipboard-index 5'] }
-      CapsLock-Super_R-w: { launch: [fish, -c, 'clipboard-index 6'] }
-      CapsLock-Super_R-v: { launch: [fish, -c, 'clipboard-index 7'] }
-      CapsLock-Super_R-c: { launch: [fish, -c, 'clipboard-index 8'] }
-      CapsLock-Super_R-x: { launch: [fish, -c, 'clipboard-index 9'] }
-      CapsLock-Super_R-a: { launch: [fish, -c, 'clipboard-index 10'] }
+      CapsLock-Super_R-f: { launch: [fish, -c, 'clipboard_index 1'] }
+      CapsLock-Super_R-d: { launch: [fish, -c, 'clipboard_index 2'] }
+      CapsLock-Super_R-s: { launch: [fish, -c, 'clipboard_index 3'] }
+      CapsLock-Super_R-r: { launch: [fish, -c, 'clipboard_index 4'] }
+      CapsLock-Super_R-e: { launch: [fish, -c, 'clipboard_index 5'] }
+      CapsLock-Super_R-w: { launch: [fish, -c, 'clipboard_index 6'] }
+      CapsLock-Super_R-v: { launch: [fish, -c, 'clipboard_index 7'] }
+      CapsLock-Super_R-c: { launch: [fish, -c, 'clipboard_index 8'] }
+      CapsLock-Super_R-x: { launch: [fish, -c, 'clipboard_index 9'] }
+      CapsLock-Super_R-a: { launch: [fish, -c, 'clipboard_index 10'] }
 
       # [[sort on]]
       CapsLock-Alt_L-Comma: shift_r-grave
