@@ -119,6 +119,11 @@ function set_tab_title
 end
 funcsave set_tab_title >/dev/null
 
+function show_clipboard_image
+    ypoci | swayimg -
+end
+funcsave show_clipboard_image >/dev/null
+
 function special_anki_edit_action
     ypoc | string lower | sponge | copy
 end

@@ -1310,46 +1310,6 @@ keymap:
   - name: Any!
     exact_match: true
     remap:
-      # [[sort on]]
-      # Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
-      Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
-      Alt_R-a: { launch: [anki] }
-      Alt_R-c: { launch: [fish, -c, 'int calcure']}
-      Alt_R-d: { launch: [fish, -c, scratchkitty] }
-      Alt_R-e: { launch: [fish, -c, 'int bluetui']}
-      Alt_R-f: { launch: [firefox]}
-      Alt_R-q: { launch: [fish, -c, 'int tiptop']}
-      Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
-      Alt_R-z: { launch: [fuzzel] }
-      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'edit_blank_clipboard'] }
-      CapsLock-Alt_L-Shift-d: { launch: [fish, -c, media_prev] }
-      CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mic_mute'] }
-      CapsLock-Alt_L-d: { launch: [fish, -c, media_next] }
-      CapsLock-Alt_L-e: { launch: [fish, -c, 'set_volume 0.02+'] }
-      CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '--fullscreen', '/home/axlefublr/i/s/original.mp4'] }
-      CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume 0.02-'] }
-      CapsLock-Enter: { launch: [fish, -c, 'edit_clipboard'] }
-      CapsLock-a: { launch: [fish, -c, 'toggle_mute'] }
-      CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
-      CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
-      CapsLock-t: { launch: [fish, -c, toggle_media] }
-      CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
-      CapsLock-y: CapsLock # toggle capslock toggle
-      Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_all] }
-      Pause: { launch: [systemctl, suspend] }
-      Super-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
-      Super-Alt_L-Semicolon: { launch: [fuzzel] }
-      Super-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
-      Super-b: { launch: [fish, -c, 'engined_search'] }
-      Super-i: { launch: [fish, -c, 'runner show'] }
-      Super-o: { launch: [fish, -c, runner_notification] }
-      Super-p: { launch: [fish, -c, runner-math] }
-      Super_L-u: { launch: [fish, -c, ntf_pick_dismiss] }
-      Super_L-v: { launch: [wooz]}
-      Super_R-q: ctrl-shift-u
-      Super_R-z: { launch: [fish, -c, runner_symbol] }
-      # [[sort off]]
-
       Super_R-g:
         exact_match: true
         remap:
@@ -1422,6 +1382,47 @@ keymap:
           Comma: { launch: [fish, -c, 'clipboard_harp_set comma'] }
           Dot: { launch: [fish, -c, 'clipboard_harp_set dot'] }
           Slash: { launch: [fish, -c, 'clipboard_harp_set slash'] }
+
+      # [[sort on]]
+      # Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
+      Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
+      Alt_R-a: { launch: [anki] }
+      Alt_R-c: { launch: [fish, -c, 'int calcure']}
+      Alt_R-d: { launch: [fish, -c, scratchkitty] }
+      Alt_R-e: { launch: [fish, -c, 'int bluetui']}
+      Alt_R-f: { launch: [firefox]}
+      Alt_R-q: { launch: [fish, -c, 'int tiptop']}
+      Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
+      Alt_R-z: { launch: [fuzzel] }
+      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'edit_blank_clipboard'] }
+      CapsLock-Alt_L-Shift-d: { launch: [fish, -c, media_prev] }
+      CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mic_mute'] }
+      CapsLock-Alt_L-d: { launch: [fish, -c, media_next] }
+      CapsLock-Alt_L-e: { launch: [fish, -c, 'set_volume 0.02+'] }
+      CapsLock-Alt_L-s: { launch: [fish, -c, 'show_clipboard_image']}
+      CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '--fullscreen', '/home/axlefublr/i/s/original.mp4'] }
+      CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume 0.02-'] }
+      CapsLock-Enter: { launch: [fish, -c, 'edit_clipboard'] }
+      CapsLock-a: { launch: [fish, -c, 'toggle_mute'] }
+      CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
+      CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      CapsLock-t: { launch: [fish, -c, toggle_media] }
+      CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
+      CapsLock-y: CapsLock # toggle capslock toggle
+      Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_all] }
+      Pause: { launch: [systemctl, suspend] }
+      Super-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
+      Super-Alt_L-Semicolon: { launch: [fuzzel] }
+      Super-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
+      Super-b: { launch: [fish, -c, 'engined_search'] }
+      Super-i: { launch: [fish, -c, 'runner show'] }
+      Super-o: { launch: [fish, -c, runner_notification] }
+      Super-p: { launch: [fish, -c, runner_math] }
+      Super_L-u: { launch: [fish, -c, ntf_pick_dismiss] }
+      Super_L-v: { launch: [wooz]}
+      Super_R-q: ctrl-shift-u
+      Super_R-z: { launch: [fish, -c, runner_symbol] }
+      # [[sort off]]
 
   - name: Any! numbers & special symbols
     exact_match: true
