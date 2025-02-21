@@ -8,7 +8,7 @@ abbr -a ca cargo
 abbr -a chx 'chmod +x'
 abbr -a cp 'rsync -r'
 abbr -a d swayimg
-abbr -a dq 'swayimg -g ; kitten @ close-window'
+abbr -a dq 'swayimg -g & disown ; kitten @ close-window'
 abbr -a ds swayimg -g
 abbr -a e helix
 abbr -a ff ffmpeg
