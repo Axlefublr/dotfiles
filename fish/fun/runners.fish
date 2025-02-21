@@ -27,7 +27,7 @@ function runner_kill
 end
 funcsave runner_kill >/dev/null
 
-function runner-math
+function runner_math
     set -l result (cat ~/.cache/mine/runner-math | fuzzel -dl 1 2>/dev/null)
     test $status -ne 0 && return 1
     test "$result" || return 1
@@ -35,7 +35,7 @@ function runner-math
     notify-send -t 0 $result
     echo | qalc --set 'save mode yes'
 end
-funcsave runner-math >/dev/null
+funcsave runner_math >/dev/null
 
 function runner_symbol
     set input (fuzzel -dl 0 2>/dev/null)
@@ -50,7 +50,7 @@ end
 funcsave runner_symbol >/dev/null
 
 function runner_symbol_name
-    set input (cat ~/.local/share/magazine/E | fuzzel -d --match-mode exact 2>/dev/null)
+    set input (cat ~/.local/share/magazine/E | fuzzel -d --match-mode exact --cache ~/.cache/mine/runner-symbol-name 2>/dev/null)
     test $status -eq 1 && return 1
     not test "$input" && return 1
     printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | copy
@@ -59,7 +59,7 @@ funcsave runner_symbol_name >/dev/null
 
 function runner_link
     set file ~/.local/share/magazine/l
-    set result (cat $file | sd ' — .+$' '' | fuzzel -d --index 2>/dev/null)
+    set result (cat $file | sd ' — .+$' '' | fuzzel -d --index --cache ~/.cache/mine/runner-link 2>/dev/null)
     test $status -ne 0 && return 1
     set line (math $result + 1)
     set link (awk "NR==$line { print \$NF }" $file)
@@ -92,7 +92,7 @@ end
 funcsave runner_notification >/dev/null
 
 function runner_interactive_unicode
-    set input (cat ~/.local/share/magazine/e | fuzzel -d 2>/dev/null)
+    set input (cat ~/.local/share/magazine/e | fuzzel -d --cache ~/.cache/mine/runner-interactive-unicode 2>/dev/null)
     test $status -ne 0 && return 1
     echo (string split ' ' $input[1])[1] | copy
 end
