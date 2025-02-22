@@ -157,7 +157,7 @@ binds {
     Mod+Shift+E { quit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return { spawn "fish" "-c" "scratchkitty"; }
+    Mod+Return { spawn "footclient"; }
     Mod+Alt+Return { spawn "foot"; }
 
     Mod+Semicolon { close-window; }
@@ -288,8 +288,8 @@ window-rule {
 
 window-rule {
     match app-id="^waybar$"
-    match app-id="^kitty$" title="^uboot$"
-    match app-id="^kitty$" title="^screen-record$"
+    match app-id="^kitty|foot" title="^uboot$"
+    match app-id="^kitty|foot" title="^screen-record$"
     open-focused false
 }
 

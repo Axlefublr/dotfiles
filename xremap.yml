@@ -1387,11 +1387,10 @@ keymap:
       # Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
       Alt_R-a: { launch: [anki] }
-      Alt_R-c: { launch: [fish, -c, 'int calcure']}
-      Alt_R-d: { launch: [fish, -c, scratchkitty] }
-      Alt_R-e: { launch: [fish, -c, 'int bluetui']}
+      Alt_R-c: { launch: [fish, -c, 'footclient calcure']}
+      Alt_R-e: { launch: [fish, -c, 'footclient bluetui']}
       Alt_R-f: { launch: [firefox]}
-      Alt_R-q: { launch: [fish, -c, 'int tiptop']}
+      Alt_R-q: { launch: [fish, -c, 'footclient tiptop']}
       Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
       Alt_R-z: { launch: [fuzzel] }
       CapsLock-Alt_L-Enter: { launch: [fish, -c, 'edit_blank_clipboard'] }

@@ -109,16 +109,6 @@ function randomize_file_names
 end
 funcsave randomize_file_names >/dev/null
 
-function set_tab_title
-    read -P 'title: ' new_title
-    if not test "$new_title"
-        kitten @ set-tab-title ""
-        return
-    end
-    kitten @ set-tab-title " $new_title"
-end
-funcsave set_tab_title >/dev/null
-
 function show_clipboard_image
     ypoci | swayimg -
 end

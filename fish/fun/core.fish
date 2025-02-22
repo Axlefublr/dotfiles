@@ -249,63 +249,24 @@ end
 funcsave rename >/dev/null
 
 function neoline
-    scratchpad --wintitle=line -- helix -c ~/r/dot/helix/quit.toml $argv
+    footclient -T line -- helix -c ~/r/dot/helix/quit.toml $argv
 end
 funcsave neoline >/dev/null
 
 function neoline_hold
     neoline $argv
-    win_wait 'Title: "line";App ID: "kitty"' 0.05 >/dev/null
-    win_wait_closed 'Title: "line";App ID: "kitty"' 0.05 >/dev/null
 end
 funcsave neoline_hold >/dev/null
 
 function neomax
-    scratchpad --wintitle=max -- helix -c ~/r/dot/helix/quit.toml $argv
+    footclient -T max -- helix -c ~/r/dot/helix/quit.toml $argv
 end
 funcsave neomax >/dev/null
 
 function neomax_hold
     neomax $argv
-    win_wait 'Title: "max";App ID: "kitty"' 0.05 >/dev/null
-    win_wait_closed 'Title: "max";App ID: "kitty"' 0.05 >/dev/null
 end
 funcsave neomax_hold >/dev/null
-
-function os
-    argparse -i cwd= -- $argv || return 1
-    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
-    kitten @ launch --type os-window --cwd $cwd $argv &>/dev/null
-end
-funcsave os >/dev/null
-
-function over
-    argparse -i cwd= -- $argv || return 1
-    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
-    kitten @ launch --type overlay-main --cwd $cwd $argv &>/dev/null
-end
-funcsave over >/dev/null
-
-function scratchkitty
-    pgrep kitty &>/dev/null && scratchpad --cwd ~ || kitty
-end
-funcsave scratchkitty >/dev/null
-
-function scratchpad
-    argparse -i cwd= wintitle= -- $argv || return 121
-    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
-    test "$_flag_wintitle" && set -l wintitle --os-window-title $_flag_wintitle || set -l wintitle --os-window-title scratchpad
-    kitten @ --to unix:(fd cami-kitty-instance /tmp | head -n 1) launch --cwd $cwd --type os-window $wintitle --no-response $argv &>/dev/null
-end
-funcsave scratchpad >/dev/null
-alias --save int scratchpad >/dev/null
-
-function tab
-    argparse -i cwd= -- $argv || return 1
-    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
-    kitten @ launch --type tab --cwd $cwd $argv &>/dev/null
-end
-funcsave tab >/dev/null
 
 function task
     set mag 3
@@ -321,13 +282,6 @@ function vids
     cp -f ~/i/s/original.mp4 $argv[1].mp4
 end
 funcsave vids >/dev/null
-
-function win
-    argparse -i cwd= -- $argv || return 1
-    test "$_flag_cwd" && set -l cwd $_flag_cwd || set -l cwd current
-    kitten @ launch --type window --cwd $cwd $argv &>/dev/null
-end
-funcsave win >/dev/null
 
 function win_wait
     loopuntil "matches '$argv[1]'" $argv[2..] | awk '{print $1}'

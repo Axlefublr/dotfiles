@@ -50,7 +50,7 @@ function alarm
     if status is-interactive
         _alarm "$argv"
     else
-        kitty -T timer fish -c "_alarm $(string escape $argv)"
+        footclient -T timer fish -c "_alarm $(string escape $argv)"
     end
 end
 funcsave alarm >/dev/null
@@ -86,7 +86,7 @@ function down
     if status is-interactive
         _down $argv
     else
-        kitty -T timer fish -c "_down $(string escape $argv)" 2>/dev/null
+        footclient -T timer fish -c "_down $(string escape $argv)" 2>/dev/null
     end
 end
 funcsave down >/dev/null
@@ -263,7 +263,7 @@ function timer
     if status is-interactive
         _timer "$argv"
     else
-        kitty -T timer fish -c "_timer $(string escape $argv)" 2>/dev/null
+        footclient -T timer fish -c "_timer $(string escape $argv)" 2>/dev/null
     end
 end
 funcsave timer >/dev/null

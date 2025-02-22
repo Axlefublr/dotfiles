@@ -33,7 +33,7 @@ alias --save suspend 'systemctl suspend' >/dev/null
 alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null
 alias --save toggle_mute 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' >/dev/null
-alias --save ubootf 'kitty -T uboot uboot.fish' >/dev/null
+alias --save ubootf 'footclient -T uboot uboot.fish' >/dev/null
 alias --save woman man >/dev/null # lol and even lmao
 alias --save ypoc 'wl-paste -n' >/dev/null
 alias --save ypoci 'wl-paste -t image/png' >/dev/null
