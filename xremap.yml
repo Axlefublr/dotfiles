@@ -1384,7 +1384,6 @@ keymap:
           Slash: { launch: [fish, -c, 'clipboard_harp_set slash'] }
 
       # [[sort on]]
-      # Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
       Alt_R-a: { launch: [anki] }
       Alt_R-c: { launch: [fish, -c, 'footclient calcure']}
@@ -1413,6 +1412,7 @@ keymap:
       Super_L-Alt_L-Semicolon: { launch: [fuzzel] }
       Super_L-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
       Super_L-b: { launch: [fish, -c, 'engined_search'] }
+      Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Super_L-e: { launch: [fish, -c, 'edit_clipboard_image'] }
       Super_L-i: { launch: [fish, -c, 'runner show'] }
       Super_L-o: { launch: [fish, -c, runner_notification] }

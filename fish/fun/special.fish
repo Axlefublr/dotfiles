@@ -76,9 +76,7 @@ end
 funcsave path_to_last_char >/dev/null
 
 function pick_and_copy_color
-    set -l picked_color (xcolor)
-    notify-send -t 3000 "$picked_color"
-    echo $picked_color | copy
+    wl-color-picker clipboard
 end
 funcsave pick_and_copy_color >/dev/null
 
