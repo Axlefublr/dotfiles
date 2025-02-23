@@ -1,0 +1,37 @@
+[general]
+# [[sort on]]
+action-on-enter = "save-to-clipboard"                                # action to perform when the enter key is pressed [possible values: save-to-clipboard, save-to-file]
+annotation-size-factor = 1                                           # increase or decrease the size of the annotations
+copy-command = "wl-copy"                                             # configure the command to be called on copy, for example `wl-copy`
+corner-roundness = 12                                                # draw corners of rectangles round if the value is greater than 0 (0 disables rounded corners)
+default-hide-toolbars = false                                        # hide toolbars by default
+disable-notifications = false
+early-exit = true                                                    # exit directly after copy/save action
+fullscreen = true                                                    # start satty in fullscreen mode
+initial-tool = "brush"                                               # select the tool on startup [possible values: pointer, crop, line, arrow, rectangle, text, marker, blur, brush]
+output-filename = "/home/axlefublr/i/s/%Y.%m.%d-%H:%M:%S-edited.png" # filename to use for saving action. omit to disable saving to file. might contain format specifiers: https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+primary-highlighter = "block"                                        # the primary highlighter to use, the other is accessible by holding ctrl at the start of a highlight [possible values: block, freehand]
+save-after-copy = true                                               # after copying the screenshot, save it to a file as well
+# [[sort off]]
+
+[font]
+family = "Inter"
+style = "Regular"
+
+[color-palette]
+# these will be shown in the toolbar for quick selection
+palette = [
+  "#ffafd7",
+  "#ff2930",
+  "#ff9f1a",
+  "#ffd75f",
+  "#87ff5f",
+  "#3dff47",
+  "#00d7ff",
+  "#8599ff",
+  "#af87ff",
+  "#ff8787",
+  "#878787",
+  "#ffffff",
+  "#0f0f0f",
+]

@@ -34,6 +34,11 @@ function edit_clipboard
 end
 funcsave edit_clipboard >/dev/null
 
+function edit_clipboard_image
+    ypoci | satty -f -
+end
+funcsave edit_clipboard_image >/dev/null
+
 function ffh
     set -l picked_function (rg '^function ffmpeg-' ~/r/dot/fish/fun/ffmpeg.fish | string match -gr 'ffmpeg-(.*)' | string replace -a '-' ' ' | fzf)
     test $status -ne 0 && return 1

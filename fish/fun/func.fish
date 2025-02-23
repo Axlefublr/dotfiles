@@ -139,8 +139,10 @@ function filter_mature_tasks
                 if_print $days $name 14
             case wilter bottle photos audio disc liked
                 if_print $days $name 15
-            case tails iso keyboard fsrs
+            case tails keyboard
                 if_print $days $name 30
+            case fsrs iso
+                if_print $days $name 60
             case toothbrush
                 if_print $days $name 90
             case '*'

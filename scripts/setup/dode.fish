@@ -307,6 +307,10 @@ function dode-httrack
     sudo pacman -S --needed --noconfirm --disable-download-timeout httrack
 end
 
+function dode-hyperfine
+    sudo pacman -S --needed --noconfirm --disable-download-timeout hyperfine
+end
+
 function dode-jj
     sudo pacman -S --needed --noconfirm --disable-download-timeout jj lazyjj
     jj util completion fish | source
@@ -545,6 +549,12 @@ function dode-rofi
     mkdir -p ~/.config/rofi
     ln -sf ~/r/dot/rofi.rasi ~/.config/rofi/config.rasi
     sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
+end
+
+function dode-satty
+    sudo pacman -S --needed --noconfirm --disable-download-timeout satty
+    mkdir -p ~/.config/satty
+    ln -sf ~/r/dot/satty.toml ~/.config/satty/config.toml
 end
 
 function dode-sd
