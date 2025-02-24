@@ -321,6 +321,10 @@ function dode-jpeg2png
     paru -Sa --needed --disable-download-timeout jpeg2png
 end
 
+function dode-just
+    sudo pacman -S --needed --noconfirm --disable-download-timeout just
+end
+
 function dode-kbt
     sudo pacman -S --needed --noconfirm --disable-download-timeout kbt
 end
