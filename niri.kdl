@@ -215,19 +215,19 @@ screenshot-path "~/i/s/%Y.%m.%d-%H:%M:%S.png"
 
 animations {
     workspace-switch {
-        spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
+        spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
     }
 
     horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
+        spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
     }
 
     window-movement {
-        spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
+        spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
     }
 
     window-resize {
-        spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
+        spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
     }
 
     window-open {
@@ -304,6 +304,7 @@ window-rule {
 window-rule {
     match app-id="^anki$" title="^Add|Edit"
     match app-id="^anki$" title="Change Note Type"
+    match app-id="^anki$" title="Import File$"
     default-column-width { proportion 0.5; }
 }
 

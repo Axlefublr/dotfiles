@@ -245,5 +245,6 @@ function fish_user_key_bindings
     binds -vids \cr _wrap_in_pueue
 
     binds -vids \e/ _fzf_history
+    binds -vids \ed 'echo nope ; commandline -f repaint'
 end
 funcsave fish_user_key_bindings >/dev/null
