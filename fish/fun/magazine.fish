@@ -52,17 +52,10 @@ funcsave magazine_appclip >/dev/null
 
 function magazine_filter
     not test "$argv" && return
-    set result (cat $argv | fuzzel -d 2>/dev/null)
+    set result (cat $argv | fuzzel -d --index 2>/dev/null)
     test $status -ne 0 && return 1
-    echo $result | copy
-    for line in (cat $argv)
-        if contains "$line" $result
-            continue
-        end
-        set collected $collected $line
-    end
-    set multiline (printf '%s\n' $collected | string collect)
-    echo $multiline >$argv
+    zat.rs $argv ,$result | copy
+    zat.rs $argv ,^$result .. | sponge $argv
     _magazine_notify $argv filter
     _magazine_commit $argv filter
 end

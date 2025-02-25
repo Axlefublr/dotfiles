@@ -3,20 +3,20 @@
 function calculate_eof_position -a file
     set -l last_line (wc -l $file | string split ' ')[1]
     echo -n :$last_line:
-    set -l last_column (zat -s $last_line -e $last_line $file | wc -c | string split ' ')[1]
+    set -l last_column (zat.rs $file $last_line | wc -c | string split ' ')[1]
     echo -n $last_column
 end
 funcsave calculate_eof_position >/dev/null
 
 function clipboard_index -a index
-    notify-send -t 2000 "$(cliphist list | sed -n $index'p' | cliphist decode | pee 'wl-copy -n' 'head -c 100')"
+    notify-send -t 2000 "$(cliphist list | zat.rs - $index | cliphist decode | pee 'wl-copy -n' 'head -c 100')"
 end
 funcsave clipboard_index >/dev/null
 
 function clipboard_pick
     set -l result (cliphist list | tee ~/.cache/mine/cliphist | cut -f 2- | fuzzel -d --index)
     test $status -ne 0 && return 1
-    sed -n (math $result + 1)'p' ~/.cache/mine/cliphist | cliphist decode | copy
+    zat.rs ~/.cache/mine/cliphist ",$result" | cliphist decode | copy
 end
 funcsave clipboard_pick >/dev/null
 
