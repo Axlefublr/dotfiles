@@ -15,6 +15,7 @@ use std::fs::OpenOptions;
 use std::io;
 use std::io::Read;
 use std::io::Write;
+use std::ops::Bound;
 use std::ops::Range;
 use std::ops::RangeBounds;
 use std::ops::RangeFrom;
@@ -22,6 +23,47 @@ use std::ops::RangeTo;
 use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
+use std::str::FromStr;
+
+#[derive(PartialEq, Debug)]
+struct LineRange {
+    start: usize,
+    end: Option<usize>,
+    negated: bool,
+}
+
+impl FromStr for LineRange {
+    type Err = &'static str;
+
+    fn from_str(arg: &str) -> Result<Self, Self::Err> {
+        let (arg, zero_indexed) = arg
+            .strip_prefix(',')
+            .map(|arg| (arg, true))
+            .unwrap_or((arg, false));
+        let (arg, negated) = arg
+            .strip_prefix('^')
+            .map(|arg| (arg, true))
+            .unwrap_or((arg, false));
+
+        let (first, second) = if let Some((first, second)) = arg.split_once("..") {
+            (first, second)
+        } else {
+            (arg, arg)
+        };
+
+        let start = first
+            .parse::<usize>()
+            .ok()
+            .map(|the| if zero_indexed { the } else { the.saturating_sub(1) })
+            .unwrap_or(0);
+        let end = second
+            .parse::<usize>()
+            .ok()
+            .map(|the| if zero_indexed { the } else { the.saturating_sub(1) });
+
+        Ok(Self { negated, start, end })
+    }
+}
 
 // filepath or -, all other args are ranges
 fn main() -> Result<(), Box<dyn Error>> {
@@ -41,89 +83,214 @@ fn main() -> Result<(), Box<dyn Error>> {
                 .collect()
         }
     };
-    trait RangeLike {
-        fn contains(&self, item: &i32) -> bool;
-    }
-    impl RangeLike for Range<i32> {
-        fn contains(&self, item: &i32) -> bool {
-            self.contains(item)
-        }
-    }
-    impl RangeLike for RangeFrom<i32> {
-        fn contains(&self, item: &i32) -> bool {
-            self.contains(item)
-        }
-    }
-    enum RangeInclusivity {
-        Inclusive(Box<dyn RangeLike>),
-        Negating(Box<dyn RangeLike>),
-    }
     let ranges: Vec<_> = args
-        .map(|arg| {
-            let mut modify_start = 1;
-            let mut modify_end = 1;
-            let negating_range;
-            let arg = if let Some(arg) = arg.strip_prefix(',') {
-                modify_start -= 1;
-                modify_end -= 1;
-                arg
-            } else {
-                arg.as_str()
-            };
-            let arg = if let Some(arg) = arg.strip_prefix('^') {
-                negating_range = true;
-                arg
-            } else {
-                negating_range = false;
-                arg
-            };
-            let (first_bound, second_bound) = if let Some((first_bound, second_bound)) = arg.split_once("..=")
-            {
-                modify_end -= 1;
-                (first_bound, second_bound)
-            } else if let Some((first_bound, second_bound)) = arg.split_once("..") {
-                (first_bound, second_bound)
-            } else {
-                modify_end -= 1;
-                (arg, arg)
-            };
-            let first_bound = if let Ok(first_bound) = first_bound.parse::<i32>() {
-                first_bound - modify_start
-            } else {
-                0
-            };
-            let second_bound: Option<i32> = second_bound
-                .parse::<i32>()
-                .ok()
-                .map(|bound| bound - modify_end);
-            if negating_range {
-                if let Some(second_bound) = second_bound {
-                    RangeInclusivity::Negating(Box::new(first_bound..second_bound))
-                } else {
-                    RangeInclusivity::Negating(Box::new(first_bound..))
-                }
-            } else if let Some(second_bound) = second_bound {
-                RangeInclusivity::Inclusive(Box::new(first_bound..second_bound))
-            } else {
-                RangeInclusivity::Inclusive(Box::new(first_bound..))
-            }
-        })
+        .map(|arg| LineRange::from_str(&arg).unwrap())
         .collect();
     'outer: for (index, line) in input.into_iter().enumerate() {
         for range in &ranges {
-            match range {
-                RangeInclusivity::Inclusive(range) => {
-                    if range.contains(&(index as i32)) {
-                        println!("{}", line);
-                    }
-                },
-                RangeInclusivity::Negating(range) => {
-                    if range.contains(&(index as i32)) {
+            if range.negated {
+                if let Some(end) = range.end {
+                    if range.start <= index && end >= index {
                         continue 'outer;
                     }
-                },
-            };
+                } else if range.start <= index {
+                    continue 'outer;
+                }
+            } else if let Some(end) = range.end {
+                if range.start <= index && end >= index {
+                    println!("{}", line);
+                    continue 'outer;
+                }
+            } else if range.start <= index {
+                println!("{}", line);
+                continue 'outer;
+            }
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn normal() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: Some(4),
+                negated: false
+            },
+            "1..5".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn index() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: Some(4),
+                negated: false
+            },
+            ",0..4".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn negated() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: Some(4),
+                negated: true
+            },
+            "^1..5".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn both() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: Some(4),
+                negated: true
+            },
+            ",^0..4".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn from() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: false
+            },
+            "1..".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn to() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: Some(4),
+                negated: false
+            },
+            "..5".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn from_negated() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: true
+            },
+            "^1..".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn from_index() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: false
+            },
+            ",0..".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn to_index() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: Some(4),
+                negated: false
+            },
+            ",..4".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn from_index_negated() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: true
+            },
+            ",^0..".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn to_index_negated() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: Some(4),
+                negated: true
+            },
+            ",^..4".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn single() {
+        assert_eq!(
+            LineRange {
+                start: 2,
+                end: Some(2),
+                negated: false
+            },
+            "3".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn single_index() {
+        assert_eq!(
+            LineRange {
+                start: 3,
+                end: Some(3),
+                negated: false
+            },
+            ",3".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn single_negated() {
+        assert_eq!(
+            LineRange {
+                start: 2,
+                end: Some(2),
+                negated: true
+            },
+            "^3".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn single_index_negated() {
+        assert_eq!(
+            LineRange {
+                start: 3,
+                end: Some(3),
+                negated: true
+            },
+            ",^3".parse().unwrap()
+        )
+    }
 }
