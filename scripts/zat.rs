@@ -15,7 +15,10 @@ use std::fs::OpenOptions;
 use std::io;
 use std::io::Read;
 use std::io::Write;
+use std::ops::Range;
 use std::ops::RangeBounds;
+use std::ops::RangeFrom;
+use std::ops::RangeTo;
 use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
@@ -38,41 +41,88 @@ fn main() -> Result<(), Box<dyn Error>> {
                 .collect()
         }
     };
-    let closures: Vec<_> = args
+    trait RangeLike {
+        fn contains(&self, item: &i32) -> bool;
+    }
+    impl RangeLike for Range<i32> {
+        fn contains(&self, item: &i32) -> bool {
+            self.contains(item)
+        }
+    }
+    impl RangeLike for RangeFrom<i32> {
+        fn contains(&self, item: &i32) -> bool {
+            self.contains(item)
+        }
+    }
+    enum RangeInclusivity {
+        Inclusive(Box<dyn RangeLike>),
+        Negating(Box<dyn RangeLike>),
+    }
+    let ranges: Vec<_> = args
         .map(|arg| {
-            let mut subtract = 0;
+            let mut modify_start = 1;
+            let mut modify_end = 1;
             let negating_range;
+            let arg = if let Some(arg) = arg.strip_prefix(',') {
+                modify_start -= 1;
+                modify_end -= 1;
+                arg
+            } else {
+                arg.as_str()
+            };
             let arg = if let Some(arg) = arg.strip_prefix('^') {
                 negating_range = true;
                 arg
             } else {
                 negating_range = false;
-                arg.as_str()
+                arg
             };
-            let (first_bound, second_bound) = arg
-                .split_once("..=")
-                .unwrap_or_else(|| {
-                    subtract = 1;
-                    arg.split_once("..").unwrap()
-                });
-            let first_bound: usize = first_bound.parse().unwrap();
-            let second_bound: usize = second_bound.parse().unwrap();
-            move |index: usize| {
-                let includes = ((first_bound - 1)..(second_bound - subtract)).contains(&index);
-                if negating_range {
-                    !includes
+            let (first_bound, second_bound) = if let Some((first_bound, second_bound)) = arg.split_once("..=")
+            {
+                modify_end -= 1;
+                (first_bound, second_bound)
+            } else if let Some((first_bound, second_bound)) = arg.split_once("..") {
+                (first_bound, second_bound)
+            } else {
+                modify_end -= 1;
+                (arg, arg)
+            };
+            let first_bound = if let Ok(first_bound) = first_bound.parse::<i32>() {
+                first_bound - modify_start
+            } else {
+                0
+            };
+            let second_bound: Option<i32> = second_bound
+                .parse::<i32>()
+                .ok()
+                .map(|bound| bound - modify_end);
+            if negating_range {
+                if let Some(second_bound) = second_bound {
+                    RangeInclusivity::Negating(Box::new(first_bound..second_bound))
                 } else {
-                    includes
+                    RangeInclusivity::Negating(Box::new(first_bound..))
                 }
+            } else if let Some(second_bound) = second_bound {
+                RangeInclusivity::Inclusive(Box::new(first_bound..second_bound))
+            } else {
+                RangeInclusivity::Inclusive(Box::new(first_bound..))
             }
         })
         .collect();
     'outer: for (index, line) in input.into_iter().enumerate() {
-        for closure in &closures {
-            if closure(index) {
-                println!("{}", line);
-                continue 'outer;
-            }
+        for range in &ranges {
+            match range {
+                RangeInclusivity::Inclusive(range) => {
+                    if range.contains(&(index as i32)) {
+                        println!("{}", line);
+                    }
+                },
+                RangeInclusivity::Negating(range) => {
+                    if range.contains(&(index as i32)) {
+                        continue 'outer;
+                    }
+                },
+            };
         }
     }
     Ok(())
