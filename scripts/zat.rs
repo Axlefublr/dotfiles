@@ -293,4 +293,52 @@ mod tests {
             ",^3".parse().unwrap()
         )
     }
+
+    #[test]
+    fn unbounded() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: false
+            },
+            "..".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn unbounded_index() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: false
+            },
+            ",..".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn unbounded_negated() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: true
+            },
+            "^..".parse().unwrap()
+        )
+    }
+
+    #[test]
+    fn unbounded_negated_index() {
+        assert_eq!(
+            LineRange {
+                start: 0,
+                end: None,
+                negated: true
+            },
+            ",^..".parse().unwrap()
+        )
+    }
 }
