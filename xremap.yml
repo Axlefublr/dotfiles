@@ -1408,6 +1408,7 @@ keymap:
       CapsLock-y: CapsLock # toggle capslock toggle
       Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_all] }
       Pause: { launch: [systemctl, suspend] }
+      Shift-Alt_L-Esc: { launch: [fish, -c, ntf_pick_dismiss] }
       Super_L-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
       Super_L-Alt_L-Semicolon: { launch: [fuzzel] }
       Super_L-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
@@ -1415,9 +1416,8 @@ keymap:
       Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Super_L-e: { launch: [fish, -c, 'edit_clipboard_image'] }
       Super_L-i: { launch: [fish, -c, 'runner show'] }
-      Super_L-o: { launch: [fish, -c, runner_notification] }
       Super_L-p: { launch: [fish, -c, runner_math] }
-      Super_L-u: { launch: [fish, -c, ntf_pick_dismiss] }
+      Super_L-u: { launch: [fish, -c, runner_notification] }
       Super_L-v: { launch: [wooz]}
       Super_L-w: { launch: [fish, -c, 'show_clipboard_image']}
       Super_R-q: ctrl-shift-u

@@ -148,6 +148,18 @@ layout {
     shadow {
         on
     }
+
+    tab-indicator {
+        hide-when-single-tab
+        length total-proportion=1.0
+        // place-within-column
+        gap 7
+        width 5
+        // position "top"
+        corner-radius 5
+        inactive-color "#00000000"
+        active-gradient from="#af87ff" to="#ff9f1a"
+    }
 }
 
 binds {
@@ -189,6 +201,7 @@ binds {
     Mod+Alt+Slash { toggle-window-floating; }
     Mod+Alt+B { fullscreen-window; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
+    Mod+O { toggle-column-tabbed-display; }
 
     Mod+S { screenshot; }
     Mod+Shift+S { screenshot-screen; }
@@ -255,7 +268,7 @@ cursor {
     hide-when-typing
 }
 
-/-clipboard {
+clipboard {
     disable-primary
 }
 
