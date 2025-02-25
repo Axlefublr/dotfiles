@@ -1,6 +1,8 @@
 [alias]
 c = 'clippy'
 f = 'fmt'
+q = 'run -q'
+qr = 'run -q --release'
 rr = 'run --release'
 br = 'build --release'
 a = 'add'
