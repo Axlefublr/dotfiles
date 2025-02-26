@@ -150,7 +150,7 @@ layout {
     }
 
     tab-indicator {
-        hide-when-single-tab
+        // hide-when-single-tab
         length total-proportion=1.0
         // place-within-column
         gap 7
