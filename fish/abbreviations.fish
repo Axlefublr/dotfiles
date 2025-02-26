@@ -19,8 +19,9 @@ abbr -a gz glaza
 abbr -a h 'z ~ && clx'
 abbr -a hime 'history merge'
 abbr -a hrtrack httrack
-abbr -a j jobs
+abbr -a j just
 abbr -a jf 'clx && exec fish'
+abbr -a l jobs
 abbr -a lg 'ezagit -al'
 abbr -a ls 'ezagit -a'
 abbr -a mkd 'mkdir -p'
