@@ -76,9 +76,9 @@ function get_input
     set -l input (fuzzel -dl 0 2>/dev/null)
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
-        string sub -e -2 -- $input >~/.cache/mine/get-input
-        neomax_hold (path_to_last_char ~/.cache/mine/get-input)
-        set input "$(cat ~/.cache/mine/get-input)"
+        string sub -e -2 -- $input >/tmp/cami-get-input
+        neomax_hold (path_to_last_char /tmp/cami-get-input)
+        set input "$(cat /tmp/cami-get-input)"
     end
     echo $input
 end
@@ -124,8 +124,8 @@ function lhg
     # https://raw.githubusercontent.com/Axlefublr/dotfiles/refs/heads/main/fish/fun/general.fish
     set -l raw_link (ypoc | string replace 'github.com' 'raw.githubusercontent.com' | string replace blob refs/heads)
     set -l extension (path extension $raw_link)
-    curl $raw_link >~/.cache/mine/lhg$extension
-    helix ~/.cache/mine/lhg$extension
+    curl $raw_link >/tmp/cami-lhg$extension
+    helix /tmp/cami-lhg$extension
 end
 funcsave lhg >/dev/null
 
