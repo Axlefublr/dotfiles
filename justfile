@@ -20,10 +20,14 @@ hooks:
     '''}}' >./.git/hooks/pre-commit
     chmod +x ./.git/hooks/pre-commit
 
+update:
+    -paru -Sua
+    loago do update
+
 xremap: xremap-stop xremap-start
 
 xremap-start:
     xremap ./xremap.yml &>/dev/null & disown
 
 xremap-stop:
-    killall xremap
+    -killall xremap
