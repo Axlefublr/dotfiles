@@ -1,0 +1,13 @@
+set shell := ['fish', '-c']
+
+default:
+
+add *args:
+    #!/usr/bin/env fish
+    mkdir -p ~/.cache/wks/dummy/src
+    touch ~/.cache/wks/dummy/src/main.rs
+    cp -f ~/r/dot/defconf/wks/blank.toml ~/.cache/wks/dummy/Cargo.toml
+    cd ~/.cache/wks/dummy
+    cargo add {{args}}
+    cd ~/r/wks
+    indeed.rs ./Cargo.toml "$(tail -n 1 ~/.cache/wks/dummy/Cargo.toml)"
