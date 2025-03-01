@@ -164,6 +164,13 @@ function edod-eww
     rm -fr ~/r/binaries/eww
 end
 
+function dode-fancontrol
+    sudo pacman -S --needed --noconfirm --disable-download-timeout lm_sensors
+    sudo sensors-detect
+    sudo pwmconfig
+    sudo systemctl enable --now fancontrol
+end
+
 function dode-fifc
     fisher install gazorby/fifc
     set -Ux fifc_editor helix

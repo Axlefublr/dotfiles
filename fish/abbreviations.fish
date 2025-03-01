@@ -11,6 +11,7 @@ abbr -a d swayimg
 abbr -a dq 'swayimg -g & disown ; exit'
 abbr -a ds swayimg -g
 abbr -a e helix
+abbr -a fc 'cat ~/r/info/pswds/sudo | sudo -S systemctl restart fancontrol'
 abbr -a ff ffmpeg
 abbr -a ffi 'ffmpeg -i'
 abbr -a g git
