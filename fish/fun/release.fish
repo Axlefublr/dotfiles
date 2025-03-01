@@ -3,12 +3,6 @@
 #----------------------------------------------------rust----------------------------------------------------
 
 function rust-release
-    if not set -q argv[1]
-        echo 'set the version'
-        return 1
-    end
-    set -l taggedVersion $argv[1]
-
     gq || return 1
 
     if not test -f README.md
@@ -34,25 +28,24 @@ function rust-release
         return 1
     end
 
+    set -l tagged_version (rg '^version = ' Cargo.toml | string match -gr 'version = "(.*?)"')
+    confirm "release $tagged_version?" '[j]es' '[k]o'
+    test $status -eq 1 || return 1
+
     echo '1. update README'
     echo '2. update --help'
     echo '3. ci will get updated'
-    read -P 'proceed?: ' -ln 1 should_continue
-    not test $should_continue && return 1
-
-    if not rg -q "^version = \"$taggedVersion\"" Cargo.toml
-        echo "update version in Cargo.toml"
-        return 1
-    end
+    confirm 'proceed?' '[j]es' '[k]o'
+    test $status -eq 1 || return 1
 
     rust-fmt
     rust-ci
 
     git add . &&
-        git commit -m $taggedVersion &&
+        git commit -m $tagged_version &&
         git push &&
-        git tag $taggedVersion -F curtag.txt &&
-        git push origin $taggedVersion
+        git tag $tagged_version -F curtag.txt &&
+        git push origin $tagged_version
     truncate -s 0 curtag.txt
     cargo publish
 end
