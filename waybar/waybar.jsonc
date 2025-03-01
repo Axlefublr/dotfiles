@@ -15,6 +15,7 @@
   ],
   "modules-center": [],
   "modules-right": [
+    "custom/cha-fan",
     "custom/cpu-fan",
     "pulseaudio",
     "memory",
@@ -52,6 +53,12 @@
   "custom/magazines": {
     "exec": "/home/axlefublr/r/dot/waybar/magazines.fish",
     "format": "{}",
+    "hide-empty-text": true
+  },
+  "custom/cha-fan": {
+    "exec": "/home/axlefublr/r/dot/waybar/cha-fan.fish",
+    "format": "{}\"",
+    "interval": 10,
     "hide-empty-text": true
   },
   "custom/cpu-fan": {

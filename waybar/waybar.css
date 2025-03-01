@@ -53,6 +53,10 @@ window#waybar {
   color: #78bf84;
 }
 
+#custom-cha-fan {
+  color: #e491b2;
+}
+
 #custom-cpu-fan {
   color: #7daea3;
 }
