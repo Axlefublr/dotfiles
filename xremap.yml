@@ -77,13 +77,10 @@ keymap:
   - name: Term!
     exact_match: true
     application:
-      only: [Alacritty, kitty]
+      only: [foot, footclient]
     remap:
       # [[sort on]]
-      CapsLock-Alt_L-Semicolon: ctrl-w
-      Ctrl-Alt_L-u: f4
-      Ctrl-Enter: f2
-      Shift-Alt_L-Semicolon: f5
+
       # [[sort off]]
 
   - name: Arr
@@ -1390,6 +1387,7 @@ keymap:
       Alt_R-e: { launch: [fish, -c, 'footclient bluetui']}
       Alt_R-f: { launch: [firefox]}
       Alt_R-q: { launch: [fish, -c, 'footclient tiptop']}
+      Alt_R-t: { launch: [paplay, /home/axlefublr/m/soundeffects/camera-shutter.oga]}
       Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
       Alt_R-z: { launch: [fuzzel] }
       CapsLock-Alt_L-Enter: { launch: [fish, -c, 'edit_blank_clipboard'] }
