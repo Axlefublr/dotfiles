@@ -222,6 +222,7 @@ normal_mappings.update(**normal_insert_mappings)
 insert_mappings.update(**normal_insert_mappings)
 
 normal_select_mappings: dict[str, Any] = {
+    'p': 'append_mode_same_line',
     'Z': 'copy_selection_on_prev_line',
     '`': 'switch_case',
     '~': 'switch_to_lowercase',
@@ -270,7 +271,6 @@ normal_select_mappings: dict[str, Any] = {
     'A-m': 'split_selection_on_newline',
     ':': 'replace_with_yanked',
     'i': 'insert_mode',
-    'p': 'append_mode',
     'I': 'insert_at_line_start',
     'P': 'insert_at_line_end',
     'd': 'delete_selection',
