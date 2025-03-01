@@ -153,6 +153,9 @@ name = 'rust'
 '`' = '`'
 '<' = '>'
 
+[language-server.rust-analyzer]
+command = '/usr/lib/rustup/bin/rust-analyzer'
+
 [language-server.rust-analyzer.config]
 checkOnSave.command = 'clippy'
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev'
