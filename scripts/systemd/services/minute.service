@@ -1,3 +1,0 @@
-[Service]
-ExecStartPre=/home/axlefublr/r/dot/scripts/processwait.fish
-ExecStart=/home/axlefublr/r/dot/scripts/systemd/executables/minute.fish
