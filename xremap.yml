@@ -80,7 +80,7 @@ keymap:
       only: [foot, footclient]
     remap:
       # [[sort on]]
-
+      CapsLock-Alt_L-Semicolon: ctrl-w
       # [[sort off]]
 
   - name: Arr
