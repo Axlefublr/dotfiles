@@ -64,7 +64,7 @@ function fn_clear
     for file in ~/.config/fish/functions/*.fish
         set function_name (basename $file '.fish')
         if not contains $function_name $list
-            and not string match -qr '^_?fifc' $function_name
+            # and not string match -qr '^_?fifc' $function_name
             rm $file
             echo 'cleared: '$function_name
         end
