@@ -280,7 +280,7 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 16
     clip-to-geometry true
-    opacity 0.97
+    opacity 0.98
 }
 
 window-rule {
