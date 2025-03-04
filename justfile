@@ -7,7 +7,7 @@ alias xrs := xremap-start
 # [[sort off]]
 
 default:
-    echo {{CLEAR}}
+    @just --choose
 
 helix:
     ./helix/generator.py

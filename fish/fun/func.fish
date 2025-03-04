@@ -129,8 +129,6 @@ function filter_mature_tasks
         set -l name $match[1]
         set -l days $match[2]
         switch $name
-            case filter
-                if_print $days $name 60
             case towels nose wash vacuum floor dust fate
                 if_print $days $name 7
             case brushes glasses
@@ -141,6 +139,8 @@ function filter_mature_tasks
                 if_print $days $name 15
             case tails keyboard
                 if_print $days $name 30
+            case filter
+                if_print $days $name 45
             case fsrs iso
                 if_print $days $name 60
             case toothbrush
