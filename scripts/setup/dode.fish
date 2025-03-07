@@ -473,6 +473,12 @@ function dode-picom
     ln -sf ~/r/dot/picom.conf ~/.config/picom/picom.conf
 end
 
+function dode-pik
+    sudo pacman -S --needed --noconfirm --disable-download-timeout pik
+    mkdir -p ~/.config/pik
+    ln -sf ~/r/dot/pik.toml ~/.config/pik/config.toml
+end
+
 function dode-pipes
     # visual lines going all over the screen
     paru -Sa --needed --disable-download-timeout bash-pipes

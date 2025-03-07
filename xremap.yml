@@ -1406,7 +1406,6 @@ keymap:
       Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_all] }
       Pause: { launch: [systemctl, suspend] }
       Shift-Alt_L-Esc: { launch: [fish, -c, ntf_pick_dismiss] }
-      Super_L-Alt_L-Apostrophe: { launch: [fish, -c, runner_kill] }
       Super_L-Alt_L-Semicolon: { launch: [fuzzel] }
       Super_L-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
       Super_L-b: { launch: [fish, -c, 'engined_search'] }

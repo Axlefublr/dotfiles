@@ -176,6 +176,8 @@ binds {
     Mod+Return { spawn "footclient"; }
     Mod+Alt+Return { spawn "foot"; }
 
+    Mod+Alt+Apostrophe { spawn "footclient" "pik"; }
+
     Mod+Semicolon { close-window; }
 
     Mod+H { focus-column-left-or-last; }
@@ -293,6 +295,7 @@ window-rule {
     match app-id="^anki$" title="Import File$"
     match app-id="^anki$" title="Options for "
     match app-id="^anki$" title="Change Note Type"
+    match app-id="^anki$" title="Preferences"
     match app-id="^python$" title="^Import$"
     match app-id="firefox$" title="^(File Upload)|(Save Image)$"
     open-floating false
