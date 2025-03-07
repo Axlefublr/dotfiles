@@ -28,12 +28,13 @@ end
 funcsave runner_kill >/dev/null
 
 function runner_math
-    set -l result (cat ~/.cache/mine/runner-math | fuzzel -dl 1 2>/dev/null)
-    test $status -ne 0 && return 1
-    test "$result" || return 1
-    set -l result (qalc -t --set 'save mode no' --set 'syntax 4' -- $result | tee ~/.cache/mine/runner-math ~/.local/share/magazine/o)
-    notify-send -t 0 $result
-    echo | qalc --set 'save mode yes'
+    footclient -N qalc
+    # set -l result (cat ~/.cache/mine/runner-math | fuzzel -dl 1 2>/dev/null)
+    # test $status -ne 0 && return 1
+    # test "$result" || return 1
+    # set -l result (qalc -t --set 'save mode no' --set 'syntax 4' -- $result | tee ~/.cache/mine/runner-math ~/.local/share/magazine/o)
+    # notify-send -t 0 $result
+    # echo | qalc --set 'save mode yes'
 end
 funcsave runner_math >/dev/null
 
