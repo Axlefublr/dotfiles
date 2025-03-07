@@ -1,0 +1,6 @@
+default:
+    just --choose
+
+update:
+    -paru -Sua
+    loago do update

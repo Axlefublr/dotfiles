@@ -38,10 +38,6 @@ systemd: systemd-setup
 systemd-setup:
     mkdir -p ~/.config/systemd/user
 
-update:
-    -paru -Sua
-    loago do update
-
 xremap: xremap-stop xremap-start
 
 xremap-start:

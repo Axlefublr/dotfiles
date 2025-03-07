@@ -23,6 +23,7 @@ abbr -a hime 'history merge'
 abbr -a hrtrack httrack
 abbr -a j just
 abbr -a jf 'clx && exec fish'
+abbr -a jk 'just -g'
 abbr -a l jobs
 abbr -a lg 'ezagit -al'
 abbr -a ls 'ezagit -a'
@@ -32,6 +33,7 @@ abbr -a qrtool qrtool.rs
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
 abbr -a rm trash-put
 abbr -a rmf 'rm -fr'
+abbr -a stl systemctl
 abbr -a stls 'sudo systemctl'
 abbr -a stlu 'systemctl --user'
 abbr -a trr trash-restore

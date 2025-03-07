@@ -1,4 +1,8 @@
 [[language]]
+name = "just"
+file-types = ["just", { glob = "justfile" }, { glob = "Justfile" }, { glob = ".justfile" }, { glob = ".Justfile" }, { glob = 'globaljustfile'}]
+
+[[language]]
 name = 'hocon'
 file-types = [
   'conf',

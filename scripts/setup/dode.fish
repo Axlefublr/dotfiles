@@ -330,6 +330,8 @@ end
 
 function dode-just
     sudo pacman -S --needed --noconfirm --disable-download-timeout just
+    mkdir -p ~/.config/just
+    ln -sf ~/r/dot/globaljustfile ~/.config/just/justfile
 end
 
 function dode-kbt
