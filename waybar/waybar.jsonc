@@ -58,13 +58,13 @@
   "custom/cha-fan": {
     "exec": "/home/axlefublr/r/dot/waybar/cha-fan.fish",
     "format": "{}\"",
-    "interval": 10,
+    "interval": 5,
     "hide-empty-text": true
   },
   "custom/cpu-fan": {
     "exec": "/home/axlefublr/r/dot/waybar/cpu-fan.fish",
     "format": "{}\"",
-    "interval": 10,
+    "interval": 5,
     "hide-empty-text": true
   },
   "pulseaudio": {

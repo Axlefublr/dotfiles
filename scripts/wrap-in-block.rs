@@ -1,8 +1,6 @@
 // begin Cargo.toml
 // [dependencies]
 // itertools = "0.14.0"
-// # textwrap = "0.16.1"
-// # clap = { version = "4.5.23", features = ["wrap_help", "derive"] }
 // end Cargo.toml
 // /home/axlefublr/r/dot/scripts/wrap-in-block.rs
 #![allow(unused_imports)]
