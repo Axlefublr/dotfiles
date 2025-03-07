@@ -531,6 +531,7 @@ end
 
 function dode-qbittorrent
     sudo pacman -S --needed --noconfirm --disable-download-timeout qbittorrent
+    xdg-mime default qbittorrent.desktop application/x-bittorrent
 end
 
 function dode-qrtool
@@ -714,12 +715,18 @@ function dode-waybar
     ln -sf /usr/lib/systemd/user/waybar.service ~/.config/systemd/user/niri.service.wants/waybar.service
 end
 
+function dode-wf-recorder
+    sudo pacman -S --needed --noconfirm --disable-download-timeout wf-recorder
+end
+
 function dode-whois
     sudo pacman -S --needed --noconfirm --disable-download-timeout whois
 end
 
-function dode-wf-recorder
-    sudo pacman -S --needed --noconfirm --disable-download-timeout wf-recorder
+function dode-wl-kbptr
+    paru -Sa --needed --disable-download-timeout wl-kbptr
+    mkdir -p ~/.config/wl-kbptr
+    ln -sf ~/r/dot/wlkbptr.ini ~/.config/wl-kbptr/config
 end
 
 function dode-wooz

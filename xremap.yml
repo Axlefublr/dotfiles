@@ -39,7 +39,6 @@ keymap:
       Alt_L-n: ctrl-g # find again
       Alt_L-s: alt-home # home
       Alt_L-w: ctrl-w # close tab
-      Ctrl-Alt_L-Apostrophe: { launch: [fish, -c, 'xdotool mousemove 0 1080 click 1']}
       Ctrl-Alt_L-d: ctrl-equal # zoom out
       Ctrl-Alt_L-f: ctrl-0 # zoom reset
       Ctrl-Alt_L-h: ctrl-shift-pageup # move tab left
@@ -1399,8 +1398,8 @@ keymap:
       CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume 0.02-'] }
       CapsLock-Enter: { launch: [fish, -c, 'edit_clipboard'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mute'] }
-      CapsLock-b: [{ set_mode: mouse }, { launch: [awesome-client, Mouse_we()] }]
-      CapsLock-f: [{ set_mode: arrows }, { launch: [awesome-client, Mouse_we(true)] }]
+      CapsLock-b: { launch: [wl-kbptr]}
+      CapsLock-f: { set_mode: arrows }
       CapsLock-t: { launch: [fish, -c, toggle_media] }
       CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
       CapsLock-y: CapsLock # toggle capslock toggle
@@ -1482,6 +1481,7 @@ keymap:
       # [[sort on]]
       CapsLock-Alt_L-Semicolon: ctrl-backspace
       CapsLock-Alt_L-n: shift-tab
+      CapsLock-Alt_L-s: ctrl-x
       CapsLock-Ctrl-d: ctrl-shift-v
       CapsLock-Semicolon: backspace
       CapsLock-Shift-d: ctrl-shift-v
