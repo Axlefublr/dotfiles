@@ -2,6 +2,7 @@
 
 # pueue add -g s 'RUST_LOG=debug axleizer'
 
+fc
 pueue restart -g s
 playerctld daemon
 xremap ~/r/dot/xremap.yml & disown
