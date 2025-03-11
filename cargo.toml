@@ -7,6 +7,7 @@ rr = 'run --release'
 br = 'build --release'
 a = 'add'
 maybe = 'add --dry-run'
+do = 'doc --open'
 
 [env]
 RUST_LOG = 'trace'

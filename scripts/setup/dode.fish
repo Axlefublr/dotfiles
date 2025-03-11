@@ -35,6 +35,12 @@ function dode-awm
     ln -sf ~/r/dot/awesome/awesome.lua ~/.config/awesome/rc.lua
 end
 
+function dode-bacon
+    sudo pacman -S --needed --noconfirm --disable-download-timeout bacon
+    bacon --prefs
+    ln -sf ~/r/dot/bacon.toml ~/.config/bacon/prefs.toml
+end
+
 function dode-bat
     sudo pacman -S --needed --noconfirm --disable-download-timeout bat
     set -Ux BAT_THEME ansi
@@ -476,7 +482,7 @@ function dode-picom
 end
 
 function dode-pik
-    sudo pacman -S --needed --noconfirm --disable-download-timeout pik
+    cargo binstall -y pik
     mkdir -p ~/.config/pik
     ln -sf ~/r/dot/pik.toml ~/.config/pik/config.toml
 end
@@ -525,7 +531,6 @@ function dode-pueue
     systemctl --user enable pueued
     systemctl --user status pueued
     ln -sf ~/r/dot/pueue.yml ~/.config/pueue/pueue.yml
-    pueue group add k
     pueue group add s
     pueue parallel -g s 0
 end
@@ -662,6 +667,7 @@ function dode-termfilechooser
     systemctl --user restart xdg-desktop-portal-termfilechooser.service
     # for firefox
     # widget.use-xdg-desktop-portal.file-picker 1
+    # middlemouse.paste
 end
 
 function dode-tiptop

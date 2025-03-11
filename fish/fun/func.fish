@@ -129,7 +129,7 @@ function filter_mature_tasks
         set -l name $match[1]
         set -l days $match[2]
         switch $name
-            case towels nose wash vacuum floor dust fate
+            case towels nose vacuum floor dust fate
                 if_print $days $name 7
             case brushes glasses
                 if_print $days $name 10

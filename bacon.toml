@@ -1,0 +1,31 @@
+# [[sort on]]
+# grace_period = '15ms' # delay after file event, after which to do the bacon action. can be set to 'none'
+# help_line = false
+# on_change_strategy = 'kill_then_restart'
+# on_change_strategy = 'wait_then_restart'
+# reverse = true
+# summary = true
+# wrap = false
+# show_changes_count = false
+default_job = 'clippy'
+# [[sort off]]
+
+[keybindings]
+i = 'scroll-to-top'
+o = 'scroll-to-bottom'
+e = 'refresh'
+s = 'copy-unstyled-output'
+n = 'next-match'
+q = 'quit'
+j = 'scroll-lines(1)'
+k = 'scroll-lines(-1)'
+shift-k = 'scroll-pages(-0.5)'
+shift-j = 'scroll-pages(0.5)'
+shift-n = 'previous-match'
+ctrl-c = 'no-op'
+ctrl-q = 'no-op'
+a = 'toggle-summary'
+h = 'no-op'
+t = 'job:test'
+r = 'job:run'
+c = 'job:clippy'
