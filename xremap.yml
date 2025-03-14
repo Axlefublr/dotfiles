@@ -354,85 +354,85 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/0'] }
-      Shift_L-w:
+      Shift_L-e:
         exact_match: true
         remap:
-          q: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/q'] }
-          w: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/w'] }
-          e: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/e'] }
-          r: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/r'] }
-          t: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/t'] }
-          y: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/y'] }
-          u: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/u'] }
-          i: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/i'] }
-          o: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/o'] }
-          p: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/p'] }
-          LeftBrace: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/leftbrace'] }
-          RightBrace: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/rightbrace'] }
-          a: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/a'] }
-          s: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/s'] }
-          d: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/d'] }
-          f: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/f'] }
-          g: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/g'] }
-          h: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/h'] }
-          j: { launch: [fish, -c, 'magazine_count ~/r/dot/project.txt'] }
-          k: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/k'] }
-          l: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/l'] }
-          Semicolon: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/semicolon'] }
-          Apostrophe: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/apostrophe'] }
-          z: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/z'] }
-          x: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/x'] }
-          c: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/c'] }
-          v: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/v'] }
-          b: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/b'] }
-          n: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/n'] }
-          m: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/m'] }
-          Comma: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/comma'] }
-          Dot: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/dot'] }
-          Slash: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/slash'] }
-          Shift-q: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/Q'] }
-          Shift-w: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/W'] }
-          Shift-e: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/E'] }
-          Shift-r: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/R'] }
-          Shift-t: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/T'] }
-          Shift-y: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/Y'] }
-          Shift-u: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/U'] }
-          Shift-i: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/I'] }
-          Shift-o: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/O'] }
-          Shift-p: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/P'] }
-          Shift-LeftBrace: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/leftcurl'] }
-          Shift-RightBrace: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/rightcurl'] }
-          Shift-a: { launch: [fish, -c, 'magazine_count_anki_cards ~/.local/share/magazine/A'] }
-          Shift-s: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/S'] }
-          Shift-d: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/D'] }
-          Shift-f: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/F'] }
-          Shift-g: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/G'] }
-          Shift-h: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_count (pick_project_path -e)'] }
-          Shift-k: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/K'] }
-          Shift-l: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/L'] }
-          Shift-Semicolon: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/colon'] }
-          Shift-Apostrophe: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/doublequote'] }
-          Shift-z: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/Z'] }
-          Shift-x: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/X'] }
-          Shift-c: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/C'] }
-          Shift-v: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/V'] }
-          Shift-b: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/B'] }
-          Shift-n: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/N'] }
-          Shift-m: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/M'] }
-          Shift-Comma: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/leftpointy'] }
-          Shift-Dot: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/rightpointy'] }
-          Shift-Slash: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/question'] }
-          Super_R-f: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/1'] }
-          Super_R-d: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/2'] }
-          Super_R-s: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/3'] }
-          Super_R-r: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/4'] }
-          Super_R-e: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/5'] }
-          Super_R-w: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/6'] }
-          Super_R-v: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/7'] }
-          Super_R-c: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/8'] }
-          Super_R-x: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/9'] }
-          Super_R-a: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/0'] }
+          q: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/q'] }
+          w: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/w'] }
+          e: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/e'] }
+          r: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/r'] }
+          t: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/t'] }
+          y: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/y'] }
+          u: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/u'] }
+          i: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/i'] }
+          o: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/o'] }
+          p: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/p'] }
+          LeftBrace: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/leftbrace'] }
+          RightBrace: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/rightbrace'] }
+          a: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/a'] }
+          s: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/s'] }
+          d: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/d'] }
+          f: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/f'] }
+          g: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/g'] }
+          h: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/h'] }
+          j: { launch: [fish, -c, 'magazine_novel ~/r/dot/project.txt'] }
+          k: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/k'] }
+          l: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/l'] }
+          Semicolon: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/semicolon'] }
+          Apostrophe: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/apostrophe'] }
+          z: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/z'] }
+          x: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/x'] }
+          c: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/c'] }
+          v: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/v'] }
+          b: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/b'] }
+          n: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/n'] }
+          m: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/m'] }
+          Comma: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/comma'] }
+          Dot: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/dot'] }
+          Slash: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/slash'] }
+          Shift-q: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/Q'] }
+          Shift-w: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/W'] }
+          Shift-e: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/E'] }
+          Shift-r: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/R'] }
+          Shift-t: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/T'] }
+          Shift-y: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/Y'] }
+          Shift-u: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/U'] }
+          Shift-i: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/I'] }
+          Shift-o: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/O'] }
+          Shift-p: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/P'] }
+          Shift-LeftBrace: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/leftcurl'] }
+          Shift-RightBrace: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/rightcurl'] }
+          Shift-a: { launch: [fish, -c, 'magazine_novel_anki_cards ~/.local/share/magazine/A'] }
+          Shift-s: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/S'] }
+          Shift-d: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/D'] }
+          Shift-f: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/F'] }
+          Shift-g: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/G'] }
+          Shift-h: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/H'] }
+          Shift-j: { launch: [fish, -c, 'magazine_novel (pick_project_path)'] }
+          Shift-k: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/K'] }
+          Shift-l: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/L'] }
+          Shift-Semicolon: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/colon'] }
+          Shift-Apostrophe: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/doublequote'] }
+          Shift-z: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/Z'] }
+          Shift-x: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/X'] }
+          Shift-c: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/C'] }
+          Shift-v: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/V'] }
+          Shift-b: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/B'] }
+          Shift-n: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/N'] }
+          Shift-m: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/M'] }
+          Shift-Comma: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/leftpointy'] }
+          Shift-Dot: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/rightpointy'] }
+          Shift-Slash: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/question'] }
+          Super_R-f: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/1'] }
+          Super_R-d: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/2'] }
+          Super_R-s: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/3'] }
+          Super_R-r: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/4'] }
+          Super_R-e: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/5'] }
+          Super_R-w: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/6'] }
+          Super_R-v: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/7'] }
+          Super_R-c: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/8'] }
+          Super_R-x: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/9'] }
+          Super_R-a: { launch: [fish, -c, 'magazine_novel ~/.local/share/magazine/0'] }
       Shift_L-Alt_L-c:
         exact_match: true
         remap:
@@ -670,7 +670,7 @@ keymap:
           Super_R-c: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/8'] }
           Super_R-x: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/9'] }
           Super_R-a: { launch: [fish, -c, 'magazine_edit ~/.local/share/magazine/0'] }
-      Shift_L-e:
+      Shift_L-w:
         exact_match: true
         remap:
           q: { launch: [fish, -c, 'magazine_commit ~/.local/share/magazine/q'] }

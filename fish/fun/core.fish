@@ -84,6 +84,17 @@ function get_input
 end
 funcsave get_input >/dev/null
 
+function get_input_max
+    truncate -s 0 /tmp/cami-get-input
+    neomax_hold /tmp/cami-get-input
+    if test -s /tmp/cami-get-input
+        cat /tmp/cami-get-input
+    else
+        return 1
+    end
+end
+funcsave get_input_max >/dev/null
+
 function get_windows
     niri msg windows | sd '\n  ' ';' | sd '\n\n' '\n'
 end

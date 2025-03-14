@@ -85,11 +85,16 @@ function magazine_reverse
 end
 funcsave magazine_reverse >/dev/null
 
-function magazine_count
+function magazine_novel
     not test "$argv" && return
-    _magazine_notify $argv count "$(wc -l $argv | string split ' ')[1]"
+    set -l result (get_input_max)
+    test $status -ne 0 && return
+    test "$result" || return
+    indeed.rs $argv -- "$result"
+    _magazine_notify $argv novel
+    _magazine_commit $argv novel
 end
-funcsave magazine_count >/dev/null
+funcsave magazine_novel >/dev/null
 
 #-------------------------------------------------combinatory-------------------------------------------------
 
