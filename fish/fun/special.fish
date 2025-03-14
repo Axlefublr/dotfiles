@@ -80,7 +80,7 @@ function pick_and_copy_color
 end
 funcsave pick_and_copy_color >/dev/null
 
-function pick_sts_boss
+function sts_boss
     set input (
         begin
             echo NoAwakenedOne
@@ -94,9 +94,10 @@ function pick_sts_boss
     if test $status -ne 0
         return 1
     end
+    mkdir -p ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods
     cp -f ~/r/binaries/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
 end
-funcsave pick_sts_boss >/dev/null
+funcsave sts_boss >/dev/null
 
 function piped_window_editor
     set -l file /tmp/cami-helix-overlay
