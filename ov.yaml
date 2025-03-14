@@ -106,7 +106,7 @@ KeyBind:
     - 'Down'
     - 'j'
   exit:
-    - 'q'
+    - ':'
   filter:
     - 'f'
   follow_all:

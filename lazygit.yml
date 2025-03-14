@@ -2,22 +2,24 @@
 quitOnTopLevelReturn: false
 disableStartupPopups: true
 gui:
-  commitAuthorLongLength: 9
-  scrollHeight: 10
-  scrollPastBottom: false
-  scrollOffMargin: 99
-  skipNoStagedFilesWarning: true
-  expandFocusedSidePanel: true
-  enlargedSideViewLocation: top
-  timeFormat: '06.01.02'
-  shortTimeFormat: '15:04'
-  showFileTree: false
-  showBottomLine: false
-  showPanelJumps: false
-  nerdFontsVersion: '3'
-  showDivergenceFromBaseBranch: arrowAndNumber
+  # [[sort on]]
   border: single
+  commitAuthorLongLength: 9
+  enlargedSideViewLocation: top
+  expandFocusedSidePanel: true
+  nerdFontsVersion: '3'
+  scrollHeight: 10
+  scrollOffMargin: 99
+  scrollPastBottom: false
+  shortTimeFormat: '15:04'
+  showBottomLine: false
+  showDivergenceFromBaseBranch: arrowAndNumber
+  showFileTree: false
+  showPanelJumps: false
+  skipNoStagedFilesWarning: true
   statusPanelView: allBranchesLog
+  timeFormat: '06.01.02'
+  # [[sort off]]
   authorColors:
     Axlefublr: '#ffafd7'
   branchColors:
@@ -47,7 +49,7 @@ git:
     showWholeGraph: false
   truncateCopiedCommitHashesTo: 12
   branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --'
-    
+
 update:
   method: never
 os:
@@ -60,25 +62,25 @@ keybinding:
   universal:
     # return: h
     # goInto: l
-    # togglePanel: J
 
-    # prevPage: '<disabled>'
-    # nextPage: <disabled>
-    
-    scrollLeft:  ','
-    scrollRight: '.'
-    prevPage: '<'
-    nextPage: '>'
-    nextScreenMode: '+'
-    prevScreenMode: '-'
-    prevBlock-alt: h
+    # [[sort on]]
+    executeShellCommand: ';'
+    gotoBottom: '>'
+    gotoTop: '<'
     nextBlock-alt: l
-    scrollUpMain-alt1: H
-    scrollDownMain-alt1: L
-    quit-alt1: K
+    nextPage: '.'
+    nextScreenMode: '+'
+    prevBlock-alt: h
+    prevPage: ','
+    prevScreenMode: '-'
+    quit-alt1: ':'
+    scrollDownMain-alt1: J
+    scrollLeft: H
+    scrollRight: L
+    scrollUpMain-alt1: K
     select: v
     toggleRangeSelect: x
-    executeShellCommand: ';'
+    # [[sort off]]
 customCommands:
     - key: o
       context: files

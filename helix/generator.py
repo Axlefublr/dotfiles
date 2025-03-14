@@ -246,7 +246,7 @@ normal_select_mappings: dict[str, Any] = {
     '+': 'remove_primary_selection',
     ',': 'flip_selections',
     '.': 'toggle_line_select',
-    ':': 'replace_with_yanked',
+    ':': ':write-buffer-close-or-quit',
     '@': 'replay_macro',
     'A': 'open_above',
     'A-,': 'decrement',
@@ -265,17 +265,17 @@ normal_select_mappings: dict[str, Any] = {
     'C-p': 'expand_selection',
     'D': ['delete_selection', 'move_char_left'],
     'G': 'goto_word',
-    'H': 'page_cursor_half_up',
+    'H': ':buffer-close-or-quit!',
     'I': 'insert_at_line_start',
-    'J': 'keep_primary_selection',
-    'K': ':write-buffer-close-or-quit',
-    'L': 'page_cursor_half_down',
+    'J': 'page_cursor_half_down',
+    'K': 'page_cursor_half_up',
+    'L': 'replace_with_yanked',
     'M': 'save_selection',
     'O': 'paste_before',
     'P': 'insert_at_line_end',
     'Q': 'split_selection',
     'R': 'repeat_last_motion',
-    'S': ':buffer-close-or-quit!',
+    'S': 'keep_primary_selection',
     'V': 'extend_line_above',
     'X': 'join_selections_space',
     'Z': 'copy_selection_on_prev_line',
@@ -497,18 +497,18 @@ entire_config: dict[str, Any] = {
 with open('/home/axlefublr/r/dot/helix/config.toml', 'w') as file:
     toml.dump(entire_config, file)
 
-entire_config['keys']['normal']['K'] = ':write-quit-all'
-entire_config['keys']['select']['K'] = ':write-quit-all'
-entire_config['keys']['normal']['S'] = ':quit-all!'
-entire_config['keys']['select']['S'] = ':quit-all!'
+entire_config['keys']['normal'][':'] = ':write-quit-all'
+entire_config['keys']['select'][':'] = ':write-quit-all'
+entire_config['keys']['normal']['H'] = ':quit-all!'
+entire_config['keys']['select']['H'] = ':quit-all!'
 
 with open('/home/axlefublr/r/dot/helix/quit.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['whitespace']['render']['newline'] = 'none'
 entire_config['editor']['gutters']['layout'] = []
-entire_config['keys']['normal']['K'] = ':quit-all!'
-entire_config['keys']['select']['K'] = ':quit-all!'
+entire_config['keys']['normal'][':'] = ':quit-all!'
+entire_config['keys']['select'][':'] = ':quit-all!'
 
 with open('/home/axlefublr/r/dot/helix/man.toml', 'w') as file:
     toml.dump(entire_config, file)
