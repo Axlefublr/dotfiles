@@ -213,8 +213,10 @@ div[role="group"]:has(#message-copy)+[role="separator"] {
 
 /* message you picked to reply to */
 .replying_d5deea,
+.replying__5126c,
 /* hovered reaction */
-.reaction__4a43f:hover {
+.reaction__4a43f:hover,
+.mouse-mode.full-motion .message__5126c.replying__5126c:hover {
 	background-color: var(--shell-background-orange);
 }
 
