@@ -252,7 +252,7 @@ normal_select_mappings: dict[str, Any] = {
     'A-,': 'decrement',
     'A-.': 'increment',
     'A-;': 'ensure_selections_forward',
-    'A-S': ':yank-join space',
+    'A-S': ':yank-join \\ ',
     'A-h': 'select_prev_sibling',
     'A-j': 'shrink_selection',
     'A-k': 'expand_selection',
@@ -367,7 +367,6 @@ normal_select_mappings: dict[str, Any] = {
             [
                 # [[sort on]]
                 'A-c',
-                'C',
                 'D',
                 'G',
                 'Y',
