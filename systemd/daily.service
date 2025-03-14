@@ -1,3 +1,4 @@
 [Service]
+Type=oneshot
 ExecStartPre=/home/axlefublr/r/dot/scripts/processwait.fish
 ExecStart=/home/axlefublr/r/dot/systemd/daily.fish
