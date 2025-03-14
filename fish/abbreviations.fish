@@ -1,5 +1,6 @@
 # [[sort on]]
 abbr -a .. --regex '^\.\.+$' --function multiple_dot
+abbr -a E 'sudo -E helix'
 abbr -a L yazi
 abbr -a aa 'shuf ~/.local/share/magazine/a'
 abbr -a at alien_temple
