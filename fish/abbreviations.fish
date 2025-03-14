@@ -1,6 +1,7 @@
 # [[sort on]]
 abbr -a .. --regex '^\.\.+$' --function multiple_dot
 abbr -a L yazi
+abbr -a aa 'shuf ~/.local/share/magazine/a'
 abbr -a at alien_temple
 abbr -a bl bluetoothctl
 abbr -a c lazygit

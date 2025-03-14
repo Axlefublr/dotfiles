@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
 function systemd_minute
-    pjs
     set notifications (gh api notifications | jq -r '.[] | "\\(.repository.full_name): \\(.subject.title)"')
     if test "$notifications"
         printf %s\n $notifications >~/.local/share/magazine/4
@@ -13,6 +12,5 @@ end
 funcsave systemd_minute >/dev/null
 
 function systemd_ten_minutes
-    filter_mature_tasks >~/.local/share/magazine/doublequote
 end
 funcsave systemd_ten_minutes >/dev/null
