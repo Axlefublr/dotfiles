@@ -43,7 +43,7 @@ keymap:
       Ctrl-Alt_L-f: ctrl-0 # zoom reset
       Ctrl-Alt_L-h: ctrl-shift-pageup # move tab left
       Ctrl-Alt_L-l: ctrl-shift-pagedown # move tab right
-      Ctrl-Alt_L-s: ctrl-minus # zoom in 
+      Ctrl-Alt_L-s: ctrl-minus # zoom in
       Ctrl-i: alt-right # history forward
       Ctrl-o: alt-left # history back
       Shift-Alt_L-h: alt-1 # go to tab 1
@@ -329,7 +329,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_get (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_get (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_get ~/.local/share/magazine/colon'] }
@@ -408,7 +408,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_count (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_count (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_count ~/.local/share/magazine/colon'] }
@@ -487,7 +487,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_cut (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_cut (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_cut ~/.local/share/magazine/colon'] }
@@ -566,7 +566,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_truncate (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_truncate (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_truncate ~/.local/share/magazine/colon'] }
@@ -882,7 +882,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_reverse (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_reverse (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_reverse ~/.local/share/magazine/colon'] }
@@ -961,7 +961,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_randomize (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_randomize (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_randomize ~/.local/share/magazine/colon'] }
@@ -1198,7 +1198,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_filter (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_filter (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_filter ~/.local/share/magazine/colon'] }
@@ -1277,7 +1277,7 @@ keymap:
           Shift-f: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/F'] }
           Shift-g: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/G'] }
           Shift-h: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/H'] }
-          Shift-j: { launch: [fish, -c, 'magazine_copy (pick_project_path)'] }
+          Shift-j: { launch: [fish, -c, 'magazine_copy (pick_project_path -e)'] }
           Shift-k: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/K'] }
           Shift-l: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/L'] }
           Shift-Semicolon: { launch: [fish, -c, 'magazine_copy ~/.local/share/magazine/colon'] }

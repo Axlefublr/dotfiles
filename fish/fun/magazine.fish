@@ -225,44 +225,10 @@ funcsave _magazine_commit >/dev/null
 
 #-------------------------------------------------projectual-------------------------------------------------
 
-function project_paths
-    for path in (ls -A ~/r/proj)
-        echo proj/$path
-    end
-    for path in (ls -A ~/r/forks)
-        echo forks/$path
-    end
-    # for path in (ls -A ~/r/stored)
-    #     echo stored/$path
-    # end
-end
-funcsave project_paths >/dev/null
+alias --save sj-set 'sj.rs ~/r/forks ~/r/proj' >/dev/null
+alias --save sj 'sj-set -ieb | ov --section-header --section-delimiter ":\\$"' >/dev/null
 
 function pick_project_path
-    echo ~/r/(project_paths | fuzzel -d 2>/dev/null)/project.txt
+    echo ~/r/(sj-set $argv | fuzzel -d 2>/dev/null)/project.txt
 end
 funcsave pick_project_path >/dev/null
-
-function pjs
-    begin
-        set empties
-        for file in (project_paths)
-            set -l project_file_path ~/r/$file/project.txt
-            not test -f $project_file_path && touch $project_file_path
-            if test -s $project_file_path
-                # set_color '#e491b2'
-                echo '~/r/'$file
-                # set_color normal
-                echo "$(cat $project_file_path)"
-                echo
-            else
-                set empties $empties $file
-            end
-        end
-        for file in $empties
-            # set_color '#e491b2'
-            printf '%s\n' $file
-        end
-    end >~/.cache/mine/pjs
-end
-funcsave pjs >/dev/null
