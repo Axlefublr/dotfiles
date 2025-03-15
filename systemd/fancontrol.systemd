@@ -1,0 +1,5 @@
+[Service]
+Restart=on-failure
+RestartSteps=20
+RestartMaxDelaySec=60
+StartLimitIntervalSec=0

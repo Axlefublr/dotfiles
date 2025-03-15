@@ -1,14 +1,53 @@
 [[language]]
-name = "just"
-file-types = ["just", { glob = "justfile" }, { glob = "Justfile" }, { glob = ".justfile" }, { glob = ".Justfile" }, { glob = 'globaljustfile'}]
-
-[[language]]
 name = 'hocon'
 file-types = [
   'conf',
   { glob = '**/src/*/resources/**/*.conf' },
   { glob = '*scalafmt*.conf' },
   { glob = '*scalafix*.conf' },
+]
+
+[[language]]
+name = 'ini'
+file-types = [
+  'ini',
+  # Systemd unit files
+  'service',
+  'automount',
+  'device',
+  'mount',
+  'path',
+  'service',
+  'slice',
+  'socket',
+  'swap',
+  'target',
+  'timer',
+  'systemd',
+  # Podman quadlets
+  'container',
+  'volume',
+  'kube',
+  'network',
+  { glob = '.editorconfig' },
+  { glob = '.npmrc' },
+  { glob = 'hgrc' },
+  { glob = 'npmrc' },
+  { glob = 'rclone.conf' },
+  'properties',
+  'cfg',
+  'directory',
+]
+
+[[language]]
+name = 'just'
+file-types = [
+  'just',
+  { glob = 'justfile' },
+  { glob = 'Justfile' },
+  { glob = '.justfile' },
+  { glob = '.Justfile' },
+  { glob = 'globaljustfile' },
 ]
 
 [[language]]

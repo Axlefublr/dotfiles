@@ -21,14 +21,14 @@ hooks:
     chmod +x ./.git/hooks/pre-commit
 
 systemd: systemd-setup
-    ln -sf ~/r/dot/systemd/minute.service ~/.config/systemd/user/minute.service
-    ln -sf ~/r/dot/systemd/minute.timer ~/.config/systemd/user/minute.timer
+    #!/usr/bin/env fish
+    set -l user_units ~/r/dot/systemd/minute.{service,timer} ~/r/dot/systemd/daily.{service,timer} ~/r/dot/systemd/ten-minutes.{service,timer}
+    for unit in $user_units
+        ln -sf $unit ~/.config/systemd/user/
+    end
 
-    ln -sf ~/r/dot/systemd/daily.service ~/.config/systemd/user/daily.service
-    ln -sf ~/r/dot/systemd/daily.timer ~/.config/systemd/user/daily.timer
-
-    ln -sf ~/r/dot/systemd/ten-minutes.service ~/.config/systemd/user/ten-minutes.service
-    ln -sf ~/r/dot/systemd/ten-minutes.timer ~/.config/systemd/user/ten-minutes.timer
+    not test -d /etc/systemd/system/fancontrol.service.d && sudo mkdir -p /etc/systemd/system/fancontrol.service.d
+    not test -f /etc/systemd/system/fancontrol.service.d/mine.conf && sudo ln -f ~/r/dot/systemd/fancontrol.systemd /etc/systemd/system/fancontrol.service.d/mine.conf
 
     systemctl --user daemon-reload
     systemctl --user enable --now daily.timer
