@@ -17,22 +17,22 @@ separator_open = ''
 separator_close = ''
 separator_style = { fg = 'white', bg = '#e49641' }
 
-mode_normal = { fg = 'white', bg = '#292828', bold = true }
-mode_select = { fg = '#78bf84', bg = '#292828', bold = true }
-mode_unset = { fg = '#ea6962', bg = '#292828', bold = true }
+mode_normal = { fg = 'white', bold = true }
+mode_select = { fg = '#78bf84', bold = true }
+mode_unset = { fg = '#ea6962', bold = true }
 
 [select]
-border = { fg = '#b58cc6', bg = '#292828', bold = true }
+border = { fg = '#b58cc6', bold = true }
 active = { fg = '#e49641', bold = true }
 
 [input]
-border = { fg = '#b58cc6', bg = '#292828', bold = true }
+border = { fg = '#b58cc6', bold = true }
 
 [completion]
-border = { fg = '#b58cc6', bg = '#292828', bold = true }
+border = { fg = '#b58cc6', bold = true }
 
 [tasks]
-border = { fg = '#b58cc6', bg = '#292828', bold = true }
+border = { fg = '#b58cc6', bold = true }
 
 [which]
 cols = 2
@@ -41,7 +41,7 @@ separator_style = { fg = 'white' }
 
 [help]
 hovered = { bg = '#5f472d' }
-footer = { fg = 'white', bg = '#292828' }
+footer = { fg = 'white' }
 
 [filetype]
 rules = [
