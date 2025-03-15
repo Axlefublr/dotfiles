@@ -1,2 +1,17 @@
 screen_size = 'fullscreen'
+
+[ui]
 use_icons = true
+
+[ui.process_table]
+border = { type = 'Plain', style = { fg = '#d4be98' } }
+
+[ui.process_table.row]
+selected_symbol = ' '
+even = { fg = '#d4be98' }
+odd = { fg = '#d4be98' }
+selected = { bg = '#5f472d', add_modifier = 'BOLD' }
+
+[ui.process_table.cell]
+# normal = {}
+highlighted = { fg = '#e49641', add_modifier = 'BOLD' }
