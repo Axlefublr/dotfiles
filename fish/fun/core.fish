@@ -289,6 +289,17 @@ function task
 end
 funcsave task >/dev/null
 
+function toggle_value
+    argparse 'n/namespace=' -- $argv
+    and test "$_flag_namespace"
+    and set namespace $_flag_namespace
+    or return 1
+    set -l current (clorange $namespace increment)
+    set -l index (math $current % (count $argv) + 1)
+    echo $argv[$index]
+end
+funcsave toggle_value >/dev/null
+
 function vids
     cp -f ~/i/s/original.mp4 $argv[1].mp4
 end

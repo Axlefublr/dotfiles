@@ -36,6 +36,7 @@ function magazine_append
     not test "$argv" && return
     set -l result (get_input)
     test $status -ne 0 && return
+    test "$result" || return
     indeed.rs $argv -- $result
     _magazine_notify $argv append
     _magazine_commit $argv append
@@ -90,7 +91,7 @@ function magazine_novel
     set -l result (get_input_max)
     test $status -ne 0 && return
     test "$result" || return
-    indeed.rs $argv -- "$result"
+    indeed.rs $argv -- $result
     _magazine_notify $argv novel
     _magazine_commit $argv novel
 end

@@ -86,8 +86,7 @@ function runner_notification
             return 1
         end
         notify-send -t 0 -- "$input"
-        echo "$input" >~/.local/share/magazine/o
-        _magazine_commit ~/.local/share/magazine/o notif
+        echo "$input" | copy
     end
 end
 funcsave runner_notification >/dev/null

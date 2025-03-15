@@ -85,7 +85,7 @@ editor: dict[str, Any] = {
     },
     'whitespace': {
         'render': {
-            'newline': 'all',
+            # 'newline': 'all',
             # 'tab': 'all',
         },
         'characters': {
@@ -298,6 +298,7 @@ normal_select_mappings: dict[str, Any] = {
     'm': {
         # [[sort on]]
         # 'w': ':toggle whichkey',
+        ';': ':toggle whitespace.render %sh(toggle_value -n helix-newline \'{"newline": "all"}\' \'{"newline": null}\')',
         'C': ':pipe wc -l',
         'F': ':echopy %(relative_path)',
         'V': ':sh ghl -pb HEAD %(relative_path) | copy',

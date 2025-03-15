@@ -104,7 +104,7 @@ function engined_search
     set -l input (
         for line in (cat ~/.local/share/magazine/B)
             echo (string split ' ' $line)[1]!
-        end | fuzzel -d 2>/dev/null
+        end | fuzzel -d --cache ~/.cache/mine/engined-search 2>/dev/null
     )
     test $status -ne 0 && return 1
 
