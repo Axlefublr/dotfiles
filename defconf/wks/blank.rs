@@ -16,7 +16,7 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
 
-fn main() -> anyhow::Result<()> {
+fn main() -> Result<(), Box<dyn Error>> {
     println!("Hello, world!");
     Ok(())
 }
