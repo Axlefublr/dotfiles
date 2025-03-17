@@ -265,7 +265,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-p': 'expand_selection',
     'D': ['delete_selection', 'move_char_left'],
     'G': 'goto_word',
-    'H': ':buffer-close-or-quit',
+    'H': ':write-buffer-close',
     'I': 'insert_at_line_start',
     'J': 'page_cursor_half_down',
     'K': 'page_cursor_half_up',
