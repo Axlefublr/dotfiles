@@ -29,6 +29,8 @@ systemd: systemd-setup
 
     not test -d /etc/systemd/system/fancontrol.service.d && sudo mkdir -p /etc/systemd/system/fancontrol.service.d
     not test -f /etc/systemd/system/fancontrol.service.d/mine.conf && sudo ln -f ~/r/dot/systemd/fancontrol.systemd /etc/systemd/system/fancontrol.service.d/mine.conf
+    mkdir -p ~/.config/systemd/user/swaybg.service.d
+    ln -sf ~/r/dot/systemd/swayimg.systemd ~/.config/systemd/user/swaybg.service.d/mine.conf
 
     systemctl --user daemon-reload
     systemctl --user enable --now daily.timer

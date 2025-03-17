@@ -37,6 +37,7 @@ file-types = [
   'properties',
   'cfg',
   'directory',
+  'desktop',
 ]
 
 [[language]]
