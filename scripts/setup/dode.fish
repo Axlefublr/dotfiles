@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 
+function dode-8bitdo
+    echo 'ACTION=="add", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="81HD", RUN+="/sbin/modprobe xpad", RUN+="/bin/sh -c \'echo 2dc8 81HD > /sys/bus/usb/drivers/xpad/new_id\'"' | sudo tee /etc/udev/rules.d/99-8bitdo-xinput.rules
+    sudo udevadm control --reload
+end
+
 function dode-aichat
     sudo pacman -S --needed --noconfirm --disable-download-timeout aichat
 end
