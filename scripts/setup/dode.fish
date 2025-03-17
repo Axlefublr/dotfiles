@@ -311,6 +311,8 @@ end
 function dode-grub
     sudo -E helix /etc/default/grub
     # GRUB_TIMEOUT=5 -> GRUB_TIMEOUT=1
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+    # this breaks radeon gpu fix, don't forget to do that after!
 end
 
 function dode-gtk-theme
@@ -569,8 +571,6 @@ function dode-qrtool
 end
 
 function dode-radeon-gpu
-    # paru -Sa --needed --disable-download-timeout radeon-profile-git radeon-profile-daemon-git
-    # sudo systemctl enable --now radeon-profile-daemon
     sudo pacman -S --needed --noconfirm --disable-download-timeout amdvlk lib32-amdvlk
     # in `lspci -k`, "kernel driver in use" should be amdgpu
     # if it's not, do the following:
