@@ -1380,6 +1380,7 @@ keymap:
           Slash: { launch: [fish, -c, 'clipboard_harp_set slash'] }
 
       # [[sort on]]
+      # Super_L-u: { launch: [fish, -c, runner_notification] }
       Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
       Alt_R-a: { launch: [anki] }
       Alt_R-c: { launch: [fish, -c, 'footclient calcure']}
@@ -1407,13 +1408,14 @@ keymap:
       Pause: { launch: [systemctl, suspend] }
       Shift-Alt_L-Esc: { launch: [fish, -c, ntf_pick_dismiss] }
       Super_L-Alt_L-Semicolon: { launch: [fuzzel] }
+      Super_L-Alt_L-u: { launch: [fish, -c, runner_clipboard_append] }
       Super_L-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
       Super_L-b: { launch: [fish, -c, 'engined_search'] }
       Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Super_L-e: { launch: [fish, -c, 'edit_clipboard_image'] }
       Super_L-i: { launch: [fish, -c, 'runner show'] }
       Super_L-p: { launch: [fish, -c, runner_math] }
-      Super_L-u: { launch: [fish, -c, runner_notification] }
+      Super_L-u: { launch: [fish, -c, runner_clipboard] }
       Super_L-v: { launch: [wooz]}
       Super_L-w: { launch: [fish, -c, 'show_clipboard_image']}
       Super_R-q: ctrl-shift-u
