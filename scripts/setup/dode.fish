@@ -296,6 +296,12 @@ function dode-git
     # [[sort off]]
 end
 
+function dode-gitu
+    sudo pacman -S --needed --noconfirm --disable-download-timeout gitu
+    mkdir -p ~/.config/gitu
+    ln -sf ~/r/dot/gitu.toml ~/.config/gitu/config.toml
+end
+
 function dode-gromit-mpx
     sudo pacman -S --needed --noconfirm --disable-download-timeout gromit-mpx
     ln -sf ~/r/dot/gromit.cfg ~/.config/gromit-mpx.cfg
