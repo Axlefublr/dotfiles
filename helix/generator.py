@@ -246,7 +246,7 @@ normal_select_mappings: dict[str, Any] = {
     '+': 'remove_primary_selection',
     ',': 'flip_selections',
     '.': 'toggle_line_select',
-    ':': ':write-buffer-close-or-quit',
+    ':': ':write-quit-all',
     '@': 'replay_macro',
     'A': 'open_above',
     'A-,': 'decrement',
@@ -265,7 +265,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-p': 'expand_selection',
     'D': ['delete_selection', 'move_char_left'],
     'G': 'goto_word',
-    'H': ':buffer-close-or-quit!',
+    'H': ':buffer-close-or-quit',
     'I': 'insert_at_line_start',
     'J': 'page_cursor_half_down',
     'K': 'page_cursor_half_up',
@@ -419,7 +419,6 @@ normal_select_mappings: dict[str, Any] = {
         ',': ':sort',
         '.': ':random',
         '/': 'select_first_and_last_chars',
-        ':': ':quit-all',
         ';': [':write-all', ':buffer-close-all'],
         '<': ['select_all', 'split_selection_on_newline', ':sort', 'keep_primary_selection'],
         '>': ['select_all', 'split_selection_on_newline', ':random', 'keep_primary_selection'],
@@ -498,11 +497,7 @@ entire_config: dict[str, Any] = {
 with open('/home/axlefublr/r/dot/helix/config.toml', 'w') as file:
     toml.dump(entire_config, file)
 
-entire_config['keys']['normal'][':'] = ':write-quit-all'
-entire_config['keys']['select'][':'] = ':write-quit-all'
-entire_config['keys']['normal']['H'] = ':quit-all!'
-entire_config['keys']['select']['H'] = ':quit-all!'
-
+# hotkeys that may close the current buffer now close the entire helix, still writing
 with open('/home/axlefublr/r/dot/helix/quit.toml', 'w') as file:
     toml.dump(entire_config, file)
 
@@ -511,11 +506,13 @@ entire_config['editor']['gutters']['layout'] = []
 entire_config['keys']['normal'][':'] = ':quit-all!'
 entire_config['keys']['select'][':'] = ':quit-all!'
 
+# hotkeys that may write and close the current buffer now close entire helix without saving
 with open('/home/axlefublr/r/dot/helix/man.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['soft-wrap']['enable'] = False
 entire_config['editor']['scrolloff'] = 0
 
+# meant for using helix to view a screen; wrapping disabled because of the line ending characters
 with open('/home/axlefublr/r/dot/helix/wrap-off.toml', 'w') as file:
     toml.dump(entire_config, file)
