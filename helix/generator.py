@@ -381,6 +381,7 @@ normal_select_mappings: dict[str, Any] = {
         '$': 'keep_selections',
         '*': 'make_search_word_bounded',
         '@': 'record_macro',
+        'F': ':e %sh(ypoc)',
         'H': 'goto_line_start',
         'I': 'goto_implementation',
         'L': 'goto_line_end_newline',
