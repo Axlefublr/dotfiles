@@ -40,6 +40,7 @@ alias --save ubootf 'footclient -T uboot uboot.fish' >/dev/null
 alias --save woman man >/dev/null # lol and even lmao
 alias --save ypoc 'wl-paste -n' >/dev/null
 alias --save ypoci 'wl-paste -t image/png' >/dev/null
+alias --save ypocn wl-paste >/dev/null
 # [[sort off]]
 
 function bl_reconnect

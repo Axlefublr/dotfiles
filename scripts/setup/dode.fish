@@ -308,6 +308,11 @@ function dode-gromit-mpx
     sudo ln -sf ~/r/dot/desktop/gromit-mpx.desktop /usr/share/applications/net.christianbeier.Gromit-MPX.desktop
 end
 
+function dode-grub
+    sudo -E helix /etc/default/grub
+    # GRUB_TIMEOUT=5 -> GRUB_TIMEOUT=1
+end
+
 function dode-gtk-theme
     gh repo clonef Axlefublr/gruvbox-material-gtk-theme
     sudo ln -sf ~/r/proj/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
