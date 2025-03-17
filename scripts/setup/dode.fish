@@ -598,6 +598,20 @@ function dode-satty
     ln -sf ~/r/dot/satty.toml ~/.config/satty/config.toml
 end
 
+function dode-scc
+    eget https://github.com/boyter/scc
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/boyter/scc
+end
+
+function dode-screenkey
+    sudo pacman -S screenkey
+    sudo ln -sf ~/r/dot/desktop/screenkey.desktop /usr/share/applications
+end
+
+function dode-scriptisto
+    cargo binstall -y scriptisto
+end
+
 function dode-sd
     sudo pacman -S --needed --noconfirm --disable-download-timeout sd
 end
@@ -614,18 +628,8 @@ function dode-serpl
     ln -sf ~/r/dot/serpl.yml ~/.config/serpl/serpl.yml
 end
 
-function dode-scc
-    eget https://github.com/boyter/scc
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/boyter/scc
-end
-
-function dode-screenkey
-    sudo pacman -S screenkey
-    sudo ln -sf ~/r/dot/desktop/screenkey.desktop /usr/share/applications
-end
-
-function dode-scriptisto
-    cargo binstall -y scriptisto
+function dode-snowmachine
+    pipx install snowmachine
 end
 
 function dode-speedtest
