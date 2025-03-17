@@ -9,6 +9,7 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
+use std::cmp::Ordering;
 use std::env;
 use std::error::Error;
 use std::fmt;
@@ -22,6 +23,7 @@ use std::io::Write;
 use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
+use std::time::SystemTime;
 
 use anyhow::Context;
 use anyhow::Result;
@@ -41,6 +43,14 @@ struct Nuts {
 struct Project {
     path: PathBuf,
     contents: Option<String>,
+}
+
+impl Project {
+    fn modified_date(&self) -> anyhow::Result<SystemTime> {
+        let mut the = self.path.clone();
+        the.push("project.txt");
+        Ok(fs::metadata(the)?.modified()?)
+    }
 }
 
 impl TryFrom<DirEntry> for Project {
@@ -66,7 +76,7 @@ impl TryFrom<DirEntry> for Project {
 
 fn main() -> anyhow::Result<()> {
     let nuts = Nuts::parse();
-    let mut entries = nuts
+    let entries = nuts
         .dirs
         .into_iter()
         .map(|dir| dir.read_dir())
@@ -76,25 +86,23 @@ fn main() -> anyhow::Result<()> {
         .flatten()
         .collect::<Result<Vec<_>, _>>()
         .context("io operations of getting each DirEntry")?;
-    entries.sort_by(|first, second| {
-        second
-            .metadata()
-            .unwrap()
-            .modified()
-            .unwrap()
-            .cmp(
-                &first
-                    .metadata()
-                    .unwrap()
-                    .modified()
-                    .unwrap(),
-            )
-    });
-    for project in entries
+    let mut projects = entries
         .into_iter()
         .map(Project::try_from)
-        .collect::<Result<Vec<_>, _>>()?
-    {
+        .collect::<Result<Vec<_>, _>>()?;
+    projects.sort_by(|first, second| {
+        if let Ok(date) = first.modified_date() {
+            if let Ok(date2) = second.modified_date() {
+                date.cmp(&date2)
+            } else {
+                Ordering::Greater
+            }
+        } else {
+            Ordering::Greater
+        }
+    });
+    projects.reverse();
+    for project in projects {
         if nuts.hide_empty && project.contents.is_none() {
             continue;
         }
