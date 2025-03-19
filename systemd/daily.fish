@@ -72,8 +72,4 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
-if not foot -v | rg '1\.20\.2 '
-    task 'new foot version! set cursor to hollow'
-end
-
 ubootf
