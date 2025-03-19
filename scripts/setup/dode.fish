@@ -302,6 +302,12 @@ function dode-gitu
     ln -sf ~/r/dot/gitu.toml ~/.config/gitu/config.toml
 end
 
+function dode-gomi
+    eget https://github.com/babarot/gomi
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/babarot/gomi
+    ln -sf ~/r/dot/gomi.yaml ~/.config/gomi/config.yaml
+end
+
 function dode-gromit-mpx
     sudo pacman -S --needed --noconfirm --disable-download-timeout gromit-mpx
     ln -sf ~/r/dot/gromit.cfg ~/.config/gromit-mpx.cfg

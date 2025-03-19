@@ -33,7 +33,7 @@ abbr -a mkd 'mkdir -p'
 abbr -a q qalc
 abbr -a qrtool qrtool.rs
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
-abbr -a rm trash-put
+abbr -a rm gomi
 abbr -a rmf 'rm -fr'
 abbr -a stl systemctl
 abbr -a stls 'sudo systemctl'

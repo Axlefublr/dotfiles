@@ -1,0 +1,57 @@
+core:
+  trash:
+    strategy: auto
+    home_fallback: true
+    gomi_dir: /home/axlefublr/.cache/gomi
+  restore:
+    confirm: true
+    verbose: true
+  permanent_delete:
+    enable: false
+  trash_dir: ""
+ui:
+  density: spacious
+  style:
+    list_view:
+      indent_on_select: true
+      cursor: '#AD58B4'
+      selected: '#5FB458'
+    detail_view:
+      border: '#EEEEDD'
+      info_pane:
+        deleted_from:
+          fg: '#EEEEEE'
+          bg: '#1C1C1C'
+        deleted_at:
+          fg: '#EEEEEE'
+          bg: '#1C1C1C'
+      preview_pane:
+        border: '#3C3C3C'
+        size:
+          fg: '#EEEEDD'
+          bg: '#3C3C3C'
+        scroll:
+          fg: '#EEEEDD'
+          bg: '#3C3C3C'
+    deletion_dialog: '#FF007F'
+  exit_message: ""
+  preview:
+    syntax_highlight: true
+    colorscheme: gruvbox
+    directory_command: ls -GF -1 -A --color=always
+  paginator_type: dots
+history:
+  include:
+    # within_days: 365
+  exclude:
+    files:
+    - .DS_Store
+    patterns: []
+    globs: []
+    # size:
+logging:
+  enabled: false
+  level: debug
+  rotation:
+    max_size: 10MB
+    max_files: 3
