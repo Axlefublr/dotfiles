@@ -99,9 +99,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         .into_iter()
         .filter(|line| {
             entry
-                .get(line)
-                .map(|count| count <= &0)
-                .unwrap()
+                .entry(line.to_owned())
+                .or_default()
+                == &mut 0
         })
         .choose(&mut rng)
         .unwrap();
