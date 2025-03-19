@@ -1391,7 +1391,6 @@ keymap:
       Alt_R-t: { launch: [paplay, /home/axlefublr/m/soundeffects/camera-shutter.oga]}
       Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
       Alt_R-z: { launch: [fuzzel] }
-      Backspace: { launch: [randomize-wallpaper.fish]}
       CapsLock-Alt_L-Enter: { launch: [fish, -c, 'edit_blank_clipboard'] }
       CapsLock-Alt_L-Shift-d: { launch: [fish, -c, media_prev] }
       CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mic_mute'] }
