@@ -224,43 +224,6 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
 end
 funcsave pacclean >/dev/null
 
-function smdn
-    set -l name $argv[1]
-
-    set -l executable /home/axlefublr/r/dot/scripts/systemd/executables/$name.fish
-    printf '#!/usr/bin/env fish' >$executable
-    chmod +x $executable
-    code $executable
-
-    set -l service ~/r/dot/scripts/systemd/services/$name.service
-    printf "[Service]
-    ExecStartPre=/home/axlefublr/r/dot/scripts/processwait.fish
-    ExecStart=$executable" >$service
-
-    set -l timer ~/r/dot/scripts/systemd/timers/$name.timer
-    printf '[Timer]
-    OnCalendar=*-*-8 05:00:00
-    Persistent=true
-
-    [Install]
-    WantedBy=timers.target' >$timer
-    code $timer
-
-    printf "
-
-    systemctl --user enable --now $name.timer" >>~/r/dot/scripts/systemd/definition.fish
-end
-funcsave smdn >/dev/null
-
-function smdr
-    set -l name $argv[1]
-    rm -fr ~/r/dot/scripts/systemd/{services,timers,executables}/$name.*
-    sd "
-
-    systemctl --user enable --now $name.timer" '' ~/r/dot/scripts/systemd/definition.fish
-end
-funcsave smdr >/dev/null
-
 function timer
     if status is-interactive
         _timer "$argv"
