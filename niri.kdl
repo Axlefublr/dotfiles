@@ -297,7 +297,7 @@ window-rule {
     match app-id="^anki$" title="Change Note Type"
     match app-id="^anki$" title="Preferences"
     match app-id="^python$" title="^Import$"
-    match app-id="firefox$" title="^(File Upload)|(Save Image)$"
+    match app-id="firefox$" title="^(File Upload)|(Save Image)|(Enter name of file to save to…)$"
     open-floating false
 }
 

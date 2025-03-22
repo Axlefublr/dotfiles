@@ -133,6 +133,11 @@ function toggle_screen_record
 end
 funcsave toggle_screen_record >/dev/null
 
+function wallpaper_which
+    path resolve ~/.cache/mine/background-image
+end
+funcsave wallpaper_which >/dev/null
+
 function write_window_info
     niri msg windows >~/.local/share/magazine/o
     _magazine_commit ~/.local/share/magazine/o clients

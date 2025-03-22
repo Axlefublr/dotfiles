@@ -7,3 +7,7 @@
   height: 100px;
   overflow: scroll;
 }
+
+.sidebar-section {
+  margin-top: 0.5em;
+}

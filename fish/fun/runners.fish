@@ -13,7 +13,7 @@ function runner
         source $input_file
     end
     indeed.rs -u $runned -- $input
-    tail -n 30 $runned | sponge $runned
+    tail -n 50 $runned | sponge $runned
     _magazine_commit ~/.local/share/magazine/L command history
     _magazine_commit ~/.local/share/magazine/o command output
 end

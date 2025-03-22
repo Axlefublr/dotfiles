@@ -11,7 +11,7 @@ abbr -a chx 'chmod +x'
 abbr -a cp 'rsync -r'
 abbr -a d swayimg
 abbr -a dq 'swayimg -g & disown ; exit'
-abbr -a ds swayimg -g
+abbr -a dg swayimg -g
 abbr -a e helix
 abbr -a fC 'sudo -E helix /etc/fancontrol'
 abbr -a fc 'cat ~/r/info/pswds/sudo | sudo -S systemctl restart fancontrol'
