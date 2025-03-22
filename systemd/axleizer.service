@@ -1,0 +1,11 @@
+[Unit]
+After=graphical-session.target network-online.target
+Requisite=graphical-session.target network-online.target
+
+[Service]
+Type=exec
+ExecStart=/home/axlefublr/r/binaries/axleizer
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target
