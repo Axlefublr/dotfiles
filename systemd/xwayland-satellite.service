@@ -1,11 +1,12 @@
 [Unit]
 After=graphical-session.target
+PartOf=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
 Type=exec
-ExecStart=/home/axlefublr/r/binaries/axleizer
-Restart=always
+ExecStart=/usr/bin/xwayland-satellite
+Restart=on-failure
 
 [Install]
 WantedBy=graphical-session.target

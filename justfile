@@ -22,20 +22,28 @@ hooks:
 
 systemd: systemd-setup
     #!/usr/bin/env fish
-    set -l user_units ~/r/dot/systemd/minute.{service,timer} ~/r/dot/systemd/daily.{service,timer} ~/r/dot/systemd/ten-minutes.{service,timer}
+    set -l user_units ~/r/dot/systemd/minute.{service,timer} ~/r/dot/systemd/daily.{service,timer} ~/r/dot/systemd/ten-minutes.{service,timer} ~/r/dot/systemd/axleizer.service ~/r/dot/systemd/xwayland-satellite.service
     for unit in $user_units
         ln -sf $unit ~/.config/systemd/user/
     end
 
-    not test -d /etc/systemd/system/fancontrol.service.d && sudo mkdir -p /etc/systemd/system/fancontrol.service.d
-    not test -f /etc/systemd/system/fancontrol.service.d/mine.conf && sudo ln -f ~/r/dot/systemd/fancontrol.systemd /etc/systemd/system/fancontrol.service.d/mine.conf
     mkdir -p ~/.config/systemd/user/swaybg.service.d
     ln -sf ~/r/dot/systemd/swayimg.systemd ~/.config/systemd/user/swaybg.service.d/mine.conf
+
+    not test -d /etc/systemd/system/fancontrol.service.d && sudo mkdir -p /etc/systemd/system/fancontrol.service.d
+    not test -f /etc/systemd/system/fancontrol.service.d/mine.conf && sudo ln -f ~/r/dot/systemd/fancontrol.systemd /etc/systemd/system/fancontrol.service.d/mine.conf
+
+    # not test -f /etc/systemd/system/wake.service && sudo ln -f ~/r/dot/systemd/wake.service /etc/systemd/system/wake.service
+
+    # sudo systemctl daemon-reload
+    # sudo systemctl enable wake.service
 
     systemctl --user daemon-reload
     systemctl --user enable --now daily.timer
     systemctl --user enable --now ten-minutes.timer
     systemctl --user enable --now minute.timer
+    systemctl --user enable --now axleizer.service
+    systemctl --user enable --now xwayland-satellite.service
 
 systemd-setup:
     mkdir -p ~/.config/systemd/user
