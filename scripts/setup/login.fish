@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-# pueue add -g s 'RUST_LOG=debug axleizer'
-
 pueue restart -g s
 playerctld daemon
 xremap ~/r/dot/xremap.yml & disown

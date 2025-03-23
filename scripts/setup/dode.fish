@@ -551,9 +551,7 @@ end
 
 function dode-pueue
     sudo pacman -S --needed --noconfirm --disable-download-timeout pueue
-    systemctl --user start pueued
-    systemctl --user enable pueued
-    systemctl --user status pueued
+    systemctl --user enable --now pueued
     ln -sf ~/r/dot/pueue.yml ~/.config/pueue/pueue.yml
     pueue group add s
     pueue parallel -g s 0

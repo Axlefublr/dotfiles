@@ -35,10 +35,9 @@ abbr -a qrtool qrtool.rs
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
 abbr -a rm gomi
 abbr -a rmf 'rm -fr'
-abbr -a stl systemctl
-abbr -a stls 'sudo systemctl'
-abbr -a stlu 'systemctl --user'
+abbr -a t systemctl
 abbr -a trr trash-restore
+abbr -a tu 'systemctl --user'
 abbr -a tz 'tz -q'
 abbr -a u pueue
 abbr -a v yazi_cd
