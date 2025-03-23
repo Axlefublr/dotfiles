@@ -1,7 +1,7 @@
 core:
   trash:
-    strategy: auto
-    home_fallback: true
+    strategy: xdg
+    home_fallback: false
     gomi_dir: /home/axlefublr/.cache/gomi
   restore:
     confirm: true

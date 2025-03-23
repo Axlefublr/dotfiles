@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-randomize-wallpaper.fish
-
 trash-empty -f 1
 
 cd ~/.local/share/magazine
