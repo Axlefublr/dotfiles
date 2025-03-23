@@ -22,7 +22,11 @@ hooks:
 
 systemd: systemd-setup
     #!/usr/bin/env fish
-    set -l user_units ~/r/dot/systemd/minute.{service,timer} ~/r/dot/systemd/daily.{service,timer} ~/r/dot/systemd/ten-minutes.{service,timer} ~/r/dot/systemd/wake.{path,service} ~/r/dot/systemd/axleizer.service
+    set -l user_units ~/r/dot/systemd/minute.{service,timer} \
+        ~/r/dot/systemd/daily.{service,timer} \
+        ~/r/dot/systemd/ten-minutes.{service,timer} \
+        ~/r/dot/systemd/wake.{path,service} \
+        ~/r/dot/systemd/axleizer.service
     for unit in $user_units
         ln -sf $unit ~/.config/systemd/user/
     end

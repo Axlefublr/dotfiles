@@ -121,8 +121,10 @@ end
 
 function dode-cliphist
     sudo pacman -S --needed --noconfirm --disable-download-timeout cliphist
-    pueue add -g s -- 'wl-paste --type image --watch cliphist store'
-    pueue add -g s -- 'wl-paste --type text --watch cliphist store'
+    ln -sf ~/r/dot/systemd/cliphist-{text,image}.service ~/.config/systemd/user/
+    systemctl --user daemon-reload
+    systemctl --user enable --now cliphist-text.service
+    systemctl --user enable --now cliphist-image.service
 end
 
 function dode-cowsay
