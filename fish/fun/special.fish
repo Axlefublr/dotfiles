@@ -133,10 +133,10 @@ function toggle_screen_record
 end
 funcsave toggle_screen_record >/dev/null
 
-function wallpaper_which
-    path resolve ~/.cache/mine/background-image
+function which_wallpaper
+    swww query | string match -gr 'image: (.*)'
 end
-funcsave wallpaper_which >/dev/null
+funcsave which_wallpaper >/dev/null
 
 function write_window_info
     niri msg windows >~/.local/share/magazine/o
