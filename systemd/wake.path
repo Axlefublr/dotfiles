@@ -1,0 +1,5 @@
+[Path]
+PathExists=/tmp/cami-just-suspended
+
+[Install]
+WantedBy=paths.target

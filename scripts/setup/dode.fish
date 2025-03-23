@@ -659,8 +659,10 @@ end
 function dode-swaybg
     sudo pacman -S --needed --noconfirm --disable-download-timeout swaybg
     ln -sf ~/r/dot/swaybg/swaybg.service ~/.config/systemd/user/swaybg.service
+    mkdir -p ~/.config/systemd/user/swaybg.service.d
+    ln -sf ~/r/dot/swaybg/swaybg.systemd ~/.config/systemd/user/swaybg.service.d/mine.conf
     systemctl --user daemon-reload
-    systemctl --user enable --now swaybg.service # reload swaybg
+    systemctl --user enable --now swaybg.service
 end
 
 function dode-swayimg
@@ -807,7 +809,9 @@ end
 function dode-xwayland-satellite
     sudo pacman -S --needed --noconfirm --disable-download-timeout xwayland-satellite
     set -Ux DISPLAY :0
-    pueue add -g s -- xwayland-satellite
+    ln -sf ~/r/dot/systemd/xwayland-satellite.service ~/.config/systemd/user/xwayland-satellite.service
+    systemctl --user daemon-reload
+    systemctl --user enable --now xwayland-satellite.service
 end
 
 function dode-yazi

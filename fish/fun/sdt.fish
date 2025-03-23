@@ -14,3 +14,8 @@ funcsave systemd_minute >/dev/null
 function systemd_ten_minutes
 end
 funcsave systemd_ten_minutes >/dev/null
+
+function systemd_wake
+    randomize-wallpaper.fish
+end
+funcsave systemd_wake >/dev/null
