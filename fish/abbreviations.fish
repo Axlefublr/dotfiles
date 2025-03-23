@@ -10,8 +10,8 @@ abbr -a ca cargo
 abbr -a chx 'chmod +x'
 abbr -a cp 'rsync -r'
 abbr -a d swayimg
-abbr -a dq 'swayimg -g & disown ; exit'
 abbr -a dg swayimg -g
+abbr -a dq 'swayimg -g & disown ; exit'
 abbr -a e helix
 abbr -a fC 'sudo -E helix /etc/fancontrol'
 abbr -a fc 'cat ~/r/info/pswds/sudo | sudo -S systemctl restart fancontrol'

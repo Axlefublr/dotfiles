@@ -660,8 +660,7 @@ function dode-swaybg
     sudo pacman -S --needed --noconfirm --disable-download-timeout swaybg
     ln -sf ~/r/dot/swaybg/swaybg.service ~/.config/systemd/user/swaybg.service
     systemctl --user daemon-reload
-    ln -s ~/.config/systemd/user/swaybg.service ~/.config/systemd/user/niri.service.wants/
-    systemctl --user restart swaybg.service # reload swaybg
+    systemctl --user enable --now swaybg.service # reload swaybg
 end
 
 function dode-swayimg
@@ -674,6 +673,13 @@ function dode-swayimg
     xdg-mime default swayimg.desktop image/webp
     mkdir -p ~/.config/swayimg
     ln -sf ~/r/dot/swayimg.ini ~/.config/swayimg/config
+end
+
+function dode-swww
+    sudo pacman -S --needed --noconfirm --disable-download-timeout swww
+    ln -sf ~/r/dot/systemd/swww.service ~/.config/systemd/user/swww.service
+    systemctl --user daemon-reload
+    systemctl --user enable --now swww.service
 end
 
 function dode-termfilechooser

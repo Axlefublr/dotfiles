@@ -4,7 +4,8 @@ PartOf=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/swaybg -i "%h/.cache/mine/background-image" -m fill
+Type=exec
+ExecStart=/usr/bin/swww-daemon
 Restart=on-failure
 
 [Install]
