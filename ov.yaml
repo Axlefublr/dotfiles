@@ -1,5 +1,5 @@
 # QuitSmall: false # quit if the file size is smaller than the terminal size.
-IsWriteOriginal: true # write the original content when exiting.
+IsWriteOriginal: false # write the original content when exiting.
 # BeforeWriteOriginal: 0 # write the number of lines before the current location when exiting.
 # AfterWriteOriginal: 0 # write the number of lines after the current location when exiting.
 

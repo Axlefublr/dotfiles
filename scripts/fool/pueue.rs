@@ -35,6 +35,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let Some(subcommand) = args.next() else {
         let mut cmd = Command::new("ov");
         cmd.args([
+            "-X",
             "--section-delimiter",
             "^Group",
             "--hide-other-section",
@@ -50,34 +51,34 @@ fn main() -> Result<(), Box<dyn Error>> {
     match &subcommand[..] {
         "g" => {
             cmd.arg("group");
-        }
+        },
         "cl" => {
             cmd.arg("clean");
-        }
+        },
         "cls" => {
             cmd.arg("clean").arg("-s");
-        }
+        },
         "ll" => {
             cmd.arg("parallel");
-        }
+        },
         "u" => {
             cmd.arg("pause");
-        }
+        },
         "r" => {
             cmd.arg("start");
-        }
+        },
         "s" => {
             cmd.arg("status");
-        }
+        },
         "l" => {
             cmd.arg("log");
-        }
+        },
         "a" => {
             cmd.arg("add");
-        }
+        },
         other => {
             cmd.arg(other);
-        }
+        },
     }
     cmd.args(args);
     cmd.exec();
