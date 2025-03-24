@@ -17,6 +17,7 @@
 'ui.help' = { fg = 'white', bg = 'dark13' }
 'ui.menu' = { fg = 'white', bg = 'dark12' }
 'ui.menu.selected' = { fg = 'dark12', bg = 'orange', modifiers = ['bold'] }
+'ui.menu.scroll' = { fg = 'white', bg = 'white' }                           # scrollbar
 
 #---------------------------------------------------picker---------------------------------------------------
 'ui.picker.header' = {}

@@ -112,6 +112,11 @@ editor: dict[str, Any] = {
             # 'diff',
         ],
     },
+    # 'gutters-right': {
+    #     'layout': [
+    #         'scrollbar',
+    #     ],
+    # },
     'file-picker': {
         'hidden': False,  # also shows "dot files" in results
     },
