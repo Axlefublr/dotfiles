@@ -87,7 +87,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 20
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -153,7 +153,7 @@ layout {
         // hide-when-single-tab
         length total-proportion=1.0
         // place-within-column
-        gap 7
+        gap 9
         width 5
         // position "top"
         corner-radius 5
