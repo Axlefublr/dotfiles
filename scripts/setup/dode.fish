@@ -777,6 +777,10 @@ function dode-wl-kbptr
     ln -sf ~/r/dot/wlkbptr.ini ~/.config/wl-kbptr/config
 end
 
+function dode-wob
+    sudo pacman -S --needed --noconfirm --disable-download-timeout wob
+end
+
 function dode-wooz
     sudo pacman -S --needed --noconfirm --disable-download-timeout meson ninja cmake wayland-protocols
     cd ~/r/stored
