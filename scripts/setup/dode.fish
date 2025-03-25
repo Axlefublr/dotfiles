@@ -122,7 +122,6 @@ end
 function dode-cliphist
     sudo pacman -S --needed --noconfirm --disable-download-timeout cliphist
     ln -sf ~/r/dot/systemd/cliphist-{text,image}.service ~/.config/systemd/user/
-    systemctl --user daemon-reload
     systemctl --user enable --now cliphist-text.service
     systemctl --user enable --now cliphist-image.service
 end
@@ -181,6 +180,7 @@ function dode-fancontrol
     sudo pacman -S --needed --noconfirm --disable-download-timeout lm_sensors
     sudo sensors-detect
     sudo pwmconfig
+    sudo -E helix /etc/fancontrol
     sudo systemctl enable --now fancontrol
 end
 
@@ -680,7 +680,6 @@ end
 function dode-swww
     sudo pacman -S --needed --noconfirm --disable-download-timeout swww
     ln -sf ~/r/dot/systemd/swww.service ~/.config/systemd/user/swww.service
-    systemctl --user daemon-reload
     systemctl --user enable --now swww.service
 end
 
@@ -814,7 +813,6 @@ function dode-xwayland-satellite
     sudo pacman -S --needed --noconfirm --disable-download-timeout xwayland-satellite
     set -Ux DISPLAY :0
     ln -sf ~/r/dot/systemd/xwayland-satellite.service ~/.config/systemd/user/xwayland-satellite.service
-    systemctl --user daemon-reload
     systemctl --user enable --now xwayland-satellite.service
 end
 

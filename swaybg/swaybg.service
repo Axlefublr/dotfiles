@@ -5,7 +5,6 @@ Requisite=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/swaybg -i "%h/.cache/mine/background-image" -m fill
-Restart=on-failure
 
 [Install]
-WantedBy=graphical-session.target
+UpheldBy=graphical-session.target

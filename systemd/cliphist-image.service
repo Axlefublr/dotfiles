@@ -1,12 +1,11 @@
 [Unit]
 After=graphical-session.target
-Requisite=graphical-session.target
 PartOf=graphical-session.target
+Requisite=graphical-session.target
 
 [Service]
 Type=exec
 ExecStart=/usr/bin/wl-paste --type image --watch cliphist store
-Restart=on-failure
 
 [Install]
-WantedBy=graphical-session.target
+UpheldBy=graphical-session.target

@@ -6,7 +6,6 @@ Requisite=graphical-session.target
 [Service]
 Type=exec
 ExecStart=/usr/bin/xwayland-satellite
-Restart=on-failure
 
 [Install]
-WantedBy=graphical-session.target
+UpheldBy=graphical-session.target
