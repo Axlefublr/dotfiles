@@ -1,8 +1,24 @@
 #!/usr/bin/env fish
 
-cd ~
-mkdir -p w i v r trans .local/bin .cache/mine
+mkdir -p ~/w \
+    ~/i \
+    ~/v \
+    ~/r \
+    ~/r/forks \
+    ~/r/proj \
+    ~/r/stored \
+    ~/r/the \
+    ~/trans \
+    ~/.local/bin \
+    ~/.cache/{mine,wks} \
+    ~/.local/share/mine \
+    ~/.local/share/{harp,loago}
+
+mkfifo ~/.local/share/mine/waybar-cursor-mode
+
 fish_add_path ~/.local/bin
+
+cd ~
 git clone https://github.com/Axlefublr/deleted-bangers m
 git clone https://github.com/Axlefublr/autocommit auto
 
@@ -12,7 +28,6 @@ git clone https://github.com/Axlefublr/twemoji-svg
 git clone https://github.com/Axlefublr/video-creation-tools tools
 
 cd ~/r
-mkdir -p forks proj stored the
 git clone https://github.com/Axlefublr/dotfiles dot
 git clone https://github.com/Axlefublr/binaries
 git clone https://github.com/Axlefublr/backup
@@ -33,13 +48,9 @@ cd ~/r/forks
 git clone https://github.com/Axlefublr/helix
 
 cd ~/.local/share
-mkdir -p harp loago
 cp -f ~/auto/harp.yml ~/.local/share/harp/harp.yml
 cp -f ~/auto/loago.json ~/.local/share/loago/loago.json
 cp -f ~/auto/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 git clone https://github.com/Axlefublr/magazine
 git clone https://github.com/Axlefublr/music alien_temple
 git clone https://github.com/Axlefublr/shows glaza
-
-cd ~/.cache
-mkdir -p wks

@@ -53,6 +53,11 @@ window#waybar {
   color: #78bf84;
 }
 
+#custom-cursor {
+  margin-left: 10;
+  color: #7daea3;
+}
+
 #custom-cha-fan {
   color: #e491b2;
 }

@@ -20,6 +20,16 @@ function clipboard_pick
 end
 funcsave clipboard_pick >/dev/null
 
+function cursor_mode_enable
+    echo 󰇀 >~/.local/share/mine/waybar-cursor-mode
+end
+funcsave cursor_mode_enable >/dev/null
+
+function cursor_mode_disable
+    echo >~/.local/share/mine/waybar-cursor-mode
+end
+funcsave cursor_mode_disable >/dev/null
+
 function edit_blank_clipboard
     truncate -s 0 ~/.cache/mine/clipboard-edit.md
     neomax_hold ~/.cache/mine/clipboard-edit.md

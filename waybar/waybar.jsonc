@@ -12,6 +12,7 @@
     "clock#time",
     "niri/language",
     "custom/magazines",
+    "custom/cursor"
   ],
   "modules-center": [],
   "modules-right": [
@@ -21,7 +22,7 @@
     "memory",
     "disk",
     "temperature#gpu",
-    "temperature#cpu",
+    "temperature#cpu"
   ],
   "clock#date": {
     "interval": 60,
@@ -38,7 +39,7 @@
   },
   "niri/language": {
     "format-en": "en",
-    "format-ru": "ru",
+    "format-ru": "ru"
   },
   "keyboard-state": {
     "format": {
@@ -46,12 +47,17 @@
     },
     "format-icons": {
       "locked": "H",
-      "unlocked": "h",
+      "unlocked": "h"
     },
     "capslock": true
   },
   "custom/magazines": {
     "exec": "/home/axlefublr/r/dot/waybar/magazines.fish",
+    "format": "{}",
+    "hide-empty-text": true
+  },
+  "custom/cursor": {
+    "exec": "/home/axlefublr/r/dot/waybar/cursor.fish",
     "format": "{}",
     "hide-empty-text": true
   },

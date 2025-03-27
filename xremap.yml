@@ -85,7 +85,7 @@ keymap:
   - name: Arr
     mode: arrows
     remap:
-      CapsLock-f: { set_mode: default }
+      CapsLock-f: [{ set_mode: default }, { launch: [fish, -c, cursor_mode_disable] }]
       h: left
       j: down
       k: up
@@ -1401,7 +1401,7 @@ keymap:
       CapsLock-Enter: { launch: [fish, -c, 'edit_clipboard'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mute'] }
       CapsLock-b: { launch: [wl-kbptr]}
-      CapsLock-f: { set_mode: arrows }
+      CapsLock-f: [{ set_mode: arrows }, { launch: [fish, -c, cursor_mode_enable]}]
       CapsLock-t: { launch: [fish, -c, toggle_media] }
       CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
       CapsLock-y: CapsLock # toggle capslock toggle
