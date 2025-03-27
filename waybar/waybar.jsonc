@@ -74,10 +74,11 @@
     "hide-empty-text": true
   },
   "pulseaudio": {
-    "format-muted": "×",
+    "format-muted": "0×",
+    "format-bluetooth": "{volume}󰛢"
   },
   "memory": {
-    "format": "{percentage}*",
+    "format": "{percentage}*"
   },
   "disk": {
     "format": "{percentage_used}%"
