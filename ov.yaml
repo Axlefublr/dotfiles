@@ -38,9 +38,9 @@ General:
 # String of the color name: Foreground, Background
 # Boolean: Bold, Blink, Dim, Italic, Underline
 StyleAlternate:
-  Background: '#292828'
+  Background: 'none'
 StyleHeader:
-  Background: '#292828'
+  Background: 'none'
   Bold: true
 StyleOverStrike:
   Bold: true
@@ -114,6 +114,10 @@ KeyBind:
   follow_mode:
   goto:
     - 'Enter'
+  half_left:
+    - 'H'
+  half_right:
+    - 'L'
   header:
     - 'p'
   help:
@@ -122,6 +126,8 @@ KeyBind:
     - 'e'
   input_casesensitive:
     - 'alt+i'
+  input_non_match:
+    - 'alt+u'
   input_regexp_search:
     - 'alt+b'
   input_previous:
@@ -136,7 +142,7 @@ KeyBind:
   mark:
     - 'm'
   multi_color:
-    - '.'
+    - 'y'
   next_backsearch:
     - 'N'
   next_doc:
@@ -146,17 +152,17 @@ KeyBind:
   next_search:
     - 'n'
   next_section:
-    - 'J'
+    - '.'
   page_half_down:
-    - 'L'
+    - 'J'
   page_half_up:
-    - 'H'
+    - 'K'
   previous_doc:
     - '['
   previous_mark:
     - '<'
   previous_section:
-    - 'K'
+    - ','
   rainbow_mode:
     - 'r'
   remove_all_mark:
