@@ -49,13 +49,18 @@ window#waybar {
   margin-left: 10;
 }
 
-#custom-magazines {
+#custom-meat {
   color: #78bf84;
 }
 
-#custom-cursor {
+#custom-magazines {
   margin-left: 10;
   color: #7daea3;
+}
+
+#custom-cursor {
+  margin-left: 11;
+  color: #e491b2;
 }
 
 #custom-cha-fan {

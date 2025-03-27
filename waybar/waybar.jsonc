@@ -11,6 +11,7 @@
     "clock#weekday",
     "clock#time",
     "niri/language",
+    "custom/meat",
     "custom/magazines",
     "custom/cursor"
   ],
@@ -51,6 +52,12 @@
     },
     "capslock": true
   },
+  "custom/meat": {
+    "exec": "/home/axlefublr/r/dot/waybar/meat.fish",
+    "format": "{}",
+    "restart-interval": 60,
+    "hide-empty-text": true
+  },
   "custom/magazines": {
     "exec": "/home/axlefublr/r/dot/waybar/magazines.fish",
     "format": "{}",
@@ -75,7 +82,7 @@
   },
   "pulseaudio": {
     "format-muted": "0×",
-    "format-bluetooth": "{volume}󰛢"
+    "format-bluetooth": "{volume}"
   },
   "memory": {
     "format": "{percentage}*"
