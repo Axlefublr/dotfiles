@@ -18,14 +18,16 @@ funcsave _replace_character_with_clipboard >/dev/null
 
 function _help_the_commandline
     set -f commandline (commandline -o)
-    $commandline --help &>~/.cache/mine/current-help.txt
+    set -l more_columns (math $COLUMNS - 1)
+    COLUMNS=$more_columns $commandline --help &>~/.cache/mine/current-help.txt
     helix -c ~/r/dot/helix/man.toml ~/.cache/mine/current-help.txt
 end
 funcsave _help_the_commandline >/dev/null
 
 function _man_the_commandline
     set -f commandline (commandline -o)[1]
-    man $commandline 2>/dev/null >~/.cache/mine/current-man.txt
+    set -l more_columns (math $COLUMNS - 1)
+    COLUMNS=$more_columns man $commandline 2>/dev/null >~/.cache/mine/current-man.txt
     helix -c ~/r/dot/helix/man.toml ~/.cache/mine/current-man.txt
 end
 funcsave _man_the_commandline >/dev/null
