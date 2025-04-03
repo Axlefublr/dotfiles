@@ -1,5 +1,6 @@
 # [[sort on]]
 abbr -a -c magick magick-webp-lossless -r loss -- '-define webp:lossless=true'
+abbr -a -c systemctl systemctl-daemon-reload -r dr daemon-reload
 abbr -a -c systemctl systemctl-disable -r d disable
 abbr -a -c systemctl systemctl-enable -r e enable
 abbr -a -c systemctl systemctl-restart -r r reload-or-restart

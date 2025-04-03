@@ -1,0 +1,13 @@
+[Unit]
+StartLimitBurst=0
+StartLimitIntervalSec=0
+
+[Service]
+ExecStart=transmission-daemon -f -c %h/q -w %h/v
+Restart=on-failure
+RestartMaxDelaySec=60
+RestartSteps=10
+Type=exec
+
+[Install]
+WantedBy=graphical-session.target

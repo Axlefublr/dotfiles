@@ -715,6 +715,10 @@ function dode-termfilechooser
     # middlemouse.paste
 end
 
+function dode-tewi
+    pipx install tewi-transmission
+end
+
 function dode-tiptop
     pipx install tiptop
 end
@@ -725,6 +729,8 @@ end
 
 function dode-transmission
     sudo pacman -S --needed --noconfirm --disable-download-timeout transmission-cli
+    ln -sf ~/r/dot/transmission/transmission.json ~/.config/transmission-daemon/settings.json
+    systemctl --user enable --now ~/r/dot/transmission/transmission.service
 end
 
 function dode-tridactyl
