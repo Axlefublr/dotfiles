@@ -88,6 +88,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         entry
             .values_mut()
             .for_each(|count| *count = 0);
+        eprintln!("new cycle");
     }
 
     let mut rng = rand::rng();

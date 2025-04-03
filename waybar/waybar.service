@@ -1,0 +1,3 @@
+[Unit]
+StartLimitBurst=0
+StartLimitIntervalSec=0

@@ -2,7 +2,7 @@
 abbr -a -c magick magick-webp-lossless -r loss -- '-define webp:lossless=true'
 abbr -a -c systemctl systemctl-disable -r d disable
 abbr -a -c systemctl systemctl-enable -r e enable
-abbr -a -c systemctl systemctl-restart -r r restart
+abbr -a -c systemctl systemctl-restart -r r reload-or-restart
 abbr -a -c systemctl systemctl-start -r t start
 abbr -a -c systemctl systemctl-status -r s status
 abbr -a -c systemctl systemctl-stop -r o stop

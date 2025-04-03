@@ -31,7 +31,7 @@ alias --save set_volume 'wpctl set-volume @DEFAULT_AUDIO_SINK@' >/dev/null
 alias --save si copyi >/dev/null
 alias --save sl copyl >/dev/null
 alias --save sn copyn >/dev/null
-alias --save sreboot 'systemctl start soft-reboot.target --job-mode=replace-irreversibly' >/dev/null
+alias --save sreboot 'systemctl start soft-reboot.target' >/dev/null
 alias --save suspend 'systemctl suspend' >/dev/null
 alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null

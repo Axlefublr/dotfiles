@@ -205,12 +205,18 @@ function dode-firefox
     ln -sf ~/r/dot/firefox/userContent.css $prof_dir/chrome
     # devtools.debugger.prompt-connection
     # devtools.inspector.remote
+    # ui.key.menuAccessKeyFocuses
+    # ui.key.menuAccessKey to -1
 
     # version 133.0
     # /etc/pacman.conf
     # IgnorePkg=firefox
 
     # enable shortcuts in address bar
+end
+
+function dode-floorp
+    paru -Sa --needed --disable-download-timeout floorp-bin
 end
 
 function dode-fnott
@@ -587,6 +593,12 @@ function dode-radeon-gpu
     # after rebooting with these in play, `lspci -k` should now display the amdgpu driver
 end
 
+function dode-ratbagd
+    sudo pacman -S --needed --noconfirm --disable-download-timeout libratbag
+    systemctl enable --now ratbagd.service
+    sudo pacman -S --needed --noconfirm --disable-download-timeout piper
+end
+
 function dode-repgrep
     # sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
 end
@@ -684,7 +696,7 @@ function dode-swww
 end
 
 function dode-termfilechooser
-    sudo pacman -S xdg-desktop-portal-gtk
+    sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk
     paru -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git
     fish_add_path /usr/lib
     set -Ux TERMCMD kitty
@@ -709,6 +721,10 @@ end
 
 function dode-traceroute
     sudo pacman -S --needed --noconfirm --disable-download-timeout traceroute
+end
+
+function dode-transmission
+    sudo pacman -S --needed --noconfirm --disable-download-timeout transmission-cli
 end
 
 function dode-tridactyl

@@ -12,6 +12,7 @@ set -Ux http_proxy http://(cat ~/.local/share/magazine/p)[1]
 set -Ux https_proxy http://(cat ~/.local/share/magazine/p)[1]
 set -Ux SYSTEMD_PAGERSECURE true
 set -Ux SYSTEMD_PAGER ov
+set -Ux WLR_DRM_NO_ATOMIC 1 # supposedly fix screen tearing
 
 set -U fish_lazy_load_completions true
 set -U fish_lazy_load_functions true
