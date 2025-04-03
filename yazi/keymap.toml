@@ -169,6 +169,12 @@ keymap = [
   ], run = '''
     shell --block --confirm 'ffmpeg-convert-video.fish "$@"'
   ''', desc = 'Convert video' },
+  { on = [
+    'c',
+    'w',
+  ], run = '''
+    shell --confirm 'webify.fish "$@"'
+    ''', desc = 'Convert to webp, if that ends up smaller' },
 
   # -----------------------------------------------Sorting-----------------------------------------------
   { on = [

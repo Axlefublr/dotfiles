@@ -277,7 +277,7 @@ cursor {
 }
 
 clipboard {
-    disable-primary
+    // disable-primary
 }
 
 hotkey-overlay {

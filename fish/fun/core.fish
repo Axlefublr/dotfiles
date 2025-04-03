@@ -305,6 +305,21 @@ function vids
 end
 funcsave vids >/dev/null
 
+function webify
+    for file in $argv
+        not test -f $file && continue
+        set -l webp_file (path change-extension 'webp' $file)
+        magick -define webp:lossless=true $file $webp_file
+        not test -f $webp_file && continue
+        if test (stat -c %s $webp_file) -gt (stat -c %s $file)
+            gomi $webp_file
+        else
+            gomi $file
+        end
+    end
+end
+funcsave webify >/dev/null
+
 function win_wait
     loopuntil "matches '$argv[1]'" $argv[2..] | awk '{print $1}'
 end
