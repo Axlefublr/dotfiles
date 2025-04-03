@@ -112,11 +112,11 @@ editor: dict[str, Any] = {
             # 'diff',
         ],
     },
-    # 'gutters-right': {
-    #     'layout': [
-    #         'scrollbar',
-    #     ],
-    # },
+    'gutters-right': {
+        'layout': [
+            'scrollbar',
+        ],
+    },
     'file-picker': {
         'hidden': False,  # also shows "dot files" in results
     },
@@ -509,6 +509,7 @@ with open('/home/axlefublr/r/dot/helix/quit.toml', 'w') as file:
 
 entire_config['editor']['whitespace']['render']['newline'] = 'none'
 entire_config['editor']['gutters']['layout'] = []
+# entire_config['editor']['gutters-right']['layout'] = []
 entire_config['keys']['normal'][':'] = ':quit-all!'
 entire_config['keys']['select'][':'] = ':quit-all!'
 
