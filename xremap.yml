@@ -6,16 +6,6 @@ modmap:
   - remap:
       Esc: Pause
       Tab: Esc
-    application:
-      not: /Terraria/
-
-  - name: Game
-    remap:
-      Btn_Side: k
-      Btn_Extra: j
-      Capslock: Tab
-    application:
-      only: /Terraria/
 
 keymap:
   - name: Firefox
@@ -1388,6 +1378,7 @@ keymap:
       Alt_R-e: { launch: [fish, -c, 'footclient bluetui']}
       Alt_R-f: { launch: [firefox]}
       Alt_R-q: { launch: [fish, -c, 'footclient tiptop']}
+      Alt_R-s: { launch: [steam-native]}
       Alt_R-t: { launch: [paplay, /home/axlefublr/m/soundeffects/camera-shutter.oga]}
       Alt_R-x: { launch: [fish, -c, 'wlr-randr --output HDMI-A-1 --mode 1920x1080@75 ; niri msg do-screen-transition'] }
       Alt_R-z: { launch: [fuzzel] }
@@ -1411,7 +1402,7 @@ keymap:
       Super_L-Alt_L-Semicolon: { launch: [fuzzel] }
       Super_L-Alt_L-u: { launch: [fish, -c, runner_clipboard_append] }
       Super_L-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
-      Super_L-b: { launch: [fish, -c, 'engined_search'] }
+      Super_L-b: { launch: [fish, -c, 'internet_search'] }
       Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Super_L-e: { launch: [fish, -c, 'edit_clipboard_image'] }
       Super_L-i: { launch: [fish, -c, 'runner show'] }

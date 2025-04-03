@@ -100,7 +100,7 @@ function _down
 end
 funcsave _down >/dev/null
 
-function engined_search
+function internet_search
     set -l input (
         for line in (cat ~/.local/share/magazine/B)
             echo (string split ' ' $line)[1]!
@@ -117,7 +117,7 @@ function engined_search
     $BROWSER (string replace %% $clean_input $engine_url)
     ensure_browser
 end
-funcsave engined_search >/dev/null
+funcsave internet_search >/dev/null
 
 function filter_mature_tasks
     function if_print
