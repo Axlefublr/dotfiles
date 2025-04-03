@@ -152,13 +152,19 @@ layout {
     tab-indicator {
         // hide-when-single-tab
         length total-proportion=1.0
-        // place-within-column
-        gap 9
-        width 5
-        // position "top"
-        corner-radius 5
+        place-within-column
+        gap 20
+        width 8
+        position "top"
+        // corner-radius 99
         inactive-color "#00000000"
-        active-gradient from="#af87ff" to="#ff9f1a"
+        active-color "#ff9f1a"
+        // active-gradient from="#af87ff" to="#ff9f1a"
+    }
+
+    struts {
+        left 20
+        right 20
     }
 }
 
