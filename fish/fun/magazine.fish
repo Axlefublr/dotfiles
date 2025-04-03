@@ -32,6 +32,17 @@ function magazine_truncate
 end
 funcsave magazine_truncate >/dev/null
 
+function magazine_write
+    not test "$argv" && return
+    set -l result (get_input)
+    test $status -ne 0 && return
+    test "$result" || return
+    echo "$result" >$argv
+    _magazine_notify $argv write
+    _magazine_commit $argv write
+end
+funcsave magazine_write >/dev/null
+
 function magazine_append
     not test "$argv" && return
     set -l result (get_input)

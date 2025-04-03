@@ -15,7 +15,9 @@
     "custom/magazines",
     "custom/cursor"
   ],
-  "modules-center": [],
+  "modules-center": [
+    "custom/statusline"
+  ],
   "modules-right": [
     "custom/cha-fan",
     "custom/cpu-fan",
@@ -68,6 +70,11 @@
     "format": "{}",
     "hide-empty-text": true
   },
+  "custom/statusline": {
+    "exec": "/home/axlefublr/r/dot/waybar/statusline.fish",
+    "format": "{}",
+    "hide-empty-text": true
+  },
   "custom/cha-fan": {
     "exec": "/home/axlefublr/r/dot/waybar/cha-fan.fish",
     "format": "{}",
@@ -85,7 +92,7 @@
     "format-muted": "0"
   },
   "memory": {
-    "format": "{used}"
+    "format": "{percentage}"
   },
   "disk": {
     "format": "{percentage_used}"
