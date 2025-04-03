@@ -10,8 +10,8 @@
     "clock#date",
     "clock#weekday",
     "clock#time",
-    "niri/language",
     "custom/meat",
+    "niri/language",
     "custom/magazines",
     "custom/cursor"
   ],
@@ -70,35 +70,35 @@
   },
   "custom/cha-fan": {
     "exec": "/home/axlefublr/r/dot/waybar/cha-fan.fish",
-    "format": "{}\"",
+    "format": "{}",
     "interval": 5,
     "hide-empty-text": true
   },
   "custom/cpu-fan": {
     "exec": "/home/axlefublr/r/dot/waybar/cpu-fan.fish",
-    "format": "{}\"",
+    "format": "{}",
     "interval": 5,
     "hide-empty-text": true
   },
   "pulseaudio": {
-    "format-muted": "0×",
-    "format-bluetooth": "{volume}"
+    "format": "{volume}",
+    "format-muted": "0"
   },
   "memory": {
-    "format": "{percentage}*"
+    "format": "{used}"
   },
   "disk": {
-    "format": "{percentage_used}%"
+    "format": "{percentage_used}"
   },
   "temperature#gpu": {
-    "format": "{temperatureC}°",
+    "format": "{temperatureC}",
     "hwmon-path": "/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon4/temp1_input",
     "interval": 10,
     "critical-threshold": 90
   },
   "temperature#cpu": {
-    "format": "{temperatureC}°",
-    "hwmon-path": "/sys/devices/platform/nct6775.656/hwmon/hwmon3/temp2_input",
+    "format": "{temperatureC}",
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input",
     "interval": 10,
     "critical-threshold": 75
   }

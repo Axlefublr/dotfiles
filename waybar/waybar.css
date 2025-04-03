@@ -19,16 +19,21 @@ window#waybar {
 }
 
 .module {
-  margin-left: 8;
-  margin-right: 8;
+  margin-left: 10;
+  margin-right: 10;
 }
 
+/* .modules-right .module { */
+/* margin-left: 10; */
+/* margin-right: 10; */
+/* } */
+
 .modules-left:first-child {
-  margin-left: 8;
+  margin-left: 12;
 }
 
 .modules-right:last-child {
-  margin-right: 8;
+  margin-right: 12;
 }
 
 #clock.date {
@@ -37,30 +42,27 @@ window#waybar {
 
 #clock.weekday {
   color: #e49641;
-  margin-left: 10;
 }
 
 #clock.time {
   color: #d3ad5c;
 }
 
-#language {
+#custom-meat {
   color: #a9b665;
-  margin-left: 10;
 }
 
-#custom-meat {
+#language {
   color: #78bf84;
 }
 
 #custom-magazines {
-  margin-left: 10;
   color: #7daea3;
 }
 
 #custom-cursor {
-  margin-left: 11;
   color: #e491b2;
+  margin-left: 12;
 }
 
 #custom-cha-fan {
@@ -73,7 +75,6 @@ window#waybar {
 
 #pulseaudio {
   color: #78bf84;
-  margin-right: 10;
 }
 
 #memory {
@@ -86,7 +87,6 @@ window#waybar {
 
 #temperature.gpu {
   color: #e49641;
-  margin-right: 6;
 }
 
 #temperature.cpu {
