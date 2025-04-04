@@ -153,6 +153,11 @@ function dode-dns
     sudo ip link set dev wlan0 mtu $optimal_value
 end
 
+function dode-enter-the-gungeon-mod
+    ~/r/backup/bepinx.sh # https://github.com/pcrain/gungeon-modding-tools/blob/master/steamdeck-installer.md
+    # add "/home/axlefublr/.local/share/Steam/steamapps/common/Enter the Gungeon/start_game_bepinex.sh" to steam as non-steam game
+end
+
 function dode-etcher
     paru -Sa --needed --disable-download-timeout etcher-cli-bin
 end
