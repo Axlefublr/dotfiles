@@ -215,6 +215,7 @@ function fish_user_key_bindings
 
     bind s 'commandline | copy'
     binds -vs s fish_clipboard_copy
+    binds -i fish_clipboard_paste
     binds -vds K exit
 
     binds -vds q edit_command_buffer

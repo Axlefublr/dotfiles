@@ -11,7 +11,9 @@ keymap = [
 
   { on = 'I', run = 'plugin hide-preview', desc = 'Toggle preview' },
 
-  { on = 'e', run = 'shell --block --confirm "helix $@"', desc = 'Open in helix' },
+  { on = 'e', run = '''
+    shell --block --confirm 'helix "$@"'
+    ''', desc = 'Open in helix' },
 
   # ----------------------------------------------Navigation----------------------------------------------
   { on = 'k', run = 'arrow -1', desc = 'Move cursor up' },
