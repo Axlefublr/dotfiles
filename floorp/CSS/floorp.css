@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@-moz-document url(chrome://browser/content/browser.xhtml){
+
+#back-button,
+#forward-button,
+#star-button-box,
+.tab-close-button,
+#new-tab-button,
+#alltabs-button,
+#firefox-view-button,
+#zoom-out-button,
+#zoom-in-button,
+#zoom-controls>separator,
+.titlebar-button.titlebar-close {
+  display: none !important;
+}
+
+#zoom-controls {
+  margin-inline: 0 !important;
+}
+
+#zoom-controls[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
+  min-width: unset !important;
+}
+
+.toolbar-items,
+#nav-bar-customization-target {
+  font-family: Inter !important;
+  font-size: 12pt !important;
+}
+
+}

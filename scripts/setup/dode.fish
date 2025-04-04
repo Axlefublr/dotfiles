@@ -217,6 +217,29 @@ end
 
 function dode-floorp
     paru -Sa --needed --disable-download-timeout floorp-bin
+
+    # custom shortcut on ^!' to focus main page after focusing address bar
+    # document.querySelector("browser[primary='true']").focus()
+
+    # custom shortcut for moving the current tab to the next / previous workspace
+    # (async () => {
+    #     const currentTab = window.gBrowser.selectedTab;
+    #     const workspaces = await gWorkspaces.getAllWorkspacesId();
+    #     const current = await gWorkspaces.getCurrentWorkspaceId();
+    #     const currentIndex = workspaces.indexOf(current);
+    #     let destinationIndex = currentIndex - 1;
+    #     if (destinationIndex >= workspaces.length) {
+    #         destinationIndex = 0;
+    #     }
+    #     const destination = workspaces.at(destinationIndex);
+    #     await gWorkspaces.changeWorkspace(destination, null, false, true);
+    # })();
+
+    # in the alt menu, CSS -> CSS -> Create browser CSS file
+    # then Open CSS folder; you'll arrive around here
+    # ~/.floorp/zxvqwt0m.default-release/chrome/CSS
+    rm -fr ~/.floorp/zxvqwt0m.default-release/chrome
+    ln -sf ~/r/dot/floorp ~/.floorp/zxvqwt0m.default-release/chrome
 end
 
 function dode-fnott
