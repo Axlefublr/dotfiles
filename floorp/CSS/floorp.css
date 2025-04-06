@@ -3,9 +3,7 @@
 @-moz-document url(chrome://browser/content/browser.xhtml){
 
 :root {
-  /* --toolbar-bgcolor: #292828 !important; */
   --toolbar-non-lwt-bgcolor: #292828 !important;
-  /* --urlbar-min-height: 0px !important; */
 }
 
 #back-button,
@@ -22,6 +20,8 @@
 #tracking-protection-icon-container,
 #identity-icon-box,
 .tab-background>.tab-context-line,
+.tab-stack::before,
+#reader-mode-button,
 .titlebar-button.titlebar-close {
   display: none !important;
 }
@@ -52,10 +52,6 @@
   border: none !important;
 }
 
-#urlbar {
-  /* --urlbar-height: 20px !important; */
-}
-
 #nav-bar {
   height: 30px !important;
 }
@@ -71,6 +67,30 @@
 
   &[breakout] {
     --urlbar-container-height: 30px !important;
+  }
+}
+
+.tab-label-container {
+  align-items: center !important;
+  flex-direction: row !important;
+  --tab-label-mask-size: 0 !important;
+}
+
+.tab-icon-image {
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.tab-background:is([selected], [multiselected]) {
+  box-shadow: unset !important;
+  outline: unset !important;
+  outline-offset: unset !important;
+}
+
+@media (-moz-bool-pref: "userChrome.tab.sound_with_favicons") and (not (-moz-bool-pref: "userChrome.hidden.tab_icon")) {
+  .tabbrowser-tab:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) .tab-label-container>* {
+    transform: unset !important;
+    /* this transform moves the tab title upwards and to the right when you mute the tab; likely because I center that title. without this transform, title stays in a consistent position */
   }
 }
 
@@ -94,6 +114,15 @@
   &>image.toolbarbutton-icon {
     width: auto !important;
     height: 30px !important;
+  }
+}
+
+/* hide workspace icon because they look bad and I use emojis instead */
+#workspaces-toolbar-button {
+  padding: 0px 5px 0px 7px !important;
+
+  >.toolbarbutton-icon {
+    display: none !important;
   }
 }
 
