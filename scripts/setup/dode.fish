@@ -208,20 +208,22 @@ function dode-firefox
     mkdir $prof_dir/chrome
     ln -sf ~/r/dot/firefox/userChrome.css $prof_dir/chrome
     ln -sf ~/r/dot/firefox/userContent.css $prof_dir/chrome
-    # devtools.debugger.prompt-connection
-    # devtools.inspector.remote
-    # ui.key.menuAccessKeyFocuses
-    # ui.key.menuAccessKey to -1
 
     # version 133.0
     # /etc/pacman.conf
     # IgnorePkg=firefox
-
-    # enable shortcuts in address bar
 end
 
 function dode-floorp
     paru -Sa --needed --disable-download-timeout floorp-bin
+
+    # devtools.debugger.prompt-connection
+    # devtools.inspector.remote
+    # ui.key.menuAccessKeyFocuses
+    # ui.key.menuAccessKey to -1
+    # mousewheel.default.delta_multiplier_y
+
+    # enable shortcuts in address bar
 
     # custom shortcut on ^!' to focus main page after focusing address bar
     # document.querySelector("browser[primary='true']").focus()

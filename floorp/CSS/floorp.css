@@ -2,6 +2,12 @@
 
 @-moz-document url(chrome://browser/content/browser.xhtml){
 
+:root {
+  /* --toolbar-bgcolor: #292828 !important; */
+  --toolbar-non-lwt-bgcolor: #292828 !important;
+  /* --urlbar-min-height: 0px !important; */
+}
+
 #back-button,
 #forward-button,
 #star-button-box,
@@ -12,22 +18,92 @@
 #zoom-out-button,
 #zoom-in-button,
 #zoom-controls>separator,
+#QRCodeGeneratePageAction,
+#tracking-protection-icon-container,
+#identity-icon-box,
+.tab-background>.tab-context-line,
 .titlebar-button.titlebar-close {
   display: none !important;
-}
-
-#zoom-controls {
-  margin-inline: 0 !important;
-}
-
-#zoom-controls[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
-  min-width: unset !important;
 }
 
 .toolbar-items,
 #nav-bar-customization-target {
   font-family: Inter !important;
-  font-size: 12pt !important;
+  font-size: 13pt !important;
+}
+
+#zoom-controls {
+  margin-inline: 0 !important;
+
+  &[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
+    min-width: unset !important;
+  }
+}
+
+#navigator-toolbox {
+  --tab-selected-bgcolor: #5f472d !important;
+  background-color: #292828 !important;
+  border-bottom: unset !important;
+}
+
+#urlbar-background,
+.urlbar-input-container,
+#searchbar {
+  border: none !important;
+}
+
+#urlbar {
+  /* --urlbar-height: 20px !important; */
+}
+
+#nav-bar {
+  height: 30px !important;
+}
+
+#zoom-reset-button>.toolbarbutton-text {
+  height: 30px !important;
+  min-height: unset !important;
+  padding-top: 5px !important;
+}
+
+#urlbar-container {
+  padding-block: 0 !important;
+
+  &[breakout] {
+    --urlbar-container-height: 30px !important;
+  }
+}
+
+@media (-moz-bool-pref: "userChrome.theme.system_default") and (-moz-gtk-csd-available) {
+
+  :root:is(:not([lwtheme]), :not(:-moz-lwtheme)) #urlbar-background,
+  :root:is(:not([lwtheme]), :not(:-moz-lwtheme)) #searchbar {
+    background-color: #292828 !important;
+  }
+}
+
+@media (-moz-bool-pref: "userChrome.padding.tabbar_width") {
+  .tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"]) {
+    max-width: unset !important;
+  }
+}
+
+#workspaces-toolbar-button {
+  --toolbarbutton-outer-padding: 7px;
+
+  &>image.toolbarbutton-icon {
+    width: auto !important;
+    height: 30px !important;
+  }
+}
+
+/* hiding the workspaces panel because of the bug of it playing hide and seek when I use actions to go to the previous / next one */
+#workspaces-toolbar-button[open="true"] {
+  background-color: inherit !important;
+
+  &>#workspacesToolbarButtonPanel {
+    display: none !important;
+  }
 }
 
 }
