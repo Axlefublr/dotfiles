@@ -24,6 +24,10 @@ function dode-anki
     # paru -Sa --needed --disable-download-timeout anki-bin
 end
 
+function dode-antimicrox
+    sudo pacman -S --needed --noconfirm --disable-download-timeout antimicrox
+end
+
 function dode-ascii-image-converter
     paru -Sa --needed --disable-download-timeout ascii-image-converter-bin
 end
