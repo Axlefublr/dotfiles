@@ -156,3 +156,7 @@ function pack-python-lang
     mkdir -p ~/.config/ruff
     ln -sf ~/r/dot/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
 end
+
+function pack-uv-pack
+    sudo pacman -S --needed --noconfirm --disable-download-timeout uv
+end

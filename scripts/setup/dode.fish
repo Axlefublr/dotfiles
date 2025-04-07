@@ -167,7 +167,7 @@ function dode-etcher
 end
 
 function dode-exrex
-    pipx install exrex
+    uv tool install exrex
 end
 
 function dode-eww
@@ -681,7 +681,7 @@ function dode-serpl
 end
 
 function dode-snowmachine
-    pipx install snowmachine
+    uv tool install snowmachine
 end
 
 function dode-speedtest
@@ -754,11 +754,11 @@ function dode-termfilechooser
 end
 
 function dode-tewi
-    pipx install tewi-transmission
+    uv tool install tewi-transmission
 end
 
 function dode-tiptop
-    pipx install tiptop
+    uv tool install tiptop
 end
 
 function dode-traceroute

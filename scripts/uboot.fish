@@ -16,8 +16,7 @@ end
 
 rustup update
 cargo install-update -a
-
-pipx upgrade-all
+uv tool upgrade --all
 
 cat ~/r/info/pswds/sudo | sudo -Sv
 yes | sudo pacman -Syyu
