@@ -129,10 +129,10 @@
 /* hiding the workspaces panel because of the bug of it playing hide and seek when I use actions to go to the previous / next one */
 #workspaces-toolbar-button[open="true"] {
   background-color: inherit !important;
+}
 
-  &>#workspacesToolbarButtonPanel {
-    display: none !important;
-  }
+#workspacesToolbarButtonPanel {
+  display: none !important;
 }
 
 }

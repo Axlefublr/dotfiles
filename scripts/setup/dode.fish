@@ -689,6 +689,10 @@ function dode-spotify
     # edit /usr/share/applications/spotify-launcher.desktop to have `env DISPLAY=:1.0` in exec
 end
 
+function dode-ssh
+    systemctl --user enable --now ~/r/backup/socksproxy.service
+end
+
 function dode-steam
     sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runtime
 end
