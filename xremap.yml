@@ -1372,7 +1372,7 @@ keymap:
       # [[sort on]]
       # Super_L-u: { launch: [fish, -c, runner_notification] }
       Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
-      Alt_L-Pause: { launch: [reboot] }
+      Alt_L-Pause: { launch: [fish, -c, reboot] }
       Alt_R-a: { launch: [anki] }
       Alt_R-c: { launch: [fish, -c, 'footclient calcure']}
       Alt_R-e: { launch: [fish, -c, 'footclient bluetui']}

@@ -24,6 +24,7 @@ alias --save media_state 'playerctl status' >/dev/null
 alias --save ntf_dismiss_all 'fnottctl dismiss all' >/dev/null
 alias --save ntf_dismiss_old 'fnottctl dismiss' >/dev/null
 alias --save o ypoc >/dev/null
+alias --save reboot 'systemctl reboot' >/dev/null
 alias --save s copy >/dev/null
 alias --save set_media_volume 'playerctl volume' >/dev/null
 alias --save set_mic_volume 'wpctl set-volume @DEFAULT_AUDIO_SOURCE@' >/dev/null
@@ -31,7 +32,7 @@ alias --save set_volume 'wpctl set-volume @DEFAULT_AUDIO_SINK@' >/dev/null
 alias --save si copyi >/dev/null
 alias --save sl copyl >/dev/null
 alias --save sn copyn >/dev/null
-alias --save sreboot 'systemctl start soft-reboot.target' >/dev/null
+alias --save sreboot 'systemctl soft-reboot' >/dev/null
 alias --save suspend 'systemctl suspend' >/dev/null
 alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null
