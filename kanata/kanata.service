@@ -1,0 +1,4 @@
+[Unit]
+Requisite=graphical-session.target
+
+[Service]

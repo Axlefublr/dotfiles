@@ -406,6 +406,11 @@ function dode-just
     ln -sf ~/r/dot/globaljustfile ~/.config/just/justfile
 end
 
+function dode-kanata
+    eget -a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata
+    indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata'
+end
+
 function dode-kbt
     sudo pacman -S --needed --noconfirm --disable-download-timeout kbt
 end
