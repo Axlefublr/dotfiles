@@ -323,7 +323,7 @@ function dode-git
     git config --global checkout.defaultRemote origin
     git config --global commit.verbose true
     git config --global core.editor helix
-    git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+    git config --global core.pager "diff-so-fancy | ov"
     git config --global credential.helper store
     git config --global diff.colormoved default
     git config --global diff.colormovedws allow-indentation-change
