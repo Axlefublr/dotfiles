@@ -35,6 +35,8 @@ abbr -a j just
 abbr -a jf 'clx && exec fish'
 abbr -a jk 'just -g'
 abbr -a l jobs
+abbr -a lG 'ezagit -l'
+abbr -a lS ezagit
 abbr -a lg 'ezagit -al'
 abbr -a ls 'ezagit -a'
 abbr -a mkd 'mkdir -p'
