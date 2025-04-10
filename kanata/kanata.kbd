@@ -1,6 +1,77 @@
 (defcfg process-unmapped-keys yes)
+(defvar tt 200)
+(defvar ht 250)
 
 (defsrc)
-
 (deflayermap (default)
+	;; [[sort on]]
+	' (tap-hold-release $tt $ht ' XX)
+	, (tap-hold-release $tt $ht , XX)
+	. (tap-hold-release $tt $ht . XX)
+	/ (tap-hold-release $tt $ht / lsft)
+	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
+	;; (rmet g) (one-shot 500 (layer-while-held emojis))
+	a (tap-hold-release $tt $ht a (layer-while-held arrows))
+	b (tap-hold-release $tt $ht b XX)
+	c (tap-hold-release $tt $ht c XX)
+	d (tap-hold-release $tt $ht d lctl)
+	e (tap-hold-release $tt $ht e XX)
+	f (tap-hold-release $tt $ht f lalt)
+	g (tap-hold-release $tt $ht g lmet)
+	h (tap-hold-release $tt $ht h rmet)
+	i (tap-hold-release $tt $ht i XX)
+	j (tap-hold-release $tt $ht j ralt)
+	k (tap-hold-release $tt $ht k rctl)
+	l (tap-hold-release $tt $ht l rsft)
+	m (tap-hold-release $tt $ht m XX)
+	n (tap-hold-release $tt $ht n XX)
+	o (tap-hold-release $tt $ht o XX)
+	p (tap-hold-release $tt $ht p XX)
+	r (tap-hold-release $tt $ht r XX)
+	s (tap-hold-release $tt $ht s lsft)
+	t (tap-hold-release $tt $ht t XX)
+	u (tap-hold-release $tt $ht u XX)
+	v (tap-hold-release $tt $ht v XX)
+	w (tap-hold-release $tt $ht w XX)
+	x (tap-hold-release $tt $ht x XX)
+	y (tap-hold-release $tt $ht y XX)
+	z (tap-hold-release $tt $ht z XX)
+	;; [[sort off]]
+)
+
+(deflayermap (numbers)
+	f 1
+	d 2
+	s 3
+	r 4
+	e 5
+	w 6
+	v 7
+	c 8
+	x 9
+	a 0
+)
+
+(deflayermap (arrows)
+	h left
+	j down
+	k up
+	l right
+	i home
+	o end
+	u pgup
+	p pgdn
+	; del
+	' tab
+	[ lrld
+)
+
+(deflayermap (emojis)
+	;; [[sort on]]
+	c 🔣😭
+	f 🔣🔥
+	n 🔣🥺
+	s 🔣💀
+	x 🔣🤯
+	;; [[sort off]]
 )
