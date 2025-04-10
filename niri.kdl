@@ -177,12 +177,12 @@ binds {
     Mod+WheelScrollUp   { spawn "fish" "-c" "set_volume 0.02+"; }
 
     Mod+Shift+E { quit; }
-    // Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "footclient"; }
-    Mod+Shift+Return { spawn "foot"; }
+    Mod+Alt+Return { spawn "foot"; }
 
-    Mod+Shift+Apostrophe { spawn "footclient" "pik"; }
+    Mod+Alt+Apostrophe { spawn "footclient" "pik"; }
 
     Mod+Semicolon { close-window; }
 
@@ -191,10 +191,10 @@ binds {
     Mod+K { focus-window-or-workspace-up; }
     Mod+L { focus-column-right-or-first; }
 
-    Mod+Shift+H { move-column-left; }
-    Mod+Shift+J { move-window-down-or-to-workspace-down; }
-    Mod+Shift+K { move-window-up-or-to-workspace-up; }
-    Mod+Shift+L { move-column-right; }
+    Mod+Alt+H { move-column-left; }
+    Mod+Alt+J { move-window-down-or-to-workspace-down; }
+    Mod+Alt+K { move-window-up-or-to-workspace-up; }
+    Mod+Alt+L { move-column-right; }
 
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
@@ -202,18 +202,18 @@ binds {
     // Mod+Period { expel-window-from-column; }
 
     Mod+M { switch-preset-window-height; }
-    Mod+Shift+M { reset-window-height; }
+    Mod+Alt+M { reset-window-height; }
     Mod+N { switch-preset-column-width; }
-    Mod+Shift+N { maximize-column; }
+    Mod+Alt+N { maximize-column; }
 
-    Mod+Shift+Slash { toggle-window-floating; }
-    Mod+Shift+B { fullscreen-window; }
+    Mod+Alt+Slash { toggle-window-floating; }
+    Mod+Alt+B { fullscreen-window; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
     Mod+O { toggle-column-tabbed-display; }
 
     Mod+S { screenshot; }
-    Mod+Ctrl+S { screenshot-screen; }
-    Mod+Shift+S { screenshot-window; }
+    Mod+Shift+S { screenshot-screen; }
+    Mod+Alt+S { screenshot-window; }
 }
 
 // Add lines like this to spawn processes at startup.
