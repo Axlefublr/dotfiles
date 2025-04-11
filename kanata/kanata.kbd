@@ -20,27 +20,27 @@
 	' (tap-hold-release $tt $ht ' XX)
 	, (tap-hold-release $tt $ht , XX)
 	. (tap-hold-release $tt $ht . XX)
-	/ (tap-hold-release $tt $ht / lsft)
+	/ (tap-hold-release $tt $ht / XX)
 	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
 	a (tap-hold-release $tt $ht a (layer-while-held arrows))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c XX)
-	d (tap-hold-release $tt $ht d lctl)
+	d (tap-hold-release $tt $ht d lsft)
 	e (tap-hold-release $tt $ht e XX)
 	f (tap-hold-release $tt $ht f lalt)
-	g (tap-hold-release $tt $ht g XX)
+	g (tap-hold-release $tt $ht g (layer-while-held apps))
 	h (tap-hold-release $tt $ht h (layer-while-held magazine))
 	i (tap-hold-release $tt $ht i XX)
 	j (tap-hold-release $tt $ht j ralt)
-	k (tap-hold-release $tt $ht k rctl)
-	l (tap-hold-release $tt $ht l rsft)
+	k (tap-hold-release $tt $ht k rsft)
+	l (tap-hold-release $tt $ht l rctl)
 	m (tap-hold-release $tt $ht m XX)
 	n (tap-hold-release $tt $ht n XX)
 	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (layer-while-held clipboard))
-	s (tap-hold-release $tt $ht s lsft)
+	s (tap-hold-release $tt $ht s lctl)
 	spc (tap-hold-release $tt $ht spc XX)
 	t (tap-hold-release $tt $ht t XX)
 	u (tap-hold-release $tt $ht u (layer-while-held clipboard))
@@ -75,9 +75,22 @@
 	o end
 	u pgup
 	p pgdn
-	' del
-	; tab
+	; bspc
+	' tab
 	[ lrld
+)
+
+(deflayermap (apps)
+	;; [[sort on]]
+	' (cmd paplay /home/axlefublr/m/soundeffects/camera-shutter.oga)
+	, (cmd footclient calcure)
+	; (cmd footclient bluetui)
+	i (cmd anki)
+	j (cmd floorp)
+	l (cmd steam-native)
+	p (cmd footclient tewi)
+	u (cmd footclient tiptop)
+	;; [[sort off]]
 )
 
 (include clipboard.kbd)
