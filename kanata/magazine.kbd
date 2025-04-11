@@ -55,7 +55,7 @@
 	n (t! magazine-execute n)
 	m (t! magazine-execute m)
 	, (t! magazine-execute comma)
-	. (t! magazine-execute dot)
+	. (t! magazine-execute period)
 	/ (t! magazine-execute slash)
 )
 

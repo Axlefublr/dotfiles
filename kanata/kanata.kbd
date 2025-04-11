@@ -3,7 +3,7 @@
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
-	linux-dev-names-exclude ("JBL TUNE750BTNC (AVRCP)", "Kingston HyperX Pulsefire Haste")
+	linux-dev-names-exclude ("JBL TUNE750BTNC (AVRCP)", "Kingston HyperX Pulsefire Haste", "8BitDo 8BitDo Ultimate 2C Wireless Controller Keyboard", "  Varmilo Keyboard")
 	log-layer-changes no
 	process-unmapped-keys yes
 	rapid-event-delay 0
@@ -17,7 +17,7 @@
 (defsrc)
 (deflayermap (default)
 	;; [[sort on]]
-	' (tap-hold-release $tt $ht ' XX)
+	' (tap-hold-release $tt $ht ' (layer-while-held chord))
 	, (tap-hold-release $tt $ht , XX)
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / XX)
@@ -26,11 +26,11 @@
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c XX)
 	d (tap-hold-release $tt $ht d lsft)
-	e (tap-hold-release $tt $ht e XX)
+	e (tap-hold-release $tt $ht e (layer-while-held func-right))
 	f (tap-hold-release $tt $ht f lalt)
 	g (tap-hold-release $tt $ht g (layer-while-held apps))
 	h (tap-hold-release $tt $ht h (layer-while-held magazine))
-	i (tap-hold-release $tt $ht i XX)
+	i (tap-hold-release $tt $ht i (layer-while-held func-left))
 	j (tap-hold-release $tt $ht j ralt)
 	k (tap-hold-release $tt $ht k rsft)
 	l (tap-hold-release $tt $ht l rctl)
@@ -39,11 +39,11 @@
 	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
-	r (tap-hold-release $tt $ht r (layer-while-held clipboard))
+	r (tap-hold-release $tt $ht r XX)
 	s (tap-hold-release $tt $ht s lctl)
 	spc (tap-hold-release $tt $ht spc XX)
 	t (tap-hold-release $tt $ht t XX)
-	u (tap-hold-release $tt $ht u (layer-while-held clipboard))
+	u (tap-hold-release $tt $ht u XX)
 	v (tap-hold-release $tt $ht v XX)
 	w (tap-hold-release $tt $ht w rmet)
 	x (tap-hold-release $tt $ht x XX)
@@ -63,6 +63,7 @@
 	c 8
 	x 9
 	a 0
+	g (one-shot $ot (layer-while-held clipboard))
 	i (layer-while-held clipboard-index)
 )
 
@@ -90,6 +91,34 @@
 	l (cmd steam-native)
 	p (cmd footclient tewi)
 	u (cmd footclient tiptop)
+	;; [[sort off]]
+)
+
+(deflayermap (func-left)
+	;; [[sort on]]
+	q (cmd $fsh toggle_screen_record)
+	;; [[sort off]]
+)
+
+(deflayermap (func-right)
+	;; [[sort on]]
+	' (cmd $fsh clipboard_pick)
+	; (cmd footclient pik)
+	b (cmd $fsh internet_search)
+	c (cmd $fsh edit_clipboard)
+	i (cmd fuzzel)
+	o (cmd $fsh write_window_info)
+	x (cmd $fsh edit_blank_clipboard)
+	;; [[sort off]]
+)
+
+(deflayermap (chord)
+	;; [[sort on]]
+	a (cmd $fsh runner_interactive_unicode)
+	d (cmd $fsh "xdg-open (ypoc) ; ensure_browser")
+	e (cmd $fsh runner_symbol_name)
+	f (cmd $fsh "runner_link open")
+	s (cmd $fsh runner_link)
 	;; [[sort off]]
 )
 

@@ -22,17 +22,6 @@ keymap:
     remap:
       CapsLock-Apostrophe:
         remap:
-          f: { launch: [fish, -c, 'runner_link open'] }
-          s: { launch: [fish, -c, 'runner_link'] }
-          d: { launch: [fish, -c, 'xdg-open (ypoc) ; ensure_browser'] }
-
-          a: { launch: [fish, -c, runner_interactive_unicode]}
-          e: { launch: [fish, -c, runner_symbol_name] }
-
-          i: { launch: [fish, -c, write_window_info] }
-
-          n: { launch: [fish, -c, anki_add_card] }
-
           w:
             remap:
               q: { launch: [fish, -c, 'bookmark_open q'] }
@@ -196,25 +185,19 @@ keymap:
       # [[sort on]]
       Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_old] }
       Alt_L-Pause: { launch: [fish, -c, reboot] }
-      CapsLock-Alt_L-Enter: { launch: [fish, -c, 'edit_blank_clipboard'] }
       CapsLock-Alt_L-Shift-d: { launch: [fish, -c, media_prev] }
       CapsLock-Alt_L-a: { launch: [fish, -c, 'toggle_mic_mute'] }
       CapsLock-Alt_L-d: { launch: [fish, -c, media_next] }
       CapsLock-Alt_L-e: { launch: [fish, -c, 'set_volume 0.02+'] }
       CapsLock-Alt_L-v: { launch: [mpv, '--start=0', '--fullscreen', '/home/axlefublr/i/s/original.mp4'] }
       CapsLock-Alt_L-w: { launch: [fish, -c, 'set_volume 0.02-'] }
-      CapsLock-Enter: { launch: [fish, -c, 'edit_clipboard'] }
       CapsLock-a: { launch: [fish, -c, 'toggle_mute'] }
       CapsLock-t: { launch: [fish, -c, toggle_media] }
-      CapsLock-v: { launch: [fish, -c, 'toggle_screen_record'] }
       CapsLock-y: CapsLock # toggle capslock toggle
       Ctrl-Alt_L-Esc: { launch: [fish, -c, ntf_dismiss_all] }
       Pause: { launch: [systemctl, suspend] }
       Shift-Alt_L-Esc: { launch: [fish, -c, ntf_pick_dismiss] }
-      Super_L-Alt_L-Semicolon: { launch: [fuzzel] }
       Super_L-Alt_L-u: { launch: [fish, -c, runner_clipboard_append] }
-      Super_L-Apostrophe: { launch: [fish, -c, 'clipboard_pick'] }
-      Super_L-b: { launch: [fish, -c, 'internet_search'] }
       Super_L-c: { launch: [fish, -c, pick_and_copy_color]}
       Super_L-e: { launch: [fish, -c, 'edit_clipboard_image'] }
       Super_L-i: { launch: [fish, -c, 'runner show'] }
@@ -222,8 +205,6 @@ keymap:
       Super_L-u: { launch: [fish, -c, runner_clipboard] }
       Super_L-v: { launch: [wooz]}
       Super_L-w: { launch: [fish, -c, 'show_clipboard_image']}
-      Super_R-q: ctrl-shift-u
-      Super_R-z: { launch: [fish, -c, runner_symbol] }
       # [[sort off]]
 
   - name: Any! numbers & special symbols

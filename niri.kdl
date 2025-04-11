@@ -182,8 +182,6 @@ binds {
     Mod+Return { spawn "footclient"; }
     Mod+Alt+Return { spawn "foot"; }
 
-    Mod+Alt+Apostrophe { spawn "footclient" "pik"; }
-
     Mod+Semicolon { close-window; }
 
     Mod+H { focus-column-left-or-last; }
