@@ -1,4 +1,8 @@
 [[language]]
+name = "common-lisp"
+file-types = ["lisp", "asd", "cl", "l", "lsp", "ny", "podsl", "sexp"]
+
+[[language]]
 name = 'hocon'
 file-types = [
   'conf',

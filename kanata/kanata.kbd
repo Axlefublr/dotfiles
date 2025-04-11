@@ -1,6 +1,18 @@
-(defcfg process-unmapped-keys yes)
-(defvar tt 200)
-(defvar ht 250)
+(defcfg
+	;; [[sort on]]
+	allow-hardware-repeat false
+	concurrent-tap-hold yes
+	danger-enable-cmd yes
+	linux-dev-names-exclude ("JBL TUNE750BTNC (AVRCP)", "Kingston HyperX Pulsefire Haste")
+	log-layer-changes no
+	process-unmapped-keys yes
+	rapid-event-delay 0
+	;; [[sort off]]
+)
+(defvar tt 150)
+(defvar ht 200)
+(defvar ot 5000)
+(defvar fsh (fish -c))
 
 (defsrc)
 (deflayermap (default)
@@ -10,29 +22,30 @@
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / lsft)
 	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
-	;; (rmet g) (one-shot 500 (layer-while-held emojis))
 	a (tap-hold-release $tt $ht a (layer-while-held arrows))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c XX)
 	d (tap-hold-release $tt $ht d lctl)
 	e (tap-hold-release $tt $ht e XX)
 	f (tap-hold-release $tt $ht f lalt)
-	g (tap-hold-release $tt $ht g lmet)
-	h (tap-hold-release $tt $ht h rmet)
+	g (tap-hold-release $tt $ht g XX)
+	h (tap-hold-release $tt $ht h (layer-while-held magazine))
 	i (tap-hold-release $tt $ht i XX)
 	j (tap-hold-release $tt $ht j ralt)
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
 	m (tap-hold-release $tt $ht m XX)
 	n (tap-hold-release $tt $ht n XX)
-	o (tap-hold-release $tt $ht o XX)
+	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
-	r (tap-hold-release $tt $ht r XX)
+	q (tap-hold-release $tt $ht q XX)
+	r (tap-hold-release $tt $ht r (layer-while-held clipboard))
 	s (tap-hold-release $tt $ht s lsft)
+	spc (tap-hold-release $tt $ht spc XX)
 	t (tap-hold-release $tt $ht t XX)
-	u (tap-hold-release $tt $ht u XX)
+	u (tap-hold-release $tt $ht u (layer-while-held clipboard))
 	v (tap-hold-release $tt $ht v XX)
-	w (tap-hold-release $tt $ht w XX)
+	w (tap-hold-release $tt $ht w rmet)
 	x (tap-hold-release $tt $ht x XX)
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
@@ -50,6 +63,7 @@
 	c 8
 	x 9
 	a 0
+	i (layer-while-held clipboard-index)
 )
 
 (deflayermap (arrows)
@@ -61,17 +75,10 @@
 	o end
 	u pgup
 	p pgdn
-	; del
-	' tab
+	' del
+	; tab
 	[ lrld
 )
 
-(deflayermap (emojis)
-	;; [[sort on]]
-	c 🔣😭
-	f 🔣🔥
-	n 🔣🥺
-	s 🔣💀
-	x 🔣🤯
-	;; [[sort off]]
-)
+(include clipboard.kbd)
+(include magazine.kbd)

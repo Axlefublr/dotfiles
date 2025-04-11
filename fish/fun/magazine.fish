@@ -2,6 +2,45 @@
 
 #--------------------------------------------------classical--------------------------------------------------
 
+function magazine_resolve
+    not test "$argv" && return
+    set -l path $argv
+    set -l action (cat /tmp/cami-magazine-action)
+    test $status -ne 0 && return
+    test "$action" || return
+
+    if test $action = truncate && test $path = A
+        magazine_truncate_imports
+        return
+    end
+
+    if test $action = append
+        if test $path = e
+            magazine_append_symbol
+            return
+        else if test $path = l
+            magazine_append_link
+            return
+        end
+    end
+
+    if test $path = j
+        set path ~/r/dot/project.txt
+    else if test $path = J
+        switch $action
+            case get cut truncate randomize filter copy
+                set path (pick_project_path -e)
+            case *
+                set path (pick_project_path)
+        end
+        not test "$path" && return
+    else
+        set path ~/.local/share/magazine/$path
+    end
+    magazine_$action $path
+end
+funcsave magazine_resolve >/dev/null
+
 function magazine_get
     not test "$argv" && return
     cat $argv | copy
@@ -193,7 +232,7 @@ function clipboard_harp_get -a register
         return 1
     end
     echo "$output[1]" | copy
-    xdotool key ctrl+v
+    notify-send -t 2000 "get $output[1]"
 end
 funcsave clipboard_harp_get >/dev/null
 
