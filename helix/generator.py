@@ -384,6 +384,8 @@ normal_select_mappings: dict[str, Any] = {
     'g': {
         # [[sort on]]
         '$': 'keep_selections',
+        '(': 'rotate_selection_contents_forward',
+        ')': 'rotate_selection_contents_backward',
         '*': 'make_search_word_bounded',
         '@': 'record_macro',
         'F': ':e %sh(ypoc)',

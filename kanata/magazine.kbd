@@ -23,12 +23,12 @@
 
 (deflayermap (magazine-which)
 	esc (layer-switch default)
-	s (tap-hold-release $tt $ht (t! magazine-execute s) (layer-while-held magazine-which-ctrl))
+	s (tap-hold-release $tt $ht (t! magazine-execute s) (layer-while-held magazine-which-alt))
 	d (tap-hold-release $tt $ht (t! magazine-execute d) (layer-while-held magazine-which-shift))
-	f (tap-hold-release $tt $ht (t! magazine-execute f) (layer-while-held magazine-which-alt))
-	j (tap-hold-release $tt $ht (t! magazine-execute j) (layer-while-held magazine-which-alt))
+	f (tap-hold-release $tt $ht (t! magazine-execute f) (layer-while-held magazine-which-ctrl))
+	j (tap-hold-release $tt $ht (t! magazine-execute j) (layer-while-held magazine-which-ctrl))
 	k (tap-hold-release $tt $ht (t! magazine-execute k) (layer-while-held magazine-which-shift))
-	l (tap-hold-release $tt $ht (t! magazine-execute l) (layer-while-held magazine-which-ctrl))
+	l (tap-hold-release $tt $ht (t! magazine-execute l) (layer-while-held magazine-which-alt))
 	; (tap-hold-release $tt $ht (t! magazine-execute semicolon) (layer-while-held magazine-which-number))
 
 	q (t! magazine-execute q)

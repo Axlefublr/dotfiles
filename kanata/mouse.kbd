@@ -1,0 +1,30 @@
+(defvar wi 100)
+(defvar wd 120)
+(defvar mmbigint 1)
+(defvar mmbigdis 1)
+(defvar mmsmallint 5)
+(defvar mmsmalldis 1)
+
+(deflayermap (mouse)
+	u mlft
+	i mmid
+	o mrgt
+	[ mbck
+	] mfwd
+	, (mwheel-up $wi $wd)
+	. (mwheel-down $wi $wd)
+	m (mwheel-left $wi $wd)
+	/ (mwheel-right $wi $wd)
+	h (movemouse-left  $mmbigint $mmbigdis)
+	j (movemouse-down  $mmbigint $mmbigdis)
+	k (movemouse-up    $mmbigint $mmbigdis)
+	l (movemouse-right $mmbigint $mmbigdis)
+	v (layer-while-held mouse-small)
+)
+
+(deflayermap (mouse-small)
+	h (movemouse-left  $mmsmallint $mmsmalldis)
+	j (movemouse-down  $mmsmallint $mmsmalldis)
+	k (movemouse-up    $mmsmallint $mmsmalldis)
+	l (movemouse-right $mmsmallint $mmsmalldis)
+)

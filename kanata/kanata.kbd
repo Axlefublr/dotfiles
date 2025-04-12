@@ -1,9 +1,10 @@
 (defcfg
 	;; [[sort on]]
+	;;linux-dev-names-exclude ("JBL TUNE750BTNC (AVRCP)", "Kingston HyperX Pulsefire Haste", "8BitDo 8BitDo Ultimate 2C Wireless Controller Keyboard", "  Varmilo Keyboard")
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
-	linux-dev-names-exclude ("JBL TUNE750BTNC (AVRCP)", "Kingston HyperX Pulsefire Haste", "8BitDo 8BitDo Ultimate 2C Wireless Controller Keyboard", "  Varmilo Keyboard")
+	linux-dev-names-include ("  Varmilo")
 	log-layer-changes no
 	process-unmapped-keys yes
 	rapid-event-delay 0
@@ -24,32 +25,46 @@
 	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
 	a (tap-hold-release $tt $ht a (layer-while-held arrows))
 	b (tap-hold-release $tt $ht b XX)
-	c (tap-hold-release $tt $ht c XX)
+	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
+	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lsft)
+	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh sreboot) (cmd $fsh reboot) (cmd $fsh poweroff)))
 	e (tap-hold-release $tt $ht e (layer-while-held func-right))
-	f (tap-hold-release $tt $ht f lalt)
+	f (tap-hold-release $tt $ht f lctl)
 	g (tap-hold-release $tt $ht g (layer-while-held apps))
 	h (tap-hold-release $tt $ht h (layer-while-held magazine))
 	i (tap-hold-release $tt $ht i (layer-while-held func-left))
-	j (tap-hold-release $tt $ht j ralt)
+	j (tap-hold-release $tt $ht j rctl)
 	k (tap-hold-release $tt $ht k rsft)
-	l (tap-hold-release $tt $ht l rctl)
+	l (tap-hold-release $tt $ht l ralt)
 	m (tap-hold-release $tt $ht m XX)
 	n (tap-hold-release $tt $ht n XX)
 	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r XX)
-	s (tap-hold-release $tt $ht s lctl)
+	s (tap-hold-release $tt $ht s lalt)
 	spc (tap-hold-release $tt $ht spc XX)
 	t (tap-hold-release $tt $ht t XX)
+	tab enter
 	u (tap-hold-release $tt $ht u XX)
 	v (tap-hold-release $tt $ht v XX)
 	w (tap-hold-release $tt $ht w rmet)
-	x (tap-hold-release $tt $ht x XX)
+	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
+)
+
+(deflayermap (capsy)
+	v (cmd wooz)
+	c (cmd $fsh pick_and_copy_color)
+	w (cmd $fsh "set_volume 0.02-")
+	e (cmd $fsh "set_volume 0.02+")
+	s (cmd $fsh media_prev)
+	d (cmd $fsh media_next)
+	r (cmd $fsh toggle_mute)
+	f (cmd $fsh toggle_media)
 )
 
 (deflayermap (numbers)
@@ -79,6 +94,8 @@
 	; bspc
 	' tab
 	[ lrld
+	/ del
+	m caps
 )
 
 (deflayermap (apps)
@@ -87,7 +104,7 @@
 	, (cmd footclient calcure)
 	; (cmd footclient bluetui)
 	i (cmd anki)
-	j (cmd floorp)
+	j (cmd $fsh "floorp & disown")
 	l (cmd steam-native)
 	p (cmd footclient tewi)
 	u (cmd footclient tiptop)
@@ -96,19 +113,28 @@
 
 (deflayermap (func-left)
 	;; [[sort on]]
+	c (cmd $fsh edit_clipboard)
+	e (cmd $fsh edit_clipboard_image)
 	q (cmd $fsh toggle_screen_record)
+	v (cmd mpv --start=0 --fullscreen /home/axlefublr/i/s/original.mp4)
+	w (cmd $fsh show_clipboard_image)
+	x (cmd $fsh edit_blank_clipboard)
 	;; [[sort off]]
 )
 
 (deflayermap (func-right)
 	;; [[sort on]]
 	' (cmd $fsh clipboard_pick)
+	, (cmd $fsh runner_clipboard_append)
+	. (cmd $fsh runner_clipboard)
 	; (cmd footclient pik)
 	b (cmd $fsh internet_search)
-	c (cmd $fsh edit_clipboard)
 	i (cmd fuzzel)
+	j (cmd $fsh "runner show")
+	m (cmd $fsh ntf_dismiss_all)
+	n (cmd $fsh ntf_dismiss_old)
 	o (cmd $fsh write_window_info)
-	x (cmd $fsh edit_blank_clipboard)
+	p (cmd $fsh "runner_math")
 	;; [[sort off]]
 )
 
@@ -118,9 +144,40 @@
 	d (cmd $fsh "xdg-open (ypoc) ; ensure_browser")
 	e (cmd $fsh runner_symbol_name)
 	f (cmd $fsh "runner_link open")
+	i (layer-while-held chord-overlay)
 	s (cmd $fsh runner_link)
+	w (one-shot $ot (layer-while-held bookmark))
 	;; [[sort off]]
+)
+
+(deflayermap (chord-overlay)
+	w (one-shot $ot (layer-while-held bookmark-set))
+)
+
+(deflayermap (symbol-primary)
+	, S-1
+	. S-min
+	[ S-9
+	] S-0
+	/ bksl
+	i S-8
+	j S-eql
+	k min
+	l eql
+	m S-5
+	o S-4
+	p S-3
+	u grv
+	h S-6
+)
+
+(deflayermap (symbol-secondary)
+	, S-grv
+	j S-7
+	k S-bksl
+	p S-2
 )
 
 (include clipboard.kbd)
 (include magazine.kbd)
+(include bookmark.kbd)
