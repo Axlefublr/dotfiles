@@ -409,6 +409,7 @@ end
 function dode-kanata
     eget -a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata
     indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata'
+    systemctl --user enable --now ~/r/dot/kanata/kanata.service
 end
 
 function dode-kbt
