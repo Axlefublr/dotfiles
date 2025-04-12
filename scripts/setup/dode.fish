@@ -883,13 +883,13 @@ function dode-xwayland-satellite
 end
 
 function dode-yazi
-    sudo pacman -S yazi
+    sudo pacman -S --needed --noconfirm --disable-download-timeout yazi
     rm -fr ~/.config/yazi
     ln -s ~/r/dot/yazi ~/.config
-    ya pack -a yazi-rs/plugins:hide-preview
     ya pack -a yazi-rs/plugins:jump-to-char
     ya pack -a Ape/open-with-cmd
     ya pack -a KKV9/compress
+    ya pack -a yazi-rs/plugins:toggle-pane
 end
 
 function dode-ydotool

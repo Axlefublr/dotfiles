@@ -4,10 +4,10 @@ helix/wrap-off.toml
 helix/config.toml
 helix/man.toml
 __pycache__
-yazi/plugins/hide-preview.yazi
 yazi/plugins/jump-to-char.yazi
 yazi/plugins/open-with-cmd.yazi
 yazi/plugins/compress.yazi
+yazi/plugins/toggle-pane.yazi
 helix/quit.toml
 stdext/Cargo.lock
 stdext/target
