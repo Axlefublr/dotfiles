@@ -1,0 +1,58 @@
+(deflayermap (symbol-primary)
+	;; [[sort on]]
+	, S-1
+	/ bksl
+	[ S-9
+	] S-0
+	h S-4
+	i S-8
+	j S-eql
+	k min
+	l eql
+	m S-5
+	o S-3
+	u grv
+	;; [[sort off]]
+)
+
+(deflayermap (symbol-secondary)
+	;; [[sort on]]
+	, (unicode “)
+	. (unicode ”)
+	/ S-bksl
+	i S-6
+	j (multi 🔣‼ 🔣️)
+	k S-min
+	l 🔣—
+	m S-grv
+	o S-2
+	p 🔣™
+	u S-7
+	y 🔣🔣
+	;; [[sort off]]
+)
+
+(deflayermap (symbol-left)
+	;; [[sort on]]
+	c 🔣😭
+	e (multi 🔣🗣 🔣️)
+	f 🔣🔥
+	g 🔣🐐
+	r 🔣🚀
+	s 🔣💀
+	w (multi 🔣✍ 🔣️)
+	x 🔣🤯
+	;; [[sort off]]
+)
+
+(deflayermap (symbol-right)
+	;; [[sort on]]
+	h 🔣←
+	j 🔣↓
+	k 🔣↑
+	l 🔣→
+	n 🔣🥺
+	u 🔣😋
+	y 🔣🥳
+	;; [[sort off]]
+)

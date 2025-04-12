@@ -31,24 +31,24 @@
 	d (tap-hold-release $tt $ht d lsft)
 	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh sreboot) (cmd $fsh reboot) (cmd $fsh poweroff)))
 	e (tap-hold-release $tt $ht e (layer-while-held func-right))
-	f (tap-hold-release $tt $ht f lctl)
+	f (tap-hold-release $tt $ht f lalt)
 	g (tap-hold-release $tt $ht g (layer-while-held apps))
 	h (tap-hold-release $tt $ht h (layer-while-held magazine))
 	i (tap-hold-release $tt $ht i (layer-while-held func-left))
-	j (tap-hold-release $tt $ht j rctl)
+	j (tap-hold-release $tt $ht j ralt)
 	k (tap-hold-release $tt $ht k rsft)
-	l (tap-hold-release $tt $ht l ralt)
+	l (tap-hold-release $tt $ht l rctl)
 	m (tap-hold-release $tt $ht m XX)
 	n (tap-hold-release $tt $ht n XX)
 	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
-	r (tap-hold-release $tt $ht r XX)
-	s (tap-hold-release $tt $ht s lalt)
+	r (tap-hold-release $tt $ht r (layer-while-held symbol-right))
+	s (tap-hold-release $tt $ht s lctl)
 	spc (tap-hold-release $tt $ht spc XX)
 	t (tap-hold-release $tt $ht t XX)
 	tab enter
-	u (tap-hold-release $tt $ht u XX)
+	u (tap-hold-release $tt $ht u (layer-while-held symbol-left))
 	v (tap-hold-release $tt $ht v XX)
 	w (tap-hold-release $tt $ht w rmet)
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
@@ -79,7 +79,6 @@
 	c 8
 	x 9
 	a 0
-	g (one-shot $ot (layer-while-held clipboard))
 	i (layer-while-held clipboard-index)
 )
 
@@ -90,8 +89,8 @@
 	l right
 	i home
 	o end
-	u pgup
-	p pgdn
+	, pgup
+	. pgdn
 	; bspc
 	' tab
 	[ lrld
@@ -102,13 +101,14 @@
 (deflayermap (apps)
 	;; [[sort on]]
 	' (cmd paplay /home/axlefublr/m/soundeffects/camera-shutter.oga)
-	, (cmd footclient calcure)
-	; (cmd footclient bluetui)
+	, (cmd footclient -N calcure)
+	; (cmd footclient -N bluetui)
 	i (cmd anki)
 	j (cmd $fsh "floorp & disown")
 	l (cmd steam-native)
-	p (cmd footclient tewi)
-	u (cmd footclient tiptop)
+	o (cmd footclient -N)
+	p (cmd footclient -N tewi)
+	u (cmd footclient -N tiptop)
 	;; [[sort off]]
 )
 
@@ -147,6 +147,7 @@
 	f (cmd $fsh "runner_link open")
 	i (layer-while-held chord-overlay)
 	s (cmd $fsh runner_link)
+	v (cmd $fsh anki_add_card)
 	w (one-shot $ot (layer-while-held bookmark))
 	;; [[sort off]]
 )
@@ -155,30 +156,7 @@
 	w (one-shot $ot (layer-while-held bookmark-set))
 )
 
-(deflayermap (symbol-primary)
-	, S-1
-	. S-min
-	[ S-9
-	] S-0
-	/ bksl
-	i S-8
-	j S-eql
-	k min
-	l eql
-	m S-5
-	o S-4
-	p S-3
-	u grv
-	h S-6
-)
-
-(deflayermap (symbol-secondary)
-	, S-grv
-	j S-7
-	k S-bksl
-	p S-2
-)
-
+(include symbol.kbd)
 (include clipboard.kbd)
 (include magazine.kbd)
 (include bookmark.kbd)
