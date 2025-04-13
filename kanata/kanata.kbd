@@ -92,11 +92,11 @@
 	, pgup
 	. pgdn
 	; bspc
-	' tab
+	m tab
 	[ lrld
-	/ del
+	' del
 	u caps
-	m (caps-word $ot)
+	/ (caps-word $ot)
 )
 
 (deflayermap (fuckeys)
