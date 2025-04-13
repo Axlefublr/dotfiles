@@ -1,15 +1,14 @@
 (defvar wi 100)
 (defvar wd 120)
-(defvar mmaccint 7)
-(defvar mmaccacc 200)
+(defvar mmaccint 5)
+(defvar mmaccacc 300)
 (defvar mmaccmin 1)
-(defvar mmaccmax 8)
+(defvar mmaccmax 7)
 
 (deflayermap (mouse)
-	; mlft
-	u mlft
-	i mmid
-	o mrgt
+	a mlft
+	' mmid
+	; mrgt
 	[ mbck
 	] mfwd
 	, (mwheel-up $wi $wd)

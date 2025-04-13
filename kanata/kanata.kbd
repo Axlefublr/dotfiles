@@ -1,12 +1,12 @@
 (defcfg
 	;; [[sort on]]
 	;;linux-dev-names-exclude ("JBL TUNE750BTNC (AVRCP)", "Kingston HyperX Pulsefire Haste", "8BitDo 8BitDo Ultimate 2C Wireless Controller Keyboard", "  Varmilo Keyboard")
+	;;movemouse-inherit-accel-state yes
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
 	linux-dev-names-include ("  Varmilo")
 	log-layer-changes no
-	movemouse-inherit-accel-state yes
 	process-unmapped-keys yes
 	rapid-event-delay 0
 	;; [[sort off]]
@@ -45,7 +45,7 @@
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (layer-while-held symbol-right))
 	s (tap-hold-release $tt $ht s lctl)
-	spc (tap-hold-release $tt $ht spc XX)
+	spc (tap-hold-release $tt $ht spc (layer-while-held mouse))
 	t (tap-hold-release $tt $ht t XX)
 	tab enter
 	u (tap-hold-release $tt $ht u (layer-while-held symbol-left))
@@ -53,7 +53,7 @@
 	w (tap-hold-release $tt $ht w rmet)
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)
-	z (tap-hold-release $tt $ht z (layer-while-held mouse))
+	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
 )
 
