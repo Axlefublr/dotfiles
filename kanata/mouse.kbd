@@ -6,6 +6,7 @@
 (defvar mmaccmax 8)
 
 (deflayermap (mouse)
+	; mlft
 	u mlft
 	i mmid
 	o mrgt
