@@ -180,7 +180,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "footclient"; }
-    Mod+Ctrl+Return { spawn "systemctl" "--user" "restart" "kanata.service"; }
+    Mod+Alt+Return { spawn "systemctl" "--user" "restart" "kanata.service"; }
 
     Mod+Semicolon { close-window; }
 
@@ -189,10 +189,10 @@ binds {
     Mod+K { focus-window-or-workspace-up; }
     Mod+L { focus-column-right-or-first; }
 
-    Mod+Ctrl+H { move-column-left; }
-    Mod+Ctrl+J { move-window-down-or-to-workspace-down; }
-    Mod+Ctrl+K { move-window-up-or-to-workspace-up; }
-    Mod+Ctrl+L { move-column-right; }
+    Mod+Alt+H { move-column-left; }
+    Mod+Alt+J { move-window-down-or-to-workspace-down; }
+    Mod+Alt+K { move-window-up-or-to-workspace-up; }
+    Mod+Alt+L { move-column-right; }
 
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
@@ -200,18 +200,18 @@ binds {
     // Mod+Period { expel-window-from-column; }
 
     Mod+M { switch-preset-window-height; }
-    Mod+Ctrl+M { reset-window-height; }
+    Mod+Alt+M { reset-window-height; }
     Mod+N { switch-preset-column-width; }
-    Mod+Ctrl+N { maximize-column; }
+    Mod+Alt+N { maximize-column; }
 
-    Mod+Ctrl+Slash { toggle-window-floating; }
-    Mod+Ctrl+B { fullscreen-window; }
+    Mod+Alt+Slash { toggle-window-floating; }
+    Mod+Alt+B { fullscreen-window; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
     Mod+O { toggle-column-tabbed-display; }
 
     Mod+S { screenshot; }
     Mod+Shift+S { screenshot-screen; }
-    Mod+Ctrl+S { screenshot-window; }
+    Mod+Alt+S { screenshot-window; }
 }
 
 // Add lines like this to spawn processes at startup.

@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function alphabet
-    printf 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[];\',./{}:"<>?'
+    echo -n 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[];\',./{}:"<>?!@#$%^*()-_=+`|\\'
 end
 funcsave alphabet >/dev/null
 
@@ -288,6 +288,17 @@ function task
     _magazine_commit ~/.local/share/magazine/$mag task
 end
 funcsave task >/dev/null
+
+function ttest
+    alphabet | string split '' >~/.cache/mine/alphabet-all
+    set -f symbol (shuf -n 1 ~/.cache/mine/alphabet-all)
+    while true
+        read -P "$symbol" -n 1 output || break
+        test "`$output`" = "`$symbol`" || continue
+        set -f symbol (shuf -n 1 ~/.cache/mine/alphabet-all)
+    end
+end
+funcsave ttest >/dev/null
 
 function toggle_value
     argparse 'n/namespace=' -- $argv

@@ -34,6 +34,7 @@
 
 (deflayermap (symbol-left)
 	;; [[sort on]]
+	a 🔣👏
 	c 🔣😭
 	e (multi 🔣🗣 🔣️)
 	f 🔣🔥
@@ -47,10 +48,12 @@
 
 (deflayermap (symbol-right)
 	;; [[sort on]]
+	b 🔣❌
 	h 🔣←
 	j 🔣↓
 	k 🔣↑
 	l 🔣→
+	m 🔣✅
 	n 🔣🥺
 	u 🔣😋
 	y 🔣🥳
