@@ -115,8 +115,11 @@
 (deflayermap (func-left)
 	;; [[sort on]]
 	c (cmd $fsh edit_clipboard)
+	d (cmd $fsh screenshot_window)
 	e (cmd $fsh edit_clipboard_image)
+	f (cmd $fsh screenshot_select)
 	q (cmd $fsh toggle_screen_record)
+	s (cmd $fsh screenshot_screen)
 	v (cmd mpv --start=0 --fullscreen /home/axlefublr/i/s/original.mp4)
 	w (cmd $fsh show_clipboard_image)
 	x (cmd $fsh edit_blank_clipboard)

@@ -123,6 +123,21 @@ function randomize_file_names
 end
 funcsave randomize_file_names >/dev/null
 
+function screenshot_select
+    niri msg action screenshot
+end
+funcsave screenshot_select >/dev/null
+
+function screenshot_window
+    niri msg action screenshot-window
+end
+funcsave screenshot_window >/dev/null
+
+function screenshot_screen
+    niri msg action screenshot-screen
+end
+funcsave screenshot_screen >/dev/null
+
 function show_clipboard_image
     ypoci | swayimg -
 end

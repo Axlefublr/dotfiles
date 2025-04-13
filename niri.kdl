@@ -208,10 +208,6 @@ binds {
     Mod+Alt+B { fullscreen-window; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
     Mod+O { toggle-column-tabbed-display; }
-
-    Mod+S { screenshot; }
-    Mod+Shift+S { screenshot-screen; }
-    Mod+Alt+S { screenshot-window; }
 }
 
 // Add lines like this to spawn processes at startup.
