@@ -95,7 +95,8 @@
 	' tab
 	[ lrld
 	/ del
-	m caps
+	u caps
+	m (caps-word $ot)
 )
 
 (deflayermap (fuckeys)
