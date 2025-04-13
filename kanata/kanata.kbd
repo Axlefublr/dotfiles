@@ -22,7 +22,7 @@
 	' (tap-hold-release $tt $ht ' (layer-while-held chord))
 	, (tap-hold-release $tt $ht , XX)
 	. (tap-hold-release $tt $ht . XX)
-	/ (tap-hold-release $tt $ht / XX)
+	/ (tap-hold-release $tt $ht / (layer-while-held fuckeys))
 	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
 	a (tap-hold-release $tt $ht a (layer-while-held arrows))
 	b (tap-hold-release $tt $ht b XX)
@@ -96,6 +96,21 @@
 	[ lrld
 	/ del
 	m caps
+)
+
+(deflayermap (fuckeys)
+	f F1
+	d F2
+	s F3
+	r F4
+	e F5
+	w F6
+	v F7
+	c F8
+	x F9
+	a F10
+	q F11
+	z F12
 )
 
 (deflayermap (apps)
