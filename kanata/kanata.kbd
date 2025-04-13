@@ -47,7 +47,7 @@
 	s (tap-hold-release $tt $ht s lctl)
 	spc (tap-hold-release $tt $ht spc (layer-while-held mouse))
 	t (tap-hold-release $tt $ht t XX)
-	tab enter
+	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held symbol-left))
 	v (tap-hold-release $tt $ht v XX)
 	w (tap-hold-release $tt $ht w rmet)
@@ -96,6 +96,7 @@
 	[ lrld
 	' del
 	u caps
+	n enter
 	/ (caps-word $ot)
 )
 
