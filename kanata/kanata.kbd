@@ -12,7 +12,7 @@
 	;; [[sort off]]
 )
 (defvar tt 150)
-(defvar ht 200)
+(defvar ht 150)
 (defvar ot 5000)
 (defvar fsh (fish -c))
 
