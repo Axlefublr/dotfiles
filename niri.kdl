@@ -1,6 +1,6 @@
 input {
     keyboard {
-        repeat-delay 200
+        repeat-delay 170
         repeat-rate 40
         xkb {
             layout "us,ru"
