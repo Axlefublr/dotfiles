@@ -28,7 +28,7 @@
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
-	d (tap-hold-release $tt $ht d lsft)
+	d (tap-hold-release $tt $ht d lctl)
 	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh sreboot) (cmd $fsh reboot) (cmd $fsh poweroff)))
 	e (tap-hold-release $tt $ht e (layer-while-held func-right))
 	f (tap-hold-release $tt $ht f lalt)
@@ -36,15 +36,15 @@
 	h (tap-hold-release $tt $ht h (layer-while-held magazine))
 	i (tap-hold-release $tt $ht i (layer-while-held func-left))
 	j (tap-hold-release $tt $ht j ralt)
-	k (tap-hold-release $tt $ht k rsft)
-	l (tap-hold-release $tt $ht l rctl)
+	k (tap-hold-release $tt $ht k rctl)
+	l (tap-hold-release $tt $ht l rsft)
 	m (tap-hold-release $tt $ht m XX)
 	n (tap-hold-release $tt $ht n XX)
 	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (layer-while-held symbol-right))
-	s (tap-hold-release $tt $ht s lctl)
+	s (tap-hold-release $tt $ht s lsft)
 	spc (tap-hold-release $tt $ht spc (layer-while-held mouse))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
@@ -98,6 +98,7 @@
 	u caps
 	n enter
 	/ (caps-word $ot)
+	y (layer-switch doublestruck)
 )
 
 (deflayermap (fuckeys)
@@ -181,3 +182,4 @@
 (include magazine.kbd)
 (include bookmark.kbd)
 (include mouse.kbd)
+(include doublestruck.kbd)
