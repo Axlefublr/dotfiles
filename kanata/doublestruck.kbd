@@ -1,0 +1,72 @@
+(deflayermap (doublestruck)
+	caps (layer-switch default)
+	a (tap-hold-release $tt $ht 🔣𝕒 (layer-while-held arrows))
+	b 🔣𝕓
+	c 🔣𝕔
+	d 🔣𝕕
+	e 🔣𝕖
+	f 🔣𝕗
+	g 🔣𝕘
+	h 🔣𝕙
+	i 🔣𝕚
+	j 🔣𝕛
+	k 🔣𝕜
+	l (tap-hold-release $tt $ht 🔣𝕝 (layer-while-held doublestruck-shifted))
+	m 🔣𝕞
+	n 🔣𝕟
+	o 🔣𝕠
+	p 🔣𝕡
+	q 🔣𝕢
+	r 🔣𝕣
+	s (tap-hold-release $tt $ht 🔣𝕤 (layer-while-held doublestruck-shifted))
+	t 🔣𝕥
+	u 🔣𝕦
+	v 🔣𝕧
+	w 🔣𝕨
+	x 🔣𝕩
+	y 🔣𝕪
+	z 🔣𝕫
+	; (tap-hold-release $tt $ht ; (layer-while-held doublestruck-numbers))
+)
+
+(deflayermap (doublestruck-shifted)
+	a 🔣𝔸
+	b 🔣𝔹
+	c 🔣ℂ
+	d 🔣𝔻
+	e 🔣𝔼
+	f 🔣𝔽
+	g 🔣𝔾
+	h 🔣ℍ
+	i 🔣𝕀
+	j 🔣𝕁
+	k 🔣𝕂
+	l 🔣𝕃
+	m 🔣𝕄
+	n 🔣ℕ
+	o 🔣𝕆
+	p 🔣ℙ
+	q 🔣ℚ
+	r 🔣ℝ
+	s 🔣𝕊
+	t 🔣𝕋
+	u 🔣𝕌
+	v 🔣𝕍
+	w 🔣𝕎
+	x 🔣𝕏
+	y 🔣𝕐
+	z 🔣ℤ
+)
+
+(deflayermap (doublestruck-numbers)
+	1 🔣𝟙
+	2 🔣𝟚
+	3 🔣𝟛
+	4 🔣𝟜
+	5 🔣𝟝
+	6 🔣𝟞
+	7 🔣𝟟
+	8 🔣𝟠
+	9 🔣𝟡
+	0 🔣𝟘
+)
