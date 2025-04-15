@@ -30,7 +30,7 @@ function magazine_resolve
         switch $action
             case get cut truncate randomize filter copy
                 set path (pick_project_path -e)
-            case *
+            case '*'
                 set path (pick_project_path)
         end
         not test "$path" && return
