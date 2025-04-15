@@ -18,7 +18,7 @@ else
     indeed.rs ~/.local/share/magazine/x (cat ~/.local/share/magazine/rightbrace)
 end
 
-indeed.rs -u ~/.local/share/magazine/semicolon -- (suggest.rs remember ~/.local/share/magazine/s)
+indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs remember 50% ~/.local/share/magazine/s)
 
 cd ~/auto
 
