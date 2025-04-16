@@ -424,11 +424,9 @@ normal_select_mappings: dict[str, Any] = {
         # [[sort on]]
         "'": ':reload-all',
         # 'u': 'transpose_view',
-        '"': ':reload!',
         ',': ':sort',
         '.': ':random',
         '/': 'select_first_and_last_chars',
-        ';': [':write-all', ':buffer-close-all'],
         '<': ['select_all', 'split_selection_on_newline', ':sort', 'keep_primary_selection'],
         '>': ['select_all', 'split_selection_on_newline', ':random', 'keep_primary_selection'],
         '?': 'reverse_selection_contents',
@@ -449,7 +447,6 @@ normal_select_mappings: dict[str, Any] = {
         'n': 'select_all_siblings',
         'o': 'wclose',
         'u': 'signature_help',
-        'w': [':cd ~/r/wks', ':e src/main.rs'],
         'z': ':config-reload',
         # [[sort off]]
         **disable(
@@ -477,10 +474,6 @@ normal_select_mappings: dict[str, Any] = {
             'A-:',
             'C-c',
             'C-s',
-            'down',
-            'left',
-            'right',
-            'up',
             # [[sort off]]
         ]
     ),
