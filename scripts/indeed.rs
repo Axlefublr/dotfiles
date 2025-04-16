@@ -7,7 +7,7 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
-use std::{env, io::Seek};
+use std::env;
 use std::error::Error;
 use std::fmt;
 use std::fs;
@@ -15,6 +15,7 @@ use std::fs::File;
 use std::fs::OpenOptions;
 use std::io;
 use std::io::Read;
+use std::io::Seek;
 use std::io::Write;
 use std::path::Path;
 use std::path::PathBuf;
@@ -36,12 +37,15 @@ fn main() -> Result<(), Box<dyn Error>> {
         let mut file = OpenOptions::new()
             .read(true)
             .append(true)
+            .create(true)
             .open(args.path)
             .unwrap();
         fn should_fix_trailing_newline(file: &mut File) -> Option<bool> {
             let mut buf = [0u8];
-            file.seek(io::SeekFrom::End(-1)).ok()?; // happens if the file is empty; we shouldn't fix the newline
-            if file.read_exact(&mut buf).is_err() { // happens if the file is not empty, but we can't read a single byte...
+            file.seek(io::SeekFrom::End(-1))
+                .ok()?; // happens if the file is empty; we shouldn't fix the newline
+            if file.read_exact(&mut buf).is_err() {
+                // happens if the file is not empty, but we can't read a single byte...
                 return Some(true); // in which case it's safer to assume that we should add an extra newline: removing a dangling newline is less annoying than untangling two joined lines
             };
             Some(buf != [b'\n']) // if last char *is* a newline, we shouldn't fix
@@ -56,11 +60,22 @@ fn main() -> Result<(), Box<dyn Error>> {
             .read(true)
             .write(true)
             .truncate(false)
+            .create(true)
             .open(args.path)
             .unwrap();
         let mut buf = String::new();
-        file.read_to_string(&mut buf).unwrap();
-        let mut lines: Vec<String> = buf.lines().filter(|&line| !args.lines.iter().any(|passed_line| passed_line == line)).map(ToOwned::to_owned).collect();
+        file.read_to_string(&mut buf)
+            .unwrap();
+        let mut lines: Vec<String> = buf
+            .lines()
+            .filter(|&line| {
+                !args
+                    .lines
+                    .iter()
+                    .any(|passed_line| passed_line == line)
+            })
+            .map(ToOwned::to_owned)
+            .collect();
         lines.extend_from_slice(&args.lines);
         file.set_len(0).unwrap();
         file.rewind().unwrap();
