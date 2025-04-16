@@ -254,9 +254,7 @@ function dode-floorp
 end
 
 function dode-fnott
-    # sudo pacman -S --needed --noconfirm --disable-download-timeout fnott
-    # service wouldn't work on repo, does on aur
-    paru -Sa --needed --disable-download-timeout fnott-git
+    sudo pacman -S --needed --noconfirm --disable-download-timeout fnott
     mkdir -p ~/.config/fnott
     ln -sf ~/r/dot/fnott.ini ~/.config/fnott/fnott.ini
 end
