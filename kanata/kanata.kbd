@@ -5,7 +5,7 @@
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
-	linux-dev-names-include ("  Varmilo")
+	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)")
 	log-layer-changes no
 	process-unmapped-keys yes
 	rapid-event-delay 0
@@ -16,6 +16,13 @@
 (defvar ot 5000)
 (defvar fsh (fish -c))
 
+(deflocalkeys-linux
+	PlayCD 200
+	PauseCD 201
+	PreviousSong 165
+	NextSong 163
+)
+
 (defsrc)
 (deflayermap (default)
 	;; [[sort on]]
@@ -24,6 +31,10 @@
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / (layer-while-held fuckeys))
 	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
+	NextSong (cmd $fsh media_next)
+	PauseCD (cmd $fsh toggle_media)
+	PlayCD (cmd $fsh toggle_media)
+	PreviousSong (cmd $fsh media_prev)
 	a (tap-hold-release $tt $ht a (layer-while-held arrows))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
