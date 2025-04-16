@@ -2,7 +2,7 @@
 
 function runner
     set runned ~/.local/share/magazine/L
-    set -l input (tac $runned | fuzzel -d 2>/dev/null)
+    set -l input (tac $runned | fuzzel -d --match-mode exact 2>/dev/null)
     test $status -ne 0 && return 1
     set input_file ~/.cache/mine/runner-command
     echo $input >$input_file
