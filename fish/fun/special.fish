@@ -45,7 +45,8 @@ end
 funcsave edit_clipboard >/dev/null
 
 function edit_clipboard_image
-    ypoci | satty -f -
+    # ypoci | satty -f -
+    rnote (ypoci | psub)
 end
 funcsave edit_clipboard_image >/dev/null
 

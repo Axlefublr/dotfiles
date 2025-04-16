@@ -643,8 +643,12 @@ function dode-repgrep
     # sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
 end
 
+function dode-rnote
+    sudo pacman -S --needed --noconfirm --disable-download-timeout rnote
+end
+
 function dode-rofi
-    sudo pacman -S rofi-wayland
+    sudo pacman -S --needed --noconfirm --disable-download-timeout rofi-wayland
     mkdir -p ~/.config/rofi
     ln -sf ~/r/dot/rofi.rasi ~/.config/rofi/config.rasi
     sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
@@ -710,6 +714,10 @@ end
 function dode-sttr
     eget -a tar.gz -a '^sbom.json' https://github.com/abhimanyu003/sttr
     indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
+end
+
+function dode-swappy
+    sudo pacman -S --needed --noconfirm --disable-download-timeout swappy
 end
 
 function dode-swaybg

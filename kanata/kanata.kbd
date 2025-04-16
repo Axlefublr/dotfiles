@@ -124,6 +124,7 @@
 	i (cmd anki)
 	j (cmd $fsh "floorp & disown")
 	l (cmd steam-native)
+	n (cmd $fsh "rnote & disown")
 	o (cmd footclient -N)
 	p (cmd footclient -N tewi)
 	u (cmd footclient -N tiptop)
