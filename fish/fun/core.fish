@@ -59,6 +59,25 @@ function f
 end
 funcsave f >/dev/null
 
+function flour
+    argparse 'T/title=' -- $argv
+    and test "$_flag_title"
+    and set title $_flag_title
+    or set title flour
+    footclient -T $title -- helix -c ~/r/dot/helix/quit.toml $argv
+end
+funcsave flour >/dev/null
+
+function flour_half_hold
+    flour -T flour-half -- $argv
+end
+funcsave flour_half_hold >/dev/null
+
+function flour_hold
+    flour $argv
+end
+funcsave flour_hold >/dev/null
+
 function fn_clear
     set list (cat ~/r/dot/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
     for file in ~/.config/fish/functions/*.fish
@@ -77,7 +96,7 @@ function get_input
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >/tmp/cami-get-input
-        neomax_hold (path_to_last_char /tmp/cami-get-input)
+        flour_hold (path_to_last_char /tmp/cami-get-input)
         set input "$(cat /tmp/cami-get-input)"
     end
     echo $input
@@ -86,7 +105,7 @@ funcsave get_input >/dev/null
 
 function get_input_max
     truncate -s 0 /tmp/cami-get-input
-    neomax_hold /tmp/cami-get-input
+    flour_hold /tmp/cami-get-input
     if test -s /tmp/cami-get-input
         cat /tmp/cami-get-input
     else
@@ -258,26 +277,6 @@ function rename
     mv _$argv[1] $argv[2]
 end
 funcsave rename >/dev/null
-
-function neoline
-    footclient -T line -- helix -c ~/r/dot/helix/quit.toml $argv
-end
-funcsave neoline >/dev/null
-
-function neoline_hold
-    neoline $argv
-end
-funcsave neoline_hold >/dev/null
-
-function neomax
-    footclient -T max -- helix -c ~/r/dot/helix/quit.toml $argv
-end
-funcsave neomax >/dev/null
-
-function neomax_hold
-    neomax $argv
-end
-funcsave neomax_hold >/dev/null
 
 function task
     set mag 3

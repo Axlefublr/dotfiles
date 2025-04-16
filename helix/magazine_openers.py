@@ -32,7 +32,7 @@ magazine_openers: dict[str, str] = {
     'n': ':open ~/.local/share/magazine/n',
     'm': ':open ~/.local/share/magazine/m',
     ',': ':open ~/.local/share/magazine/comma',
-    '.': ':open ~/.local/share/magazine/dot',
+    '.': ':open ~/.local/share/magazine/period',
     '/': ':open ~/.local/share/magazine/slash',
     'Q': ':open ~/.local/share/magazine/Q',
     'W': ':open ~/.local/share/magazine/W',

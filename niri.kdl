@@ -324,6 +324,7 @@ window-rule {
 window-rule {
     match app-id="^anki$" title="^Add|Edit"
     match app-id="^anki$" title="Change Note Type"
+    match app-id="^foot" title="^flour-half"
     default-column-width { proportion 0.5; }
 }
 

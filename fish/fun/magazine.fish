@@ -58,7 +58,7 @@ funcsave magazine_set >/dev/null
 
 function magazine_edit
     not test "$argv" && return
-    neomax_hold $argv
+    flour_hold $argv
     _magazine_commit $argv edit
 end
 funcsave magazine_edit >/dev/null

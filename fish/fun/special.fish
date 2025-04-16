@@ -32,14 +32,14 @@ funcsave cursor_mode_disable >/dev/null
 
 function edit_blank_clipboard
     truncate -s 0 ~/.cache/mine/clipboard-edit.md
-    neomax_hold ~/.cache/mine/clipboard-edit.md
+    flour_hold ~/.cache/mine/clipboard-edit.md
     cat ~/.cache/mine/clipboard-edit.md | copy
 end
 funcsave edit_blank_clipboard >/dev/null
 
 function edit_clipboard
     ypoc >~/.cache/mine/clipboard-edit.md
-    neomax_hold (path_to_last_char ~/.cache/mine/clipboard-edit.md)
+    flour_hold (path_to_last_char ~/.cache/mine/clipboard-edit.md)
     cat ~/.cache/mine/clipboard-edit.md | copy
 end
 funcsave edit_clipboard >/dev/null
