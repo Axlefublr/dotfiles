@@ -93,21 +93,21 @@
 )
 
 (deflayermap (arrows)
+	' del
+	, pgup
+	. pgdn
+	/ end
+	; bspc
+	[ lrld
 	h left
+	i tab
 	j down
 	k up
 	l right
-	i home
-	o end
-	, pgup
-	. pgdn
-	; bspc
-	m tab
-	[ lrld
-	' del
-	u caps
-	n enter
-	/ (caps-word $ot)
+	m home
+	o enter
+	p caps
+	u (caps-word $ot)
 	y (layer-switch doublestruck)
 )
 
