@@ -12,12 +12,7 @@ truncate -s 0 ~/.local/share/magazine/d
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 yeared_parse
-if test (math (clorange habit increment) % 2) -eq 0
-    indeed.rs ~/.local/share/magazine/x (cat ~/.local/share/magazine/leftbrace)
-else
-    indeed.rs ~/.local/share/magazine/x (cat ~/.local/share/magazine/rightbrace)
-end
-
+indeed.rs ~/.local/share/magazine/x (cat ~/.local/share/magazine/leftbrace)
 indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs remember 50% ~/.local/share/magazine/s)
 
 cd ~/auto
@@ -69,5 +64,9 @@ end
 for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
+
+footclient -NT uboot calcure
+footclient -NHT uboot fish -c fm
+footclient -NT uboot helix ~/.local/share/magazine/semicolon
 
 ubootf
