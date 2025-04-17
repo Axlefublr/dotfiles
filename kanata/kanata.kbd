@@ -42,6 +42,7 @@
 	d (tap-hold-release $tt $ht d lctl)
 	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh sreboot) (cmd $fsh reboot) (cmd $fsh poweroff)))
 	e (tap-hold-release $tt $ht e (layer-while-held func-right))
+	esc (tap-dance-eager 500 (XX XX (cmd $fsh eat)))
 	f (tap-hold-release $tt $ht f lalt)
 	g (tap-hold-release $tt $ht g (layer-while-held apps))
 	h (tap-hold-release $tt $ht h (layer-while-held magazine))
