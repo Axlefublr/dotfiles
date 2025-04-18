@@ -65,8 +65,8 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
-footclient -NT uboot calcure
-footclient -NHT uboot fish -c fm
 footclient -NT uboot helix ~/.local/share/magazine/semicolon
+footclient -NT uboot fish -c fm
+footclient -NT uboot calcure
 
 ubootf
