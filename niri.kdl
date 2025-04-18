@@ -1,7 +1,7 @@
 input {
     keyboard {
-        repeat-delay 170
-        repeat-rate 40
+        repeat-delay 150
+        repeat-rate 50
         xkb {
             layout "us,ru"
             options "grp:win_space_toggle"
