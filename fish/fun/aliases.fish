@@ -14,7 +14,6 @@ alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/d
 alias --save get_media_time 'playerctl metadata --format "{{duration(position)}}"' >/dev/null
 alias --save gx 'glaza --git' >/dev/null
 alias --save gz glaza >/dev/null
-alias --save h 'z ~ && clx' >/dev/null
 alias --save hime 'history merge' >/dev/null
 alias --save jf 'clx && exec fish' >/dev/null
 alias --save media_next 'playerctl next' >/dev/null
@@ -55,10 +54,12 @@ end
 funcsave bl_reconnect >/dev/null
 
 function clx
-    if test "$TERM" != xterm-kitty
-        clear -x
-    else
+    if test "$TERM" = xterm-kitty
         printf '\e[H\e[22J'
+    else if test "$TERM" = foot
+        return
+    else
+        clear -x
     end
 end
 funcsave clx >/dev/null

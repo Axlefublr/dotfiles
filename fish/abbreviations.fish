@@ -28,7 +28,6 @@ abbr -a ffi 'ffmpeg -i'
 abbr -a g git
 abbr -a gx 'glaza -g'
 abbr -a gz glaza
-abbr -a h 'z ~ && clx'
 abbr -a hime 'history merge'
 abbr -a hrtrack httrack
 abbr -a j just
