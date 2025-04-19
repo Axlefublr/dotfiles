@@ -22,8 +22,14 @@ keymap = [
   { on = 'K', run = 'arrow -50%', desc = 'Scroll up by half a page' },
   { on = 'J', run = 'arrow 50%', desc = 'Scroll down by half a page' },
 
-  { on = 'h', run = 'leave', desc = 'Go back to the parent directory' },
-  { on = 'l', run = 'enter', desc = 'Enter the child directory' },
+  { on = 'h', run = [
+    'leave',
+    'shell --confirm "zoxide add ."',
+  ], desc = 'Go back to the parent directory' },
+  { on = 'l', run = [
+    'enter',
+    'shell --confirm "zoxide add ."',
+  ], desc = 'Enter the child directory' },
 
   { on = 'H', run = 'back', desc = 'Go back to the previous directory' },
   { on = 'L', run = 'forward', desc = 'Go forward to the next directory' },
@@ -108,7 +114,7 @@ keymap = [
   { on = 'M', run = 'plugin harp -- set', desc = 'Set a cwd harp' },
 
   { on = 'f', run = 'plugin jump-to-char', desc = 'Jump to char' },
-  { on = '<A-l>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
+  { on = '<C-f>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
   { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
   { on = 'y', run = 'search fd', desc = 'Search files by name using fd' },
   { on = 'Y', run = 'search rg', desc = 'Search files by content using ripgrep' },
