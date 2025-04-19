@@ -6,6 +6,8 @@
 	(multi (layer-switch default) (cmd $fsh (concat "magazine_resolve " $name)))
 )
 
+(defalias magazine-cancel (multi (cmd $fsh "notify-send maganope") (layer-switch default)))
+
 (deflayermap (magazine)
 	c (t! magazine-prepare get)
 	e (t! magazine-prepare novel)
@@ -22,7 +24,7 @@
 ;; set
 
 (deflayermap (magazine-which)
-	___ (layer-switch default)
+	___ @magazine-cancel
 	s (tap-hold-release $tt $ht (t! magazine-execute s) (layer-while-held magazine-which-shift))
 	d (tap-hold-release $tt $ht (t! magazine-execute d) (layer-while-held magazine-which-ctrl))
 	a (tap-hold-release $tt $ht (t! magazine-execute a) (layer-while-held magazine-which-alt))
@@ -60,7 +62,7 @@
 )
 
 (deflayermap (magazine-which-shift)
-	___ (layer-switch default)
+	___ @magazine-cancel
 	q (t! magazine-execute Q)
 	w (t! magazine-execute W)
 	e (t! magazine-execute E)
@@ -97,7 +99,7 @@
 )
 
 (deflayermap (magazine-which-ctrl)
-	___ (layer-switch default)
+	___ @magazine-cancel
 	q (t! magazine-execute c-q)
 	w (t! magazine-execute c-w)
 	e (t! magazine-execute c-e)
@@ -134,7 +136,7 @@
 )
 
 (deflayermap (magazine-which-alt)
-	___ (layer-switch default)
+	___ @magazine-cancel
 	q (t! magazine-execute a-q)
 	w (t! magazine-execute a-w)
 	e (t! magazine-execute a-e)
@@ -171,7 +173,7 @@
 )
 
 (deflayermap (magazine-which-number)
-	___ (layer-switch default)
+	___ @magazine-cancel
 	f (t! magazine-execute 1)
 	d (t! magazine-execute 2)
 	s (t! magazine-execute 3)
