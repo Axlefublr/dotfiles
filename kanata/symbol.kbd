@@ -20,6 +20,8 @@
 	, (unicode “)
 	. (unicode ”)
 	/ S-bksl
+	[ C-min
+	] C-eql
 	i S-6
 	j (multi 🔣‼ 🔣️)
 	k S-min
