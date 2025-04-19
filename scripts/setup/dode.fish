@@ -529,12 +529,13 @@ function dode-ouch
 end
 
 function dode-ov
-    # paru -Sa --needed --disable-download-timeout ov-bin
     cd ~/r/forks
     gh repo clonef Axlefublr/ov
     cd ov
     make
     sudo install ov ~/.local/bin
+    eget https://github.com/noborus/ov
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/noborus/ov
     ov --completion fish >~/.config/fish/completions/ov.fish
     mkdir -p ~/.config/ov
     ln -sf ~/r/dot/ov.yaml ~/.config/ov/config.yaml
