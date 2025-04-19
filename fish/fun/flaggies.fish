@@ -2,7 +2,7 @@
 
 # [[sort on]]
 alias --save dust 'dust -r' >/dev/null
-alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group' >/dev/null
+alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group --git --git-repos' >/dev/null
 alias --save fd 'fd --no-require-git' >/dev/null
 alias --save icat 'kitten icat --align left' >/dev/null
 alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -s' >/dev/null

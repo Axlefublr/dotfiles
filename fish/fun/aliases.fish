@@ -7,7 +7,6 @@ alias --save bell 'printf \a' >/dev/null
 alias --save copy 'wl-copy -n' >/dev/null
 alias --save copyn wl-copy >/dev/null
 alias --save e helix >/dev/null
-alias --save ezagit 'eza --git --git-repos' >/dev/null
 alias --save fc 'cat ~/r/info/pswds/sudo | sudo -S systemctl restart fancontrol' >/dev/null
 alias --save fm 'filter_mature_tasks | ov --column-mode --column-rainbow --column-width' >/dev/null
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
