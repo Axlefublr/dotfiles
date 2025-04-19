@@ -1,18 +1,14 @@
 #!/usr/bin/env fish
 
 set -Ux LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
-set -Ux PAGER /usr/bin/less
-set -Ux LESSKEYIN /opt/lesskey
 set -Ux HISTSIZE 100000
 set -Ux SAVEHIST 100000
-set -Ux QT_QPA_PLATFORMTHEME gtk3
-set -Ux TELOXIDE_TOKEN (cat ~/r/info/pswds/axleizer-api)
 set -Ux XDG_CONFIG_HOME ~/.config
+set -Ux QT_QPA_PLATFORMTHEME gtk3
+set -Ux WLR_DRM_NO_ATOMIC 1 # supposedly fix screen tearing
+set -Ux TELOXIDE_TOKEN (cat ~/r/info/pswds/axleizer-api)
 set -Ux http_proxy http://(cat ~/.local/share/magazine/p)[1]
 set -Ux https_proxy http://(cat ~/.local/share/magazine/p)[1]
-set -Ux SYSTEMD_PAGERSECURE true
-set -Ux SYSTEMD_PAGER ov
-set -Ux WLR_DRM_NO_ATOMIC 1 # supposedly fix screen tearing
 
 set -U fish_lazy_load_completions true
 set -U fish_lazy_load_functions true
@@ -35,13 +31,4 @@ set -U fish_color_autosuggestion 928374
 set -U fish_color_cancel ffafd7
 set -U fish_color_selection -b 5f472d
 
-set -U fish_cursor_default block
-set -U fish_cursor_insert line
-set -U fish_cursor_replace_one underscore
-set -U fish_cursor_visual block
-
 set -U small_threshold 46
-set -U head F8:5C:7D:3E:67:1F
-set -U ear 68:D6:ED:18:9A:56
-set -U speaker F8:5C:7E:09:29:AD
-set -U controller 80:D2:1D:F3:A5:38

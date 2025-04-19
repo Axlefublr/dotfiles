@@ -126,7 +126,7 @@ function gq
         return 1
     end
     if test "$PWD" != "$repo_root"
-        cd $repo_root
+        z $repo_root
     end
 end
 funcsave gq >/dev/null

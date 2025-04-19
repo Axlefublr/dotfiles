@@ -4,7 +4,9 @@ set -gx FZF_DEFAULT_OPTS '--tiebreak=chunk --cycle --keep-right --scroll-off=999
 set -gx BROWSER floorp
 set -gx EDITOR helix
 set -gx VISUAL helix
-set -gx MANPAGER cat
+set -gx MANPAGER ov
+set -g fish_cursor_default line
+fish_vi_cursor
 
 zoxide init fish | source
 

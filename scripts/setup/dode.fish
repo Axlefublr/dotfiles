@@ -444,6 +444,7 @@ end
 
 function dode-less
     sudo ln -sf ~/r/dot/lesskey /opt/lesskey
+    set -Ux LESSKEYIN /opt/lesskey
 end
 
 function dode-libreoffice
@@ -537,6 +538,9 @@ function dode-ov
     ov --completion fish >~/.config/fish/completions/ov.fish
     mkdir -p ~/.config/ov
     ln -sf ~/r/dot/ov.yaml ~/.config/ov/config.yaml
+    set -Ux PAGER /usr/bin/ov
+    set -Ux SYSTEMD_PAGERSECURE true
+    set -Ux SYSTEMD_PAGER ov
 end
 
 function dode-paru
@@ -707,6 +711,8 @@ end
 
 function dode-steam
     sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runtime
+    # run the thing via env to set DISPLAY and to unset http_proxy, https_proxy, all_proxy
+    sudo -E helix /usr/share/applications/steam-native.desktop
 end
 
 function dode-sttr
