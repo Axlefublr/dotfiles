@@ -22,14 +22,14 @@
 ;; set
 
 (deflayermap (magazine-which)
-	esc (layer-switch default)
+	___ (layer-switch default)
 	s (tap-hold-release $tt $ht (t! magazine-execute s) (layer-while-held magazine-which-shift))
 	d (tap-hold-release $tt $ht (t! magazine-execute d) (layer-while-held magazine-which-ctrl))
-	f (tap-hold-release $tt $ht (t! magazine-execute f) (layer-while-held magazine-which-alt))
-	j (tap-hold-release $tt $ht (t! magazine-execute j) (layer-while-held magazine-which-alt))
+	a (tap-hold-release $tt $ht (t! magazine-execute a) (layer-while-held magazine-which-alt))
+	; (tap-hold-release $tt $ht (t! magazine-execute semicolon) (layer-while-held magazine-which-alt))
 	k (tap-hold-release $tt $ht (t! magazine-execute k) (layer-while-held magazine-which-ctrl))
 	l (tap-hold-release $tt $ht (t! magazine-execute l) (layer-while-held magazine-which-shift))
-	; (tap-hold-release $tt $ht (t! magazine-execute semicolon) (layer-while-held magazine-which-number))
+	j (tap-hold-release $tt $ht (t! magazine-execute j) (layer-while-held magazine-which-number))
 
 	q (t! magazine-execute q)
 	w (t! magazine-execute w)
@@ -43,7 +43,7 @@
 	p (t! magazine-execute p)
 	[ (t! magazine-execute leftbrace)
 	] (t! magazine-execute rightbrace)
-	a (t! magazine-execute a)
+	f (t! magazine-execute f)
 	g (t! magazine-execute g)
 	h (t! magazine-execute h)
 	' (t! magazine-execute apostrophe)
@@ -60,7 +60,7 @@
 )
 
 (deflayermap (magazine-which-shift)
-	esc (layer-switch default)
+	___ (layer-switch default)
 	q (t! magazine-execute Q)
 	w (t! magazine-execute W)
 	e (t! magazine-execute E)
@@ -97,7 +97,7 @@
 )
 
 (deflayermap (magazine-which-ctrl)
-	esc (layer-switch default)
+	___ (layer-switch default)
 	q (t! magazine-execute c-q)
 	w (t! magazine-execute c-w)
 	e (t! magazine-execute c-e)
@@ -134,7 +134,7 @@
 )
 
 (deflayermap (magazine-which-alt)
-	esc (layer-switch default)
+	___ (layer-switch default)
 	q (t! magazine-execute a-q)
 	w (t! magazine-execute a-w)
 	e (t! magazine-execute a-e)
@@ -171,7 +171,7 @@
 )
 
 (deflayermap (magazine-which-number)
-	esc (layer-switch default)
+	___ (layer-switch default)
 	f (t! magazine-execute 1)
 	d (t! magazine-execute 2)
 	s (t! magazine-execute 3)

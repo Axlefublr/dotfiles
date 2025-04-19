@@ -1,15 +1,15 @@
 (deflayermap (doublestruck)
 	caps (layer-switch default)
-	a (tap-hold-release $tt $ht 🔣𝕒 (layer-while-held arrows))
+	a 🔣𝕒
 	b 🔣𝕓
 	c 🔣𝕔
 	d 🔣𝕕
 	e 🔣𝕖
-	f 🔣𝕗
+	f (tap-hold-release $tt $ht 🔣𝕗 (layer-while-held arrows))
 	g 🔣𝕘
 	h 🔣𝕙
 	i 🔣𝕚
-	j 🔣𝕛
+	j (tap-hold-release $tt $ht 🔣𝕛 (layer-while-held doublestruck-numbers))
 	k 🔣𝕜
 	l (tap-hold-release $tt $ht 🔣𝕝 (layer-while-held doublestruck-shifted))
 	m 🔣𝕞
@@ -26,7 +26,6 @@
 	x 🔣𝕩
 	y 🔣𝕪
 	z 🔣𝕫
-	; (tap-hold-release $tt $ht ; (layer-while-held doublestruck-numbers))
 )
 
 (deflayermap (doublestruck-shifted)

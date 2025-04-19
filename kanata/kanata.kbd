@@ -1,7 +1,6 @@
 (defcfg
 	;; [[sort on]]
-	;;linux-dev-names-exclude ("JBL TUNE750BTNC (AVRCP)", "Kingston HyperX Pulsefire Haste", "8BitDo 8BitDo Ultimate 2C Wireless Controller Keyboard", "  Varmilo Keyboard")
-	;;movemouse-inherit-accel-state yes
+	;; movemouse-inherit-accel-state yes
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
@@ -30,12 +29,12 @@
 	, (tap-hold-release $tt $ht , XX)
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / (layer-while-held fuckeys))
-	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
+	; (tap-hold-release $tt $ht ; ralt)
 	NextSong (cmd $fsh media_next)
 	PauseCD (cmd $fsh toggle_media)
 	PlayCD (cmd $fsh toggle_media)
 	PreviousSong (cmd $fsh media_prev)
-	a (tap-hold-release $tt $ht a (layer-while-held arrows))
+	a (tap-hold-release $tt $ht a lalt)
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
@@ -43,11 +42,11 @@
 	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh sreboot) (cmd $fsh reboot) (cmd $fsh poweroff)))
 	e (tap-hold-release $tt $ht e (layer-while-held func-right))
 	esc (tap-dance-eager 500 (XX XX (cmd $fsh eat)))
-	f (tap-hold-release $tt $ht f lalt)
+	f (tap-hold-release $tt $ht f (layer-while-held arrows))
 	g (tap-hold-release $tt $ht g (layer-while-held apps))
 	h (tap-hold-release $tt $ht h (layer-while-held magazine))
 	i (tap-hold-release $tt $ht i (layer-while-held func-left))
-	j (tap-hold-release $tt $ht j ralt)
+	j (tap-hold-release $tt $ht j (layer-while-held numbers))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
 	m (tap-hold-release $tt $ht m XX)
