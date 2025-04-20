@@ -130,6 +130,10 @@ function dode-cliphist
     systemctl --user enable --now cliphist-image.service
 end
 
+function dode-countryfetch
+    sudo pacman -S --needed --noconfirm --disable-download-timeout countryfetch
+end
+
 function dode-cowsay
     sudo pacman -S --needed --noconfirm --disable-download-timeout cowsay
 end
@@ -536,6 +540,7 @@ function dode-ov
     sudo install ov ~/.local/bin
     eget https://github.com/noborus/ov
     indeed.rs -u ~/.local/share/magazine/W https://github.com/noborus/ov
+    sudo ln -f ~/.local/bin/ov /usr/bin/ov
     ov --completion fish >~/.config/fish/completions/ov.fish
     mkdir -p ~/.config/ov
     ln -sf ~/r/dot/ov.yaml ~/.config/ov/config.yaml
@@ -839,6 +844,14 @@ function dode-waybar
     ln -sf ~/r/dot/waybar/waybar.jsonc ~/.config/waybar/config.jsonc
     ln -sf ~/r/dot/waybar/waybar.css ~/.config/waybar/style.css
     ln -sf /usr/lib/systemd/user/waybar.service ~/.config/systemd/user/niri.service.wants/waybar.service
+end
+
+function dode-waytext
+    cd ~/r/stored
+    gh repo clonef https://github.com/jeffa5/waytext
+    cd waytext
+    make build
+    make install
 end
 
 function dode-wf-recorder
