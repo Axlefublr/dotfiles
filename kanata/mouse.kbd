@@ -6,6 +6,8 @@
 (defvar mmaccmax 7)
 
 (deflayermap (mouse)
+	i (cmd wooz)
+	o (cmd $fsh pick_and_copy_color)
 	f mlft
 	s mmid
 	d mrgt

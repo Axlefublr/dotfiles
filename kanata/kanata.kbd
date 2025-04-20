@@ -147,8 +147,6 @@
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh edit_clipboard_image)
 	f (cmd $fsh screenshot_select)
-	j (cmd wooz)
-	o (cmd $fsh pick_and_copy_color)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd $fsh screenshot_screen)
 	v (cmd mpv --start=0 --fullscreen /home/axlefublr/i/s/original.mp4)
