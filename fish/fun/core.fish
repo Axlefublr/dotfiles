@@ -36,7 +36,7 @@ function confirm -a message
     end
     echo $message >&2
     while not contains "$response" $valids
-        read -P "$(string join ' / ' $options) " -fn 1 response || break 130
+        read -P "$(string join ' / ' $options) " -fn 1 response || return 130
     end
     for num in (seq (count $valids))
         test "$response" = $valids[$num] && return $num
