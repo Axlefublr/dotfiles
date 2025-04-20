@@ -36,6 +36,7 @@
 	PreviousSong (cmd $fsh media_prev)
 	a (tap-hold-release $tt $ht a lalt)
 	b (tap-hold-release $tt $ht b XX)
+	bksl (macro ` s t a t spc a d d spc c u r s e spc Digit4 enter s t a t spc a d d spc c o o l n e s s spc Digit4 enter g i v e spc b r i c k S-min o f S-min c a s h enter esc)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lctl)
