@@ -1,7 +1,7 @@
 (defvar wi 100)
 (defvar wd 120)
 (defvar mmaccint 5)
-(defvar mmaccacc 300)
+(defvar mmaccacc 400)
 (defvar mmaccmin 1)
 (defvar mmaccmax 7)
 
