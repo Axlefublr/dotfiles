@@ -72,7 +72,9 @@
 
 .tab-label-container {
   align-items: center !important;
-  flex-direction: row !important;
+  /* centers tab titles */
+  /* flex-direction: row !important; */
+  overflow: hidden !important;
   --tab-label-mask-size: 0 !important;
 }
 
