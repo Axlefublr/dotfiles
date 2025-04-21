@@ -4,5 +4,5 @@ StartLimitBurst=0
 
 [Service]
 Restart=on-failure
-RestartSteps=20
-RestartMaxDelaySec=60
+RestartSteps=10
+RestartMaxDelaySec=10

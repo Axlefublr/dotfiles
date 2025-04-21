@@ -284,6 +284,8 @@ function dode-foot
     ln -sf ~/r/dot/foot.ini ~/.config/foot/foot.ini
     systemctl --user enable foot-server.socket
     systemctl --user start foot-server.socket
+    mkdir -p ~/.config/systemd/user/foot-server.service.d
+    ln -sf ~/r/dot/systemd/foot.systemd ~/.config/systemd/user/foot-server.service.d/mine.conf
 end
 
 function dode-fuck

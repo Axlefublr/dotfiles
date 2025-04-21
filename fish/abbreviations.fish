@@ -10,7 +10,7 @@ abbr -a -c systemctl systemctl-stop -r o stop
 abbr -a .. --regex '^\.\.+$' --function multiple_dot
 abbr -a E 'sudo -E helix'
 abbr -a L yazi
-abbr -a aa 'shuf ~/.local/share/magazine/a'
+abbr -a aa 'shuf ~/.local/share/magazine/a &| ov'
 abbr -a at alien_temple
 abbr -a bl bluetoothctl
 abbr -a c lazygit
