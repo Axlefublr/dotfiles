@@ -227,6 +227,7 @@ insert_mappings: dict[str, Any] = {
     'C-p': 'completion',
     'C-u': 'kill_to_line_start',
     'C-v': ['collapse_selection', 'paste_before'],
+    'C-x': [':write-quit-all'],
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
     # [[sort off]]
 }
