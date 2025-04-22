@@ -1,7 +1,7 @@
 screen_size = 'fullscreen'
 
 [ui]
-use_icons = true
+icons = 'nerd_font_v3'
 
 [ui.process_table]
 border = { type = 'Plain', style = { fg = '#d4be98' } }
@@ -10,8 +10,22 @@ border = { type = 'Plain', style = { fg = '#d4be98' } }
 selected_symbol = ' '
 even = { fg = '#d4be98' }
 odd = { fg = '#d4be98' }
-selected = { bg = '#5f472d', add_modifier = 'BOLD' }
+selected = { bg = '#5f472d' }
 
 [ui.process_table.cell]
 # normal = {}
 highlighted = { fg = '#e49641', add_modifier = 'BOLD' }
+
+[ui.process_table.scrollbar]
+thumb_symbol = '▐'
+margin = { horizontal = 1, vertical = 1 }
+
+[ui.process_details]
+border = { type = 'Plain', style = { fg = '#d4be98' } }
+
+[ui.process_details.scrollbar]
+thumb_symbol = '▐'
+margin = { horizontal = 1, vertical = 1 }
+
+[ui.search_bar]
+cursor_style = { fg = '#1f1e1e', bg = '#e49641', add_modifier = 'BOLD' }
