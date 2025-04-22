@@ -84,10 +84,9 @@ auto-format = false
 tab-width = 3
 unit = '\t'
 
-# [[grammar]]
-# name = 'crystal'
-# source = { git = 'https://github.com/crystal-lang-tools/tree-sitter', rev = 'c67e9bc000f006212edae98d167c83411a3d8309' }
-# source = { git = 'https://github.com/will/tree-sitter-crystal', rev = '15597b307b18028b04d288561f9c29794621562b' }
+[[grammar]]
+name = 'crystal'
+source = { git = 'https://github.com/crystal-lang-tools/tree-sitter-crystal', rev = '07b93b9f9dc38ace8890fecb002e6fb7666d6d1e' }
 
 [[language]]
 name = 'ruby'
