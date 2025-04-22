@@ -137,6 +137,7 @@
 	r (cmd $fsh "rnote & disown")
 	s (cmd steam-native)
 	t (cmd paplay /home/axlefublr/m/soundeffects/camera-shutter.oga)
+	v (cmd footclient pik)
 	w (cmd anki)
 	x (cmd footclient -N tewi)
 	;; [[sort off]]
@@ -160,7 +161,6 @@
 	' (cmd $fsh clipboard_pick)
 	, (cmd $fsh runner_clipboard_append)
 	. (cmd $fsh runner_clipboard)
-	; (cmd footclient pik)
 	i (cmd fuzzel)
 	j (cmd $fsh "runner show")
 	m (cmd $fsh ntf_dismiss_all)
