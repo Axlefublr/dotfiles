@@ -29,14 +29,14 @@ function rust-release
     end
 
     set -l tagged_version (rg '^version = ' Cargo.toml | string match -gr 'version = "(.*?)"')
-    confirm "release $tagged_version?" '[j]es' '[k]o'
-    test $status -eq 1 || return 1
+    confirm.rs "release $tagged_version?" '[j]es' '[k]o' | read -l response
+    test "$response" = j || return 1
 
     echo '1. update README'
     echo '2. update --help'
     echo '3. ci will get updated'
-    confirm 'proceed?' '[j]es' '[k]o'
-    test $status -eq 1 || return 1
+    confirm.rs 'proceed?' '[j]es' '[k]o' | read -l response
+    test "$response" = j || return 1
 
     rust-fmt
     rust-ci

@@ -38,17 +38,24 @@ function ffmpeg-convert-video
     else
         set -e to
     end
-    confirm 'copy over audio channel?' '[j]es' '[k]o' '[m]ute audio instead'
-    set -l audio $status
-    if test $audio -eq 1
+    confirm.rs 'copy over audio channel?' '[j]es' '[k]o' '[m]ute audio instead' | read -l response
+    if test "$response" = j
         set -f copy_audio -c:a copy
-    else if test $audio -eq 3
+    else if test "$response" = m
         set -f copy_audio -an
-    else
+    else if test "$response" = k
         set -e copy_audio
+    else
+        return
     end
-    confirm 'copy over video channel?'\n'(this makes no sense if you are doing something with the video)' '[j]es' '[k]o'
-    test $status -eq 1 && set copy_video -c:v copy || set -e copy_video
+    confirm.rs 'copy over video channel?'\n'(this makes no sense if you are doing something with the video)' '[j]es' '[k]o' | read -l response
+    if test "$response" = j
+        set copy_video -c:v copy
+    else if test "$response" = k
+        set -e copy_video
+    else
+        return
+    end
 
     ffmpeg -i "$input" $from $to $copy_audio $copy_video "$output"
     set_color -o a9b665
@@ -120,8 +127,8 @@ function ffmpeg-convert-to-mp3
     end
     not test -f "$input" && return 121
     ffmpeg -i "$input" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$input")
-    confirm 'delete input video?' '[j]es' '[k]o'
-    test $status -eq 1 && rm -f $input
+    confirm.rs 'delete input video?' '[j]es' '[k]o' | read -l response
+    test "$response" = j && rm -f $input
 end
 funcsave ffmpeg-convert-to-mp3 >/dev/null
 

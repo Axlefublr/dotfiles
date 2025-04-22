@@ -168,24 +168,18 @@ function lnkj -a fileone filetwo
     if not test -f $filetwo
         ln $fileone $filetwo
     else if not arebesties $fileone $filetwo
-        confirm "$filetwo is not a hardlink. make it be one?" '[j]es' '[k]o' '[c]opy over'
-        set -l exitcode $status
-        if test $exitcode -eq 1
+        confirm.rs "$filetwo is not a hardlink. make it be one?" '[j]es' '[k]o' '[c]opy over' | read -l response
+        if test "$response" = j
             ln -f $fileone $filetwo
-        else if test $exitcode -eq 3
+        else if test "$response" = c
             rm -f $filetwo
             cp -f $fileone $filetwo
-        else
-            return $status
         end
     else
-        confirm "$fileone and $filetwo are besties." 'alrigh[j] then' '[c]opy over'
-        set -l exitcode $status
-        if test $exitcode -eq 2
+        confirm.rs "$fileone and $filetwo are besties." 'alrigh[j] then' '[c]opy over' | read -l response
+        if test "$response" = c
             rm -f $filetwo
             cp -f $fileone $filetwo
-        else
-            return $status
         end
     end
 end
