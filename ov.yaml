@@ -33,52 +33,53 @@ General:
   ColumnDelimiter: ","
   MarkStyleWidth: 1
   # SectionDelimiter: "^#"
+  # Style
+  # String of the color name: Foreground, Background
+  # Boolean: Bold, Blink, Dim, Italic, Underline
+  Style:
+    Alternate:
+      Background: 'none'
+    Header:
+      Background: 'none'
+      Bold: true
+    LineNumber:
+      Bold: false
+    SearchHighlight:
+      # Foreground: '#1f1e1e'
+      # Background: '#e49641'
+      Bold: true
+      Reverse: true
+    ColumnHighlight:
+      Reverse: false
+    MarkLine:
+      Background: '#b58cc6'
+    SectionLine:
+      Background: '#5f472d'
+      Bold: true
+    ColumnRainbow:
+      - Foreground: '#ea6962'
+      - Foreground: '#e49641'
+      - Foreground: '#d3ad5c'
+      - Foreground: '#a9b665'
+      - Foreground: '#78bf84'
+      - Foreground: '#7daea3'
+      - Foreground: '#b58cc6'
+      - Foreground: '#e491b2'
+    MultiColorHighlight:
+      - Foreground: '#ea6962'
+      - Foreground: '#e49641'
+      - Foreground: '#d3ad5c'
+      - Foreground: '#a9b665'
+      - Foreground: '#78bf84'
+      - Foreground: '#7daea3'
+      - Foreground: '#b58cc6'
+      - Foreground: '#e491b2'
+    JumpTargetLine:
+      Underline: true
 
-# Style
-# String of the color name: Foreground, Background
-# Boolean: Bold, Blink, Dim, Italic, Underline
-StyleAlternate:
-  Background: 'none'
-StyleHeader:
-  Background: 'none'
-  Bold: true
 StyleOverStrike:
   Bold: true
 StyleOverLine:
-  Underline: true
-StyleLineNumber:
-  Bold: false
-StyleSearchHighlight:
-  # Foreground: '#1f1e1e'
-  # Background: '#e49641'
-  Bold: true
-  Reverse: true
-StyleColumnHighlight:
-  Reverse: false
-StyleMarkLine:
-  Background: '#b58cc6'
-StyleSectionLine:
-  Background: '#5f472d'
-  Bold: true
-StyleColumnRainbow:
-  - Foreground: '#ea6962'
-  - Foreground: '#e49641'
-  - Foreground: '#d3ad5c'
-  - Foreground: '#a9b665'
-  - Foreground: '#78bf84'
-  - Foreground: '#7daea3'
-  - Foreground: '#b58cc6'
-  - Foreground: '#e491b2'
-StyleMultiColorHighlight:
-  - Foreground: '#ea6962'
-  - Foreground: '#e49641'
-  - Foreground: '#d3ad5c'
-  - Foreground: '#a9b665'
-  - Foreground: '#78bf84'
-  - Foreground: '#7daea3'
-  - Foreground: '#b58cc6'
-  - Foreground: '#e491b2'
-StyleJumpTargetLine:
   Underline: true
 
 # special key
