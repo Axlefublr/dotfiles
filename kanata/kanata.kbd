@@ -4,7 +4,8 @@
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
-	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)")
+	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)", "Kingston HyperX Pulsefire Haste")
+	linux-unicode-termination space
 	log-layer-changes no
 	process-unmapped-keys yes
 	rapid-event-delay 0
@@ -146,7 +147,6 @@
 	c (cmd $fsh edit_clipboard)
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh edit_clipboard_image)
-	f (cmd $fsh screenshot_select)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd $fsh screenshot_screen)
 	v (cmd mpv --start=0 --fullscreen /home/axlefublr/i/s/original.mp4)

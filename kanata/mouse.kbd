@@ -1,24 +1,26 @@
-(defvar wi 100)
-(defvar wd 120)
-(defvar mmaccint 5)
-(defvar mmaccacc 400)
-(defvar mmaccmin 1)
-(defvar mmaccmax 7)
-
 (deflayermap (mouse)
 	i (cmd wooz)
 	o (cmd $fsh pick_and_copy_color)
-	f mlft
-	s mmid
-	d mrgt
+	u (cmd $fsh screenshot_select)
+	j mlft
+	k mmid
+	l mrgt
 	[ mbck
 	] mfwd
-	, (mwheel-up $wi $wd)
-	. (mwheel-down $wi $wd)
-	m (mwheel-left $wi $wd)
-	/ (mwheel-right $wi $wd)
-	h (movemouse-accel-left  $mmaccint $mmaccacc $mmaccmin $mmaccmax)
-	j (movemouse-accel-down  $mmaccint $mmaccacc $mmaccmin $mmaccmax)
-	k (movemouse-accel-up    $mmaccint $mmaccacc $mmaccmin $mmaccmax)
-	l (movemouse-accel-right $mmaccint $mmaccacc $mmaccmin $mmaccmax)
+	, (mwheel-up    100 120)
+	. (mwheel-down  100 120)
+	m (mwheel-left  100 120)
+	/ (mwheel-right 100 120)
+	; (layer-while-held mouse-slow)
+	s (movemouse-accel-left  5 300 1 7)
+	d (movemouse-accel-down  5 300 1 7)
+	e (movemouse-accel-up    5 300 1 7)
+	f (movemouse-accel-right 5 300 1 7)
+)
+
+(deflayermap (mouse-slow)
+	s (movemouse-left  15 1)
+	d (movemouse-down  15 1)
+	e (movemouse-up    15 1)
+	f (movemouse-right 15 1)
 )
