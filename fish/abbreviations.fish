@@ -21,6 +21,7 @@ abbr -a d swayimg
 abbr -a dg swayimg -g
 abbr -a dq 'swayimg -g & disown ; exit'
 abbr -a e helix
+abbr -a etg 'propose.rs etg-active-items 50% ~/.local/share/magazine/Etg-active-items.txt'
 abbr -a fC 'sudo -E helix /etc/fancontrol'
 abbr -a fc 'cat ~/r/info/pswds/sudo | sudo -S systemctl restart fancontrol'
 abbr -a ff ffmpeg

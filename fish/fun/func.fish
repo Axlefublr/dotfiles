@@ -144,7 +144,7 @@ function filter_mature_tasks
             case fsrs iso
                 if_print $days $name 60
             case toothbrush
-                if_print $days $name 90
+                if_print $days $name 120
             case '*'
                 echo "$name — $(math $days - 5)"
         end

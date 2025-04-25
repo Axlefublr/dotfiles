@@ -81,5 +81,6 @@ fn main() -> Result<(), Box<dyn Error>> {
             break;
         }
     }
+    eprintln!();
     Ok(())
 }
