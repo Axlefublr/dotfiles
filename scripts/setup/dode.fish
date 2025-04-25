@@ -650,7 +650,7 @@ function dode-ratbagd
 end
 
 function dode-repgrep
-    # sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
+    sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
 end
 
 function dode-rnote
