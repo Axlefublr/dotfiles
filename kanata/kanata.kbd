@@ -91,6 +91,8 @@
 	c 8
 	x 9
 	a 0
+	q eql
+	z min
 	i (layer-while-held clipboard-index)
 )
 
