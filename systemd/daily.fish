@@ -63,5 +63,8 @@ end
 footclient -NT uboot helix ~/.local/share/magazine/semicolon
 footclient -NT uboot fish -c fm
 footclient -NT uboot calcure
+for link in (cat ~/.local/share/magazine/g)
+    xdg-open $link
+end
 
 ubootf
