@@ -56,11 +56,6 @@ for dir in ~/r/forks/*
     git -C $dir fetch upstream
 end
 
-for dir in ~/r/stored/*
-    git -C $dir fetch
-    git -C $dir reset --hard origin/HEAD
-end
-
 for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end

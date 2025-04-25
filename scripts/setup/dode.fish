@@ -175,7 +175,7 @@ function dode-exrex
 end
 
 function dode-eww
-    cd ~/r/stored
+    cd ~/r/forks
     git clone https://github.com/elkowar/eww
     cd eww
     cargo build --release --no-default-features --features x11
@@ -184,7 +184,7 @@ function dode-eww
     touch ~/.config/eww/eww.yuck
 end
 function edod-eww
-    rm -fr ~/r/stored/eww
+    rm -fr ~/r/forks/eww
     rm -fr ~/.config/eww
     rm -fr ~/r/binaries/eww
 end
@@ -312,7 +312,7 @@ function dode-gh
 end
 
 function dode-ghostty
-    cd ~/r/stored
+    cd ~/r/forks
     git clone --depth=1 https://github.com/ghostty-org/ghostty
     cd ghostty
     zig build -p $HOME/.local -Doptimize=ReleaseFast -Dapp-runtime=gtk
@@ -779,6 +779,11 @@ function dode-termfilechooser
     # middlemouse.paste
 end
 
+function dode-termpicker
+    eget https://github.com/ChausseBenjamin/termpicker
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/ChausseBenjamin/termpicker
+end
+
 function dode-tewi
     uv tool install tewi-transmission
 end
@@ -849,7 +854,7 @@ function dode-waybar
 end
 
 function dode-waytext
-    cd ~/r/stored
+    cd ~/r/forks
     gh repo clonef https://github.com/jeffa5/waytext
     cd waytext
     make build
@@ -876,7 +881,7 @@ end
 
 function dode-wooz
     sudo pacman -S --needed --noconfirm --disable-download-timeout meson ninja cmake wayland-protocols
-    cd ~/r/stored
+    cd ~/r/forks
     gh repo clonef https://github.com/negrel/wooz
     cd wooz
     export CFLAGS="-O3"

@@ -6,7 +6,6 @@ mkdir -p ~/w \
     ~/r \
     ~/r/forks \
     ~/r/proj \
-    ~/r/stored \
     ~/r/the \
     ~/trans \
     ~/.local/bin \
