@@ -245,7 +245,7 @@ insert_mappings.update(**normal_insert_mappings)
 
 normal_select_mappings: dict[str, Any] = {
     # [[sort on]]
-    "'": ':write-all',
+    "'": [':write-all', ':reload-all'],
     '#': 'toggle_comments',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
@@ -423,7 +423,6 @@ normal_select_mappings: dict[str, Any] = {
     },
     'z': {
         # [[sort on]]
-        "'": ':reload-all',
         # 'u': 'transpose_view',
         ',': ':sort',
         '.': ':random',
