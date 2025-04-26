@@ -16,7 +16,6 @@ hooks:
     -rm -f ./.git/hooks/pre-commit
     echo '{{'''
         #!/usr/bin/env fish
-        ibsort.fish (git diff --name-only --cached)
     '''}}' >./.git/hooks/pre-commit
     chmod +x ./.git/hooks/pre-commit
 

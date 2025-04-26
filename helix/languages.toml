@@ -1,14 +1,14 @@
 [[language]]
-name = "common-lisp"
-file-types = ["lisp", "asd", "cl", "l", "lsp", "ny", "podsl", "sexp"]
+name = 'common-lisp'
+file-types = ['lisp', 'asd', 'cl', 'l', 'lsp', 'ny', 'podsl', 'sexp']
 
 [[language]]
 name = 'hocon'
 file-types = [
   'conf',
-  { glob = '**/src/*/resources/**/*.conf' },
-  { glob = '*scalafmt*.conf' },
-  { glob = '*scalafix*.conf' },
+  { glob = "**/src/*/resources/**/*.conf" },
+  { glob = "*scalafmt*.conf" },
+  { glob = "*scalafix*.conf" },
 ]
 
 [[language]]
@@ -18,16 +18,18 @@ file-types = [
   # Systemd unit files
   'service',
   'automount',
+  'desktop',
   'device',
   'mount',
+  'nspawn',
   'path',
-  'service',
+  'scope',
   'slice',
   'socket',
   'swap',
   'target',
   'timer',
-  'systemd',
+  { glob = 'systemd/**/*.conf' },
   # Podman quadlets
   'container',
   'volume',
@@ -40,8 +42,7 @@ file-types = [
   { glob = 'rclone.conf' },
   'properties',
   'cfg',
-  'directory',
-  'desktop',
+  'directory'
 ]
 
 [[language]]

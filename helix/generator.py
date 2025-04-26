@@ -432,7 +432,6 @@ normal_select_mappings: dict[str, Any] = {
         '>': ['select_all', 'split_selection_on_newline', ':random', 'keep_primary_selection'],
         '?': 'reverse_selection_contents',
         'H': ['collapse_selection', 'extend_to_line_start'],
-        'I': 'hover_dump',
         'J': 'hsplit',
         'K': ':hsplit-new',
         'L': ['collapse_selection', 'extend_to_line_end_newline'],
