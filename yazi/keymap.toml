@@ -177,6 +177,12 @@ keymap = [
   ], run = '''
     shell --confirm 'webify.fish "$@"'
     ''', desc = 'Convert to webp, if that ends up smaller' },
+  { on = [
+    'c',
+    'u',
+  ], run = '''
+    shell --confirm 'ouch d "$@"'
+  ''', desc = 'Decompress archive with ouch' },
 
   { on = [
     ',',
