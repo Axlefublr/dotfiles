@@ -18,6 +18,7 @@ abbr -a ca cargo
 abbr -a chx 'chmod +x'
 abbr -a cp 'rsync -r'
 abbr -a d swayimg
+abbr -a de 'cd ~/r/dot && helix'
 abbr -a dg swayimg -g
 abbr -a dq 'swayimg -g & disown ; exit'
 abbr -a e helix

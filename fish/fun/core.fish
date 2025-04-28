@@ -287,8 +287,14 @@ function ttest
     set -f symbol (shuf -n 1 ~/.cache/mine/alphabet-all)
     while true
         read -P "$symbol" -n 1 output || break
-        test "`$output`" = "`$symbol`" || continue
-        set -f symbol (shuf -n 1 ~/.cache/mine/alphabet-all)
+        test "$output" = "$symbol" || continue
+        while true
+            set -l next_symbol (shuf -n 1 ~/.cache/mine/alphabet-all)
+            if test "$symbol" != "$next_symbol"
+                set -f symbol $next_symbol
+                break
+            end
+        end
     end
 end
 funcsave ttest >/dev/null
