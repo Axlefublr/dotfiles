@@ -46,21 +46,11 @@ fn main() -> Result<(), Box<dyn Error>> {
             let Some(next_arg) = args.next() else { etc(cmd) };
 
             match &next_arg[..] {
-                "clonef" => {
-                    cmd.arg("clone");
-                    blammo(&mut cmd, &mut args);
-                    cmd.arg("--")
-                        .arg("--depth")
-                        .arg("1");
-                },
                 "forkf" => {
                     cmd.arg("fork");
                     blammo(&mut cmd, &mut args);
                     cmd.arg("--clone")
-                        .arg("--default-branch-only")
-                        .arg("--")
-                        .arg("--depth")
-                        .arg("1");
+                        .arg("--default-branch-only");
                 },
                 other => {
                     cmd.arg(other);
