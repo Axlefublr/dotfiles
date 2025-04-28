@@ -1,59 +1,25 @@
 [[language]]
-name = 'common-lisp'
-file-types = ['lisp', 'asd', 'cl', 'l', 'lsp', 'ny', 'podsl', 'sexp']
+name = "common-lisp"
+file-types = ["lisp", "asd", "cl", "l", "lsp", "ny", "podsl", "sexp"]
 
 [[language]]
-name = 'hocon'
+name = "hocon"
 file-types = [
-  'conf',
+  "conf",
   { glob = "**/src/*/resources/**/*.conf" },
   { glob = "*scalafmt*.conf" },
   { glob = "*scalafix*.conf" },
 ]
 
 [[language]]
-name = 'ini'
+name = "just"
 file-types = [
-  'ini',
-  # Systemd unit files
-  'service',
-  'automount',
-  'desktop',
-  'device',
-  'mount',
-  'nspawn',
-  'path',
-  'scope',
-  'slice',
-  'socket',
-  'swap',
-  'target',
-  'timer',
-  { glob = 'systemd/**/*.conf' },
-  # Podman quadlets
-  'container',
-  'volume',
-  'kube',
-  'network',
-  { glob = '.editorconfig' },
-  { glob = '.npmrc' },
-  { glob = 'hgrc' },
-  { glob = 'npmrc' },
-  { glob = 'rclone.conf' },
-  'properties',
-  'cfg',
-  'directory'
-]
-
-[[language]]
-name = 'just'
-file-types = [
-  'just',
-  { glob = 'justfile' },
-  { glob = 'Justfile' },
-  { glob = '.justfile' },
-  { glob = '.Justfile' },
-  { glob = 'globaljustfile' },
+  "just",
+  { glob = "justfile" },
+  { glob = "Justfile" },
+  { glob = ".justfile" },
+  { glob = ".Justfile" },
+  { glob = "globaljustfile" },
 ]
 
 [[language]]

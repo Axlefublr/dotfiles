@@ -341,6 +341,7 @@ normal_select_mappings: dict[str, Any] = {
     'space': {
         # [[sort on]]
         '$': 'shell_keep_pipe',
+        '/': 'harp_search_get',
         'A': 'harp_command_set',
         'C': ':sh footclient -D %(buffer_parent) lazygit 2>/dev/null',
         'F': 'file_picker_in_current_buffer_directory',
@@ -361,7 +362,7 @@ normal_select_mappings: dict[str, Any] = {
         'h': 'harp_fuzzy_get',
         'i': 'harp_register_get',
         'j': 'global_search',
-        'k': 'harp_search_get',
+        'k': 'local_search_fuzzy',
         'l': 'symbol_picker',
         'm': 'code_action',
         'o': ['add_newline_below', 'move_line_down', 'paste_before'],
