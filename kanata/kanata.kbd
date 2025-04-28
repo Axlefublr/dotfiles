@@ -17,10 +17,12 @@
 (defvar fsh (fish -c))
 
 (deflocalkeys-linux
-	PlayCD 200
-	PauseCD 201
-	PreviousSong 165
+	;; [[sort on]]
 	NextSong 163
+	PauseCD 201
+	PlayCD 200
+	PreviousSong 165
+	;; [[sort off]]
 )
 
 (defsrc)
@@ -29,10 +31,10 @@
 	' (tap-hold-release $tt $ht ' (layer-while-held chord))
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
 	. (tap-hold-release $tt $ht . (layer-while-held apps))
-	/ (tap-hold-release $tt $ht / (layer-while-held fuckeys))
+	/ (tap-hold-release $tt $ht / XX)
 	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 enter 40 a d d tab 40 enter g i v e spc)
 	2 (macro ` 40 a d d tab 40 enter 40 esc)
-	; (tap-hold-release $tt $ht ; (layer-while-held numbers))
+	; (tap-hold-release $tt $ht ; ralt)
 	NextSong (cmd $fsh media_next)
 	PauseCD (cmd $fsh toggle_media)
 	PlayCD (cmd $fsh toggle_media)
@@ -49,10 +51,10 @@
 	g (tap-hold-release $tt $ht g XX)
 	h (tap-hold-release $tt $ht h XX)
 	i (tap-hold-release $tt $ht i (layer-while-held func-left))
-	j (tap-hold-release $tt $ht j ralt)
+	j (tap-hold-release $tt $ht j (layer-while-held numbers))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
-	m (tap-hold-release $tt $ht m XX)
+	m (tap-hold-release $tt $ht m (layer-while-held fuckeys))
 	n (tap-hold-release $tt $ht n XX)
 	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
@@ -72,33 +74,38 @@
 )
 
 (deflayermap (capsy)
-	w (cmd $fsh "set_volume 0.02-")
-	e (cmd $fsh "set_volume 0.02+")
-	s (cmd $fsh media_prev)
+	;; [[sort on]]
 	d (cmd $fsh media_next)
-	r (cmd $fsh toggle_mute)
+	e (cmd $fsh "set_volume 0.02+")
 	f (cmd $fsh toggle_media)
+	r (cmd $fsh toggle_mute)
+	s (cmd $fsh media_prev)
+	w (cmd $fsh "set_volume 0.02-")
+	;; [[sort off]]
 )
 
 (deflayermap (numbers)
-	f 1
-	d 2
-	s 3
-	r 4
-	e 5
-	w 6
-	v 7
-	c 8
-	x 9
+	;; [[sort on]]
+	. (layer-while-held numbers-subscript)
 	a 0
-	q eql
-	z min
+	c 8
+	d 2
+	e 5
+	f 1
 	i (layer-while-held clipboard-index)
 	o (layer-while-held numbers-superscript)
-	m (layer-while-held numbers-subscript)
+	q eql
+	r 4
+	s 3
+	v 7
+	w 6
+	x 9
+	z min
+	;; [[sort off]]
 )
 
 (deflayermap (arrows)
+	;; [[sort on]]
 	' del
 	, pgup
 	. pgdn
@@ -115,6 +122,7 @@
 	p caps
 	u (caps-word $ot)
 	y (layer-switch doublestruck)
+	;; [[sort off]]
 )
 
 (deflayermap (fuckeys)
@@ -193,9 +201,10 @@
 	w (one-shot $ot (layer-while-held bookmark-set))
 )
 
-(include symbol.kbd)
-(include clipboard.kbd)
-(include magazine.kbd)
+;; [[sort on]]
 (include bookmark.kbd)
-(include mouse.kbd)
+(include clipboard.kbd)
 (include doublestruck.kbd)
+(include magazine.kbd)
+(include mouse.kbd)
+(include symbol.kbd)
