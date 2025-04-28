@@ -194,6 +194,8 @@ function dode-fancontrol
     sudo sensors-detect
     sudo pwmconfig
     sudo -E helix /etc/fancontrol
+    sudo mkdir -p /etc/systemd/system/fancontrol.service.d
+    sudo ln -f ~/r/dot/systemd/fancontrol.systemd /etc/systemd/system/fancontrol.service.d/mine.conf
     sudo systemctl enable --now fancontrol
 end
 
@@ -346,6 +348,11 @@ function dode-gitu
     sudo pacman -S --needed --noconfirm --disable-download-timeout gitu
     mkdir -p ~/.config/gitu
     ln -sf ~/r/dot/gitu.toml ~/.config/gitu/config.toml
+end
+
+function dode-git-who
+    eget https://github.com/sinclairtarget/git-who
+    indeed.rs -u ~/.local/share/magazine/W https://github.com/sinclairtarget/git-who
 end
 
 function dode-gomi
@@ -540,13 +547,13 @@ function dode-ov
     cd ov
     make
     sudo install ov ~/.local/bin
-    eget https://github.com/noborus/ov
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/noborus/ov
+    # eget https://github.com/noborus/ov
+    # indeed.rs -u ~/.local/share/magazine/W https://github.com/noborus/ov
     sudo ln -f ~/.local/bin/ov /usr/bin/ov
     ov --completion fish >~/.config/fish/completions/ov.fish
     mkdir -p ~/.config/ov
     ln -sf ~/r/dot/ov.yaml ~/.config/ov/config.yaml
-    set -Ux PAGER /usr/bin/ov
+    set -Ux PAGER ov
     set -Ux SYSTEMD_PAGERSECURE true
     set -Ux SYSTEMD_PAGER ov
 end

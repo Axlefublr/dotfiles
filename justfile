@@ -1,16 +1,13 @@
 set shell := ['fish', '-c']
 
-# [[sort on]]
-alias xr := xremap
-alias xrp := xremap-stop
-alias xrs := xremap-start
-# [[sort off]]
-
+[no-exit-message]
 default:
-    @just --choose
-
-helix:
-    ./helix/generator.py
+    #!/usr/bin/env fish
+    set -l filter .
+    while true
+        read -c $filter -P filter: filter || break
+        sttr yaml-json ~/.local/share/glaza/current.yml | jq -C $filter &| ov -F
+    end
 
 hooks:
     -rm -f ./.git/hooks/pre-commit
@@ -30,9 +27,6 @@ systemd: systemd-setup
         ln -sf $unit ~/.config/systemd/user/
     end
 
-    not test -d /etc/systemd/system/fancontrol.service.d && sudo mkdir -p /etc/systemd/system/fancontrol.service.d
-    not test -f /etc/systemd/system/fancontrol.service.d/mine.conf && sudo ln -f ~/r/dot/systemd/fancontrol.systemd /etc/systemd/system/fancontrol.service.d/mine.conf
-
     not test -f /usr/lib/systemd/system-sleep/suspend-handler.fish && sudo ln -f ~/r/dot/systemd/suspend-handler.fish /usr/lib/systemd/system-sleep/suspend-handler.fish
 
     systemctl --user daemon-reload
@@ -44,11 +38,3 @@ systemd: systemd-setup
 
 systemd-setup:
     mkdir -p ~/.config/systemd/user
-
-xremap: xremap-stop xremap-start
-
-xremap-start:
-    xremap ./xremap.yml &>/dev/null & disown
-
-xremap-stop:
-    -killall xremap
