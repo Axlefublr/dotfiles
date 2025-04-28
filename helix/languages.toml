@@ -1,7 +1,42 @@
+# ----------------------------lisp----------------------------
 [[language]]
 name = "common-lisp"
 file-types = ["lisp", "asd", "cl", "l", "lsp", "ny", "podsl", "sexp"]
 
+# ---------------------------crystal---------------------------
+[[language]]
+name = "crystal"
+auto-format = false
+# grammar = "crystal"
+indent = { tab-width = 3, unit = "\t" }
+
+[language.auto-pairs]
+"(" = ")"
+"{" = "}"
+"[" = "]"
+'"' = '"'
+"`" = "`"
+"'" = "'"
+
+[[grammar]]
+name = "crystal"
+source = { git = "https://github.com/crystal-lang-tools/tree-sitter-crystal", rev = "07b93b9f9dc38ace8890fecb002e6fb7666d6d1e" }
+
+# -----------------------------css-----------------------------
+[[language]]
+name = "css"
+formatter = { command = "prettier", args = ["--parser", "css"] }
+
+# ----------------------------fish----------------------------
+[[language]]
+name = "fish"
+language-servers = ["fish-lsp"]
+
+[language-server.fish-lsp]
+command = "fish-lsp"
+args = ["start"]
+
+# ---------------------------hocon---------------------------
 [[language]]
 name = "hocon"
 file-types = [
@@ -11,6 +46,13 @@ file-types = [
   { glob = "*scalafix*.conf" },
 ]
 
+# ---------------------------html---------------------------
+[[language]]
+name = "html"
+auto-format = false
+formatter = { command = "prettier", args = ["--parser", "html"] }
+
+# ---------------------------just---------------------------
 [[language]]
 name = "just"
 file-types = [
@@ -22,222 +64,194 @@ file-types = [
   { glob = "globaljustfile" },
 ]
 
+# ---------------------------lua---------------------------
 [[language]]
-name = 'nim'
-language-servers = ['nimlsp']
-
-[[language]]
-name = 'fish'
-language-servers = ['fish-lsp']
-
-[language-server.fish-lsp]
-command = 'fish-lsp'
-args = ['start']
-
-[[language]]
-name = 'crystal'
-auto-format = false
-# grammar = 'crystal'
-
-[language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-"'" = "'"
-
-[language.indent]
-tab-width = 3
-unit = '\t'
-
-[[grammar]]
-name = 'crystal'
-source = { git = 'https://github.com/crystal-lang-tools/tree-sitter-crystal', rev = '07b93b9f9dc38ace8890fecb002e6fb7666d6d1e' }
-
-[[language]]
-name = 'ruby'
-language-servers = ['solargraph', 'rubocop']
+name = "lua"
+indent = { tab-width = 3, unit = "\t" }
 auto-format = true
-
-[language.indent]
-tab-width = 3
-unit = '\t'
-
-[language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-'<' = '>'
-"'" = "'"
-'|' = '|'
-
-[language-server.rubocop]
-command = 'rubocop'
-args = ['--lsp']
-
-[[language]]
-name = 'css'
-formatter = { command = 'prettier', args = ['--parser', 'css'] }
-
-[[language]]
-name = 'html'
-auto-format = false
-formatter = { command = 'prettier', args = ['--parser', 'html'] }
-
-[[language]]
-name = 'mojo'
-file-types = ["mojo", "🔥", { glob = 'kitty.conf' }]
-
-[[language]]
-name = 'markdown'
-file-types = [
-  'md',
-  'markdown',
-  'mdx',
-  'mkd',
-  'mkdn',
-  'mdwn',
-  'mdown',
-  'markdn',
-  'mdtxt',
-  'mdtext',
-  'workbook',
-  { glob = 'PULLREQ_EDITMSG' },
-  { glob = '**/magazine/s' },
-  { glob = '**/magazine/d' },
-  { glob = '**/magazine/c' },
-  { glob = '**/magazine/G' },
-  { glob = '**/magazine/0' },
-]
-indent = { tab-width = 2, unit = '  ' }
-
-[[language]]
-name = 'lua'
-indent = { tab-width = 3, unit = '\t' }
-auto-format = true
-formatter = { command = 'stylua', args = ['-'] }
+formatter = { command = "stylua", args = ["-"] }
 
 [language-server.lua-language-server.config.Lua]
+# [[sort on]]
 codelens.enable = true
+completion.callSnippet = "Replace"
 completion.enable = true
-completion.callSnippet = 'Replace'
-completion.keywordSnippet = 'Disable'
-completion.postfix = '@'
+completion.keywordSnippet = "Disable"
+completion.postfix = "@"
 completion.showParams = true
+completion.showWord = "Enable"
 completion.workspaceWord = false
-completion.showWord = 'Enable'
-diagnostics.disable = [
-  'lowercase-global',
-  'redefined-local',
-  'duplicate-set-field',
-]
 diagnostics.workspaceDelay = 0
 format.enable = false
-hint.enable = true
-hint.arrayIndex = 'Disable'
+hint.arrayIndex = "Disable"
 hint.await = true
-hint.paramName = 'Disable'
+hint.enable = true
+hint.paramName = "Disable"
 hint.paramType = true
-hint.semicolon = 'Disable'
+hint.semicolon = "Disable"
 hint.setType = true
 hover.enable = true
+hover.enumsLimit = 9999
 hover.expandAlias = true
+hover.previewFields = 9999
 hover.viewNumber = true
 hover.viewString = true
-hover.enumsLimit = 9999
-hover.previewFields = 9999
-semantic.enable = false # TODO: enable this once helix supports them
+semantic.enable = false               # TODO: enable this once helix supports them
 semantic.keyword = false
 semantic.variable = true
 type.weakNilCheck = false
 workspace.checkThirdParty = false
+# [[sort off]]
+diagnostics.disable = [
+  "lowercase-global",
+  "redefined-local",
+  "duplicate-set-field",
+]
 
+# -------------------------markdown-------------------------
 [[language]]
-name = 'rust'
+name = "markdown"
+file-types = [
+  "md",
+  "markdown",
+  "mdx",
+  "mkd",
+  "mkdn",
+  "mdwn",
+  "mdown",
+  "markdn",
+  "mdtxt",
+  "mdtext",
+  "workbook",
+  { glob = "PULLREQ_EDITMSG" },
+  { glob = "**/magazine/s" },
+  { glob = "**/magazine/d" },
+  { glob = "**/magazine/c" },
+  { glob = "**/magazine/G" },
+  { glob = "**/magazine/0" },
+]
+indent = { tab-width = 2, unit = "  " }
+
+# ---------------------------mojo---------------------------
+[[language]]
+name = "mojo"
+file-types = ["mojo", "🔥", { glob = "kitty.conf" }]
+
+# ---------------------------nim---------------------------
+[[language]]
+name = "nim"
+language-servers = ["nimlsp"]
+
+# --------------------------python--------------------------
+[[language]]
+name = "python"
+language-servers = ["basedpyright", "ruff"]
+auto-format = true
 
 [language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'|' = '|'
+"(" = ")"
+"{" = "}"
+"[" = "]"
 '"' = '"'
-'`' = '`'
-'<' = '>'
-
-[language-server.rust-analyzer]
-command = '/usr/lib/rustup/bin/rust-analyzer'
-
-[language-server.rust-analyzer.config]
-checkOnSave.command = 'clippy'
-cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev'
-cargo.extraArgs = ['--profile', 'rust-analyzer']
-cargo.features = 'all'
-rustfmt.overrideCommand = ['rustup', 'run', 'nightly', '--', 'rustfmt']
-assist.expressionFillDefault = 'default'
-assist.importEnforceGranularity = true
-assist.importPrefix = 'crate'
-inlayHints.bindingModeHints.enable = true
-inlayHints.closingBraceHints.minLines = 11
-inlayHints.closureCaptureHints.enable = true
-inlayHints.closureReturnTypeHints.enable = 'with_block'
-inlayHints.closureStyle = 'rust_analyzer'
-inlayHints.discriminantHints.enable = 'fieldless'
-inlayHints.parameterHints.enable = true
-inlayHints.rangeExclusiveHints.enable = true
-inlayHints.renderColons = false
-inlayHints.expressionAdjustmentHints.enable = 'reborrow'
-inlayHints.expressionAdjustmentHints.mode = 'prefer_postfix'
-inlayHints.lifetimeElisionHints.enable = 'skip_trivial'
-inlayHints.lifetimeElisionHints.useParameterNames = true
-lens.run.enable = false
-completion.fullFunctionSignatures.enable = true
-procMacro.enable = true
-typing.autoClosingAngleBrackets.enable = true
-semanticHighlighting.operator.specialization.enable = true
-semanticHighlighting.punctuation.separate.macro.bang = true
-semanticHighlighting.punctuation.enable = true
-# workspace.symbol.search.kind = 'onlyTypes'
-signatureInfo.documentation.enable = true
-
-[[language]]
-name = 'python'
-language-servers = ['basedpyright', 'ruff']
-auto-format = true
+"`" = "`"
+"<" = ">"
+"'" = "'"
 
 [language-server.basedpyright.config.basedpyright]
 analysis.autoImportCompletions = true
 
 [language-server.ruff]
-command = 'ruff'
-args = ['server']
+command = "ruff"
+args = ["server"]
 
 [language-server.basedpyright]
-command = 'basedpyright-langserver'
-args = ['--stdio']
+command = "basedpyright-langserver"
+args = ["--stdio"]
 
 [language-server.basedpyright.config]
-# ['a', 3, True] will be interpreted as list[str | int | bool] rather than list[Any]
+# ["a", 3, True] will be interpreted as list[str | int | bool] rather than list[Any]
 strictListInference = true
-# { 'a': 1, 'b': 'c' } will be interpretes as dict[str, int | str] rather than dict[str, Any]
+# { "a": 1, "b": "c" } will be interpretes as dict[str, int | str] rather than dict[str, Any]
 strictDictionaryInference = true
-# { 'a', 1, True } will be set[str, int, bool] rather than set[Any]
+# { "a", 1, True } will be set[str, int, bool] rather than set[Any]
 strictSetInference = true
 enableReachabilityAnalysis = true
-typeCheckingMode = 'strict'
+typeCheckingMode = "strict"
 reportUnusedVariable = false
 
-[language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-'<' = '>'
-"'" = "'"
-
+# ----------------------------ruby----------------------------
 [[language]]
-name = 'toml'
+name = "ruby"
+language-servers = ["solargraph", "rubocop"]
+auto-format = true
+indent = { tab-width = 3, unit = "\t" }
+
+[language.auto-pairs]
+"(" = ")"
+"{" = "}"
+"[" = "]"
+'"' = '"'
+"`" = "`"
+"<" = ">"
+"'" = "'"
+"|" = "|"
+
+[language-server.rubocop]
+command = "rubocop"
+args = ["--lsp"]
+
+# ------------------------------rust------------------------------
+[[language]]
+name = "rust"
+
+[language.auto-pairs]
+"(" = ")"
+"{" = "}"
+"[" = "]"
+"|" = "|"
+'"' = '"'
+"`" = "`"
+"<" = ">"
+
+[language-server.rust-analyzer]
+command = "/usr/lib/rustup/bin/rust-analyzer"
+
+[language-server.rust-analyzer.config]
+# [[sort on]]
+# workspace.symbol.search.kind = "onlyTypes"
+assist.expressionFillDefault = "default"
+assist.importEnforceGranularity = true
+assist.importPrefix = "crate"
+cargo.extraArgs = ["--profile", "rust-analyzer"]
+cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev"
+cargo.features = "all"
+checkOnSave.command = "clippy"
+completion.fullFunctionSignatures.enable = true
+files.watcher = "server"                                                # TODO: this is not needed if helix supports client-side filewatching
+inlayHints.bindingModeHints.enable = true
+inlayHints.closingBraceHints.minLines = 11
+inlayHints.closureCaptureHints.enable = true
+inlayHints.closureReturnTypeHints.enable = "with_block"
+inlayHints.closureStyle = "rust_analyzer"
+inlayHints.discriminantHints.enable = "fieldless"
+inlayHints.expressionAdjustmentHints.enable = "reborrow"
+inlayHints.expressionAdjustmentHints.mode = "prefer_postfix"
+inlayHints.lifetimeElisionHints.enable = "skip_trivial"
+inlayHints.lifetimeElisionHints.useParameterNames = true
+inlayHints.parameterHints.enable = true
+inlayHints.rangeExclusiveHints.enable = true
+inlayHints.renderColons = false
+lens.run.enable = false
+procMacro.enable = true
+rustfmt.overrideCommand = ["rustup", "run", "nightly", "--", "rustfmt"]
+semanticHighlighting.operator.specialization.enable = true
+semanticHighlighting.punctuation.enable = true
+semanticHighlighting.punctuation.separate.macro.bang = true
+signatureInfo.documentation.enable = true
+typing.autoClosingAngleBrackets.enable = true
+# [[sort off]]
+
+# -----------------------------toml-----------------------------
+[[language]]
+name = "toml"
 auto-format = true
