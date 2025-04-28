@@ -252,6 +252,18 @@ function dode-floorp
     #     await gWorkspaces.changeWorkspace(destination, null, false, true);
     # })();
 
+    # (async () => {
+    #     const workspaces = await gWorkspaces.getAllWorkspacesId();
+    #     const current = await gWorkspaces.getCurrentWorkspaceId();
+    #     const currentIndex = workspaces.indexOf(current);
+    #     let destinationIndex = currentIndex - 1;
+    #     if (destinationIndex >= workspaces.length) {
+    #         destinationIndex = 0;
+    #     }
+    #     const destination = workspaces.at(destinationIndex);
+    #     await gWorkspaces.changeWorkspace(destination, null, false, true);
+    # })();
+
     # in the alt menu, CSS -> CSS -> Create browser CSS file
     # then Open CSS folder; you'll arrive around here
     # ~/.floorp/zxvqwt0m.default-release/chrome/CSS
@@ -884,6 +896,15 @@ end
 
 function dode-wob
     sudo pacman -S --needed --noconfirm --disable-download-timeout wob
+end
+
+function dode-woomer
+    # dependencies are still needed for runtime, despite this being in binaries
+    sudo pacman -S --needed --noconfirm --disable-download-timeout glfw-wayland glfw
+    # cd ~/r/forks
+    # gh repo clonef https://github.com/coffeeispower/woomer
+    # cd woomer
+    # rust-bin 'message'
 end
 
 function dode-wooz

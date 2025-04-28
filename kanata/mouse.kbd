@@ -1,5 +1,5 @@
 (deflayermap (mouse)
-	i (cmd wooz)
+	i (cmd woomer)
 	o (cmd $fsh pick_and_copy_color)
 	u (cmd $fsh screenshot_select)
 	j mlft
