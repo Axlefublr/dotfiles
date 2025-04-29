@@ -1,8 +1,8 @@
 helix/runtime
 awesome/rc.lua
-helix/wrap-off.toml
 helix/config.toml
-helix/man.toml
+helix/pager.toml
+helix/screen.toml
 __pycache__
 yazi/plugins/jump-to-char.yazi
 yazi/plugins/open-with-cmd.yazi

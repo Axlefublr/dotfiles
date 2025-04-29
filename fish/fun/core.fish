@@ -64,7 +64,7 @@ function flour
     and test "$_flag_title"
     and set title $_flag_title
     or set title flour
-    footclient -T $title -- helix -c ~/r/dot/helix/quit.toml $argv
+    footclient -T $title -- helix $argv
 end
 funcsave flour >/dev/null
 

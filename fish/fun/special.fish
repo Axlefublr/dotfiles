@@ -110,10 +110,17 @@ function sts_boss
 end
 funcsave sts_boss >/dev/null
 
+function piped_screen_editor
+    set -l file /tmp/cami-helix-overlay
+    read -z | sd -f=m '[ \\t▐]+$' '' >$file
+    footclient -N helix -c ~/r/dot/helix/screen.toml $file
+end
+funcsave piped_screen_editor >/dev/null
+
 function piped_window_editor
     set -l file /tmp/cami-helix-overlay
-    read -z >$file
-    footclient -N helix -c ~/r/dot/helix/wrap-off.toml $file
+    read -z | sd -f=m '[ \\t▐]+$' '' >$file
+    footclient -N helix -c ~/r/dot/helix/pager.toml $file
 end
 funcsave piped_window_editor >/dev/null
 
