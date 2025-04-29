@@ -8,6 +8,7 @@ function systemd_minute
         truncate -s 0 ~/.local/share/magazine/4
     end
     _magazine_commit ~/.local/share/magazine/4 'gh notifs'
+    return 0
 end
 funcsave systemd_minute >/dev/null
 
