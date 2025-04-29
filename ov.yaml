@@ -52,7 +52,9 @@ General:
     ColumnHighlight:
       Reverse: false
     MarkLine:
+      Foreground: '#1f1e1e'
       Background: '#b58cc6'
+      Bold: true
     SectionLine:
       Background: '#5f472d'
       Bold: true
