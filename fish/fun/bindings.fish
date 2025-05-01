@@ -2,13 +2,13 @@
 
 function _help_the_commandline
     set -f commandline (commandline -o)
-    $commandline --help 2>/dev/null &| bat -l help
+    $commandline --help 2>/dev/null &| ov
 end
 funcsave _help_the_commandline >/dev/null
 
 function _man_the_commandline
     set -f commandline (commandline -o)[1]
-    man $commandline 2>/dev/null | bat -l man
+    man $commandline 2>/dev/null
 end
 funcsave _man_the_commandline >/dev/null
 
@@ -109,9 +109,11 @@ function fish_user_key_bindings
     bind alt-. _man_the_commandline
     bind alt-comma _help_the_commandline
     bind alt-enter expand-abbr insert-line-under
+    bind ctrl-\' _wrap_in_pueue
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-f 'zi && commandline -f repaint'
     bind ctrl-g _match_helix_cwd
+    bind ctrl-l repaint
     bind ctrl-z fg
     # [[sort off]]
 end

@@ -213,29 +213,22 @@ function loopuntil
 end
 funcsave loopuntil >/dev/null
 
-function m
-    for arg in $argv
-        # if the arg starts with a dot, get from section harp_dirs_$PWD and remove the `.` at the start
-        if test (string sub -l 1 $arg) = '.'
-            set harp (harp get harp_dirs_$PWD (string sub -s 2 $arg) --path | string replace '~' $HOME)
-            if test "$harp"
-                z "$harp"
-            end
-        else
-            set harp (harp get harp_dirs $arg --path | string replace '~' $HOME)
-            if test "$harp"
-                z "$harp"
-            end
-        end
-    end
-end
-funcsave m >/dev/null
-
-function M
-    harp update harp_dirs $argv --path (string replace $HOME '~' $PWD)
+function Z
+    harp update harp_dirs "$argv" --path (string replace $HOME '~' $PWD)
     and echo "bookmark $argv set"
 end
-funcsave M >/dev/null
+funcsave Z >/dev/null
+
+function ZZ
+    test "$argv"
+    and harp clear harp_dirs "$argv"
+end
+funcsave ZZ >/dev/null
+
+function ZZZ
+    zoxide remove $argv
+end
+funcsave ZZZ >/dev/null
 
 function matches
     get_windows | rg $argv
