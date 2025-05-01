@@ -29,3 +29,20 @@ function alien_temple
     end
 end
 funcsave alien_temple >/dev/null
+
+function gh
+    if test "$argv[1]" = repo
+        switch "$argv[2]"
+            case fork
+                gh repo fork --clone --default-branch-only $argv[3..]
+                z $argv[3]
+                return
+            case clone
+                gh repo clone $argv[3..]
+                z $argv[3]
+                return
+        end
+    end
+    gh $argv
+end
+funcsave gh >/dev/null

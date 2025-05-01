@@ -1,4 +1,5 @@
 # [[sort on]]
+abbr -a -c gh gh-depth-1 -r df -- '-- --depth 1'
 abbr -a -c magick magick-webp-lossless -r loss -- '-define webp:lossless=true'
 abbr -a -c systemctl systemctl-daemon-reload -r dr daemon-reload
 abbr -a -c systemctl systemctl-disable -r d disable
