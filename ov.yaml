@@ -195,5 +195,7 @@ KeyBind:
     - 'k'
   wrap_mode:
     - 'W'
+  write_exit:
+    - 'ctrl+c'
 
 Mode:
