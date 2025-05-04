@@ -4,6 +4,7 @@ StartLimitBurst=0
 StartLimitIntervalSec=0
 
 [Service]
+# ran through fish so that kanata inherits all env vars
 ExecStart=env fish -c "kanata --cfg ~/r/dot/kanata/kanata.kbd"
 Restart=always
 Type=exec

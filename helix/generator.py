@@ -219,16 +219,15 @@ insert_mappings: dict[str, Any] = {
     "A-'": 'insert_register',
     'A-,': 'unindent',
     'A-.': 'indent',
-    'A-;': ['collapse_selection', 'paste_before'],
     'A-u': 'signature_help',
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
-    'C-n': 'completion',
-    'C-p': 'completion',
     'C-u': 'kill_to_line_start',
     'C-v': ['collapse_selection', 'paste_before'],
     'C-x': [':write-quit-all'],
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
+    'down': 'completion',
+    'up': 'completion',
     # [[sort off]]
 }
 insert_mappings.update(**rusify(insert_mappings))
@@ -301,6 +300,13 @@ normal_select_mappings: dict[str, Any] = {
     '}': 'goto_next_paragraph',
     '~': 'switch_to_lowercase',
     # [[sort off]]
+    'C-,': [
+        'extend_to_line_bounds',
+        'split_selection_on_newline',
+        ':sort',
+        'keep_primary_selection',
+        'collapse_selection',
+    ],
     'm': {
         # [[sort on]]
         # 'w': ':toggle whichkey',

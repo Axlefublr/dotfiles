@@ -423,6 +423,10 @@ function dode-jpeg2png
     paru -Sa --needed --disable-download-timeout jpeg2png
 end
 
+function dode-jq
+    sudo pacman -S --needed --noconfirm --disable-download-timeout jq jaq
+end
+
 function dode-just
     sudo pacman -S --needed --noconfirm --disable-download-timeout just
     mkdir -p ~/.config/just

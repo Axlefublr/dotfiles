@@ -5,12 +5,15 @@
 .dark-mode .seasonal-anime-list .seasonal-anime {
 	width: auto;
 	height: auto;
+
 	.title {
 		width: auto;
+
 		.title-text {
 			width: auto;
 		}
 	}
+
 	.synopsis {
 		width: auto;
 		height: auto;

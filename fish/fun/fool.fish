@@ -34,15 +34,15 @@ function gh
     if test "$argv[1]" = repo
         switch "$argv[2]"
             case fork
-                gh repo fork --clone --default-branch-only $argv[3..]
-                z $argv[3]
+                command gh repo fork --clone --default-branch-only $argv[3..]
+                z (path basename $argv[3])
                 return
             case clone
-                gh repo clone $argv[3..]
-                z $argv[3]
+                command gh repo clone $argv[3..]
+                z (path basename $argv[3])
                 return
         end
     end
-    gh $argv
+    command gh $argv
 end
 funcsave gh >/dev/null

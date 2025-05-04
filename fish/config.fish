@@ -15,7 +15,6 @@ set -g fish_color_param 7daea3
 set -g fish_color_quote d3ad5c
 set -g fish_color_redirection e49641
 set -g fish_color_selection -b 5f472d
-set -g fish_cursor_default line
 set -g fish_escape_delay_ms 10
 set -g fish_features qmark-noglob
 set -g fish_handle_reflow 1
@@ -33,6 +32,7 @@ set -gx SAVEHIST 100000
 set -gx VISUAL helix
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
+set -gx fish_cursor_unknown line
 # [[sort off]]
 
 # [[sort on]]

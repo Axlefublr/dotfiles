@@ -113,7 +113,7 @@ function fish_user_key_bindings
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-f 'zi && commandline -f repaint'
     bind ctrl-g _match_helix_cwd
-    bind ctrl-l repaint
+    bind ctrl-l '__fish_cursor_xterm line ; commandline -f repaint'
     bind ctrl-z fg
     # [[sort off]]
 end
