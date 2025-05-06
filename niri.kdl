@@ -196,10 +196,16 @@ binds {
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+I { switch-preset-window-height; }
-    Mod+Ctrl+I { reset-window-height; }
-    Mod+Semicolon { switch-preset-column-width; }
-    Mod+Ctrl+Semicolon { maximize-column; }
+    Mod+x { set-column-width "33.333%"; }
+    Mod+c { set-column-width "50%"; }
+    Mod+v { set-column-width "66.667%"; }
+
+    Mod+z { set-window-height "33.333%"; }
+    Mod+a { set-window-height "50%"; }
+    Mod+q { set-window-height "66.667%"; }
+
+    Mod+w { reset-window-height; }
+    Mod+s { maximize-column; }
 
     Mod+Ctrl+Slash { toggle-window-floating; }
     Mod+F { fullscreen-window; }
