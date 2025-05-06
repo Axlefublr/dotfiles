@@ -41,7 +41,7 @@ cp -fr ~/.local/share/zoxide/db.zo ~/auto/zoxide.db
 git add zoxide.db
 and git commit -m 'sync zoxide'
 
-set -l autocommitted ~/i/twemoji-svg ~/i/e ~/i/tools ~/r/binaries ~/r/backup
+set -l autocommitted ~/i/twemoji-svg ~/i/e ~/i/tools ~/r/binaries ~/r/backup ~/r/info
 for dir in $autocommitted
     cd $dir
     autocommit

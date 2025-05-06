@@ -97,7 +97,7 @@ function edod-bubbly
 end
 
 function dode-calcure
-    paru -Sa --needed --disable-download-timeout calcure
+    uv tool install calcure
     mkdir -p ~/.config/calcure
     ln -sf ~/r/dot/calcure.ini ~/.config/calcure/config.ini
     cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
