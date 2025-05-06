@@ -363,13 +363,11 @@ function dode-gitu
 end
 
 function dode-git-who
-    eget https://github.com/sinclairtarget/git-who
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/sinclairtarget/git-who
+    stew install sinclairtarget/git-who
 end
 
 function dode-gomi
-    eget https://github.com/babarot/gomi
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/babarot/gomi
+    stew install babarot/gomi
     ln -sf ~/r/dot/gomi.yaml ~/.config/gomi/config.yaml
 end
 
@@ -434,8 +432,8 @@ function dode-just
 end
 
 function dode-kanata
-    eget -a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata
     indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata'
+    eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
     systemctl --user enable --now ~/r/dot/kanata/kanata.service
 end
 
@@ -529,8 +527,7 @@ end
 
 function dode-nom
     # paru -Sa --needed --disable-download-timeout nom
-    eget https://github.com/guyfedwards/nom
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/guyfedwards/nom
+    stew install guyfedwards/nom
     mkdir -p ~/.config/nom
     ln -sf ~/r/dot/nom.yml ~/.config/nom/config.yml
     ln -sf ~/auto/nom.db ~/.config/nom/nom.db
@@ -563,8 +560,7 @@ function dode-ov
     cd ov
     make
     sudo install ov ~/.local/bin
-    # eget https://github.com/noborus/ov
-    # indeed.rs -u ~/.local/share/magazine/W https://github.com/noborus/ov
+    # stew install noborus/ov
     sudo ln -f ~/.local/bin/ov /usr/bin/ov
     ov --completion fish >~/.config/fish/completions/ov.fish
     mkdir -p ~/.config/ov
@@ -694,8 +690,7 @@ function dode-satty
 end
 
 function dode-scc
-    eget https://github.com/boyter/scc
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/boyter/scc
+    stew install boyter/scc
 end
 
 function dode-screenkey
@@ -747,8 +742,8 @@ function dode-steam
 end
 
 function dode-sttr
-    eget -a tar.gz -a '^sbom.json' https://github.com/abhimanyu003/sttr
     indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
+    eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 end
 
 function dode-swappy
@@ -803,8 +798,7 @@ function dode-termfilechooser
 end
 
 function dode-termpicker
-    eget https://github.com/ChausseBenjamin/termpicker
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/ChausseBenjamin/termpicker
+    stew install ChausseBenjamin/termpicker
 end
 
 function dode-tewi
@@ -847,8 +841,8 @@ function dode-twemoji
 end
 
 function dode-tz
-    eget https://github.com/oz/tz
-    indeed.rs -u ~/.local/share/magazine/W https://github.com/oz/tz
+    indeed.rs -u ~/.local/share/magazine/W -- '-a .tar.gz https://github.com/oz/tz'
+    eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 end
 
 function dode-unimatrix

@@ -125,6 +125,10 @@ function pack-rust-lang
     ln -sf ~/r/dot/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
 end
 
+function dode-stew
+    paru -Sa --needed --disable-download-timeout stew-bin
+end
+
 function pack-ocaml
     sudo pacman -S dune
     sudo pacman -S opam
