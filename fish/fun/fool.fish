@@ -41,6 +41,10 @@ function gh
                 command gh repo clone $argv[3..]
                 z (path basename $argv[3])
                 return
+            case create
+                command gh repo create --clone -l MIT $argv[3..]
+                z $argv[-1]
+                return
         end
     end
     command gh $argv
