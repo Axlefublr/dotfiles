@@ -153,12 +153,12 @@ layout {
         // hide-when-single-tab
         length total-proportion=1.0
         place-within-column
-        gap 20
-        width 8
+        gap 0
+        width 6
         position "top"
         // corner-radius 99
         inactive-color "#00000000"
-        active-color "#ff9f1a"
+        active-color "#af87ff"
         // active-gradient from="#af87ff" to="#ff9f1a"
     }
 
@@ -178,39 +178,46 @@ binds {
 
     Mod+Shift+E { quit; }
 
-    Mod+Return { spawn "footclient"; }
-    Mod+Alt+Return { spawn "systemctl" "--user" "restart" "kanata.service"; }
+    Mod+F5 { spawn "foot"; }
+    Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
 
     Mod+D { close-window; }
+    Mod+F { fullscreen-window; }
+    Mod+U { toggle-column-tabbed-display; }
 
     Mod+H { focus-column-left-or-last; }
-    Mod+J { focus-window-or-workspace-down; }
-    Mod+K { focus-window-or-workspace-up; }
     Mod+L { focus-column-right-or-first; }
+    Mod+J { focus-workspace-down; }
+    Mod+K { focus-workspace-up; }
 
-    Mod+Ctrl+H { move-column-left; }
-    Mod+Ctrl+J { move-window-down-or-to-workspace-down; }
-    Mod+Ctrl+K { move-window-up-or-to-workspace-up; }
-    Mod+Ctrl+L { move-column-right; }
+    Mod+I { focus-window-up-or-bottom; }
+    Mod+O { focus-window-down-or-top; }
+    Mod+Tab { move-window-up; }
+    Mod+Return { move-window-down; }
+
+    Mod+Left { move-column-left; }
+    Mod+Right { move-column-right; }
+    Mod+Down { move-column-to-workspace-down; }
+    Mod+Up { move-column-to-workspace-up; }
+    // Mod+Ctrl+J { move-workspace-down; }
+    // Mod+Ctrl+K { move-workspace-up; }
 
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+x { set-column-width "33.333%"; }
-    Mod+c { set-column-width "50%"; }
-    Mod+v { set-column-width "66.667%"; }
+    Mod+X { set-column-width "33.333%"; }
+    Mod+C { set-column-width "50%"; }
+    Mod+V { set-column-width "66.667%"; }
 
-    Mod+z { set-window-height "33.333%"; }
-    Mod+a { set-window-height "50%"; }
-    Mod+q { set-window-height "66.667%"; }
+    Mod+Z { set-window-height "33.333%"; }
+    Mod+A { set-window-height "50%"; }
+    Mod+Q { set-window-height "66.667%"; }
 
-    Mod+w { reset-window-height; }
-    Mod+s { maximize-column; }
+    Mod+W { reset-window-height; }
+    Mod+S { maximize-column; }
 
-    Mod+Ctrl+Slash { toggle-window-floating; }
-    Mod+F { fullscreen-window; }
-    Mod+Slash { switch-focus-between-floating-and-tiling; }
-    Mod+O { toggle-column-tabbed-display; }
+    Mod+Backspace { toggle-window-floating; }
+    Mod+Semicolon { switch-focus-between-floating-and-tiling; }
 }
 
 // Add lines like this to spawn processes at startup.
