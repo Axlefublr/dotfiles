@@ -132,7 +132,7 @@
 	n (t! magazine-execute c-n)
 	m (t! magazine-execute c-m)
 	, (t! magazine-execute c-comma)
-	. (t! magazine-execute c-dot)
+	. (t! magazine-execute c-period)
 	/ (t! magazine-execute c-slash)
 )
 
@@ -169,7 +169,7 @@
 	n (t! magazine-execute a-n)
 	m (t! magazine-execute a-m)
 	, (t! magazine-execute a-comma)
-	. (t! magazine-execute a-dot)
+	. (t! magazine-execute a-period)
 	/ (t! magazine-execute a-slash)
 )
 
