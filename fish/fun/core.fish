@@ -159,7 +159,11 @@ function lhg
 end
 funcsave lhg >/dev/null
 
-function lnkj -a fileone filetwo
+function lnkj
+    argparse c/confirm -- $argv
+    or return 121
+    set -l fileone $argv[1]
+    set -l filetwo $argv[2]
     if not set -q fileone
         or not set -q filetwo
         echo 'missing arguments' >&2
@@ -175,7 +179,7 @@ function lnkj -a fileone filetwo
             rm -f $filetwo
             cp -f $fileone $filetwo
         end
-    else
+    else if not test "$_flag_confirm"
         confirm.rs "$fileone and $filetwo are besties." 'alrigh[j] then' '[c]opy over' | read -l response
         if test "$response" = c
             rm -f $filetwo

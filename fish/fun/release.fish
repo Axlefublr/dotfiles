@@ -7,9 +7,14 @@ function rs
             not test "$argv[2..]" && return 121
             _repo_create $argv[2]
             _rust_init $argv[3..]
+        case i init
+            _rust_init
         case f fmt
             _rust_fmt
         case ci
+            _rust_ci
+        case check
+            _rust_fmt
             _rust_ci
         case b bin
             not test "$argv[2..]" && return 121
@@ -28,13 +33,11 @@ function _repo_create
     echo "repo name is: $argv[1]" >&2
     read -P 'repo description (leave empty for none):' -l repo_description || return 130
     test "$repo_description" && set -l description_flag -d "$repo_description"
-    begin
-        echo 'we are relying on the gh fool to:'
-        echo '1. clone the repo we create'
-        echo '2. set the license'
-        echo '3. zoxide into it'
-        echo 'however, we set --public, as well as (optionally) description ourselves'
-    end >&2
+    # we are relying on the gh fool to:
+    # 1. clone the repo we create
+    # 2. set the license
+    # 3. zoxide into it
+    # however, we set --public, as well as (optionally) description ourselves
     confirm.rs continue? [j]es [k]o | read -l response
     test "$response" = j || return 130
     # specifying name last is significant here, as it's what makes zoxiding work
@@ -49,9 +52,9 @@ function _rust_init -d 'Add starting pieces of a rust project in the current dir
     cp -f ~/r/dot/defconf/rs/cargo.toml ./Cargo.toml
     echo "replacing templatings with cwd's basename" >&2
     sd '%project_name%' (path basename $PWD) Cargo.toml
-    echo 'creating readme, project.txt, RELEASE.txt' >&2
+    echo 'creating readme, project.txt, RELEASE.md' >&2
     touch README.md
-    touch RELEASE.txt
+    touch RELEASE.md
     touch project.txt
     confirm.rs 'want formatting config?' [j]es [k]o | read -l response
     test "$response" = j && _rust_fmt
@@ -64,7 +67,7 @@ funcsave _rust_init >/dev/null
 
 function _rust_fmt --description 'Bring in format config and format with it'
     gq || return 1
-    lnkj ~/r/dot/defconf/rs/rustfmt.toml ./.rustfmt.toml
+    lnkj $argv ~/r/dot/defconf/rs/rustfmt.toml ./.rustfmt.toml
     rustup run nightly rustfmt
 end
 funcsave _rust_fmt >/dev/null
@@ -111,16 +114,16 @@ function _rust_release
         return 1
     end
 
-    if not test -f RELEASE.txt
+    if not test -f RELEASE.md
         echo 'no release notes' >&2
         return 1
     end
-    if not test -s RELEASE.txt
+    if not test -s RELEASE.md
         echo 'release notes empty' >&2
         return 1
     end
     if not git status --porcelain | rg RELEASE
-        confirm.rs 'have you updated RELEASE.txt?' [j]es [k]o | read -l response
+        confirm.rs 'have you updated RELEASE.md?' [j]es [k]o | read -l response
         test "$response" = j || return 1
     end
 
@@ -134,7 +137,7 @@ function _rust_release
         end
     else
         echo 'updating formatting config' >&2
-        _rust_fmt
+        _rust_fmt -c
     end
     if not test -f .github/workflows/ci.yml
         confirm.rs 'no ci config. blammo?' [j]es '[k]o need' | read -l response
@@ -152,10 +155,10 @@ function _rust_release
     git add .
     and git commit -m $tagged_version
     and git push
-    and git tag $tagged_version -F RELEASE.txt
+    and git tag $tagged_version -F RELEASE.md
     and git push origin $tagged_version
     and cargo publish
-    and truncate -s 0 RELEASE.txt
+    and truncate -s 0 RELEASE.md
 end
 funcsave _rust_release >/dev/null
 
