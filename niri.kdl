@@ -150,7 +150,7 @@ layout {
     }
 
     tab-indicator {
-        // hide-when-single-tab
+        hide-when-single-tab
         length total-proportion=1.0
         place-within-column
         gap 0
@@ -202,8 +202,14 @@ binds {
     // Mod+Ctrl+J { move-workspace-down; }
     // Mod+Ctrl+K { move-workspace-up; }
 
+    Mod+M     { focus-column-first; }
+    Mod+Slash { focus-column-last; }
+    Mod+Home  { move-column-to-first; }
+    Mod+End   { move-column-to-last; }
+
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
+    Mod+E { center-column; }
 
     Mod+X { set-column-width "33.333%"; }
     Mod+C { set-column-width "50%"; }
@@ -216,8 +222,8 @@ binds {
     Mod+W { reset-window-height; }
     Mod+S { maximize-column; }
 
-    Mod+Backspace { toggle-window-floating; }
-    Mod+Semicolon { switch-focus-between-floating-and-tiling; }
+    Mod+Semicolon { toggle-window-floating; }
+    Mod+Backspace { switch-focus-between-floating-and-tiling; }
 }
 
 // Add lines like this to spawn processes at startup.
