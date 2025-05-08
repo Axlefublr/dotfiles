@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-#---------------------------rust---------------------------
-
 function rs
     not test "$argv" && return 121
     switch $argv[1]
@@ -13,6 +11,13 @@ function rs
             _rust_fmt
         case ci
             _rust_ci
+        case b bin
+            not test "$argv[2..]" && return 121
+            _rust_bin $argv[2..]
+        case r release
+            _rust_release $argv[2..]
+        case p publish
+            _rust_publish $argv[2..]
     end
 end
 funcsave rs >/dev/null
@@ -38,16 +43,15 @@ end
 funcsave _repo_create >/dev/null
 
 function _rust_init -d 'Add starting pieces of a rust project in the current directory'
-    confirm.rs "you're supposed to be in repo root. you're in $(path basename $PWD)" [j]k '[k]h fuck!' | read -l response
-    test "$response" = j || return 130
+    gq || return 1
     cargo init
     echo 'copying default Cargo.toml here' >&2
     cp -f ~/r/dot/defconf/rs/cargo.toml ./Cargo.toml
     echo "replacing templatings with cwd's basename" >&2
     sd '%project_name%' (path basename $PWD) Cargo.toml
-    echo 'creating readme, project.txt, curtag.txt' >&2
+    echo 'creating readme, project.txt, RELEASE.txt' >&2
     touch README.md
-    touch curtag.txt
+    touch RELEASE.txt
     touch project.txt
     confirm.rs 'want formatting config?' [j]es [k]o | read -l response
     test "$response" = j && _rust_fmt
@@ -73,70 +77,7 @@ function _rust_ci --description 'Bring in on tag push github action'
 end
 funcsave _rust_ci >/dev/null
 
-function rust-release
-    gq || return 1
-
-    if not test -f README.md
-        echo 'no readme'
-        return 1
-    end
-    if not test -s README.md
-        echo 'readme is empty'
-        return 1
-    end
-
-    if not test -f curtag.txt
-        echo 'no tag notes'
-        return 1
-    end
-    if not test -s curtag.txt
-        echo 'tag notes empty'
-        return 1
-    end
-
-    if rg -q '^description \= ""$' Cargo.toml
-        echo 'no description in Cargo.toml'
-        return 1
-    end
-
-    set -l tagged_version (rg '^version = ' Cargo.toml | string match -gr 'version = "(.*?)"')
-    confirm.rs "release $tagged_version?" '[j]es' '[k]o' | read -l response
-    test "$response" = j || return 1
-
-    echo '1. update README'
-    echo '2. update --help'
-    echo '3. ci will get updated'
-    confirm.rs 'proceed?' '[j]es' '[k]o' | read -l response
-    test "$response" = j || return 1
-
-    rust-fmt
-    rust-ci
-
-    git add . &&
-        git commit -m $tagged_version &&
-        git push &&
-        git tag $tagged_version -F curtag.txt &&
-        git push origin $tagged_version
-    truncate -s 0 curtag.txt
-    cargo publish
-end
-funcsave rust-release >/dev/null
-
-function rust-publish
-    gq || return 1
-    if rg -q '^description \= ""$' Cargo.toml
-        echo 'no description in Cargo.toml'
-        return 1
-    end
-    if test (git status -s | count) -ge 1
-        echo 'you have unstaged changes'
-        return 1
-    end
-    cargo publish
-end
-funcsave rust-publish >/dev/null
-
-function rust-bin -a message other_name
+function _rust_bin -a message other_name
     not set -q message && return 121
     gq || return 1
     if test $other_name
@@ -148,12 +89,86 @@ function rust-bin -a message other_name
     and cp -f ./target/release/$name ~/r/binaries/$name
     git -C ~/r/binaries add $name && git -C ~/r/binaries commit -m "$name: $message"
 end
-funcsave rust-bin >/dev/null
+funcsave _rust_bin >/dev/null
 
-#---------------------------------------------------python---------------------------------------------------
-
-function py-init
+function _rust_release
     gq || return 1
-    lnkj ~/r/dot/defconf/pyproject.toml ./pyproject.toml
+
+    if not test -f README.md
+        echo 'no readme' >&2
+        return 1
+    end
+    if not test -s README.md
+        echo 'readme is empty' >&2
+        return 1
+    end
+
+    set -l tagged_version (rg '^version = ' Cargo.toml | string match -gr 'version = "(.*?)"')
+    echo "detected version $tagged_version" >&2
+
+    if rg -q '^description \= ""$' Cargo.toml
+        echo 'no description in Cargo.toml' >&2
+        return 1
+    end
+
+    if not test -f RELEASE.txt
+        echo 'no release notes' >&2
+        return 1
+    end
+    if not test -s RELEASE.txt
+        echo 'release notes empty' >&2
+        return 1
+    end
+    if not git status --porcelain | rg RELEASE
+        confirm.rs 'have you updated RELEASE.txt?' [j]es [k]o | read -l response
+        test "$response" = j || return 1
+    end
+
+    confirm.rs 'updated README and --help?' '[j]es' '[k]o' | read -l response
+    test "$response" = j || return 1
+
+    if not test -f .rustfmt.toml
+        confirm.rs 'no formatting config. blammo?' [j]es '[k]o need' | read -l response
+        if test "$response" = j
+            _rust_fmt
+        end
+    else
+        echo 'updating formatting config' >&2
+        _rust_fmt
+    end
+    if not test -f .github/workflows/ci.yml
+        confirm.rs 'no ci config. blammo?' [j]es '[k]o need' | read -l response
+        if test "$response" = j
+            _rust_ci
+        end
+    else
+        echo 'updating ci config' >&2
+        _rust_ci
+    end
+
+    confirm.rs "release?" '[j]es' '[k]o' | read -l response
+    test "$response" = j || return 1
+
+    git add .
+    and git commit -m $tagged_version
+    and git push
+    and git tag $tagged_version -F RELEASE.txt
+    and git push origin $tagged_version
+    and cargo publish
+    and truncate -s 0 RELEASE.txt
 end
-funcsave py-init >/dev/null
+funcsave _rust_release >/dev/null
+
+function _rust_publish
+    gq || return 1
+    if rg -q '^description \= ""$' Cargo.toml
+        echo 'no description in Cargo.toml'
+        return 1
+    end
+    if test (git status -s | count) -ge 1
+        echo 'you have unstaged changes'
+        return 1
+    end
+    cargo publish
+end
+funcsave _rust_publish >/dev/null
