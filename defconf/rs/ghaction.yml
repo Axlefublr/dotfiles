@@ -13,9 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: taiki-e/create-gh-release-action@v1
+      - name: Create GitHub Release with RELEASE.md as body
+        uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ github.ref_name }}          # Release name = tag name
+          tag_name: ${{ github.ref_name }}      # Just in case; not strictly necessary
+          body_path: RELEASE.md                 # Custom release notes file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   upload-assets:
     needs: create-release
