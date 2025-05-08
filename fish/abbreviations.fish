@@ -34,7 +34,7 @@ abbr -a gz glaza
 abbr -a hime 'history merge'
 abbr -a hrtrack httrack
 abbr -a j just
-abbr -a jf 'clx && exec fish'
+abbr -a jf 'exec fish'
 abbr -a jk 'just -g'
 abbr -a l jobs
 abbr -a lG 'eza -l'

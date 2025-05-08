@@ -250,7 +250,7 @@ end
 funcsave matches_not >/dev/null
 
 function mkcd
-    mkdir -p $argv && z $argv && clx
+    mkdir -p $argv && z $argv
 end
 funcsave mkcd >/dev/null
 
