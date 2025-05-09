@@ -186,6 +186,8 @@ normal_mappings: dict[str, Any] = {
 normal_overrides: dict[str, Any] = {
     'g': {
         'y': 'move_prev_sub_word_end',
+        'i': 'goto_file_start',
+        'o': 'goto_file_end',
     },
 }
 normal_mappings.update(**rusify(normal_mappings))
@@ -210,6 +212,8 @@ select_mappings: dict[str, Any] = {
 select_overrides: dict[str, Any] = {
     'g': {
         'y': 'extend_prev_sub_word_end',
+        'i': 'extend_to_file_start',
+        'o': 'extend_to_file_end',
     },
 }
 select_mappings.update(**rusify(select_mappings))
@@ -408,10 +412,8 @@ normal_select_mappings: dict[str, Any] = {
         'e': 'move_next_sub_word_end',
         'g': 'select_references_to_symbol_under_cursor',
         'h': 'goto_first_nonwhitespace',
-        'i': 'goto_file_start',
         'l': 'goto_line_end',
         'm': 'goto_last_accessed_file',
-        'o': 'goto_file_end',
         'q': ':cd ..',
         's': 'goto_type_definition',
         'u': 'goto_reference',
