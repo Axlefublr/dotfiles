@@ -152,6 +152,15 @@ function filter_mature_tasks
 end
 funcsave filter_mature_tasks >/dev/null
 
+function frizz
+    for curlie in (tac ~/.local/share/magazine/C)
+        set -l bits (string split ' ' $curlie)
+        curl $bits[2] --create-dirs -o ~/.local/share/frizz/"$bits[1]"
+    end
+    notify-send frizz
+end
+funcsave frizz >/dev/null
+
 function git_search
     if not test "$argv[1]"
         echo 'missing arguments for `rg`' >&2

@@ -1,0 +1,5 @@
+[Path]
+PathChanged=%h/.local/share/magazine/C
+
+[Install]
+WantedBy=paths.target

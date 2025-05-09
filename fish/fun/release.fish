@@ -50,8 +50,9 @@ function _rust_init -d 'Add starting pieces of a rust project in the current dir
     cargo init
     echo 'copying default Cargo.toml here' >&2
     cp -f ~/r/dot/defconf/rs/cargo.toml ./Cargo.toml
-    echo "replacing templatings with cwd's basename" >&2
-    sd '%project_name%' (path basename $PWD) Cargo.toml
+    set -l basenam (path basename $PWD)
+    echo "replacing templatings with $basenam" >&2
+    sd '%project_name%' $basenam Cargo.toml
     echo 'creating readme, project.txt, RELEASE.md' >&2
     touch README.md
     touch RELEASE.md

@@ -1,0 +1,7 @@
+[Unit]
+StartLimitBurst=0
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=env fish -c frizz

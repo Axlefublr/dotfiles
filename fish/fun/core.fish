@@ -152,7 +152,7 @@ function lhg
     # https://github.com/Axlefublr/dotfiles/blob/main/fish/fun/general.fish
     # into
     # https://raw.githubusercontent.com/Axlefublr/dotfiles/refs/heads/main/fish/fun/general.fish
-    set -l raw_link (ypoc | string replace 'github.com' 'raw.githubusercontent.com' | string replace blob refs/heads)
+    set -l raw_link (ypoc | lh)
     set -l extension (path extension $raw_link)
     curl $raw_link >/tmp/cami-lhg$extension
     helix /tmp/cami-lhg$extension
