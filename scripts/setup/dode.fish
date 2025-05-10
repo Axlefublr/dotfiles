@@ -149,6 +149,10 @@ function dode-cursors
     end
 end
 
+function dode-discord
+    sudo pacman -S --needed --noconfirm --disable-download-timeout discord
+end
+
 function dode-dns
     begin
         echo 'nameserver 1.1.1.1' # cloudflare DNS server

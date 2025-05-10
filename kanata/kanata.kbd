@@ -69,7 +69,7 @@
 	w (tap-hold-release $tt $ht w rmet)
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)
-	z (tap-hold-release $tt $ht z XX)
+	z (tap-hold-release $tt $ht z (layer-while-held symbol-tertiary))
 	;; [[sort off]]
 )
 

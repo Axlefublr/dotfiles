@@ -1,7 +1,7 @@
 (deflayermap (symbol-primary)
 	;; [[sort on]]
 	, S-1
-	. 🔣…
+	. (cmd wtype …)
 	/ bksl
 	[ S-9
 	] S-0
@@ -18,47 +18,51 @@
 
 (deflayermap (symbol-secondary)
 	;; [[sort on]]
-	, (unicode “)
-	. (unicode ”)
+	, (cmd wtype “)
+	. (cmd wtype ”)
 	/ S-bksl
 	i S-6
-	j (multi 🔣‼ 🔣️)
 	k S-min
-	l 🔣—
+	l (cmd wtype —)
 	m S-grv
 	o S-2
-	p 🔣™
+	p (cmd wtype ™)
 	u S-7
-	y 🔣🔣
+	;; [[sort off]]
+)
+
+(deflayermap (symbol-tertiary)
+	;; [[sort on]]
+	, (cmd wtype ‼️)
+	/ (cmd wtype ❓)
+	h (cmd wtype ←)
+	j (cmd wtype ↓)
+	k (cmd wtype ↑)
+	l (cmd wtype →)
+	n (cmd wtype ❌)
+	o (cmd wtype ✅)
 	;; [[sort off]]
 )
 
 (deflayermap (symbol-left)
 	;; [[sort on]]
-	a 🔣👏
-	c 🔣😭
-	e (multi 🔣🗣 🔣️)
-	f 🔣🔥
-	g 🔣🐐
-	q 🔣❓
-	r 🔣🚀
-	s 🔣💀
-	t 🔣🤔
-	w (multi 🔣✍ 🔣️)
-	x 🔣🤯
+	a (cmd wtype 👏)
+	c (cmd wtype 😭)
+	e (cmd wtype 🗣️)
+	f (cmd wtype 🔥)
+	g (cmd wtype 🐐)
+	r (cmd wtype 🚀)
+	s (cmd wtype 💀)
+	t (cmd wtype 🤔)
+	w (cmd wtype ✍️)
+	x (cmd wtype 🤯)
 	;; [[sort off]]
 )
 
 (deflayermap (symbol-right)
 	;; [[sort on]]
-	b 🔣❌
-	h 🔣←
-	j 🔣↓
-	k 🔣↑
-	l 🔣→
-	m 🔣✅
-	n 🔣🥺
-	u 🔣😋
-	y 🔣🥳
+	n (cmd wtype 🥺)
+	u (cmd wtype 😋)
+	y (cmd wtype 🥳)
 	;; [[sort off]]
 )
