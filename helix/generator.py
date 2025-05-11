@@ -169,48 +169,46 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
+    'A-b': 'move_prev_sub_word_start',
+    'A-e': 'move_next_sub_word_end',
+    'A-w': 'move_next_sub_word_start',
+    'A-y': 'move_prev_sub_word_end',
     'D': ['collapse_selection', 'move_char_left', 'delete_selection'],
     'F': 'find_till_char',
-    'T': 'till_prev_char',
+    'Q': 'till_prev_char',
     'Y': 'move_prev_long_word_end',
     'f': 'find_next_char',
     'h': 'move_char_left',
     'j': 'move_visual_line_down',
     'k': 'move_visual_line_up',
     'l': 'move_char_right',
-    't': 'find_prev_char',
+    'q': 'find_prev_char',
     'x': 'select_mode',
     'y': 'move_prev_word_end',
     # [[sort off]]
-}
-normal_overrides: dict[str, Any] = {
-    'g': {
-        'y': 'move_prev_sub_word_end',
-    },
 }
 normal_mappings.update(**rusify(normal_mappings))
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
+    'A-b': 'extend_prev_sub_word_start',
+    'A-e': 'extend_next_sub_word_end',
     'A-i': 'extend_parent_node_start',
     'A-o': 'extend_parent_node_end',
+    'A-w': 'extend_next_sub_word_start',
+    'A-y': 'extend_prev_sub_word_end',
     'F': 'extend_till_char',
-    'T': 'extend_till_prev_char',
+    'Q': 'extend_till_prev_char',
     'Y': 'extend_prev_long_word_end',
     'f': 'extend_next_char',
     'h': 'extend_char_left',
     'j': 'extend_visual_line_down',
     'k': 'extend_visual_line_up',
     'l': 'extend_char_right',
-    't': 'extend_prev_char',
+    'q': 'extend_prev_char',
     'x': 'normal_mode',
     'y': 'extend_prev_word_end',
     # [[sort off]]
-}
-select_overrides: dict[str, Any] = {
-    'g': {
-        'y': 'extend_prev_sub_word_end',
-    },
 }
 select_mappings.update(**rusify(select_mappings))
 
@@ -264,8 +262,7 @@ normal_select_mappings: dict[str, Any] = {
     'A-l': 'select_next_sibling',
     'A-m': 'split_selection_on_newline',
     'A-s': 'yank_joined',
-    'C-j': ['normal_mode', 'open_below'],
-    'C-k': ['normal_mode', 'open_above'],
+    'C-l': ['match_brackets', 'select_mode', 'match_brackets', 'ensure_selections_forward', 'normal_mode'],
     'C-n': 'shrink_selection',
     'C-p': 'expand_selection',
     'D': ['delete_selection', 'move_char_left'],
@@ -278,9 +275,9 @@ normal_select_mappings: dict[str, Any] = {
     'M': 'save_selection',
     'O': 'paste_before',
     'P': 'insert_at_line_end',
-    'Q': 'split_selection',
     'R': 'repeat_last_motion',
     'S': 'copy_selection_on_prev_line',
+    'T': 'split_selection',
     'V': 'extend_line_above',
     'X': 'join_selections_space',
     'Z': 'keep_primary_selection',
@@ -291,15 +288,33 @@ normal_select_mappings: dict[str, Any] = {
     'i': 'insert_mode',
     'o': 'paste_after',
     'p': 'append_mode_same_line',
-    'q': 'select_regex',
     'ret': 'command_mode',
     's': 'yank',
+    't': 'select_regex',
     'v': 'extend_line_below',
     '{': 'goto_prev_paragraph',
     '|': 'shell_pipe_to',
     '}': 'goto_next_paragraph',
     '~': 'switch_to_lowercase',
     # [[sort off]]
+    'C-j': [
+        'select_mode',
+        'ensure_selections_forward',
+        'extend_char_left',
+        'flip_selections',
+        'extend_char_right',
+        'ensure_selections_forward',
+        'normal_mode',
+    ],
+    'C-k': [
+        'select_mode',
+        'ensure_selections_forward',
+        'extend_char_right',
+        'flip_selections',
+        'extend_char_left',
+        'ensure_selections_forward',
+        'normal_mode',
+    ],
     'C-,': [
         'extend_to_line_bounds',
         'split_selection_on_newline',
@@ -404,8 +419,6 @@ normal_select_mappings: dict[str, Any] = {
         'Q': ':cd %(buffer_parent)',
         'X': 'join_selections',
         'a': 'rename_symbol',
-        'b': 'move_prev_sub_word_start',
-        'e': 'move_next_sub_word_end',
         'g': 'select_references_to_symbol_under_cursor',
         'h': 'goto_first_nonwhitespace',
         'i': 'extend_to_file_start',
@@ -415,7 +428,6 @@ normal_select_mappings: dict[str, Any] = {
         'q': ':cd ..',
         's': 'goto_type_definition',
         'u': 'goto_reference',
-        'w': 'move_next_sub_word_start',
         # [[sort off]]
         **disable(
             [
@@ -487,8 +499,6 @@ normal_select_mappings: dict[str, Any] = {
 normal_select_mappings.update(**rusify(normal_select_mappings))
 normal_mappings.update(**normal_select_mappings)
 select_mappings.update(**normal_select_mappings)
-normal_mappings['g'].update(**normal_overrides['g'])
-select_mappings['g'].update(**select_overrides['g'])
 
 mappings: dict[str, Any] = {
     'normal': normal_mappings,
