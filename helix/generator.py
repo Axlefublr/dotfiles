@@ -169,8 +169,6 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
-    # 'F': 'find_till_char',
-    # 'f': 'find_next_char',
     'A-E': 'move_prev_long_word_end',
     'A-F': 'move_next_long_word_start',
     'A-e': 'move_prev_word_end',
@@ -183,6 +181,7 @@ normal_mappings: dict[str, Any] = {
     'E': 'move_prev_long_word_start',
     'F': 'move_next_long_word_end',
     'Q': 'till_prev_char',
+    'R': 'find_till_char',
     'e': 'move_prev_word_start',
     'f': 'move_next_word_end',
     'h': 'move_char_left',
@@ -190,6 +189,7 @@ normal_mappings: dict[str, Any] = {
     'k': 'move_visual_line_up',
     'l': 'move_char_right',
     'q': 'find_prev_char',
+    'r': 'find_next_char',
     'x': 'select_mode',
     # [[sort off]]
 }
@@ -197,8 +197,6 @@ normal_mappings.update(**rusify(normal_mappings))
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
-    # 'F': 'extend_till_char',
-    # 'f': 'extend_next_char',
     'A-E': 'extend_prev_long_word_end',
     'A-F': 'extend_next_long_word_start',
     'A-e': 'extend_prev_word_end',
@@ -212,6 +210,7 @@ select_mappings: dict[str, Any] = {
     'E': 'extend_prev_long_word_start',
     'F': 'extend_next_long_word_end',
     'Q': 'extend_till_prev_char',
+    'R': 'extend_till_char',
     'e': 'extend_prev_word_start',
     'f': 'extend_next_word_end',
     'h': 'extend_char_left',
@@ -219,6 +218,7 @@ select_mappings: dict[str, Any] = {
     'k': 'extend_visual_line_up',
     'l': 'extend_char_right',
     'q': 'extend_prev_char',
+    'r': 'extend_next_char',
     'x': 'normal_mode',
     # [[sort off]]
 }
@@ -262,6 +262,7 @@ normal_select_mappings: dict[str, Any] = {
     ',': 'flip_selections',
     '.': 'toggle_line_select',
     ':': ':write-quit-all',
+    ';': 'replace',
     '@': 'replay_macro',
     'A': 'open_above',
     'A-,': 'decrement',
@@ -283,14 +284,14 @@ normal_select_mappings: dict[str, Any] = {
     'I': 'insert_at_line_start',
     'J': 'page_cursor_half_down',
     'K': 'page_cursor_half_up',
-    'L': 'replace_with_yanked',
+    'L': 'repeat_last_motion',
     'M': 'save_selection',
     'O': 'paste_before',
     'P': 'insert_at_line_end',
-    'R': 'repeat_last_motion',
     'S': 'copy_selection_on_prev_line',
     'T': 'split_selection',
     'V': 'extend_line_above',
+    'W': 'replace_with_yanked',
     'X': 'join_selections_space',
     'Z': 'keep_primary_selection',
     '\\': 'shell_pipe',
@@ -304,6 +305,7 @@ normal_select_mappings: dict[str, Any] = {
     's': 'yank',
     't': 'select_regex',
     'v': 'extend_line_below',
+    'w': 'collapse_selection',
     '{': 'goto_prev_paragraph',
     '|': 'shell_pipe_to',
     '}': 'goto_next_paragraph',
