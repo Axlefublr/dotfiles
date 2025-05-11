@@ -1,97 +1,97 @@
 (deflayermap (doublestruck)
 	caps (layer-switch default)
-	a 🔣𝕒
-	b 🔣𝕓
-	c 🔣𝕔
-	d 🔣𝕕
-	e 🔣𝕖
-	f (tap-hold-release $tt $ht 🔣𝕗 (layer-while-held arrows))
-	g 🔣𝕘
-	h 🔣𝕙
-	i 🔣𝕚
-	j (tap-hold-release $tt $ht 🔣𝕛 (layer-while-held doublestruck-numbers))
-	k 🔣𝕜
-	l (tap-hold-release $tt $ht 🔣𝕝 (layer-while-held doublestruck-shifted))
-	m 🔣𝕞
-	n 🔣𝕟
-	o 🔣𝕠
-	p 🔣𝕡
-	q 🔣𝕢
-	r 🔣𝕣
-	s (tap-hold-release $tt $ht 🔣𝕤 (layer-while-held doublestruck-shifted))
-	t 🔣𝕥
-	u 🔣𝕦
-	v 🔣𝕧
-	w 🔣𝕨
-	x 🔣𝕩
-	y 🔣𝕪
-	z 🔣𝕫
+	a (cmd wtype 𝕒)
+	b (cmd wtype 𝕓)
+	c (cmd wtype 𝕔)
+	d (cmd wtype 𝕕)
+	e (cmd wtype 𝕖)
+	f (tap-hold-release $tt $ht (cmd wtype 𝕗) (layer-while-held arrows))
+	g (cmd wtype 𝕘)
+	h (cmd wtype 𝕙)
+	i (cmd wtype 𝕚)
+	j (tap-hold-release $tt $ht (cmd wtype 𝕛) (layer-while-held doublestruck-numbers))
+	k (cmd wtype 𝕜)
+	l (tap-hold-release $tt $ht (cmd wtype 𝕝) (layer-while-held doublestruck-shifted))
+	m (cmd wtype 𝕞)
+	n (cmd wtype 𝕟)
+	o (cmd wtype 𝕠)
+	p (cmd wtype 𝕡)
+	q (cmd wtype 𝕢)
+	r (cmd wtype 𝕣)
+	s (tap-hold-release $tt $ht (cmd wtype 𝕤) (layer-while-held doublestruck-shifted))
+	t (cmd wtype 𝕥)
+	u (cmd wtype 𝕦)
+	v (cmd wtype 𝕧)
+	w (cmd wtype 𝕨)
+	x (cmd wtype 𝕩)
+	y (cmd wtype 𝕪)
+	z (cmd wtype 𝕫)
 )
 
 (deflayermap (doublestruck-shifted)
-	a 🔣𝔸
-	b 🔣𝔹
-	c 🔣ℂ
-	d 🔣𝔻
-	e 🔣𝔼
-	f 🔣𝔽
-	g 🔣𝔾
-	h 🔣ℍ
-	i 🔣𝕀
-	j 🔣𝕁
-	k 🔣𝕂
-	l 🔣𝕃
-	m 🔣𝕄
-	n 🔣ℕ
-	o 🔣𝕆
-	p 🔣ℙ
-	q 🔣ℚ
-	r 🔣ℝ
-	s 🔣𝕊
-	t 🔣𝕋
-	u 🔣𝕌
-	v 🔣𝕍
-	w 🔣𝕎
-	x 🔣𝕏
-	y 🔣𝕐
-	z 🔣ℤ
+	a (cmd wtype 𝔸)
+	b (cmd wtype 𝔹)
+	c (cmd wtype ℂ)
+	d (cmd wtype 𝔻)
+	e (cmd wtype 𝔼)
+	f (cmd wtype 𝔽)
+	g (cmd wtype 𝔾)
+	h (cmd wtype ℍ)
+	i (cmd wtype 𝕀)
+	j (cmd wtype 𝕁)
+	k (cmd wtype 𝕂)
+	l (cmd wtype 𝕃)
+	m (cmd wtype 𝕄)
+	n (cmd wtype ℕ)
+	o (cmd wtype 𝕆)
+	p (cmd wtype ℙ)
+	q (cmd wtype ℚ)
+	r (cmd wtype ℝ)
+	s (cmd wtype 𝕊)
+	t (cmd wtype 𝕋)
+	u (cmd wtype 𝕌)
+	v (cmd wtype 𝕍)
+	w (cmd wtype 𝕎)
+	x (cmd wtype 𝕏)
+	y (cmd wtype 𝕐)
+	z (cmd wtype ℤ)
 )
 
 (deflayermap (doublestruck-numbers)
-	f 🔣𝟙
-	d 🔣𝟚
-	s 🔣𝟛
-	r 🔣𝟜
-	e 🔣𝟝
-	w 🔣𝟞
-	v 🔣𝟟
-	c 🔣𝟠
-	x 🔣𝟡
-	a 🔣𝟘
+	f (cmd wtype 𝟙)
+	d (cmd wtype 𝟚)
+	s (cmd wtype 𝟛)
+	r (cmd wtype 𝟜)
+	e (cmd wtype 𝟝)
+	w (cmd wtype 𝟞)
+	v (cmd wtype 𝟟)
+	c (cmd wtype 𝟠)
+	x (cmd wtype 𝟡)
+	a (cmd wtype 𝟘)
 )
 
 (deflayermap (numbers-superscript)
-	f 🔣¹
-	d 🔣²
-	s 🔣³
-	r 🔣⁴
-	e 🔣⁵
-	w 🔣⁶
-	v 🔣⁷
-	c 🔣⁸
-	x 🔣⁹
-	a 🔣⁰
+	f (cmd wtype ¹)
+	d (cmd wtype ²)
+	s (cmd wtype ³)
+	r (cmd wtype ⁴)
+	e (cmd wtype ⁵)
+	w (cmd wtype ⁶)
+	v (cmd wtype ⁷)
+	c (cmd wtype ⁸)
+	x (cmd wtype ⁹)
+	a (cmd wtype ⁰)
 )
 
 (deflayermap (numbers-subscript)
-	f 🔣₁
-	d 🔣₂
-	s 🔣₃
-	r 🔣₄
-	e 🔣₅
-	w 🔣₆
-	v 🔣₇
-	c 🔣₈
-	x 🔣₉
-	a 🔣₀
+	f (cmd wtype ₁)
+	d (cmd wtype ₂)
+	s (cmd wtype ₃)
+	r (cmd wtype ₄)
+	e (cmd wtype ₅)
+	w (cmd wtype ₆)
+	v (cmd wtype ₇)
+	c (cmd wtype ₈)
+	x (cmd wtype ₉)
+	a (cmd wtype ₀)
 )
