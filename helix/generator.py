@@ -348,16 +348,12 @@ normal_select_mappings: dict[str, Any] = {
         '*': 'make_search_word_bounded',
         '@': 'record_macro',
         'F': ':e %sh(ypoc)',
-        'H': 'goto_line_start',
         'I': 'goto_implementation',
-        'L': 'goto_line_end_newline',
         'M': 'goto_last_modified_file',
         'Q': ':cd %(buffer_parent)',
         'X': 'join_selections',
         'a': 'rename_symbol',
         'g': 'select_references_to_symbol_under_cursor',
-        'h': 'goto_first_nonwhitespace',
-        'l': 'goto_line_end',
         'i': ['collapse_selection', 'extend_to_file_start'],
         'm': 'goto_last_accessed_file',
         'o': ['collapse_selection', 'extend_to_file_end'],
@@ -385,18 +381,14 @@ normal_select_mappings: dict[str, Any] = {
         '<': ['select_all', 'split_selection_on_newline', ':sort', 'keep_primary_selection'],
         '>': ['select_all', 'split_selection_on_newline', ':random', 'keep_primary_selection'],
         '?': 'reverse_selection_contents',
-        'H': ['collapse_selection', 'extend_to_line_start'],
         'J': 'hsplit',
         'K': ':hsplit-new',
-        'L': ['collapse_selection', 'extend_to_line_end_newline'],
         'M': 'merge_consecutive_selections',
         'N': 'select_all_children',
         'O': 'wonly',
-        'h': ['collapse_selection', 'extend_to_first_nonwhitespace'],
         'i': 'hover',
         'j': 'rotate_view',
         'k': 'rotate_view_reverse',
-        'l': ['collapse_selection', 'extend_to_line_end'],
         'm': 'merge_selections',
         'n': 'select_all_siblings',
         'o': 'wclose',
@@ -471,6 +463,14 @@ normal_mappings: dict[str, Any] = {
     'r': 'find_next_char',
     'x': 'select_mode',
     # [[sort off]]
+    'g': {
+        # [[sort on]]
+        'H': ['collapse_selection', 'extend_to_line_start'],
+        'L': ['collapse_selection', 'extend_to_line_end_newline'],
+        'h': ['collapse_selection', 'extend_to_first_nonwhitespace'],
+        'l': ['collapse_selection', 'extend_to_line_end'],
+        # [[sort off]]
+    },
 }
 normal_mode.update(rusify(normal_mappings))
 
@@ -500,6 +500,14 @@ select_mappings: dict[str, Any] = {
     'r': 'extend_next_char',
     'x': 'normal_mode',
     # [[sort off]]
+    'g': {
+        # [[sort on]]
+        'H': 'extend_to_line_start',
+        'L': 'extend_to_line_end_newline',
+        'h': 'extend_to_first_nonwhitespace',
+        'l': 'extend_to_line_end',
+        # [[sort off]]
+    },
 }
 select_mode.update(rusify(select_mappings))
 
