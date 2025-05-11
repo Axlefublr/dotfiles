@@ -155,6 +155,7 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
     russian_dict = {}
 
     for key, value in english_dict.items():
+        russian_dict[key] = value
         russian_key = transform(key)
         if russian_key is None:
             # sys.stderr.write(f"I don't know {key}\n")
@@ -167,90 +168,9 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
     return russian_dict
 
 
-normal_mappings: dict[str, Any] = {
-    # [[sort on]]
-    'A-E': 'move_prev_long_word_end',
-    'A-F': 'move_next_long_word_start',
-    'A-e': 'move_prev_word_end',
-    'A-f': 'move_next_word_start',
-    'C-A-e': 'move_prev_sub_word_end',
-    'C-A-f': 'move_next_sub_word_start',
-    'C-e': 'move_prev_sub_word_start',
-    'C-f': 'move_next_sub_word_end',
-    'D': ['collapse_selection', 'move_char_left', 'delete_selection'],
-    'E': 'move_prev_long_word_start',
-    'F': 'move_next_long_word_end',
-    'Q': 'till_prev_char',
-    'R': 'find_till_char',
-    'e': 'move_prev_word_start',
-    'f': 'move_next_word_end',
-    'h': 'move_char_left',
-    'j': 'move_visual_line_down',
-    'k': 'move_visual_line_up',
-    'l': 'move_char_right',
-    'q': 'find_prev_char',
-    'r': 'find_next_char',
-    'x': 'select_mode',
-    # [[sort off]]
-}
-normal_mappings.update(**rusify(normal_mappings))
-
-select_mappings: dict[str, Any] = {
-    # [[sort on]]
-    'A-E': 'extend_prev_long_word_end',
-    'A-F': 'extend_next_long_word_start',
-    'A-e': 'extend_prev_word_end',
-    'A-f': 'extend_next_word_start',
-    'A-i': 'extend_parent_node_start',
-    'A-o': 'extend_parent_node_end',
-    'C-A-e': 'extend_prev_sub_word_end',
-    'C-A-f': 'extend_next_sub_word_start',
-    'C-e': 'extend_prev_sub_word_start',
-    'C-f': 'extend_next_sub_word_end',
-    'E': 'extend_prev_long_word_start',
-    'F': 'extend_next_long_word_end',
-    'Q': 'extend_till_prev_char',
-    'R': 'extend_till_char',
-    'e': 'extend_prev_word_start',
-    'f': 'extend_next_word_end',
-    'h': 'extend_char_left',
-    'j': 'extend_visual_line_down',
-    'k': 'extend_visual_line_up',
-    'l': 'extend_char_right',
-    'q': 'extend_prev_char',
-    'r': 'extend_next_char',
-    'x': 'normal_mode',
-    # [[sort off]]
-}
-select_mappings.update(**rusify(select_mappings))
-
-insert_mappings: dict[str, Any] = {
-    # [[sort on]]
-    "A-'": 'insert_register',
-    'A-,': 'unindent',
-    'A-.': 'indent',
-    'A-u': 'signature_help',
-    'C-j': ['normal_mode', 'open_below'],
-    'C-k': ['normal_mode', 'open_above'],
-    'C-u': 'kill_to_line_start',
-    'C-v': ['collapse_selection', 'paste_before'],
-    'C-x': [':write-quit-all'],
-    'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
-    'down': 'completion',
-    'up': 'completion',
-    # [[sort off]]
-}
-insert_mappings.update(**rusify(insert_mappings))
-
-normal_insert_mappings: dict[str, Any] = {
-    # [[sort on]]
-    'A-i': 'move_parent_node_start',
-    'A-o': 'move_parent_node_end',
-    # [[sort off]]
-}
-normal_insert_mappings.update(**rusify(normal_insert_mappings))
-normal_mappings.update(**normal_insert_mappings)
-insert_mappings.update(**normal_insert_mappings)
+normal_mode: dict[str, Any] = {}
+select_mode: dict[str, Any] = {}
+insert_mode: dict[str, Any] = {}
 
 normal_select_mappings: dict[str, Any] = {
     # [[sort on]]
@@ -512,14 +432,99 @@ normal_select_mappings: dict[str, Any] = {
         ]
     ),
 }
-normal_select_mappings.update(**rusify(normal_select_mappings))
-normal_mappings.update(**normal_select_mappings)
-select_mappings.update(**normal_select_mappings)
+normal_select_mappings.update(rusify(normal_select_mappings))
+normal_mode.update(normal_select_mappings)
+select_mode.update(normal_select_mappings)
+
+normal_insert_mappings: dict[str, Any] = {
+    # [[sort on]]
+    'A-i': 'move_parent_node_start',
+    'A-o': 'move_parent_node_end',
+    # [[sort off]]
+}
+normal_insert_mappings.update(rusify(normal_insert_mappings))
+normal_mode.update(normal_insert_mappings)
+insert_mode.update(normal_insert_mappings)
+
+normal_mappings: dict[str, Any] = {
+    # [[sort on]]
+    'A-E': 'move_prev_long_word_end',
+    'A-F': 'move_next_long_word_start',
+    'A-e': 'move_prev_word_end',
+    'A-f': 'move_next_word_start',
+    'C-A-e': 'move_prev_sub_word_end',
+    'C-A-f': 'move_next_sub_word_start',
+    'C-e': 'move_prev_sub_word_start',
+    'C-f': 'move_next_sub_word_end',
+    'D': ['collapse_selection', 'move_char_left', 'delete_selection'],
+    'E': 'move_prev_long_word_start',
+    'F': 'move_next_long_word_end',
+    'Q': 'till_prev_char',
+    'R': 'find_till_char',
+    'e': 'move_prev_word_start',
+    'f': 'move_next_word_end',
+    'h': 'move_char_left',
+    'j': 'move_visual_line_down',
+    'k': 'move_visual_line_up',
+    'l': 'move_char_right',
+    'q': 'find_prev_char',
+    'r': 'find_next_char',
+    'x': 'select_mode',
+    # [[sort off]]
+}
+normal_mode.update(rusify(normal_mappings))
+
+select_mappings: dict[str, Any] = {
+    # [[sort on]]
+    'A-E': 'extend_prev_long_word_end',
+    'A-F': 'extend_next_long_word_start',
+    'A-e': 'extend_prev_word_end',
+    'A-f': 'extend_next_word_start',
+    'A-i': 'extend_parent_node_start',
+    'A-o': 'extend_parent_node_end',
+    'C-A-e': 'extend_prev_sub_word_end',
+    'C-A-f': 'extend_next_sub_word_start',
+    'C-e': 'extend_prev_sub_word_start',
+    'C-f': 'extend_next_sub_word_end',
+    'E': 'extend_prev_long_word_start',
+    'F': 'extend_next_long_word_end',
+    'Q': 'extend_till_prev_char',
+    'R': 'extend_till_char',
+    'e': 'extend_prev_word_start',
+    'f': 'extend_next_word_end',
+    'h': 'extend_char_left',
+    'j': 'extend_visual_line_down',
+    'k': 'extend_visual_line_up',
+    'l': 'extend_char_right',
+    'q': 'extend_prev_char',
+    'r': 'extend_next_char',
+    'x': 'normal_mode',
+    # [[sort off]]
+}
+select_mode.update(rusify(select_mappings))
+
+insert_mappings: dict[str, Any] = {
+    # [[sort on]]
+    "A-'": 'insert_register',
+    'A-,': 'unindent',
+    'A-.': 'indent',
+    'A-u': 'signature_help',
+    'C-j': ['normal_mode', 'open_below'],
+    'C-k': ['normal_mode', 'open_above'],
+    'C-u': 'kill_to_line_start',
+    'C-v': ['collapse_selection', 'paste_before'],
+    'C-x': [':write-quit-all'],
+    'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
+    'down': 'completion',
+    'up': 'completion',
+    # [[sort off]]
+}
+insert_mode.update(rusify(insert_mappings))
 
 mappings: dict[str, Any] = {
-    'normal': normal_mappings,
-    'select': select_mappings,
-    'insert': insert_mappings,
+    'normal': normal_mode,
+    'select': select_mode,
+    'insert': insert_mode,
 }
 
 entire_config: dict[str, Any] = {
