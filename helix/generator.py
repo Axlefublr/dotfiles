@@ -3,6 +3,7 @@
 from typing import Any
 
 import toml
+import copy
 from magazine_openers import magazine_openers
 from russian_dict import russian_dict
 
@@ -151,6 +152,16 @@ def transform(char: str):
             return char[:2] + subkey
 
 
+def deep_update(updatee: dict, leaf: dict) -> dict:
+    updatopy = copy.deepcopy(updatee)
+    for key, value in leaf.items():
+        if key in updatopy and isinstance(updatopy[key], dict) and isinstance(value, dict):
+            deep_update(updatopy[key], value)
+        else:
+            updatopy[key] = copy.deepcopy(value)
+    return updatee
+
+
 def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
     russian_dict = {}
 
@@ -182,10 +193,10 @@ normal_select_mappings: dict[str, Any] = {
     ',': 'flip_selections',
     '.': 'toggle_line_select',
     ':': ':write-quit-all',
-    ';': 'replace',
+    ';': 'collapse_selection',
     '@': 'replay_macro',
     'A': 'split_selection',
-    'A-;': 'ensure_selections_forward',
+    'A-,': 'ensure_selections_forward',
     'A-S': ':yank-join \\ ',
     'A-h': 'select_prev_sibling',
     'A-j': 'shrink_selection',
@@ -193,7 +204,7 @@ normal_select_mappings: dict[str, Any] = {
     'A-l': 'select_next_sibling',
     'A-m': 'split_selection_on_newline',
     'A-s': 'yank_joined',
-    'B': 'redo',
+    'B': 'open_above',
     'C-[': 'decrement',
     'C-]': 'increment',
     'C-l': ['match_brackets', 'select_mode', 'match_brackets', 'ensure_selections_forward', 'normal_mode'],
@@ -208,8 +219,8 @@ normal_select_mappings: dict[str, Any] = {
     'L': 'repeat_last_motion',
     'M': 'save_selection',
     'O': 'paste_before',
-    'P': 'open_above',
     'S': 'copy_selection_on_prev_line',
+    'T': 'redo',
     'U': 'insert_at_line_end',
     'V': 'extend_line_above',
     'W': 'replace_with_yanked',
@@ -218,16 +229,16 @@ normal_select_mappings: dict[str, Any] = {
     '\\': 'shell_pipe',
     '`': 'switch_case',
     'a': 'select_regex',
-    'b': 'undo',
+    'b': 'open_below',
     'd': 'delete_selection',
     'i': 'insert_mode',
     'o': 'paste_after',
-    'p': 'open_below',
     'ret': 'command_mode',
     's': 'yank',
+    't': 'undo',
     'u': 'append_mode_same_line',
     'v': 'extend_line_below',
-    'w': 'collapse_selection',
+    'w': 'replace',
     '{': 'goto_prev_paragraph',
     '|': 'shell_pipe_to',
     '}': 'goto_next_paragraph',
@@ -424,9 +435,6 @@ normal_select_mappings: dict[str, Any] = {
         ]
     ),
 }
-normal_select_mappings.update(rusify(normal_select_mappings))
-normal_mode.update(normal_select_mappings)
-select_mode.update(normal_select_mappings)
 
 normal_insert_mappings: dict[str, Any] = {
     # [[sort on]]
@@ -434,9 +442,6 @@ normal_insert_mappings: dict[str, Any] = {
     'A-o': 'move_parent_node_end',
     # [[sort off]]
 }
-normal_insert_mappings.update(rusify(normal_insert_mappings))
-normal_mode.update(normal_insert_mappings)
-insert_mode.update(normal_insert_mappings)
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
@@ -472,7 +477,6 @@ normal_mappings: dict[str, Any] = {
         # [[sort off]]
     },
 }
-normal_mode.update(rusify(normal_mappings))
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
@@ -509,7 +513,6 @@ select_mappings: dict[str, Any] = {
         # [[sort off]]
     },
 }
-select_mode.update(rusify(select_mappings))
 
 insert_mappings: dict[str, Any] = {
     # [[sort on]]
@@ -517,6 +520,7 @@ insert_mappings: dict[str, Any] = {
     'A-,': 'unindent',
     'A-.': 'indent',
     'A-u': 'signature_help',
+    'C-a': ['collapse_selection', ':insert-output uclanr', 'append_mode_same_line'],
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     'C-u': 'kill_to_line_start',
@@ -527,7 +531,16 @@ insert_mappings: dict[str, Any] = {
     'up': 'completion',
     # [[sort off]]
 }
-insert_mode.update(rusify(insert_mappings))
+
+normal_select_mode = rusify(normal_select_mappings)
+
+normal_mode = deep_update(normal_select_mode, rusify(normal_mappings))
+normal_mode = deep_update(normal_mode, rusify(normal_insert_mappings))
+
+select_mode = deep_update(normal_select_mode, rusify(select_mappings))
+
+insert_mode = rusify(normal_insert_mappings)
+insert_mode = deep_update(insert_mode, rusify(insert_mappings))
 
 mappings: dict[str, Any] = {
     'normal': normal_mode,
