@@ -152,14 +152,14 @@ def transform(char: str):
             return char[:2] + subkey
 
 
-def deep_update(updatee: dict, leaf: dict) -> dict:
-    updatopy = copy.deepcopy(updatee)
-    for key, value in leaf.items():
-        if key in updatopy and isinstance(updatopy[key], dict) and isinstance(value, dict):
-            deep_update(updatopy[key], value)
+def deep_merge(a: dict[str, Any], b: dict[str, Any]) -> dict[str, Any]:
+    result: dict[str, Any] = copy.deepcopy(a)
+    for key, val in b.items():
+        if key in result and isinstance(result[key], dict) and isinstance(val, dict):
+            result[key] = deep_merge(result[key], val)
         else:
-            updatopy[key] = copy.deepcopy(value)
-    return updatee
+            result[key] = copy.deepcopy(val)
+    return result
 
 
 def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
@@ -533,14 +533,18 @@ insert_mappings: dict[str, Any] = {
 }
 
 normal_select_mode = rusify(normal_select_mappings)
+normal_mode = rusify(normal_mappings)
+normal_insert_mode = rusify(normal_insert_mappings)
+select_mode = rusify(select_mappings)
 
-normal_mode = deep_update(normal_select_mode, rusify(normal_mappings))
-normal_mode = deep_update(normal_mode, rusify(normal_insert_mappings))
+normal_mode = deep_merge(normal_select_mode, normal_mode)
+normal_mode = deep_merge(normal_mode, normal_insert_mode)
 
-select_mode = deep_update(normal_select_mode, rusify(select_mappings))
+select_mode = deep_merge(normal_select_mode, select_mode)
 
-insert_mode = rusify(normal_insert_mappings)
-insert_mode = deep_update(insert_mode, rusify(insert_mappings))
+normal_insert_mode = rusify(normal_insert_mappings)
+insert_mode = rusify(insert_mappings)
+insert_mode = deep_merge(normal_insert_mode, insert_mode)
 
 mappings: dict[str, Any] = {
     'normal': normal_mode,
