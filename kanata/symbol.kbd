@@ -21,6 +21,7 @@
 	, (cmd wtype “)
 	. (cmd wtype ”)
 	/ S-bksl
+	h (cmd wtype €)
 	i S-6
 	k S-min
 	l (cmd wtype —)
@@ -43,6 +44,7 @@
 	m (cmd wtype ‼️)
 	n (cmd wtype ❌)
 	o (cmd wtype ✅)
+	u (cmd wtype ₽)
 	;; [[sort off]]
 )
 
