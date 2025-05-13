@@ -431,6 +431,8 @@ normal_select_mappings: dict[str, Any] = {
             'A-:',
             'C-c',
             'C-s',
+            'P',
+            'p',
             # [[sort off]]
         ]
     ),

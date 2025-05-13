@@ -324,6 +324,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id="Minecraft" title="^Minecraft"
+    open-fullscreen true
+}
+
+window-rule {
     match app-id="^waybar$"
     match app-id="^kitty|foot" title="^uboot$"
     match app-id="^kitty|foot" title="^screen-record$"
