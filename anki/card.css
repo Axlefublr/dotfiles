@@ -21,7 +21,7 @@ div.subheader:has(hide) {
 	display: block;
 }
 
-.headers > div {
+.headers>div {
 	font-family: var(--monospace-font-family);
 	font-weight: bold;
 	display: block;
@@ -65,6 +65,10 @@ o {
 
 hr#answer {
 	margin: 0.5em;
+}
+
+h {
+	color: #ff9f1a;
 }
 
 b {

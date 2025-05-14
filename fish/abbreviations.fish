@@ -23,6 +23,7 @@ abbr -a de 'cd ~/r/dot && helix'
 abbr -a dg swayimg -g
 abbr -a dq 'swayimg -g & disown ; exit'
 abbr -a e helix
+abbr -a e. 'helix .'
 abbr -a fC 'sudo -E helix /etc/fancontrol'
 abbr -a fc 'cat ~/r/info/pswds/sudo | sudo -S systemctl restart fancontrol'
 abbr -a ff ffmpeg
@@ -46,7 +47,6 @@ abbr -a qrtool qrtool.rs
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
 abbr -a rm gomi
 abbr -a rmf 'rm -fr'
-abbr -a se 'cd ~/.local/share/frizz && helix .'
 abbr -a t systemctl
 abbr -a trr trash-restore
 abbr -a tu 'systemctl --user'

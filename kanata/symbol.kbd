@@ -23,6 +23,7 @@
 	/ S-bksl
 	h (cmd wtype €)
 	i S-6
+	j (cmd wtype ÷)
 	k S-min
 	l (cmd wtype —)
 	m S-grv

@@ -18,6 +18,8 @@ feeds:
     name: julia evans
   - url: https://terminaltrove.com/new.xml
     name: terminal trove
+  - url: https://phaazon.net/blog/feed
+    name: strongly typed thoughts
 theme:
   glamour: dark
   titleColor: "#e49641"

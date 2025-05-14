@@ -560,7 +560,7 @@ end
 
 function dode-ov
     cd ~/r/forks
-    gh repo clonef Axlefublr/ov
+    gh repo clone Axlefublr/ov
     cd ov
     make
     sudo install ov ~/.local/bin
