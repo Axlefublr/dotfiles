@@ -81,11 +81,14 @@ function ffmpeg-compress-video
     end
     set output (string replace -a '!!' $input_basename $output)
 
-    ffmpeg -i "$input" -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart "$output"
-    set_color -o a9b665
-    echo "ffmpeg -i $input -c:v libx264 -crf 28 -preset veryslow -c:a aac -b:a 64k -movflags +faststart $output"
+    ffmpeg_compress "$input" "$output" -crf 28 -preset veryslow -b:a 64k
 end
 funcsave ffmpeg-compress-video >/dev/null
+
+function ffmpeg_compress
+    ffmpeg -y -i "$argv[1]" -c:v libx264 -c:a aac -movflags +faststart $argv[3..] "$argv[2]"
+end
+funcsave ffmpeg_compress >/dev/null
 
 function ffmpeg-combine-two-videos-into-one
     # TODO: take arbitrary amount of input files
