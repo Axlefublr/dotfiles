@@ -167,7 +167,6 @@ function _rust_release
     and git tag $tagged_version -F RELEASE.md
     and git push origin $tagged_version
     and cargo publish
-    and truncate -s 0 RELEASE.md
 end
 funcsave _rust_release >/dev/null
 
