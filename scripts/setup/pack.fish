@@ -77,6 +77,13 @@ function pack-java
     paru -Sa --needed --noconfirm --disable-download-timeout intellij-idea-community-edition-jre
 end
 
+function pack-julia
+    julia # to then execute things in the repl
+    import Pkg
+    Pkg.add("LanguageServer")
+    Pkg.add("SymbolServer")
+end
+
 function pack-kotlin
     sudo pacman -S --needed --noconfirm --disable-download-timeout kotlin jre-openjdk
 end
