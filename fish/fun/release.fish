@@ -14,8 +14,7 @@ function rs
         case ci
             _rust_ci
         case check
-            _rust_fmt
-            _rust_ci
+            _rust_check
         case b bin
             not test "$argv[2..]" && return 121
             _rust_bin $argv[2..]
@@ -26,6 +25,21 @@ function rs
     end
 end
 funcsave rs >/dev/null
+
+function _rust_check
+    touch README.md
+    touch RELEASE.md
+    touch project.txt
+    test -e .rustfmt
+    and confirm.rs 'update formatting config?' [j]es [k]o | read -l response
+    or confirm.rs 'no formatting config. blammo?' [j]es [k]o | read -l response
+    test "$response" = j && _rust_fmt
+    test -e .github/workflows/ci.yml
+    and confirm.rs 'update ci config?' [j]es [k]o | read -l response
+    or confirm.rs 'no ci config. blammo?' [j]es [k]o | read -l response
+    test "$response" = j && _rust_ci
+end
+funcsave _rust_check >/dev/null
 
 function _repo_create
     echo 'cd ~/r/proj' >&2
@@ -54,13 +68,7 @@ function _rust_init -d 'Add starting pieces of a rust project in the current dir
     echo "replacing templatings with $basenam" >&2
     sd '%project_name%' $basenam Cargo.toml
     echo 'creating readme, project.txt, RELEASE.md' >&2
-    touch README.md
-    touch RELEASE.md
-    touch project.txt
-    confirm.rs 'want formatting config?' [j]es [k]o | read -l response
-    test "$response" = j && _rust_fmt
-    confirm.rs 'want ci config?' [j]es [k]o | read -l response
-    test "$response" = j && _rust_ci
+    _rust_check
     git add . &&
         git commit -m 'first commit'
 end
