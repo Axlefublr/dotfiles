@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
+import copy
 from typing import Any
 
 import toml
-import copy
 from magazine_openers import magazine_openers
 from russian_dict import russian_dict
 
@@ -52,6 +52,7 @@ editor: dict[str, Any] = {
     'should-statusline': False,
     'show-diagnostics': True,
     'whichkey': False,
+    'word-completion-trigger-length': 4,
     # [[sort off]]
     # [[sort on]]
     # 'bufferline': 'multiple',
