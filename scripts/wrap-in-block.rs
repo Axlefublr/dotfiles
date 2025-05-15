@@ -6,7 +6,6 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
-use std::env;
 use std::env::args;
 use std::error::Error;
 use std::fmt;
@@ -19,6 +18,7 @@ use std::io::Read;
 use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
+use std::{env, ops::Not};
 
 use itertools::Itertools;
 
@@ -55,6 +55,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         "s" => "[",
         "p" => "|",
         "`" => "```",
+        "\"" => r#"""""#,
         other => other,
     };
     let surrounding_right = match surrounding_left {
@@ -65,12 +66,11 @@ fn main() -> Result<(), Box<dyn Error>> {
         "|" => "|",
         "begin" => "end",
         "```" => "```",
+        r#"""""# => r#"""""#,
         _ => unimplemented!("(){{}}<>[]||"),
     };
-    let stdins: Vec<String> = stdin()
-        .lines()
-        .map(Result::unwrap)
-        .collect();
+    let no_indent_innards = [r#"""""#, "```"];
+    let stdins: Vec<String> = stdin().lines().map(Result::unwrap).collect();
 
     let indentations = stdins
         .iter()
@@ -79,17 +79,14 @@ fn main() -> Result<(), Box<dyn Error>> {
             line.chars()
                 .take_while(|&chr| chr == ' ' || chr == '\t')
                 .collect::<String>()
-        })
-        .filter(|indent| !indent.is_empty());
+        });
 
     let indent_type = indentations
         .clone()
+        .filter(|indent_of_line| !indent_of_line.is_empty())
         .map(|line_indent| {
             let len = line_indent.len();
-            if line_indent
-                .chars()
-                .any(|chr| chr == '\t')
-            {
+            if line_indent.chars().any(|chr| chr == '\t') {
                 Indent::Tab
             } else if len % 4 == 0 {
                 Indent::Space(4)
@@ -129,7 +126,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let source = stdins
         .into_iter()
         .fold(String::new(), |mut collector: String, line| {
-            if surrounding_left != "```" {
+            if !no_indent_innards.contains(&surrounding_left) {
                 collector.push_str(&indent_chars);
             }
             collector.push_str(&line);

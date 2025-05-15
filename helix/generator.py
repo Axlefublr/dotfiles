@@ -208,7 +208,7 @@ normal_select_mappings: dict[str, Any] = {
     'B': 'open_above',
     'C-[': 'decrement',
     'C-]': 'increment',
-    'C-l': ['match_brackets', 'select_mode', 'match_brackets', 'ensure_selections_forward', 'normal_mode'],
+    'C-l': '@Mmam',
     'C-n': 'shrink_selection',
     'C-p': 'expand_selection',
     'D': ['delete_selection', 'move_char_left'],
@@ -305,6 +305,7 @@ normal_select_mappings: dict[str, Any] = {
             '|': ':pipe wrap-in-block.rs p',
             '`': ':pipe wrap-in-block.rs `',
             'e': ':pipe wrap-in-block.rs begin',
+            '"': ':pipe wrap-in-block.rs \\"',
         },
     },
     'space': {
