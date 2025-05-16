@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# ruff: noqa: E501
+
 import copy
 from typing import Any
 
@@ -272,22 +274,20 @@ normal_select_mappings: dict[str, Any] = {
     ],
     'm': {
         # [[sort on]]
-        # 'w': ':toggle whichkey',
         ';': ':toggle whitespace.render %sh(toggle_value -n helix-newline \'{"newline": "all"}\' \'{"newline": null}\')',
-        'C': ':pipe wc -l',
+        'C': ':echo lines: %sh{echo -n "%{selection}" >/tmp/cami-helix-temp ; wc -l /tmp/cami-helix-temp | cut -d " " -f 1}',
         'F': ':echopy %(relative_path)',
-        'V': ':sh ghl -pb HEAD %(relative_path) | copy',
-        'Z': ':sh ghl | copy',
-        'c': ':pipe wc -c',
+        'V': ':echo %sh{ghl -pb HEAD %(relative_path) | tee ~/.local/share/flipboard}',
+        'Z': ':echo %sh{ghl | tee ~/.local/share/flipboard}',
+        'c': ':echo chars: %sh{echo -n "%{selection}" >/tmp/cami-helix-temp ; wc -c /tmp/cami-helix-temp | cut -d " " -f 1}',
         'f': ':echopy %(full_path)',
-        'g': ':toggle gutters.layout ["diff"] []',
         'k': ':toggle show-diagnostics',
         'l': ':toggle lsp.display-inlay-hints',
         'o': ':toggle auto-format',
         'p': ':toggle should-statusline',
         'q': 'count_selections',
         't': 'surround_add_tag',
-        'v': ':sh ghl %(relative_path) | copy',
+        'v': ':echo %sh{ghl %(relative_path) | tee ~/.local/share/flipboard}',
         'z': ':echopy %(working_directory)',
         # [[sort off]]
         'w': {
@@ -311,26 +311,20 @@ normal_select_mappings: dict[str, Any] = {
     'space': {
         # [[sort on]]
         '$': 'shell_keep_pipe',
-        '/': 'harp_search_get',
         'A': 'harp_command_set',
         'C': ':sh footclient -D %(buffer_parent) lazygit 2>/dev/null',
         'F': 'file_picker_in_current_buffer_directory',
-        'I': 'harp_register_set',
         'J': 'command_palette',
-        'K': 'harp_search_set',
         'L': 'workspace_symbol_picker',
         'O': ['add_newline_above', 'move_line_up', 'paste_before'],
         'R': 'harp_relative_file_set',
         'S': 'harp_file_set',
         'V': ':sh footclient -D %(buffer_parent) yazi 2>/dev/null',
-        'Z': 'harp_cwd_set',
         'a': 'harp_command_get',
         'c': ':sh footclient -D %(working_directory) lazygit 2>/dev/null',
         'd': magazine_openers,
         'e': 'buffer_picker',
         'f': 'file_picker_in_current_directory',
-        'h': 'harp_fuzzy_get',
-        'i': 'harp_register_get',
         'j': 'global_search',
         'k': 'local_search_fuzzy',
         'l': 'symbol_picker',
@@ -339,7 +333,6 @@ normal_select_mappings: dict[str, Any] = {
         'r': 'harp_relative_file_get',
         's': 'harp_file_get',
         'v': ':sh footclient -D %(working_directory) yazi 2>/dev/null',
-        'z': 'harp_cwd_get',
         # [[sort off]]
         **disable(
             [
@@ -358,8 +351,6 @@ normal_select_mappings: dict[str, Any] = {
         '$': 'keep_selections',
         '(': 'rotate_selection_contents_forward',
         ')': 'rotate_selection_contents_backward',
-        '*': 'make_search_word_bounded',
-        '@': 'record_macro',
         'F': ':e %sh(ypoc)',
         'I': 'goto_implementation',
         'M': 'goto_last_modified_file',
@@ -406,7 +397,7 @@ normal_select_mappings: dict[str, Any] = {
         'n': 'select_all_siblings',
         'o': 'wclose',
         'u': 'signature_help',
-        'z': ':config-reload',
+        'z': [':noop %sh{python ~/r/dot/helix/generator.py}', ':config-reload'],
         # [[sort off]]
         **disable(
             [
