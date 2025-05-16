@@ -22,6 +22,7 @@ systemd: systemd-setup
         ~/r/dot/systemd/daily.{service,timer} \
         ~/r/dot/systemd/ten-minutes.{service,timer} \
         ~/r/dot/systemd/wake.{path,service} \
+        ~/r/dot/systemd/flipboard.{path,service} \
         ~/r/dot/systemd/frizz.{path,service} \
         ~/r/dot/systemd/axleizer.service
     for unit in $user_units
@@ -36,6 +37,7 @@ systemd: systemd-setup
     systemctl --user enable --now minute.timer
     systemctl --user enable --now axleizer.service
     systemctl --user enable --now wake.path
+    systemctl --user enable --now flipboard.path
     systemctl --user enable --now frizz.path
 
 systemd-setup:
