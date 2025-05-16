@@ -97,6 +97,10 @@ function pack-nim-lang
     nimble install nimlsp
 end
 
+function pack-nushell
+    sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
+end
+
 function pack-ruby
     sudo pacman -S --needed --noconfirm --disable-download-timeout ruby rubocop
     fish_add_path "$HOME/.local/share/gem/ruby/3.3.0/bin"

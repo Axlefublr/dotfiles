@@ -3,6 +3,6 @@ StartLimitIntervalSec=0
 StartLimitBurst=0
 
 [Service]
-Restart=on-failure
+Restart=always
 RestartSteps=10
 RestartMaxDelaySec=10
