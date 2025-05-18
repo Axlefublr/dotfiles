@@ -1,4 +1,6 @@
 [Service]
-Type=oneshot
-ExecStart=env fish -c 'cat ~/.local/share/flipboard | copy'
-ExecStart=env truncate -s 0 %h/.local/share/flipboard
+Type=exec
+ExecStart=%h/r/dot/scripts/flipboard.fish
+
+[Install]
+WantedBy=graphical-session.target

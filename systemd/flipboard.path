@@ -1,5 +1,0 @@
-[Path]
-PathChanged=%h/.local/share/flipboard
-
-[Install]
-WantedBy=paths.target

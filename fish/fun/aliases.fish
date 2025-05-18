@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
 # [[sort on]]
-alias --save X 'kitten @ close-window' >/dev/null
 alias --save at alien_temple >/dev/null
 alias --save bell 'printf \a' >/dev/null
 alias --save copy 'wl-copy -n' >/dev/null
