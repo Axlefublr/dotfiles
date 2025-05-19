@@ -388,6 +388,7 @@ normal_select_mappings: dict[str, Any] = {
         '?': 'reverse_selection_contents',
         'M': 'merge_consecutive_selections',
         'N': 'select_all_children',
+        'c': ':pipe qalc -t (read -z)',
         'i': 'hover',
         'm': 'merge_selections',
         'n': 'select_all_siblings',
