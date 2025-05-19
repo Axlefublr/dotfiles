@@ -4,6 +4,7 @@ keymap = [
   # [[sort on]]
   # { on = ':', run = 'shell --block --interactive', desc = 'Run a blocking shell command' },
   # { on = 'Z', run = 'plugin harp -- set', desc = 'Set a cwd harp' },
+  { on = '!', run = 'unyank', desc = 'Cancel the yank status' },
   { on = '%', run = 'toggle_all --state=true', desc = 'Select all' },
   { on = '+', run = 'hardlink --force --follow', desc = 'Hardlink' },
   { on = '-', run = 'link --force', desc = 'Symlink' },
@@ -41,7 +42,6 @@ keymap = [
   { on = 'S', run = 'yank --cut', desc = 'Yank selected files (cut)' },
   { on = 'T', run = 'close', desc = 'Close the current tab, or quit if it is last tab' },
   { on = 'Y', run = 'search rg', desc = 'Search files by content using ripgrep' },
-  { on = 'Z', run = 'unyank', desc = 'Cancel the yank status' },
   { on = '[', run = 'tab_switch -1 --relative', desc = 'Switch to the previous tab' },
   { on = ']', run = 'tab_switch 1 --relative', desc = 'Switch to the next tab' },
   { on = '_', run = 'link --force --relative', desc = 'Symlink relatively' },
