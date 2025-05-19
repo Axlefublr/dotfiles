@@ -197,9 +197,13 @@ normal_select_mappings: dict[str, Any] = {
     '.': 'toggle_line_select',
     ':': ':write-quit-all',
     ';': 'flip_selections',
+    '<': 'goto_previous_buffer',
+    '>': 'goto_next_buffer',
     '@': 'replay_macro',
     'A': 'split_selection',
     'A-,': 'ensure_selections_forward',
+    'A-:': ':write-quit-all!',
+    'A-H': ':buffer-close!',
     'A-S': ':yank-join \\ ',
     'A-h': 'select_prev_sibling',
     'A-j': 'shrink_selection',
@@ -413,7 +417,6 @@ normal_select_mappings: dict[str, Any] = {
     **disable(
         [
             # [[sort on]]
-            'A-:',
             'C-c',
             'C-s',
             'P',
@@ -510,7 +513,6 @@ insert_mappings: dict[str, Any] = {
     'A-left': 'unindent',
     'A-right': 'indent',
     'A-u': 'signature_help',
-    'C-a': ['collapse_selection', ':insert-output uclanr', 'append_mode_same_line'],
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     'C-u': 'kill_to_line_start',
@@ -520,6 +522,13 @@ insert_mappings: dict[str, Any] = {
     'down': 'completion',
     'up': 'completion',
     # [[sort off]]
+    'C-;': ['collapse_selection', 'shell_insert_output'],
+    'C-a': [
+        'collapse_selection',
+        ':insert-output uclanr | read',
+        'collapse_selection',
+        'append_mode_same_line',
+    ],
 }
 
 normal_select_mode = rusify(normal_select_mappings)
