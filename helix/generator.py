@@ -217,6 +217,8 @@ normal_select_mappings: dict[str, Any] = {
     'B': 'open_above',
     'C-[': 'decrement',
     'C-]': 'increment',
+    'C-c': 'change_selection_noyank',
+    'C-d': 'delete_selection_noyank',
     'C-l': '@Hmam',
     'C-n': 'shrink_selection',
     'C-p': 'expand_selection',
@@ -419,7 +421,6 @@ normal_select_mappings: dict[str, Any] = {
     **disable(
         [
             # [[sort on]]
-            'C-c',
             'C-s',
             'P',
             'p',
