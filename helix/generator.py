@@ -182,9 +182,7 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
     return russian_dict
 
 
-normal_mode: dict[str, Any] = {}
-select_mode: dict[str, Any] = {}
-insert_mode: dict[str, Any] = {}
+all_modes_mappings: dict[str, Any] = {}
 
 normal_select_mappings: dict[str, Any] = {
     # [[sort on]]
@@ -532,24 +530,27 @@ insert_mappings: dict[str, Any] = {
     ],
 }
 
+all_modes = rusify(all_modes_mappings)
 normal_select_mode = rusify(normal_select_mappings)
+normal_insert_mode = rusify(normal_insert_mappings)
 normal_mode = rusify(normal_mappings)
-normal_insert_mode = rusify(normal_insert_mappings)
 select_mode = rusify(select_mappings)
-
-normal_mode = deep_merge(normal_select_mode, normal_mode)
-normal_mode = deep_merge(normal_mode, normal_insert_mode)
-
-select_mode = deep_merge(normal_select_mode, select_mode)
-
-normal_insert_mode = rusify(normal_insert_mappings)
 insert_mode = rusify(insert_mappings)
-insert_mode = deep_merge(normal_insert_mode, insert_mode)
+
+normal_final = deep_merge(all_modes, normal_select_mode)
+normal_final = deep_merge(normal_final, normal_insert_mode)
+normal_final = deep_merge(normal_final, normal_mode)
+
+select_final = deep_merge(all_modes, normal_select_mode)
+select_final = deep_merge(select_final, select_mode)
+
+insert_final = deep_merge(all_modes, normal_insert_mode)
+insert_final = deep_merge(insert_final, insert_mode)
 
 mappings: dict[str, Any] = {
-    'normal': normal_mode,
-    'select': select_mode,
-    'insert': insert_mode,
+    'normal': normal_final,
+    'select': select_final,
+    'insert': insert_final,
 }
 
 entire_config: dict[str, Any] = {
