@@ -77,7 +77,7 @@ funcsave _rust_init >/dev/null
 function _rust_fmt --description 'Bring in format config and format with it'
     gq || return 1
     lnkj $argv ~/r/dot/defconf/rs/rustfmt.toml ./.rustfmt.toml
-    rustup run nightly rustfmt
+    rustup run nightly cargo fmt
 end
 funcsave _rust_fmt >/dev/null
 

@@ -21,6 +21,8 @@
 	, (cmd wtype “)
 	. (cmd wtype ”)
 	/ S-bksl
+	[ (cmd wtype «)
+	] (cmd wtype »)
 	h (cmd wtype €)
 	i S-6
 	j (cmd wtype ÷)

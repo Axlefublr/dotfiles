@@ -20,7 +20,7 @@ end
 funcsave runner >/dev/null
 
 function runner_clipboard
-    set result (get-input)
+    set result (get_input)
     test $status -ne 0 && return 1
     test "$result" || return 1
     echo $result | copy
@@ -28,7 +28,7 @@ end
 funcsave runner_clipboard >/dev/null
 
 function runner_clipboard_append
-    set result (get-input)
+    set result (get_input)
     test $status -ne 0 && return 1
     test "$result" || return 1
     begin
