@@ -182,9 +182,19 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
     return russian_dict
 
 
-all_modes_mappings: dict[str, Any] = {}
+all_modes_mappings: dict[str, Any] = {
+    'C-s': 'signature_help',
+}
 
 normal_select_mappings: dict[str, Any] = {
+    **disable(
+        [
+            # [[sort on]]
+            'P',
+            'p',
+            # [[sort off]]
+        ]
+    ),
     # [[sort on]]
     "'": [':write-all', ':reload-all'],
     '!': 'keep_primary_selection',
@@ -221,6 +231,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-n': 'shrink_selection',
     'C-p': 'expand_selection',
     'C-q': ':cd ..',
+    'C-w': 'hover',
     'D': ['delete_selection', 'move_char_left'],
     'G': 'goto_word',
     'H': 'save_selection',
@@ -253,7 +264,10 @@ normal_select_mappings: dict[str, Any] = {
     '|': 'shell_pipe_to',
     '}': 'goto_next_paragraph',
     '~': 'switch_to_lowercase',
+    '“': 'goto_prev_change',
+    '”': 'goto_next_change',
     '…': 'split_selection_on_newline',
+    '€': 'keep_selections',
     # [[sort off]]
     'C-j': [
         'select_mode',
@@ -317,6 +331,17 @@ normal_select_mappings: dict[str, Any] = {
         },
     },
     'space': {
+        **disable(
+            [
+                # [[sort on]]
+                'A-c',
+                'D',
+                'G',
+                'Y',
+                'b',
+                # [[sort off]]
+            ]
+        ),
         # [[sort on]]
         '$': 'shell_keep_pipe',
         'A': 'harp_command_set',
@@ -342,21 +367,18 @@ normal_select_mappings: dict[str, Any] = {
         's': 'harp_file_get',
         'v': ':sh footclient -D %(working_directory) yazi 2>/dev/null',
         # [[sort off]]
+    },
+    'g': {
         **disable(
             [
                 # [[sort on]]
-                'A-c',
-                'D',
-                'G',
-                'Y',
-                'b',
+                'c',
+                'r',
+                't',
                 # [[sort off]]
             ]
         ),
-    },
-    'g': {
         # [[sort on]]
-        '$': 'keep_selections',
         '(': 'rotate_selection_contents_forward',
         ')': 'rotate_selection_contents_backward',
         'F': ':e %sh(ypoc)',
@@ -369,34 +391,8 @@ normal_select_mappings: dict[str, Any] = {
         's': 'goto_type_definition',
         'u': 'goto_reference',
         # [[sort off]]
-        **disable(
-            [
-                # [[sort on]]
-                'D',
-                'c',
-                'r',
-                't',
-                # [[sort off]]
-            ]
-        ),
     },
     'z': {
-        # [[sort on]]
-        ',': ':sort',
-        '.': ':random',
-        '/': 'select_first_and_last_chars',
-        '<': ['select_all', 'split_selection_on_newline', ':sort', 'keep_primary_selection'],
-        '>': ['select_all', 'split_selection_on_newline', ':random', 'keep_primary_selection'],
-        '?': 'reverse_selection_contents',
-        'M': 'merge_consecutive_selections',
-        'N': 'select_all_children',
-        'c': ':pipe qalc -t (read -z)',
-        'i': 'hover',
-        'm': 'merge_selections',
-        'n': 'select_all_siblings',
-        'u': 'signature_help',
-        'z': [':noop %sh{python ~/r/dot/helix/generator.py}', ':config-reload'],
-        # [[sort off]]
         **disable(
             [
                 # [[sort on]]
@@ -415,16 +411,27 @@ normal_select_mappings: dict[str, Any] = {
                 # [[sort off]]
             ]
         ),
+        # [[sort on]]
+        ',': ':sort',
+        '.': ':random',
+        '/': 'select_first_and_last_chars',
+        '<': ['select_all', 'split_selection_on_newline', ':sort', 'keep_primary_selection'],
+        '>': ['select_all', 'split_selection_on_newline', ':random', 'keep_primary_selection'],
+        '?': 'reverse_selection_contents',
+        'M': 'merge_consecutive_selections',
+        'N': 'select_all_children',
+        'c': ':pipe qalc -t (read -z)',
+        'm': 'merge_selections',
+        'n': 'select_all_siblings',
+        'z': [':noop %sh{python ~/r/dot/helix/generator.py}', ':config-reload'],
+        # [[sort off]]
     },
-    **disable(
-        [
-            # [[sort on]]
-            'C-s',
-            'P',
-            'p',
-            # [[sort off]]
-        ]
-    ),
+    '[': {
+        'g': 'goto_first_change',
+    },
+    ']': {
+        'g': 'goto_last_change',
+    },
 }
 
 normal_insert_mappings: dict[str, Any] = {
@@ -513,7 +520,6 @@ insert_mappings: dict[str, Any] = {
     # [[sort on]]
     'A-left': 'unindent',
     'A-right': 'indent',
-    'A-u': 'signature_help',
     'C-d': [':write-quit-all'],
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
