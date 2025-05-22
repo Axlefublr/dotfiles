@@ -120,8 +120,6 @@
 	l right
 	m home
 	o enter
-	p caps
-	u (caps-word $ot)
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )

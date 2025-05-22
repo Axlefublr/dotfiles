@@ -3,6 +3,7 @@
 	, S-1
 	. (cmd wtype …)
 	/ bksl
+	; caps
 	[ S-9
 	] S-0
 	h S-4
@@ -21,6 +22,7 @@
 	, (cmd wtype “)
 	. (cmd wtype ”)
 	/ S-bksl
+	; (caps-word $ot)
 	[ (cmd wtype «)
 	] (cmd wtype »)
 	h (cmd wtype €)
