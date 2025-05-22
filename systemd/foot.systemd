@@ -6,3 +6,6 @@ StartLimitBurst=0
 Restart=always
 RestartSteps=10
 RestartMaxDelaySec=10
+
+[Install]
+WantedBy=graphical-session.target
