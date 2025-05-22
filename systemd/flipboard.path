@@ -1,0 +1,5 @@
+[Path]
+PathExists=/home/axlefublr/.local/share/flipboard
+
+[Install]
+WantedBy=paths.target

@@ -1,6 +1,4 @@
 [Service]
-Type=exec
+Type=oneshot
+TimeoutStartSec=2
 ExecStart=%h/r/dot/scripts/flipboard.fish
-
-[Install]
-WantedBy=graphical-session.target
