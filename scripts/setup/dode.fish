@@ -527,6 +527,7 @@ function dode-niri
     sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps clang # for building from source
     ln -sf ~/r/dot/niri.kdl ~/.config/niri/config.kdl
     mkdir -p ~/.config/systemd/user/niri.service.wants
+    niri completions fish >~/.config/fish/completions/niri.fish
 end
 
 function dode-nom

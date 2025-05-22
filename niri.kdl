@@ -57,7 +57,7 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@75"
+    mode "1920x1080@100.003998"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.0
@@ -78,8 +78,6 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     // position x=1280 y=0
-
-    background-color "#292828"
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -134,6 +132,8 @@ layout {
     //
     // Alternatively, you can override it with a window rule called
     // `draw-border-with-background`.
+
+    background-color "transparent"
 
     focus-ring {
         width 2
@@ -357,4 +357,14 @@ window-rule {
     open-floating true
     default-column-width { fixed 1888; }
     default-window-height { fixed 1013; }
+}
+
+/-layer-rule {
+    match namespace="^launcher$"
+    baba-is-float true
+}
+
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
 }
