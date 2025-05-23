@@ -183,9 +183,12 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 
 all_modes_mappings: dict[str, Any] = {
-    'C-s': 'signature_help',
-    'home': 'move_parent_node_start',
+    # [[sort on]]
+    'C-a': 'signature_help',
+    'C-s': 'hover',
     'end': 'move_parent_node_end',
+    'home': 'move_parent_node_start',
+    # [[sort off]]
 }
 
 normal_select_mappings: dict[str, Any] = {
@@ -240,7 +243,6 @@ normal_select_mappings: dict[str, Any] = {
     'C-n': 'shrink_selection',
     'C-p': 'expand_selection',
     'C-q': ':cd ..',
-    'C-w': 'hover',
     'D': ['delete_selection', 'move_char_left'],
     'G': 'goto_word',
     'H': 'save_selection',
@@ -528,7 +530,7 @@ insert_mappings: dict[str, Any] = {
     'down': 'completion',
     'up': 'completion',
     # [[sort off]]
-    'C-a': [
+    'C-;': [
         'collapse_selection',
         ':insert-output uclanr | read',
         'append_mode_same_line',
