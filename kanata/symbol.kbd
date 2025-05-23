@@ -13,6 +13,7 @@
 	l eql
 	m S-5
 	o S-3
+	p (cmd wtype °)
 	u grv
 	;; [[sort off]]
 )
@@ -40,13 +41,11 @@
 (deflayermap (symbol-tertiary)
 	;; [[sort on]]
 	, (cmd wtype ❗)
-	. (cmd wtype ❓)
-	/ (cmd wtype ⁉️)
+	/ (cmd wtype ❓)
 	h (cmd wtype ←)
 	j (cmd wtype ↓)
 	k (cmd wtype ↑)
 	l (cmd wtype →)
-	m (cmd wtype ‼️)
 	n (cmd wtype ❌)
 	o (cmd wtype ✅)
 	u (cmd wtype ₽)
@@ -55,7 +54,7 @@
 
 (deflayermap (symbol-left)
 	;; [[sort on]]
-	a (cmd wtype 👏)
+	a (cmd wtype 🙏)
 	c (cmd wtype 😭)
 	e (cmd wtype 🗣️)
 	f (cmd wtype 🔥)
@@ -70,10 +69,11 @@
 
 (deflayermap (symbol-right)
 	;; [[sort on]]
-	i (cmd wtype ✨)
+	k (cmd wtype ✨)
 	l (cmd wtype 😌)
+	m (cmd wtype 😩)
 	n (cmd wtype 🥺)
-	o (cmd wtype 🙏)
+	p (cmd wtype 👏)
 	u (cmd wtype 😋)
 	y (cmd wtype 🥳)
 	;; [[sort off]]
