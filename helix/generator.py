@@ -184,6 +184,8 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 all_modes_mappings: dict[str, Any] = {
     'C-s': 'signature_help',
+    'home': 'move_parent_node_start',
+    'end': 'move_parent_node_end',
 }
 
 normal_select_mappings: dict[str, Any] = {
@@ -436,12 +438,7 @@ normal_select_mappings: dict[str, Any] = {
     },
 }
 
-normal_insert_mappings: dict[str, Any] = {
-    # [[sort on]]
-    'A-i': 'move_parent_node_start',
-    'A-o': 'move_parent_node_end',
-    # [[sort off]]
-}
+normal_insert_mappings: dict[str, Any] = {}
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
@@ -486,8 +483,6 @@ select_mappings: dict[str, Any] = {
     'A-F': 'extend_next_long_word_start',
     'A-e': 'extend_prev_word_end',
     'A-f': 'extend_next_word_start',
-    'A-i': 'extend_parent_node_start',
-    'A-o': 'extend_parent_node_end',
     'C-A-e': 'extend_prev_sub_word_end',
     'C-A-f': 'extend_next_sub_word_start',
     'C-e': 'extend_prev_sub_word_start',
@@ -497,8 +492,10 @@ select_mappings: dict[str, Any] = {
     'Q': 'extend_till_prev_char',
     'R': 'extend_till_char',
     'e': 'extend_prev_word_start',
+    'end': 'extend_parent_node_end',
     'f': 'extend_next_word_end',
     'h': 'extend_char_left',
+    'home': 'extend_parent_node_start',
     'j': 'extend_visual_line_down',
     'k': 'extend_visual_line_up',
     'l': 'extend_char_right',
