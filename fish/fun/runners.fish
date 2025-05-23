@@ -41,7 +41,7 @@ funcsave runner_clipboard_append >/dev/null
 function runner_interactive_unicode
     set input (cat ~/.local/share/magazine/e | fuzzel -d --cache ~/.cache/mine/runner-interactive-unicode 2>/dev/null)
     test $status -ne 0 && return 1
-    echo (string split ' ' $input[1])[1] | copy
+    echo -n (string split ' ' $input[1])[1] | pee wl-copy 'wtype -'
 end
 funcsave runner_interactive_unicode >/dev/null
 

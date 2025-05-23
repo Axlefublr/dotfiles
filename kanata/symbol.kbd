@@ -48,6 +48,7 @@
 	l (cmd wtype →)
 	n (cmd wtype ❌)
 	o (cmd wtype ✅)
+	p (cmd wtype √)
 	u (cmd wtype ₽)
 	;; [[sort off]]
 )
