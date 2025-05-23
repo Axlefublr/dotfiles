@@ -49,12 +49,10 @@ git:
     showWholeGraph: false
   truncateCopiedCommitHashesTo: 12
   branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --'
-
 update:
   method: never
 os:
   editPreset: helix
-
 keybinding:
   branches:
     createPullRequest: <disabled>
@@ -82,115 +80,111 @@ keybinding:
     toggleRangeSelect: x
     # [[sort off]]
 customCommands:
-    - key: o
-      context: files
-      command: 'fish -c ''git show HEAD:{{.SelectedPath}} >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
-      subprocess: true
-      description: 'Edit file at HEAD'
-
-    - key: 'o'
-      context: 'commitFiles'
-      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}}) ; rm /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
-      subprocess: true
-      description: 'Edit file at this point in history'
-    - key: 'O'
-      context: 'commitFiles'
-      command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}}) ; rm /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
-      subprocess: true
-      description: 'Edit file at the commit before this point in history'
-    - key: 'q'
-      context: 'commitFiles'
-      command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to file at this commit'
-    - key: 'Q'
-      context: 'commitFiles'
-      command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to file at *previous* commit'
-
-    - key: 'P'
-      context: 'commits'
-      command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
-      stream: true
-      loadingText: 'Pushing commit...'
-      description: 'Push a specific commit (and any preceding)'
-    - key: 't'
-      context: 'commits'
-      command: 'git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}'
-      prompts:
-        - type: 'menu'
-          title: 'How to revert?'
-          options:
-            - value: 'revert'
-              name: 'With a commit'
-            - value: 'revert -n'
-              name: 'Into index'
-      description: 'View reverting options...'
-    - key: '<C-t>'
-      context: 'commits'
-      command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
-      prompts:
-        - type: 'input'
-          title: 'Tag name:'
-      description: 'Create pre-filled tag'
-    - key: o
-      context: 'commits'
-      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/cami-lazygit-commit.diff ; helix /tmp/cami-lazygit-commit.diff'''
-      subprocess: true
-      description: 'Edit commit diff in editor'
-    - key: o
-      context: subCommits
-      command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/cami-lazygit-commit.diff ; helix /tmp/cami-lazygit-commit.diff'''
-      subprocess: true
-      description: 'Edit commit diff in editor'
-    - key: q
-      context: commits
-      command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to repo at this point in history'
-    - key: q
-      context: subCommits # I know that the 'commits, subCommits' syntax works, but my lsp complains so it's simply easier this way
-      command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to repo at this point in history'
-
-    - key: q
-      context: 'tags'
-      command: 'fish -c ''ghl -b {{.SelectedTag.Name}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to repo at this tag'
-    - key: Q
-      context: 'tags'
-      command: 'fish -c ''ghl -pb {{.SelectedTag.Name}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to repo at this tag, parsing it into commit'
-
-    - key: 'O'
-      context: localBranches
-      command: 'gh pr create'
-      subprocess: true
-      description: 'Create pull request'
-    - key: 'q'
-      context: localBranches
-      command: 'fish -c ''ghl -b {{.SelectedLocalBranch.Name}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to repo in this branch'
-    - key: 'Q'
-      context: localBranches
-      command: 'fish -c ''ghl -pb {{.SelectedLocalBranch.Name}} | copy'''
-      loadingText: 'maybe copied link'
-      description: 'Copy link to repo in this branch, parsing into commit hash'
-    # - key: 'P'
-    #   context: localBranches
-    #   command: 'git push origin {{.SelectedLocalBranch.Name}}'
-    #   loadingText: 'pushing selected branch'
-    #   description: 'Push selected branch'
-    - key: 'o'
-      context: 'localBranches'
-      command: 'gh pr checkout {{index .PromptResponses 0}}'
-      prompts:
-        - type: 'input'
-          title: 'PR id:'
-      loadingText: 'checking out PR'
-      description: 'Checkout PR'
+  - key: o
+    context: files
+    command: 'fish -c ''git show HEAD:{{.SelectedPath}} >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
+    description: 'Edit file at HEAD'
+    output: terminal
+  - key: 'o'
+    context: 'commitFiles'
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}}) ; rm /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
+    description: 'Edit file at this point in history'
+    output: terminal
+  - key: 'O'
+    context: 'commitFiles'
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}}) ; rm /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
+    description: 'Edit file at the commit before this point in history'
+    output: terminal
+  - key: 'q'
+    context: 'commitFiles'
+    command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to file at this commit'
+  - key: 'Q'
+    context: 'commitFiles'
+    command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to file at *previous* commit'
+  - key: 'P'
+    context: 'commits'
+    command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
+    loadingText: 'Pushing commit...'
+    description: 'Push a specific commit (and any preceding)'
+    output: log
+  - key: 't'
+    context: 'commits'
+    command: 'git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}'
+    prompts:
+      - type: 'menu'
+        title: 'How to revert?'
+        options:
+          - value: 'revert'
+            name: 'With a commit'
+          - value: 'revert -n'
+            name: 'Into index'
+    description: 'View reverting options...'
+  - key: '<C-t>'
+    context: 'commits'
+    command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
+    prompts:
+      - type: 'input'
+        title: 'Tag name:'
+    description: 'Create pre-filled tag'
+  - key: o
+    context: 'commits'
+    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/cami-lazygit-commit.diff ; helix /tmp/cami-lazygit-commit.diff'''
+    description: 'Edit commit diff in editor'
+    output: terminal
+  - key: o
+    context: subCommits
+    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/cami-lazygit-commit.diff ; helix /tmp/cami-lazygit-commit.diff'''
+    description: 'Edit commit diff in editor'
+    output: terminal
+  - key: q
+    context: commits
+    command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to repo at this point in history'
+  - key: q
+    context: subCommits # I know that the 'commits, subCommits' syntax works, but my lsp complains so it's simply easier this way
+    command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to repo at this point in history'
+  - key: q
+    context: 'tags'
+    command: 'fish -c ''ghl -b {{.SelectedTag.Name}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to repo at this tag'
+  - key: Q
+    context: 'tags'
+    command: 'fish -c ''ghl -pb {{.SelectedTag.Name}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to repo at this tag, parsing it into commit'
+  - key: 'O'
+    context: localBranches
+    command: 'gh pr create'
+    description: 'Create pull request'
+    output: terminal
+  - key: 'q'
+    context: localBranches
+    command: 'fish -c ''ghl -b {{.SelectedLocalBranch.Name}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to repo in this branch'
+  - key: 'Q'
+    context: localBranches
+    command: 'fish -c ''ghl -pb {{.SelectedLocalBranch.Name}} | copy'''
+    loadingText: 'maybe copied link'
+    description: 'Copy link to repo in this branch, parsing into commit hash'
+  # - key: 'P'
+  #   context: localBranches
+  #   command: 'git push origin {{.SelectedLocalBranch.Name}}'
+  #   loadingText: 'pushing selected branch'
+  #   description: 'Push selected branch'
+  - key: 'o'
+    context: 'localBranches'
+    command: 'gh pr checkout {{index .PromptResponses 0}}'
+    prompts:
+      - type: 'input'
+        title: 'PR id:'
+    loadingText: 'checking out PR'
+    description: 'Checkout PR'
