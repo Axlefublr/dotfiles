@@ -98,7 +98,7 @@ KeyBind:
     - '?'
   bottom:
     - 'End'
-    - 'alt+o'
+    - 'ctrl+End'
   column_mode:
     - 'c'
   column_width:
@@ -149,23 +149,23 @@ KeyBind:
   next_backsearch:
     - 'N'
   next_doc:
-    - ']'
-  next_mark:
     - '>'
+  next_mark:
+    - '.'
   next_search:
     - 'n'
   next_section:
-    - '.'
-  page_half_down:
     - 'J'
+  page_half_down:
+    - 'PageDown'
   page_half_up:
-    - 'K'
+    - 'PageUp'
   previous_doc:
-    - '['
-  previous_mark:
     - '<'
-  previous_section:
+  previous_mark:
     - ','
+  previous_section:
+    - 'K'
   rainbow_mode:
     - 'r'
   remove_all_mark:
@@ -189,7 +189,7 @@ KeyBind:
     - 'ctrl+z'
   top:
     - 'Home'
-    - 'alt+i'
+    - 'ctrl+Home'
   up:
     - 'Up'
     - 'k'
