@@ -218,6 +218,7 @@ command = "/usr/lib/rustup/bin/rust-analyzer"
 
 [language-server.rust-analyzer.config]
 # [[sort on]]
+# rustfmt.overrideCommand = ["rustup", "run", "nightly", "--", "rustfmt"]
 # workspace.symbol.search.kind = "onlyTypes"
 assist.expressionFillDefault = "default"
 assist.importEnforceGranularity = true
@@ -227,7 +228,7 @@ cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev"
 cargo.features = "all"
 checkOnSave.command = "clippy"
 completion.fullFunctionSignatures.enable = true
-files.watcher = "server"                                                # TODO: this is not needed if helix supports client-side filewatching
+files.watcher = "server"                                     # TODO: this is not needed if helix supports client-side filewatching
 inlayHints.bindingModeHints.enable = true
 inlayHints.closingBraceHints.minLines = 11
 inlayHints.closureCaptureHints.enable = true
@@ -243,7 +244,6 @@ inlayHints.rangeExclusiveHints.enable = true
 inlayHints.renderColons = false
 lens.run.enable = false
 procMacro.enable = true
-rustfmt.overrideCommand = ["rustup", "run", "nightly", "--", "rustfmt"]
 semanticHighlighting.operator.specialization.enable = true
 semanticHighlighting.punctuation.enable = true
 semanticHighlighting.punctuation.separate.macro.bang = true

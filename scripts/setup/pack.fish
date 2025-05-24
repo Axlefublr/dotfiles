@@ -1,13 +1,12 @@
 #!/usr/bin/env fish
 
-function pack-man
-    sudo pacman -Syu
-    for package_name in (cat ~/.local/share/magazine/Z)
-        sudo pacman -S --needed --noconfirm --disable-download-timeout $package_name
-    end
-    for package_name in (cat ~/.local/share/magazine/X)
-        paru -Sa --needed --noconfirm --disable-download-timeout $package_name
-    end
+# ----------------main----------------
+sudo pacman -Syu
+for package_name in (cat ~/.local/share/magazine/Z)
+    sudo pacman -S --needed --noconfirm --disable-download-timeout $package_name
+end
+for package_name in (cat ~/.local/share/magazine/X)
+    paru -Sa --needed --noconfirm --disable-download-timeout $package_name
 end
 
 function pack-crystal
@@ -122,8 +121,6 @@ function pack-rust
     rustup toolchain install nightly
     cargo login
     ln -sf ~/r/dot/cargo.toml ~/.cargo/config.toml
-    fish_add_path ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin
-    fish_add_path ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin
 end
 function pack-rust-pack
     sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-binstall
