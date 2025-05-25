@@ -167,7 +167,6 @@ def deep_merge(a: dict[str, Any], b: dict[str, Any]) -> dict[str, Any]:
 
 def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
     russian_dict = {}
-
     for key, value in english_dict.items():
         russian_dict[key] = value
         russian_key = transform(key)
@@ -178,14 +177,19 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
             russian_dict[russian_key] = rusify(value)
         else:
             russian_dict[russian_key] = value
-
     return russian_dict
 
 
 all_modes_mappings: dict[str, Any] = {
     # [[sort on]]
+    'A->': ':new',
+    'A-down': 'copy_selection_on_next_line',
+    'A-left': 'unindent',
+    'A-right': 'indent',
     'C-a': 'signature_help',
+    'C-down': 'add_newline_below',
     'C-s': 'hover',
+    'C-up': 'add_newline_above',
     'end': 'move_parent_node_end',
     'home': 'move_parent_node_start',
     # [[sort off]]
@@ -196,6 +200,7 @@ normal_select_mappings: dict[str, Any] = {
         [
             # [[sort on]]
             'P',
+            'Z',
             'p',
             # [[sort off]]
         ]
@@ -203,34 +208,33 @@ normal_select_mappings: dict[str, Any] = {
     # [[sort on]]
     "'": [':write-all', ':reload-all'],
     '!': 'keep_primary_selection',
-    '#': 'toggle_comments',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
+    '(': 'goto_first_selection',
+    ')': 'goto_last_selection',
+    '*': 'search_selection_detect_word_boundaries',
     '+': 'rotate_selections_forward',
     ',': 'collapse_selection',
     '-': 'rotate_selections_backward',
     '.': 'toggle_line_select',
     ':': ':write-quit-all',
-    ';': 'flip_selections',
     '<': ['goto_previous_buffer', ':echo %{full_path}'],
     '=': 'remove_primary_selection',
     '>': ['goto_next_buffer', ':echo %{full_path}'],
-    '@': 'replay_macro',
+    '@': 'toggle_comments',
     'A': 'split_selection',
     'A-:': ':write-quit-all!',
     'A-M': ':buffer-close!',
-    'A-S': ':yank-join \\ ',
-    'A-down': 'copy_selection_on_next_line',
+    'A-O': ['add_newline_above', 'move_line_up', 'paste_before'],
     'A-h': 'select_prev_sibling',
     'A-j': 'shrink_selection',
     'A-k': 'expand_selection',
     'A-l': 'select_next_sibling',
-    'A-left': 'unindent',
     'A-n': 'select_all_siblings',
+    'A-o': ['add_newline_below', 'move_line_down', 'paste_before'],
     'A-p': 'select_all_children',
-    'A-right': 'indent',
-    'A-s': 'yank_joined',
     'A-up': 'copy_selection_on_prev_line',
+    'A-x': 'ensure_selections_forward',
     'B': 'open_above',
     'C-/': 'select_first_and_last_chars',
     'C-A-m': 'merge_consecutive_selections',
@@ -243,6 +247,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-n': 'shrink_selection',
     'C-p': 'expand_selection',
     'C-q': ':cd ..',
+    'C-x': 'join_selections',
     'D': ['delete_selection', 'move_char_left'],
     'G': 'goto_word',
     'H': 'save_selection',
@@ -254,12 +259,13 @@ normal_select_mappings: dict[str, Any] = {
     'O': 'paste_before',
     'T': 'redo',
     'U': 'insert_at_line_end',
-    'V': 'extend_line_above',
+    'V': 'select_line_above',
     'W': 'replace_with_yanked',
     'X': 'join_selections_space',
     '\\': ':sort',
+    '^': 'search_selection',
     '_': 'switch_to_lowercase',
-    '`': 'switch_case',
+    '`': 'yank_joined',
     'a': 'select_regex',
     'b': 'open_below',
     'd': 'delete_selection',
@@ -271,10 +277,12 @@ normal_select_mappings: dict[str, Any] = {
     's': 'yank',
     't': 'undo',
     'u': 'append_mode_same_line',
-    'v': 'extend_line_below',
+    'v': 'select_line_below',
     'w': 'replace',
+    'x': 'flip_selections',
     '|': 'shell_pipe',
-    '~': 'switch_to_lowercase',
+    '«': 'rotate_selection_contents_forward',
+    '»': 'rotate_selection_contents_backward',
     '÷': 'switch_case',
     '“': 'goto_prev_change',
     '”': 'goto_next_change',
@@ -298,13 +306,6 @@ normal_select_mappings: dict[str, Any] = {
         'extend_char_left',
         'ensure_selections_forward',
         'normal_mode',
-    ],
-    'C-,': [
-        'extend_to_line_bounds',
-        'split_selection_on_newline',
-        ':sort',
-        'keep_primary_selection',
-        'collapse_selection',
     ],
     'm': {
         # [[sort on]]
@@ -355,13 +356,11 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
-        '$': 'shell_keep_pipe',
         'A': 'harp_command_set',
         'C': ':sh footclient -D %(buffer_parent) lazygit 2>/dev/null',
         'F': 'file_picker_in_current_buffer_directory',
         'J': 'command_palette',
         'L': 'workspace_symbol_picker',
-        'O': ['add_newline_above', 'move_line_up', 'paste_before'],
         'R': 'harp_relative_file_set',
         'S': 'harp_file_set',
         'V': ':sh footclient -D %(buffer_parent) yazi 2>/dev/null',
@@ -374,7 +373,6 @@ normal_select_mappings: dict[str, Any] = {
         'k': 'local_search_fuzzy',
         'l': 'symbol_picker',
         'm': 'code_action',
-        'o': ['add_newline_below', 'move_line_down', 'paste_before'],
         'r': 'harp_relative_file_get',
         's': 'harp_file_get',
         'v': ':sh footclient -D %(working_directory) yazi 2>/dev/null',
@@ -391,13 +389,10 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
-        '(': 'rotate_selection_contents_forward',
-        ')': 'rotate_selection_contents_backward',
         'F': ':e %sh(ypoc)',
         'I': 'goto_implementation',
-        'X': 'join_selections',
         'a': 'rename_symbol',
-        'g': 'select_references_to_symbol_under_cursor',
+        'g': 'reverse_selection_contents',
         'm': 'goto_last_accessed_file',
         'q': ':cd %(buffer_parent)',
         's': 'goto_type_definition',
@@ -424,10 +419,6 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
-        '.': ':random',
-        '<': ['select_all', 'split_selection_on_newline', ':sort', 'keep_primary_selection'],
-        '>': ['select_all', 'split_selection_on_newline', ':random', 'keep_primary_selection'],
-        '?': 'reverse_selection_contents',
         'c': ':pipe qalc -t (read -z)',
         'z': [':noop %sh{python ~/r/dot/helix/generator.py}', ':config-reload'],
         # [[sort off]]
@@ -444,6 +435,7 @@ normal_insert_mappings: dict[str, Any] = {}
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
+    ';': 'select_mode',
     'A-E': 'move_prev_long_word_end',
     'A-F': 'move_next_long_word_start',
     'A-e': 'move_prev_word_end',
@@ -465,7 +457,6 @@ normal_mappings: dict[str, Any] = {
     'l': 'move_char_right',
     'q': 'find_prev_char',
     'r': 'find_next_char',
-    'x': 'select_mode',
     # [[sort off]]
     'g': {
         # [[sort on]]
@@ -481,6 +472,7 @@ normal_mappings: dict[str, Any] = {
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
+    ';': 'normal_mode',
     'A-E': 'extend_prev_long_word_end',
     'A-F': 'extend_next_long_word_start',
     'A-e': 'extend_prev_word_end',
@@ -503,7 +495,6 @@ select_mappings: dict[str, Any] = {
     'l': 'extend_char_right',
     'q': 'extend_prev_char',
     'r': 'extend_next_char',
-    'x': 'normal_mode',
     # [[sort off]]
     'g': {
         # [[sort on]]
@@ -519,14 +510,12 @@ select_mappings: dict[str, Any] = {
 
 insert_mappings: dict[str, Any] = {
     # [[sort on]]
-    'A-left': 'unindent',
-    'A-right': 'indent',
-    'C-d': [':write-quit-all'],
     'C-j': ['normal_mode', 'open_below'],
     'C-k': ['normal_mode', 'open_above'],
     'C-u': 'kill_to_line_start',
     'C-v': ['collapse_selection', 'paste_before'],
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
+    'F4': [':write-quit-all'],
     'down': 'completion',
     'up': 'completion',
     # [[sort off]]
