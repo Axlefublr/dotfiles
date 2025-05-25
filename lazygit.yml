@@ -63,19 +63,21 @@ keybinding:
 
     # [[sort on]]
     executeShellCommand: ';'
-    gotoBottom: '>'
-    gotoTop: '<'
-    nextBlock-alt: l
+    gotoBottom: <end>
+    gotoTop: <home>
+    nextBlock-alt: J
     nextPage: '.'
     nextScreenMode: '+'
-    prevBlock-alt: h
+    nextTab: '>'
+    prevBlock-alt: K
     prevPage: ','
     prevScreenMode: '-'
+    prevTab: '<'
     quit-alt1: ':'
-    scrollDownMain-alt1: J
-    scrollLeft: H
-    scrollRight: L
-    scrollUpMain-alt1: K
+    scrollDownMain-alt1: <pgup>
+    scrollLeft: h
+    scrollRight: l
+    scrollUpMain-alt1: <pgdown>
     select: v
     toggleRangeSelect: x
     # [[sort off]]
