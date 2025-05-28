@@ -42,6 +42,7 @@ abbr -a lS eza
 abbr -a lg 'eza -al'
 abbr -a ls 'eza -a'
 abbr -a mkd 'mkdir -p'
+abbr -a n nu
 abbr -a q qalc
 abbr -a qrtool qrtool.rs
 abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin

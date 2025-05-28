@@ -87,6 +87,7 @@ customCommands:
     command: 'fish -c ''git show HEAD:{{.SelectedPath}} >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
     description: 'Edit file at HEAD'
     output: terminal
+
   - key: 'o'
     context: 'commitFiles'
     command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}}) ; rm /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
@@ -107,6 +108,7 @@ customCommands:
     command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | copy'''
     loadingText: 'maybe copied link'
     description: 'Copy link to file at *previous* commit'
+
   - key: 'P'
     context: 'commits'
     command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
@@ -132,6 +134,7 @@ customCommands:
       - type: 'input'
         title: 'Tag name:'
     description: 'Create pre-filled tag'
+
   - key: o
     context: 'commits'
     command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/cami-lazygit-commit.diff ; helix /tmp/cami-lazygit-commit.diff'''
@@ -152,6 +155,7 @@ customCommands:
     command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
     loadingText: 'maybe copied link'
     description: 'Copy link to repo at this point in history'
+
   - key: q
     context: 'tags'
     command: 'fish -c ''ghl -b {{.SelectedTag.Name}} | copy'''
@@ -162,6 +166,7 @@ customCommands:
     command: 'fish -c ''ghl -pb {{.SelectedTag.Name}} | copy'''
     loadingText: 'maybe copied link'
     description: 'Copy link to repo at this tag, parsing it into commit'
+
   - key: 'O'
     context: localBranches
     command: 'gh pr create'
