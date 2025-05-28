@@ -145,12 +145,14 @@
 	d (cmd footclient -N)
 	e (cmd footclient -N bluetui)
 	f (cmd $fsh "floorp & disown")
+	i (cmd $fsh "PrismLauncher.AppImage & disown")
+	m (cmd footclient -N yazi /home/axlefublr/i/e/memes)
 	q (cmd footclient -N tiptop)
 	r (cmd $fsh "rnote & disown")
 	s (cmd gtk-launch steam-native) ;; I make sure to disable proxy in the .desktop image, so I wanna run steam through it
 	t (cmd paplay /home/axlefublr/m/soundeffects/camera-shutter.oga)
-	v (cmd footclient pik)
-	w (cmd anki)
+	v (cmd footclient -N pik)
+	w (cmd $fsh "anki & disown")
 	x (cmd footclient -N tewi)
 	;; [[sort off]]
 )
