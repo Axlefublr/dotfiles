@@ -293,7 +293,6 @@ normal_select_mappings: dict[str, Any] = {
     't': 'undo',
     'u': 'append_mode_same_line',
     'v': 'select_line_below',
-    'w': 'replace',
     'x': 'flip_selections',
     '|': 'shell_pipe',
     '«': 'rotate_selection_contents_forward',
@@ -321,11 +320,20 @@ normal_select_mappings: dict[str, Any] = {
         'l': ':toggle lsp.display-inlay-hints',
         'o': ':toggle auto-format',
         'p': ':toggle should-statusline',
-        't': 'surround_add_tag',
         'v': ':echo %sh{ghl %(relative_path) | tee ~/.local/share/flipboard}',
         'x': 'surround_replace',
         'z': ':echopy %(working_directory)',
         # [[sort off]]
+        't': {
+            'k': ':pipe mst kbd',
+            'b': ':pipe mst b',
+            'h': ':pipe mst h',
+            'd': ':pipe mst div',
+            'c': ':pipe mst cd',
+            'o': ':pipe mst o',
+            'i': ':pipe mst i',
+            't': 'surround_add_tag',
+        },
         'w': {
             '(': ':pipe strip-wrapper-type.rs b',
             '{': ':pipe strip-wrapper-type.rs B',
@@ -482,6 +490,7 @@ normal_mappings: dict[str, Any] = {
     'l': 'move_char_right',
     'q': 'find_prev_char',
     'r': 'find_next_char',
+    'w': ['collapse_selection', 'replace'],
     # [[sort off]]
     'g': {
         # [[sort on]]
@@ -514,6 +523,7 @@ select_mappings: dict[str, Any] = {
     'l': 'extend_char_right',
     'q': 'extend_prev_char',
     'r': 'extend_next_char',
+    'w': 'replace',
     # [[sort off]]
     'g': {
         # [[sort on]]

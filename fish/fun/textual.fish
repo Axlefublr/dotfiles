@@ -18,6 +18,12 @@ function msi -a left right
 end
 funcsave msi >/dev/null
 
+function mst
+    read -zl the
+    echo "<$argv>$the</$argv>"
+end
+funcsave mst >/dev/null
+
 function slf
     string replace '%' (read -z) "$argv"
 end

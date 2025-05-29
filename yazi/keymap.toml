@@ -3,7 +3,6 @@
 keymap = [
   # [[sort on]]
   # { on = ':', run = 'shell --block --interactive', desc = 'Run a blocking shell command' },
-  # { on = 'Z', run = 'plugin harp -- set', desc = 'Set a cwd harp' },
   { on = '!', run = 'unyank', desc = 'Cancel the yank status' },
   { on = '%', run = 'toggle_all --state=true', desc = 'Select all' },
   { on = '+', run = 'hardlink --force --follow', desc = 'Hardlink' },
@@ -61,7 +60,6 @@ keymap = [
   { on = 'w', run = 'tasks_show', desc = 'Show task manager' },
   { on = 'x', run = 'visual_mode', desc = 'Enter visual mode' },
   { on = 'y', run = 'search fd', desc = 'Search files by name using fd' },
-  { on = 'z', run = 'plugin harp -- get', desc = 'Travel to a cwd harp' },
   { on = '{', run = 'tab_swap -1', desc = 'Swap current tab with previous tab' },
   { on = '}', run = 'tab_swap 1', desc = 'Swap current tab with next tab' },
   # [[sort off]]
