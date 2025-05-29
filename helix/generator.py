@@ -59,6 +59,11 @@ editor: dict[str, Any] = {
         'enable': True,
         'trigger-length': 4,
     },
+    'harp': {
+        'command': 'filetype',
+        'search': 'buffer',
+        'register': 'filetype',
+    },
     # [[sort on]]
     # 'bufferline': 'multiple',
     # 'idle-timeout': 250,
@@ -388,6 +393,8 @@ normal_select_mappings: dict[str, Any] = {
         'R': 'harp_relative_file_set',
         'S': 'harp_file_set',
         'V': ':sh footclient -D %(buffer_parent) yazi 2>/dev/null',
+        'W': 'harp_register_set',
+        'X': 'harp_search_set',
         'a': 'harp_command_get',
         'c': ':sh footclient -D %(working_directory) lazygit 2>/dev/null',
         'd': magazine_openers,
@@ -399,6 +406,8 @@ normal_select_mappings: dict[str, Any] = {
         'r': 'harp_relative_file_get',
         's': 'harp_file_get',
         'v': ':sh footclient -D %(working_directory) yazi 2>/dev/null',
+        'w': 'harp_register_get',
+        'x': 'harp_search_get',
         # [[sort off]]
     },
     'g': {
@@ -439,15 +448,15 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
+        'I': 'goto_implementation',
         'J': 'goto_declaration',
         'L': 'workspace_symbol_picker',
         'c': ':pipe qalc -t (read -z)',
-        'i': 'goto_implementation',
+        'i': 'goto_type_definition',
         'j': 'goto_definition',
         'k': 'goto_reference',
         'l': 'symbol_picker',
         'o': 'code_action',
-        'u': 'goto_type_definition',
         'z': [':noop %sh{python ~/r/dot/helix/generator.py}', ':config-reload'],
         # [[sort off]]
     },
@@ -457,8 +466,8 @@ normal_insert_mappings: dict[str, Any] = {}
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
-    '1': ['move_next_sub_word_end', 'trim_selections'],
-    '5': ['move_prev_sub_word_start', 'trim_selections'],
+    'A-e': ['move_prev_sub_word_start', 'trim_selections'],
+    'A-f': ['move_next_sub_word_end', 'trim_selections'],
     'D': ['collapse_selection', 'move_char_left', 'delete_selection'],
     'E': ['move_prev_long_word_start', 'trim_selections'],
     'F': ['move_next_long_word_end', 'trim_selections'],
@@ -488,8 +497,8 @@ normal_mappings: dict[str, Any] = {
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
-    '1': 'extend_next_sub_word_end',
-    '5': 'extend_prev_sub_word_start',
+    'A-e': 'extend_prev_sub_word_start',
+    'A-f': 'extend_next_sub_word_end',
     'E': 'extend_prev_long_word_start',
     'F': 'extend_next_long_word_end',
     'Q': 'extend_till_prev_char',
