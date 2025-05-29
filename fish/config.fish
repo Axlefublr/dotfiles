@@ -44,20 +44,6 @@ set -gx https_proxy http://(cat ~/.local/share/magazine/p)[1]
 fish_vi_cursor
 zoxide init fish | source
 
-function z --wraps=__zoxide_z
-    set -l harp (harp get harp_dirs "$argv[1]" --path 2>/dev/null | string replace '~' $HOME)
-    if test "$harp"
-        set -g last_jump_attempt harp
-        cd "$harp"
-        set -f harp_success $status
-    else
-        set -f harp_success 1
-    end
-    test $harp_success -eq 0 && return
-    __zoxide_z $argv
-    set -g last_jump_attempt zoxide
-end
-
 if status is-interactive
     source ~/r/dot/fish/abbreviations.fish
 end

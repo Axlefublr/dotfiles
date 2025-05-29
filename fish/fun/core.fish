@@ -218,21 +218,14 @@ end
 funcsave loopuntil >/dev/null
 
 function Z
-    harp update harp_dirs "$argv" --path (string replace $HOME '~' $PWD)
-    and echo "bookmark $argv set"
+    zoxide remove $PWD
 end
 funcsave Z >/dev/null
 
-function ZZ
-    test "$argv"
-    and harp clear harp_dirs "$argv"
+function zz
+    zoxide add $PWD
 end
-funcsave ZZ >/dev/null
-
-function ZZZ
-    zoxide remove $argv
-end
-funcsave ZZZ >/dev/null
+funcsave zz >/dev/null
 
 function matches
     get_windows | rg $argv

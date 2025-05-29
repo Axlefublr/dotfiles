@@ -111,11 +111,7 @@ function fish_prompt
     #     end
     # end
     fish_prompt_status $fullstatuses
-    if test "$last_jump_attempt" = harp
-        set_color af87ff
-    else
-        set_color ffd75f
-    end
+    set_color ffd75f
     printf '󱕅 '
     set_color normal
 end

@@ -45,6 +45,31 @@ function _delete_commandline_or_exit
 end
 funcsave _delete_commandline_or_exit >/dev/null
 
+function _harp_get
+    read -n 1 -P 'harp get: ' -l key
+    not test "$key" && return
+    set -l harp (harp get harp_dirs "$key" --path | string replace '~' $HOME)
+    if test "$harp"
+        cd "$harp"
+        set -f harp_success $status
+    else
+        set -f harp_success 1
+    end
+    if test $harp_success -ne 0
+        zi
+    end
+    commandline -f repaint
+end
+funcsave _harp_get >/dev/null
+
+function _harp_set
+    read -n 1 -P 'harp set: ' -l key
+    not test "$key" && return
+    set -l harp (harp update harp_dirs "$key" --path (string replace $HOME '~' $PWD))
+    commandline -f repaint
+end
+funcsave _harp_set >/dev/null
+
 function _fzf_defaults
     # $1: Prepend to FZF_DEFAULT_OPTS_FILE and FZF_DEFAULT_OPTS
     # $2: Append to FZF_DEFAULT_OPTS_FILE and FZF_DEFAULT_OPTS
@@ -110,10 +135,12 @@ function fish_user_key_bindings
     bind alt-comma _help_the_commandline
     bind alt-enter expand-abbr insert-line-under
     bind ctrl-\' _wrap_in_pueue
+    bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-f 'zi && commandline -f repaint'
     bind ctrl-g _match_helix_cwd
     bind ctrl-l '__fish_cursor_xterm line ; commandline -f repaint'
+    bind ctrl-m _harp_get
     bind ctrl-z fg
     # [[sort off]]
 end

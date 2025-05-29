@@ -42,6 +42,7 @@
 	;; [[sort on]]
 	, (cmd wtype ❗)
 	/ (cmd wtype ❓)
+	b (cmd wtype 💡)
 	h (cmd wtype ←)
 	j (cmd wtype ↓)
 	k (cmd wtype ↑)
