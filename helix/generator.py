@@ -65,12 +65,12 @@ editor: dict[str, Any] = {
         'register': 'filetype',
     },
     # [[sort on]]
-    # 'bufferline': 'multiple',
     # 'idle-timeout': 250,
     'auto-completion': True,
     'auto-format': True,
     'auto-info': True,
     'auto-save': {'focus-lost': False},
+    'bufferline': 'always',
     'color-modes': True,
     'completion-timeout': 5,
     'completion-trigger-len': 2,
@@ -190,16 +190,21 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 all_modes_mappings: dict[str, Any] = {
     # [[sort on]]
-    'A->': ':new',
     'A-end': 'move_parent_node_end',
     'A-home': 'move_parent_node_start',
     'A-left': 'unindent',
     'A-right': 'indent',
     'C-down': 'add_newline_below',
-    'C-l': 'hover',
+    'C-h': ':new',
     'C-s': 'signature_help',
+    'C-t': 'hover',
     'C-up': 'add_newline_above',
     # [[sort off]]
+    'C-z': [
+        ":noop %sh(echo '%(working_directory)' >~/.cache/mine/helix-cwd-suspend)",
+        ":noop %sh(echo '%(buffer_parent)' >~/.cache/mine/helix-buffer-head-suspend)",
+        'suspend',
+    ],
 }
 
 normal_select_mappings: dict[str, Any] = {
@@ -224,6 +229,16 @@ normal_select_mappings: dict[str, Any] = {
     ',': 'collapse_selection',
     '-': 'rotate_selections_backward',
     '.': 'toggle_line_select',
+    '0': ':buffer-nth -r 1',
+    '1': ':buffer-nth 1',
+    '2': ':buffer-nth 2',
+    '3': ':buffer-nth 3',
+    '4': ':buffer-nth 4',
+    '5': ':buffer-nth 5',
+    '6': ':buffer-nth 6',
+    '7': ':buffer-nth 7',
+    '8': ':buffer-nth 8',
+    '9': ':buffer-nth 9',
     ':': ':write-quit-all',
     ';': 'select_regex',
     '<': ['goto_previous_buffer', ':echo %{full_path}'],
@@ -393,16 +408,12 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
-        'A': 'harp_command_set',
         'C': ':sh footclient -D %(buffer_parent) lazygit 2>/dev/null',
         'F': 'file_picker_in_current_buffer_directory',
         'J': 'command_palette',
+        'L': 'workspace_symbol_picker',
         'O': ['add_newline_above', 'move_line_up', 'paste_before'],
-        'R': 'harp_relative_file_set',
-        'S': 'harp_file_set',
         'V': ':sh footclient -D %(buffer_parent) yazi 2>/dev/null',
-        'W': 'harp_register_set',
-        'X': 'harp_search_set',
         'a': 'harp_command_get',
         'c': ':sh footclient -D %(working_directory) lazygit 2>/dev/null',
         'd': magazine_openers,
@@ -410,6 +421,7 @@ normal_select_mappings: dict[str, Any] = {
         'f': 'file_picker_in_current_directory',
         'j': 'global_search',
         'k': 'local_search_fuzzy',
+        'l': 'symbol_picker',
         'o': ['add_newline_below', 'move_line_down', 'paste_before'],
         'r': 'harp_relative_file_get',
         's': 'harp_file_get',
@@ -417,6 +429,13 @@ normal_select_mappings: dict[str, Any] = {
         'w': 'harp_register_get',
         'x': 'harp_search_get',
         # [[sort off]]
+        'space': {
+            'a': 'harp_command_set',
+            'r': 'harp_relative_file_set',
+            's': 'harp_file_set',
+            'w': 'harp_register_set',
+            'x': 'harp_search_set',
+        },
     },
     'g': {
         **disable(
@@ -458,12 +477,10 @@ normal_select_mappings: dict[str, Any] = {
         # [[sort on]]
         'I': 'goto_implementation',
         'J': 'goto_declaration',
-        'L': 'workspace_symbol_picker',
         'c': ':pipe qalc -t (read -z)',
         'i': 'goto_type_definition',
         'j': 'goto_definition',
         'k': 'goto_reference',
-        'l': 'symbol_picker',
         'o': 'code_action',
         'z': [':noop %sh{python ~/r/dot/helix/generator.py}', ':config-reload'],
         # [[sort off]]

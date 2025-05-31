@@ -359,6 +359,11 @@ window-rule {
     default-window-height { fixed 1013; }
 }
 
+window-rule {
+    match app-id="wlclock"
+    default-column-width { fixed 1005; }
+}
+
 /-layer-rule {
     match namespace="^launcher$"
     baba-is-float true

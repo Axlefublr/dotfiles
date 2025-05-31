@@ -15,11 +15,11 @@ funcsave _man_the_commandline >/dev/null
 function _match_helix_cwd
     read -P 'hElix yAzi buFFer hOme gIt: ' -n1 choice
     if test "$choice" = e
-        z (cat /tmp/helix-cwd-suspend)
+        z (cat ~/.cache/mine/helix-cwd-suspend | string replace -r '^~' $HOME)
     else if test "$choice" = a
         z (cat ~/.cache/mine/yazi-cwd-suspend)
     else if test "$choice" = f
-        z (cat /tmp/helix-buffer-head-suspend)
+        z (cat ~/.cache/mine/helix-buffer-head-suspend | string replace -r '^~' $HOME)
     else if test "$choice" = o
         z ~
     else if test "$choice" = i
@@ -134,13 +134,13 @@ function fish_user_key_bindings
     bind alt-. _man_the_commandline
     bind alt-comma _help_the_commandline
     bind alt-enter expand-abbr insert-line-under
+    bind alt-m _harp_get
     bind ctrl-\' _wrap_in_pueue
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-f 'zi && commandline -f repaint'
     bind ctrl-g _match_helix_cwd
     bind ctrl-l '__fish_cursor_xterm line ; commandline -f repaint'
-    bind ctrl-m _harp_get
     bind ctrl-z fg
     # [[sort off]]
 end

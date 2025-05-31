@@ -60,9 +60,7 @@ for dir in (cat ~/.local/share/magazine/R)
     git -C (string replace -r "^~" "$HOME" $dir) push
 end
 
-footclient -NT uboot helix ~/.local/share/magazine/semicolon
-footclient -NT uboot fish -c fm
-footclient -NT uboot calcure
+things
 for link in (cat ~/.local/share/magazine/g)
     xdg-open $link
 end

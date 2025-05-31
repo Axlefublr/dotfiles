@@ -1,148 +1,125 @@
-# ----------------------------ui----------------------------
-'ui.text' = 'white'
-'ui.text.focus' = { bg = 'orange_supporting', modifiers = ['bold'] }
-
-# -----------------------------------------------hidden ui-----------------------------------------------
-'ui.virtual.whitespace' = { fg = 'linenr' }
-'ui.virtual.indent-guide' = { fg = 'linenr' }
-'ui.virtual.ruler' = { bg = 'linenr' }
-'ui.virtual.inlay-hint' = { fg = 'grey', modifiers = ['italic'] }
-'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = ['bold'] }
-'ui.linenr' = 'linenr'
-'ui.linenr.selected' = 'grey'
-
-# -------------------------------------------------menus-------------------------------------------------
-'ui.popup' = { fg = 'white', bg = 'dark13' }
-'ui.window' = { fg = 'linenr', bg = 'level' }
-'ui.help' = { fg = 'white', bg = 'dark13' }
-'ui.menu' = { fg = 'white', bg = 'dark12' }
-'ui.menu.selected' = { fg = 'dark12', bg = 'orange', modifiers = ['bold'] }
-'ui.menu.scroll' = { fg = 'grey' }                                          # scrollbar
-
-#---------------------------------------------------picker---------------------------------------------------
-'ui.picker.header' = {}
-'ui.picker.header.column' = { fg = 'white', modifiers = ['bold'] }
-'ui.picker.header.column.active' = { modifiers = ['underlined', 'bold'] }
-
-# -------------------------------------------------base-------------------------------------------------
-'ui.background' = { bg = 'none' }
-'ui.background.separator' = 'grey'
-
-# ------------------------------------------------cursor------------------------------------------------
-'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.primary.select' = { bg = 'mint', fg = 'dark12', modifiers = [
-  'bold',
-] }
-'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.match' = { modifiers = ['bold', 'underlined'] }
-'ui.selection.primary' = { bg = 'orange_supporting' }
-'ui.selection' = { bg = 'yellow_supporting' }
-
-# ----------------------------------------------statusline----------------------------------------------
-'ui.statusline' = { fg = 'white' }
-'ui.statusline.normal' = { fg = 'white', modifiers = ['bold'] }
-'ui.statusline.insert' = { fg = 'green', modifiers = ['bold'] }
-'ui.statusline.select' = { fg = 'mint', modifiers = ['bold'] }
-
-# -----------------------------------------------markdown-----------------------------------------------
-'markup.heading.1' = { fg = 'red', modifiers = ['bold'] }
-'markup.heading.2' = { fg = 'orange', modifiers = ['bold'] }
-'markup.heading.3' = { fg = 'yellow', modifiers = ['bold'] }
-'markup.heading.4' = { fg = 'green', modifiers = ['bold'] }
-'markup.heading.5' = { fg = 'cyan', modifiers = ['bold'] }
-'markup.heading.6' = { fg = 'blush', modifiers = ['bold'] }
-
-'markup.heading.marker' = 'grey'
-'markup.list' = 'red'
-'markup.bold' = { modifiers = ['bold'] }
-'markup.italic' = { modifiers = ['italic'] }
-'markup.link.url' = { fg = 'cyan', modifiers = ['underlined'] }
-'markup.link.text' = 'purple'
-'markup.quote' = 'cyan'
-'markup.raw' = 'yellow'
-
-# --------------------------------------------------diff--------------------------------------------------
-'diff.plus.gutter' = 'green'
-'diff.delta.gutter' = 'cyan'
-'diff.minus.gutter' = 'red'
-
-'hint' = 'cyan'
-'info' = 'mint'
-'warning' = 'yellow'
-'error' = 'red'
-
-'diagnostic' = {}
-'diagnostic.hint' = {}
-'diagnostic.info' = {}
-'diagnostic.warning' = {}
-'diagnostic.error' = {}
-'diagnostic.deprecated' = { modifiers = ['crossed_out'] }
-'diagnostic.unnecessary' = { fg = 'grey' }
+# [[sort on]]
 # 'diagnostic' = { underline = { style = 'curl' } }
+# 'diagnostic.deprecated' = { modifiers = ['crossed-out'] }
+# 'diagnostic.error' = { underline = { color = 'red', style = 'curl' } }
 # 'diagnostic.hint' = { underline = { color = 'cyan', style = 'curl' } }
 # 'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
 # 'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
-# 'diagnostic.error' = { underline = { color = 'red', style = 'curl' } }
-# 'diagnostic.deprecated' = { modifiers = ['crossed-out'] }
-
-# ------------------------------------------------language------------------------------------------------
 'attribute' = 'mint'
 'comment' = 'grey'
 'constant' = 'purple'
 'constant.character.escape' = 'grey'
 'constant.numeric' = 'blush'
 'constructor' = 'cyan'
+'diagnostic' = {}
+'diagnostic.deprecated' = { modifiers = ['crossed_out'] }
+'diagnostic.error' = {}
+'diagnostic.hint' = {}
+'diagnostic.info' = {}
+'diagnostic.unnecessary' = { fg = 'grey' }
+'diagnostic.warning' = {}
+'diff.delta.gutter' = 'cyan'
+'diff.minus.gutter' = 'red'
+'diff.plus.gutter' = 'green'
+'error' = 'red'
 'function' = 'green'
 'function.builtin' = 'blush'
 'function.macro' = 'mint'
+'hint' = 'cyan'
+'info' = 'mint'
 'keyword' = 'red'
 'keyword.directive' = 'mint'
 'label' = 'mint'
+'markup.bold' = { modifiers = ['bold'] }
+'markup.heading.1' = { fg = 'red', modifiers = ['bold'] }
+'markup.heading.2' = { fg = 'orange', modifiers = ['bold'] }
+'markup.heading.3' = { fg = 'yellow', modifiers = ['bold'] }
+'markup.heading.4' = { fg = 'green', modifiers = ['bold'] }
+'markup.heading.5' = { fg = 'cyan', modifiers = ['bold'] }
+'markup.heading.6' = { fg = 'blush', modifiers = ['bold'] }
+'markup.heading.marker' = 'grey'
+'markup.italic' = { modifiers = ['italic'] }
+'markup.link.text' = 'purple'
+'markup.link.url' = { fg = 'cyan', modifiers = ['underlined'] }
+'markup.list' = 'red'
+'markup.quote' = 'cyan'
+'markup.raw' = 'yellow'
 'module' = 'cyan'
 'namespace' = 'mint'
 'operator' = { fg = 'orange', modifiers = ['bold'] }
 'punctuation' = 'white'
 'punctuation.bracket' = 'white'
 'punctuation.delimiter' = 'white'
-# this is apparently the fuzzy matching text in the file picker. nope it is not mentioned once in the docs lol. discovered this by bruteforcing :3
-'special' = { fg = 'orange', modifiers = ['bold'] }
 'string' = 'yellow'
 'string.regexp' = 'mint'
 'tag' = 'yellow'
 'type' = 'cyan'
+'ui.background' = { bg = 'none' }
+'ui.background.separator' = 'grey'
+'ui.bufferline' = { fg = 'grey' }
+'ui.bufferline.active' = { fg = 'white' }
+'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
+'ui.cursor.match' = { modifiers = ['bold', 'underlined'] }
+'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
+'ui.help' = { fg = 'white', bg = 'dark13' }
+'ui.linenr' = 'linenr'
+'ui.linenr.selected' = 'grey'
+'ui.menu' = { fg = 'white', bg = 'dark12' }
+'ui.menu.scroll' = { fg = 'grey' }                                              # scrollbar
+'ui.menu.selected' = { fg = 'dark12', bg = 'orange', modifiers = ['bold'] }
+'ui.picker.header' = {}
+'ui.picker.header.column' = { fg = 'white', modifiers = ['bold'] }
+'ui.picker.header.column.active' = { modifiers = ['underlined', 'bold'] }
+'ui.popup' = { fg = 'white', bg = 'dark13' }
+'ui.selection' = { bg = 'yellow_supporting' }
+'ui.selection.primary' = { bg = 'orange_supporting' }
+'ui.statusline' = { fg = 'white' }
+'ui.statusline.insert' = { fg = 'green', modifiers = ['bold'] }
+'ui.statusline.normal' = { fg = 'white', modifiers = ['bold'] }
+'ui.statusline.select' = { fg = 'mint', modifiers = ['bold'] }
+'ui.text' = 'white'
+'ui.text.focus' = { bg = 'orange_supporting', modifiers = ['bold'] }
+'ui.virtual.indent-guide' = { fg = 'linenr' }
+'ui.virtual.inlay-hint' = { fg = 'grey', modifiers = ['italic'] }
+'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = ['bold'] }
+'ui.virtual.ruler' = { bg = 'linenr' }
+'ui.virtual.whitespace' = { fg = 'linenr' }
+'ui.window' = { fg = 'linenr', bg = 'level' }
 'variable' = 'white'
 'variable.builtin' = 'cyan'
 'variable.other.member' = 'mint'
 'variable.parameter' = 'white'
+'warning' = 'yellow'
+# [[sort off]]
+'ui.cursor.primary.select' = { bg = 'mint', fg = 'dark12', modifiers = [
+  'bold',
+] }
+'special' = { fg = 'orange', modifiers = [
+  'bold',
+] } # this is apparently the fuzzy matching text in the file picker. nope it is not mentioned once in the docs lol. discovered this by bruteforcing :3
 
-# #############################################custom colors#############################################
 [palette]
 
-# ------------------------------------------------greyish------------------------------------------------
-level = '#292828'
-dark14 = '#242323'
-dark13 = '#212121'
-dark12 = '#1f1e1e'
+# [[sort on]]
+blush = '#e491b2'
+blush_supporting = '#5e2d40'
+cyan = '#7daea3'
 dark10 = '#1a1919'
-
-white = '#d4be98'
+dark12 = '#1f1e1e'
+dark13 = '#212121'
+dark14 = '#242323'
+green = '#a9b665'
 grey = '#928374'
+level = '#292828'
 linenr = '#5a524c'
-
-# -------------------------------------------------colors-------------------------------------------------
+mint = '#78bf84'
+orange = '#e49641'
+orange_supporting = '#5f472d'
+purple = '#b58cc6'
+purple_supporting = '#502c5f'
+red = '#ea6962'
 shell_pink = '#ffafd7'
 shell_yellow = '#ffd75f'
-
-purple = '#b58cc6'
-blush = '#e491b2'
-red = '#ea6962'
-orange = '#e49641'
+white = '#d4be98'
 yellow = '#d3ad5c'
-green = '#a9b665'
-mint = '#78bf84'
-cyan = '#7daea3'
-
-orange_supporting = '#5f472d'
 yellow_supporting = '#68622c'
-purple_supporting = '#502c5f'
-blush_supporting = '#5e2d40'

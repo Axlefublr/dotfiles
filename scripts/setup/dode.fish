@@ -760,6 +760,15 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout wf-recorder
 # ---------------whois---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout whois
 
+# ----------------wlclock----------------
+cd ~/r/forks
+gh repo clone Axlefublr/wlclock
+mkdir build
+cd build
+cmake ..
+make
+rsync ./wlclock ~/r/binaries
+
 # ---------------wl-kbptr---------------
 paru -Sa --needed --disable-download-timeout wl-kbptr
 mkdir -p ~/.config/wl-kbptr
