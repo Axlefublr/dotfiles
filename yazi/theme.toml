@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 # hovered = { bg = '#5f472d' }
 hovered = { fg = '#e49641' }
 cwd = { fg = '#ffafd7', bold = true }
