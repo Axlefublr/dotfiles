@@ -62,7 +62,8 @@ editor: dict[str, Any] = {
     'harp': {
         'command': 'filetype',
         'search': 'buffer',
-        'register': 'filetype',
+        'register': 'directory',
+        'mark': 'directory',
     },
     # [[sort on]]
     # 'idle-timeout': 250,
@@ -196,8 +197,8 @@ all_modes_mappings: dict[str, Any] = {
     'A-right': 'indent',
     'C-down': 'add_newline_below',
     'C-h': ':new',
+    'C-l': 'hover',
     'C-s': 'signature_help',
-    'C-t': 'hover',
     'C-up': 'add_newline_above',
     # [[sort off]]
     'C-z': [
@@ -247,8 +248,10 @@ normal_select_mappings: dict[str, Any] = {
     '@': 'toggle_comments',
     'A-.': 'shrink_to_line_bounds',
     'A-:': ':write-quit-all!',
+    'A-C': ':sh footclient -D %(buffer_parent) lazygit 2>/dev/null',
     'A-M': ':buffer-close!',
     'A-N': 'extend_search_prev',
+    'A-Z': ':sh footclient -D %(buffer_parent) yazi 2>/dev/null',
     'A-h': 'select_prev_sibling',
     'A-i': 'select_references_to_symbol_under_cursor',
     'A-j': 'shrink_selection',
@@ -257,8 +260,9 @@ normal_select_mappings: dict[str, Any] = {
     'A-m': 'select_all_siblings',
     'A-n': 'extend_search_next',
     'A-u': 'select_all_children',
-    'A-x': 'ensure_selections_forward',
+    'A-w': 'ensure_selections_forward',
     'B': 'open_above',
+    'C': ':sh footclient -D %(working_directory) lazygit 2>/dev/null',
     'C-.': 'trim_selections',
     'C-/': 'select_first_and_last_chars',
     'C-;': 'split_selection',
@@ -292,6 +296,7 @@ normal_select_mappings: dict[str, Any] = {
     'V': 'select_line_above',
     'W': 'replace_with_yanked',
     'X': 'join_selections_space',
+    'Z': ':sh footclient -D %(working_directory) yazi 2>/dev/null',
     '\\': ':sort',
     '^': 'search_selection',
     '_': 'switch_to_lowercase',
@@ -308,7 +313,7 @@ normal_select_mappings: dict[str, Any] = {
     't': 'undo',
     'u': 'append_mode_same_line',
     'v': 'select_line_below',
-    'x': 'flip_selections',
+    'w': 'flip_selections',
     '|': 'shell_pipe',
     '«': 'rotate_selection_contents_forward',
     '»': 'rotate_selection_contents_backward',
@@ -408,34 +413,27 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
-        'C': ':sh footclient -D %(buffer_parent) lazygit 2>/dev/null',
-        'F': 'file_picker_in_current_buffer_directory',
+        ':': 'diagnostics_picker',
+        ';': 'buffer_picker',
+        'I': 'workspace_symbol_picker',
         'J': 'command_palette',
-        'L': 'workspace_symbol_picker',
+        'K': 'file_picker_in_current_buffer_directory',
+        'L': 'local_search_fuzzy',
         'O': ['add_newline_above', 'move_line_up', 'paste_before'],
-        'V': ':sh footclient -D %(buffer_parent) yazi 2>/dev/null',
-        'a': 'harp_command_get',
-        'c': ':sh footclient -D %(working_directory) lazygit 2>/dev/null',
-        'd': magazine_openers,
-        'e': 'buffer_picker',
-        'f': 'file_picker_in_current_directory',
+        'a': 'harp_command',
+        'c': 'global_search',
+        'd': 'harp_mark',
+        'e': magazine_openers,
+        'f': 'harp_search',
+        'i': 'symbol_picker',
         'j': 'global_search',
-        'k': 'local_search_fuzzy',
-        'l': 'symbol_picker',
+        'k': 'file_picker_in_current_directory',
+        'l': 'local_search_grep',
         'o': ['add_newline_below', 'move_line_down', 'paste_before'],
-        'r': 'harp_relative_file_get',
-        's': 'harp_file_get',
-        'v': ':sh footclient -D %(working_directory) yazi 2>/dev/null',
-        'w': 'harp_register_get',
-        'x': 'harp_search_get',
+        'r': 'harp_relative_file',
+        's': 'harp_file',
+        'w': 'harp_register',
         # [[sort off]]
-        'space': {
-            'a': 'harp_command_set',
-            'r': 'harp_relative_file_set',
-            's': 'harp_file_set',
-            'w': 'harp_register_set',
-            'x': 'harp_search_set',
-        },
     },
     'g': {
         **disable(
@@ -507,7 +505,7 @@ normal_mappings: dict[str, Any] = {
     'l': 'move_char_right',
     'q': 'find_prev_char',
     'r': 'find_next_char',
-    'w': ['collapse_selection', 'replace'],
+    'x': ['collapse_selection', 'replace'],
     # [[sort off]]
     'g': {
         # [[sort on]]
@@ -540,7 +538,7 @@ select_mappings: dict[str, Any] = {
     'l': 'extend_char_right',
     'q': 'extend_prev_char',
     'r': 'extend_next_char',
-    'w': 'replace',
+    'x': 'replace',
     # [[sort off]]
     'g': {
         # [[sort on]]
