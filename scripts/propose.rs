@@ -7,7 +7,7 @@
 // rand = "0.9.0"
 // dirs = "6.0.0"
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/propose.rs
+// /home/axlefublr/fes/dot/scripts/propose.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -75,13 +75,9 @@ fn main() -> anyhow::Result<()> {
         })
         .unwrap();
     let mut buf = String::new();
-    carpholder
-        .read_to_string(&mut buf)
-        .unwrap();
+    carpholder.read_to_string(&mut buf).unwrap();
     let mut carp: HashMap<String, Vec<String>> = serde_json::from_str(&buf).unwrap_or_default();
-    let carplet = carp
-        .entry(octopus.cache_name)
-        .or_default(); // carpet made of carps
+    let carplet = carp.entry(octopus.cache_name).or_default(); // carpet made of carps
     let mut rng = rand::rng();
     let mut input_file = OpenOptions::new()
         .read(true)
@@ -89,15 +85,11 @@ fn main() -> anyhow::Result<()> {
         .open(octopus.path)
         .context("input file doesn't exist")?;
     let mut contents = String::new();
-    input_file
-        .read_to_string(&mut contents)
-        .unwrap();
+    input_file.read_to_string(&mut contents).unwrap();
     let lines = contents.lines();
     let line_count = lines.clone().count();
     let starting_index = match octopus.consider {
-        Consideration::Number(num) => carplet
-            .len()
-            .saturating_sub(num as usize),
+        Consideration::Number(num) => carplet.len().saturating_sub(num as usize),
         Consideration::Percentage(percentage) => carplet
             .len()
             .saturating_sub(line_count * percentage as usize / 100),
@@ -115,8 +107,6 @@ fn main() -> anyhow::Result<()> {
     let prac = serde_json::to_string_pretty(&carp).unwrap();
     carpholder.set_len(0).unwrap();
     carpholder.rewind().unwrap();
-    carpholder
-        .write_all(prac.as_bytes())
-        .unwrap();
+    carpholder.write_all(prac.as_bytes()).unwrap();
     Ok(())
 }

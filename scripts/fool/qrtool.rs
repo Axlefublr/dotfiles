@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/fool/qrtool.rs
+// /home/axlefublr/fes/dot/scripts/fool/qrtool.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -38,15 +38,15 @@ fn main() -> Result<(), Box<dyn Error>> {
             cmd.args(["encode", "-m", "1", "--optimize-png", "4"]);
             cmd.args(args);
             etc(cmd);
-        },
+        }
         "t" => {
             cmd.args(["encode", "-m", "1", "-t", "terminal"]);
             cmd.args(args);
             etc(cmd);
-        },
+        }
         other => {
             cmd.arg(other);
-        },
+        }
     }
     cmd.args(args);
     etc(cmd);

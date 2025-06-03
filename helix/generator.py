@@ -480,7 +480,7 @@ normal_select_mappings: dict[str, Any] = {
         'j': 'goto_definition',
         'k': 'goto_reference',
         'o': 'code_action',
-        'z': [':noop %sh{python ~/r/dot/helix/generator.py}', ':config-reload'],
+        'z': [':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
         # [[sort off]]
     },
 }
@@ -599,7 +599,7 @@ entire_config: dict[str, Any] = {
     'keys': mappings,
 }
 
-with open('/home/axlefublr/r/dot/helix/config.toml', 'w') as file:
+with open('/home/axlefublr/fes/dot/helix/config.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['whitespace']['render']['newline'] = 'none'
@@ -608,7 +608,7 @@ entire_config['keys']['normal'][':'] = ':quit-all!'
 entire_config['keys']['select'][':'] = ':quit-all!'
 
 # hotkeys that may write and close the current buffer now close entire helix without saving
-with open('/home/axlefublr/r/dot/helix/pager.toml', 'w') as file:
+with open('/home/axlefublr/fes/dot/helix/pager.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['gutters-right']['layout'] = []
@@ -616,5 +616,5 @@ entire_config['editor']['gutters-right']['layout'] = []
 # entire_config['editor']['scrolloff'] = 0
 
 # meant for using helix to view a screen; wrapping disabled because of the line ending characters
-with open('/home/axlefublr/r/dot/helix/screen.toml', 'w') as file:
+with open('/home/axlefublr/fes/dot/helix/screen.toml', 'w') as file:
     toml.dump(entire_config, file)

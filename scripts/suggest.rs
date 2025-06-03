@@ -6,7 +6,7 @@
 // dirs = "6.0.0"
 // rand = "0.9.0"
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/suggest.rs
+// /home/axlefublr/fes/dot/scripts/suggest.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -57,22 +57,16 @@ fn main() -> Result<(), Box<dyn Error>> {
         .open(cache_path)
         .unwrap();
     let mut cache = String::new();
-    cache_file
-        .read_to_string(&mut cache)
-        .unwrap();
+    cache_file.read_to_string(&mut cache).unwrap();
     let mut json_schema: JsonSchema = serde_json::from_str(&cache).unwrap_or_default();
 
     // create this namespace's hashmap
-    let entry = json_schema
-        .entry(nuts.namespace)
-        .or_default();
+    let entry = json_schema.entry(nuts.namespace).or_default();
 
     // get lines from passed file
     let contents = fs::read_to_string(nuts.path).unwrap();
     let lines = contents.lines();
-    let lines = lines
-        .map(ToOwned::to_owned)
-        .collect::<HashSet<String>>();
+    let lines = lines.map(ToOwned::to_owned).collect::<HashSet<String>>();
 
     // remove from cache the items that are not in the input lines
     entry.retain(|key, _| lines.contains(key));
@@ -81,13 +75,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     // with this, we make sure there is always at least 1 0 counted item, for calculations below
     // newly added values start at 0 (become privileged) as desired
     // and old values no longer in the input are filtered above
-    if entry
-        .values()
-        .all(|count| *count >= 1)
-    {
-        entry
-            .values_mut()
-            .for_each(|count| *count = 0);
+    if entry.values().all(|count| *count >= 1) {
+        entry.values_mut().for_each(|count| *count = 0);
         eprintln!("new cycle");
     }
 
@@ -98,12 +87,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // IMPORTANT: we assume 0 is the lowest count because we ensure it is by subtracting above
     let picked_line = lines
         .into_iter()
-        .filter(|line| {
-            entry
-                .entry(line.to_owned())
-                .or_default()
-                == &mut 0
-        })
+        .filter(|line| entry.entry(line.to_owned()).or_default() == &mut 0)
         .choose(&mut rng)
         .unwrap();
 
@@ -116,8 +100,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     let cache = serde_json::to_string_pretty(&json_schema).unwrap();
     cache_file.set_len(0).unwrap();
     cache_file.rewind().unwrap();
-    cache_file
-        .write_all(cache.as_bytes())
-        .unwrap();
+    cache_file.write_all(cache.as_bytes()).unwrap();
     Ok(())
 }

@@ -19,7 +19,7 @@ magazine_openers: dict[str, str] = {
     'f': ':open ~/.local/share/magazine/f',
     'g': ':open ~/.local/share/magazine/g',
     'h': ':open ~/.local/share/magazine/h',
-    'j': ':open ~/r/dot/project.txt',
+    'j': ':open ~/fes/dot/project.txt',
     'k': ':open ~/.local/share/magazine/k',
     'l': ':open ~/.local/share/magazine/l',
     ';': ':open ~/.local/share/magazine/semicolon',

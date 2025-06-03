@@ -63,7 +63,7 @@ function _rust_init -d 'Add starting pieces of a rust project in the current dir
     gq || return 1
     cargo init
     echo 'copying default Cargo.toml here' >&2
-    cp -f ~/r/dot/defconf/rs/cargo.toml ./Cargo.toml
+    cp -f ~/fes/dot/defconf/rs/cargo.toml ./Cargo.toml
     set -l basenam (path basename $PWD)
     echo "replacing templatings with $basenam" >&2
     sd '%project_name%' $basenam Cargo.toml
@@ -76,7 +76,7 @@ funcsave _rust_init >/dev/null
 
 function _rust_fmt --description 'Bring in format config and format with it'
     gq || return 1
-    lnkj $argv ~/r/dot/defconf/rs/rustfmt.toml ./.rustfmt.toml
+    lnkj $argv ~/fes/dot/defconf/rs/rustfmt.toml ./.rustfmt.toml
     cargo fmt
 end
 funcsave _rust_fmt >/dev/null
@@ -84,7 +84,7 @@ funcsave _rust_fmt >/dev/null
 function _rust_ci --description 'Bring in on tag push github action'
     gq || return 1
     mkdir -p ./.github/workflows &&
-        cp -f ~/r/dot/defconf/rs/ghaction.yml ./.github/workflows/ci.yml &&
+        cp -f ~/fes/dot/defconf/rs/ghaction.yml ./.github/workflows/ci.yml &&
         sd your-project-name (basename $PWD) ./.github/workflows/ci.yml
 end
 funcsave _rust_ci >/dev/null

@@ -11,9 +11,9 @@ function wks
 
     if not test -d ~/.cache/wks/$script_name
         mkdir -p ~/.cache/wks/$script_name/{src,target}
-        cp -f ~/r/dot/defconf/wks/blank.rs ~/.cache/wks/$script_name/src/main.rs
+        cp -f ~/fes/dot/defconf/wks/blank.rs ~/.cache/wks/$script_name/src/main.rs
         sd %% "$script_path" ~/.cache/wks/$script_name/src/main.rs
-        cp -f ~/r/dot/defconf/wks/blank.toml ~/.cache/wks/$script_name/Cargo.toml
+        cp -f ~/fes/dot/defconf/wks/blank.toml ~/.cache/wks/$script_name/Cargo.toml
     end
     if not test -d ~/.cache/wks/$script_name/target
         mkdir -p ~/.cache/wks/$script_name/target

@@ -84,7 +84,7 @@ end
 funcsave flour_hold >/dev/null
 
 function fn_clear
-    set list (cat ~/r/dot/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
+    set list (cat ~/fes/dot/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
     for file in ~/.config/fish/functions/*.fish
         set function_name (basename $file '.fish')
         if not contains $function_name $list

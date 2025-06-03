@@ -27,8 +27,8 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout elixir
 sudo pacman -S --needed --noconfirm --disable-download-timeout fish
 chsh -s /usr/bin/fish
 mkdir -p ~/.config/fish
-ln -sf ~/r/dot/fish/config.fish ~/.config/fish/config.fish
-for file in ~/r/dot/fish/fun/*.fish
+ln -sf ~/fes/dot/fish/config.fish ~/.config/fish/config.fish
+for file in ~/fes/dot/fish/fun/*.fish
     $file
 end
 
@@ -40,7 +40,7 @@ yarn install
 set -Ux fish_lsp_enabled_handlers formatting complete hover rename definition references diagnostics signatureHelp codeAction index
 # set -Ux fish_lsp_disabled_handlers
 set -Ux fish_lsp_format_tabsize 4
-set -Ux fish_lsp_all_indexed_paths ~/r/dot/fish/fun ~/.config/fish /usr/share/fish
+set -Ux fish_lsp_all_indexed_paths ~/fes/dot/fish/fun ~/.config/fish /usr/share/fish
 # set -Ux fish_lsp_modifiable_paths
 # 2003 is "universal variable defined not in interactive session"
 # 2001 is something about single quotes being used for an expandable thing
@@ -88,7 +88,7 @@ fish_add_path "$HOME/.local/share/gem/ruby/3.3.0/bin"
 
 gem install solargraph
 mkdir -p ~/.config/rubocop
-ln -sf ~/r/dot/.rubocop.yml ~/.config/rubocop/config.yml
+ln -sf ~/fes/dot/.rubocop.yml ~/.config/rubocop/config.yml
 
 #--------------------rust--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout rustup
@@ -100,7 +100,7 @@ rustup update
 rustup default stable
 rustup toolchain install nightly
 cargo login
-ln -sf ~/r/dot/cargo.toml ~/.cargo/config.toml
+ln -sf ~/fes/dot/cargo.toml ~/.cargo/config.toml
 
 sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-binstall
 sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-update
@@ -108,7 +108,7 @@ cargo binstall -y cargo-quickinstall
 
 rustup component add rust-analyzer
 mkdir -p ~/.config/rustfmt
-ln -sf ~/r/dot/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
+ln -sf ~/fes/dot/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
 
 #----------------------stew----------------------
 paru -Sa --needed --disable-download-timeout stew-bin
@@ -130,12 +130,12 @@ opam install utop
 
 #--------------------python--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout python3 python-docs
-set -Ux PYTHONSTARTUP ~/r/dot/pyrc.py
+set -Ux PYTHONSTARTUP ~/fes/dot/pyrc.py
 
 paru -Sa --needed --noconfirm --disable-download-timeout basedpyright-git
 sudo pacman -S ruff
 mkdir -p ~/.config/ruff
-ln -sf ~/r/dot/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
+ln -sf ~/fes/dot/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
 
 #---------------------uv---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout uv

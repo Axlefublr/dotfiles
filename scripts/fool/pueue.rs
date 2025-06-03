@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/fool/pueue.rs
+// /home/axlefublr/fes/dot/scripts/fool/pueue.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -51,34 +51,34 @@ fn main() -> Result<(), Box<dyn Error>> {
     match &subcommand[..] {
         "g" => {
             cmd.arg("group");
-        },
+        }
         "cl" => {
             cmd.arg("clean");
-        },
+        }
         "cls" => {
             cmd.arg("clean").arg("-s");
-        },
+        }
         "ll" => {
             cmd.arg("parallel");
-        },
+        }
         "u" => {
             cmd.arg("pause");
-        },
+        }
         "r" => {
             cmd.arg("start");
-        },
+        }
         "s" => {
             cmd.arg("status");
-        },
+        }
         "l" => {
             cmd.arg("log");
-        },
+        }
         "a" => {
             cmd.arg("add");
-        },
+        }
         other => {
             cmd.arg(other);
-        },
+        }
     }
     cmd.args(args);
     cmd.exec();

@@ -56,7 +56,7 @@ end
 funcsave edit_clipboard_image >/dev/null
 
 function ffh
-    set -l picked_function (rg '^function ffmpeg-' ~/r/dot/fish/fun/ffmpeg.fish | string match -gr 'ffmpeg-(.*)' | string replace -a '-' ' ' | fzf)
+    set -l picked_function (rg '^function ffmpeg-' ~/fes/dot/fish/fun/ffmpeg.fish | string match -gr 'ffmpeg-(.*)' | string replace -a '-' ' ' | fzf)
     test $status -ne 0 && return 1
     set picked_function (string replace -a ' ' '-' $picked_function)
     ffmpeg-$picked_function
@@ -118,14 +118,14 @@ funcsave sts_boss >/dev/null
 function piped_screen_editor
     set -l file /tmp/cami-helix-overlay
     read -z | sd -f=m '[ \\t▐]+$' '' >$file
-    footclient -N helix -c ~/r/dot/helix/screen.toml $file
+    footclient -N helix -c ~/fes/dot/helix/screen.toml $file
 end
 funcsave piped_screen_editor >/dev/null
 
 function piped_window_editor
     set -l file /tmp/cami-helix-overlay
     read -z | sd -f=m '[ \\t▐]+$' '' >$file
-    footclient -N helix -c ~/r/dot/helix/pager.toml $file
+    footclient -N helix -c ~/fes/dot/helix/pager.toml $file
 end
 funcsave piped_window_editor >/dev/null
 

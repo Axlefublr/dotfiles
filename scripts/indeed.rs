@@ -2,7 +2,7 @@
 // [dependencies]
 // clap = { version = '4.5', features = ['derive', 'wrap_help'] }
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/indeed.rs
+// /home/axlefublr/fes/dot/scripts/indeed.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -42,15 +42,15 @@ fn main() -> Result<(), Box<dyn Error>> {
             .unwrap();
         fn should_fix_trailing_newline(file: &mut File) -> Option<bool> {
             let mut buf = [0u8];
-            file.seek(io::SeekFrom::End(-1))
-                .ok()?; // happens if the file is empty; we shouldn't fix the newline
+            file.seek(io::SeekFrom::End(-1)).ok()?; // happens if the file is empty; we shouldn't fix the newline
             if file.read_exact(&mut buf).is_err() {
                 // happens if the file is not empty, but we can't read a single byte...
                 return Some(true); // in which case it's safer to assume that we should add an extra newline: removing a dangling newline is less annoying than untangling two joined lines
             };
             Some(buf != [b'\n']) // if last char *is* a newline, we shouldn't fix
         }
-        let should_fix_trailing_newline = should_fix_trailing_newline(&mut file).unwrap_or_default();
+        let should_fix_trailing_newline =
+            should_fix_trailing_newline(&mut file).unwrap_or_default();
         if should_fix_trailing_newline {
             writeln!(file).unwrap();
         }
@@ -64,16 +64,10 @@ fn main() -> Result<(), Box<dyn Error>> {
             .open(args.path)
             .unwrap();
         let mut buf = String::new();
-        file.read_to_string(&mut buf)
-            .unwrap();
+        file.read_to_string(&mut buf).unwrap();
         let mut lines: Vec<String> = buf
             .lines()
-            .filter(|&line| {
-                !args
-                    .lines
-                    .iter()
-                    .any(|passed_line| passed_line == line)
-            })
+            .filter(|&line| !args.lines.iter().any(|passed_line| passed_line == line))
             .map(ToOwned::to_owned)
             .collect();
         lines.extend_from_slice(&args.lines);

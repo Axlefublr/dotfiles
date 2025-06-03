@@ -45,5 +45,5 @@ fish_vi_cursor
 zoxide init fish | source
 
 if status is-interactive
-    source ~/r/dot/fish/abbreviations.fish
+    source ~/fes/dot/fish/abbreviations.fish
 end

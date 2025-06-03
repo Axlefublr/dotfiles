@@ -2,7 +2,7 @@
 // [dependencies]
 // # clap = { version = "4.5.23", features = ["wrap_help", "derive"] }
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/strip-wrapper-type.rs
+// /home/axlefublr/fes/dot/scripts/strip-wrapper-type.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
@@ -42,9 +42,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         _ => unimplemented!("(){{}}<>[]||"),
     };
     let mut the = String::new();
-    let stdin = stdin()
-        .read_to_string(&mut the)
-        .expect("stdin");
+    let stdin = stdin().read_to_string(&mut the).expect("stdin");
     let left = the.find(surrounding_left);
     let right = the.rfind(surrounding_right);
     print!(

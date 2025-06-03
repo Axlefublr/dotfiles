@@ -35,13 +35,12 @@ git clone https://github.com/Axlefublr/job
 
 fish_add_path ~/fes/bin
 fish_add_path ~/fes/bin/wks
-fish_add_path ~/r/dot/fish
-fish_add_path ~/r/dot/fish/fun
-fish_add_path ~/r/dot/scripts
-fish_add_path ~/r/dot/scripts/trenchcoat
-fish_add_path ~/r/dot/scripts/scriptister
-fish_add_path ~/r/dot/scripts/fool
-fish_add_path ~/r/dot/scripts/services
+fish_add_path ~/fes/dot/fish
+fish_add_path ~/fes/dot/fish/fun
+fish_add_path ~/fes/dot/scripts
+fish_add_path ~/fes/dot/scripts/trenchcoat
+fish_add_path ~/fes/dot/scripts/scriptister
+fish_add_path ~/fes/dot/scripts/fool
 
 cd ~/fes/ork
 git clone https://github.com/Axlefublr/helix

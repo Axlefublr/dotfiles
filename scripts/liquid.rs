@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/liquid.rs
+// /home/axlefublr/fes/dot/scripts/liquid.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -30,11 +30,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .skip(1)
         .map(|arg| {
             let mut split = arg.split('/');
-            let current_cm = split
-                .next()
-                .unwrap()
-                .parse::<f32>()
-                .unwrap();
+            let current_cm = split.next().unwrap().parse::<f32>().unwrap();
             let max_cm = split
                 .next()
                 .and_then(|the| the.parse::<f32>().ok())

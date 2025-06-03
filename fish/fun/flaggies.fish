@@ -14,5 +14,5 @@ alias --save rg 'rg --engine auto' >/dev/null
 alias --save rsync 'rsync --mkpath -P' >/dev/null
 alias --save termdown 'termdown -W -f roman' >/dev/null
 alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git -I bin -I obj -I target -I .vscode' >/dev/null
-alias --save tuisky 'tuisky -c ~/r/dot/tuisky.toml' >/dev/null
+alias --save tuisky 'tuisky -c ~/fes/dot/tuisky.toml' >/dev/null
 alias --save unimatrix 'unimatrix -s 95 -abf' >/dev/null

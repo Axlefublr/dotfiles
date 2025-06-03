@@ -25,7 +25,7 @@ function magazine_resolve
     end
 
     if test $path = j
-        set path ~/r/dot/project.txt
+        set path ~/fes/dot/project.txt
     else if test $path = J
         switch $action
             case get cut truncate randomize filter copy
@@ -271,6 +271,6 @@ alias --save sj-set 'sj.rs ~/fes/ork ~/fes/lai' >/dev/null
 alias --save sj 'sj-set -ieb | ov --section-header --section-delimiter ":\\$"' >/dev/null
 
 function pick_project_path
-    echo ~/r/(sj-set $argv | fuzzel -d 2>/dev/null)/project.txt
+    echo ~/fes/(sj-set $argv | fuzzel -d 2>/dev/null)/project.txt
 end
 funcsave pick_project_path >/dev/null

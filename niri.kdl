@@ -231,7 +231,7 @@ binds {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "~/r/dot/scripts/setup/login.fish"
+spawn-at-startup "~/fes/dot/scripts/setup/login.fish"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
