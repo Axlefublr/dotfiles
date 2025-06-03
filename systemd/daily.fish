@@ -17,7 +17,7 @@ indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs remember 50% ~/.lo
 
 cd ~/auto
 
-cp -fr ~/.local/share/harp/harp.yml ~/auto/harp.yml
+cp -fr ~/.local/share/harp/harp.jsonc ~/auto/harp.jsonc
 git add harp.yml
 and git commit -m 'sync harp'
 

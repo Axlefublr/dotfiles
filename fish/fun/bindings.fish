@@ -46,9 +46,9 @@ end
 funcsave _delete_commandline_or_exit >/dev/null
 
 function _harp_get
-    read -n 1 -P 'harp get: ' -l key
+    read -n 1 -P 'harp get: ' -l key || return
     not test "$key" && return
-    set -l harp (harp get harp_dirs "$key" --path | string replace '~' $HOME)
+    set -l harp (harp get harp_dirs "$key" | string replace '~' $HOME)
     if test "$harp"
         cd "$harp"
         set -f harp_success $status
@@ -63,9 +63,9 @@ end
 funcsave _harp_get >/dev/null
 
 function _harp_set
-    read -n 1 -P 'harp set: ' -l key
+    read -n 1 -P 'harp set: ' -l key || return
     not test "$key" && return
-    set -l harp (harp update harp_dirs "$key" --path (string replace $HOME '~' $PWD))
+    set -l harp (harp replace harp_dirs "$key" (string replace $HOME '~' $PWD))
     commandline -f repaint
 end
 funcsave _harp_set >/dev/null
@@ -134,8 +134,12 @@ function fish_user_key_bindings
     bind alt-. _man_the_commandline
     bind alt-comma _help_the_commandline
     bind alt-enter expand-abbr insert-line-under
+    bind alt-h lazygit
+    bind alt-i helix
+    bind alt-l yazi
     bind alt-m _harp_get
     bind ctrl-\' _wrap_in_pueue
+    bind ctrl-alt-i 'helix .'
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-f 'zi && commandline -f repaint'

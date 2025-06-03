@@ -208,7 +208,7 @@ funcsave magazine_count_anki_cards >/dev/null
 #--------------------------------------------not really magazines--------------------------------------------
 
 function bookmark_open
-    set -l bookmark (harp get bookmarks $argv[1] --path)
+    set -l bookmark (harp get bookmarks $argv[1])
     not test "$bookmark"
     and begin
         notify-send -t 2000 "bookmark $argv[1] doesn't exist"
@@ -220,27 +220,10 @@ end
 funcsave bookmark_open >/dev/null
 
 function bookmark_set
-    harp update bookmarks $argv[1] --path $argv[2]
+    harp replace bookmarks $argv[1] $argv[2]
     notify-send -t 2000 "set bookmark $argv[1] to $argv[2]"
 end
 funcsave bookmark_set >/dev/null
-
-function clipboard_harp_get -a register
-    set output (harp get clipboard $register --extra)
-    if not test $status -eq 0
-        notify-send -t 2000 "clipboard harp $register is unset"
-        return 1
-    end
-    echo "$output[1]" | copy
-    notify-send -t 2000 "get $output[1]"
-end
-funcsave clipboard_harp_get >/dev/null
-
-function clipboard_harp_set -a register
-    harp update clipboard $register --extra "$(ypoc)"
-    notify-send -t 2000 "set clipboard harp $register"
-end
-funcsave clipboard_harp_set >/dev/null
 
 #--------------------------------------------------internal--------------------------------------------------
 

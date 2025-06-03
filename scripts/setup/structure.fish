@@ -47,7 +47,7 @@ cd ~/r/forks
 git clone https://github.com/Axlefublr/helix
 
 cd ~/.local/share
-cp -f ~/auto/harp.yml ~/.local/share/harp/harp.yml
+cp -f ~/auto/harp.jsonc ~/.local/share/harp/harp.jsonc
 cp -f ~/auto/loago.json ~/.local/share/loago/loago.json
 cp -f ~/auto/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 git clone https://github.com/Axlefublr/magazine
