@@ -214,7 +214,7 @@ name = "rust"
 "<" = ">"
 
 [language-server.rust-analyzer]
-command = "/usr/lib/rustup/bin/rust-analyzer"
+command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
 # [[sort on]]

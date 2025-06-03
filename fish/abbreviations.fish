@@ -1,4 +1,4 @@
-# [[sort on]]
+#[[sort on]]
 abbr -a -c gh gh-depth-1 -r df -- '-- --depth 1'
 abbr -a -c magick magick-webp-lossless -r loss -- '-define webp:lossless=true'
 abbr -a -c systemctl systemctl-daemon-reload -r dr daemon-reload
@@ -10,8 +10,7 @@ abbr -a -c systemctl systemctl-status -r s status
 abbr -a -c systemctl systemctl-stop -r o stop
 abbr -a .. --regex '^\.\.+$' --function multiple_dot
 abbr -a E 'sudo -E helix'
-abbr -a L yazi
-abbr -a aa 'shuf ~/.local/share/magazine/a &| ov'
+abbr -a a 'shuf ~/.local/share/magazine/a &| ov'
 abbr -a at alien_temple
 abbr -a bl bluetoothctl
 abbr -a c lazygit
@@ -53,5 +52,4 @@ abbr -a trr trash-restore
 abbr -a tu 'systemctl --user'
 abbr -a tz 'tz -q'
 abbr -a u pueue
-abbr -a v yazi_cd
 abbr -a x exit

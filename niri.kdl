@@ -308,7 +308,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="anki" title="Import File$"
+    match app-id="anki" title="Import File"
     match app-id="anki" title="Options for "
     match app-id="anki" title="Change Note Type"
     match app-id="anki" title="Preferences"
@@ -316,6 +316,7 @@ window-rule {
     match app-id="anki" title="Card Types"
     match app-id="^python$" title="^Import$"
     match app-id="firefox$" title="^(File Upload)|(Save Image)|(Enter name of file to save to…)$"
+    match app-id="anki" title="Custom Study"
     open-floating false
 }
 
@@ -350,6 +351,11 @@ window-rule {
     match app-id="^foot"  title="^flour-half"
     match app-id="anki" title="Note Types"
     default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="anki" title="Custom Study"
+    default-column-width { proportion 0.33333; }
 }
 
 window-rule {

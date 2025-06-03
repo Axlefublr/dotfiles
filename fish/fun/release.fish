@@ -131,7 +131,7 @@ function _rust_release
         echo 'release notes empty' >&2
         return 1
     end
-    if not git status --porcelain | rg RELEASE
+    if not git status --porcelain | rg -q RELEASE
         confirm.rs 'have you updated RELEASE.md?' [j]es [k]o | read -l response
         test "$response" = j || return 1
     end

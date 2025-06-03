@@ -24,6 +24,11 @@ function b
 end
 funcsave b >/dev/null
 
+function cau -w cargo -d 'cargo, but pueueify'
+    pueue add -- "cargo $argv"
+end
+funcsave cau >/dev/null
+
 function confirm -a message
     not set -q message && return 121
     not set -q argv[3] && return 121
