@@ -136,7 +136,7 @@ function fish_user_key_bindings
     bind alt-enter expand-abbr insert-line-under
     bind alt-h lazygit
     bind alt-i helix
-    bind alt-l yazi
+    bind alt-l yazi_cd
     bind alt-m _harp_get
     bind ctrl-\' _wrap_in_pueue
     bind ctrl-alt-i 'helix .'

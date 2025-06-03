@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/zat.rs
+// /home/axlefublr/fes/dot/scripts/zat.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -54,14 +54,27 @@ impl FromStr for LineRange {
         let start = first
             .parse::<usize>()
             .ok()
-            .map(|the| if zero_indexed { the } else { the.saturating_sub(1) })
+            .map(|the| {
+                if zero_indexed {
+                    the
+                } else {
+                    the.saturating_sub(1)
+                }
+            })
             .unwrap_or(0);
-        let end = second
-            .parse::<usize>()
-            .ok()
-            .map(|the| if zero_indexed { the } else { the.saturating_sub(1) });
+        let end = second.parse::<usize>().ok().map(|the| {
+            if zero_indexed {
+                the
+            } else {
+                the.saturating_sub(1)
+            }
+        });
 
-        Ok(Self { negated, start, end })
+        Ok(Self {
+            negated,
+            start,
+            end,
+        })
     }
 }
 
@@ -71,21 +84,13 @@ fn main() -> Result<(), Box<dyn Error>> {
     let input_pointer = args.by_ref().nth(1).unwrap();
     let input: Vec<String> = {
         if &input_pointer[..] == "-" {
-            io::stdin()
-                .lines()
-                .map(Result::unwrap)
-                .collect()
+            io::stdin().lines().map(Result::unwrap).collect()
         } else {
             let contents = fs::read_to_string(PathBuf::from(input_pointer)).unwrap();
-            contents
-                .lines()
-                .map(str::to_owned)
-                .collect()
+            contents.lines().map(str::to_owned).collect()
         }
     };
-    let ranges: Vec<_> = args
-        .map(|arg| LineRange::from_str(&arg).unwrap())
-        .collect();
+    let ranges: Vec<_> = args.map(|arg| LineRange::from_str(&arg).unwrap()).collect();
     'outer: for (index, line) in input.into_iter().enumerate() {
         for range in &ranges {
             if range.negated {

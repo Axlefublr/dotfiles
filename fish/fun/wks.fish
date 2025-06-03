@@ -6,8 +6,8 @@ function wks
     set -l script_path $argv[1]
     set -l script_name (path basename $script_path)
 
-    mkdir -p ~/r/wks/src
-    cd ~/r/wks
+    mkdir -p ~/fes/wks/src
+    cd ~/fes/wks
 
     if not test -d ~/.cache/wks/$script_name
         mkdir -p ~/.cache/wks/$script_name/{src,target}

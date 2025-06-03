@@ -267,7 +267,7 @@ funcsave _magazine_commit >/dev/null
 
 #-------------------------------------------------projectual-------------------------------------------------
 
-alias --save sj-set 'sj.rs ~/r/forks ~/r/proj' >/dev/null
+alias --save sj-set 'sj.rs ~/fes/ork ~/fes/lai' >/dev/null
 alias --save sj 'sj-set -ieb | ov --section-header --section-delimiter ":\\$"' >/dev/null
 
 function pick_project_path

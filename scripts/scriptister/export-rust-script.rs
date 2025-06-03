@@ -25,7 +25,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .nth(1)
         .and_then(|maybe_filepath| maybe_filepath.parse().ok());
 
-    let main_file = fs::read_to_string("/home/axlefublr/r/wks/src/main.rs").unwrap();
+    let main_file = fs::read_to_string("/home/axlefublr/fes/wks/src/main.rs").unwrap();
     let main_file = main_file.lines();
 
     let extract_filepath_from_lines = || -> PathBuf {
@@ -41,7 +41,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             .expect("first line should be a path")
     };
 
-    let cargo_file = fs::read_to_string("/home/axlefublr/r/wks/Cargo.toml").unwrap();
+    let cargo_file = fs::read_to_string("/home/axlefublr/fes/wks/Cargo.toml").unwrap();
     let cargo_file = cargo_file
         .lines()
         .skip_while(|&line| line != "[dependencies]")
@@ -51,9 +51,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let target_file_path = maybe_filepath.unwrap_or_else(extract_filepath_from_lines);
 
-    let rest_of_file: String = main_file
-        .collect::<Vec<_>>()
-        .join("\n");
+    let rest_of_file: String = main_file.collect::<Vec<_>>().join("\n");
 
     let mut target_file = OpenOptions::new()
         .create(true)
@@ -68,9 +66,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     )
     .unwrap();
 
-    let target_file_path_name = target_file_path
-        .file_name()
-        .unwrap();
+    let target_file_path_name = target_file_path.file_name().unwrap();
 
     Command::new("compile-rust-script.fish")
         .arg(target_file_path_name)

@@ -5,7 +5,7 @@ Requisite=graphical-session.target
 
 [Service]
 Type=exec
-ExecStart=/home/axlefublr/r/binaries/axleizer
+ExecStart=env axleizer
 
 [Install]
 UpheldBy=graphical-session.target

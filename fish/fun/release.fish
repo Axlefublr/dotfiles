@@ -42,8 +42,8 @@ end
 funcsave _rust_check >/dev/null
 
 function _repo_create
-    echo 'cd ~/r/proj' >&2
-    cd ~/r/proj
+    echo 'cd ~/fes/lai' >&2
+    cd ~/fes/lai
     echo "repo name is: $argv[1]" >&2
     read -P 'repo description (leave empty for none):' -l repo_description || return 130
     test "$repo_description" && set -l description_flag -d "$repo_description"
@@ -98,8 +98,8 @@ function _rust_bin -a message other_name
         set -f name (basename $PWD)
     end
     cargo build -r
-    and cp -f ./target/release/$name ~/r/binaries/$name
-    git -C ~/r/binaries add $name && git -C ~/r/binaries commit -m "$name: $message"
+    and cp -f ./target/release/$name ~/fes/bin/$name
+    git -C ~/fes/bin add $name && git -C ~/fes/bin commit -m "$name: $message"
 end
 funcsave _rust_bin >/dev/null
 

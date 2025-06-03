@@ -4,7 +4,7 @@
 // anyhow = "1.0.98"
 // console = "0.15.11"
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/confirm.rs
+// /home/axlefublr/fes/dot/scripts/confirm.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -69,10 +69,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .collect::<Vec<_>>()
         .join(" / ");
     eprint!("{}: ", alternatives);
-    io::stdout()
-        .lock()
-        .flush()
-        .unwrap();
+    io::stdout().lock().flush().unwrap();
     let term = console::Term::stderr();
     loop {
         let taken_char = term.read_char().unwrap();

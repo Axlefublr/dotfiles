@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/shift.rs
+// /home/axlefublr/fes/dot/scripts/shift.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -36,8 +36,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .open(path)
         .unwrap();
     let mut contents = String::new();
-    file.read_to_string(&mut contents)
-        .expect("read file");
+    file.read_to_string(&mut contents).expect("read file");
     let mut lines = contents.lines();
     for line in lines.by_ref().take(count) {
         println!("{}", line);

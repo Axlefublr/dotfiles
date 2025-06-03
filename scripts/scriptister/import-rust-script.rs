@@ -27,11 +27,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let cargo_file = lines
         .iter()
         .take_while(|&&line| line != "// end Cargo.toml")
-        .map(|line| {
-            line.chars()
-                .skip(3)
-                .collect::<String>()
-        })
+        .map(|line| line.chars().skip(3).collect::<String>())
         .collect::<Vec<_>>()
         .join("\n");
 
@@ -43,9 +39,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .collect::<Vec<_>>()
         .join("\n");
 
-    let script_name = script_path
-        .file_name()
-        .expect("no script name");
+    let script_name = script_path.file_name().expect("no script name");
 
     let cache_dir = {
         let mut the = PathBuf::from("/home/axlefublr/.cache/wks/");

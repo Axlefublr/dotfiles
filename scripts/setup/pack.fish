@@ -34,8 +34,8 @@ end
 
 sudo pacman -S --needed --noconfirm --disable-download-timeout fisher
 
-git clone https://github.com/ndonfris/fish-lsp ~/r/forks/fish-lsp
-cd ~/r/forks/fish-lsp
+git clone https://github.com/ndonfris/fish-lsp ~/fes/ork/fish-lsp
+cd ~/fes/ork/fish-lsp
 yarn install
 set -Ux fish_lsp_enabled_handlers formatting complete hover rename definition references diagnostics signatureHelp codeAction index
 # set -Ux fish_lsp_disabled_handlers

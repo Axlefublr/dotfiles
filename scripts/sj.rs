@@ -4,7 +4,7 @@
 // anyhow = "1.0.97"
 // dirs = "6.0.0"
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/sj.rs
+// /home/axlefublr/fes/dot/scripts/sj.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -107,14 +107,7 @@ fn main() -> anyhow::Result<()> {
             continue;
         }
         if nuts.basename {
-            println!(
-                "{}:",
-                project
-                    .path
-                    .file_name()
-                    .unwrap()
-                    .to_string_lossy()
-            )
+            println!("{}:", project.path.file_name().unwrap().to_string_lossy())
         } else {
             let path = project
                 .path

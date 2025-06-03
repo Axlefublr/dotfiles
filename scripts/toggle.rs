@@ -5,7 +5,7 @@
 // clap = { version = "4.5.37", features = ["derive"] }
 // dirs = "6.0.0"
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/toggle.rs
+// /home/axlefublr/fes/dot/scripts/toggle.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -36,11 +36,8 @@ struct Tuna {
 
 type CacheType = HashMap<String, Option<String>>;
 
-static JSON_PATH: LazyLock<PathBuf> = LazyLock::new(|| {
-    dirs::cache_dir()
-        .unwrap()
-        .join("toggle.rs.jsonc")
-});
+static JSON_PATH: LazyLock<PathBuf> =
+    LazyLock::new(|| dirs::cache_dir().unwrap().join("toggle.rs.jsonc"));
 
 fn main() -> Result<(), Box<dyn Error>> {
     let tuna = Tuna::parse();
@@ -52,13 +49,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         .open(&*JSON_PATH)
         .unwrap();
     let mut buf = String::new();
-    json_file
-        .read_to_string(&mut buf)
-        .unwrap();
+    json_file.read_to_string(&mut buf).unwrap();
     let mut cache_model: CacheType = serde_json::from_str(&buf).unwrap_or_default();
-    let entry = cache_model
-        .entry(tuna.namespace)
-        .or_default();
+    let entry = cache_model.entry(tuna.namespace).or_default();
     *entry = Some(
         entry
             .as_ref()

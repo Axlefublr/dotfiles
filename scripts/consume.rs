@@ -2,7 +2,7 @@
 // [dependencies]
 // clap = { version = "4.5.38", features = ["derive"] }
 // end Cargo.toml
-// /home/axlefublr/r/dot/scripts/consume.rs
+// /home/axlefublr/fes/dot/scripts/consume.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]

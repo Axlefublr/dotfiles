@@ -111,7 +111,7 @@ function sts_boss
         return 1
     end
     mkdir -p ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods
-    cp -f ~/r/binaries/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
+    cp -f ~/fes/bin/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
 end
 funcsave sts_boss >/dev/null
 

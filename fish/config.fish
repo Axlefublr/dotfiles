@@ -36,7 +36,7 @@ set -gx fish_cursor_unknown line
 # [[sort off]]
 
 # [[sort on]]
-set -gx TELOXIDE_TOKEN (cat ~/r/info/pswds/axleizer-api)
+set -gx TELOXIDE_TOKEN (cat ~/fes/foe/pswds/axleizer-api)
 set -gx http_proxy http://(cat ~/.local/share/magazine/p)[1]
 set -gx https_proxy http://(cat ~/.local/share/magazine/p)[1]
 # [[sort off]]

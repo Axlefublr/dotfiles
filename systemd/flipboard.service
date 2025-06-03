@@ -1,4 +1,4 @@
 [Service]
 Type=oneshot
 TimeoutStartSec=1
-ExecStart=%h/r/dot/scripts/flipboard.fish
+ExecStart=%h/fes/dot/scripts/flipboard.fish

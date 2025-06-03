@@ -41,7 +41,7 @@ cp -fr ~/.local/share/zoxide/db.zo ~/auto/zoxide.db
 git add zoxide.db
 and git commit -m 'sync zoxide'
 
-set -l autocommitted ~/i/twemoji-svg ~/i/e ~/i/tools ~/r/binaries ~/r/backup ~/r/info
+set -l autocommitted ~/i/twemoji-svg ~/i/e ~/i/tools ~/fes/bin ~/fes/ack ~/fes/foe
 for dir in $autocommitted
     cd $dir
     autocommit
@@ -51,7 +51,7 @@ sleep 10 # otherwise, as soon as I wake my pc from sleep, it hasn't connected to
 
 # nom refresh
 
-for dir in ~/r/forks/*
+for dir in ~/fes/ork/*
     git -C $dir fetch
     git -C $dir fetch upstream
 end

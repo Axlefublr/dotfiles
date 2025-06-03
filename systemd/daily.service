@@ -4,4 +4,4 @@ After=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/axlefublr/r/dot/systemd/daily.fish
+ExecStart=/home/axlefublr/fes/dot/systemd/daily.fish

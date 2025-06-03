@@ -55,34 +55,34 @@
     "capslock": true
   },
   "custom/meat": {
-    "exec": "/home/axlefublr/r/dot/waybar/meat.fish",
+    "exec": "/home/axlefublr/fes/dot/waybar/meat.fish",
     "format": "{}",
     "restart-interval": 60,
     "hide-empty-text": true
   },
   "custom/magazines": {
-    "exec": "/home/axlefublr/r/dot/waybar/magazines.fish",
+    "exec": "/home/axlefublr/fes/dot/waybar/magazines.fish",
     "format": "{}",
     "hide-empty-text": true
   },
   "custom/cursor": {
-    "exec": "/home/axlefublr/r/dot/waybar/cursor.fish",
+    "exec": "/home/axlefublr/fes/dot/waybar/cursor.fish",
     "format": "{}",
     "hide-empty-text": true
   },
   "custom/statusline": {
-    "exec": "/home/axlefublr/r/dot/waybar/statusline.fish",
+    "exec": "/home/axlefublr/fes/dot/waybar/statusline.fish",
     "format": "{}",
     "hide-empty-text": true
   },
   "custom/cha-fan": {
-    "exec": "/home/axlefublr/r/dot/waybar/cha-fan.fish",
+    "exec": "/home/axlefublr/fes/dot/waybar/cha-fan.fish",
     "format": "{}",
     "interval": 5,
     "hide-empty-text": true
   },
   "custom/cpu-fan": {
-    "exec": "/home/axlefublr/r/dot/waybar/cpu-fan.fish",
+    "exec": "/home/axlefublr/fes/dot/waybar/cpu-fan.fish",
     "format": "{}",
     "interval": 5,
     "hide-empty-text": true

@@ -18,27 +18,27 @@ hooks:
 
 systemd: systemd-setup
     #!/usr/bin/env fish
-    set -l user_units ~/r/dot/systemd/minute.{service,timer} \
-        ~/r/dot/systemd/daily.{service,timer} \
-        ~/r/dot/systemd/ten-minutes.{service,timer} \
-        ~/r/dot/systemd/wake.{path,service} \
-        ~/r/dot/systemd/frizz.{path,service} \
-        ~/r/dot/systemd/axleizer.service
-    for unit in $user_units
-        ln -sf $unit ~/.config/systemd/user/
-    end
+    not test -f /usr/lib/systemd/system-sleep/suspend-handler.fish && sudo ln -f ~/fes/dot/systemd/suspend-handler.fish /usr/lib/systemd/system-sleep/suspend-handler.fish
 
-    not test -f /usr/lib/systemd/system-sleep/suspend-handler.fish && sudo ln -f ~/r/dot/systemd/suspend-handler.fish /usr/lib/systemd/system-sleep/suspend-handler.fish
+    systemctl --user link ~/fes/dot/systemd/minute.service
+    systemctl --user enable --now ~/fes/dot/systemd/minute.timer
 
-    systemctl --user daemon-reload
-    systemctl --user enable --now daily.timer
-    systemctl --user enable --now ten-minutes.timer
-    systemctl --user enable --now minute.timer
-    systemctl --user enable --now axleizer.service
-    systemctl --user enable --now wake.path
-    systemctl --user enable --now frizz.path
-    systemctl --user enable --now ~/r/dot/systemd/flipboard.path
-    systemctl --user link ~/r/dot/systemd/flipboard.service
+    systemctl --user link ~/fes/dot/systemd/daily.service
+    systemctl --user enable --now ~/fes/dot/systemd/daily.timer
+
+    systemctl --user link ~/fes/dot/systemd/ten-minutes.service
+    systemctl --user enable --now ~/fes/dot/systemd/ten-minutes.timer
+
+    systemctl --user link ~/fes/dot/systemd/wake.service
+    systemctl --user enable --now ~/fes/dot/systemd/wake.path
+
+    systemctl --user link ~/fes/dot/systemd/frizz.service
+    systemctl --user enable --now ~/fes/dot/systemd/frizz.path
+
+    systemctl --user link ~/fes/dot/systemd/flipboard.service
+    systemctl --user enable --now ~/fes/dot/systemd/flipboard.path
+
+    systemctl --user enable --now ~/fes/dot/systemd/axleizer.service
 
 systemd-setup:
     mkdir -p ~/.config/systemd/user

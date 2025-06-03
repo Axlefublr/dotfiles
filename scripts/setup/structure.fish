@@ -3,10 +3,10 @@
 mkdir -p ~/w \
     ~/i \
     ~/v \
-    ~/r \
-    ~/r/forks \
-    ~/r/proj \
-    ~/r/the \
+    ~/fes \
+    ~/fes/ork \
+    ~/fes/lai \
+    ~/fes/the \
     ~/trans \
     ~/.local/bin \
     ~/.cache/{mine,wks} \
@@ -26,15 +26,15 @@ git clone https://github.com/Axlefublr/pictures-tree e
 git clone https://github.com/Axlefublr/twemoji-svg
 git clone https://github.com/Axlefublr/video-creation-tools tools
 
-cd ~/r
+cd ~/fes
 git clone https://github.com/Axlefublr/dotfiles dot
-git clone https://github.com/Axlefublr/binaries
-git clone https://github.com/Axlefublr/backup
-git clone https://github.com/Axlefublr/info
+git clone https://github.com/Axlefublr/binaries bin
+git clone https://github.com/Axlefublr/backup ack
+git clone https://github.com/Axlefublr/info foe
 git clone https://github.com/Axlefublr/job
 
-fish_add_path ~/r/binaries
-fish_add_path ~/r/binaries/wks
+fish_add_path ~/fes/bin
+fish_add_path ~/fes/bin/wks
 fish_add_path ~/r/dot/fish
 fish_add_path ~/r/dot/fish/fun
 fish_add_path ~/r/dot/scripts
@@ -43,7 +43,7 @@ fish_add_path ~/r/dot/scripts/scriptister
 fish_add_path ~/r/dot/scripts/fool
 fish_add_path ~/r/dot/scripts/services
 
-cd ~/r/forks
+cd ~/fes/ork
 git clone https://github.com/Axlefublr/helix
 
 cd ~/.local/share
