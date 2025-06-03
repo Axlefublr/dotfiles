@@ -1,27 +1,27 @@
 [[plugin.deps]]
-use = "yazi-rs/plugins:hide-preview"
-rev = "02d18be"
-hash = "5be5885898ca9df783bdec0d402bf4b0"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "02d18be"
-hash = "72c66a0b3d60f8377eb9db5e1d8b60b2"
+rev = "63f9650"
+hash = "30fc0b37f03a597b92d387268319450f"
 
 [[plugin.deps]]
 use = "Ape/open-with-cmd"
-rev = "a80d1cf"
+rev = "433cf30"
 hash = "86e0312b01bc5762813c6c1d0517f073"
 
 [[plugin.deps]]
 use = "KKV9/compress"
-rev = "60b24af"
-hash = ""
+rev = "9fc8fe0"
+hash = "2ad086899bf368fba211a33d8f68c39d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "a1738e8"
-hash = "5c9dda1a587b8f5b6f63e3d5375bda88"
+rev = "63f9650"
+hash = "d5d4f3527592da5fbe77fd6f51815f80"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:types"
+rev = "63f9650"
+hash = "c255054d6a70754db6cb96b97ad1ccd7"
 
 [flavor]
 deps = []

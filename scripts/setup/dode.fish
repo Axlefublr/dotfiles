@@ -262,10 +262,10 @@ paru -Sa --needed --disable-download-timeout ttf-comfortaa
 sudo pacman -S --needed --noconfirm --disable-download-timeout foot
 mkdir -p ~/.config/foot
 ln -sf ~/r/dot/foot.ini ~/.config/foot/foot.ini
-systemctl --user enable foot-server.socket
-systemctl --user start foot-server.socket
+systemctl --user enable --now foot-server.socket
 mkdir -p ~/.config/systemd/user/foot-server.service.d
 ln -sf ~/r/dot/systemd/foot.systemd ~/.config/systemd/user/foot-server.service.d/mine.conf
+systemctl --user enable foot-server.service
 
 # ---------------fuck---------------
 sudo pacman -Rns --noconfirm eos-update-notifier
@@ -820,10 +820,11 @@ systemctl --user enable --now xwayland-satellite.service
 sudo pacman -S --needed --noconfirm --disable-download-timeout yazi
 rm -fr ~/.config/yazi
 ln -s ~/r/dot/yazi ~/.config
-ya pack -a yazi-rs/plugins:jump-to-char
-ya pack -a Ape/open-with-cmd
-ya pack -a KKV9/compress
-ya pack -a yazi-rs/plugins:toggle-pane
+ya pkg add yazi-rs/plugins:jump-to-char
+ya pkg add Ape/open-with-cmd
+ya pkg add KKV9/compress
+ya pkg add yazi-rs/plugins:toggle-pane
+ya pkg add yazi-rs/plugins:types
 
 # ---------------ydotool---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool

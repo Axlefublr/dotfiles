@@ -1,11 +1,34 @@
 '$schema' = 'https://yazi-rs.github.io/schemas/yazi.json'
 
 [mgr]
+# [[sort on]]
 ratio = [0, 1, 1]
-sort_by = 'natural'
-show_hidden = false
 scrolloff = 255
+show_hidden = false
+sort_by = 'natural'
+sort_sensitive = true
+sort_translit = true
+# [[sort off]]
 
 [preview]
 tab_size = 3
+wrap = 'yes'
 max_width = 1000
+
+[tasks]
+suppress_preload = true
+
+[input]
+# [[sort on]]
+cd_origin = "top-center"
+create_origin = "top-center"
+filter_origin = "top-center"
+find_origin = "top-center"
+rename_offset = [0, 2, 50, 3]
+rename_origin = "top-center"
+search_origin = "top-center"
+shell_origin = "top-center"
+# [[sort off]]
+
+[pick]
+open_origin = "top-center"

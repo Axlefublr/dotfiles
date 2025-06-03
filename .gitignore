@@ -8,6 +8,7 @@ yazi/plugins/jump-to-char.yazi
 yazi/plugins/open-with-cmd.yazi
 yazi/plugins/compress.yazi
 yazi/plugins/toggle-pane.yazi
+yazi/plugins/types.yazi
 helix/quit.toml
 stdext/Cargo.lock
 stdext/target

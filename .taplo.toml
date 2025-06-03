@@ -1,0 +1,15 @@
+[formatting]
+#[[sort on]]
+align_entries = false
+allowed_blank_lines = 1
+array_auto_collapse = true
+array_auto_expand = false
+array_trailing_comma = true
+column_width = 110
+compact_arrays = false
+compact_inline_tables = false
+crlf = false
+indent_string = '  '
+indent_tables = true
+reorder_keys = true
+trailing_newline = true

@@ -1,12 +1,8 @@
 {
-  "diagnostics.globals": [
-    "awesome",
-    "screen",
-    "client",
-    "screen",
-    "cx",
-    "ya",
-    "Status",
-    "ui"
-  ]
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.4",
+  "workspace.library": [
+    "~/.config/yazi/plugins/types.yazi/"
+  ],
+  "diagnostics.globals": []
 }
