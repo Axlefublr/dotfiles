@@ -84,7 +84,7 @@ rm -fr ~/.local/share/applications/bubbly.desktop
 uv tool install calcure
 mkdir -p ~/.config/calcure
 ln -sf ~/fes/dot/calcure.ini ~/.config/calcure/config.ini
-cp -fr ~/auto/calcure.csv ~/.config/calcure/events.csv
+cp -fr ~/fes/eli/calcure.csv ~/.config/calcure/events.csv
 
 # ---------------cargo-script---------------
 cargo binstall -y cargo-script
@@ -116,7 +116,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout cowsay
 
 # ---------------cursors---------------
 # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
-sudo cp -fr ~/auto/cursors/Lighted-Pixel-Butter /usr/share/icons
+sudo cp -fr ~/iwm/dls/cursors/Lighted-Pixel-Butter /usr/share/icons
 # this is only needed because firefox is stupid and reverts to Adwaita for some reason
 sudo ln -sn /usr/share/icons/Lighted-Pixel-Butter /usr/share/icons/mine
 sudo cp -fr /usr/share/icons/Adwaita/cursors{,.bak}
@@ -196,11 +196,18 @@ ln -sf ~/fes/dot/firefox/userContent.css $prof_dir/chrome
 # ---------------floorp---------------
 paru -Sa --needed --disable-download-timeout floorp-bin
 
+# in the alt menu, CSS -> CSS -> Create browser CSS file
+# then Open CSS folder; you'll arrive around here
+# ~/.floorp/zxvqwt0m.default-release/chrome/CSS
+rm -fr ~/.floorp/zxvqwt0m.default-release/chrome
+ln -sf ~/fes/dot/floorp ~/.floorp/zxvqwt0m.default-release/chrome
+
 # devtools.debugger.prompt-connection
 # devtools.inspector.remote
 # ui.key.menuAccessKeyFocuses
 # ui.key.menuAccessKey to -1
 # mousewheel.default.delta_multiplier_y
+# floorp.newtab.overrides.newtaburl file:///home/axlefublr/fes/lai/annabirch/index.html
 
 # enable shortcuts in address bar
 
@@ -232,12 +239,6 @@ paru -Sa --needed --disable-download-timeout floorp-bin
 #     const destination = workspaces.at(destinationIndex);
 #     await gWorkspaces.changeWorkspace(destination, null, false, true);
 # })();
-
-# in the alt menu, CSS -> CSS -> Create browser CSS file
-# then Open CSS folder; you'll arrive around here
-# ~/.floorp/zxvqwt0m.default-release/chrome/CSS
-rm -fr ~/.floorp/zxvqwt0m.default-release/chrome
-ln -sf ~/fes/dot/floorp ~/.floorp/zxvqwt0m.default-release/chrome
 
 # ---------------fnott---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout fnott
@@ -338,7 +339,9 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # this breaks radeon gpu fix, don't forget to do that after!
 
 # ---------------gtk-theme---------------
+cd ~/fes/lai
 gh repo clone Axlefublr/gruvbox-material-gtk-theme
+sudo rm -fr /usr/share/themes/gruvbox-material
 sudo ln -sf ~/fes/lai/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 set -Ux GTK_THEME gruvbox-material
 
@@ -346,13 +349,13 @@ set -Ux GTK_THEME gruvbox-material
 sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua python-toml
 paru -Sa --needed --disable-download-timeout prettierd
 cd ~/fes/ork
-git clone --depth=1 https://github.com/Axlefublr/helix
-cd helix
+git clone --depth=1 https://github.com/Axlefublr/helix hx
+cd hx
 cargo install --path helix-term --locked
 ln -sf ~/fes/dot/helix ~/.config
 mkdir -p ~/.cargo/bin
 rm -fr ~/.cargo/bin/runtime
-ln -sf ~/fes/ork/helix/runtime ~/.cargo/bin
+ln -sf ~/fes/ork/hx/runtime ~/.cargo/bin
 
 # ---------------httrack---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout httrack
@@ -460,7 +463,7 @@ niri completions fish >~/.config/fish/completions/niri.fish
 stew install guyfedwards/nom
 mkdir -p ~/.config/nom
 ln -sf ~/fes/dot/nom.yml ~/.config/nom/config.yml
-ln -sf ~/auto/nom.db ~/.config/nom/nom.db
+cp -f ~/fes/eli/nom.db ~/.config/nom/nom.db
 
 # ---------------nvim---------------
 sudo pacman -S neovim luarocks
@@ -743,6 +746,8 @@ mkdir -p ~/.config/waybar
 ln -sf ~/fes/dot/waybar/waybar.jsonc ~/.config/waybar/config.jsonc
 ln -sf ~/fes/dot/waybar/waybar.css ~/.config/waybar/style.css
 ln -sf /usr/lib/systemd/user/waybar.service ~/.config/systemd/user/niri.service.wants/waybar.service
+mkdir -p ~/.config/systemd/user/waybar.service.d
+ln -sf ~/fes/dot/waybar/waybar.systemd ~/.config/systemd/user/waybar.service.d/mine.conf
 
 # ---------------waytext---------------
 cd ~/fes/ork
@@ -849,4 +854,4 @@ paru -Sa --needed --disable-download-timeout zoom
 sudo pacman -S --needed --noconfirm --disable-download-timeout zoxide
 set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
 set -Ux _ZO_MAXAGE 30000
-cp -fr ~/auto/zoxide.db ~/.local/share/zoxide/db.zo
+cp -fr ~/fes/eli/zoxide.db ~/.local/share/zoxide/db.zo

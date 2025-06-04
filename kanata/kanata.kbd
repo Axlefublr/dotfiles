@@ -148,7 +148,7 @@
 	e (cmd footclient -N bluetui)
 	f (cmd $fsh "floorp & disown")
 	i (cmd $fsh "PrismLauncher.AppImage & disown")
-	m (cmd footclient -N yazi /home/axlefublr/i/e/memes)
+	m (cmd footclient -N yazi /home/axlefublr/iwm/osl/memes)
 	q (cmd footclient -N tiptop)
 	r (cmd $fsh "rnote & disown")
 	s (cmd gtk-launch steam-native) ;; I make sure to disable proxy in the .desktop image, so I wanna run steam through it
@@ -166,7 +166,7 @@
 	e (cmd $fsh edit_clipboard_image)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd $fsh screenshot_screen)
-	v (cmd mpv --start=0 --fullscreen /home/axlefublr/i/s/original.mp4)
+	v (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	w (cmd $fsh show_clipboard_image)
 	x (cmd $fsh edit_blank_clipboard)
 	;; [[sort off]]

@@ -306,7 +306,7 @@ end
 funcsave toggle_value >/dev/null
 
 function vids
-    cp -f ~/i/s/original.mp4 $argv[1].mp4
+    cp -f ~/iwm/sco/original.mp4 $argv[1].mp4
 end
 funcsave vids >/dev/null
 

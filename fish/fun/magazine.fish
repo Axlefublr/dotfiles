@@ -245,10 +245,10 @@ function _magazine_commit
     if test -s $argv[1] && test (tail -c 1 $argv[1]) != (echo)
         echo >>$argv[1]
     end
-    if string match $argv[1] (cat ~/.local/share/magazine/O | string replace -r '^~' "$HOME")
+    if string match $argv[1] (cat ~/.local/share/magazine/R | string replace -r '^~' "$HOME")
         or test $base = project.txt
         sort.py -u $argv[1]
-    else if string match $argv[1] (cat ~/.local/share/magazine/P | string replace -r '^~' "$HOME")
+    else if string match $argv[1] (cat ~/.local/share/magazine/Q | string replace -r '^~' "$HOME")
         cat $argv[1] | dedup | sponge $argv[1]
     end
     if test $parent_path != ~/.local/share/magazine
@@ -259,7 +259,7 @@ function _magazine_commit
             cp -f $argv[1] ~/.local/share/magazine
         end
     end
-    cd ~/.local/share/magazine
+    builtin cd ~/.local/share/magazine
     git add $mag
     and git commit -m "$argv[2..] $mag"
 end

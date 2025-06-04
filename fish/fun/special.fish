@@ -164,7 +164,7 @@ funcsave special_anki_edit_action >/dev/null
 function toggle_screen_record
     if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
         kitten @ --to unix:/home/axlefublr/.cache/mine/screen-recording-kitty-socket signal-child SIGINT
-        copyl ~/i/s/compressed.mp4
+        copyl ~/iwm/sco/compressed.mp4
     else
         kitty -T screen-record --listen-on unix:/home/axlefublr/.cache/mine/screen-recording-kitty-socket screen-record.fish
     end

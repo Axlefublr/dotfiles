@@ -17,7 +17,7 @@
     "cache-size-mb": 4,
     "default-trackers": "",
     "dht-enabled": true,
-    "download-dir": "/home/axlefublr/v",
+    "download-dir": "/home/axlefublr/iwm/vdi",
     "download-queue-enabled": true,
     "download-queue-size": 1,
     "encryption": 1,
@@ -76,6 +76,6 @@
     "umask": "022",
     "upload-slots-per-torrent": 8,
     "utp-enabled": true,
-    "watch-dir": "/home/axlefublr/q",
+    "watch-dir": "/home/axlefublr/iwm/rnt",
     "watch-dir-enabled": true
 }

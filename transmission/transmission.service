@@ -3,7 +3,7 @@ StartLimitBurst=0
 StartLimitIntervalSec=0
 
 [Service]
-ExecStart=transmission-daemon -f -c %h/q -w %h/v
+ExecStart=transmission-daemon -f -c %h/iwm/rnt -w %h/iwm/vdi
 Restart=on-failure
 RestartMaxDelaySec=60
 RestartSteps=10

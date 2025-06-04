@@ -24,7 +24,7 @@ abbr -a dq 'swayimg -g & disown ; exit'
 abbr -a e helix
 abbr -a e. 'helix .'
 abbr -a fC 'sudo -E helix /etc/fancontrol'
-abbr -a fc 'cat ~/fes/foe/pswds/sudo | sudo -S systemctl restart fancontrol'
+abbr -a fc 'cat ~/fes/ack/fux/sudo | sudo -S systemctl restart fancontrol'
 abbr -a ff ffmpeg
 abbr -a ffi 'ffmpeg -i'
 abbr -a g git

@@ -113,7 +113,7 @@ fn main() -> anyhow::Result<()> {
                 .path
                 .strip_prefix({
                     let mut the = dirs::home_dir().unwrap();
-                    the.push("r");
+                    the.push("fes");
                     the
                 })
                 .context("strip prefix")?;
