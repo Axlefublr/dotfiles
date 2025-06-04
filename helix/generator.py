@@ -450,6 +450,9 @@ normal_select_mappings: dict[str, Any] = {
         # [[sort on]]
         'F': ':e %sh(ypoc)',
         'g': 'reverse_selection_contents',
+        'r': ':lsp-restart',
+        'a': ':buffer-close-all',
+        'd': ':buffer-close-others',
         'q': ':cd %(buffer_parent)',
         # [[sort off]]
     },
