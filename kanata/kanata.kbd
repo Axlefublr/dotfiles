@@ -66,7 +66,7 @@
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held symbol-left))
-	v (tap-hold-release $tt $ht v XX)
+	v (tap-hold-release $tt $ht v (layer-while-held symbol-quadruple))
 	w (tap-hold-release $tt $ht w rmet)
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)

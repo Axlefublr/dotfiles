@@ -3,8 +3,6 @@
 	, S-1
 	. (cmd wtype …)
 	/ bksl
-	[ S-9
-	] S-0
 	h S-4
 	i S-8
 	j S-eql
@@ -22,8 +20,6 @@
 	, (cmd wtype “)
 	. (cmd wtype ”)
 	/ S-bksl
-	[ (cmd wtype «)
-	] (cmd wtype »)
 	h (cmd wtype €)
 	i S-6
 	j (cmd wtype ÷)
@@ -50,6 +46,19 @@
 	p (cmd wtype √)
 	u (cmd wtype ₽)
 	;; [[sort off]]
+)
+
+(deflayermap (symbol-quadruple)
+	m [
+	l ]
+	i S-[
+	o S-]
+	, (cmd wtype «)
+	. (cmd wtype »)
+	k S-9
+	j S-0
+	n (cmd wtype ‘)
+	/ (cmd wtype ’)
 )
 
 (deflayermap (symbol-left)
