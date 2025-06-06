@@ -1,7 +1,7 @@
 # ----------------------------lisp----------------------------
 [[language]]
 name = "common-lisp"
-file-types = ["lisp", "asd", "cl", "l", "lsp", "ny", "podsl", "sexp"]
+file-types = [ "lisp", "asd", "cl", "l", "lsp", "ny", "podsl", "sexp" ]
 
 # ---------------------------crystal---------------------------
 [[language]]
@@ -25,16 +25,16 @@ source = { git = "https://github.com/crystal-lang-tools/tree-sitter-crystal", re
 # -----------------------------css-----------------------------
 [[language]]
 name = "css"
-formatter = { command = "prettier", args = ["--parser", "css"] }
+formatter = { command = "prettier", args = [ "--parser", "css" ] }
 
 # ----------------------------fish----------------------------
 [[language]]
 name = "fish"
-language-servers = ["fish-lsp"]
+language-servers = [ "fish-lsp" ]
 
 [language-server.fish-lsp]
 command = "fish-lsp"
-args = ["start"]
+args = [ "start" ]
 
 # ---------------------------hocon---------------------------
 [[language]]
@@ -50,7 +50,7 @@ file-types = [
 [[language]]
 name = "html"
 auto-format = false
-formatter = { command = "prettier", args = ["--parser", "html"] }
+formatter = { command = "prettier", args = [ "--parser", "html" ] }
 
 # ---------------------------just---------------------------
 [[language]]
@@ -69,7 +69,7 @@ file-types = [
 name = "lua"
 indent = { tab-width = 3, unit = "\t" }
 auto-format = true
-formatter = { command = "stylua", args = ["-"] }
+formatter = { command = "stylua", args = [ "-" ] }
 
 [language-server.lua-language-server.config.Lua]
 # [[sort on]]
@@ -132,20 +132,33 @@ file-types = [
 ]
 indent = { tab-width = 2, unit = "  " }
 
+[language.auto-pairs]
+"(" = ")"
+"{" = "}"
+"[" = "]"
+'"' = '"'
+"`" = "`"
+"<" = ">"
+"'" = "'"
+"*" = "*"
+"‘" = "’"
+"“" = "”"
+"«" = "»"
+
 # ---------------------------mojo---------------------------
 [[language]]
 name = "mojo"
-file-types = ["mojo", "🔥", { glob = "kitty.conf" }]
+file-types = [ "mojo", "🔥", { glob = "kitty.conf" } ]
 
 # ---------------------------nim---------------------------
 [[language]]
 name = "nim"
-language-servers = ["nimlsp"]
+language-servers = [ "nimlsp" ]
 
 # --------------------------python--------------------------
 [[language]]
 name = "python"
-language-servers = ["basedpyright", "ruff"]
+language-servers = [ "basedpyright", "ruff" ]
 auto-format = true
 
 [language.auto-pairs]
@@ -162,11 +175,11 @@ analysis.autoImportCompletions = true
 
 [language-server.ruff]
 command = "ruff"
-args = ["server"]
+args = [ "server" ]
 
 [language-server.basedpyright]
 command = "basedpyright-langserver"
-args = ["--stdio"]
+args = [ "--stdio" ]
 
 [language-server.basedpyright.config]
 # ["a", 3, True] will be interpreted as list[str | int | bool] rather than list[Any]
@@ -182,7 +195,7 @@ reportUnusedVariable = false
 # ----------------------------ruby----------------------------
 [[language]]
 name = "ruby"
-language-servers = ["solargraph", "rubocop"]
+language-servers = [ "solargraph", "rubocop" ]
 auto-format = true
 indent = { tab-width = 3, unit = "\t" }
 
@@ -198,7 +211,7 @@ indent = { tab-width = 3, unit = "\t" }
 
 [language-server.rubocop]
 command = "rubocop"
-args = ["--lsp"]
+args = [ "--lsp" ]
 
 # ------------------------------rust------------------------------
 [[language]]
@@ -223,7 +236,7 @@ command = "rust-analyzer"
 assist.expressionFillDefault = "default"
 assist.importEnforceGranularity = true
 assist.importPrefix = "crate"
-cargo.extraArgs = ["--profile", "rust-analyzer"]
+cargo.extraArgs = [ "--profile", "rust-analyzer" ]
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev"
 cargo.features = "all"
 checkOnSave.command = "clippy"

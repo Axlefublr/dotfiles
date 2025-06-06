@@ -1,8 +1,11 @@
 (deflayermap (symbol-primary)
 	;; [[sort on]]
+	' S-0
 	, S-1
 	. (cmd wtype …)
 	/ bksl
+	; S-9
+	c (layer-while-held symbol-quadruple)
 	h S-4
 	i S-8
 	j S-eql
@@ -11,18 +14,20 @@
 	m S-5
 	o S-3
 	p (cmd wtype °)
-	u grv
 	;; [[sort off]]
 )
 
 (deflayermap (symbol-secondary)
+	x (layer-while-held symbol-quadruple)
 	;; [[sort on]]
+	' S-]
 	, (cmd wtype “)
 	. (cmd wtype ”)
 	/ S-bksl
+	; S-[
 	h (cmd wtype €)
 	i S-6
-	j (cmd wtype ÷)
+	j grv
 	k S-min
 	l (cmd wtype —)
 	m S-grv
@@ -34,8 +39,10 @@
 
 (deflayermap (symbol-tertiary)
 	;; [[sort on]]
+	' ]
 	, (cmd wtype ❗)
 	/ (cmd wtype ❓)
+	; [
 	b (cmd wtype 💡)
 	h (cmd wtype ←)
 	j (cmd wtype ↓)
@@ -49,16 +56,10 @@
 )
 
 (deflayermap (symbol-quadruple)
-	m [
-	l ]
-	i S-[
-	o S-]
 	, (cmd wtype «)
 	. (cmd wtype »)
-	k S-9
-	j S-0
-	n (cmd wtype ‘)
-	/ (cmd wtype ’)
+	i (cmd wtype ‘)
+	o (cmd wtype ’)
 )
 
 (deflayermap (symbol-left)

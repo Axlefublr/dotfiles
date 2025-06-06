@@ -66,11 +66,11 @@
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held symbol-left))
-	v (tap-hold-release $tt $ht v (layer-while-held symbol-quadruple))
+	v (tap-hold-release $tt $ht v (layer-while-held symbol-tertiary))
 	w (tap-hold-release $tt $ht w rmet)
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)
-	z (tap-hold-release $tt $ht z (layer-while-held symbol-tertiary))
+	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
 )
 
@@ -143,6 +143,7 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
+	a (cmd footclient -D /home/axlefublr/fes/foe -N helix)
 	c (cmd footclient -N calcure)
 	d (cmd footclient -N)
 	e (cmd footclient -N bluetui)
@@ -164,6 +165,7 @@
 	c (cmd $fsh edit_clipboard)
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh edit_clipboard_image)
+	j (layer-while-held clipboard-index)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd $fsh screenshot_screen)
 	v (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
