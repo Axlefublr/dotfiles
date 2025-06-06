@@ -302,6 +302,11 @@ window-rule {
 }
 
 window-rule {
+    match is-floating=true
+    geometry-corner-radius 16
+}
+
+window-rule {
     match app-id="org.kde.kruler"
     geometry-corner-radius 0
     clip-to-geometry false
