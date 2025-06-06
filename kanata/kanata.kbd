@@ -149,7 +149,7 @@
 	e (cmd footclient -N bluetui)
 	f (cmd $fsh "floorp & disown")
 	i (cmd $fsh "PrismLauncher.AppImage & disown")
-	m (cmd footclient -N yazi /home/axlefublr/iwm/osl/memes)
+	m (cmd swayimg -g /home/axlefublr/iwm/osl/memes)
 	q (cmd footclient -N tiptop)
 	r (cmd $fsh "rnote & disown")
 	s (cmd gtk-launch steam-native) ;; I make sure to disable proxy in the .desktop image, so I wanna run steam through it

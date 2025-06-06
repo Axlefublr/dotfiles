@@ -99,6 +99,7 @@ keymap = [
   { on = [ 's', 'j' ], run = 'copy path', desc = 'Copy the file path' },
   { on = [ 's', 'k' ], run = 'copy dirname', desc = 'Copy the directory path' },
   { on = [ 's', 'l' ], run = 'copy filename', desc = 'Copy the filename' },
+  { on = [ 'z', 'z' ], run = 'shell --confirm -- zoxide add .', desc = 'Initialize current directory in zoxide' },
   # [[sort off]]
 ]
 

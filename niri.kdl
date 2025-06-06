@@ -154,9 +154,9 @@ layout {
         length total-proportion=1.0
         place-within-column
         gap 0
-        width 6
+        width 4
         position "top"
-        // corner-radius 99
+        corner-radius 99
         inactive-color "#00000000"
         active-color "#af87ff"
         // active-gradient from="#af87ff" to="#ff9f1a"
