@@ -41,9 +41,29 @@ set -gx http_proxy http://(cat ~/.local/share/magazine/p)[1]
 set -gx https_proxy http://(cat ~/.local/share/magazine/p)[1]
 # [[sort off]]
 
-fish_vi_cursor
 zoxide init fish | source
+function __zoxide_hook
+end
+function __zoxide_z
+    set -l argc (builtin count $argv)
+    if test $argc -eq 0
+        __zoxide_cd $HOME
+    else if test "$argv" = -
+        __zoxide_cd -
+    else if test $argc -eq 1 -a -d $argv[1]
+        __zoxide_cd $argv[1]
+        command zoxide add -- (__zoxide_pwd)
+    else if test $argc -eq 2 -a $argv[1] = --
+        __zoxide_cd -- $argv[2]
+        command zoxide add -- (__zoxide_pwd)
+    else
+        set -l result (command zoxide query --exclude (__zoxide_pwd) -- $argv)
+        and __zoxide_cd $result
+        and command zoxide add -- (__zoxide_pwd)
+    end
+end
 
 if status is-interactive
+    fish_vi_cursor
     source ~/fes/dot/fish/abbreviations.fish
 end

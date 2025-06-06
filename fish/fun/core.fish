@@ -227,10 +227,10 @@ function Z
 end
 funcsave Z >/dev/null
 
-function zz
+function ss
     zoxide add $PWD
 end
-funcsave zz >/dev/null
+funcsave ss >/dev/null
 
 function matches
     get_windows | rg $argv

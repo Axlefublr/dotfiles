@@ -4,11 +4,6 @@ rev = "63f9650"
 hash = "30fc0b37f03a597b92d387268319450f"
 
 [[plugin.deps]]
-use = "Ape/open-with-cmd"
-rev = "433cf30"
-hash = "86e0312b01bc5762813c6c1d0517f073"
-
-[[plugin.deps]]
 use = "KKV9/compress"
 rev = "9fc8fe0"
 hash = "2ad086899bf368fba211a33d8f68c39d"
@@ -24,4 +19,4 @@ rev = "63f9650"
 hash = "c255054d6a70754db6cb96b97ad1ccd7"
 
 [flavor]
-deps = []
+deps = [  ]

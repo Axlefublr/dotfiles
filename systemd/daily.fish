@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
 trash-empty -f 1
-zoxide remove ~/.local/share/magazine # I cannot for the life of me figure out why this jumps up to 9999 all the time
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
 cd ~/.local/share/magazine

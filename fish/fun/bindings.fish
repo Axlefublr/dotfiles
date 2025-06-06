@@ -134,18 +134,18 @@ function fish_user_key_bindings
     bind alt-. _man_the_commandline
     bind alt-comma _help_the_commandline
     bind alt-enter expand-abbr insert-line-under
-    bind alt-h lazygit
     bind alt-i helix
-    bind alt-l yazi_cd
     bind alt-m _harp_get
     bind ctrl-\' _wrap_in_pueue
     bind ctrl-alt-i 'helix .'
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
-    bind ctrl-f 'zi && commandline -f repaint'
     bind ctrl-g _match_helix_cwd
+    bind ctrl-i 'zi ; commandline -f repaint'
     bind ctrl-l '__fish_cursor_xterm line ; commandline -f repaint'
     bind ctrl-z fg
+    bind f3 yazi_cd
+    bind f8 lazygit
     # [[sort off]]
 end
 funcsave fish_user_key_bindings >/dev/null
