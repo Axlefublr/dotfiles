@@ -151,12 +151,12 @@ layout {
 
     tab-indicator {
         hide-when-single-tab
-        length total-proportion=1.0
+        length total-proportion=1.002
         place-within-column
         gap 0
         width 4
         position "top"
-        corner-radius 99
+        // corner-radius 99
         inactive-color "#00000000"
         active-color "#af87ff"
         // active-gradient from="#af87ff" to="#ff9f1a"
@@ -296,7 +296,7 @@ hotkey-overlay {
 
 window-rule {
     draw-border-with-background false
-    geometry-corner-radius 16
+    // geometry-corner-radius 16
     clip-to-geometry true
     opacity 0.98
 }
