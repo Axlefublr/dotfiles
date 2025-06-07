@@ -372,6 +372,11 @@ window-rule {
     default-column-width { fixed 1005; }
 }
 
+window-rule {
+    match is-floating=true app-id="anki" title="^Anki$"
+    baba-is-float true
+}
+
 /-layer-rule {
     match namespace="^launcher$"
     baba-is-float true
