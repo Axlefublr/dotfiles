@@ -181,9 +181,11 @@ binds {
     Mod+F5 { spawn "foot"; }
     Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
 
-    Mod+D { close-window; }
+    Mod+M { close-window; }
     Mod+F { fullscreen-window; }
+    Mod+R { toggle-windowed-fullscreen; }
     Mod+U { toggle-column-tabbed-display; }
+    Mod+Apostrophe { toggle-overview; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
@@ -201,11 +203,6 @@ binds {
     Mod+Up { move-column-to-workspace-up; }
     // Mod+Ctrl+J { move-workspace-down; }
     // Mod+Ctrl+K { move-workspace-up; }
-
-    Mod+M     { focus-column-first; }
-    Mod+Slash { focus-column-last; }
-    Mod+Home  { move-column-to-first; }
-    Mod+End   { move-column-to-last; }
 
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }

@@ -93,7 +93,9 @@ end
 funcsave path_to_last_char >/dev/null
 
 function pick_and_copy_color
-    wl-color-picker clipboard
+    niri msg pick-color | string match -gr '(#[[:xdigit:]]+)' | read -l hex
+    notify-send $hex
+    copy $hex
 end
 funcsave pick_and_copy_color >/dev/null
 
