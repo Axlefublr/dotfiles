@@ -7,15 +7,15 @@ keymap = [
   { on = ',', run = 'escape --select', desc = 'Deselect all files' },
   { on = '.', run = 'hidden toggle', desc = 'Toggle the visibility of hidden files' },
   { on = '/', run = 'find --smart', desc = 'Find next file' },
-  { on = '1', run = 'tab_switch 0', desc = 'Switch to the first tab' },
-  { on = '2', run = 'tab_switch 1', desc = 'Switch to the second tab' },
-  { on = '3', run = 'tab_switch 2', desc = 'Switch to the third tab' },
-  { on = '4', run = 'tab_switch 3', desc = 'Switch to the fourth tab' },
-  { on = '5', run = 'tab_switch 4', desc = 'Switch to the fifth tab' },
-  { on = '6', run = 'tab_switch 5', desc = 'Switch to the sixth tab' },
-  { on = '7', run = 'tab_switch 6', desc = 'Switch to the seventh tab' },
-  { on = '8', run = 'tab_switch 7', desc = 'Switch to the eighth tab' },
-  { on = '9', run = 'tab_switch 8', desc = 'Switch to the ninth tab' },
+  { on = '1', run = 'tab_switch 0', desc = 'Switch to tab 1' },
+  { on = '2', run = 'tab_switch 1', desc = 'Switch to tab 2' },
+  { on = '3', run = 'tab_switch 2', desc = 'Switch to tab 3' },
+  { on = '4', run = 'tab_switch 3', desc = 'Switch to tab 4' },
+  { on = '5', run = 'tab_switch 4', desc = 'Switch to tab 5' },
+  { on = '6', run = 'tab_switch 5', desc = 'Switch to tab 6' },
+  { on = '7', run = 'tab_switch 6', desc = 'Switch to tab 7' },
+  { on = '8', run = 'tab_switch 7', desc = 'Switch to tab 8' },
+  { on = '9', run = 'tab_switch 8', desc = 'Switch to tab 9' },
   { on = ':', run = 'quit', desc = 'Exit the process' },
   { on = ';', run = [ 'plugin blammo', 'plugin intellishell' ], desc = 'Run a shell command' },
   { on = '<', run = 'tab_switch -1 --relative', desc = 'Switch to the previous tab' },
@@ -61,6 +61,7 @@ keymap = [
   { on = 'o', run = 'paste', desc = 'Paste yanked files' },
   { on = 'r', run = 'rename --cursor=before_ext', desc = 'Rename selected file(s)' },
   { on = 't', run = 'tab_create --current', desc = 'Create a new tab with CWD' },
+  { on = 'u', run = 'tasks:show', desc = 'Show task manager' },
   { on = 'v', run = 'toggle', desc = 'Toggle select hovered file' },
   { on = 'w', run = 'plugin toggle_deselect', desc = 'Toggle deselect mode' },
   { on = 'x', run = 'filter --smart', desc = 'Filter' },
@@ -106,15 +107,77 @@ keymap = [
   # [[sort off]]
 ]
 
-[input]
-append_keymap = [
+[tasks]
+keymap = [
   # [[sort on]]
-  { on = '%', run = [ 'move -999', 'visual', 'move 999' ], desc = 'Enter visual mode and select all' },
-  { on = 'U', run = 'redo', desc = 'Redo the last operation' },
-  { on = [ 'g', 'h' ], run = 'move -999', desc = 'Move to the BOL' },
-  { on = [ 'g', 'l' ], run = 'move 999', desc = 'Move to the EOL' },
+  { on = '<C-h>', run = 'help', desc = 'Open help' },
+  { on = '<Down>', run = 'arrow 1', desc = 'Next task' },
+  { on = '<Enter>', run = 'inspect', desc = 'Inspect the task' },
+  { on = '<Esc>', run = 'close', desc = 'Close task manager' },
+  { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
+  { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
+  { on = '<Up>', run = 'arrow -1', desc = 'Previous task' },
+  { on = 'd', run = 'cancel', desc = 'Cancel the task' },
+  { on = 'j', run = 'arrow 1', desc = 'Next task' },
+  { on = 'k', run = 'arrow -1', desc = 'Previous task' },
+  { on = 'u', run = 'close', desc = 'Close task manager' },
+  { on = [ 'g', 'i' ], run = 'arrow top', desc = 'First task' },
+  { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Last task' },
+  # [[sort off]]
+]
+
+[input]
+keymap = [
+  # [[sort on]]
+  { on = '<Backspace>', run = 'backspace', desc = 'Delete the character before the cursor' },
+  { on = '<C-Backspace>', run = 'kill backward', desc = 'Kill backwards to the start of the current word' },
+  { on = '<C-Delete>', run = 'kill forward', desc = 'Kill forwards to the end of the current word' },
+  { on = '<C-Left>', run = 'backward', desc = 'Move back to the start of the current or previous word' },
+  { on = '<C-Right>', run = 'forward --end-of-word', desc = 'Move forward to the end of the current or next word' },
+  { on = '<C-h>', run = 'help', desc = 'Open help' },
+  { on = '<C-k>', run = 'kill eol', desc = 'Kill forwards to the EOL' },
+  { on = '<C-u>', run = 'kill bol', desc = 'Kill backwards to the BOL' },
+  { on = '<C-w>', run = 'kill backward', desc = 'Kill backwards to the start of the current word' },
+  { on = '<Delete>', run = 'backspace --under', desc = 'Delete the character under the cursor' },
+  { on = '<End>', run = 'move eol', desc = 'Move to the EOL' },
+  { on = '<Enter>', run = 'close --submit', desc = 'Submit input' },
+  { on = '<Esc>', run = 'close', desc = 'Back to normal mode, or cancel input' },
+  { on = '<Home>', run = 'move bol', desc = 'Move to the BOL' },
+  { on = '<Left>', run = 'move -1', desc = 'Move back a character' },
+  { on = '<Right>', run = 'move 1', desc = 'Move forward a character' },
+  # [[sort off]]
+]
+
+[confirm]
+
+keymap = [
+  # [[sort on]]
+  # { on = 'j', run = 'arrow next', desc = 'Next line' },
+  # { on = 'k', run = 'arrow prev', desc = 'Previous line' },
+  { on = '<C-h>', run = 'help', desc = 'Open help' },
+  { on = '<Down>', run = 'arrow next', desc = 'Next line' },
+  { on = '<Enter>', run = 'close --submit', desc = 'Submit the confirm' },
+  { on = '<Esc>', run = 'close', desc = 'Cancel the confirm' },
+  { on = '<Up>', run = 'arrow prev', desc = 'Previous line' },
+  { on = 'j', run = 'close --submit', desc = 'Submit the confirm' },
+  { on = 'k', run = 'close', desc = 'Cancel the confirm' },
   # [[sort off]]
 ]
 
 [help]
-append_keymap = [ { on = 'K', run = 'close', desc = 'Hide the help' } ]
+
+keymap = [
+  # [[sort on]]
+  { on = '<C-h>', run = 'close', desc = 'Hide the help' },
+  { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
+  { on = '<Esc>', run = 'escape', desc = 'Clear the filter, or hide the help' },
+  { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
+  { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
+  { on = '<Up>', run = 'arrow -1', desc = 'Previous line' },
+  { on = 'j', run = 'arrow 1', desc = 'Next line' },
+  { on = 'k', run = 'arrow -1', desc = 'Previous line' },
+  { on = 'x', run = 'filter', desc = 'Filter help items' },
+  { on = [ 'g', 'i' ], run = 'arrow top', desc = 'First line' },
+  { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Last line' },
+  # [[sort off]]
+]

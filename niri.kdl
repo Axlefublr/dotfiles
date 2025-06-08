@@ -181,10 +181,10 @@ binds {
     Mod+F5 { spawn "foot"; }
     Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
 
-    Mod+M { close-window; }
+    Mod+Semicolon { close-window; }
     Mod+F { fullscreen-window; }
     Mod+R { toggle-windowed-fullscreen; }
-    Mod+U { toggle-column-tabbed-display; }
+    Mod+M { toggle-column-tabbed-display; }
     Mod+Apostrophe { toggle-overview; }
 
     Mod+H { focus-column-left-or-last; }
@@ -219,8 +219,8 @@ binds {
     Mod+W { reset-window-height; }
     Mod+S { maximize-column; }
 
-    Mod+Semicolon { toggle-window-floating; }
-    Mod+Backspace { switch-focus-between-floating-and-tiling; }
+    Mod+N { toggle-window-floating; }
+    Mod+Slash { switch-focus-between-floating-and-tiling; }
 }
 
 // Add lines like this to spawn processes at startup.
