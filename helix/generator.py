@@ -222,6 +222,7 @@ normal_select_mappings: dict[str, Any] = {
     ),
     # [[sort on]]
     "'": [':write-all', ':reload-all'],
+    "A-'": ':write!',
     # 'S': 'goto_word',
     '!': 'keep_primary_selection',
     '#': 'yank_joined',
@@ -250,6 +251,7 @@ normal_select_mappings: dict[str, Any] = {
     '=': 'remove_primary_selection',
     '>': ['goto_next_buffer', ':echo %{full_path}'],
     '@': 'toggle_comments',
+    'A-"': ':reload!',
     'A-.': 'shrink_to_line_bounds',
     'A-:': ':write-quit-all!',
     'A-M': ':buffer-close!',

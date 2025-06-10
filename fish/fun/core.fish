@@ -261,6 +261,21 @@ function ocr
 end
 funcsave ocr >/dev/null
 
+function path_expand
+    read -z | string replace -r "^~" $HOME
+end
+funcsave path_expand >/dev/null
+
+function path_prettify
+    read -z | string replace -r "^$HOME" '~'
+end
+funcsave path_prettify >/dev/null
+
+function pwd_pretty
+    string replace -r "^$HOME" '~' $PWD
+end
+funcsave pwd_pretty >/dev/null
+
 function rename
     mv $argv[1] _$argv[1]
     mv _$argv[1] $argv[2]

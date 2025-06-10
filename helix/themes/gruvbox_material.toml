@@ -12,7 +12,7 @@
 'constant.numeric' = 'blush'
 'constructor' = 'cyan'
 'diagnostic' = {}
-'diagnostic.deprecated' = { modifiers = ['crossed_out'] }
+'diagnostic.deprecated' = { modifiers = [ 'crossed_out' ] }
 'diagnostic.error' = {}
 'diagnostic.hint' = {}
 'diagnostic.info' = {}
@@ -30,23 +30,23 @@
 'keyword' = 'red'
 'keyword.directive' = 'mint'
 'label' = 'mint'
-'markup.bold' = { modifiers = ['bold'] }
-'markup.heading.1' = { fg = 'red', modifiers = ['bold'] }
-'markup.heading.2' = { fg = 'orange', modifiers = ['bold'] }
-'markup.heading.3' = { fg = 'yellow', modifiers = ['bold'] }
-'markup.heading.4' = { fg = 'green', modifiers = ['bold'] }
-'markup.heading.5' = { fg = 'cyan', modifiers = ['bold'] }
-'markup.heading.6' = { fg = 'blush', modifiers = ['bold'] }
+'markup.bold' = { modifiers = [ 'bold' ] }
+'markup.heading.1' = { fg = 'red', modifiers = [ 'bold' ] }
+'markup.heading.2' = { fg = 'orange', modifiers = [ 'bold' ] }
+'markup.heading.3' = { fg = 'yellow', modifiers = [ 'bold' ] }
+'markup.heading.4' = { fg = 'green', modifiers = [ 'bold' ] }
+'markup.heading.5' = { fg = 'cyan', modifiers = [ 'bold' ] }
+'markup.heading.6' = { fg = 'blush', modifiers = [ 'bold' ] }
 'markup.heading.marker' = 'grey'
-'markup.italic' = { modifiers = ['italic'] }
+'markup.italic' = { modifiers = [ 'italic' ] }
 'markup.link.text' = 'purple'
-'markup.link.url' = { fg = 'cyan', modifiers = ['underlined'] }
+'markup.link.url' = { fg = 'cyan', modifiers = [ 'underlined' ] }
 'markup.list' = 'red'
 'markup.quote' = 'cyan'
 'markup.raw' = 'yellow'
 'module' = 'cyan'
 'namespace' = 'mint'
-'operator' = { fg = 'orange', modifiers = ['bold'] }
+'operator' = { fg = 'orange', modifiers = [ 'bold' ] }
 'punctuation' = 'white'
 'punctuation.bracket' = 'white'
 'punctuation.delimiter' = 'white'
@@ -58,30 +58,31 @@
 'ui.background.separator' = 'grey'
 'ui.bufferline' = { fg = 'grey' }
 'ui.bufferline.active' = { fg = 'white' }
-'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = ['bold'] }
-'ui.cursor.match' = { modifiers = ['bold', 'underlined'] }
-'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = ['bold'] }
+'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = [ 'bold' ] }
+'ui.cursor.match' = { modifiers = [ 'bold', 'underlined' ] }
+'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = [ 'bold' ] }
 'ui.help' = { fg = 'white', bg = 'dark13' }
 'ui.linenr' = 'linenr'
 'ui.linenr.selected' = 'grey'
 'ui.menu' = { fg = 'white', bg = 'dark12' }
-'ui.menu.scroll' = { fg = 'grey' }                                              # scrollbar
-'ui.menu.selected' = { fg = 'dark12', bg = 'orange', modifiers = ['bold'] }
+'ui.menu.scroll' = { fg = 'grey' }                                                # scrollbar
+'ui.menu.selected' = { fg = 'dark12', bg = 'orange', modifiers = [ 'bold' ] }
 'ui.picker.header' = {}
-'ui.picker.header.column' = { fg = 'white', modifiers = ['bold'] }
-'ui.picker.header.column.active' = { modifiers = ['underlined', 'bold'] }
+'ui.picker.header.column' = { fg = 'white', modifiers = [ 'bold' ] }
+'ui.picker.header.column.active' = { modifiers = [ 'underlined', 'bold' ] }
 'ui.popup' = { fg = 'white', bg = 'dark13' }
 'ui.selection' = { bg = 'yellow_supporting' }
 'ui.selection.primary' = { bg = 'orange_supporting' }
 'ui.statusline' = { fg = 'white' }
-'ui.statusline.insert' = { fg = 'green', modifiers = ['bold'] }
-'ui.statusline.normal' = { fg = 'white', modifiers = ['bold'] }
-'ui.statusline.select' = { fg = 'mint', modifiers = ['bold'] }
+'ui.statusline.insert' = { fg = 'green', modifiers = [ 'bold' ] }
+'ui.statusline.normal' = { fg = 'white', modifiers = [ 'bold' ] }
+'ui.statusline.select' = { fg = 'mint', modifiers = [ 'bold' ] }
 'ui.text' = 'white'
-'ui.text.focus' = { bg = 'orange_supporting', modifiers = ['bold'] }
+'ui.text.directory' = {}
+'ui.text.focus' = { bg = 'orange_supporting', modifiers = [ 'bold' ] }
 'ui.virtual.indent-guide' = { fg = 'linenr' }
-'ui.virtual.inlay-hint' = { fg = 'grey', modifiers = ['italic'] }
-'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = ['bold'] }
+'ui.virtual.inlay-hint' = { fg = 'grey', modifiers = [ 'italic' ] }
+'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = [ 'bold' ] }
 'ui.virtual.ruler' = { bg = 'linenr' }
 'ui.virtual.whitespace' = { fg = 'linenr' }
 'ui.window' = { fg = 'linenr', bg = 'level' }

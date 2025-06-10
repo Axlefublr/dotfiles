@@ -374,6 +374,7 @@ window-rule {
 
 window-rule {
     match is-floating=true app-id="anki" title="^Anki$"
+    match is-floating=true app-id="anki" title="^Syncing\\.\\.\\.$"
     baba-is-float true
 }
 
