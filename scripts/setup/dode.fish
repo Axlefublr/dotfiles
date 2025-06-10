@@ -731,6 +731,10 @@ eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 # ---------------unimatrix---------------
 paru -Sa --needed --disable-download-timeout unimatrix-git
 
+# ----------------vesktop----------------
+indeed.rs -u ~/.local/share/magazine/W -- '-a AppImage -a ^arm https://github.com/Vencord/Vesktop'
+eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
+
 # ---------------vscode---------------
 mkdir -p ~/.config/Code/User
 ln -sf ~/fes/dot/vscode/settings.jsonc ~/.config/Code/User/settings.json
@@ -826,6 +830,8 @@ ya pkg add Ape/open-with-cmd
 ya pkg add KKV9/compress
 ya pkg add yazi-rs/plugins:toggle-pane
 ya pkg add yazi-rs/plugins:types
+ln -sf ~/fes/dot/desktop/yazi-outside.desktop ~/.local/share/applications/yazi.desktop
+xdg-mime default yazi.desktop inode/directory
 
 # ---------------ydotool---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool

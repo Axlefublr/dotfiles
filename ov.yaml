@@ -176,7 +176,7 @@ KeyBind:
     - 'right'
     - 'l'
   save_buffer:
-    - 'alt+s'
+    - "'"
   search:
     - '/'
   section_delimiter:

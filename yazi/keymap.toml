@@ -1,5 +1,4 @@
 [mgr]
-
 keymap = [
   # [[sort on]]
   { on = '!', run = 'unyank', desc = 'Cancel the yank status' },
@@ -33,6 +32,7 @@ keymap = [
   { on = '<S-PageDown>', run = 'seek 5', desc = 'Scroll preview down' },
   { on = '<S-PageUp>', run = 'seek -5', desc = 'Scroll preview up' },
   { on = '<Space>', run = 'select_all --state=false', desc = 'Deselect all' },
+  { on = '<Tab>', run = 'spot', desc = 'Spot' },
   { on = '<Up>', run = 'arrow -1', desc = 'Move cursor up' },
   { on = '>', run = 'tab_switch 1 --relative', desc = 'Switch to the next tab' },
   { on = '?', run = 'find --previous --smart', desc = 'Find previous file' },
@@ -50,7 +50,7 @@ keymap = [
   { on = 'b', run = 'create --force', desc = 'Create a blob' },
   { on = 'c', run = 'search fd', desc = 'Search files by name using fd' },
   { on = 'd', run = 'remove --force', desc = 'Trash selected' },
-  { on = 'e', run = '''shell --block --confirm 'helix "$@"'''', desc = 'Open in helix' },
+  { on = 'e', run = 'open --interactive', desc = 'Choose how to open' },
   { on = 'f', run = 'plugin jump-to-char', desc = 'Jump to char' },
   { on = 'h', run = 'leave', desc = 'Go back to the parent directory' },
   { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
@@ -83,7 +83,7 @@ keymap = [
   { on = [ 'g', 'i' ], run = 'arrow top', desc = 'Go to top' },
   { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Go to bottom' },
   { on = [ 'g', 'q' ], run = 'shell --confirm -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = 'Go to repo root' },
-  { on = [ 'm', 'C' ], run = [ 'plugin blammo', 'shell --confirm -- fish -c "ouch d (blammo)"' ], desc = 'Decompress archive with ouch' },
+  { on = [ 'm', 'C' ], run = 'shell --confirm -- ouch decompress "$@"', desc = 'Decompress archive(s) with ouch' },
   { on = [ 'm', 'c' ], run = 'plugin compress', desc = 'Archive selected files' },
   { on = [ 'm', 'r' ], run = 'shell --confirm -- fish -c "randomize_file_names (blammo)"', desc = 'Randomize names of selected file(s)' },
   { on = [ 'm', 's' ], run = [ 'plugin blammo', 'shell --block --confirm -- fish -c "ffmpeg_convert_to_mp3 (blammo)"' ], desc = 'Convert to mp3' },
@@ -126,6 +126,26 @@ keymap = [
   # [[sort off]]
 ]
 
+[spot]
+keymap = [
+  # [[sort on]]
+  { on = '<C-h>', run = 'help', desc = 'Open help' },
+  { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
+  { on = '<Esc>', run = 'close', desc = 'Close the spot' },
+  { on = '<Left>', run = 'swipe prev', desc = 'Swipe to previous file' },
+  { on = '<Right>', run = 'swipe next', desc = 'Swipe to next file' },
+  { on = '<Tab>', run = 'close', desc = 'Close the spot' },
+  { on = '<Up>', run = 'arrow -1', desc = 'Previous line' },
+  { on = 'h', run = 'swipe prev', desc = 'Swipe to previous file' },
+  { on = 'j', run = 'arrow 1', desc = 'Next line' },
+  { on = 'k', run = 'arrow -1', desc = 'Previous line' },
+  { on = 'l', run = 'swipe next', desc = 'Swipe to next file' },
+  { on = 's', run = 'copy cell', desc = 'Copy selected cell' },
+  { on = [ 'g', 'i' ], run = 'arrow top', desc = 'First line' },
+  { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Last line' },
+  # [[sort off]]
+]
+
 [input]
 keymap = [
   # [[sort on]]
@@ -149,7 +169,6 @@ keymap = [
 ]
 
 [confirm]
-
 keymap = [
   # [[sort on]]
   # { on = 'j', run = 'arrow next', desc = 'Next line' },
@@ -165,7 +184,6 @@ keymap = [
 ]
 
 [help]
-
 keymap = [
   # [[sort on]]
   { on = '<C-h>', run = 'close', desc = 'Hide the help' },
