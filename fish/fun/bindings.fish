@@ -48,7 +48,7 @@ funcsave _delete_commandline_or_exit >/dev/null
 function _harp_get
     read -n 1 -P 'harp get: ' -l key || return
     not test "$key" && return
-    set -l harp (harp get harp_dirs "$key" | path_prettify)
+    set -l harp (harp get harp_dirs "$key" | path_expand)
     if test "$harp"
         cd "$harp"
         set -f harp_success $status

@@ -59,7 +59,7 @@
 'ui.bufferline' = { fg = 'grey' }
 'ui.bufferline.active' = { fg = 'white' }
 'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = [ 'bold' ] }
-'ui.cursor.match' = { modifiers = [ 'bold', 'underlined' ] }
+'ui.cursor.match' = { fg = 'purple', modifiers = [ 'bold' ] }
 'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = [ 'bold' ] }
 'ui.help' = { fg = 'white', bg = 'dark13' }
 'ui.linenr' = 'linenr'
