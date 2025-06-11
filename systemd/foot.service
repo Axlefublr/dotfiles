@@ -1,0 +1,19 @@
+[Unit]
+Description=Foot terminal server mode
+Documentation=man:foot(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+StartLimitIntervalSec=0
+StartLimitBurst=0
+
+[Service]
+ExecStart=/usr/bin/foot -s
+Type=exec
+UnsetEnvironment=LISTEN_PID LISTEN_FDS LISTEN_FDNAMES
+Restart=always
+RestartSteps=30
+RestartMaxDelaySec=10
+
+[Install]
+WantedBy=graphical-session.target

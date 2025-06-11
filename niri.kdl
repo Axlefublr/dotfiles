@@ -291,6 +291,12 @@ hotkey-overlay {
     skip-at-startup
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 window-rule {
     draw-border-with-background false
     // geometry-corner-radius 16

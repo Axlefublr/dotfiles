@@ -262,10 +262,7 @@ paru -Sa --needed --disable-download-timeout ttf-comfortaa
 sudo pacman -S --needed --noconfirm --disable-download-timeout foot
 mkdir -p ~/.config/foot
 ln -sf ~/fes/dot/foot.ini ~/.config/foot/foot.ini
-systemctl --user enable --now foot-server.socket
-mkdir -p ~/.config/systemd/user/foot-server.service.d
-ln -sf ~/fes/dot/systemd/foot.systemd ~/.config/systemd/user/foot-server.service.d/mine.conf
-systemctl --user enable foot-server.service
+systemctl --user enable --now ~/fes/dot/systemd/foot.service
 
 # ---------------fuck---------------
 sudo pacman -Rns --noconfirm eos-update-notifier
