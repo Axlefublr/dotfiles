@@ -165,6 +165,7 @@
 	c (cmd $fsh edit_clipboard)
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh edit_clipboard_image)
+	g (cmd loago-pick.nu)
 	j (layer-while-held clipboard-index)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd $fsh screenshot_screen)
