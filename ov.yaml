@@ -112,6 +112,7 @@ KeyBind:
     - ':'
   filter:
     - 'f'
+    - 'x'
   follow_all:
     - 'a'
   follow_mode:

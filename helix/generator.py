@@ -284,8 +284,6 @@ normal_select_mappings: dict[str, Any] = {
     'C-q': ':cd ..',
     'C-x': 'join_selections',
     'D': ['delete_selection_noyank', 'move_char_left'],
-    'F1': ['ensure_selections_forward', 'flip_selections', 'extend_char_right'],
-    'F3': ['ensure_selections_forward', 'extend_char_left'],
     'H': 'goto_last_accessed_file',
     'I': 'insert_at_line_start',
     'J': 'select_line_below',

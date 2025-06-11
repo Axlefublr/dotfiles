@@ -105,6 +105,7 @@ ln -sf ~/fes/dot/cargo.toml ~/.cargo/config.toml
 sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-binstall
 sudo pacman -S --needed --noconfirm --disable-download-timeout cargo-update
 cargo binstall -y cargo-quickinstall
+cargo binstall -y cargo-watch
 
 rustup component add rust-analyzer
 mkdir -p ~/.config/rustfmt

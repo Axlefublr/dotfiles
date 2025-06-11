@@ -85,6 +85,7 @@ function fish_user_key_bindings
     bind alt-i helix
     bind alt-m _harp_get
     bind ctrl-\' _wrap_in_pueue
+    bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
     bind ctrl-alt-i 'helix .'
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
