@@ -36,10 +36,10 @@ abbr -a j just
 abbr -a jf 'exec fish'
 abbr -a jk 'just -g'
 abbr -a l jobs
-abbr -a lG 'eza -l'
-abbr -a lS eza
-abbr -a lg 'eza -al'
-abbr -a ls 'eza -a'
+abbr -a la 'eza -a'
+abbr -a le 'eza -l'
+abbr -a ls eza
+abbr -a lw 'eza -al'
 abbr -a mkd 'mkdir -p'
 abbr -a n nu
 abbr -a q qalc
