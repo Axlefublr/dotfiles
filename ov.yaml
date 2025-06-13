@@ -99,6 +99,8 @@ KeyBind:
   bottom:
     - 'End'
     - 'ctrl+End'
+  close_doc:
+    - 'x'
   column_mode:
     - 'c'
   column_width:
@@ -112,7 +114,6 @@ KeyBind:
     - ':'
   filter:
     - 'f'
-    - 'x'
   follow_all:
     - 'a'
   follow_mode:

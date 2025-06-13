@@ -820,11 +820,13 @@ systemctl --user enable --now ~/fes/dot/systemd/xwayland-satellite.service
 sudo pacman -S --needed --noconfirm --disable-download-timeout yazi
 rm -fr ~/.config/yazi
 ln -s ~/fes/dot/yazi ~/.config
-ya pkg add yazi-rs/plugins:jump-to-char
-ya pkg add Ape/open-with-cmd
+# ya pkg add yazi-rs/plugins:jump-to-char
+# ya pkg add Ape/open-with-cmd
 ya pkg add KKV9/compress
 ya pkg add yazi-rs/plugins:toggle-pane
 ya pkg add yazi-rs/plugins:types
+ya pack -a lpanebr/yazi-plugins:first-non-directory
+ya pkg add yazi-rs/plugins:smart-enter
 ln -sf ~/fes/dot/desktop/yazi-outside.desktop ~/.local/share/applications/yazi.desktop
 xdg-mime default yazi.desktop inode/directory
 

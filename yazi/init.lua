@@ -1,6 +1,9 @@
 function Status:name() return '' end
 
 require('toggle-pane'):entry('min-preview')
+require("smart-enter"):setup {
+	open_multi = true,
+}
 
 function Tabs.height()
 	return 0

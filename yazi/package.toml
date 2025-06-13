@@ -1,9 +1,4 @@
 [[plugin.deps]]
-use = "yazi-rs/plugins:jump-to-char"
-rev = "63f9650"
-hash = "30fc0b37f03a597b92d387268319450f"
-
-[[plugin.deps]]
 use = "KKV9/compress"
 rev = "9fc8fe0"
 hash = "2ad086899bf368fba211a33d8f68c39d"
@@ -18,5 +13,15 @@ use = "yazi-rs/plugins:types"
 rev = "63f9650"
 hash = "c255054d6a70754db6cb96b97ad1ccd7"
 
+[[plugin.deps]]
+use = "lpanebr/yazi-plugins:first-non-directory"
+rev = "ca18a2c"
+hash = "5c20ffa5171dab34042e03d273dddc5b"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "aeca767"
+hash = "a7ab702e1ef0c097defbc976ed34c186"
+
 [flavor]
-deps = [  ]
+deps = []

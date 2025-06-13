@@ -3,6 +3,7 @@ keymap = [
   # [[sort on]]
   { on = '!', run = 'unyank', desc = 'Cancel the yank status' },
   { on = '%', run = 'toggle_all --state=true', desc = 'Select all' },
+  { on = '*', run = 'plugin first-non-directory', desc = 'Go to first non-directory' },
   { on = ',', run = 'escape --select', desc = 'Deselect all files' },
   { on = '.', run = 'hidden toggle', desc = 'Toggle the visibility of hidden files' },
   { on = '/', run = 'find --smart', desc = 'Find next file' },
@@ -25,7 +26,7 @@ keymap = [
   { on = '<C-x>', run = 'yank --cut', desc = 'Yank selected files (cut)' },
   { on = '<C-z>', run = [ 'plugin blammo', 'plugin storecwd' ], desc = 'Suspend the process' },
   { on = '<Down>', run = 'arrow 1', desc = 'Move cursor down' },
-  { on = '<Enter>', run = 'open', desc = 'Open selected files' },
+  { on = '<Enter>', run = [ 'escape --filter', 'plugin smart-enter' ], desc = 'Open selected files' },
   { on = '<Esc>', run = 'escape --find --filter --search', desc = 'Cancel most things' },
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
@@ -51,12 +52,12 @@ keymap = [
   { on = 'c', run = 'search fd', desc = 'Search files by name using fd' },
   { on = 'd', run = 'remove --force', desc = 'Trash selected' },
   { on = 'e', run = 'open --interactive', desc = 'Choose how to open' },
-  { on = 'f', run = 'plugin jump-to-char', desc = 'Jump to char' },
-  { on = 'h', run = 'leave', desc = 'Go back to the parent directory' },
+  { on = 'f', run = 'filter --smart', desc = 'Filter' },
+  { on = 'h', run = [ 'escape --filter', 'leave' ], desc = 'Go back to the parent directory' },
   { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
   { on = 'j', run = 'arrow 1', desc = 'Move cursor down' },
   { on = 'k', run = 'arrow -1', desc = 'Move cursor up' },
-  { on = 'l', run = 'enter', desc = 'Enter the child directory' },
+  { on = 'l', run = [ 'escape --filter', 'enter' ], desc = 'Enter the child directory' },
   { on = 'n', run = 'find_arrow', desc = 'Go to the next found' },
   { on = 'o', run = 'paste', desc = 'Paste yanked files' },
   { on = 'r', run = 'rename --cursor=before_ext', desc = 'Rename selected file(s)' },
@@ -64,7 +65,7 @@ keymap = [
   { on = 'u', run = 'tasks:show', desc = 'Show task manager' },
   { on = 'v', run = 'toggle', desc = 'Toggle select hovered file' },
   { on = 'w', run = 'plugin toggle_deselect', desc = 'Toggle deselect mode' },
-  { on = 'x', run = 'filter --smart', desc = 'Filter' },
+  { on = 'x', run = 'escape --filter --find', desc = 'Defilter and defind' },
   { on = 'y', run = 'search rg', desc = 'Search files by content using ripgrep' },
   { on = '{', run = 'tab_swap -1', desc = 'Swap current tab with previous tab' },
   { on = '}', run = 'tab_swap 1', desc = 'Swap current tab with next tab' },
@@ -129,6 +130,7 @@ keymap = [
 [spot]
 keymap = [
   # [[sort on]]
+  { on = ':', run = 'close', desc = 'Close the spot' },
   { on = '<C-h>', run = 'help', desc = 'Open help' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
   { on = '<Esc>', run = 'close', desc = 'Close the spot' },
@@ -186,6 +188,7 @@ keymap = [
 [help]
 keymap = [
   # [[sort on]]
+  { on = ':', run = 'close', desc = 'Close the spot' },
   { on = '<C-h>', run = 'close', desc = 'Hide the help' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
   { on = '<Esc>', run = 'escape', desc = 'Clear the filter, or hide the help' },

@@ -4,9 +4,9 @@ count_copied = { bg = '#e491b2', fg = '#1f1e1e', bold = true }
 count_cut = { bg = '#ea6962', fg = '#1f1e1e', bold = true }
 count_selected = { bg = '#d3ad5c', fg = '#1f1e1e', bold = true }
 cwd = { fg = '#ffafd7', bold = true }
-find_keyword = { fg = '#b58cc6', bold = true }
-find_position = { fg = '#b58cc6', bold = true }
-hovered = { bg = '#5f472d', bold = true }
+find_keyword = { fg = '#ea6962', bold = true }
+find_position = { fg = '#ea6962', bold = true }
+hovered = { fg = '#e49641', bg = '#5f472d', bold = true }
 marker_copied = { bg = '#e491b2', fg = '#e491b2' }
 marker_cut = { bg = '#ea6962', fg = '#ea6962' }
 marker_marked = { bg = '#e49641', fg = '#e49641' }
@@ -47,25 +47,39 @@ cand = { fg = '#e49641' }
 desc = { fg = '#d3ad5c' }
 
 [confirm]
-border = { fg = '#d3ad5c' }
-title = { fg = '#d3ad5c' }
+border = { fg = '#e49641', bold = true }
+title = { fg = '#e49641' }
 btn_yes = {}
 btn_labels = [ 'Yes', 'No' ]
 
-[select]
-border = { fg = '#b58cc6', bold = true }
-active = { fg = '#e49641', bold = true }
+[spot]
+border = { fg = '#e49641', bold = true }
+title = { fg = '#e49641' }
+tbl_col = { fg = '#b58cc6' }
+tbl_cell = { fg = '#e49641', bg = '#5f472d', bold = true }
+
+[notify]
+title_info = { fg = '#7daea3' }
+title_warn = { fg = '#e49641' }
+title_error = { fg = 'red' }
+
+[pick]
+border = { fg = '#e49641', bold = true }
+active = { fg = '#e49641', bg = '#5f472d', bold = true }
+inactive = { fg = '#b58cc6' }
 
 [input]
-border = { fg = '#b58cc6', bold = true }
-
-[completion]
-border = { fg = '#b58cc6', bold = true }
+border = { fg = '#e49641', bold = true }
+title = { fg = '#e49641', bold = true }
 
 [tasks]
-border = { fg = '#b58cc6', bold = true }
+border = { fg = '#e49641', bold = true }
+title = { fg = '#e49641', bold = true }
+hovered = { fg = '#e49641', bg = '#5f472d', bold = true }
 
 [help]
+on = { fg = '#e49641' }
+run = { fg = '#d3ad5c' }
 hovered = { bg = '#5f472d' }
 footer = { fg = 'white' }
 
@@ -76,5 +90,5 @@ rules = [
   { name = '*', is = 'exec', fg = 'green' },   # executables
   { name = '*', is = 'link', fg = '#78bf84' }, # symbolic links
   # { name = '*', fg = 'white' },
-  { name = '*/', fg = 'yellow' },
+  { name = '*/', fg = '#b58cc6' },
 ]
