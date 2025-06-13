@@ -49,6 +49,7 @@ lsp: dict[str, Any] = {
 
 editor: dict[str, Any] = {
     # [[sort on]]
+    'bufferline-index': True,
     'disable-dot-repeat': True,
     'ephemeral-messages': False,
     'should-statusline': False,
