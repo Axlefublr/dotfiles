@@ -2,7 +2,7 @@
 
 [mgr]
 # [[sort on]]
-ratio = [0, 1, 1]
+ratio = [ 0, 1, 1 ]
 scrolloff = 255
 show_hidden = false
 sort_by = 'natural'
@@ -15,6 +15,14 @@ tab_size = 3
 wrap = 'yes'
 max_width = 1000
 
+[opener]
+edit = [
+  { run = '${EDITOR:-vi} "$@"', desc = "Edit", block = true },
+]
+extract = [
+  { run = 'ouch decompress "$@"', desc = "Extract here" },
+]
+
 [tasks]
 suppress_preload = true
 
@@ -24,7 +32,7 @@ cd_origin = "top-center"
 create_origin = "top-center"
 filter_origin = "top-center"
 find_origin = "top-center"
-rename_offset = [0, 2, 50, 3]
+rename_offset = [ 0, 2, 50, 3 ]
 rename_origin = "top-center"
 search_origin = "top-center"
 shell_origin = "top-center"

@@ -323,7 +323,7 @@ window-rule {
     match app-id="anki" title="Note Types"
     match app-id="anki" title="Card Types"
     match app-id="^python$" title="^Import$"
-    match app-id="firefox$" title="^(File Upload)|(Save Image)|(Enter name of file to save to…)$"
+    match app-id="floorp|firefox$" title="^(File Upload)|(Save Image)|(Enter name of file to save to…)$"
     match app-id="anki" title="Custom Study"
     open-floating false
 }

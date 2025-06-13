@@ -30,8 +30,8 @@ end
 funcsave _match_helix_cwd >/dev/null
 
 function _wrap_in_pueue
-    set -l cmd "$(commandline)"
-    commandline "pueue add -- '$cmd'"
+    set -l cmd "$(commandline | string escape)"
+    commandline "pueue add -- $cmd"
     commandline -C 10
 end
 funcsave _wrap_in_pueue >/dev/null
@@ -85,7 +85,7 @@ function fish_user_key_bindings
     bind alt-i helix
     bind alt-m _harp_get
     bind ctrl-\' _wrap_in_pueue
-    bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
+    bind ctrl-\; 'commandline "ov -Ae -- $(commandline | string escape)"'
     bind ctrl-alt-i 'helix .'
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit

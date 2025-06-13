@@ -3,7 +3,6 @@ Description=Foot terminal server mode
 Documentation=man:foot(1)
 PartOf=graphical-session.target
 After=graphical-session.target
-ConditionEnvironment=WAYLAND_DISPLAY
 StartLimitIntervalSec=0
 StartLimitBurst=0
 

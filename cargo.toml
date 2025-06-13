@@ -9,6 +9,7 @@ a = 'add'
 maybe = 'add --dry-run'
 do = 'doc --open'
 w = 'watch -q -c -x clippy'
+s = 'search'
 
 [env]
 RUST_LOG = 'trace'

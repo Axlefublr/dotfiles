@@ -1,25 +1,56 @@
 [mgr]
-# hovered = { bg = '#5f472d' }
-hovered = { fg = '#e49641' }
+# [[sort on]]
+count_copied = { bg = '#e491b2', fg = '#1f1e1e', bold = true }
+count_cut = { bg = '#ea6962', fg = '#1f1e1e', bold = true }
+count_selected = { bg = '#d3ad5c', fg = '#1f1e1e', bold = true }
 cwd = { fg = '#ffafd7', bold = true }
-
 find_keyword = { fg = '#b58cc6', bold = true }
 find_position = { fg = '#b58cc6', bold = true }
+hovered = { bg = '#5f472d', bold = true }
+marker_copied = { bg = '#e491b2', fg = '#e491b2' }
+marker_cut = { bg = '#ea6962', fg = '#ea6962' }
+marker_marked = { bg = '#e49641', fg = '#e49641' }
+marker_selected = { bg = '#d3ad5c', fg = '#d3ad5c' }
+# [[sort off]]
 
-marker_selected = { bg = '#e49641' }
-marker_copied = { bg = '#d3ad5c' }
-marker_cut = { bg = '#ea6962' }
+[tabs]
+# [[sort on]]
+active = { fg = 'white', bold = true }
+inactive = { fg = '#928374' }
+# [[sort off]]
 
-tab_active = { fg = 'white', bg = '#5f472d', bold = true }
+[mode]
+# [[sort on]]
+normal_alt = { fg = 'white', bg = 'reset' }
+normal_main = { fg = 'white', bg = 'reset' }
+select_alt = { fg = 'white', bg = 'reset' }
+select_main = { fg = '#1f1e1e', bg = '#e49641', bold = true }
+unset_alt = { fg = 'white', bg = 'reset' }
+unset_main = { fg = '#1f1e1e', bg = '#ea6962', bold = true }
+# [[sort off]]
 
 [status]
-separator_open = ''
-separator_close = ''
-separator_style = { fg = 'white', bg = '#e49641' }
+# [[sort on]]
+perm_sep = { fg = '#928374' }
+progress_error = { fg = '#ea6962' }
+progress_label = { fg = '#1f1e1e', bold = true }
+progress_normal = { fg = '#a9b665' }
+sep_left = { open = '', close = '' }
+sep_right = { open = '', close = '' }
+# [[sort off]]
 
-mode_normal = { fg = 'white', bold = true }
-mode_select = { fg = '#78bf84', bold = true }
-mode_unset = { fg = '#ea6962', bold = true }
+[which]
+cols = 2
+mask = { bg = '#212121' }
+separator_style = { fg = 'white' }
+cand = { fg = '#e49641' }
+desc = { fg = '#d3ad5c' }
+
+[confirm]
+border = { fg = '#d3ad5c' }
+title = { fg = '#d3ad5c' }
+btn_yes = {}
+btn_labels = [ 'Yes', 'No' ]
 
 [select]
 border = { fg = '#b58cc6', bold = true }
@@ -34,11 +65,6 @@ border = { fg = '#b58cc6', bold = true }
 [tasks]
 border = { fg = '#b58cc6', bold = true }
 
-[which]
-cols = 2
-mask = { bg = '#212121' }
-separator_style = { fg = 'white' }
-
 [help]
 hovered = { bg = '#5f472d' }
 footer = { fg = 'white' }
@@ -50,5 +76,5 @@ rules = [
   { name = '*', is = 'exec', fg = 'green' },   # executables
   { name = '*', is = 'link', fg = '#78bf84' }, # symbolic links
   # { name = '*', fg = 'white' },
-  { name = '*/', fg = 'blue' },
+  { name = '*/', fg = 'yellow' },
 ]

@@ -542,15 +542,13 @@ rm -fr dvdrental.tar
 psql -U postgres -d dvdrental -c 'SELECT count(*) FROM film;' -c 'SELECT version();'
 # set -Ux PGDATABASE dvdrental
 # set -Ux PGUSER postgres
-# ---------------postgresql---------------
+
 sudo systemctl disable postgresql
 
 # ---------------pueue---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout pueue
 systemctl --user enable --now pueued
 ln -sf ~/fes/dot/pueue.yml ~/.config/pueue/pueue.yml
-pueue group add s
-pueue parallel -g s 0
 
 # ---------------qalc---------------
 sudo pacman -S libqalculate
@@ -832,7 +830,7 @@ xdg-mime default yazi.desktop inode/directory
 
 # ---------------ydotool---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool
-pueue add -g s ydotoold
+# now run ydotool somehow
 
 # ---------------yt-dlp---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout yt-dlp
