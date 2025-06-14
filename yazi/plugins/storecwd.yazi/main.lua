@@ -7,6 +7,5 @@ return {
 			file:write(cwd)
 			file:close()
 		end
-		ya.manager_emit('suspend', {})
 	end,
 }

@@ -49,13 +49,7 @@ function confirm -a message
 end
 funcsave confirm >/dev/null
 
-alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
-
-function ensure_browser
-end
-funcsave ensure_browser >/dev/null
-
-function s
+function d
     echo $PWD >~/.cache/mine/shell-cwd
     if set -q argv
         fg %(velvidek.rs $argv)
@@ -63,7 +57,13 @@ function s
         fg
     end
 end
-funcsave s >/dev/null
+funcsave d >/dev/null
+
+alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
+
+function ensure_browser
+end
+funcsave ensure_browser >/dev/null
 
 function flour
     argparse 'T/title=' -- $argv

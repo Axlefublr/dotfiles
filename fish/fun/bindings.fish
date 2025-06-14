@@ -12,22 +12,23 @@ function _man_the_commandline
 end
 funcsave _man_the_commandline >/dev/null
 
-function _match_helix_cwd
-    read -P 'hElix yAzi buFFer hOme gIt: ' -n1 choice
-    if test "$choice" = e
-        z (cat ~/.cache/mine/helix-cwd-suspend | path_expand)
-    else if test "$choice" = a
-        z (cat ~/.cache/mine/yazi-cwd-suspend)
-    else if test "$choice" = f
-        z (cat ~/.cache/mine/helix-buffer-head-suspend | path_expand)
-    else if test "$choice" = o
-        z ~
-    else if test "$choice" = i
-        gq
-    end
+function _travel_helix_cwd
+    z (cat ~/.cache/mine/helix-cwd-suspend | path_expand)
     commandline -f repaint
 end
-funcsave _match_helix_cwd >/dev/null
+funcsave _travel_helix_cwd >/dev/null
+
+function _travel_yazi_cwd
+    z (cat ~/.cache/mine/yazi-cwd-suspend)
+    commandline -f repaint
+end
+funcsave _travel_yazi_cwd >/dev/null
+
+function _travel_buffer_head
+    z (cat ~/.cache/mine/helix-buffer-head-suspend | path_expand)
+    commandline -f repaint
+end
+funcsave _travel_buffer_head >/dev/null
 
 function _wrap_in_pueue
     set -l cmd "$(commandline | string escape)"
@@ -83,13 +84,16 @@ function fish_user_key_bindings
     bind alt-d _blammo_pwd
     bind alt-enter expand-abbr insert-line-under
     bind alt-m _harp_get
+    bind ctrl-1 _travel_buffer_head
+    bind ctrl-3 _travel_yazi_cwd
+    bind ctrl-5 _travel_helix_cwd
     bind ctrl-\' _wrap_in_pueue
     bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-i 'zi ; commandline -f repaint'
     bind ctrl-l '__fish_cursor_xterm line ; commandline -f repaint'
-    bind ctrl-s _match_helix_cwd
+    bind ctrl-q 'gq ; commandline -f repaint'
     bind ctrl-z s
     bind f1 lazygit
     bind f2 footclient
