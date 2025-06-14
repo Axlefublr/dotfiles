@@ -111,7 +111,11 @@ function fish_prompt
     #     end
     # end
     fish_prompt_status $fullstatuses
-    set_color ffd75f
+    if set -q IS_INSIDE_YAZI
+        set_color af87ff
+    else
+        set_color ffd75f
+    end
     printf '󱕅 '
     set_color normal
 end

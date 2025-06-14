@@ -13,7 +13,7 @@ return {
 
 		if event == 1 then
 			ya.emit('shell', {
-				'consume.rs /tmp/cami-yazi-command | sd "%%" "(blammo)" | fish',
+				'consume.rs /tmp/cami-yazi-command | fish',
 				block = false,
 				orphan = false,
 				confirm = true,

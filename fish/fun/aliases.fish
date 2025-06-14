@@ -21,9 +21,7 @@ alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_state 'playerctl status' >/dev/null
 alias --save ntf_dismiss_all 'fnottctl dismiss all' >/dev/null
 alias --save ntf_dismiss_old 'fnottctl dismiss' >/dev/null
-alias --save o ypoc >/dev/null
 alias --save reboot 'systemctl reboot' >/dev/null
-alias --save s copy >/dev/null
 alias --save set_media_volume 'playerctl volume' >/dev/null
 alias --save set_mic_volume 'wpctl set-volume @DEFAULT_AUDIO_SOURCE@' >/dev/null
 alias --save set_volume 'wpctl set-volume @DEFAULT_AUDIO_SINK@' >/dev/null

@@ -93,6 +93,7 @@ function fish_user_key_bindings
     bind ctrl-l '__fish_cursor_xterm line ; commandline -f repaint'
     bind ctrl-s _match_helix_cwd
     bind ctrl-z fg
+    bind f2 footclient
     bind f3 yazi_cd
     bind f8 lazygit
     # [[sort off]]
