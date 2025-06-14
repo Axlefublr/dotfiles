@@ -55,14 +55,15 @@ function ensure_browser
 end
 funcsave ensure_browser >/dev/null
 
-function f
+function s
+    echo $PWD >~/.cache/mine/shell-cwd
     if set -q argv
         fg %(velvidek.rs $argv)
     else
         fg
     end
 end
-funcsave f >/dev/null
+funcsave s >/dev/null
 
 function flour
     argparse 'T/title=' -- $argv
