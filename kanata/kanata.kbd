@@ -121,7 +121,7 @@
 	m home
 	o enter
 	p caps
-	u (caps-word $ot)
+	u (cmd niri msg action switch-layout next)
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )

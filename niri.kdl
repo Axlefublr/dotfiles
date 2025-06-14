@@ -4,7 +4,7 @@ input {
         repeat-rate 50
         xkb {
             layout "us,ru"
-            options "grp:win_space_toggle"
+            // options "grp:win_space_toggle"
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
 
@@ -149,6 +149,8 @@ layout {
         on
     }
 
+    default-column-display "tabbed"
+
     tab-indicator {
         hide-when-single-tab
         length total-proportion=1.002
@@ -181,8 +183,8 @@ binds {
     Mod+F5 { spawn "foot"; }
     Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
 
-    Mod+Semicolon { close-window; }
     Mod+F { fullscreen-window; }
+    Mod+Semicolon { close-window; }
     Mod+R { toggle-windowed-fullscreen; }
     Mod+M { toggle-column-tabbed-display; }
     Mod+Apostrophe { toggle-overview; }
@@ -206,7 +208,6 @@ binds {
 
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
-    Mod+E { center-column; }
 
     Mod+X { set-column-width "33.333%"; }
     Mod+C { set-column-width "50%"; }
