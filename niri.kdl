@@ -1,6 +1,6 @@
 input {
     keyboard {
-        repeat-delay 170
+        repeat-delay 130
         repeat-rate 50
         xkb {
             layout "us,ru"
@@ -186,7 +186,7 @@ binds {
     Mod+F { fullscreen-window; }
     Mod+Semicolon { close-window; }
     Mod+R { toggle-windowed-fullscreen; }
-    Mod+M { toggle-column-tabbed-display; }
+    Mod+V { spawn "fish" "-c" "toggle_tab_correctly"; }
     Mod+Apostrophe { toggle-overview; }
 
     Mod+H { focus-column-left-or-last; }
@@ -209,16 +209,17 @@ binds {
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+X { set-column-width "33.333%"; }
-    Mod+C { set-column-width "50%"; }
-    Mod+V { set-column-width "66.667%"; }
+    Mod+S { spawn "fish" "-c" "vertically_tile left 50%"; }
+    Mod+D { spawn "fish" "-c" "vertically_tile right 50%"; }
+    Mod+W { spawn "fish" "-c" "vertically_tile left 100%"; }
+    Mod+E { spawn "fish" "-c" "vertically_tile right 100%"; }
 
     Mod+Z { set-window-height "33.333%"; }
     Mod+A { set-window-height "50%"; }
     Mod+Q { set-window-height "66.667%"; }
 
-    Mod+W { reset-window-height; }
-    Mod+S { maximize-column; }
+    Mod+X { reset-window-height; }
+    Mod+C { maximize-column; }
 
     Mod+N { toggle-window-floating; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }

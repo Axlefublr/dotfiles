@@ -164,6 +164,12 @@ function special_anki_edit_action
 end
 funcsave special_anki_edit_action >/dev/null
 
+function toggle_tab_correctly
+    niri msg action toggle-column-tabbed-display
+    niri msg action reset-window-height
+end
+funcsave toggle_tab_correctly >/dev/null
+
 function toggle_screen_record
     if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
         kitten @ --to unix:/home/axlefublr/.cache/mine/screen-recording-kitty-socket signal-child SIGINT
@@ -182,6 +188,24 @@ function things
     end 2>/dev/null
 end
 funcsave things >/dev/null
+
+function vertically_tile -a direction bigness
+    not test "$direction" && return 121
+    not test "$bigness" && return 121
+    niri msg action set-column-width $bigness
+    if test "$direction" = left
+        niri msg action focus-column-left-or-last
+    else
+        niri msg action focus-column-right-or-first
+    end
+    niri msg action set-column-width $bigness
+    if test "$direction" = right
+        niri msg action focus-column-left-or-last
+    else
+        niri msg action focus-column-right-or-first
+    end
+end
+funcsave vertically_tile >/dev/null
 
 function which_wallpaper
     swww query | string match -gr 'image: (.*)'
