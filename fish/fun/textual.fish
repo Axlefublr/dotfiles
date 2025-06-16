@@ -7,7 +7,7 @@ end
 funcsave htmlace >/dev/null
 
 function htmlize
-    read -z | string replace -a '&' '&amp;' | string replace -a '<' '&lt;' | string replace -a '>' '&gt;' | sd \n '<br>' | sd '<br>$' '\n'
+    read -z | string replace -a '&' '&amp;' | string replace -a '<' '&lt;' | string replace -a '>' '&gt;' | sd \n '<br>'
     true
 end
 funcsave htmlize >/dev/null

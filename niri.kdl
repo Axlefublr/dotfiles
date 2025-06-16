@@ -219,7 +219,7 @@ binds {
     Mod+Q { set-window-height "66.667%"; }
 
     Mod+X { reset-window-height; }
-    Mod+C { maximize-column; }
+    Mod+C { set-column-width "100%"; }
 
     Mod+N { toggle-window-floating; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
