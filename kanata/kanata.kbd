@@ -143,7 +143,7 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (macro (cmd footclient -D /home/axlefublr/fes/foe -N) 10 e ret)
+	a (macro (cmd footclient -D /home/axlefublr/fes/foe -N) 50 e ret)
 	c (cmd footclient -N calcure)
 	d (cmd footclient -N)
 	e (cmd footclient -N bluetui)

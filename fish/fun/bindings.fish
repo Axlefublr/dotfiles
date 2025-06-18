@@ -92,15 +92,15 @@ function fish_user_key_bindings
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-i 'zi ; commandline -f repaint'
-    bind ctrl-l '__fish_cursor_xterm line ; commandline -f repaint'
     bind ctrl-q 'gq ; commandline -f repaint'
+    bind ctrl-s '__fish_cursor_xterm line ; clx ; commandline -f repaint'
     bind ctrl-z s
-    bind f1 lazygit
+    bind f1 'commandline nu ; commandline -f execute'
     bind f2 footclient
     bind f3 yazi_cd
     bind f5 helix
     bind f6 'helix .'
-    bind f8 'echo ; nu'
+    bind f8 lazygit
     # [[sort off]]
 end
 funcsave fish_user_key_bindings >/dev/null
