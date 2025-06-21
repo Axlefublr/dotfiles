@@ -87,8 +87,8 @@ footer = { fg = 'white' }
 rules = [
   { mime = 'inode/x-empty', fg = 'red' },      # empty file
   { name = '*', is = 'orphan', fg = 'red' },   # orphan symbolic links
-  { name = '*', is = 'exec', fg = 'green' },   # executables
   { name = '*', is = 'link', fg = '#78bf84' }, # symbolic links
+  { name = '*', is = 'exec', fg = 'green' },   # executables
   # { name = '*', fg = 'white' },
   { name = '*/', fg = '#b58cc6' },
 ]

@@ -92,8 +92,9 @@ function fish_user_key_bindings
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-i 'zi ; commandline -f repaint'
-    bind ctrl-q 'gq ; commandline -f repaint'
-    bind ctrl-s '__fish_cursor_xterm line ; clx ; commandline -f repaint'
+    bind ctrl-l 'commandline -f clear-screen'
+    bind ctrl-q 'z .. ; commandline -f repaint'
+    bind ctrl-s 'commandline -f repaint'
     bind ctrl-z s
     bind f1 'commandline nu ; commandline -f execute'
     bind f2 footclient

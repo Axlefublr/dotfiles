@@ -70,9 +70,18 @@ function fish_prompt
     if set -q fish_private_mode
         printf '󰗹 '
     end
-    if test (count (jobs)) -gt 0
+    set -l jobsies (jobs)
+    set -l jobsies_count (count $jobsies)
+    if test $jobsies_count -gt 0
         printf ' '
+        if test $jobsies_count -gt 1
+            set_color -o
+            printf %s\n $jobsies | cut -f 1 | string join '' | read
+            echo -n ' '
+            set_color normal
+        end
     end
+    set_color ffd75f
     if not test -w .
         printf ' '
     end
@@ -114,6 +123,7 @@ function fish_prompt
     set_color ffd75f
     printf '󱕅 '
     set_color normal
+    __fish_cursor_xterm line
 end
 funcsave fish_prompt >/dev/null
 

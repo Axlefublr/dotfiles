@@ -110,11 +110,11 @@ function internet_search
 
     string match -gr '^(?:(?<engine>.*)! )?(?<only_search>.*)' -- $input
     not test "$engine" && set engine google
-    set clean_input (string escape --style=url $only_search)
+    set clean_input (string escape --style=url -- $only_search)
 
     cat ~/.local/share/magazine/B | string match -gr "^$engine (?<engine_url>.*)"
 
-    $BROWSER (string replace %% $clean_input $engine_url)
+    $BROWSER (string replace -- %% $clean_input $engine_url)
     ensure_browser
 end
 funcsave internet_search >/dev/null
@@ -143,8 +143,8 @@ function filter_mature_tasks
                 if_print $days $name 45
             case fsrs iso
                 if_print $days $name 60
-            case toothbrush
-                if_print $days $name 120
+            case toothbrush tongue moch
+                if_print $days $name 122
             case '*'
                 echo "$name — $(math $days - 5)"
         end
