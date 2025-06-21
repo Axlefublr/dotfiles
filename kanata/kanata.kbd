@@ -45,7 +45,7 @@
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lctl)
-	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh sreboot) (cmd $fsh reboot) (cmd $fsh poweroff)))
+	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh reboot) (cmd $fsh poweroff)))
 	e (tap-hold-release $tt $ht e (layer-while-held func-right))
 	esc (tap-dance-eager 500 (XX XX (cmd $fsh eat)))
 	f (tap-hold-release $tt $ht f (layer-while-held arrows))
@@ -87,6 +87,7 @@
 
 (deflayermap (numbers)
 	;; [[sort on]]
+	, (layer-while-held numbers-superscript)
 	. (layer-while-held numbers-subscript)
 	a 0
 	c 8
@@ -94,7 +95,6 @@
 	e 5
 	f 1
 	i (layer-while-held clipboard-index)
-	o (layer-while-held numbers-superscript)
 	q eql
 	r 4
 	s 3

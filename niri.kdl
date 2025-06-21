@@ -93,7 +93,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesnjt fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "always"
 
     always-center-single-column
     empty-workspace-above-first
@@ -171,58 +171,53 @@ layout {
 }
 
 binds {
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "fish" "-c" "toggle_mute"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "fish" "-c" "toggle_mic_mute"; }
     Mod+WheelScrollDown { spawn "fish" "-c" "set_volume 0.02-"; }
     Mod+WheelScrollUp   { spawn "fish" "-c" "set_volume 0.02+"; }
-
-    Mod+Shift+E { quit; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "fish" "-c" "toggle_mic_mute"; }
+    XF86AudioMute        allow-when-locked=true { spawn "fish" "-c" "toggle_mute"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02+"; }
 
     Mod+F5 { spawn "foot"; }
     Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
+    Mod+Shift+E { quit; }
 
-    Mod+F { fullscreen-window; }
-    Mod+Semicolon { close-window; }
-    Mod+R { toggle-windowed-fullscreen; }
-    Mod+V { spawn "fish" "-c" "toggle_tab_correctly"; }
     Mod+Apostrophe { toggle-overview; }
+    Mod+F { fullscreen-window; }
+    Mod+R { toggle-windowed-fullscreen; }
+    Mod+Semicolon { close-window; }
+
+    Mod+C { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+D { toggle-window-floating; }
+    Mod+Slash { switch-focus-between-floating-and-tiling; }
+
+    Mod+Comma  { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
     Mod+J { focus-workspace-down; }
     Mod+K { focus-workspace-up; }
 
+    Mod+Left { move-column-left; }
+    Mod+Right { move-column-right; }
+    Mod+Down { move-column-to-workspace-down; }
+    Mod+Up { move-column-to-workspace-up; }
+
     Mod+I { focus-window-up-or-bottom; }
     Mod+O { focus-window-down-or-top; }
     Mod+Tab { move-window-up; }
     Mod+Return { move-window-down; }
 
-    Mod+Left { move-column-left; }
-    Mod+Right { move-column-right; }
-    Mod+Down { move-column-to-workspace-down; }
-    Mod+Up { move-column-to-workspace-up; }
-    // Mod+Ctrl+J { move-workspace-down; }
-    // Mod+Ctrl+K { move-workspace-up; }
-
-    Mod+Comma  { consume-or-expel-window-left; }
-    Mod+Period { consume-or-expel-window-right; }
-
-    Mod+S { spawn "fish" "-c" "vertically_tile left 50%"; }
-    Mod+D { spawn "fish" "-c" "vertically_tile right 50%"; }
-    Mod+W { spawn "fish" "-c" "vertically_tile left 100%"; }
-    Mod+E { spawn "fish" "-c" "vertically_tile right 100%"; }
+    Mod+Ctrl+J { set-column-width "33.33333%"; }
+    Mod+Ctrl+K { set-column-width "50%"; }
+    Mod+Ctrl+H { set-column-width "66.66667%"; }
+    Mod+Ctrl+L { set-column-width "100%"; }
 
     Mod+Z { set-window-height "33.333%"; }
     Mod+A { set-window-height "50%"; }
     Mod+Q { set-window-height "66.667%"; }
-
-    Mod+X { reset-window-height; }
-    Mod+C { set-column-width "100%"; }
-
-    Mod+N { toggle-window-floating; }
-    Mod+Slash { switch-focus-between-floating-and-tiling; }
+    Mod+S { reset-window-height; }
 }
 
 // Add lines like this to spawn processes at startup.
