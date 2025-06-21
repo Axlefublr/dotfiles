@@ -33,7 +33,7 @@ git clone https://github.com/Axlefublr/autocommit eli
 git clone https://github.com/Axlefublr/dotfiles dot
 git clone https://github.com/Axlefublr/binaries bin
 git clone https://github.com/Axlefublr/backup ack
-git clone https://github.com/Axlefublr/info foe
+git clone https://github.com/Axlefublr/info xj
 git clone https://github.com/Axlefublr/job
 
 fish_add_path ~/fes/bin
