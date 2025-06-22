@@ -462,8 +462,14 @@ mkdir -p ~/.config/nom
 ln -sf ~/fes/dot/nom.yml ~/.config/nom/config.yml
 cp -f ~/fes/eli/nom.db ~/.config/nom/nom.db
 
+# -------------nushell-------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
+ln -sf ~/fes/dot/nu/nonf.nu ~/.config/nushell/config.nu
+rm -fr ~/.config/nushell/autoload
+ln -s ~/fes/dot/nu/autoload ~/.config/nushell/
+
 # ---------------nvim---------------
-sudo pacman -S neovim luarocks
+sudo pacman -S --needed --noconfirm --disable-download-timeout neovim luarock
 trash-put ~/.config/nvim
 mkdir -p ~/.config/nvim
 for file in ~/fes/dot/!nvim/*

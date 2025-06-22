@@ -338,7 +338,7 @@ window-rule {
 
 window-rule {
     match app-id="^waybar$"
-    match app-id="^kitty|foot" title="^uboot$"
+    match app-id="^kitty|foot" title="^uboot"
     match app-id="^kitty|foot" title="^screen-record$"
     open-focused false
 }
@@ -360,6 +360,7 @@ window-rule {
 
 window-rule {
     match app-id="anki" title="Custom Study"
+    match app-id="^foot" title="^uboot-third"
     default-column-width { proportion 0.33333; }
 }
 

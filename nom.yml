@@ -20,6 +20,8 @@ feeds:
     name: terminal trove
   - url: https://phaazon.net/blog/feed
     name: strongly typed thoughts
+  - url: https://ersei.net/en/blog.atom
+    name: ersei
 theme:
   glamour: dark
   titleColor: "#e49641"

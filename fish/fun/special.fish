@@ -183,7 +183,7 @@ funcsave toggle_screen_record >/dev/null
 function things
     begin
         footclient -NT uboot helix ~/.local/share/magazine/semicolon
-        footclient -NT uboot fish -c fm
+        footclient -NT uboot-third fish -c fm
         footclient -NT uboot calcure
     end 2>/dev/null
 end
