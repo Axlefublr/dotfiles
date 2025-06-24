@@ -34,7 +34,6 @@
 	/ (tap-hold-release $tt $ht / XX)
 	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 enter 40 a d d tab 40 enter 40 g i v e spc)
 	3 (macro ` 40 a d d tab 50 enter 50 esc)
-	8 (macro ` 40 g i v e spc b a b y 40 tab 40 tab 40 enter esc)
 	9 (cmd $fsh screenshot_window)
 	; (tap-hold-release $tt $ht ; ralt)
 	NextSong (cmd $fsh media_next)
@@ -47,12 +46,12 @@
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lctl)
 	del (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh reboot) (cmd $fsh poweroff)))
-	e (tap-hold-release $tt $ht e (layer-while-held func-right))
+	e (tap-hold-release $tt $ht e XX)
 	esc (tap-dance-eager 500 (XX XX (cmd $fsh eat)))
 	f (tap-hold-release $tt $ht f (layer-while-held arrows))
-	g (tap-hold-release $tt $ht g XX)
-	h (tap-hold-release $tt $ht h XX)
-	i (tap-hold-release $tt $ht i (layer-while-held func-left))
+	g (tap-hold-release $tt $ht g (layer-while-held func-right))
+	h (tap-hold-release $tt $ht h (layer-while-held func-left))
+	i (tap-hold-release $tt $ht i (layer-while-held brackets))
 	j (tap-hold-release $tt $ht j (layer-while-held numbers))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
@@ -88,6 +87,7 @@
 
 (deflayermap (numbers)
 	;; [[sort on]]
+	' (layer-while-held chord-overlay)
 	, (layer-while-held numbers-superscript)
 	. (layer-while-held numbers-subscript)
 	a 0
@@ -95,7 +95,6 @@
 	d 2
 	e 5
 	f 1
-	i (layer-while-held clipboard-index)
 	q eql
 	r 4
 	s 3
@@ -167,7 +166,6 @@
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh edit_clipboard_image)
 	g (cmd loago-pick.nu)
-	j (layer-while-held clipboard-index)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd $fsh screenshot_screen)
 	v (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
@@ -183,6 +181,7 @@
 	. (cmd $fsh runner_clipboard)
 	i (cmd fuzzel)
 	j (cmd $fsh "runner show")
+	k (cmd $fsh "clipboard_index 1")
 	m (cmd $fsh ntf_dismiss_all)
 	n (cmd $fsh ntf_dismiss_old)
 	o (cmd $fsh write_window_info)
@@ -196,7 +195,7 @@
 	d (cmd $fsh "xdg-open (ypoc) ; ensure_browser")
 	e (cmd $fsh internet_search)
 	f (cmd $fsh "runner_link open")
-	i (layer-while-held chord-overlay)
+	j (layer-while-held chord-overlay)
 	s (cmd $fsh runner_link)
 	v (cmd $fsh anki_add_card)
 	w (one-shot $ot (layer-while-held bookmark))
@@ -210,7 +209,6 @@
 
 ;; [[sort on]]
 (include bookmark.kbd)
-(include clipboard.kbd)
 (include doublestruck.kbd)
 (include magazine.kbd)
 (include mouse.kbd)
