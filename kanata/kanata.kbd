@@ -34,6 +34,7 @@
 	/ (tap-hold-release $tt $ht / XX)
 	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 enter 40 a d d tab 40 enter 40 g i v e spc)
 	3 (macro ` 40 a d d tab 50 enter 50 esc)
+	8 (macro ` 40 g i v e spc b a b y 40 tab 40 tab 40 enter esc)
 	9 (cmd $fsh screenshot_window)
 	; (tap-hold-release $tt $ht ; ralt)
 	NextSong (cmd $fsh media_next)

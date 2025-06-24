@@ -294,55 +294,46 @@ gestures {
     }
 }
 
+//-----------------catchalls-----------------
 window-rule {
     draw-border-with-background false
     // geometry-corner-radius 16
     clip-to-geometry true
     opacity 0.98
 }
-
 window-rule {
     match is-floating=true
     geometry-corner-radius 16
 }
 
+//-----------------stateful-----------------
 window-rule {
-    match app-id="org.kde.kruler"
-    geometry-corner-radius 0
-    clip-to-geometry false
-}
-
-window-rule {
-    match app-id="anki" title="Import File"
-    match app-id="anki" title="Options for "
-    match app-id="anki" title="Change Note Type"
-    match app-id="anki" title="Preferences"
-    match app-id="anki" title="Note Types"
-    match app-id="anki" title="Card Types"
-    match app-id="^python$" title="^Import$"
-    match app-id="floorp|firefox$" title="^(File Upload)|(Save Image)|(Enter name of file to save to…)$"
-    match app-id="anki" title="Custom Study"
+    match app-id="anki"
+    match app-id="floorp|firefox$" title="^File Upload$"
+    match app-id="floorp|firefox$" title="^Save Image$"
+    match app-id="floorp|firefox$" title="^Enter name of file to save to…$"
     open-floating false
 }
-
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
-    match app-id="org.kde.kruler"
+    match app-id="anki" title="^Anki$"
     open-floating true
 }
-
 window-rule {
     match app-id="Minecraft" title="^Minecraft"
     open-fullscreen true
 }
-
 window-rule {
-    match app-id="^waybar$"
+    match app-id="waybar"
     match app-id="^kitty|foot" title="^uboot"
     match app-id="^kitty|foot" title="^screen-record$"
     open-focused false
 }
-
+window-rule {
+    match is-floating=true app-id="anki" title="^Anki$"
+    match is-floating=true app-id="anki" title="^Syncing\\.\\.\\.$"
+    baba-is-float true
+}
 window-rule {
     match app-id="^kitty$"
     match app-id="^swayimg$"
@@ -350,41 +341,30 @@ window-rule {
     opacity 1.0
 }
 
+//-----------------column-----------------
 window-rule {
-    match app-id="anki" title="^Add|Edit"
-    match app-id="anki" title="Change Note Type"
     match app-id="^foot"  title="^flour-half"
-    match app-id="anki" title="Note Types"
     default-column-width { proportion 0.5; }
 }
-
 window-rule {
-    match app-id="anki" title="Custom Study"
     match app-id="^foot" title="^uboot-third"
     default-column-width { proportion 0.33333; }
 }
-
 window-rule {
-    match app-id="^foot" title="^overlay$"
-    open-floating true
-    default-column-width { fixed 1888; }
-    default-window-height { fixed 1013; }
+    match app-id="anki"
+    default-column-width {}
 }
 
+//---------------app-specific---------------
+window-rule {
+    match app-id="org.kde.kruler"
+    geometry-corner-radius 0
+    clip-to-geometry false
+    open-floating true
+}
 window-rule {
     match app-id="wlclock"
     default-column-width { fixed 1005; }
-}
-
-window-rule {
-    match is-floating=true app-id="anki" title="^Anki$"
-    match is-floating=true app-id="anki" title="^Syncing\\.\\.\\.$"
-    baba-is-float true
-}
-
-/-layer-rule {
-    match namespace="^launcher$"
-    baba-is-float true
 }
 
 layer-rule {
