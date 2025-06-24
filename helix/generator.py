@@ -218,27 +218,14 @@ all_modes_mappings: dict[str, Any] = {
     ],
     'F6': [
         ':sh rm -f /tmp/cami-yazi-chooser-file',
-        ':insert-output yazi %{full_path} --chooser-file=/tmp/cami-yazi-chooser-file',
-        ':insert-output echo "\x1b[?1049h\x1b[?2004h" >/dev/tty',
+        ':noop %sh(footclient yazi %{full_path} --chooser-file=/tmp/cami-yazi-chooser-file)',
         ':open %sh{cat /tmp/cami-yazi-chooser-file}',
-        ':redraw',
+        ':reload-all',
     ],
     'F3': [
         ':sh rm -f /tmp/cami-yazi-chooser-file',
-        ':insert-output yazi --chooser-file=/tmp/cami-yazi-chooser-file',
-        ':insert-output echo "\x1b[?1049h\x1b[?2004h" >/dev/tty',
+        ':noop %sh(footclient yazi --chooser-file=/tmp/cami-yazi-chooser-file)',
         ':open %sh{cat /tmp/cami-yazi-chooser-file}',
-        ':redraw',
-    ],
-    'F8': [
-        ':write-all',
-        ':new',
-        ':insert-output lazygit',
-        ':insert-output echo "\x1b[?1049h" > /dev/tty',
-        ':set mouse false',  # First disable mouse to hint helix into activating it
-        ':set mouse true',
-        ':buffer-close!',
-        ':redraw',
         ':reload-all',
     ],
 }

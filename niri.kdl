@@ -325,7 +325,7 @@ window-rule {
 }
 window-rule {
     match app-id="waybar"
-    match app-id="^kitty|foot" title="^uboot"
+    match app-id="^kitty|foot" title="nofocus"
     match app-id="^kitty|foot" title="^screen-record$"
     open-focused false
 }
@@ -343,11 +343,11 @@ window-rule {
 
 //-----------------column-----------------
 window-rule {
-    match app-id="^foot"  title="^flour-half"
+    match app-id="^foot" title="half"
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match app-id="^foot" title="^uboot-third"
+    match app-id="^foot" title="third"
     default-column-width { proportion 0.33333; }
 }
 window-rule {

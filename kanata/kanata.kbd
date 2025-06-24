@@ -31,7 +31,7 @@
 	' (tap-hold-release $tt $ht ' (layer-while-held chord))
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
 	. (tap-hold-release $tt $ht . (layer-while-held apps))
-	/ (tap-hold-release $tt $ht / XX)
+	/ (tap-hold-release $tt $ht / (layer-while-held apps-revengeance))
 	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 enter 40 a d d tab 40 enter 40 g i v e spc)
 	3 (macro ` 40 a d d tab 50 enter 50 esc)
 	9 (cmd $fsh screenshot_window)
@@ -143,20 +143,26 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (macro (cmd footclient -D /home/axlefublr/fes/xj -N) 50 e ret)
+	a (macro (cmd footclient -D /home/axlefublr/fes/xj -N) 50 F5)
 	c (cmd footclient -N calcure)
 	d (cmd footclient -N)
 	e (cmd footclient -N bluetui)
 	f (cmd $fsh "floorp & disown")
 	i (cmd $fsh "PrismLauncher.AppImage & disown")
-	m (cmd swayimg -g /home/axlefublr/iwm/osl/memes)
 	q (cmd footclient -N tiptop)
 	r (cmd $fsh "rnote & disown")
 	s (cmd gtk-launch steam-native) ;; I make sure to disable proxy in the .desktop image, so I wanna run steam through it
-	t (cmd paplay /home/axlefublr/m/soundeffects/camera-shutter.oga)
+	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
 	v (cmd footclient -N pik)
 	w (cmd $fsh "anki & disown")
 	x (cmd footclient -N tewi)
+	;; [[sort off]]
+)
+
+(deflayermap (apps-revengeance)
+	;; [[sort on]]
+	d (cmd footclient -NT half)
+	e (cmd swayimg -g /home/axlefublr/iwm/osl/memes)
 	;; [[sort off]]
 )
 

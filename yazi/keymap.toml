@@ -29,7 +29,6 @@ keymap = [
   { on = '<Enter>', run = [ 'escape --filter', 'plugin smart-enter' ], desc = 'Open selected files' },
   { on = '<Esc>', run = 'escape --find --filter --search', desc = 'Cancel most things' },
   { on = '<F2>', run = [ 'plugin blammo', 'shell --confirm --orphan -- footclient' ], desc = 'Launch terminal here' },
-  { on = '<F8>', run = 'shell --confirm --block -- lazygit', desc = 'Lazygit' },
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
   { on = '<S-PageDown>', run = 'seek 5', desc = 'Scroll preview down' },

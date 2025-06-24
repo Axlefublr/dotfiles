@@ -13,7 +13,6 @@ abbr -a E 'sudo -E helix'
 abbr -a a 'shuf ~/.local/share/magazine/a &| ov'
 abbr -a at alien_temple
 abbr -a bl bluetoothctl
-abbr -a c lazygit
 abbr -a ca cargo
 abbr -a chx 'chmod +x'
 abbr -a cp 'rsync -r'

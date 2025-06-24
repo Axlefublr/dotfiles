@@ -237,7 +237,7 @@ function timer
     if status is-interactive
         _timer "$argv"
     else
-        footclient -T timer fish -c "_timer $(string escape $argv)" 2>/dev/null
+        footclient fish -c "_timer $(string escape $argv)" 2>/dev/null
     end
 end
 funcsave timer >/dev/null

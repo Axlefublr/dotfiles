@@ -294,13 +294,13 @@ end
 funcsave task >/dev/null
 
 function ttest
-    alphabet | string split '' >~/.cache/mine/alphabet-all
-    set -f symbol (shuf -n 1 ~/.cache/mine/alphabet-all)
+    set -f symbol (shuf -n 1 ~/.local/share/magazine/c-j)
     while true
-        read -P "$symbol" -n 1 output || break
+        set -l len (echo -n "$symbol" | wc -m)
+        read -P "$symbol" -n $len output || break
         test "$output" = "$symbol" || continue
         while true
-            set -l next_symbol (shuf -n 1 ~/.cache/mine/alphabet-all)
+            set -l next_symbol (shuf -n 1 ~/.local/share/magazine/c-j)
             if test "$symbol" != "$next_symbol"
                 set -f symbol $next_symbol
                 break
