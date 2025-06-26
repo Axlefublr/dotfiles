@@ -353,6 +353,7 @@ ln -sf ~/fes/dot/helix ~/.config
 mkdir -p ~/.cargo/bin
 rm -fr ~/.cargo/bin/runtime
 ln -sf ~/fes/ork/hx/runtime ~/.cargo/bin
+sudo ln -f ~/fes/bin/helix /usr/bin/helix
 
 # ---------------httrack---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout httrack
@@ -461,6 +462,7 @@ stew install guyfedwards/nom
 mkdir -p ~/.config/nom
 ln -sf ~/fes/dot/nom.yml ~/.config/nom/config.yml
 cp -f ~/fes/eli/nom.db ~/.config/nom/nom.db
+ln -sf ~/fes/dot/desktop/nom.desktop ~/.local/share/applications/nom.desktop
 
 # -------------nushell-------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout nushell

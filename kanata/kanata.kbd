@@ -1,10 +1,21 @@
+;; Controller button A — BTN_SOUTH — 304
+;; Controller button X — BTN_NORTH — 307
+;; Controller button Y — BTN_WEST — 308
+;; Controller button B — BTN_EAST — 305
+;; Controller L1 — BTN_TL — 310
+;; Controller L2 — BTN_TR — 311
+;; Controller button Select — BTN_SELECT — 314
+;; Controller button Start — BTN_START — 315
+;; Controller button Guide — BTN_MODE — 316
+;; Controller L3 — BTN_THUMBL — 317
+;; Controller R3 — BTN_THUMBR — 318
 (defcfg
 	;; [[sort on]]
 	;; movemouse-inherit-accel-state yes
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
-	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)", "Kingston HyperX Pulsefire Haste")
+	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)", "Kingston HyperX Pulsefire Haste", "8BitDo 8BitDo Ultimate 2C Wireless Controller Mouse", "8BitDo 8BitDo Ultimate 2C Wireless Controller Keyboard", "8BitDo Ultimate 2C Wireless Controller")
 	linux-unicode-termination space
 	log-layer-changes no
 	process-unmapped-keys yes
@@ -18,6 +29,12 @@
 
 (deflocalkeys-linux
 	;; [[sort on]]
+	ControllerA 304
+	ControllerB 305
+	ControllerGuide 316
+	ControllerL1 310
+	ControllerR1 311
+	ControllerY 308
 	NextSong 163
 	PauseCD 201
 	PlayCD 200
@@ -32,10 +49,8 @@
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
 	. (tap-hold-release $tt $ht . (layer-while-held apps))
 	/ (tap-hold-release $tt $ht / (layer-while-held apps-revengeance))
-	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 enter 40 a d d tab 40 enter 40 g i v e spc)
-	3 (macro ` 40 a d d tab 50 enter 50 esc)
-	9 (cmd $fsh screenshot_window)
 	; (tap-hold-release $tt $ht ; ralt)
+	ControllerGuide (layer-while-held controller)
 	NextSong (cmd $fsh media_next)
 	PauseCD (cmd $fsh toggle_media)
 	PlayCD (cmd $fsh toggle_media)
@@ -82,6 +97,16 @@
 	r (cmd $fsh toggle_mute)
 	s (cmd $fsh media_prev)
 	w (cmd $fsh "set_volume 0.02-")
+	;; [[sort off]]
+)
+
+(deflayermap (controller)
+	;; [[sort on]]
+	ControllerA (macro ` 40 a d d tab 50 enter 50 esc)
+	ControllerB (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 enter 40 a d d tab 40 enter 40 g i v e spc s c a r f tab 40 enter 40 g i v e spc)
+	ControllerL1 (cmd $fsh "set_volume 0.02-")
+	ControllerR1 (cmd $fsh "set_volume 0.02+")
+	ControllerY (cmd $fsh screenshot_window)
 	;; [[sort off]]
 )
 
@@ -143,7 +168,7 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (macro (cmd footclient -D /home/axlefublr/fes/xj -N) 50 F5)
+	a (cmd footclient -D /home/axlefublr/fes/xj -N helix)
 	c (cmd footclient -N calcure)
 	d (cmd footclient -N)
 	e (cmd footclient -N bluetui)

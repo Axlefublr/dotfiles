@@ -212,7 +212,7 @@ binds {
     Mod+Ctrl+J { set-column-width "33.33333%"; }
     Mod+Ctrl+K { set-column-width "50%"; }
     Mod+Ctrl+H { set-column-width "66.66667%"; }
-    Mod+Ctrl+L { set-column-width "100%"; }
+    Mod+Ctrl+L { expand-column-to-available-width; }
 
     Mod+Z { set-window-height "33.333%"; }
     Mod+A { set-window-height "50%"; }
@@ -316,7 +316,6 @@ window-rule {
 }
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
-    match app-id="anki" title="^Anki$"
     open-floating true
 }
 window-rule {
@@ -329,9 +328,7 @@ window-rule {
     match app-id="^kitty|foot" title="^screen-record$"
     open-focused false
 }
-window-rule {
-    match is-floating=true app-id="anki" title="^Anki$"
-    match is-floating=true app-id="anki" title="^Syncing\\.\\.\\.$"
+/-window-rule {
     baba-is-float true
 }
 window-rule {
