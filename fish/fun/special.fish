@@ -205,5 +205,6 @@ funcsave which_wallpaper >/dev/null
 function write_window_info
     niri msg windows >~/.local/share/magazine/o
     _magazine_commit ~/.local/share/magazine/o clients
+    flour ~/.local/share/magazine/o
 end
 funcsave write_window_info >/dev/null
