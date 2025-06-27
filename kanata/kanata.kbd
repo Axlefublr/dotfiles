@@ -94,17 +94,6 @@
 	;; [[sort off]]
 )
 
-(deflayermap (capsy)
-	;; [[sort on]]
-	d (cmd $fsh media_next)
-	e (cmd $fsh "set_volume 0.02+")
-	f (cmd $fsh toggle_media)
-	r (cmd $fsh toggle_mute)
-	s (cmd $fsh media_prev)
-	w (cmd $fsh "set_volume 0.02-")
-	;; [[sort off]]
-)
-
 (deflayermap (numbers)
 	;; [[sort on]]
 	' (layer-while-held chord-overlay)
@@ -185,15 +174,27 @@
 	;; [[sort off]]
 )
 
+(deflayermap (capsy)
+	;; [[sort on]]
+	d (cmd $fsh media_next)
+	e (cmd $fsh "set_volume 0.02+")
+	f (cmd $fsh toggle_media)
+	j (cmd $fsh "runner show")
+	o (cmd $fsh write_window_info)
+	r (cmd $fsh toggle_mute)
+	s (cmd $fsh media_prev)
+	w (cmd $fsh "set_volume 0.02-")
+	;; [[sort off]]
+)
+
 (deflayermap (func)
 	;; [[sort on]]
 	' (layer-while-held func-chord)
+	c (cmd $fsh "clipboard_index 1")
 	caps (cmd $fsh ntf_dismiss_all)
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh "runner_math")
 	f (cmd $fsh "runner show")
-	g (cmd $fsh "clipboard_index 1")
-	o (cmd $fsh write_window_info)
 	s (cmd $fsh screenshot_screen)
 	v (cmd $fsh anki_add_card)
 	w (cmd loago-pick.nu)
