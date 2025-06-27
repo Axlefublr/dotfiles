@@ -155,6 +155,11 @@ file-types = [ "mojo", "🔥", { glob = "kitty.conf" } ]
 name = "nim"
 language-servers = [ "nimlsp" ]
 
+# -------------------------nushell-------------------------
+[[language]]
+name = "nu"
+indent = { tab-width = 3, unit = "\t" }
+
 # --------------------------python--------------------------
 [[language]]
 name = "python"

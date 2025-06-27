@@ -3,8 +3,38 @@
 $env.PROMPT_COMMAND_RIGHT = ''
 $env.PROMPT_INDICATOR = ' 󱕅 '
 $env.PROMPT_MULTILINE_INDICATOR = '▌'
-$env.config.buffer_editor = 'hx'
-$env.config.history = { file_format: sqlite max_size: 1_000_000 sync_on_enter: true isolation: true }
+$env.config.completions.algorithm = 'prefix' # "prefix"|"substring"|"fuzzy"
+$env.config.cursor_shape.emacs = 'line'
+$env.config.datetime_format.normal = '%y.%m.%d %H:%M:%S %A'
+$env.config.datetime_format.table = null
+$env.config.display_errors.exit_code = false # print nushell error for externals, rather than the external's output
+$env.config.float_precision = 3
+$env.config.footer_mode = 'auto'
+$env.config.history.file_format = 'sqlite'
+$env.config.history.isolation = true
+$env.config.rm.always_trash = true
 $env.config.show_banner = false
+$env.config.table.footer_inheritance = true
+$env.config.table.missing_value_symbol = '󰟢'
 $env.config.table.mode = 'single'
-const NU_LIB_DIRS = [ '~/fes/dot/nu/blue' ]
+$env.config.table.padding.left = 0
+$env.config.table.padding.right = 0
+$env.config.table.show_empty = true # “no values” when list or table is empty
+$env.config.table.trim.wrapping_try_keep_words = false
+$env.config.use_kitty_protocol = true # ^i and tab are different
+const NU_LIB_DIRS = [ '~/fes/dot/nu/blue' '~/.config/nushell/scripts' '~/.local/share/nushell/completions' ]
+# [[sort off]]
+$env.config.menus ++= [{
+	name: history_menu
+	only_buffer_difference: true # Search is done on the text written after activating the menu
+	marker: '  '                # Indicator that appears with the menu is active
+	type: {
+		layout: list  # Type of menu
+		page_size: 10 # Number of entries that will presented when activating the menu
+	}
+	style: {
+		text: green                  # Text style
+		selected_text: green_reverse # Text style for selected option
+		description_text: yellow     # Text style for description
+	}
+}]

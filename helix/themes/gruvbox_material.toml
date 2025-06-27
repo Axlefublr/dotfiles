@@ -54,7 +54,7 @@
 'string.regexp' = 'mint'
 'tag' = 'yellow'
 'type' = 'cyan'
-'ui.background' = { bg = 'none' }
+'ui.background' = {}
 'ui.background.separator' = 'grey'
 'ui.bufferline' = { fg = 'grey' }
 'ui.bufferline.active' = { fg = 'white' }

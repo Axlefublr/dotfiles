@@ -15,7 +15,7 @@
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
-	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)", "Kingston HyperX Pulsefire Haste", "8BitDo 8BitDo Ultimate 2C Wireless Controller Mouse", "8BitDo 8BitDo Ultimate 2C Wireless Controller Keyboard", "8BitDo Ultimate 2C Wireless Controller")
+	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)", "Kingston HyperX Pulsefire Haste")
 	linux-unicode-termination space
 	log-layer-changes no
 	process-unmapped-keys yes
@@ -34,6 +34,7 @@
 	ControllerGuide 316
 	ControllerL1 310
 	ControllerR1 311
+	ControllerX 307
 	ControllerY 308
 	NextSong 163
 	PauseCD 201
@@ -49,8 +50,12 @@
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
 	. (tap-hold-release $tt $ht . (layer-while-held apps))
 	/ (tap-hold-release $tt $ht / (layer-while-held apps-revengeance))
+	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 a d d tab 40 enter 40 g i v e spc)
+	2 (cmd $fsh "notify-send (etg)")
+	3 (macro ` 40 a d d tab 50 enter 50 esc)
+	4 (macro ` 40 g i v e spc s c a r f tab 40 enter 40 esc)
+	9 (cmd $fsh screenshot_window)
 	; (tap-hold-release $tt $ht ; ralt)
-	ControllerGuide (layer-while-held controller)
 	NextSong (cmd $fsh media_next)
 	PauseCD (cmd $fsh toggle_media)
 	PlayCD (cmd $fsh toggle_media)
@@ -97,16 +102,6 @@
 	r (cmd $fsh toggle_mute)
 	s (cmd $fsh media_prev)
 	w (cmd $fsh "set_volume 0.02-")
-	;; [[sort off]]
-)
-
-(deflayermap (controller)
-	;; [[sort on]]
-	ControllerA (macro ` 40 a d d tab 50 enter 50 esc)
-	ControllerB (macro ` 40 s t a t spc a d d spc c u r s e spc Digit4 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit4 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 enter 40 a d d tab 40 enter 40 g i v e spc s c a r f tab 40 enter 40 g i v e spc)
-	ControllerL1 (cmd $fsh "set_volume 0.02-")
-	ControllerR1 (cmd $fsh "set_volume 0.02+")
-	ControllerY (cmd $fsh screenshot_window)
 	;; [[sort off]]
 )
 
@@ -170,13 +165,13 @@
 	;; [[sort on]]
 	a (cmd footclient -D /home/axlefublr/fes/xj -N helix)
 	c (cmd footclient -N calcure)
-	d (cmd footclient -N)
+	d (cmd footclient -ND /home/axlefublr)
 	e (cmd footclient -N bluetui)
 	f (cmd $fsh "floorp & disown")
 	i (cmd $fsh "PrismLauncher.AppImage & disown")
 	q (cmd footclient -N tiptop)
 	r (cmd $fsh "rnote & disown")
-	s (cmd gtk-launch steam-native) ;; I make sure to disable proxy in the .desktop image, so I wanna run steam through it
+	s (cmd $fsh "gtk-launch steam-native & disown") ;; I make sure to disable proxy in the .desktop image, so I wanna run steam through it
 	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
 	v (cmd footclient -N pik)
 	w (cmd $fsh "anki & disown")
