@@ -9,6 +9,7 @@
 (defalias magazine-cancel (multi (cmd $fsh "notify-send maganope") (layer-switch default)))
 
 (deflayermap (magazine)
+	j (layer-while-held numbers-superscript)
 	c (t! magazine-prepare get)
 	e (t! magazine-prepare novel)
 	r (t! magazine-prepare truncate)
