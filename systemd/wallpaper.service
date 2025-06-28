@@ -1,0 +1,7 @@
+[Unit]
+Requisite=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=env fish -c systemd_wallpaper
