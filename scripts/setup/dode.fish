@@ -674,6 +674,34 @@ ln -sf ~/fes/dot/swayimg.ini ~/.config/swayimg/config
 sudo pacman -S --needed --noconfirm --disable-download-timeout swww
 systemctl --user enable --now ~/fes/dot/systemd/swww.service
 
+# -------------------systemd-------------------
+mkdir -p ~/.config/systemd/user
+
+not test -f /usr/lib/systemd/system-sleep/suspend-handler.fish && sudo ln -f ~/fes/dot/systemd/suspend-handler.fish /usr/lib/systemd/system-sleep/suspend-handler.fish
+
+systemctl --user link ~/fes/dot/systemd/minute.service
+systemctl --user enable --now ~/fes/dot/systemd/minute.timer
+
+systemctl --user link ~/fes/dot/systemd/daily.service
+systemctl --user enable --now ~/fes/dot/systemd/daily.timer
+
+systemctl --user link ~/fes/dot/systemd/ten-minutes.service
+systemctl --user enable --now ~/fes/dot/systemd/ten-minutes.timer
+
+# systemctl --user link ~/fes/dot/systemd/wake.service
+# systemctl --user enable --now ~/fes/dot/systemd/wake.path
+
+systemctl --user link ~/fes/dot/systemd/frizz.service
+systemctl --user enable --now ~/fes/dot/systemd/frizz.path
+
+systemctl --user link ~/fes/dot/systemd/flipboard.service
+systemctl --user enable --now ~/fes/dot/systemd/flipboard.path
+
+systemctl --user enable --now ~/fes/dot/systemd/axleizer.service
+
+systemctl --user link ~/fes/dot/systemd/wallpaper.service
+systemctl --user enable --now ~/fes/dot/systemd/wallpaper.timer
+
 # ---------------termfilechooser---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk
 paru -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git

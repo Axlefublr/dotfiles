@@ -50,7 +50,7 @@
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
 	. (tap-hold-release $tt $ht . (layer-while-held apps))
 	/ (tap-hold-release $tt $ht / (layer-while-held apps-revengeance))
-	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit5 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit5 enter 40 a d d tab 40 enter 40 g i v e spc)
+	1 (macro ` 40 s t a t spc a d d spc c u r s e spc Digit5 enter 40 s t a t spc a d d spc c o o l n e s s spc Digit5 enter 40 g i v e spc c a s h tab 40 tab 40 enter 40 a d d tab 40 enter 40 g i v e spc)
 	2 (cmd $fsh "notify-send (etg)")
 	3 (macro ` 40 a d d tab 50 enter 50 esc)
 	4 (macro ` 40 g i v e spc s c a r f tab 40 enter 40 esc)
@@ -192,7 +192,6 @@
 	;; [[sort on]]
 	' (layer-while-held func-chord)
 	c (cmd $fsh "clipboard_index 1")
-	caps (cmd $fsh ntf_dismiss_all)
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh "runner_math")
 	s (cmd $fsh screenshot_screen)
@@ -203,7 +202,6 @@
 
 (deflayermap (func-chord)
 	;; [[sort on]]
-	caps (cmd $fsh ntf_dismiss_old)
 	d (cmd $fsh show_clipboard_image)
 	q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	s (cmd $fsh edit_clipboard_image)
@@ -214,6 +212,7 @@
 	;; [[sort on]]
 	a (cmd $fsh runner_interactive_unicode)
 	c (cmd $fsh edit_clipboard)
+	caps (cmd $fsh ntf_dismiss_all)
 	d (cmd $fsh "runner show")
 	e (cmd $fsh internet_search)
 	f (cmd $fsh "runner_link open")
@@ -229,6 +228,7 @@
 )
 
 (deflayermap (chord-overlay)
+	caps (cmd $fsh ntf_dismiss_old)
 	w (one-shot $ot (layer-while-held bookmark-set))
 )
 

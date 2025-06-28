@@ -97,6 +97,7 @@ function fish_user_key_bindings
     bind ctrl-s 'commandline -f repaint'
     bind ctrl-z d
     bind f1 'commandline nu ; commandline -f execute'
+    bind f11 'commandline qalc ; commandline -f execute'
     bind f2 footclient
     bind f3 yazi_cd
     bind f5 helix
