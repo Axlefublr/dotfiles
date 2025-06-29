@@ -26,7 +26,7 @@ function magazine_resolve
 
     if test $path = j
         set path ~/fes/dot/project.txt
-    else if test $path = J
+    else if test $path = k
         switch $action
             case get cut truncate randomize filter copy
                 set path (pick_project_path -e)
