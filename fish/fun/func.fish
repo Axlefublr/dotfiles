@@ -119,39 +119,6 @@ function internet_search
 end
 funcsave internet_search >/dev/null
 
-function filter_mature_tasks
-    function if_print
-        test "$argv[1]" -ge $argv[3] && echo "$argv[2] — $(math $argv[1] - $argv[3])" || printf ''
-    end
-    set oldest (loago list -e eat -e wick -e coils -e toothbrush -e sludge | awk '$3 > 4')
-    for task in $oldest
-        set -l match (string match -gr '^(\\S+)\\s+— (\\d+)$' $task)
-        set -l name $match[1]
-        set -l days $match[2]
-        switch $name
-            case towels nose vacuum floor dust fate
-                if_print $days $name 7
-            case brushes glasses
-                if_print $days $name 10
-            case nails
-                if_print $days $name 14
-            case wilter bottle photos audio disc liked
-                if_print $days $name 15
-            case tails keyboard
-                if_print $days $name 30
-            case filter
-                if_print $days $name 45
-            case fsrs iso
-                if_print $days $name 60
-            case toothbrush tongue moch
-                if_print $days $name 122
-            case '*'
-                echo "$name — $(math $days - 5)"
-        end
-    end | sort -g -k 3 -r | column -t -s '—' -o '—'
-end
-funcsave filter_mature_tasks >/dev/null
-
 function frizz
     for curlie in (tac ~/.local/share/magazine/C)
         set -l bits (string split ' ' $curlie)
@@ -213,11 +180,6 @@ function git_search_file
     end
 end
 funcsave git_search_file >/dev/null
-
-function mature_tasks_line
-    filter_mature_tasks | awk '{print $1}' | string join ' '
-end
-funcsave mature_tasks_line >/dev/null
 
 function pacclean --description 'clean pacman and paru cache' # based on https://gist.github.com/ericmurphyxyz/37baa4c9da9d3b057a522f20a9ad6eba (cool youtuber btw)
     set aur_cache_dir "$HOME/.cache/paru/clone"

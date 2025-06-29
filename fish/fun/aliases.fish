@@ -7,7 +7,7 @@ alias --save copy 'wl-copy -n' >/dev/null
 alias --save copyn wl-copy >/dev/null
 alias --save etg 'propose.rs etg-active-items 50% ~/fes/xj/etg-active-items' >/dev/null
 alias --save fc 'cat ~/fes/ack/fux/sudo | sudo -S systemctl restart fancontrol' >/dev/null
-alias --save fm 'filter_mature_tasks | ov --column-mode --column-rainbow --column-width' >/dev/null
+alias --save fm 'loagoe.nu due | ov --column-mode --column-rainbow --column-width' >/dev/null
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
 alias --save get_media_time 'playerctl metadata --format "{{duration(position)}}"' >/dev/null
 alias --save gx 'glaza --git' >/dev/null

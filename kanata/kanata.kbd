@@ -194,9 +194,10 @@
 	c (cmd $fsh "clipboard_index 1")
 	d (cmd $fsh screenshot_window)
 	e (cmd $fsh "runner_math")
+	r (cmd loagoe.nu due pick)
 	s (cmd $fsh screenshot_screen)
 	v (cmd $fsh anki_add_card)
-	w (cmd loago-pick.nu)
+	w (cmd loagoe.nu pick)
 	;; [[sort off]]
 )
 
