@@ -85,6 +85,7 @@ keymap = [
   { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Go to bottom' },
   { on = [ 'g', 'q' ], run = 'shell --confirm -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = 'Go to repo root' },
   { on = [ 'm', 'C' ], run = 'shell --confirm -- ouch decompress "$@"', desc = 'Decompress archive(s) with ouch' },
+  { on = [ 'm', 'M' ], run = 'shell --confirm -- chmod +x "$@"', desc = 'Chmod +x' },
   { on = [ 'm', 'c' ], run = 'plugin compress', desc = 'Archive selected files' },
   { on = [ 'm', 'r' ], run = 'shell --confirm -- fish -c "randomize_file_names (blammo)"', desc = 'Randomize names of selected file(s)' },
   { on = [ 'm', 's' ], run = [ 'plugin blammo', 'shell --block --confirm -- fish -c "ffmpeg_convert_to_mp3 (blammo)"' ], desc = 'Convert to mp3' },
