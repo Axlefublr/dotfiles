@@ -467,8 +467,8 @@ ln -sf ~/fes/dot/desktop/nom.desktop ~/.local/share/applications/nom.desktop
 # -------------nushell-------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
 ln -sf ~/fes/dot/nu/nonf.nu ~/.config/nushell/config.nu
-rm -fr ~/.config/nushell/autoload
-ln -s ~/fes/dot/nu/autoload ~/.config/nushell/
+rm -fr ~/.config/nushell/scripts
+ln -s ~/fes/dot/nu/blue ~/.config/nushell/scripts
 
 # ---------------nvim---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout neovim luarock
