@@ -63,7 +63,7 @@ editor: dict[str, Any] = {
     'harp': {
         'command': 'filetype',
         'search': 'buffer',
-        'register': 'directory',
+        'register': 'filetype',
         'mark': 'directory',
     },
     # [[sort on]]
@@ -280,7 +280,7 @@ normal_select_mappings: dict[str, Any] = {
     'A-m': 'select_all_siblings',
     'A-n': 'extend_search_next',
     'A-u': 'select_all_children',
-    'A-w': 'ensure_selections_forward',
+    'A-v': 'ensure_selections_forward',
     'B': 'open_above',
     'C': 'repeat_last_motion',
     'C-.': 'trim_selections',

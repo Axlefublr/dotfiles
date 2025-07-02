@@ -1,9 +1,10 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu -n --no-std-lib
 source coco.nu
 
 const ignored = [
 	eat
 	sludge
+	puff
 ]
 
 const known = {
@@ -21,15 +22,15 @@ const known = {
 	iso: 60
 	keyboard: 30
 	liked: 15
-	moch: 122
+	moch: (30.5 * 4)
 	mug: 5
 	nails: 14
 	nose: 6
 	photos: 15
 	razor: 5
 	tails: 30
-	tongue: 122
-	toothbrush: 122
+	tongue: (30.5 * 6)
+	toothbrush: (30.5 * 4)
 	towels: 7
 	update: 5
 	vacuum: 7
@@ -40,7 +41,6 @@ const known = {
 def produce [] {
 	loago list
 	| parse '{name} — {days}'
-	| reverse
 	| str trim name
 	| where name not-in $ignored
 	| each { |row|
@@ -53,6 +53,7 @@ def produce [] {
 			if $difference >= 0 { $row | update days $difference }
 		}
 	}
+	| sort-by days -rn
 }
 
 def main [] {}

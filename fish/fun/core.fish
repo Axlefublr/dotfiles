@@ -62,6 +62,17 @@ funcsave d >/dev/null
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
 function ensure_browser
+    nu -c '
+        niri msg -j windows
+        | from json
+        | where app_id == floorp
+        | where is_focused == false
+        | get id
+        | try { last }
+        | each { |$it|
+        	niri msg action focus-window --id $it
+        } | ignore
+    '
 end
 funcsave ensure_browser >/dev/null
 
@@ -84,6 +95,11 @@ function flour_hold
 end
 funcsave flour_hold >/dev/null
 
+function flour_hold_last
+    flour_hold --execute goU $argv
+end
+funcsave flour_hold_last >/dev/null
+
 function fn_clear
     set list (cat ~/fes/dot/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
     for file in ~/.config/fish/functions/*.fish
@@ -102,7 +118,7 @@ function get_input
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >/tmp/cami-get-input
-        flour_hold (path_to_last_char /tmp/cami-get-input)
+        flour_hold_last /tmp/cami-get-input
         set input "$(cat /tmp/cami-get-input)"
     end
     echo $input

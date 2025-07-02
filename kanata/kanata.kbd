@@ -152,7 +152,7 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (cmd footclient -D /home/axlefublr/fes/xj -N helix)
+	a (cmd footclient -D /home/axlefublr/ake -N helix)
 	c (cmd footclient -N calcure)
 	d (cmd footclient -ND /home/axlefublr)
 	e (cmd footclient -N bluetui)
@@ -231,6 +231,7 @@
 (deflayermap (chord-overlay)
 	caps (cmd $fsh ntf_dismiss_old)
 	w (one-shot $ot (layer-while-held bookmark-set))
+	f (cmd $fsh "echo append >/tmp/cami-magazine-action ; magazine_resolve l")
 )
 
 ;; [[sort on]]

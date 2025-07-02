@@ -1,4 +1,3 @@
-# This file is loaded after env.nu and before login.nu
 source coco.nu
 # [[sort on]]
 $env.PROMPT_COMMAND_RIGHT = ''
@@ -10,6 +9,7 @@ $env.config.history.file_format = 'sqlite'
 $env.config.history.isolation = true
 $env.config.show_banner = false
 $env.config.use_kitty_protocol = true # ^i and tab are different
+alias z = cd
 # [[sort off]]
 $env.config.menus ++= [{
 	name: history_menu

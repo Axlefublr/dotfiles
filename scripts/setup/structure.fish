@@ -20,9 +20,10 @@ mkfifo ~/.local/share/mine/waybar-cursor-mode
 fish_add_path ~/.local/bin
 
 cd ~
-git clone https://github.com/Axlefublr/deleted-bangers msk
+git clone https://github.com/Axlefublr/info ake
 
-cd ~/iwf
+cd ~/iwm
+git clone https://github.com/Axlefublr/deleted-bangers msk
 git clone https://github.com/Axlefublr/pictures-tree osl
 git clone https://github.com/Axlefublr/twemoji-svg twemoji
 git clone https://github.com/Axlefublr/video-creation-tools tox
@@ -33,7 +34,6 @@ git clone https://github.com/Axlefublr/autocommit eli
 git clone https://github.com/Axlefublr/dotfiles dot
 git clone https://github.com/Axlefublr/binaries bin
 git clone https://github.com/Axlefublr/backup ack
-git clone https://github.com/Axlefublr/info xj
 git clone https://github.com/Axlefublr/job
 
 fish_add_path ~/fes/bin

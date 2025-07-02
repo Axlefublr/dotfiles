@@ -15,7 +15,7 @@
 
 (deflayermap (symbol-secondary)
 	;; [[sort on]]
-	, S-grv
+	, S-7
 	. (cmd wtype °)
 	/ S-bksl
 	h (cmd wtype €)
@@ -23,9 +23,9 @@
 	j grv
 	k S-min
 	l (cmd wtype —)
+	m S-grv
 	o S-2
 	p (cmd wtype ™)
-	u S-7
 	;; [[sort off]]
 )
 
