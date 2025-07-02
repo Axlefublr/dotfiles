@@ -84,18 +84,18 @@ keybinding:
 customCommands:
   - key: o
     context: files
-    command: 'fish -c ''git show HEAD:{{.SelectedPath}} >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
+    command: 'fish -c ''git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: 'Edit file at HEAD'
     output: terminal
 
   - key: 'o'
     context: 'commitFiles'
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}}) ; rm /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: 'Edit file at this point in history'
     output: terminal
   - key: 'O'
     context: 'commitFiles'
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/cami-lazygit(path extension {{.SelectedPath}}) ; helix /tmp/cami-lazygit(path extension {{.SelectedPath}}) ; rm /tmp/cami-lazygit(path extension {{.SelectedPath}})'''
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: 'Edit file at the commit before this point in history'
     output: terminal
   - key: 'q'
@@ -137,12 +137,12 @@ customCommands:
 
   - key: o
     context: 'commits'
-    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/cami-lazygit-commit.diff ; helix /tmp/cami-lazygit-commit.diff'''
+    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'''
     description: 'Edit commit diff in editor'
     output: terminal
   - key: o
     context: subCommits
-    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/cami-lazygit-commit.diff ; helix /tmp/cami-lazygit-commit.diff'''
+    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'''
     description: 'Edit commit diff in editor'
     output: terminal
   - key: q

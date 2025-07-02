@@ -15,7 +15,8 @@ mkdir -p ~/wlx \
     ~/.local/share/mine \
     ~/.local/share/{harp,loago}
 
-mkfifo ~/.local/share/mine/waybar-cursor-mode
+echo "d /tmp/mine 0755 $USER $USER -" | sudo tee -a /etc/tmpfiles.d/mine.conf
+sudo systemd-tmpfiles --create
 
 fish_add_path ~/.local/bin
 

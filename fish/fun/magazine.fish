@@ -5,7 +5,7 @@
 function magazine_resolve
     not test "$argv" && return
     set -l path $argv
-    set -l action (cat /tmp/cami-magazine-action)
+    set -l action (cat /tmp/mine/magazine-action)
     test $status -ne 0 && return
     test "$action" || return
 

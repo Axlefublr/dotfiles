@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
 if test $argv[1] = post
-    touch /tmp/cami-just-suspended
-    chown axlefublr:axlefublr /tmp/cami-just-suspended
+    touch /tmp/mine/just-suspended
+    chown axlefublr:axlefublr /tmp/mine/just-suspended
 end

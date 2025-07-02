@@ -231,7 +231,7 @@
 (deflayermap (chord-overlay)
 	caps (cmd $fsh ntf_dismiss_old)
 	w (one-shot $ot (layer-while-held bookmark-set))
-	f (cmd $fsh "echo append >/tmp/cami-magazine-action ; magazine_resolve l")
+	f (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 )
 
 ;; [[sort on]]

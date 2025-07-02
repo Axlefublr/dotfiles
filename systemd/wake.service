@@ -4,5 +4,5 @@ After=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=rm /tmp/cami-just-suspended
+ExecStart=rm /tmp/mine/just-suspended
 ExecStart=fish -c systemd_wake

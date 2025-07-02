@@ -117,19 +117,19 @@ function get_input
     set -l input (fuzzel -dl 0 2>/dev/null)
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
-        string sub -e -2 -- $input >/tmp/cami-get-input
-        flour_hold_last /tmp/cami-get-input
-        set input "$(cat /tmp/cami-get-input)"
+        string sub -e -2 -- $input >/tmp/mine/get-input
+        flour_hold_last /tmp/mine/get-input
+        set input "$(cat /tmp/mine/get-input)"
     end
     echo $input
 end
 funcsave get_input >/dev/null
 
 function get_input_max
-    truncate -s 0 /tmp/cami-get-input
-    flour_hold /tmp/cami-get-input
-    if test -s /tmp/cami-get-input
-        cat /tmp/cami-get-input
+    truncate -s 0 /tmp/mine/get-input
+    flour_hold /tmp/mine/get-input
+    if test -s /tmp/mine/get-input
+        cat /tmp/mine/get-input
     else
         return 1
     end
@@ -176,8 +176,8 @@ function lhg
     # https://raw.githubusercontent.com/Axlefublr/dotfiles/refs/heads/main/fish/fun/general.fish
     set -l raw_link (ypoc | lh)
     set -l extension (path extension $raw_link)
-    curl $raw_link >/tmp/cami-lhg$extension
-    helix /tmp/cami-lhg$extension
+    curl $raw_link >/tmp/mine/lhg$extension
+    helix /tmp/mine/lhg$extension
 end
 funcsave lhg >/dev/null
 

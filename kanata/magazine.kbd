@@ -1,5 +1,5 @@
 (deftemplate magazine-prepare (action)
-	(multi (cmd $fsh (concat "echo " $action " >/tmp/cami-magazine-action")) (layer-switch magazine-which))
+	(multi (cmd $fsh (concat "echo " $action " >/tmp/mine/magazine-action")) (layer-switch magazine-which))
 )
 
 (deftemplate magazine-execute (name)

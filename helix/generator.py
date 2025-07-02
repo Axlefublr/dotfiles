@@ -217,15 +217,15 @@ all_modes_mappings: dict[str, Any] = {
         'suspend',
     ],
     'F6': [
-        ':sh rm -f /tmp/cami-yazi-chooser-file',
-        ':noop %sh(footclient yazi %{full_path} --chooser-file=/tmp/cami-yazi-chooser-file)',
-        ':open %sh{cat /tmp/cami-yazi-chooser-file}',
+        ':sh rm -f /tmp/mine/yazi-chooser-file',
+        ':noop %sh(footclient yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)',
+        ':open %sh{cat /tmp/mine/yazi-chooser-file}',
         ':reload-all',
     ],
     'F3': [
-        ':sh rm -f /tmp/cami-yazi-chooser-file',
-        ':noop %sh(footclient yazi --chooser-file=/tmp/cami-yazi-chooser-file)',
-        ':open %sh{cat /tmp/cami-yazi-chooser-file}',
+        ':sh rm -f /tmp/mine/yazi-chooser-file',
+        ':noop %sh(footclient yazi --chooser-file=/tmp/mine/yazi-chooser-file)',
+        ':open %sh{cat /tmp/mine/yazi-chooser-file}',
         ':reload-all',
     ],
 }
@@ -342,8 +342,8 @@ normal_select_mappings: dict[str, Any] = {
     # [[sort off]]
     'm': {
         # [[sort on]]
-        # 'X': ':echo lines: %sh{echo -n "%{selection}" >/tmp/cami-helix-temp ; wc -l /tmp/cami-helix-temp | cut -d " " -f 1}',
-        # 'x': ':echo chars: %sh{echo -n "%{selection}" >/tmp/cami-helix-temp ; wc -c /tmp/cami-helix-temp | cut -d " " -f 1}',
+        # 'X': ':echo lines: %sh{echo -n "%{selection}" >/tmp/mine/helix-temp ; wc -l /tmp/mine/helix-temp | cut -d " " -f 1}',
+        # 'x': ':echo chars: %sh{echo -n "%{selection}" >/tmp/mine/helix-temp ; wc -c /tmp/mine/helix-temp | cut -d " " -f 1}',
         ';': ':toggle whitespace.render %sh(toggle_value -n helix-newline \'{"newline": "all"}\' \'{"newline": null}\')',
         'C': ':echopy %(relative_path)',
         'M': ':sh chmod +x %(full_path)',
