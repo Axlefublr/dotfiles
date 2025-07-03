@@ -197,6 +197,18 @@ function niri_resize_width -a bigness
 end
 funcsave niri_resize_width >/dev/null
 
+function strongly_kill_window
+    nu -c '
+        niri msg -j windows
+        | from json
+        | where is_focused == true
+        | get pid
+        | each { kill -f $in }
+        | ignore
+    '
+end
+funcsave strongly_kill_window >/dev/null
+
 function which_wallpaper
     swww query | string match -gr 'image: (.*)'
 end

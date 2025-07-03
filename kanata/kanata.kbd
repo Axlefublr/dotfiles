@@ -155,7 +155,7 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (cmd footclient -D /home/axlefublr/ake -N helix)
+	a (cmd footclient -D /home/axlefublr/ake -N helix --execute goU)
 	c (cmd footclient -N calcure)
 	d (cmd footclient -ND /home/axlefublr)
 	e (cmd footclient -N bluetui)
