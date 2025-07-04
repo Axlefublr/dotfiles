@@ -13,18 +13,41 @@ const switch = {
 	'9': 'Digit9'
 	'0': 'Digit0'
 	'→': 'tab 40'
+	'_': 'S-(10 min)'
 }
 
-def main [--give, ...args] {
-	print -n '(` 40 '
-	$args | each { |arg|
-		let the = $arg | split chars | each { |chr| try { $switch | get $chr } catch { $chr } } | str join ' '
-		$"($the) enter 40"
-	} | str join ' ' | print -n
-	if $give {
-		print -n ' g i v e spc'
+def main [--active, ...args] {
+	if $active {
+		active
 	} else {
-		print -n ' esc'
+		$args | eval
 	}
-	print -n ')'
+}
+
+def active [] {
+	^propose.rs etg-active-items 50% ~/ake/etg-active-items
+	| str trim
+	| prepend 'give'
+	| str join ' '
+	| eval
+}
+
+def eval []: [
+	list<string> -> nothing
+	string -> nothing
+] {
+	print -n '(` 40 '
+	$in | each {
+		$in
+		| split chars
+		| each { |chr|
+			try { $switch | get $chr } catch { $chr }
+		}
+		| append 'enter 20'
+		| str join ' '
+	}
+	| append ''
+	| str join ' '
+	| print -n
+	print -n 'esc)'
 }
