@@ -188,7 +188,7 @@ binds {
     Mod+Semicolon { close-window; }
     Mod+Ctrl+Semicolon { spawn "fish" "-c" "strongly_kill_window"; }
 
-    Mod+C { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+M { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
     Mod+D { toggle-window-floating; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
 

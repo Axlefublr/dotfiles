@@ -563,6 +563,7 @@ sudo pacman -S libqalculate
 # set vspace off
 # set curconv off
 # set update exchange rates 1
+# set decimal comma off
 
 # ---------------qbittorrent---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout qbittorrent
@@ -706,7 +707,7 @@ systemctl --user enable --now ~/fes/dot/systemd/wallpaper.timer
 sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk
 paru -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git
 fish_add_path /usr/lib
-set -Ux TERMCMD kitty
+set -Ux TERMCMD foot
 set -Ux GDK_DEBUG portals
 set -Ux GTK_USE_PORTAL 1
 mkdir -p ~/.config/xdg-desktop-portal-termfilechooser

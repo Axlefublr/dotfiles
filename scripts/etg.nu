@@ -13,7 +13,7 @@ const switch = {
 	'9': 'Digit9'
 	'0': 'Digit0'
 	'→': 'tab 40'
-	'_': 'S-(10 min)'
+	'_': 'S-(20 min)'
 }
 
 def main [--active, ...args] {

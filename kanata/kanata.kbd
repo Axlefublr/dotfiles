@@ -1,14 +1,3 @@
-;; Controller button A — BTN_SOUTH — 304
-;; Controller button X — BTN_NORTH — 307
-;; Controller button Y — BTN_WEST — 308
-;; Controller button B — BTN_EAST — 305
-;; Controller L1 — BTN_TL — 310
-;; Controller L2 — BTN_TR — 311
-;; Controller button Select — BTN_SELECT — 314
-;; Controller button Start — BTN_START — 315
-;; Controller button Guide — BTN_MODE — 316
-;; Controller L3 — BTN_THUMBL — 317
-;; Controller R3 — BTN_THUMBR — 318
 (defcfg
 	;; [[sort on]]
 	;; movemouse-inherit-accel-state yes
@@ -29,13 +18,6 @@
 
 (deflocalkeys-linux
 	;; [[sort on]]
-	ControllerA 304
-	ControllerB 305
-	ControllerGuide 316
-	ControllerL1 310
-	ControllerR1 311
-	ControllerX 307
-	ControllerY 308
 	NextSong 163
 	PauseCD 201
 	PlayCD 200
@@ -49,12 +31,11 @@
 	' (tap-hold-release $tt $ht ' (layer-while-held chord))
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
 	. (tap-hold-release $tt $ht . (layer-while-held apps))
-	/ (tap-hold-release $tt $ht / (layer-while-held apps-revengeance))
+	/ (tap-hold-release $tt $ht / XX)
 	1 (cmd-output-keys etg.nu "stat add curse 5" "stat add coolness 5" "give brick_of_cash" "add_teleporters")
 	2 (cmd-output-keys etg.nu --active)
 	3 (cmd-output-keys etg.nu "add_teleporters")
 	4 (cmd-output-keys etg.nu "give old_crest")
-	6 (cmd-output-keys etg.nu "give bloodied_scarf")
 	7 (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor")
 	9 (cmd $fsh screenshot_window)
 	; (tap-hold-release $tt $ht ; ralt)
@@ -72,7 +53,7 @@
 	esc (tap-dance-eager 500 (XX XX (cmd $fsh eat)))
 	f (tap-hold-release $tt $ht f (layer-while-held arrows))
 	g (tap-hold-release $tt $ht g XX)
-	h (tap-hold-release $tt $ht h XX)
+	h (tap-hold-release $tt $ht h (layer-while-held apps-revengeance))
 	i (tap-hold-release $tt $ht i (layer-while-held brackets))
 	j (tap-hold-release $tt $ht j (layer-while-held numbers))
 	k (tap-hold-release $tt $ht k rctl)
@@ -160,7 +141,6 @@
 	e (cmd footclient -N bluetui)
 	f (cmd fuzzel)
 	j (layer-while-held numbers-subscript)
-	q (cmd footclient -N tiptop)
 	r (cmd $fsh "rnote & disown")
 	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
 	v (cmd footclient -N pik)
@@ -174,6 +154,8 @@
 	e (cmd swayimg -g /home/axlefublr/iwm/osl/memes)
 	f (cmd $fsh "floorp & disown")
 	q (cmd $fsh toggle_screen_record)
+	s (cmd swayimg -g -o mtime /home/axlefublr/iwm/sco)
+	x (cmd footclient -N tiptop)
 	;; [[sort off]]
 )
 

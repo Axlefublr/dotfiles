@@ -8,34 +8,33 @@ const ignored = [
 ]
 
 const known = {
-	# [[sort on]]
-	bed: 5
-	bottle: 15
-	brushes: 10
-	disc: 15
+	cloth: 5
 	dish: 5
-	dust: 7
-	filter: 45
-	floor: 7
-	fsrs: 60
-	glasses: 10
-	iso: 60
-	keyboard: 30
-	liked: 15
-	moch: (30.5 * 4)
 	mug: 5
-	nails: 14
-	nose: 6
-	photos: 15
 	razor: 5
-	tails: 30
-	tongue: (30.5 * 6)
-	toothbrush: (30.5 * 4)
+	bed: 6
+	nose: 6
+	floor: 7
 	towels: 7
-	update: 5
-	vacuum: 7
+	dust: 8
+	vacuum: 8
+	brushes: 10
+	update: 10
+	nails: 13
+	bottle: 15
+	disc: 15
+	glasses: 15
+	liked: 15
+	photos: 15
 	wilter: 15
-	# [[sort off]]
+	keyboard: 30
+	tails: 30
+	filter: 45
+	fsrs: 60
+	iso: 60
+	moch: 122
+	toothbrush: 122
+	tongue: 183
 }
 
 def produce [] {
@@ -88,7 +87,7 @@ def 'main pick' [] {
   | get name
   | to text
   | fuzzel -d --cache ~/.cache/mine/loago-pick
-  each { |$thingy|
+  | each { |$thingy|
     loago do ($thingy | str trim)
-  }
+  } | ignore
 }

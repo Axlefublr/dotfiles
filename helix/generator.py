@@ -200,6 +200,7 @@ all_modes_mappings: dict[str, Any] = {
     'A-ins': ':quit!',
     'A-left': 'unindent',
     'A-right': 'indent',
+    'C-6': ':buffer-close!',
     'C-down': 'add_newline_below',
     'C-e': ':new',
     'C-l': 'hover',
