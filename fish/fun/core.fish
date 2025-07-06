@@ -118,7 +118,7 @@ function get_input
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >/tmp/mine/get-input
-        flour_hold_last /tmp/mine/get-input
+        flour_hold_last -c ~/fes/dot/helix/pager.toml /tmp/mine/get-input
         set input "$(cat /tmp/mine/get-input)"
     end
     echo $input
@@ -127,7 +127,7 @@ funcsave get_input >/dev/null
 
 function get_input_max
     truncate -s 0 /tmp/mine/get-input
-    flour_hold /tmp/mine/get-input
+    flour_hold -c ~/fes/dot/helix/pager.toml /tmp/mine/get-input
     if test -s /tmp/mine/get-input
         cat /tmp/mine/get-input
     else

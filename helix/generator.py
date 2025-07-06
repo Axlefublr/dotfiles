@@ -332,6 +332,7 @@ normal_select_mappings: dict[str, Any] = {
     '{': 'rotate_selections_first',
     '|': 'shell_pipe',
     '}': 'rotate_selections_last',
+    '°': 'shell_insert_output',
     '‘': 'rotate_selection_contents_backward',
     '’': 'rotate_selection_contents_forward',
     '‚': 'reverse_selection_contents',
@@ -682,6 +683,7 @@ entire_config['editor']['whitespace']['render']['newline'] = 'none'
 entire_config['editor']['gutters']['layout'] = []
 entire_config['keys']['normal'][':'] = ':quit-all!'
 entire_config['keys']['select'][':'] = ':quit-all!'
+entire_config['editor']['bufferline'] = 'never'
 
 # hotkeys that may write and close the current buffer now close entire helix without saving
 with open('/home/axlefublr/fes/dot/helix/pager.toml', 'w') as file:

@@ -1,15 +1,19 @@
 (deflayermap (mouse)
 	caps esc
-	i (cmd woomer)
-	o (cmd $fsh pick_and_copy_color)
-	u (cmd $fsh screenshot_select)
-	j mlft
-	k mmid
-	l mrgt
-	w mbck
-	r mfwd
 	h (layer-switch mouse)
 	spc (layer-switch default)
+	w (cmd woomer)
+	n (cmd $fsh pick_and_copy_color)
+	u (cmd $fsh screenshot_select)
+	j mlft
+	l mmid
+	k mrgt
+	o lsft
+	' lmet
+	i lctl
+	p lalt
+	x pgup
+	c pgdn
 	, (mwheel-up    100 120)
 	. (mwheel-down  100 120)
 	m (mwheel-left  100 120)

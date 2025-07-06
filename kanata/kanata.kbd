@@ -190,6 +190,7 @@
 	d (cmd $fsh show_clipboard_image)
 	q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	s (cmd $fsh edit_clipboard_image)
+	w (cmd $fsh float_clipboard_image)
 	;; [[sort off]]
 )
 
@@ -216,6 +217,7 @@
 	caps (cmd $fsh ntf_dismiss_old)
 	w (one-shot $ot (layer-while-held bookmark-set))
 	f (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
+	e (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
 )
 
 ;; [[sort on]]

@@ -65,6 +65,11 @@ function ffh
 end
 funcsave ffh >/dev/null
 
+function float_clipboard_image
+    ypoci | swayimg -a swayfloat -
+end
+funcsave float_clipboard_image >/dev/null
+
 function github_read_notifs
     # -H 'X-GitHub-Api-Version: 2022-11-28' \
     gh api \

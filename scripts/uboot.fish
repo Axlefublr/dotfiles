@@ -15,3 +15,6 @@ yes | sudo pacman -Syyu
 pacclean
 
 nu -c 'config nu --doc' >~/.local/share/frizz/defconf/nushell.nu
+
+echo 'nom refresh' >&2
+nom refresh
