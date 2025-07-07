@@ -386,7 +386,7 @@ systemctl --user enable --now ~/fes/dot/kanata/kanata.service
 sudo pacman -S --needed --noconfirm --disable-download-timeout kbt
 
 # ---------------kitty---------------
-sudo pacman -S kitty
+sudo pacman -S --needed --noconfirm --disable-download-timeout kitty
 mkdir -p ~/.config/kitty
 ln -sf ~/fes/dot/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -sf ~/fes/dot/kitty/theme.conf ~/.config/kitty/current-theme.conf
