@@ -143,7 +143,6 @@
 	j (layer-while-held numbers-subscript)
 	r (cmd $fsh "rnote & disown")
 	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
-	v (cmd footclient -N pik)
 	w (cmd $fsh "anki & disown")
 	x (cmd footclient -N tewi)
 	;; [[sort off]]
@@ -151,11 +150,14 @@
 
 (deflayermap (apps-revengeance)
 	;; [[sort on]]
+	a (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
+	c (cmd footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
 	e (cmd swayimg -g /home/axlefublr/iwm/osl/memes)
 	f (cmd $fsh "floorp & disown")
 	q (cmd $fsh toggle_screen_record)
 	s (cmd swayimg -g -o mtime /home/axlefublr/iwm/sco)
-	x (cmd footclient -N tiptop)
+	x (cmd footclient -N pik)
+	z (cmd footclient -N tiptop)
 	;; [[sort off]]
 )
 

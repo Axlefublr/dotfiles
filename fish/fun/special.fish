@@ -26,16 +26,6 @@ function clipboard_pick
 end
 funcsave clipboard_pick >/dev/null
 
-function cursor_mode_enable
-    echo 󰇀 >~/.local/share/mine/waybar-cursor-mode
-end
-funcsave cursor_mode_enable >/dev/null
-
-function cursor_mode_disable
-    echo >~/.local/share/mine/waybar-cursor-mode
-end
-funcsave cursor_mode_disable >/dev/null
-
 function edit_blank_clipboard
     truncate -s 0 /tmp/mine/clipboard-blank.md
     flour_hold_last /tmp/mine/clipboard-blank.md
@@ -176,11 +166,12 @@ end
 funcsave niri_toggle_tab_correctly >/dev/null
 
 function toggle_screen_record
-    if matches 'Title: "screen-record";App ID: "kitty"' &>/dev/null
-        kitten @ --to unix:/home/axlefublr/.cache/mine/screen-recording-kitty-socket signal-child SIGINT
-        copyl ~/iwm/sco/compressed.mp4
+    if test -f /tmp/mine/recordilock
+        echo killing >~/.local/share/mine/waybar-screen-record
+        kill -s INT wf-recorder
     else
-        kitty -T screen-record --listen-on unix:/home/axlefublr/.cache/mine/screen-recording-kitty-socket screen-record.fish
+        echo starting >~/.local/share/mine/waybar-screen-record
+        screen-record.fish
     end
 end
 funcsave toggle_screen_record >/dev/null

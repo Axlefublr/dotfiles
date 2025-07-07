@@ -13,7 +13,7 @@
     "custom/meat",
     "niri/language",
     "custom/magazines",
-    "custom/cursor"
+    "custom/screen-record"
   ],
   "modules-center": [
     "custom/statusline"
@@ -65,8 +65,8 @@
     "format": "{}",
     "hide-empty-text": true
   },
-  "custom/cursor": {
-    "exec": "/home/axlefublr/fes/dot/waybar/cursor.fish",
+  "custom/screen-record": {
+    "exec": "/home/axlefublr/fes/dot/waybar/screen-record.fish",
     "format": "{}",
     "hide-empty-text": true
   },
@@ -105,7 +105,7 @@
   },
   "temperature#cpu": {
     "format": "{temperatureC}",
-    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input",
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
     "interval": 10,
     "critical-threshold": 75
   }
