@@ -135,29 +135,29 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (cmd footclient -D /home/axlefublr/ake -N helix --execute goU)
-	c (cmd footclient -N calcure)
-	d (cmd footclient -ND /home/axlefublr)
-	e (cmd footclient -N bluetui)
+	a (cmd niri msg action spawn -- footclient -ND /home/axlefublr/ake helix --execute goU)
+	c (cmd niri msg action spawn -- footclient -N calcure)
+	d (cmd niri msg action spawn -- footclient -ND /home/axlefublr)
+	e (cmd niri msg action spawn -- footclient -N bluetui)
 	f (cmd fuzzel)
 	j (layer-while-held numbers-subscript)
-	r (cmd $fsh "rnote & disown")
+	r (cmd niri msg action spawn -- rnote)
 	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
-	w (cmd $fsh "anki & disown")
-	x (cmd footclient -N tewi)
+	w (cmd niri msg action spawn -- anki)
+	x (cmd niri msg action spawn -- footclient -N tewi)
 	;; [[sort off]]
 )
 
 (deflayermap (apps-revengeance)
 	;; [[sort on]]
-	a (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
-	c (cmd footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
-	e (cmd swayimg -g /home/axlefublr/iwm/osl/memes)
-	f (cmd $fsh "floorp & disown")
+	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
+	c (cmd niri msg action spawn -- footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
+	e (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/memes)
+	f (cmd niri msg action spawn -- floorp)
 	q (cmd $fsh toggle_screen_record)
-	s (cmd swayimg -g -o mtime /home/axlefublr/iwm/sco)
-	x (cmd footclient -N pik)
-	z (cmd footclient -N tiptop)
+	s (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
+	x (cmd niri msg action spawn -- footclient -N pik)
+	z (cmd niri msg action spawn -- footclient -N tiptop)
 	;; [[sort off]]
 )
 

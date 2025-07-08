@@ -194,14 +194,7 @@ end
 funcsave niri_resize_width >/dev/null
 
 function strongly_kill_window
-    nu -c '
-        niri msg -j windows
-        | from json
-        | where is_focused == true
-        | get pid
-        | each { kill -f $in }
-        | ignore
-    '
+    niri msg -j focused-window | nu --stdin -n --no-std-lib -c 'from json | get id | kill -f $in'
 end
 funcsave strongly_kill_window >/dev/null
 
