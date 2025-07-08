@@ -22,6 +22,14 @@ edit = [
 extract = [
   { run = 'ouch decompress "$@"', desc = "Extract here" },
 ]
+reveal = [
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+]
+
+[open]
+prepend_rules = [
+  { mime = "image/svg+xml", use = [ "open", "edit", "reveal" ] },
+]
 
 [tasks]
 suppress_preload = true
