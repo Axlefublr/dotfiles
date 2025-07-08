@@ -11,6 +11,16 @@ $env.config.show_banner = false
 $env.config.use_kitty_protocol = true # ^i and tab are different
 alias z = cd
 # [[sort off]]
+$env.config.keybindings ++= [{
+	name: copy_commandline
+	modifier: control
+	keycode: char_x
+	mode: [emacs]
+	event: {
+		send: executehostcommand
+		cmd: 'commandline | wl-copy -n'
+	}
+}]
 $env.config.menus ++= [{
 	name: history_menu
 	only_buffer_difference: true # Search is done on the text written after activating the menu

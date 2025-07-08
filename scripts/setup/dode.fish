@@ -469,6 +469,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
 ln -sf ~/fes/dot/nu/nonf.nu ~/.config/nushell/config.nu
 rm -fr ~/.config/nushell/scripts
 ln -s ~/fes/dot/nu/blue ~/.config/nushell/scripts
+# in nushell
+plugin add /usr/bin/nu_plugin_formats
+plugin add /usr/bin/nu_plugin_gstat
 
 # ---------------nvim---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout neovim luarock
