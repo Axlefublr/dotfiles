@@ -101,7 +101,7 @@ function fish_user_key_bindings
     bind f2 'footclient -N'
     bind f3 yazi_cd
     bind f5 helix
-    bind f6 'helix .'
+    bind f6 'swayimg -g & disown ; exit'
     bind f8 lazygit
     # [[sort off]]
 end

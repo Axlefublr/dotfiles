@@ -2,16 +2,19 @@
 source coco.nu
 
 const ignored = [
+	# [[sort on]]
 	eat
-	sludge
 	puff
+	sludge
+	soap
+	# [[sort off]]
 ]
 
 const known = {
+	razor: 3
 	cloth: 5
 	dish: 5
 	mug: 5
-	razor: 5
 	bed: 6
 	nose: 6
 	floor: 7
@@ -28,7 +31,7 @@ const known = {
 	photos: 15
 	wilter: 15
 	keyboard: 30
-	tails: 30
+	tails: 40
 	filter: 45
 	fsrs: 60
 	iso: 60
