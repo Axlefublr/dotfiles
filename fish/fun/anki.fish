@@ -8,7 +8,7 @@ funcsave anki_sync >/dev/null
 function anki_add_card
     touch ~/.cache/mine/anki-card.html
     set -l previous_card "$(cat ~/.cache/mine/anki-card.html)"
-    flour_half_hold ~/.cache/mine/anki-card.html
+    flour --half ~/.cache/mine/anki-card.html
     if test $previous_card = "$(cat ~/.cache/mine/anki-card.html)"
         return 1
     end

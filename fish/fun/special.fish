@@ -33,14 +33,14 @@ funcsave dot >/dev/null
 
 function edit_blank_clipboard
     truncate -s 0 /tmp/mine/clipboard-blank.md
-    flour_hold_last /tmp/mine/clipboard-blank.md
+    flour --end /tmp/mine/clipboard-blank.md
     cat /tmp/mine/clipboard-blank.md | copy
 end
 funcsave edit_blank_clipboard >/dev/null
 
 function edit_clipboard
     ypoc >/tmp/mine/clipboard-edit.md
-    flour_hold_last /tmp/mine/clipboard-edit.md
+    flour --end /tmp/mine/clipboard-edit.md
     cat /tmp/mine/clipboard-edit.md | copy
 end
 funcsave edit_clipboard >/dev/null
@@ -211,6 +211,6 @@ funcsave which_wallpaper >/dev/null
 function write_window_info
     niri msg windows >~/.local/share/magazine/o
     _magazine_commit ~/.local/share/magazine/o clients
-    flour ~/.local/share/magazine/o
+    flour --disown ~/.local/share/magazine/o
 end
 funcsave write_window_info >/dev/null

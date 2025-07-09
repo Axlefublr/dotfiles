@@ -77,28 +77,28 @@ end
 funcsave ensure_browser >/dev/null
 
 function flour
-    argparse 'T/title=' -- $argv
-    and test "$_flag_title"
-    and set title $_flag_title
-    or set title flour
-    footclient -T $title -- helix $argv
+    argparse end half pager disown screen -- $argv
+    or return 121
+
+    set -l title flour
+    test "$_flag_half"
+    and set title "$title-half"
+
+    test "$_flag_disown"
+    and set flag_disown -N
+
+    test "$_flag_end"
+    and set flag_end --execute goU
+
+    if test "$_flag_pager"
+        set -f selected_config -c ~/fes/dot/helix/pager.toml
+    else if test "$_flag_screen"
+        set -f selected_config -c ~/fes/dot/helix/screen.toml
+    end
+
+    footclient -T $title $flag_disown -- helix $selected_config $flag_end $argv
 end
 funcsave flour >/dev/null
-
-function flour_half_hold
-    flour -T flour-half -- $argv
-end
-funcsave flour_half_hold >/dev/null
-
-function flour_hold
-    flour $argv
-end
-funcsave flour_hold >/dev/null
-
-function flour_hold_last
-    flour_hold --execute goU $argv
-end
-funcsave flour_hold_last >/dev/null
 
 function fn_clear
     set list (cat ~/fes/dot/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
@@ -118,7 +118,7 @@ function get_input
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >/tmp/mine/get-input
-        flour_hold_last -c ~/fes/dot/helix/pager.toml /tmp/mine/get-input
+        flour --end --pager /tmp/mine/get-input
         set input "$(cat /tmp/mine/get-input)"
     end
     echo $input
@@ -127,7 +127,7 @@ funcsave get_input >/dev/null
 
 function get_input_max
     truncate -s 0 /tmp/mine/get-input
-    flour_hold -c ~/fes/dot/helix/pager.toml /tmp/mine/get-input
+    flour --end --pager /tmp/mine/get-input
     if test -s /tmp/mine/get-input
         cat /tmp/mine/get-input
     else
