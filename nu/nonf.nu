@@ -11,16 +11,35 @@ $env.config.show_banner = false
 $env.config.use_kitty_protocol = true # ^i and tab are different
 alias z = cd
 # [[sort off]]
-$env.config.keybindings ++= [{
-	name: copy_commandline
-	modifier: control
-	keycode: char_x
-	mode: [emacs]
-	event: {
-		send: executehostcommand
-		cmd: 'commandline | wl-copy -n'
+$env.config.keybindings ++= [
+	{
+		name: copy_commandline
+		modifier: control
+		keycode: char_x
+		mode: [emacs]
+		event: {
+			send: ExecuteHostCommand
+			cmd: 'commandline | wl-copy -n'
+		}
 	}
-}]
+	{
+		name: paste_clipboard
+		modifier: control
+		keycode: char_v
+		mode: [emacs]
+		event: {
+			send: ExecuteHostCommand
+			cmd: 'wl-paste -n | commandline edit -i $in'
+		}
+	}
+	{
+		name: edit_commandline
+		modifier: alt
+		keycode: char_e
+		mode: [emacs]
+		event: { send: OpenEditor }
+	}
+]
 $env.config.menus ++= [{
 	name: history_menu
 	only_buffer_difference: true # Search is done on the text written after activating the menu

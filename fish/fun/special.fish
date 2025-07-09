@@ -26,6 +26,11 @@ function clipboard_pick
 end
 funcsave clipboard_pick >/dev/null
 
+function dot
+    echo dot >~/.local/share/mine/waybar-red-dot
+end
+funcsave dot >/dev/null
+
 function edit_blank_clipboard
     truncate -s 0 /tmp/mine/clipboard-blank.md
     flour_hold_last /tmp/mine/clipboard-blank.md

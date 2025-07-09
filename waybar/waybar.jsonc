@@ -13,7 +13,8 @@
     "custom/meat",
     "niri/language",
     "custom/magazines",
-    "custom/screen-record"
+    "custom/screen-record",
+    "custom/red-dot"
   ],
   "modules-center": [
     "custom/statusline"
@@ -67,6 +68,11 @@
   },
   "custom/screen-record": {
     "exec": "/home/axlefublr/fes/dot/waybar/screen-record.fish",
+    "format": "{}",
+    "hide-empty-text": true
+  },
+  "custom/red-dot": {
+    "exec": "/home/axlefublr/fes/dot/waybar/red-dot.nu",
     "format": "{}",
     "hide-empty-text": true
   },

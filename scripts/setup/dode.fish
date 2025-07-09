@@ -782,6 +782,7 @@ sudo chown -R $(whoami) /opt/visual-studio-code
 sudo pacman -S --needed --noconfirm --disable-download-timeout waybar
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps otf-font-awesome
 mkfifo ~/.local/share/mine/waybar-screen-record
+mkfifo ~/.local/share/mine/waybar-red-dot
 mkdir -p ~/.config/waybar
 ln -sf ~/fes/dot/waybar/waybar.jsonc ~/.config/waybar/config.jsonc
 ln -sf ~/fes/dot/waybar/waybar.css ~/.config/waybar/style.css
