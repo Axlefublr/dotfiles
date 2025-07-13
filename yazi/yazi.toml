@@ -5,7 +5,8 @@
 ratio = [ 0, 1, 1 ]
 scrolloff = 255
 show_hidden = false
-sort_by = "natural"
+sort_by = "mtime"
+sort_reverse = true
 sort_sensitive = true
 sort_translit = true
 # [[sort off]]

@@ -121,14 +121,14 @@ funcsave sts_boss >/dev/null
 function piped_screen_editor
     set -l file /tmp/mine/helix-overlay
     read -z | sd -f=m '[ \\t▐]+$' '' >$file
-    footclient -N helix -c ~/fes/dot/helix/screen.toml $file
+    flour --disown --screen $file
 end
 funcsave piped_screen_editor >/dev/null
 
 function piped_window_editor
     set -l file /tmp/mine/helix-overlay
     read -z | sd -f=m '[ \\t▐]+$' '' >$file
-    footclient -N helix -c ~/fes/dot/helix/pager.toml $file
+    flour --disown --pager $file
 end
 funcsave piped_window_editor >/dev/null
 
