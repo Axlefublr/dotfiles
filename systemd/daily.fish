@@ -13,7 +13,7 @@ truncate -s 0 ~/.local/share/magazine/d
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 yeared_parse
-indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs remember 50% ~/.local/share/magazine/s)
+indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs -n 30% remember 50% ~/.local/share/magazine/s)
 
 cd ~/fes/eli
 

@@ -12,7 +12,6 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
-use std::collections::HashMap;
 use std::env;
 use std::error::Error;
 use std::fmt;
@@ -30,6 +29,7 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::process::Command;
 use std::str::FromStr;
+use std::{collections::HashMap, ops::Not};
 
 use anyhow::Context;
 use clap::Parser;
@@ -38,6 +38,8 @@ use rand::Rng;
 
 #[derive(Parser)]
 struct Octopus {
+    #[arg(short = 'n', long)]
+    lines: Option<Consideration>,
     cache_name: String,
     consider: Consideration,
     path: PathBuf,
@@ -45,7 +47,7 @@ struct Octopus {
 
 #[derive(Clone, Copy, Debug)]
 enum Consideration {
-    Number(u32),
+    Number(usize),
     Percentage(u8),
 }
 
@@ -89,17 +91,24 @@ fn main() -> anyhow::Result<()> {
     let lines = contents.lines();
     let line_count = lines.clone().count();
     let starting_index = match octopus.consider {
-        Consideration::Number(num) => carplet.len().saturating_sub(num as usize),
+        Consideration::Number(num) => carplet.len().saturating_sub(num),
         Consideration::Percentage(percentage) => carplet
             .len()
             .saturating_sub(line_count * percentage as usize / 100),
     };
-    let picked_line = lines
-        .filter(|&line| !carplet[starting_index..].contains(&line.to_owned()))
-        .choose(&mut rng)
-        .context("input file is empty")?;
-    println!("{}", picked_line);
-    carplet.push(picked_line.to_owned());
+    let mut pickable_lines =
+        lines.filter(|&line| !carplet[starting_index..].contains(&line.to_owned()));
+    let picked_lines = pickable_lines.clone().by_ref().choose_multiple(
+        &mut rng,
+        match octopus.lines.unwrap_or(Consideration::Number(1)) {
+            Consideration::Number(num) => num,
+            Consideration::Percentage(perc) => pickable_lines.count() * perc as usize / 100,
+        },
+    );
+    if picked_lines.is_empty().not() {
+        println!("{}", picked_lines.join("\n"));
+        carplet.append(&mut picked_lines.into_iter().map(ToOwned::to_owned).collect());
+    }
     let carplet_len = carplet.len();
     if carplet_len > line_count {
         carplet.drain(..(carplet_len - line_count));
