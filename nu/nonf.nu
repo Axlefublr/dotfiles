@@ -39,6 +39,16 @@ $env.config.keybindings ++= [
 		mode: [emacs]
 		event: { send: OpenEditor }
 	}
+	{
+		name: copy_color_commandline
+		modifier: control_alt
+		keycode: char_x
+		mode: [emacs vi_insert vi_normal]
+		event: {
+			send: executehostcommand
+			cmd: 'commandline | bahex.nu'
+		}
+	}
 ]
 $env.config.menus ++= [{
 	name: history_menu
