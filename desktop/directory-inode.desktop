@@ -1,9 +1,8 @@
 [Desktop Entry]
-Name=Yazi Newborn
-Icon=yazi
-Comment=Blazing fast terminal file manager written in Rust, based on async I/O
+Name=Directory inode
+Comment=Opener of the directory inode
 Terminal=true
-TryExec=yazi
+TryExec=foot
 Exec=foot -D %F
 Type=Application
 MimeType=inode/directory

@@ -263,6 +263,8 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout foot
 mkdir -p ~/.config/foot
 ln -sf ~/fes/dot/foot.ini ~/.config/foot/foot.ini
 systemctl --user enable --now ~/fes/dot/systemd/foot.service
+ln -sf ~/fes/dot/desktop/directory-inode.desktop ~/.local/share/applications/directory-inode.desktop
+xdg-mime default directory-inode.desktop inode/directory
 
 # ---------------fuck---------------
 sudo pacman -Rns --noconfirm eos-update-notifier
@@ -869,8 +871,6 @@ ya pkg add yazi-rs/plugins:toggle-pane
 ya pkg add yazi-rs/plugins:types
 ya pack -a lpanebr/yazi-plugins:first-non-directory
 ya pkg add yazi-rs/plugins:smart-enter
-ln -sf ~/fes/dot/desktop/yazi-outside.desktop ~/.local/share/applications/yazi.desktop
-xdg-mime default yazi.desktop inode/directory
 
 # ---------------ydotool---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool
