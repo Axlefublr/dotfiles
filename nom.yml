@@ -22,6 +22,8 @@ feeds:
     name: strongly typed thoughts
   - url: https://ersei.net/en/blog.atom
     name: ersei
+  - url: https://herecomesthemoon.net/posts/index.xml
+    name: herecomesthemoon
 theme:
   glamour: dark
   titleColor: "#e49641"
