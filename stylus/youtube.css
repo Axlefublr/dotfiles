@@ -6,17 +6,15 @@
 /* switcher header */
 #header.style-scope.ytd-account-section-list-renderer,
 /* pre-switcher header */
-#contentWrapper > ytd-multi-page-menu-renderer > #header,
+#contentWrapper>ytd-multi-page-menu-renderer>#header,
 /* undeletable non-business channel */
-#contents > ytd-account-item-renderer:nth-child(1),
+#contents>ytd-account-item-renderer:nth-child(1),
 /* special channel name in selector */
-#contents > ytd-account-item-renderer:nth-child(5) yt-formatted-string,
+#contents>ytd-account-item-renderer:nth-child(5) yt-formatted-string,
 /* pfps in switcher */
 #contentIcon,
 /* sign out */
-yt-multi-page-menu-section-renderer:first-of-type
-	> #items
-	> ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(3),
+yt-multi-page-menu-section-renderer:first-of-type>#items>ytd-compact-link-renderer.style-scope.yt-multi-page-menu-section-renderer:nth-child(3),
 /* shorts in right hand side watch later */
 ytd-reel-shelf-renderer.style-scope.ytd-item-section-renderer,
 /* viewer count */
@@ -27,17 +25,17 @@ ytd-rich-shelf-renderer,
 #entity-name,
 /* profile picture on the left
 alt text is displayed without wpcc */
-#left-nav > div.thumbnail-wrapper.thumbnail-wrapper-channel.style-scope.ytcp-navigation-drawer.style-scope.ytcp-navigation-drawer > ytcp-animatable > img,
+#left-nav>div.thumbnail-wrapper.thumbnail-wrapper-channel.style-scope.ytcp-navigation-drawer.style-scope.ytcp-navigation-drawer>ytcp-animatable>img,
 /* entire header of the before switcher menu */
 #header.style-scope.ytd-multi-page-menu-renderer,
 /* sign out in switcher */
-#items.style-scope.yt-multi-page-menu-section-renderer > ytd-compact-link-renderer:nth-child(4),
+#items.style-scope.yt-multi-page-menu-section-renderer>ytd-compact-link-renderer:nth-child(4),
 /* switcher header */
 #header.style-scope.ytd-account-section-list-renderer,
 /* first undeletable channel in switcher */
-#contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(1),
+#contents.style-scope.ytd-account-item-section-renderer>ytd-account-item-renderer:nth-child(1),
 /* special channel */
-#contents.style-scope.ytd-account-item-section-renderer > ytd-account-item-renderer:nth-child(5) yt-formatted-string,
+#contents.style-scope.ytd-account-item-section-renderer>ytd-account-item-renderer:nth-child(5) yt-formatted-string,
 /* blue notification markers in notification popout */
 div#new.ytd-notification-renderer {
 	display: none;

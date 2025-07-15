@@ -194,51 +194,8 @@ ln -sf ~/fes/dot/firefox/userContent.css $prof_dir/chrome
 # IgnorePkg=firefox
 
 # ---------------floorp---------------
-paru -Sa --needed --disable-download-timeout floorp-bin
-
-# in the alt menu, CSS -> CSS -> Create browser CSS file
-# then Open CSS folder; you'll arrive around here
-# ~/.floorp/zxvqwt0m.default-release/chrome/CSS
-rm -fr ~/.floorp/zxvqwt0m.default-release/chrome
-ln -sf ~/fes/dot/floorp ~/.floorp/zxvqwt0m.default-release/chrome
-
-# devtools.debugger.prompt-connection
-# devtools.inspector.remote
-# ui.key.menuAccessKeyFocuses
-# ui.key.menuAccessKey to -1
-# mousewheel.default.delta_multiplier_y
-# floorp.newtab.overrides.newtaburl file:///home/axlefublr/fes/lai/annabirch/index.html
-
-# enable shortcuts in address bar
-
-# custom shortcut on ^!' to focus main page after focusing address bar
-# document.querySelector("browser[primary='true']").focus()
-
-# custom shortcut for moving the current tab to the next / previous workspace
-# (async () => {
-#     const currentTab = window.gBrowser.selectedTab;
-#     const workspaces = await gWorkspaces.getAllWorkspacesId();
-#     const current = await gWorkspaces.getCurrentWorkspaceId();
-#     const currentIndex = workspaces.indexOf(current);
-#     let destinationIndex = currentIndex - 1;
-#     if (destinationIndex >= workspaces.length) {
-#         destinationIndex = 0;
-#     }
-#     const destination = workspaces.at(destinationIndex);
-#     await gWorkspaces.changeWorkspace(destination, null, false, true);
-# })();
-
-# (async () => {
-#     const workspaces = await gWorkspaces.getAllWorkspacesId();
-#     const current = await gWorkspaces.getCurrentWorkspaceId();
-#     const currentIndex = workspaces.indexOf(current);
-#     let destinationIndex = currentIndex - 1;
-#     if (destinationIndex >= workspaces.length) {
-#         destinationIndex = 0;
-#     }
-#     const destination = workspaces.at(destinationIndex);
-#     await gWorkspaces.changeWorkspace(destination, null, false, true);
-# })();
+paru -Sa --needed --disable-download-timeout floorp xwayland-run
+# everything else is here ~/fes/dot/scripts/setup/floorp.md
 
 # ---------------fnott---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout fnott

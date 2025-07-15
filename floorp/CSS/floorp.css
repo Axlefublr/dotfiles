@@ -22,7 +22,9 @@
 .tab-background>.tab-context-line,
 .tab-stack::before,
 #reader-mode-button,
-.titlebar-button.titlebar-close {
+.titlebar-button.titlebar-close,
+/* drm button */
+#eme-notification-icon {
   display: none !important;
 }
 
@@ -30,6 +32,10 @@
 #nav-bar-customization-target {
   font-family: Inter !important;
   font-size: 13pt !important;
+}
+
+.tabbrowser-tab {
+  min-width: 190px !important;
 }
 
 #zoom-controls {
