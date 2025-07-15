@@ -12,7 +12,7 @@ const ignored = [
 
 const known = {
 	cloth: 3
-	razor: 3
+	razor: 4
 	dish: 5
 	mug: 5
 	bed: 6
