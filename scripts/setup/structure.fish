@@ -59,3 +59,5 @@ cp -f ~/fes/eli/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 git clone https://github.com/Axlefublr/magazine
 git clone https://github.com/Axlefublr/music alien_temple
 git clone https://github.com/Axlefublr/shows glaza
+
+ln -sf ~/fes/dot/desktop/aurupdate.desktop ~/.local/share/applications/aurupdate.desktop

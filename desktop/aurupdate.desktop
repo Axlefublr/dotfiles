@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=fish -c 'loago do update ; paru -Sua'
+Name=Aurupdate
+Terminal=true
+Type=Application
