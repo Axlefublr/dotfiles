@@ -40,7 +40,7 @@ funcsave edit_blank_clipboard >/dev/null
 
 function edit_clipboard
     ypoc >/tmp/mine/clipboard-edit.md
-    flour --end /tmp/mine/clipboard-edit.md
+    flour /tmp/mine/clipboard-edit.md
     cat /tmp/mine/clipboard-edit.md | copy
 end
 funcsave edit_clipboard >/dev/null
@@ -117,6 +117,13 @@ function sts_boss
     cp -f ~/fes/bin/DefinitelyNot/$input.jar ~/.local/share/Steam/steamapps/common/SlayTheSpire/mods/DefinitelyNot.jar
 end
 funcsave sts_boss >/dev/null
+
+function piped_output_editor
+    set -l file /tmp/mine/command-output
+    read -z >$file
+    flour --disown $file
+end
+funcsave piped_output_editor >/dev/null
 
 function piped_screen_editor
     set -l file /tmp/mine/helix-overlay
