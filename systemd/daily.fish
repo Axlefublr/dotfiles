@@ -6,6 +6,7 @@ trash-empty -f 1
 cd ~/.local/share/magazine
 for file in ~/.local/share/magazine/*
     _magazine_commit $file left
+    # crucially, this happens to do `frizz`, and is the only reason we don't do it explicitly in uboot
 end
 git add .
 and git commit -m leftovers
@@ -42,8 +43,6 @@ git add zoxide.db
 and git commit -m 'sync zoxide'
 
 sleep 10 # otherwise, as soon as I wake my pc from sleep, it hasn't connected to the internet at that point, but *has* started executing this script. so what ends up happening is git commands fail to push all the directories because it doesn't have internet to do so yet.
-
-# nom refresh
 
 for dir in ~/fes/ork/*
     git -C $dir fetch

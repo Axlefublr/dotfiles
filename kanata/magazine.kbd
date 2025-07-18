@@ -6,7 +6,7 @@
 	(multi (layer-switch default) (cmd $fsh (concat "magazine_resolve " $name)))
 )
 
-(defalias magazine-cancel (multi (cmd $fsh "notify-send maganope") (layer-switch default)))
+(defalias magazine-cancel (multi (cmd $fsh "dot") (layer-switch default)))
 
 (deflayermap (magazine)
 	j (layer-while-held numbers-superscript)

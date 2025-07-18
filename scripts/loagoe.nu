@@ -11,7 +11,7 @@ const ignored = [
 ]
 
 const known = {
-	cloth: 3
+	cloth: 4
 	razor: 4
 	dish: 5
 	mug: 5

@@ -4,7 +4,6 @@ for package in (cat ~/.local/share/magazine/W)
     echo $package | xargs eget --upgrade-only
 end
 
-frizz
 stew upgrade --all
 rustup update
 cargo install-update -a

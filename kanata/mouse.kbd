@@ -1,5 +1,6 @@
 (deflayermap (mouse)
 	caps esc
+	tab C-w
 	h (layer-switch mouse)
 	spc (layer-switch default)
 	w (cmd woomer)
