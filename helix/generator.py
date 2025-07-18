@@ -645,6 +645,11 @@ insert_mappings: dict[str, Any] = {
         ':insert-output uclanr | read',
         'append_mode_same_line',
     ],
+    'C-a': [
+        'collapse_selection',
+        ':insert-output amal 5 | read',
+        'append_mode_same_line',
+    ],
 }
 
 all_modes = rusify(all_modes_mappings)
