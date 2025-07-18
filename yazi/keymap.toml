@@ -20,7 +20,6 @@ keymap = [
   { on = ';', run = [ 'plugin blammo', 'plugin intellishell' ], desc = 'Run a shell command' },
   { on = '<', run = 'tab_switch -1 --relative', desc = 'Switch to the previous tab' },
   { on = '<C-c>', run = 'yank', desc = 'Yank selected files (copy)' },
-  { on = '<C-h>', run = 'help', desc = 'Help' },
   { on = '<C-i>', run = 'plugin zoxide', desc = 'Jump to a directory using zoxide' },
   { on = '<C-r>', run = 'toggle_all', desc = 'Inverse selection of all files' },
   { on = '<C-x>', run = 'yank --cut', desc = 'Yank selected files (cut)' },
@@ -28,6 +27,7 @@ keymap = [
   { on = '<Down>', run = 'arrow 1', desc = 'Move cursor down' },
   { on = '<Enter>', run = [ 'escape --filter', 'plugin smart-enter' ], desc = 'Open selected files' },
   { on = '<Esc>', run = 'escape --find --filter --search', desc = 'Cancel most things' },
+  { on = '<F1>', run = 'help', desc = 'Help' },
   { on = '<F2>', run = [ 'plugin blammo', 'shell --confirm --orphan -- footclient' ], desc = 'Launch terminal here' },
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
@@ -112,10 +112,10 @@ keymap = [
 [tasks]
 keymap = [
   # [[sort on]]
-  { on = '<C-h>', run = 'help', desc = 'Open help' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next task' },
   { on = '<Enter>', run = 'inspect', desc = 'Inspect the task' },
   { on = '<Esc>', run = 'close', desc = 'Close task manager' },
+  { on = '<F1>', run = 'help', desc = 'Open help' },
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
   { on = '<Up>', run = 'arrow -1', desc = 'Previous task' },
@@ -132,9 +132,9 @@ keymap = [
 keymap = [
   # [[sort on]]
   { on = ':', run = 'close', desc = 'Close the spot' },
-  { on = '<C-h>', run = 'help', desc = 'Open help' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
   { on = '<Esc>', run = 'close', desc = 'Close the spot' },
+  { on = '<F1>', run = 'help', desc = 'Open help' },
   { on = '<Left>', run = 'swipe prev', desc = 'Swipe to previous file' },
   { on = '<Right>', run = 'swipe next', desc = 'Swipe to next file' },
   { on = '<Up>', run = 'arrow -1', desc = 'Previous line' },
@@ -157,7 +157,6 @@ keymap = [
   { on = '<C-Delete>', run = 'kill forward', desc = 'Kill forwards to the end of the current word' },
   { on = '<C-Left>', run = 'backward', desc = 'Move back to the start of the current or previous word' },
   { on = '<C-Right>', run = 'forward --end-of-word', desc = 'Move forward to the end of the current or next word' },
-  { on = '<C-h>', run = 'help', desc = 'Open help' },
   { on = '<C-k>', run = 'kill eol', desc = 'Kill forwards to the EOL' },
   { on = '<C-u>', run = 'kill bol', desc = 'Kill backwards to the BOL' },
   { on = '<C-w>', run = 'kill backward', desc = 'Kill backwards to the start of the current word' },
@@ -165,6 +164,7 @@ keymap = [
   { on = '<End>', run = 'move eol', desc = 'Move to the EOL' },
   { on = '<Enter>', run = 'close --submit', desc = 'Submit input' },
   { on = '<Esc>', run = 'close', desc = 'Back to normal mode, or cancel input' },
+  { on = '<F1>', run = 'help', desc = 'Open help' },
   { on = '<Home>', run = 'move bol', desc = 'Move to the BOL' },
   { on = '<Left>', run = 'move -1', desc = 'Move back a character' },
   { on = '<Right>', run = 'move 1', desc = 'Move forward a character' },
@@ -176,10 +176,10 @@ keymap = [
   # [[sort on]]
   # { on = 'j', run = 'arrow next', desc = 'Next line' },
   # { on = 'k', run = 'arrow prev', desc = 'Previous line' },
-  { on = '<C-h>', run = 'help', desc = 'Open help' },
   { on = '<Down>', run = 'arrow next', desc = 'Next line' },
   { on = '<Enter>', run = 'close --submit', desc = 'Submit the confirm' },
   { on = '<Esc>', run = 'close', desc = 'Cancel the confirm' },
+  { on = '<F1>', run = 'help', desc = 'Open help' },
   { on = '<Up>', run = 'arrow prev', desc = 'Previous line' },
   { on = 'j', run = 'close --submit', desc = 'Submit the confirm' },
   { on = 'k', run = 'close', desc = 'Cancel the confirm' },
@@ -190,9 +190,9 @@ keymap = [
 keymap = [
   # [[sort on]]
   { on = ':', run = 'close', desc = 'Close the spot' },
-  { on = '<C-h>', run = 'close', desc = 'Hide the help' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
   { on = '<Esc>', run = 'escape', desc = 'Clear the filter, or hide the help' },
+  { on = '<F1>', run = 'close', desc = 'Hide the help' },
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
   { on = '<Up>', run = 'arrow -1', desc = 'Previous line' },

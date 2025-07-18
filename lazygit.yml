@@ -69,6 +69,7 @@ keybinding:
     nextPage: '.'
     nextScreenMode: '+'
     nextTab: '>'
+    optionMenu-alt1: <f1>
     prevBlock-alt: K
     prevPage: ','
     prevScreenMode: '-'
