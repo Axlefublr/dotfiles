@@ -828,6 +828,7 @@ ya pkg add yazi-rs/plugins:toggle-pane
 ya pkg add yazi-rs/plugins:types
 ya pack -a lpanebr/yazi-plugins:first-non-directory
 ya pkg add yazi-rs/plugins:smart-enter
+cargo binstall -y resvg
 
 # ---------------ydotool---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool
