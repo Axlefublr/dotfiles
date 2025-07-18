@@ -4,12 +4,8 @@ function loago
     command loago $argv
     test "$argv[1]" = --help && return
     if contains $argv[1] do remove
-        set prevdir $PWD
-        cd ~/fes/eli
-        cp -f ~/.local/share/loago/loago.json .
-        git add loago.json &>/dev/null
-        and git commit -m "loago $argv" &>/dev/null
-        cd $prevdir
+        git -C ~/fes/eli add loago.json &>/dev/null
+        and git -C ~/fes/eli commit -m "loago $argv" &>/dev/null
     end
 end
 funcsave loago >/dev/null

@@ -54,7 +54,7 @@ git clone https://github.com/Axlefublr/axlefublr.github.io bog
 
 cd ~/.local/share
 cp -f ~/fes/eli/harp.jsonc ~/.local/share/harp/harp.jsonc
-cp -f ~/fes/eli/loago.json ~/.local/share/loago/loago.json
+ln -sf ~/fes/eli/loago.json ~/.local/share/loago/loago.json
 cp -f ~/fes/eli/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 git clone https://github.com/Axlefublr/magazine
 git clone https://github.com/Axlefublr/music alien_temple
