@@ -32,7 +32,7 @@ end
 funcsave dot >/dev/null
 
 function edit_blank_clipboard
-    truncate -s 0 /tmp/mine/clipboard-blank.md
+    echo >/tmp/mine/clipboard-blank.md
     flour --end /tmp/mine/clipboard-blank.md
     cat /tmp/mine/clipboard-blank.md | copy
 end
