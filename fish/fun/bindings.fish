@@ -76,6 +76,11 @@ function _blammo_pwd
 end
 funcsave _blammo_pwd >/dev/null
 
+function _reexec
+    history search -n 1 | source
+end
+funcsave _reexec >/dev/null
+
 function fish_user_key_bindings
     # [[sort on]]
     bind / expand-abbr self-insert
@@ -91,13 +96,13 @@ function fish_user_key_bindings
     bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
     bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
+    bind ctrl-e _reexec
     bind ctrl-i 'zi ; commandline -f repaint'
     bind ctrl-l 'commandline -f clear-screen'
     bind ctrl-q 'z .. ; commandline -f repaint'
     bind ctrl-s 'commandline -f repaint'
     bind ctrl-z d
     bind f1 'commandline nu ; commandline -f execute'
-    bind f11 'commandline qalc ; commandline -f execute'
     bind f2 'footclient -N'
     bind f3 yazi_cd
     bind f5 helix
