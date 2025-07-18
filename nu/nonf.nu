@@ -86,3 +86,14 @@ $env.config.menus ++= [
 	}
 }
 ]
+$env.config.explore = {
+	command_bar_text: white
+	selected_cell: { bg: '#5f472d' }
+	status_bar_background: white
+	status: {
+		error: red
+		warn: yellow
+		info: cyan
+		success: green
+	},
+}
