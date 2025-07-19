@@ -105,7 +105,7 @@ function fish_user_key_bindings
     bind f1 'commandline nu ; commandline -f execute'
     bind f2 'footclient -N'
     bind f3 yazi_cd
-    bind f5 helix
+    bind f5 'test "$(commandline)" = " " && helix . || helix'
     bind f6 'swayimg -g & disown ; exit'
     bind f8 lazygit
     # [[sort off]]
