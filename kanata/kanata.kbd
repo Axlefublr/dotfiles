@@ -136,7 +136,7 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (cmd niri msg action spawn -- footclient -ND /home/axlefublr/ake helix --execute goU)
+	a (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix --execute goU)
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	d (cmd niri msg action spawn -- footclient -ND /home/axlefublr)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
@@ -153,7 +153,7 @@
 	;; [[sort on]]
 	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	c (cmd niri msg action spawn -- footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
-	e (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/memes)
+	e (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	f (cmd niri msg action spawn -- floorp)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)

@@ -21,7 +21,7 @@ sudo systemd-tmpfiles --create
 fish_add_path ~/.local/bin
 
 cd ~
-git clone https://github.com/Axlefublr/info ake
+git clone https://github.com/Axlefublr/info jrl
 
 cd ~/iwm
 git clone https://github.com/Axlefublr/deleted-bangers msk
