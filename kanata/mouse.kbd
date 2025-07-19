@@ -1,8 +1,8 @@
 (deflayermap (mouse)
 	caps esc
-	tab C-w
-	h (layer-switch mouse)
 	spc (layer-switch default)
+	h (layer-switch mouse)
+	r C-w
 	w (cmd woomer)
 	n (cmd $fsh pick_and_copy_color)
 	u (cmd $fsh screenshot_select)
