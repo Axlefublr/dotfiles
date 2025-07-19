@@ -22,7 +22,7 @@ const pleasantries = {
 	s: [  b   d   f   h i j k l m n o         u        ]
 	t: [  b             i j k l m n o         u        ]
 	u: [a   c d e f g         l   n o   r s t   v w x z]
-	v: [a b c         h i j k l m n o     s   u   w x z]
+	v: [a b           h i j k l m n o     s   u   w x z]
 	w: [  b       f   h i j k l m n o   r     u        ]
 	x: [  b           h i j k l m n o         u        ]
 	z: [  b c     f   h i j k l m n o         u     x  ]
