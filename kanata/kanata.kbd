@@ -4,7 +4,7 @@
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
-	linux-dev-names-include ("  Varmilo", "soundcore Space Q45 (AVRCP)", "Kingston HyperX Pulsefire Haste")
+	linux-dev-names-include ("  Varmilo", "Kingston HyperX Pulsefire Haste")
 	linux-unicode-termination space
 	log-layer-changes no
 	process-unmapped-keys yes
@@ -15,15 +15,6 @@
 (defvar ht 150)
 (defvar ot 5000)
 (defvar fsh (fish -c))
-
-(deflocalkeys-linux
-	;; [[sort on]]
-	NextSong 163
-	PauseCD 201
-	PlayCD 200
-	PreviousSong 165
-	;; [[sort off]]
-)
 
 (defsrc)
 (deflayermap (default)
@@ -40,10 +31,6 @@
 	8 (cmd-output-keys etg.nu "give gungeon_blueprint")
 	9 (cmd $fsh screenshot_window)
 	; (tap-hold-release $tt $ht ; ralt)
-	NextSong (cmd $fsh media_next)
-	PauseCD (cmd $fsh toggle_media)
-	PlayCD (cmd $fsh toggle_media)
-	PreviousSong (cmd $fsh media_prev)
 	a (tap-hold-release $tt $ht a lalt)
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))

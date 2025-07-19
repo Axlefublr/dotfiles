@@ -171,12 +171,14 @@ layout {
 }
 
 binds {
-    Mod+WheelScrollDown { spawn "fish" "-c" "set_volume 0.02-"; }
-    Mod+WheelScrollUp   { spawn "fish" "-c" "set_volume 0.02+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "fish" "-c" "toggle_mic_mute"; }
     XF86AudioMute        allow-when-locked=true { spawn "fish" "-c" "toggle_mute"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02+"; }
+    XF86AudioPlay        allow-when-locked=true { spawn "fish" "-c" "toggle_media"; }
+    XF86AudioPause       allow-when-locked=true { spawn "fish" "-c" "toggle_media"; }
+    XF86AudioPrev        allow-when-locked=true { spawn "fish" "-c" "media_prev"; }
+    XF86AudioNext        allow-when-locked=true { spawn "fish" "-c" "media_next"; }
 
     Mod+F5 { spawn "foot"; }
     Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
