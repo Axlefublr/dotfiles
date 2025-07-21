@@ -141,7 +141,7 @@
 	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	c (cmd niri msg action spawn -- footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
 	e (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
-	f (cmd niri msg action spawn -- floorp)
+	f (cmd gtk-launch floorp)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
 	x (cmd niri msg action spawn -- footclient -N pik)

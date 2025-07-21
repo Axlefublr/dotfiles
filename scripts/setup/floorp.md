@@ -1,3 +1,8 @@
+Add ↓ to /usr/share/applications/floorp.desktop
+```
+MOZ_ENABLE_WAYLAND=1
+```
+
 Log into your firefox account.
 
 # about:preferences
