@@ -32,8 +32,7 @@ ln -sf ~/fes/dot/floorp ~/.floorp/93ml3dbj.default-release-1/chrome
 
 Give all permissions it's asking for, including running in private windows.
 Import `~/fes/eli/foxyproxy.json`.
-
-You still need to configure the base browser proxy settings to use your http proxy (manual proxy configuration).
+You don't need to set the in-browser proxy settings, keep them as “no proxy”.
 
 # extensions
 

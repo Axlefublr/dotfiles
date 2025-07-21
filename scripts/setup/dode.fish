@@ -600,9 +600,6 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout speedtest-cli
 sudo pacman -S --needed --noconfirm --disable-download-timeout spotify-launcher
 # edit /usr/share/applications/spotify-launcher.desktop to have `env DISPLAY=:1.0` in exec
 
-# ---------------ssh---------------
-systemctl --user enable --now ~/fes/ack/socksproxy.service
-
 # ---------------steam---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runtime
 # run the thing via env to set DISPLAY and to unset http_proxy, https_proxy, all_proxy
