@@ -37,8 +37,6 @@ set -gx fish_cursor_unknown line
 
 # [[sort on]]
 set -gx TELOXIDE_TOKEN (cat ~/fes/ack/llr/axleizer)
-set -gx http_proxy http://(cat ~/.local/share/magazine/p)[1]
-set -gx https_proxy http://(cat ~/.local/share/magazine/p)[1]
 # [[sort off]]
 
 zoxide init fish | source
