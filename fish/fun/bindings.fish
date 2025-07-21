@@ -107,7 +107,7 @@ function fish_user_key_bindings
     bind f3 yazi_cd
     bind f5 'test "$(commandline)" = " " && helix . || helix'
     bind f6 'swayimg -g & disown ; exit'
-    bind f8 lazygit
+    bind f8 'commandline lazygit ; commandline -f execute'
     # [[sort off]]
 end
 funcsave fish_user_key_bindings >/dev/null
