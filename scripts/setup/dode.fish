@@ -484,6 +484,21 @@ ln -sf ~/fes/dot/pik.toml ~/.config/pik/config.toml
 # visual lines going all over the screen
 paru -Sa --needed --disable-download-timeout bash-pipes
 
+# ------------------privoxy------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout privoxy
+sudo -E helix /etc/privoxy/config
+# forward-socks5 / username:password@address:port .
+sudo systemctl enable --now privoxy
+# you should now get http://127.0.0.1:8118
+# which you can check is working as the relay with:
+curl --proxy http://127.0.0.1:8118 https://httpbin.org/ip
+
+# ---------------proxychains---------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout proxychains-ng
+sudo -E helix /etc/proxychains.conf
+# add at the end
+# socks5 address port user password
+
 # ---------------postgresql---------------
 sudo pacman -S postgresql
 ln -sf ~/fes/dot/psqlrc ~/.psqlrc
@@ -723,8 +738,11 @@ eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 paru -Sa --needed --disable-download-timeout unimatrix-git
 
 # ----------------vesktop----------------
-indeed.rs -u ~/.local/share/magazine/W -- '-a AppImage -a ^arm https://github.com/Vencord/Vesktop'
-eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
+#> privoxy
+paru -Sa --needed --disable-download-timeout --asdeps electron37-bin
+paru -Sa --needed --disable-download-timeout vesktop-bin
+sudo -E helix /usr/share/applications/vesktop.desktop
+# NATIVE_WAYLAND=1 ELECTRON_OZONE_PLATFORM_HINT=wayland vesktop --proxy-server=127.0.0.1:8118
 
 # ---------------vscode---------------
 mkdir -p ~/.config/Code/User
