@@ -46,6 +46,10 @@ Import stylus styles one by one.
 
 Chat font scaling to 18
 
+## chat
+
+Open threads in split view — disable
+
 # custom shortcuts
 
 ```
