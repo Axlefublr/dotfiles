@@ -25,15 +25,15 @@ git clone https://github.com/Axlefublr/info jrl
 
 cd ~/iwm
 git clone https://github.com/Axlefublr/deleted-bangers msk
-git clone https://github.com/Axlefublr/pictures-tree osl
+git clone https://github.com/Axlefublr/pictures-tree --depth=1 osl
 git clone https://github.com/Axlefublr/twemoji-svg twemoji
 git clone https://github.com/Axlefublr/video-creation-tools tox
-git clone https://github.com/Axlefublr/documents dls
+git clone https://github.com/Axlefublr/documents --depth=1 dls
 
 cd ~/fes
 git clone https://github.com/Axlefublr/autocommit eli
 git clone https://github.com/Axlefublr/dotfiles dot
-git clone https://github.com/Axlefublr/binaries bin
+git clone https://github.com/Axlefublr/binaries --depth=1 bin
 git clone https://github.com/Axlefublr/backup ack
 git clone https://github.com/Axlefublr/job
 
