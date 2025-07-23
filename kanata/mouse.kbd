@@ -3,7 +3,7 @@
 	spc (layer-switch default)
 	h (layer-switch mouse)
 	r C-w
-	w (cmd woomer)
+	a (cmd woomer)
 	n (cmd $fsh pick_and_copy_color)
 	u (cmd $fsh screenshot_select)
 	j mlft
