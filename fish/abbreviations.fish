@@ -1,4 +1,5 @@
 #[[sort on]]
+abbr -a --set-cursor=% edi 'sudo -E helix /usr/share/applications/%.desktop'
 abbr -a -c gh gh-depth-1 -r df -- '-- --depth 1'
 abbr -a -c magick magick-webp-lossless -r loss -- '-define webp:lossless=true'
 abbr -a -c systemctl systemctl-daemon-reload -r dr daemon-reload
@@ -17,6 +18,7 @@ abbr -a ca cargo
 abbr -a chx 'chmod +x'
 abbr -a cp 'rsync -r'
 abbr -a de 'cd ~/fes/dot && helix'
+abbr -a e helix
 abbr -a fC 'sudo -E helix /etc/fancontrol'
 abbr -a fc 'cat ~/fes/ack/fux/sudo | sudo -S systemctl restart fancontrol'
 abbr -a ff ffmpeg
