@@ -613,7 +613,6 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout speedtest-cli
 
 # ---------------spotify---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout spotify-launcher
-# edit /usr/share/applications/spotify-launcher.desktop to have `env DISPLAY=:1.0` in exec
 
 # ---------------steam---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runtime
@@ -742,7 +741,7 @@ paru -Sa --needed --disable-download-timeout unimatrix-git
 paru -Sa --needed --disable-download-timeout --asdeps electron37-bin
 paru -Sa --needed --disable-download-timeout vesktop-bin
 sudo -E helix /usr/share/applications/vesktop.desktop
-# NATIVE_WAYLAND=1 ELECTRON_OZONE_PLATFORM_HINT=wayland vesktop --proxy-server=127.0.0.1:8118
+# ELECTRON_ENABLE_WAYLAND=1 OZONE_PLATFORM=wayland vesktop --proxy-server=127.0.0.1:8118 --ozone-platform=wayland
 
 # ---------------vscode---------------
 mkdir -p ~/.config/Code/User
@@ -770,6 +769,9 @@ gh repo clonef https://github.com/jeffa5/waytext
 cd waytext
 make build
 make install
+
+# ----------------webcord----------------
+paru -Sa --needed --disable-download-timeout webcord-bin
 
 # ---------------wf-recorder---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout wf-recorder
