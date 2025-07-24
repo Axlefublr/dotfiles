@@ -16,7 +16,7 @@ set -g fish_color_quote d3ad5c
 set -g fish_color_redirection e49641
 set -g fish_color_selection -b 5f472d
 set -g fish_escape_delay_ms 10
-set -g fish_features qmark-noglob
+set -g fish_features qmark-noglob remove-percent-self
 set -g fish_handle_reflow 1
 set -g fish_lazy_load_completions true
 set -g fish_lazy_load_functions true
