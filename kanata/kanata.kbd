@@ -127,7 +127,6 @@
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	d (cmd niri msg action spawn -- footclient -ND /home/axlefublr)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
-	f (cmd fuzzel)
 	j (layer-while-held numbers-subscript)
 	r (cmd niri msg action spawn -- rnote)
 	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
@@ -195,8 +194,8 @@
 	n (layer-while-held func-chord)
 	r (cmd $fsh clipboard_pick)
 	s (cmd $fsh runner_link)
-	v (cmd $fsh "xdg-open (ypoc) ; ensure_browser")
-	w (one-shot $ot (layer-while-held bookmark))
+	v (one-shot $ot (layer-while-held bookmark))
+	w (cmd fuzzel)
 	x (cmd $fsh edit_blank_clipboard)
 	z (cmd $fsh runner_symbol_name)
 	;; [[sort off]]
@@ -204,6 +203,7 @@
 
 (deflayermap (chord-overlay)
 	caps (cmd $fsh ntf_dismiss_old)
+	d (cmd $fsh "xdg-open (ypoc) ; ensure_browser")
 	w (one-shot $ot (layer-while-held bookmark-set))
 	f (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	e (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
