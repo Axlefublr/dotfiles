@@ -1,4 +1,5 @@
 # [[sort on]]
+# $env.config.table.header_on_separator = false
 $env.config.color_config.bool = '#b58cc6'
 $env.config.color_config.datetime = '#78bf84'
 $env.config.color_config.duration = '#78bf84'
@@ -21,17 +22,6 @@ $env.config.color_config.shape_operator = '#e49641'
 $env.config.color_config.shape_pipe = '#e49641'
 $env.config.color_config.shape_string = '#d3ad5c'
 $env.config.color_config.shape_variable = '#e49641'
-$env.config.datetime_format.normal = '%y.%m.%d %H:%M:%S %A'
-$env.config.datetime_format.table = null
-$env.config.display_errors.exit_code = false # print nushell error for externals, rather than the external's output
-$env.config.float_precision = 3
 $env.config.footer_mode = 'auto'
-$env.config.rm.always_trash = true
 $env.config.table.footer_inheritance = true
-$env.config.table.header_on_separator = false
-$env.config.table.missing_value_symbol = '󰟢'
-$env.config.table.mode = 'single'
-$env.config.table.padding.left = 0
-$env.config.table.padding.right = 0
-$env.config.table.show_empty = true # “no values” when list or table is empty
-$env.config.table.trim.wrapping_try_keep_words = false
+source duh.nu

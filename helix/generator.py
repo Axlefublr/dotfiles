@@ -86,12 +86,19 @@ editor: dict[str, Any] = {
     'lsp': lsp,
     'preview-completion-insert': True,
     'scrolloff': 99,
-    'shell': ['fish', '-c'],
     'statusline': statusline,
     'text-width': 110,
     'trim-final-newlines': True,
     'trim-trailing-whitespace': True,
     # [[sort off]]
+    'shell': [
+        'nu',
+        '--no-std-lib',
+        '--stdin',
+        '--config',
+        '~/fes/dot/nu/blue/crooked.nu',
+        '-c',
+    ],
     'soft-wrap': {
         'enable': True,
         'max-wrap': 0,
@@ -207,8 +214,8 @@ all_modes_mappings: dict[str, Any] = {
     'C-s': 'signature_help',
     'C-t': ':reload!',
     'C-up': 'add_newline_above',
-    'F1': ':sh footclient -ND %(buffer_parent) 2>/dev/null',
-    'F2': ':sh footclient -ND %(working_directory) 2>/dev/null',
+    'F1': ':sh footclient -ND %(buffer_parent) o+e>| ignore',
+    'F2': ':sh footclient -ND %(working_directory) o+e>| ignore',
     'S-home': ':buffer-close!',
     # [[sort off]]
     'C-z': [
@@ -297,7 +304,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-k': 'copy_selection_on_prev_line',
     'C-m': 'merge_selections',
     'C-q': ':cd ..',
-    'C-tab': ':edit %sh(ypoc)',
+    'C-tab': ':edit %sh(wl-paste)',
     'C-w': ':write-buffer-close',
     'C-x': 'split_selection',
     'D': ['delete_selection_noyank', 'move_char_left'],
@@ -311,8 +318,9 @@ normal_select_mappings: dict[str, Any] = {
     'U': 'insert_at_line_end',
     'W': 'replace_with_yanked',
     'X': 'join_selections_space',
-    'Z': ':append-output echo "\n"',
+    '[': 'shell_insert_output',
     '\\': ':sort',
+    ']': 'shell_append_output',
     '^': 'make_search_word_bounded',
     '_': 'switch_to_lowercase',
     '`': 'switch_case',
@@ -327,16 +335,16 @@ normal_select_mappings: dict[str, Any] = {
     'ret': 'command_mode',
     's': 'yank',
     't': 'undo',
-    'tab': ':edit %sh(cat ~/.cache/mine/shell-cwd)',
+    'tab': ':edit %sh(open ~/.cache/mine/shell-cwd)',
     'u': 'append_mode_same_line',
     'v': 'flip_selections',
     'x': 'select_regex',
     '{': 'rotate_selections_first',
     '|': 'shell_pipe',
     '}': 'rotate_selections_last',
-    '«': ':pipe nu -n --no-std-lib --stdin -c "str trim -c \'-\'"',
-    '°': 'shell_insert_output',
-    '»': ':pipe nu -n --no-std-lib --stdin -c "fill -w 44 -a center -c \'-\'"',
+    '«': ":pipe str trim -c '-'",
+    '°': 'shell_pipe_to',
+    '»': ":pipe fill -w 44 -a center -c '-'",
     '‘': 'rotate_selection_contents_backward',
     '’': 'rotate_selection_contents_forward',
     '‚': 'reverse_selection_contents',
@@ -348,9 +356,7 @@ normal_select_mappings: dict[str, Any] = {
     # [[sort off]]
     'm': {
         # [[sort on]]
-        # 'X': ':echo lines: %sh{echo -n "%{selection}" >/tmp/mine/helix-temp ; wc -l /tmp/mine/helix-temp | cut -d " " -f 1}',
-        # 'x': ':echo chars: %sh{echo -n "%{selection}" >/tmp/mine/helix-temp ; wc -c /tmp/mine/helix-temp | cut -d " " -f 1}',
-        ';': ':toggle whitespace.render %sh(toggle_value -n helix-newline \'{"newline": "all"}\' \'{"newline": null}\')',
+        ';': ':toggle whitespace.render %sh(fish -c "toggle_value -n helix-newline \'{"newline": "all"}\' \'{"newline": null}\'")',
         'C': ':echopy %(relative_path)',
         'M': ':sh chmod +x %(full_path)',
         'V': ':echopy %sh(ghl -pb HEAD %(relative_path))',
@@ -368,13 +374,13 @@ normal_select_mappings: dict[str, Any] = {
         'z': ':echopy %(working_directory)',
         # [[sort off]]
         't': {
-            'k': ':pipe mst kbd',
-            'b': ':pipe mst b',
-            'h': ':pipe mst h',
-            'd': ':pipe mst div',
-            'c': ':pipe mst cd',
-            'o': ':pipe mst o',
-            'i': ':pipe mst i',
+            'k': ':pipe fish -c "mst kbd"',
+            'b': ':pipe fish -c "mst b"',
+            'h': ':pipe fish -c "mst h"',
+            'd': ':pipe fish -c "mst div"',
+            'c': ':pipe fish -c "mst cd"',
+            'o': ':pipe fish -c "mst o"',
+            'i': ':pipe fish -c "mst i"',
             't': 'surround_add_tag',
         },
         'w': {
@@ -470,7 +476,7 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
-        'F': ':e %sh(ypoc)',
+        'F': ':edit %sh(wl-paste)',
         'a': ':buffer-close-all',
         'd': ':buffer-close-others',
         'g': ':reset-diff-change',
@@ -501,7 +507,7 @@ normal_select_mappings: dict[str, Any] = {
         # [[sort on]]
         'I': 'goto_implementation',
         'J': 'goto_declaration',
-        'c': ':pipe qalc -t (read -z)',
+        'c': ':pipe qalc -t $in',
         'i': 'goto_type_definition',
         'j': 'goto_definition',
         'k': 'goto_reference',
@@ -645,12 +651,12 @@ insert_mappings: dict[str, Any] = {
     # [[sort off]]
     'C-;': [
         'collapse_selection',
-        ':insert-output uclanr | read',
+        ':insert-output uclanr',
         'append_mode_same_line',
     ],
     'C-a': [
         'collapse_selection',
-        ':insert-output amal 5 | read',
+        ':insert-output amal 5',
         'append_mode_same_line',
     ],
 }
