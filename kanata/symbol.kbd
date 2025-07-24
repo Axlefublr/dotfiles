@@ -10,6 +10,7 @@
 	l eql
 	m S-5
 	o S-3
+	u (cmd wtype ¢)
 	;; [[sort off]]
 )
 
@@ -24,8 +25,10 @@
 	k S-min
 	l (cmd wtype —)
 	m S-grv
+	n (cmd wtype √)
 	o S-2
 	p (cmd wtype ™)
+	u (cmd wtype ÷)
 	;; [[sort off]]
 )
 
@@ -41,7 +44,6 @@
 	l (cmd wtype →)
 	n (cmd wtype ❌)
 	o (cmd wtype ✅)
-	p (cmd wtype √)
 	u (cmd wtype ₽)
 	;; [[sort off]]
 )
@@ -54,10 +56,10 @@
 	e (cmd wtype 🗣️)
 	f (cmd wtype 🔥)
 	g (cmd wtype 😎)
-	r (cmd wtype ✍️)
+	r (cmd wtype 🚀)
 	s (cmd wtype 😔)
 	t (cmd wtype 🤔)
-	w (cmd wtype 😭)
+	w (cmd wtype ✍️)
 	x (cmd wtype 🤯)
 	;; [[sort off]]
 )
@@ -68,6 +70,7 @@
 	k (cmd wtype 😼)
 	m (cmd wtype 🧐)
 	n (cmd wtype 🥺)
+	o (cmd wtype 😭)
 	p (cmd wtype 👏)
 	u (cmd wtype 😋)
 	y (cmd wtype 🥳)
