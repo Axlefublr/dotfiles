@@ -10,6 +10,7 @@ Log into your firefox account.
 Configure home to be file:///home/axlefublr/fes/lai/annabirch/index.html
 Lepton UI → Photon design
 Enable shortcuts in address bar
+Don't force sleep discord.com and web.telegram.org
 
 # about:config
 
