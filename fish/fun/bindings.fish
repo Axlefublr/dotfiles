@@ -50,15 +50,7 @@ function _harp_get
     read -n 1 -P 'harp get: ' -l key || return
     not test "$key" && return
     set -l harp (harp get harp_dirs "$key" | path_expand)
-    if test "$harp"
-        cd "$harp"
-        set -f harp_success $status
-    else
-        set -f harp_success 1
-    end
-    if test $harp_success -ne 0
-        zi
-    end
+    test "$harp" && cd "$harp"
     commandline -f repaint
 end
 funcsave _harp_get >/dev/null
