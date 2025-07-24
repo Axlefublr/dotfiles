@@ -34,8 +34,15 @@
   font-size: 13pt !important;
 }
 
-.tabbrowser-tab {
-  min-width: 190px !important;
+/*-----------------tab width------------------*/
+/* .tabbrowser-tab { */
+/* min-width: 190px !important; */
+/* } */
+
+/*---------------tabs container---------------*/
+#tabbrowser-tabs>#tabbrowser-arrowscrollbox {
+  /* if there are pinned tabs, don't add extra margin on both sides (duh) */
+  --tab-shadow-max-size: 0 !important;
 }
 
 #zoom-controls {
