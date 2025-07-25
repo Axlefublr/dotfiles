@@ -79,7 +79,7 @@ function ffmpeg-compress-video
     read -P 'output: ' -f output || return 121
     if not test "$output"
         set -f output (uclanr 3 -j -)$extension
-    else if test -z "$(string extension $output)"
+    else if test -z "$(path extension $output)"
         set output $output$extension
     end
     set output (string replace -a '!!' $input_basename $output)
