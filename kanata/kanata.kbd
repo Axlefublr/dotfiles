@@ -143,12 +143,12 @@
 
 (deflayermap (apps-revengeance)
 	;; [[sort on]]
-	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	c (cmd niri msg action spawn -- footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
 	e (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	f (cmd gtk-launch floorp)
 	q (cmd $fsh toggle_screen_record)
 	s (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
+	v (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	x (cmd niri msg action spawn -- footclient -N pik)
 	z (cmd niri msg action spawn -- footclient -N tiptop)
 	;; [[sort off]]
