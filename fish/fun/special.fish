@@ -1,10 +1,9 @@
 #!/usr/bin/env fish
 
 function blammo
-    consume.rs ~/.cache/mine/yazi-file-list
+    cat ~/.cache/mine/yazi-file-list
 end
 funcsave blammo >/dev/null
-alias --save k blammo >/dev/null
 
 function calculate_eof_position -a file
     set -l last_line (wc -l $file | string split ' ')[1]
