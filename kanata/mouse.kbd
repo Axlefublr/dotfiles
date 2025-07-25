@@ -1,25 +1,30 @@
 (deflayermap (mouse)
-	caps esc
 	spc (layer-switch default)
-	h (layer-switch mouse)
-	r C-w
-	a (cmd woomer)
+	o (layer-switch mouse)
+	k (layer-while-held mouse-slow)
+
+	v C-w
+	h (cmd woomer)
 	n (cmd $fsh pick_and_copy_color)
 	u (cmd $fsh screenshot_select)
+
+	caps esc
+	a lmet
+	; lalt
+	l lsft
+	' lctl
+
+	i mmid
 	j mlft
-	l mmid
-	k mrgt
-	o lsft
-	' lmet
-	i lctl
-	p lalt
+	m mrgt
 	x pgup
 	c pgdn
+
 	, (mwheel-up    100 120)
 	. (mwheel-down  100 120)
-	m (mwheel-left  100 120)
-	/ (mwheel-right 100 120)
-	; (layer-while-held mouse-slow)
+	w (mwheel-left  100 120)
+	r (mwheel-right 100 120)
+
 	s (movemouse-accel-left  5 300 1 7)
 	d (movemouse-accel-down  5 300 1 7)
 	e (movemouse-accel-up    5 300 1 7)
