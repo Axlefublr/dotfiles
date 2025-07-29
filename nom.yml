@@ -19,11 +19,17 @@ feeds:
   - url: https://terminaltrove.com/new.xml
     name: terminal trove
   - url: https://phaazon.net/blog/feed
-    name: strongly typed thoughts
+    name: hadronized
   - url: https://ersei.net/en/blog.atom
     name: ersei
   - url: https://herecomesthemoon.net/posts/index.xml
     name: herecomesthemoon
+  - url: https://skoove.dev/rss.xml
+    name: skoove
+  - url: http://mackeye.sdf.org/feeds/rss.xml
+    name: mackeye
+  - url: https://jdugan6240.dev/feed.xml
+    name: jdugan
 theme:
   glamour: dark
   titleColor: "#e49641"
