@@ -9,6 +9,10 @@
 	--custom-emoji-size-jumbo-emoji: 2rem;
 }
 
+html {
+	font-size: 117% !important;
+}
+
 /* titlebar */
 div.base_c48ade {
 	margin-top: -32px;
