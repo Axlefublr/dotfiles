@@ -77,7 +77,7 @@ end
 funcsave ensure_browser >/dev/null
 
 function flour
-    argparse end half pager disown screen -- $argv
+    argparse end half pager disown screen sleek -- $argv
     or return 121
 
     set -l title flour
@@ -94,6 +94,8 @@ function flour
         set -f selected_config -c ~/fes/dot/helix/pager.toml
     else if test "$_flag_screen"
         set -f selected_config -c ~/fes/dot/helix/screen.toml
+    else if test "$_flag_sleek"
+        set -f selected_config -c ~/fes/dot/helix/sleek.toml
     end
 
     footclient -T $title $flag_disown -- helix $selected_config $flag_end $argv
@@ -118,7 +120,7 @@ function get_input
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >/tmp/mine/get-input
-        flour --end --pager /tmp/mine/get-input
+        flour --end --sleek /tmp/mine/get-input
         set input "$(cat /tmp/mine/get-input)"
     end
     echo $input
@@ -127,7 +129,7 @@ funcsave get_input >/dev/null
 
 function get_input_max
     truncate -s 0 /tmp/mine/get-input
-    flour --end --pager /tmp/mine/get-input
+    flour --end --sleek /tmp/mine/get-input
     if test -s /tmp/mine/get-input
         cat /tmp/mine/get-input
     else

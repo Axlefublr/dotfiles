@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# ruff: noqa: E501
-
 import copy
 from typing import Any
 
@@ -52,6 +50,7 @@ editor: dict[str, Any] = {
     'bufferline-index': True,
     'disable-dot-repeat': True,
     'ephemeral-messages': False,
+    'scrolloff-vertical-only': True,
     'should-statusline': False,
     'show-diagnostics': True,
     'whichkey': False,
@@ -215,11 +214,11 @@ all_modes_mappings: dict[str, Any] = {
     'C-t': ':reload!',
     'C-up': 'add_newline_above',
     'F1': ':sh footclient -ND %(buffer_parent) o+e>| ignore',
-    'F2': ':sh footclient -ND %(working_directory) o+e>| ignore',
+    'F2': ':sh footclient -ND %(current_working_directory) o+e>| ignore',
     'S-home': ':buffer-close!',
     # [[sort off]]
     'C-z': [
-        ":noop %sh(echo '%(working_directory)' >~/.cache/mine/helix-cwd-suspend)",
+        ":noop %sh(echo '%(current_working_directory)' >~/.cache/mine/helix-cwd-suspend)",
         ":noop %sh(echo '%(buffer_parent)' >~/.cache/mine/helix-buffer-head-suspend)",
         ':write-all',
         'suspend',
@@ -357,7 +356,7 @@ normal_select_mappings: dict[str, Any] = {
     # [[sort off]]
     'm': {
         # [[sort on]]
-        ';': ':toggle whitespace.render %sh(fish -c "toggle_value -n helix-newline \'{"newline": "all"}\' \'{"newline": null}\'")',
+        ';': ':toggle soft-wrap.enable',
         'C': ':echopy %(relative_path)',
         'M': ':sh chmod +x %(full_path)',
         'V': ':echopy %sh(ghl -pb HEAD %(relative_path))',
@@ -372,7 +371,7 @@ normal_select_mappings: dict[str, Any] = {
         'p': ':toggle should-statusline',
         'v': ':echopy %sh(ghl %(relative_path))',
         'x': 'surround_replace',
-        'z': ':echopy %(working_directory)',
+        'z': ':echopy %(current_working_directory)',
         # [[sort off]]
         't': {
             'k': ':pipe fish -c "mst kbd"',
@@ -694,20 +693,19 @@ entire_config: dict[str, Any] = {
 with open('/home/axlefublr/fes/dot/helix/config.toml', 'w') as file:
     toml.dump(entire_config, file)
 
-entire_config['editor']['whitespace']['render']['newline'] = 'none'
-entire_config['editor']['gutters']['layout'] = []
-entire_config['keys']['normal'][':'] = ':quit-all!'
-entire_config['keys']['select'][':'] = ':quit-all!'
 entire_config['editor']['bufferline'] = 'never'
 
-# hotkeys that may write and close the current buffer now close entire helix without saving
+with open('/home/axlefublr/fes/dot/helix/sleek.toml', 'w') as file:
+    toml.dump(entire_config, file)
+
+entire_config['keys']['normal'][':'] = ':quit-all!'
+entire_config['keys']['select'][':'] = ':quit-all!'
+entire_config['editor']['soft-wrap']['enable'] = False
+
 with open('/home/axlefublr/fes/dot/helix/pager.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['gutters-right']['layout'] = []
-# entire_config['editor']['soft-wrap']['enable'] = False
-# entire_config['editor']['scrolloff'] = 0
 
-# meant for using helix to view a screen; wrapping disabled because of the line ending characters
 with open('/home/axlefublr/fes/dot/helix/screen.toml', 'w') as file:
     toml.dump(entire_config, file)

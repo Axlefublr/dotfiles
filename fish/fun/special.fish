@@ -131,12 +131,12 @@ function piped_screen_editor
 end
 funcsave piped_screen_editor >/dev/null
 
-function piped_window_editor
+function piped_scrollback_editor
     set -l file /tmp/mine/helix-overlay
     read -z | sd -f=m '[ \\t▐]+$' '' >$file
     flour --disown --pager $file
 end
-funcsave piped_window_editor >/dev/null
+funcsave piped_scrollback_editor >/dev/null
 
 function randomize_file_names
     for file in $argv

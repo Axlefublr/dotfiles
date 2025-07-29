@@ -12,3 +12,4 @@ yazi/plugins/types.yazi
 helix/quit.toml
 stdext/Cargo.lock
 stdext/target
+helix/sleek.toml
