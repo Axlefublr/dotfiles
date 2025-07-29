@@ -200,8 +200,8 @@
 	n (layer-while-held func-chord)
 	r (cmd $fsh clipboard_pick)
 	s (cmd $fsh runner_link)
-	v (one-shot $ot (layer-while-held bookmark))
-	w (cmd fuzzel)
+	v (cmd fuzzel)
+	w (one-shot $ot (layer-while-held bookmark))
 	x (cmd $fsh edit_blank_clipboard)
 	z (cmd $fsh runner_symbol_name)
 	;; [[sort off]]
