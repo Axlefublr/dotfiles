@@ -13,3 +13,6 @@ s = 'search'
 
 [env]
 RUST_LOG = 'trace'
+
+[build]
+jobs = -1
