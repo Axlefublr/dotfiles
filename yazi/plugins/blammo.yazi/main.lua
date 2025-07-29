@@ -8,7 +8,7 @@ return {
 		if #collector == 0 then
 			collector = tostring(cx.active.current.hovered.url) .. '\n'
 		end
-		local file = io.open('/home/axlefublr/.cache/mine/yazi-file-list', 'w')
+		local file = io.open('/home/axlefublr/.cache/mine/blammo', 'w')
 		if file then
 			file:write(collector)
 			file:close()

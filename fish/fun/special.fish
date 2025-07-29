@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function blammo
-    cat ~/.cache/mine/yazi-file-list
+    cat ~/.cache/mine/blammo
 end
 funcsave blammo >/dev/null
 
