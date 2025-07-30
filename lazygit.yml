@@ -8,7 +8,7 @@ gui:
   # sidePanelWidth: 0.4
   border: single
   commitAuthorLongLength: 9
-  commitAuthorShortLength: 0
+  commitAuthorShortLength: 2
   commitHashLength: 4
   enlargedSideViewLocation: top
   expandFocusedSidePanel: false
