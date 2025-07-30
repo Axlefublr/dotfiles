@@ -37,10 +37,15 @@ gui:
   wrapLinesInStagingView: true
   # [[sort off]]
   authorColors:
-    Axlefublr: "#ffafd7"
+    Axlefublr: "#e491b2"
   branchColorPatterns:
-    main: "#af87ff"
-    master: "#af87ff"
+    "^main$": "#b58cc6"
+    "^master$": "#b58cc6"
+    "^Axlefublr/": "#e491b2"
+    "^[\\w-_.]+/": "#e49641"
+    "^backup": "#a9b665"
+    "^bkp": "#a9b665"
+    sd: "#ea6962"
   theme:
     activeBorderColor:
       - yellow
