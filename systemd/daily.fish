@@ -45,8 +45,7 @@ and git commit -m 'sync zoxide'
 sleep 10 # otherwise, as soon as I wake my pc from sleep, it hasn't connected to the internet at that point, but *has* started executing this script. so what ends up happening is git commands fail to push all the directories because it doesn't have internet to do so yet.
 
 for dir in ~/fes/ork/*
-    git -C $dir fetch
-    git -C $dir fetch upstream
+    git -C $dir fetch --all
 end
 
 for dir in (cat ~/.local/share/magazine/O)
