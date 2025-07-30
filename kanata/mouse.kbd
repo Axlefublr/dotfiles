@@ -22,8 +22,8 @@
 
 	, (mwheel-up    100 120)
 	. (mwheel-down  100 120)
-	w (mwheel-left  100 120)
-	r (mwheel-right 100 120)
+	w (mwheel-left  30 120)
+	r (mwheel-right 30 120)
 
 	s (movemouse-accel-left  5 300 1 7)
 	d (movemouse-accel-down  5 300 1 7)
