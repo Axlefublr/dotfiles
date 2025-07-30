@@ -1,41 +1,57 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 quitOnTopLevelReturn: false
 disableStartupPopups: true
+promptToReturnFromSubprocess: true
+notARepository: quit
 gui:
   # [[sort on]]
+  # sidePanelWidth: 0.4
   border: single
   commitAuthorLongLength: 9
+  commitAuthorShortLength: 0
+  commitHashLength: 4
   enlargedSideViewLocation: top
-  expandFocusedSidePanel: true
-  nerdFontsVersion: '3'
+  expandFocusedSidePanel: false
+  mouseEvents: false
+  nerdFontsVersion: "3"
   scrollHeight: 10
   scrollOffMargin: 99
   scrollPastBottom: false
-  shortTimeFormat: '15:04'
+  shortTimeFormat: "15:04"
   showBottomLine: false
+  showBranchCommitHash: false
   showDivergenceFromBaseBranch: arrowAndNumber
   showFileTree: false
+  showNumstatInFilesView: false
   showPanelJumps: false
+  showRootItemInFileTree: false
+  skipAmendWarning: true
+  skipDiscardChangeWarning: true
   skipNoStagedFilesWarning: true
+  skipRewordInEditorWarning: true
+  skipStashWarning: true
   statusPanelView: allBranchesLog
-  timeFormat: '06.01.02'
+  tabWidth: 3
+  timeFormat: "06.01.02"
+  useHunkModeInStagingView: true
+  wrapLinesInStagingView: true
   # [[sort off]]
   authorColors:
-    Axlefublr: '#ffafd7'
-  branchColors:
-    main: '#af87ff'
-    master: '#af87ff'
+    Axlefublr: "#ffafd7"
+  branchColorPatterns:
+    main: "#af87ff"
+    master: "#af87ff"
   theme:
     activeBorderColor:
       - yellow
       - bold
     searchingActiveBorderColor:
-      - '#b58cc6'
+      - "#b58cc6"
       - bold
     optionsTextColor:
-      - '#78bf84'
+      - "#78bf84"
     selectedLineBgColor:
-      - '#5f472d'
+      - "#5f472d"
       # - reverse
 git:
   autoFetch: false
@@ -48,151 +64,287 @@ git:
     showGraph: never
     showWholeGraph: false
   truncateCopiedCommitHashesTo: 12
-  branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --'
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
 update:
   method: never
 os:
   editPreset: helix
+
 keybinding:
+  universal:
+    quit: ":"
+    quit-alt1: <disabled>
+    return: <esc>
+    quitWithoutChangingDirectory: <disabled>
+    togglePanel: <tab>
+    prevItem: <up>
+    nextItem: <down>
+    prevItem-alt: k
+    nextItem-alt: j
+    prevPage: ","
+    nextPage: .
+    scrollLeft: h
+    scrollRight: l
+    gotoTop: <home>
+    gotoBottom: <end>
+    gotoTop-alt: <disabled>
+    gotoBottom-alt: <disabled>
+    toggleRangeSelect: <disabled>
+    rangeSelectDown: <s-down>
+    rangeSelectUp: <s-up>
+    prevBlock: K
+    nextBlock: J
+    prevBlock-alt: <disabled>
+    nextBlock-alt: <disabled>
+    nextBlock-alt2: <disabled>
+    prevBlock-alt2: <disabled>
+    jumpToBlock:
+      - "4"
+      - "1"
+      - "3"
+      - "2"
+      - "5"
+    focusMainView: "0"
+    nextMatch: "n"
+    prevMatch: "N"
+    startSearch: /
+    optionMenu: <f1>
+    optionMenu-alt1: <disabled>
+    select: v
+    goInto: <enter>
+    confirm: <enter>
+    confirmInEditor: <a-enter>
+    confirmInEditor-alt: <disabled>
+    remove: d
+    new: "n"
+    edit: e
+    openFile: <disabled>
+    scrollUpMain: <pgup>
+    scrollDownMain: <pgdown>
+    scrollUpMain-alt1: <disabled>
+    scrollDownMain-alt1: <disabled>
+    scrollUpMain-alt2: <disabled>
+    scrollDownMain-alt2: <disabled>
+    executeShellCommand: <disabled>
+    createRebaseOptionsMenu: m
+    pushFiles: o
+    pullFiles: O
+    refresh: <disabled>
+    createPatchOptionsMenu: <c-o>
+    nextTab: ">"
+    prevTab: "<"
+    nextScreenMode: +
+    prevScreenMode: "-"
+    undo: <c-t>
+    redo: <c-r>
+    filteringMenu: <disabled>
+    diffingMenu: <c-w>
+    diffingMenu-alt: <disabled>
+    copyToClipboard: <c-s>
+    openRecentRepos: <disabled>
+    submitEditorText: <enter>
+    extrasMenu: "@"
+    toggleWhitespaceInDiffView: <disabled>
+    increaseContextInDiffView: "}"
+    decreaseContextInDiffView: "{"
+    increaseRenameSimilarityThreshold: )
+    decreaseRenameSimilarityThreshold: (
+    openDiffTool: <disabled>
+  status:
+    checkForUpdate: u
+    recentRepos: <enter>
+    allBranchesLogGraph: a
+  files:
+    commitChanges: c
+    commitChangesWithoutHook: <disabled>
+    amendLastCommit: w
+    commitChangesWithEditor: C
+    findBaseCommitForFixup: <c-f>
+    confirmDiscard: i
+    ignoreFile: i
+    refreshFiles: r
+    stashAllChanges: z
+    viewStashOptions: Z
+    toggleStagedAll: a
+    viewResetOptions: x
+    fetch: f
+    toggleTreeView: "`"
+    openMergeTool: M
+    openStatusFilter: "'"
+    copyFileInfoToClipboard: s
+    collapseAll: _
+    expandAll: "^"
   branches:
     createPullRequest: <disabled>
     viewPullRequestOptions: <disabled>
-  universal:
-    # return: h
-    # goInto: l
+    copyPullRequestURL: <disabled>
+    checkoutBranchByName: c
+    forceCheckoutBranch: F
+    checkoutPreviousBranch: <disabled>
+    rebaseBranch: r
+    renameBranch: R
+    mergeIntoCurrentBranch: M
+    moveCommitsToNewBranch: "N"
+    viewGitFlowOptions: i
+    fastForward: f
+    createTag: t
+    pushTag: o
+    setUpstream: u
+    fetchRemote: f
+    sortOrder: s
+  worktrees:
+    viewWorktreeOptions: w
+  commits:
+    squashDown: s
+    renameCommit: R
+    renameCommitWithEditor: r
+    viewResetOptions: x
+    markCommitAsFixup: <disabled>
+    createFixupCommit: <disabled>
+    squashAboveCommits: S
+    moveDownCommit: <c-j>
+    moveUpCommit: <c-k>
+    amendToCommit: w
+    resetCommitAuthor: a
+    pickCommit: p
+    revertCommit: <disabled>
+    cherryPickCopy: <c-c>
+    pasteCommits: <c-v>
+    markCommitAsBaseForRebase: B
+    tagCommit: t
+    checkoutCommit: v
+    resetCherryPick: <c-x>
+    copyCommitAttributeToClipboard: s
+    openLogMenu: <c-l>
+    openInBrowser: <disabled>
+    viewBisectOptions: b
+    startInteractiveRebase: i
+    selectCommitsOfCurrentBranch: "*"
+  amendAttribute:
+    resetAuthor: a
+    setAuthor: A
+    addCoAuthor: c
+  stash:
+    popStash: s
+    renameStash: r
+  commitFiles:
+    checkoutCommitFile: v
+  main:
+    toggleSelectHunk: a
+    pickBothHunks: o
+    editSelectHunk: E
+  submodules:
+    init: i
+    update: u
+    bulkMenu: b
+  commitMessage:
+    commitMenu: <c-o>
 
-    # [[sort on]]
-    executeShellCommand: ';'
-    gotoBottom: <end>
-    gotoTop: <home>
-    nextBlock-alt: J
-    nextPage: '.'
-    nextScreenMode: '+'
-    nextTab: '>'
-    optionMenu-alt1: <f1>
-    prevBlock-alt: K
-    prevPage: ','
-    prevScreenMode: '-'
-    prevTab: '<'
-    quit-alt1: ':'
-    scrollDownMain-alt1: <pgup>
-    scrollLeft: h
-    scrollRight: l
-    scrollUpMain-alt1: <pgdown>
-    select: v
-    toggleRangeSelect: x
-    # [[sort off]]
 customCommands:
-  - key: o
+  - key: u
     context: files
-    command: 'fish -c ''git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
-    description: 'Edit file at HEAD'
+    command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
+    description: "Edit file at HEAD"
     output: terminal
-
-  - key: 'o'
-    context: 'commitFiles'
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
-    description: 'Edit file at this point in history'
-    output: terminal
-  - key: 'O'
-    context: 'commitFiles'
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}}) ; rm /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
-    description: 'Edit file at the commit before this point in history'
-    output: terminal
-  - key: 'q'
-    context: 'commitFiles'
-    command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to file at this commit'
-  - key: 'Q'
-    context: 'commitFiles'
-    command: 'fish -c ''ghl -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to file at *previous* commit'
-
-  - key: 'P'
-    context: 'commits'
-    command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}'
-    loadingText: 'Pushing commit...'
-    description: 'Push a specific commit (and any preceding)'
+  - key: "<c-a>"
+    context: files
+    command: "fish -c 'autocommit'"
+    description: "Autocommit"
     output: log
-  - key: 't'
-    context: 'commits'
-    command: 'git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}'
+  - key: "<delete>"
+    context: files
+    command: "gomi {{.SelectedPath}}"
+    description: "Delete file"
+    output: none
+
+  - key: "u"
+    context: "commitFiles"
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
+    description: "Edit file at this point in history"
+    output: terminal
+  - key: "U"
+    context: "commitFiles"
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
+    description: "Edit file at the commit before this point in history"
+    output: terminal
+  - key: "q"
+    context: "commitFiles"
+    command: "fish -c 'ghl -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} >~/.local/share/flipboard'"
+    loadingText: "maybe copied link"
+    description: "Copy link to file at this commit"
+  - key: "Q"
+    context: "commitFiles"
+    command: "fish -c 'ghl -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} >~/.local/share/flipboard'"
+    loadingText: "maybe copied link"
+    description: "Copy link to file at *previous* commit"
+
+  - key: "o"
+    context: "commits"
+    command: "git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
+    loadingText: "Pushing commit..."
+    description: "Push a specific commit (and any preceding)"
+    output: log
+  - key: "z"
+    context: "commits"
+    command: "git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}"
     prompts:
-      - type: 'menu'
-        title: 'How to revert?'
+      - type: "menu"
+        title: "How to revert?"
         options:
-          - value: 'revert'
-            name: 'With a commit'
-          - value: 'revert -n'
-            name: 'Into index'
-    description: 'View reverting options...'
-  - key: '<C-t>'
-    context: 'commits'
-    command: 'fish -c ''git tag {{index .PromptResponses 0}} {{.SelectedCommit.Sha}} -F curtag.txt ; truncate -s 0 curtag.txt'''
-    prompts:
-      - type: 'input'
-        title: 'Tag name:'
-    description: 'Create pre-filled tag'
+          - value: "revert"
+            name: "With a commit"
+          - value: "revert -n"
+            name: "Into index"
+    description: "View reverting options..."
 
-  - key: o
-    context: 'commits'
-    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'''
-    description: 'Edit commit diff in editor'
-    output: terminal
-  - key: o
-    context: subCommits
-    command: 'fish -c ''git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'''
-    description: 'Edit commit diff in editor'
+  - key: u
+    context: "commits, subCommits"
+    command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
+    description: "Edit commit diff in editor"
     output: terminal
   - key: q
-    context: commits
-    command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to repo at this point in history'
-  - key: q
-    context: subCommits # I know that the 'commits, subCommits' syntax works, but my lsp complains so it's simply easier this way
-    command: 'fish -c ''ghl -pb {{.SelectedCommit.Sha}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to repo at this point in history'
+    context: "commits, subCommits"
+    command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} >~/.local/share/flipboard'"
+    loadingText: "maybe copied link"
+    description: "Copy link to repo at this point in history"
 
   - key: q
-    context: 'tags'
-    command: 'fish -c ''ghl -b {{.SelectedTag.Name}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to repo at this tag'
+    context: "tags"
+    command: "fish -c 'ghl -b {{.SelectedTag.Name}} >~/.local/share/flipboard'"
+    loadingText: "maybe copied link"
+    description: "Copy link to repo at this tag"
   - key: Q
-    context: 'tags'
-    command: 'fish -c ''ghl -pb {{.SelectedTag.Name}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to repo at this tag, parsing it into commit'
+    context: "tags"
+    command: "fish -c 'ghl -pb {{.SelectedTag.Name}} >~/.local/share/flipboard'"
+    loadingText: "maybe copied link"
+    description: "Copy link to repo at this tag, parsing it into commit"
 
-  - key: 'O'
+  - key: "w"
     context: localBranches
-    command: 'gh pr create'
-    description: 'Create pull request'
+    command: "gh pr create"
+    description: "Create pull request"
     output: terminal
-  - key: 'q'
-    context: localBranches
-    command: 'fish -c ''ghl -b {{.SelectedLocalBranch.Name}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to repo in this branch'
-  - key: 'Q'
-    context: localBranches
-    command: 'fish -c ''ghl -pb {{.SelectedLocalBranch.Name}} | copy'''
-    loadingText: 'maybe copied link'
-    description: 'Copy link to repo in this branch, parsing into commit hash'
-  # - key: 'P'
-  #   context: localBranches
-  #   command: 'git push origin {{.SelectedLocalBranch.Name}}'
-  #   loadingText: 'pushing selected branch'
-  #   description: 'Push selected branch'
-  - key: 'o'
-    context: 'localBranches'
-    command: 'gh pr checkout {{index .PromptResponses 0}}'
+  - key: "W"
+    context: "localBranches"
+    command: "gh pr checkout {{index .PromptResponses 0}}"
     prompts:
-      - type: 'input'
-        title: 'PR id:'
-    loadingText: 'checking out PR'
-    description: 'Checkout PR'
+      - type: "input"
+        title: "PR id:"
+    loadingText: "checking out PR"
+    description: "Checkout PR"
+  - key: "q"
+    context: localBranches
+    command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
+    loadingText: "maybe copied link"
+    description: "Copy link to repo in this branch"
+  - key: "Q"
+    context: localBranches
+    command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
+    loadingText: "maybe copied link"
+    description: "Copy link to repo in this branch, parsing into commit hash"
+  # TODO: issue here is that it screams and fails when you'd need to force push, while the default action asks you if you want to force
+  # - key: "o"
+  #   context: localBranches
+  #   command: "git push origin {{.SelectedLocalBranch.Name}}"
+  #   loadingText: "pushing selected branch"
+  #   description: "Push selected branch"
