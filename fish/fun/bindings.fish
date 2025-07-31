@@ -47,18 +47,29 @@ end
 funcsave _delete_commandline_or_exit >/dev/null
 
 function _harp_get
-    read -n 1 -P 'harp get: ' -l key || return
-    not test "$key" && return
-    set -l harp (harp get harp_dirs "$key" | path_expand)
-    test "$harp" && cd "$harp"
-    commandline -f repaint
+    if test -n "$(commandline)"
+        commandline -f expand-abbr
+        commandline -i ' '
+    else
+        while true
+            read -n 1 -P 'harp get: ' -l key || break
+            not test "$key" && break
+            set -l harp (harp get harp_dirs "$key" | path_expand)
+            test "$harp" && cd "$harp"
+            break
+        end
+        commandline -f repaint
+    end
 end
 funcsave _harp_get >/dev/null
 
 function _harp_set
-    read -n 1 -P 'harp set: ' -l key || return
-    not test "$key" && return
-    set -l harp (harp replace harp_dirs "$key" (pwd_pretty))
+    while true
+        read -n 1 -P 'harp set: ' -l key || break
+        not test "$key" && break
+        set -l harp (harp replace harp_dirs "$key" (pwd_pretty))
+        break
+    end
     commandline -f repaint
 end
 funcsave _harp_set >/dev/null
@@ -80,26 +91,26 @@ function fish_user_key_bindings
     bind alt-comma _help_the_commandline
     bind alt-d _blammo_pwd
     bind alt-enter expand-abbr insert-line-under
-    bind alt-m _harp_get
+    bind alt-space _harp_set
     bind ctrl-1 _travel_buffer_head
     bind ctrl-3 _travel_yazi_cwd
     bind ctrl-5 _travel_helix_cwd
     bind ctrl-\' _wrap_in_pueue
     bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
-    bind ctrl-alt-m _harp_set
     bind ctrl-d _delete_commandline_or_exit
     bind ctrl-e _reexec
     bind ctrl-i 'zi ; commandline -f repaint'
     bind ctrl-l 'commandline -f clear-screen'
     bind ctrl-q 'z .. ; commandline -f repaint'
     bind ctrl-s 'commandline -f repaint'
+    bind ctrl-space 'commandline -i " "'
     bind ctrl-z d
     bind f1 'commandline nu ; commandline -f execute'
-    bind f2 'footclient -N'
-    bind f3 yazi_cd
-    bind f5 'test "$(commandline)" = " " && helix . || helix'
+    bind f2 'commandline lazygit ; commandline -f execute'
+    bind f3 'test "$(commandline)" = " " && helix . || helix'
+    bind f5 yazi_cd
     bind f6 'swayimg -g & disown ; exit'
-    bind f8 'commandline lazygit ; commandline -f execute'
+    bind space _harp_get
     # [[sort off]]
 end
 funcsave fish_user_key_bindings >/dev/null
