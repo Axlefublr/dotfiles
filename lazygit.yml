@@ -200,13 +200,13 @@ keybinding:
   worktrees:
     viewWorktreeOptions: w
   commits:
-    squashDown: s
+    squashDown: c
     renameCommit: R
     renameCommitWithEditor: r
     viewResetOptions: x
     markCommitAsFixup: <disabled>
     createFixupCommit: <disabled>
-    squashAboveCommits: S
+    squashAboveCommits: C
     moveDownCommit: <c-j>
     moveUpCommit: <c-k>
     amendToCommit: w
