@@ -354,6 +354,14 @@ normal_select_mappings: dict[str, Any] = {
     '€': 'keep_selections',
     '🚀': 'rename_symbol',
     # [[sort off]]
+    '√': [
+        'extend_to_line_bounds',
+        'trim_selections',
+        ':pipe hxm rotate sectioning',
+        'goto_line_start',
+        'move_same_line_char_right',
+        'move_same_line_char_right',
+    ],
     'm': {
         # [[sort on]]
         ';': ':toggle soft-wrap.enable',
