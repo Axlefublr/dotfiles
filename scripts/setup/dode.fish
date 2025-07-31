@@ -578,6 +578,9 @@ ln -sf ~/fes/dot/rofi.rasi ~/.config/rofi/config.rasi
 sudo ln -sf /usr/bin/rofi /usr/bin/dmenu
 
 # ---------------satty---------------
+# ------------------rofimoji------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout rofimoji
+
 sudo pacman -S --needed --noconfirm --disable-download-timeout satty
 mkdir -p ~/.config/satty
 ln -sf ~/fes/dot/satty.toml ~/.config/satty/config.toml
