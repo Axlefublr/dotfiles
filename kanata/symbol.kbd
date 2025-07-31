@@ -34,8 +34,10 @@
 
 (deflayermap (symbol-tertiary)
 	;; [[sort on]]
+	' (cmd wtype ┗)
 	, (cmd wtype ❗)
 	/ (cmd wtype ❓)
+	; (cmd wtype ┃)
 	b (cmd wtype 💡)
 	h (cmd wtype ←)
 	i (cmd wtype ✨)
@@ -68,6 +70,7 @@
 	;; [[sort on]]
 	i (cmd wtype 😌)
 	k (cmd wtype 😼)
+	l (cmd wtype 🥀)
 	m (cmd wtype 🧐)
 	n (cmd wtype 🥺)
 	o (cmd wtype 😭)
