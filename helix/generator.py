@@ -95,7 +95,7 @@ editor: dict[str, Any] = {
         '--no-std-lib',
         '--stdin',
         '--config',
-        '~/fes/dot/nu/blue/crooked.nu',
+        '~/fes/dot/nu/lvoc/crooked.nu',
         '-c',
     ],
     'soft-wrap': {

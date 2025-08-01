@@ -45,6 +45,7 @@ fish_add_path ~/fes/dot/scripts
 fish_add_path ~/fes/dot/scripts/trenchcoat
 fish_add_path ~/fes/dot/scripts/scriptister
 fish_add_path ~/fes/dot/scripts/fool
+fish_add_path ~/fes/dot/nu/lvoc
 
 cd ~/fes/ork
 git clone https://github.com/Axlefublr/helix hx
