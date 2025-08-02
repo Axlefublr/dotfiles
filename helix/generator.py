@@ -242,7 +242,6 @@ normal_select_mappings: dict[str, Any] = {
         [
             # [[sort on]]
             'P',
-            'Z',
             'p',
             # [[sort off]]
         ]
@@ -317,7 +316,7 @@ normal_select_mappings: dict[str, Any] = {
     'U': 'insert_at_line_end',
     'W': 'replace_with_yanked',
     'X': 'join_selections_space',
-    'Z': [':pipe ; "\n"', 'normal_mode'],
+    'Z': ':append-output if %(language) == markdown { "\\\\n" } else { "\\n" }',
     '[': 'shell_insert_output',
     '\\': ':sort',
     ']': 'shell_append_output',
