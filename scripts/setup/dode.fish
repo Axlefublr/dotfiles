@@ -354,7 +354,7 @@ ln -sf ~/fes/dot/kitty/theme.conf ~/.config/kitty/current-theme.conf
 
 # -------------------kondo--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout kondo
-kondo --completions fish
+kondo --completions fish >~/.config/fish/completions/kondo.fish
 
 # -------------------krita--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout krita
