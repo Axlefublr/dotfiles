@@ -39,10 +39,8 @@ git clone https://github.com/Axlefublr/job
 
 fish_add_path ~/fes/bin
 fish_add_path ~/fes/bin/wks
-fish_add_path ~/fes/dot/fish
 fish_add_path ~/fes/dot/fish/fun
 fish_add_path ~/fes/dot/scripts
-fish_add_path ~/fes/dot/scripts/trenchcoat
 fish_add_path ~/fes/dot/scripts/scriptister
 fish_add_path ~/fes/dot/scripts/fool
 fish_add_path ~/fes/dot/nu/lvoc
