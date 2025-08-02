@@ -47,7 +47,7 @@ def produce [] {
 	| where name not-in $ignored
 	| each { |row|
 		$known
-		| get --ignore-errors $row.name
+		| get --optional $row.name
 		| if $in == null {
 			$row | update days '!'
 		} else {
