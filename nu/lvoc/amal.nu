@@ -31,7 +31,7 @@ const pleasantries = {
 def main [--words(-w): int = 1, length: int = 5] {
 	1..$words | each {
 		let first_letter = $alphabet | random item
-		[$first_letter] | amalgamate $length | str join
+		amalgamate $first_letter | take $length | str join
 	} | to text
 }
 
@@ -41,16 +41,9 @@ def 'random item' []: list<string> -> string {
 	$input_list | get (random int 0..($input_length - 1))
 }
 
-def 'next' []: list<string> -> list<string> {
-	let the = $in
-	let last_character = $the | last
-	let next_character = $pleasantries | get $last_character | random item
-	$the ++ [$next_character]
-}
-
-def amalgamate [count: int]: list<string> -> list<string> {
-	let the = $in
-	if ($the | length) >= $count { return $the } else {
-		$the | next | amalgamate $count
-	}
+def amalgamate [init: string] {
+	generate { |prev|
+		let next = $pleasantries | get $prev | random item
+		{ out: $next, next: $next }
+	} $init
 }
