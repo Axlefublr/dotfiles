@@ -34,7 +34,7 @@ function runner_clipboard_append
     begin
         ypocn
         echo $result
-    end | copyn -f
+    end | wl-copy -nf
 end
 funcsave runner_clipboard_append >/dev/null
 
