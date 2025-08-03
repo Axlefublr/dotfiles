@@ -14,9 +14,9 @@ function alien_temple
     if test "$argv[1]" = shark -o "$argv[1]" = s
         set -l shark (command alien_temple shark)
         printf '%s\n' $shark
-        echo $shark[1] | copy
+        echo $shark[1] | wl-copy -n
     else if test "$argv[1]" = consent -o "$argv[1]" = c
-        command alien_temple consent | tee /dev/tty | copy
+        command alien_temple consent | tee /dev/tty | wl-copy -n
     else if test "$argv[1]" = play
         command alien_temple $argv
         loago do liked

@@ -73,7 +73,7 @@ end
 funcsave copyl >/dev/null
 
 function cwd
-    echo $PWD | copy
+    echo $PWD | wl-copy -n
 end
 funcsave cwd >/dev/null
 

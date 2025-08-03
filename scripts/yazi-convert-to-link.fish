@@ -3,4 +3,4 @@
 begin
     echo -n https://www.youtube.com/watch?v=
     string match -gr ';(.*);' "$argv"
-end | copy
+end | wl-copy -n

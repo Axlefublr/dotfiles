@@ -23,7 +23,7 @@ function runner_clipboard
     set result (get_input)
     test $status -ne 0 && return 1
     test "$result" || return 1
-    echo $result | copy
+    echo $result | wl-copy -n
 end
 funcsave runner_clipboard >/dev/null
 
@@ -41,7 +41,7 @@ funcsave runner_clipboard_append >/dev/null
 function runner_interactive_unicode
     set input (cat ~/.local/share/magazine/e | fuzzel -d --cache ~/.cache/mine/runner-interactive-unicode 2>/dev/null)
     test $status -ne 0 && return 1
-    echo -n (string split ' ' $input[1])[1] | copy
+    echo -n (string split ' ' $input[1])[1] | wl-copy -n
 end
 funcsave runner_interactive_unicode >/dev/null
 
@@ -63,7 +63,7 @@ function runner_link
         $BROWSER $link
         ensure_browser
     else
-        echo $link | copy
+        echo $link | wl-copy -n
         notify-send -t 2000 "copied link: $link"
     end
 end
@@ -76,7 +76,7 @@ function runner_math
     echo $input_expr >~/.cache/mine/runner-math
     set -l calculated_result (qalc -t -- $input_expr | tee -a ~/.cache/mine/runner-math)
     notify-send -t 0 -- "$calculated_result"
-    echo $calculated_result | copy
+    echo $calculated_result | wl-copy -n
 end
 funcsave runner_math >/dev/null
 
@@ -92,7 +92,7 @@ function runner_notification
             return 1
         end
         notify-send -t 0 -- "$input"
-        echo "$input" | copy
+        echo "$input" | wl-copy -n
     end
 end
 funcsave runner_notification >/dev/null
@@ -105,7 +105,7 @@ function runner_symbol
     for code in (string split ' ' $input)
         set output $output"\U$code"
     end
-    printf $output 2>/dev/null | copy
+    printf $output 2>/dev/null | wl-copy -n
 end
 funcsave runner_symbol >/dev/null
 
@@ -113,6 +113,6 @@ function runner_symbol_name
     set input (cat ~/.local/share/magazine/E | fuzzel -d --match-mode exact --cache ~/.cache/mine/runner-symbol-name 2>/dev/null)
     test $status -eq 1 && return 1
     not test "$input" && return 1
-    printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | copy
+    printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | wl-copy -n
 end
 funcsave runner_symbol_name >/dev/null

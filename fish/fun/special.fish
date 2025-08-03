@@ -21,7 +21,7 @@ funcsave clipboard_index >/dev/null
 function clipboard_pick
     set -l result (cliphist list | tee ~/.cache/mine/cliphist | cut -f 2- | fuzzel -d --index)
     test $status -ne 0 && return 1
-    zat.rs ~/.cache/mine/cliphist ",$result" | cliphist decode | copy
+    zat.rs ~/.cache/mine/cliphist ",$result" | cliphist decode | wl-copy -n
 end
 funcsave clipboard_pick >/dev/null
 
@@ -33,14 +33,14 @@ funcsave dot >/dev/null
 function edit_blank_clipboard
     echo >/tmp/mine/clipboard-blank.md
     flour --end /tmp/mine/clipboard-blank.md
-    cat /tmp/mine/clipboard-blank.md | copy
+    cat /tmp/mine/clipboard-blank.md | wl-copy -n
 end
 funcsave edit_blank_clipboard >/dev/null
 
 function edit_clipboard
     ypoc >/tmp/mine/clipboard-edit.md
     flour /tmp/mine/clipboard-edit.md
-    cat /tmp/mine/clipboard-edit.md | copy
+    cat /tmp/mine/clipboard-edit.md | wl-copy -n
 end
 funcsave edit_clipboard >/dev/null
 
@@ -94,7 +94,7 @@ funcsave path_to_last_char >/dev/null
 function pick_and_copy_color
     niri msg pick-color | string match -gr '(#[[:xdigit:]]+)' | read -l hex
     notify-send $hex
-    copy $hex
+    wl-copy -n $hex
 end
 funcsave pick_and_copy_color >/dev/null
 
@@ -166,7 +166,7 @@ end
 funcsave show_clipboard_image >/dev/null
 
 function special_anki_edit_action
-    ypoc | string lower | sponge | copy
+    ypoc | string lower | sponge | wl-copy -n
 end
 funcsave special_anki_edit_action >/dev/null
 

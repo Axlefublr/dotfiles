@@ -43,7 +43,7 @@ funcsave magazine_resolve >/dev/null
 
 function magazine_get
     not test "$argv" && return
-    cat $argv | copy
+    cat $argv | wl-copy -n
     _magazine_notify $argv get
 end
 funcsave magazine_get >/dev/null
@@ -105,7 +105,7 @@ function magazine_filter
     not test "$argv" && return
     set result (cat $argv | fuzzel -d --index 2>/dev/null)
     test $status -ne 0 && return 1
-    zat.rs $argv ,$result | copy
+    zat.rs $argv ,$result | wl-copy -n
     zat.rs $argv ,^$result .. | sponge $argv
     _magazine_notify $argv filter
     _magazine_commit $argv filter
@@ -116,7 +116,7 @@ function magazine_copy
     not test "$argv" && return
     set input (cat $argv | fuzzel -d 2>/dev/null)
     test $status -ne 0 && return 1
-    echo $input | copy
+    echo $input | wl-copy -n
 end
 funcsave magazine_copy >/dev/null
 
