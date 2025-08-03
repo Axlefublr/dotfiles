@@ -68,6 +68,7 @@
 
 (deflayermap (symbol-right)
 	;; [[sort on]]
+	, (cmd wtype 🕯️)
 	i (cmd wtype 😌)
 	k (cmd wtype 😼)
 	l (cmd wtype 🥀)
