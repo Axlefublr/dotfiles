@@ -330,6 +330,7 @@ normal_select_mappings: dict[str, Any] = {
     'o': 'paste_after',
     'pagedown': 'page_cursor_half_down',
     'pageup': 'page_cursor_half_up',
+    'q': 'select_register',
     'r': 'select_regex',
     'ret': 'command_mode',
     's': 'yank',
