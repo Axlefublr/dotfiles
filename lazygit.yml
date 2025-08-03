@@ -42,7 +42,6 @@ gui:
     "^main$": "#b58cc6"
     "^master$": "#b58cc6"
     "^Axlefublr/": "#e491b2"
-    "^[\\w-_.]+/": "#e49641"
     "^backup": "#a9b665"
     "^bkp": "#a9b665"
     sd: "#ea6962"
