@@ -201,19 +201,19 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 all_modes_mappings: dict[str, Any] = {
     # [[sort on]]
-    'A-down': 'copy_selection_on_next_line',
+    'A-down': 'add_newline_below',
     'A-ins': ':quit!',
     'A-left': 'unindent',
     'A-right': 'indent',
-    'A-up': 'copy_selection_on_prev_line',
+    'A-up': 'add_newline_above',
     'C-6': ':buffer-close!',
-    'C-down': 'add_newline_below',
+    'C-down': 'copy_selection_on_next_line',
     'C-e': ':new',
     'C-end': 'move_parent_node_end',
     'C-home': 'move_parent_node_start',
     'C-s': 'signature_help',
     'C-t': ':reload!',
-    'C-up': 'add_newline_above',
+    'C-up': 'copy_selection_on_prev_line',
     'F1': ':sh footclient -ND %(buffer_parent) o+e>| ignore',
     'F2': ':sh footclient -ND %(current_working_directory) o+e>| ignore',
     'S-down': ['commit_undo_checkpoint', 'normal_mode', 'open_below'],
