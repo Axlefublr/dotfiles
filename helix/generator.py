@@ -314,7 +314,6 @@ normal_select_mappings: dict[str, Any] = {
     'S-pageup': 'goto_prev_paragraph',
     'T': 'redo',
     'U': 'insert_at_line_end',
-    'W': 'replace_with_yanked',
     'X': 'join_selections_space',
     'Z': ':append-output if %(language) == markdown { "\\\\n" } else { "\\n" }',
     '[': 'shell_insert_output',
@@ -338,6 +337,7 @@ normal_select_mappings: dict[str, Any] = {
     'tab': ':edit %sh(open ~/.cache/mine/shell-cwd)',
     'u': 'append_mode_same_line',
     'v': 'flip_selections',
+    'w': 'replace_with_yanked',
     '{': 'rotate_selections_first',
     '|': 'shell_pipe',
     '}': 'rotate_selections_last',
@@ -538,7 +538,7 @@ normal_mappings: dict[str, Any] = {
     'j': 'move_visual_line_down',
     'k': 'move_visual_line_up',
     'l': 'move_char_right',
-    'w': ['collapse_selection', 'replace'],
+    'x': ['collapse_selection', 'replace'],
     # [[sort off]]
     'L': [
         'collapse_selection',
@@ -599,7 +599,7 @@ select_mappings: dict[str, Any] = {
     'j': 'extend_visual_line_down',
     'k': 'extend_visual_line_up',
     'l': 'extend_char_right',
-    'w': 'replace',
+    'x': 'replace',
     # [[sort off]]
     'L': [
         'extend_char_right',
