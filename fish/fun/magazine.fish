@@ -50,7 +50,7 @@ funcsave magazine_get >/dev/null
 
 function magazine_set
     not test "$argv" && return
-    ypoc >$argv
+    wl-paste -n >$argv
     _magazine_notify $argv set
     _magazine_commit $argv set
 end
@@ -95,7 +95,7 @@ funcsave magazine_append >/dev/null
 
 function magazine_appclip
     not test "$argv" && return
-    indeed.rs $argv -- "$(ypoc)"
+    indeed.rs $argv -- "$(wl-paste -n)"
     _magazine_notify $argv appclip
     _magazine_commit $argv appclip
 end
@@ -166,7 +166,7 @@ funcsave magazine_commit >/dev/null
 function magazine_append_link
     set -l result "$(get_input)"
     test $status -eq 1 && return
-    set link (ypoc)
+    set link (wl-paste -n)
     indeed.rs -u ~/.local/share/magazine/l -- "$result — $link"
     _magazine_commit ~/.local/share/magazine/l append
     notify-send -t 2000 "append link $link"
@@ -176,7 +176,7 @@ funcsave magazine_append_link >/dev/null
 function magazine_append_symbol
     set symbol_name (fuzzel -dl 0 2>/dev/null)
     test $status -ne 0 && return 1
-    set symbol_text (ypoc)
+    set symbol_text (wl-paste -n)
     indeed.rs -u ~/.local/share/magazine/e -- (begin
         echo -n $symbol_text' '
         for thingy in (string split '' $symbol_text)

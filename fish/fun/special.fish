@@ -38,7 +38,7 @@ end
 funcsave edit_blank_clipboard >/dev/null
 
 function edit_clipboard
-    ypoc >/tmp/mine/clipboard-edit.md
+    wl-paste -n >/tmp/mine/clipboard-edit.md
     flour /tmp/mine/clipboard-edit.md
     cat /tmp/mine/clipboard-edit.md | wl-copy -n
 end
@@ -166,7 +166,7 @@ end
 funcsave show_clipboard_image >/dev/null
 
 function special_anki_edit_action
-    ypoc | string lower | sponge | wl-copy -n
+    wl-paste -n | string lower | sponge | wl-copy -n
 end
 funcsave special_anki_edit_action >/dev/null
 

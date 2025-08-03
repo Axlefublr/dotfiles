@@ -7,7 +7,7 @@ function batch-link-downloader
         echo asmr
     end | fuzzel -d 2>/dev/null)
     test $status -ne 0 && return 1
-    set -l links (ypoc | sttr extract-url)
+    set -l links (wl-paste -n | sttr extract-url)
     if not test "$links"
         notify-send -t 2000 'no copied links'
         return 1

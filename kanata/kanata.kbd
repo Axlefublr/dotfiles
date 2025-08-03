@@ -209,7 +209,7 @@
 
 (deflayermap (chord-overlay)
 	caps (cmd $fsh ntf_dismiss_old)
-	d (cmd $fsh "xdg-open (ypoc) ; ensure_browser")
+	d (cmd $fsh "xdg-open (wl-paste -n) ; ensure_browser")
 	w (one-shot $ot (layer-while-held bookmark-set))
 	f (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	e (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve e")

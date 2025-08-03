@@ -176,7 +176,7 @@ function lhg
     # https://github.com/Axlefublr/dotfiles/blob/main/fish/fun/general.fish
     # into
     # https://raw.githubusercontent.com/Axlefublr/dotfiles/refs/heads/main/fish/fun/general.fish
-    set -l raw_link (ypoc | lh)
+    set -l raw_link (wl-paste -n | lh)
     set -l extension (path extension $raw_link)
     curl $raw_link >/tmp/mine/lhg$extension
     helix /tmp/mine/lhg$extension
