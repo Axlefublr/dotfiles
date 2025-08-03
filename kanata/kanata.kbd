@@ -129,7 +129,7 @@
 
 (deflayermap (apps)
 	;; [[sort on]]
-	a (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix --execute goU)
+	a (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	d (cmd niri msg action spawn -- footclient -ND /home/axlefublr)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
