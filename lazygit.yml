@@ -184,7 +184,7 @@ keybinding:
     copyPullRequestURL: <disabled>
     checkoutBranchByName: c
     forceCheckoutBranch: F
-    checkoutPreviousBranch: <disabled>
+    checkoutPreviousBranch: "&"
     rebaseBranch: r
     renameBranch: R
     mergeIntoCurrentBranch: M
