@@ -258,6 +258,7 @@ normal_select_mappings: dict[str, Any] = {
     # [[sort on]]
     "'": [':write-all', ':reload-all'],
     '!': 'keep_primary_selection',
+    '"': ':write!',
     '#': 'yank_joined',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
@@ -303,6 +304,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-m': 'merge_consecutive_selections',
     'C-n': 'select_all_siblings',
     'C-q': ':cd ..',
+    'C-r': ':reload!',
     'C-tab': ':edit %sh(wl-paste)',
     'C-u': 'select_all_children',
     'C-v': 'ensure_selections_forward',
@@ -329,7 +331,6 @@ normal_select_mappings: dict[str, Any] = {
     '`': 'switch_case',
     'b': ['add_newline_below', 'move_line_down', 'paste_before'],
     'd': 'delete_selection',
-    'del': ':write!',
     'i': 'insert_mode',
     'n': 'search_next',
     'o': 'paste_after',
