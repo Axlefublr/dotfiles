@@ -202,8 +202,6 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 all_modes_mappings: dict[str, Any] = {
     # [[sort on]]
     'A-ins': ':quit!',
-    'A-left': 'unindent',
-    'A-right': 'indent',
     'C-6': ':buffer-close!',
     'C-A-i': 'add_newline_above',
     'C-A-o': 'add_newline_below',
@@ -218,7 +216,11 @@ all_modes_mappings: dict[str, Any] = {
     'C-up': 'copy_selection_on_prev_line',
     'F1': ':sh footclient -ND %(buffer_parent) o+e>| ignore',
     'F2': ':sh footclient -ND %(current_working_directory) o+e>| ignore',
+    'S-down': 'move_lines_down',
     'S-home': ':buffer-close!',
+    'S-left': 'unindent',
+    'S-right': 'indent',
+    'S-up': 'move_lines_up',
     # [[sort off]]
     'C-z': [
         ":noop %sh(echo '%(current_working_directory)' >~/.cache/mine/helix-cwd-suspend)",
