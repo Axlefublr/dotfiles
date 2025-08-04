@@ -323,7 +323,7 @@ normal_select_mappings: dict[str, Any] = {
     'W': 'goto_word',
     'W': 'repeat_last_motion',
     'X': 'join_selections_space',
-    'Z': ':append-output if %(language) == markdown { "\\\\\\n" } else { "\\n" }',
+    'Z': ':append-output `"\\n"`',
     '[': 'shell_insert_output',
     '\\': ':sort',
     ']': 'shell_append_output',
@@ -650,6 +650,8 @@ select_mappings: dict[str, Any] = {
 
 insert_mappings: dict[str, Any] = {
     # [[sort on]]
+    'C-h': 'commit_undo_checkpoint',
+    'C-l': '@<C-h> \\<ret>',
     'C-u': 'kill_to_line_start',
     'C-v': ['collapse_selection', 'paste_before'],
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
