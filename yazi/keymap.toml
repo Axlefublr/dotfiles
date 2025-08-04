@@ -100,7 +100,7 @@ keymap = [
   { on = [ 's', 'F' ], run = 'link --force --relative', desc = 'Symlink relatively' },
   { on = [ 's', 'K' ], run = 'copy name_without_ext', desc = 'Copy the filename without extension' },
   { on = [ 's', 'f' ], run = 'link --force', desc = 'Symlink' },
-  { on = [ 's', 'i' ], run = '''shell -- fish -c 'copyl "$argv"' "$@"''', desc = 'Copy uri list to clipboard' },
+  { on = [ 's', 'i' ], run = 'shell -- sl.fish "$@"', desc = 'Copy uri list to clipboard' },
   { on = [ 's', 'j' ], run = 'copy path', desc = 'Copy the file path' },
   { on = [ 's', 'k' ], run = 'copy filename', desc = 'Copy the filename' },
   { on = [ 's', 'l' ], run = 'copy dirname', desc = 'Copy the directory path' },

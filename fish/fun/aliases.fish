@@ -3,8 +3,6 @@
 # [[sort on]]
 alias --save at alien_temple >/dev/null
 alias --save bell 'printf \a' >/dev/null
-alias --save copy 'wl-copy -n' >/dev/null
-alias --save copyn wl-copy >/dev/null
 alias --save fc 'cat ~/fes/ack/fux/sudo | sudo -S systemctl restart fancontrol' >/dev/null
 alias --save fm 'loagoe.nu due | ov --column-mode --column-rainbow --column-width' >/dev/null
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
@@ -21,12 +19,11 @@ alias --save ntf_dismiss_all 'fnottctl dismiss all' >/dev/null
 alias --save ntf_dismiss_old 'fnottctl dismiss' >/dev/null
 alias --save reboot 'systemctl reboot' >/dev/null
 alias --save rofimoji 'rofimoji --selector fuzzel --action copy --skin-tone neutral --prompt ""' >/dev/null
+alias --save s 'wl-copy -n' >/dev/null
 alias --save set_media_volume 'playerctl volume' >/dev/null
 alias --save set_mic_volume 'wpctl set-volume @DEFAULT_AUDIO_SOURCE@' >/dev/null
 alias --save set_volume 'wpctl set-volume @DEFAULT_AUDIO_SINK@' >/dev/null
-alias --save si copyi >/dev/null
-alias --save sl copyl >/dev/null
-alias --save sn copyn >/dev/null
+alias --save sn wl-copy >/dev/null
 alias --save sreboot 'systemctl soft-reboot' >/dev/null
 alias --save suspend 'systemctl suspend' >/dev/null
 alias --save toggle_media 'playerctl play-pause' >/dev/null
@@ -59,18 +56,6 @@ function clx
     end
 end
 funcsave clx >/dev/null
-
-function copyi
-    wl-copy -t image/png <$argv[1]
-end
-funcsave copyi >/dev/null
-
-function copyl
-    for filepath in $argv
-        echo file://(path resolve $filepath)
-    end | wl-copy -t text/uri-list
-end
-funcsave copyl >/dev/null
 
 function cwd
     echo $PWD | wl-copy -n
