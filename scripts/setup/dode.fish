@@ -253,7 +253,7 @@ mkdir -p ~/.config/ghostty
 ln -sf ~/fes/dot/ghostty.conf ~/.config/ghostty/config
 
 # --------------------git---------------------
-sudo pacman -Syyu git diff-so-fancy
+sudo pacman -S --needed --noconfirm --disable-download-timeout git diff-so-fancy
 # [[sort on]]
 git config --global branch.sort -committerdate
 git config --global checkout.defaultRemote origin
@@ -266,7 +266,9 @@ git config --global diff.colormovedws allow-indentation-change
 git config --global init.defaultBranch main
 git config --global interactive.singleKey true
 git config --global pull.ff only
+git config --global pull.rebase true
 git config --global push.autoSetupRemote true
+git config --global rebase.autoStash true
 git config --global rebase.updateRefs false
 git config --global rerere.enabled false
 git config --global user.email 101342105+Axlefublr@users.noreply.github.com
