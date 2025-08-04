@@ -32,7 +32,7 @@ function runner_clipboard_append
     test $status -ne 0 && return 1
     test "$result" || return 1
     begin
-        ypocn
+        wl-paste
         echo $result
     end | wl-copy -nf
 end

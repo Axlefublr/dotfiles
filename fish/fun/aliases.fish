@@ -17,6 +17,9 @@ alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_state 'playerctl status' >/dev/null
 alias --save ntf_dismiss_all 'fnottctl dismiss all' >/dev/null
 alias --save ntf_dismiss_old 'fnottctl dismiss' >/dev/null
+alias --save o 'wl-paste -n' >/dev/null
+alias --save oi 'wl-paste -t image/png' >/dev/null
+alias --save on wl-paste >/dev/null
 alias --save reboot 'systemctl reboot' >/dev/null
 alias --save rofimoji 'rofimoji --selector fuzzel --action copy --skin-tone neutral --prompt ""' >/dev/null
 alias --save s 'wl-copy -n' >/dev/null
@@ -31,9 +34,6 @@ alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/de
 alias --save toggle_mute 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' >/dev/null
 alias --save ubootf 'footclient -T nofocus uboot.fish' >/dev/null
 alias --save woman man >/dev/null # lol and even lmao
-alias --save ypoc 'wl-paste -n' >/dev/null
-alias --save ypoci 'wl-paste -t image/png' >/dev/null
-alias --save ypocn wl-paste >/dev/null
 # [[sort off]]
 
 function bl_reconnect
@@ -83,3 +83,10 @@ function rdp
     set_color normal
 end
 funcsave rdp >/dev/null
+
+function sf
+    for path in $argv
+        path resolve $path
+    end | wl-copy -n
+end
+funcsave sf >/dev/null

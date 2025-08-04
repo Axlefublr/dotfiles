@@ -45,8 +45,8 @@ end
 funcsave edit_clipboard >/dev/null
 
 function edit_clipboard_image
-    # ypoci | satty -f -
-    rnote (ypoci | psub)
+    # wl-paste -t image/png | satty -f -
+    rnote (wl-paste -t image/png | psub)
 end
 funcsave edit_clipboard_image >/dev/null
 
@@ -60,7 +60,7 @@ end
 funcsave ffh >/dev/null
 
 function float_clipboard_image
-    ypoci | swayimg -a swayfloat -
+    wl-paste -t image/png | swayimg -a swayfloat -
 end
 funcsave float_clipboard_image >/dev/null
 
@@ -161,7 +161,7 @@ end
 funcsave screenshot_screen >/dev/null
 
 function show_clipboard_image
-    ypoci | swayimg -
+    wl-paste -t image/png | swayimg -
 end
 funcsave show_clipboard_image >/dev/null
 
