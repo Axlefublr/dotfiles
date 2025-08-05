@@ -19,9 +19,9 @@ DisableMouse: true
 
 Prompt:
   Normal:
-   # ShowFilename: true # show the filename.
-   InvertColor: false # invert the color of the prompt.
-   # ProcessOfCount: true # show the process of count.
+    # ShowFilename: true # show the filename.
+    InvertColor: false # invert the color of the prompt.
+    # ProcessOfCount: true # show the process of count.
 
 General:
   TabWidth: 3
@@ -38,9 +38,9 @@ General:
   # Boolean: Bold, Blink, Dim, Italic, Underline
   Style:
     Alternate:
-      Background: 'none'
+      Background: "none"
     Header:
-      Background: 'none'
+      Background: "none"
       Bold: true
     LineNumber:
       Bold: false
@@ -52,30 +52,30 @@ General:
     ColumnHighlight:
       Reverse: false
     MarkLine:
-      Foreground: '#1f1e1e'
-      Background: '#b58cc6'
+      Foreground: "#1f1e1e"
+      Background: "#b58cc6"
       Bold: true
     SectionLine:
-      Background: '#5f472d'
+      Background: "#5f472d"
       Bold: true
     ColumnRainbow:
-      - Foreground: '#ea6962'
-      - Foreground: '#e49641'
-      - Foreground: '#d3ad5c'
-      - Foreground: '#a9b665'
-      - Foreground: '#78bf84'
-      - Foreground: '#7daea3'
-      - Foreground: '#b58cc6'
-      - Foreground: '#e491b2'
+      - Foreground: "#ea6962"
+      - Foreground: "#e49641"
+      - Foreground: "#d3ad5c"
+      - Foreground: "#a9b665"
+      - Foreground: "#78bf84"
+      - Foreground: "#7daea3"
+      - Foreground: "#b58cc6"
+      - Foreground: "#e491b2"
     MultiColorHighlight:
-      - Foreground: '#ea6962'
-      - Foreground: '#e49641'
-      - Foreground: '#d3ad5c'
-      - Foreground: '#a9b665'
-      - Foreground: '#78bf84'
-      - Foreground: '#7daea3'
-      - Foreground: '#b58cc6'
-      - Foreground: '#e491b2'
+      - Foreground: "#ea6962"
+      - Foreground: "#e49641"
+      - Foreground: "#d3ad5c"
+      - Foreground: "#a9b665"
+      - Foreground: "#78bf84"
+      - Foreground: "#7daea3"
+      - Foreground: "#b58cc6"
+      - Foreground: "#e491b2"
     JumpTargetLine:
       Underline: true
 
@@ -95,109 +95,109 @@ StyleOverLine:
 #   "ctrl+c"
 KeyBind:
   backsearch:
-    - '?'
+    - "?"
   bottom:
-    - 'End'
-    - 'ctrl+End'
+    - "End"
+    - "ctrl+End"
   close_doc:
-    - 'x'
+    - "x"
   column_mode:
-    - 'c'
+    - "c"
   column_width:
-    - 'w'
+    - "w"
   delimiter:
-    - 'd'
+    - "d"
   down:
-    - 'Down'
-    - 'j'
+    - "Down"
+    - "j"
   exit:
-    - ':'
+    - ":"
   filter:
-    - 'f'
+    - "f"
   follow_all:
-    - 'a'
+    - "a"
   follow_mode:
   goto:
-    - 'Enter'
+    - "Enter"
   half_left:
-    - 'H'
+    - "H"
   half_right:
-    - 'L'
+    - "L"
   header:
-    - 'p'
+    - "p"
   help:
-    - 'ctrl+h'
+    - "ctrl+h"
   hide_other:
-    - 'e'
+    - "e"
   input_casesensitive:
-    - 'alt+i'
+    - "alt+i"
   input_non_match:
-    - 'alt+u'
+    - "alt+u"
   input_regexp_search:
-    - 'alt+b'
+    - "alt+b"
   input_previous:
-    - 'ctrl+p'
+    - "ctrl+p"
   input_next:
-    - 'ctrl+n'
+    - "ctrl+n"
   left:
-    - 'left'
-    - 'h'
+    - "left"
+    - "h"
   line_number_mode:
-    - 'u'
+    - "u"
   mark:
-    - 'm'
+    - "m"
   multi_color:
-    - 'y'
+    - "y"
   next_backsearch:
-    - 'N'
+    - "N"
   next_doc:
-    - '>'
+    - ">"
   next_mark:
-    - '.'
+    - "."
   next_search:
-    - 'n'
+    - "n"
   next_section:
-    - 'J'
+    - "J"
   page_half_down:
-    - 'PageDown'
+    - "PageDown"
   page_half_up:
-    - 'PageUp'
+    - "PageUp"
   previous_doc:
-    - '<'
+    - "<"
   previous_mark:
-    - ','
+    - ","
   previous_section:
-    - 'K'
+    - "K"
   rainbow_mode:
-    - 'r'
+    - "r"
   remove_all_mark:
-    - 'alt+m'
+    - "alt+m"
   remove_mark:
-    - 'M'
+    - "M"
   right:
-    - 'right'
-    - 'l'
+    - "right"
+    - "l"
   save_buffer:
     - "'"
   search:
-    - '/'
+    - "/"
   section_delimiter:
-    - 's'
+    - "s"
   section_header_num:
-    - 'o'
+    - "o"
   skip_lines:
-    - 'i'
+    - "i"
   suspend:
-    - 'ctrl+z'
+    - "ctrl+z"
   top:
-    - 'Home'
-    - 'ctrl+Home'
+    - "Home"
+    - "ctrl+Home"
   up:
-    - 'Up'
-    - 'k'
+    - "Up"
+    - "k"
   wrap_mode:
-    - 'W'
+    - "W"
   write_exit:
-    - 'ctrl+c'
+    - "ctrl+c"
 
 Mode:
