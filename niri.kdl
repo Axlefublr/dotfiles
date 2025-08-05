@@ -297,7 +297,7 @@ gestures {
     }
 }
 
-//-----------------catchalls-----------------
+//-----------------catchalls------------------
 window-rule {
     draw-border-with-background false
     // geometry-corner-radius 16
@@ -309,7 +309,7 @@ window-rule {
     geometry-corner-radius 16
 }
 
-//-----------------stateful-----------------
+//------------------stateful------------------
 window-rule {
     match app-id="anki"
     match app-id="python" title="^Import$"
@@ -343,7 +343,7 @@ window-rule {
     opacity 1.0
 }
 
-//-----------------column-----------------
+//-------------------column-------------------
 window-rule {
     match app-id="^foot" title="half"
     default-column-width { proportion 0.5; }
@@ -357,7 +357,7 @@ window-rule {
     default-column-width {}
 }
 
-//---------------app-specific---------------
+//----------------app-specific----------------
 window-rule {
     match app-id="org.kde.kruler"
     geometry-corner-radius 0
