@@ -182,7 +182,7 @@ keybinding:
     createPullRequest: <disabled>
     viewPullRequestOptions: <disabled>
     copyPullRequestURL: <disabled>
-    checkoutBranchByName: c
+    checkoutBranchByName: <space>
     forceCheckoutBranch: F
     checkoutPreviousBranch: "&"
     rebaseBranch: r
@@ -216,7 +216,7 @@ keybinding:
     pasteCommits: <c-v>
     markCommitAsBaseForRebase: B
     tagCommit: t
-    checkoutCommit: v
+    checkoutCommit: <space>
     resetCherryPick: <c-x>
     copyCommitAttributeToClipboard: s
     openLogMenu: <c-l>
@@ -232,7 +232,7 @@ keybinding:
     popStash: s
     renameStash: r
   commitFiles:
-    checkoutCommitFile: v
+    checkoutCommitFile: <space>
   main:
     toggleSelectHunk: a
     pickBothHunks: o
