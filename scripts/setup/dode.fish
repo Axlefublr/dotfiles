@@ -554,6 +554,13 @@ xdg-mime default qbittorrent.desktop application/x-bittorrent
 sudo pacman -S --needed --noconfirm --disable-download-timeout qrtool
 qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 
+# -----------------quickshell-----------------
+paru -Sa --needed --disable-download-timeout quickshell
+sudo pacman -S --needed --noconfirm --disable-download-timeout qt5-imageformats qt5-multimedia qt5-connectivity
+# create empty .qmlls.ini file next to the shell.qml file
+rm -fr ~/.config/quickshell
+ln -s ~/fes/dot/qs ~/.config/quickshell
+
 # -----------------radeon-gpu-----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout amdvlk lib32-amdvlk
 # in `lspci -k`, "kernel driver in use" should be amdgpu
