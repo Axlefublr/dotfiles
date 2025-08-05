@@ -101,20 +101,26 @@ end
 funcsave _down >/dev/null
 
 function internet_search
-    set -l input (
+    set -l input (get_input)
+    not test "$input" && return 1
+    set -l engine_index (
         for line in (cat ~/.local/share/magazine/B)
-            echo (string split ' ' $line)[1]!
-        end | fuzzel -d --cache ~/.cache/mine/engined-search 2>/dev/null
+            set -l bits (string split ' — ' $line)
+            echo $bits[1] | string trim
+        end | fuzzel -d --index --match-mode fzf --cache ~/.cache/mine/engined-search 2>/dev/null
     )
-    test $status -ne 0 && return 1
+    not test "$engine_index" && return 1
+    set -l engine (
+        set -l bits (zat.rs ~/.local/share/magazine/B ",$engine_index" | string split ' — ')
+        echo $bits[2]
+    )
+    if not test "$engine"
+        notify-send 'engine empty, somehow'
+        return 1
+    end
 
-    string match -gr '^(?:(?<engine>.*)! )?(?<only_search>.*)' -- $input
-    not test "$engine" && set engine google
-    set clean_input (string escape --style=url -- $only_search)
-
-    cat ~/.local/share/magazine/B | string match -gr "^$engine (?<engine_url>.*)"
-
-    $BROWSER (string replace -- %% $clean_input $engine_url)
+    set clean_input (string escape --style=url -- $input)
+    $BROWSER (string replace -- %% $clean_input $engine)
     ensure_browser
 end
 funcsave internet_search >/dev/null
