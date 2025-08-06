@@ -317,6 +317,7 @@ window-rule {
     match app-id="floorp|firefox$" title="^File Upload$"
     match app-id="floorp|firefox$" title="^Save Image|Video|As$"
     match app-id="floorp|firefox$" title="^Enter name of file to save to…$"
+    match app-id="floorp|firefox$" title="^Opening "
     open-floating false
 }
 window-rule {
