@@ -195,9 +195,9 @@ keymap = [
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
   { on = '<Up>', run = 'arrow -1', desc = 'Previous line' },
+  { on = 'f', run = 'filter', desc = 'Filter help items' },
   { on = 'j', run = 'arrow 1', desc = 'Next line' },
   { on = 'k', run = 'arrow -1', desc = 'Previous line' },
-  { on = 'x', run = 'filter', desc = 'Filter help items' },
   { on = [ 'g', 'i' ], run = 'arrow top', desc = 'First line' },
   { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Last line' },
   # [[sort off]]
