@@ -5,7 +5,7 @@ client:
   show_expanded_aliases: false
   dark_mode: false
   max_status_lines: null
-  status_time_format: '%H:%M:%S'
+  status_time_format: "%H:%M:%S"
   status_datetime_format: |-
     %y.%m.%d
     %H:%M:%S
@@ -17,7 +17,7 @@ daemon:
     pueue-callback.rs '{{ id }}' '{{ command }}' '{{ path }}' '{{ result }}' '{{ exit_code }}' '{{ group }}' '{{ output }} {{ start }} {{ end }}'
   env_vars: {}
   callback_log_lines: 10
-  shell_command: ['fish', '-c', '{{ pueue_command_string }}']
+  shell_command: ["fish", "-c", "{{ pueue_command_string }}"]
 shared:
   pueue_directory: null
   runtime_directory: null
@@ -25,7 +25,7 @@ shared:
   use_unix_socket: true
   unix_socket_path: null
   host: 127.0.0.1
-  port: '6924'
+  port: "6924"
   pid_path: null
   daemon_cert: null
   daemon_key: null
