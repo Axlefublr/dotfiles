@@ -21,7 +21,7 @@
 	;; [[sort on]]
 	' (tap-hold-release $tt $ht ' (layer-while-held chord))
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
-	. (tap-hold-release $tt $ht . (layer-while-held apps))
+	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / XX)
 	1 (tap-hold 0 100 XX (cmd-output-keys etg.nu "stat add curse 5" "stat add coolness 5" "give brick_of_cash" "add_teleporters"))
 	2 (tap-hold 0 100 XX (cmd-output-keys etg.nu --active))
@@ -40,8 +40,8 @@
 	e (tap-hold-release $tt $ht e XX)
 	esc (tap-dance-eager 500 (XX XX (cmd $fsh eat)))
 	f (tap-hold-release $tt $ht f (layer-while-held arrows))
-	g (tap-hold-release $tt $ht g XX)
-	h (tap-hold-release $tt $ht h (layer-while-held apps-revengeance))
+	g (tap-hold-release $tt $ht g (layer-while-held apps-right))
+	h (tap-hold-release $tt $ht h (layer-while-held apps-left))
 	i (tap-hold-release $tt $ht i (layer-while-held brackets))
 	j (tap-hold-release $tt $ht j (layer-while-held numbers))
 	k (tap-hold-release $tt $ht k rctl)
@@ -68,13 +68,13 @@
 (deflayermap (numbers)
 	;; [[sort on]]
 	' (layer-while-held chord-overlay)
-	, (layer-while-held numbers-superscript)
-	. (layer-while-held numbers-subscript)
+	, (layer-while-held numbers-subscript)
 	a 0
 	c 8
 	d 2
 	e 5
 	f 1
+	i (layer-while-held numbers-superscript)
 	q eql
 	r 4
 	s 3
@@ -127,13 +127,12 @@
 	z F12
 )
 
-(deflayermap (apps)
+(deflayermap (apps-left)
 	;; [[sort on]]
 	a (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	d (cmd niri msg action spawn -- footclient -ND /home/axlefublr)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
-	j (layer-while-held numbers-subscript)
 	r (cmd niri msg action spawn -- rnote)
 	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
 	w (cmd niri msg action spawn -- anki)
@@ -141,7 +140,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (apps-revengeance)
+(deflayermap (apps-right)
 	;; [[sort on]]
 	c (cmd niri msg action spawn -- footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
 	e (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
