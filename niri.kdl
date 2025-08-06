@@ -185,13 +185,14 @@ binds {
     Mod+Shift+E { quit; }
 
     Mod+Apostrophe { toggle-overview; }
-    Mod+F { fullscreen-window; }
-    Mod+R { toggle-windowed-fullscreen; }
+    Mod+R { fullscreen-window; }
+    // Mod+R { toggle-windowed-fullscreen; }
     Mod+Semicolon { close-window; }
     Mod+Ctrl+Semicolon { spawn "fish" "-c" "strongly_kill_window"; }
 
     Mod+M { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
-    Mod+D { toggle-window-floating; }
+    Mod+F { toggle-window-floating; }
+    Mod+D { spawn "footclient"; }
     Mod+Slash { switch-focus-between-floating-and-tiling; }
 
     Mod+Comma  { consume-or-expel-window-left; }
@@ -314,7 +315,7 @@ window-rule {
     match app-id="anki"
     match app-id="python" title="^Import$"
     match app-id="floorp|firefox$" title="^File Upload$"
-    match app-id="floorp|firefox$" title="^Save Image$"
+    match app-id="floorp|firefox$" title="^Save Image|Video$"
     match app-id="floorp|firefox$" title="^Enter name of file to save to…$"
     open-floating false
 }
