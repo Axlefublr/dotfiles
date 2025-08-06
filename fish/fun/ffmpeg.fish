@@ -130,16 +130,11 @@ funcsave ffmpeg-combine-two-videos-into-one >/dev/null
 
 function ffmpeg_convert_to_mp3
     echo 'metadata is removed' >&2
-    if set -q argv[1]
-        set -f input $argv
-    else
-        read -P 'input: ' -f input || return 121
-    end
-    not test -f "$input" && return 121
-    for thingy in $input
-        ffmpeg -i "$thingy" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$thingy")
-        confirm.rs 'delete input video?' '[j]es' '[k]o' | read -l response
-        test "$response" = j && rm -f $thingy
+    for file in $argv
+        not test -f "$file" && continue
+        ffmpeg -i "$file" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$file")
+        confirm.rs 'delete input file?' '[j]es' '[k]o' | read -l response
+        test "$response" = j && gomi $file
     end
 end
 funcsave ffmpeg_convert_to_mp3 >/dev/null
