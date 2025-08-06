@@ -30,16 +30,9 @@ function dot
 end
 funcsave dot >/dev/null
 
-function edit_blank_clipboard
-    echo >/tmp/mine/clipboard-blank.md
-    flour --end /tmp/mine/clipboard-blank.md
-    cat /tmp/mine/clipboard-blank.md | wl-copy -n
-end
-funcsave edit_blank_clipboard >/dev/null
-
 function edit_clipboard
     wl-paste -n >/tmp/mine/clipboard-edit.md
-    flour /tmp/mine/clipboard-edit.md
+    flour --select /tmp/mine/clipboard-edit.md
     cat /tmp/mine/clipboard-edit.md | wl-copy -n
 end
 funcsave edit_clipboard >/dev/null
