@@ -130,25 +130,22 @@
 (deflayermap (apps-left)
 	;; [[sort on]]
 	c (cmd niri msg action spawn -- footclient -N calcure)
-	d (cmd niri msg action spawn -- footclient -ND /home/axlefublr)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
-	r (cmd niri msg action spawn -- rnote)
+	q (cmd niri msg action spawn -- footclient -N tiptop)
 	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
 	w (cmd niri msg action spawn -- anki)
-	x (cmd niri msg action spawn -- footclient -N tewi)
 	;; [[sort off]]
 )
 
 (deflayermap (apps-right)
 	;; [[sort on]]
-	c (cmd niri msg action spawn -- footclient -N fish -c "shuf ~/.local/share/magazine/a &| ov")
-	e (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
+	h (cmd niri msg action spawn -- footclient -N tewi)
+	k (cmd niri msg action spawn -- footclient -N pik)
+	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	n (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
-	q (cmd $fsh toggle_screen_record)
-	s (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
-	v (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
-	x (cmd niri msg action spawn -- footclient -N pik)
-	z (cmd niri msg action spawn -- footclient -N tiptop)
+	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
+	u (cmd $fsh toggle_screen_record)
+	y (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	;; [[sort off]]
 )
 
