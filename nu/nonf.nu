@@ -33,6 +33,17 @@ $env.config.keybindings ++= [
 		}
 	}
 	{
+		name: append_pager
+		modifier: alt
+		keycode: char_p
+		mode: [emacs]
+		event: [
+			{ send: ExecuteHostCommand, cmd: "commandline edit -a ' | explore'" }
+			# { edit: InsertString, value: ' | explore' }
+			# { send: Enter }
+		]
+	}
+	{
 		name: edit_commandline
 		modifier: alt
 		keycode: char_e
