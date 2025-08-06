@@ -10,7 +10,7 @@ def 'main help' [] {
 }
 
 def 'main man' [] {
-	let input = ^man -k . | parse -r '(?P<name>\S+ \(\d+\)) +- \S' | get name | to text | ^fuzzel -d --cache ~/.cache/mine/man-frecency
+	let input = ^man -k . | parse -r '(?P<name>\S+ \(\S+\)) +- \S' | get name | to text | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency
 	if $input == null { return }
 	let manpage = try {
 		let the = $input | parse '{name} ({section})'
