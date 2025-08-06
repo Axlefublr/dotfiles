@@ -139,6 +139,8 @@
 
 (deflayermap (apps-right)
 	;; [[sort on]]
+	, (cmd man.nu help)
+	. (cmd man.nu man)
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	j (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	k (cmd niri msg action spawn -- footclient -N pik)

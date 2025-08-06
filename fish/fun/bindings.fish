@@ -1,16 +1,15 @@
 #!/usr/bin/env fish
 
-function _help_the_commandline
-    set -f commandline (commandline -o)
-    $commandline --help 2>/dev/null &| ov
+function _fish_help_pages
+    set -l input (builtin -n | fzf)
+    while true
+        test "$input" || break
+        man $input
+        break
+    end
+    commandline -f repaint
 end
-funcsave _help_the_commandline >/dev/null
-
-function _man_the_commandline
-    set -f commandline (commandline -o)[1]
-    man $commandline 2>/dev/null
-end
-funcsave _man_the_commandline >/dev/null
+funcsave _fish_help_pages >/dev/null
 
 function _travel_helix_cwd
     z (cat ~/.cache/mine/helix-cwd-suspend | path_expand)
@@ -87,8 +86,6 @@ funcsave _reexec >/dev/null
 function fish_user_key_bindings
     # [[sort on]]
     bind / expand-abbr self-insert
-    bind alt-. _man_the_commandline
-    bind alt-comma _help_the_commandline
     bind alt-d _blammo_pwd
     bind alt-enter expand-abbr insert-line-under
     bind alt-space _harp_set
@@ -97,19 +94,18 @@ function fish_user_key_bindings
     bind ctrl-5 _travel_helix_cwd
     bind ctrl-\' _wrap_in_pueue
     bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
-    bind ctrl-d _delete_commandline_or_exit
     bind ctrl-e _reexec
-    bind ctrl-i 'zi ; commandline -f repaint'
     bind ctrl-l 'commandline -f clear-screen'
     bind ctrl-q 'z .. ; commandline -f repaint'
     bind ctrl-s 'commandline -f repaint'
     bind ctrl-space 'commandline -i " "'
     bind ctrl-z d
-    bind f1 'commandline nu ; commandline -f execute'
+    bind f1 _fish_help_pages
     bind f2 'commandline lazygit ; commandline -f execute'
     bind f3 'test "$(commandline)" = " " && helix . || helix'
     bind f5 yazi_cd
     bind f6 'swayimg -g & disown ; exit'
+    bind f9 'commandline nu ; commandline -f execute'
     bind space _harp_get
     # [[sort off]]
 end
