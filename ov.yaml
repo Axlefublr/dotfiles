@@ -45,10 +45,10 @@ General:
     LineNumber:
       Bold: false
     SearchHighlight:
-      # Foreground: '#1f1e1e'
-      # Background: '#e49641'
+      Foreground: "#d4be98"
+      Background: "#5f472d"
       Bold: true
-      Reverse: true
+      # Reverse: true
     ColumnHighlight:
       Reverse: false
     MarkLine:
@@ -56,7 +56,8 @@ General:
       Background: "#b58cc6"
       Bold: true
     SectionLine:
-      Background: "#5f472d"
+      # Background: "#5f472d"
+      Foreground: "#e49641"
       Bold: true
     ColumnRainbow:
       - Foreground: "#ea6962"
