@@ -1,16 +1,5 @@
 #!/usr/bin/env fish
 
-function _fish_help_pages
-    set -l input (builtin -n | fzf)
-    while true
-        test "$input" || break
-        man $input
-        break
-    end
-    commandline -f repaint
-end
-funcsave _fish_help_pages >/dev/null
-
 function _travel_helix_cwd
     z (cat ~/.cache/mine/helix-cwd-suspend | path_expand)
     commandline -f repaint
@@ -100,12 +89,11 @@ function fish_user_key_bindings
     bind ctrl-s 'commandline -f repaint'
     bind ctrl-space 'commandline -i " "'
     bind ctrl-z d
-    bind f1 _fish_help_pages
+    bind f1 'commandline nu ; commandline -f execute'
     bind f2 'commandline lazygit ; commandline -f execute'
     bind f3 'test "$(commandline)" = " " && helix . || helix'
     bind f5 yazi_cd
     bind f6 'swayimg -g & disown ; exit'
-    bind f9 'commandline nu ; commandline -f execute'
     bind space _harp_get
     # [[sort off]]
 end
