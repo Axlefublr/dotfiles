@@ -103,11 +103,8 @@ KeyBind:
   close_doc:
     - "x"
   column_mode:
-    - "c"
   column_width:
-    - "w"
   delimiter:
-    - "d"
   down:
     - "Down"
     - "j"
@@ -116,7 +113,6 @@ KeyBind:
   filter:
     - "f"
   follow_all:
-    - "a"
   follow_mode:
   goto:
     - "Enter"
@@ -125,11 +121,9 @@ KeyBind:
   half_right:
     - "L"
   header:
-    - "p"
   help:
-    - "ctrl+h"
+    - "F1"
   hide_other:
-    - "e"
   input_casesensitive:
     - "alt+i"
   input_non_match:
@@ -138,8 +132,10 @@ KeyBind:
     - "alt+b"
   input_previous:
     - "ctrl+p"
+    - "Up"
   input_next:
     - "ctrl+n"
+    - "Down"
   left:
     - "left"
     - "h"
@@ -148,7 +144,6 @@ KeyBind:
   mark:
     - "m"
   multi_color:
-    - "y"
   next_backsearch:
     - "N"
   next_doc:
@@ -170,7 +165,6 @@ KeyBind:
   previous_section:
     - "K"
   rainbow_mode:
-    - "r"
   remove_all_mark:
     - "alt+m"
   remove_mark:
@@ -183,11 +177,8 @@ KeyBind:
   search:
     - "/"
   section_delimiter:
-    - "s"
   section_header_num:
-    - "o"
   skip_lines:
-    - "i"
   suspend:
     - "ctrl+z"
   top:
@@ -197,8 +188,9 @@ KeyBind:
     - "Up"
     - "k"
   wrap_mode:
-    - "W"
+    - "w"
   write_exit:
     - "ctrl+c"
+    - "Esc"
 
 Mode:
