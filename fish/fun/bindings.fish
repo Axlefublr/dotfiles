@@ -91,8 +91,8 @@ function fish_user_key_bindings
     bind ctrl-z d
     bind f1 'commandline nu ; commandline -f execute'
     bind f2 'commandline lazygit ; commandline -f execute'
-    bind f3 'test "$(commandline)" = " " && helix . || helix'
-    bind f5 yazi_cd
+    bind f3 yazi_cd
+    bind f5 'test "$(commandline)" = " " && helix . || helix'
     bind f6 'swayimg -g & disown ; exit'
     bind space _harp_get
     # [[sort off]]
