@@ -13,8 +13,7 @@ def 'main man' [] {
 	let input = ^man -k . | parse -r '(?P<name>\S+ \(\S+\)) +- \S' | get name | to text | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency
 	if $input == null { return }
 	let manpage = try {
-		let the = $input | parse '{name} ({section})'
-		$the.name.0 + '.' + $the.section.0
+		$input | parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0
 	} catch {
 		$input
 	}
