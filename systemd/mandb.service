@@ -1,0 +1,7 @@
+[Service]
+ExecStart=env fish -c "systemd_mandb"
+Restart=always
+Type=exec
+
+[Install]
+WantedBy=graphical-session.target

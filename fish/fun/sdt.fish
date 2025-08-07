@@ -30,3 +30,12 @@ function systemd_wallpaper
     echo $current_time >~/.cache/mine/wallpaper-lockfile
 end
 funcsave systemd_wallpaper >/dev/null
+
+function systemd_mandb
+    while true
+        cat ~/fes/ack/fux/sudo | sudo -S mandb
+        man.nu men
+        inotifywait -e move_self -e delete -e create -r (manpath | string split ':')
+    end
+end
+funcsave systemd_mandb >/dev/null

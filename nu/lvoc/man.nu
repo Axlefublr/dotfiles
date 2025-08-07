@@ -9,26 +9,26 @@ def 'main help' [] {
 }
 
 def 'main man' [] {
-	touch ~/.cache/mine/man-list
-	let input = open ~/.cache/mine/man-list | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency | complete | get stdout | str trim
-	if ($input | is-empty) {
-		men
-		return
-	}
+	let input = open ~/.cache/mine/man-list | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency
 	let manpage = try {
-		$input | parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0
+		$input | try {
+			parse '{name} (fish)' | $in.name.0
+		} catch {
+			parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0
+		}
 	} catch {
 		$input
 	}
 	^footclient -N -- man.fish $manpage
-	men
 }
 
-def men [] {
+def 'main men' [] {
 	^man -k .
 	| parse -r '(?P<name>\S+ \([1-9]p?\)) +- \S'
 	| get name
-	| interleave { ^fish -c 'builtin -n' | lines | where $it not-in [':', '.', '[', '_'] }
+	| interleave { ^fish -c 'builtin -n' | lines | where $it not-in [':', '.', '[', '_'] | par-each { $in + ' (fish)' } }
 	| to text
-	| save -f ~/.cache/mine/man-list
+	| save -f /tmp/mine/man-atomic
+	mv -f /tmp/mine/man-atomic ~/.cache/mine/man-list
+	^fish -c dot
 }

@@ -691,6 +691,8 @@ systemctl --user enable --now ~/fes/dot/systemd/axleizer.service
 systemctl --user link ~/fes/dot/systemd/wallpaper.service
 systemctl --user enable --now ~/fes/dot/systemd/wallpaper.timer
 
+systemctl --user enable --now ~/fes/dot/systemd/mandb.service
+
 # --------------termfilechooser---------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk
 paru -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git
