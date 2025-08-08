@@ -145,6 +145,7 @@
 	j (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	k (cmd niri msg action spawn -- footclient -N pik)
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
+	n (cmd man.nu nushell)
 	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
 	u (cmd $fsh toggle_screen_record)
 	y (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)

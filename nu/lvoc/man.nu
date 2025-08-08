@@ -32,3 +32,18 @@ def 'main men' [] {
 	mv -f /tmp/mine/man-atomic ~/.cache/mine/man-list
 	^fish -c dot
 }
+
+def 'main nushell' [] {
+	let input = scope commands
+	| select name search_terms
+	| par-each {
+		if ($in.search_terms | is-empty) {
+			$in.name
+		} else {
+			$in.name + ' (' + $in.search_terms + ')'
+		}
+	}
+	| to text
+	| fuzzel -d --match-mode fzf --cache ~/.cache/mine/nushell-frecency
+	^footclient -N -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'($input) --help | ov --wrap=true --caption=`($input)`'
+}
