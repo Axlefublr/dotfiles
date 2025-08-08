@@ -753,6 +753,14 @@ eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 # -----------------unimatrix------------------
 paru -Sa --needed --disable-download-timeout unimatrix-git
 
+# -------------------ventoy-------------------
+paru -Sa --needed --disable-download-timeout ventoy-bin
+ventoygui
+lsblk -f # find ventoy partition
+sudo mount /dev/sdb1 /mnt/usb/
+sudo rsync -r ~/iwm/vdi/EndeavourOS_Mercury-Neo-2025.03.19.iso /mnt/usb/
+sudo eject /mnt/usb
+
 # ------------------vesktop-------------------
 #> privoxy
 paru -Sa --needed --disable-download-timeout --asdeps electron37-bin
