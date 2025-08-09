@@ -1,4 +1,4 @@
-# ---------------------------crystal---------------------------
+# ------------------crystal-------------------
 [[language]]
 name = "crystal"
 auto-format = false
@@ -12,12 +12,12 @@ indent = { tab-width = 3, unit = "\t" }
 "`" = "`"
 "'" = "'"
 
-# -----------------------------css-----------------------------
+# --------------------css---------------------
 [[language]]
 name = "css"
 formatter = { command = "prettier", args = [ "--parser", "css" ] }
 
-# ----------------------------fish----------------------------
+# --------------------fish--------------------
 [[language]]
 name = "fish"
 language-servers = [ "fish-lsp" ]
@@ -26,13 +26,13 @@ language-servers = [ "fish-lsp" ]
 command = "fish-lsp"
 args = [ "start" ]
 
-# ---------------------------html---------------------------
+# --------------------html--------------------
 [[language]]
 name = "html"
 auto-format = false
 formatter = { command = "prettier", args = [ "--parser", "html" ] }
 
-# ---------------------------lua---------------------------
+# --------------------lua---------------------
 [[language]]
 name = "lua"
 indent = { tab-width = 3, unit = "\t" }
@@ -76,7 +76,7 @@ diagnostics.disable = [
   "duplicate-set-field",
 ]
 
-# -------------------------markdown-------------------------
+# ------------------markdown------------------
 [[language]]
 name = "markdown"
 indent = { tab-width = 2, unit = "  " }
@@ -93,17 +93,17 @@ indent = { tab-width = 2, unit = "  " }
 "“" = "”"
 "«" = "»"
 
-# ---------------------------nim---------------------------
+# --------------------nim---------------------
 [[language]]
 name = "nim"
 language-servers = [ "nimlsp" ]
 
-# -------------------------nushell-------------------------
+# ------------------nushell-------------------
 [[language]]
 name = "nu"
 indent = { tab-width = 3, unit = "\t" }
 
-# --------------------------python--------------------------
+# -------------------python-------------------
 [[language]]
 name = "python"
 language-servers = [ "basedpyright", "ruff" ]
@@ -140,7 +140,7 @@ enableReachabilityAnalysis = true
 typeCheckingMode = "strict"
 reportUnusedVariable = false
 
-# ----------------------------ruby----------------------------
+# --------------------ruby--------------------
 [[language]]
 name = "ruby"
 language-servers = [ "solargraph", "rubocop" ]
@@ -161,7 +161,7 @@ indent = { tab-width = 3, unit = "\t" }
 command = "rubocop"
 args = [ "--lsp" ]
 
-# ------------------------------rust------------------------------
+# --------------------rust--------------------
 [[language]]
 name = "rust"
 
@@ -213,7 +213,7 @@ signatureInfo.documentation.enable = true
 typing.autoClosingAngleBrackets.enable = true
 # [[sort off]]
 
-# -----------------------------toml-----------------------------
+# --------------------toml--------------------
 [[language]]
 name = "toml"
 auto-format = true
