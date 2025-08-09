@@ -231,7 +231,7 @@ all_modes_mappings: dict[str, Any] = {
         ':open %sh{cat /tmp/mine/yazi-chooser-file}',
         ':reload-all',
     ],
-    'F5': [
+    'F3': [
         ':sh rm -f /tmp/mine/yazi-chooser-file',
         ':noop %sh(footclient yazi --chooser-file=/tmp/mine/yazi-chooser-file)',
         ':open %sh{cat /tmp/mine/yazi-chooser-file}',
