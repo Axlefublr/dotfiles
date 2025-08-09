@@ -1,8 +1,3 @@
-# ----------------------------lisp----------------------------
-[[language]]
-name = "common-lisp"
-file-types = [ "lisp", "asd", "cl", "l", "lsp", "ny", "podsl", "sexp" ]
-
 # ---------------------------crystal---------------------------
 [[language]]
 name = "crystal"
@@ -36,33 +31,11 @@ language-servers = [ "fish-lsp" ]
 command = "fish-lsp"
 args = [ "start" ]
 
-# ---------------------------hocon---------------------------
-[[language]]
-name = "hocon"
-file-types = [
-  "conf",
-  { glob = "**/src/*/resources/**/*.conf" },
-  { glob = "*scalafmt*.conf" },
-  { glob = "*scalafix*.conf" },
-]
-
 # ---------------------------html---------------------------
 [[language]]
 name = "html"
 auto-format = false
 formatter = { command = "prettier", args = [ "--parser", "html" ] }
-
-# ---------------------------just---------------------------
-[[language]]
-name = "just"
-file-types = [
-  "just",
-  { glob = "justfile" },
-  { glob = "Justfile" },
-  { glob = ".justfile" },
-  { glob = ".Justfile" },
-  { glob = "globaljustfile" },
-]
 
 # ---------------------------lua---------------------------
 [[language]]
@@ -111,25 +84,6 @@ diagnostics.disable = [
 # -------------------------markdown-------------------------
 [[language]]
 name = "markdown"
-file-types = [
-  "md",
-  "markdown",
-  "mdx",
-  "mkd",
-  "mkdn",
-  "mdwn",
-  "mdown",
-  "markdn",
-  "mdtxt",
-  "mdtext",
-  "workbook",
-  { glob = "PULLREQ_EDITMSG" },
-  { glob = "**/magazine/s" },
-  { glob = "**/magazine/d" },
-  { glob = "**/magazine/c" },
-  { glob = "**/magazine/0" },
-  { glob = "**/magazine/c-g" },
-]
 indent = { tab-width = 2, unit = "  " }
 
 [language.auto-pairs]
@@ -143,11 +97,6 @@ indent = { tab-width = 2, unit = "  " }
 "‘" = "’"
 "“" = "”"
 "«" = "»"
-
-# ---------------------------mojo---------------------------
-[[language]]
-name = "mojo"
-file-types = [ "mojo", "🔥", { glob = "kitty.conf" } ]
 
 # ---------------------------nim---------------------------
 [[language]]
