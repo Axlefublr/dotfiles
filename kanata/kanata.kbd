@@ -142,7 +142,7 @@
 	, (cmd man.nu help)
 	. (cmd man.nu man)
 	h (cmd niri msg action spawn -- footclient -N tewi)
-	j (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
+	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	k (cmd niri msg action spawn -- footclient -N pik)
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	n (cmd man.nu nushell)
