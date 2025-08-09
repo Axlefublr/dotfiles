@@ -35,19 +35,14 @@ end
 funcsave _delete_commandline_or_exit >/dev/null
 
 function _harp_get
-    if test -n "$(commandline)"
-        commandline -f expand-abbr
-        commandline -i ' '
-    else
-        while true
-            read -n 1 -P 'harp get: ' -l key || break
-            not test "$key" && break
-            set -l harp (harp get harp_dirs "$key" | path_expand)
-            test "$harp" && cd "$harp"
-            break
-        end
-        commandline -f repaint
+    while true
+        read -n 1 -P 'harp get: ' -l key || break
+        not test "$key" && break
+        set -l harp (harp get harp_dirs "$key" | path_expand)
+        test "$harp" && cd "$harp"
+        break
     end
+    commandline -f repaint
 end
 funcsave _harp_get >/dev/null
 
@@ -77,7 +72,6 @@ function fish_user_key_bindings
     bind / expand-abbr self-insert
     bind alt-d _blammo_pwd
     bind alt-enter expand-abbr insert-line-under
-    bind alt-space _harp_set
     bind ctrl-1 _travel_buffer_head
     bind ctrl-3 _travel_yazi_cwd
     bind ctrl-5 _travel_helix_cwd
@@ -94,7 +88,8 @@ function fish_user_key_bindings
     bind f3 yazi_cd
     bind f5 'test "$(commandline)" = " " && helix . || helix'
     bind f6 'swayimg -g & disown ; exit'
-    bind space _harp_get
+    bind f7 _harp_get
+    bind shift-f7 _harp_set
     # [[sort off]]
 end
 funcsave fish_user_key_bindings >/dev/null
