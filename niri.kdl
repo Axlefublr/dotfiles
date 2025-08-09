@@ -221,7 +221,7 @@ binds {
     Mod+Z { set-window-height "33.333%"; }
     Mod+A { set-window-height "50%"; }
     Mod+Q { set-window-height "66.667%"; }
-    Mod+S { reset-window-height; }
+    Mod+X { reset-window-height; }
 }
 
 // Add lines like this to spawn processes at startup.
