@@ -5,19 +5,20 @@ def main [] {}
 def 'main help' [] {
 	let input = open ~/.local/share/magazine/c-comma | lines | reverse | to text | ^fuzzel -d --match-mode exact --cache ~/.cache/mine/help-frecency
 	^indeed.rs -u ~/.local/share/magazine/c-comma $input
-	^footclient -N -- ov -e -- ...($input | split row -r '\s+') --help
+	let args = ($input | split row -r '\s+')
+	^footclient -N -- ov --caption $input -e -- ...$args --help
 }
 
 def 'main man' [] {
 	let input = open ~/.cache/mine/man-list | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency
 	let manpage = try {
-		$input | try {
-			parse '{name} (fish)' | $in.name.0
-		} catch {
-			parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0
-		}
+		$input | parse '{name} (fish)' | $in.name.0
 	} catch {
-		$input
+		try {
+			$input | parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0
+		} catch {
+			$input
+		}
 	}
 	^footclient -N -- man.fish $manpage
 }
