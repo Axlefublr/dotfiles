@@ -347,6 +347,11 @@ function vids
 end
 funcsave vids >/dev/null
 
+function vidsc
+    cp -f ~/iwm/sco/compressed.mp4 $argv[1].mp4
+end
+funcsave vidsc >/dev/null
+
 function webify
     for file in $argv
         not test -f $file && continue
