@@ -135,8 +135,8 @@ keybinding:
     pullFiles: O
     refresh: <disabled>
     createPatchOptionsMenu: <c-o>
-    nextTab: ">"
-    prevTab: "<"
+    nextTab: L
+    prevTab: H
     nextScreenMode: +
     prevScreenMode: "-"
     undo: <c-t>
