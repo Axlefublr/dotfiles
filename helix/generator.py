@@ -350,7 +350,6 @@ normal_select_mappings: dict[str, Any] = {
     '}': 'rotate_selections_last',
     '¢': 'select_references_to_symbol_under_cursor',
     '°': 'shell_pipe_to',
-    '÷': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 44 -a center -c '-' }",
     '‘': 'rotate_selection_contents_backward',
     '’': 'rotate_selection_contents_forward',
     '‚': 'reverse_selection_contents',
@@ -358,6 +357,7 @@ normal_select_mappings: dict[str, Any] = {
     '”': 'goto_next_diag',
     '…': 'split_selection_on_newline',
     '€': 'keep_selections',
+    '√': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 44 -a center -c '-' }",
     '┃': ['collapse_selection', ':pipe ; "┃"'],
     '┗': ['collapse_selection', ':pipe ; "┗"'],
     '🚀': 'rename_symbol',
@@ -382,14 +382,6 @@ normal_select_mappings: dict[str, Any] = {
         'g': ['save_selection', 'goto_first_change'],
         'd': ['save_selection', 'goto_first_diag'],
     },
-    '√': [
-        'extend_to_line_bounds',
-        'trim_selections',
-        ':pipe hxm rotate sectioning',
-        'goto_line_start',
-        'move_same_line_char_right',
-        'move_same_line_char_right',
-    ],
     'm': {
         # [[sort on]]
         "'": ':toggle whichkey',
