@@ -182,7 +182,7 @@ funcsave toggle_screen_record >/dev/null
 
 function things
     begin
-        footclient -NT nofocus helix ~/.local/share/magazine/semicolon
+        footclient -NT nofocus helix ~/.local/share/magazine/semicolon.md
         footclient -NT nofocus-third fish -c fm
         footclient -NT nofocus calcure
     end 2>/dev/null
