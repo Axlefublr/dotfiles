@@ -238,25 +238,26 @@ funcsave _magazine_notify >/dev/null
 
 function _magazine_commit
     not test -f $argv[1] && return
-    set -l parent_path (path dirname $argv[1])
+    set -l resolved (path resolve $argv[1])
+    set -l parent_path (path dirname $resolved)
     set -l head (path basename $parent_path)
-    set -l base (path basename $argv[1])
+    set -l base (path basename $resolved)
     set -l mag $base
-    if test -s $argv[1] && test (tail -c 1 $argv[1]) != (echo)
-        echo >>$argv[1]
+    if test -s $resolved && test (tail -c 1 $resolved) != (echo)
+        echo >>$resolved
     end
-    if string match $argv[1] (cat ~/.local/share/magazine/R | string replace -r '^~' "$HOME")
+    if string match $resolved (cat ~/.local/share/magazine/R | string replace -r '^~' "$HOME")
         or test $base = project.txt
-        sort.py -u $argv[1]
-    else if string match $argv[1] (cat ~/.local/share/magazine/Q | string replace -r '^~' "$HOME")
-        cat $argv[1] | dedup | sponge $argv[1]
+        sort.py -u $resolved
+    else if string match $resolved (cat ~/.local/share/magazine/Q | string replace -r '^~' "$HOME")
+        cat $resolved | dedup | sponge $resolved
     end
     if test $parent_path != ~/.local/share/magazine
         if test $base = project.txt
-            cp -f $argv[1] ~/.local/share/magazine/$head
+            cp -f $resolved ~/.local/share/magazine/$head
             set mag $head
         else
-            cp -f $argv[1] ~/.local/share/magazine
+            cp -f $resolved ~/.local/share/magazine
         end
     end
     builtin cd ~/.local/share/magazine
