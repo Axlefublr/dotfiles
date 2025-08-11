@@ -538,6 +538,8 @@ sudo systemctl disable postgresql
 sudo pacman -S --needed --noconfirm --disable-download-timeout pueue
 systemctl --user enable --now pueued
 ln -sf ~/fes/dot/pueue.yml ~/.config/pueue/pueue.yml
+pueue group add network -p 1
+pueue group add cpu -p 1
 
 # --------------------pup---------------------
 stew install ericchiang/pup
