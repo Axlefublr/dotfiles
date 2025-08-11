@@ -132,8 +132,8 @@
 	;; [[sort on]]
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
-	q (cmd niri msg action spawn -- footclient -N tiptop)
-	t (cmd paplay /home/axlefublr/iwm/msk/snd/camera-shutter.oga)
+	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq helix .)
+	t (cmd niri msg action spawn -- footclient -N tiptop)
 	w (cmd niri msg action spawn -- anki)
 	;; [[sort off]]
 )

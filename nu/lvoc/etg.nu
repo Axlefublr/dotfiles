@@ -25,7 +25,7 @@ def main [--active, ...args] {
 }
 
 def active [] {
-	^propose.rs etg-active-items 50% ~/jrl/etg-active-items
+	^propose.rs etg-active-items 50% `~/fes/tiq/etg active items`
 	| str trim
 	| prepend 'give'
 	| str join ' '
