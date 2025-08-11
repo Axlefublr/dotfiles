@@ -151,18 +151,17 @@ paru -Sa --needed --disable-download-timeout etcher-cli-bin
 uv tool install exrex
 
 # --------------------eww---------------------
+# building from source because we need to pick the wayland feature flag, which the aur -git package doesn't do
 cd ~/fes/ork
-git clone https://github.com/elkowar/eww
-cd eww
-cargo build --release --no-default-features --features x11
-ln $PWD/target/release/eww ~/fes/bin
+gh repo clone elkowar/eww -- --depth 1
+cargo build --release --no-default-features --features wayland
+cp -f ./target/release/eww ~/fes/bin
+eww shell-completions -s fish >~/.config/fish/completions/eww.fish
 mkdir -p ~/.config/eww
-touch ~/.config/eww/eww.yuck
+ln -sf ~/fes/dot/eww/eww.yuck ~/.config/eww/eww.yuck
 
 # --------------------eww!--------------------
-rm -fr ~/fes/ork/eww
 rm -fr ~/.config/eww
-rm -fr ~/fes/bin/eww
 
 # -----------------fancontrol-----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lm_sensors
