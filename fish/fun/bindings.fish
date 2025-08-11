@@ -18,12 +18,14 @@ function _travel_buffer_head
 end
 funcsave _travel_buffer_head >/dev/null
 
-function _wrap_in_pueue
-    set -l cmd "$(commandline | string escape)"
-    commandline "pueue add -- $cmd"
-    commandline -C 10
+function _execute_via_pueue
+    set -l cmd (commandline)
+    history append -- $cmd
+    pueue.nu push -- $cmd
+    commandline ''
+    commandline -f repaint
 end
-funcsave _wrap_in_pueue >/dev/null
+funcsave _execute_via_pueue >/dev/null
 
 function _delete_commandline_or_exit
     if test -n "$(commandline)"
@@ -75,10 +77,10 @@ function fish_user_key_bindings
     bind ctrl-1 _travel_buffer_head
     bind ctrl-3 _travel_yazi_cwd
     bind ctrl-5 _travel_helix_cwd
-    bind ctrl-\' _wrap_in_pueue
     bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
     bind ctrl-e _reexec
     bind ctrl-l 'commandline -f clear-screen'
+    bind ctrl-o _execute_via_pueue
     bind ctrl-q 'z .. ; commandline -f repaint'
     bind ctrl-s 'commandline -f repaint'
     bind ctrl-space 'commandline -i " "'
