@@ -539,6 +539,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout pueue
 systemctl --user enable --now pueued
 ln -sf ~/fes/dot/pueue.yml ~/.config/pueue/pueue.yml
 
+# --------------------pup---------------------
+stew install ericchiang/pup
+
 # --------------------qalc--------------------
 sudo pacman -S libqalculate
 # set vspace off
