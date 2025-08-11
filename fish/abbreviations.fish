@@ -9,7 +9,7 @@ abbr -a -c systemctl systemctl-restart -r r restart
 abbr -a -c systemctl systemctl-start -r s start
 abbr -a -c systemctl systemctl-status -r c status
 abbr -a -c systemctl systemctl-stop -r o stop
-abbr -a .. --regex '^\.\.+$' --function multiple_dot
+abbr -a .. --position anywhere --regex '^\.\.+$' --function multiple_dot
 abbr -a E 'sudo -E helix'
 abbr -a a 'shuf ~/.local/share/magazine/a &| ov'
 abbr -a at alien_temple

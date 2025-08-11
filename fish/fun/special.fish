@@ -68,7 +68,7 @@ end
 funcsave github_read_notifs >/dev/null
 
 function multiple_dot
-    echo z (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+    echo (string repeat -n (math (string length -- $argv[1]) - 1) ../ | string trim -r -c /)
 end
 funcsave multiple_dot >/dev/null
 
