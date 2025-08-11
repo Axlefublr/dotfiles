@@ -560,7 +560,7 @@ qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 
 # -----------------quickshell-----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout qt5-imageformats qt5-multimedia qt5-connectivity
-paru -Sa --needed --disable-download-timeout quickshell
+paru -Sa --needed --disable-download-timeout google-breakpad-git quickshell-git
 # create empty .qmlls.ini file next to the shell.qml file
 rm -fr ~/.config/quickshell
 ln -s ~/fes/dot/qs ~/.config/quickshell
