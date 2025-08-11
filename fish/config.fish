@@ -12,7 +12,7 @@ set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx MANPAGER ov
 set -gx QT_QPA_PLATFORMTHEME gtk3
 set -gx SAVEHIST 100000
-set -gx TELOXIDE_TOKEN (cat ~/fes/uviw/llr/axleizer)
+set -gx TELOXIDE_TOKEN (cat ~/fes/uviw/lvia/axleizer)
 set -gx VISUAL helix
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
