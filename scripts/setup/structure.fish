@@ -9,7 +9,6 @@ mkdir -p ~/wlx \
     ~/fes \
     ~/fes/ork \
     ~/fes/lai \
-    ~/fes/the \
     ~/.local/bin \
     ~/.cache/{mine,wks} \
     ~/.local/share/mine \
