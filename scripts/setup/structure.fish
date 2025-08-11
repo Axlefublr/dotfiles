@@ -36,6 +36,7 @@ git clone https://github.com/Axlefublr/dotfiles dot
 git clone https://github.com/Axlefublr/binaries --depth=1 bin
 git clone https://github.com/Axlefublr/backup uviw
 git clone https://github.com/Axlefublr/job
+git clone https://github.com/Axlefublr/mdw
 
 fish_add_path ~/fes/bin
 fish_add_path ~/fes/bin/wks

@@ -145,6 +145,7 @@
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	k (cmd niri msg action spawn -- footclient -N pik)
+	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw helix .)
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	n (cmd man.nu nushell)
 	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
