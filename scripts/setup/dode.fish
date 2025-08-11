@@ -141,7 +141,7 @@ ping -c 4 -M do -s 1472 google.com
 sudo ip link set dev wlan0 mtu $optimal_value
 
 # -----------enter-the-gungeon-mod------------
-~/fes/ack/bepinx.sh # https://github.com/pcrain/gungeon-modding-tools/blob/master/steamdeck-installer.md
+~/fes/uviw/bepinx.sh # https://github.com/pcrain/gungeon-modding-tools/blob/master/steamdeck-installer.md
 # add "/home/axlefublr/.local/share/Steam/steamapps/common/Enter the Gungeon/start_game_bepinex.sh" to steam as non-steam game
 
 # -------------------etcher-------------------

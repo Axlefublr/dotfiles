@@ -3,7 +3,7 @@
 # [[sort on]]
 alias --save at alien_temple >/dev/null
 alias --save bell 'printf \a' >/dev/null
-alias --save fc 'cat ~/fes/ack/fux/sudo | sudo -S systemctl restart fancontrol' >/dev/null
+alias --save fc 'cat ~/fes/uviw/fux/sudo | sudo -S systemctl restart fancontrol' >/dev/null
 alias --save fm 'loagoe.nu due | ov --column-mode --column-rainbow --column-width' >/dev/null
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
 alias --save get_media_time 'playerctl metadata --format "{{duration(position)}}"' >/dev/null

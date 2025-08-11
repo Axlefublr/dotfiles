@@ -9,7 +9,7 @@ rustup update
 cargo install-update -a
 uv tool upgrade --all
 
-cat ~/fes/ack/fux/sudo | sudo -Sv
+cat ~/fes/uviw/fux/sudo | sudo -Sv
 yes | sudo pacman -Syyu
 pacclean
 

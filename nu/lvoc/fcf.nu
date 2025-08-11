@@ -39,7 +39,7 @@ export def 'main fix' [] {
 	^systemctl --user restart waybar
 
 	let incorrect_hwmon = $incorrect_cpu | path split | reverse | skip 1 | take 1 | get 0
-	open ~/fes/ack/fux/sudo | ^sudo -Sv
+	open ~/fes/uviw/fux/sudo | ^sudo -Sv
 	let correct_hwmon = $correct_cpu | path split | reverse | skip 1 | take 1 | get 0
 	^sudo sd $incorrect_hwmon $correct_hwmon /etc/fancontrol
 	^sudo systemctl restart fancontrol

@@ -34,7 +34,7 @@ cd ~/fes
 git clone https://github.com/Axlefublr/autocommit eli
 git clone https://github.com/Axlefublr/dotfiles dot
 git clone https://github.com/Axlefublr/binaries --depth=1 bin
-git clone https://github.com/Axlefublr/backup ack
+git clone https://github.com/Axlefublr/backup uviw
 git clone https://github.com/Axlefublr/job
 
 fish_add_path ~/fes/bin
