@@ -94,6 +94,7 @@
 	; bspc
 	[ lrld
 	a lalt
+	b (cmd $fsh "wtype (uclanr 3 -j -)")
 	caps esc
 	d lctl
 	h left
