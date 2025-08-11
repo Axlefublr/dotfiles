@@ -53,7 +53,7 @@ keymap = [
   { on = 'e', run = 'open --interactive', desc = 'Choose how to open' },
   { on = 'f', run = 'filter --smart', desc = 'Filter' },
   { on = 'h', run = [ 'escape --filter', 'leave', 'shell -- zoxide add .' ], desc = 'Go back to the parent directory' },
-  { on = 'i', run = 'plugin fzf', desc = 'Jump to a directory or reveal a file using fzf' },
+  { on = 'i', run = 'plugin fzf-but-open', desc = 'Pick a file to open with fzf' },
   { on = 'j', run = 'arrow 1', desc = 'Move cursor down' },
   { on = 'k', run = 'arrow -1', desc = 'Move cursor up' },
   { on = 'l', run = [ 'escape --filter', 'enter', 'shell -- zoxide add .' ], desc = 'Enter the child directory' },

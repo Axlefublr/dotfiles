@@ -132,7 +132,7 @@
 	;; [[sort on]]
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
-	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq helix .)
+	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq yazi)
 	t (cmd niri msg action spawn -- footclient -N tiptop)
 	w (cmd niri msg action spawn -- anki)
 	;; [[sort off]]
@@ -145,7 +145,7 @@
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	k (cmd niri msg action spawn -- footclient -N pik)
-	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw helix .)
+	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw yazi)
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	n (cmd man.nu nushell)
 	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
