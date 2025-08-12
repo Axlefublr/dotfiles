@@ -28,7 +28,7 @@
 (deflayermap (magazine-which)
 	___ @magazine-cancel
 	s (tap-hold-release $tt $ht (t! magazine-execute s) (layer-while-held magazine-which-shift))
-	d (tap-hold-release $tt $ht (t! magazine-execute d) (layer-while-held magazine-which-ctrl))
+	d (tap-hold-release $tt $ht (t! magazine-execute d.md) (layer-while-held magazine-which-ctrl))
 	a (tap-hold-release $tt $ht (t! magazine-execute a) (layer-while-held magazine-which-alt))
 	; (tap-hold-release $tt $ht (t! magazine-execute semicolon.md) (layer-while-held magazine-which-alt))
 	k (tap-hold-release $tt $ht (t! magazine-execute k) (layer-while-held magazine-which-ctrl))
