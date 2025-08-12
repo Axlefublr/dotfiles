@@ -320,7 +320,7 @@ normal_select_mappings: dict[str, Any] = {
     'V': 'increment',
     'W': 'repeat_last_motion',
     'X': 'join_selections_space',
-    'Z': ':append-output `"\\n"`',
+    'Z': ':pipe $in + `\n`',
     '[': 'shell_insert_output',
     '\\': ':sort',
     ']': 'shell_append_output',
