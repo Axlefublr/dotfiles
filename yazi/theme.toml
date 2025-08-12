@@ -85,10 +85,9 @@ footer = { fg = 'white' }
 
 [filetype]
 rules = [
-  { mime = 'inode/x-empty', fg = 'red' },      # empty file
-  { name = '*', is = 'orphan', fg = 'red' },   # orphan symbolic links
-  { name = '*', is = 'link', fg = '#78bf84' }, # symbolic links
-  { name = '*', is = 'exec', fg = 'green' },   # executables
-  # { name = '*', fg = 'white' },
-  { name = '*/', fg = '#b58cc6' },
+  { mime = 'inode/empty', fg = 'red' },         # empty file
+  { url = '*', is = 'orphan', fg = 'red' },     # orphan symbolic links
+  { url = '*', is = 'link', fg = '#78bf84' },   # symbolic links
+  { url = '*', is = 'exec', fg = 'green' },     # executables
+  { mime = 'inode/directory', fg = '#b58cc6' },
 ]

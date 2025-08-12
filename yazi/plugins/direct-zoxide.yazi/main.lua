@@ -2,7 +2,7 @@ return {
 	entry = function(_, _)
 		local value, event = ya.input({
 			title = "Zoxide:",
-			position = { "top-center", x = 0, y = 2, w = 50, h = 3 },
+			pos = { "top-center", x = 0, y = 2, w = 50, h = 3 },
 		})
 
 		if event ~= 1 then return end
