@@ -13,7 +13,7 @@ magazine_openers: dict[str, str] = {
     'p': ':open ~/.local/share/magazine/p',
     'a': ':open ~/.local/share/magazine/a',
     's': ':open ~/.local/share/magazine/s',
-    'd': ':open ~/.local/share/magazine/d',
+    'd': ':open ~/.local/share/magazine/d.md',
     'f': ':open ~/.local/share/magazine/f',
     'g': ':open ~/.local/share/magazine/g',
     'h': ':open ~/.local/share/magazine/h',
