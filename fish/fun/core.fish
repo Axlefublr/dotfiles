@@ -117,19 +117,19 @@ function get_input
     set -l input (fuzzel -dl 0 2>/dev/null)
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
-        string sub -e -2 -- $input >/tmp/mine/get-input
-        flour --end --sleek /tmp/mine/get-input
-        set input "$(cat /tmp/mine/get-input)"
+        string sub -e -2 -- $input >/tmp/mine/get-input.md
+        flour --end --sleek /tmp/mine/get-input.md
+        set input "$(cat /tmp/mine/get-input.md)"
     end
     echo $input
 end
 funcsave get_input >/dev/null
 
 function get_input_max
-    truncate -s 0 /tmp/mine/get-input
-    flour --end --sleek /tmp/mine/get-input
-    if test -s /tmp/mine/get-input
-        cat /tmp/mine/get-input
+    truncate -s 0 /tmp/mine/get-input.md
+    flour --end --sleek /tmp/mine/get-input.md
+    if test -s /tmp/mine/get-input.md
+        cat /tmp/mine/get-input.md
     else
         return 1
     end
