@@ -23,6 +23,7 @@
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / XX)
+	0 (tap-hold 0 100 XX (layer-switch slay-the-spire))
 	1 (tap-hold 0 100 XX (cmd-output-keys etg.nu "stat add curse 5" "stat add coolness 5" "give brick_of_cash" "add_teleporters"))
 	2 (tap-hold 0 100 XX (cmd-output-keys etg.nu --active))
 	3 (tap-hold 0 100 XX (cmd-output-keys etg.nu "add_teleporters"))
@@ -192,6 +193,7 @@
 (deflayermap (chord)
 	;; [[sort on]]
 	a (cmd $fsh runner_interactive_unicode)
+	c (cmd $fsh edit_clipboard)
 	caps (cmd $fsh ntf_dismiss_all)
 	d (cmd $fsh "runner show")
 	e (cmd $fsh internet_search)
@@ -202,7 +204,6 @@
 	s (cmd $fsh runner_link)
 	v (cmd fuzzel)
 	w (one-shot $ot (layer-while-held bookmark))
-	x (cmd $fsh edit_clipboard)
 	z (cmd $fsh rofimoji)
 	;; [[sort off]]
 )
@@ -214,6 +215,21 @@
 	f (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	e (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
 	z (cmd $fsh runner_symbol_name)
+)
+
+(deflayermap (slay-the-spire)
+	0 (layer-switch default)
+	j 1
+	k 2
+	l 3
+	u 4
+	i 5
+	o 6
+	m 7
+	, 8
+	. 9
+	; 0
+	' e
 )
 
 ;; [[sort on]]
