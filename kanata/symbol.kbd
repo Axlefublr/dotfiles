@@ -9,8 +9,10 @@
 	k min
 	l eql
 	m S-5
+	n (cmd wtype ×)
 	o S-3
-	u (cmd wtype ¢)
+	p (cmd wtype √)
+	u (cmd wtype ÷)
 	;; [[sort off]]
 )
 
@@ -19,26 +21,22 @@
 	, S-7
 	. (cmd wtype °)
 	/ S-bksl
-	; (cmd wtype ×)
 	h (cmd wtype €)
 	i S-6
 	j grv
 	k S-min
 	l (cmd wtype —)
 	m S-grv
-	n (cmd wtype √)
+	n (cmd wtype ¢)
 	o S-2
 	p (cmd wtype ™)
-	u (cmd wtype ÷)
 	;; [[sort off]]
 )
 
 (deflayermap (symbol-tertiary)
 	;; [[sort on]]
-	' (cmd wtype ┗)
 	, (cmd wtype ❗)
 	/ (cmd wtype ❓)
-	; (cmd wtype ┃)
 	b (cmd wtype 💡)
 	h (cmd wtype ←)
 	i (cmd wtype ✨)

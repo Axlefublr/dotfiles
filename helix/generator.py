@@ -347,8 +347,9 @@ normal_select_mappings: dict[str, Any] = {
     '{': 'rotate_selections_first',
     '|': 'shell_pipe',
     '}': 'rotate_selections_last',
-    '¢': 'select_references_to_symbol_under_cursor',
+    '¢': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 44 -a center -c '-' }",
     '°': 'shell_pipe_to',
+    '×': 'select_references_to_symbol_under_cursor',
     '‘': 'rotate_selection_contents_backward',
     '’': 'rotate_selection_contents_forward',
     '‚': 'reverse_selection_contents',
@@ -356,9 +357,6 @@ normal_select_mappings: dict[str, Any] = {
     '”': 'goto_next_diag',
     '…': 'split_selection_on_newline',
     '€': 'keep_selections',
-    '√': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 44 -a center -c '-' }",
-    '┃': ['collapse_selection', ':pipe ; "┃"'],
-    '┗': ['collapse_selection', ':pipe ; "┗"'],
     '🚀': 'rename_symbol',
     # [[sort off]]
     'A-.': {
