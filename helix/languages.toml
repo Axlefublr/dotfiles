@@ -79,7 +79,7 @@ diagnostics.disable = [
 # ------------------markdown------------------
 [[language]]
 name = "markdown"
-indent = { tab-width = 2, unit = "  " }
+indent = { tab-width = 3, unit = "   " }
 
 [language.auto-pairs]
 "(" = ")"
