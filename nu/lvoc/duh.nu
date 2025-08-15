@@ -12,3 +12,7 @@ export-env {
 	$env.config.table.trim.wrapping_try_keep_words = false
 	# [[sort off]]
 }
+
+export def 'date now date' [] {
+	date now | format date '%y.%m.%d'
+}
