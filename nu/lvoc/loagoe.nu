@@ -21,7 +21,6 @@ const known = {
 	towels: 7
 	dust: 8
 	vacuum: 8
-	brushes: 10
 	update: 10
 	nails: 13
 	bottle: 15
@@ -29,6 +28,7 @@ const known = {
 	glasses: 15
 	liked: 15
 	photos: 15
+	utencils: 15
 	wilter: 15
 	keyboard: 30
 	tails: 40
