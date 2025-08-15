@@ -46,5 +46,10 @@ def 'main nushell' [] {
 	}
 	| to text
 	| fuzzel -d --match-mode fzf --cache ~/.cache/mine/nushell-frecency
+	let input = try {
+		$input | parse '{name} ({search_terms})' | get name.0
+	} catch {
+		$input
+	}
 	^footclient -N -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'($input) --help | ov --wrap=true --caption=`($input)`'
 }
