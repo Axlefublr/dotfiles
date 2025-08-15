@@ -27,15 +27,6 @@ function _execute_via_pueue
 end
 funcsave _execute_via_pueue >/dev/null
 
-function _delete_commandline_or_exit
-    if test -n "$(commandline)"
-        commandline ''
-    else
-        exit
-    end
-end
-funcsave _delete_commandline_or_exit >/dev/null
-
 function _harp_get
     while true
         read -n 1 -P 'harp get: ' -l key || break
@@ -77,11 +68,9 @@ function fish_user_key_bindings
     bind ctrl-1 _travel_buffer_head
     bind ctrl-3 _travel_yazi_cwd
     bind ctrl-5 _travel_helix_cwd
-    bind ctrl-\; 'commandline "ov -Ae -- $(commandline)"'
     bind ctrl-e _reexec
     bind ctrl-l 'commandline -f clear-screen'
     bind ctrl-o _execute_via_pueue
-    bind ctrl-q 'z .. ; commandline -f repaint'
     bind ctrl-s 'commandline -f repaint'
     bind ctrl-space 'commandline -i " "'
     bind ctrl-z d
