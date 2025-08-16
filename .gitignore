@@ -9,6 +9,7 @@ yazi/plugins/open-with-cmd.yazi
 yazi/plugins/compress.yazi
 yazi/plugins/toggle-pane.yazi
 yazi/plugins/types.yazi
+yazi/plugins/ouch.yazi
 helix/quit.toml
 stdext/Cargo.lock
 stdext/target

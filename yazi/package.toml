@@ -1,9 +1,4 @@
 [[plugin.deps]]
-use = "KKV9/compress"
-rev = "9fc8fe0"
-hash = "2ad086899bf368fba211a33d8f68c39d"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
 rev = "e95c7b3"
 hash = "d6f60c24d8c0cf57a855bf46115b2502"
@@ -22,6 +17,11 @@ hash = "5c20ffa5171dab34042e03d273dddc5b"
 use = "yazi-rs/plugins:smart-enter"
 rev = "e95c7b3"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "0742fff"
+hash = "2bd799b42b8e42b8ef100310be71f8d1"
 
 [flavor]
 deps = []

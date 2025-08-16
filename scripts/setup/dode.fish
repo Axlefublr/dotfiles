@@ -869,11 +869,12 @@ rm -fr ~/.config/yazi
 ln -s ~/fes/dot/yazi ~/.config
 # ya pkg add yazi-rs/plugins:jump-to-char
 # ya pkg add Ape/open-with-cmd
-ya pkg add KKV9/compress
+# ya pkg add KKV9/compress
 ya pkg add yazi-rs/plugins:toggle-pane
 ya pkg add yazi-rs/plugins:types
 ya pkg add lpanebr/yazi-plugins:first-non-directory
 ya pkg add yazi-rs/plugins:smart-enter
+ya pkg add ndtoan96/ouch
 cargo binstall -y resvg
 
 # ------------------ydotool-------------------
