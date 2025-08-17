@@ -206,6 +206,8 @@ all_modes_mappings: dict[str, Any] = {
     'C-home': 'move_parent_node_start',
     'C-i': ['commit_undo_checkpoint', 'normal_mode', 'open_above'],
     'C-o': ['commit_undo_checkpoint', 'normal_mode', 'open_below'],
+    'C-pagedown': 'goto_next_buffer',
+    'C-pageup': 'goto_previous_buffer',
     'C-s': 'signature_help',
     'C-t': ':reload!',
     'C-tab': 'add_newline_above',
