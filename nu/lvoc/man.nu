@@ -1,5 +1,11 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
+const fish_builtin_functions = [
+	# [[sort on]]
+	'fish_opt'
+	# [[sort off]]
+]
+
 def main [] {}
 
 def 'main help' [] {
@@ -28,6 +34,7 @@ def 'main men' [] {
 	| parse -r '(?P<name>\S+ \([1-9]p?\)) +- \S'
 	| get name
 	| interleave { ^fish -c 'builtin -n' | lines | where $it not-in [':', '.', '[', '_'] | par-each { $in + ' (fish)' } }
+	| interleave { $fish_builtin_functions | par-each { $in + ' (fish)' } }
 	| to text
 	| save -f /tmp/mine/man-atomic
 	mv -f /tmp/mine/man-atomic ~/.cache/mine/man-list
