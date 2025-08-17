@@ -7,9 +7,6 @@ input {
             // options "grp:win_space_toggle"
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
-
-            // For example:
-            // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
     }
@@ -47,7 +44,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "eDP-1" {
+output "HDMI-A-1" {
     // Uncomment this line to disable this output.
     // off
 
