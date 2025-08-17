@@ -100,10 +100,10 @@ keymap = [
   { on = [ 's', 'F' ], run = 'link --force --relative', desc = 'Symlink relatively' },
   { on = [ 's', 'K' ], run = 'copy name_without_ext', desc = 'Copy the filename without extension' },
   { on = [ 's', 'f' ], run = 'link --force', desc = 'Symlink' },
+  { on = [ 's', 'i' ], run = 'shell -- sl.fish "$@"', desc = 'Copy uri list to clipboard' },
   { on = [ 's', 'j' ], run = 'copy path', desc = 'Copy the file path' },
   { on = [ 's', 'k' ], run = 'copy filename', desc = 'Copy the filename' },
-  { on = [ 's', 'l' ], run = 'shell -- sl.fish "$@"', desc = 'Copy uri list to clipboard' },
-  { on = [ 's', 'o' ], run = '''shell -- fish -c 'readlink $argv | wl-copy -n' "$@" ''', desc = "Copy symlink's target" },
+  { on = [ 's', 'l' ], run = '''shell -- fish -c 'readlink $argv | wl-copy -n' "$@" ''', desc = "Copy symlink's target" },
   { on = [ 's', 'r' ], run = 'hardlink --force --follow', desc = 'Hardlink' },
   { on = [ 's', 'u' ], run = 'copy dirname', desc = 'Copy the directory path' },
   # [[sort off]]
