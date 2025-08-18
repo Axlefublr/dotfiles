@@ -478,11 +478,12 @@ normal_select_mappings: dict[str, Any] = {
         ),
         # [[sort on]]
         'F': ':edit %sh(wl-paste)',
+        'Q': ':cd %(buffer_parent)',
         'a': ':buffer-close-all',
         'd': ':buffer-close-others',
         'g': ':reset-diff-change',
         'm': 'goto_last_accessed_file',
-        'q': ':cd %(buffer_parent)',
+        'q': ":cd %sh(git -C '%(buffer_parent)' rev-parse --show-toplevel)",
         'r': ':lsp-restart',
         # [[sort off]]
     },
