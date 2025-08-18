@@ -24,6 +24,12 @@ function b
 end
 funcsave b >/dev/null
 
+function catait
+    inotifywait -e close_write -e close_nowrite $argv &>/dev/null
+    cat $argv
+end
+funcsave catait >/dev/null
+
 function confirm -a message
     not set -q message && return 121
     not set -q argv[3] && return 121
