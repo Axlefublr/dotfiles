@@ -340,6 +340,8 @@ mkdir -p ~/.config/just
 ln -sf ~/fes/dot/globaljustfile ~/.config/just/justfile
 
 # -------------------kanata-------------------
+sudo usermod -aG input $USER
+sudo usermod -aG video $USER
 indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata'
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 systemctl --user enable --now ~/fes/dot/kanata/kanata.service
