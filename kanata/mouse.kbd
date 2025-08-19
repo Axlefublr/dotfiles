@@ -7,6 +7,7 @@
 	h (cmd woomer)
 	/ (cmd $fsh pick_and_copy_color)
 	u (cmd $fsh screenshot_select)
+	q (cmd $fsh "show_clipboard_image -s fill")
 
 	caps esc
 	; lmet
