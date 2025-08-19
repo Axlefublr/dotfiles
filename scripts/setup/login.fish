@@ -7,4 +7,3 @@ playerctld daemon
 
 foot -D ~/fes/dot & disown
 gtk-launch floorp
-gtk-launch vesktop
