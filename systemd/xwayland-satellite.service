@@ -2,10 +2,13 @@
 After=graphical-session.target
 PartOf=graphical-session.target
 Requisite=graphical-session.target
+StartLimitBurst=0
+StartLimitIntervalSec=0
 
 [Service]
-Type=exec
 ExecStart=/usr/bin/xwayland-satellite
+Restart=always
+Type=exec
 
 [Install]
-UpheldBy=graphical-session.target
+WantedBy=graphical-session.target
