@@ -383,6 +383,11 @@ function win_wait_except
 end
 funcsave win_wait_except >/dev/null
 
+function wpchange
+    swww img -t any --transition-fps 255 --transition-duration 3
+end
+funcsave wpchange >/dev/null
+
 function yazi_cd
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
