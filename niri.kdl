@@ -181,7 +181,7 @@ binds {
     Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
     Mod+Shift+E { quit; }
 
-    Mod+Apostrophe { toggle-overview; }
+    // Mod+Apostrophe { toggle-overview; }
     Mod+R { fullscreen-window; }
     // Mod+R { toggle-windowed-fullscreen; }
     Mod+Semicolon { close-window; }
@@ -215,10 +215,11 @@ binds {
     Mod+Ctrl+H { set-column-width "66.66667%"; }
     Mod+Ctrl+L { expand-column-to-available-width; }
 
-    Mod+Z { set-window-height "33.333%"; }
-    Mod+A { set-window-height "50%"; }
-    Mod+Q { set-window-height "66.667%"; }
-    Mod+X { reset-window-height; }
+    Mod+Apostrophe { set-window-height "33.333%"; }
+    // Mod+Z { set-window-height "33.333%"; }
+    // Mod+A { set-window-height "50%"; }
+    // Mod+Q { set-window-height "66.667%"; }
+    Mod+N { reset-window-height; }
 }
 
 // Add lines like this to spawn processes at startup.
