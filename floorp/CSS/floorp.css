@@ -94,6 +94,7 @@
 .tab-icon-image {
   height: 18px !important;
   width: 18px !important;
+  margin-top: 1px !important;
 }
 
 .tab-background:is([selected], [multiselected]) {
@@ -123,21 +124,25 @@
   }
 }
 
-#workspaces-toolbar-button {
-  --toolbarbutton-outer-padding: 7px;
-
-  &>image.toolbarbutton-icon {
-    width: auto !important;
-    height: 30px !important;
-  }
+#TabsToolbar-customization-target {
+  height: 30px !important;
 }
 
-/* hide workspace icon because they look bad and I use emojis instead */
 #workspaces-toolbar-button {
-  padding: 0px 5px 0px 7px !important;
+  --toolbarbutton-outer-padding: 7px;
+  padding: 0px 2px 0px 5px !important;
+  height: 30px !important;
 
+  /* hide workspace icon because they look bad and I use emojis instead */
   >.toolbarbutton-icon {
     display: none !important;
+  }
+
+  >.toolbarbutton-text {
+    margin-block: 0 !important;
+    margin-inline: 0 !important;
+    padding-top: 0 !important;
+    min-height: 0 !important;
   }
 }
 
