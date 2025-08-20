@@ -67,7 +67,7 @@ editor: dict[str, Any] = {
     'auto-completion': True,
     'auto-format': True,
     'auto-info': True,
-    'auto-save': {'focus-lost': False},
+    'auto-save': {'focus-lost': True},
     'bufferline': 'always',
     'color-modes': True,
     'completion-timeout': 5,
