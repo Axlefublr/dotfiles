@@ -35,9 +35,9 @@
 }
 
 /*-----------------tab width------------------*/
-/* .tabbrowser-tab { */
-/* min-width: 190px !important; */
-/* } */
+.tabbrowser-tab:not([pinned]) {
+  min-width: 200px !important;
+}
 
 /*---------------tabs container---------------*/
 #tabbrowser-tabs>#tabbrowser-arrowscrollbox {
@@ -91,10 +91,22 @@
   --tab-label-mask-size: 0 !important;
 }
 
+.tab-content {
+  --inline-tab-padding: 10px !important;
+
+  &[pinned] {
+    padding: 0 var(--inline-tab-padding) !important;
+  }
+}
+
 .tab-icon-image {
   height: 18px !important;
   width: 18px !important;
   margin-top: 1px !important;
+
+  &:not([pinned]) {
+    margin-inline-end: 8px !important;
+  }
 }
 
 .tab-background:is([selected], [multiselected]) {
@@ -129,8 +141,8 @@
 }
 
 #workspaces-toolbar-button {
-  --toolbarbutton-outer-padding: 7px;
-  padding: 0px 4px 0px 7px !important;
+  /* --toolbarbutton-outer-padding: 7px; */
+  padding: 0px 3px 0px 5px !important;
   height: 30px !important;
 
   /* hide workspace icon because they look bad and I use emojis instead */
