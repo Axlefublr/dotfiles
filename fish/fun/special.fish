@@ -13,6 +13,13 @@ function calculate_eof_position -a file
 end
 funcsave calculate_eof_position >/dev/null
 
+function clipboard_image_save
+    set -l path ~/iwm/sco/(date +%Y.%m.%d-%H:%M:%S).png
+    wl-paste -t image/png >$path
+    notify-send "saved to $(path basename $path)"
+end
+funcsave clipboard_image_save >/dev/null
+
 function clipboard_index -a index
     notify-send -t 2000 "$(cliphist list | zat.rs - $index | cliphist decode | pee 'wl-copy -n' 'head -c 100')"
 end
