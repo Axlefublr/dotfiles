@@ -183,6 +183,7 @@
 (deflayermap (func-chord)
 	;; [[sort on]]
 	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
+	c (cmd $fsh clipboard_image_save)
 	d (cmd $fsh show_clipboard_image)
 	q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	s (cmd $fsh edit_clipboard_image)
