@@ -184,7 +184,7 @@ binds {
 
     Mod+Apostrophe { toggle-overview; }
     Mod+R { fullscreen-window; }
-    // Mod+R { toggle-windowed-fullscreen; }
+    Mod+Ctrl+R { toggle-windowed-fullscreen; }
     Mod+Semicolon { close-window; }
     Mod+Ctrl+Semicolon { spawn "fish" "-c" "strongly_kill_window"; }
 
