@@ -7,7 +7,8 @@
 	h (cmd woomer)
 	/ (cmd $fsh pick_and_copy_color)
 	u (cmd $fsh screenshot_select)
-	q (cmd $fsh "show_clipboard_image -s fill")
+	t (cmd $fsh "show_clipboard_image -s fill")
+	p (cmd $fsh "wl-paste -t image/png | wpchange -")
 
 	caps esc
 	; lmet
