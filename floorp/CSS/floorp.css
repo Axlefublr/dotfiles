@@ -130,7 +130,7 @@
 
 #workspaces-toolbar-button {
   --toolbarbutton-outer-padding: 7px;
-  padding: 0px 2px 0px 5px !important;
+  padding: 0px 4px 0px 7px !important;
   height: 30px !important;
 
   /* hide workspace icon because they look bad and I use emojis instead */
