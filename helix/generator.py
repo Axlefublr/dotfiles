@@ -262,6 +262,7 @@ normal_select_mappings: dict[str, Any] = {
     '#': 'yank_joined',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
+    '&': '@<A-k>;—<ret>×<A-k>M',
     '(': 'goto_prev_change',
     ')': 'goto_next_change',
     '*': 'search_selection_detect_word_boundaries',
