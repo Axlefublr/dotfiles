@@ -161,7 +161,7 @@ end
 funcsave screenshot_screen >/dev/null
 
 function show_clipboard_image
-    wl-paste -t image/png | swayimg -f $argv -
+    wl-paste -t image/png | swayimg $argv -
 end
 funcsave show_clipboard_image >/dev/null
 
