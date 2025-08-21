@@ -67,7 +67,7 @@ editor: dict[str, Any] = {
     'auto-completion': True,
     'auto-format': True,
     'auto-info': True,
-    'auto-save': {'focus-lost': True},
+    'auto-save': {'focus-lost': False},
     'bufferline': 'always',
     'color-modes': True,
     'completion-timeout': 5,
@@ -444,8 +444,7 @@ normal_select_mappings: dict[str, Any] = {
             ]
         ),
         # [[sort on]]
-        ':': 'diagnostics_picker',
-        ';': 'buffer_picker',
+        'D': 'diagnostics_picker',
         'I': 'local_search_grep',
         'J': 'command_palette',
         'K': 'file_picker_in_current_buffer_directory',
@@ -453,7 +452,7 @@ normal_select_mappings: dict[str, Any] = {
         'a': 'harp_command',
         'c': 'global_search',
         'd': magazine_openers,
-        'e': 'harp_mark',
+        'e': 'buffer_picker',
         'f': 'harp_search',
         'i': 'local_search_fuzzy',
         'j': 'global_search',
