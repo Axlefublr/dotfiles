@@ -3,6 +3,7 @@
 const fish_builtin_functions = [
 	# [[sort on]]
 	'fish_opt'
+	'psub'
 	# [[sort off]]
 ]
 
