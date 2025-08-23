@@ -14,7 +14,7 @@ daemon:
   pause_all_on_failure: false
   # exit_code
   callback: |
-    pueue-callback.rs '{{ id }}' '{{ command }}' '{{ path }}' '{{ result }}' '{{ exit_code }}' '{{ group }}' '{{ output }} {{ start }} {{ end }}'
+    pueue.nu callback '{{ id }}' '{{ command }}' '{{ path }}' '{{ result }}' '{{ exit_code }}' '{{ group }}' '{{ output }}' '{{ start }}' '{{ end }}'
   env_vars: {}
   callback_log_lines: 10
   shell_command: ["fish", "-c", "{{ pueue_command_string }}"]
