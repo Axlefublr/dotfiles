@@ -8,6 +8,10 @@ local state = ya.sync(function()
 	return cx.active.current.cwd, selected
 end)
 
+local are_hidden_shown = ya.sync(function()
+	return cx.active.pref.show_hidden
+end)
+
 function M:entry()
 	ya.emit("escape", { visual = true })
 
@@ -31,8 +35,9 @@ function M:entry()
 end
 
 function M.run_with(cwd, selected)
+	local walker = are_hidden_shown() and '--walker=file,follow,hidden' or '--walker=file,follow'
 	local child, err = Command("fzf")
-		:arg("-m")
+		:arg(walker)
 		:cwd(tostring(cwd))
 		:stdin(#selected > 0 and Command.PIPED or Command.INHERIT)
 		:stdout(Command.PIPED)

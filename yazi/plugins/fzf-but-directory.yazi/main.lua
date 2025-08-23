@@ -26,6 +26,7 @@ function M:entry()
 	local urls = M.split_urls(cwd, output)
 	if #urls == 1 then
 		local cha = #selected == 0 and fs.cha(urls[1])
+		ya.emit('shell', { 'zoxide add ' .. ya.quote(tostring(urls[1])) })
 		ya.emit(cha and cha.is_dir and "cd" or "reveal", { urls[1], raw = true })
 	elseif #urls > 1 then
 		urls.state = #selected > 0 and "off" or "on"
@@ -36,7 +37,6 @@ end
 function M.run_with(cwd, selected)
 	local walker = are_hidden_shown() and '--walker=dir,follow,hidden' or '--walker=dir,follow'
 	local child, err = Command("fzf")
-		:arg("-m")
 		:arg(walker)
 		:cwd(tostring(cwd))
 		:stdin(#selected > 0 and Command.PIPED or Command.INHERIT)
