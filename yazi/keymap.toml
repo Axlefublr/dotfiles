@@ -19,6 +19,7 @@ keymap = [
   { on = ':', run = [ 'plugin blammo', 'plugin storecwd', 'quit' ], desc = 'Exit the process' },
   { on = '<', run = 'tab_switch -1 --relative', desc = 'Switch to the previous tab' },
   { on = '<C-c>', run = 'yank', desc = 'Yank selected files (copy)' },
+  { on = '<C-i>', run = 'plugin fzf', desc = 'Pick a file to reveal with fzf' },
   { on = '<C-r>', run = 'toggle_all', desc = 'Inverse selection of all files' },
   { on = '<C-w>', run = '''shell -- fish -c 'webify $argv' "$@"''', desc = 'Convert to webp, if that ends up smaller' },
   { on = '<C-x>', run = 'yank --cut', desc = 'Yank selected files (cut)' },
