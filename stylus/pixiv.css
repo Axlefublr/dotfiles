@@ -1,0 +1,61 @@
+/* https://www.pixiv.net/en/artworks */
+/* urls starting with */
+
+body {
+  >div>div[data-overlay-container="true"]>div {
+
+    /* top bar */
+    >div.sc-9e377ba9-0 {
+      display: none;
+    }
+
+    >div.__top_side_menu_body div.sc-8d5ac044-3 {
+      margin-top: 0;
+      padding-bottom: 0;
+
+      /* sidebar, with artist */
+      >aside.sc-8d5ac044-8 {
+        display: none;
+      }
+
+      >main {
+        width: 100%;
+
+        section.sc-7d1a8035-1.sc-7d1a8035-2.enOpYM.ftWmQb {
+          border-radius: 0;
+
+          figure {
+            img.sc-9ad52c08-1 {
+              height: auto !important;
+              max-height: 90vh !important;
+            }
+
+            [role="presentation"] {
+              margin-top: 30px;
+            }
+          }
+
+          /* like button and other stuff */
+          section.sc-d1c020eb-0.gPBXUH {
+            justify-content: center;
+          }
+
+          /* title / description */
+          figcaption>div.sc-d4cbc2e2-13.ghpbbc {
+            margin: unset !important;
+
+            /* the actual text contained */
+            >div.sc-d4cbc2e2-14.bkwLDC {
+              width: 800px;
+            }
+          }
+
+          /* entire section that leaves off with big grey margin */
+          section.sc-f473edfb-5 {
+            margin: 24px auto 0px;
+          }
+        }
+      }
+    }
+  }
+}
