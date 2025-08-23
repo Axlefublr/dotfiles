@@ -561,6 +561,8 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout qrtool
 qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 
 # -----------------quickshell-----------------
+# google-breakpad, a dependency of quickshell, brings in the dump_syms
+paru -Rns dump_syms
 sudo pacman -S --needed --noconfirm --disable-download-timeout qt5-imageformats qt5-multimedia qt5-connectivity
 paru -Sa --needed --disable-download-timeout google-breakpad-git quickshell-git
 # create empty .qmlls.ini file next to the shell.qml file
