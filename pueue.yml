@@ -1,5 +1,5 @@
 client:
-  restart_in_place: true
+  restart_in_place: false
   read_local_logs: true
   show_confirmation_questions: false
   show_expanded_aliases: false
@@ -10,7 +10,7 @@ client:
     %y.%m.%d
     %H:%M:%S
 daemon:
-  pause_group_on_failure: true
+  pause_group_on_failure: false
   pause_all_on_failure: false
   # exit_code
   callback: |

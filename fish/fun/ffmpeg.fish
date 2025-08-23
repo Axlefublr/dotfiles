@@ -59,7 +59,7 @@ function ffmpeg_convert_video
             return
         end
 
-        pueue.nu push -g cpu -- ffmpeg -i "$input" $from $to $copy_audio $copy_video "$output"
+        pueue add -g cpu -- ffmpeg -i "$input" $from $to $copy_audio $copy_video "$output"
     end
 end
 funcsave ffmpeg_convert_video >/dev/null
@@ -89,7 +89,7 @@ function ffmpeg_compress_video
         end
         set output (string replace -a '!!' $input_basename $output)
 
-        pueue.nu push -g cpu -- ffmpeg_compress "$input" "$output" -crf 28 -preset veryslow -b:a 64k
+        pueue add -g cpu -- ffmpeg_compress "$input" "$output" -crf 28 -preset veryslow -b:a 64k
     end
 end
 funcsave ffmpeg_compress_video >/dev/null
@@ -136,8 +136,8 @@ function ffmpeg_convert_to_mp3
         not test -f "$file" && continue
         echo "processing $file" >&2
         confirm.rs 'delete input file?' '[j]es' '[k]o' | read -l response
-        pueue.nu push -g cpu -- ffmpeg -i "$file" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$file")
-        test "$response" = j && pueue.nu push -g cpu -- gomi $file
+        pueue add -g cpu -- ffmpeg -i "$file" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$file")
+        test "$response" = j && pueue add -g cpu -- gomi $file
     end
 end
 funcsave ffmpeg_convert_to_mp3 >/dev/null

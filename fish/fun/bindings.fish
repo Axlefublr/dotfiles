@@ -21,7 +21,7 @@ funcsave _travel_buffer_head >/dev/null
 function _execute_via_pueue
     set -l cmd (commandline)
     history append -- $cmd
-    pueue.nu push -- $cmd
+    pueue add -- $cmd
     commandline ''
     commandline -f repaint
 end
