@@ -28,6 +28,8 @@
 	2 (tap-hold 0 100 XX (cmd-output-keys etg.nu --active))
 	3 (tap-hold 0 100 XX (cmd-output-keys etg.nu "add_teleporters"))
 	4 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give old_crest"))
+	5 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gnawed_key"))
+	6 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give coolant_leak"))
 	7 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor"))
 	8 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gungeon_blueprint"))
 	9 (tap-hold 0 100 XX (cmd $fsh screenshot_window))
