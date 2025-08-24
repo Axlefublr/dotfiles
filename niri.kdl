@@ -179,6 +179,7 @@ binds {
 
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
+    Mod+E { spawn "footclient" "-T" "floating"; }
     Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
     Mod+Shift+E { quit; }
 
@@ -326,6 +327,7 @@ window-rule {
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
     match app-id="swayfloat"
+    match app-id="^foot" title="^floating$"
     open-floating true
 }
 window-rule {
@@ -372,6 +374,11 @@ window-rule {
 window-rule {
     match app-id="wlclock"
     default-column-width { fixed 1005; }
+}
+window-rule {
+    match app-id="^foot" title="^floating$"
+    default-column-width { proportion 0.45; }
+    default-window-height { proportion 0.25; }
 }
 
 layer-rule {
