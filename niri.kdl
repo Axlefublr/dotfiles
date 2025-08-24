@@ -90,7 +90,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesnjt fit
     //   together with the previously focused column.
-    center-focused-column "always"
+    center-focused-column "on-overflow"
 
     always-center-single-column
     empty-workspace-above-first
@@ -224,7 +224,7 @@ binds {
     Mod+Ctrl+H { set-column-width "-10%"; }
     Mod+Ctrl+L { set-column-width "+10%"; }
 
-    Mod+Ctrl+I { set-column-width "100%"; }
+    Mod+Ctrl+I { maximize-column; }
     Mod+Ctrl+M { reset-window-height; }
 }
 
