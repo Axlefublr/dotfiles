@@ -3,3 +3,4 @@ Exec=nom
 Name=Nom
 Terminal=true
 Type=Application
+Icon=/usr/share/icons/Papirus-Dark/16x16/apps/zerotier-gui.svg
