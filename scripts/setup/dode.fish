@@ -657,7 +657,6 @@ systemctl --user enable --now swaybg.service
 
 # ------------------swayimg-------------------
 mkdir -p ~/.local/share/applications/
-ln -sf ~/fes/dot/desktop/swayimg.desktop ~/.local/share/applications/swayimg.desktop
 xdg-mime default swayimg.desktop image/svg+xml
 xdg-mime default swayimg.desktop image/png
 xdg-mime default swayimg.desktop image/jpeg
