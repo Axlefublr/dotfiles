@@ -195,17 +195,17 @@
 
 (deflayermap (chord)
 	;; [[sort on]]
+	;;d (cmd $fsh "runner show")
 	a (cmd $fsh runner_interactive_unicode)
 	c (cmd $fsh edit_clipboard)
 	caps (cmd $fsh ntf_dismiss_all)
-	d (cmd $fsh "runner show")
+	d (cmd fuzzel)
 	e (cmd $fsh internet_search)
 	f (cmd $fsh "runner_link open")
 	j (layer-while-held chord-overlay)
 	n (layer-while-held func-chord)
 	r (cmd $fsh clipboard_pick)
 	s (cmd $fsh runner_link)
-	v (cmd fuzzel)
 	w (one-shot $ot (layer-while-held bookmark))
 	z (cmd $fsh rofimoji)
 	;; [[sort off]]
