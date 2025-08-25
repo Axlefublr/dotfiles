@@ -30,7 +30,7 @@ git clone https://github.com/Axlefublr/video-creation-tools tox
 git clone https://github.com/Axlefublr/documents --depth=1 dls
 
 cd ~/fes
-git clone https://github.com/Axlefublr/autocommit eli
+git clone https://github.com/Axlefublr/autocommit jiro
 git clone https://github.com/Axlefublr/dotfiles dot
 git clone https://github.com/Axlefublr/binaries --depth=1 bin
 git clone https://github.com/Axlefublr/backup uviw
@@ -52,9 +52,9 @@ cd ~/fes/lai
 git clone https://github.com/Axlefublr/axlefublr.github.io bog
 
 cd ~/.local/share
-cp -f ~/fes/eli/harp.jsonc ~/.local/share/harp/harp.jsonc
-ln -sf ~/fes/eli/loago.json ~/.local/share/loago/loago.json
-cp -f ~/fes/eli/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
+cp -f ~/fes/jiro/harp.jsonc ~/.local/share/harp/harp.jsonc
+ln -sf ~/fes/jiro/loago.json ~/.local/share/loago/loago.json
+cp -f ~/fes/jiro/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 git clone https://github.com/Axlefublr/magazine
 git clone https://github.com/Axlefublr/music alien_temple
 git clone https://github.com/Axlefublr/shows glaza

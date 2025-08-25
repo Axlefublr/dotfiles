@@ -17,29 +17,28 @@ truncate -s 0 ~/.local/share/magazine/d
 yeared_parse
 indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 
-cd ~/fes/eli
+cd ~/fes/jiro
 
-cp -fr ~/.local/share/harp/harp.jsonc ~/fes/eli/harp.jsonc
+cp -fr ~/.local/share/harp/harp.jsonc ~/fes/jiro/harp.jsonc
 git add harp.yml
 and git commit -m 'sync harp'
 
-cp -fr ~/.local/share/loago/loago.json ~/fes/eli/loago.json
 git add loago.json
 and git commit -m 'sync loago'
 
-cp -fr ~/.local/share/axleizer_invalid.json ~/fes/eli/axleizer_invalid.json
+cp -fr ~/.local/share/axleizer_invalid.json ~/fes/jiro/axleizer_invalid.json
 git add axleizer_invalid.json
 and git commit -m 'sync axleizer'
 
-cp -fr ~/.config/calcure/events.csv ~/fes/eli/calcure.csv
+cp -fr ~/.config/calcure/events.csv ~/fes/jiro/calcure.csv
 git add calcure.csv
 and git commit -m 'sync calcure'
 
-cp -fr ~/.config/nom/nom.db ~/fes/eli/nom.db
+cp -fr ~/.config/nom/nom.db ~/fes/jiro/nom.db
 git add nom.db
 and git commit -m 'sync nom'
 
-cp -fr ~/.local/share/zoxide/db.zo ~/fes/eli/zoxide.db
+cp -fr ~/.local/share/zoxide/db.zo ~/fes/jiro/zoxide.db
 git add zoxide.db
 and git commit -m 'sync zoxide'
 

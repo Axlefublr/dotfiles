@@ -86,7 +86,7 @@ rm -fr ~/.local/share/applications/bubbly.desktop
 uv tool install calcure
 mkdir -p ~/.config/calcure
 ln -sf ~/fes/dot/calcure.ini ~/.config/calcure/config.ini
-cp -fr ~/fes/eli/calcure.csv ~/.config/calcure/events.csv
+cp -fr ~/fes/jiro/calcure.csv ~/.config/calcure/events.csv
 
 # ----------------cargo-script----------------
 cargo binstall -y cargo-script
@@ -425,7 +425,7 @@ niri completions fish >~/.config/fish/completions/niri.fish
 stew install guyfedwards/nom
 mkdir -p ~/.config/nom
 ln -sf ~/fes/dot/nom.yml ~/.config/nom/config.yml
-cp -f ~/fes/eli/nom.db ~/.config/nom/nom.db
+cp -f ~/fes/jiro/nom.db ~/.config/nom/nom.db
 ln -sf ~/fes/dot/desktop/nom.desktop ~/.local/share/applications/nom.desktop
 
 # ------------------nushell-------------------
@@ -907,4 +907,4 @@ paru -Sa --needed --disable-download-timeout zoom
 sudo pacman -S --needed --noconfirm --disable-download-timeout zoxide
 set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
 set -Ux _ZO_MAXAGE 30000
-cp -fr ~/fes/eli/zoxide.db ~/.local/share/zoxide/db.zo
+cp -fr ~/fes/jiro/zoxide.db ~/.local/share/zoxide/db.zo

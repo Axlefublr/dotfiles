@@ -4,8 +4,8 @@ function loago
     command loago $argv
     test "$argv[1]" = --help && return
     if contains $argv[1] do remove
-        git -C ~/fes/eli add loago.json &>/dev/null
-        and git -C ~/fes/eli commit -m "loago $argv" &>/dev/null
+        git -C ~/fes/jiro add loago.json &>/dev/null
+        and git -C ~/fes/jiro commit -m "loago $argv" &>/dev/null
     end
 end
 funcsave loago >/dev/null

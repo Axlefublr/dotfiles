@@ -35,7 +35,7 @@ ln -sf ~/fes/dot/floorp ~/.floorp/93ml3dbj.default-release-1/chrome
 # foxyproxy
 
 Give all permissions it's asking for, including running in private windows.
-Import `~/fes/eli/foxyproxy.json`.
+Import `~/fes/jiro/foxyproxy.json`.
 You don't need to set the in-browser proxy settings, keep them as “no proxy”.
 
 # extensions
