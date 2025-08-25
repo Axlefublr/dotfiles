@@ -388,6 +388,27 @@ function wpchange
 end
 funcsave wpchange >/dev/null
 
+function x
+    set -l cmd (harp get harp_shell_$PWD $argv[1] 2>/dev/null)
+    if not test "$cmd"
+        echo "register `$argv` empty" >&2
+        return
+    end
+    set -l harp_args $argv[2..]
+    echo "$cmd" | source
+end
+funcsave x >/dev/null
+
+function X
+    harp get harp_shell_$PWD "$argv" 2>/dev/null | vipe --suffix fish | xargs -0 harp replace harp_shell_$PWD "$argv"
+end
+funcsave X >/dev/null
+
+function xl
+    harp-shell.nu harp_shell_$PWD
+end
+funcsave xl >/dev/null
+
 function yazi_cd
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
