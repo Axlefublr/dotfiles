@@ -289,15 +289,15 @@ function path_expand
 end
 funcsave path_expand >/dev/null
 
-function path_prettify
+function path_compress
     read -z | string replace -r "^$HOME" '~'
 end
-funcsave path_prettify >/dev/null
+funcsave path_compress >/dev/null
 
-function pwd_pretty
+function pwd_compressed
     string replace -r "^$HOME" '~' $PWD
 end
-funcsave pwd_pretty >/dev/null
+funcsave pwd_compressed >/dev/null
 
 function rename
     mv $argv[1] _$argv[1]
