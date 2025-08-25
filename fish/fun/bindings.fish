@@ -43,7 +43,7 @@ function _harp_set
     while true
         read -n 1 -P 'harp set: ' -l key || break
         not test "$key" && break
-        set -l harp (harp replace harp_dirs "$key" (pwd_pretty))
+        set -l harp (harp replace harp_dirs "$key" (pwd_compressed))
         break
     end
     commandline -f repaint
@@ -51,7 +51,7 @@ end
 funcsave _harp_set >/dev/null
 
 function _blammo_pwd
-    commandline -i (pwd_pretty)
+    commandline -i (pwd_compressed)
 end
 funcsave _blammo_pwd >/dev/null
 
