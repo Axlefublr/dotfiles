@@ -196,7 +196,7 @@ ln -sf ~/fes/dot/firefox/userContent.css $prof_dir/chrome
 
 # -------------------floorp-------------------
 paru -Sa --needed --disable-download-timeout floorp xwayland-run
-# everything else is here ~/fes/dot/scripts/setup/floorp.md
+# everything else is here ~/fes/dot/eli/setup/floorp.md
 
 # -------------------fnott--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout fnott

@@ -40,9 +40,9 @@ git clone https://github.com/Axlefublr/mdw
 fish_add_path ~/fes/bin
 fish_add_path ~/fes/bin/wks
 fish_add_path ~/fes/dot/fish/fun
-fish_add_path ~/fes/dot/scripts
-fish_add_path ~/fes/dot/scripts/scriptister
-fish_add_path ~/fes/dot/scripts/fool
+fish_add_path ~/fes/dot/eli
+fish_add_path ~/fes/dot/eli/scriptister
+fish_add_path ~/fes/dot/eli/fool
 fish_add_path ~/fes/dot/nu/lvoc
 
 cd ~/fes/ork

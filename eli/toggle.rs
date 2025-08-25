@@ -5,7 +5,7 @@
 // clap = { version = "4.5.37", features = ["derive"] }
 // dirs = "6.0.0"
 // end Cargo.toml
-// /home/axlefublr/fes/dot/scripts/toggle.rs
+// /home/axlefublr/fes/dot/eli/toggle.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]

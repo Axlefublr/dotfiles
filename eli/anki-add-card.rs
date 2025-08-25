@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/fes/dot/scripts/anki-add-card.rs
+// /home/axlefublr/fes/dot/eli/anki-add-card.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
