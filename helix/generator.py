@@ -323,7 +323,7 @@ normal_select_mappings: dict[str, Any] = {
     'V': 'increment',
     'W': 'repeat_last_motion',
     'X': 'join_selections_space',
-    'Z': ':pipe $in + "\\n"',
+    'Z': '@i<ret><esc>',
     '[': 'shell_insert_output',
     '\\': ':sort',
     ']': 'shell_append_output',
@@ -653,7 +653,7 @@ insert_mappings: dict[str, Any] = {
     # [[sort off]]
     'C-;': [
         'collapse_selection',
-        ':insert-output uclanr',
+        ':insert-output fish -c "uclanr | read"',
         'append_mode_same_line',
     ],
     'C-a': [
