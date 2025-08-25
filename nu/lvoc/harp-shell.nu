@@ -9,6 +9,8 @@ def main [section: string] {
     | from json
     | get $section
     | transpose register command
+    | compact -e command
     | update cells -c [command] { |the| $the.0 | str trim }
     | compact -e command
+    | table -i false
 }
