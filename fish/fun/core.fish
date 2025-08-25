@@ -63,13 +63,14 @@ funcsave d >/dev/null
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
 function ensure_browser
-    nu -c '
+    nu -n --no-std-lib -c '
         niri msg -j windows
         | from json
         | where app_id == floorp
         | where is_focused == false
+        | where workspace_id == 1
         | get id
-        | try { last }
+        | try { first }
         | each { |$it|
         	niri msg action focus-window --id $it
         } | ignore
@@ -389,13 +390,13 @@ end
 funcsave wpchange >/dev/null
 
 function x
-    set -l cmd (harp get harp_shell_$PWD $argv[1] 2>/dev/null)
-    if not test "$cmd"
+    set -l cmd "$(harp get harp_shell_$PWD $argv[1] 2>/dev/null)"
+    if not test $cmd
         echo "register `$argv` empty" >&2
         return
     end
     set -l harp_args $argv[2..]
-    echo "$cmd" | source
+    echo -n $cmd | source
 end
 funcsave x >/dev/null
 
