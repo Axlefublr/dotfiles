@@ -2,7 +2,7 @@
 
 def --wrapped main [...rest] {
 	if ($rest | length) == 0 {
-		exec ov -X --section-delimiter ^Group --hide-other-section -M Failed,Running,Queued,Success,,,,Paused -Ae -- pueue status
+		exec ov -X --section-delimiter ^Group -M Failed,Running,Queued,Success,,,,Paused -Ae -- pueue status
 		return
 	}
 	pueue ...$rest
