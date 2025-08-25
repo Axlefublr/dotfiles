@@ -2,6 +2,7 @@
 
 trash-empty -f 1
 keep-thirty.nu
+pueue.nu brush
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
 cd ~/.local/share/magazine
