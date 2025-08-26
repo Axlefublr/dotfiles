@@ -794,6 +794,8 @@ ln -sf ~/fes/dot/waybar/waybar.css ~/.config/waybar/style.css
 ln -sf /usr/lib/systemd/user/waybar.service ~/.config/systemd/user/niri.service.wants/waybar.service
 mkdir -p ~/.config/systemd/user/waybar.service.d
 ln -sf ~/fes/dot/waybar/waybar.systemd ~/.config/systemd/user/waybar.service.d/mine.conf
+systemctl --user link ~/fes/dot/waybar/waybar-config.service
+systemctl --user enable --now ~/fes/dot/waybar/waybar-config.path
 
 # ------------------waytext-------------------
 cd ~/fes/ork

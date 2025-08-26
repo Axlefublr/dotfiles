@@ -1,0 +1,5 @@
+[Path]
+PathChanged=%h/.config/waybar/waybar.jsonc
+
+[Install]
+WantedBy=paths.target
