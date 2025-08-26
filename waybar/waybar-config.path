@@ -1,5 +1,5 @@
 [Path]
-PathChanged=%h/.config/waybar/waybar.jsonc
+PathChanged=%h/fes/dot/waybar/waybar.jsonc
 
 [Install]
 WantedBy=paths.target

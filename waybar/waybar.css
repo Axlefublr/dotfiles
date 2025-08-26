@@ -68,6 +68,10 @@ window#waybar {
   color: #ea6962;
 }
 
+#custom-headphone-battery {
+  color: #ea6962;
+}
+
 #custom-cha-fan {
   color: #e491b2;
 }

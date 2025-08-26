@@ -20,6 +20,7 @@
     "custom/statusline"
   ],
   "modules-right": [
+    "custom/headphone-battery",
     "custom/cha-fan",
     "custom/cpu-fan",
     "pulseaudio",
@@ -96,6 +97,12 @@
   "pulseaudio": {
     "format": "{volume}",
     "format-muted": "0"
+  },
+  "custom/headphone-battery": {
+    "exec": "/home/axlefublr/fes/dot/waybar/headphone-battery.fish",
+    "format": "{}%",
+    "interval": 5,
+    "hide-empty-text": true
   },
   "memory": {
     "format": "{percentage}"
