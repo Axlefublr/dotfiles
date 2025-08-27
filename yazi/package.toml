@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "e95c7b3"
+rev = "d7588f6"
 hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "e95c7b3"
+rev = "d7588f6"
 hash = "1e047e1b13b5e3fc6ab1f5d0d04a14e2"
 
 [[plugin.deps]]
@@ -15,7 +15,7 @@ hash = "5c20ffa5171dab34042e03d273dddc5b"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "e95c7b3"
+rev = "d7588f6"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
