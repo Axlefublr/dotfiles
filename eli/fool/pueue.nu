@@ -39,10 +39,10 @@ def 'main brush' [] {
 	| values
 	| where { |it|
 		let the = $it | get --optional status.Done.end
-		$the != null and ((date now) - ($the | into datetime) > 1day)
+		$the != null and ((date now) - ($the | into datetime) > 2hr)
 	}
 	| get id
 	if ($olds | is-not-empty) {
-		^pueue remove ...$in
+		^pueue remove ...$olds
 	}
 }
