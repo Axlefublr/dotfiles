@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+not test -p ~/.local/share/mine/waybar-layout && mkfifo ~/.local/share/mine/waybar-layout
 set -g layout (keyboard_layout)
 set -g capslock (capslock_state)
 
@@ -23,17 +24,17 @@ end
 
 figure_out
 
-function layout_switch -s SIGUSR1
+function layout_switch
     set layout (keyboard_layout)
     set capslock (capslock_state)
     figure_out
 end
 
-function capslock_toggle -s SIGUSR2
+function capslock_toggle
     set capslock (math bitxor 1, $capslock)
     figure_out
 end
 
-while true
-    read
+while cat ~/.local/share/mine/waybar-layout | read -L the
+    echo $the | source
 end

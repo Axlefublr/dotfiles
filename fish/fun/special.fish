@@ -218,9 +218,6 @@ function strongly_kill_window
 end
 funcsave strongly_kill_window >/dev/null
 
-alias --save update_layout_widget "pgrep -f ~/fes/dot/waybar/layout.fish | xargs kill -s SIGUSR1" >/dev/null
-alias --save update_layout_widget_capslock "pgrep -f ~/fes/dot/waybar/layout.fish | xargs kill -s SIGUSR2" >/dev/null
-
 function which_wallpaper
     swww query | string match -gr 'image: (.*)'
 end
