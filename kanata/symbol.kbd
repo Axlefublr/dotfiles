@@ -87,6 +87,7 @@
 	d S-0
 	e S-]
 	f (cmd wtype ”)
+	g (cmd wtype „)
 	j (layer-while-held numbers-superscript)
 	q (cmd wtype ‘)
 	r (cmd wtype ’)
