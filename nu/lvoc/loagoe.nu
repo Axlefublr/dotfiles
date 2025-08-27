@@ -31,6 +31,7 @@ const known = {
 	utencils: 15
 	wilter: 15
 	keyboard: 30
+	yazi: 30
 	tails: 40
 	filter: 45
 	fsrs: 60
