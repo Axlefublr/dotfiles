@@ -3,6 +3,7 @@
 # [[sort on]]
 alias --save at alien_temple >/dev/null
 alias --save bell 'printf \a' >/dev/null
+alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness' >/dev/null
 alias --save fc 'cat ~/fes/uviw/fux/sudo | sudo -S systemctl restart fancontrol' >/dev/null
 alias --save fm 'loagoe.nu due | ov --column-mode --column-rainbow --column-width' >/dev/null
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
@@ -11,6 +12,7 @@ alias --save gx 'glaza --git' >/dev/null
 alias --save gz glaza >/dev/null
 alias --save hime 'history merge' >/dev/null
 alias --save jf 'exec fish' >/dev/null
+alias --save keyboard_layout "nu -n --no-std-lib -c 'let the = niri msg -j keyboard-layouts | from json ; \$the.names | get \$the.current_idx'" >/dev/null
 alias --save media_next 'playerctl next' >/dev/null
 alias --save media_position 'playerctl position' >/dev/null
 alias --save media_prev 'playerctl previous' >/dev/null

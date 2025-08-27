@@ -11,7 +11,7 @@
     "clock#weekday",
     "clock#time",
     "custom/meat",
-    "niri/language",
+    "custom/layout",
     "custom/magazines",
     "custom/screen-record",
     "custom/mouse-mode",
@@ -43,9 +43,14 @@
     "interval": 1,
     "format": "{:%H:%M:%S}"
   },
-  "niri/language": {
-    "format-en": "en",
-    "format-ru": "ru"
+  // "niri/language": {
+  //   "format-en": "en",
+  //   "format-ru": "ru"
+  // },
+  "custom/layout": {
+    "exec": "/home/axlefublr/fes/dot/waybar/layout.fish",
+    "format": "{}",
+    "hide-empty-text": true
   },
   "keyboard-state": {
     "format": {

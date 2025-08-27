@@ -108,10 +108,10 @@
 	m home
 	n (layer-switch arrows)
 	o enter
-	p caps
+	p (multi caps (cmd $fsh update_layout_widget_capslock))
 	s lsft
 	spc (layer-switch default)
-	u (cmd niri msg action switch-layout next)
+	u (multi (cmd niri msg action switch-layout next) (cmd $fsh update_layout_widget))
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
