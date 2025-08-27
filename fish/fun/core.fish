@@ -345,12 +345,12 @@ end
 funcsave toggle_value >/dev/null
 
 function vids
-    cp -f ~/iwm/sco/original.mp4 $argv[1].mp4
+    rsync ~/iwm/sco/original.mp4 $argv[1].mp4
 end
 funcsave vids >/dev/null
 
 function vidsc
-    cp -f ~/iwm/sco/compressed.mp4 $argv[1].mp4
+    rsync ~/iwm/sco/compressed.mp4 $argv[1].mp4
 end
 funcsave vidsc >/dev/null
 
