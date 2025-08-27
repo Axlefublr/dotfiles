@@ -180,21 +180,18 @@ binds {
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
     Mod+E { spawn "footclient" "-T" "floating"; }
-    Mod+F6 { spawn "systemctl" "--user" "restart" "kanata.service"; }
-    Mod+Shift+E { quit; }
 
-    Mod+Apostrophe { toggle-overview; }
     Mod+R { fullscreen-window; }
     Mod+Ctrl+R { toggle-windowed-fullscreen; }
-    Mod+Semicolon { close-window; }
-    Mod+Ctrl+Semicolon { spawn "fish" "-c" "strongly_kill_window"; }
+    Mod+I { close-window; }
 
-    Mod+M { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+O { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+Semicolon { "center-visible-columns"; }
     Mod+F { toggle-window-floating; }
     Mod+S { switch-focus-between-floating-and-tiling; }
 
-    Mod+I { consume-or-expel-window-left; }
-    Mod+O { consume-or-expel-window-right; }
+    Mod+M { consume-or-expel-window-left; }
+    Mod+Slash { consume-or-expel-window-right; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
@@ -210,14 +207,6 @@ binds {
     Mod+Period { focus-window-down-or-top; }
     Mod+Page_Up { move-window-up; }
     Mod+Page_Down { move-window-down; }
-
-    // Mod+Ctrl+J { set-column-width "33.33333%"; }
-    // Mod+Ctrl+K { set-column-width "50%"; }
-    // Mod+Ctrl+H { set-column-width "66.66667%"; }
-    // Mod+Ctrl+L { set-column-width "100%"; }
-    // Mod+Z { set-window-height "33.333%"; }
-    // Mod+A { set-window-height "50%"; }
-    // Mod+Q { set-window-height "66.667%"; }
 
     Mod+Ctrl+J { set-window-height "-10%"; }
     Mod+Ctrl+K { set-window-height "+10%"; }
