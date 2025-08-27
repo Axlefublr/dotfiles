@@ -61,6 +61,10 @@ window#waybar {
 }
 
 #custom-screen-record {
+  color: #ea6962;
+}
+
+#custom-mouse-mode {
   color: #e491b2;
 }
 

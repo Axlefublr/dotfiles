@@ -14,6 +14,7 @@
     "niri/language",
     "custom/magazines",
     "custom/screen-record",
+    "custom/mouse-mode",
     "custom/red-dot"
   ],
   "modules-center": [
@@ -69,6 +70,11 @@
   },
   "custom/screen-record": {
     "exec": "/home/axlefublr/fes/dot/waybar/screen-record.fish",
+    "format": "{}",
+    "hide-empty-text": true
+  },
+  "custom/mouse-mode": {
+    "exec": "/home/axlefublr/fes/dot/waybar/mouse-mode.fish",
     "format": "{}",
     "hide-empty-text": true
   },
