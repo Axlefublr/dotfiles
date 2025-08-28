@@ -62,6 +62,12 @@ funcsave d >/dev/null
 
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
+function engage
+    while read -P '' the
+    end
+end
+funcsave engage >/dev/null
+
 function ensure_browser
     nu -n --no-std-lib -c '
         niri msg -j windows
