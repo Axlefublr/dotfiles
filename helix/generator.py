@@ -430,7 +430,7 @@ normal_select_mappings: dict[str, Any] = {
             '|': ':pipe wrap-in-block.rs p',
             '`': ':pipe wrap-in-block.rs "`"',
             'e': ':pipe wrap-in-block.rs begin',
-            '"': ':pipe wrap-in-block.rs \\"',
+            '"': ':pipe wrap-in-block.rs `"`',
         },
     },
     'space': {
@@ -450,6 +450,7 @@ normal_select_mappings: dict[str, Any] = {
         'I': 'local_search_grep',
         'J': 'command_palette',
         'K': 'file_picker_in_current_buffer_directory',
+        'L': 'syntax_workspace_symbol_picker',
         'O': 'workspace_symbol_picker',
         'a': 'harp_command',
         'c': 'global_search',
