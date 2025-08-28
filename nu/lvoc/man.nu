@@ -4,6 +4,7 @@ const fish_builtin_functions = [
 	# [[sort on]]
 	'fish_opt'
 	'psub'
+	'trap'
 	# [[sort off]]
 ]
 
