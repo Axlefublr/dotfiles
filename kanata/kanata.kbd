@@ -145,6 +145,7 @@
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
+	b (cmd pick-blog-post.nu)
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	k (cmd niri msg action spawn -- footclient -N pik)
