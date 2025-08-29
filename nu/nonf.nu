@@ -45,8 +45,8 @@ $env.config.keybindings ++= [
 	}
 	{
 		name: edit_commandline
-		modifier: alt
-		keycode: char_e
+		modifier: control
+		keycode: char_i
 		mode: [emacs]
 		event: { send: OpenEditor }
 	}

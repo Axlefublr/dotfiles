@@ -69,6 +69,7 @@ function fish_user_key_bindings
     bind ctrl-3 _travel_yazi_cwd
     bind ctrl-5 _travel_helix_cwd
     bind ctrl-e _reexec
+    bind ctrl-i edit_command_buffer
     bind ctrl-l 'commandline -f clear-screen'
     bind ctrl-o _execute_via_pueue
     bind ctrl-s 'commandline -f repaint'
