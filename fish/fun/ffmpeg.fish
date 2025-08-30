@@ -93,7 +93,14 @@ function ffmpeg_compress_video
         end
         set output (string replace -a '!!' $input_basename $output)
 
-        pueue add -g cpu -- ffmpeg_compress "$input" "$output" -crf 28 -preset veryslow -b:a 64k
+        pueue add -g cpu -- ffmpeg -y -i "$input" \
+            -c:v libx265 \
+            -crf 23 \
+            -preset veryslow \
+            -movflags +faststart \
+            -c:a aac \
+            -b:a 96k \
+            "$output"
     end
 end
 funcsave ffmpeg_compress_video >/dev/null
@@ -140,7 +147,7 @@ function ffmpeg_convert_to_mp3
         not test -f "$file" && continue
         echo "processing $file" >&2
         confirm.rs 'delete input file?' '[j]es' '[k]o' | read -l response
-        pueue add -g cpu -- ffmpeg -i "$file" -map_metadata -1 -vn -acodec libmp3lame (path change-extension mp3 "$file")
+        pueue add -g cpu -- ffmpeg -i "$file" -map_metadata -1 -vn -c:a libmp3lame -q:a 2 (path change-extension mp3 "$file")
         test "$response" = j && pueue add -g cpu -- gomi $file
     end
 end
