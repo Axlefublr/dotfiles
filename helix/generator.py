@@ -645,6 +645,8 @@ select_mappings: dict[str, Any] = {
 insert_mappings: dict[str, Any] = {
     # [[sort on]]
     'C-h': 'commit_undo_checkpoint',
+    'C-j': '@<esc>jski<C-v>',
+    'C-k': '@<esc>ksji<C-v>',
     'C-l': '@<C-h> \\<ret>',
     'C-u': 'kill_to_line_start',
     'C-v': ['collapse_selection', 'paste_before'],
