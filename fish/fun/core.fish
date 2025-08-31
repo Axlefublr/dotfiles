@@ -367,9 +367,9 @@ function webify
         magick -define webp:lossless=true $file $webp_file
         not test -f $webp_file && continue
         if test (stat -c %s $webp_file) -gt (stat -c %s $file)
-            gomi $webp_file
+            mv $webp_file (path change-extension '.heavier'(path extension $webp_file) $webp_file)
         else
-            gomi $file
+            mv $file (path change-extension '.heavier'(path extension $file) $file)
         end
     end
 end
