@@ -77,6 +77,10 @@ diagnostics.disable = [
 ]
 
 # ------------------markdown------------------
+[[grammar]]
+name = "markdown"
+source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "576386d4068f3c04c87ffcd47c64850eeddf7f6e", subpath = "tree-sitter-markdown" }
+
 [[language]]
 name = "markdown"
 indent = { tab-width = 3, unit = "   " }

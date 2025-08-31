@@ -33,6 +33,7 @@ const known = {
 	keyboard: 30
 	ov: 30
 	yazi: 30
+	treesitter-markdown: 90
 	tails: 40
 	filter: 45
 	fsrs: 60
