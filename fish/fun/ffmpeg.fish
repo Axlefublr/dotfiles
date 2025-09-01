@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 function ffmpeg_convert_video
-    echo 'convert video to maybe another format, maybe not reencoding the audio, maybe removing it.'\n'optionally, you can cut out only some portion of the video' >&2
+    echo 'reencode video with x265, audio to aac or muted.'\n'optionally, cut out some portion of the video' >&2
     set -l files $argv
     not test "$files" && return 121
     for input in $files
@@ -10,30 +10,15 @@ function ffmpeg_convert_video
             continue
         end
         echo "processing $input" >&2
-        set -l input_basename (path basename $input | path change-extension '')
-        set -l extension (path extension $input)
-
-        echo 'if extension is not specified, extension of input is assumed' >&2
-        echo '% — input basename (no ext)' >&2
-        echo '! — input extension (with .)' >&2
-        read -P 'output: ' -f output || return 121
-        if not test "$output"
-            echo 'please enter output filepath' >&2
-            return 1
-        end
-        set output (string replace '%' $input_basename $output)
-        set output (string replace '!' $extension $output)
-
-        if test -z "$(path extension $output)"
-            set output $output$extension
-        end
+        set -l input_basename (path basename -E $input)
+        set -l output "$input_basename"!.mp4
 
         echo '[hh:mm:]ss[.ms]' >&2
-        echo 'skip to assume “start of video”' >&2
+        echo 'skip to mean “start of video”' >&2
         read -P 'from: ' -l from || return 121
         if test "$from"
             set from -ss $from
-            echo 'skip if you want to assume "end of video"' >&2
+            echo 'skip to assume “end of video”' >&2
         else
             echo 'skip to not cut at all' >&2
             set -e from
@@ -54,16 +39,13 @@ function ffmpeg_convert_video
         else
             return
         end
-        confirm.rs 'copy over video channel?'\n'(fails if you\'re doing something with the video)' '[j]es' '[k]o' | read -l response
-        if test "$response" = j
-            set copy_video -c:v copy
-        else if test "$response" = k
-            set -e copy_video
-        else
-            return
-        end
 
-        pueue add -g cpu -- ffmpeg -i "$input" $from $to $copy_audio $copy_video "$output"
+        pueue add -g cpu -- ffmpeg -y -i "$input" $from $to \
+            $copy_audio \
+            $copy_video \
+            -map_metadata -1 \
+            -movflags +faststart \
+            "$output"
     end
 end
 funcsave ffmpeg_convert_video >/dev/null
@@ -104,11 +86,6 @@ function ffmpeg_compress_video
     end
 end
 funcsave ffmpeg_compress_video >/dev/null
-
-function ffmpeg_compress
-    ffmpeg -y -i "$argv[1]" -c:v libx264 -c:a aac -movflags +faststart $argv[3..] "$argv[2]"
-end
-funcsave ffmpeg_compress >/dev/null
 
 function ffmpeg_combine_two_videos_into_one
     # TODO: take arbitrary amount of input files
