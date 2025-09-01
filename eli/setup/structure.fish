@@ -59,4 +59,5 @@ git clone https://github.com/Axlefublr/magazine
 git clone https://github.com/Axlefublr/music alien_temple
 git clone https://github.com/Axlefublr/shows glaza
 
-ln -sf ~/fes/dot/desktop/aurupdate.desktop ~/.local/share/applications/aurupdate.desktop
+ln -sf ~/fes/dot/desktop/aurupdate.desktop ~/.local/share/applications/
+ln -sf ~/fes/dot/desktop/wamine.desktop ~/.local/share/applications/
