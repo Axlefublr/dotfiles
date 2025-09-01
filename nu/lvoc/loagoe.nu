@@ -19,9 +19,9 @@ const known = {
 	nose: 6
 	floor: 7
 	towels: 7
-	dust: 8
 	vacuum: 8
-	update: 10
+	dust: 9
+	update: 15
 	nails: 13
 	bottle: 15
 	disc: 15
@@ -33,11 +33,11 @@ const known = {
 	keyboard: 30
 	ov: 30
 	yazi: 30
-	treesitter-markdown: 90
 	tails: 40
 	filter: 45
 	fsrs: 60
 	iso: 60
+	treesitter-markdown: 90
 	moch: 122
 	toothbrush: 122
 	tongue: 183
