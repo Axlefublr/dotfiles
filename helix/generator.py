@@ -512,7 +512,7 @@ normal_select_mappings: dict[str, Any] = {
         # [[sort on]]
         'I': 'goto_implementation',
         'J': 'goto_declaration',
-        'c': ':pipe qalc -t $in',
+        'c': ':pipe qalc.fish -t $in',
         'i': 'goto_type_definition',
         'j': 'goto_definition',
         'k': 'goto_reference',
