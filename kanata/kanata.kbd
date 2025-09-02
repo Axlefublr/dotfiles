@@ -179,6 +179,7 @@
 	r (cmd loagoe.nu due pick)
 	s (cmd $fsh screenshot_screen)
 	v (cmd $fsh anki_add_card)
+	w (cmd $fsh runner_notification)
 	;; [[sort off]]
 )
 
