@@ -10,6 +10,7 @@ alias --save less 'less --use-color -R' >/dev/null
 alias --save octogit-set "octogit --color-all-commits ffd75f --color-all-staged 87ff5f --color-all-unstaged 00d7ff" >/dev/null
 alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
 alias --save pv 'pv -g' >/dev/null
+alias --save qalc 'qalc -s "vspace off" -s "curconv off" -s "update exchange rates 1" -s "decimal comma off" -s "autocalc"' >/dev/null
 alias --save rg 'rg --engine auto' >/dev/null
 alias --save rsync 'rsync --mkpath -P' >/dev/null
 alias --save termdown 'termdown -W -f roman' >/dev/null

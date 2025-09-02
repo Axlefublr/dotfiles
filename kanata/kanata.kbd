@@ -179,7 +179,6 @@
 	r (cmd loagoe.nu due pick)
 	s (cmd $fsh screenshot_screen)
 	v (cmd $fsh anki_add_card)
-	w (cmd loagoe.nu pick)
 	;; [[sort off]]
 )
 
@@ -189,6 +188,7 @@
 	c (cmd $fsh clipboard_image_save)
 	d (cmd $fsh show_clipboard_image)
 	q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
+	r (cmd loagoe.nu pick)
 	s (cmd $fsh edit_clipboard_image)
 	w (cmd $fsh float_clipboard_image)
 	;; [[sort off]]

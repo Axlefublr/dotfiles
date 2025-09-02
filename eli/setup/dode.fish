@@ -547,10 +547,6 @@ stew install ericchiang/pup
 
 # --------------------qalc--------------------
 sudo pacman -S libqalculate
-# set vspace off
-# set curconv off
-# set update exchange rates 1
-# set decimal comma off
 
 # ----------------qbittorrent-----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout qbittorrent

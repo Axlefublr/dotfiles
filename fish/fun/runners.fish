@@ -70,13 +70,14 @@ end
 funcsave runner_link >/dev/null
 
 function runner_math
-    set -l input_expr (cat ~/.cache/mine/runner-math | fuzzel -dl 2 2>/dev/null)
-    test $status -ne 0 && return 1
-    test "$input_expr" || return 1
-    echo $input_expr >~/.cache/mine/runner-math
-    set -l calculated_result (qalc -t -- $input_expr | tee -a ~/.cache/mine/runner-math)
-    notify-send -t 0 -- "$calculated_result"
-    echo $calculated_result | wl-copy -n
+    # set -l input_expr (cat ~/.cache/mine/runner-math | fuzzel -dl 2 2>/dev/null)
+    # test $status -ne 0 && return 1
+    # test "$input_expr" || return 1
+    # echo $input_expr >~/.cache/mine/runner-math
+    # set -l calculated_result (qalc -t -- $input_expr | tee -a ~/.cache/mine/runner-math)
+    # notify-send -t 0 -- "$calculated_result"
+    # echo $calculated_result | wl-copy -n
+    footclient -N -T floating fish -c qalc
 end
 funcsave runner_math >/dev/null
 
