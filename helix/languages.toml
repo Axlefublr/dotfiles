@@ -107,6 +107,10 @@ language-servers = [ "nimlsp" ]
 name = "nu"
 indent = { tab-width = 3, unit = "\t" }
 
+[[grammar]]
+name = "nu"
+source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "cc4624fbc6ec3563d98fbe8f215a8b8e10b16f32" }
+
 # -------------------python-------------------
 [[language]]
 name = "python"

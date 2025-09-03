@@ -310,11 +310,13 @@ paru -Sa --needed --disable-download-timeout prettierd
 cd ~/fes/ork
 git clone --depth=1 https://github.com/Axlefublr/helix hx
 cd hx
-cargo install --path helix-term --locked
 ln -sf ~/fes/dot/helix ~/.config
+mkdir -p ~/fes/dot/helix/runtime
+ln -sf ~/fes/lai/qiri/ ~/fes/dot/helix/runtime/queries
 mkdir -p ~/.cargo/bin
 rm -fr ~/.cargo/bin/runtime
 ln -sf ~/fes/ork/hx/runtime ~/.cargo/bin
+cargo install --path helix-term --locked
 sudo ln -f ~/fes/bin/helix /usr/bin/helix
 
 # ------------------httrack-------------------
