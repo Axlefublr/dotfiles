@@ -33,8 +33,8 @@
 	7 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor"))
 	8 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gungeon_blueprint"))
 	9 (tap-hold 0 100 XX (cmd $fsh screenshot_window))
-	; (tap-hold-release $tt $ht ; ralt)
-	a (tap-hold-release $tt $ht a lalt)
+	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held alt-right)))
+	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held alt-left)))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
@@ -66,6 +66,13 @@
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
+)
+
+(deflayermap (alt-left)
+	g (layer-while-held apps-right-extra)
+)
+(deflayermap (alt-right)
+	h (layer-while-held apps-left-extra)
 )
 
 (deflayermap (numbers)
@@ -133,6 +140,7 @@
 
 (deflayermap (apps-left)
 	;; [[sort on]]
+	; (layer-while-held apps-left-extra)
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq yazi)
@@ -141,10 +149,14 @@
 	;; [[sort off]]
 )
 
+(deflayermap (apps-left-extra)
+)
+
 (deflayermap (apps-right)
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
+	a (layer-while-held apps-right-extra)
 	b (cmd pick-blog-post.nu)
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
@@ -156,6 +168,10 @@
 	u (cmd niri msg action spawn -- footclient -N fish -c pueue.nu)
 	y (cmd $fsh toggle_screen_record)
 	;; [[sort off]]
+)
+
+(deflayermap (apps-right-extra)
+	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix .)
 )
 
 (deflayermap (capsy)
