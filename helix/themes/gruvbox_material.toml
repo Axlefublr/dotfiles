@@ -46,10 +46,12 @@
 'markup.raw' = 'yellow'
 'module' = 'cyan'
 'namespace' = 'mint'
+'number' = 'blush'
 'operator' = { fg = 'orange', modifiers = [ 'bold' ] }
 'punctuation' = 'white'
 'punctuation.bracket' = 'white'
 'punctuation.delimiter' = 'white'
+'punctuation.special' = { fg = 'orange', modifiers = [ 'bold' ] }
 'string' = 'yellow'
 'string.regexp' = 'mint'
 'tag' = 'yellow'
