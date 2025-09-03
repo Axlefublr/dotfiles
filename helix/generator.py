@@ -475,19 +475,20 @@ normal_select_mappings: dict[str, Any] = {
                 'c',
                 'd',
                 'r',
-                't',
                 # [[sort off]]
             ]
         ),
         # [[sort on]]
         'F': ':edit %sh(wl-paste)',
         'Q': ':cd %(buffer_parent)',
+        'T': ':tree-sitter-highlight-name',
         'a': ':buffer-close-all',
         'd': ':buffer-close-others',
         'g': ':reset-diff-change',
         'm': 'goto_last_accessed_file',
         'q': ":cd %sh(git -C '%(buffer_parent)' rev-parse --show-toplevel)",
         'r': ':lsp-restart',
+        't': ':tree-sitter-subtree',
         # [[sort off]]
     },
     'z': {
