@@ -32,6 +32,7 @@ const known = {
 	wilter: 15
 	keyboard: 30
 	ov: 30
+	qiri: 30
 	yazi: 30
 	tails: 40
 	filter: 45
@@ -80,7 +81,7 @@ def 'main due pick' [] {
 	| get name
 	| to text
 	| fuzzel -d --cache ~/.cache/mine/loago-pick-overdue
-	| each { |$thingy|
+	| each { |thingy|
 	  loago do ($thingy | str trim)
 	}
 	| ignore
@@ -93,7 +94,7 @@ def 'main pick' [] {
   | get name
   | to text
   | fuzzel -d --cache ~/.cache/mine/loago-pick
-  | each { |$thingy|
+  | each { |thingy|
     loago do ($thingy | str trim)
   } | ignore
 }
