@@ -364,7 +364,7 @@ kondo --completions fish >~/.config/fish/completions/kondo.fish
 # -------------------krita--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout krita
 mkdir -p ~/.local/share/krita/color-schemes
-ln -f ~/fes/dot/krita/gruvbox.colors ~/.local/share/krita/color-schemes/gruvbox.colors
+ln -f ~/fes/jiro/krita.colors ~/.local/share/krita/color-schemes/gruvbox.colors
 
 # -------------------kruler-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout kruler
