@@ -15,7 +15,7 @@ Header:children_add(function()
 	end
 	local spans = {}
 	for i = 1, #cx.tabs do
-		local name = ya.truncate(string.format(" %d %s ", i, cx.tabs[i].name), { max = 20 })
+		local name = ui.truncate(string.format(" %d %s ", i, cx.tabs[i].name), { max = 20 })
 		if i == cx.tabs.idx then
 			spans[#spans + 1] = ui.Span(name):style(th.tabs.active)
 		else
