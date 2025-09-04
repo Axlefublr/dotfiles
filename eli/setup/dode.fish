@@ -893,6 +893,10 @@ mkdir -p ~/.config/zathura
 ln -sf ~/fes/dot/zathura ~/.config/zathura/zathurarc
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 
+# --------------------zen---------------------
+paru -Sa --needed --disable-download-timeout zen-browser-bin
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
 # --------------------zola--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout zola
 
