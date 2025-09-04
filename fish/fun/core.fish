@@ -363,14 +363,14 @@ funcsave vidsc >/dev/null
 function webify
     for file in $argv
         not test -f $file && continue
-        set -l webp_file (path change-extension 'webp' $file)
+        set -l webp_file (path change-extension '..webp' $file)
         magick -define webp:lossless=true $file $webp_file
-        not test -f $webp_file && continue
-        if test (stat -c %s $webp_file) -gt (stat -c %s $file)
-            mv $webp_file (path change-extension '.heavier'(path extension $webp_file) $webp_file)
-        else
-            mv $file (path change-extension '.heavier'(path extension $file) $file)
-        end
+        # not test -f $webp_file && continue
+        # if test (stat -c %s $webp_file) -gt (stat -c %s $file)
+        #     mv $webp_file (path change-extension '.heavier'(path extension $webp_file) $webp_file)
+        # else
+        #     mv $file (path change-extension '.heavier'(path extension $file) $file)
+        # end
     end
 end
 funcsave webify >/dev/null
