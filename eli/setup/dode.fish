@@ -861,8 +861,6 @@ echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d
 
 # -------------xwayland-satellite-------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout xwayland-satellite
-set -Ux DISPLAY :0
-systemctl --user enable --now ~/fes/dot/systemd/xwayland-satellite.service
 
 # --------------------yazi--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout yazi
