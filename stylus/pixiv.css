@@ -2,6 +2,8 @@
 /* urls starting with */
 
 body {
+  min-width: unset;
+
   >div>div[data-overlay-container="true"]>div {
 
     /* top bar */
@@ -10,7 +12,8 @@ body {
     }
 
     >div.__top_side_menu_body div.sc-8d5ac044-1.pEkOH {
-      padding-right: 0;
+      /* margin-inline: 0; */
+      padding: 0;
 
       >div.sc-8d5ac044-3 {
         margin-top: 0;
