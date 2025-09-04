@@ -12,22 +12,22 @@ const ignored = [
 
 const known = {
 	razor: 4
-	cloth: 5
 	dish: 5
 	mug: 5
 	bed: 6
+	cloth: 6
 	nose: 6
 	floor: 7
 	towels: 7
 	vacuum: 8
 	dust: 9
-	update: 15
 	nails: 13
 	bottle: 15
 	disc: 15
 	glasses: 15
 	liked: 15
 	photos: 15
+	update: 15
 	utencils: 15
 	wilter: 15
 	keyboard: 30
