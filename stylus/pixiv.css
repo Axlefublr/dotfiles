@@ -9,50 +9,54 @@ body {
       display: none;
     }
 
-    >div.__top_side_menu_body div.sc-8d5ac044-3 {
-      margin-top: 0;
-      padding-bottom: 0;
+    >div.__top_side_menu_body div.sc-8d5ac044-1.pEkOH {
+      padding-right: 0;
 
-      /* sidebar, with artist */
-      >aside.sc-8d5ac044-8 {
-        display: none;
-      }
+      >div.sc-8d5ac044-3 {
+        margin-top: 0;
+        padding-bottom: 0;
 
-      >main {
-        width: 100%;
+        /* sidebar, with artist */
+        >aside.sc-8d5ac044-8 {
+          display: none;
+        }
 
-        section.sc-7d1a8035-1.sc-7d1a8035-2.enOpYM.ftWmQb {
-          border-radius: 0;
+        >main {
+          width: 100%;
 
-          figure {
-            img.sc-9ad52c08-1 {
-              height: auto !important;
-              max-height: 80vh !important;
+          section.sc-7d1a8035-1.sc-7d1a8035-2.enOpYM.ftWmQb {
+            border-radius: 0;
+
+            figure {
+              img.sc-9ad52c08-1 {
+                height: auto !important;
+                max-height: 80vh !important;
+              }
+
+              [role="presentation"] {
+                margin-top: 30px;
+              }
             }
 
-            [role="presentation"] {
-              margin-top: 30px;
+            /* like button and other stuff */
+            section.sc-f2412021-0.kDUrpE {
+              justify-content: center;
             }
-          }
 
-          /* like button and other stuff */
-          section.sc-f2412021-0.kDUrpE {
-            justify-content: center;
-          }
+            /* title / description */
+            figcaption>div.sc-d4cbc2e2-13.ghpbbc {
+              margin: unset !important;
 
-          /* title / description */
-          figcaption>div.sc-d4cbc2e2-13.ghpbbc {
-            margin: unset !important;
-
-            /* the actual text contained */
-            >div.sc-d4cbc2e2-14.bkwLDC {
-              width: 800px;
+              /* the actual text contained */
+              >div.sc-d4cbc2e2-14.bkwLDC {
+                width: 800px;
+              }
             }
-          }
 
-          /* entire section that leaves off with big grey margin */
-          section.sc-f473edfb-5 {
-            margin: 24px auto 0px;
+            /* entire section that leaves off with big grey margin */
+            section.sc-f473edfb-5 {
+              margin: 24px auto 0px;
+            }
           }
         }
       }
