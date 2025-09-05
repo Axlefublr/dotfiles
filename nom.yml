@@ -2,34 +2,36 @@ configpath: /home/axlefublr/.config/nom/config.yml
 showfavourites: false
 version: ""
 feeds:
-  - url: https://nanotipsforvim.prose.sh/rss
-    name: chris grieser
+  - url: http://mackeye.sdf.org/feeds/rss.xml
+    name: mackeye
+  - url: https://ersei.net/en/blog.atom
+    name: ersei
   - url: https://ficd.sh/rss.xml
     name: ficd
+  - url: https://herecomesthemoon.net/posts/index.xml
+    name: herecomesthemoon
+  - url: https://jdugan6240.dev/feed.xml
+    name: jdugan
+  - url: https://jvns.ca/atom.xml
+    name: julia evans
   - url: https://matklad.github.io/feed.xml
     name: matklad
+  - url: https://nanotipsforvim.prose.sh/rss
+    name: chris grieser
+  - url: https://phaazon.net/blog/feed
+    name: hadronized
   - url: https://project-mage.org/rss.xml
     name: project mage
+  - url: https://site.jacobhaussman.online/rss.xml
+    name: zunda
+  - url: https://skoove.dev/rss.xml
+    name: skoove
+  - url: https://terminaltrove.com/new.xml
+    name: terminal trove
   - url: https://vhyrro.github.io/rss.xml
     name: vhyrro
   - url: https://xkcd.com/rss.xml
     name: xkcd
-  - url: https://jvns.ca/atom.xml
-    name: julia evans
-  - url: https://terminaltrove.com/new.xml
-    name: terminal trove
-  - url: https://phaazon.net/blog/feed
-    name: hadronized
-  - url: https://ersei.net/en/blog.atom
-    name: ersei
-  - url: https://herecomesthemoon.net/posts/index.xml
-    name: herecomesthemoon
-  - url: https://skoove.dev/rss.xml
-    name: skoove
-  - url: http://mackeye.sdf.org/feeds/rss.xml
-    name: mackeye
-  - url: https://jdugan6240.dev/feed.xml
-    name: jdugan
 theme:
   glamour: dark
   titleColor: "#e49641"
