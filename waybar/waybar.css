@@ -76,6 +76,14 @@ window#waybar {
   color: #ea6962;
 }
 
+#custom-tomato.work {
+  color: #e49641;
+}
+
+#custom-tomato.rest {
+  color: #a9b665;
+}
+
 #custom-cha-fan {
   color: #e491b2;
 }

@@ -21,6 +21,7 @@
     "custom/statusline"
   ],
   "modules-right": [
+    "custom/tomato",
     "custom/headphone-battery",
     "custom/cha-fan",
     "custom/cpu-fan",
@@ -93,6 +94,12 @@
     "format": "{}",
     "hide-empty-text": true
   },
+  "custom/tomato": {
+    "exec": "/home/axlefublr/fes/dot/waybar/tomato.fish",
+    "format": "{}",
+    "hide-empty-text": true,
+    "return-type": "json"
+  },
   "custom/cha-fan": {
     "exec": "/home/axlefublr/fes/dot/waybar/cha-fan.fish",
     "format": "{}",
@@ -129,7 +136,7 @@
   },
   "temperature#cpu": {
     "format": "{temperatureC}",
-    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input",
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
     "interval": 10,
     "critical-threshold": 75
   }
