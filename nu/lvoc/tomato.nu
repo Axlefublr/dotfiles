@@ -4,26 +4,37 @@ mut timestamp = (date now)
 mut rest_time = 0sec
 mut phase = 'work'
 
-def commit [class] {
+def commit [class: string] {
 	into string
 	| $'{ "text": "($in)", "class": "($class)" }' + "\n"
 	| save -f ~/.local/share/mine/waybar-tomato
 }
 
-def log [phase] {
+def log [phase: string] {
 	tee { $"($phase): ($in)\n" | save -a /tmp/mine/tomato-log }
 }
 
-def evaluate [phase, rest_time, timestamp] {
+def elapsed [timestamp: datetime] {
+	(date now) - $timestamp
+}
+
+def evaluate [phase: string, rest_time: duration, timestamp: datetime] {
 	if $phase == work {
-		((date now) - $timestamp) | log $phase | $in // 1min | commit work
+		elapsed $timestamp | log $phase | $in // 1min | commit $phase
 	} else {
-		let the = ($rest_time - ((date now) - $timestamp))
-		if $the >= 0sec {
-			$the | log $phase | $in // 1min | commit rest
+		let remains = ($rest_time - (elapsed $timestamp)) | log $phase
+		if $remains >= 0sec {
+			$remains // 1min | commit $phase
 		} else {
-			'0' | log $phase | commit rest
+			'0' | commit $phase
 		}
+	}
+}
+
+def toggle []: string -> string {
+	match $in {
+		'work' => 'rest'
+		'rest' => 'work'
 	}
 }
 
@@ -33,15 +44,13 @@ loop {
 	match $action {
 		toggle => {
 			if $phase == work {
-				$phase = 'rest'
-				$rest_time = $rest_time + ((date now) - $timestamp) / 3
+				$phase = $phase | toggle
+				$rest_time = [$rest_time 0sec] | math max | $in + (elapsed $timestamp) / 3
 				$timestamp = (date now)
 				evaluate $phase $rest_time $timestamp
 			} else {
-				$phase = 'work'
-				$rest_time = if $rest_time < 0sec { 0sec } else {
-					$rest_time - ((date now) - $timestamp)
-				}
+				$phase = $phase | toggle
+				$rest_time = $rest_time - (elapsed $timestamp) | append [0sec] | math max
 				$timestamp = (date now)
 				evaluate $phase $rest_time $timestamp
 			}
