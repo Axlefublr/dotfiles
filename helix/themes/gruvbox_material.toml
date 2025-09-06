@@ -22,6 +22,7 @@
 'diff.minus.gutter' = 'red'
 'diff.plus.gutter' = 'green'
 'error' = 'red'
+'escape' = 'grey'
 'function' = 'green'
 'function.builtin' = 'blush'
 'function.macro' = 'mint'
@@ -48,6 +49,7 @@
 'namespace' = 'mint'
 'number' = 'blush'
 'operator' = { fg = 'orange', modifiers = [ 'bold' ] }
+'operator.special' = 'orange'
 'punctuation' = 'white'
 'punctuation.bracket' = 'white'
 'punctuation.delimiter' = 'white'

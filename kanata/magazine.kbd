@@ -1,12 +1,12 @@
 (deftemplate magazine-prepare (action)
-	(multi (cmd $fsh (concat "echo " $action " >/tmp/mine/magazine-action")) (layer-switch magazine-which))
+	(multi (cmd fish -c (concat "echo " $action " >/tmp/mine/magazine-action")) (layer-switch magazine-which))
 )
 
 (deftemplate magazine-execute (name)
-	(multi (layer-switch default) (cmd $fsh (concat "magazine_resolve " $name)))
+	(multi (layer-switch default) (cmd fish -c (concat "magazine_resolve " $name)))
 )
 
-(defalias magazine-cancel (multi (cmd $fsh "dot") (layer-switch default)))
+(defalias magazine-cancel (multi (cmd fish -c "dot") (layer-switch default)))
 
 (deflayermap (magazine)
 	j (layer-while-held numbers-subscript)
@@ -23,7 +23,6 @@
 	x (t! magazine-prepare cut)
 	w (t! magazine-prepare write)
 )
-;; set
 
 (deflayermap (magazine-which)
 	___ @magazine-cancel

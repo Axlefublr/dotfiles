@@ -32,6 +32,18 @@ name = "html"
 auto-format = false
 formatter = { command = "prettier", args = [ "--parser", "html" ] }
 
+# -------------------kanata-------------------
+[[language]]
+name = "kanata"
+scope = "source.kanata"
+indent = { tab-width = 3, unit = "\t" }
+file-types = [ "kbd" ]
+comment-tokens = [ ";;" ]
+
+[[grammar]]
+name = "kanata"
+source = { git = "https://github.com/glehmann/tree-sitter-kanata", rev = "e3f368ded70efbaeba0273390b1bbfb6c4a94c22" }
+
 # --------------------lua---------------------
 [[language]]
 name = "lua"

@@ -1,14 +1,14 @@
 (deflayermap (mouse)
-	spc (multi (layer-switch default) (cmd $fsh "echo >~/.local/share/mine/waybar-mouse-mode"))
-	n (multi (layer-switch mouse) (cmd $fsh "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode"))
+	spc (multi (layer-switch default) (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode"))
+	n (multi (layer-switch mouse) (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode"))
 	l (layer-while-held mouse-slow)
 
 	v C-w
 	h (cmd woomer)
-	/ (cmd $fsh pick_and_copy_color)
-	u (cmd $fsh screenshot_select)
-	t (cmd $fsh "show_clipboard_image -fs fill")
-	p (cmd $fsh "wl-paste -t image/png | wpchange -")
+	/ (cmd fish -c pick_and_copy_color)
+	u (cmd fish -c screenshot_select)
+	t (cmd fish -c "show_clipboard_image -fs fill")
+	p (cmd fish -c "wl-paste -t image/png | wpchange -")
 
 	caps esc
 	; lmet

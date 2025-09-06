@@ -32,7 +32,7 @@
 	6 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give coolant_leak"))
 	7 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor"))
 	8 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gungeon_blueprint"))
-	9 (tap-hold 0 100 XX (cmd $fsh screenshot_window))
+	9 (tap-hold 0 100 XX (cmd fish -c screenshot_window))
 	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held alt-right)))
 	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held alt-left)))
 	b (tap-hold-release $tt $ht b XX)
@@ -40,12 +40,12 @@
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lctl)
 	e (tap-hold-release $tt $ht e XX)
-	esc (tap-dance-eager 500 (XX XX (cmd $fsh eat)))
+	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
 	f (tap-hold-release $tt $ht f (layer-while-held arrows))
 	g (tap-hold-release $tt $ht g (layer-while-held apps-right))
 	h (tap-hold-release $tt $ht h (layer-while-held apps-left))
 	i (tap-hold-release $tt $ht i (layer-while-held brackets))
-	ins (tap-dance 500 ((cmd $fsh suspend) (cmd $fsh reboot) (cmd $fsh poweroff)))
+	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
 	j (tap-hold-release $tt $ht j (layer-while-held numbers))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
@@ -102,9 +102,8 @@
 	. pgdn
 	/ end
 	; bspc
-	[ lrld
 	a lalt
-	b (cmd $fsh "wtype (uclanr 3 -j -)")
+	b (cmd fish -c "wtype (uclanr 3 -j -)")
 	caps esc
 	d lctl
 	h left
@@ -112,13 +111,14 @@
 	j down
 	k up
 	l right
+	lbrc lrld
 	m home
 	n (layer-switch arrows)
 	o enter
-	p (multi caps (cmd $fsh "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
+	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
 	s lsft
 	spc (layer-switch default)
-	u (multi (cmd niri msg action switch-layout next) (cmd $fsh "echo layout_switch >~/.local/share/mine/waybar-layout"))
+	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
@@ -166,7 +166,7 @@
 	n (cmd man.nu nushell)
 	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
 	u (cmd niri msg action spawn -- footclient -N fish -c pueue.nu)
-	y (cmd $fsh toggle_screen_record)
+	y (cmd fish -c toggle_screen_record)
 	;; [[sort off]]
 )
 
@@ -176,68 +176,68 @@
 
 (deflayermap (capsy)
 	;; [[sort on]]
-	d (cmd $fsh media_next)
-	e (cmd $fsh "set_volume 0.02+")
-	f (cmd $fsh toggle_media)
-	o (cmd $fsh write_window_info)
-	r (cmd $fsh toggle_mute)
-	s (cmd $fsh media_prev)
-	w (cmd $fsh "set_volume 0.02-")
+	d (cmd fish -c media_next)
+	e (cmd fish -c "set_volume 0.02+")
+	f (cmd fish -c toggle_media)
+	o (cmd fish -c write_window_info)
+	r (cmd fish -c toggle_mute)
+	s (cmd fish -c media_prev)
+	w (cmd fish -c "set_volume 0.02-")
 	;; [[sort off]]
 )
 
 (deflayermap (func)
 	;; [[sort on]]
 	' (layer-while-held func-chord)
-	c (cmd $fsh "clipboard_index 1")
-	d (cmd $fsh screenshot_window)
-	e (cmd $fsh "runner_math")
-	g (cmd $fsh "pgrep -f ~/fes/dot/nu/lvoc/tomato.nu && echo toggle >/tmp/mine/tomato-action || tomato.nu")
+	c (cmd fish -c "clipboard_index 1")
+	d (cmd fish -c screenshot_window)
+	e (cmd fish -c "runner_math")
+	g (cmd fish -c "pgrep -f ~/fes/dot/nu/lvoc/tomato.nu && echo toggle >/tmp/mine/tomato-action || tomato.nu")
 	r (cmd loagoe.nu due pick)
-	s (cmd $fsh screenshot_screen)
-	v (cmd $fsh anki_add_card)
-	w (cmd $fsh runner_notification)
+	s (cmd fish -c screenshot_screen)
+	v (cmd fish -c anki_add_card)
+	w (cmd fish -c runner_notification)
 	;; [[sort off]]
 )
 
 (deflayermap (func-chord)
 	;; [[sort on]]
 	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
-	c (cmd $fsh clipboard_image_save)
-	d (cmd $fsh show_clipboard_image)
-	g (cmd $fsh "echo stop >/tmp/mine/tomato-action")
+	c (cmd fish -c clipboard_image_save)
+	d (cmd fish -c show_clipboard_image)
+	g (cmd fish -c "echo stop >/tmp/mine/tomato-action")
 	q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	r (cmd loagoe.nu pick)
-	s (cmd $fsh edit_clipboard_image)
-	w (cmd $fsh float_clipboard_image)
+	s (cmd fish -c edit_clipboard_image)
+	w (cmd fish -c float_clipboard_image)
 	;; [[sort off]]
 )
 
 (deflayermap (chord)
 	;; [[sort on]]
-	;;d (cmd $fsh "runner show")
-	a (cmd $fsh runner_interactive_unicode)
-	c (cmd $fsh edit_clipboard)
-	caps (cmd $fsh ntf_dismiss_all)
+	;; d (cmd fish -c "runner show")
+	a (cmd fish -c runner_interactive_unicode)
+	c (cmd fish -c edit_clipboard)
+	caps (cmd fish -c ntf_dismiss_all)
 	d (cmd fuzzel)
-	e (cmd $fsh internet_search)
-	f (cmd $fsh "runner_link open")
+	e (cmd fish -c internet_search)
+	f (cmd fish -c "runner_link open")
 	j (layer-while-held chord-overlay)
 	n (layer-while-held func-chord)
-	r (cmd $fsh clipboard_pick)
-	s (cmd $fsh runner_link)
+	r (cmd fish -c clipboard_pick)
+	s (cmd fish -c runner_link)
 	w (one-shot $ot (layer-while-held bookmark))
-	z (cmd $fsh rofimoji)
+	z (cmd fish -c rofimoji)
 	;; [[sort off]]
 )
 
 (deflayermap (chord-overlay)
-	caps (cmd $fsh ntf_dismiss_old)
-	d (cmd $fsh "xdg-open (wl-paste -n) ; ensure_browser")
+	caps (cmd fish -c ntf_dismiss_old)
+	d (cmd fish -c "xdg-open (wl-paste -n) ; ensure_browser")
 	w (one-shot $ot (layer-while-held bookmark-set))
-	f (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
-	e (cmd $fsh "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
-	z (cmd $fsh runner_symbol_name)
+	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
+	e (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
+	z (cmd fish -c runner_symbol_name)
 )
 
 (deflayermap (slay-the-spire)
