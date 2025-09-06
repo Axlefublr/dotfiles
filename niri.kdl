@@ -309,10 +309,10 @@ window-rule {
 window-rule {
     match app-id="anki"
     match app-id="python" title="^Import$"
-    match app-id="floorp|firefox$" title="^File Upload$"
-    match app-id="floorp|firefox$" title="^Save Image|Video|As$"
-    match app-id="floorp|firefox$" title="^Enter name of file to save to…$"
-    match app-id="floorp|firefox$" title="^Opening "
+    match app-id="floorp|firefox|zen$" title="^File Upload$"
+    match app-id="floorp|firefox|zen$" title="^Save Image|Video|As$"
+    match app-id="floorp|firefox|zen$" title="^Enter name of file to save to…$"
+    match app-id="floorp|firefox|zen$" title="^Opening "
     open-floating false
 }
 window-rule {
