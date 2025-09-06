@@ -10,15 +10,19 @@ def commit [class] {
 	| save -f ~/.local/share/mine/waybar-tomato
 }
 
+def log [phase] {
+	tee { $"($phase): ($in)\n" | save -a /tmp/mine/tomato-log }
+}
+
 def evaluate [phase, rest_time, timestamp] {
 	if $phase == work {
-		((date now) - $timestamp) // 1min | commit work
+		((date now) - $timestamp) | log $phase | $in // 1min | commit work
 	} else {
 		let the = ($rest_time - ((date now) - $timestamp))
 		if $the >= 0sec {
-			$the // 1min | commit rest
+			$the | log $phase | $in // 1min | commit rest
 		} else {
-			'0' | commit rest
+			'0' | log $phase | commit rest
 		}
 	}
 }
