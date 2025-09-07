@@ -172,6 +172,7 @@
 
 (deflayermap (apps-right-extra)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix .)
+	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
 )
 
 (deflayermap (capsy)
