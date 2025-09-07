@@ -27,9 +27,10 @@ end
 funcsave alien_temple >/dev/null
 
 function gh
-    set -l exitcode (gh.nu $argv)
-    set -l new_cwd "$(consume.rs /tmp/mine/github-directory)"
-    test "$new_cwd" && cd $new_cwd
+    gh.nu $argv
+    set -l exitcode $status
+    set -l new_cwd "$(consume.rs /tmp/mine/github-directory 2>/dev/null)"
+    test "$new_cwd" && z $new_cwd
     return $exitcode
 end
 funcsave gh >/dev/null
