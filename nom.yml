@@ -32,6 +32,8 @@ feeds:
     name: vhyrro
   - url: https://xkcd.com/rss.xml
     name: xkcd
+  - url: https://blog.parrrate.com/rss.xml
+    name: parrrate
 theme:
   glamour: dark
   titleColor: "#e49641"
