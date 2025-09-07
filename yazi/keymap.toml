@@ -62,7 +62,6 @@ keymap = [
   { on = 'l', run = [ 'enter', 'shell -- zoxide add .' ], desc = 'Enter the child directory' },
   { on = 'n', run = 'find_arrow', desc = 'Go to the next found' },
   { on = 'o', run = 'paste', desc = 'Paste yanked files' },
-  { on = 'q', run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = 'Go to repo root' },
   { on = 'r', run = 'rename --cursor=before_ext', desc = 'Rename selected file(s)' },
   { on = 't', run = 'tab_create --current', desc = 'Create a new tab with CWD' },
   { on = 'u', run = 'create --force', desc = 'Create a blob' },
