@@ -45,6 +45,7 @@
 'markup.list' = 'red'
 'markup.quote' = 'cyan'
 'markup.raw' = 'yellow'
+'markup.strikethrough' = { modifiers = [ 'crossed_out' ] }
 'module' = 'cyan'
 'namespace' = 'mint'
 'number' = 'blush'
