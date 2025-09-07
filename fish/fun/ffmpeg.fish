@@ -9,29 +9,33 @@ function ffmpeg_cut_video
         end
         echo "processing $input" >&2
         set -l input_basename (path basename -E $input)
-        set -l output "$input_basename"!.mp4
+        set -l output "$input_basename"!
 
         echo '[hh:mm:]ss[.ms]' >&2
         echo 'skip to mean “start of video”' >&2
         read -P 'from: ' -l from || return 121
         if test "$from"
+            set output "$output$from-"
             set from -ss $from
             echo 'skip to mean “end of video”' >&2
         else
+            set output "$output-"
             echo 'skip to not cut at all' >&2
             set -e from
         end
         read -P 'to: ' -l to || return 121
         if test "$to"
+            set output "$output$to"
             set to -to $to
         else
             set -e to
         end
+        set output "$output.mp4"
 
         pueue add -g cpu -- ffmpeg -y -i "$input" $from $to \
             -c:v libx264 \
             -preset medium \
-            -crf 25 \
+            -crf 18 \
             -map_metadata -1 \
             -movflags +faststart \
             "$output"
