@@ -18,4 +18,3 @@ let the = ls ~/fes/lai/bog/content/*.md
 let index = $the | get name | to text | fuzzel -d --index
 let path  = $the | get path | get ($index | into int)
 footclient -ND ~/fes/lai/bog helix $path
-niri msg action move-window-to-workspace-up
