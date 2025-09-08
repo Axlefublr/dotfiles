@@ -288,6 +288,12 @@ customCommands:
     loadingText: "Pushing commit..."
     description: "Push a specific commit (and any preceding)"
     output: log
+  - key: "O"
+    context: "commits"
+    command: "git fetch --unshallow"
+    loadingText: "Unshallowing commits..."
+    description: "Unshallow the shallow copy"
+    output: log
   - key: "z"
     context: "commits"
     command: "git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}"
