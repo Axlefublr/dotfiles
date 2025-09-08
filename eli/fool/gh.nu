@@ -8,7 +8,7 @@ def --wrapped 'main repo clone' [url: string, --dir(-d): directory, --shallow(-s
 	let dir = $dir | default ($url | path basename)
 	let rest = $rest | shallow include $shallow
 	^gh repo clone $url $dir ...$rest
-	shallow enqueue $shallow $dir
+	# shallow enqueue $shallow $dir
 	$dir | commit
 }
 
@@ -21,7 +21,7 @@ def --wrapped 'main repo fork' [url: string, --dir(-d): directory, --shallow(-s)
 	let dir = $dir | default ($url | path basename)
 	let rest = $rest | shallow include $shallow
 	^gh repo fork --clone --default-branch-only $url --fork-name $dir ...$rest
-	shallow enqueue $shallow $dir
+	# shallow enqueue $shallow $dir
 	$dir | commit
 }
 
