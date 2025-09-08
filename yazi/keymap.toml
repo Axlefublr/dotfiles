@@ -96,7 +96,7 @@ keymap = [
   { on = [ 'm', 'c' ], run = 'plugin ouch tar.gz', desc = 'Archive selected files' },
   { on = [ 'm', 'i' ], run = '''shell -- fish -c 'wl-paste -t image/png >image.png'''', desc = 'Create image from clipboard' },
   { on = [ 'm', 'r' ], run = '''shell -- fish -c 'randomize_file_names $argv' "$@"''', desc = 'Randomize names of selected file(s)' },
-  { on = [ 'm', 's' ], run = '''shell -- fish -c 'ffmpeg_convert_to_mp3 $argv' "$@"''', desc = 'Convert to mp3' },
+  { on = [ 'm', 's' ], run = '''shell --block -- fish -c 'ffmpeg_convert_to_mp3 $argv' "$@"''', desc = 'Convert to mp3' },
   { on = [ 'm', 'v' ], run = '''shell --block -- fish -c 'ffmpeg_cut_video $argv' "$@"''', desc = 'Cut video (into mp4)' },
   { on = [ 'm', 'w' ], run = [ 'plugin input Magick:', '''shell -- fish -c 'magick_change_extension $argv' "$@"''' ], desc = 'Convert with magick' },
   { on = [ 's', 'F' ], run = 'link --force --relative', desc = 'Symlink relatively' },
