@@ -365,6 +365,10 @@ normal_select_mappings: dict[str, Any] = {
     '”': 'goto_next_diag',
     '…': 'split_selection_on_newline',
     '€': 'keep_selections',
+    '✅': ':pipe `"✅"`',
+    '❌': ':pipe `"❌"`',
+    '❓': ':pipe `"❓"`',
+    '❗': ':pipe `"❗"`',
     '🚀': 'rename_symbol',
     # [[sort off]]
     'A-.': {
