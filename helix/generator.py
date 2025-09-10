@@ -198,6 +198,8 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 all_modes_mappings: dict[str, Any] = {
     # [[sort on]]
+    'A-F11': 'goto_previous_buffer',
+    'A-F12': 'goto_next_buffer',
     'A-ins': ':quit!',
     'C-6': ':buffer-close!',
     'C-down': 'copy_selection_on_next_line',

@@ -1,0 +1,30 @@
+(deflayermap (hack)
+	f (layer-while-held hack-arrow)
+	, A-f11
+	. A-f12
+	j S-A-f1
+	k S-A-f2
+	u S-A-f5
+	i S-A-f6
+	o S-A-f7
+	h S-A-f9
+	l S-A-f10
+	m C-A-home
+	/ C-A-end
+	; S-A-f8
+	' A-f10
+)
+
+(deflayermap (hack-arrow)
+	, S-A-f11
+	. S-A-f12
+	m S-A-home
+	/ S-A-end
+	j S-A-f3
+	k S-A-f4
+	h C-S-f11
+	l C-S-f12
+	i C-A-pgup
+	o C-A-pgdn
+	u A-end
+)

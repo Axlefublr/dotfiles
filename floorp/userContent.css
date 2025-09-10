@@ -17,8 +17,4 @@ NOTE: You can use the userContent.css file without change preferences (about:con
 
 @charset "UTF-8";
 
-@-moz-document url-prefix('about:newtab'), url-prefix('about:blank'), url-prefix('about:home') {
-  body {
-    background-color: #292828 !important;
-  }
-}
+@-moz-document url-prefix('about:newtab'), url-prefix('about:blank'), url-prefix('about:home') {}

@@ -184,7 +184,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout figlet
 # ------------------firefox-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout firefox
 set -Ux MOZ_ENABLE_WAYLAND 1
-set -Ux GTK_THEME Adwaita:dark
+set -Ux GTK_THEME Adwaita:dark # only execute if you haven't set up your gruvbox theme yet
 set -l prof_dir ~/.mozilla/firefox/fqigcjz6.default-release
 mkdir $prof_dir/chrome
 ln -sf ~/fes/dot/firefox/userChrome.css $prof_dir/chrome
@@ -196,7 +196,7 @@ ln -sf ~/fes/dot/firefox/userContent.css $prof_dir/chrome
 
 # -------------------floorp-------------------
 paru -Sa --needed --disable-download-timeout floorp xwayland-run
-# everything else is here ~/fes/dot/eli/setup/floorp.md
+# everything else is tiq/firefox/floorp
 
 # -------------------fnott--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout fnott

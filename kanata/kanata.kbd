@@ -39,7 +39,7 @@
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lctl)
-	e (tap-hold-release $tt $ht e XX)
+	e (tap-hold-release $tt $ht e (layer-while-held hack))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
 	f (tap-hold-release $tt $ht f (layer-while-held arrows))
 	g (tap-hold-release $tt $ht g (layer-while-held apps-right))
@@ -106,6 +106,7 @@
 	b (cmd fish -c "wtype (uclanr 3 -j -)")
 	caps esc
 	d lctl
+	e (layer-while-held hack-arrow)
 	h left
 	i tab
 	j down
@@ -259,6 +260,7 @@
 ;; [[sort on]]
 (include bookmark.kbd)
 (include doublestruck.kbd)
+(include hack.kbd)
 (include magazine.kbd)
 (include mouse.kbd)
 (include symbol.kbd)

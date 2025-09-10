@@ -3,167 +3,17 @@
 @-moz-document url(chrome://browser/content/browser.xhtml){
 
 :root {
-  --toolbar-non-lwt-bgcolor: #292828 !important;
+  --uc-window-drag-space-pre: unset !important;
+  --uc-window-control-space: unset !important;
 }
 
+.titlebar-button,
+#QRCodeGeneratePageAction,
+#undo-closed-tab,
 #back-button,
 #forward-button,
-#star-button-box,
-.tab-close-button,
-#new-tab-button,
-#alltabs-button,
-#firefox-view-button,
-#zoom-out-button,
-#zoom-in-button,
-#zoom-controls>separator,
-#QRCodeGeneratePageAction,
-#tracking-protection-icon-container,
-#identity-icon-box,
-.tab-background>.tab-context-line,
-.tab-stack::before,
 #reader-mode-button,
-.titlebar-button.titlebar-close,
-/* drm button */
-#eme-notification-icon {
-  display: none !important;
-}
-
-.toolbar-items,
-#nav-bar-customization-target {
-  font-family: Inter !important;
-  font-size: 13pt !important;
-}
-
-/*-----------------tab width------------------*/
-.tabbrowser-tab:not([pinned]) {
-  min-width: 200px !important;
-}
-
-/*---------------tabs container---------------*/
-#tabbrowser-tabs>#tabbrowser-arrowscrollbox {
-  /* if there are pinned tabs, don't add extra margin on both sides (duh) */
-  --tab-shadow-max-size: 0 !important;
-}
-
-#zoom-controls {
-  margin-inline: 0 !important;
-
-  &[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
-    min-width: unset !important;
-  }
-}
-
-#navigator-toolbox {
-  --tab-selected-bgcolor: #5f472d !important;
-  background-color: #292828 !important;
-  border-bottom: unset !important;
-}
-
-#urlbar-background,
-.urlbar-input-container,
-#searchbar {
-  border: none !important;
-}
-
-#nav-bar {
-  height: 30px !important;
-}
-
-#zoom-reset-button>.toolbarbutton-text {
-  height: 30px !important;
-  min-height: unset !important;
-  padding-top: 5px !important;
-}
-
-#urlbar-container {
-  padding-block: 0 !important;
-
-  &[breakout] {
-    --urlbar-container-height: 30px !important;
-  }
-}
-
-.tab-label-container {
-  align-items: center !important;
-  /* centers tab titles */
-  /* flex-direction: row !important; */
-  overflow: hidden !important;
-  --tab-label-mask-size: 0 !important;
-}
-
-.tab-content {
-  --inline-tab-padding: 10px !important;
-
-  &[pinned] {
-    padding: 0 var(--inline-tab-padding) !important;
-  }
-}
-
-.tab-icon-image {
-  height: 18px !important;
-  width: 18px !important;
-  margin-top: 1px !important;
-
-  &:not([pinned]) {
-    margin-inline-end: 8px !important;
-  }
-}
-
-.tab-background:is([selected], [multiselected]) {
-  box-shadow: unset !important;
-  outline: unset !important;
-  outline-offset: unset !important;
-}
-
-@media (-moz-bool-pref: "userChrome.tab.sound_with_favicons") and (not (-moz-bool-pref: "userChrome.hidden.tab_icon")) {
-  .tabbrowser-tab:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) .tab-label-container>* {
-    transform: unset !important;
-    /* this transform moves the tab title upwards and to the right when you mute the tab; likely because I center that title. without this transform, title stays in a consistent position */
-  }
-}
-
-@media (-moz-bool-pref: "userChrome.theme.system_default") and (-moz-gtk-csd-available) {
-
-  :root:is(:not([lwtheme]), :not(:-moz-lwtheme)) #urlbar-background,
-  :root:is(:not([lwtheme]), :not(:-moz-lwtheme)) #searchbar {
-    background-color: #292828 !important;
-  }
-}
-
-@media (-moz-bool-pref: "userChrome.padding.tabbar_width") {
-  .tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"]) {
-    max-width: unset !important;
-  }
-}
-
-#TabsToolbar-customization-target {
-  height: 30px !important;
-}
-
-#workspaces-toolbar-button {
-  /* --toolbarbutton-outer-padding: 7px; */
-  padding: 0px 3px 0px 5px !important;
-  height: 30px !important;
-
-  /* hide workspace icon because they look bad and I use emojis instead */
-  >.toolbarbutton-icon {
-    display: none !important;
-  }
-
-  >.toolbarbutton-text {
-    margin-block: 0 !important;
-    margin-inline: 0 !important;
-    padding-top: 0 !important;
-    min-height: 0 !important;
-  }
-}
-
-/* hiding the workspaces panel because of the bug of it playing hide and seek when I use actions to go to the previous / next one */
-#workspaces-toolbar-button[open="true"] {
-  background-color: inherit !important;
-}
-
-#workspacesToolbarButtonPanel {
+#star-button-box {
   display: none !important;
 }
 

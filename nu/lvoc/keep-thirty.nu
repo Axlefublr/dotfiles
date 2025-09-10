@@ -2,6 +2,7 @@
 
 [
 	~/iwm/sco
+	~/wlx/tabs
 ] | each {
 	path expand
 	| ls $in
