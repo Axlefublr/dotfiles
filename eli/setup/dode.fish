@@ -566,6 +566,7 @@ paru -Sa --needed --disable-download-timeout google-breakpad-git quickshell-git
 # create empty .qmlls.ini file next to the shell.qml file
 rm -fr ~/.config/quickshell
 ln -s ~/fes/dot/qs ~/.config/quickshell
+touch ~/fes/dot/qs/.qmlls.ini
 
 # -----------------radeon-gpu-----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout amdvlk lib32-amdvlk
