@@ -203,6 +203,8 @@ binds {
     Mod+Right { move-column-right; }
     Mod+Down { move-column-to-workspace-down; }
     Mod+Up { move-column-to-workspace-up; }
+    Mod+Ctrl+Down { move-workspace-down; }
+    Mod+Ctrl+Up { move-workspace-up; }
 
     Mod+Comma { focus-window-up-or-bottom; }
     Mod+Period { focus-window-down-or-top; }
