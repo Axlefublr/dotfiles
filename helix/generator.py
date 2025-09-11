@@ -335,6 +335,7 @@ normal_select_mappings: dict[str, Any] = {
     '_': 'switch_to_lowercase',
     '`': 'switch_case',
     'b': ['add_newline_below', 'move_line_down', 'paste_before'],
+    'c': 'change_selection',
     'd': 'delete_selection',
     'i': 'insert_mode',
     'n': 'search_next',
