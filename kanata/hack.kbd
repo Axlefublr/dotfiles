@@ -4,7 +4,8 @@
 	. A-f12
 	j S-A-f1
 	k S-A-f2
-	u S-A-f5
+	u (macro S-A-f5 20 (cmd fish -c r#"notify-send $(wl-paste -n)"#))
+	n A-f9
 	i S-A-f6
 	o S-A-f7
 	h S-A-f9
