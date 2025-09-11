@@ -3,6 +3,7 @@
 @-moz-document url(chrome://browser/content/browser.xhtml){
 
 :root {
+  /* these two are margins before the address bar and after the options button in the toolbar */
   --uc-window-drag-space-pre: unset !important;
   --uc-window-control-space: unset !important;
 }
