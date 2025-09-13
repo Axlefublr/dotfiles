@@ -665,6 +665,8 @@ insert_mappings: dict[str, Any] = {
     'down': 'completion',
     'end': ['commit_undo_checkpoint', 'goto_line_end_newline'],
     'home': ['commit_undo_checkpoint', 'goto_line_start'],
+    'left': ['commit_undo_checkpoint', 'move_char_left'],
+    'right': ['commit_undo_checkpoint', 'move_char_right'],
     'up': 'completion',
     # [[sort off]]
     'C-;': [
