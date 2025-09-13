@@ -76,13 +76,11 @@ function fish_user_key_bindings
     bind ctrl-space 'commandline -i " "'
     bind ctrl-z d
     bind f1 'commandline nu ; commandline -f execute'
-    bind f11 'commandline -f execute exit'
+    bind f11 'commandline -f execute and exit'
     bind f2 'commandline lazygit ; commandline -f execute'
     bind f3 yazi_cd
     bind f5 'test "$(commandline)" = " " && helix . || helix'
     bind f6 'swayimg -g & disown ; exit'
-    bind super-3 _harp_set
-    bind super-s _harp_get
     # [[sort off]]
 end
 funcsave fish_user_key_bindings >/dev/null
