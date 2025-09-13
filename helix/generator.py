@@ -663,6 +663,8 @@ insert_mappings: dict[str, Any] = {
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
     'F11': [':write-quit-all'],
     'down': 'completion',
+    'end': ['commit_undo_checkpoint', 'goto_line_end_newline'],
+    'home': ['commit_undo_checkpoint', 'goto_line_start'],
     'up': 'completion',
     # [[sort off]]
     'C-;': [
