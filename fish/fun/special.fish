@@ -1,10 +1,5 @@
 #!/usr/bin/env fish
 
-function blammo
-    cat ~/.cache/mine/blammo
-end
-funcsave blammo >/dev/null
-
 function calculate_eof_position -a file
     set -l last_line (wc -l $file | string split ' ')[1]
     echo -n :$last_line:

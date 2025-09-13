@@ -124,7 +124,6 @@ function fish_prompt
     printf '󱕅 '
     set_color normal
     __fish_cursor_xterm line
-    set -g in (blammo 2>/dev/null)
 end
 funcsave fish_prompt >/dev/null
 
