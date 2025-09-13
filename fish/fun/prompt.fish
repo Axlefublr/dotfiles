@@ -1,31 +1,46 @@
 #!/usr/bin/env fish
 
 function fish_prompt_pwd
-    set -l git_repo_full (git rev-parse --show-toplevel 2>/dev/null)
-    if test "$HOME" = "$PWD"
-        echo -n '~'
-        return 0
-    end
-    if string match -qgr "^$HOME" $PWD
-        set_color -o ff8787
-        echo -n '~'
-        set_color -o ffafd7
-    end
-    set -l home (string escape --style=regex $HOME)
-    if test "$git_repo_full"
-        set -l above_repo (path dirname $git_repo_full)
-        set -l repo_segment (path basename $git_repo_full)
-        set -l rest_pwd (string replace $git_repo_full '' $PWD)
-        echo -n "$(string replace -r "^$home" '' $above_repo/)"
-        set_color -o ff8787
-        echo -n $repo_segment
-        set_color normal
-        set_color -o ffafd7
-        echo -n $rest_pwd
+    set -l taken_length "$argv"
+    set -l allowed_length (math $COLUMNS - $taken_length)
+    # set -l git_repo_full (git rev-parse --show-toplevel 2>/dev/null)
+    set -l home_compressed (
+        string replace -r "^$HOME" '~' "$PWD" |
+        string replace -r "home/$USER" '~'
+    )
+
+    set -l pwd_length (string length "$home_compressed")
+    if test (math $pwd_length + $taken_length) -ge (math -s 0 -m round $COLUMNS x 0.5)
+        set -g _fish_prompt_should_mulitline true
     else
-        set -l cwd (string replace -r "^$home" '' $PWD)
-        echo -n $cwd
+        set -g _fish_prompt_should_mulitline false
     end
+
+    set -l segments (string split -n / "$home_compressed")
+    if test $pwd_length -ge $allowed_length
+        set -l longest_index 1
+        set -l longest_length 0
+        for index in (seq 1 (count $segments))
+            set -l current_length (string length $segments[$index])
+            if test $current_length -gt $longest_length
+                set longest_index $index
+                set longest_length $current_length
+            end
+        end
+        # now we know what segment is the largest one
+        set -l max_segment_length (math "max(1, $allowed_length - ($pwd_length - $longest_length))")
+        set segments $segments[1..(math "max 1, $longest_index - 1")] \
+            (string shorten -m $max_segment_length $segments[$longest_index]) \
+            $segments[(math "max 1, $longest_index + 1")..]
+    end
+
+    if test "$segments[1]" != '~' -a "$segments[1]" != /
+        echo -n /
+    end
+
+    string replace '~' "$(set_color -o ff8787)~$(set_color -o ffafd7)" $segments |
+        string join / |
+        read
 end
 funcsave fish_prompt_pwd >/dev/null
 
@@ -66,24 +81,34 @@ funcsave fish_prompt_status >/dev/null
 
 function fish_prompt
     set -l fullstatuses $pipestatus
-    set_color ffd75f
-    if set -q fish_private_mode
-        printf '󰗹 '
-    end
     set -l jobsies (jobs)
     set -l jobsies_count (count $jobsies)
+    set -l taken_length 0
+    set_color -o ffd75f
     if test $jobsies_count -gt 0
         printf ' '
+        set taken_length (math $taken_length + 2)
         if test $jobsies_count -gt 1
             set_color -o
-            printf %s\n $jobsies | cut -f 1 | string join '' | read
+            set -l the (printf %s\n $jobsies | cut -f 1 | string join '')
+            echo -n $the
             echo -n ' '
+            set taken_length (math $taken_length + (string length $the) + 1)
             set_color normal
         end
     end
     set_color ffd75f
     if not test -w .
         printf ' '
+        set taken_length (math $taken_length + 2)
+    end
+    set_color -o ffafd7
+    fish_prompt_pwd $taken_length
+    set_color normal
+    if $_fish_prompt_should_mulitline
+        printf '\n'
+    else
+        printf ' '
     end
     set_color ff9f1a
     if test $USER != axlefublr
@@ -95,14 +120,6 @@ function fish_prompt
         set_color normal
         set_color ff9f1a
         echo -n $hostname
-    end
-    set_color -o ffafd7
-    fish_prompt_pwd
-    set_color normal
-    if test $COLUMNS -ge $small_threshold
-        printf ' '
-    else
-        printf '\n'
     end
     # if git rev-parse --is-inside-work-tree &>/dev/null
     #     set -l curr_branch (git branch --show-current 2> /dev/null)
