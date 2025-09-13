@@ -43,6 +43,10 @@ cp -fr ~/.local/share/zoxide/db.zo ~/fes/jiro/zoxide.db
 git add zoxide.db
 and git commit -m 'sync zoxide'
 
+rsync (recent-modified.nu ~/wlx/tabs) ~/fes/jiro/browser-tabs.json
+git add browser-tabs.json
+and git commit -m 'sync tabs'
+
 sleep 10 # otherwise, as soon as I wake my pc from sleep, it hasn't connected to the internet at that point, but *has* started executing this script. so what ends up happening is git commands fail to push all the directories because it doesn't have internet to do so yet.
 
 for dir in ~/fes/ork/*
