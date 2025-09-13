@@ -6,5 +6,5 @@ while true
     else
         echo
     end
-    inotifywait -qq -e close_write -e move_self ~/.local/share/magazine/0
+    inotifywait -qq -e modify -e move_self ~/.local/share/magazine/0
 end
