@@ -17,7 +17,7 @@
     "cache-size-mb": 4,
     "default-trackers": "",
     "dht-enabled": true,
-    "download-dir": "/home/axlefublr/iwm/vdi",
+    "download-dir": "/home/axlefublr/iwm/voe",
     "download-queue-enabled": true,
     "download-queue-size": 1,
     "encryption": 1,

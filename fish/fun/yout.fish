@@ -26,7 +26,7 @@ function install-yt-video
     set -l extra $argv[1]
     set -l link $argv[2]
 
-    yt ~/iwm/vdi/$extra $link
+    yt ~/iwm/voe/$extra $link
 end
 funcsave install-yt-video >/dev/null
 

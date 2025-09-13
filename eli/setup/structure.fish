@@ -4,7 +4,7 @@ mkdir -p ~/wlx \
     ~/iwm \
     ~/iwm/sco \
     ~/iwm/rnt \
-    ~/iwm/vdi \
+    ~/iwm/voe \
     ~/iwm/lwkc \
     ~/fes \
     ~/fes/ork \
