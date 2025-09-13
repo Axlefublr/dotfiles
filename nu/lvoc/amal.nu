@@ -22,16 +22,16 @@ const pleasantries = {
 	s: [  b   d   f   h i j k l m n o         u        ]
 	t: [  b             i j k l m n o         u        ]
 	u: [a   c d e f g         l   n o   r s t   v w x z]
-	v: [a b           h i j k l m n o     s   u   w x z]
-	w: [  b       f   h i j k l m n o   r     u        ]
+	v: [a b           h i j k l m n o     s   u   w   z]
+	w: [  b       f   h i   k l m n o   r     u        ]
 	x: [  b           h i j k l m n o         u        ]
 	z: [  b c     f   h i j k l m n o         u     x  ]
 }
 
-def main [--words(-w): int = 1, length: int = 5] {
+def main [--words(-w): int = 1, --initial(-i): string, length: int = 5] {
 	1..$words | each {
-		let first_letter = $alphabet | random item
-		amalgamate $first_letter | take $length | str join
+		let first_letter = $initial | default ($alphabet | random item)
+		[$first_letter] | append (amalgamate $first_letter | take ($length - 1)) | str join
 	} | to text
 }
 
