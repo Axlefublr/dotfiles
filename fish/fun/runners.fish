@@ -77,7 +77,7 @@ function runner_math
     # set -l calculated_result (qalc -t -- $input_expr | tee -a ~/.cache/mine/runner-math)
     # notify-send -t 0 -- "$calculated_result"
     # echo $calculated_result | wl-copy -n
-    footclient -N -T floating qalc.fish
+    footclient -NT floating qalc.fish
 end
 funcsave runner_math >/dev/null
 
