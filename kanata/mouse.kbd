@@ -24,10 +24,10 @@
 	i pgup
 	o pgdn
 
-	, (mwheel-up    100 120)
-	. (mwheel-down  100 120)
-	w (mwheel-left  30 120)
-	r (mwheel-right 30 120)
+	, (mwheel-up    30 60)
+	. (mwheel-down  30 60)
+	w (mwheel-left  20 60)
+	r (mwheel-right 20 60)
 
 	s (movemouse-accel-left  5 300 1 7)
 	d (movemouse-accel-down  5 300 1 7)
