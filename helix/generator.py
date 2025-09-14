@@ -269,7 +269,7 @@ normal_select_mappings: dict[str, Any] = {
     '&': '@<A-k>;—<ret>×<A-k>M',
     '(': 'goto_prev_change',
     ')': 'goto_next_change',
-    '*': 'search_selection_detect_word_boundaries',
+    '*': ['search_selection_detect_word_boundaries', 'normal_mode'],
     '+': 'rotate_selections_forward',
     ',': 'collapse_selection',
     '-': 'rotate_selections_backward',
