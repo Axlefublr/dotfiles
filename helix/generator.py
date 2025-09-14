@@ -215,16 +215,28 @@ all_modes_mappings: dict[str, Any] = {
     'C-tab': 'add_newline_above',
     'C-up': 'copy_selection_on_prev_line',
     'F12': 'add_newline_below',
-    'F2': ':sh footclient -ND %(current_working_directory) o+e>| ignore',
-    'F5': ':sh footclient -T floating -ND %(current_working_directory) o+e>| ignore',
-    'S-F2': ':sh footclient -ND %(buffer_parent) o+e>| ignore',
-    'S-F5': ':sh footclient -T floating -ND %(buffer_parent) o+e>| ignore',
     'S-down': 'move_lines_down',
     'S-home': ':buffer-close!',
     'S-left': 'unindent',
     'S-right': 'indent',
     'S-up': 'move_lines_up',
     # [[sort off]]
+    'F2': [
+        ":noop %sh(hx-blammo '%(full_path)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
+        ':sh footclient -ND %(current_working_directory) o+e>| ignore',
+    ],
+    'F5': [
+        ":noop %sh(hx-blammo '%(full_path)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
+        ':sh footclient -T floating -ND %(current_working_directory) o+e>| ignore',
+    ],
+    'S-F2': [
+        ":noop %sh(hx-blammo '%(full_path)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
+        ':sh footclient -ND %(buffer_parent) o+e>| ignore',
+    ],
+    'S-F5': [
+        ":noop %sh(hx-blammo '%(full_path)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
+        ':sh footclient -T floating -ND %(buffer_parent) o+e>| ignore',
+    ],
     'C-z': [
         ":noop %sh(echo '%(current_working_directory)' >~/.cache/mine/helix-cwd-suspend)",
         ":noop %sh(echo '%(buffer_parent)' >~/.cache/mine/helix-buffer-head-suspend)",

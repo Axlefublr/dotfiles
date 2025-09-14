@@ -245,6 +245,17 @@ keybinding:
     commitMenu: <c-o>
 
 customCommands:
+  - key: <F5>
+    context: global
+    command: "footclient -NT floating"
+    description: "Open floating terminal here"
+    output: none
+  - key: <F2>
+    context: global
+    command: "footclient -N"
+    description: "Open terminal here"
+    output: none
+
   - key: u
     context: files
     command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
