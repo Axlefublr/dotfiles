@@ -1,0 +1,21 @@
+[terminal]
+width = 130
+height = 38
+
+[font]
+family = [
+  "Input Mono",
+  "JetBrainsMono Nerd Font",
+  "Twemoji",
+  "JetBrains Mono",
+  "Fira Code",
+  "Source Code Pro",
+  "Cascadia Code",
+  "Consolas",
+  "Menlo",
+  "Monaco",
+  "DejaVu Sans Mono",
+  "monospace",
+  "Symbols Nerd Font Mono",
+]
+size = 20

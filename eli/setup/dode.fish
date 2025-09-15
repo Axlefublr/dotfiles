@@ -718,6 +718,11 @@ systemctl --user restart xdg-desktop-portal-termfilechooser.service
 # widget.use-xdg-desktop-portal.file-picker 1
 # middlemouse.paste
 
+# -----------------termframe------------------
+cargo install --locked --git https://github.com/pamburus/termframe.git
+mkdir -p ~/.config/termframe
+ln -sf ~/fes/dot/termframe.toml ~/.config/termframe/config.toml
+
 # -----------------termpicker-----------------
 stew install ChausseBenjamin/termpicker
 
