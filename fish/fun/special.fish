@@ -141,7 +141,7 @@ end
 funcsave randomize_file_names >/dev/null
 
 function screenshot_select
-    niri msg action screenshot
+    niri msg action screenshot -p false
 end
 funcsave screenshot_select >/dev/null
 
