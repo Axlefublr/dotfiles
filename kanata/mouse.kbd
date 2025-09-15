@@ -19,13 +19,13 @@
 	c lctl
 
 	m mmid
-	i mlft
-	o mrgt
+	j mlft
+	k mrgt
 	, pgup
 	. pgdn
 
-	k (mwheel-up    30 60)
-	j (mwheel-down  30 60)
+	o (mwheel-up    30 60)
+	i (mwheel-down  30 60)
 	w (mwheel-left  20 60)
 	r (mwheel-right 20 60)
 
