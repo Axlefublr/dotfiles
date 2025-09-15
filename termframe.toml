@@ -19,3 +19,9 @@ family = [
   "Symbols Nerd Font Mono",
 ]
 size = 20
+
+[window]
+enabled = false
+
+[rendering.svg]
+embed-fonts = true
