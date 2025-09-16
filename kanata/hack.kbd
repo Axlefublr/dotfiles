@@ -28,4 +28,5 @@
 	i C-A-pgup
 	o C-A-pgdn
 	u A-end
+	' A-f8
 )
