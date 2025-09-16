@@ -172,6 +172,9 @@ sudo mkdir -p /etc/systemd/system/fancontrol.service.d
 sudo ln -f ~/fes/dot/systemd/fancontrol.systemd /etc/systemd/system/fancontrol.service.d/mine.conf
 sudo systemctl enable --now fancontrol
 
+# --------------------feh---------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout feh
+
 # --------------------fifc--------------------
 fisher install gazorby/fifc
 set -Ux fifc_editor helix
@@ -325,6 +328,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout httrack
 # -----------------hyperfine------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout hyperfine
 
+# --------------------imv---------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout imv
+
 # ---------------------jj---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout jj lazyjj
 jj util completion fish | source
@@ -440,7 +446,7 @@ plugin add /usr/bin/nu_plugin_formats
 plugin add /usr/bin/nu_plugin_gstat
 
 # --------------------nvim--------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout neovim luarock
+sudo pacman -S --needed --noconfirm --disable-download-timeout neovim luarocks
 trash-put ~/.config/nvim
 mkdir -p ~/.config/nvim
 for file in ~/fes/dot/!nvim/*
@@ -449,6 +455,9 @@ end
 for file in ~/fes/dot/!nvim/.*
     ln -sf $file ~/.config/nvim
 end
+
+# ------------------oculante------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout oculante
 
 # -------------------other--------------------
 sudo loginctl enable-linger $USER
@@ -490,6 +499,9 @@ ln -sf ~/fes/dot/pik.toml ~/.config/pik/config.toml
 # -------------------pipes--------------------
 # visual lines going all over the screen
 paru -Sa --needed --disable-download-timeout bash-pipes
+
+# --------------------pqiv--------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout pqiv
 
 # ------------------privoxy-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout privoxy
