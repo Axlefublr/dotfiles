@@ -312,6 +312,7 @@ window-rule {
     match app-id="anki"
     match app-id="python" title="^Import$"
     match app-id="floorp|firefox|zen$" title="^File Upload$"
+    match app-id="floorp|firefox|zen$" title="^Open File$"
     match app-id="floorp|firefox|zen$" title="^Save Image|Video|As|Audio$"
     match app-id="floorp|firefox|zen$" title="^Enter name of file to save to…$"
     match app-id="floorp|firefox|zen$" title="^Opening "
