@@ -38,6 +38,8 @@ function ffmpeg_cut_video
             -crf 18 \
             -map_metadata -1 \
             -movflags +faststart \
+            -c:a aac \
+            -b:a 128K \
             "$output"
     end
 end
