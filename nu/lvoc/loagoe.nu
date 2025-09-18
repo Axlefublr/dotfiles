@@ -5,6 +5,7 @@ const ignored = [
 	# [[sort on]]
 	eat
 	puff
+	roll
 	sludge
 	soap
 	# [[sort off]]
@@ -20,7 +21,7 @@ const known = {
 	floor: 7
 	towels: 7
 	vacuum: 8
-	dust: 9
+	dust: 10
 	nails: 13
 	bottle: 15
 	disc: 15
