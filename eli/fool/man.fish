@@ -1,3 +1,7 @@
 #!/usr/bin/env fish
 
-man $argv
+if $argv[-1]
+    man $argv[..-2]
+else
+    command man $argv[..-2]
+end
