@@ -1,8 +1,8 @@
 # ------------------crystal-------------------
 [[language]]
 name = "crystal"
-auto-format = false
-indent = { tab-width = 3, unit = "\t" }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
 
 [language.auto-pairs]
 "(" = ")"
