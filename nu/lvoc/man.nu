@@ -19,24 +19,28 @@ def 'main help' [] {
 
 def 'main man' [] {
 	let input = open ~/.cache/mine/man-list | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency
-	let manpage = try {
-		$input | parse '{name} (fish)' | $in.name.0
+	let the = try {
+		$input | parse '{name} (fish)' | $in.name.0 | { manpage: $in, should_fish: true }
 	} catch {
 		try {
-			$input | parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0
+			$input | parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0 | { manpage: $in, should_fish: false }
 		} catch {
-			$input
+			{ manpage: $input, should_fish: true }
 		}
 	}
-	^footclient -N -- man.fish $manpage
+	^footclient -N -- man.fish $the.manpage $the.should_fish
 }
 
 def 'main men' [] {
 	^man -k .
 	| parse -r '(?P<name>\S+ \([1-9]p?\)) +- \S'
 	| get name
-	| interleave { ^fish -c 'builtin -n' | lines | where $it not-in [':', '.', '[', '_'] | par-each { $in + ' (fish)' } }
-	| interleave { $fish_builtin_functions | par-each { $in + ' (fish)' } }
+	| interleave {
+		ls /usr/share/fish/man/man1/*.1
+		| get name
+		#                           trimming `.1`
+		| each { path basename | str substring 0..-3 | $in + ' (fish)' }
+	}
 	| to text
 	| save -f /tmp/mine/man-atomic
 	mv -f /tmp/mine/man-atomic ~/.cache/mine/man-list
