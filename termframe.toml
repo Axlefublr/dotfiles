@@ -17,6 +17,7 @@ family = [
   "DejaVu Sans Mono",
   "monospace",
   "Symbols Nerd Font Mono",
+  # "Noto Color Emoji",
 ]
 size = 20
 
