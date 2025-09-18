@@ -100,10 +100,10 @@
 	' del
 	, pgup
 	. pgdn
-	/ end
+	/ (cmd fish -c "wtype (uclanr 3 -j -)")
 	; bspc
 	a lalt
-	b (cmd fish -c "wtype (uclanr 3 -j -)")
+	b (layer-switch arrows)
 	caps esc
 	d lctl
 	e (layer-while-held hack-arrow)
@@ -113,8 +113,8 @@
 	k up
 	l right
 	lbrc lrld
-	m home
-	n (layer-switch arrows)
+	m end
+	n home
 	o enter
 	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
 	s lsft
