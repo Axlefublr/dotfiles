@@ -151,7 +151,7 @@ layout {
     tab-indicator {
         hide-when-single-tab
         length total-proportion=1.002
-        place-within-column
+        // place-within-column
         gap 0
         width 4
         position "top"
