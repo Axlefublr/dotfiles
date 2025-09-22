@@ -25,7 +25,7 @@ const pleasantries = {
 	v: [a b           h i j k l m n o     s   u   w   z]
 	w: [  b       f   h i   k l m n o   r     u        ]
 	x: [  b           h i j k l m n o         u        ]
-	z: [  b c     f   h i j k l m n o         u     x  ]
+	z: [  b c     f   h i j k l m n o         u        ]
 }
 
 def main [--words(-w): int = 1, --initial(-i): string, length: int = 5] {
