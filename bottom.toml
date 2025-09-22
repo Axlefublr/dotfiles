@@ -1,0 +1,72 @@
+[flags]
+cpu_left_legend = true
+hide_table_gap = true
+process_memory_as_value = true
+show_table_scroll_position = true
+process_command = true
+memory_legend = "top-left"
+network_legend = "top-left"
+
+[cpu]
+default = "average"
+
+[disk]
+columns = [
+  "Mount",
+  "Disk",
+  "Total",
+  "Used",
+  "Free",
+  "Used%",
+  "R/s",
+  "W/s"
+]
+
+[processes]
+columns = [
+  "pid",
+  "name",
+  "cpu%",
+  "mem%",
+  "gmem%",
+  "gpu%",
+  "time",
+  "user",
+  "read",
+  "write",
+  # "state",
+  # "tread",
+  # "twrite",
+]
+
+[styles]
+tables = { headers = { color = "#e491b2", bold = true } }
+
+[styles.widgets]
+border_color = "#b58cc6"
+widget_title = "#b58cc6"
+selected_border_color = "#e491b2"
+selected_text = { color = "white", bg_color = "#593d48" }
+
+[[row]]
+  ratio=25
+  [[row.child]]
+    type="mem"
+  [[row.child]]
+    type="net"
+[[row]]
+  ratio=40
+  [[row.child]]
+    type="cpu"
+  [[row.child]]
+    [[row.child.child]]
+      ratio=5
+      type="temp"
+    [[row.child.child]]
+      ratio=4
+      type="disk"
+[[row]]
+  ratio=35
+  [[row.child]]
+    type="proc"
+    default=true
