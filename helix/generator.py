@@ -312,7 +312,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-/': 'select_first_and_last_chars',
     'C-;': 'split_selection',
     'C-a': 'decrement',
-    'C-c': ':pipe hx-replace',
+    'C-c': [':pipe hx-replace', 'normal_mode'],
     'C-d': 'delete_selection_noyank',
     'C-f': 'increment',
     'C-h': 'select_prev_sibling',
@@ -380,12 +380,12 @@ normal_select_mappings: dict[str, Any] = {
     '”': 'goto_next_diag',
     '…': 'split_selection_on_newline',
     '€': 'keep_selections',
+    '↑': ':tree-sitter-highlight-name',
+    '↓': ':tree-sitter-subtree',
     '✅': ':pipe `"✅"`',
     '❌': ':pipe `"❌"`',
     '❓': ':pipe `"❓"`',
     '❗': ':pipe `"❗"`',
-    '🔥': ':tree-sitter-subtree',
-    '😔': ':tree-sitter-highlight-name',
     '🚀': 'rename_symbol',
     # [[sort off]]
     'A-.': {
