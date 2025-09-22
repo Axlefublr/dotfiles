@@ -9,9 +9,20 @@ end
 funcsave calculate_eof_position >/dev/null
 
 function clipboard_image_save
-    set -l path ~/iwm/sco/(date +%Y.%m.%d-%H:%M:%S).png
-    wl-paste -t image/png >$path
-    notify-send "saved to $(path basename $path)"
+    set -l now (date +%Y.%m.%d-%H:%M:%S)
+    set -l path_trunk ~/iwm/sco/$now
+    wl-paste -t image/png >$path_trunk.png
+    set -l is_large (echo $path_trunk.png | nu --stdin --no-std-lib -nc 'str trim | ls $in | get size.0 | $in >= 10mb')
+    if $is_large
+        magick -define webp:lossless=true $path_trunk.png $path_trunk.webp
+        sl.fish $path_trunk.webp
+        set -l is_large (echo $path_trunk.webp | nu --stdin --no-std-lib -nc 'str trim | ls $in | get size.0 | $in >= 10mb')
+        if $is_large
+            magick $path_trunk.png $path_trunk!.webp
+            sl.fish $path_trunk!.webp
+        end
+    end
+    dot
 end
 funcsave clipboard_image_save >/dev/null
 
