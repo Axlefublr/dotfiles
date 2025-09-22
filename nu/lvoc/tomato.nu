@@ -20,13 +20,14 @@ def elapsed [timestamp: datetime] {
 }
 
 def evaluate [phase: string, rest_time: duration, timestamp: datetime, work_time: duration] {
-	let work_time = $work_time // 1min | into string
 	if $phase == work {
-		elapsed $timestamp
+		let the = elapsed $timestamp
+		$the
 		| log $phase
 		| $in // 1min
-		| commit $phase $work_time
+		| commit $phase ($work_time + $the | $in // 1min | into string)
 	} else {
+		let work_time = $work_time // 1min | into string
 		let remains = ($rest_time - (elapsed $timestamp)) | log $phase
 		if $remains >= 0sec {
 			$remains // 1min | commit $phase $work_time
