@@ -191,15 +191,6 @@ function things
 end
 funcsave things >/dev/null
 
-function magick_change_extension
-    set -l ext (catait ~/.cache/mine/yazi-input)
-    not test "$ext" && return 0
-    for file in $argv
-        magick $file (path change-extension $ext $file)
-    end
-end
-funcsave magick_change_extension >/dev/null
-
 function niri_resize_width -a bigness
     not test "$bigness" && return 121
     niri msg action set-column-width $bigness
