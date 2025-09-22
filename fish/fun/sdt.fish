@@ -33,7 +33,7 @@ funcsave systemd_wallpaper >/dev/null
 
 function systemd_mandb
     while true
-        cat ~/fes/uviw/fux/sudo | sudo -S mandb
+        cat ~/fes/uviw/afen/sudo | sudo -S mandb
         man.nu men
         inotifywait -e move_self -e delete -e create -r (manpath | string split ':')
     end

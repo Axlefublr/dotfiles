@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-cat ~/fes/uviw/fux/sudo | sudo -S modprobe uinput
+cat ~/fes/uviw/afen/sudo | sudo -S modprobe uinput
 systemctl --user restart kanata.service
 fcf.nu fix
 playerctld daemon

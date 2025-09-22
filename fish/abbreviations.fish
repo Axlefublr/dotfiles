@@ -20,7 +20,7 @@ abbr -a cp 'rsync -r'
 abbr -a de 'cd ~/fes/dot && helix'
 abbr -a e helix
 abbr -a fC 'sudo -E helix /etc/fancontrol'
-abbr -a fc 'cat ~/fes/uviw/fux/sudo | sudo -S systemctl restart fancontrol'
+abbr -a fc 'cat ~/fes/uviw/afen/sudo | sudo -S systemctl restart fancontrol'
 abbr -a gx 'glaza -g'
 abbr -a gz glaza
 abbr -a hime 'history merge'
