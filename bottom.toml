@@ -19,7 +19,7 @@ columns = [
   "Free",
   "Used%",
   "R/s",
-  "W/s"
+  "W/s",
 ]
 
 [processes]
@@ -42,31 +42,45 @@ columns = [
 [styles]
 tables = { headers = { color = "#e491b2", bold = true } }
 
+[styles.cpu]
+all_entry_color = "#78bf84"
+avg_entry_color = "#e491b2"
+cpu_core_colors = [ "#ea6962", "#e49641", "#d3ad5c", "#a9b665" ]
+
+[styles.memory]
+ram_color = "#e491b2"
+gpu_colors = [ "#78bf84" ]
+
+[styles.network]
+rx_color = "#e491b2"
+tx_color = "#78bf84"
+
 [styles.widgets]
 border_color = "#b58cc6"
 widget_title = "#b58cc6"
 selected_border_color = "#e491b2"
 selected_text = { color = "white", bg_color = "#593d48" }
+disabled_text = { color = "#928374" }
 
 [[row]]
-  ratio=25
-  [[row.child]]
-    type="mem"
-  [[row.child]]
-    type="net"
+ratio = 25
+[[row.child]]
+type = "mem"
+[[row.child]]
+type = "net"
 [[row]]
-  ratio=40
-  [[row.child]]
-    type="cpu"
-  [[row.child]]
-    [[row.child.child]]
-      ratio=5
-      type="temp"
-    [[row.child.child]]
-      ratio=4
-      type="disk"
+ratio = 40
+[[row.child]]
+type = "cpu"
+[[row.child]]
+[[row.child.child]]
+ratio = 5
+type = "temp"
+[[row.child.child]]
+ratio = 4
+type = "disk"
 [[row]]
-  ratio=35
-  [[row.child]]
-    type="proc"
-    default=true
+ratio = 35
+[[row.child]]
+type = "proc"
+default = true
