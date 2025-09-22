@@ -11,21 +11,26 @@ function ffmpeg_cut_video
         set -l input_basename (path basename -E $input)
         set -l output "$input_basename"!
 
+        if test -z "$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 $input)"
+            echo 'no audio stream. faking it.' >&2
+            set -f $fake_audio -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -shortest
+        end
+
         echo '[hh:mm:]ss[.ms]' >&2
         echo 'skip to mean “start of video”' >&2
         read -P 'from: ' -l from || return 121
         if test "$from"
-            set output "$output$from-"
+            set output "$output$from"
             set from -ss $from
             echo 'skip to mean “end of video”' >&2
         else
-            set output "$output-"
+            set output "$output"
             echo 'skip to not cut at all' >&2
             set -e from
         end
         read -P 'to: ' -l to || return 121
         if test "$to"
-            set output "$output$to"
+            set output "$output-$to"
             set to -to $to
         else
             set -e to
@@ -33,6 +38,7 @@ function ffmpeg_cut_video
         set output "$output.mp4"
 
         pueue add -g cpu -- ffmpeg -y -i "$input" $from $to \
+            $fake_audio \
             -c:v libx264 \
             -preset medium \
             -crf 18 \
@@ -40,6 +46,7 @@ function ffmpeg_cut_video
             -movflags +faststart \
             -c:a aac \
             -b:a 128K \
+            -shortest \
             "$output"
     end
 end
