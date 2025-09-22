@@ -72,6 +72,7 @@ flatpak install com.usebottles.bottles
 
 # -------------------bottom-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout bottom
+mkdir -p ~/.config/bottom
 ln -sf ~/fes/dot/bottom.toml ~/.config/bottom/bottom.toml
 
 # -------------------bubbly-------------------
@@ -348,8 +349,12 @@ mkdir -p ~/.config/just
 ln -sf ~/fes/dot/globaljustfile ~/.config/just/justfile
 
 # -------------------kanata-------------------
+sudo groupadd uinput # create uinput group if it somehow doesn't exist
 sudo usermod -aG input $USER
+sudo usermod -aG uinput $USER
 sudo usermod -aG video $USER
+groups # check that your user is in
+sudo modprobe uinput # you might need to instantiate the uinput driver if shit really hits the fan
 indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata'
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 systemctl --user enable --now ~/fes/dot/kanata/kanata.service
