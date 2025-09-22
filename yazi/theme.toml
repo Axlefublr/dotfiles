@@ -41,7 +41,7 @@ sep_right = { open = '', close = '' }
 
 [which]
 cols = 2
-mask = { bg = '#212121' }
+mask = { bg = '#222121' }
 separator_style = { fg = 'white' }
 cand = { fg = '#e49641' }
 desc = { fg = '#d3ad5c' }
