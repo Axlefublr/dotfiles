@@ -21,7 +21,7 @@ const known = {
 	floor: 7
 	towels: 7
 	vacuum: 8
-	dust: 10
+	dust: 12
 	nails: 13
 	bottle: 15
 	disc: 15
