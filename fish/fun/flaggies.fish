@@ -5,7 +5,7 @@ alias --save dust 'dust -r' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group --git --git-repos' >/dev/null
 alias --save fd 'fd --no-require-git' >/dev/null
 alias --save icat 'kitten icat --align left' >/dev/null
-alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -s' >/dev/null
+alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -f' >/dev/null
 alias --save less 'less --use-color -R' >/dev/null
 alias --save octogit-set "octogit --color-all-commits ffd75f --color-all-staged 87ff5f --color-all-unstaged 00d7ff" >/dev/null
 alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
