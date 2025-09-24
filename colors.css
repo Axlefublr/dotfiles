@@ -1,38 +1,38 @@
 .shell {
-	--red   : #ff2930;
+	--red: #ff2930;
 	--orange: #ff9f1a;
 	--yellow: #ffd75f rgb(255, 215, 95);
-	--salad : #87ff5f;
-	--green : #3dff47;
-	--cyan  : #00d7ff;
-	--blue  : #8599ff;
+	--salad: #87ff5f;
+	--green: #3dff47;
+	--cyan: #00d7ff;
+	--blue: #8599ff;
 	--purple: #af87ff;
-	--pink  : #ffafd7 rgb(255, 175, 215);
-	--coral : #ff8787;
-	--grey  : #878787;
+	--pink: #ffafd7 rgb(255, 175, 215);
+	--coral: #ff8787;
+	--grey: #878787;
 }
 
 .gruvbox-material {
-	--red   : #ea6962 hsl(3  , 76.4%, 65.1%);
-	--orange: #e49641 hsl(31 , 75.1%, 57.5%);
-	--yellow: #d3ad5c hsl(41 , 57.5%, 59.4%);
-	--green : #a9b665 hsl(70 , 35.7%, 55.5%);
-	--mint  : #78bf84 hsl(130, 35.7%, 61.0%);
-	--cyan  : #7daea3 hsl(167, 23.2%, 58.6%);
+	--red: #ea6962 hsl(3, 76.4%, 65.1%);
+	--orange: #e49641 hsl(31, 75.1%, 57.5%);
+	--yellow: #d3ad5c hsl(41, 57.5%, 59.4%);
+	--green: #a9b665 hsl(70, 35.7%, 55.5%);
+	--mint: #78bf84 hsl(130, 35.7%, 61.0%);
+	--cyan: #7daea3 hsl(167, 23.2%, 58.6%);
 	--purple: #b58cc6 hsl(282, 33.7%, 66.3%);
-	--blush : #e491b2 hsl(336, 60.6%, 73.1%);
-	--white : #d4be98 hsl(38 , 41.1%, 71.4%);
-	--grey  : #928374 hsl(30 , 12.1%, 51.4%);
+	--blush: #e491b2 hsl(336, 60.6%, 73.1%);
+	--white: #d4be98 hsl(38, 41.1%, 71.4%);
+	--grey: #928374 hsl(30, 12.1%, 51.4%);
 }
 
 .gruvbox-material.background {
 	--light30: #4d4c4c hsl(0, 1.2%, 30%);
-	--level  : #292828 hsl(0, 1.2%, 16%);
-	--dark14 : #242323 hsl(0, 1.2%, 14%);
-	--dark13 : #222121 hsl(0, 1.2%, 13%);
-	--dark12 : #1f1e1e hsl(0, 1.2%, 12%);
-	--dark11 : #1c1c1c hsl(0, 1.2%, 11%);
-	--dark10 : #1a1919 hsl(0, 1.2%, 10%);
+	--level: #292828 hsl(0, 1.2%, 16%);
+	--dark14: #242323 hsl(0, 1.2%, 14%);
+	--dark13: #222121 hsl(0, 1.2%, 13%);
+	--dark12: #1f1e1e hsl(0, 1.2%, 12%);
+	--dark11: #1c1c1c hsl(0, 1.2%, 11%);
+	--dark10: #1a1919 hsl(0, 1.2%, 10%);
 }
 
 .supporters {
