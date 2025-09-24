@@ -31,6 +31,9 @@ paru -Sa --needed --disable-download-timeout ascii-image-converter-bin
 # -----------------asciinema------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout asciinema
 
+# --------------assassin's creed--------------
+# everything in the tiq entry
+
 # --------------------awm---------------------
 sudo pacman -S awesome
 mkdir -p ~/.config/awesome
@@ -69,6 +72,7 @@ ln -sf ~/fes/dot/boomer.conf ~/.config/boomer/config
 
 # ------------------bottles-------------------
 flatpak install com.usebottles.bottles
+flatpak run com.usebottles.bottles
 
 # -------------------bottom-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout bottom
@@ -401,6 +405,10 @@ locale # check locale health
 
 # -------------------lolcat-------------------
 sudo pacman -S lolcat
+
+# -------------------lutris-------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout lutris wine-gecko winetricks gamemode lib32-gamemode vkd3d lib32-vkd3d lib32-gnutls
+paru -Sa --needed --disable-download-timeout dxvk-bin lib32-faudio
 
 # ----------------lxappearance----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance gtk-engine-murrine qt5ct
