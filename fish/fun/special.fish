@@ -12,12 +12,14 @@ function clipboard_image_save
     set -l now (date +%Y.%m.%d-%H:%M:%S)
     set -l path_trunk ~/iwm/sco/$now
     wl-paste -t image/png >$path_trunk.png
-    set -l is_large (echo $path_trunk.png | nu --stdin --no-std-lib -nc 'str trim | ls $in | get size.0 | $in >= 10mb')
+    set -l is_large (echo $path_trunk.png | nu --stdin --no-std-lib -n -c 'str trim | ls $in | get size.0 | $in >= 10mb')
     if $is_large
+        echo 'too large, attempting lossless' >&2
         magick -define webp:lossless=true $path_trunk.png $path_trunk.webp
         sl.fish $path_trunk.webp
-        set -l is_large (echo $path_trunk.webp | nu --stdin --no-std-lib -nc 'str trim | ls $in | get size.0 | $in >= 10mb')
+        set -l is_large (echo $path_trunk.webp | nu --stdin --no-std-lib -n -c 'str trim | ls $in | get size.0 | $in >= 10mb')
         if $is_large
+            echo 'lossless too large, attempting lossy' >&2
             magick $path_trunk.png $path_trunk!.webp
             sl.fish $path_trunk!.webp
         end
