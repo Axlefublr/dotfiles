@@ -25,7 +25,6 @@ extract = [
 ]
 reveal = [
   { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
-  { run = 'swayimg -g "$@"', desc = "Gallery" },
 ]
 
 [open]
