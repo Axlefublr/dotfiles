@@ -30,7 +30,7 @@ const known = {
 	photos: 15
 	update: 15
 	utencils: 15
-	wilter: 15
+	wilter: 23
 	keyboard: 30
 	ov: 30
 	qiri: 30
