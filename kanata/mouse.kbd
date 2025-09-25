@@ -3,7 +3,7 @@
 	n (multi (layer-switch mouse) (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode"))
 	l (layer-while-held mouse-slow)
 
-	v (unmod lsft lalt f6)
+	v (tap-hold-release $tt $ht S-A-f6 XX)
 	z (cmd woomer)
 	/ (cmd fish -c pick_and_copy_color)
 	u (cmd fish -c screenshot_select)
