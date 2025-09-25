@@ -327,6 +327,11 @@ ln -sf ~/fes/ork/hx/runtime ~/.cargo/bin
 cargo install --path helix-term --locked
 sudo ln -f ~/fes/bin/helix /usr/bin/helix
 
+# ------------------hexpatch------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout hexpatch
+mkdir -p ~/.config/HexPatch
+ln -sf ~/fes/dot/hexpatch.jsonc ~/.config/HexPatch/settings.json
+
 # ------------------httrack-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout httrack
 
