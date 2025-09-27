@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 
+while pidof steam &>/dev/null
+    echo 'steam running; delaying execution' >&2
+    sleep 1m
+end
+
 trash-empty -f 1
 keep-thirty.nu
 pueue.nu brush
@@ -70,4 +75,4 @@ for link in (cat ~/.local/share/magazine/g)
     xdg-open $link
 end
 
-ubootf
+source uboot.fish
