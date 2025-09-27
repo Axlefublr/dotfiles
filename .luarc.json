@@ -4,5 +4,7 @@
   "workspace.library": [
     "~/.config/yazi/plugins/types.yazi/"
   ],
-  "diagnostics.globals": []
+  "diagnostics.globals": [
+    "mp"
+  ]
 }
