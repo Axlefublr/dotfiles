@@ -50,6 +50,7 @@ cpu_core_colors = [ "#ea6962", "#e49641", "#d3ad5c", "#a9b665" ]
 [styles.memory]
 ram_color = "#e491b2"
 gpu_colors = [ "#78bf84" ]
+# swap_color = "#7daea3"
 
 [styles.network]
 rx_color = "#e491b2"
