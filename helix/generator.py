@@ -312,7 +312,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-/': 'select_first_and_last_chars',
     'C-;': 'split_selection',
     'C-a': 'decrement',
-    'C-c': [':pipe hx-replace', 'normal_mode'],
+    'C-c': 'change_selection_noyank',
     'C-d': 'delete_selection_noyank',
     'C-f': 'increment',
     'C-h': 'select_prev_sibling',
