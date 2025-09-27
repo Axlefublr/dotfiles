@@ -429,7 +429,9 @@ rm -fr ~/.mapscii
 sudo pacman -S --needed --noconfirm --disable-download-timeout mpv
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps mpv-mpris
 mkdir -p ~/.config/mpv
-ln -sf ~/fes/dot/mpv/* ~/.config/mpv
+ln -sf ~/fes/dot/mpv/input.conf ~/.config/mpv
+ln -sf ~/fes/dot/mpv/mpv.conf ~/.config/mpv
+ln -s ~/fes/dot/mpv/scripts ~/.config/mpv
 xdg-mime default mpv.desktop video/webm
 xdg-mime default mpv.desktop video/mp4
 xdg-mime default mpv.desktop video/x-matroska
