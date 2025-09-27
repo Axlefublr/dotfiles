@@ -676,6 +676,18 @@ sudo -E helix /usr/share/applications/steam-native.desktop
 indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 
+# ------------------swapfile------------------
+sudo dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+swapon --show
+free -h
+sudo -E helix /etc/fstab # /swapfile none swap sw 0 0
+cat /proc/sys/vm/swappiness # check how aggressive swap is
+sudo sysctl vm.swappiness=15 # reduce swap aggressivenes from 60→15
+sudo -E helix /etc/sysctl.d/99-swappiness.conf # vm.swappiness=15
+
 # -------------------swappy-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout swappy
 
