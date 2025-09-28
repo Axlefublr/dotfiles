@@ -32,7 +32,7 @@
 	6 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give coolant_leak"))
 	7 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor"))
 	8 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gungeon_blueprint"))
-	9 (tap-hold 0 100 XX (cmd fish -c screenshot_window))
+	9 (cmd fish -c screenshot_window)
 	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held alt-right)))
 	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held alt-left)))
 	b (tap-hold-release $tt $ht b XX)
