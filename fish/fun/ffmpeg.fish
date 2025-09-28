@@ -16,22 +16,19 @@ function ffmpeg_cut_video
             set -f $fake_audio -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -shortest
         end
 
-        echo '[hh:mm:]ss[.ms]' >&2
-        echo 'skip to mean “start of video”' >&2
-        read -P 'from: ' -l from || return 121
-        if test "$from"
-            set output "$output$from"
-            set from -ss $from
-            echo 'skip to mean “end of video”' >&2
+        confirm.rs 'cut from?' '[j]es' '[k]o' | read -l response
+        if test "$response" = j
+            set -l from (cat /tmp/mine/mpv-loop-a)
+            set output "$output$(math -s 0 -m round $from)"
+            set -f from -ss "$from"s
         else
-            set output "$output"
-            echo 'skip to not cut at all' >&2
             set -e from
         end
-        read -P 'to: ' -l to || return 121
-        if test "$to"
-            set output "$output-$to"
-            set to -to $to
+        confirm.rs 'cut to?' '[j]es' '[k]o' | read -l response
+        if test "$response" = j
+            set -l to (cat /tmp/mine/mpv-loop-b)
+            set output "$output-$(math -s 0 -m round $to)"
+            set -f to -to "$to"s
         else
             set -e to
         end
@@ -56,26 +53,25 @@ function ffmpeg_convert_to_mp3
     for file in $argv
         not test -f "$file" && continue
         set -l output (path change-extension '' $file)
-        echo '[hh:mm:]ss[.ms]' >&2
-        echo 'skip to mean “start of audio”' >&2
-        read -P 'from: ' -l from || return 121
-        if test "$from"
-            set output "$output$from-"
-            set from -ss $from
-            echo 'skip to mean “end of audio”' >&2
+
+        confirm.rs 'cut from?' '[j]es' '[k]o' | read -l response
+        if test "$response" = j
+            set -l from (cat /tmp/mine/mpv-loop-a)
+            set output "$output$(math -s 0 -m round $from)"
+            set -f from -ss "$from"s
         else
-            set output "$output-"
-            echo 'skip to not cut at all' >&2
             set -e from
         end
-        read -P 'to: ' -l to || return 121
-        if test "$to"
-            set output "$output$to"
-            set to -to $to
+        confirm.rs 'cut to?' '[j]es' '[k]o' | read -l response
+        if test "$response" = j
+            set -l to (cat /tmp/mine/mpv-loop-b)
+            set output "$output-$(math -s 0 -m round $to)"
+            set -f to -to "$to"s
         else
             set -e to
         end
         set output "$output.mp3"
+
         pueue add -g cpu -- ffmpeg -y -i "$file" \
             $from $to \
             -c:a libmp3lame -q:a 2 \
