@@ -75,4 +75,4 @@ for link in (cat ~/.local/share/magazine/g)
     xdg-open $link
 end
 
-source uboot.fish
+source ~/fes/dot/eli/uboot.fish
