@@ -85,7 +85,7 @@ end
 funcsave ensure_browser >/dev/null
 
 function flour
-    argparse end half pager disown select screen sleek -- $argv
+    argparse end half pager disown select screen sleek man -- $argv
     or return 121
 
     set -l title flour
@@ -107,6 +107,8 @@ function flour
         set -f selected_config -c ~/fes/dot/helix/screen.toml
     else if test "$_flag_sleek"
         set -f selected_config -c ~/fes/dot/helix/sleek.toml
+    else if test "$_flag_man"
+        set -f selected_config -c ~/fes/dot/helix/man.toml
     end
 
     footclient -T $title $flag_disown -- helix $selected_config $execute_flag $argv

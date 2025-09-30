@@ -317,7 +317,7 @@ normal_select_mappings: dict[str, Any] = {
     'C-f': 'increment',
     'C-h': 'select_prev_sibling',
     'C-j': 'shrink_selection',
-    'C-k': 'expand_selection',
+    'C-k': ['expand_selection', 'ensure_selections_forward', 'flip_selections'],
     'C-l': 'select_next_sibling',
     'C-m': 'merge_consecutive_selections',
     'C-n': 'select_all_siblings',
@@ -739,6 +739,11 @@ entire_config['keys']['select'][':'] = ':quit-all!'
 entire_config['editor']['soft-wrap']['enable'] = False
 
 with open('/home/axlefublr/fes/dot/helix/pager.toml', 'w') as file:
+    toml.dump(entire_config, file)
+
+entire_config['editor']['bufferline'] = 'always'
+
+with open('/home/axlefublr/fes/dot/helix/man.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['gutters-right']['layout'] = []

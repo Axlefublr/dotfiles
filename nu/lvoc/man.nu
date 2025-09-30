@@ -1,34 +1,26 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
-const fish_builtin_functions = [
-	# [[sort on]]
-	'fish_opt'
-	'psub'
-	'trap'
-	# [[sort off]]
-]
-
 def main [] {}
 
 def 'main help' [] {
 	let input = open ~/.local/share/magazine/c-comma | lines | reverse | to text | ^fuzzel -d --match-mode exact --cache ~/.cache/mine/help-frecency
 	^indeed.rs -u ~/.local/share/magazine/c-comma $input
 	let args = ($input | split row -r '\s+')
-	^footclient -N -- ov --caption $input -e -- ...$args --help
+	help.fish ...$args
 }
 
 def 'main man' [] {
 	let input = open ~/.cache/mine/man-list | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency
 	let the = try {
-		$input | parse '{name} (fish)' | $in.name.0 | { manpage: $in, should_fish: true }
+		$input | parse '{name} (fish)' | $in.name.0 | { manpage: $in, section: fish, should_fish: true }
 	} catch {
 		try {
-			$input | parse '{name} ({section})' | $in.name.0 + '.' + $in.section.0 | { manpage: $in, should_fish: false }
+			$input | parse '{name} ({section})' | { manpage: $in.name.0, section: $in.section.0 should_fish: false }
 		} catch {
-			{ manpage: $input, should_fish: true }
+			{ manpage: $input, section: '', should_fish: true }
 		}
 	}
-	^footclient -N -- man.fish $the.manpage $the.should_fish
+	man.fish $the.manpage $the.section $the.should_fish
 }
 
 def 'main men' [] {

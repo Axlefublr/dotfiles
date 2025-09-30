@@ -15,3 +15,4 @@ stdext/Cargo.lock
 stdext/target
 helix/sleek.toml
 qs/.qmlls.ini
+helix/man.toml

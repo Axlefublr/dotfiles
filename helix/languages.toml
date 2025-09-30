@@ -88,6 +88,18 @@ diagnostics.disable = [
   "duplicate-set-field",
 ]
 
+# --------------------man---------------------
+[[language]]
+name = "man"
+scope = "source.man"
+# indent = { tab-width = 3, unit = "\t" }
+file-types = [ "man", "help" ]
+# comment-tokens = [ ";;" ]
+
+[[grammar]]
+name = "man"
+source = { git = "https://github.com/ribru17/tree-sitter-man", rev = "e332ea95d5c921d1108a46d1b2b0f017079e1fd8" }
+
 # ------------------markdown------------------
 [[grammar]]
 name = "markdown"
