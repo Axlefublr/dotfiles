@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=swayimg %F
-Name=Swayimg
-Type=Application
-Terminal=false
-Categories=Graphics;Viewer;
-MimeType=image/jpeg;image/png;image/gif;image/bmp;image/tiff;image/svg+xml;

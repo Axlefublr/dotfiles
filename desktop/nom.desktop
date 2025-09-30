@@ -1,6 +1,6 @@
 [Desktop Entry]
-Exec=nom
 Name=Nom
-Terminal=true
 Type=Application
-Icon=/usr/share/icons/Papirus-Dark/16x16/apps/zerotier-gui.svg
+Exec=nom
+Terminal=true
+Icon=/home/axlefublr/iwm/twemoji/1f60b.svg

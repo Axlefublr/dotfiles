@@ -1,5 +1,6 @@
 [Desktop Entry]
-Exec=fish -c 'loago do update ; paru -Sua'
 Name=Aurupdate
-Terminal=true
 Type=Application
+Exec=fish -c "loago do update ; paru -Sua"
+Terminal=true
+Icon=/home/axlefublr/iwm/twemoji/1f6cb.svg

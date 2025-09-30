@@ -1,10 +1,8 @@
 [Desktop Entry]
-Name=Directory inode
-Comment=Opener of the directory inode
-Terminal=true
-TryExec=foot
-Exec=foot -D %F
+Name=Directory opener
 Type=Application
+Exec=foot -D %f
+TryExec=foot
+Terminal=true
+NoDisplay=true
 MimeType=inode/directory
-Categories=Utility;Core;System;FileTools;FileManager;ConsoleOnly
-Keywords=File;Manager;Explorer;Browser;Launcher

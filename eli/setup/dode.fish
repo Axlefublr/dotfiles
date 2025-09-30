@@ -229,7 +229,6 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout foot
 mkdir -p ~/.config/foot
 ln -sf ~/fes/dot/foot.ini ~/.config/foot/foot.ini
 systemctl --user enable --now ~/fes/dot/systemd/foot.service
-ln -sf ~/fes/dot/desktop/directory-inode.desktop ~/.local/share/applications/directory-inode.desktop
 xdg-mime default directory-inode.desktop inode/directory
 
 # --------------------fuck--------------------
@@ -454,7 +453,6 @@ stew install guyfedwards/nom
 mkdir -p ~/.config/nom
 ln -sf ~/fes/dot/nom.yml ~/.config/nom/config.yml
 cp -f ~/fes/jiro/nom.db ~/.config/nom/nom.db
-ln -sf ~/fes/dot/desktop/nom.desktop ~/.local/share/applications/nom.desktop
 
 # ------------------nushell-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout nushell

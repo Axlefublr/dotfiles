@@ -28,6 +28,7 @@ fish_add_path ~/fes/dot/eli
 fish_add_path ~/fes/dot/eli/scriptister
 fish_add_path ~/fes/dot/eli/fool
 fish_add_path ~/fes/dot/nu/lvoc
+ln -sf ~/fes/dot/desktop/ ~/.local/share/applications/fesdot
 
 git clone https://github.com/Axlefublr/binaries --depth=1 bin
 fish_add_path ~/fes/bin
@@ -58,6 +59,3 @@ cp -f ~/fes/jiro/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 git clone https://github.com/Axlefublr/magazine --depth=1
 git clone https://github.com/Axlefublr/music alien_temple --depth=1
 git clone https://github.com/Axlefublr/shows glaza --depth=1
-
-ln -sf ~/fes/dot/desktop/aurupdate.desktop ~/.local/share/applications/
-ln -sf ~/fes/dot/desktop/wamine.desktop ~/.local/share/applications/
