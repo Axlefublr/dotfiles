@@ -539,7 +539,7 @@ normal_select_mappings: dict[str, Any] = {
         'j': 'goto_definition',
         'k': 'goto_reference',
         'o': 'code_action',
-        'z': [':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
+        'z': [':update', ':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
         # [[sort off]]
     },
 }
