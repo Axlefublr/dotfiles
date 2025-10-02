@@ -33,6 +33,7 @@
 	--dark12: #1f1e1e hsl(0, 1.2%, 12%);
 	--dark11: #1c1c1c hsl(0, 1.2%, 11%);
 	--dark10: #1a1919 hsl(0, 1.2%, 10%);
+	--line-number: #6f675a;
 }
 
 .supporters {
