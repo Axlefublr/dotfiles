@@ -7,9 +7,14 @@ def --wrapped main [...rest] {
 def --wrapped 'main repo clone' [url: string, --dir(-d): directory, --shallow(-s), ...rest] {
 	let dir = $dir | default ($url | path basename)
 	let rest = $rest | shallow include $shallow
-	^gh repo clone $url $dir ...$rest
+	try { gh repo clone (expand-me $url) $dir ...$rest }
 	# shallow enqueue $shallow $dir
 	$dir | commit
+}
+
+def --wrapped 'main give' [url: string = '', ...rest] {
+	cd ~/fes/ork/duc
+	main repo clone ($url | default -e (wl-paste -n)) -s ...$rest
 }
 
 def --wrapped 'main repo create' [name: string, ...rest] {
@@ -20,13 +25,27 @@ def --wrapped 'main repo create' [name: string, ...rest] {
 def --wrapped 'main repo fork' [url: string, --dir(-d): directory, --shallow(-s), ...rest] {
 	let dir = $dir | default ($url | path basename)
 	let rest = $rest | shallow include $shallow
-	^gh repo fork --clone --default-branch-only $url --fork-name $dir ...$rest
+	^gh repo fork --clone --default-branch-only (expand-me $url) --fork-name $dir ...$rest
 	# shallow enqueue $shallow $dir
 	$dir | commit
 }
 
 def commit [] {
-	save -f /tmp/mine/github-directory
+	$env.PWD + '/' + $in | save -f /tmp/mine/github-directory
+}
+
+def expand-me [url: string] {
+	$url
+	| path split
+	| each {
+		if $in == '@' {
+			'Axlefublr'
+		} else if $in ends-with ':' {
+			$in + '/'
+		} else { $in }
+	}
+	| str join /
+	| tee { print -ne ($in + "\n") }
 }
 
 def 'shallow include' [shallow: bool]: list<string> -> list<string> {
