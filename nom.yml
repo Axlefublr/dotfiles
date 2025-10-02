@@ -34,6 +34,8 @@ feeds:
     name: xkcd
   - url: https://blog.parrrate.com/rss.xml
     name: parrrate
+  - url: https://bxt.rs/index.xml
+    name: yalter
 theme:
   glamour: dark
   titleColor: "#e49641"
