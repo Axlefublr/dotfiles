@@ -608,6 +608,8 @@ sudo -E helix /boot/grub/grub.cfg
 # radeon.cik_support=0 amdgpu.cik_support=1
 # after rebooting with these in play, `lspci -k` should now display the amdgpu driver
 
+# sudo pacman -S --needed --noconfirm --disable-download-timeout corectrl
+
 # ------------------ratbagd-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout libratbag
 systemctl enable --now ratbagd.service
