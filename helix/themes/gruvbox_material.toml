@@ -70,7 +70,7 @@
 'ui.linenr' = 'linenr'
 'ui.linenr.selected' = 'grey'
 'ui.menu' = { fg = 'white', bg = 'dark12' }
-'ui.menu.scroll' = { fg = 'grey' }                                                      # scrollbar
+'ui.menu.scroll' = { fg = '#9b8e77' }
 'ui.menu.selected' = { fg = 'white', bg = 'orange_supporting', modifiers = [ 'bold' ] }
 'ui.picker.header' = {}
 'ui.picker.header.column' = { fg = 'white', modifiers = [ 'bold' ] }
@@ -115,7 +115,7 @@ dark13 = '#222121'
 green = '#a9b665'
 grey = '#928374'
 level = '#292828'
-linenr = '#5a524c'
+linenr = '#6f675a'
 mint = '#78bf84'
 orange = '#e49641'
 orange_supporting = '#5f472d'
