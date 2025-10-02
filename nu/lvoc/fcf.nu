@@ -44,3 +44,17 @@ export def 'main fix' [] {
 	^sudo sd $incorrect_hwmon $correct_hwmon /etc/fancontrol
 	^sudo systemctl restart fancontrol
 }
+
+export def 'main ppt' [] {
+	truncate -s 0 /tmp/mine/ppt-log
+	loop {
+		sensors -j e> /dev/null
+		| from json
+		| get amdgpu-pci-0100.PPT
+		| $'($in.power1_input | math round | fill -a r -w 3)/($in.power1_cap | math round)'
+		| $in + "\n"
+		| tee { save -a /tmp/mine/ppt.log }
+		| print
+		sleep 5sec
+	}
+}

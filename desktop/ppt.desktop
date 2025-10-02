@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=PPT Monitor
+Type=Application
+Exec=footclient -NT PPT fcf.nu ppt
+Icon=/home/axlefublr/iwm/twemoji/1f6f8.svg

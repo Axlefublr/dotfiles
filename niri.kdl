@@ -378,6 +378,10 @@ window-rule {
     default-column-width { proportion 0.45; }
     default-window-height { proportion 0.25; }
 }
+window-rule {
+    match app-id="^foot" title="^PPT$"
+    default-column-width { proportion 0.1; }
+}
 
 layer-rule {
     match namespace="^swww-daemon$"
