@@ -6,7 +6,7 @@ while pidof steam &>/dev/null
 end
 
 trash-empty -f 1
-keep-thirty.nu
+cleaning-lady.nu
 pueue.nu brush
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
