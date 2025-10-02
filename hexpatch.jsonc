@@ -1,1 +1,126 @@
-
+{
+  "color": {
+    "address_selected": {
+      "fg": "white",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "address_default": {
+      "fg": "#6f675a",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "hex_selected": {
+      "fg": "#1f1e1e",
+      "bg": "#e49641",
+      "underline_color": null,
+      "add_modifier": "BOLD",
+      "sub_modifier": ""
+    },
+    "hex_null": {
+      "fg": "#6f675a",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "pane_selected": {
+      "fg": "#e49641",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "text_selected": {
+      "fg": "#1f1e1e",
+      "bg": "#e49641",
+      "underline_color": null,
+      "add_modifier": "BOLD",
+      "sub_modifier": ""
+    },
+    "status_bar": {
+      "fg": "white",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "status_info": {
+      "fg": "Blue",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "status_debug": {
+      "fg": "Green",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "status_warning": {
+      "fg": "Yellow",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "status_error": {
+      "fg": "Red",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "scrollbar": {
+      "fg": "#9b8e77",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "placeholder": {
+      "fg": "#6f675a",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "help_command": {
+      "fg": "#d3ad5c",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    }
+  },
+  "key": {
+    "quit": {
+      "code": "Esc",
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    },
+    "save_as": {
+      "code": {
+        "Char": "\""
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    },
+    "save": {
+      "code": {
+        "Char": "'"
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    }
+  }
+}
