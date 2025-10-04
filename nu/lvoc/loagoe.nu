@@ -23,6 +23,7 @@ const known = {
 	vacuum: 8
 	dust: 12
 	nails: 13
+	vacuat: 14
 	bottle: 15
 	disc: 15
 	glasses: 15
@@ -33,7 +34,6 @@ const known = {
 	wilter: 23
 	keyboard: 30
 	ov: 30
-	qiri: 30
 	yazi: 30
 	tails: 40
 	filter: 45
