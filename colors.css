@@ -33,6 +33,8 @@
 	--dark12: #1f1e1e hsl(0, 1.2%, 12%);
 	--dark11: #1c1c1c hsl(0, 1.2%, 11%);
 	--dark10: #1a1919 hsl(0, 1.2%, 10%);
+	--selected-entry: #3f3831 hsl(31, 13%, 22%);
+	--picker-entry: #4b433a hsl(31, 13%, 26%);
 	--line-number: #6f675a;
 	--scrollbar: #9b8e77;
 }
