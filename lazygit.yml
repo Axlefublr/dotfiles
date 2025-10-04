@@ -56,7 +56,6 @@ gui:
       - "#78bf84"
     selectedLineBgColor:
       - "#5f472d"
-      # - reverse
 git:
   autoFetch: false
   paging:
