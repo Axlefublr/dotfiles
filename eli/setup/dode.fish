@@ -244,6 +244,8 @@ ln -sf ~/fes/dot/fuzzel.ini ~/.config/fuzzel/fuzzel.ini
 
 # -----------------gamescope------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gamescope
+# gamescope -w 1280 -h 720 -f -- %command%
+# put this ↑ into the steam game's launch options, to fool it into thinking it runs at 1280x720 (if it doesn't have graphics settings of its own)
 
 # ---------------------gh---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout github-cli
