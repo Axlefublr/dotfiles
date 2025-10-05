@@ -121,6 +121,14 @@
       "modifiers": "",
       "kind": "Press",
       "state": ""
+    },
+    "help": {
+      "code": {
+        "F": 1
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
     }
   }
 }
