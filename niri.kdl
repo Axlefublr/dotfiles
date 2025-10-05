@@ -320,6 +320,8 @@ window-rule {
     match app-id="wineboot.exe"
     match app-id="upc.exe"
     match app-id="^steam_app_"
+    match app-id="^krita$"
+    match title="^Choose Color$"
     open-floating false
 }
 window-rule {
