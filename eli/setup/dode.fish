@@ -31,7 +31,7 @@ paru -Sa --needed --disable-download-timeout ascii-image-converter-bin
 # -----------------asciinema------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout asciinema
 
-# --------------assassin's creed--------------
+# -------assassin's creed IV black flag-------
 # everything in the tiq entry
 
 # --------------------awm---------------------
@@ -294,6 +294,9 @@ stew install sinclairtarget/git-who
 # --------------------gomi--------------------
 stew install babarot/gomi
 ln -sf ~/fes/dot/gomi.yaml ~/.config/gomi/config.yaml
+
+# -------------------gradia-------------------
+paru -Sa --needed --disable-download-timeout gradia
 
 # -----------------gromit-mpx-----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gromit-mpx
