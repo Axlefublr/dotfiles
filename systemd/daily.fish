@@ -70,9 +70,4 @@ for dir in (cat ~/.local/share/magazine/P)
 end
 
 things
-
-for link in (cat ~/.local/share/magazine/g)
-    xdg-open $link
-end
-
 ubootf
