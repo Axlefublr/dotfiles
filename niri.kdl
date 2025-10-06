@@ -188,11 +188,11 @@ binds {
 
     Mod+M { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
     Mod+Semicolon { "center-visible-columns"; }
-    Mod+F { toggle-window-floating; }
-    Mod+S { switch-focus-between-floating-and-tiling; }
+    Mod+N { toggle-window-floating; }
+    Mod+Slash { switch-focus-between-floating-and-tiling; }
 
-    Mod+Comma { consume-or-expel-window-left; }
-    Mod+Period { consume-or-expel-window-right; }
+    Mod+S { consume-or-expel-window-left; }
+    Mod+F { consume-or-expel-window-right; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
@@ -208,8 +208,8 @@ binds {
 
     Mod+U { focus-window-up-or-bottom; }
     Mod+O { focus-window-down-or-top; }
-    Mod+Ctrl+U { move-window-up; }
-    Mod+Ctrl+O { move-window-down; }
+    Mod+3 { move-window-up; }
+    Mod+1 { move-window-down; }
 
     Mod+Ctrl+J { set-window-height "-10%"; }
     Mod+Ctrl+K { set-window-height "+10%"; }
