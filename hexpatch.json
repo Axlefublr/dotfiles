@@ -49,6 +49,13 @@
       "add_modifier": "",
       "sub_modifier": ""
     },
+    "insert_text_status": {
+      "fg": "white",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
     "status_info": {
       "fg": "Blue",
       "bg": null,
@@ -91,6 +98,48 @@
       "add_modifier": "",
       "sub_modifier": ""
     },
+    "assembly_selected": {
+      "fg": "white",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "yes": {
+      "fg": "Green",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "yes_selected": {
+      "fg": "#1f1e1e",
+      "bg": "Green",
+      "underline_color": null,
+      "add_modifier": "BOLD",
+      "sub_modifier": ""
+    },
+    "no": {
+      "fg": "Red",
+      "bg": null,
+      "underline_color": null,
+      "add_modifier": "",
+      "sub_modifier": ""
+    },
+    "no_selected": {
+      "fg": "#1f1e1e",
+      "bg": "Red",
+      "underline_color": null,
+      "add_modifier": "BOLD",
+      "sub_modifier": ""
+    },
+    "menu_text_selected": {
+      "fg": "#1f1e1e",
+      "bg": "#e49641",
+      "underline_color": null,
+      "add_modifier": "BOLD",
+      "sub_modifier": ""
+    },
     "help_command": {
       "fg": "#d3ad5c",
       "bg": null,
@@ -125,6 +174,46 @@
     "help": {
       "code": {
         "F": 1
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    },
+    "patch_text": {
+      "code": {
+        "Char": "p"
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    },
+    "patch_assembly": {
+      "code": {
+        "Char": "b"
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    },
+    "fullscreen": {
+      "code": {
+        "Char": "o"
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    },
+    "undo": {
+      "code": {
+        "Char": "t"
+      },
+      "modifiers": "",
+      "kind": "Press",
+      "state": ""
+    },
+    "redo": {
+      "code": {
+        "Char": "T"
       },
       "modifiers": "",
       "kind": "Press",
