@@ -50,8 +50,8 @@ export def 'main ppt' [] {
 	loop {
 		sensors -j e> /dev/null
 		| from json
-		| get amdgpu-pci-0100.PPT
-		| $'($in.power1_input | math round | fill -a r -w 3)/($in.power1_cap | math round)'
+		| get amdgpu-pci-0300.PPT
+		| $'($in.power1_average | math round | fill -a r -w 3)/($in.power1_cap | math round)'
 		| $in + "\n"
 		| tee { save -a /tmp/mine/ppt.log }
 		| print
