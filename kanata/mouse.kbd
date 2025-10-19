@@ -4,7 +4,7 @@
 	l (layer-while-held mouse-slow)
 
 	v (tap-hold-release $tt $ht S-A-f6 XX)
-	z (cmd woomer)
+	' (cmd woomer)
 	/ (cmd fish -c pick_and_copy_color)
 	u (cmd fish -c screenshot_select)
 	t (cmd fish -c "show_clipboard_image -fs fill")
