@@ -315,6 +315,12 @@ gh repo clone Axlefublr/gruvbox-material-gtk-theme
 sudo rm -fr /usr/share/themes/gruvbox-material
 sudo ln -sf ~/fes/lai/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 set -Ux GTK_THEME gruvbox-material
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+# ---------------gpu-benchmark----------------
+# sudo pacman -S --needed --noconfirm --disable-downlod-timeout glmark2
+# paru -Sa --needed --disable-download-timeout gputest
+paru -Sa --needed --disable-download-timeout unigine-superposition
 
 # -------------------helix--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua python-toml
@@ -428,6 +434,11 @@ paru -Sa --needed --disable-download-timeout nodejs-mapscii
 # ------------------mapscii!------------------
 paru -Rns nodejs-mapscii
 rm -fr ~/.mapscii
+
+# -----------------minecraft------------------
+# https://github.com/Diegiwg/PrismLauncher-Cracked
+# into ~/iwm/dls/runs/PrismLauncher.AppImage
+# and then you get the desktop entry to launch it
 
 # --------------------mpv---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout mpv
@@ -604,7 +615,7 @@ ln -s ~/fes/dot/qs ~/.config/quickshell
 touch ~/fes/dot/qs/.qmlls.ini
 
 # -----------------radeon-gpu-----------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout amdvlk lib32-amdvlk
+sudo pacman -S --needed --noconfirm --disable-download-timeout amdvlk lib32-amdvlk vulkan-tools vulkan-radeon lib32-vulkan-radeon radeontop
 # in `lspci -k`, "kernel driver in use" should be amdgpu
 # if it's not, do the following:
 sudo -E helix /boot/grub/grub.cfg
@@ -682,7 +693,7 @@ indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://githu
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 
 # ------------------swapfile------------------
-sudo dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
+sudo fallocate -l 1G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -690,8 +701,12 @@ swapon --show
 free -h
 sudo -E helix /etc/fstab # /swapfile none swap sw 0 0
 cat /proc/sys/vm/swappiness # check how aggressive swap is
-sudo sysctl vm.swappiness=15 # reduce swap aggressivenes from 60→15
-sudo -E helix /etc/sysctl.d/99-swappiness.conf # vm.swappiness=15
+sudo sysctl vm.swappiness=10 # reduce swap aggressivenes from 60→10
+sudo -E helix /etc/sysctl.d/99-swappiness.conf # vm.swappiness=10
+
+# -----------------swapfile!------------------
+sudo swapoff /swapfile
+sudo rm /swapfile
 
 # -------------------swappy-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout swappy
@@ -950,7 +965,6 @@ xdg-mime default org.pwmt.zathura.desktop application/pdf
 
 # --------------------zen---------------------
 paru -Sa --needed --disable-download-timeout zen-browser-bin
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
 # --------------------zola--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout zola
