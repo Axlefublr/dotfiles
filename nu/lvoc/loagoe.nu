@@ -4,6 +4,7 @@ source coco.nu
 const ignored = [
 	# [[sort on]]
 	eat
+	facewash
 	puff
 	roll
 	sludge
