@@ -1,8 +1,7 @@
 [Unit]
-StartLimitIntervalSec=0
-StartLimitBurst=0
+StartLimitIntervalSec=20
+StartLimitBurst=100
 
 [Service]
 Restart=on-failure
-RestartSteps=20
-RestartMaxDelaySec=60
+RestartSec=100ms
