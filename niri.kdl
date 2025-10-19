@@ -44,7 +44,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "HDMI-A-2" {
+output "HDMI-A-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -63,7 +63,7 @@ output "HDMI-A-2" {
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
 
-    variable-refresh-rate
+    // variable-refresh-rate
 
     // Position of the output in the global coordinate space.
     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
@@ -309,19 +309,21 @@ window-rule {
 
 //------------------stateful------------------
 window-rule {
-    match app-id="anki"
-    match app-id="python" title="^Import$"
-    match app-id="floorp|firefox|zen$" title="^File Upload$"
-    match app-id="floorp|firefox|zen$" title="^Open File$"
-    match app-id="floorp|firefox|zen$" title="^Save Image|Video|As|Audio$"
-    match app-id="floorp|firefox|zen$" title="^Enter name of file to save to…$"
-    match app-id="floorp|firefox|zen$" title="^Opening "
-    match app-id="net.lutris.Lutris"
-    match app-id="wineboot.exe"
-    match app-id="upc.exe"
-    match app-id="^steam_app_"
-    match app-id="^krita$"
-    match title="^Choose Color$"
+    // match app-id="anki"
+    // match app-id="python" title="^Import$"
+    // match app-id="floorp|firefox|zen$" title="^File Upload$"
+    // match app-id="floorp|firefox|zen$" title="^Open File$"
+    // match app-id="floorp|firefox|zen$" title="^Save Image|Video|As|Audio$"
+    // match app-id="floorp|firefox|zen$" title="^Enter name of file to save to…$"
+    // match app-id="floorp|firefox|zen$" title="^Opening "
+    // match app-id="net.lutris.Lutris"
+    // match app-id="wineboot.exe"
+    // match app-id="upc.exe"
+    // match app-id="^steam_app_"
+    // match app-id="^krita$"
+    // match title="^Choose Color$"
+    // match app-id="PrismLauncher"
+    // match app-id="steam" title="Launching..."
     open-floating false
 }
 window-rule {
@@ -360,6 +362,14 @@ window-rule {
     default-column-width { proportion 0.33333; }
 }
 window-rule {
+    match app-id="^foot" title="fifth"
+    default-column-width { proportion 0.2; }
+}
+window-rule {
+    match app-id="^foot" title="tenth"
+    default-column-width { proportion 0.1; }
+}
+window-rule {
     match app-id="anki"
     default-column-width {}
 }
@@ -379,10 +389,6 @@ window-rule {
     match app-id="^foot" title="^floating$"
     default-column-width { proportion 0.45; }
     default-window-height { proportion 0.25; }
-}
-window-rule {
-    match app-id="^foot" title="^PPT$"
-    default-column-width { proportion 0.1; }
 }
 
 layer-rule {
