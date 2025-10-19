@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Minecraft
+Type=Application
+Exec=env /home/axlefublr/iwm/dls/runs/PrismLauncher.AppImage
+Icon=/home/axlefublr/iwm/twemoji/1f40c.svg
