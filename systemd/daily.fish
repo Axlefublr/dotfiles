@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-while pidof steam &>/dev/null
-    echo 'steam running; delaying execution' >&2
+while rg -q 8BitDo /proc/bus/input/devices &>/dev/null
+    echo 'controller connected; delaying execution' >&2
     sleep 1m
 end
 
