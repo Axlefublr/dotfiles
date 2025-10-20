@@ -29,9 +29,7 @@
     "disk",
     "memory",
     "temperature#gpu",
-    "custom/gpu-usage",
-    "temperature#cpu",
-    "cpu"
+    "temperature#cpu"
   ],
   "clock#date": {
     "interval": 60,
@@ -135,19 +133,10 @@
     "interval": 9,
     "critical-threshold": 90
   },
-  "custom/gpu-usage": {
-    "exec": "/home/axlefublr/fes/dot/waybar/gpu-usage.nu",
-    "format": "{}", // interval: 10
-    "restart-interval": 60
-  },
   "temperature#cpu": {
     "format": "{temperatureC}",
     "hwmon-path": "/home/axlefublr/.local/share/mine/cpu-package-0",
     "interval": 9,
     "critical-threshold": 75
-  },
-  "cpu": {
-    "format": "{usage:2}",
-    "interval": 10
   }
 }
