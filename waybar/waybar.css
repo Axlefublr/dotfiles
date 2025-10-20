@@ -76,10 +76,6 @@ window#waybar {
   color: #ea6962;
 }
 
-#custom-headphone-battery {
-  color: #ea6962;
-}
-
 #custom-tomato.work {
   color: #e49641;
 }
@@ -94,6 +90,10 @@ window#waybar {
 
 #custom-cpu-fan {
   color: #7daea3;
+}
+
+#custom-headphone-battery {
+  color: #78bf84;
 }
 
 #disk {
