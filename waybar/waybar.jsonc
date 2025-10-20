@@ -142,7 +142,7 @@
   },
   "temperature#cpu": {
     "format": "{temperatureC}",
-    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input",
+    "hwmon-path": "/home/axlefublr/.local/share/mine/cpu-package-0",
     "interval": 9,
     "critical-threshold": 75
   },

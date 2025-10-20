@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
+fcf.nu fix
 cat ~/fes/uviw/afen/sudo | sudo -S modprobe uinput
 systemctl --user restart kanata.service
-fcf.nu fix
 playerctld daemon
 
 foot -D ~/fes/dot & disown

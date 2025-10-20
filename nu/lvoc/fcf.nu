@@ -28,15 +28,15 @@ export def 'main cpu' [] {
 export def 'main fix' [] {
 	let waybar_conf = open ~/fes/dot/waybar/waybar.jsonc
 	| from json
-	let set_cpu = $waybar_conf | get temperature#cpu.hwmon-path
+	let set_cpu = readlink ~/.local/share/mine/cpu-package-0 | str trim
 	let correct_cpu = main cpu
 	if $set_cpu == (main cpu) {
 		print -e 'nothing to fix, quitting'
 		return
 	}
 	let incorrect_cpu = $set_cpu
-	^sd $incorrect_cpu $correct_cpu ~/fes/dot/waybar/waybar.jsonc
-	# ^systemctl --user restart waybar
+	ln -sf $correct_cpu ~/.local/share/mine/cpu-package-0
+	^systemctl --user restart waybar
 
 	let incorrect_hwmon = $incorrect_cpu | path split | reverse | skip 1 | take 1 | get 0
 	open ~/fes/uviw/afen/sudo | ^sudo -Sv
