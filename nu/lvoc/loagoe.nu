@@ -33,6 +33,7 @@ const known = {
 	update: 15
 	utencils: 15
 	wilter: 23
+	doodads: 30
 	keyboard: 30
 	ov: 30
 	yazi: 30
