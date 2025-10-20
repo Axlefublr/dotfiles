@@ -1,6 +1,6 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
-let then = (date now) + 2hr
+let then = (date now) + 2hr + 10min
 notify-send 'wamine started'
 loop {
 	if ($then <= (date now)) { break }
