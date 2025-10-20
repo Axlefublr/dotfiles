@@ -23,9 +23,9 @@
   ],
   "modules-right": [
     "custom/tomato",
-    "custom/headphone-battery",
     "custom/cha-fan",
     "custom/cpu-fan",
+    "custom/headphone-battery",
     "disk",
     "memory",
     "temperature#gpu",
@@ -67,6 +67,10 @@
     "restart-interval": 60,
     "hide-empty-text": true
   },
+  "pulseaudio": {
+    "format": "{volume}",
+    "format-muted": ""
+  },
   "custom/magazines": {
     "exec": "/home/axlefublr/fes/dot/waybar/magazines.fish",
     "format": "{}",
@@ -101,52 +105,49 @@
   "custom/cha-fan": {
     "exec": "/home/axlefublr/fes/dot/waybar/cha-fan.fish",
     "format": "{}",
-    "interval": 10,
+    "interval": 9,
     "hide-empty-text": true
   },
   "custom/cpu-fan": {
     "exec": "/home/axlefublr/fes/dot/waybar/cpu-fan.fish",
     "format": "{}",
-    "interval": 10,
+    "interval": 9,
     "hide-empty-text": true
-  },
-  "pulseaudio": {
-    "format": "{volume}",
-    "format-muted": "0"
   },
   "custom/headphone-battery": {
     "exec": "/home/axlefublr/fes/dot/waybar/headphone-battery.fish",
     "format": "{}%",
-    "interval": 10,
+    "interval": 11,
     "hide-empty-text": true
   },
   "disk": {
     "format": "{specific_free:1.0f}",
     "unit": "GB",
-    "interval": 60
+    "interval": 30
   },
   "memory": {
     "format": "{used:0.1f}",
-    "interval": 10
+    "interval": 11
   },
   "temperature#gpu": {
     "format": "{temperatureC}",
     "hwmon-path": "/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/0000:02:00.0/0000:03:00.0/hwmon/hwmon3/temp2_input",
-    "interval": 10,
+    "interval": 9,
     "critical-threshold": 90
   },
   "custom/gpu-usage": {
     "exec": "/home/axlefublr/fes/dot/waybar/gpu-usage.nu",
-    "format": "{}",
-    "restart-interval": 180
+    "format": "{}", // interval: 10
+    "restart-interval": 60
   },
   "temperature#cpu": {
     "format": "{temperatureC}",
     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input",
-    "interval": 10,
+    "interval": 9,
     "critical-threshold": 75
   },
   "cpu": {
-    "format": "{usage:02}"
+    "format": "{usage:2}",
+    "interval": 10
   }
 }
