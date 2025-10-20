@@ -83,7 +83,7 @@ def 'main due pick' [] {
 	produce
 	| get name
 	| to text
-	| fuzzel -d --cache ~/.cache/mine/loago-pick-overdue
+	| fuzzel -d
 	| each { |thingy|
 	  loago do ($thingy | str trim)
 	}
@@ -95,8 +95,11 @@ def 'main pick' [] {
   | parse '{name} — {days}'
   | str trim name
   | get name
+  | interleave { $known | columns }
+  | sort
+  | uniq
   | to text
-  | fuzzel -d --cache ~/.cache/mine/loago-pick
+  | fuzzel -d
   | each { |thingy|
     loago do ($thingy | str trim)
   } | ignore
