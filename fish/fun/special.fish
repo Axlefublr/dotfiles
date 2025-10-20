@@ -82,6 +82,15 @@ function github_read_notifs
 end
 funcsave github_read_notifs >/dev/null
 
+function loago_monitor
+    while true
+        clear
+        loagoe.nu due
+        inotifywait -qq -e close_write -e move_self -t 600 ~/.local/share/loago/loago.json
+    end
+end
+funcsave loago_monitor >/dev/null
+
 function multiple_dot
     echo (string repeat -n (math (string length -- $argv[1]) - 1) ../ | string trim -r -c /)
 end
@@ -198,7 +207,7 @@ funcsave toggle_screen_record >/dev/null
 function things
     begin
         footclient -NT nofocus helix ~/.local/share/magazine/semicolon.md
-        footclient -NT nofocus-fifth fish -c fm
+        footclient -NT nofocus-fifth fish -c loago_monitor
         footclient -NT nofocus calcure
     end 2>/dev/null
 end
