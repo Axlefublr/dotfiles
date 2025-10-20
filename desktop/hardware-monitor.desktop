@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Hardware Monitor
+Type=Application
+Exec=footclient -NT hardware-monitor hardware-monitor.nu
+Icon=/home/axlefublr/iwm/twemoji/1f6f8.svg
