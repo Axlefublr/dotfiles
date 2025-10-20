@@ -208,7 +208,11 @@ function things
     begin
         footclient -NT nofocus helix ~/.local/share/magazine/semicolon.md
         footclient -NT nofocus-fifth fish -c loago_monitor
-        footclient -NT nofocus calcure
+        if test "$argv"
+            footclient -N calcure
+        else
+            footclient -NT nofocus calcure
+        end
     end 2>/dev/null
 end
 funcsave things >/dev/null
