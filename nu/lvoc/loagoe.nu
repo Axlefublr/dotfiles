@@ -68,15 +68,31 @@ def produce [] {
 def main [] {}
 
 def 'main due' [] {
-	produce
-	| upsert separator '—'
+	let the = produce
+	| enumerate
+	| each {
+		let indicator = $in.index + 97 | char -i $in
+		{ indicator: $indicator, name: $in.item.name, days: $in.item.days }
+	}
+	$the
+	| upsert separator $'(ansi '#e49641')(ansi bo)—(ansi reset)'
 	| move separator --after name
-	| rename a b c
+	| update cells -c [indicator] { $'(ansi '#e49641')(ansi bo)($in)(ansi reset)' }
+	| update cells -c [days] { $'(ansi '#e491b2')($in)(ansi reset)' }
+	| rename a b c d # to remove padding we get in the final text output
 	| table -t none -i false
 	| to text
 	| lines
 	| skip 1
 	| to text
+	| print
+	let input = input --reedline
+	if ($input | is-empty) { return }
+	let todos = $input | split chars
+	$the
+	| where indicator in $todos
+	| get name
+	| try { loago do ...$in }
 }
 
 def 'main due pick' [] {
@@ -99,7 +115,7 @@ def 'main pick' [] {
   | sort
   | uniq
   | to text
-  | fuzzel -d
+  | fuzzel -dl 7
   | each { |thingy|
     loago do ($thingy | str trim)
   } | ignore

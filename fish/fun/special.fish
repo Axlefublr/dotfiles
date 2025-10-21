@@ -86,7 +86,6 @@ function loago_tracker
     while true
         clear
         loagoe.nu due
-        inotifywait -qq -e close_write -e move_self -t 600 ~/.local/share/loago/loago.json
     end
 end
 funcsave loago_tracker >/dev/null
