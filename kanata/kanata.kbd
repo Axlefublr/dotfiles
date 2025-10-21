@@ -147,7 +147,6 @@
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq yazi)
 	r (cmd niri msg action spawn -- footclient -NT hardware-monitor hardware-monitor.nu)
 	s (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)
-	t (cmd niri msg action spawn -- footclient -N tiptop)
 	w (cmd niri msg action spawn -- anki)
 	;; [[sort off]]
 )
