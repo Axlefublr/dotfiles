@@ -392,7 +392,7 @@ window-rule {
 }
 window-rule {
     match app-id="^foot" title="hardware-monitor"
-    default-column-width { proportion 0.39; }
+    default-column-width { proportion 0.397; }
 }
 
 layer-rule {
