@@ -70,7 +70,7 @@ type = "mem"
 [[row.child]]
 type = "net"
 [[row]]
-ratio = 40
+ratio = 45
 [[row.child]]
 type = "cpu"
 [[row.child]]
@@ -78,10 +78,10 @@ type = "cpu"
 ratio = 5
 type = "temp"
 [[row.child.child]]
-ratio = 4
+ratio = 3
 type = "disk"
 [[row]]
-ratio = 35
+ratio = 30
 [[row.child]]
 type = "proc"
 default = true
