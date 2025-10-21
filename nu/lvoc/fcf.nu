@@ -36,7 +36,6 @@ export def 'main fix' [] {
 	}
 	let incorrect_cpu = $set_cpu
 	ln -sf $correct_cpu ~/.local/share/mine/cpu-package-0
-	^systemctl --user restart waybar
 
 	let incorrect_hwmon = $incorrect_cpu | path split | reverse | skip 1 | take 1 | get 0
 	open ~/fes/uviw/afen/sudo | ^sudo -Sv
