@@ -15,23 +15,23 @@ body {
       /* margin-inline: 0; */
       padding: 0;
 
-      >div.sc-8d5ac044-3 {
+      >div.sc-ec862ae6-3 {
         margin-top: 0;
         padding-bottom: 0;
 
         /* sidebar, with artist */
-        >aside.sc-8d5ac044-8 {
+        >aside.sc-ec862ae6-8 {
           display: none;
         }
 
         >main {
           width: 100%;
 
-          section.sc-7d1a8035-1.sc-7d1a8035-2.enOpYM.ftWmQb {
+          section.sc-55920ee2-1.sc-55920ee2-2.bNBzcc.iFIbHj {
             border-radius: 0;
 
             figure {
-              img.sc-9ad52c08-1 {
+              img.sc-440d5b2c-1.jnuqJZ {
                 height: auto !important;
                 max-height: 80vh !important;
               }
@@ -42,23 +42,18 @@ body {
             }
 
             /* like button and other stuff */
-            section.sc-f2412021-0.kDUrpE {
+            section.sc-afc25555-0.fWItwu {
               justify-content: center;
             }
 
             /* title / description */
-            figcaption>div.sc-d4cbc2e2-13.ghpbbc {
+            figcaption>div.sc-c5ac099-13.eXMoIT {
               margin: unset !important;
 
               /* the actual text contained */
-              >div.sc-d4cbc2e2-14.bkwLDC {
+              >div.sc-c5ac099-14.gNYdKJ {
                 width: 800px;
               }
-            }
-
-            /* entire section that leaves off with big grey margin */
-            section.sc-f473edfb-5 {
-              margin: 24px auto 0px;
             }
           }
         }
