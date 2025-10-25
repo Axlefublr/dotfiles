@@ -3,6 +3,7 @@ source coco.nu
 
 const ignored = [
 	# [[sort on]]
+	belosalik
 	eat
 	facewash
 	puff
@@ -112,6 +113,7 @@ def 'main pick' [] {
   | str trim name
   | get name
   | interleave { $known | columns }
+  | interleave { $ignored }
   | sort
   | uniq
   | to text
