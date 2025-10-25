@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-#--------------------------------------------------classical--------------------------------------------------
+# -----------------classical------------------
 
 function magazine_resolve
     not test "$argv" && return
@@ -266,12 +266,12 @@ function _magazine_commit
 end
 funcsave _magazine_commit >/dev/null
 
-#-------------------------------------------------projectual-------------------------------------------------
+# -----------------projectual-----------------
 
-alias --save sj-set 'sj.rs ~/fes/ork ~/fes/lai' >/dev/null
-alias --save sj 'sj-set -ieb | ov --section-header --section-delimiter ":\\$"' >/dev/null
+alias --save talia-set 'taliaprojecxsrs ~/fes/ork ~/fes/lai' >/dev/null
+alias --save talia 'talia-set -ieb | ov --section-header --status-line=false --section-delimiter ":\\$"' >/dev/null
 
 function pick_project_path
-    echo ~/fes/(sj-set $argv | fuzzel -d 2>/dev/null)/project.txt
+    echo ~/fes/(talia-set $argv | fuzzel -d 2>/dev/null)/project.txt
 end
 funcsave pick_project_path >/dev/null
