@@ -133,7 +133,7 @@ function get_input
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >/tmp/mine/get-input.md
-        flour --end --sleek /tmp/mine/get-input.md
+        flour --sleek /tmp/mine/get-input.md
         set input "$(cat /tmp/mine/get-input.md)"
     end
     echo $input
@@ -142,7 +142,7 @@ funcsave get_input >/dev/null
 
 function get_input_max
     truncate -s 0 /tmp/mine/get-input.md
-    flour --end --sleek /tmp/mine/get-input.md
+    flour --sleek /tmp/mine/get-input.md
     if test -s /tmp/mine/get-input.md
         cat /tmp/mine/get-input.md
     else
