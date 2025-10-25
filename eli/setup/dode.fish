@@ -830,11 +830,7 @@ paru -Sa --needed --disable-download-timeout unimatrix-git
 
 # -------------------ventoy-------------------
 paru -Sa --needed --disable-download-timeout ventoy-bin
-ventoygui
-lsblk -f # find ventoy partition
-sudo mount /dev/sdb1 /mnt/usb/
-sudo rsync -r ~/iwm/voe/EndeavourOS_Mercury-Neo-2025.03.19.iso /mnt/usb/
-sudo eject /mnt/usb
+ventoygui # to install ventoy onto a usb stick
 
 # ------------------vesktop-------------------
 #> privoxy
