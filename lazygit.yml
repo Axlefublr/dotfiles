@@ -58,8 +58,8 @@ gui:
       - "#5f472d"
 git:
   autoFetch: false
-  paging:
-    pager: diff-so-fancy
+  pagers:
+    - pager: diff-so-fancy
   merging:
     manualCommit: true
     squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
@@ -72,7 +72,6 @@ update:
   method: never
 os:
   editPreset: helix
-
 keybinding:
   universal:
     quit: ":"
@@ -172,7 +171,7 @@ keybinding:
     viewResetOptions: x
     fetch: f
     toggleTreeView: "`"
-    openMergeTool: M
+    # openMergeTool: M
     openStatusFilter: "'"
     copyFileInfoToClipboard: s
     collapseAll: _
@@ -201,7 +200,7 @@ keybinding:
     squashDown: c
     renameCommit: R
     renameCommitWithEditor: r
-    viewResetOptions: x
+    viewResetOptions: X
     markCommitAsFixup: <disabled>
     createFixupCommit: <disabled>
     squashAboveCommits: C
@@ -242,7 +241,6 @@ keybinding:
     bulkMenu: b
   commitMessage:
     commitMenu: <c-o>
-
 customCommands:
   - key: <F5>
     context: global
@@ -254,7 +252,6 @@ customCommands:
     command: "footclient -N"
     description: "Open terminal here"
     output: none
-
   - key: u
     context: files
     command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
@@ -270,7 +267,6 @@ customCommands:
     command: "gomi {{.SelectedPath}}"
     description: "Delete file"
     output: none
-
   - key: "u"
     context: "commitFiles"
     command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
@@ -291,7 +287,6 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} >~/.local/share/flipboard'"
     loadingText: "maybe copied link"
     description: "Copy link to file at *previous* commit"
-
   - key: "o"
     context: "commits"
     command: "git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
@@ -316,7 +311,6 @@ customCommands:
           - value: "revert -n"
             name: "Into index"
     description: "View reverting options..."
-
   - key: u
     context: "commits, subCommits"
     command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
@@ -327,7 +321,6 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} >~/.local/share/flipboard'"
     loadingText: "maybe copied link"
     description: "Copy link to repo at this point in history"
-
   - key: q
     context: "tags"
     command: "fish -c 'ghl -b {{.SelectedTag.Name}} >~/.local/share/flipboard'"
@@ -338,7 +331,6 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedTag.Name}} >~/.local/share/flipboard'"
     loadingText: "maybe copied link"
     description: "Copy link to repo at this tag, parsing it into commit"
-
   - key: "w"
     context: localBranches
     command: "gh pr create"
@@ -362,9 +354,9 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
     loadingText: "maybe copied link"
     description: "Copy link to repo in this branch, parsing into commit hash"
-  # TODO: issue here is that it screams and fails when you'd need to force push, while the default action asks you if you want to force
-  # - key: "o"
-  #   context: localBranches
-  #   command: "git push origin {{.SelectedLocalBranch.Name}}"
-  #   loadingText: "pushing selected branch"
-  #   description: "Push selected branch"
+# TODO: issue here is that it screams and fails when you'd need to force push, while the default action asks you if you want to force
+# - key: "o"
+#   context: localBranches
+#   command: "git push origin {{.SelectedLocalBranch.Name}}"
+#   loadingText: "pushing selected branch"
+#   description: "Push selected branch"
