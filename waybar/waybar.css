@@ -84,6 +84,11 @@ window#waybar {
   color: #a9b665;
 }
 
+#custom-networking {
+  color: #ea6962;
+  margin-right: 17px;
+}
+
 #custom-cha-fan {
   color: #e491b2;
 }
