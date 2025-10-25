@@ -332,7 +332,6 @@ normal_select_mappings: dict[str, Any] = {
     'M': 'merge_selections',
     'N': 'search_prev',
     'O': 'paste_before',
-    'R': 'overtype_mode',
     'S': 'hover',
     'S-pagedown': 'goto_next_paragraph',
     'S-pageup': 'goto_prev_paragraph',
@@ -534,7 +533,7 @@ normal_select_mappings: dict[str, Any] = {
         # [[sort on]]
         'I': 'goto_implementation',
         'J': 'goto_declaration',
-        'c': ':pipe qalc.fish -t $in',
+        'c': ':pipe ~/fes/dot/eli/fool/qalc.fish -t $in',
         'i': 'goto_type_definition',
         'j': 'goto_definition',
         'k': 'goto_reference',
