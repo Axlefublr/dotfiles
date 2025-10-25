@@ -401,6 +401,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout kruler
 
 # ------------------lazygit-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lazygit
+# paru -Sa --needed --disable-download-timeout lazygit-git
 mkdir -p ~/.config/lazygit
 ln -sf ~/fes/dot/lazygit.yml ~/.config/lazygit/config.yml
 
