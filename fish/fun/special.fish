@@ -47,7 +47,7 @@ funcsave dot >/dev/null
 
 function edit_clipboard
     wl-paste >/tmp/mine/clipboard-edit.md
-    flour --select /tmp/mine/clipboard-edit.md
+    flour /tmp/mine/clipboard-edit.md
     cat /tmp/mine/clipboard-edit.md | wl-copy -n
 end
 funcsave edit_clipboard >/dev/null
