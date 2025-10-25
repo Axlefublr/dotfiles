@@ -11,7 +11,6 @@ abbr -a -c systemctl systemctl-status -r c status
 abbr -a -c systemctl systemctl-stop -r o stop
 abbr -a .. --position anywhere --regex '^\.\.+$' --function multiple_dot
 abbr -a E 'sudo -E helix'
-abbr -a a 'shuf ~/.local/share/magazine/a &| ov'
 abbr -a at alien_temple
 abbr -a c cargo
 abbr -a ca cargo

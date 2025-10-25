@@ -142,6 +142,7 @@
 (deflayermap (apps-left)
 	;; [[sort on]]
 	; (layer-while-held apps-left-extra)
+	a (cmd niri msg action spawn -- footclient -NT fifth fish -c "shuf ~/.local/share/magazine/a &| ov --status-line=false")
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq yazi)
