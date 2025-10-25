@@ -98,8 +98,8 @@ function _rust_bin -a message other_name
         set -f name (basename $PWD)
     end
     cargo build -r
-    and cp -f ./target/release/$name ~/fes/bin/$name
-    git -C ~/fes/bin add $name && git -C ~/fes/bin commit -m "$name: $message"
+    and cp -f ./target/release/$name ~/fes/eva/$name
+    git -C ~/fes/eva add $name && git -C ~/fes/eva commit -m "$name: $message"
 end
 funcsave _rust_bin >/dev/null
 

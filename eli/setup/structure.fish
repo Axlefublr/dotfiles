@@ -30,9 +30,9 @@ fish_add_path ~/fes/dot/eli/fool
 fish_add_path ~/fes/dot/nu/lvoc
 ln -sf ~/fes/dot/desktop/ ~/.local/share/applications/fesdot
 
-git clone https://github.com/Axlefublr/binaries --depth=1 bin
-fish_add_path ~/fes/bin
-fish_add_path ~/fes/bin/wks
+git clone https://github.com/Axlefublr/binaries --depth=1 eva
+fish_add_path ~/fes/eva
+fish_add_path ~/fes/eva/wks
 
 git clone https://github.com/Axlefublr/autocommit --depth=1 jiro
 git clone https://github.com/Axlefublr/backup --depth=1 uviw

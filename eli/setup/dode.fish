@@ -160,7 +160,7 @@ uv tool install exrex
 cd ~/fes/ork
 gh repo clone elkowar/eww -- --depth 1
 cargo build --release --no-default-features --features wayland
-cp -f ./target/release/eww ~/fes/bin
+cp -f ./target/release/eww ~/fes/eva
 eww shell-completions -s fish >~/.config/fish/completions/eww.fish
 mkdir -p ~/.config/eww
 ln -sf ~/fes/dot/eww/eww.yuck ~/.config/eww/eww.yuck
@@ -335,7 +335,7 @@ mkdir -p ~/.cargo/bin
 rm -fr ~/.cargo/bin/runtime
 ln -sf ~/fes/ork/hx/runtime ~/.cargo/bin
 cargo install --path helix-term --locked
-sudo ln -f ~/fes/bin/helix /usr/bin/helix
+sudo ln -f ~/fes/eva/helix /usr/bin/helix
 
 # ------------------hexpatch------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout hexpatch
@@ -886,7 +886,7 @@ mkdir build
 cd build
 cmake ..
 make
-rsync ./wlclock ~/fes/bin
+rsync ./wlclock ~/fes/eva
 
 # ------------------wl-kbptr------------------
 paru -Sa --needed --disable-download-timeout wl-kbptr
@@ -912,7 +912,7 @@ cd wooz
 export CFLAGS="-O3"
 meson build
 ninja -C build
-cp -f ./build/wooz ~/fes/bin/wooz
+cp -f ./build/wooz ~/fes/eva/wooz
 
 # --------------------wtf---------------------
 # “wtf is curl” — quickly explains a rRam
