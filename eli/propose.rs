@@ -42,7 +42,7 @@ struct Octopus {
     lines: Option<Consideration>,
     cache_name: String,
     consider: Consideration,
-    path: PathBuf,
+    path: Option<PathBuf>,
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -81,13 +81,20 @@ fn main() -> anyhow::Result<()> {
     let mut carp: HashMap<String, Vec<String>> = serde_json::from_str(&buf).unwrap_or_default();
     let carplet = carp.entry(octopus.cache_name).or_default(); // carpet made of carps
     let mut rng = rand::rng();
-    let mut input_file = OpenOptions::new()
-        .read(true)
-        .create(false)
-        .open(octopus.path)
-        .context("input file doesn't exist")?;
-    let mut contents = String::new();
-    input_file.read_to_string(&mut contents).unwrap();
+    let contents = if let Some(path) = octopus.path {
+        let mut input_file = OpenOptions::new()
+            .read(true)
+            .create(false)
+            .open(path)
+            .context("input file doesn't exist")?;
+        let mut contents = String::new();
+        input_file.read_to_string(&mut contents).unwrap();
+        contents
+    } else {
+        let mut contents = String::new();
+        stdin().read_to_string(&mut contents).unwrap();
+        contents
+    };
     let lines = contents.lines();
     let line_count = lines.clone().count();
     let starting_index = match octopus.consider {
@@ -96,7 +103,7 @@ fn main() -> anyhow::Result<()> {
             .len()
             .saturating_sub(line_count * percentage as usize / 100),
     };
-    let mut pickable_lines =
+    let pickable_lines =
         lines.filter(|&line| !carplet[starting_index..].contains(&line.to_owned()));
     let picked_lines = pickable_lines.clone().by_ref().choose_multiple(
         &mut rng,
