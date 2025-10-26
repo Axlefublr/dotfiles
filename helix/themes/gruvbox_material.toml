@@ -5,6 +5,7 @@
 # 'diagnostic.hint' = { underline = { color = 'cyan', style = 'curl' } }
 # 'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
 # 'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
+# 'markup.strikethrough' = { modifiers = [ 'crossed_out' ] }
 'attribute' = 'mint'
 'comment' = 'grey'
 'constant' = 'purple'
@@ -45,7 +46,6 @@
 'markup.list' = 'red'
 'markup.quote' = 'cyan'
 'markup.raw' = 'yellow'
-'markup.strikethrough' = { modifiers = [ 'crossed_out' ] }
 'module' = 'cyan'
 'namespace' = 'mint'
 'number' = 'blush'
