@@ -20,7 +20,7 @@ body {
         padding-bottom: 0;
 
         /* sidebar, with artist */
-        >aside.sc-ec862ae6-8 {
+        >aside {
           display: none;
         }
 
@@ -30,28 +30,29 @@ body {
           section.sc-55920ee2-1.sc-55920ee2-2.bNBzcc.iFIbHj {
             border-radius: 0;
 
+            /* image holder */
             figure {
-              img.sc-440d5b2c-1.jnuqJZ {
-                height: auto !important;
-                max-height: 80vh !important;
-              }
-
-              [role="presentation"] {
+              >div[role="presentation"] {
                 margin-top: 30px;
+
+                >div.gtm-medium-work-expanded-view>div[role="presentation"]>a>img {
+                  height: auto !important;
+                  max-height: 80vh !important;
+                }
               }
             }
 
             /* like button and other stuff */
-            section.sc-dd4458b1-0.klitwS {
+            >div:nth-of-type(1)>div>div:nth-of-type(5)>div>div:nth-of-type(2)>section {
               justify-content: center;
             }
 
             /* title / description */
-            figcaption>div.sc-58f3fd9a-13.bFhjvF {
+            figcaption>div:last-of-type {
               margin: unset !important;
 
               /* the actual text contained */
-              >div.sc-58f3fd9a-14.jrzjH {
+              >div {
                 width: 800px;
               }
             }
