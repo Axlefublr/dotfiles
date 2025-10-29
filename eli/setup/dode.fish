@@ -535,6 +535,11 @@ ln -sf ~/fes/dot/pik.toml ~/.config/pik/config.toml
 # visual lines going all over the screen
 paru -Sa --needed --disable-download-timeout bash-pipes
 
+# ------plants vs zombies 2 reflourished------
+paru -Sa --needed --disable-download-timeout waydroid
+sudo waydroid init
+sudo systemctl start waydroid-container
+
 # --------------------pqiv--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout pqiv
 
