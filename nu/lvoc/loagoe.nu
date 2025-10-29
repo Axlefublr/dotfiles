@@ -19,7 +19,7 @@ const known = {
 	mug: 5
 	bed: 6
 	cloth: 6
-	nose: 6
+	nose: 7
 	floor: 7
 	towels: 7
 	vacuum: 8
