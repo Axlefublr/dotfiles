@@ -244,24 +244,10 @@
 	z (cmd fish -c runner_symbol_name)
 )
 
-(deflayermap (slay-the-spire)
-	0 (layer-switch default)
-	j 1
-	k 2
-	l 3
-	u 4
-	i 5
-	o 6
-	m 7
-	, 8
-	. 9
-	; 0
-	' e
-)
-
 ;; [[sort on]]
 (include bookmark.kbd)
 (include doublestruck.kbd)
+(include gaming.kbd)
 (include hack.kbd)
 (include magazine.kbd)
 (include mouse.kbd)
