@@ -15,13 +15,17 @@ function clipboard_image_save
     set -l is_large (echo $path_trunk.png | nu --stdin --no-std-lib -n -c 'str trim | ls $in | get size.0 | $in >= 10mb')
     if $is_large
         echo 'too large, attempting lossless' >&2
-        magick -define webp:lossless=true $path_trunk.png $path_trunk.webp
+        magick -define webp:lossless=true $path_trunk.png $path_trunk.webp &
+        magick $path_trunk.png $path_trunk!.webp &
+        wait %1
         sl.fish $path_trunk.webp
         set -l is_large (echo $path_trunk.webp | nu --stdin --no-std-lib -n -c 'str trim | ls $in | get size.0 | $in >= 10mb')
         if $is_large
             echo 'lossless too large, attempting lossy' >&2
-            magick $path_trunk.png $path_trunk!.webp
+            wait %2
             sl.fish $path_trunk!.webp
+        else
+            kill %2
         end
     end
     dot
