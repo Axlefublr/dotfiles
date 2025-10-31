@@ -5,6 +5,7 @@ alias --save at alien_temple >/dev/null
 alias --save bell 'printf \a' >/dev/null
 alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness | head -n 1' >/dev/null
 alias --save fc 'cat ~/fes/uviw/afen/sudo | sudo -S systemctl restart fancontrol' >/dev/null
+alias --save ffmpeg 'ffmpeg -y -hide_banner -stats -loglevel error' >/dev/null
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
 alias --save get_media_time 'playerctl metadata --format "{{duration(position)}}"' >/dev/null
 alias --save gx 'glaza --git' >/dev/null
