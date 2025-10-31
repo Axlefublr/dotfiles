@@ -694,6 +694,10 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runt
 # run the thing via env to set DISPLAY and to unset http_proxy, https_proxy, all_proxy
 sudo -E helix /usr/share/applications/steam-native.desktop
 
+# -----------------stress-ng------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout stress-ng
+stress-ng --cpu-method matrixprod --cpu 8
+
 # --------------------sttr--------------------
 indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
