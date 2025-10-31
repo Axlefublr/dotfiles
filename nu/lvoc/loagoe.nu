@@ -32,6 +32,7 @@ const known = {
 	liked: 15
 	photos: 15
 	update: 15
+	upload: 15
 	utencils: 15
 	wilter: 23
 	doodads: 30
