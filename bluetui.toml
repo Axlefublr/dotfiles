@@ -1,15 +1,14 @@
 toggle_scanning = "s"
 
-[paired_device]
-unpair = "u"
-toggle_connect = "e"
-toggle_trust = "t"
-rename = "r"
-
 [adapter]
 toggle_pairing = "i"
 toggle_power = "o"
 toggle_discovery = "d"
 
+[paired_device]
+unpair = "i"
+toggle_trust = "t"
+rename = "r"
+
 [new_device]
-pair = "e"
+pair = "i"
