@@ -6,4 +6,4 @@ systemctl --user restart kanata.service
 playerctld daemon
 
 foot -D ~/fes/dot & disown
-gtk-launch floorp
+gtk-launch firefox

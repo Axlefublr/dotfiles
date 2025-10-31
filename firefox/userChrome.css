@@ -1,228 +1,25 @@
-/* history related menu in the top left corner */
-#firefox-view-button,
-/* top right dropdown button for tabs */
-#alltabs-button,
-#new-tab-button,
-#scrollbutton-up,
-#scrollbutton-down,
-.tab-close-button {
-	display: none !important;
+@charset "UTF-8";
+
+@-moz-document url(chrome://browser/content/browser.xhtml){
+
+#undo-closed-tab,
+#back-button,
+#forward-button,
+#reader-mode-button,
+#star-button-box,
+#home-button,
+#stop-reload-button,
+#TabsToolbar,
+#sidebar-header {
+  display: none !important;
 }
 
-#sidebar-box,
-#sidebar-splitter {
-	display: none !important;
+#nav-bar {
+  margin-top: -50px !important;
 }
 
-toolbar .toolbaritem-combined-buttons {
-	margin-inline: 0 !important;
+#nav-bar:focus-within {
+  margin-top: 0 !important;
 }
 
-* {
-	--link-color: #ffd75f !important;
-	--tabpanel-background-color: #292828 !important;
-}
-
-#navigator-toolbox {
-	border-bottom: none !important;
-
-	>#TabsToolbar {
-
-		.titlebar-spacer,
-		.titlebar-buttonbox-container {
-			display: none !important;
-		}
-	}
-
-	#TabsToolbar-customization-target {
-		--toolbarbutton-inner-padding: 0 !important;
-		background-color: #292828 !important;
-
-		>#tabbrowser-tabs {
-			border-inline-start: none !important;
-			padding-inline-start: 0 !important;
-			margin-inline-start: 0 !important;
-			min-height: 0 !important;
-
-			#tabbrowser-arrowscrollbox-periphery {
-				display: none !important;
-			}
-
-			>#tabbrowser-arrowscrollbox {
-				>.tabbrowser-tab {
-					padding: 0 !important;
-					transition: none !important;
-
-					&:not([pinned]) {
-						max-width: 100vw !important;
-					}
-
-					&:not([pinned], [fadein]) {
-						max-width: 0.1px !important;
-					}
-
-					.tab-background {
-						border-radius: 0px !important;
-						margin-block: 0px !important;
-						/***/
-						min-height: 1px !important;
-						outline: unset !important;
-						/***/
-						outline-offset: 0px !important;
-						/***/
-						box-shadow: unset !important;
-
-						&[selected] {
-							background-color: #5f472d !important;
-						}
-					}
-
-					&[pending] .tab-content>.tab-label-container>.tab-text {
-						color: #928374 !important;
-					}
-
-					.tab-content {
-						padding: 0 0.5rem !important;
-
-						.tab-label-container {
-							height: 1.7em !important;
-							flex-direction: row !important;
-							mask-image: none !important;
-							--tab-label-line-height: 1.7em !important;
-							font-size: 1.2em !important;
-
-							&:has(.tab-secondary-label[muted])>.tab-text {
-								text-decoration: line-through solid !important;
-							}
-
-							>.tab-text {
-								/* half of the total width of the favicon */
-								padding: 0 21.5px 0 0 !important;
-							}
-
-							>.tab-secondary-label {
-								display: none !important;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	>#nav-bar {
-		border-top: 0 !important;
-		background-color: #292828 !important;
-		min-height: 1px !important;
-		height: 2.0em !important;
-
-		>#nav-bar-customization-target {
-			>#unified-extensions-button {
-				padding-inline-start: 5px !important;
-
-				>.toolbarbutton-icon {
-					margin-top: -1px !important;
-				}
-			}
-
-			>#back-button,
-			>#forward-button,
-			>#home-button,
-			>#stop-reload-button,
-			>#customizableui-special-spring1,
-			>#customizableui-special-spring2,
-			>#save-to-pocket-button,
-			>#fxa-toolbar-menu-button {
-				display: none !important;
-			}
-
-			>#urlbar-container {
-				margin-inline: 0px !important;
-				min-height: 1px !important;
-				padding-block: 0 !important;
-
-				>#urlbar {
-					font-size: 1.2em !important;
-					--toolbar-field-color: #d4be98;
-					--urlbar-height: 29px !important;
-					--urlbar-min-height: 29px !important;
-					--urlbar-container-height: 29px !important;
-
-					&[breakout] {
-						margin-left: 0 !important;
-						/* width: 1450px !important; */
-					}
-				}
-
-				#identity-box,
-				#urlbar-go-button {
-					display: none !important;
-				}
-
-				#urlbar-background {
-					box-shadow: none !important;
-					outline: none !important;
-					border: none !important;
-					background-color: #292828 !important;
-				}
-
-				.urlbar-input-container {
-					border: none !important;
-					padding: 0 !important;
-
-					.urlbar-input-box {
-						padding-left: 7px !important;
-						padding-right: 0 !important;
-						/* margin-left: 7px !important; */
-						--lwt-toolbar-field-highlight: #5f472d !important;
-						--lwt-toolbar-field-highlight-text: #d4be98 !important;
-						/* color: #d4be98 !important; */
-					}
-
-					>#tracking-protection-icon-container {
-						display: none !important;
-					}
-
-					>#page-action-buttons {
-						>.urlbar-page-action {
-							width: unset !important;
-
-							>.toolbarbutton-icon {
-								margin-top: -1px !important;
-							}
-
-							height: unset !important;
-						}
-
-						>#urlbar-zoom-button {
-							font-size: unset !important;
-							padding: 0 4px 0 9px !important;
-							border-radius: unset !important;
-							background-color: unset !important;
-							margin-block: unset !important;
-							margin-inline: unset !important;
-						}
-
-						>#star-button-box,
-						>#reader-mode-button {
-							display: none !important;
-						}
-					}
-				}
-
-				.urlbarView {
-					--urlbarView-highlight-background: #5f472d !important;
-					--urlbarView-highlight-color: #d4be98 !important;
-					--urlbarView-item-inline-padding: 0 !important;
-					--urlbarView-item-block-padding: 0.25em !important;
-					--urlbarView-favicon-margin-start: 0.4em !important;
-					--urlbarView-favicon-margin-end: 0.6em !important;
-
-					>.search-one-offs {
-						display: none !important;
-					}
-				}
-			}
-		}
-	}
 }

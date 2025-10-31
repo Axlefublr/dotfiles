@@ -72,7 +72,7 @@ function ensure_browser
     nu -n --no-std-lib -c '
         niri msg -j windows
         | from json
-        | where app_id == floorp
+        | where app_id == firefox
         | where is_focused == false
         | where workspace_id == 1
         | get id
