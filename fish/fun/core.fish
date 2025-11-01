@@ -302,7 +302,7 @@ funcsave path_append_suffix >/dev/null
 
 function path_clear_suffix
     for path in $argv[2..]
-        echo (path dirname $path)/(path basename -E $path | string trim -rc ! | string trim -rc $argv[1])(path extension $path)
+        echo (path dirname $path)/(path basename -E $path | string trim -rc !$argv[1])(path extension $path)
     end
 end
 funcsave path_clear_suffix >/dev/null

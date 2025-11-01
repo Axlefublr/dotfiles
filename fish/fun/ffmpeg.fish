@@ -8,7 +8,7 @@ function ffmpeg_cut_video
             continue
         end
         echo "processing $input" >&2
-        set -l input_basename (path basename -E $input)
+        set -l input_basename (path_clear_suffix += (path basename -E $input))
         set -l output "$input_basename"!
 
         if test -z "$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 $input)"
