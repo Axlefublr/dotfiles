@@ -146,8 +146,8 @@
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq yazi)
-	r (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)
-	s (cmd niri msg action spawn -- footclient -NHT hardware-monitor hardware-monitor.nu)
+	r (cmd niri msg action spawn -- footclient -NHT hardware-monitor hardware-monitor.nu)
+	s (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)
 	w (cmd niri msg action spawn -- anki)
 	x (cmd niri msg action spawn -- footclient -N fish -c talia)
 	;; [[sort off]]
