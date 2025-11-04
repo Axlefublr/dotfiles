@@ -2,9 +2,9 @@
 
 while true
     if test -s ~/.local/share/magazine/0
-        cat ~/.local/share/magazine/0
+        echo (cat ~/.local/share/magazine/0)
     else
         echo
     end
-    inotifywait -qq -e modify -e move_self ~/.local/share/magazine/0
+    inotifytheusual ~/.local/share/magazine/0
 end
