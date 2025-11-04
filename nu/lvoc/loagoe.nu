@@ -7,47 +7,46 @@ const ignored = [
 	eat
 	facewash
 	roll
+	showel
 	sludge
 	soap
 	# [[sort off]]
 ]
 
 const known = {
-	# [[sort on]]
 	# disc: 15
 	# floor: 7
 	# keyboard: 30
 	# liked: 15
-	bed: 6
-	bottle: 15
-	cloth: 6
-	dish: 5
-	doodads: 30
-	dust: 12
-	filter: 45
-	fsrs: 60
-	glasses: 15
-	iso: 60
-	moch: 122
-	mug: 5
-	nails: 13
-	nose: 7
-	ov: 30
-	photos: 15
 	razor: 4
-	tails: 40
-	tongue: 183
-	toothbrush: 122
+	dish: 5
+	mug: 5
+	bed: 6
+	cloth: 6
+	nose: 7
 	towels: 7
-	treesitter-markdown: 90
+	vacuum: 8
+	dust: 12
+	nails: 13
+	vacuat: 14
+	bottle: 15
+	glasses: 15
+	photos: 15
 	update: 15
 	upload: 15
 	utencils: 15
-	vacuat: 14
-	vacuum: 8
 	wilter: 23
+	doodads: 30
+	ov: 30
 	yazi: 30
-	# [[sort off]]
+	tails: 40
+	filter: 45
+	fsrs: 60
+	iso: 60
+	treesitter-markdown: 90
+	moch: 122
+	tongue: 122
+	toothbrush: 122
 }
 
 def produce [] {
