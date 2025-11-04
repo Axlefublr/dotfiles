@@ -11,6 +11,7 @@ alias --save get_media_time 'playerctl metadata --format "{{duration(position)}}
 alias --save gx 'glaza --git' >/dev/null
 alias --save gz glaza >/dev/null
 alias --save hime 'history merge' >/dev/null
+alias --save inotifytheusual 'inotifywait -qq -e modify -e move_self' >/dev/null
 alias --save jf 'exec fish' >/dev/null
 alias --save keyboard_layout "nu -n --no-std-lib -c 'let the = niri msg -j keyboard-layouts | from json ; \$the.names | get \$the.current_idx'" >/dev/null
 alias --save media_next 'playerctl next' >/dev/null
