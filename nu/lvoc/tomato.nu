@@ -65,6 +65,6 @@ loop {
 		stop => { break }
 		_ => { evaluate $phase $rest_time $timestamp $work_time }
 	}
-	try { inotifywait -qq -t 60 -e close_write /tmp/mine/tomato-action }
+	try { inotifywait -qq -e close_write -t 60 /tmp/mine/tomato-action }
 }
 "\n" | save -f ~/.local/share/mine/waybar-tomato
