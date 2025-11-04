@@ -6,9 +6,4 @@ loop {
 	if ($then <= (date now)) { break }
 	sleep 1sec
 }
-let text = open ~/.local/share/magazine/0 | str trim
-if ($text | is-empty) {
-	"wamine\n" | save -f ~/.local/share/magazine/0
-} else {
-	$text + " wamine\n" | save -f ~/.local/share/magazine/0
-}
+"wamine\n" | save -a ~/.local/share/magazine/0
