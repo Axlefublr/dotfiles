@@ -5,5 +5,5 @@ while true
         test -s $file && printf (path basename $file)
     end
     echo
-    inotifywait -qq -e close_write ~/.local/share/magazine/(seq 1 9)
+    inotifytheusual ~/.local/share/magazine/(seq 1 9)
 end
