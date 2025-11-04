@@ -52,6 +52,10 @@ window#waybar {
   color: #78bf84;
 }
 
+#custom-finances {
+  color: #7daea3;
+}
+
 #custom-meat {
   color: #a9b665;
 }
@@ -90,11 +94,11 @@ window#waybar {
 }
 
 #custom-cha-fan {
-  color: #e491b2;
+  color: #b58cc6;
 }
 
 #custom-cpu-fan {
-  color: #7daea3;
+  color: #78bf84;
 }
 
 #custom-headphone-battery {
