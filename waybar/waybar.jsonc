@@ -12,10 +12,11 @@
     "clock#time",
     "custom/meat",
     "pulseaudio",
+    "custom/headphone-battery",
     "custom/layout",
     "custom/magazines",
-    "custom/screen-record",
     "custom/mouse-mode",
+    "custom/screen-record",
     "custom/red-dot"
   ],
   "modules-center": [
@@ -24,13 +25,13 @@
   "modules-right": [
     "custom/tomato",
     "custom/networking",
-    "custom/cha-fan",
+    // "custom/cha-fan",
     "custom/cpu-fan",
-    "custom/headphone-battery",
+    "custom/finances",
     "disk",
     "memory",
     "temperature#gpu",
-    "temperature#cpu"
+    "temperature#cpu",
   ],
   "clock#date": {
     "interval": 60,
@@ -59,6 +60,11 @@
       "unlocked": "h"
     },
     "capslock": true
+  },
+  "custom/finances": {
+    "exec": "/home/axlefublr/fes/dot/waybar/finances.fish",
+    "format": "{}",
+    "hide-empty-text": true
   },
   "custom/meat": {
     "exec": "/home/axlefublr/fes/dot/waybar/meat.fish",
@@ -107,12 +113,12 @@
     "interval": 15,
     "hide-empty-text": true
   },
-  "custom/cha-fan": {
-    "exec": "/home/axlefublr/fes/dot/waybar/cha-fan.nu",
-    "format": "{}",
-    "interval": 5,
-    "hide-empty-text": true
-  },
+  // "custom/cha-fan": {
+  //   "exec": "/home/axlefublr/fes/dot/waybar/cha-fan.fish",
+  //   "format": "{}",
+  //   "interval": 5,
+  //   "hide-empty-text": true
+  // },
   "custom/cpu-fan": {
     "exec": "/home/axlefublr/fes/dot/waybar/cpu-fan.fish",
     "format": "{}",
@@ -122,7 +128,7 @@
   "custom/headphone-battery": {
     "exec": "/home/axlefublr/fes/dot/waybar/headphone-battery.fish",
     "format": "{}%",
-    "interval": 15,
+    "interval": 10,
     "hide-empty-text": true
   },
   "disk": {
@@ -132,7 +138,7 @@
   },
   "memory": {
     "format": "{used:0.1f}",
-    "interval": 10
+    "interval": 3
   },
   "temperature#gpu": {
     "format": "{temperatureC}",
