@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 function runner
+    return
     set runned ~/.local/share/magazine/L
     set -l input (tac $runned | fuzzel -d --match-mode exact 2>/dev/null)
     test $status -ne 0 && return 1
