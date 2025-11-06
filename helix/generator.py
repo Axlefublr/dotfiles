@@ -58,8 +58,8 @@ editor: dict[str, Any] = {
     },
     'harp': {
         'command': 'filetype',
-        'search': 'filetype',
-        'register': 'filetype',
+        'search': 'buffer',
+        'register': 'buffer',
         'mark': 'buffer',
     },
     # [[sort on]]
@@ -267,6 +267,7 @@ normal_select_mappings: dict[str, Any] = {
             'Y',
             'b',
             'p',
+            'x',
             'y',
             # [[sort off]]
         ]
@@ -278,7 +279,7 @@ normal_select_mappings: dict[str, Any] = {
     '#': 'yank_joined',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
-    '&': '@<A-k>;—<ret>×<A-k>M',
+    '&': '@<A-k>r—<ret>×<A-k>M',
     '(': 'goto_prev_change',
     ')': 'goto_next_change',
     '*': ['search_selection_detect_word_boundaries', 'normal_mode'],
@@ -478,7 +479,7 @@ normal_select_mappings: dict[str, Any] = {
         's': 'syntax_symbol_picker',
         # [[sort off]]
     },
-    ',': {
+    ';': {
         'a': 'harp_command',
         'd': magazine_openers,
         'e': 'harp_search',
@@ -545,6 +546,7 @@ normal_insert_mappings: dict[str, Any] = {}
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
+    ',': ['collapse_selection', 'replace'],
     '<': 'find_prev_char',
     '>': 'find_next_char',
     'A-e': ['move_prev_sub_word_start', 'trim_selections'],
@@ -564,7 +566,6 @@ normal_mappings: dict[str, Any] = {
     'j': 'move_visual_line_down',
     'k': 'move_visual_line_up',
     'l': 'move_char_right',
-    'x': ['collapse_selection', 'replace'],
     # [[sort off]]
     'L': [
         'collapse_selection',
@@ -606,6 +607,7 @@ normal_mappings: dict[str, Any] = {
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
+    ',': 'replace',
     '<': 'extend_prev_char',
     '>': 'extend_next_char',
     'A-e': 'extend_prev_sub_word_start',
@@ -627,7 +629,6 @@ select_mappings: dict[str, Any] = {
     'j': 'extend_visual_line_down',
     'k': 'extend_visual_line_up',
     'l': 'extend_char_right',
-    'x': 'replace',
     # [[sort off]]
     'L': [
         'extend_char_right',
