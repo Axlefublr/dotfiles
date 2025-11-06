@@ -1,0 +1,114 @@
+#root.root {
+  --general-border-radius: 0px;
+}
+
+#root.root {
+  --nav-btn-active-shadow: none;
+}
+
+#root.root {
+  --tabs-activated-shadow: none;
+}
+
+#root.root {
+  --tabs-discarded-favicon-opacity: 0.60;
+}
+
+#root.root {
+  --notification-bg: #292828;
+}
+
+#root.root {
+  --notification-fg: #d4be98;
+}
+
+#root.root {
+  --tabs-activated-bg: #3b3a3a;
+}
+
+#root.root {
+  --tabs-activated-fg: #d4be98;
+}
+
+#root.root {
+  --tabs-discarded-title-opacity: 0.70;
+}
+
+#root.root {
+  --frame-bg: #292828;
+}
+
+#root.root {
+  --frame-fg: #d4be98;
+}
+
+#root.root {
+  --frame-el-overlay-selected-bg: unset;
+}
+
+#root.root {
+  --frame-el-overlay-selected-border: #e49641;
+}
+
+#root.root {
+  --toolbar-el-overlay-selected-bg: unset;
+}
+
+#root.root {
+  --toolbar-bg: #292828;
+}
+
+#root.root {
+  --toolbar-fg: #d4be98;
+}
+
+#root.root {
+  --toolbar-el-overlay-hover-bg: #3b3a3a;
+}
+
+#root.root {
+  --toolbar-el-overlay-selected-border: #e49641;
+}
+
+#root.root {
+  --tabs-font: 1rem sans-serif;
+}
+
+/* --------------------main-------------------- */
+
+#root.root {
+  --nav-btn-height: 35px;
+}
+
+.Tab {
+  margin: 0;
+  width: 100%;
+  padding-bottom: unset;
+}
+
+#root[data-pinned-tabs-position=panel][data-pinned-tabs-list=true] .PinnedTabsBar {
+  padding: 0;
+}
+
+/* separator between pinned and normal tabs */
+.PinnedTabsBar:after {
+  display: none !important;
+}
+
+/* area containing all pinned tabs */
+.PinnedTabsBar {
+  background-color: hsl(0, 1.2%, 18%);
+}
+
+.NavigationBar .main-items {
+  grid-gap: 0;
+}
+
+/* removing 2 pixels of nothing burger */
+.Notifications+.main-box .central-box {
+  margin-top: 0;
+}
+
+.NavigationBar.-vert {
+  padding: 0;
+}
