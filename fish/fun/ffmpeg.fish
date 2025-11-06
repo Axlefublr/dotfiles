@@ -52,7 +52,7 @@ funcsave ffmpeg_cut_video >/dev/null
 function ffmpeg_convert_to_mp3
     for file in $argv
         not test -f "$file" && continue
-        set -l output (path change-extension '' $file)
+        set -l output (path change-extension '' $file)!
 
         confirm.rs 'cut from?' '[j]es' '[k]o' | read -l response
         if test "$response" = j
