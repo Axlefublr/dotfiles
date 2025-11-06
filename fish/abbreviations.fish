@@ -1,4 +1,5 @@
 #[[sort on]]
+# abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
 abbr -a --set-cursor=% edi 'sudo -E helix /usr/share/applications/%.desktop'
 abbr -a -c gh gh-depth-1 -r df -- '-- --depth 1'
 abbr -a -c magick magick-webp-lossless -r loss -- '-define webp:lossless=true'
@@ -34,7 +35,6 @@ abbr -a lw 'eza -al'
 abbr -a mkd 'mkdir -p'
 abbr -a q qalc
 abbr -a qrtool qrtool.rs
-abbr -a read 'read -p rdp' # can only be an abbreviation because `read` is a builtin
 abbr -a rm gomi
 abbr -a rmf 'rm -fr'
 abbr -a sude 'sudo -E'
