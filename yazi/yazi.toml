@@ -21,7 +21,7 @@ edit = [
   { run = '${EDITOR:-vi} "$@"', desc = "Edit", block = true },
 ]
 extract = [
-  { run = 'ouch decompress "$@"', desc = "Extract" },
+  { run = 'ouch decompress --yes "$@"', desc = "Extract" },
 ]
 reveal = [
   { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
