@@ -10,7 +10,8 @@
 #home-button,
 #stop-reload-button,
 #TabsToolbar,
-#sidebar-header {
+#sidebar-header,
+#sidebar-splitter {
   display: none !important;
 }
 
@@ -20,6 +21,11 @@
 
 #nav-bar:focus-within {
   margin-top: 0 !important;
+}
+
+/* this appears as a 1 pixel line at the top of the browser, even when the nav bar is otherwise hidden */
+#navigator-toolbox {
+  border-bottom: unset !important;
 }
 
 }
