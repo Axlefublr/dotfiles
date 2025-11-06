@@ -213,8 +213,8 @@ binds {
 
     Mod+Ctrl+J { set-window-height "-10%"; }
     Mod+Ctrl+K { set-window-height "+10%"; }
-    Mod+Ctrl+H { set-column-width "-10%"; }
-    Mod+Ctrl+L { set-column-width "+10%"; }
+    Mod+Ctrl+H { spawn "fish" "-c" "niri_resize_width -10%"; }
+    Mod+Ctrl+L { spawn "fish" "-c" "niri_resize_width +10%"; }
 
     Mod+Ctrl+Period { maximize-column; }
     Mod+Ctrl+M { reset-window-height; }
