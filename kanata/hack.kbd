@@ -7,7 +7,7 @@
 	/ (unmod lalt f9)
 	i (unmod lsft lalt f6)
 	o (unmod lsft lalt f7)
-	h (unmod lsft lalt f9)
+	h C-1
 	l (unmod lsft lalt f10)
 	n (unmod lctl lalt home)
 	; (unmod lsft lalt f8)
