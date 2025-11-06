@@ -28,6 +28,7 @@
 .gruvbox-material.background {
 	--light30: #4d4c4c hsl(0, 1.2%, 30%);
 	--level: #292828 hsl(0, 1.2%, 16%);
+	--dark15: #272626 hsl(0, 1.2%, 15%);
 	--dark14: #242323 hsl(0, 1.2%, 14%);
 	--dark13: #222121 hsl(0, 1.2%, 13%);
 	--dark12: #1f1e1e hsl(0, 1.2%, 12%);
