@@ -58,8 +58,8 @@ editor: dict[str, Any] = {
     },
     'harp': {
         'command': 'filetype',
-        'search': 'buffer',
-        'register': 'buffer',
+        'search': 'filetype',
+        'register': 'filetype',
         'mark': 'buffer',
     },
     # [[sort on]]
@@ -145,15 +145,6 @@ editor: dict[str, Any] = {
         'other-lines': 'info',
         'max-wrap': 0,
     },
-    # 'persistence': {
-    #     'old-files': True,
-    #     'commands': True,
-    #     'search': True,
-    #     'clipboard': True,
-    #     'old-files-trim': 200,
-    # 'search-trim': 200,
-    # 'commands-trim': 200,
-    # },
 }
 
 
