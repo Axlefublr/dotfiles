@@ -27,6 +27,13 @@
 
 .gruvbox-material.background {
 	--light30: #4d4c4c hsl(0, 1.2%, 30%);
+	--light23: #3b3a3a hsl(0, 1.2%, 23%);
+	--light22: #393737 hsl(0, 1.2%, 22%);
+	--light21: #363535 hsl(0, 1.2%, 21%);
+	--light20: #343232 hsl(0, 1.2%, 20%);
+	--light19: #313030 hsl(0, 1.2%, 19%);
+	--light18: #2e2d2d hsl(0, 1.2%, 18%);
+	--light17: #2c2b2b hsl(0, 1.2%, 17%);
 	--level: #292828 hsl(0, 1.2%, 16%);
 	--dark15: #272626 hsl(0, 1.2%, 15%);
 	--dark14: #242323 hsl(0, 1.2%, 14%);
@@ -34,16 +41,20 @@
 	--dark12: #1f1e1e hsl(0, 1.2%, 12%);
 	--dark11: #1c1c1c hsl(0, 1.2%, 11%);
 	--dark10: #1a1919 hsl(0, 1.2%, 10%);
-	--selected-entry: #3f3831 hsl(31, 13%, 22%);
-	--picker-entry: #4b433a hsl(31, 13%, 26%);
-	--line-number: #6f675a;
-	--scrollbar: #9b8e77;
 }
 
 .supporters {
 	--purple-supporting: #5c404b hsl(336, 17.7%, 30.5%);
 	--orange-supporting: #5f472d hsl(31, 35.7%, 27.5%);
 	--yellow-supporting: #68622c hsl(54, 40.5%, 29.0%);
+}
+
+.custom {
+	--selected-entry: #3f3831 hsl(31, 13%, 22%);
+	--picker-entry: #4b433a hsl(31, 13%, 26%);
+	--white-base-tab: hsl(38, 3.2%, 23%);
+	--line-number: #6f675a;
+	--scrollbar: #9b8e77;
 }
 
 .extra {
