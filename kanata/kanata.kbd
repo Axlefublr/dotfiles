@@ -42,8 +42,8 @@
 	e (tap-hold-release $tt $ht e (layer-while-held hack))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
 	f (tap-hold-release $tt $ht f (layer-while-held arrows))
-	g (tap-hold-release $tt $ht g (layer-while-held apps-right))
-	h (tap-hold-release $tt $ht h (layer-while-held apps-left))
+	g (tap-hold-release $tt $ht g (layer-while-held apps-left))
+	h (tap-hold-release $tt $ht h (layer-while-held apps-right))
 	i (tap-hold-release $tt $ht i (layer-while-held brackets))
 	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
 	j (tap-hold-release $tt $ht j (layer-while-held numbers))
@@ -61,18 +61,11 @@
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held symbol-left))
 	v (tap-hold-release $tt $ht v (layer-while-held symbol-tertiary))
-	w (tap-hold-release $tt $ht w rmet)
+	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held meta-left)))
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
-)
-
-(deflayermap (alt-left)
-	g (layer-while-held apps-right-extra)
-)
-(deflayermap (alt-right)
-	h (layer-while-held apps-left-extra)
 )
 
 (deflayermap (numbers)
@@ -103,7 +96,6 @@
 	/ (cmd fish -c "wtype (uclanr 3 -j -)")
 	; bspc
 	a lalt
-	b (layer-switch arrows)
 	caps esc
 	d lctl
 	e (layer-while-held hack-arrow)
@@ -118,8 +110,8 @@
 	o enter
 	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
 	s lsft
-	spc (layer-switch default)
 	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
+	w (multi lmet (layer-while-held arrow-meta))
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
@@ -139,9 +131,9 @@
 	z F12
 )
 
-(deflayermap (apps-left)
+(deflayermap (apps-right)
 	;; [[sort on]]
-	; (layer-while-held apps-left-extra)
+	; (layer-while-held apps-right-alt)
 	a (cmd niri msg action spawn -- footclient -NT fifth fish -c "shuf ~/.local/share/magazine/a &| ov --status-line=false")
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
@@ -153,14 +145,14 @@
 	;; [[sort off]]
 )
 
-(deflayermap (apps-left-extra)
+(deflayermap (apps-right-alt)
 )
 
-(deflayermap (apps-right)
+(deflayermap (apps-left)
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
-	a (layer-while-held apps-right-extra)
+	a (layer-while-held apps-left-alt)
 	b (cmd pick-blog-post.nu)
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
@@ -174,7 +166,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (apps-right-extra)
+(deflayermap (apps-left-alt)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix .)
 	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
 )
@@ -248,6 +240,7 @@
 (include bookmark.kbd)
 (include doublestruck.kbd)
 (include gaming.kbd)
+(include glue.kbd)
 (include hack.kbd)
 (include magazine.kbd)
 (include mouse.kbd)

@@ -1,0 +1,16 @@
+(deflayermap (meta-left)
+	f (multi (layer-while-held arrows) (layer-while-held arrow-meta))
+	e (layer-while-held hack-meta)
+)
+
+(deflayermap (alt-left)
+	g (layer-while-held apps-left-alt)
+)
+
+(deflayermap (alt-right)
+	h (layer-while-held apps-right-alt)
+)
+
+(deflayermap (arrow-meta)
+	e (layer-while-held hack-arrow-meta)
+)
