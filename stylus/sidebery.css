@@ -1,77 +1,24 @@
 #root.root {
-  --general-border-radius: 0px;
-}
-
-#root.root {
-  --nav-btn-active-shadow: none;
-}
-
-#root.root {
-  --tabs-activated-shadow: none;
-}
-
-#root.root {
-  --tabs-discarded-favicon-opacity: 0.60;
-}
-
-#root.root {
-  --notification-bg: #292828;
-}
-
-#root.root {
-  --notification-fg: #d4be98;
-}
-
-#root.root {
-  --tabs-activated-bg: #3b3a3a;
-}
-
-#root.root {
-  --tabs-activated-fg: #d4be98;
-}
-
-#root.root {
-  --tabs-discarded-title-opacity: 0.70;
-}
-
-#root.root {
   --frame-bg: #292828;
-}
-
-#root.root {
-  --frame-fg: #d4be98;
-}
-
-#root.root {
   --frame-el-overlay-selected-bg: unset;
-}
-
-#root.root {
   --frame-el-overlay-selected-border: #e49641;
-}
-
-#root.root {
-  --toolbar-el-overlay-selected-bg: unset;
-}
-
-#root.root {
-  --toolbar-bg: #292828;
-}
-
-#root.root {
-  --toolbar-fg: #d4be98;
-}
-
-#root.root {
-  --toolbar-el-overlay-hover-bg: #3b3a3a;
-}
-
-#root.root {
-  --toolbar-el-overlay-selected-border: #e49641;
-}
-
-#root.root {
+  --frame-fg: #d4be98;
+  --general-border-radius: 0px;
+  --nav-btn-active-shadow: none;
+  --notification-bg: #292828;
+  --notification-fg: #d4be98;
+  --tabs-activated-fg: #d4be98;
+  --tabs-activated-shadow: none;
+  --tabs-discarded-favicon-opacity: 0.60;
+  --tabs-discarded-title-opacity: 0.70;
   --tabs-font: 1rem sans-serif;
+  --toolbar-bg: #292828;
+  --toolbar-el-overlay-selected-bg: unset;
+  --toolbar-el-overlay-selected-border: #e49641;
+  --toolbar-fg: #d4be98;
+  --tabs-activated-bg: hsl(38, 3%, 25%);
+  --toolbar-el-overlay-hover-bg: hsl(38, 3%, 25%);
+  --frame-el-overlay-hover-bg: hsla(38, 3%, 25%, 0.7);
 }
 
 /* --------------------main-------------------- */
@@ -97,7 +44,7 @@
 
 /* area containing all pinned tabs */
 .PinnedTabsBar {
-  background-color: hsl(0, 1.2%, 18%);
+  background-color: hsl(38, 3.2%, 18%);
 }
 
 .NavigationBar .main-items {
