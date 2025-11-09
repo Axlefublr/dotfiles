@@ -5,7 +5,7 @@
 	c (cmd wtype 𝕔)
 	d (cmd wtype 𝕕)
 	e (cmd wtype 𝕖)
-	f (tap-hold-release $tt $ht (cmd wtype 𝕗) (layer-while-held arrows))
+	f (tap-hold-release $tt $ht (cmd wtype 𝕗) (layer-while-held arrow))
 	g (cmd wtype 𝕘)
 	h (cmd wtype 𝕙)
 	i (cmd wtype 𝕚)

@@ -1,40 +1,40 @@
 (deflayermap (hack)
 	f (layer-while-held hack-arrow)
-	w (layer-while-held hack-meta)
-	j (unmod lsft lalt f1)
-	k (unmod lsft lalt f2)
-	/ (unmod lalt f9)
-	i (unmod lsft lalt f6)
-	o (unmod lsft lalt f7)
+	w (layer-while-held #hack)
+	j S-A-f1
+	k S-A-f2
+	/ A-f9
+	i S-A-f6
+	o S-A-f7
 	h C-1
-	l (unmod lsft lalt f10)
-	n (unmod lctl lalt home)
-	caps (unmod lsft lalt f8)
-	' (unmod lalt f10)
+	l S-A-f10
+	n C-A-home
+	caps S-A-f8
+	' A-f10
 	u (macro S-A-f5 20 (cmd fish -c r#"notify-send -t 3000 "$(wl-paste -n)""#))
 	m (macro C-A-end 20 (cmd fish -c r#"notify-send -t 3000 "$(wl-paste -n)""#))
 )
 
-(deflayermap (hack-meta)
-	f (layer-while-held hack-arrow-meta)
-	k (unmod lalt f11)
-	j (unmod lalt f12)
+(deflayermap (#hack)
+	f (layer-while-held #hack-arrow)
+	k A-f11
+	j A-f12
 )
 
 (deflayermap (hack-arrow)
-	w (layer-while-held hack-arrow-meta)
-	m (unmod lsft lalt end)
-	n (unmod lsft lalt home)
-	j (unmod lsft lalt f3)
-	k (unmod lsft lalt f4)
-	i (unmod lsft lalt f6)
-	h (unmod lctl lsft f11)
-	l (unmod lctl lsft f12)
-	u (unmod lalt end)
-	' (unmod lalt f8)
+	w (layer-while-held #hack-arrow)
+	m S-A-end
+	n S-A-home
+	j S-A-f3
+	k S-A-f4
+	i S-A-f6
+	h C-S-f11
+	l C-S-f12
+	u A-end
+	' A-f8
 )
 
-(deflayermap (hack-arrow-meta)
-	k (unmod lsft lalt f11)
-	j (unmod lsft lalt f12)
+(deflayermap (#hack-arrow)
+	k S-A-f11
+	j S-A-f12
 )

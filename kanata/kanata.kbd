@@ -33,17 +33,17 @@
 	7 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor"))
 	8 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gungeon_blueprint"))
 	9 (cmd fish -c screenshot_window)
-	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held alt-right)))
-	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held alt-left)))
+	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held !→)))
+	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held !←)))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lctl)
 	e (tap-hold-release $tt $ht e (layer-while-held hack))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
-	f (tap-hold-release $tt $ht f (layer-while-held arrows))
-	g (tap-hold-release $tt $ht g (layer-while-held apps-left))
-	h (tap-hold-release $tt $ht h (layer-while-held apps-right))
+	f (tap-hold-release $tt $ht f (layer-while-held arrow))
+	g (tap-hold-release $tt $ht g (layer-while-held apps←))
+	h (tap-hold-release $tt $ht h (layer-while-held apps→))
 	i (tap-hold-release $tt $ht i (layer-while-held brackets))
 	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
 	j (tap-hold-release $tt $ht j (layer-while-held numbers))
@@ -54,14 +54,14 @@
 	o (tap-hold-release $tt $ht o lmet)
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
-	r (tap-hold-release $tt $ht r (layer-while-held symbol-right))
+	r (tap-hold-release $tt $ht r (layer-while-held symbol→))
 	s (tap-hold-release $tt $ht s lsft)
 	spc (tap-hold-release $tt $ht spc (layer-while-held mouse))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
-	u (tap-hold-release $tt $ht u (layer-while-held symbol-left))
+	u (tap-hold-release $tt $ht u (layer-while-held symbol←))
 	v (tap-hold-release $tt $ht v (layer-while-held symbol-tertiary))
-	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held meta-left)))
+	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held #←)))
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
@@ -88,7 +88,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (arrows)
+(deflayermap (arrow)
 	;; [[sort on]]
 	' del
 	, pgup
@@ -111,7 +111,7 @@
 	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
 	s lsft
 	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
-	w (multi lmet (layer-while-held arrow-meta))
+	w (multi lmet (layer-while-held #arrow))
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
@@ -131,9 +131,9 @@
 	z F12
 )
 
-(deflayermap (apps-right)
+(deflayermap (apps→)
 	;; [[sort on]]
-	; (layer-while-held apps-right-alt)
+	; (layer-while-held !apps→)
 	a (cmd niri msg action spawn -- footclient -NT fifth fish -c "shuf ~/.local/share/magazine/a &| ov --status-line=false")
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
@@ -145,14 +145,14 @@
 	;; [[sort off]]
 )
 
-(deflayermap (apps-right-alt)
+(deflayermap (!apps→)
 )
 
-(deflayermap (apps-left)
+(deflayermap (apps←)
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
-	a (layer-while-held apps-left-alt)
+	a (layer-while-held !apps←)
 	b (cmd pick-blog-post.nu)
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
@@ -166,7 +166,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (apps-left-alt)
+(deflayermap (!apps←)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix .)
 	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
 )

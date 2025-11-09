@@ -49,7 +49,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (symbol-left)
+(deflayermap (symbol←)
 	;; [[sort on]]
 	a (cmd wtype 🙏)
 	c (cmd wtype 😢)
@@ -65,7 +65,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (symbol-right)
+(deflayermap (symbol→)
 	;; [[sort on]]
 	, (cmd wtype 🕯️)
 	i (cmd wtype 😌)
