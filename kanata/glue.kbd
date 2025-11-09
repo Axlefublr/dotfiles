@@ -1,6 +1,6 @@
 (deflayermap (#←)
-	f (multi (layer-while-held arrow) (layer-while-held #arrow))
-	e (layer-while-held #hack)
+	f (multi (layer-while-held arrow) (layer-while-held #arrow) (on-release tap-vkey any-arrow))
+	e (multi (layer-while-held hack) (layer-while-held #hack) (on-release tap-vkey any-hack))
 )
 
 (deflayermap (!←)
@@ -12,5 +12,5 @@
 )
 
 (deflayermap (#arrow)
-	e (layer-while-held #hack-arrow)
+	e (multi (layer-while-held hack) (layer-while-held #hack) (layer-while-held #hack-arrow) (on-release tap-vkey any-hack))
 )

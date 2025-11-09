@@ -16,6 +16,12 @@
 (defvar ot 5000)
 (defvar fsh (fish -c))
 
+(defvirtualkeys
+	any-arrow (multi (release-layer arrow) (release-layer hack-arrow) (release-layer #arrow)     (release-layer #hack-arrow))
+	any-hack  (multi (release-layer hack)  (release-layer #hack)      (release-layer hack-arrow) (release-layer #hack-arrow))
+	any-#     (multi (release-layer #←)    (release-layer #arrow)     (release-layer #hack)      (release-layer #hack-arrow))
+)
+
 (defsrc)
 (deflayermap (default)
 	;; [[sort on]]
@@ -39,9 +45,9 @@
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
 	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
 	d (tap-hold-release $tt $ht d lctl)
-	e (tap-hold-release $tt $ht e (layer-while-held hack))
+	e (tap-hold-release $tt $ht e (multi (layer-while-held hack) (on-release tap-vkey any-hack)))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
-	f (tap-hold-release $tt $ht f (layer-while-held arrow))
+	f (tap-hold-release $tt $ht f (multi (layer-while-held arrow) (on-release tap-vkey any-arrow)))
 	g (tap-hold-release $tt $ht g (layer-while-held apps←))
 	h (tap-hold-release $tt $ht h (layer-while-held apps→))
 	i (tap-hold-release $tt $ht i (layer-while-held brackets))
@@ -61,7 +67,7 @@
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held symbol←))
 	v (tap-hold-release $tt $ht v (layer-while-held symbol-tertiary))
-	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held #←)))
+	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held #←) (on-release tap-vkey any-#)))
 	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
@@ -98,7 +104,7 @@
 	a lalt
 	caps esc
 	d lctl
-	e (layer-while-held hack-arrow)
+	e (multi (layer-while-held hack) (layer-while-held hack-arrow) (on-release tap-vkey any-hack))
 	h left
 	i tab
 	j down
@@ -111,7 +117,7 @@
 	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
 	s lsft
 	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
-	w (multi lmet (layer-while-held #arrow))
+	w (multi lmet (layer-while-held #←) (layer-while-held #arrow) (on-release tap-vkey any-#))
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
@@ -215,7 +221,7 @@
 	a (cmd fish -c runner_interactive_unicode)
 	c (cmd fish -c edit_clipboard)
 	caps (cmd fish -c ntf_dismiss_all)
-	d (cmd fuzzel)
+	d (cmd niri msg action spawn -- fuzzel)
 	e (cmd fish -c internet_search)
 	f (cmd fish -c "runner_link open")
 	j (layer-while-held chord-overlay)
