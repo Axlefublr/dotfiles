@@ -258,20 +258,34 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout git diff-so-fancy
 # [[sort on]]
 git config --global branch.sort -committerdate
 git config --global checkout.defaultRemote origin
+git config --global column.ui auto
 git config --global commit.verbose true
 git config --global core.editor helix
 git config --global core.pager "diff-so-fancy | ov"
 git config --global credential.helper store
-git config --global diff.colormoved default
+git config --global diff.algorithm histogram
+git config --global diff.colormoved plain
 git config --global diff.colormovedws allow-indentation-change
+git config --global diff.mnemonicPrefix true
+git config --global diff.renames true
+git config --global fetch.all true
+git config --global fetch.prune true
+git config --global fetch.pruneTags true
+git config --global help.autocorrect prompt
 git config --global init.defaultBranch main
 git config --global interactive.singleKey true
+git config --global merge.conflictstyle zdiff3
 git config --global pull.ff only
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
+git config --global push.default simple
+git config --global push.followTags true
+git config --global rebase.autoSquash true
 git config --global rebase.autoStash true
 git config --global rebase.updateRefs false
+git config --global rerere.autoupdate false
 git config --global rerere.enabled false
+git config --global tag.sort version:refname
 git config --global user.email 101342105+Axlefublr@users.noreply.github.com
 git config --global user.name Axlefublr
 # [[sort off]]
