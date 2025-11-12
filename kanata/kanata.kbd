@@ -1,6 +1,7 @@
 (defcfg
 	;; [[sort on]]
 	;; movemouse-inherit-accel-state yes
+	alias-to-trigger-on-load startup
 	allow-hardware-repeat false
 	concurrent-tap-hold yes
 	danger-enable-cmd yes
@@ -15,6 +16,10 @@
 (defvar ht 150)
 (defvar ot 5000)
 (defvar fsh (fish -c))
+
+(defalias
+	startup (cmd fish -c "dot")
+)
 
 (defvirtualkeys
 	any-arrow (multi (release-layer arrow) (release-layer hack-arrow) (release-layer #arrow)     (release-layer #hack-arrow))
@@ -101,9 +106,7 @@
 	. pgdn
 	/ (cmd fish -c "wtype (uclanr 3 -j -)")
 	; bspc
-	a lalt
 	caps esc
-	d lctl
 	e (multi (layer-while-held hack) (layer-while-held hack-arrow) (on-release tap-vkey any-hack))
 	h left
 	i tab
@@ -115,7 +118,6 @@
 	n home
 	o enter
 	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
-	s lsft
 	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
 	w (multi lmet (layer-while-held #←) (layer-while-held #arrow) (on-release tap-vkey any-#))
 	y (layer-switch doublestruck)
