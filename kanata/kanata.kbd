@@ -32,19 +32,20 @@
 	;; [[sort on]]
 	' (tap-hold-release $tt $ht ' (layer-while-held chord))
 	, (tap-hold-release $tt $ht , (layer-while-held magazine))
+	- (multi (layer-switch pvz) (cmd notify-send "plants vs zombies"))
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / XX)
-	0 (tap-hold 0 100 XX (layer-switch slay-the-spire))
-	1 (tap-hold 0 100 XX (cmd-output-keys etg.nu "stat add curse 5" "stat add coolness 5" "give brick_of_cash" "add_teleporters"))
-	2 (tap-hold 0 100 XX (cmd-output-keys etg.nu --active))
-	3 (tap-hold 0 100 XX (cmd-output-keys etg.nu "add_teleporters"))
-	4 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give old_crest"))
-	5 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gnawed_key"))
-	6 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give coolant_leak"))
-	7 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor"))
-	8 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gungeon_blueprint"))
+	1 XX
+	2 XX
+	3 XX
+	4 XX
+	5 XX
+	6 XX
+	7 XX
+	8 XX
 	9 (cmd fish -c screenshot_window)
 	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held !→)))
+	= (multi (layer-switch nuclear-throne) (cmd notify-send "nuclear throne"))
 	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held !←)))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
@@ -148,7 +149,7 @@
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq yazi)
 	r (cmd niri msg action spawn -- footclient -NHT hardware-monitor hardware-monitor.nu)
 	s (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)
-	w (cmd niri msg action spawn -- anki)
+	w (cmd niri msg action spawn -- gtk-launch anki)
 	x (cmd niri msg action spawn -- footclient -N fish -c talia)
 	;; [[sort off]]
 )

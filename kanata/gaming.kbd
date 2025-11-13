@@ -1,5 +1,17 @@
+(deflayermap (nuclear-throne)
+	caps (multi (layer-switch default) (cmd notify-send default))
+	- (multi (layer-switch pvz) (cmd notify-send "plants vs zombies"))
+	= (multi (layer-switch slay-the-spire) (cmd notify-send "slay the spire"))
+	9 (cmd fish -c screenshot_window)
+	7 (tap-hold 0 100 XX (macro / 20 / u n l o a d m o d spc g r i l l s k i l l s ret))
+	8 (tap-hold 0 100 XX (macro / 20 / l o a d m o d spc g r i l l s k i l l s ret))
+)
+
 (deflayermap (slay-the-spire)
-	0 (layer-switch default)
+	caps (multi (layer-switch default) (cmd notify-send default))
+	- (multi (layer-switch nuclear-throne) (cmd notify-send "nuclear throne"))
+	= (multi (layer-switch enter-the-gungeon) (cmd notify-send "enter the gungeon"))
+	9 (cmd fish -c screenshot_window)
 	j 1
 	k 2
 	l 3
@@ -11,4 +23,36 @@
 	. 9
 	; 0
 	' e
+)
+
+(deflayermap (enter-the-gungeon)
+	caps (multi (layer-switch default) (cmd notify-send default))
+	- (multi (layer-switch slay-the-spire) (cmd notify-send "slay the spire"))
+	= (multi (layer-switch pvz) (cmd notify-send "plants vs zombies"))
+	9 (cmd fish -c screenshot_window)
+	1 (tap-hold 0 100 XX (cmd-output-keys etg.nu "stat add curse 5" "stat add coolness 5" "give brick_of_cash" "add_teleporters"))
+	2 (tap-hold 0 100 XX (cmd-output-keys etg.nu --active))
+	3 (tap-hold 0 100 XX (cmd-output-keys etg.nu "add_teleporters"))
+	4 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give old_crest"))
+	5 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gnawed_key"))
+	6 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give coolant_leak"))
+	7 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gunknight_helmet" "give gunknight_armor"))
+	8 (tap-hold 0 100 XX (cmd-output-keys etg.nu "give gungeon_blueprint"))
+)
+
+(deflayermap (pvz)
+	caps (multi (layer-switch default) (cmd notify-send default))
+	- (multi (layer-switch enter-the-gungeon) (cmd notify-send "enter the gungeon"))
+	= (multi (layer-switch nuclear-throne) (cmd notify-send "nuclear throne"))
+	9 (cmd fish -c screenshot_window)
+	j (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	k (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	l (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	u (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	i (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	o (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	m (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	, (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	. (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
+	h (multi (cmd ydotool mousemove -a 50 50) (cmd ydotool click C0) (cmd ydotool mousemove -a 500 300))
 )
