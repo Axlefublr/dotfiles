@@ -1,18 +1,17 @@
 (deflayermap (mouse)
+	caps esc
 	spc (multi (layer-switch default) (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode"))
 	n (multi (layer-switch mouse) (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode"))
 	l (layer-while-held mouse-slow)
 
-	v (tap-hold-release $tt $ht S-A-f6 XX)
-	' (cmd woomer)
-	/ (cmd fish -c pick_and_copy_color)
+	v (tap-hold-release $tt $ht C-w XX)
 	u (cmd fish -c screenshot_select)
 	t (cmd fish -c "show_clipboard_image -fs fill")
-	p C-A-b
-	g C-A-y
-	h C-S-s
+	' (one-shot $ot (layer-while-held mouse-extra))
 
-	caps esc
+	;; h (tap-dance-eager 150 ((cmd ydotool mousemove -a 533 300) (cmd ydotool mousemove -a 100 300) (cmd ydotool mousemove -a 966 300)))
+	h (tap-dance-eager 200 ((cmd notify-send first) (cmd notify-send second) (cmd notify-send third)))
+
 	; lmet
 	x lalt
 	a lsft
@@ -40,4 +39,14 @@
 	d (movemouse-down  15 1)
 	e (movemouse-up    15 1)
 	f (movemouse-right 15 1)
+)
+
+(deflayermap (mouse-extra)
+	j (cmd woomer)
+	l (cmd fish -c pick_and_copy_color)
+	o (cmd fish -c mouse_position)
+	k C-S-s
+	i C-S-c
+	, C-A-b
+	m C-A-y
 )
