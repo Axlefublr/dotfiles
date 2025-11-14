@@ -21,6 +21,9 @@ ln -sf ~/fes/dot/alacritty.toml ~/.config/alacritty.toml
 # --------------------anki--------------------
 paru -Sa --needed --disable-download-timeout anki
 # paru -Sa --needed --disable-download-timeout anki-bin
+sudo -E helix /usr/share/applications/anki.desktop
+# env HTTP_PROXY="http://127.0.0.1:8118" HTTPS_PROXY="http://127.0.0.1:8118"
+# you're using your privoxy here
 
 # -----------------antimicrox-----------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout antimicrox
@@ -256,6 +259,7 @@ ln -sf ~/fes/dot/ghostty.conf ~/.config/ghostty/config
 # --------------------git---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout git diff-so-fancy
 # [[sort on]]
+# git config --global merge.conflictstyle zdiff3
 git config --global branch.sort -committerdate
 git config --global checkout.defaultRemote origin
 git config --global column.ui auto
@@ -274,7 +278,7 @@ git config --global fetch.pruneTags true
 git config --global help.autocorrect prompt
 git config --global init.defaultBranch main
 git config --global interactive.singleKey true
-git config --global merge.conflictstyle zdiff3
+git config --global merge.conflictstyle merge
 git config --global pull.ff only
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
@@ -466,7 +470,7 @@ set -Ux NEOVIDE_FORK false
 
 # --------------------niri--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout niri
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring
+sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring libdisplay-info
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps clang # for building from source
 ln -sf ~/fes/dot/niri.kdl ~/.config/niri/config.kdl
 mkdir -p ~/.config/systemd/user/niri.service.wants
@@ -962,7 +966,7 @@ cargo binstall -y resvg
 
 # ------------------ydotool-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool
-# now run ydotool somehow
+systemctl --user enable --now ydotool.service
 
 # -------------------yt-dlp-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout yt-dlp
