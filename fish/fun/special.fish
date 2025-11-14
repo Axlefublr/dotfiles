@@ -94,10 +94,23 @@ function loago_tracker
 end
 funcsave loago_tracker >/dev/null
 
+function mouse_position
+    set -l pos (niri msg pointer | string join ' ')
+    echo $pos | wl-copy -n
+    notify-send -t 0 $pos
+end
+funcsave mouse_position >/dev/null
+
 function multiple_dot
     echo (string repeat -n (math (string length -- $argv[1]) - 1) ../ | string trim -r -c /)
 end
 funcsave multiple_dot >/dev/null
+
+function niri_toggle_tab_correctly
+    niri msg action toggle-column-tabbed-display
+    niri msg action reset-window-height
+end
+funcsave niri_toggle_tab_correctly >/dev/null
 
 function ntf_pick_dismiss
     set -l result (fnottctl list | rg '^\\d' | fuzzel -d 2>/dev/null)
@@ -158,6 +171,15 @@ function piped_scrollback_editor
 end
 funcsave piped_scrollback_editor >/dev/null
 
+function pvz_plant -a x_pos
+    set -l prev_position (niri msg pointer)
+    ydotool mousemove -a $x_pos 50
+    ydotool click C0
+    ydotool mousemove -a $prev_position[1] $prev_position[2]
+    ydotool click C0
+end
+funcsave pvz_plant >/dev/null
+
 function randomize_file_names
     for file in $argv
         mv $file (uclanr 3 -j '-')(path extension $file)
@@ -189,12 +211,6 @@ function special_anki_edit_action
     wl-paste -n | string lower | sponge | wl-copy -n
 end
 funcsave special_anki_edit_action >/dev/null
-
-function niri_toggle_tab_correctly
-    niri msg action toggle-column-tabbed-display
-    niri msg action reset-window-height
-end
-funcsave niri_toggle_tab_correctly >/dev/null
 
 function toggle_screen_record
     if test -f /tmp/mine/recordilock
