@@ -15,6 +15,51 @@
   display: none !important;
 }
 
+#contentAreaContextMenu {
+
+  >#context-sep-navigation,
+  >#context-openlinkincurrent,
+  >#context-openlinkintab,
+  >#context-bookmarklink,
+  >#context-media-play,
+  >#context-media-pause,
+  >#context-leave-dom-fullscreen,
+  >#context-video-fullscreen,
+  >#context-sendimage,
+  >#context-sendvideo,
+  >#context-sendaudio,
+  >#context-setDesktopBackground,
+  >#context-savepage,
+  >#fill-login-generated-password,
+  >#context-undo,
+  >#context-redo,
+  >#context-sep-redo,
+  >#context-cut,
+  >#context-copy,
+  >#context-paste,
+  >#context-delete,
+  >#context-selectall,
+  >#context-print-selection,
+  >#context-sep-selectall,
+  >#context-pdfjs-undo,
+  >#context-pdfjs-redo,
+  >#context-pdfjs-cut,
+  >#context-pdfjs-copy,
+  >#context-pdfjs-paste,
+  >#context-pdfjs-delete,
+  >#context-pdfjs-selectall,
+  >#context-add-engine,
+  >#context-searchselect,
+  >#frame-sep,
+  >#context-viewsource,
+  >#context-inspect-a11y,
+  >#context-inspect,
+  >#context-media-eme-separator,
+  >#context-navigation {
+    display: none !important;
+  }
+}
+
 #nav-bar {
   margin-top: -40px !important;
 }
