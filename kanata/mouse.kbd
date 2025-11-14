@@ -9,9 +9,6 @@
 	t (cmd fish -c "show_clipboard_image -fs fill")
 	' (one-shot $ot (layer-while-held mouse-extra))
 
-	;; h (tap-dance-eager 150 ((cmd ydotool mousemove -a 533 300) (cmd ydotool mousemove -a 100 300) (cmd ydotool mousemove -a 966 300)))
-	h (tap-dance-eager 200 ((cmd notify-send first) (cmd notify-send second) (cmd notify-send third)))
-
 	; lmet
 	x lalt
 	a lsft
@@ -28,10 +25,10 @@
 	w (mwheel-left  20 60)
 	r (mwheel-right 20 60)
 
-	s (movemouse-accel-left  5 300 1 7)
-	d (movemouse-accel-down  5 300 1 7)
-	e (movemouse-accel-up    5 300 1 7)
-	f (movemouse-accel-right 5 300 1 7)
+	s (movemouse-accel-left  5 200 1 8)
+	d (movemouse-accel-down  5 200 1 8)
+	e (movemouse-accel-up    5 200 1 8)
+	f (movemouse-accel-right 5 200 1 8)
 )
 
 (deflayermap (mouse-slow)
