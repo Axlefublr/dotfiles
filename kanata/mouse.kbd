@@ -25,10 +25,10 @@
 	w (mwheel-left  20 60)
 	r (mwheel-right 20 60)
 
-	s (movemouse-accel-left  5 200 1 8)
-	d (movemouse-accel-down  5 200 1 8)
-	e (movemouse-accel-up    5 200 1 8)
-	f (movemouse-accel-right 5 200 1 8)
+	s (movemouse-accel-left  6 200 1 10)
+	d (movemouse-accel-down  6 200 1 10)
+	e (movemouse-accel-up    6 200 1 10)
+	f (movemouse-accel-right 6 200 1 10)
 )
 
 (deflayermap (mouse-slow)
