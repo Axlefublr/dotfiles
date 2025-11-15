@@ -9,6 +9,8 @@
 	t (cmd fish -c "show_clipboard_image -fs fill")
 	' (one-shot $ot (layer-while-held mouse-extra))
 
+	h y
+
 	; lmet
 	x lalt
 	a lsft
@@ -42,6 +44,7 @@
 	j (cmd woomer)
 	l (cmd fish -c pick_and_copy_color)
 	o (cmd fish -c mouse_position)
+	h (cmd fish -c clipboard_image_save)
 	k C-S-s
 	i C-S-c
 	, C-A-b
