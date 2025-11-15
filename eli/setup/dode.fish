@@ -143,10 +143,13 @@ begin
     echo 'nameserver 8.8.8.8' # google DNS server
     sudo cat /etc/resolv.conf
 end | sponge | sudo tee /etc/resolv.conf
-
 # keep lowering this until it's okay
 ping -c 4 -M do -s 1472 google.com
 sudo ip link set dev wlan0 mtu $optimal_value
+
+# -------------------drawy--------------------
+# grab the appimage here: https://github.com/Prayag2/drawy/tags
+# it's already in eva/ as it's pretty lightweight
 
 # -----------enter-the-gungeon-mod------------
 ~/fes/uviw/bepinx.sh # https://github.com/pcrain/gungeon-modding-tools/blob/master/steamdeck-installer.md
