@@ -197,6 +197,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout figlet
 
 # ------------------firefox-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout firefox
+# paru -Sa --needed --disable-download-timeout firefox-nightly-bin
 set -Ux MOZ_ENABLE_WAYLAND 1
 set -Ux GTK_THEME Adwaita:dark # only execute if you haven't set up your gruvbox theme yet
 # then follow your firefox tiq
@@ -694,6 +695,17 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout serpl
 paru -Sa --needed --disable-download-timeout ast-grep-bin
 mkdir -p ~/.config/serpl
 ln -sf ~/fes/dot/serpl.yml ~/.config/serpl/serpl.yml
+
+# ------------------sidebery------------------
+cd ~/fes/ork
+gh repo clone Axlefublr/sidebery
+cd ~/fes/ork/sidebery
+x i
+# the extension .zip is now in ~/fes/eva (although it already is in theory)
+# about:debugging → This Firefox → Temporary Extensions → Load Temporary Add-on
+# point it at the zip
+# it claims to be temporary, but it stays like this forever
+# if you want to reload to a new version, there's a button for that in the same menu
 
 # ----------------snowmachine-----------------
 uv tool install snowmachine
