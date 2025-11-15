@@ -1,7 +1,7 @@
 (deflayermap (mouse)
 	caps esc
-	spc (multi (layer-switch default) (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode"))
-	n (multi (layer-switch mouse) (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode"))
+	spc ret
+	n (on-press toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
 
 	v (tap-hold-release $tt $ht C-w XX)

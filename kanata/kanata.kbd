@@ -25,6 +25,8 @@
 	any-arrow (multi (release-layer arrow) (release-layer hack-arrow) (release-layer #arrow)     (release-layer #hack-arrow))
 	any-hack  (multi (release-layer hack)  (release-layer #hack)      (release-layer hack-arrow) (release-layer #hack-arrow))
 	any-#     (multi (release-layer #←)    (release-layer #arrow)     (release-layer #hack)      (release-layer #hack-arrow))
+	disable-mouse-mode (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode")
+	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held mouse) (on-release tap-vkey disable-mouse-mode))
 )
 
 (defsrc)
