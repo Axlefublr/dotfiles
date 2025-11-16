@@ -793,6 +793,9 @@ systemctl --user enable --now ~/fes/dot/systemd/frizz.path
 systemctl --user link ~/fes/dot/systemd/flipboard.service
 systemctl --user enable --now ~/fes/dot/systemd/flipboard.path
 
+systemctl --user link ~/fes/dot/systemd/download-drop.service
+systemctl --user enable --now ~/fes/dot/systemd/download-drop.path
+
 systemctl --user enable --now ~/fes/dot/systemd/axleizer.service
 
 systemctl --user link ~/fes/dot/systemd/wallpaper.service

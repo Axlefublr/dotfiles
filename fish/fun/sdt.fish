@@ -39,3 +39,8 @@ function systemd_mandb
     end
 end
 funcsave systemd_mandb >/dev/null
+
+function systemd_download_drop
+    mv ~/wlx/sidebery.json ~/fes/jiro/sidebery.json
+end
+funcsave systemd_download_drop >/dev/null
