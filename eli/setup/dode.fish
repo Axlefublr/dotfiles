@@ -331,6 +331,8 @@ sudo rm -fr /usr/share/themes/gruvbox-material
 sudo ln -sf ~/fes/lai/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 set -Ux GTK_THEME gruvbox-material
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
+sudo pacman -S --needed --noconfirm --disable-download-timeout gtk3-demos # for debugging the theme
 
 # ---------------gpu-benchmark----------------
 # sudo pacman -S --needed --noconfirm --disable-downlod-timeout glmark2

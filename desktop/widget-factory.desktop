@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Widget Factory 3
+Type=Application
+Exec=gtk3-widget-factory
+Icon=/home/axlefublr/iwm/twemoji/1f3ed.svg
