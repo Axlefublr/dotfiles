@@ -1,17 +1,3 @@
-.shell {
-	--red: #ff2930;
-	--orange: #ff9f1a;
-	--yellow: #ffd75f rgb(255, 215, 95);
-	--salad: #87ff5f;
-	--green: #3dff47;
-	--cyan: #00d7ff;
-	--blue: #8599ff;
-	--purple: #af87ff;
-	--pink: #ffafd7 rgb(255, 175, 215);
-	--coral: #ff8787;
-	--grey: #878787;
-}
-
 .gruvbox-material {
 	--red: #ea6962 hsl(3, 76.4%, 65.1%);
 	--orange: #e49641 hsl(31, 75.1%, 57.5%);
@@ -21,11 +7,11 @@
 	--cyan: #7daea3 hsl(167, 23.2%, 58.6%);
 	--purple: #b58cc6 hsl(282, 33.7%, 66.3%);
 	--blush: #e491b2 hsl(336, 60.6%, 73.1%);
-	--white: #d4be98 hsl(38, 41.1%, 71.4%);
+	--white: #d4be98 hsl(38, 41.1%, 71.4%) rgb(212, 190, 152);
 	--grey: #928374 hsl(30, 12.1%, 51.4%);
 }
 
-.gruvbox-material.background {
+.greys {
 	--light30: #4d4c4c hsl(0, 1.2%, 30%);
 	--light23: #3b3a3a hsl(0, 1.2%, 23%);
 	--light22: #393737 hsl(0, 1.2%, 22%);
@@ -43,21 +29,39 @@
 	--dark10: #1a1919 hsl(0, 1.2%, 10%);
 }
 
+.shell {
+	--red: #ff2930;
+	--orange: #ff9f1a;
+	--yellow: #ffd75f rgb(255, 215, 95);
+	--salad: #87ff5f;
+	--green: #3dff47;
+	--cyan: #00d7ff;
+	--blue: #8599ff;
+	--purple: #af87ff;
+	--pink: #ffafd7 rgb(255, 175, 215);
+	--coral: #ff8787;
+	--grey: #878787;
+}
+
 .supporters {
 	--purple-supporting: #5c404b hsl(336, 17.7%, 30.5%);
 	--orange-supporting: #5f472d hsl(31, 35.7%, 27.5%);
 	--yellow-supporting: #68622c hsl(54, 40.5%, 29.0%);
 }
 
-.custom {
+.extra {
+	--smooth-black: #0f0f0f;
+	--neat-orange: #F2694C;
+}
+
+.custom.helix {
 	--selected-entry: #3f3831 hsl(31, 13%, 22%);
 	--picker-entry: #4b433a hsl(31, 13%, 26%);
-	--white-base-tab: hsl(38, 3.2%, 23%);
 	--line-number: #6f675a;
 	--scrollbar: #9b8e77;
 }
 
-.extra {
-	--smooth-black: #0f0f0f;
-	--neat-orange: #F2694C;
+.custom.browser {
+	--white-base-tab: hsl(38, 3%, 25%);
+	--hover: hsla(38, 3%, 25%, 0.7);
 }
