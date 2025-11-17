@@ -53,9 +53,9 @@ git clone https://github.com/Axlefublr/video-creation-tools --depth=1 tox
 git clone https://github.com/Axlefublr/documents --depth=1 dls
 
 cd ~/.local/share
-cp -f ~/fes/jiro/harp.jsonc ~/.local/share/harp/harp.jsonc
+ln -sf ~/fes/jiro/harp.jsonc ~/.local/share/harp/harp.jsonc
+ln -sf ~/fes/jiro/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 ln -sf ~/fes/jiro/loago.json ~/.local/share/loago/loago.json
-cp -f ~/fes/jiro/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 git clone https://github.com/Axlefublr/magazine --depth=1
 git clone https://github.com/Axlefublr/music alien_temple --depth=1
 git clone https://github.com/Axlefublr/shows glaza --depth=1
