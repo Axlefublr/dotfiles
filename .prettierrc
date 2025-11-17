@@ -1,6 +1,1 @@
-{
-	"useTabs": true,
-	"tabWidth": 2,
-	"singleQuote": true,
-	"printWidth": 111
-}
+{ "useTabs": true, "tabWidth": 2, "singleQuote": true, "printWidth": 128 }

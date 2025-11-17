@@ -84,6 +84,9 @@ nimble install nimlsp
 # ------------------nushell-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
 
+# ------------------prettier------------------
+ln -sf ~/fes/dot/.prettierrc ~/.prettierrc
+
 # --------------------ruby--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ruby rubocop
 fish_add_path "$HOME/.local/share/gem/ruby/3.3.0/bin"
