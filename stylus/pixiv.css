@@ -2,63 +2,62 @@
 /* urls starting with */
 
 body {
-  min-width: unset;
+	min-width: unset;
 
-  >div#__next>div[data-overlay-container="true"]>div:nth-of-type(2) {
+	> div#__next > div[data-overlay-container='true'] > div:nth-of-type(2) {
+		/* top bar */
+		> div.sc-63818093-0 {
+			display: none;
+		}
 
-    /* top bar */
-    >div.sc-63818093-0 {
-      display: none;
-    }
+		> div.__top_side_menu_body > div:first-of-type > div:first-of-type {
+			/* margin-inline: 0; */
+			padding: 0;
 
-    >div.__top_side_menu_body>div:first-of-type>div:first-of-type {
-      /* margin-inline: 0; */
-      padding: 0;
+			> div:first-of-type {
+				margin-top: 0;
+				padding-bottom: 0;
 
-      >div:first-of-type {
-        margin-top: 0;
-        padding-bottom: 0;
+				/* sidebar, with artist */
+				> aside {
+					display: none;
+				}
 
-        /* sidebar, with artist */
-        >aside {
-          display: none;
-        }
+				> main {
+					width: 100%;
 
-        >main {
-          width: 100%;
+					> section {
+						border-radius: 0;
 
-          >section {
-            border-radius: 0;
+						/* image holder */
+						figure {
+							> div[role='presentation'] {
+								margin-top: 30px;
 
-            /* image holder */
-            figure {
-              >div[role="presentation"] {
-                margin-top: 30px;
+								> div.gtm-medium-work-expanded-view > div[role='presentation'] > a > img {
+									height: auto !important;
+									max-height: 80vh !important;
+								}
+							}
+						}
 
-                >div.gtm-medium-work-expanded-view>div[role="presentation"]>a>img {
-                  height: auto !important;
-                  max-height: 80vh !important;
-                }
-              }
-            }
+						/* like button and other stuff */
+						> div:nth-of-type(1) > div > div:nth-of-type(5) > div > div:nth-of-type(2) > section {
+							justify-content: center;
+						}
 
-            /* like button and other stuff */
-            >div:nth-of-type(1)>div>div:nth-of-type(5)>div>div:nth-of-type(2)>section {
-              justify-content: center;
-            }
+						/* title / description */
+						figcaption > div:last-of-type {
+							margin: unset !important;
 
-            /* title / description */
-            figcaption>div:last-of-type {
-              margin: unset !important;
-
-              /* the actual text contained */
-              >div {
-                width: 800px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+							/* the actual text contained */
+							> div {
+								width: 800px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
