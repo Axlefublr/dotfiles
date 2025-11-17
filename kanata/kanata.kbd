@@ -247,6 +247,7 @@
 	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	e (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
 	z (cmd fish -c runner_symbol_name)
+	q (cmd fish -c yteet_clipboard)
 )
 
 ;; [[sort on]]
