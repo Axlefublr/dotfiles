@@ -41,5 +41,5 @@ abbr -a sude 'sudo -E'
 abbr -a t systemctl
 abbr -a trr trash-restore
 abbr -a tu 'systemctl --user'
-abbr -a tz 'tz -q'
+abbr -a tz 'tz -q UTC Europe/Moscow'
 abbr -a u pueue.nu
