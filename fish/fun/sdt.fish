@@ -41,6 +41,18 @@ end
 funcsave systemd_mandb >/dev/null
 
 function systemd_download_drop
-    mv ~/wlx/sidebery.json ~/fes/jiro/sidebery.json
+    rsync (recent-modified.nu ~/wlx/tabs) ~/fes/jiro/tabs.json
+    mv -f (recent-modified.nu ~/wlx/sidebery-data-\*.json) ~/fes/jiro/sidebery.json
+    mv -f (recent-modified.nu ~/wlx/FoxyProxy_\*.json) ~/fes/jiro/foxyproxy.json
+    mv -f (recent-modified.nu ~/wlx/Historia_\*.txt) ~/fes/jiro/historia.txt
+    mv -f (recent-modified.nu ~/wlx/stylus-\*.json) ~/fes/jiro/stylus.json
+    mv -f (recent-modified.nu ~/wlx/my-ublock-backup_\*.txt) ~/fes/jiro/ublock.txt
+    mv -f ~/wlx/auto-tab-discard-preferences.json ~/fes/jiro/auto-tab-discard.json
+
+    rm -fr (quiet-glob.nu ~/wlx/sidebery-data-\*.json)
+    rm -fr (quiet-glob.nu ~/wlx/FoxyProxy_\*.json)
+    rm -fr (quiet-glob.nu ~/wlx/Historia_\*.txt)
+    rm -fr (quiet-glob.nu ~/wlx/stylus-\*.json)
+    rm -fr (quiet-glob.nu ~/wlx/my-ublock-backup_\*.txt)
 end
 funcsave systemd_download_drop >/dev/null

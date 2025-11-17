@@ -1,5 +1,6 @@
 [Path]
 PathChanged=%h/wlx
+PathChanged=%h/wlx/tabs
 
 [Install]
 WantedBy=paths.target
