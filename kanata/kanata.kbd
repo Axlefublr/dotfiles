@@ -171,9 +171,9 @@
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix)
 	k (cmd niri msg action spawn -- footclient -N btm)
 	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw yazi)
-	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
+	m (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
 	n (cmd man.nu nushell)
-	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
+	o (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	u (cmd niri msg action spawn -- footclient -N fish -c pueue.nu)
 	y (cmd fish -c toggle_screen_record)
 	;; [[sort off]]
@@ -181,7 +181,8 @@
 
 (deflayermap (!apps←)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix .)
-	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
+	m (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
+	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/osl/slme yazi)
 )
 
 (deflayermap (capsy)
