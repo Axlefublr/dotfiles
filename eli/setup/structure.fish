@@ -12,7 +12,7 @@ mkdir -p ~/wlx \
     ~/.local/bin \
     ~/.cache/{mine,wks} \
     ~/.local/share/mine \
-    ~/.local/share/{harp,loago}
+    ~/.local/share/{fonts,harp,loago}
 fish_add_path ~/.local/bin
 
 echo "d /tmp/mine 0755 $USER $USER -" | sudo tee -a /etc/tmpfiles.d/mine.conf
@@ -51,6 +51,8 @@ git clone https://github.com/Axlefublr/pictures-tree --depth=1 osl
 git clone https://github.com/Axlefublr/twemoji-svg --depth=1 twemoji
 git clone https://github.com/Axlefublr/video-creation-tools --depth=1 tox
 git clone https://github.com/Axlefublr/documents --depth=1 dls
+
+ln -s ~/iwm/dls/fonts ~/.local/share/fonts/mine
 
 cd ~/.local/share
 ln -sf ~/fes/jiro/harp.jsonc ~/.local/share/harp/harp.jsonc

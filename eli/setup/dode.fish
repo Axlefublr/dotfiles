@@ -221,7 +221,7 @@ id -g # group_id
 # UUID=the_uuid /mnt/fatusb exfat defaults,uid=user_id,gid=group_id,dmask=0222,fmask=0111 0 0
 
 # -------------------fonts--------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-jetbrains-mono-nerd ttf-input ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono papirus-icon-theme
+sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-input ttf-input-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
 paru -Sa --needed --disable-download-timeout ttf-comfortaa
 
 # --------------------foot--------------------
@@ -281,6 +281,7 @@ git config --global fetch.prune true
 git config --global fetch.pruneTags true
 git config --global help.autocorrect prompt
 git config --global init.defaultBranch main
+git config --global interactive.diffFilter 'diff-so-fancy --patch'
 git config --global interactive.singleKey true
 git config --global merge.conflictstyle merge
 git config --global pull.ff only
@@ -325,6 +326,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # this breaks radeon gpu fix, don't forget to do that after!
 
 # -----------------gtk-theme------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout papirus-icon-theme
 cd ~/fes/lai
 gh repo clone Axlefublr/gruvbox-material-gtk-theme
 sudo rm -fr /usr/share/themes/gruvbox-material
@@ -367,6 +369,15 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout hyperfine
 
 # --------------------imv---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout imv
+
+# ------------------iosevka-------------------
+paru -Sa --needed --disable-download-timeout ttfautohint-git # non-git doesn't download
+gh give https://github.com/be5invis/Iosevka
+npm install
+ln -sf ~/fes/jiro/iosevka.toml $PWD/private-build-plans.toml
+npm run build -- contents::IosevkaSuper
+npm run build -- --jCmd=5 ttf-unhinted::IosevkaSuper # this instead if ttfautohint is not installing. --jCmd so that you don't OOM (each thread takes up 1G)
+# fonts now available in ./dist/
 
 # ---------------------jj---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout jj lazyjj
