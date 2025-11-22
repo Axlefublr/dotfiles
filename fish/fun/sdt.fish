@@ -56,3 +56,11 @@ function systemd_download_drop
     rm -fr (quiet-glob.nu ~/wlx/my-ublock-backup_\*.txt)
 end
 funcsave systemd_download_drop >/dev/null
+
+function systemd_krita_config
+    rsync ~/.config/kritarc ~/fes/jiro/krita/config.ini
+    rsync ~/.config/kritadisplayrc ~/fes/jiro/krita/display.ini
+    rsync ~/.config/kritashortcutsrc ~/fes/jiro/krita/shortcuts.ini
+    rsync ~/.local/share/krita/input/kritadefault.profile ~/fes/jiro/krita/input/default.profile
+end
+funcsave systemd_krita_config >/dev/null

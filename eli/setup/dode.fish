@@ -411,7 +411,11 @@ kondo --completions fish >~/.config/fish/completions/kondo.fish
 # -------------------krita--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout krita
 mkdir -p ~/.local/share/krita/color-schemes
-ln -f ~/fes/jiro/krita.colors ~/.local/share/krita/color-schemes/gruvbox.colors
+ln -f ~/fes/jiro/krita/colorscheme.ini ~/.local/share/krita/color-schemes/gruvbox.colors
+rsync ~/fes/jiro/krita/config.ini ~/.config/kritarc # krita overwrites even a hardlink
+rsync ~/fes/jiro/krita/display.ini ~/.config/kritadisplayrc
+rsync ~/fes/jiro/krita/shortcuts.ini ~/.config/kritashortcutsrc
+rsync ~/fes/jiro/krita/input/default.profile ~/.local/share/krita/input/kritadefault.profile
 
 # -------------------kruler-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout kruler
@@ -797,6 +801,9 @@ systemctl --user enable --now ~/fes/dot/systemd/flipboard.path
 
 systemctl --user link ~/fes/dot/systemd/download-drop.service
 systemctl --user enable --now ~/fes/dot/systemd/download-drop.path
+
+systemctl --user link ~/fes/dot/systemd/krita-config.service
+systemctl --user enable --now ~/fes/dot/systemd/krita-config.path
 
 systemctl --user enable --now ~/fes/dot/systemd/axleizer.service
 

@@ -1,0 +1,8 @@
+[Path]
+PathChanged=%h/.config/kritarc
+PathChanged=%h/.config/kritadisplayrc
+PathChanged=%h/.config/kritashortcutsrc
+PathChanged=%h/.local/share/krita/input/kritadefault.profile
+
+[Install]
+WantedBy=paths.target
