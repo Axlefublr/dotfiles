@@ -258,7 +258,6 @@ normal_select_mappings: dict[str, Any] = {
             'Y',
             'b',
             'p',
-            'x',
             'y',
             # [[sort off]]
         ]
@@ -400,8 +399,7 @@ normal_select_mappings: dict[str, Any] = {
     },
     'm': {
         # [[sort on]]
-        "'": ':toggle whichkey',
-        ';': ':toggle soft-wrap.enable',
+        ';': ':toggle whichkey',
         'C': ':echopy %(relative_path)',
         'M': ':sh chmod +x %(full_path)',
         'V': ':echopy %sh(ghl -pb HEAD %(relative_path))',
@@ -412,6 +410,7 @@ normal_select_mappings: dict[str, Any] = {
         'i': 'count_selections',
         'k': ':toggle show-diagnostics',
         'l': ':toggle lsp.display-inlay-hints',
+        'n': ':toggle soft-wrap.enable',
         'o': ':toggle auto-format',
         'p': ':toggle should-statusline',
         'v': ':echopy %sh(ghl %(relative_path))',
