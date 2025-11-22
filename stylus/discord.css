@@ -16,4 +16,11 @@ html {
 /* titlebar */
 div.base__5e434 {
 	margin-top: -32px;
+}}
+
+pre:has([class^='codeContainer_']) {
+	max-width: 95%;
+}
+pre > [class^='codeContainer_'] {
+	max-width: unset !important;
 }
