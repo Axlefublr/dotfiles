@@ -19,6 +19,8 @@ git add .
 and git commit -m leftovers
 truncate -s 0 ~/.local/share/magazine/d
 
+cd ~
+
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 yeared_parse
 indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
