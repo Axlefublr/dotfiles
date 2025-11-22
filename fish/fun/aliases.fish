@@ -65,6 +65,11 @@ function cwd
 end
 funcsave cwd >/dev/null
 
+function dof
+    diff -u $argv | diff-so-fancy
+end
+funcsave dof >/dev/null
+
 function eat
     loago do eat
     notify-send -t 2000 'ate!'
