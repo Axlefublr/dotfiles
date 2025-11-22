@@ -17,16 +17,10 @@
 (defvar ot 5000)
 (defvar fsh (fish -c))
 
+(include virtual.kbd)
+
 (defalias
 	startup (cmd fish -c "dot")
-)
-
-(defvirtualkeys
-	any-arrow (multi (release-layer arrow) (release-layer hack-arrow) (release-layer #arrow)     (release-layer #hack-arrow))
-	any-hack  (multi (release-layer hack)  (release-layer #hack)      (release-layer hack-arrow) (release-layer #hack-arrow))
-	any-#     (multi (release-layer #←)    (release-layer #arrow)     (release-layer #hack)      (release-layer #hack-arrow))
-	disable-mouse-mode (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode")
-	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held mouse) (on-release tap-vkey disable-mouse-mode))
 )
 
 (defsrc)
@@ -72,7 +66,7 @@
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (layer-while-held symbol→))
 	s (tap-hold-release $tt $ht s lsft)
-	spc (tap-hold-release $tt $ht spc (layer-while-held mouse))
+	spc (tap-hold-release $tt $ht spc (multi (layer-while-held mouse) (on-release tap-vkey any-modifier)))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held symbol←))

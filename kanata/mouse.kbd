@@ -4,21 +4,25 @@
 	n (on-press toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
 
-	v (tap-hold-release $tt $ht C-w XX)
+	q XX
+	y XX
+	t XX
+	c y
+	v v
+
+	x (tap-hold-release $tt $ht C-w XX)
 	u (cmd fish -c screenshot_select)
-	t (cmd fish -c "show_clipboard_image -fs fill")
+	z (cmd fish -c "show_clipboard_image -fs fill")
 	' (one-shot $ot (layer-while-held mouse-extra))
 
-	h y
+	a (on-press press-vkey shift)
+	; (on-press press-vkey meta)
+	h (on-press press-vkey alt)
+	g (on-press press-vkey ctrl)
 
-	; lmet
-	x lalt
-	a lsft
-	c lctl
-
-	m mmid
-	j mlft
-	k mrgt
+	m (multi mmid (on-release tap-vkey any-modifier))
+	j (multi mlft (on-release tap-vkey any-modifier))
+	k (multi mrgt (on-release tap-vkey any-modifier))
 	, pgup
 	. pgdn
 
