@@ -3,7 +3,7 @@
  */
 
 :root {
-	--font-code: Input Mono, JetBrainsMono NF, JetBrainsMono Nerd Font, Consolas, monospace;
+	--font-code: Input Mono Nerd Font, Symbols Nerd Font Mono, Consolas, monospace;
 	--font-primary: Inter;
 	--font-weight-semibold-1x-light-theme: 500;
 	--custom-emoji-size-jumbo-emoji: 2rem;
@@ -16,7 +16,7 @@ html {
 /* titlebar */
 div.base__5e434 {
 	margin-top: -32px;
-}}
+}
 
 pre:has([class^='codeContainer_']) {
 	max-width: 95%;
