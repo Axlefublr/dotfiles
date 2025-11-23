@@ -7,12 +7,12 @@
 	q XX
 	y XX
 	t XX
+	z XX
 	c y
-	v v
 
-	x (tap-hold-release $tt $ht C-w XX)
+	v (tap-hold-release $tt $ht C-w XX)
 	u (cmd fish -c screenshot_select)
-	z (cmd fish -c "show_clipboard_image -fs fill")
+	x (cmd fish -c "show_clipboard_image -fs fill")
 	' (one-shot $ot (layer-while-held mouse-extra))
 
 	a (on-press press-vkey shift)
