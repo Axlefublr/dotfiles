@@ -181,15 +181,14 @@ binds {
     Mod+D { spawn "footclient"; }
     Mod+E { spawn "footclient" "-T" "floating"; }
 
-    Mod+R { fullscreen-window; }
-    Mod+Ctrl+R { toggle-windowed-fullscreen; }
+    Mod+G { fullscreen-window; }
     Mod+I { close-window; }
     Mod+Ctrl+I { spawn "close-windows-in-column.nu"; }
 
-    Mod+M { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+A { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
     Mod+Apostrophe { center-visible-columns; }
-    Mod+N { toggle-window-floating; }
-    Mod+Slash { switch-focus-between-floating-and-tiling; }
+    Mod+U { toggle-window-floating; }
+    Mod+W { switch-focus-between-floating-and-tiling; }
 
     Mod+S { consume-or-expel-window-left; }
     Mod+F { consume-or-expel-window-right; }
@@ -206,17 +205,17 @@ binds {
     Mod+Ctrl+Down { move-workspace-down; }
     Mod+Ctrl+Up { move-workspace-up; }
 
-    Mod+U { focus-window-up-or-bottom; }
-    Mod+O { focus-window-down-or-top; }
-    Mod+3 { move-window-up; }
-    Mod+1 { move-window-down; }
+    Mod+O { focus-window-up-or-bottom; }
+    Mod+N { focus-window-down-or-top; }
+    Mod+Return { move-window-up; }
+    Mod+Home { move-window-down; }
 
     Mod+Ctrl+J { set-window-height "-10%"; }
     Mod+Ctrl+K { set-window-height "+10%"; }
     Mod+Ctrl+H { spawn "fish" "-c" "niri_resize_width -10%"; }
     Mod+Ctrl+L { spawn "fish" "-c" "niri_resize_width +10%"; }
 
-    Mod+Ctrl+Period { maximize-column; }
+    Mod+M { maximize-column; }
     Mod+Ctrl+M { reset-window-height; }
 }
 
