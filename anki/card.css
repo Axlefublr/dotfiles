@@ -1,8 +1,10 @@
 * {
-	--monospace-font-family: Input Mono, InputMonoGrafted, JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF,
-		JetBrainsMono, Consolas, Roboto Mono, Droid Sans Mono, monospace;
+	--monospace-font-family:
+		Sometype Mono, Input Mono, InputMonoGrafted, JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF, JetBrainsMono, Consolas,
+		Roboto Mono, Droid Sans Mono, monospace;
 	--normal-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
 	--font-size: 22px;
+	--monospace-font-size: 24px;
 }
 
 div.header:has(hide),
@@ -21,8 +23,9 @@ div.subheader:has(hide) {
 	display: block;
 }
 
-.headers>div {
+.headers > div {
 	font-family: var(--monospace-font-family);
+	font-size: var(--monospace-font-size);
 	font-weight: bold;
 	display: block;
 }
@@ -42,6 +45,7 @@ div.subheader:has(hide) {
 
 cd {
 	font-family: var(--monospace-font-family);
+	font-size: var(--monospace-font-size);
 	background-color: #242323;
 	border-radius: 5px;
 	padding: 0.25em 0.45em;
@@ -58,6 +62,7 @@ cd:has(left) {
 code,
 o {
 	font-family: var(--monospace-font-family);
+	font-size: var(--monospace-font-size);
 	background-color: #242323;
 	padding: 2px 5px;
 	border-radius: 5px;

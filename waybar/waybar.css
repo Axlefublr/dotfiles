@@ -1,26 +1,30 @@
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, Input Mono, sans-serif;
-  font-size: 20;
+	/* `otf-font-awesome` is required to be installed for icons */
+	font-family:
+		Sometype Mono,
+		Input Mono,
+		FontAwesome,
+		sans-serif;
+	font-size: 22;
 }
 
 window#waybar {
-  background-color: rgba(31, 30, 30, 0.7);
-  color: #d4be98;
-  transition-property: background-color;
-  transition-duration: .5s;
-  border: 2px solid #d4be98;
-  border-top: none;
-  border-radius: 0 0 16 16;
+	background-color: rgba(31, 30, 30, 0.7);
+	color: #d4be98;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+	border: 2px solid #d4be98;
+	border-top: none;
+	border-radius: 0 0 16 16;
 }
 
-#waybar>* {
-  padding-bottom: 3;
+#waybar > * {
+	padding-bottom: 3;
 }
 
 .module {
-  margin-left: 10;
-  margin-right: 10;
+	margin-left: 10;
+	margin-right: 10;
 }
 
 /* .modules-right .module { */
@@ -29,102 +33,102 @@ window#waybar {
 /* } */
 
 .modules-left:first-child {
-  margin-left: 12;
+	margin-left: 12;
 }
 
 .modules-right:last-child {
-  margin-right: 12;
+	margin-right: 12;
 }
 
 #clock.date {
-  color: #ea6962;
+	color: #ea6962;
 }
 
 #clock.weekday {
-  color: #e49641;
+	color: #e49641;
 }
 
 #clock.time {
-  color: #d3ad5c;
+	color: #d3ad5c;
 }
 
 #pulseaudio {
-  color: #78bf84;
+	color: #78bf84;
 }
 
 #custom-finances {
-  color: #7daea3;
+	color: #7daea3;
 }
 
 #custom-meat {
-  color: #a9b665;
+	color: #a9b665;
 }
 
 #custom-layout {
-  color: #7daea3;
+	color: #7daea3;
 }
 
 #custom-magazines {
-  color: #e491b2;
+	color: #e491b2;
 }
 
 #custom-screen-record {
-  color: #ea6962;
+	color: #ea6962;
 }
 
 #custom-mouse-mode {
-  color: #e491b2;
+	color: #e491b2;
 }
 
 #custom-red-dot {
-  color: #ea6962;
+	color: #ea6962;
 }
 
 #custom-tomato.work {
-  color: #e49641;
+	color: #e49641;
 }
 
 #custom-tomato.rest {
-  color: #a9b665;
+	color: #a9b665;
 }
 
 #custom-networking {
-  color: #ea6962;
-  margin-right: 17px;
+	color: #ea6962;
+	margin-right: 17px;
 }
 
 #custom-cha-fan {
-  color: #b58cc6;
+	color: #b58cc6;
 }
 
 #custom-cpu-fan {
-  color: #78bf84;
+	color: #78bf84;
 }
 
 #custom-headphone-battery {
-  color: #78bf84;
+	color: #78bf84;
 }
 
 #disk {
-  color: #a9b665;
+	color: #a9b665;
 }
 
 #memory {
-  color: #d3ad5c;
+	color: #d3ad5c;
 }
 
 #temperature.gpu {
-  color: #e49641;
+	color: #e49641;
 }
 
 #custom-gpu-usage {
-  color: #e49641;
+	color: #e49641;
 }
 
 #temperature.cpu {
-  color: #ea6962;
+	color: #ea6962;
 }
 
 #cpu {
-  color: #ea6962;
+	color: #ea6962;
 }
