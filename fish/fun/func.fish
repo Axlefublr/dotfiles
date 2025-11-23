@@ -125,6 +125,11 @@ function internet_search
 end
 funcsave internet_search >/dev/null
 
+function ffont
+    fc-list | rg --color always -i $argv | column -l 2 -t
+end
+funcsave ffont >/dev/null
+
 function frizz
     set -f went_off false
     for curlie in (tac ~/.local/share/magazine/C)
