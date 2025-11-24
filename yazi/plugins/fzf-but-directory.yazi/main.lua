@@ -38,6 +38,7 @@ function M.run_with(cwd, selected)
 	local walker = are_hidden_shown() and '--walker=dir,follow,hidden' or '--walker=dir,follow'
 	local child, err = Command("fzf")
 		:arg(walker)
+		:arg('--scheme=history')
 		:cwd(tostring(cwd))
 		:stdin(#selected > 0 and Command.PIPED or Command.INHERIT)
 		:stdout(Command.PIPED)
