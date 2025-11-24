@@ -4,9 +4,9 @@
 	n (on-press toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
 
-	q XX
+	t (cmd ydotool mousemove -a 386 300)
 	y XX
-	t XX
+	q XX
 	z XX
 	c y
 
