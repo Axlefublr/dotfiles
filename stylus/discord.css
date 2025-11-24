@@ -3,7 +3,8 @@
  */
 
 :root {
-	--font-code: Input Mono Nerd Font, Input Mono, JetBrainsMono Nerd Font, Symbols Nerd Font Mono, Consolas, monospace;
+	--font-code:
+		Google Sans Code, Input Mono Nerd Font, Input Mono, JetBrainsMono Nerd Font, Symbols Nerd Font Mono, Consolas, monospace;
 	--font-primary: Inter;
 	--font-weight-semibold-1x-light-theme: 500;
 	--custom-emoji-size-jumbo-emoji: 2rem;
