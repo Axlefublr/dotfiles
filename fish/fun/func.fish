@@ -126,7 +126,7 @@ end
 funcsave internet_search >/dev/null
 
 function ffont
-    fc-list | rg --color always -i $argv | column -l 2 -t
+    fc-list | rg --color always -i $argv | column -l 2 -t -s :
 end
 funcsave ffont >/dev/null
 
