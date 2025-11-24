@@ -1,10 +1,12 @@
 * {
-	--monospace-font-family:
-		Sometype Mono, Input Mono, InputMonoGrafted, JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF, JetBrainsMono, Consolas,
-		Roboto Mono, Droid Sans Mono, monospace;
 	--normal-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
 	--font-size: 22px;
-	--monospace-font-size: 24px;
+	--monospace-font-family:
+		Input Mono, InputMonoGrafted, JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF, JetBrainsMono, Consolas, Roboto Mono,
+		Droid Sans Mono, monospace;
+	--monospace-font-size: 22px;
+	--heading-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
+	--heading-font-size: 22px;
 }
 
 div.header:has(hide),
@@ -24,8 +26,8 @@ div.subheader:has(hide) {
 }
 
 .headers > div {
-	font-family: var(--monospace-font-family);
-	font-size: var(--monospace-font-size);
+	font-family: var(--heading-font-family);
+	font-size: var(--heading-font-size);
 	font-weight: bold;
 	display: block;
 }
