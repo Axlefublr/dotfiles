@@ -392,7 +392,7 @@ window-rule {
 window-rule {
     match app-id="^foot" title="floating-calculator"
     default-column-width { proportion 0.35; }
-    default-window-height { proportion 0.15; }
+    default-window-height { proportion 0.16; }
     default-floating-position x=0 y=10 relative-to="top"
 }
 window-rule {
