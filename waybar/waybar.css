@@ -1,11 +1,12 @@
 * {
 	/* `otf-font-awesome` is required to be installed for icons */
 	font-family:
+		Sometype Mono,
 		Google Sans Code,
 		Input Mono,
 		FontAwesome,
 		sans-serif;
-	font-size: 21;
+	font-size: 22;
 }
 
 window#waybar {
