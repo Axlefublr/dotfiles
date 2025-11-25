@@ -29,6 +29,7 @@
 	u (unmod lalt end)
 	' (unmod lalt f8)
 	i (unmod lsft lalt f9)
+	o (macro C-l 20 C-v ret)
 )
 
 (deflayermap (#hack-arrow)
