@@ -22,12 +22,17 @@ function M:entry()
 	if not output then
 		return ya.notify { title = "Fzf", content = tostring(err), timeout = 5, level = "error" }
 	end
+	local should_open = true
+	if output:sub(1, 1) == ':' then
+		output = output:sub(2)
+		should_open = false
+	end
 
 	local urls = M.split_urls(cwd, output)
 	if #urls == 1 then
 		local cha = #selected == 0 and fs.cha(urls[1])
-		ya.emit(cha and cha.is_dir and "cd" or "reveal", { urls[1], raw = true })
-		ya.emit("open", {})
+		ya.emit("reveal", { urls[1], raw = true })
+		if should_open then ya.emit("open", {}) end
 	elseif #urls > 1 then
 		urls.state = #selected > 0 and "off" or "on"
 		ya.emit("toggle_all", urls)
@@ -38,7 +43,9 @@ function M.run_with(cwd, selected)
 	local walker = are_hidden_shown() and '--walker=file,follow,hidden' or '--walker=file,follow'
 	local child, err = Command("fzf")
 		:arg(walker)
-		:arg('--scheme=history')
+		:arg('--scheme=path')
+		:arg('--tiebreak=pathname,index')
+		:arg('--bind=f12:become:echo :{}')
 		:cwd(tostring(cwd))
 		:stdin(#selected > 0 and Command.PIPED or Command.INHERIT)
 		:stdout(Command.PIPED)
