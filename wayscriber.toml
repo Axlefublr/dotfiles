@@ -1,0 +1,237 @@
+[drawing]
+default_color = [
+    255,
+    0,
+    0,
+]
+default_thickness = 3.0
+default_fill_enabled = false
+default_font_size = 32.0
+hit_test_tolerance = 6.0
+hit_test_linear_threshold = 400
+undo_stack_limit = 100
+font_family = "Inter"
+font_weight = "normal"
+font_style = "normal"
+text_background_enabled = false
+
+[history]
+undo_all_delay_ms = 1000
+redo_all_delay_ms = 1000
+custom_section_enabled = false
+custom_undo_delay_ms = 1000
+custom_redo_delay_ms = 1000
+custom_undo_steps = 5
+custom_redo_steps = 5
+
+[arrow]
+length = 20.0
+angle_degrees = 30.0
+
+[performance]
+buffer_count = 3
+enable_vsync = true
+
+[ui]
+show_status_bar = true
+show_frozen_badge = false
+status_bar_position = "bottom-left"
+xdg_fullscreen = false
+
+[ui.status_bar_style]
+font_size = 21.0
+padding = 15.0
+bg_color = [
+    0.0,
+    0.0,
+    0.0,
+    0.85,
+]
+text_color = [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+]
+dot_radius = 6.0
+
+[ui.help_overlay_style]
+font_size = 18.0
+line_height = 28.0
+padding = 32.0
+bg_color = [
+    0.09,
+    0.1,
+    0.13,
+    0.92,
+]
+border_color = [
+    0.33,
+    0.39,
+    0.52,
+    0.88,
+]
+border_width = 2.0
+text_color = [
+    0.95,
+    0.96,
+    0.98,
+    1.0,
+]
+
+[ui.click_highlight]
+enabled = false
+radius = 24.0
+outline_thickness = 4.0
+duration_ms = 750
+fill_color = [
+    1.0,
+    0.8,
+    0.0,
+    0.35,
+]
+outline_color = [
+    1.0,
+    0.6,
+    0.0,
+    0.9,
+]
+use_pen_color = true
+
+[ui.context_menu]
+enabled = true
+
+[ui.toolbar]
+top_pinned = true
+side_pinned = true
+use_icons = true
+show_more_colors = false
+show_actions_section = true
+show_delay_sliders = false
+
+[board]
+enabled = true
+default_mode = "transparent"
+whiteboard_color = [
+    0.992,
+    0.992,
+    0.992,
+]
+blackboard_color = [
+    0.067,
+    0.067,
+    0.067,
+]
+whiteboard_pen_color = [
+    0.0,
+    0.0,
+    0.0,
+]
+blackboard_pen_color = [
+    1.0,
+    1.0,
+    1.0,
+]
+auto_adjust_pen = true
+
+[keybindings]
+exit = [
+    "Escape",
+    "Ctrl+Q",
+]
+enter_text_mode = ["T"]
+clear_canvas = ["E"]
+undo = ["Ctrl+Z"]
+redo = [
+    "Ctrl+Shift+Z",
+    "Ctrl+Y",
+]
+undo_all = []
+redo_all = []
+undo_all_delayed = []
+redo_all_delayed = []
+duplicate_selection = ["Ctrl+D"]
+move_selection_to_front = ["]"]
+move_selection_to_back = ["["]
+nudge_selection_up = ["ArrowUp"]
+nudge_selection_down = ["ArrowDown"]
+nudge_selection_left = ["ArrowLeft"]
+nudge_selection_right = ["ArrowRight"]
+delete_selection = ["Delete"]
+increase_thickness = [
+    "+",
+    "=",
+]
+decrease_thickness = [
+    "-",
+    "_",
+]
+increase_font_size = [
+    "Ctrl+Shift++",
+    "Ctrl+Shift+=",
+]
+decrease_font_size = [
+    "Ctrl+Shift+-",
+    "Ctrl+Shift+_",
+]
+toggle_whiteboard = ["Ctrl+W"]
+toggle_blackboard = ["Ctrl+B"]
+return_to_transparent = ["Ctrl+Shift+T"]
+toggle_help = ["F10"]
+toggle_status_bar = ["F12"]
+toggle_click_highlight = ["Ctrl+Shift+H"]
+toggle_toolbar = [
+    "F2",
+    "F9",
+]
+toggle_highlight_tool = ["Ctrl+Alt+H"]
+open_context_menu = [
+    "Shift+F10",
+    "Menu",
+]
+open_configurator = ["F11"]
+set_color_red = ["R"]
+set_color_green = ["G"]
+set_color_blue = ["B"]
+set_color_yellow = ["Y"]
+set_color_orange = ["O"]
+set_color_pink = ["P"]
+set_color_white = ["W"]
+set_color_black = ["K"]
+capture_full_screen = ["Ctrl+Shift+P"]
+capture_active_window = ["Ctrl+Shift+O"]
+capture_selection = ["Ctrl+Shift+I"]
+capture_clipboard_full = ["Ctrl+C"]
+capture_file_full = ["Ctrl+S"]
+capture_clipboard_selection = ["Ctrl+Shift+C"]
+capture_file_selection = ["Ctrl+Shift+S"]
+capture_clipboard_region = ["Ctrl+6"]
+capture_file_region = ["Ctrl+Shift+6"]
+toggle_frozen_mode = ["Ctrl+Shift+F"]
+
+[capture]
+enabled = false
+save_directory = "~/Pictures/Wayscriber"
+filename_template = "screenshot_%Y-%m-%d_%H%M%S"
+format = "png"
+copy_to_clipboard = true
+
+[tablet]
+enabled = false
+pressure_enabled = true
+min_thickness = 1.0
+max_thickness = 8.0
+
+[session]
+persist_transparent = false
+persist_whiteboard = false
+persist_blackboard = false
+persist_history = true
+restore_tool_state = true
+storage = "auto"
+max_shapes_per_frame = 10000
+max_file_size_mb = 10
+compress = "auto"
+auto_compress_threshold_kb = 100
+backup_retention = 1
+per_output = true

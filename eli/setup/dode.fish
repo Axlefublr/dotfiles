@@ -926,6 +926,13 @@ cd waytext
 make build
 make install
 
+# -----------------wayscriber-----------------
+paru -Sa --needed --disable-download-timeout wayscriber # -bin didn't validate at the time
+systemctl --user enable --now wayscriber.service
+ln -sf ~/fes/dot/wayscriber.toml ~/.config/wayscriber/config.toml
+# F1=help → F10=help
+# alt instead of tab
+
 # ------------------webcord-------------------
 paru -Sa --needed --disable-download-timeout webcord-bin
 
