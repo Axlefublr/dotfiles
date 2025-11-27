@@ -16,4 +16,4 @@ pacclean
 nu -c 'config nu --doc' >~/.local/share/frizz/defconf/nushell.nu
 
 echo 'nom refresh' >&2
-nom refresh
+http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118 nom refresh
