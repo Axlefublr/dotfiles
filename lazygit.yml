@@ -57,7 +57,7 @@ gui:
     selectedLineBgColor:
       - "#5f472d"
 git:
-  autoFetch: false
+  autoFetch: true
   pagers:
     - pager: diff-so-fancy
   merging:
