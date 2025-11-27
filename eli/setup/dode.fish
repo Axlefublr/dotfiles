@@ -670,6 +670,11 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout libratbag
 systemctl enable --now ratbagd.service
 sudo pacman -S --needed --noconfirm --disable-download-timeout piper
 
+# -----------------reflector------------------
+sudo -E helix /etc/xdg/reflector/reflector.conf # change --latest 5 → 20
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak # backup mirrorlist
+sudo reflector @/etc/xdg/reflector/reflector.conf # regenerate mirrors
+
 # ------------------repgrep-------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
 
@@ -927,11 +932,9 @@ make build
 make install
 
 # -----------------wayscriber-----------------
-paru -Sa --needed --disable-download-timeout wayscriber # -bin didn't validate at the time
+paru -Sa --needed --disable-download-timeout wayscriber-bin
 systemctl --user enable --now wayscriber.service
 ln -sf ~/fes/dot/wayscriber.toml ~/.config/wayscriber/config.toml
-# F1=help → F10=help
-# alt instead of tab
 
 # ------------------webcord-------------------
 paru -Sa --needed --disable-download-timeout webcord-bin
