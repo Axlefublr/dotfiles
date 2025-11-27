@@ -48,7 +48,7 @@
 	j (cmd woomer)
 	l (cmd fish -c pick_and_copy_color)
 	o (cmd fish -c mouse_position)
-	h (cmd fish -c clipboard_image_save)
+	c (cmd fish -c clipboard_image_save)
 	u (cmd fish -c fragmentize_url)
 	k C-S-s
 	i C-S-c
