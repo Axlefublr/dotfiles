@@ -76,6 +76,25 @@ function float_clipboard_image
 end
 funcsave float_clipboard_image >/dev/null
 
+function fragmentize_url
+    set -l selection (wl-paste --primary | string escape --style=url)
+    not test "$selection"
+    and begin
+        notify-send 'nothing selected'
+        return 1
+    end
+    wtype -M ctrl -k l -s 5 -k c -s 5 -m ctrl
+    set -l clean_url (wl-paste -n | cut -d \# -f 1)
+    not test "$clean_url"
+    and begin
+        notify-send 'fucked up url'
+        return 1
+    end
+    wl-copy -n "$clean_url#:~:text=$selection"
+    wtype -s 5 -M ctrl -k v -m ctrl -s 5 -k Return
+end
+funcsave fragmentize_url >/dev/null
+
 function github_read_notifs
     # -H 'X-GitHub-Api-Version: 2022-11-28' \
     gh api \
