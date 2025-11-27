@@ -1,23 +1,45 @@
 [general]
 # [[sort on]]
-action-on-enter = "save-to-clipboard"                                    # action to perform when the enter key is pressed [possible values: save-to-clipboard, save-to-file]
-annotation-size-factor = 1                                               # increase or decrease the size of the annotations
-copy-command = "wl-copy"                                                 # configure the command to be called on copy, for example `wl-copy`
-corner-roundness = 12                                                    # draw corners of rectangles round if the value is greater than 0 (0 disables rounded corners)
-default-hide-toolbars = false                                            # hide toolbars by default
-disable-notifications = false
-early-exit = true                                                        # exit directly after copy/save action
-fullscreen = true                                                        # start satty in fullscreen mode
-initial-tool = "arrow"                                                   # select the tool on startup [possible values: pointer, crop, line, arrow, rectangle, text, marker, blur, brush]
-output-filename = "/home/axlefublr/iwm/sco/%Y.%m.%d-%H:%M:%S-edited.png" # filename to use for saving action. omit to disable saving to file. might contain format specifiers: https://docs.rs/chrono/latest/chrono/format/strftime/index.html
-primary-highlighter = "block"                                            # the primary highlighter to use, the other is accessible by holding ctrl at the start of a highlight [possible values: block, freehand]
-save-after-copy = true                                                   # after copying the screenshot, save it to a file as well
+actions-on-enter = [ "save-to-clipboard", "save-to-file", "exit" ]
+annotation-size-factor = 1
+copy-command = "wl-copy"
+corner-roundness = 0
+default-fill-shapes = false
+default-hide-toolbars = true
+disable-notifications = true
+early-exit = true
+fullscreen = true
+initial-tool = "arrow"
+output-filename = "/home/axlefublr/iwm/sco/%Y.%m.%d-%H:%M:%S-edited.png"
+primary-highlighter = "freehand"
+save-after-copy = true
 # [[sort off]]
 
 [font]
 family = "Inter"
 style = "Regular"
 
+[keybinds]
+pointer = "p"
+crop = "c"
+brush = "b"
+line = "l"
+arrow = "i"
+rectangle = "r"
+ellipse = "e"
+text = "t"
+marker = "m"
+blur = "u"
+highlight = "h"
+
 [color-palette]
-# these will be shown in the toolbar for quick selection
-palette = [ "#ffafd7", "#ff2930", "#ff9f1a", "#ffd75f", "#87ff5f", "#3dff47", "#00d7ff", "#8599ff", "#af87ff", "#ff8787", "#878787", "#ffffff", "#0f0f0f" ]
+palette = [
+  "#ffafd7", # pink
+  "#ffd75f", # yellow
+  "#00d7ff", # cyan
+  "#ffffff",
+  "#000000",
+  "#87ff5f", # salad
+  "#ff2930", # red
+  "#af87ff", # purple
+]

@@ -692,6 +692,10 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout rofimoji
 
 # -------------------satty--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout satty
+cd ~/fes/ork
+gh repo clone Axlefublr/Satty
+x i
+# you keep all the extraneous bullshit of satty from the package, but use the custom built binary in ~/fes/eva
 mkdir -p ~/.config/satty
 ln -sf ~/fes/dot/satty.toml ~/.config/satty/config.toml
 

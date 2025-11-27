@@ -57,8 +57,8 @@ end
 funcsave edit_clipboard >/dev/null
 
 function edit_clipboard_image
-    # wl-paste -t image/png | satty -f -
-    rnote (wl-paste -t image/png | psub)
+    wl-paste -t image/png | satty -f -
+    # rnote (wl-paste -t image/png | psub)
 end
 funcsave edit_clipboard_image >/dev/null
 
