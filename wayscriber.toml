@@ -4,7 +4,7 @@ default_color = [
     0,
     0,
 ]
-default_thickness = 3.0
+default_thickness = 6.0
 default_fill_enabled = false
 default_font_size = 32.0
 hit_test_tolerance = 6.0
