@@ -19,11 +19,11 @@ git add .
 and git commit -m leftovers
 truncate -s 0 ~/.local/share/magazine/d
 
-cd ~
-
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 yeared_parse
 indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
+
+cd ~
 
 sleep 10 # otherwise, as soon as I wake my pc from sleep, it hasn't connected to the internet at that point, but *has* started executing this script. so what ends up happening is git commands fail to push all the directories because it doesn't have internet to do so yet.
 
