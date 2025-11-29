@@ -13,6 +13,7 @@ let the = ls ~/fes/lai/bog/content/*.md
 	}
 	| str replace -r '.md$' ''
 	| str replace -a '-' ' '
+	| if (open $it | find 'draft = true' | length | $in >= 1) { $in + ' (draft)' } else { $in }
 	{ path: $it, name: $name }
 }
 let index = $the | get name | to text | fuzzel -d --index
