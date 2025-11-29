@@ -58,7 +58,7 @@ editor: dict[str, Any] = {
     },
     'harp': {
         'command': 'filetype',
-        'search': 'filetype',
+        'search': 'buffer',
         'register': 'filetype',
         'mark': 'buffer',
     },
@@ -346,7 +346,6 @@ normal_select_mappings: dict[str, Any] = {
     'p': 'select_register',
     'pagedown': 'page_cursor_half_down',
     'pageup': 'page_cursor_half_up',
-    'q': 'goto_word',
     'r': 'select_regex',
     'ret': 'command_mode',
     's': 'yank',
@@ -445,6 +444,9 @@ normal_select_mappings: dict[str, Any] = {
             '"': ':pipe wrap-in-block.rs `"`',
         },
     },
+    'x': 'harp_mark',
+    'q': 'harp_search',
+    ';': 'harp_register',
     'space': {
         **disable(
             [
@@ -460,23 +462,20 @@ normal_select_mappings: dict[str, Any] = {
         # [[sort on]]
         'D': 'diagnostics_picker',
         'J': 'command_palette',
-        'd': 'local_search_fuzzy',
-        'e': 'buffer_picker',
-        'f': 'file_picker_in_current_directory',
-        'j': 'file_picker_in_current_buffer_directory',
-        'k': 'global_search',
-        'l': 'symbol_picker',
-        's': 'syntax_symbol_picker',
-        # [[sort off]]
-    },
-    ';': {
+        'K': 'syntax_workspace_symbol_picker',
+        'L': 'workspace_symbol_picker',
         'a': 'harp_command',
         'd': magazine_openers,
-        'e': 'harp_search',
+        'e': 'buffer_picker',
+        'f': 'file_picker_in_current_directory',
+        'i': 'local_search_fuzzy',
+        'j': 'file_picker_in_current_buffer_directory',
+        'k': 'syntax_symbol_picker',
+        'l': 'symbol_picker',
         'r': 'harp_relative_file',
         's': 'harp_file',
-        'w': 'harp_register',
-        'f': 'harp_mark',
+        'w': 'global_search',
+        # [[sort off]]
     },
     'g': {
         **disable(
@@ -673,16 +672,12 @@ insert_mappings: dict[str, Any] = {
     'right': ['commit_undo_checkpoint', 'move_char_right'],
     'up': 'completion',
     # [[sort off]]
-    'C-;': [
+    'C-a': [
         'collapse_selection',
         ':insert-output fish -c "uclanr | read"',
         'append_mode_same_line',
     ],
-    'C-a': [
-        'collapse_selection',
-        ':insert-output amal 5',
-        'append_mode_same_line',
-    ],
+    'C-;': 'harp_register',
 }
 
 all_modes = rusify(all_modes_mappings)
