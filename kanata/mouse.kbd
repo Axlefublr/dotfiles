@@ -4,9 +4,8 @@
 	n (on-press toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
 
-	t (cmd ydotool mousemove -a 386 300)
+	h (cmd ydotool mousemove -a 386 300)
 	y XX
-	q XX
 	z XX
 	c y
 
@@ -16,8 +15,8 @@
 	' (one-shot $ot (layer-while-held mouse-extra))
 
 	a (on-press press-vkey shift)
-	; (on-press press-vkey meta)
-	h (on-press press-vkey alt)
+	q (on-press press-vkey meta)
+	t (on-press press-vkey alt)
 	g (on-press press-vkey ctrl)
 
 	m (multi mmid (on-release tap-vkey any-modifier))
