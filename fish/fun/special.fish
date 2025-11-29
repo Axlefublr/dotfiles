@@ -100,6 +100,14 @@ function fragmentize_url
 end
 funcsave fragmentize_url >/dev/null
 
+function frizz_picker
+    cd ~/.local/share/frizz
+    set -l picked (fd -tf . | fuzzel -d --cache ~/.cache/mine/frizz-picker)
+    not test "$picked" && return
+    footclient -ND ~/.local/share/frizz helix $picked
+end
+funcsave frizz_picker >/dev/null
+
 function github_read_notifs
     # -H 'X-GitHub-Api-Version: 2022-11-28' \
     gh api \
