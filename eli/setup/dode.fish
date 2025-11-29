@@ -692,12 +692,14 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout rofimoji
 
 # -------------------satty--------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout satty
+sudo pacman -S --needed --noconfirm --disable-download-timeout gtk4-layer-shell # for layer shell impl by shiba
 cd ~/fes/ork
 gh repo clone Axlefublr/Satty
 x i
 # you keep all the extraneous bullshit of satty from the package, but use the custom built binary in ~/fes/eva
 mkdir -p ~/.config/satty
 ln -sf ~/fes/dot/satty.toml ~/.config/satty/config.toml
+systemctl --user enable --now ~/fes/dot/systemd/satty.service
 
 # --------------------scc---------------------
 stew install boyter/scc

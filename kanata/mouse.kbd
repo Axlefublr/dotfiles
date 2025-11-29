@@ -50,7 +50,8 @@
 	o (cmd fish -c mouse_position)
 	c (cmd fish -c clipboard_image_save)
 	u (cmd fish -c fragmentize_url)
-	k C-S-s
+	k (cmd fish -c annotate_screen)
+	h C-S-s
 	i C-S-c
 	, C-A-b
 	m C-A-y

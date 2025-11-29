@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 
+function annotate_screen
+    grim -t ppm - | satty --send-to-daemon -f -
+end
+funcsave annotate_screen >/dev/null
+
 function calculate_eof_position -a file
     set -l last_line (wc -l $file | string split ' ')[1]
     echo -n :$last_line:
@@ -57,7 +62,7 @@ end
 funcsave edit_clipboard >/dev/null
 
 function edit_clipboard_image
-    wl-paste -t image/png | satty -f -
+    wl-paste -t image/png | satty --send-to-daemon -f -
     # rnote (wl-paste -t image/png | psub)
 end
 funcsave edit_clipboard_image >/dev/null
