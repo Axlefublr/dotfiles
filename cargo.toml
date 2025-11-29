@@ -8,6 +8,7 @@ br = 'build --release'
 a = 'add'
 maybe = 'add --dry-run'
 do = 'doc --open'
+ddo = 'doc --no-deps --open ; cargo doc --all-targets'
 w = 'watch -q -c -x clippy'
 s = 'search'
 
