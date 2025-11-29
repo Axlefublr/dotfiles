@@ -176,6 +176,7 @@ binds {
     XF86AudioPause       allow-when-locked=true { spawn "fish" "-c" "toggle_media"; }
     XF86AudioPrev        allow-when-locked=true { spawn "fish" "-c" "media_prev"; }
     XF86AudioNext        allow-when-locked=true { spawn "fish" "-c" "media_next"; }
+    // XF86AudioStop { spawn "fish" "-c" "dot"; } // mouse button
 
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
