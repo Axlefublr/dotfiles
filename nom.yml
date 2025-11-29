@@ -2,6 +2,8 @@ configpath: /home/axlefublr/.config/nom/config.yml
 showfavourites: false
 version: ""
 feeds:
+  - url: https://borretti.me/feed.xml
+    name: borretti
   - url: http://mackeye.sdf.org/feeds/rss.xml
     name: mackeye
   - url: https://ersei.net/en/blog.atom
