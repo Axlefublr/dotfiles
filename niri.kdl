@@ -167,6 +167,31 @@ layout {
     }
 }
 
+recent-windows {
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "#777777ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Mod+Semicolon { next-window; }
+        Mod+Backspace { previous-window; }
+        // Mod+grave       { next-window     filter="app-id"; }
+        // Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
+
 binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "fish" "-c" "toggle_mic_mute"; }
@@ -189,7 +214,7 @@ binds {
     Mod+A { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
     Mod+Apostrophe { center-visible-columns; }
     Mod+U { toggle-window-floating; }
-    Mod+W { switch-focus-between-floating-and-tiling; }
+    // Mod+W { switch-focus-between-floating-and-tiling; }
 
     Mod+S { consume-or-expel-window-left; }
     Mod+F { consume-or-expel-window-right; }
@@ -274,7 +299,7 @@ animations {
             coords.y -= progress * 1440.0;
             float random = (niri_random_seed - 0.5) / 2.0;
             random = sign(random) - random;
-            float max_angle = 0.5 * random;
+            float max_angle = 1.5 * random;
             float angle = progress * max_angle;
             mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
             coords = rotate * coords;
@@ -379,6 +404,10 @@ window-rule {
 window-rule {
     match app-id="^foot" title="third"
     default-column-width { proportion 0.33333; }
+}
+window-rule {
+    match app-id="^foot" title="fourth"
+    default-column-width { proportion 0.25; }
 }
 window-rule {
     match app-id="^foot" title="fifth"
