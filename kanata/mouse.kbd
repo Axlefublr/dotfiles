@@ -2,7 +2,7 @@
 	caps esc
 	spc ret
 	n (on-press toggle-vkey mouse-mode)
-	l (on-press toggle-vkey mouse-slow)
+	l (layer-while-held mouse-slow)
 
 	h (cmd ydotool mousemove -a 386 300)
 	y XX
