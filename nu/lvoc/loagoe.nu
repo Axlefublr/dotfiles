@@ -41,7 +41,6 @@ const known = {
 	filter: 45
 	fsrs: 60
 	iso: 60
-	treesitter-markdown: 90
 	moch: 122
 	tongue: 122
 	toothbrush: 122
