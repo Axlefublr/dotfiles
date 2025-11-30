@@ -7,6 +7,7 @@
 	alt   lalt
 	meta  lmet
 	any-modifier (multi (on-press release-vkey shift) (on-press release-vkey ctrl) (on-press release-vkey alt) (on-press release-vkey meta))
-	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey any-modifier))
+	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey any-modifier) (on-press release-vkey mouse-slow))
 	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held mouse) (on-release tap-vkey disable-mouse-mode))
+	mouse-slow (layer-while-held mouse-slow)
 )
