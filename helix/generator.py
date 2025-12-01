@@ -15,20 +15,23 @@ statusline: dict[str, Any] = {
         'select': 'select',
     },
     'left': [
-        # 'version-control',
-        # 'spacer',
-        'diagnostics',
         'primary-selection-length',
+        'spacer',
         'selections',
+        # 'spacer',
+        # 'spacer',
+        # 'diagnostics',
     ],
     'center': [
         'read-only-indicator',
-        'file-modification-indicator',
     ],
     'right': [
-        'spinner',
+        # 'spinner',
         'register',
+        'search-position',
         'position',
+        'total-line-numbers',
+        'spacer',
         'position-percentage',
         'file-encoding',
     ],
@@ -48,7 +51,6 @@ lsp: dict[str, Any] = {
 editor: dict[str, Any] = {
     # [[sort on]]
     'disable-dot-repeat': True,
-    'should-statusline': False,
     'show-diagnostics': True,
     'whichkey': False,
     # [[sort off]]
@@ -406,7 +408,6 @@ normal_select_mappings: dict[str, Any] = {
         'l': ':toggle lsp.display-inlay-hints',
         'n': ':toggle soft-wrap.enable',
         'o': ':toggle auto-format',
-        'p': ':toggle should-statusline',
         'v': ':echopy %sh(ghl %(relative_path))',
         'x': 'surround_replace',
         'z': ':echopy %(current_working_directory)',
