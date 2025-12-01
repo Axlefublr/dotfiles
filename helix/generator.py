@@ -132,11 +132,6 @@ editor: dict[str, Any] = {
             # 'diff',
         ],
     },
-    'gutters-right': {
-        'layout': [
-            'scrollbar',
-        ],
-    },
     'file-picker': {
         'hidden': False,  # also shows "dot files" in results
     },
@@ -725,11 +720,6 @@ with open('/home/axlefublr/fes/dot/helix/pager.toml', 'w') as file:
     toml.dump(entire_config, file)
 
 entire_config['editor']['bufferline'] = 'always'
-
-with open('/home/axlefublr/fes/dot/helix/man.toml', 'w') as file:
-    toml.dump(entire_config, file)
-
-entire_config['editor']['gutters-right']['layout'] = []
 
 with open('/home/axlefublr/fes/dot/helix/screen.toml', 'w') as file:
     toml.dump(entire_config, file)
