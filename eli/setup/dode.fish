@@ -334,6 +334,7 @@ sudo ln -sf ~/fes/lai/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-mater
 set -Ux GTK_THEME gruvbox-material
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
+gsettings set org.gnome.desktop.interface font-name "Inter, 12"
 sudo pacman -S --needed --noconfirm --disable-download-timeout gtk3-demos # for debugging the theme
 
 # ---------------gpu-benchmark----------------
@@ -459,7 +460,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout lutris wine-gecko
 paru -Sa --needed --disable-download-timeout dxvk-bin lib32-faudio
 
 # ----------------lxappearance----------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance gtk-engine-murrine qt5ct
+sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance qt5ct
 
 # ------------------mapscii-------------------
 paru -Sa --needed --disable-download-timeout nodejs-mapscii
