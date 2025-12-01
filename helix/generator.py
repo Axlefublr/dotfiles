@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: E501
 
 import copy
 from typing import Any
@@ -273,6 +274,7 @@ normal_select_mappings: dict[str, Any] = {
     '+': 'rotate_selections_forward',
     '-': 'rotate_selections_backward',
     '.': 'toggle_line_select',
+    '/': 'search',
     '0': ':buffer-nth -r 1',
     '1': ':buffer-nth 1',
     '2': ':buffer-nth 2',
@@ -285,6 +287,7 @@ normal_select_mappings: dict[str, Any] = {
     '9': ':buffer-nth 9',
     ':': ':write-quit-all',
     '=': 'remove_primary_selection',
+    '?': 'rsearch',
     '@': 'toggle_comments',
     'A-N': 'extend_search_prev',
     'A-i': 'jump_forward',
@@ -321,6 +324,7 @@ normal_select_mappings: dict[str, Any] = {
     'S': 'hover',
     'S-pagedown': 'goto_next_paragraph',
     'S-pageup': 'goto_prev_paragraph',
+    'S-tab': "@<space>'<up><ret>",
     'T': 'redo',
     'U': 'insert_at_line_end',
     'V': '@u <esc>',
@@ -336,7 +340,7 @@ normal_select_mappings: dict[str, Any] = {
     'b': ['add_newline_below', 'move_line_down', 'paste_before'],
     'c': 'change_selection',
     'd': 'delete_selection',
-    'esc': 'collapse_selection',
+    'esc': ['collapse_selection', 'normal_mode'],
     'i': 'insert_mode',
     'n': 'search_next',
     'o': 'paste_after',
@@ -347,7 +351,7 @@ normal_select_mappings: dict[str, Any] = {
     'ret': 'command_mode',
     's': 'yank',
     't': 'undo',
-    'tab': ':edit %sh(open ~/.cache/mine/shell-cwd)',
+    'tab': "@<space>'<down><ret>",
     'u': 'append_mode_same_line',
     'v': 'flip_selections',
     'w': 'replace_with_yanked',
