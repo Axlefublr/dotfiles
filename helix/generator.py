@@ -406,7 +406,7 @@ normal_select_mappings: dict[str, Any] = {
         'a': ['save_selection', 'select_textobject_around'],
         'c': ':echopy %(full_path)',
         'f': ['save_selection', 'select_textobject_inner'],
-        'i': 'count_selections',
+        'i': ':sh fish -c "append_github_line_numbers %(cursor_line)"',
         'k': ':toggle show-diagnostics',
         'l': ':toggle lsp.display-inlay-hints',
         'n': ':toggle soft-wrap.enable',

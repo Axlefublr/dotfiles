@@ -5,6 +5,17 @@ function annotate_screen
 end
 funcsave annotate_screen >/dev/null
 
+function append_github_line_numbers -a line_num
+    set -l clipboard (wl-paste)
+    string match -qe 'https://github.com' "$clipboard" || return 1
+    if string match -qe '#L' "$clipboard"
+        wl-copy -n "$clipboard-$line_num"
+    else
+        wl-copy -n "$clipboard#L$line_num"
+    end
+end
+funcsave append_github_line_numbers >/dev/null
+
 function calculate_eof_position -a file
     set -l last_line (wc -l $file | string split ' ')[1]
     echo -n :$last_line:
