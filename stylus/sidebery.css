@@ -1,61 +1,62 @@
 #root.root {
-  --frame-bg: #292828;
-  --frame-el-overlay-selected-bg: unset;
-  --frame-el-overlay-selected-border: #e49641;
-  --frame-fg: #d4be98;
-  --general-border-radius: 0px;
-  --nav-btn-active-shadow: none;
-  --notification-bg: #292828;
-  --notification-fg: #d4be98;
-  --tabs-activated-fg: #d4be98;
-  --tabs-activated-shadow: none;
-  --tabs-discarded-favicon-opacity: 0.60;
-  --tabs-discarded-title-opacity: 0.70;
-  --tabs-font: 1rem sans-serif;
-  --toolbar-bg: #292828;
-  --toolbar-el-overlay-selected-bg: unset;
-  --toolbar-el-overlay-selected-border: #e49641;
-  --toolbar-fg: #d4be98;
-  --tabs-activated-bg: hsl(38, 3%, 25%);
-  --toolbar-el-overlay-hover-bg: hsl(38, 3%, 25%);
-  --frame-el-overlay-hover-bg: hsla(38, 3%, 25%, 0.7);
+	--frame-bg: #282828;
+	--frame-el-overlay-selected-bg: hsl(167, 23.2%, 58.6%, 0.2);
+	--frame-el-overlay-selected-border: unset;
+	--frame-fg: #d4be98;
+	--general-border-radius: 0px;
+	--nav-btn-active-shadow: none;
+	--notification-bg: #282828;
+	--notification-fg: #d4be98;
+	--tabs-activated-fg: #d4be98;
+	--tabs-activated-shadow: none;
+	--tabs-discarded-favicon-opacity: 0.6;
+	--tabs-discarded-title-opacity: 0.7;
+	--tabs-font: 1rem sans-serif;
+	--toolbar-bg: #282828;
+	--toolbar-el-overlay-selected-bg: hsl(167, 23.2%, 58.6%, 0.2);
+	--toolbar-el-overlay-selected-border: unset;
+	--toolbar-fg: #d4be98;
+	--tabs-activated-bg: hsl(282, 33.7%, 66.3%, 0.3);
+	--toolbar-el-overlay-hover-bg: hsl(282, 33.7%, 66.3%, 0.3);
+	--frame-el-overlay-hover-bg: hsl(282, 33.7%, 66.3%, 0.2);
 }
 
 /* --------------------main-------------------- */
 
 #root.root {
-  --nav-btn-height: 35px;
+	--nav-btn-height: 35px;
 }
 
 .Tab {
-  margin: 0;
-  width: 100%;
-  padding-bottom: unset;
+	margin: 0;
+	width: 100%;
+	padding-bottom: unset;
 }
 
-#root[data-pinned-tabs-position=panel][data-pinned-tabs-list=true] .PinnedTabsBar {
-  padding: 0;
+#root[data-pinned-tabs-position='panel'][data-pinned-tabs-list='true'] .PinnedTabsBar {
+	padding: 0;
 }
 
 /* separator between pinned and normal tabs */
 .PinnedTabsBar:after {
-  display: none !important;
+	display: none !important;
 }
 
 /* area containing all pinned tabs */
-.PinnedTabsBar {
-  background-color: hsl(38, 3.2%, 18%);
+.PinnedTabsBar * {
+	/* background-color: hsl(282, 33.7%, 66.3%, 0.07); */
+	font-weight: 600 !important;
 }
 
 .NavigationBar .main-items {
-  grid-gap: 0;
+	grid-gap: 0;
 }
 
 /* removing 2 pixels of nothing burger */
-.Notifications+.main-box .central-box {
-  margin-top: 0;
+.Notifications + .main-box .central-box {
+	margin-top: 0;
 }
 
 .NavigationBar.-vert {
-  padding: 0;
+	padding: 0;
 }
