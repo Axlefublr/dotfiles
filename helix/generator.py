@@ -65,6 +65,10 @@ editor: dict[str, Any] = {
         'register': 'filetype',
         'mark': 'buffer',
     },
+    'smart-tab': {
+        'enable': False,
+        'supersede-menu': True,
+    },
     # [[sort on]]
     # 'idle-timeout': 250,
     'auto-completion': True,
@@ -187,18 +191,21 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 all_modes_mappings: dict[str, Any] = {
     # [[sort on]]
-    'A-F11': 'goto_previous_buffer',
-    'A-F12': 'goto_next_buffer',
     'A-ins': ':quit!',
+    'A-left': 'goto_prev_tabstop',
+    'A-right': 'goto_next_tabstop',
+    'A-tab': ':open %sh(wl-paste -n)',
     'C-A-w': ':buffer-close!',
     'C-down': 'copy_selection_on_next_line',
     'C-e': ':new',
     'C-end': 'move_parent_node_end',
     'C-home': 'move_parent_node_start',
     'C-i': ['commit_undo_checkpoint', 'normal_mode', 'open_above'],
+    'C-left': 'goto_previous_buffer',
     'C-o': ['commit_undo_checkpoint', 'normal_mode', 'open_below'],
     'C-pagedown': 'goto_next_buffer',
     'C-pageup': 'goto_previous_buffer',
+    'C-right': 'goto_next_buffer',
     'C-s': 'signature_help',
     'C-t': ':reload!',
     'C-tab': 'add_newline_above',
@@ -657,10 +664,10 @@ select_mappings: dict[str, Any] = {
 
 insert_mappings: dict[str, Any] = {
     # [[sort on]]
-    'C-h': 'commit_undo_checkpoint',
     'C-j': '@<esc>jski<C-v>',
     'C-k': '@<esc>ksji<C-v>',
-    'C-l': '@<C-h> \\<ret>',
+    'C-l': '@<C-q> \\<ret>',
+    'C-q': 'commit_undo_checkpoint',
     'C-u': 'kill_to_line_start',
     'C-v': ['collapse_selection', 'paste_before'],
     'C-ц': ['normal_mode', 'move_prev_word_start', 'change_selection'],
