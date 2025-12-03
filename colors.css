@@ -30,17 +30,17 @@
 }
 
 .shell {
-	--red: #ff2930;
-	--orange: #ff9f1a;
-	--yellow: #ffd75f rgb(255, 215, 95);
-	--salad: #87ff5f;
-	--green: #3dff47;
-	--cyan: #00d7ff;
-	--blue: #8599ff;
-	--purple: #af87ff;
-	--pink: #ffafd7 rgb(255, 175, 215);
-	--coral: #ff8787;
-	--grey: #878787;
+	--red: #ff2930 hsl(358, 100%, 58%) rgb(255, 41, 48);
+	--orange: #ff9f1a hsl(35, 100%, 55.1%) rgb(255, 160, 26);
+	--yellow: #ffd75f hsl(45, 100%, 68.6%) rgb(255, 215, 95);
+	--salad: #87ff5f hsl(105, 100%, 68.6%) rgb(135, 255, 95);
+	--green: #3dff47 hsl(123, 100%, 62%) rgb(61, 255, 71);
+	--cyan: #00d7ff hsl(189, 100%, 50%) rgb(0, 217, 255);
+	--blue: #8599ff hsl(230, 100%, 76.1%) rgb(133, 153, 255);
+	--purple: #af87ff hsl(260, 100%, 76.5%) rgb(175, 135, 255);
+	--pink: #ffafd7 hsl(330, 100%, 84.3%) rgb(255, 175, 215);
+	--coral: #ff8787 hsl(0, 100%, 76.5%) rgb(255, 135, 135);
+	--grey: #878787 hsl(0, 0%, 52.9%) rgb(135, 135, 135);
 }
 
 .supporters {
