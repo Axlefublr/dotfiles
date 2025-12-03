@@ -1,7 +1,7 @@
 set recolor true
 set guioptions ""
 set recolor-darkcolor "#D4BE98"
-set recolor-lightcolor "#292828"
+set recolor-lightcolor "#282828"
 
 map J scroll half-down
 map K scroll half-up
