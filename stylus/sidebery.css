@@ -1,6 +1,5 @@
 #root.root {
 	--frame-bg: #282828;
-	--frame-el-overlay-selected-bg: hsl(167, 23.2%, 58.6%, 0.2);
 	--frame-el-overlay-selected-border: unset;
 	--frame-fg: #d4be98;
 	--general-border-radius: 0px;
@@ -13,12 +12,13 @@
 	--tabs-discarded-title-opacity: 0.7;
 	--tabs-font: 1rem sans-serif;
 	--toolbar-bg: #282828;
-	--toolbar-el-overlay-selected-bg: hsl(167, 23.2%, 58.6%, 0.2);
 	--toolbar-el-overlay-selected-border: unset;
 	--toolbar-fg: #d4be98;
-	--tabs-activated-bg: hsl(282, 33.7%, 66.3%, 0.3);
-	--toolbar-el-overlay-hover-bg: hsl(282, 33.7%, 66.3%, 0.3);
-	--frame-el-overlay-hover-bg: hsl(282, 33.7%, 66.3%, 0.2);
+	--frame-el-overlay-selected-bg: hsl(282, 33.7%, 66.3%, 0.3);
+	--toolbar-el-overlay-selected-bg: hsl(282, 33.7%, 66.3%, 0.3);
+	--tabs-activated-bg: hsl(0, 0%, 50%, 0.28);
+	--toolbar-el-overlay-hover-bg: hsl(0, 0%, 50%, 0.28);
+	--frame-el-overlay-hover-bg: hsl(0, 0%, 50%, 0.17);
 }
 
 /* --------------------main-------------------- */
@@ -44,8 +44,8 @@
 
 /* area containing all pinned tabs */
 .PinnedTabsBar * {
-	/* background-color: hsl(282, 33.7%, 66.3%, 0.07); */
 	font-weight: 600 !important;
+	/* color: hsl(41, 57.5%, 59.4%) !important; */
 }
 
 .NavigationBar .main-items {
