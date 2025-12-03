@@ -231,10 +231,10 @@ binds {
     Mod+Ctrl+Down { move-workspace-down; }
     Mod+Ctrl+Up { move-workspace-up; }
 
-    Mod+O { focus-window-up-or-bottom; }
-    Mod+N { focus-window-down-or-top; }
-    Mod+Return { move-window-up; }
-    Mod+Home { move-window-down; }
+    Mod+N { focus-window-up-or-bottom; }
+    Mod+O { focus-window-down-or-top; }
+    Mod+Home { move-window-up; }
+    Mod+Return { move-window-down; }
 
     Mod+Ctrl+J { set-window-height "-10%"; }
     Mod+Ctrl+K { set-window-height "+10%"; }
