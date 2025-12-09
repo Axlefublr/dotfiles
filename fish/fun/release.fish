@@ -116,6 +116,10 @@ function _rust_release
     end
 
     set -l tagged_version (rg '^version = ' Cargo.toml | string match -gr 'version = "(.*?)"')
+    if not test "$tagged_version"
+        echo 'change to the new version in Cargo.toml' >&2
+        return 1
+    end
     echo "detected version $tagged_version" >&2
 
     if rg -q '^description \= ""$' Cargo.toml
