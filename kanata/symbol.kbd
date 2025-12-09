@@ -30,6 +30,7 @@
 	n (cmd wtype ¢)
 	o S-2
 	p (cmd wtype ™)
+	u (cmd wtype ₽)
 	;; [[sort off]]
 )
 
@@ -45,7 +46,6 @@
 	l (cmd wtype →)
 	n (cmd wtype ❌)
 	o (cmd wtype ✅)
-	u (cmd wtype ₽)
 	;; [[sort off]]
 )
 
