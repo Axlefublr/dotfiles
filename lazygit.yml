@@ -58,6 +58,7 @@ gui:
       - "#5f472d"
 git:
   autoFetch: true
+  diffContextSize: 1
   pagers:
     - pager: diff-so-fancy
   merging:
