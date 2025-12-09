@@ -263,9 +263,12 @@ ln -sf ~/fes/dot/ghostty.conf ~/.config/ghostty/config
 # --------------------git---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout git diff-so-fancy
 # [[sort on]]
+# git config --global format.pretty '%C(yellow)%h %C(#e491b2)%an %C(green)%as%C(default)%+(decorate:prefix=,suffix=,tag=tag:,separator= ,pointer= → )%n%B'
 # git config --global merge.conflictstyle zdiff3
 git config --global branch.sort -committerdate
 git config --global checkout.defaultRemote origin
+git config --global color.diff.frag 'bold #e49641'
+git config --global color.diff.func 'bold #b58cc6'
 git config --global column.ui auto
 git config --global commit.verbose true
 git config --global core.editor helix
@@ -279,6 +282,7 @@ git config --global diff.renames true
 git config --global fetch.all true
 git config --global fetch.prune true
 git config --global fetch.pruneTags true
+git config --global format.pretty '%C(yellow)%h %C(#e491b2)%an %C(green)%as%C(default)%+B'
 git config --global help.autocorrect prompt
 git config --global init.defaultBranch main
 git config --global interactive.diffFilter 'diff-so-fancy --patch'
