@@ -915,6 +915,9 @@ paru -Sa --needed --disable-download-timeout vesktop-bin
 sudo -E helix /usr/share/applications/vesktop.desktop
 # ELECTRON_ENABLE_WAYLAND=1 OZONE_PLATFORM=wayland vesktop --proxy-server=127.0.0.1:8118 --ozone-platform=wayland
 
+# -------------------vimiv--------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout vimiv
+
 # -------------------vscode-------------------
 mkdir -p ~/.config/Code/User
 ln -sf ~/fes/dot/vscode/settings.jsonc ~/.config/Code/User/settings.json
