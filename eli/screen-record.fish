@@ -9,6 +9,7 @@ ffmpeg -y -i ~/iwm/sco/original.mp4 \
     -c:v libx264 -preset medium -crf 21 \
     -movflags +faststart \
     -b:v 3M -maxrate 4.5M -bufsize 6M \
+    -vf scale=-1:1080 \
     ~/iwm/sco/compressed.mp4
 rm -f /tmp/mine/recordilock
 echo copying >~/.local/share/mine/waybar-screen-record
