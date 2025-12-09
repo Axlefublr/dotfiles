@@ -2,7 +2,7 @@
 
 return # so that I don't command harp myself into pain
 
-# --------------------main--------------------
+# --------------------------main---------------------------
 sudo pacman -Syu
 for package_name in (cat ~/.local/share/magazine/Z)
     sudo pacman -S --needed --noconfirm --disable-download-timeout $package_name
@@ -11,21 +11,21 @@ for package_name in (cat ~/.local/share/magazine/X)
     paru -Sa --needed --noconfirm --disable-download-timeout $package_name
 end
 
-# ------------------crystal-------------------
+# -------------------------crystal-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout crystal shards
 
-# -------------------dotnet-------------------
+# -------------------------dotnet--------------------------
 set -Ux DOTNET_CLI_TELEMETRY_OPTOUT true
 fish_add_path "$HOME/.dotnet/tools"
 
-# --------------------eget--------------------
+# --------------------------eget---------------------------
 paru -Sa --needed --noconfirm --disable-download-timeout eget-bin
 set -Ux EGET_BIN ~/.local/bin
 
-# -------------------elixir-------------------
+# -------------------------elixir--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout elixir
 
-# --------------------fish--------------------
+# --------------------------fish---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout fish
 chsh -s /usr/bin/fish
 mkdir -p ~/.config/fish
@@ -50,44 +50,44 @@ set -Ux fish_lsp_all_indexed_paths ~/fes/dot/fish/fun ~/.config/fish /usr/share/
 set -Ux fish_lsp_diagnostic_disable_error_codes 2003 2001 2002
 set -Ux fish_lsp_show_client_popups false
 
-# ------------------flatpack------------------
+# ------------------------flatpack-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout flatpak
 flatpak install flathub
 
-# ---------------------go---------------------
+# ---------------------------go----------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout go
 mkdir -p ~/go/bin
 fish_add_path ~/go/bin
 
 sudo pacman -S --needed --noconfirm --disable-download-timeout gopls
 
-# --------------------java--------------------
+# --------------------------java---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout jdk8-openjdk maven
 paru -Sa --needed --noconfirm --disable-download-timeout intellij-idea-community-edition-jre
 
-# -------------------julia--------------------
+# --------------------------julia--------------------------
 julia # to then execute things in the repl
 import Pkg
 Pkg.add("LanguageServer")
 Pkg.add("SymbolServer")
 
-# -------------------kotlin-------------------
+# -------------------------kotlin--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout kotlin jre-openjdk
 
-# --------------------nim---------------------
+# ---------------------------nim---------------------------
 curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 fish_add_path "$HOME/.nimble/bin"
 
 # nimble install nimlangserver
 nimble install nimlsp
 
-# ------------------nushell-------------------
+# -------------------------nushell-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
 
-# ------------------prettier------------------
+# ------------------------prettier-------------------------
 ln -sf ~/fes/dot/.prettierrc ~/.prettierrc
 
-# --------------------ruby--------------------
+# --------------------------ruby---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ruby rubocop
 fish_add_path "$HOME/.local/share/gem/ruby/3.3.0/bin"
 
@@ -95,7 +95,7 @@ gem install solargraph
 mkdir -p ~/.config/rubocop
 ln -sf ~/fes/dot/.rubocop.yml ~/.config/rubocop/config.yml
 
-# --------------------rust--------------------
+# --------------------------rust---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout rustup
 mkdir -p ~/.cargo/{bin,env}
 fish_add_path ~/.cargo/bin
@@ -116,10 +116,10 @@ rustup component add rust-analyzer
 mkdir -p ~/.config/rustfmt
 ln -sf ~/fes/dot/defconf/rustfmt.toml ~/.config/rustfmt/rustfmt.toml
 
-# --------------------stew--------------------
+# --------------------------stew---------------------------
 paru -Sa --needed --disable-download-timeout stew-bin
 
-# -------------------ocaml--------------------
+# --------------------------ocaml--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout dune opam
 opam init -y
 opam update
@@ -134,7 +134,7 @@ opam install ocaml-lsp-server
 opam install ocamlformat
 opam install utop
 
-# -------------------python-------------------
+# -------------------------python--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout python3 python-docs
 set -Ux PYTHONSTARTUP ~/fes/dot/pyrc.py
 
@@ -143,5 +143,5 @@ sudo pacman -S ruff
 mkdir -p ~/.config/ruff
 ln -sf ~/fes/dot/defconf/pyproject.toml ~/.config/ruff/pyproject.toml
 
-# ---------------------uv---------------------
+# ---------------------------uv----------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout uv
