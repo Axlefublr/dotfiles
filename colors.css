@@ -27,6 +27,8 @@
 	--dark12: #1f1e1e hsl(0, 1.2%, 12%) rgb(31, 30, 30);
 	--dark11: #1c1c1c hsl(0, 1.2%, 11%) rgb(28, 28, 28);
 	--dark10: #1a1919 hsl(0, 1.2%, 10%) rgb(26, 25, 25);
+	--dark9: #171717 hsl(0, 1.2%, 9%) rgb(23, 23, 23);
+	--dark9: #151414 hsl(0, 1.2%, 8%) rgb(21, 20, 20);
 }
 
 .shell {
@@ -64,4 +66,8 @@
 .custom.browser {
 	--white-base-tab: hsl(38, 3%, 25%) rgb(66, 64, 62);
 	--hover: hsla(38, 3%, 25%, 0.7);
+}
+
+.custom.gtk {
+	--big-selection: rgb(202, 189, 164);
 }
