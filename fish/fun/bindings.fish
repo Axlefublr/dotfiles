@@ -27,29 +27,6 @@ function _execute_via_pueue
 end
 funcsave _execute_via_pueue >/dev/null
 
-function _harp_get
-    while true
-        read -n 1 -P 'harp get: ' -l key || break
-        not test "$key" && break
-        set -l harp (harp get harp_dirs "$key" | path_expand)
-        test "$harp" && cd "$harp"
-        break
-    end
-    commandline -f repaint
-end
-funcsave _harp_get >/dev/null
-
-function _harp_set
-    while true
-        read -n 1 -P 'harp set: ' -l key || break
-        not test "$key" && break
-        set -l harp (harp replace harp_dirs "$key" (pwd_compressed))
-        break
-    end
-    commandline -f repaint
-end
-funcsave _harp_set >/dev/null
-
 function _blammo_pwd
     commandline -i (pwd_compressed)
 end
