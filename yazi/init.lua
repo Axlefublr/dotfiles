@@ -24,3 +24,7 @@ Header:children_add(function()
 	end
 	return ui.Line(spans)
 end, 9000, Header.RIGHT)
+
+if os.getenv('YAZI_START_PICKING') then
+	ya.emit('plugin', { 'fzf-but-open' })
+end
