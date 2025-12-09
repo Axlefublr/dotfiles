@@ -18,7 +18,6 @@ const known = {
 	# floor: 7
 	# keyboard: 30
 	# liked: 15
-	razor: 4
 	dish: 5
 	mug: 5
 	bed: 6
