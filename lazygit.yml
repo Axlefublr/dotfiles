@@ -41,10 +41,9 @@ gui:
   branchColorPatterns:
     "^main$": "#b58cc6"
     "^master$": "#b58cc6"
+    "^dev$": "#b58cc6"
     "^Axlefublr/": "#e491b2"
-    "^backup": "#a9b665"
-    "^bkp": "#a9b665"
-    sd: "#ea6962"
+    "^sd$": "#ea6962"
   theme:
     activeBorderColor:
       - yellow
