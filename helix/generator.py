@@ -264,21 +264,11 @@ all_modes_mappings: dict[str, Any] = {
 }
 
 normal_select_mappings: dict[str, Any] = {
-    **disable(
-        [
-            # [[sort on]]
-            'B',
-            'P',
-            'R',
-            'Y',
-            'b',
-            'p',
-            'y',
-            # [[sort off]]
-        ]
-    ),
+    **disable(['B', 'P', 'R', 'V', 'Y', 'b', 'p', 'y', 'C', '\\']),
     # [[sort on]]
-    '!': ['keep_primary_selection', 'normal_mode'],
+    "'": [':write-all', ':reload-all'],
+    '!': ':sort',
+    '"': ':write!',
     '#': 'yank_joined',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
@@ -287,6 +277,7 @@ normal_select_mappings: dict[str, Any] = {
     ')': ['save_selection', 'select_textobject_around'],
     '*': ['search_selection_detect_word_boundaries', 'normal_mode'],
     '+': 'rotate_selections_forward',
+    ',': ['keep_primary_selection', 'normal_mode'],
     '-': 'rotate_selections_backward',
     '.': 'toggle_line_select',
     '/': 'search',
@@ -315,7 +306,6 @@ normal_select_mappings: dict[str, Any] = {
     'A-o': 'jump_backward',
     'A-w': ':write-buffer-close',
     'B': ['add_newline_above', 'move_line_up', 'paste_before'],
-    'C': ':pipe (char space) + $in',
     'C-/': 'select_first_and_last_chars',
     'C-c': 'change_selection_noyank',
     'C-d': 'delete_selection_noyank',
@@ -338,7 +328,6 @@ normal_select_mappings: dict[str, Any] = {
     'M': 'merge_selections',
     'N': 'search_prev',
     'O': 'paste_before',
-    'Q': ':write!',
     'R': 'split_selection',
     'S': 'hover',
     'S-A-F1': ['extend_prev_sibling', 'ensure_selections_forward', 'flip_selections'],
@@ -350,12 +339,10 @@ normal_select_mappings: dict[str, Any] = {
     'S-tab': "@<space>'<up><ret>",
     'T': 'redo',
     'U': 'insert_at_line_end',
-    'V': '@u <esc>',
     'W': 'repeat_last_motion',
     'X': 'join_selections_space',
     'Z': '@c<ret><esc>',
     '[': 'goto_prev_diag',
-    '\\': ':sort',
     ']': 'goto_next_diag',
     '_': 'switch_to_lowercase',
     'b': ['add_newline_below', 'move_line_down', 'paste_before'],
@@ -368,7 +355,6 @@ normal_select_mappings: dict[str, Any] = {
     'p': 'select_register',
     'pagedown': 'page_cursor_half_down',
     'pageup': 'page_cursor_half_up',
-    'q': [':write-all', ':reload-all'],
     'r': 'select_regex',
     'ret': 'command_mode',
     's': 'yank',
@@ -470,7 +456,7 @@ normal_select_mappings: dict[str, Any] = {
             '"': ':pipe wrap-in-block.rs `"`',
         },
     },
-    "'": 'harp_mark',
+    'q': 'harp_mark',
     'w': 'harp_search',
     ';': 'harp_register',
     'space': {
@@ -561,7 +547,6 @@ normal_insert_mappings: dict[str, Any] = {}
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
-    ',': ['collapse_selection', 'replace'],
     '<': 'find_prev_char',
     '>': 'find_next_char',
     'C-,': 'till_prev_char',
@@ -572,6 +557,7 @@ normal_mappings: dict[str, Any] = {
     'F': ['move_next_long_word_end', 'trim_selections'],
     'J': ['extend_to_line_bounds', 'extend_line_below'],
     'K': ['extend_to_line_bounds', 'extend_line_above'],
+    'V': ['collapse_selection', 'replace'],
     '^': '@%r<ret>',
     '`': ['collapse_selection', 'switch_case'],
     'a': 'select_mode',
@@ -624,7 +610,6 @@ normal_mappings: dict[str, Any] = {
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
-    ',': 'replace',
     '<': 'extend_prev_char',
     '>': 'extend_next_char',
     'C-,': 'extend_till_prev_char',
@@ -637,6 +622,7 @@ select_mappings: dict[str, Any] = {
     'F': 'extend_next_long_word_end',
     'J': ['extend_to_line_bounds', 'select_line_below'],
     'K': ['extend_to_line_bounds', 'select_line_above'],
+    'V': 'replace',
     '^': '@r<ret>',
     '`': 'switch_case',
     'a': 'normal_mode',
