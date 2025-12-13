@@ -66,11 +66,12 @@ editor: dict[str, Any] = {
         'command': 'filetype',
         'search': 'buffer',
         'register': 'filetype',
-        'mark': 'buffer',
+        'mark': 'directory',
         'file': 'directory',
         'hotkeys': {
-            'global': 'l',
+            'global': ',',
             'directory': 'k',
+            'filetype': 'l',
             'buffer': 'j',
             'switch': "'",
             'delete': '<del>',
@@ -227,6 +228,12 @@ all_modes_mappings: dict[str, Any] = {
     'S-right': 'indent',
     'S-up': 'move_lines_up',
     # [[sort off]]
+    'C-;': [
+        ":noop %sh(echo '%(current_working_directory)' >~/.cache/mine/helix-cwd-suspend)",
+        ":noop %sh(echo '%(buffer_parent)' >~/.cache/mine/helix-buffer-head-suspend)",
+        ':write-all',
+        'suspend',
+    ],
     'F2': [
         ":noop %sh(hx-blammo '%(full_path)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
         ':sh footclient -ND %(current_working_directory) o+e>| ignore',
@@ -242,12 +249,6 @@ all_modes_mappings: dict[str, Any] = {
     'S-F5': [
         ":noop %sh(hx-blammo '%(full_path)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
         ':sh footclient -T floating -ND %(buffer_parent) o+e>| ignore',
-    ],
-    'C-z': [
-        ":noop %sh(echo '%(current_working_directory)' >~/.cache/mine/helix-cwd-suspend)",
-        ":noop %sh(echo '%(buffer_parent)' >~/.cache/mine/helix-buffer-head-suspend)",
-        ':write-all',
-        'suspend',
     ],
     'F6': [
         ':sh rm -f /tmp/mine/yazi-chooser-file',
@@ -272,7 +273,7 @@ normal_select_mappings: dict[str, Any] = {
     '#': 'yank_joined',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
-    '&': '@<A-k>r—<ret>×<A-k>M',
+    '&': '@<A-k>q—<ret>×<A-k>M',
     '(': ['save_selection', 'select_textobject_inner'],
     ')': ['save_selection', 'select_textobject_around'],
     '*': ['search_selection_detect_word_boundaries', 'normal_mode'],
@@ -295,8 +296,10 @@ normal_select_mappings: dict[str, Any] = {
     '=': 'remove_primary_selection',
     '?': 'rsearch',
     '@': 'toggle_comments',
+    'A': '@vk~',
     'A-;': 'shrink_to_line_bounds',
     'A-a': 'decrement',
+    'A-e': ':new',
     'A-f': 'increment',
     'A-h': 'extend_char_left',
     'A-i': 'jump_forward',
@@ -304,6 +307,7 @@ normal_select_mappings: dict[str, Any] = {
     'A-k': 'extend_to_line_bounds',
     'A-l': 'extend_char_right',
     'A-o': 'jump_backward',
+    'A-q': '@q█<ret>c',
     'A-w': ':write-buffer-close',
     'B': ['add_newline_above', 'move_line_up', 'paste_before'],
     'C-/': 'select_first_and_last_chars',
@@ -320,7 +324,6 @@ normal_select_mappings: dict[str, Any] = {
     'C-q': ':cd ..',
     'C-r': ':reload!',
     'C-v': 'ensure_selections_forward',
-    'C-w': ':new',
     'C-x': 'join_selections',
     'D': ':pipe str trim',
     'F11': '@<space>w<ret>',
@@ -328,8 +331,8 @@ normal_select_mappings: dict[str, Any] = {
     'M': 'merge_selections',
     'N': 'search_prev',
     'O': 'paste_before',
-    'R': 'split_selection',
-    'S': 'hover',
+    'Q': 'split_selection',
+    'S': "@vk'~",
     'S-A-F1': ['extend_prev_sibling', 'ensure_selections_forward', 'flip_selections'],
     'S-A-F2': ['extend_next_sibling', 'ensure_selections_forward'],
     'S-A-F3': 'extend_search_prev',
@@ -355,13 +358,13 @@ normal_select_mappings: dict[str, Any] = {
     'p': 'select_register',
     'pagedown': 'page_cursor_half_down',
     'pageup': 'page_cursor_half_up',
-    'r': 'select_regex',
+    'q': 'select_regex',
+    'r': 'flip_selections',
     'ret': 'command_mode',
     's': 'yank',
     't': 'undo',
     'tab': "@<space>'<down><ret>",
     'u': 'append_mode_same_line',
-    'v': 'flip_selections',
     'x': 'replace_with_yanked',
     '{': 'rotate_selection_contents_backward',
     '|': 'shell_pipe',
@@ -391,7 +394,6 @@ normal_select_mappings: dict[str, Any] = {
     '❓': ':pipe `"❓"`',
     '❗': ':pipe `"❗"`',
     '💡': ':pipe `"💡"`',
-    '🚀': 'rename_symbol',
     # [[sort off]]
     'del': {
         'S-del': [':sh rm %(full_path)', ':buffer-close!'],
@@ -456,9 +458,9 @@ normal_select_mappings: dict[str, Any] = {
             '"': ':pipe wrap-in-block.rs `"`',
         },
     },
-    'q': 'harp_mark',
+    'v': 'harp_mark',
     'w': 'harp_search',
-    ';': 'harp_register',
+    'z': 'harp_register',
     'space': {
         **disable(
             [
@@ -514,34 +516,18 @@ normal_select_mappings: dict[str, Any] = {
         'r': ':lsp-restart',
         # [[sort off]]
     },
-    'z': {
-        **disable(
-            [
-                # [[sort on]]
-                'C-b',
-                'C-d',
-                'C-f',
-                'C-u',
-                'b',
-                'backspace',
-                'down',
-                'pagedown',
-                'pageup',
-                'space',
-                't',
-                'up',
-                # [[sort off]]
-            ]
-        ),
+    ';': {
         # [[sort on]]
-        'I': 'goto_implementation',
-        'J': 'goto_declaration',
-        'c': ':pipe ~/fes/dot/eli/fool/qalc.fish -t $in',
-        'i': 'goto_type_definition',
-        'j': 'goto_definition',
-        'k': 'goto_reference',
-        'o': 'code_action',
-        'z': [':write-all', ':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
+        ';': [':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
+        'D': 'goto_declaration',
+        'a': 'code_action',
+        'd': 'goto_definition',
+        'e': 'goto_reference',
+        'f': 'goto_type_definition',
+        'r': 'rename_symbol',
+        's': 'hover',
+        'v': ':pipe ~/fes/dot/eli/fool/qalc.fish -t $in',
+        'w': 'goto_implementation',
         # [[sort off]]
     },
 }
@@ -561,7 +547,7 @@ normal_mappings: dict[str, Any] = {
     'J': ['extend_to_line_bounds', 'extend_line_below'],
     'K': ['extend_to_line_bounds', 'extend_line_above'],
     'V': ['collapse_selection', 'replace'],
-    '^': '@%r<ret>',
+    '^': '@%q<ret>',
     '`': ['collapse_selection', 'switch_case'],
     'a': 'select_mode',
     'e': ['move_prev_word_start', 'trim_selections'],
@@ -626,7 +612,7 @@ select_mappings: dict[str, Any] = {
     'J': ['extend_to_line_bounds', 'select_line_below'],
     'K': ['extend_to_line_bounds', 'select_line_above'],
     'V': 'replace',
-    '^': '@r<ret>',
+    '^': '@q<ret>',
     '`': 'switch_case',
     'a': 'normal_mode',
     'e': 'extend_prev_word_start',
