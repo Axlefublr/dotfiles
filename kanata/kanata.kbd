@@ -146,6 +146,7 @@
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
 	f (cmd niri msg action spawn -- fish -c frizz_picker)
+	g (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/talia fish -c "YAZI_START_PICKING=TRUE yazi")
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq fish -c "YAZI_START_PICKING=TRUE yazi")
 	r (cmd niri msg action spawn -- footclient -NHT hardware-monitor hardware-monitor.nu)
 	s (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)

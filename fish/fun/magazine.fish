@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-# -----------------classical------------------
+# ------------------------classical------------------------
 
 function magazine_resolve
     not test "$argv" && return
@@ -24,19 +24,7 @@ function magazine_resolve
         end
     end
 
-    if test $path = j
-        set path ~/fes/dot/project.txt
-    else if test $path = k
-        switch $action
-            case get cut truncate randomize filter copy
-                set path (pick_project_path -e)
-            case '*'
-                set path (pick_project_path)
-        end
-        not test "$path" && return
-    else
-        set path ~/.local/share/magazine/$path
-    end
+    set path ~/.local/share/magazine/$path
     magazine_$action $path
 end
 funcsave magazine_resolve >/dev/null
@@ -147,7 +135,7 @@ function magazine_novel
 end
 funcsave magazine_novel >/dev/null
 
-#-------------------------------------------------combinatory-------------------------------------------------
+# -----------------------combinatory-----------------------
 
 function magazine_cut
     magazine_get $argv
@@ -161,7 +149,7 @@ function magazine_commit
 end
 funcsave magazine_commit >/dev/null
 
-#---------------------------------------------------special---------------------------------------------------
+# -------------------------special-------------------------
 
 function magazine_append_link
     set -l result "$(get_input)"
@@ -205,7 +193,7 @@ function magazine_count_anki_cards
 end
 funcsave magazine_count_anki_cards >/dev/null
 
-#--------------------------------------------not really magazines--------------------------------------------
+# ------------------not really magazines-------------------
 
 function bookmark_open
     set -l bookmark (harp get bookmarks $argv[1])
@@ -225,13 +213,10 @@ function bookmark_set
 end
 funcsave bookmark_set >/dev/null
 
-#--------------------------------------------------internal--------------------------------------------------
+# ------------------------internal-------------------------
 
 function _magazine_notify
     set display (path basename $argv[1])
-    if test $display = project.txt
-        set display (path dirname $argv[1] | path basename)
-    end
     notify-send -t 2000 "$argv[2..] $display"
 end
 funcsave _magazine_notify >/dev/null
@@ -247,18 +232,12 @@ function _magazine_commit
         echo >>$resolved
     end
     if string match $resolved (cat ~/.local/share/magazine/R | string replace -r '^~' "$HOME")
-        or test $base = project.txt
         sort.py -u $resolved
     else if string match $resolved (cat ~/.local/share/magazine/Q | string replace -r '^~' "$HOME")
         cat $resolved | dedup | sponge $resolved
     end
     if test $parent_path != ~/.local/share/magazine
-        if test $base = project.txt
-            cp -f $resolved ~/.local/share/magazine/$head
-            set mag $head
-        else
-            cp -f $resolved ~/.local/share/magazine
-        end
+        cp -f $resolved ~/.local/share/magazine
     end
     builtin cd ~/.local/share/magazine
     git add $mag
@@ -266,12 +245,7 @@ function _magazine_commit
 end
 funcsave _magazine_commit >/dev/null
 
-# -----------------projectual-----------------
+# -----------------------projectual------------------------
 
-alias --save talia-set 'taliaprojecxsrs ~/fes/ork ~/fes/lai' >/dev/null
+alias --save talia-set 'talia.rs ~/fes/ork ~/fes/lai' >/dev/null
 alias --save talia 'talia-set -ieb | ov --section-header --status-line=false --section-delimiter ":\\$"' >/dev/null
-
-function pick_project_path
-    echo ~/fes/(talia-set $argv | fuzzel -d 2>/dev/null)/project.txt
-end
-funcsave pick_project_path >/dev/null
