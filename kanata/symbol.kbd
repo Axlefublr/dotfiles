@@ -21,6 +21,7 @@
 	, S-7
 	. (cmd wtype °)
 	/ S-bksl
+	; (cmd wtype █)
 	h (cmd wtype €)
 	i S-6
 	j grv
