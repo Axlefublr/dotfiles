@@ -244,8 +244,3 @@ function _magazine_commit
     and git commit -m "$argv[2..] $mag"
 end
 funcsave _magazine_commit >/dev/null
-
-# -----------------------projectual------------------------
-
-alias --save talia-set 'talia.rs ~/fes/ork ~/fes/lai' >/dev/null
-alias --save talia 'talia-set -ieb | ov --section-header --status-line=false --section-delimiter ":\\$"' >/dev/null

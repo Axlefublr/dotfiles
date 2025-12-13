@@ -151,7 +151,6 @@
 	r (cmd niri msg action spawn -- footclient -NHT hardware-monitor hardware-monitor.nu)
 	s (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)
 	w (cmd niri msg action spawn -- gtk-launch anki)
-	x (cmd niri msg action spawn -- footclient -N fish -c talia)
 	;; [[sort off]]
 )
 
