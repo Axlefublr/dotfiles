@@ -66,7 +66,7 @@ editor: dict[str, Any] = {
         'command': 'filetype',
         'search': 'buffer',
         'register': 'filetype',
-        'mark': 'directory',
+        'mark': 'buffer',
         'file': 'directory',
         'hotkeys': {
             'global': ',',
@@ -332,6 +332,7 @@ normal_select_mappings: dict[str, Any] = {
     'N': 'search_prev',
     'O': 'paste_before',
     'Q': 'split_selection',
+    'R': 'goto_word',
     'S': "@vk'~",
     'S-A-F1': ['extend_prev_sibling', 'ensure_selections_forward', 'flip_selections'],
     'S-A-F2': ['extend_next_sibling', 'ensure_selections_forward'],
