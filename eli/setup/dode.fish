@@ -839,6 +839,9 @@ systemctl --user enable --now ~/fes/dot/systemd/wallpaper.timer
 
 systemctl --user enable --now ~/fes/dot/systemd/mandb.service
 
+# -------------------systemd-manager-tui-------------------
+cargo binstall -y systemd-manager-tui
+
 # ---------------------termfilechooser---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk
 paru -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git
@@ -944,6 +947,10 @@ gh repo clonef https://github.com/jeffa5/waytext
 cd waytext
 make build
 make install
+
+# --------------------------wlosd--------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout python cairo pkgconf gobject-introspection gtk4 gcc gtk4-layer-shell python-gobject
+uv tool install wlosd
 
 # -----------------------wayscriber------------------------
 paru -Sa --needed --disable-download-timeout wayscriber-bin
