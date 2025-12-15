@@ -118,6 +118,7 @@
 	n home
 	o enter
 	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
+	spc ins
 	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
 	w (multi lmet (layer-while-held #←) (layer-while-held #arrow) (on-release tap-vkey any-#))
 	y (layer-switch doublestruck)
