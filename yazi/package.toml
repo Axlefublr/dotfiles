@@ -24,4 +24,4 @@ rev = "41d68cd"
 hash = "c7790dd555aee4adf4d125e200ea8611"
 
 [flavor]
-deps = []
+deps = [  ]
