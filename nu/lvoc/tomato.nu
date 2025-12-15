@@ -5,9 +5,9 @@ mut rest_time = 0sec
 mut work_time = 0sec
 mut phase = 'work'
 
-def commit [class: string, tooltip: string = ''] {
+def commit [class: string, total: string = ''] {
 	into string
-	| $'{ "text": "($in)", "class": "($class)", "tooltip": "($tooltip | default '')" }' + "\n"
+	| $'{ "text": "($in)/($total)", "class": "($class)" }' + "\n"
 	| save -f ~/.local/share/mine/waybar-tomato
 }
 
