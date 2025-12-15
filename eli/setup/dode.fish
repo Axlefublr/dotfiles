@@ -269,6 +269,8 @@ git config --global branch.sort -committerdate
 git config --global checkout.defaultRemote origin
 git config --global color.diff.frag 'bold #e49641'
 git config --global color.diff.func 'bold #b58cc6'
+git config --global color.diff.newMoved '#78bf84'
+git config --global color.diff.oldMoved '#e491b2'
 git config --global column.ui auto
 git config --global commit.verbose true
 git config --global core.editor helix
