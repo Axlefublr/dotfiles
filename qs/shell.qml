@@ -9,7 +9,7 @@ PanelWindow {
     right: true
   }
 
-  implicitHeight: 30
+  implicitHeight: 25
 
   Text {
     id: clock
