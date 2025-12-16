@@ -3,13 +3,7 @@ source coco.nu
 
 const ignored = [
 	# [[sort on]]
-	belosalik
 	eat
-	facewash
-	roll
-	showel
-	sludge
-	soap
 	# [[sort off]]
 ]
 
@@ -50,6 +44,7 @@ def produce [] {
 	| parse '{name} — {days}'
 	| str trim name
 	| where name not-in $ignored
+	| where name not-starts-with 'o-'
 	| each { |row|
 		$known
 		| get --optional $row.name
