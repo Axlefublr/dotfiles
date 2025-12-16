@@ -13,11 +13,23 @@ def 'hx-finance' [] {
 	let IN = $in
 	let the = [held inc name lasts costs mult] | zip { $IN | from nuon } | into record
 
-	let held  = $the.held | into string | fill -w 4
+	mut held = $the.held
+	mut remainder = ''
+
+	if ($the.costs | is-not-empty) {
+		let average_cost = ($the.costs | math avg)
+		let safe_average_cost = 1.5 * $average_cost
+		if ($held >= $safe_average_cost) {
+			$remainder = $held - $safe_average_cost | math round | into int
+			$held = $safe_average_cost | math round | into int
+		}
+	}
+
+	let held  = $held | into string | fill -w 4
 	let name  = $the.name | into string | fill -w 10
 	let mult  = $the.mult | default 'null' | into string | fill -w 4
 
-	let lasts = (formatfill 2 $the.lasts)
+	let lasts = (formatfill 3 $the.lasts)
 	let costs = (formatfill 4 $the.costs)
 
 	let inc = if ($the.lasts | is-empty) or ($the.costs | is-empty) {
@@ -33,7 +45,7 @@ def 'hx-finance' [] {
 	}
 	| into string | fill -w 3
 
-	print $'[($held), ($inc), ($name), ($lasts), ($costs), ($mult)]'
+	print $'[($held), ($inc), ($name), ($lasts), ($costs), ($mult)]($remainder)'
 
 	def formatfill [width: int, input?: list] {
 		# you're supposed to pass the width that each number is supposed to occupy
