@@ -303,10 +303,12 @@ normal_select_mappings: dict[str, Any] = {
     'A-e': ':new',
     'A-end': ['goto_file_end', 'search_prev'],
     'A-f': 'increment',
+    'A-h': 'extend_char_left',
     'A-home': ['goto_file_start', 'search_next'],
     'A-i': 'jump_forward',
     'A-j': 'trim_selections',
     'A-k': 'extend_to_line_bounds',
+    'A-l': 'extend_char_right',
     'A-o': 'jump_backward',
     'A-q': '@q█<ret>c',
     'A-w': ':write-buffer-close',
@@ -332,6 +334,7 @@ normal_select_mappings: dict[str, Any] = {
     'M': 'merge_selections',
     'N': 'search_prev',
     'O': 'paste_before',
+    'P': 'copy_between_registers',
     'Q': 'split_selection',
     'R': 'goto_word',
     'S': "@vk'~",
@@ -355,7 +358,6 @@ normal_select_mappings: dict[str, Any] = {
     'd': 'delete_selection',
     'esc': ':reload-all',
     'i': 'insert_mode',
-    'left': 'extend_char_left',
     'n': 'search_next',
     'o': 'paste_after',
     'p': 'select_register',
@@ -364,7 +366,6 @@ normal_select_mappings: dict[str, Any] = {
     'q': 'select_regex',
     'r': 'flip_selections',
     'ret': 'command_mode',
-    'right': 'extend_char_right',
     's': 'yank',
     't': 'undo',
     'tab': "@<space>'<down><ret>",
@@ -511,9 +512,9 @@ normal_select_mappings: dict[str, Any] = {
         'r': ':lsp-restart',
         # [[sort off]]
     },
-    ',': {
+    ';': {
         # [[sort on]]
-        ',': [':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
+        ';': [':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
         'D': 'goto_declaration',
         'a': 'code_action',
         'd': 'goto_definition',
@@ -531,7 +532,7 @@ normal_insert_mappings: dict[str, Any] = {}
 
 normal_mappings: dict[str, Any] = {
     # [[sort on]]
-    ';': 'select_mode',
+    ',': 'select_mode',
     '<': 'find_prev_char',
     '>': 'find_next_char',
     'C-,': 'till_prev_char',
@@ -586,7 +587,7 @@ normal_mappings: dict[str, Any] = {
 
 select_mappings: dict[str, Any] = {
     # [[sort on]]
-    ';': 'normal_mode',
+    ',': 'normal_mode',
     '<': 'extend_prev_char',
     '>': 'extend_next_char',
     'C-,': 'extend_till_prev_char',
