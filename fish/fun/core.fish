@@ -415,7 +415,7 @@ function x
         echo "register `$argv` empty" >&2
         return
     end
-    set -l harp_args $argv[2..]
+    set -l argf $argv[2..]
     echo -n $cmd | source
 end
 funcsave x >/dev/null
