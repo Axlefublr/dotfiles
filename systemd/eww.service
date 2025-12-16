@@ -1,0 +1,12 @@
+[Unit]
+After=graphical-session.target
+PartOf=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=env eww daemon --no-daemonize
+Restart=always
+Type=exec
+
+[Install]
+WantedBy=graphical-session.target

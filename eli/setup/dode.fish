@@ -164,12 +164,14 @@ uv tool install exrex
 # ---------------------------eww---------------------------
 # building from source because we need to pick the wayland feature flag, which the aur -git package doesn't do
 cd ~/fes/ork
-gh repo clone elkowar/eww -- --depth 1
+gh repo clone elkowar/eww -s
 cargo build --release --no-default-features --features wayland
-cp -f ./target/release/eww ~/fes/eva
+rsync ./target/release/eww ~/fes/eva
 eww shell-completions -s fish >~/.config/fish/completions/eww.fish
 mkdir -p ~/.config/eww
 ln -sf ~/fes/dot/eww/eww.yuck ~/.config/eww/eww.yuck
+ln -sf ~/fes/dot/eww/eww.css ~/.config/eww/eww.css
+systemctl --user enable --now ~/fes/dot/systemd/eww.service
 
 # --------------------------eww!---------------------------
 rm -fr ~/.config/eww

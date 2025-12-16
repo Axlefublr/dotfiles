@@ -249,3 +249,8 @@ typing.autoClosingAngleBrackets.enable = true
 [[language]]
 name = "toml"
 auto-format = true
+
+# --------------------------yuck---------------------------
+[[language]]
+name = "yuck"
+indent = { tab-width = 3, unit = "\t" }
