@@ -2,6 +2,14 @@ source duh.nu
 $env.config.table.mode = 'compact'
 $env.config.hooks.display_output = 'if (term size).columns >= 100 { table -e -w 128 } else { table -w 128 }'
 
+def wind --wrapped [...args] {
+	footclient -N ...$args
+}
+
+def sand --wrapped [...args] {
+	footclient -HN ...$args
+}
+
 def 'hx-blammo' [full_path: path, relative_path: path, buffer_parent: directory, selection: string] {
 	$full_path | str replace -r '^~' $env.HOME | save -f ~/.cache/mine/blammo
 	$relative_path | str replace -r '^~' $env.HOME | save -f ~/.cache/mine/blammo-relative
