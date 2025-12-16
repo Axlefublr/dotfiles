@@ -1049,8 +1049,8 @@ mkdir -p ~/.config/yt-dlp
 ln -sf ~/fes/dot/yt-dlp.conf ~/.config/yt-dlp/config
 
 # -------------------------zathura-------------------------
-sudo pacman -S zathura
-sudo pacman -S zathura-pdf-mupdf
+sudo pacman -S --needed --noconfirm --disable-download-timeout zathura
+sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps zathura-pdf-mupdf
 mkdir -p ~/.config/zathura
 ln -sf ~/fes/dot/zathura ~/.config/zathura/zathurarc
 xdg-mime default org.pwmt.zathura.desktop application/pdf
