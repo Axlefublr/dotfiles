@@ -46,6 +46,7 @@ funcsave magazine_set >/dev/null
 
 function magazine_edit
     not test "$argv" && return
+    cd ~/.local/share/magazine
     flour $argv
     _magazine_commit $argv edit
 end
@@ -126,6 +127,7 @@ funcsave magazine_reverse >/dev/null
 
 function magazine_novel
     not test "$argv" && return
+    cd ~/.local/share/magazine
     set -l result (get_input_max)
     test $status -ne 0 && return
     test "$result" || return
