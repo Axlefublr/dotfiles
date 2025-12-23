@@ -20,8 +20,8 @@ statusline: dict[str, Any] = {
         'spacer',
         'selections',
         'spacer',
-        'file-name',
-        'diagnostics',
+        'smart-path',
+        # 'file-modification-indicator',
     ],
     'center': [
         'read-only-indicator',
@@ -29,6 +29,7 @@ statusline: dict[str, Any] = {
     'right': [
         # 'spinner',
         'register',
+        'diagnostics',
         'search-position',
         'position',
         'total-line-numbers',
