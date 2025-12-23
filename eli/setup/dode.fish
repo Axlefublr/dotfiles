@@ -470,6 +470,12 @@ paru -Sa --needed --disable-download-timeout dxvk-bin lib32-faudio
 # ----------------------lxappearance-----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance qt5ct
 
+# -------------------------lychee--------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout lychee
+# https://github.com/settings/tokens generate a new one
+# needed to not get rate limited by github
+set -Ux GITHUB_TOKEN ?
+
 # -------------------------mapscii-------------------------
 paru -Sa --needed --disable-download-timeout nodejs-mapscii
 
