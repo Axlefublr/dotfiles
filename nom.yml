@@ -2,6 +2,8 @@ configpath: /home/axlefublr/.config/nom/config.yml
 showfavourites: false
 version: ""
 feeds:
+  - url: https://ingrids.space/index.xml
+    name: intarga
   - url: https://borretti.me/feed.xml
     name: borretti
   - url: http://mackeye.sdf.org/feeds/rss.xml
