@@ -50,15 +50,35 @@ function confirm -a message
 end
 funcsave confirm >/dev/null
 
+# function d
+#     echo $PWD >~/.cache/mine/shell-cwd
+#     if set -q argv
+#         fg %(velvidek.rs $argv)
+#     else
+#         fg
+#     end
+# end
+# funcsave d >/dev/null
+
 function d
-    echo $PWD >~/.cache/mine/shell-cwd
-    if set -q argv
-        fg %(velvidek.rs $argv)
-    else
-        fg
+    if not test "$argv"
+        harp-shell.nu harp_shell_$PWD
+        return
     end
+    set -l cmd "$(harp get harp_shell_$PWD $argv[1] 2>/dev/null)"
+    if not test $cmd
+        echo "register `$argv` empty" >&2
+        return
+    end
+    set -l argf $argv[2..]
+    echo -n $cmd | source
 end
 funcsave d >/dev/null
+
+function D
+    harp get harp_shell_$PWD "$argv" 2>/dev/null | vipe --suffix fish | xargs -0 harp replace harp_shell_$PWD "$argv"
+end
+funcsave D >/dev/null
 
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
@@ -85,7 +105,7 @@ end
 funcsave ensure_browser >/dev/null
 
 function flour
-    argparse end half pager disown select screen sleek man -- $argv
+    argparse end half pager disown select sleek man -- $argv
     or return 121
 
     set -l title flour
@@ -103,8 +123,8 @@ function flour
 
     if test "$_flag_pager"
         set -f selected_config -c ~/fes/dot/helix/pager.toml
-    else if test "$_flag_screen"
-        set -f selected_config -c ~/fes/dot/helix/screen.toml
+    else if test "$_flag_man"
+        set -f selected_config -c ~/fes/dot/helix/man.toml
     else if test "$_flag_sleek"
         set -f selected_config -c ~/fes/dot/helix/sleek.toml
     end
@@ -320,6 +340,21 @@ function pwd_compressed
 end
 funcsave pwd_compressed >/dev/null
 
+function rainbow
+    set -l colors ea6962 e49641 d3ad5c a9b665 78bf84 7daea3 b58cc6 e491b2
+    set -l index 1
+    while read -l line
+        set_color $colors[$index]
+        echo $line
+        set index (math $index + 1)
+        if test $index -gt (count $colors)
+            set index 1
+        end
+    end
+    set_color normal
+end
+funcsave rainbow >/dev/null
+
 function rename
     mv $argv[1] _$argv[1]
     mv _$argv[1] $argv[2]
@@ -408,27 +443,6 @@ function wpchange
     swww img -t any --transition-fps 255 --transition-duration 3 $argv
 end
 funcsave wpchange >/dev/null
-
-function x
-    set -l cmd "$(harp get harp_shell_$PWD $argv[1] 2>/dev/null)"
-    if not test $cmd
-        echo "register `$argv` empty" >&2
-        return
-    end
-    set -l argf $argv[2..]
-    echo -n $cmd | source
-end
-funcsave x >/dev/null
-
-function X
-    harp get harp_shell_$PWD "$argv" 2>/dev/null | vipe --suffix fish | xargs -0 harp replace harp_shell_$PWD "$argv"
-end
-funcsave X >/dev/null
-
-function xl
-    harp-shell.nu harp_shell_$PWD
-end
-funcsave xl >/dev/null
 
 function yazi_cd
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
