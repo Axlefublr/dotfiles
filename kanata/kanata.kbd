@@ -54,9 +54,9 @@
 	f (tap-hold-release $tt $ht f (multi (layer-while-held arrow) (on-release tap-vkey any-arrow)))
 	g (tap-hold-release $tt $ht g (layer-while-held apps←))
 	h (tap-hold-release $tt $ht h (layer-while-held apps→))
-	i (tap-hold-release $tt $ht i (layer-while-held brackets))
+	i (tap-hold-release $tt $ht i (multi (layer-while-held brackets) (on-release tap-vkey any-i)))
 	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
-	j (tap-hold-release $tt $ht j (layer-while-held numbers))
+	j (tap-hold-release $tt $ht j (multi (layer-while-held numbers) (on-release tap-vkey any-number)))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
 	m (tap-hold-release $tt $ht m (layer-while-held fuckeys))
@@ -88,7 +88,7 @@
 	d 2
 	e 5
 	f 1
-	i (layer-while-held numbers-superscript)
+	i (multi (layer-while-held brackets) (layer-while-held numbers-superscript) (on-release tap-vkey any-i))
 	q eql
 	r 4
 	s 3
@@ -143,11 +143,11 @@
 (deflayermap (apps→)
 	;; [[sort on]]
 	; (layer-while-held !apps→)
-	a (cmd niri msg action spawn -- footclient -NT fifth fish -c "shuf ~/.local/share/magazine/a &| ov --status-line=false")
+	a (cmd niri msg action spawn -- footclient -NT seventh fish -c "cat ~/.local/share/magazine/a | rainbow | ov --status-line=false")
 	c (cmd niri msg action spawn -- footclient -N calcure)
+	d (cmd niri msg action spawn -- footclient -N talia.nu)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
 	f (cmd niri msg action spawn -- fish -c frizz_picker)
-	g (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/talia fish -c "YAZI_START_PICKING=TRUE yazi")
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq fish -c "YAZI_START_PICKING=TRUE yazi")
 	r (cmd niri msg action spawn -- footclient -NHT hardware-monitor hardware-monitor.nu)
 	s (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)
