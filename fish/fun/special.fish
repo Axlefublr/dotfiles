@@ -203,7 +203,7 @@ funcsave piped_output_editor >/dev/null
 function piped_screen_editor
     set -l file /tmp/mine/helix-overlay
     read -z | sd -f=m '[ \\t▐]+$' '' >$file
-    flour --disown --screen $file
+    flour --disown --pager $file
 end
 funcsave piped_screen_editor >/dev/null
 
