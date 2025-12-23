@@ -15,8 +15,9 @@ html {
 }
 
 /* titlebar */
-div.base__5e434 {
+div[class$='-container'] > div[class$='-base'] {
 	margin-top: -32px;
+	/* display: none; */
 }
 
 pre:has([class^='codeContainer_']) {
