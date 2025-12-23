@@ -89,7 +89,7 @@
 	e S-]
 	f (cmd wtype ”)
 	g (cmd wtype „)
-	j (layer-while-held numbers-superscript)
+	j (multi (layer-while-held numbers) (layer-while-held numbers-superscript) (on-release tap-vkey any-number))
 	q (cmd wtype ‘)
 	r (cmd wtype ’)
 	s S-9
