@@ -10,6 +10,19 @@ def sand --wrapped [...args] {
 	footclient -HN ...$args
 }
 
+def queue --wrapped [...args] {
+	pueue add -g cpu -- ($args | str join ' ') o+e>| ignore
+}
+
+def 'path shrink' [] {
+	let IN = $in
+	$IN | try {
+		path relative-to ~ | '~/' + $in
+	} catch {
+		$IN
+	}
+}
+
 def 'hx-blammo' [full_path: path, relative_path: path, buffer_parent: directory, selection: string] {
 	$full_path | str replace -r '^~' $env.HOME | save -f ~/.cache/mine/blammo
 	$relative_path | str replace -r '^~' $env.HOME | save -f ~/.cache/mine/blammo-relative
@@ -19,23 +32,26 @@ def 'hx-blammo' [full_path: path, relative_path: path, buffer_parent: directory,
 
 def 'hx-finance' [] {
 	let IN = $in
-	let the = [held inc name lasts costs mult] | zip { $IN | from nuon } | into record
+	let the = [held inc name lasts costs mult keep] | zip { $IN | from nuon } | into record
 
 	mut held = $the.held
 	mut remainder = ''
 
 	if ($the.costs | is-not-empty) {
-		let average_cost = ($the.costs | math avg)
-		let safe_average_cost = 1.5 * $average_cost
-		if ($held >= $safe_average_cost) {
-			$remainder = $held - $safe_average_cost | math round | into int
-			$held = $safe_average_cost | math round | into int
+		let max_cost = $the.costs | math max
+		if ($the.keep | is-not-empty) {
+			let safe_max_cost = $the.keep * $max_cost
+			if ($held >= $safe_max_cost) {
+				$remainder = $held - $safe_max_cost | math round | into int
+				$held = $safe_max_cost | math round | into int
+			}
 		}
 	}
 
 	let held  = $held | into string | fill -w 4
 	let name  = $the.name | into string | fill -w 10
 	let mult  = $the.mult | default 'null' | into string | fill -w 4
+	let keep  = $the.keep | default 'null' | into string | fill -w 4
 
 	let lasts = (formatfill 3 $the.lasts)
 	let costs = (formatfill 4 $the.costs)
@@ -53,7 +69,7 @@ def 'hx-finance' [] {
 	}
 	| into string | fill -w 3
 
-	print $'[($held), ($inc), ($name), ($lasts), ($costs), ($mult)]($remainder)'
+	print $'[($held), ($inc), ($name), ($lasts), ($costs), ($mult), ($keep)]($remainder)'
 
 	def formatfill [width: int, input?: list] {
 		# you're supposed to pass the width that each number is supposed to occupy
