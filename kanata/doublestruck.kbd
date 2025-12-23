@@ -81,6 +81,8 @@
 	c (cmd wtype ⁸)
 	x (cmd wtype ⁹)
 	a (cmd wtype ⁰)
+	z (cmd wtype ⁻)
+	q (cmd wtype ⁼)
 )
 
 (deflayermap (numbers-subscript)
@@ -94,4 +96,6 @@
 	c (cmd wtype ₈)
 	x (cmd wtype ₉)
 	a (cmd wtype ₀)
+	z (cmd wtype ₋)
+	q (cmd wtype ₌)
 )
