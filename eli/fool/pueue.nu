@@ -8,6 +8,10 @@ def --wrapped main [...rest] {
 	pueue ...$rest
 }
 
+def 'main interact' [] {
+	pueue status
+}
+
 def 'main callback' [
 	id
 	command
