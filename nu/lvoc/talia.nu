@@ -7,25 +7,19 @@ let talias = ls ~/fes/talia/
 | get name
 | each { path basename }
 
-$talias
+let filled = $talias
 | each { |talia|
 	let plans_path = $"~/fes/talia/($talia)/plans.md" | path expand
-	if (try { open $plans_path } | default '' | is-empty) {
+	let contents = try { open $plans_path }
+	if ($contents | default '' | is-empty) {
 		$'(ansi "#e49641")(ansi bo)($talia)(ansi reset)' | print
+	} else {
+		$"(ansi '#e49641')(ansi bo)($talia)(ansi reset)\n" ++ $contents
 	}
-} | ignore
+}
 print ''
-$talias
-| each { |talia|
-	let plans_path = $"~/fes/talia/($talia)/plans.md" | path expand
-	if ($plans_path | path exists) {
-		let contents = open $plans_path
-		if ($contents | is-not-empty) {
-			$'(ansi "#e49641")(ansi bo)($talia)(ansi reset)' | print
-			$contents | print
-		}
-	}
-} | ignore
+$filled
+| each { print }
 
 def open_result [] {
 	let parent = $"~/fes/talia/($in)" | path expand
