@@ -414,6 +414,10 @@ window-rule {
     default-column-width { proportion 0.2; }
 }
 window-rule {
+    match app-id="^foot" title="seventh"
+    default-column-width { proportion 0.15; }
+}
+window-rule {
     match app-id="^foot" title="tenth"
     default-column-width { proportion 0.1; }
 }
