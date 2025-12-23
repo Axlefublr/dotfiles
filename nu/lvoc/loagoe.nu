@@ -23,7 +23,6 @@ const known = {
 	nails: 13
 	vacuat: 14
 	bottle: 15
-	glasses: 15
 	photos: 15
 	update: 15
 	upload: 15
