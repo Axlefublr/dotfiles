@@ -43,3 +43,4 @@ abbr -a trr trash-restore
 abbr -a tu 'systemctl --user'
 abbr -a tz 'tz -q UTC Europe/Moscow'
 abbr -a u pueue.nu
+abbr -a x 'http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118'
