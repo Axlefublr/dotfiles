@@ -130,12 +130,6 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout cowsay
 # -------------------------cursors-------------------------
 # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
 sudo cp -fr ~/iwm/dls/cursors/Lighted-Pixel-Butter /usr/share/icons
-# this is only needed because firefox is stupid and reverts to Adwaita for some reason
-sudo ln -sn /usr/share/icons/Lighted-Pixel-Butter /usr/share/icons/mine
-sudo cp -fr /usr/share/icons/Adwaita/cursors{,.bak}
-for file in /usr/share/icons/Adwaita/cursors/*
-    sudo ln -sf /usr/share/icons/mine/cursors/(path basename $file) $file
-end
 
 # -------------------------discord-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout discord
