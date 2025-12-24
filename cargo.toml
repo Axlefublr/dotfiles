@@ -10,8 +10,8 @@ maybe = 'add --dry-run'
 do = 'doc --open'
 dd = 'doc --no-deps'
 ddo = 'doc --no-deps --open'
-w = 'watch -q -c -x clippy'
 s = 'search'
+seek = 'seek --fps 100'
 
 [env]
 RUST_LOG = 'trace'

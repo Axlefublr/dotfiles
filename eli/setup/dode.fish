@@ -103,6 +103,9 @@ cargo binstall -y cargo-script
 rm -fr ~/.cargo/binary_cache
 rm -fr ~/.cargo/script_cache
 
+# -----------------------cargo-seek------------------------
+cargo binstall -y cargo-seek
+
 # --------------------------cava---------------------------
 paru -Sa --needed --disable-download-timeout cava
 
