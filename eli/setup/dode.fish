@@ -10,7 +10,7 @@ sudo udevadm control --reload
 sudo pacman -S --needed --noconfirm --disable-download-timeout aichat
 
 # -------------------------aichat!-------------------------
-paru -Rns aichat
+yay -Rns aichat
 rm -fr ~/.config/aichat
 
 # ------------------------alacritty------------------------
@@ -19,8 +19,8 @@ mkdir -p ~/.config/alacritty
 ln -sf ~/fes/dot/alacritty.toml ~/.config/alacritty.toml
 
 # --------------------------anki---------------------------
-paru -Sa --needed --disable-download-timeout anki
-# paru -Sa --needed --disable-download-timeout anki-bin
+yay -Sa --needed --disable-download-timeout anki
+# yay -Sa --needed --disable-download-timeout anki-bin
 sudo -E helix /usr/share/applications/anki.desktop
 # env HTTP_PROXY="http://127.0.0.1:8118" HTTPS_PROXY="http://127.0.0.1:8118"
 # you're using your privoxy here
@@ -29,7 +29,7 @@ sudo -E helix /usr/share/applications/anki.desktop
 sudo pacman -S --needed --noconfirm --disable-download-timeout antimicrox
 
 # ------------------ascii-image-converter------------------
-paru -Sa --needed --disable-download-timeout ascii-image-converter-bin
+yay -Sa --needed --disable-download-timeout ascii-image-converter-bin
 
 # ------------------------asciinema------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout asciinema
@@ -107,14 +107,14 @@ rm -fr ~/.cargo/script_cache
 cargo binstall -y cargo-seek
 
 # --------------------------cava---------------------------
-paru -Sa --needed --disable-download-timeout cava
+yay -Sa --needed --disable-download-timeout cava
 
 # --------------------------cava!--------------------------
-paru -Rns cava
+yay -Rns cava
 rm -fr ~/.config/cava
 
 # -------------------------cbonsai-------------------------
-paru -Sa --needed --disable-download-timeout cbonsai
+yay -Sa --needed --disable-download-timeout cbonsai
 
 # ------------------------cliphist-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout cliphist
@@ -153,7 +153,7 @@ sudo ip link set dev wlan0 mtu $optimal_value
 # add "/home/axlefublr/.local/share/Steam/steamapps/common/Enter the Gungeon/start_game_bepinex.sh" to steam as non-steam game
 
 # -------------------------etcher--------------------------
-paru -Sa --needed --disable-download-timeout etcher-cli-bin
+yay -Sa --needed --disable-download-timeout etcher-cli-bin
 
 # --------------------------exrex--------------------------
 uv tool install exrex
@@ -196,13 +196,13 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout figlet
 
 # -------------------------firefox-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout firefox
-# paru -Sa --needed --disable-download-timeout firefox-nightly-bin
+# yay -Sa --needed --disable-download-timeout firefox-nightly-bin
 set -Ux MOZ_ENABLE_WAYLAND 1
 set -Ux GTK_THEME Adwaita:dark # only execute if you haven't set up your gruvbox theme yet
 # then follow your firefox tiq
 
 # -------------------------floorp--------------------------
-paru -Sa --needed --disable-download-timeout floorp xwayland-run
+yay -Sa --needed --disable-download-timeout floorp xwayland-run
 # everything else is tiq/firefox/floorp
 
 # --------------------------fnott--------------------------
@@ -221,7 +221,7 @@ id -g # group_id
 
 # --------------------------fonts--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-input ttf-input-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd
-paru -Sa --needed --disable-download-timeout ttf-comfortaa
+yay -Sa --needed --disable-download-timeout ttf-comfortaa
 
 # --------------------------foot---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout foot
@@ -320,7 +320,7 @@ stew install babarot/gomi
 ln -sf ~/fes/dot/gomi.yaml ~/.config/gomi/config.yaml
 
 # -------------------------gradia--------------------------
-paru -Sa --needed --disable-download-timeout gradia
+yay -Sa --needed --disable-download-timeout gradia
 
 # -----------------------gromit-mpx------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gromit-mpx
@@ -347,12 +347,12 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout gtk3-demos # for 
 
 # ----------------------gpu-benchmark----------------------
 # sudo pacman -S --needed --noconfirm --disable-downlod-timeout glmark2
-# paru -Sa --needed --disable-download-timeout gputest
-paru -Sa --needed --disable-download-timeout unigine-superposition
+# yay -Sa --needed --disable-download-timeout gputest
+yay -Sa --needed --disable-download-timeout unigine-superposition
 
 # --------------------------helix--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua python-toml
-paru -Sa --needed --disable-download-timeout prettierd
+yay -Sa --needed --disable-download-timeout prettierd
 cd ~/fes/ork
 git clone --depth=1 https://github.com/Axlefublr/helix hx
 cd hx
@@ -380,7 +380,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout hyperfine
 sudo pacman -S --needed --noconfirm --disable-download-timeout imv
 
 # -------------------------iosevka-------------------------
-paru -Sa --needed --disable-download-timeout ttfautohint-git # non-git doesn't download
+yay -Sa --needed --disable-download-timeout ttfautohint-git # non-git doesn't download
 gh give https://github.com/be5invis/Iosevka
 npm install
 ln -sf ~/fes/jiro/iosevka.toml $PWD/private-build-plans.toml
@@ -394,7 +394,7 @@ jj util completion fish | source
 ln -sf ~/fes/dot/jj.toml ~/.config/jj/config.toml
 
 # ------------------------jpeg2png-------------------------
-paru -Sa --needed --disable-download-timeout jpeg2png
+yay -Sa --needed --disable-download-timeout jpeg2png
 
 # ---------------------------jq----------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout jq jaq
@@ -441,8 +441,8 @@ rsync ~/fes/jiro/krita/input/default.profile ~/.local/share/krita/input/kritadef
 sudo pacman -S --needed --noconfirm --disable-download-timeout kruler
 
 # -------------------------lazygit-------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout lazygit
-# paru -Sa --needed --disable-download-timeout lazygit-git
+# sudo pacman -S --needed --noconfirm --disable-download-timeout lazygit
+yay -Sa --needed --disable-download-timeout lazygit-git
 mkdir -p ~/.config/lazygit
 ln -sf ~/fes/dot/lazygit.yml ~/.config/lazygit/config.yml
 
@@ -465,7 +465,7 @@ sudo pacman -S lolcat
 
 # -------------------------lutris--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lutris wine-gecko winetricks gamemode lib32-gamemode vkd3d lib32-vkd3d lib32-gnutls
-paru -Sa --needed --disable-download-timeout dxvk-bin lib32-faudio
+yay -Sa --needed --disable-download-timeout dxvk-bin lib32-faudio
 
 # ----------------------lxappearance-----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance qt5ct
@@ -474,10 +474,10 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance qt5c
 sudo pacman -S --needed --noconfirm --disable-download-timeout lychee
 
 # -------------------------mapscii-------------------------
-paru -Sa --needed --disable-download-timeout nodejs-mapscii
+yay -Sa --needed --disable-download-timeout nodejs-mapscii
 
 # ------------------------mapscii!-------------------------
-paru -Rns nodejs-mapscii
+yay -Rns nodejs-mapscii
 rm -fr ~/.mapscii
 
 # ------------------------minecraft------------------------
@@ -510,7 +510,7 @@ mkdir -p ~/.config/systemd/user/niri.service.wants
 niri completions fish >~/.config/fish/completions/niri.fish
 
 # ---------------------------nom---------------------------
-# paru -Sa --needed --disable-download-timeout nom
+# yay -Sa --needed --disable-download-timeout nom
 stew install guyfedwards/nom
 mkdir -p ~/.config/nom
 ln -sf ~/fes/dot/nom.yml ~/.config/nom/config.yml
@@ -561,10 +561,10 @@ set -Ux PAGER ov
 set -Ux SYSTEMD_PAGERSECURE true
 set -Ux SYSTEMD_PAGER ov
 
-# --------------------------paru---------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout paru
-mkdir -p ~/.config/paru
-ln -sf ~/fes/dot/paru.conf ~/.config/paru/paru.conf
+# --------------------------yay---------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout yay
+mkdir -p ~/.config/yay
+ln -sf ~/fes/dot/yay.conf ~/.config/yay/yay.conf
 
 # --------------------------picom--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout picom
@@ -578,10 +578,10 @@ ln -sf ~/fes/dot/pik.toml ~/.config/pik/config.toml
 
 # --------------------------pipes--------------------------
 # visual lines going all over the screen
-paru -Sa --needed --disable-download-timeout bash-pipes
+yay -Sa --needed --disable-download-timeout bash-pipes
 
 # ------------plants vs zombies 2 reflourished-------------
-paru -Sa --needed --disable-download-timeout waydroid
+yay -Sa --needed --disable-download-timeout waydroid
 sudo waydroid init
 sudo systemctl start waydroid-container
 
@@ -657,10 +657,10 @@ qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
 
 # -----------------------quickshell------------------------
 # google-breakpad, a dependency of quickshell, brings in the dump_syms
-paru -Rns dump_syms
+yay -Rns dump_syms
 sudo pacman -S --needed --noconfirm --disable-download-timeout qt5-imageformats qt5-multimedia qt5-connectivity
 sudo pacman -S --needed --noconfirm --disable-download-timeout quickshell
-# paru -Sa --needed --disable-download-timeout google-breakpad-git quickshell-git
+# yay -Sa --needed --disable-download-timeout google-breakpad-git quickshell-git
 # create empty .qmlls.ini file next to the shell.qml file
 rm -fr ~/.config/quickshell
 ln -s ~/fes/dot/qs ~/.config/quickshell
@@ -733,7 +733,7 @@ sudo systemctl enable --now sddm
 
 # --------------------------serpl--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout serpl
-paru -Sa --needed --disable-download-timeout ast-grep-bin
+yay -Sa --needed --disable-download-timeout ast-grep-bin
 mkdir -p ~/.config/serpl
 ln -sf ~/fes/dot/serpl.yml ~/.config/serpl/serpl.yml
 
@@ -852,7 +852,7 @@ cargo binstall -y systemd-manager-tui
 
 # ---------------------termfilechooser---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk
-paru -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git
+yay -Sa --needed --disable-download-timeout xdg-desktop-portal-termfilechooser-git
 fish_add_path /usr/lib
 set -Ux TERMCMD foot
 set -Ux GDK_DEBUG portals
@@ -905,7 +905,7 @@ ln -sf ~/.local/share/magazine/U ~/.config/ttyper/language/uclanr
 cargo binstall -y tuisky
 
 # -------------------------twemoji-------------------------
-paru -Sa --needed --disable-download-timeout ttf-twemoji
+yay -Sa --needed --disable-download-timeout ttf-twemoji
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 
 # ---------------------------tz----------------------------
@@ -913,16 +913,16 @@ indeed.rs -u ~/.local/share/magazine/W -- '-a .tar.gz https://github.com/oz/tz'
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 
 # ------------------------unimatrix------------------------
-paru -Sa --needed --disable-download-timeout unimatrix-git
+yay -Sa --needed --disable-download-timeout unimatrix-git
 
 # -------------------------ventoy--------------------------
-paru -Sa --needed --disable-download-timeout ventoy-bin
+yay -Sa --needed --disable-download-timeout ventoy-bin
 ventoygui # to install ventoy onto a usb stick
 
 # -------------------------vesktop-------------------------
 #> privoxy
-paru -Sa --needed --disable-download-timeout --asdeps electron37-bin
-paru -Sa --needed --disable-download-timeout vesktop-bin
+yay -Sa --needed --disable-download-timeout --asdeps electron37-bin
+yay -Sa --needed --disable-download-timeout vesktop-bin
 sudo -E helix /usr/share/applications/vesktop.desktop
 # ELECTRON_ENABLE_WAYLAND=1 OZONE_PLATFORM=wayland vesktop --proxy-server=127.0.0.1:8118 --ozone-platform=wayland
 
@@ -961,12 +961,12 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout python cairo pkgc
 uv tool install wlosd
 
 # -----------------------wayscriber------------------------
-paru -Sa --needed --disable-download-timeout wayscriber-bin
+yay -Sa --needed --disable-download-timeout wayscriber-bin
 systemctl --user enable --now wayscriber.service
 ln -sf ~/fes/dot/wayscriber.toml ~/.config/wayscriber/config.toml
 
 # -------------------------webcord-------------------------
-paru -Sa --needed --disable-download-timeout webcord-bin
+yay -Sa --needed --disable-download-timeout webcord-bin
 
 # -----------------------wf-recorder-----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout wf-recorder
@@ -984,7 +984,7 @@ make
 rsync ./wlclock ~/fes/eva
 
 # ------------------------wl-kbptr-------------------------
-paru -Sa --needed --disable-download-timeout wl-kbptr
+yay -Sa --needed --disable-download-timeout wl-kbptr
 mkdir -p ~/.config/wl-kbptr
 ln -sf ~/fes/dot/wlkbptr.ini ~/.config/wl-kbptr/config
 
@@ -1011,7 +1011,7 @@ cp -f ./build/wooz ~/fes/eva/wooz
 
 # ---------------------------wtf---------------------------
 # “wtf is curl” — quickly explains a rRam
-paru -Sa --needed --disable-download-timeout wtf
+yay -Sa --needed --disable-download-timeout wtf
 
 # ----------------------------x----------------------------
 ln -sf ~/fes/dot/x11/xresources ~/.Xresources
@@ -1059,13 +1059,13 @@ ln -sf ~/fes/dot/zathura ~/.config/zathura/zathurarc
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 
 # ---------------------------zen---------------------------
-paru -Sa --needed --disable-download-timeout zen-browser-bin
+yay -Sa --needed --disable-download-timeout zen-browser-bin
 
 # --------------------------zola---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout zola
 
 # --------------------------zoom---------------------------
-paru -Sa --needed --disable-download-timeout zoom
+yay -Sa --needed --disable-download-timeout zoom
 
 # -------------------------zoxide--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout zoxide
