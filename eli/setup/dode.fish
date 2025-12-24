@@ -251,8 +251,11 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout gamescope
 
 # ---------------------------gh----------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout github-cli
-gh auth login
-gh auth refresh -h github.com -s delete_repo
+# https://github.com/settings/tokens generate a new one
+# needed to not get rate limited by github
+set -Ux GITHUB_TOKEN ?
+# gh auth login
+# gh auth refresh -h github.com -s delete_repo
 
 # -------------------------ghostty-------------------------
 cd ~/fes/ork
@@ -472,9 +475,6 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout lxappearance qt5c
 
 # -------------------------lychee--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lychee
-# https://github.com/settings/tokens generate a new one
-# needed to not get rate limited by github
-set -Ux GITHUB_TOKEN ?
 
 # -------------------------mapscii-------------------------
 paru -Sa --needed --disable-download-timeout nodejs-mapscii
