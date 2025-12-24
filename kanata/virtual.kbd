@@ -1,14 +1,17 @@
 (defvirtualkeys
-	any-arrow (multi (release-layer arrow) (release-layer hack-arrow) (release-layer #arrow)     (release-layer #hack-arrow))
-	any-hack  (multi (release-layer hack)  (release-layer #hack)      (release-layer hack-arrow) (release-layer #hack-arrow))
-	any-#     (multi (release-layer #←)    (release-layer #arrow)     (release-layer #hack)      (release-layer #hack-arrow))
-	any-number (multi (release-layer numbers) (release-layer numbers-subscript) (release-layer numbers-superscript))
-	any-i (multi (release-layer brackets) (release-layer numbers-superscript))
+	any-f (multi (release-layer f) (release-layer ef) (release-layer fw) (release-layer efw))
+	any-e (multi (release-layer e) (release-layer ew) (release-layer ef) (release-layer efw))
+	any-w (multi (release-layer w) (release-layer fw) (release-layer ew) (release-layer efw))
+	any-j (multi (release-layer j) (release-layer comma-j) (release-layer ij) (release-layer jo) (release-layer ijo))
+	any-i (multi (release-layer i) (release-layer ij) (release-layer io) (release-layer ijo))
+	any-o (multi (release-layer o) (release-layer jo) (release-layer io) (release-layer ijo))
+	any-x (multi (release-layer x) (release-layer xc))
+	any-c (multi (release-layer c) (release-layer xc))
 	shift lsft
 	ctrl  lctl
 	alt   lalt
 	meta  lmet
 	any-modifier (multi (on-press release-vkey shift) (on-press release-vkey ctrl) (on-press release-vkey alt) (on-press release-vkey meta))
 	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey any-modifier))
-	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held mouse) (on-release tap-vkey disable-mouse-mode))
+	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held space) (on-release tap-vkey disable-mouse-mode))
 )

@@ -5,7 +5,7 @@
 	c (cmd wtype 𝕔)
 	d (cmd wtype 𝕕)
 	e (cmd wtype 𝕖)
-	f (tap-hold-release $tt $ht (cmd wtype 𝕗) (layer-while-held arrow))
+	f (tap-hold-release $tt $ht (cmd wtype 𝕗) (layer-while-held f))
 	g (cmd wtype 𝕘)
 	h (cmd wtype 𝕙)
 	i (cmd wtype 𝕚)
@@ -70,7 +70,8 @@
 	a (cmd wtype 𝟘)
 )
 
-(deflayermap (numbers-superscript)
+(deflayermap (ij)
+	o (multi rmet (layer-while-held o) (layer-while-held io) (layer-while-held jo) (layer-while-held ijo) (on-release tap-vkey any-o))
 	f (cmd wtype ¹)
 	d (cmd wtype ²)
 	s (cmd wtype ³)
@@ -85,7 +86,7 @@
 	q (cmd wtype ⁼)
 )
 
-(deflayermap (numbers-subscript)
+(deflayermap (comma-j)
 	f (cmd wtype ₁)
 	d (cmd wtype ₂)
 	s (cmd wtype ₃)

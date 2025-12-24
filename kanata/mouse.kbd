@@ -1,4 +1,4 @@
-(deflayermap (mouse)
+(deflayermap (space)
 	caps esc
 	spc ret
 	n (on-press toggle-vkey mouse-mode)

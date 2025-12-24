@@ -26,8 +26,8 @@
 (defsrc)
 (deflayermap (default)
 	;; [[sort on]]
-	' (tap-hold-release $tt $ht ' (layer-while-held chord))
-	, (tap-hold-release $tt $ht , (layer-while-held magazine))
+	' (tap-hold-release $tt $ht ' (layer-while-held quote))
+	, (tap-hold-release $tt $ht , (layer-while-held comma))
 	- (multi (layer-switch pvz) (cmd notify-send "plants vs zombies"))
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / XX)
@@ -41,54 +41,55 @@
 	7 XX
 	8 XX
 	9 (cmd fish -c screenshot_window)
-	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held !→)))
+	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held semicolon)))
 	= (multi (layer-switch nuclear-throne) (cmd notify-send "nuclear throne"))
 	` XX
-	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held !←)))
+	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held a)))
 	b (tap-hold-release $tt $ht b XX)
-	c (tap-hold-release $tt $ht c (layer-while-held symbol-secondary))
-	caps (tap-hold-release $tt $ht esc (layer-while-held capsy))
+	c (tap-hold-release $tt $ht c (multi (layer-while-held c) (on-release tap-vkey any-c)))
+	caps (tap-hold-release $tt $ht esc (layer-while-held caps))
 	d (tap-hold-release $tt $ht d lctl)
-	e (tap-hold-release $tt $ht e (multi (layer-while-held hack) (on-release tap-vkey any-hack)))
+	e (tap-hold-release $tt $ht e (multi (layer-while-held e) (on-release tap-vkey any-e)))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
-	f (tap-hold-release $tt $ht f (multi (layer-while-held arrow) (on-release tap-vkey any-arrow)))
-	g (tap-hold-release $tt $ht g (layer-while-held apps←))
-	h (tap-hold-release $tt $ht h (layer-while-held apps→))
-	i (tap-hold-release $tt $ht i (multi (layer-while-held brackets) (on-release tap-vkey any-i)))
+	f (tap-hold-release $tt $ht f (multi (layer-while-held f) (on-release tap-vkey any-f)))
+	g (tap-hold-release $tt $ht g (layer-while-held g))
+	h (tap-hold-release $tt $ht h (layer-while-held h))
+	i (tap-hold-release $tt $ht i (multi (layer-while-held i) (on-release tap-vkey any-i)))
 	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
-	j (tap-hold-release $tt $ht j (multi (layer-while-held numbers) (on-release tap-vkey any-number)))
+	j (tap-hold-release $tt $ht j (multi (layer-while-held j) (on-release tap-vkey any-j)))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
-	m (tap-hold-release $tt $ht m (layer-while-held fuckeys))
-	n (tap-hold-release $tt $ht n (layer-while-held func))
-	o (tap-hold-release $tt $ht o lmet)
+	m (tap-hold-release $tt $ht m (layer-while-held m))
+	n (tap-hold-release $tt $ht n (layer-while-held n))
+	o (tap-hold-release $tt $ht o (multi rmet (layer-while-held o) (on-release tap-vkey any-o)))
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
-	r (tap-hold-release $tt $ht r (layer-while-held symbol→))
+	r (tap-hold-release $tt $ht r (layer-while-held r))
 	s (tap-hold-release $tt $ht s lsft)
-	spc (tap-hold-release $tt $ht spc (multi (layer-while-held mouse) (on-release tap-vkey any-modifier)))
+	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on-release tap-vkey any-modifier)))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
-	u (tap-hold-release $tt $ht u (layer-while-held symbol←))
-	v (tap-hold-release $tt $ht v (layer-while-held symbol-tertiary))
-	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held #←) (on-release tap-vkey any-#)))
-	x (tap-hold-release $tt $ht x (layer-while-held symbol-primary))
+	u (tap-hold-release $tt $ht u (layer-while-held u))
+	v (tap-hold-release $tt $ht v (layer-while-held v))
+	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held w) (on-release tap-vkey any-w)))
+	x (tap-hold-release $tt $ht x (multi (layer-while-held x) (on-release tap-vkey any-x)))
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
 )
 
-(deflayermap (numbers)
+(deflayermap (j)
 	;; [[sort on]]
-	' (layer-while-held chord-overlay)
-	, (layer-while-held numbers-subscript)
+	' (layer-while-held quote-j)
+	, (layer-while-held comma-j)
 	a 0
 	c 8
 	caps (tap-hold-release $tt $ht A-w XX)
 	d 2
 	e 5
 	f 1
-	i (multi (layer-while-held brackets) (layer-while-held numbers-superscript) (on-release tap-vkey any-i))
+	i (multi (layer-while-held i) (layer-while-held ij) (on-release tap-vkey any-i))
+	o (multi rmet (layer-while-held o) (layer-while-held jo) (on-release tap-vkey any-o))
 	q eql
 	r 4
 	s 3
@@ -99,7 +100,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (arrow)
+(deflayermap (f)
 	;; [[sort on]]
 	' del
 	, pgup
@@ -107,7 +108,7 @@
 	/ (cmd fish -c "wtype (uclanr 3 -j -)")
 	; bspc
 	caps esc
-	e (multi (layer-while-held hack) (layer-while-held hack-arrow) (on-release tap-vkey any-hack))
+	e (multi (layer-while-held e) (layer-while-held ef) (on-release tap-vkey any-e))
 	h left
 	i tab
 	j down
@@ -120,12 +121,12 @@
 	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
 	spc ins
 	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
-	w (multi lmet (layer-while-held #←) (layer-while-held #arrow) (on-release tap-vkey any-#))
+	w (multi lmet (layer-while-held w) (layer-while-held fw) (on-release tap-vkey any-w))
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
 
-(deflayermap (fuckeys)
+(deflayermap (m)
 	f F1
 	d F2
 	s F3
@@ -140,9 +141,9 @@
 	z F12
 )
 
-(deflayermap (apps→)
+(deflayermap (h)
 	;; [[sort on]]
-	; (layer-while-held !apps→)
+	; (layer-while-held semicolon-h)
 	a (cmd niri msg action spawn -- footclient -NT seventh fish -c "cat ~/.local/share/magazine/a | rainbow | ov --status-line=false")
 	c (cmd niri msg action spawn -- footclient -N calcure)
 	d (cmd niri msg action spawn -- footclient -N talia.nu)
@@ -155,14 +156,14 @@
 	;; [[sort off]]
 )
 
-(deflayermap (!apps→)
+(deflayermap (semicolon-h)
 )
 
-(deflayermap (apps←)
+(deflayermap (g)
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
-	a (layer-while-held !apps←)
+	a (layer-while-held ag)
 	b (cmd pick-blog-post.nu)
 	h (cmd niri msg action spawn -- footclient -N tewi)
 	i (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix (uclanr -j - 3)")
@@ -176,13 +177,13 @@
 	;; [[sort off]]
 )
 
-(deflayermap (!apps←)
+(deflayermap (ag)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix .)
 	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
 	m (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/osl/slme yazi)
 )
 
-(deflayermap (capsy)
+(deflayermap (caps)
 	;; [[sort on]]
 	d (cmd fish -c media_next)
 	e (cmd fish -c "set_volume 0.02+")
@@ -194,9 +195,9 @@
 	;; [[sort off]]
 )
 
-(deflayermap (func)
+(deflayermap (n)
 	;; [[sort on]]
-	' (layer-while-held func-chord)
+	' (layer-while-held quote-n)
 	c (cmd fish -c "clipboard_index 1")
 	d (cmd fish -c screenshot_window)
 	e (cmd fish -c "runner_math")
@@ -208,7 +209,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (func-chord)
+(deflayermap (quote-n)
 	;; [[sort on]]
 	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	d (cmd fish -c show_clipboard_image)
@@ -219,7 +220,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (chord)
+(deflayermap (quote)
 	;; [[sort on]]
 	;; d (cmd fish -c "runner show")
 	a (cmd fish -c runner_interactive_unicode)
@@ -228,8 +229,8 @@
 	d (cmd niri msg action spawn -- fuzzel)
 	e (cmd fish -c internet_search)
 	f (cmd fish -c "runner_link open")
-	j (layer-while-held chord-overlay)
-	n (layer-while-held func-chord)
+	j (layer-while-held quote-j)
+	n (layer-while-held quote-n)
 	r (cmd fish -c clipboard_pick)
 	s (cmd fish -c runner_link)
 	w (one-shot $ot (layer-while-held bookmark))
@@ -237,7 +238,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (chord-overlay)
+(deflayermap (quote-j)
 	caps (cmd fish -c ntf_dismiss_old)
 	d (cmd fish -c "xdg-open (wl-paste -n) ; ensure_browser")
 	w (one-shot $ot (layer-while-held bookmark-set))

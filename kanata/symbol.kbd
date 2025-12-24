@@ -1,8 +1,9 @@
-(deflayermap (symbol-primary)
+(deflayermap (x)
 	;; [[sort on]]
 	, S-1
 	. (cmd wtype …)
 	/ bksl
+	c (multi (layer-while-held c) (layer-while-held xc) (on-release tap-vkey any-c))
 	h S-4
 	i S-8
 	j S-eql
@@ -16,7 +17,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (symbol-secondary)
+(deflayermap (c)
 	;; [[sort on]]
 	, S-7
 	. (cmd wtype °)
@@ -32,10 +33,19 @@
 	o S-2
 	p (cmd wtype ™)
 	u (cmd wtype ₽)
+	x (multi (layer-while-held x) (layer-while-held xc) (on-release tap-vkey any-x))
 	;; [[sort off]]
 )
 
-(deflayermap (symbol-tertiary)
+(deflayermap (xc)
+	m (cmd wtype ≈)
+	n (cmd wtype ∞)
+	j (cmd wtype ≤)
+	k (cmd wtype ≥)
+	l (cmd wtype ≠)
+)
+
+(deflayermap (v)
 	;; [[sort on]]
 	, (cmd wtype ❗)
 	/ (cmd wtype ❓)
@@ -50,7 +60,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (symbol←)
+(deflayermap (u)
 	;; [[sort on]]
 	a (cmd wtype 💯)
 	c (cmd wtype 😢)
@@ -66,7 +76,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (symbol→)
+(deflayermap (r)
 	;; [[sort on]]
 	, (cmd wtype 🕯️)
 	i (cmd wtype 😌)
@@ -81,7 +91,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (brackets)
+(deflayermap (i)
 	;; [[sort on]]
 	a (cmd wtype “)
 	c ]
@@ -89,7 +99,8 @@
 	e S-]
 	f (cmd wtype ”)
 	g (cmd wtype „)
-	j (multi (layer-while-held numbers) (layer-while-held numbers-superscript) (on-release tap-vkey any-number))
+	j (multi (layer-while-held j) (layer-while-held ij) (on-release tap-vkey any-j))
+	o (multi rmet (layer-while-held o) (layer-while-held io) (on-release tap-vkey any-o))
 	q (cmd wtype ‘)
 	r (cmd wtype ’)
 	s S-9
