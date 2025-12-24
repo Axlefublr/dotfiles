@@ -269,14 +269,11 @@ all_modes_mappings: dict[str, Any] = {
 normal_select_mappings: dict[str, Any] = {
     **disable(['B', 'P', 'R', 'V', 'Y', 'b', 'p', 'y', 'C', '\\', 'z']),
     # [[sort on]]
-    ';': ['collapse_selection', 'normal_mode'],
     '!': ['keep_primary_selection', 'normal_mode'],
     '#': 'yank_joined',
     '$': 'remove_selections',
     '%': ['save_selection', 'select_all'],
     '&': '@q<ret>',
-    '(': 'goto_prev_change',
-    ')': 'goto_next_change',
     '*': ['search_selection_detect_word_boundaries', 'normal_mode'],
     '+': 'rotate_selections_forward',
     '-': 'rotate_selections_backward',
@@ -292,6 +289,7 @@ normal_select_mappings: dict[str, Any] = {
     '7': ':buffer-nth 7',
     '8': ':buffer-nth 8',
     '9': ':buffer-nth 9',
+    ';': ['collapse_selection', 'normal_mode'],
     '=': 'remove_primary_selection',
     '?': 'rsearch',
     '@': 'toggle_comments',
@@ -338,18 +336,22 @@ normal_select_mappings: dict[str, Any] = {
     'S-tab': "@<space>'<up><ret>",
     'T': 'redo',
     'U': 'insert_at_line_end',
+    'V': ['collapse_selection', 'replace'],
     'W': 'repeat_last_motion',
     'X': 'join_selections_space',
     'Z': 'copy_register_to_yank',
-    '[': 'goto_prev_diag',
     '\\': ':sort',
-    ']': 'goto_next_diag',
     '^': '@%q<ret>',
     '_': 'switch_to_lowercase',
+    '`': ['collapse_selection', 'switch_case'],
     'b': ['add_newline_below', 'move_line_down', 'paste_before'],
     'c': 'change_selection',
     'd': 'delete_selection',
+    'h': 'move_char_left',
     'i': 'insert_mode',
+    'j': 'move_visual_line_down',
+    'k': 'move_visual_line_up',
+    'l': 'move_char_right',
     'n': 'search_next',
     'o': 'paste_after',
     'q': 'select_regex',
@@ -364,17 +366,13 @@ normal_select_mappings: dict[str, Any] = {
     '|': 'shell_pipe',
     '~': ['save_selection', 'select_all', 'yank_to_clipboard', 'jump_backward'],
     '¢': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }",
-    '«': 'shell_append_output',
     '°': 'shell_pipe_to',
-    '²': 'goto_last_change',
-    '³': 'goto_first_change',
-    '»': 'shell_insert_output',
     '×': 'align_selections',
     '÷': 'select_references_to_symbol_under_cursor',
-    '“': ['yank_joined', ':new', 'paste_before', ':amnesia', 'select_all', 'split_selection_on_newline'],
+    '‘': 'shell_append_output',
+    '“': 'shell_insert_output',
+    '„': ['yank_joined', ':new', 'paste_before', ':amnesia', 'select_all', 'split_selection_on_newline'],
     '…': 'split_selection_on_newline',
-    '⁸': 'goto_last_diag',
-    '⁹': 'goto_first_diag',
     '€': 'keep_selections',
     '₽': '@mfpq—<ret>×<A-k>M',
     '↑': ':tree-sitter-highlight-name',
@@ -390,6 +388,11 @@ normal_select_mappings: dict[str, Any] = {
     '❗': ':pipe `"❗"`',
     '💡': ':pipe `"💡"`',
     # [[sort off]]
+    # --------------------------leap---------------------------
+    '<': 'extend_flash_backward',
+    '>': 'extend_flash_forward',
+    'C-,': 'extend_flash_backward_till',
+    'C-.': 'extend_flash_forward_till',
     # ----------------------word motions-----------------------
     'C-1': ['ensure_selections_forward', 'extend_prev_word_end', 'trim_selections'],
     'C-5': ['ensure_selections_forward', 'flip_selections', 'extend_next_word_start', 'trim_selections'],
@@ -438,6 +441,8 @@ normal_select_mappings: dict[str, Any] = {
     'pageup': 'page_cursor_half_up',
     'C-pagedown': ['select_mode', 'page_cursor_half_down', 'normal_mode'],
     'C-pageup': ['select_mode', 'page_cursor_half_up', 'normal_mode'],
+    'S-pagedown': 'goto_next_paragraph',
+    'S-pageup': 'goto_prev_paragraph',
     'A-pagedown': [
         'ensure_selections_forward',
         'select_mode',
@@ -464,6 +469,8 @@ normal_select_mappings: dict[str, Any] = {
         'goto_next_paragraph',
         'normal_mode',
     ],
+    '[': '@mfpr<S-pageup>mfpr',
+    ']': '@mfp<S-pagedown>lmfpr',
     # -------------------------lining--------------------------
     'A-J': ['extend_to_line_bounds', 'ensure_selections_forward', 'select_line_above'],
     'A-K': ['extend_to_line_bounds', 'ensure_selections_forward', 'flip_selections', 'select_line_below'],
@@ -481,7 +488,16 @@ normal_select_mappings: dict[str, Any] = {
     'del': {
         'S-del': [':sh rm %(file_path_absolute)', ':buffer-close!'],
     },
-    'A-.': {
+    # --------------------semantic movement--------------------
+    '(': 'goto_prev_change',
+    ')': 'goto_next_change',
+    '²': 'goto_last_change',
+    '³': 'goto_first_change',
+    '«': 'goto_prev_diag',
+    '»': 'goto_next_diag',
+    '⁷': 'goto_last_diag',
+    '⁻': 'goto_first_diag',
+    '{': {
         't': 'goto_next_test',
         'e': 'goto_next_entry',
         'c': 'goto_next_comment',
@@ -489,7 +505,7 @@ normal_select_mappings: dict[str, Any] = {
         'a': 'goto_next_parameter',
         'd': 'goto_next_class',
     },
-    'A-,': {
+    '’': {
         't': 'goto_prev_test',
         'e': 'goto_prev_entry',
         'c': 'goto_prev_comment',
@@ -565,6 +581,8 @@ normal_select_mappings: dict[str, Any] = {
         'J': 'command_palette',
         'K': 'syntax_workspace_symbol_picker',
         'L': 'workspace_symbol_picker',
+        'V': 'replace',
+        '`': 'switch_case',
         'a': 'harp_command',
         'b': ':open %sh("%{current_working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md")',
         'd': magazine_openers,
@@ -611,43 +629,9 @@ normal_select_mappings: dict[str, Any] = {
 
 normal_insert_mappings: dict[str, Any] = {}
 
-normal_mappings: dict[str, Any] = {
-    # [[sort on]]
-    ',': 'select_mode',
-    '<': ['collapse_selection', 'extend_flash_backward'],
-    '>': ['collapse_selection', 'extend_flash_forward'],
-    'C-,': ['collapse_selection', 'extend_flash_backward_till'],
-    'C-.': ['collapse_selection', 'extend_flash_forward_till'],
-    'V': ['collapse_selection', 'replace'],
-    '`': ['collapse_selection', 'switch_case'],
-    'h': 'move_char_left',
-    'j': 'move_visual_line_down',
-    'k': 'move_visual_line_up',
-    'l': 'move_char_right',
-    # [[sort off]]
-}
+normal_mappings: dict[str, Any] = {}
 
-select_mappings: dict[str, Any] = {
-    # [[sort on]]
-    ',': 'normal_mode',
-    '<': 'extend_flash_backward',
-    '>': 'extend_flash_forward',
-    'C-,': 'extend_flash_backward_till',
-    'C-.': 'extend_flash_forward_till',
-    'C-1': ['ensure_selections_forward', 'extend_prev_sub_word_end'],
-    'C-5': ['ensure_selections_forward', 'flip_selections', 'extend_next_sub_word_start'],
-    'C-e': ['ensure_selections_forward', 'flip_selections', 'extend_prev_sub_word_start'],
-    'C-f': ['ensure_selections_forward', 'extend_next_sub_word_end'],
-    'V': 'replace',
-    '`': 'switch_case',
-    'e': 'move_prev_sub_word_start',
-    'f': 'move_next_sub_word_end',
-    'h': 'extend_char_left',
-    'j': 'extend_visual_line_down',
-    'k': 'extend_visual_line_up',
-    'l': 'extend_char_right',
-    # [[sort off]]
-}
+select_mappings: dict[str, Any] = {}
 
 insert_mappings: dict[str, Any] = {
     # [[sort on]]
