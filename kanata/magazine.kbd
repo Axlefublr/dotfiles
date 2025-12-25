@@ -9,7 +9,6 @@
 (defalias magazine-cancel (multi (cmd fish -c "dot") (layer-switch default)))
 
 (deflayermap (comma)
-	j (layer-while-held comma-j)
 	c (t! magazine-prepare get)
 	e (t! magazine-prepare novel)
 	r (t! magazine-prepare truncate)
