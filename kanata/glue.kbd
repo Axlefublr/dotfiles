@@ -19,7 +19,3 @@
 	i (multi (layer-while-held i) (layer-while-held io) (on-release tap-vkey any-i))
 	j (multi (layer-while-held j) (layer-while-held jo) (on-release tap-vkey any-j))
 )
-
-(deflayermap (jo)
-	i (multi (layer-while-held i) (layer-while-held io) (layer-while-held ij) (layer-while-held ijo) (on-release tap-vkey any-i))
-)
