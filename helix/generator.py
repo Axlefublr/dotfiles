@@ -52,7 +52,6 @@ lsp: dict[str, Any] = {
 
 editor: dict[str, Any] = {
     # [[sort on]]
-    'disable-dot-repeat': True,
     'picker': {'scrolloff': 99},
     'show-diagnostics': True,
     'whichkey': False,
