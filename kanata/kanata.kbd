@@ -70,7 +70,7 @@
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held u))
-	v (tap-hold-release $tt $ht v (layer-while-held v))
+	v (tap-hold-release $tt $ht v (multi (layer-while-held v) (on-release tap-vkey any-v)))
 	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held w) (on-release tap-vkey any-w)))
 	x (tap-hold-release $tt $ht x (multi (layer-while-held x) (on-release tap-vkey any-x)))
 	y (tap-hold-release $tt $ht y XX)

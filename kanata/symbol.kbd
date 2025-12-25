@@ -18,11 +18,12 @@
 )
 
 (deflayermap (c)
+	v (multi (layer-while-held v) (layer-while-held cv) (on-release tap-vkey any-v))
+	x (multi (layer-while-held x) (layer-while-held xc) (on-release tap-vkey any-x))
 	;; [[sort on]]
 	, S-7
 	. (cmd wtype °)
 	/ S-bksl
-	; (cmd wtype █)
 	h (cmd wtype €)
 	i S-6
 	j grv
@@ -33,31 +34,44 @@
 	o S-2
 	p (cmd wtype ™)
 	u (cmd wtype ₽)
-	x (multi (layer-while-held x) (layer-while-held xc) (on-release tap-vkey any-x))
 	;; [[sort off]]
 )
 
 (deflayermap (xc)
-	m (cmd wtype ≈)
-	n (cmd wtype ∞)
+	m (cmd wtype ≻)
+	n (cmd wtype ≺)
 	j (cmd wtype ≤)
 	k (cmd wtype ≥)
-	l (cmd wtype ≠)
+	l (cmd wtype ≈)
+	. (cmd wtype ⤓)
+	, (cmd wtype ⤒)
+	; (cmd wtype ⋖)
+	' (cmd wtype ⋗)
 )
 
 (deflayermap (v)
+	c (multi (layer-while-held c) (layer-while-held cv) (on-release tap-vkey any-c))
 	;; [[sort on]]
+	' (cmd wtype 󰟢)
 	, (cmd wtype ❗)
 	/ (cmd wtype ❓)
+	; (cmd wtype ✨)
 	b (cmd wtype 💡)
 	h (cmd wtype ←)
-	i (cmd wtype ✨)
+	i (cmd wtype 󰕍)
 	j (cmd wtype ↓)
 	k (cmd wtype ↑)
 	l (cmd wtype →)
+	m (cmd wtype ✅)
 	n (cmd wtype ❌)
-	o (cmd wtype ✅)
+	o (cmd wtype ↪)
+	u (cmd wtype █)
 	;; [[sort off]]
+)
+
+(deflayermap (cv)
+	, (cmd wtype ‼️)
+	/ (cmd wtype ⁉️)
 )
 
 (deflayermap (u)
@@ -104,10 +118,40 @@
 	q (cmd wtype ‘)
 	r (cmd wtype ’)
 	s S-9
-	t (cmd wtype ‚)
 	v (cmd wtype »)
 	w S-[
 	x [
 	z (cmd wtype «)
 	;; [[sort off]]
+)
+
+(deflayermap (ij)
+	o (multi rmet (layer-while-held o) (layer-while-held io) (layer-while-held jo) (layer-while-held ijo) (on-release tap-vkey any-o))
+	f (cmd wtype ¹)
+	d (cmd wtype ²)
+	s (cmd wtype ³)
+	r (cmd wtype ⁴)
+	e (cmd wtype ⁵)
+	w (cmd wtype ⁶)
+	v (cmd wtype ⁷)
+	c (cmd wtype ⁸)
+	x (cmd wtype ⁹)
+	a (cmd wtype ⁰)
+	z (cmd wtype ⁻)
+	q (cmd wtype ⁼)
+)
+
+(deflayermap (comma-j)
+	f (cmd wtype ₁)
+	d (cmd wtype ₂)
+	s (cmd wtype ₃)
+	r (cmd wtype ₄)
+	e (cmd wtype ₅)
+	w (cmd wtype ₆)
+	v (cmd wtype ₇)
+	c (cmd wtype ₈)
+	x (cmd wtype ₉)
+	a (cmd wtype ₀)
+	z (cmd wtype ₋)
+	q (cmd wtype ₌)
 )

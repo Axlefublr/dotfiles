@@ -6,7 +6,8 @@
 	any-i (multi (release-layer i) (release-layer ij) (release-layer io) (release-layer ijo))
 	any-o (multi (release-layer o) (release-layer jo) (release-layer io) (release-layer ijo))
 	any-x (multi (release-layer x) (release-layer xc))
-	any-c (multi (release-layer c) (release-layer xc))
+	any-c (multi (release-layer c) (release-layer xc) (release-layer cv))
+	any-v (multi (release-layer v) (release-layer cv))
 	shift lsft
 	ctrl  lctl
 	alt   lalt
