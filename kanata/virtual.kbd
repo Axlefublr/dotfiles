@@ -2,7 +2,7 @@
 	any-f (multi (release-layer f) (release-layer ef) (release-layer fw) (release-layer efw))
 	any-e (multi (release-layer e) (release-layer ew) (release-layer ef) (release-layer efw))
 	any-w (multi (release-layer w) (release-layer fw) (release-layer ew) (release-layer efw))
-	any-j (multi (release-layer j) (release-layer comma-j) (release-layer ij) (release-layer jo) (release-layer ijo))
+	any-j (multi (release-layer j) (release-layer ij) (release-layer jo) (release-layer ijo))
 	any-i (multi (release-layer i) (release-layer ij) (release-layer io) (release-layer ijo))
 	any-o (multi (release-layer o) (release-layer jo) (release-layer io) (release-layer ijo))
 	any-x (multi (release-layer x) (release-layer xc))
