@@ -44,6 +44,7 @@ function __zoxide_z
         and command zoxide add -- (__zoxide_pwd)
     end
 end
+alias f __zoxide_z
 
 not status is-interactive && return
 

@@ -92,14 +92,6 @@ function float_clipboard_image
 end
 funcsave float_clipboard_image >/dev/null
 
-function footclientwhere
-    set -l input (fuzzel -dl 0)
-    not test "$input" && return
-    z (string split ' ' $input)
-    footclient -N
-end
-funcsave footclientwhere >/dev/null
-
 function fragmentize_url
     set -l selection (wl-paste --primary | string escape --style=url)
     not test "$selection"
