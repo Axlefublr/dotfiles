@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Palabra
+Type=Application
+Exec=footclient -T seventh -o 'font=Google Sans Code:size=30,Input Mono:size=30,JetBrainsMono Nerd Font:size=30,Symbols Nerd Font Mono:size=30,Twemoji:size=28' palabra.nu
+Icon=/home/axlefublr/iwm/twemoji/1fab1.svg
