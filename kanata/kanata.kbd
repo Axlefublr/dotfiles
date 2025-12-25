@@ -79,17 +79,16 @@
 )
 
 (deflayermap (j)
-	;; [[sort on]]
 	' (layer-while-held quote-j)
-	, (layer-while-held comma-j)
+	i (multi (layer-while-held i) (layer-while-held ij) (on-release tap-vkey any-i))
+	o (multi rmet (layer-while-held o) (layer-while-held jo) (on-release tap-vkey any-o))
+	;; [[sort on]]
 	a 0
 	c 8
 	caps (tap-hold-release $tt $ht A-w XX)
 	d 2
 	e 5
 	f 1
-	i (multi (layer-while-held i) (layer-while-held ij) (on-release tap-vkey any-i))
-	o (multi rmet (layer-while-held o) (layer-while-held jo) (on-release tap-vkey any-o))
 	q eql
 	r 4
 	s 3
