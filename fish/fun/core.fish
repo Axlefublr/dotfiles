@@ -444,13 +444,13 @@ function wpchange
 end
 funcsave wpchange >/dev/null
 
-function yazi_cd
+function yazi
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
-    yazi $argv --cwd-file="$tmp"
+    command yazi $argv --cwd-file="$tmp"
     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
         z $cwd
     end
     commandline -f repaint
     rm -f -- "$tmp"
 end
-funcsave yazi_cd >/dev/null
+funcsave yazi >/dev/null
