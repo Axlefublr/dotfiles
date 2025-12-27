@@ -185,8 +185,8 @@ recent-windows {
     }
 
     binds {
-        Mod+Semicolon { next-window; }
-        Mod+Backspace { previous-window; }
+        // Mod+Semicolon { next-window; }
+        // Mod+Backspace { previous-window; }
         // Mod+grave       { next-window     filter="app-id"; }
         // Mod+Shift+grave { previous-window filter="app-id"; }
     }
@@ -205,19 +205,19 @@ binds {
 
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
-    Mod+E { spawn "footclient" "-T" "floating"; }
+    Mod+S { spawn "footclient" "-T" "floating"; }
 
     Mod+G { fullscreen-window; }
     Mod+I { close-window; }
     Mod+Ctrl+I { spawn "close-windows-in-column.nu"; }
 
-    Mod+A { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+E { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
     Mod+Apostrophe { center-visible-columns; }
-    Mod+U { toggle-window-floating; }
-    // Mod+W { switch-focus-between-floating-and-tiling; }
+    Mod+Comma { toggle-window-floating; }
+    Mod+Semicolon { switch-focus-between-floating-and-tiling; }
 
-    Mod+S { consume-or-expel-window-left; }
-    Mod+F { consume-or-expel-window-right; }
+    Mod+F { consume-or-expel-window-left; }
+    Mod+A { consume-or-expel-window-right; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
