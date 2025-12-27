@@ -230,7 +230,6 @@ all_modes_mappings: dict[str, Any] = {
     'C-t': ':reload',
     'C-tab': 'add_newline_above',
     'C-up': 'copy_selection_on_prev_line',
-    'F1': ':sh footclient -ND %(current_working_directory) helix %(file_path_absolute):%(cursor_line):%(cursor_column)',
     'F12': 'add_newline_below',
     'S-A-F6': ':write --no-format',
     'S-down': 'move_lines_down',
@@ -239,27 +238,19 @@ all_modes_mappings: dict[str, Any] = {
     'S-up': 'move_lines_up',
     # [[sort off]]
     'F2': [
-        ":noop %sh(hx-blammo '%(file_path_absolute)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
+        ":noop %sh('%(file_path_absolute)' | save -f ~/.cache/mine/blammo)",
         ':sh footclient -ND %(current_working_directory) o+e>| ignore',
     ],
-    'F5': [
-        ":noop %sh(hx-blammo '%(file_path_absolute)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
-        ':sh footclient -T floating -ND %(current_working_directory) o+e>| ignore',
+    'F3': [
+        ":noop %sh('%(file_path_absolute)' | save -f ~/.cache/mine/blammo)",
+        ':sh footclient -ND %(current_working_directory) -T floating o+e>| ignore',
     ],
-    'S-F2': [
-        ":noop %sh(hx-blammo '%(file_path_absolute)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
-        ':sh footclient -ND %(buffer_parent) o+e>| ignore',
-    ],
-    'S-F5': [
-        ":noop %sh(hx-blammo '%(file_path_absolute)' '%(relative_path)' '%(buffer_parent)' '%(selection)')",
-        ':sh footclient -T floating -ND %(buffer_parent) o+e>| ignore',
-    ],
-    'F6': [
+    'F1': [
         ':sh rm -f /tmp/mine/yazi-chooser-file',
         ':noop %sh(footclient yazi %{file_path_absolute} --chooser-file=/tmp/mine/yazi-chooser-file)',
         ':open %sh{cat /tmp/mine/yazi-chooser-file}',
     ],
-    'F3': [
+    'F6': [
         ':sh rm -f /tmp/mine/yazi-chooser-file',
         ':noop %sh(footclient yazi --chooser-file=/tmp/mine/yazi-chooser-file)',
         ':open %sh{cat /tmp/mine/yazi-chooser-file}',
@@ -532,7 +523,7 @@ normal_select_mappings: dict[str, Any] = {
         's': 'surround_add',
         'v': ':echopy %sh(ghl %(relative_path))',
         'x': 'surround_replace',
-        'z': ':echopy %(current_working_directory)',
+        'z': ':echopy %sh("%{current_working_directory}" | path shrink)',
         # [[sort off]]
         't': {
             'k': ':pipe fish -c "mst kbd"',
