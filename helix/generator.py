@@ -384,10 +384,14 @@ normal_select_mappings: dict[str, Any] = {
     '💡': ':pipe `"💡"`',
     # [[sort off]]
     # --------------------------leap---------------------------
-    '<': 'extend_flash_backward',
-    '>': 'extend_flash_forward',
-    'C-,': 'extend_flash_backward_till',
-    'C-.': 'extend_flash_forward_till',
+    '<': ['collapse_selection', 'extend_flash_backward'],
+    '>': ['collapse_selection', 'extend_flash_forward'],
+    'C-,': ['collapse_selection', 'extend_flash_backward_till'],
+    'C-.': ['collapse_selection', 'extend_flash_forward_till'],
+    'A-,': ['ensure_selections_forward', 'flip_selections', 'extend_flash_backward'],
+    'A-.': ['ensure_selections_forward', 'extend_flash_forward'],
+    'C-A-,': ['ensure_selections_forward', 'flip_selections', 'extend_flash_backward_till'],
+    'C-A-.': ['ensure_selections_forward', 'extend_flash_forward_till'],
     # ----------------------word motions-----------------------
     'C-1': ['ensure_selections_forward', 'extend_prev_word_end', 'trim_selections'],
     'C-5': ['ensure_selections_forward', 'flip_selections', 'extend_next_word_start', 'trim_selections'],
