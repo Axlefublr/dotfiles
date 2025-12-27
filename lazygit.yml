@@ -242,7 +242,7 @@ keybinding:
   commitMessage:
     commitMenu: <c-o>
 customCommands:
-  - key: <F5>
+  - key: <F3>
     context: global
     command: "footclient -NT floating"
     description: "Open floating terminal here"
