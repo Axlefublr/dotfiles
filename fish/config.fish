@@ -5,9 +5,6 @@ set -g fish_features qmark-noglob remove-percent-self
 set -g fish_lazy_load_completions true
 set -g fish_lazy_load_functions true
 set -g in (cat ~/.cache/mine/blammo 2>/dev/null)
-set -g ind (cat ~/.cache/mine/blammo-parent 2>/dev/null)
-set -g inr (cat ~/.cache/mine/blammo-relative 2>/dev/null)
-set -g ins (cat ~/.cache/mine/blammo-selection 2>/dev/null)
 set -gx BROWSER firefox
 set -gx EDITOR helix
 set -gx FZF_DEFAULT_OPTS --tiebreak=chunk --cycle --keep-right --scroll-off=999 --hscroll-off=999 --height=-1 --layout=reverse --padding=0 --margin=0 --info=inline-right --no-scrollbar '--prompt="󱕅 "' --marker="󰏢" --ellipsis=… --tabstop=3 --preview-window=border-sharp --preview-window=down,wrap --color=hl:#e49641:bold,hl+:#e49641,bg+:#5f472d,fg+:#d4be98:regular,gutter:-1,info:#d4be98,prompt:#ffd75f,pointer:#e49641,marker:#d3ad5c,spinner:#d3ad5c --bind=f11:accept-or-print-query,shift-right:replace-query,ctrl-home:first,ctrl-end:last
