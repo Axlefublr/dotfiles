@@ -41,6 +41,8 @@
 	j (multi (layer-while-held j) (layer-while-held ij) (layer-while-held jo) (layer-while-held ijo) (on-release tap-vkey any-j))
 	e (unmod lctl lalt x)
 	f (unmod lctl lalt c)
+	d (unmod lctl lsft lalt f2)
+	s (unmod lctl lsft lalt f3)
 )
 
 (deflayermap (ijo)
