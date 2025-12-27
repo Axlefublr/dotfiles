@@ -129,6 +129,17 @@ function github_read_notifs
 end
 funcsave github_read_notifs >/dev/null
 
+function is_focused_xwayland
+    set -l pid (niri msg -j windows | nu -n --no-std-lib --stdin -c 'from json | where is_focused == true | get pid | first')
+    set -l executable (readlink /proc/$pid/exe)
+    if test (path basename $executable) = xwayland-satellite
+        notify-send '✅ xwayland'
+    else
+        notify-send '❌ native'
+    end
+end
+funcsave is_focused_xwayland >/dev/null
+
 function loago_tracker
     while true
         clear
