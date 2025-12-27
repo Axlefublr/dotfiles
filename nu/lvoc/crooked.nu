@@ -23,13 +23,6 @@ def 'path shrink' [] {
 	}
 }
 
-def 'hx-blammo' [full_path: path, relative_path: path, buffer_parent: directory, selection: string] {
-	$full_path | str replace -r '^~' $env.HOME | save -f ~/.cache/mine/blammo
-	$relative_path | str replace -r '^~' $env.HOME | save -f ~/.cache/mine/blammo-relative
-	$buffer_parent | str replace -r '^~' $env.HOME | save -f ~/.cache/mine/blammo-parent
-	$selection | save -f ~/.cache/mine/blammo-selection
-}
-
 def 'hx-finance' [] {
 	let IN = $in
 	let the = [held inc name lasts costs mult keep] | zip { $IN | from nuon } | into record
