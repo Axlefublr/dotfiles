@@ -5,11 +5,6 @@ function alphabet
 end
 funcsave alphabet >/dev/null
 
-function ankuery
-    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "'"$argv"'" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
-end
-funcsave ankuery >/dev/null
-
 function arebesties -a fileone filetwo
     test (stat -c %i $fileone) -eq (stat -c %i $filetwo)
 end
