@@ -17,7 +17,7 @@ const known = {
 	bed: 6
 	cloth: 6
 	nose: 7
-	towels: 7
+	towels: 8
 	vacuum: 8
 	dust: 14
 	nails: 13
