@@ -68,14 +68,14 @@ editor: dict[str, Any] = {
         'mark': 'buffer',
         'file': 'directory',
         'hotkeys': {
-            'global': '/',
+            'global': ';',
             'directory': 'k',
             'filetype': 'l',
             'buffer': 'j',
             'switch': "'",
             'delete': '<del>',
             'delete-all': '<S-del>',
-            'alt': ';',
+            'alt': '/',
         },
     },
     # [[sort on]]
