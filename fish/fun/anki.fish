@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 
+function ankuery
+    curl localhost:8765 -X POST -d '{ "action": "findCards", "version": 6, "params": { "query": "'"$argv"'" } }' 2>/dev/null | jq .result.[] 2>/dev/null | count
+end
+funcsave ankuery >/dev/null
+
 function anki_sync
     curl localhost:8765 -X POST -d '{ "action": "sync", "version": 6 }'
 end
