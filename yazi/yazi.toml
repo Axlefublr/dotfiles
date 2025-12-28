@@ -2,6 +2,7 @@
 
 [mgr]
 # [[sort on]]
+linemode = "size"
 ratio = [ 0, 1, 1 ]
 scrolloff = 255
 show_hidden = false

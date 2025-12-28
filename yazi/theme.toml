@@ -24,9 +24,9 @@ inactive = { fg = '#928374' }
 normal_alt = { fg = 'white', bg = 'reset' }
 normal_main = { fg = 'white', bg = 'reset' }
 select_alt = { fg = 'white', bg = 'reset' }
-select_main = { fg = '#1f1e1e', bg = '#e49641', bold = true }
+select_main = { fg = 'white', bg = 'reset' }
 unset_alt = { fg = 'white', bg = 'reset' }
-unset_main = { fg = '#1f1e1e', bg = '#ea6962', bold = true }
+unset_main = { fg = 'white', bg = 'reset' }
 # [[sort off]]
 
 [status]
