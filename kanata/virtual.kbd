@@ -1,13 +1,16 @@
 (defvirtualkeys
-	any-f (multi (release-layer f) (release-layer ef) (release-layer fw) (release-layer efw))
-	any-e (multi (release-layer e) (release-layer ew) (release-layer ef) (release-layer efw))
-	any-w (multi (release-layer w) (release-layer fw) (release-layer ew) (release-layer efw))
-	any-j (multi (release-layer j) (release-layer ij) (release-layer jo) (release-layer ijo))
-	any-i (multi (release-layer i) (release-layer ij) (release-layer io) (release-layer ijo))
-	any-o (multi (release-layer o) (release-layer jo) (release-layer io) (release-layer ijo))
-	any-x (multi (release-layer x) (release-layer xc))
 	any-c (multi (release-layer c) (release-layer xc) (release-layer cv))
+	any-e (multi (release-layer e) (release-layer ew) (release-layer ef) (release-layer er) (release-layer efw))
+	any-f (multi (release-layer f) (release-layer ef) (release-layer fw) (release-layer efw))
+	any-i (multi (release-layer i) (release-layer ij) (release-layer io) (release-layer iu) (release-layer ijo))
+	any-j (multi (release-layer j) (release-layer ij) (release-layer jo) (release-layer ijo))
+	any-o (multi (release-layer o) (release-layer jo) (release-layer io) (release-layer ijo))
+	any-r (multi (release-layer r) (release-layer er))
+	any-u (multi (release-layer u) (release-layer iu))
 	any-v (multi (release-layer v) (release-layer cv))
+	any-w (multi (release-layer w) (release-layer fw) (release-layer ew) (release-layer efw))
+	any-x (multi (release-layer x) (release-layer xc))
+
 	shift lsft
 	ctrl  lctl
 	alt   lalt

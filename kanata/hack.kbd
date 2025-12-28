@@ -1,6 +1,8 @@
 (deflayermap (e)
 	f (multi (layer-while-held f) (layer-while-held ef) (on-release tap-vkey any-f))
 	w (multi lmet (layer-while-held w) (layer-while-held ew) (on-release tap-vkey any-w))
+	r (multi (layer-while-held r) (layer-while-held er) (on-release tap-vkey any-r))
+
 	j (unmod lsft lalt f1)
 	k (unmod lsft lalt f2)
 	i (unmod lsft lalt f6)

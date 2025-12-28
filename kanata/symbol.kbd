@@ -75,6 +75,7 @@
 )
 
 (deflayermap (u)
+	i (multi (layer-while-held i) (layer-while-held iu) (on-release tap-vkey any-i))
 	;; [[sort on]]
 	a (cmd wtype 💯)
 	c (cmd wtype 😢)
@@ -90,12 +91,20 @@
 	;; [[sort off]]
 )
 
+(deflayermap (iu)
+	e (cmd wtype 👀)
+	r (cmd wtype 🙄)
+	s (cmd wtype 💀)
+	w (cmd wtype 😩)
+)
+
 (deflayermap (r)
+	e (multi (layer-while-held e) (layer-while-held er) (on-release tap-vkey any-e))
 	;; [[sort on]]
 	, (cmd wtype 🕯️)
 	i (cmd wtype 😌)
 	k (cmd wtype 😼)
-	l (cmd wtype 😩)
+	l (cmd wtype 🤤)
 	m (cmd wtype 🧐)
 	n (cmd wtype 🥺)
 	o (cmd wtype 😭)
@@ -105,7 +114,16 @@
 	;; [[sort off]]
 )
 
+(deflayermap (er)
+	h (cmd wtype 🥰)
+	p (cmd wtype 😤)
+	n (cmd wtype 🥹)
+)
+
 (deflayermap (i)
+	j (multi (layer-while-held j) (layer-while-held ij) (on-release tap-vkey any-j))
+	o (multi rmet (layer-while-held o) (layer-while-held io) (on-release tap-vkey any-o))
+	u (multi (layer-while-held u) (layer-while-held iu) (on-release tap-vkey any-u))
 	;; [[sort on]]
 	a (cmd wtype “)
 	c ]
@@ -113,8 +131,6 @@
 	e S-]
 	f (cmd wtype ”)
 	g (cmd wtype „)
-	j (multi (layer-while-held j) (layer-while-held ij) (on-release tap-vkey any-j))
-	o (multi rmet (layer-while-held o) (layer-while-held io) (on-release tap-vkey any-o))
 	q (cmd wtype ‘)
 	r (cmd wtype ’)
 	s S-9
