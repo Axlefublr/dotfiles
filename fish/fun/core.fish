@@ -356,6 +356,13 @@ function rename
 end
 funcsave rename >/dev/null
 
+function sj
+    for path in $argv
+        path resolve $path
+    end | wl-copy -n
+end
+funcsave sj >/dev/null
+
 function task
     set mag 3
     argparse 'm/mag=' -- $argv
