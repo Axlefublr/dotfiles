@@ -35,6 +35,7 @@ function ffmpeg_cut_video
         set output "$output.mp4"
 
         pueue add -g cpu -- ffmpeg -y -i "$input" $from $to \
+            -vf "'pad=ceil(iw/2)*2:ceil(ih/2)*2'" \
             $fake_audio \
             -c:v libx264 \
             -preset medium \
