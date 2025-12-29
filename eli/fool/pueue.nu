@@ -1,15 +1,13 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
+use coco.nu
+
 def --wrapped main [...rest] {
 	if ($rest | length) == 0 {
 		exec ov -X --section-delimiter ^Group -M Failed,Running,Queued,Success,,,,Paused -Ae -- pueue status
 		return
 	}
 	pueue ...$rest
-}
-
-def 'main interact' [] {
-	pueue status
 }
 
 def 'main callback' [
@@ -48,5 +46,27 @@ def 'main brush' [] {
 	| get id
 	if ($olds | is-not-empty) {
 		^pueue remove ...$olds
+	}
+}
+
+def 'main interact' [] {
+	loop {
+		pueue status
+		print -e '[k]ill [l]og [s]tart [r]estart [d]emove pa[u]se [c]lean [p]arallel'
+		let input = input --reedline : | str trim
+		if ($input | is-empty) { clear ; continue }
+		let subcommand = match ($input | str substring 0..0) {
+			'k' => 'kill'
+			'l' => 'log'
+			's' => 'start'
+			'r' => 'restart'
+			'd' => 'remove'
+			'u' => 'pause'
+			'c' => 'clean'
+			'p' => 'parallel'
+			$other => (continue)
+		}
+		let extra = try { $input | str substring 1.. | default -e null | split row -r '\s+' }
+		try { clear ; pueue $subcommand ...$extra }
 	}
 }

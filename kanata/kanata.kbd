@@ -171,7 +171,7 @@
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	n (cmd man.nu nushell)
 	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
-	u (cmd niri msg action spawn -- footclient -N fish -c pueue.nu)
+	u (cmd niri msg action spawn -- footclient -N pueue.nu interact)
 	y (cmd fish -c toggle_screen_record)
 	;; [[sort off]]
 )
