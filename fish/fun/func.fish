@@ -210,35 +210,6 @@ function pacclean --description 'clean pacman and paru cache' # based on https:/
 end
 funcsave pacclean >/dev/null
 
-function timer
-    if status is-interactive
-        _timer "$argv"
-    else
-        footclient fish -c "_timer $(string escape $argv)" 2>/dev/null
-    end
-end
-funcsave timer >/dev/null
-
-function _timer
-    while true
-        termdown $argv || break
-        read -p rdp -ln 1 response
-        if not test $response
-            break
-        end
-        if test $response = ' '
-            clx
-            continue
-        else if test $response = e
-            exit
-        else
-            break
-        end
-    end
-    clx
-end
-funcsave _timer >/dev/null
-
 function yeared_parse
     for line in (cat ~/.local/share/magazine/v)
         set -l match (string match -gr '(\\d+).(\\d+.\\d+) — (.*)' $line)
