@@ -38,25 +38,6 @@ const known = {
 	toothbrush: 122
 }
 
-def produce [] {
-	loago list
-	| parse '{name} — {days}'
-	| str trim name
-	| where name not-in $ignored
-	| where name not-starts-with 'o-'
-	| each { |row|
-		$known
-		| get --optional $row.name
-		| if $in == null {
-			$row | update days '!'
-		} else {
-			let difference = (($row.days | into int) - $in)
-			if $difference >= 0 { $row | update days $difference }
-		}
-	}
-	| sort-by days -rn
-}
-
 def main [] {}
 
 def 'main due' [] {
@@ -100,7 +81,7 @@ def 'main pick' [] {
 	| lines
 	| interleave { $known | columns | where $it not-in $listed_tasks }
 	| interleave { $ignored | where $it not-in $listed_tasks }
-	| sort
+	# | sort
 	| to text
 	| fuzzel -dl 7
 	| each { |thingy|
@@ -121,4 +102,23 @@ def 'main due pick' [] {
 	  loago do ($thingy | str trim)
 	}
 	| ignore
+}
+
+def produce [] {
+	loago list
+	| parse '{name} — {days}'
+	| str trim name
+	| where name not-in $ignored
+	| where name not-starts-with 'o-'
+	| each { |row|
+		$known
+		| get --optional $row.name
+		| if $in == null {
+			$row | update days '!'
+		} else {
+			let difference = (($row.days | into int) - $in)
+			if $difference >= 0 { $row | update days $difference }
+		}
+	}
+	| sort-by days -rn
 }
