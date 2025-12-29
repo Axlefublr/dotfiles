@@ -4,6 +4,7 @@
 alias --save at alien_temple >/dev/null
 alias --save bell 'printf \a' >/dev/null
 alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness | head -n 1' >/dev/null
+alias --save clx 'clear -x' >/dev/null
 alias --save fc 'cat ~/fes/uviw/afen/sudo | sudo -S systemctl restart fancontrol' >/dev/null
 alias --save ffmpeg 'ffmpeg -y -hide_banner -stats -loglevel error' >/dev/null
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
@@ -36,34 +37,7 @@ alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null
 alias --save toggle_mute 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' >/dev/null
 alias --save ubootf 'footclient -T nofocus uboot.fish' >/dev/null
-alias --save woman man >/dev/null # lol and even lmao
 # [[sort off]]
-
-function bl_reconnect
-    if not test "$argv"
-        echo 'missing bluetooth device MAC address' >&2
-        return 1
-    end
-    bluetoothctl disconnect $argv
-    bluetoothctl connect $argv
-end
-funcsave bl_reconnect >/dev/null
-
-function clx
-    if test "$TERM" = xterm-kitty
-        printf '\e[H\e[22J'
-        # else if test "$TERM" = foot
-        #     return
-    else
-        clear -x
-    end
-end
-funcsave clx >/dev/null
-
-function cwd
-    echo $PWD | wl-copy -n
-end
-funcsave cwd >/dev/null
 
 function dof
     diff -u $argv | diff-so-fancy
@@ -84,17 +58,3 @@ function get_media_volume
     math "round($volume * 100)"
 end
 funcsave get_media_volume >/dev/null
-
-function rdp
-    set_color '#ffd75f'
-    printf '󱕅 '
-    set_color normal
-end
-funcsave rdp >/dev/null
-
-function sf
-    for path in $argv
-        path resolve $path
-    end | wl-copy -n
-end
-funcsave sf >/dev/null
