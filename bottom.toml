@@ -64,21 +64,21 @@ selected_text = { color = "white", bg_color = "#593d48" }
 disabled_text = { color = "#928374" }
 
 [[row]]
-ratio = 25
+ratio = 30
 [[row.child]]
 type = "mem"
 [[row.child]]
 type = "net"
 [[row]]
-ratio = 45
+ratio = 40
 [[row.child]]
 type = "cpu"
 [[row.child]]
 [[row.child.child]]
-ratio = 5
+ratio = 6
 type = "temp"
 [[row.child.child]]
-ratio = 3
+ratio = 4
 type = "disk"
 [[row]]
 ratio = 30
