@@ -48,8 +48,6 @@ function M.run_with(cwd, selected)
 	local walker = are_hidden_shown() and '--walker=file,dir,follow,hidden' or '--walker=file,dir,follow'
 	local child, err = Command("fzf")
 		:arg(walker)
-		:arg('--scheme=path')
-		:arg('--tiebreak=pathname,index')
 		:arg('--bind=f12:become:echo :{}')
 		:cwd(tostring(cwd))
 		:stdin(#selected > 0 and Command.PIPED or Command.INHERIT)
