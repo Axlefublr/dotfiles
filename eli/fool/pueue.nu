@@ -51,7 +51,9 @@ def 'main brush' [] {
 
 def 'main interact' [] {
 	loop {
-		pueue status
+		pueue --color always status
+		| str replace -r "\n\nTask list is empty.+" ''
+		| print
 		print -e '[k]ill [l]og [s]tart [r]estart [d]emove pa[u]se [c]lean [p]arallel'
 		let input = input --reedline : | str trim
 		if ($input | is-empty) { clear ; continue }
