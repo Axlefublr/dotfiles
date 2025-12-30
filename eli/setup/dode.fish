@@ -241,6 +241,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout fuzzel
 mkdir -p ~/.config/fuzzel
 ln -sf ~/fes/dot/fuzzel.ini ~/.config/fuzzel/fuzzel.ini
 
+# ---------------------------fzy---------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout fzy
+
 # ------------------------gamescope------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gamescope
 # gamescope -w 1280 -h 720 -f -- %command%
@@ -748,6 +751,11 @@ x i
 # it claims to be temporary, but it stays like this forever
 # if you want to reload to a new version, there's a button for that in the same menu
 
+# --------------------------skim---------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout skim
+sk --shell fish >~/.config/fish/completions/sk.fish
+set -Ux SKIM_DEFAULT_COMMAND 'fd .'
+
 # -----------------------snowmachine-----------------------
 uv tool install snowmachine
 
@@ -849,6 +857,9 @@ systemctl --user enable --now ~/fes/dot/systemd/mandb.service
 
 # -------------------systemd-manager-tui-------------------
 cargo binstall -y systemd-manager-tui
+
+# -----------------------television------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout television
 
 # ---------------------termfilechooser---------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk
