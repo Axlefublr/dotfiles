@@ -4,6 +4,7 @@ helix/config.toml
 helix/pager.toml
 helix/screen.toml
 __pycache__
+yazi/package.toml
 yazi/plugins/jump-to-char.yazi
 yazi/plugins/open-with-cmd.yazi
 yazi/plugins/compress.yazi
