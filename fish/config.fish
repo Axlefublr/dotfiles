@@ -28,10 +28,11 @@ set -gx FZF_DEFAULT_OPTS \
     --scroll-off=999 --hscroll-off=999 \
     --height=-1 --layout=reverse --padding=0 --margin=0 \
     --info=inline-right --no-scrollbar \
-    '--prompt="󱕅 "' --marker="󰏢" --ellipsis=… \
+    '--prompt="> "' --marker="" --ellipsis=… \
     --tabstop=3 \
     --preview-window=border-sharp --preview-window=down,wrap \
-    --color=hl:#e49641:bold,hl+:#e49641,bg+:#5f472d,fg+:#d4be98:regular,gutter:-1,info:#d4be98,prompt:#ffd75f,pointer:#e49641,marker:#d3ad5c,spinner:#d3ad5c \
+    '--gutter=" "' \
+    --color=hl:#e49641:bold,hl+:#e49641,bg+:#5f472d,fg+:#d4be98:regular,info:#d4be98,prompt:#ffd75f,pointer:#e49641,marker:#b58cc6,spinner:#d3ad5c \
     --bind=f11:accept-or-print-query,shift-right:replace-query,ctrl-home:first,ctrl-end:last
 
 zoxide init fish | source
