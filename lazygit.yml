@@ -74,7 +74,7 @@ os:
   editPreset: helix
 keybinding:
   universal:
-    quit: ":"
+    quit: "<insert>"
     quit-alt1: <disabled>
     return: <esc>
     quitWithoutChangingDirectory: <disabled>
@@ -153,9 +153,9 @@ keybinding:
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <disabled>
   status:
-    checkForUpdate: u
+    checkForUpdate: <disabled>
     recentRepos: <enter>
-    allBranchesLogGraph: a
+    allBranchesLogGraph: <disabled>
   files:
     commitChanges: c
     commitChangesWithoutHook: <disabled>
@@ -169,7 +169,7 @@ keybinding:
     viewStashOptions: Z
     toggleStagedAll: a
     viewResetOptions: x
-    fetch: f
+    fetch: <disabled>
     toggleTreeView: "`"
     # openMergeTool: M
     openStatusFilter: "'"
@@ -187,7 +187,7 @@ keybinding:
     renameBranch: R
     mergeIntoCurrentBranch: M
     moveCommitsToNewBranch: "N"
-    viewGitFlowOptions: i
+    viewGitFlowOptions: <disabled>
     fastForward: f
     createTag: t
     pushTag: o
@@ -198,8 +198,8 @@ keybinding:
     viewWorktreeOptions: w
   commits:
     squashDown: c
-    renameCommit: R
-    renameCommitWithEditor: r
+    renameCommit: r
+    renameCommitWithEditor: R
     viewResetOptions: X
     markCommitAsFixup: <disabled>
     createFixupCommit: <disabled>
@@ -321,6 +321,7 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} >~/.local/share/flipboard'"
     loadingText: "maybe copied link"
     description: "Copy link to repo at this point in history"
+
   - key: q
     context: "tags"
     command: "fish -c 'ghl -b {{.SelectedTag.Name}} >~/.local/share/flipboard'"
@@ -331,6 +332,7 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedTag.Name}} >~/.local/share/flipboard'"
     loadingText: "maybe copied link"
     description: "Copy link to repo at this tag, parsing it into commit"
+
   - key: "w"
     context: localBranches
     command: "gh pr create"
