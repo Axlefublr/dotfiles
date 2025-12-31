@@ -55,6 +55,10 @@ gui:
       - "#78bf84"
     selectedLineBgColor:
       - "#5f472d"
+    cherryPickedCommitFgColor:
+      - "#b58cc6"
+    cherryPickedCommitBgColor:
+      - "#"
 git:
   autoFetch: true
   diffContextSize: 1
@@ -74,7 +78,7 @@ os:
   editPreset: helix
 keybinding:
   universal:
-    quit: "<insert>"
+    quit: "<c-space>"
     quit-alt1: <disabled>
     return: <esc>
     quitWithoutChangingDirectory: <disabled>
@@ -112,7 +116,7 @@ keybinding:
     startSearch: /
     optionMenu: <f1>
     optionMenu-alt1: <disabled>
-    select: v
+    select: w
     goInto: <enter>
     confirm: <enter>
     confirmInEditor: <a-enter>
@@ -132,7 +136,7 @@ keybinding:
     pushFiles: o
     pullFiles: O
     refresh: <disabled>
-    createPatchOptionsMenu: <c-o>
+    createPatchOptionsMenu: u
     nextTab: L
     prevTab: H
     nextScreenMode: +
@@ -140,7 +144,7 @@ keybinding:
     undo: <c-t>
     redo: <c-r>
     filteringMenu: <disabled>
-    diffingMenu: <c-w>
+    diffingMenu: W
     diffingMenu-alt: <disabled>
     copyToClipboard: <c-s>
     openRecentRepos: <disabled>
@@ -159,21 +163,21 @@ keybinding:
   files:
     commitChanges: c
     commitChangesWithoutHook: <disabled>
-    amendLastCommit: w
+    amendLastCommit: f
     commitChangesWithEditor: C
     findBaseCommitForFixup: <c-f>
     confirmDiscard: i
     ignoreFile: i
     refreshFiles: r
-    stashAllChanges: z
-    viewStashOptions: Z
+    stashAllChanges: <disabled>
+    viewStashOptions: s
     toggleStagedAll: a
     viewResetOptions: x
-    fetch: <disabled>
+    fetch: <c-o>
     toggleTreeView: "`"
     # openMergeTool: M
     openStatusFilter: "'"
-    copyFileInfoToClipboard: s
+    copyFileInfoToClipboard: <c-d>
     collapseAll: _
     expandAll: "^"
   branches:
@@ -192,31 +196,31 @@ keybinding:
     createTag: t
     pushTag: o
     setUpstream: u
-    fetchRemote: f
-    sortOrder: s
+    fetchRemote: <c-o>
+    sortOrder: "'"
   worktrees:
     viewWorktreeOptions: w
   commits:
-    squashDown: c
+    squashDown: s
     renameCommit: r
     renameCommitWithEditor: R
-    viewResetOptions: X
+    viewResetOptions: v
     markCommitAsFixup: <disabled>
     createFixupCommit: <disabled>
     squashAboveCommits: C
     moveDownCommit: <c-j>
     moveUpCommit: <c-k>
-    amendToCommit: w
+    amendToCommit: f
     resetCommitAuthor: a
     pickCommit: p
     revertCommit: <disabled>
     cherryPickCopy: <c-c>
     pasteCommits: <c-v>
-    markCommitAsBaseForRebase: B
+    markCommitAsBaseForRebase: M
     tagCommit: t
-    checkoutCommit: <space>
+    checkoutCommit: w
     resetCherryPick: <c-x>
-    copyCommitAttributeToClipboard: s
+    copyCommitAttributeToClipboard: <c-d>
     openLogMenu: <c-l>
     openInBrowser: <disabled>
     viewBisectOptions: b
@@ -252,7 +256,12 @@ customCommands:
     command: "footclient -N"
     description: "Open terminal here"
     output: none
-  - key: u
+  - key: U
+    context: global
+    command: "wl-paste | git apply --3way"
+    output: none
+
+  - key: E
     context: files
     command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
     description: "Edit file at HEAD"
@@ -267,12 +276,13 @@ customCommands:
     command: "gomi {{.SelectedPath}}"
     description: "Delete file"
     output: none
-  - key: "u"
+
+  - key: "e"
     context: "commitFiles"
     command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: "Edit file at this point in history"
     output: terminal
-  - key: "U"
+  - key: "E"
     context: "commitFiles"
     command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: "Edit file at the commit before this point in history"
@@ -287,6 +297,7 @@ customCommands:
     command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} >~/.local/share/flipboard'"
     loadingText: "maybe copied link"
     description: "Copy link to file at *previous* commit"
+
   - key: "o"
     context: "commits"
     command: "git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
@@ -299,7 +310,7 @@ customCommands:
     loadingText: "Unshallowing commits..."
     description: "Unshallow the shallow copy"
     output: log
-  - key: "z"
+  - key: "x"
     context: "commits"
     command: "git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}"
     prompts:
@@ -311,7 +322,8 @@ customCommands:
           - value: "revert -n"
             name: "Into index"
     description: "View reverting options..."
-  - key: u
+
+  - key: E
     context: "commits, subCommits"
     command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
     description: "Edit commit diff in editor"
@@ -333,12 +345,12 @@ customCommands:
     loadingText: "maybe copied link"
     description: "Copy link to repo at this tag, parsing it into commit"
 
-  - key: "w"
+  - key: "s"
     context: localBranches
     command: "gh pr create"
     description: "Create pull request"
     output: terminal
-  - key: "W"
+  - key: "S"
     context: "localBranches"
     command: "gh pr checkout {{index .PromptResponses 0}}"
     prompts:
