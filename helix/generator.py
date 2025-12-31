@@ -212,14 +212,14 @@ def rusify(english_dict: dict[str, Any]) -> dict[str, Any]:
 
 all_modes_mappings: dict[str, Any] = {
     # [[sort on]]
-    'A-left': 'goto_prev_tabstop',
-    'A-right': 'goto_next_tabstop',
+    'A-left': 'goto_previous_buffer',
+    'A-right': 'goto_next_buffer',
     'A-tab': ':open %sh(wl-paste -n)',
     'C-down': 'copy_selection_on_next_line',
     'C-i': ['commit_undo_checkpoint', 'normal_mode', 'open_above'],
-    'C-left': 'goto_previous_buffer',
+    'C-left': 'goto_prev_tabstop',
     'C-o': ['commit_undo_checkpoint', 'normal_mode', 'open_below'],
-    'C-right': 'goto_next_buffer',
+    'C-right': 'goto_next_tabstop',
     'C-s': 'signature_help',
     'C-tab': 'add_newline_above',
     'C-up': 'copy_selection_on_prev_line',
@@ -230,14 +230,14 @@ all_modes_mappings: dict[str, Any] = {
     'S-up': 'move_lines_up',
     # [[sort off]]
     # -------------------------saving--------------------------
-    'A-ins': ':quit!',
-    'A-space': ':write-quit-all',
+    'A-space': ':write-buffer-close',
     'A-w': ':write-buffer-close',
+    'A-ins': ':buffer-close!',
     'C-A-w': ':buffer-close!',
-    'ins': ':write-buffer-close',
-    'S-ins': ':buffer-close!',
-    'C-ins': ':write!',
+    'ins': ':write-quit-all',
+    'S-ins': ':quit!',
     'C-space': ':write-all',
+    'C-ins': ':write!',
     'C-t': ':reload',
     'S-A-F6': ':write --no-format',
     'F2': [
@@ -442,6 +442,13 @@ normal_select_mappings: dict[str, Any] = {
     'C-pageup': ['select_mode', 'page_cursor_half_up', 'normal_mode'],
     'S-pagedown': 'goto_next_paragraph',
     'S-pageup': 'goto_prev_paragraph',
+    'backspace': [
+        'collapse_selection',
+        'select_mode',
+        'goto_next_paragraph',
+        'normal_mode',
+        'trim_selections',
+    ],
     'A-pagedown': [
         'ensure_selections_forward',
         'select_mode',
