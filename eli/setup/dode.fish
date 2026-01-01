@@ -131,6 +131,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout cowsay
 # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
 sudo cp -fr ~/iwm/dls/cursors/Lighted-Pixel-Butter /usr/share/icons
 
+# --------------------------dash---------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout dash
+
 # -------------------------discord-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout discord
 
