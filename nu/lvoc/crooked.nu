@@ -1,4 +1,4 @@
-source duh.nu
+source always.nu
 $env.config.table.mode = 'compact'
 $env.config.hooks.display_output = 'if (term size).columns >= 100 { table -e -w 128 } else { table -w 128 }'
 
@@ -12,15 +12,6 @@ def sand --wrapped [...args] {
 
 def queue --wrapped [...args] {
 	pueue add -g cpu -- ($args | str join ' ') o+e>| ignore
-}
-
-def 'path shrink' [] {
-	let IN = $in
-	$IN | try {
-		path relative-to ~ | '~/' + $in
-	} catch {
-		$IN
-	}
 }
 
 def 'hx-finance' [] {

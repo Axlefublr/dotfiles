@@ -1,8 +1,4 @@
-#!/usr/bin/env -S nu -n --no-std-lib
-
-export-env {
-	use coco.nu []
-}
+#!/usr/bin/env na
 
 def main [] {
 	main list

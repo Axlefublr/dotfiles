@@ -1,6 +1,4 @@
-#!/usr/bin/env -S nu -n --no-std-lib
-
-source coco.nu
+#!/usr/bin/env na
 
 let talias = ls ~/fes/talia/
 | sort-by modified
@@ -21,24 +19,34 @@ print ''
 $filled
 | each { print }
 
-def open_result [] {
+def open_result [should_plans: bool] {
 	let parent = $"~/fes/talia/($in)" | path expand
 	mkdir $parent
 	cd $parent
-	helix ($parent + '/plans.md')
+	if $should_plans {
+		helix ($parent + '/plans.md')
+	} else {
+		yazi
+	}
 }
 
 let talias = $talias | reverse
 
 loop {
-	let input = input --reedline :
+	mut input = input --reedline :
 	if ($input | is-empty) {
 		cd ~/fes/talia
 		yazi
 		continue
 	}
-	if (($input | str substring 0..0) == ',') {
-		$input | str substring 1.. | open_result
+	mut should_plans = true
+	$input = if (($input | split chars | last) == ',') {
+		$should_plans = false
+		$input | str substring ..-2
+	} else { $input }
+	let should_plans = $should_plans
+	if (($input | split chars | last) == ';') {
+		$input | str substring ..-2 | open_result $should_plans
 		continue
 	}
 	$talias | where $it == $input
@@ -46,5 +54,5 @@ loop {
 	| append ($talias | where ($it | str contains $input))
 	| append ($talias | where (($it | str downcase) | str contains $input))
 	| uniq
-	| each { open_result }
+	| each { open_result $should_plans }
 }

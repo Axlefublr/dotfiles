@@ -1,5 +1,4 @@
-#!/usr/bin/env -S nu -n --no-std-lib
-source coco.nu
+#!/usr/bin/env na
 
 const ignored = [
 	# [[sort on]]
