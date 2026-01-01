@@ -1,7 +1,5 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
-source coco.nu
-
 let statusline = {
     separator: ''
     mode: {

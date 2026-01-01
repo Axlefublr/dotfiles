@@ -1,7 +1,5 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
-use coco.nu
-
 def --wrapped main [...rest] {
 	if ($rest | length) == 0 {
 		exec ov -X --section-delimiter ^Group -M Failed,Running,Queued,Success,,,,Paused -Ae -- pueue status

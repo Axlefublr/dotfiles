@@ -1,4 +1,4 @@
-#!/usr/bin/env na
+#!/usr/bin/env -S nu -n --no-std-lib
 
 let talias = ls ~/fes/talia/
 | sort-by modified

@@ -1,4 +1,5 @@
-source coco.nu
+source always.nu
+
 # [[sort on]]
 $env.PROMPT_COMMAND_RIGHT = ''
 $env.PROMPT_INDICATOR = ' 󱕅 '
@@ -11,6 +12,7 @@ $env.config.show_banner = false
 $env.config.use_kitty_protocol = true # ^i and tab are different
 alias z = cd
 # [[sort off]]
+
 $env.config.keybindings ++= [
 	{
 		name: copy_commandline

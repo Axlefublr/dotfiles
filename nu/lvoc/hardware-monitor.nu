@@ -1,4 +1,4 @@
-#!/usr/bin/env na
+#!/usr/bin/env -S nu -n --no-std-lib
 
 print 'time   cpu  gpu    ppt  cpu° gpu°  cpu*  ram'
 radeontop -d - -i 1 | lines | skip 1 | each { str substring 30..33 | into float | math round | fill -w 3 -a r }

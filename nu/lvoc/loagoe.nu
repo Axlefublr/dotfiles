@@ -1,4 +1,4 @@
-#!/usr/bin/env na
+#!/usr/bin/env -S nu -n --no-std-lib
 
 const ignored = [
 	# [[sort on]]
