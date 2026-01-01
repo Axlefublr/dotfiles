@@ -524,6 +524,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
 ln -sf ~/fes/dot/nu/nonf.nu ~/.config/nushell/config.nu
 rm -fr ~/.config/nushell/scripts
 ln -s ~/fes/dot/nu/lvoc ~/.config/nushell/scripts
+sudo ln -s ~/fes/eva/nu /usr/local/bin/nu
 # in nushell
 plugin add /usr/bin/nu_plugin_formats
 plugin add /usr/bin/nu_plugin_gstat
