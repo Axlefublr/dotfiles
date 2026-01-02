@@ -211,10 +211,11 @@
 
 (deflayermap (quote-n)
 	;; [[sort on]]
+	;; q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	d (cmd fish -c show_clipboard_image)
 	g (cmd fish -c "echo stop >/tmp/mine/tomato-action")
-	q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
+	q (cmd fish -c yt_audio)
 	s (cmd fish -c edit_clipboard_image)
 	w (cmd fish -c float_clipboard_image)
 	;; [[sort off]]
