@@ -50,8 +50,8 @@ def 'main brush' [] {
 def 'main interact' [] {
 	loop {
 		pueue --color always status
-		| str replace -r "\n\nTask list is empty.+" ''
-		| print
+		# | str replace -r "\n\nTask list is empty.+" ''
+		# | print
 		print -e '[k]ill [l]og [s]tart [r]estart [d]emove pa[u]se [c]lean [p]arallel'
 		let input = input --reedline : | str trim
 		if ($input | is-empty) { clear ; continue }
@@ -67,6 +67,6 @@ def 'main interact' [] {
 			$other => (continue)
 		}
 		let extra = try { $input | str substring 1.. | default -e null | split row -r '\s+' }
-		try { clear ; pueue $subcommand ...$extra }
+		try { clear ; pueue $subcommand ...$extra ; print '' }
 	}
 }
