@@ -417,7 +417,7 @@ sudo usermod -aG uinput $USER
 sudo usermod -aG video $USER
 groups # check that your user is in
 sudo modprobe uinput # you might need to instantiate the uinput driver if shit really hits the fan
-indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed -a ^exe -a ^macos https://github.com/jtroo/kanata'
+indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed https://github.com/jtroo/kanata'
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 systemctl --user enable --now ~/fes/dot/kanata/kanata.service
 
