@@ -8,31 +8,41 @@ systemctl ← s → start
 systemctl ← c → status
 systemctl ← o → stop
 
-magick ← loss → -define webp:lossless=true
-ei → sudo -E helix /usr/share/applications/█.desktop
-E → sudo -E helix
 at → alien_temple
-c → cargo
-mM → chmod +x
-cp → rsync -r
-de → cd ~/fes/dot && helix
-e → helix
-f → z
-fC → sudo -E helix /etc/fancontrol
-fc → cat ~/fes/uviw/afen/sudo | sudo -S systemctl restart fancontrol
+c  → cargo
+e  → helix
+f  → z
 gz → glaza
 gx → glaza -g
+
+cp   → rsync -r
+mM   → chmod +x
 hime → history merge
-l → jobs
+l    → jobs
+mkd  → mkdir -p
+rm   → gomi
+rmf  → rm -fr
+sude → sudo -E
+x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
+
+qrtool → qrtool.rs
+u      → pueue.nu
+tz     → tz -q UTC Europe/Moscow
+
 ls → eza
 la → eza -a
 le → eza -l
 lw → eza -al
-mkd → mkdir -p
-qrtool → qrtool.rs
-rm → gomi
-rmf → rm -fr
-sude → sudo -E
-tz → tz -q UTC Europe/Moscow
-u → pueue.nu
-x → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
+
+nas → na --stdin
+nac → na -c "█"
+nasc → na --stdin -c "█"
+
+magick ← loss → -define webp:lossless=true
+
+ei → sudo -E helix /usr/share/applications/█.desktop
+eui → helix ~/.local/share/applications/█.desktop
+E  → sudo -E helix
+de → cd ~/fes/dot && helix
+fC → sudo -E helix /etc/fancontrol
+fc → cat ~/fes/uviw/afen/sudo | sudo -S systemctl restart fancontrol
