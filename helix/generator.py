@@ -360,9 +360,9 @@ normal_select_mappings: dict[str, Any] = {
     '|': 'shell_pipe',
     '~': ['save_selection', 'select_all', 'yank_to_clipboard', 'jump_backward'],
     '¢': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }",
-    '«': 'shell_append_output',
+    '«': 'shell_insert_output',
     '°': 'shell_pipe_to',
-    '»': 'shell_insert_output',
+    '»': 'shell_append_output',
     '×': 'align_selections',
     '÷': 'select_references_to_symbol_under_cursor',
     '—': '@<A-e>O*<C-A-w>',
@@ -538,13 +538,13 @@ normal_select_mappings: dict[str, Any] = {
         'z': ':echopy %sh("%{current_working_directory}" | path shrink)',
         # [[sort off]]
         't': {
-            'k': ':pipe fish -c "mst kbd"',
-            'b': ':pipe fish -c "mst b"',
-            'h': ':pipe fish -c "mst h"',
-            'd': ':pipe fish -c "mst div"',
-            'c': ':pipe fish -c "mst cd"',
-            'o': ':pipe fish -c "mst o"',
-            'i': ':pipe fish -c "mst i"',
+            'k': ':pipe "<kbd>" + $in + "</kbd>"',
+            'b': ':pipe "<b>" + $in + "</b>"',
+            'h': ':pipe "<h>" + $in + "</h>"',
+            'd': ':pipe "<div>" + $in + "</div>"',
+            'c': ':pipe "<cd>" + $in + "</cd>"',
+            'o': ':pipe "<o>" + $in + "</o>"',
+            'i': ':pipe "<i>" + $in + "</i>"',
             't': 'surround_add_tag',
         },
         'w': {
@@ -655,7 +655,7 @@ insert_mappings: dict[str, Any] = {
     # [[sort off]]
     'C-a': [
         'collapse_selection',
-        ':insert-output fish -c "uclanr | read"',
+        ':insert-output uclanr | str trim',
         'append_mode_same_line',
     ],
     'C-;': 'harp_register',
