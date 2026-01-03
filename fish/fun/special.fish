@@ -16,6 +16,15 @@ function append_github_line_numbers -a line_num
 end
 funcsave append_github_line_numbers >/dev/null
 
+function build_finish -a success
+    if $success
+        notify-send "✅ $(pwdb)"
+    else
+        notify-send "❌ $(pwdb)"
+    end
+end
+funcsave build_finish >/dev/null
+
 function calculate_eof_position -a file
     set -l last_line (wc -l $file | string split ' ')[1]
     echo -n :$last_line:

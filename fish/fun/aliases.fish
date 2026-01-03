@@ -25,6 +25,7 @@ alias --save ntf_dismiss_old 'fnottctl dismiss' >/dev/null
 alias --save o 'wl-paste -n' >/dev/null
 alias --save oi 'wl-paste -t image/png' >/dev/null
 alias --save on wl-paste >/dev/null
+alias --save pwdb 'path basename $PWD' >/dev/null
 alias --save reboot 'systemctl reboot' >/dev/null
 alias --save rofimoji 'rofimoji --selector fuzzel --action copy --skin-tone neutral --prompt ""' >/dev/null
 alias --save s 'wl-copy -n' >/dev/null

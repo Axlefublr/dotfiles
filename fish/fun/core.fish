@@ -60,13 +60,13 @@ function d
         harp-shell.nu harp_shell_$PWD
         return
     end
-    set -l cmd "$(harp get harp_shell_$PWD $argv[1] 2>/dev/null)"
-    if not test $cmd
+    harp get harp_shell_$PWD $argv[1] 2>/dev/null >/tmp/mine/shell-harp-script
+    if not test "$(cat /tmp/mine/shell-harp-script)"
         echo "register `$argv` empty" >&2
         return
     end
     set -l argf $argv[2..]
-    echo -n $cmd | source
+    source /tmp/mine/shell-harp-script
 end
 funcsave d >/dev/null
 
