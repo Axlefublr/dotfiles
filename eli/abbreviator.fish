@@ -4,11 +4,14 @@ for line in (cat ~/fes/dot/fish/abbr.txt)
     set -l line "$(string trim -- "$line")"
     test $line || continue
     test (string sub -l 1 -- $line) = '#' && continue
-    set -l chunks (string split -m 1 ' ← ' -- $line)
     set -l subcommand
+    set -l chunks (string split -m 1 ' ← ' -- $line)
     if test $status -eq 0
+        for sub in (string split -n ' ' -- $chunks[1])
+            set subcommand "$subcommand -c $sub"
+        end
         set -l hash (echo -n $line | sha256sum | cut -d ' ' -f 1)
-        set subcommand " -c "$chunks[1]" $hash -r"
+        set subcommand "$subcommand $hash -r"
         set line "$chunks[2..]"
     end
     set -l chunks (string split -m 1 ' → ' -- $line)
