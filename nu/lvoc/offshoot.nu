@@ -56,5 +56,4 @@ export def 'finance' [] {
 			$input | each { fill -w $width } | str join ' ' | fill -w $enclosed_values_length | '[' + $in + ']'
 		}
 	}
-
 }
