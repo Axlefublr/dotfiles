@@ -84,7 +84,7 @@ end
 funcsave engage >/dev/null
 
 function ensure_browser
-    nu -n --no-std-lib -c '
+    na -c '
         niri msg -j windows
         | from json
         | where app_id == firefox

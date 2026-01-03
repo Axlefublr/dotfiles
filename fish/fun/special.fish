@@ -28,14 +28,14 @@ function clipboard_image_save
     set -l now (date +%Y.%m.%d-%H:%M:%S)
     set -l path_trunk ~/iwm/sco/$now
     wl-paste -t image/png >$path_trunk.png
-    set -l is_large (echo $path_trunk.png | nu --stdin --no-std-lib -n -c 'str trim | ls $in | get size.0 | $in >= 10mb')
+    set -l is_large (echo $path_trunk.png | na --stdin -c 'str trim | ls $in | get size.0 | $in >= 10mb')
     if $is_large
         echo 'too large, attempting lossless' >&2
         magick -define webp:lossless=true $path_trunk.png $path_trunk.webp &
         magick $path_trunk.png $path_trunk!.webp &
         wait %1
         sl.fish $path_trunk.webp
-        set -l is_large (echo $path_trunk.webp | nu --stdin --no-std-lib -n -c 'str trim | ls $in | get size.0 | $in >= 10mb')
+        set -l is_large (echo $path_trunk.webp | na --stdin -c 'str trim | ls $in | get size.0 | $in >= 10mb')
         if $is_large
             echo 'lossless too large, attempting lossy' >&2
             wait %2
@@ -130,7 +130,7 @@ end
 funcsave github_read_notifs >/dev/null
 
 function is_focused_xwayland
-    set -l pid (niri msg -j windows | nu -n --no-std-lib --stdin -c 'from json | where is_focused == true | get pid | first')
+    set -l pid (niri msg -j windows | na --stdin -c 'from json | where is_focused == true | get pid | first')
     set -l executable (readlink /proc/$pid/exe)
     if test (path basename $executable) = xwayland-satellite
         notify-send '✅ xwayland'
@@ -295,7 +295,7 @@ end
 funcsave niri_resize_width >/dev/null
 
 function strongly_kill_window
-    niri msg -j focused-window | nu --stdin -n --no-std-lib -c 'from json | get id | kill -f $in'
+    niri msg -j focused-window | na --stdin -c 'from json | get id | kill -f $in'
 end
 funcsave strongly_kill_window >/dev/null
 
