@@ -21,8 +21,8 @@ export def 'finance' [] {
 	let mult  = $the.mult | default 'null' | into string | fill -w 4
 	let keep  = $the.keep | default 'null' | into string | fill -w 4
 
-	let lasts = (formatfill 3 $the.lasts)
-	let costs = (formatfill 4 $the.costs)
+	let lasts = (formatfill 3 6 $the.lasts)
+	let costs = (formatfill 4 3 $the.costs)
 
 	let inc = if ($the.lasts | is-empty) or ($the.costs | is-empty) {
 		$the.inc
@@ -39,13 +39,13 @@ export def 'finance' [] {
 
 	print $'[($held), ($inc), ($name), ($lasts), ($costs), ($mult), ($keep)]($remainder)'
 
-	def formatfill [width: int, input?: list] {
+	def formatfill [width: int, numbers: int = 3, input?: list] {
 		# you're supposed to pass the width that each number is supposed to occupy
 		# so `width` might be 2, 3, 4
 		# we know that there will be [space for] 3 numbers in total, so we add the 2 separator spaces on top
-		let enclosed_values_length = $width * 3 + 2
+		let enclosed_values_length = $width * $numbers + 2
 		# 2 for the missing brackets, 2 for the separator spaces
-		let single_value_length = $width * 3 + 4
+		let single_value_length = $width * $numbers + 4
 		if $input == null {
 			'null' | fill -w $single_value_length
 		} else if ($input | is-empty) {
