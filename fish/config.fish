@@ -97,4 +97,5 @@ set -g small_threshold 46
 # [[sort off]]
 
 fish_vi_cursor
+abbr -a .. --position anywhere --regex '^\.\.+$' --function multiple_dot
 source ~/fes/dot/fish/abbreviations.fish
