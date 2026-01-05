@@ -1,76 +1,74 @@
 @charset "UTF-8";
 
-@-moz-document url(chrome://browser/content/browser.xhtml){
+@-moz-document url(chrome://browser/content/browser.xhtml)
+{
+	#undo-closed-tab,
+	#back-button,
+	#forward-button,
+	#reader-mode-button,
+	#star-button-box,
+	#home-button,
+	#stop-reload-button,
+	#TabsToolbar,
+	#sidebar-header,
+	#sidebar-splitter {
+		display: none !important;
+	}
 
-#undo-closed-tab,
-#back-button,
-#forward-button,
-#reader-mode-button,
-#star-button-box,
-#home-button,
-#stop-reload-button,
-#TabsToolbar,
-#sidebar-header,
-#sidebar-splitter {
-  display: none !important;
-}
+	#contentAreaContextMenu {
+		> #context-sep-navigation,
+		> #context-openlinkincurrent,
+		> #context-openlinkintab,
+		> #context-bookmarklink,
+		> #context-media-play,
+		> #context-media-pause,
+		> #context-leave-dom-fullscreen,
+		> #context-video-fullscreen,
+		> #context-sendimage,
+		> #context-sendvideo,
+		> #context-sendaudio,
+		> #context-setDesktopBackground,
+		> #context-savepage,
+		> #fill-login-generated-password,
+		> #context-undo,
+		> #context-redo,
+		> #context-sep-redo,
+		> #context-cut,
+		> #context-copy,
+		> #context-paste,
+		> #context-delete,
+		> #context-selectall,
+		> #context-print-selection,
+		> #context-sep-selectall,
+		> #context-pdfjs-undo,
+		> #context-pdfjs-redo,
+		> #context-pdfjs-cut,
+		> #context-pdfjs-copy,
+		> #context-pdfjs-paste,
+		> #context-pdfjs-delete,
+		> #context-pdfjs-selectall,
+		> #context-add-engine,
+		> #context-searchselect,
+		> #frame-sep,
+		> #context-viewsource,
+		> #context-inspect-a11y,
+		> #context-inspect,
+		> #context-media-eme-separator,
+		> #context-navigation {
+			display: none !important;
+		}
+	}
 
-#contentAreaContextMenu {
+	#nav-bar {
+		margin-top: -40px !important;
+	}
 
-  >#context-sep-navigation,
-  >#context-openlinkincurrent,
-  >#context-openlinkintab,
-  >#context-bookmarklink,
-  >#context-media-play,
-  >#context-media-pause,
-  >#context-leave-dom-fullscreen,
-  >#context-video-fullscreen,
-  >#context-sendimage,
-  >#context-sendvideo,
-  >#context-sendaudio,
-  >#context-setDesktopBackground,
-  >#context-savepage,
-  >#fill-login-generated-password,
-  >#context-undo,
-  >#context-redo,
-  >#context-sep-redo,
-  >#context-cut,
-  >#context-copy,
-  >#context-paste,
-  >#context-delete,
-  >#context-selectall,
-  >#context-print-selection,
-  >#context-sep-selectall,
-  >#context-pdfjs-undo,
-  >#context-pdfjs-redo,
-  >#context-pdfjs-cut,
-  >#context-pdfjs-copy,
-  >#context-pdfjs-paste,
-  >#context-pdfjs-delete,
-  >#context-pdfjs-selectall,
-  >#context-add-engine,
-  >#context-searchselect,
-  >#frame-sep,
-  >#context-viewsource,
-  >#context-inspect-a11y,
-  >#context-inspect,
-  >#context-media-eme-separator,
-  >#context-navigation {
-    display: none !important;
-  }
-}
+	#nav-bar:focus-within {
+		margin-top: 0 !important;
+	}
 
-#nav-bar {
-  margin-top: -40px !important;
-}
-
-#nav-bar:focus-within {
-  margin-top: 0 !important;
-}
-
-/* this appears as a 1 pixel line at the top of the browser, even when the nav bar is otherwise hidden */
-#navigator-toolbox {
-  border-bottom: unset !important;
-}
-
+	/* this appears as a 1 pixel line at the top of the browser, even when the nav bar is otherwise hidden */
+	#navigator-toolbox {
+		border-bottom: unset !important;
+	}
 }
