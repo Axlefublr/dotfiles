@@ -374,6 +374,7 @@ window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
     match app-id="swayfloat"
     match app-id="^foot" title="^floating"
+    match app-id="ripdrag"
     open-floating true
 }
 window-rule {
@@ -451,6 +452,11 @@ window-rule {
 window-rule {
     match app-id="^foot" title="hardware-monitor"
     default-column-width { proportion 0.35; }
+}
+window-rule {
+    match app-id="ripdrag"
+    open-focused false
+    default-floating-position x=50 y=30 relative-to="bottom-right"
 }
 
 layer-rule {

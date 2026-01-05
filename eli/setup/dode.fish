@@ -698,6 +698,9 @@ sudo reflector @/etc/xdg/reflector/reflector.conf # regenerate mirrors
 # -------------------------repgrep-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
 
+# -------------------------ripdrag-------------------------
+cargo binstall -y ripdrag
+
 # --------------------------rnote--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout rnote
 
