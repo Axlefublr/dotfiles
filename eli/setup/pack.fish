@@ -83,6 +83,7 @@ nimble install nimlsp
 
 # -------------------------nushell-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout nushell
+cargo install --git https://github.com/nushell/nufmt
 
 # ------------------------prettier-------------------------
 ln -sf ~/fes/dot/.prettierrc ~/.prettierrc
