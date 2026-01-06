@@ -1,3 +1,10 @@
+d →  d
+D →  D
+a →  a global
+A →  A global
+au →  a rust
+Au →  A rust
+
 t  → systemctl
 tu → systemctl --user
 systemctl ← dr → daemon-reload
