@@ -55,26 +55,6 @@ funcsave confirm >/dev/null
 # end
 # funcsave d >/dev/null
 
-function d
-    if not test "$argv"
-        harp-shell.nu harp_shell_$PWD
-        return
-    end
-    harp get harp_shell_$PWD $argv[1] 2>/dev/null >/tmp/mine/shell-harp-script
-    if not test "$(cat /tmp/mine/shell-harp-script)"
-        echo "register `$argv` empty" >&2
-        return
-    end
-    set -l argf $argv[2..]
-    source /tmp/mine/shell-harp-script
-end
-funcsave d >/dev/null
-
-function D
-    harp get harp_shell_$PWD "$argv" 2>/dev/null | vipe --suffix fish | xargs -0 harp replace harp_shell_$PWD "$argv"
-end
-funcsave D >/dev/null
-
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
 function engage
