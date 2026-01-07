@@ -21,9 +21,11 @@
 	v (multi (layer-while-held v) (layer-while-held cv) (on-release tap-vkey any-v))
 	x (multi (layer-while-held x) (layer-while-held xc) (on-release tap-vkey any-x))
 	;; [[sort on]]
+	' (cmd wtype ■)
 	, S-7
 	. (cmd wtype °)
 	/ S-bksl
+	; (cmd wtype █)
 	h (cmd wtype €)
 	i S-6
 	j grv
@@ -45,27 +47,28 @@
 	l (cmd wtype ≈)
 	. (cmd wtype ⤓)
 	, (cmd wtype ⤒)
-	; (cmd wtype ⋖)
-	' (cmd wtype ⋗)
+	; (cmd wtype ␈)
+	' (cmd wtype ␡)
+	i (cmd wtype ⊼)
+	o (cmd wtype ⊻)
+	spc (cmd wtype ␣)
 )
 
 (deflayermap (v)
 	c (multi (layer-while-held c) (layer-while-held cv) (on-release tap-vkey any-c))
 	;; [[sort on]]
-	' (cmd wtype 󰟢)
 	, (cmd wtype ❗)
 	/ (cmd wtype ❓)
-	; (cmd wtype ✨)
 	b (cmd wtype 💡)
 	h (cmd wtype ←)
-	i (cmd wtype 󰕍)
+	i (cmd wtype ✨)
 	j (cmd wtype ↓)
 	k (cmd wtype ↑)
 	l (cmd wtype →)
 	m (cmd wtype ✅)
 	n (cmd wtype ❌)
 	o (cmd wtype ↪)
-	u (cmd wtype █)
+	u (cmd wtype 󰟢)
 	;; [[sort off]]
 )
 
