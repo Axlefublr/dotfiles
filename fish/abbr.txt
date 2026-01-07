@@ -46,6 +46,9 @@ nas → na --stdin
 nac → na -c "█"
 nasc → na --stdin -c "█"
 
+gh ← si → search issues
+gh ← sc → search code
+
 magick ← loss → -define webp:lossless=true
 
 ei → sudo -E helix /usr/share/applications/█.desktop
