@@ -101,13 +101,20 @@ end
 funcsave _down >/dev/null
 
 function internet_search
-    set -l input (get_input)
+    set -l width_flag --width 55
+    set -l input (tac ~/.local/share/magazine/L | fuzzel -d --match-mode exact $width_flag 2>/dev/null)
+    set -l input (string trim -l "$input")
+    if test $status -eq 0
+        set -f should_history false
+    else
+        set -f should_history true
+    end
     not test "$input" && return 1
     set -l engine_index (
         for line in (cat ~/.local/share/magazine/B)
             set -l bits (string split ' — ' $line)
             echo $bits[1] | string trim
-        end | fuzzel -d --index --match-mode fzf --cache ~/.cache/mine/engined-search 2>/dev/null
+        end | fuzzel -d --index --match-mode fzf --cache ~/.cache/mine/engined-search $width_flag 2>/dev/null
     )
     not test "$engine_index" && return 1
     set -l engine (
@@ -119,9 +126,16 @@ function internet_search
         return 1
     end
 
-    set clean_input (string escape --style=url -- $input)
+    set -l clean_input (string escape --style=url -- $input)
     $BROWSER (string replace -- %% $clean_input $engine)
     ensure_browser
+    if $should_history
+        indeed.rs -u ~/.local/share/magazine/L -- $input
+        tail -n 100 ~/.local/share/magazine/L | sponge ~/.local/share/magazine/L
+    else
+        rg -vFx $input ~/.local/share/magazine/L | tail -n 100 | sponge ~/.local/share/magazine/L
+    end
+    _magazine_commit ~/.local/share/magazine/L 'search history'
 end
 funcsave internet_search >/dev/null
 
