@@ -9,7 +9,7 @@ function append_github_line_numbers -a line_num
     set -l clipboard (wl-paste)
     string match -qe 'https://github.com' "$clipboard" || return 1
     if string match -qe '#L' "$clipboard"
-        wl-copy -n "$clipboard-$line_num"
+        wl-copy -n "$clipboard-L$line_num"
     else
         wl-copy -n "$clipboard#L$line_num"
     end
