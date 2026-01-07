@@ -698,6 +698,9 @@ sudo reflector @/etc/xdg/reflector/reflector.conf # regenerate mirrors
 # -------------------------repgrep-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout repgrep
 
+# -------------------------reptyr--------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout reptyr
+
 # -------------------------ripdrag-------------------------
 cargo binstall -y ripdrag
 
@@ -751,7 +754,7 @@ ln -sf ~/fes/dot/serpl.yml ~/.config/serpl/serpl.yml
 cd ~/fes/ork
 gh repo clone Axlefublr/sidebery
 cd ~/fes/ork/sidebery
-x i
+d i
 # the extension .zip is now in ~/fes/eva (although it already is in theory)
 # about:debugging → This Firefox → Temporary Extensions → Load Temporary Add-on
 # point it at the zip
