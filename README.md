@@ -1,4 +1,4 @@
-First, my file structure is created with eli/setup/structure.fish \
+First, my file structure is created with ./eli/setup/structure.fish \
 All the other parts of my system will depend on the paths defined in there.
 
 The next step is ./eli/setup/dode.fish \
@@ -44,3 +44,6 @@ Yes, to the degree that forking is less of a massive pain.
 So if you wanna make your nushell look like mine, look at the diff of the fork ig? lol :D
 
 Final significant piece of the puzzle is ./systemd/ — I store all the systemd unit configurations / overrides here, and they are installed / applied either by the program's dode, or by the systemd dode.
+
+This repo, among many others of mine, is autocommitted and autopushed daily; so most of the commit messages being basic is due to me being lazy and not making commits manually :p \
+I more so want to make sure I never lose my changes, more so than I want a nicely navigable git history (because it's not something I've needed nearly as much as the effort it takes to maintain)
