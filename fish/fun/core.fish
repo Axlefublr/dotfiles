@@ -1,10 +1,5 @@
 #!/usr/bin/env fish
 
-function alphabet
-    echo -n 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[];\',./{}:"<>?!@#$%^*()-_=+`|\\'
-end
-funcsave alphabet >/dev/null
-
 function arebesties -a fileone filetwo
     test (stat -c %i $fileone) -eq (stat -c %i $filetwo)
 end

@@ -22,6 +22,22 @@ def lh [] {
 	| str replace 'blob' 'refs/heads'
 }
 
+def 'alp' [variant = 'all'] {
+	const lowercase = 'abcdefghijklmnopqrstuvwxyz'
+	const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	const numbers   = '0123456789'
+	const special   = "[];',./{}:\"<>?!@#$%^*()-_=+`|\\"
+	match $variant {
+		'all' => ($lowercase + $uppercase + $numbers + $special)
+		'low' => $lowercase
+		'up' => $uppercase
+		'let' | 'letter' => ($lowercase + $uppercase)
+		'word' => ($lowercase + $uppercase + $numbers)
+		'spec' | 'special' => $special
+		'num' => $numbers
+	}
+}
+
 def html_spaces [] {
 	str replace -a ' ' '&nbsp;'
 }
