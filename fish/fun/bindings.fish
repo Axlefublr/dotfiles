@@ -1,23 +1,23 @@
 #!/usr/bin/env fish
 
-function _execute_via_pueue
+function _kb_execute_via_pueue
     set -l cmd (commandline)
     history append -- $cmd
     pueue add -- $cmd
     commandline ''
     commandline -f repaint
 end
-funcsave _execute_via_pueue >/dev/null
+funcsave _kb_execute_via_pueue >/dev/null
 
-function _blammo_pwd
+function _kb_blammo_pwd
     commandline -i (pwd_compressed)
 end
-funcsave _blammo_pwd >/dev/null
+funcsave _kb_blammo_pwd >/dev/null
 
-function _reexec
+function _kb_reexec
     history search -n 1 | source
 end
-funcsave _reexec >/dev/null
+funcsave _kb_reexec >/dev/null
 
 function _kb_follow_by
     set -l cmd "$(commandline)"
@@ -56,16 +56,16 @@ funcsave _kb_and_exit >/dev/null
 function fish_user_key_bindings
     # [[sort on]]
     bind / expand-abbr self-insert
-    bind alt-d _blammo_pwd
+    bind alt-d _kb_blammo_pwd
     bind alt-enter expand-abbr insert-line-under
-    bind ctrl-e _reexec
+    bind ctrl-e _kb_reexec
     bind ctrl-i edit_command_buffer
     bind ctrl-l clear-screen
     bind ctrl-o _kb_and_exit
     bind ctrl-s repaint
     bind ctrl-space 'commandline -i " "'
     bind ctrl-z fg
-    bind f1 '_kb_follow_by nu'
+    bind f1 '_kb_follow_by nu ; commandline -f repaint'
     bind f2 _kb_follow_by_lazygit
     bind f3 'z (cat ~/.cache/mine/blammo | path dirname) ; commandline -f repaint'
     bind f4 '_kb_follow_by helix .'

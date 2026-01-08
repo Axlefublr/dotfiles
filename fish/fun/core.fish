@@ -5,14 +5,7 @@ function arebesties -a fileone filetwo
 end
 funcsave arebesties >/dev/null
 
-function b
-    if set -q argv
-        bg %(velvidek.rs $argv)
-    else
-        bg
-    end
-end
-funcsave b >/dev/null
+alias --save bell 'printf \a' >/dev/null
 
 function catait
     inotifywait -e close_write -e close_nowrite $argv &>/dev/null
@@ -20,43 +13,17 @@ function catait
 end
 funcsave catait >/dev/null
 
-function confirm -a message
-    not set -q message && return 121
-    not set -q argv[3] && return 121
-    set -l options $argv[2..]
-    set -l valids
-    for option in $options
-        set -l key (string match -gr '\\[(.)\\]' $option)
-        test $status -ne 0 && return 121
-        set valids $valids $key
-    end
-    echo $message >&2
-    while not contains "$response" $valids
-        read -P "$(string join ' / ' $options) " -fn 1 response || return 130
-    end
-    for num in (seq (count $valids))
-        test "$response" = $valids[$num] && return $num
-    end
-end
-funcsave confirm >/dev/null
-
-# function d
-#     echo $PWD >~/.cache/mine/shell-cwd
-#     if set -q argv
-#         fg %(velvidek.rs $argv)
-#     else
-#         fg
-#     end
-# end
-# funcsave d >/dev/null
-
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
-function engage
-    while read -P '' the
-    end
+function dof
+    diff -u $argv | diff-so-fancy
 end
-funcsave engage >/dev/null
+funcsave dof >/dev/null
+
+function dot
+    echo dot >~/.local/share/mine/waybar-red-dot
+end
+funcsave dot >/dev/null
 
 function ensure_browser
     na -c '
@@ -103,19 +70,6 @@ function flour
 end
 funcsave flour >/dev/null
 
-function fn_clear
-    set list (cat ~/fes/dot/fish/fun/**.fish | string match -gr '^(?:funcsave|alias --save) (\S+)')
-    for file in ~/.config/fish/functions/*.fish
-        set function_name (basename $file '.fish')
-        if not contains $function_name $list
-            # and not string match -qr '^_?fifc' $function_name
-            rm $file
-            echo 'cleared: '$function_name
-        end
-    end
-end
-funcsave fn_clear >/dev/null
-
 function get_input
     set -l input (fuzzel -dl 0 2>/dev/null)
     test $status -ne 0 && return 1
@@ -139,11 +93,6 @@ function get_input_max
 end
 funcsave get_input_max >/dev/null
 
-function get_windows
-    niri msg windows | sd '\n  ' ';' | sd '\n\n' '\n'
-end
-funcsave get_windows >/dev/null
-
 function gq
     set -l repo_root (git rev-parse --show-toplevel)
     if test $status -ne 0
@@ -163,26 +112,10 @@ funcsave imgs >/dev/null
 
 function imgsw
     imgs $argv[1]
-    magick $argv[1].png $argv[1].webp
+    magick $argv[1].png -define webp:lossless=true $argv[1].webp
     rm -f $argv[1].png
 end
 funcsave imgsw >/dev/null
-
-function lh
-    read | string replace 'github.com' 'raw.githubusercontent.com' | string replace blob refs/heads
-end
-funcsave lh >/dev/null
-
-function lhg
-    # https://github.com/Axlefublr/dotfiles/blob/main/fish/fun/general.fish
-    # into
-    # https://raw.githubusercontent.com/Axlefublr/dotfiles/refs/heads/main/fish/fun/general.fish
-    set -l raw_link (wl-paste -n | lh)
-    set -l extension (path extension $raw_link)
-    curl $raw_link >/tmp/mine/lhg$extension
-    helix /tmp/mine/lhg$extension
-end
-funcsave lhg >/dev/null
 
 function lnkj
     argparse c/confirm -- $argv
@@ -214,63 +147,6 @@ function lnkj
 end
 funcsave lnkj >/dev/null
 
-function loopuntil
-    set -l counter 0
-    while true
-        set output (eval $argv[1])
-        if test $status -eq 0
-            if set -q argv[3] && test $argv[3] -ne 0
-                sleep $argv[3]
-                set argv[3] 0
-                continue
-            end
-            break
-        end
-        set counter (math $counter + 1)
-        if set -q argv[2]
-            sleep $argv[2]
-        end
-        if set -q argv[4]
-            if test $counter -ge $argv[4]
-                return 1
-            end
-        end
-    end
-    for line in $output
-        echo $line
-    end
-end
-funcsave loopuntil >/dev/null
-
-function Z
-    zoxide remove $PWD
-end
-funcsave Z >/dev/null
-
-function zz
-    zoxide add $PWD
-end
-funcsave zz >/dev/null
-
-function matches
-    get_windows | rg $argv
-end
-funcsave matches >/dev/null
-
-function matches_except
-    get_windows | rg -v $argv[1] | rg $argv[2]
-end
-funcsave matches_except >/dev/null
-
-function matches_not
-    if get_windows | rg $argv
-        return 1
-    else
-        return 0
-    end
-end
-funcsave matches_not >/dev/null
-
 function mkcd
     mkdir -p $argv && z $argv
 end
@@ -281,34 +157,18 @@ function ocr
 end
 funcsave ocr >/dev/null
 
-function path_append_suffix
-    for path in $argv[2..]
-        echo (path dirname $path)/(path basename -E $path)$argv[1](path extension $path)
-    end
-end
-funcsave path_append_suffix >/dev/null
-
-function path_clear_suffix
-    for path in $argv[2..]
-        echo (path dirname $path)/(path basename -E $path | string trim -rc !$argv[1])(path extension $path)
-    end
-end
-funcsave path_clear_suffix >/dev/null
-
 function path_expand
     read -z | string replace -r "^~" $HOME
 end
 funcsave path_expand >/dev/null
 
-function path_compress
+function path_shrink
     read -z | string replace -r "^$HOME" '~'
 end
-funcsave path_compress >/dev/null
+funcsave path_shrink >/dev/null
 
-function pwd_compressed
-    string replace -r "^$HOME" '~' $PWD
-end
-funcsave pwd_compressed >/dev/null
+alias --save pwdb 'path basename $PWD' >/dev/null
+alias --save pwds 'string replace -r ^$HOME \'~\' $PWD' >/dev/null
 
 function rainbow
     set -l colors ea6962 e49641 d3ad5c a9b665 78bf84 7daea3 b58cc6 e491b2
@@ -348,23 +208,6 @@ function task
 end
 funcsave task >/dev/null
 
-function ttest
-    set -f symbol (shuf -n 1 ~/.local/share/magazine/c-j)
-    while true
-        set -l len (echo -n "$symbol" | wc -m)
-        read -P "$symbol" -n $len output || break
-        test "$output" = "$symbol" || continue
-        while true
-            set -l next_symbol (shuf -n 1 ~/.local/share/magazine/c-j)
-            if test "$symbol" != "$next_symbol"
-                set -f symbol $next_symbol
-                break
-            end
-        end
-    end
-end
-funcsave ttest >/dev/null
-
 function toggle_value
     argparse 'n/namespace=' -- $argv
     and test "$_flag_namespace"
@@ -400,34 +243,3 @@ function webify
     end
 end
 funcsave webify >/dev/null
-
-function win_wait
-    loopuntil "matches '$argv[1]'" $argv[2..] | awk '{print $1}'
-end
-funcsave win_wait >/dev/null
-
-function win_wait_closed
-    loopuntil "matches_not '$argv[1]'" $argv[2..] | awk '{print $1}'
-end
-funcsave win_wait_closed >/dev/null
-
-function win_wait_except
-    loopuntil "matches_except '$argv[1]' '$argv[2]'" $argv[3..] | awk '{print $1}'
-end
-funcsave win_wait_except >/dev/null
-
-function wpchange
-    swww img -t any --transition-fps 255 --transition-duration 3 $argv
-end
-funcsave wpchange >/dev/null
-
-function yazi
-    set tmp (mktemp -t "yazi-cwd.XXXXXX")
-    command yazi $argv --cwd-file="$tmp"
-    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-        z $cwd
-    end
-    commandline -f repaint
-    rm -f -- "$tmp"
-end
-funcsave yazi >/dev/null

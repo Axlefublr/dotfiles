@@ -5,6 +5,7 @@ while rg -q 8BitDo /proc/bus/input/devices &>/dev/null
     sleep 1m
 end
 
+fn_clear
 trash-empty -f 1
 cleaning-lady.nu
 # pueue.nu brush
@@ -20,7 +21,7 @@ and git commit -m leftovers
 truncate -s 0 ~/.local/share/magazine/d
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
-yeared_parse
+yeared_parse.fish
 indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 
 cd ~
@@ -33,7 +34,7 @@ end
 
 for dir in (cat ~/.local/share/magazine/O)
     cd (string replace -r "^~" "$HOME" $dir)
-    autocommit
+    autocommit.fish
     git push
 end
 
@@ -43,4 +44,4 @@ for dir in (cat ~/.local/share/magazine/P)
 end
 
 things
-ubootf
+footclient -T nofocus uboot.fish

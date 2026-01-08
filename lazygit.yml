@@ -268,7 +268,7 @@ customCommands:
     output: terminal
   - key: "<c-a>"
     context: files
-    command: "fish -c 'autocommit'"
+    command: "autocommit.fish"
     description: "Autocommit"
     output: log
   - key: "<delete>"

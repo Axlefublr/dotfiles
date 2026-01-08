@@ -11,7 +11,7 @@ uv tool upgrade --all
 
 cat ~/fes/uviw/afen/sudo | sudo -Sv
 yes | sudo pacman -Syyu
-pacclean
+pacclean.fish
 
 nu -c 'config nu --doc' >~/.local/share/frizz/defconf/nushell.nu
 

@@ -1,25 +1,5 @@
 #!/usr/bin/env fish
 
-function runner
-    return
-    set runned ~/.local/share/magazine/L
-    set -l input (tac $runned | fuzzel -d --match-mode exact 2>/dev/null)
-    test $status -ne 0 && return 1
-    set input_file ~/.cache/mine/runner-command
-    echo $input >$input_file
-    if set -q argv[1]
-        set output "$(source $input_file &| tee ~/.local/share/magazine/o)"
-        notify-send "$output"
-    else
-        source $input_file
-    end
-    indeed.rs -u $runned -- $input
-    tail -n 100 $runned | sponge $runned
-    _magazine_commit ~/.local/share/magazine/L command history
-    _magazine_commit ~/.local/share/magazine/o command output
-end
-funcsave runner >/dev/null
-
 function runner_clipboard
     set result (get_input)
     test $status -ne 0 && return 1
@@ -28,31 +8,12 @@ function runner_clipboard
 end
 funcsave runner_clipboard >/dev/null
 
-function runner_clipboard_append
-    set result (get_input)
-    test $status -ne 0 && return 1
-    test "$result" || return 1
-    begin
-        wl-paste
-        echo $result
-    end | wl-copy -nf
-end
-funcsave runner_clipboard_append >/dev/null
-
 function runner_interactive_unicode
     set input (cat ~/.local/share/magazine/e | fuzzel -d --cache ~/.cache/mine/runner-interactive-unicode 2>/dev/null)
     test $status -ne 0 && return 1
     echo -n (string split ' ' $input[1])[1] | wl-copy -n
 end
 funcsave runner_interactive_unicode >/dev/null
-
-function runner_kill
-    set selected (ps -eo pid,command | zat.rs - 2.. | string trim --left | fuzzel -d 2>/dev/null)
-    for line in $selected
-        kill (string match -gr '^(\\d+)' $line)
-    end
-end
-funcsave runner_kill >/dev/null
 
 function runner_link
     set file ~/.local/share/magazine/l

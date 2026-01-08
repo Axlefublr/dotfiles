@@ -4,4 +4,4 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=oneshot
-ExecStart=env fish -c frizz
+ExecStart=env frizz.fish
