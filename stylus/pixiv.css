@@ -6,7 +6,7 @@ body {
 
 	> div#__next > div[data-overlay-container='true'] > div:nth-of-type(2) {
 		/* top bar */
-		> div.sc-63818093-0 {
+		> div:nth-of-type(3) {
 			display: none;
 		}
 
