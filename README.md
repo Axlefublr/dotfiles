@@ -4,8 +4,9 @@ All the other parts of my system will depend on the paths defined in there.
 The next step is ./eli/setup/dode.fish \
 This is NOT supposed to be a script to straight up run — the `return` at the start suggests this. \
 It's a collection of program setups, ideally expressed in shell commands I can execute to fully set up a program, but sometimes including manual steps, or references to my own notes if the setup is particularly complicated (like for the browser for instance).  \
-By design, I don't hold some list of programs to definitely install; I want to be handpicking the programs that I actually *want* on my system, search for them in dode, and set them up individually.
+This is the place you should look at if you're trying to figure out how I set up some particular program — the glue for it will *probably* be there.
 
+By design, I don't hold some list of programs to definitely install; I want to be handpicking the programs that I actually *want* on my system, search for them in dode, and set them up individually.
 Part of the benefit of reinstalling (what dode is trying to help make nicer) is that you get to completely debloat your system. \
 Doesn't make sense to rebloat it with some form of “install everything I used to have” approach. \
 And I **really** don't wanna maintain a list of software I definitely want. I feel like it'd change way too often, and become a big bother in the process.
