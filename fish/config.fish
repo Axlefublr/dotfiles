@@ -23,10 +23,10 @@ set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
 set -gx FZF_DEFAULT_OPTS \
     --scheme=path \
     --tiebreak=pathname,index \
-    --walker=file,dir,follow,hidden \
+    --walker=file,dir,follow \
     --cycle --keep-right \
     --scroll-off=999 --hscroll-off=999 \
-    --height=-1 --layout=reverse --padding=0 --margin=0 \
+    --layout=reverse --padding=0 --margin=0 \
     --info=inline-right --no-scrollbar \
     '--prompt="> "' --marker="" --ellipsis=… \
     --tabstop=3 \
