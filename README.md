@@ -1,7 +1,7 @@
-First, my file structure is created with ./eli/setup/structure.fish \
+First, my file structure is created with ./lai/setup/structure.fish \
 All the other parts of my system will depend on the paths defined in there.
 
-The next step is ./eli/setup/dode.fish \
+The next step is ./lai/setup/dode.fish \
 This is NOT supposed to be a script to straight up run — the `return` at the start suggests this. \
 It's a collection of program setups, ideally expressed in shell commands I can execute to fully set up a program, but sometimes including manual steps, or references to my own notes if the setup is particularly complicated (like for the browser for instance).  \
 This is the place you should look at if you're trying to figure out how I set up some particular program — the glue for it will *probably* be there.
@@ -14,7 +14,7 @@ To protect me from a process that should ideally never happen again in my life a
 
 I back up my dotfiles in a very minute way not because I often need to reinstate my system, but because I'm not stupid enough to think that nothing bad will ever happen, to warrant a reinstall in the first place.
 
-./eli/setup/pack.fish is basically another dode, but focused on setting up programming languages and/or package managers. I'm not even sure it's a good idea to have this separated, tbh. \
+./lai/setup/pack.fish is basically another dode, but focused on setting up programming languages and/or package managers. I'm not even sure it's a good idea to have this separated, tbh. \
 The `main` section reveals a bit of a lie — here are two lists of packages I definitely always want on my system 💀 \
 Okay but in my defence, I'm actively moving away from the idea, and I don't remember the last time I added something into there.
 
@@ -28,17 +28,17 @@ Next spot to visit is ./fish/fun/ \
 I love fish shell, and write most of my system's functionality in it.
 Whenever you see me do `fish -c some_function`, `some_function` will be somewhere in ./fish/fun/
 
-./eli/ contains my scripts! \
+./lai/ contains my scripts! \
 [Here's why it's not called “scripts”](https://axlefublr.github.io/optimizing-paths) \
 Unless another language is more appropriate for the job, I prefer to write functionality in a fish *function*, rather than a separate script. So this spot will be comparatively unpopulated.
 
-./eli/ is added to $PATH, so I can use the scripts in it directly. If you ever see me call a binary with an extension, that you don't recognize, good idea to check in ./eli/
+./lai/ is added to $PATH, so I can use the scripts in it directly. If you ever see me call a binary with an extension, that you don't recognize, good idea to check in ./lai/
 
-./eli/fool/ is a concept of making a wrapper over a program, *fool*ing it into providing you some extra behavior. \
+./lai/fool/ is a concept of making a wrapper over a program, *fool*ing it into providing you some extra behavior. \
 Imagine doing something like making `git clone` automatically `cd` you into the newly cloned directory — *that*.
 
 Currently, ./nu/lvoc/ contains both nushell scripts and nushell libraries. \
-I thought I would source nushell scripts into a nu shell in development more often than I *actually* do, so I'll probably move the scripts into ./eli/, and make ./nu/lvoc/ contain only the nushell libraries.
+I thought I would source nushell scripts into a nu shell in development more often than I *actually* do, so I'll probably move the scripts into ./lai/, and make ./nu/lvoc/ contain only the nushell libraries.
 
 Incidentally, most of my nushell config isn't in my nushell config: I [forked nushell](https://github.com/Axlefublr/nushell) to change the defaults to my preferences *in the source*, because the current way that configuration works in nushell is a bit of a massive pain.
 Yes, to the degree that forking is less of a massive pain.

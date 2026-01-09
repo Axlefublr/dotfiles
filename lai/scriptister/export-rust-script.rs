@@ -1,7 +1,7 @@
 // begin Cargo.toml
 // [dependencies]
 // end Cargo.toml
-// /home/axlefublr/fes/dot/eli/scriptister/export-rust-script.rs
+// /home/axlefublr/fes/dot/lai/scriptister/export-rust-script.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 

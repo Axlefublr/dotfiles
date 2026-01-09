@@ -8,7 +8,6 @@ mkdir -p ~/wlx \
     ~/iwm/lwkc \
     ~/fes \
     ~/fes/ork \
-    ~/fes/lai \
     ~/.local/bin \
     ~/.cache/{mine,wks} \
     ~/.local/share/mine \
@@ -19,14 +18,14 @@ echo "d /tmp/mine 0755 $USER $USER -" | sudo tee -a /etc/tmpfiles.d/mine.conf
 sudo systemd-tmpfiles --create
 
 cd ~
-git clone https://github.com/Axlefublr/info --depth=1 jrl
+git clone https://github.com/Axlefublr/ake --depth=1
 
 cd ~/fes
 git clone https://github.com/Axlefublr/dotfiles --depth=1 dot
 fish_add_path ~/fes/dot/fish/fun
-fish_add_path ~/fes/dot/eli
-fish_add_path ~/fes/dot/eli/scriptister
-fish_add_path ~/fes/dot/eli/fool
+fish_add_path ~/fes/dot/lai
+fish_add_path ~/fes/dot/lai/scriptister
+fish_add_path ~/fes/dot/lai/fool
 fish_add_path ~/fes/dot/nu/lvoc
 ln -sf ~/fes/dot/desktop/ ~/.local/share/applications/fesdot
 
@@ -40,9 +39,7 @@ git clone https://github.com/Axlefublr/job --depth=1
 git clone https://github.com/Axlefublr/mdw --depth=1
 
 cd ~/fes/ork
-git clone https://github.com/Axlefublr/helix --depth=1 hx
-
-cd ~/fes/lai
+git clone https://github.com/Axlefublr/hlaix --depth=1 hx
 git clone https://github.com/Axlefublr/axlefublr.github.io --depth=1 bog
 
 cd ~/iwm

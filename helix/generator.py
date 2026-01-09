@@ -629,7 +629,7 @@ normal_select_mappings: dict[str, Any] = {
         'f': 'goto_type_definition',
         'r': 'rename_symbol',
         's': 'hover',
-        'v': ':pipe ~/fes/dot/eli/fool/qalc.fish -t $in',
+        'v': ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in',
         'w': 'goto_implementation',
         # [[sort off]]
     },

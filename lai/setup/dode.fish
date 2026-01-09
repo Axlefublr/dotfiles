@@ -341,10 +341,10 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # ------------------------gtk-theme------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout papirus-icon-theme
-cd ~/fes/lai
+cd ~/fes/ork
 gh repo clone Axlefublr/gruvbox-material-gtk-theme
 sudo rm -fr /usr/share/themes/gruvbox-material
-sudo ln -sf ~/fes/lai/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
+sudo ln -sf ~/fes/ork/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 set -Ux GTK_THEME gruvbox-material
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
@@ -364,7 +364,7 @@ git clone --depth=1 https://github.com/Axlefublr/helix hx
 cd hx
 ln -sf ~/fes/dot/helix ~/.config
 mkdir -p ~/fes/dot/helix/runtime
-ln -sf ~/fes/lai/qiri/ ~/fes/dot/helix/runtime/queries
+ln -sf ~/fes/ork/qiri/ ~/fes/dot/helix/runtime/queries
 mkdir -p ~/.cargo/bin
 rm -fr ~/.cargo/bin/runtime
 ln -sf ~/fes/ork/hx/runtime ~/.cargo/bin

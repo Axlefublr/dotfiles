@@ -42,8 +42,8 @@ end
 funcsave _rust_check >/dev/null
 
 function _repo_create
-    echo 'cd ~/fes/lai' >&2
-    cd ~/fes/lai
+    echo 'cd ~/fes/ork' >&2
+    cd ~/fes/ork
     echo "repo name is: $argv[1]" >&2
     read -P 'repo description (leave empty for none):' -l repo_description || return 130
     test "$repo_description" && set -l description_flag -d "$repo_description"

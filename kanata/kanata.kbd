@@ -165,7 +165,7 @@
 	a (layer-while-held ag)
 	b (cmd pick-blog-post.nu)
 	h (cmd niri msg action spawn -- footclient -N tewi)
-	i (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix (uclanr -j - 3)")
+	i (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/ake helix (uclanr -j - 3)")
 	k (cmd niri msg action spawn -- footclient -N btm)
 	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw fish -c "YAZI_START_PICKING=TRUE yazi")
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
@@ -177,7 +177,7 @@
 )
 
 (deflayermap (ag)
-	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/jrl helix .)
+	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/ake helix .)
 	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
 	m (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/osl/slme yazi)
 )

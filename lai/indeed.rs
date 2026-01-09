@@ -2,7 +2,7 @@
 // [dependencies]
 // clap = { version = '4.5', features = ['derive', 'wrap_help'] }
 // end Cargo.toml
-// /home/axlefublr/fes/dot/eli/indeed.rs
+// /home/axlefublr/fes/dot/lai/indeed.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]

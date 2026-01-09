@@ -423,7 +423,7 @@ let normal_select_mappings = {
         # [[sort on]]
         I: goto_implementation
         J: goto_declaration
-        c: ':pipe ~/fes/dot/eli/fool/qalc.fish -t $in'
+        c: ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in'
         i: goto_type_definition
         j: goto_definition
         k: goto_reference

@@ -2,7 +2,7 @@
 // [dependencies]
 // # clap = { version = "4.5.23", features = ["wrap_help", "derive"] }
 // end Cargo.toml
-// /home/axlefublr/fes/dot/eli/strip-wrapper-type.rs
+// /home/axlefublr/fes/dot/lai/strip-wrapper-type.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 

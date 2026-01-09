@@ -6,7 +6,7 @@
 // dirs = "6.0.0"
 // rand = "0.9.0"
 // end Cargo.toml
-// /home/axlefublr/fes/dot/eli/suggest.rs
+// /home/axlefublr/fes/dot/lai/suggest.rs
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(dead_code)]
