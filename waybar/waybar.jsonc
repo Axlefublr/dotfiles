@@ -14,6 +14,7 @@
     "pulseaudio",
     "custom/headphone-battery",
     "custom/layout",
+    "custom/niriwin",
     "custom/magazines",
     "custom/mouse-mode",
     "custom/screen-record",
@@ -31,8 +32,14 @@
     "disk",
     "memory",
     "temperature#gpu",
-    "temperature#cpu",
+    "temperature#cpu"
   ],
+  "custom/niriwin": {
+    "exec": "/home/axlefublr/fes/dot/waybar/niri-windows.py",
+    "return-type": "json",
+    "restart-interval": "never",
+    "format": "{}"
+  },
   "clock#date": {
     "interval": 60,
     "format": "{:%y.%m.%d}"
