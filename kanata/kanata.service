@@ -1,13 +1,12 @@
 [Unit]
 After=graphical-session.target
-StartLimitBurst=50
-StartLimitIntervalSec=10
+StartLimitBurst=100
+StartLimitIntervalSec=60
 
 [Service]
 # ran through fish so that kanata inherits all env vars
 ExecStart=env fish -c "kanata --cfg ~/fes/dot/kanata/kanata.kbd"
 Restart=always
-RestartSec=500ms
 Type=exec
 
 [Install]
