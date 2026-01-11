@@ -1,6 +1,6 @@
 [Unit]
-StartLimitIntervalSec=20
 StartLimitBurst=100
+StartLimitIntervalSec=60
 
 [Service]
 Restart=on-failure
