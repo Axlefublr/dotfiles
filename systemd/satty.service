@@ -2,8 +2,8 @@
 After=graphical-session.target
 PartOf=graphical-session.target
 Requisite=graphical-session.target
-StartLimitBurst=0
-StartLimitIntervalSec=0
+StartLimitBurst=100
+StartLimitIntervalSec=60
 
 [Service]
 ExecStart=env satty --daemon --early-exit
