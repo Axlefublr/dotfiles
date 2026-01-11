@@ -228,7 +228,7 @@
 	c (cmd fish -c edit_clipboard)
 	caps (cmd fish -c ntf_dismiss_all)
 	d (cmd niri msg action spawn -- fuzzel)
-	e (cmd fish -c internet_search)
+	e (cmd internet-search.fish)
 	f (cmd fish -c "runner_link open")
 	j (layer-while-held quote-j)
 	n (layer-while-held quote-n)
