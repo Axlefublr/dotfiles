@@ -1,3 +1,3 @@
 [Unit]
-StartLimitBurst=0
-StartLimitIntervalSec=0
+StartLimitBurst=100
+StartLimitIntervalSec=60
