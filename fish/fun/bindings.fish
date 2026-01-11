@@ -45,6 +45,7 @@ end
 funcsave _kb_follow_by_lazygit >/dev/null
 
 function _kb_and_exit
+    commandline -f expand-abbr
     set -l cmd "$(commandline)"
     not test "$(string trim $cmd)" && return
     history append -- $cmd
