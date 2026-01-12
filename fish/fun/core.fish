@@ -158,17 +158,17 @@ end
 funcsave ocr >/dev/null
 
 function path_expand
-    read -z | string replace -r "^~" $HOME
+    string replace -r "^~" $HOME $argv
 end
 funcsave path_expand >/dev/null
 
 function path_shrink
-    read -z | string replace -r "^$HOME" '~'
+    string replace -r "^$HOME" '~' $argv
 end
 funcsave path_shrink >/dev/null
 
-alias --save pwdb 'path basename $PWD' >/dev/null
-alias --save pwds 'string replace -r ^$HOME \'~\' $PWD' >/dev/null
+alias --save pwdb 'path basename (pwds)' >/dev/null
+alias --save pwds 'path_shrink $PWD' >/dev/null
 
 function rainbow
     set -l colors ea6962 e49641 d3ad5c a9b665 78bf84 7daea3 b58cc6 e491b2
