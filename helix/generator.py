@@ -216,6 +216,8 @@ all_modes_mappings: dict[str, Any] = {
     'A-right': 'goto_next_tabstop',
     'A-tab': ':open %sh(wl-paste -n)',
     'C-down': 'copy_selection_on_next_line',
+    'C-end': ['extend_to_file_end', 'collapse_selection'],
+    'C-home': 'goto_file_start',
     'C-i': ['commit_undo_checkpoint', 'normal_mode', 'open_above'],
     'C-left': 'goto_previous_buffer',
     'C-o': ['commit_undo_checkpoint', 'normal_mode', 'open_below'],
@@ -432,8 +434,6 @@ normal_select_mappings: dict[str, Any] = {
     # ---------------------line boundaries---------------------
     'C-A-end': ['ensure_selections_forward', 'extend_to_file_end'],
     'C-A-home': ['ensure_selections_forward', 'flip_selections', 'extend_to_file_start'],
-    'C-end': ['extend_to_file_end', 'collapse_selection'],
-    'C-home': 'goto_file_start',
     'S-end': ['ensure_selections_forward', 'extend_to_line_end_newline'],
     'S-home': ['ensure_selections_forward', 'flip_selections', 'extend_to_line_start'],
     'end': ['ensure_selections_forward', 'extend_to_line_end'],
