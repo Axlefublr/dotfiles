@@ -5,15 +5,6 @@ function annotate_screen
 end
 funcsave annotate_screen >/dev/null
 
-function build_finish -a success
-    if $success
-        notify-send "✅ $(pwdb)"
-    else
-        notify-send "❌ $(pwdb)"
-    end
-end
-funcsave build_finish >/dev/null
-
 alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness | head -n 1' >/dev/null
 
 function clipboard_index -a index
@@ -60,6 +51,11 @@ function float_clipboard_image
     wl-paste -t image/png | swayimg -a swayfloat -
 end
 funcsave float_clipboard_image >/dev/null
+
+function flourish
+    notify-send "✅ $(pwdb)"
+end
+funcsave flourish >/dev/null
 
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
 alias --save get_media_time 'playerctl metadata --format "{{duration(position)}}"' >/dev/null
@@ -153,6 +149,13 @@ function which_wallpaper
     swww query | string match -gr 'image: (.*)'
 end
 funcsave which_wallpaper >/dev/null
+
+function wither
+    set -l stored $status
+    notify-send "❌ $(pwdb)"
+    return $stored
+end
+funcsave wither >/dev/null
 
 function wpchange
     swww img -t any --transition-fps 255 --transition-duration 3 $argv
