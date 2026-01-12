@@ -3,7 +3,7 @@
 [
 	[path         , delta];
 	[/tmp/mine    , 2day ]
-	[~/fes/ork/duc, 10day ]
+	[~/fes/ork/duc, 30day ]
 	[~/iwm/sco    , 30day]
 	[~/wlx        , 5day ]
 	[~/wlx/tabs   , 7day ]
