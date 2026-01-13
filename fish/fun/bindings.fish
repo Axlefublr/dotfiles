@@ -10,7 +10,7 @@ end
 funcsave _kb_execute_via_pueue >/dev/null
 
 function _kb_blammo_pwd
-    commandline -i (pwd_compressed)
+    commandline -i (pwds)
 end
 funcsave _kb_blammo_pwd >/dev/null
 
