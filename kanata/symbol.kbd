@@ -96,6 +96,7 @@
 )
 
 (deflayermap (iu)
+	c (cmd wtype 💗)
 	e (cmd wtype 👀)
 	r (cmd wtype 🙄)
 	s (cmd wtype 💀)
