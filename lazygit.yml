@@ -306,7 +306,7 @@ customCommands:
     output: log
   - key: "O"
     context: "commits"
-    command: "git fetch --unshallow"
+    command: "git fetch origin upstream --unshallow"
     loadingText: "Unshallowing commits..."
     description: "Unshallow the shallow copy"
     output: log
