@@ -45,6 +45,7 @@ git clone https://github.com/Axlefublr/axlefublr.github.io --depth=1 bog
 cd ~/iwm
 git clone https://github.com/Axlefublr/deleted-bangers --depth=1 msk
 git clone https://github.com/Axlefublr/pictures-tree --depth=1 osl
+git clone https://github.com/Axlefublr/wallpapers --depth=1 kavu
 git clone https://github.com/Axlefublr/twemoji-svg --depth=1 twemoji
 git clone https://github.com/Axlefublr/video-creation-tools --depth=1 tox
 git clone https://github.com/Axlefublr/documents --depth=1 dls
