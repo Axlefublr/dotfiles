@@ -4,7 +4,7 @@ def main [] {
 	main list
 }
 
-export def 'main list' [] {
+def 'main list' [] {
 	glob --follow-symlinks /sys/class/hwmon/hwmon*/temp*_input
 	| each { |path|
 		let source = $path | path dirname | path join name | open | str trim
@@ -15,13 +15,13 @@ export def 'main list' [] {
 	}
 }
 
-export def 'main cpu' [] {
+def 'main cpu' [] {
 	main list
 	| where sensor == 'Package id 0' and source == coretemp
 	| get path.0
 }
 
-export def 'main fix' [] {
+def 'main fix' [] {
 	let waybar_conf = open ~/fes/dot/waybar/waybar.jsonc
 	| from json
 	let set_cpu = readlink ~/.local/share/mine/cpu-package-0 | str trim
@@ -40,7 +40,7 @@ export def 'main fix' [] {
 	^sudo systemctl restart fancontrol
 }
 
-export def 'main ppt' [] {
+def 'main ppt' [] {
 	truncate -s 0 /tmp/mine/ppt-log
 	loop {
 		sensors -j e> /dev/null
