@@ -10,4 +10,9 @@ set -l patch_name "$argv"
 if not path extension $patch_name
     set patch_name $patch_name.patch
 end
-wl-paste -n >$parent_dir/$patch_name
+set -l full_patch_path $parent_dir/$patch_name
+if test -f $full_patch_path
+    git apply --3way $full_patch_path
+else
+    wl-paste -n >$full_patch_path
+end

@@ -270,6 +270,8 @@ customCommands:
       - type: input
         title: "Enter patch filename"
         key: Filename
+        suggestions:
+          command: "list-patch-files.fish"
 
   - key: E
     context: files
