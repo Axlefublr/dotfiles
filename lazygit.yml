@@ -331,8 +331,10 @@ customCommands:
         options:
           - value: "revert"
             name: "With a commit"
+            key: "c"
           - value: "revert -n"
             name: "Into index"
+            key: "i"
     description: "View reverting options..."
 
   - key: E
