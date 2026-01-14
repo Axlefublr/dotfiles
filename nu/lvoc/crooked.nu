@@ -17,6 +17,10 @@ def queue --wrapped [...args] {
 	pueue add -g cpu -- ($args | str join ' ') o+e>| ignore
 }
 
+def fox [] {
+	default -e false | if not $in { exit 1 }
+}
+
 def lh [] {
 	str replace 'github.com' 'raw.githubusercontent.com'
 	| str replace 'blob' 'refs/heads'
