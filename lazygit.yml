@@ -259,7 +259,17 @@ customCommands:
   - key: U
     context: global
     command: "wl-paste | git apply --3way"
+    description: "Apply patch from clipboard"
     output: none
+  - key: <c-u>
+    context: global
+    command: "create-patch-file.fish {{.Form.Filename}}"
+    description: "Write clipboard into a patch file"
+    output: none
+    prompts:
+      - type: input
+        title: "Enter patch filename"
+        key: Filename
 
   - key: E
     context: files
