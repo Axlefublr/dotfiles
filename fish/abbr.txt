@@ -17,6 +17,7 @@ systemctl ← o → stop
 
 at → alien_temple
 c  → cargo
+ca → cargo.nu
 e  → helix
 f  → z
 gz → glaza
