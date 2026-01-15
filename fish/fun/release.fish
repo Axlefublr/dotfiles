@@ -27,9 +27,7 @@ end
 funcsave rs >/dev/null
 
 function _rust_check
-    touch README.md
-    touch RELEASE.md
-    touch project.txt
+    touch README.md RELEASE.md
     test -e .rustfmt
     and confirm.rs 'update formatting config?' [j]es [k]o | read -l response
     or confirm.rs 'no formatting config. blammo?' [j]es [k]o | read -l response
