@@ -17,9 +17,9 @@ def main [section: string] {
 			| str trim
 			| lines
 			| each { str trim }
-			| str join ' → '
+			| str join '  '
 			| split chars
-			| take ($command_columns - 2) # for good measure
+			| take $command_columns
 			| str join ''
 		}
 		| compact -e command
