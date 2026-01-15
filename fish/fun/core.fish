@@ -229,6 +229,11 @@ function vidsc
 end
 funcsave vidsc >/dev/null
 
+function warn
+    echo $argv >&2
+end
+funcsave warn >/dev/null
+
 function webify
     for file in $argv
         not test -f $file && continue

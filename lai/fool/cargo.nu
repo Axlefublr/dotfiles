@@ -10,6 +10,12 @@ export def 'main binary-name' [] {
 	| get name.0
 }
 
+export def 'main version' [] {
+	cargo metadata --no-deps --format-version 1
+	| from json
+	| get packages.0.version
+}
+
 def 'main inc' [the] { main increment $the }
 export def 'main increment' [bigness: string] {
 	if [major minor patch] not-has $bigness { exit 1 }
