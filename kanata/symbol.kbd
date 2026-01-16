@@ -3,7 +3,7 @@
 	, S-1
 	. (cmd wtype …)
 	/ bksl
-	c (multi (layer-while-held c) (layer-while-held xc) (on-release tap-vkey any-c))
+	c (multi (layer-while-held c) (layer-while-held cx) (on-release tap-vkey any-c))
 	h S-4
 	i S-8
 	j S-eql
@@ -19,7 +19,7 @@
 
 (deflayermap (c)
 	v (multi (layer-while-held v) (layer-while-held cv) (on-release tap-vkey any-v))
-	x (multi (layer-while-held x) (layer-while-held xc) (on-release tap-vkey any-x))
+	x (multi (layer-while-held x) (layer-while-held cx) (on-release tap-vkey any-x))
 	;; [[sort on]]
 	, S-7
 	. (cmd wtype °)
@@ -37,7 +37,7 @@
 	;; [[sort off]]
 )
 
-(deflayermap (xc)
+(deflayermap (cx)
 	m (cmd wtype ≻)
 	n (cmd wtype ≺)
 	j (cmd wtype ≤)
