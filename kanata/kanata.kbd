@@ -66,7 +66,7 @@
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (layer-while-held r))
 	s (tap-hold-release $tt $ht s lsft)
-	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on-release tap-vkey any-modifier)))
+	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on-release tap-vkey any-modifier-zoom-conditional)))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held u))

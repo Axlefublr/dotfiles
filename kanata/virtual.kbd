@@ -16,6 +16,8 @@
 	alt   lalt
 	meta  lmet
 	any-modifier (multi (on-press release-vkey shift) (on-press release-vkey ctrl) (on-press release-vkey alt) (on-press release-vkey meta))
-	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey any-modifier))
+	any-modifier-zoom (multi (on-press tap-vkey any-modifier) (cmd niri msg action set-zoom 1))
+	any-modifier-zoom-conditional (switch ((not (layer space))) (on-press tap-vkey any-modifier-zoom) break)
+	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey any-modifier-zoom))
 	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held space) (on-release tap-vkey disable-mouse-mode))
 )

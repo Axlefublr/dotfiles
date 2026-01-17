@@ -1,16 +1,16 @@
 (deflayermap (space)
 	caps esc
-	spc ret
+	spc enter
 	n (on-press toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
 
-	h (cmd ydotool mousemove -a 386 300)
+	; (cmd ydotool mousemove -a 386 300)
 	y XX
 	z XX
 	c y
 
 	v (tap-hold-release $tt $ht C-w XX)
-	u (cmd fish -c screenshot_select)
+	/ (multi (cmd fish -c screenshot_select) (cmd niri msg action set-zoom 1))
 	x (cmd fish -c "show_clipboard_image -fs fill")
 	' (one-shot $ot (layer-while-held mouse-extra))
 
@@ -22,6 +22,8 @@
 	m (multi mmid (on-release tap-vkey any-modifier))
 	j (multi mlft (on-release tap-vkey any-modifier))
 	k (multi mrgt (on-release tap-vkey any-modifier))
+	h (cmd niri msg action set-zoom +2)
+	u (tap-hold-release $tt $ht (cmd niri msg action set-zoom -- -2) (cmd niri msg action set-zoom 1))
 	, pgup
 	. pgdn
 
@@ -37,14 +39,13 @@
 )
 
 (deflayermap (mouse-slow)
-	s (movemouse-left  16 1)
-	d (movemouse-down  16 1)
-	e (movemouse-up    16 1)
-	f (movemouse-right 16 1)
+	s (movemouse-left  20 1)
+	d (movemouse-down  20 1)
+	e (movemouse-up    20 1)
+	f (movemouse-right 20 1)
 )
 
 (deflayermap (mouse-extra)
-	j (cmd woomer)
 	l (cmd fish -c pick_and_copy_color)
 	o (cmd fish -c mouse_position)
 	c (cmd fish -c clipboard_image_save)

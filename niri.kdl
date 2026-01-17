@@ -322,6 +322,7 @@ animations {
 cursor {
     xcursor-theme "Lighted-Pixel-Butter"
     hide-when-typing
+    zoom-quality "pixel-perfect"
 }
 
 clipboard {
