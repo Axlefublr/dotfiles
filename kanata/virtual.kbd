@@ -10,6 +10,8 @@
 	any-v (multi (release-layer v) (release-layer cv))
 	any-w (multi (release-layer w) (release-layer fw) (release-layer ew) (release-layer efw))
 	any-x (multi (release-layer x) (release-layer cx))
+	any-caps (multi (release-layer caps) (release-layer caps-space))
+	any-quote (multi (switch ((layer bookmark)) (one-shot $ot (layer-while-held bookmark)) break) (release-layer quote) (release-layer space-quote))
 
 	shift lsft
 	ctrl  lctl
@@ -17,7 +19,10 @@
 	meta  lmet
 	any-modifier (multi (on-press release-vkey shift) (on-press release-vkey ctrl) (on-press release-vkey alt) (on-press release-vkey meta))
 	any-modifier-zoom (multi (on-press tap-vkey any-modifier) (cmd niri msg action set-zoom 1))
-	any-modifier-zoom-conditional (switch ((not (layer space))) (on-press tap-vkey any-modifier-zoom) break)
-	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey any-modifier-zoom))
+	any-space (switch ((not (layer space)))
+		(multi (release-layer space) (release-layer caps-space) (release-layer space-quote) (on-press tap-vkey any-modifier-zoom))
+	break)
+
+	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey any-space))
 	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held space) (on-release tap-vkey disable-mouse-mode))
 )

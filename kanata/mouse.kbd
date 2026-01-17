@@ -1,5 +1,6 @@
 (deflayermap (space)
-	caps esc
+	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (layer-while-held caps-space) (on-release tap-vkey any-caps)))
+	' (multi (layer-while-held quote) (layer-while-held space-quote) (on-release tap-vkey any-quote))
 	spc enter
 	n (on-press toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
@@ -12,7 +13,6 @@
 	v (tap-hold-release $tt $ht C-w XX)
 	/ (multi (cmd fish -c screenshot_select) (cmd niri msg action set-zoom 1))
 	x (cmd fish -c "show_clipboard_image -fs fill")
-	' (one-shot $ot (layer-while-held mouse-extra))
 
 	a (on-press press-vkey shift)
 	q (on-press press-vkey meta)
@@ -45,7 +45,7 @@
 	f (movemouse-right 20 1)
 )
 
-(deflayermap (mouse-extra)
+(deflayermap (space-quote)
 	l (cmd fish -c pick_and_copy_color)
 	o (cmd fish -c mouse_position)
 	c (cmd fish -c clipboard_image_save)
@@ -55,4 +55,7 @@
 	i C-S-c
 	, C-A-b
 	m C-A-y
+)
+
+(deflayermap (caps-space)
 )

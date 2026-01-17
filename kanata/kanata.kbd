@@ -26,7 +26,7 @@
 (defsrc)
 (deflayermap (default)
 	;; [[sort on]]
-	' (tap-hold-release $tt $ht ' (layer-while-held quote))
+	' (tap-hold-release $tt $ht ' (multi (layer-while-held quote) (on-release tap-vkey any-quote)))
 	, (tap-hold-release $tt $ht , (layer-while-held comma))
 	- (multi (layer-switch pvz) (cmd notify-send "plants vs zombies"))
 	. (tap-hold-release $tt $ht . XX)
@@ -47,7 +47,7 @@
 	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held a)))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (multi (layer-while-held c) (on-release tap-vkey any-c)))
-	caps (tap-hold-release $tt $ht esc (layer-while-held caps))
+	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (on-release tap-vkey any-caps)))
 	d (tap-hold-release $tt $ht d lctl)
 	e (tap-hold-release $tt $ht e (multi (layer-while-held e) (on-release tap-vkey any-e)))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
@@ -66,7 +66,7 @@
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (layer-while-held r))
 	s (tap-hold-release $tt $ht s lsft)
-	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on-release tap-vkey any-modifier-zoom-conditional)))
+	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on-release tap-vkey any-space)))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (layer-while-held u))
@@ -183,6 +183,7 @@
 )
 
 (deflayermap (caps)
+	spc (multi (layer-while-held space) (layer-while-held caps-space) (on-release tap-vkey any-space))
 	;; [[sort on]]
 	d (cmd fish -c media_next)
 	e (cmd fish -c "set_volume 0.02+")
@@ -222,6 +223,9 @@
 )
 
 (deflayermap (quote)
+	spc (multi (layer-while-held space) (layer-while-held space-quote) (on-release tap-vkey any-space))
+	j (layer-while-held quote-j)
+	n (layer-while-held quote-n)
 	;; [[sort on]]
 	;; d (cmd fish -c "runner show")
 	a (cmd fish -c runner_interactive_unicode)
@@ -230,8 +234,6 @@
 	d (cmd niri msg action spawn -- fuzzel)
 	e (cmd internet-search.fish)
 	f (cmd fish -c "runner_link open")
-	j (layer-while-held quote-j)
-	n (layer-while-held quote-n)
 	r (cmd fish -c clipboard_pick)
 	s (cmd fish -c runner_link)
 	w (one-shot $ot (layer-while-held bookmark))
