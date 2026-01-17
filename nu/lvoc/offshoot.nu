@@ -21,7 +21,7 @@ export def 'finance' [] {
 	let mult  = $the.mult | default 'null' | into string | fill -w 4
 	let keep  = $the.keep | default 'null' | into string | fill -w 4
 
-	let lasts = (formatfill 3 6 $the.lasts)
+	let lasts = (formatfill 3 3 $the.lasts)
 	let costs = (formatfill 4 3 $the.costs)
 
 	let inc = if ($the.lasts | is-empty) or ($the.costs | is-empty) {
