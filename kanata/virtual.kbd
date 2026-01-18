@@ -36,5 +36,5 @@
 	break)
 
 	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on-press tap-vkey space))
-	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held space) (on-release tap-vkey disable-mouse-mode))
+	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held space) (on↑ tap-vkey disable-mouse-mode))
 )

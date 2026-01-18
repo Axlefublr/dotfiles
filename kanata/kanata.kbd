@@ -28,7 +28,7 @@
 	- (multi (layer-switch pvz) (cmd notify-send "plants vs zombies"))
 	= (multi (layer-switch nuclear-throne) (cmd notify-send "nuclear throne"))
 	;; [[sort on]]
-	' (tap-hold-release $tt $ht ' (multi (layer-while-held quote) (on-release tap-vkey quote)))
+	' (tap-hold-release $tt $ht ' (multi (layer-while-held quote) (on↑ tap-vkey quote)))
 	, (tap-hold-release $tt $ht , (layer-while-held comma))
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / XX)
@@ -42,37 +42,37 @@
 	7 XX
 	8 XX
 	9 (cmd fish -c screenshot_window)
-	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held semicolon) (on-release tap-vkey semicolon)))
+	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held semicolon) (on↑ tap-vkey semicolon)))
 	` XX
-	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held a) (on-release tap-vkey a)))
+	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held a) (on↑ tap-vkey a)))
 	b (tap-hold-release $tt $ht b XX)
-	c (tap-hold-release $tt $ht c (multi (layer-while-held c) (on-release tap-vkey c)))
-	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (on-release tap-vkey caps)))
+	c (tap-hold-release $tt $ht c (multi (layer-while-held c) (on↑ tap-vkey c)))
+	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (on↑ tap-vkey caps)))
 	d (tap-hold-release $tt $ht d lctl)
-	e (tap-hold-release $tt $ht e (multi (layer-while-held e) (on-release tap-vkey e)))
+	e (tap-hold-release $tt $ht e (multi (layer-while-held e) (on↑ tap-vkey e)))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
-	f (tap-hold-release $tt $ht f (multi (layer-while-held f) (on-release tap-vkey f)))
-	g (tap-hold-release $tt $ht g (multi (layer-while-held g) (on-release tap-vkey g)))
+	f (tap-hold-release $tt $ht f (multi (layer-while-held f) (on↑ tap-vkey f)))
+	g (tap-hold-release $tt $ht g (multi (layer-while-held g) (on↑ tap-vkey g)))
 	h (tap-hold-release $tt $ht h (multi (layer-while-held h) (on↑ tap-vkey h)))
-	i (tap-hold-release $tt $ht i (multi (layer-while-held i) (on-release tap-vkey i)))
+	i (tap-hold-release $tt $ht i (multi (layer-while-held i) (on↑ tap-vkey i)))
 	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
-	j (tap-hold-release $tt $ht j (multi (layer-while-held j) (on-release tap-vkey j)))
+	j (tap-hold-release $tt $ht j (multi (layer-while-held j) (on↑ tap-vkey j)))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
 	m (tap-hold-release $tt $ht m (layer-while-held m))
 	n (tap-hold-release $tt $ht n (multi (layer-while-held n) (on↑ tap-vkey n)))
-	o (tap-hold-release $tt $ht o (multi rmet (layer-while-held o) (on-release tap-vkey o)))
+	o (tap-hold-release $tt $ht o (multi rmet (layer-while-held o) (on↑ tap-vkey o)))
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (multi (layer-while-held r) (on↑ tap-vkey r)))
 	s (tap-hold-release $tt $ht s lsft)
-	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on-release tap-vkey space)))
+	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on↑ tap-vkey space)))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (multi (layer-while-held u) (on↑ tap-vkey u)))
-	v (tap-hold-release $tt $ht v (multi (layer-while-held v) (on-release tap-vkey v)))
-	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held w) (on-release tap-vkey w)))
-	x (tap-hold-release $tt $ht x (multi (layer-while-held x) (on-release tap-vkey x)))
+	v (tap-hold-release $tt $ht v (multi (layer-while-held v) (on↑ tap-vkey v)))
+	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held w) (on↑ tap-vkey w)))
+	x (tap-hold-release $tt $ht x (multi (layer-while-held x) (on↑ tap-vkey x)))
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
@@ -80,8 +80,8 @@
 
 (deflayermap (j)
 	' (multi (layer-toggle quote) (layer-while-held quote-j) (on↑ tap-vkey quote))
-	i (multi (layer-while-held i) (layer-while-held ij) (on-release tap-vkey i))
-	o (multi rmet (layer-while-held o) (layer-while-held jo) (on-release tap-vkey o))
+	i (multi (layer-while-held i) (layer-while-held ij) (on↑ tap-vkey i))
+	o (multi rmet (layer-while-held o) (layer-while-held jo) (on↑ tap-vkey o))
 	;; [[sort on]]
 	a 0
 	c 8
@@ -100,8 +100,8 @@
 )
 
 (deflayermap (f)
-	e (multi (layer-while-held e) (layer-while-held ef) (on-release tap-vkey e))
-	w (multi lmet (layer-while-held w) (layer-while-held fw) (on-release tap-vkey w))
+	e (multi (layer-while-held e) (layer-while-held ef) (on↑ tap-vkey e))
+	w (multi lmet (layer-while-held w) (layer-while-held fw) (on↑ tap-vkey w))
 	;; [[sort on]]
 	' del
 	, pgup
@@ -183,7 +183,7 @@
 )
 
 (deflayermap (caps)
-	spc (multi (layer-while-held space) (layer-while-held caps-space) (on-release tap-vkey space))
+	spc (multi (layer-while-held space) (layer-while-held caps-space) (on↑ tap-vkey space))
 	;; [[sort on]]
 	d (cmd fish -c media_next)
 	e (cmd fish -c "set_volume 0.02+")
@@ -223,7 +223,7 @@
 )
 
 (deflayermap (quote)
-	spc (multi (layer-while-held space) (layer-while-held space-quote) (on-release tap-vkey space))
+	spc (multi (layer-while-held space) (layer-while-held space-quote) (on↑ tap-vkey space))
 	j (multi (layer-toggle j) (layer-while-held quote-j) (on↑ tap-vkey j))
 	n (multi (layer-toggle n) (layer-while-held quote-n) (on↑ tap-vkey n))
 	;; [[sort on]]

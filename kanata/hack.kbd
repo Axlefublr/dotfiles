@@ -1,7 +1,7 @@
 (deflayermap (e)
-	f (multi (layer-while-held f) (layer-while-held ef) (on-release tap-vkey f))
-	w (multi lmet (layer-while-held w) (layer-while-held ew) (on-release tap-vkey w))
-	r (multi (layer-while-held r) (layer-while-held er) (on-release tap-vkey r))
+	f (multi (layer-while-held f) (layer-while-held ef) (on↑ tap-vkey f))
+	w (multi lmet (layer-while-held w) (layer-while-held ew) (on↑ tap-vkey w))
+	r (multi (layer-while-held r) (layer-while-held er) (on↑ tap-vkey r))
 
 	j (unmod lsft lalt f1)
 	k (unmod lsft lalt f2)
@@ -17,13 +17,13 @@
 )
 
 (deflayermap (ew)
-	f (multi (layer-while-held f) (layer-while-held ef) (layer-while-held efw) (on-release tap-vkey f))
+	f (multi (layer-while-held f) (layer-while-held ef) (layer-while-held efw) (on↑ tap-vkey f))
 	k (unmod lalt f11)
 	j (unmod lalt f12)
 )
 
 (deflayermap (ef)
-	w (multi lmet (layer-while-held w) (layer-while-held ew) (layer-while-held efw) (on-release tap-vkey w))
+	w (multi lmet (layer-while-held w) (layer-while-held ew) (layer-while-held efw) (on↑ tap-vkey w))
 	j (unmod lsft lalt f3)
 	k (unmod lsft lalt f4)
 	h (unmod lctl lsft f11)
@@ -40,7 +40,7 @@
 )
 
 (deflayermap (io)
-	j (multi (layer-while-held j) (layer-while-held ij) (layer-while-held jo) (layer-while-held ijo) (on-release tap-vkey j))
+	j (multi (layer-while-held j) (layer-while-held ij) (layer-while-held jo) (layer-while-held ijo) (on↑ tap-vkey j))
 	e (unmod lctl lalt x)
 	f (unmod lctl lalt c)
 	d (unmod lctl lsft lalt f2)

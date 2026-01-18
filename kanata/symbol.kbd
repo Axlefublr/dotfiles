@@ -1,5 +1,5 @@
 (deflayermap (x)
-	c (multi (layer-while-held c) (layer-while-held cx) (on-release tap-vkey c))
+	c (multi (layer-while-held c) (layer-while-held cx) (on↑ tap-vkey c))
 	;; [[sort on]]
 	, S-1
 	. (cmd wtype …)
@@ -18,8 +18,8 @@
 )
 
 (deflayermap (c)
-	v (multi (layer-while-held v) (layer-while-held cv) (on-release tap-vkey v))
-	x (multi (layer-while-held x) (layer-while-held cx) (on-release tap-vkey x))
+	v (multi (layer-while-held v) (layer-while-held cv) (on↑ tap-vkey v))
+	x (multi (layer-while-held x) (layer-while-held cx) (on↑ tap-vkey x))
 	;; [[sort on]]
 	, S-7
 	. (cmd wtype °)
@@ -53,7 +53,7 @@
 )
 
 (deflayermap (v)
-	c (multi (layer-while-held c) (layer-while-held cv) (on-release tap-vkey c))
+	c (multi (layer-while-held c) (layer-while-held cv) (on↑ tap-vkey c))
 	;; [[sort on]]
 	' (cmd wtype ■)
 	, (cmd wtype ❗)
@@ -78,7 +78,7 @@
 )
 
 (deflayermap (u)
-	i (multi (layer-while-held i) (layer-while-held iu) (on-release tap-vkey i))
+	i (multi (layer-while-held i) (layer-while-held iu) (on↑ tap-vkey i))
 	;; [[sort on]]
 	a (cmd wtype 😇)
 	c (cmd wtype 😢)
@@ -104,7 +104,7 @@
 )
 
 (deflayermap (r)
-	e (multi (layer-while-held e) (layer-while-held er) (on-release tap-vkey e))
+	e (multi (layer-while-held e) (layer-while-held er) (on↑ tap-vkey e))
 	;; [[sort on]]
 	, (cmd wtype 🕯️)
 	i (cmd wtype 😌)
@@ -126,9 +126,9 @@
 )
 
 (deflayermap (i)
-	j (multi (layer-while-held j) (layer-while-held ij) (on-release tap-vkey j))
-	o (multi rmet (layer-while-held o) (layer-while-held io) (on-release tap-vkey o))
-	u (multi (layer-while-held u) (layer-while-held iu) (on-release tap-vkey u))
+	j (multi (layer-while-held j) (layer-while-held ij) (on↑ tap-vkey j))
+	o (multi rmet (layer-while-held o) (layer-while-held io) (on↑ tap-vkey o))
+	u (multi (layer-while-held u) (layer-while-held iu) (on↑ tap-vkey u))
 	;; [[sort on]]
 	a (cmd wtype “)
 	c ]
@@ -147,7 +147,7 @@
 )
 
 (deflayermap (ij)
-	o (multi rmet (layer-while-held o) (layer-while-held io) (layer-while-held jo) (layer-while-held ijo) (on-release tap-vkey o))
+	o (multi rmet (layer-while-held o) (layer-while-held io) (layer-while-held jo) (layer-while-held ijo) (on↑ tap-vkey o))
 	f (cmd wtype ¹)
 	d (cmd wtype ²)
 	s (cmd wtype ³)
@@ -163,7 +163,7 @@
 )
 
 (deflayermap (jo)
-	i (multi (layer-while-held i) (layer-while-held io) (layer-while-held ij) (layer-while-held ijo) (on-release tap-vkey i))
+	i (multi (layer-while-held i) (layer-while-held io) (layer-while-held ij) (layer-while-held ijo) (on↑ tap-vkey i))
 	f (cmd wtype ₁)
 	d (cmd wtype ₂)
 	s (cmd wtype ₃)
