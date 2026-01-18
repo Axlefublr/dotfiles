@@ -11,7 +11,7 @@
 	c y
 
 	v (tap-hold-release $tt $ht C-w XX)
-	/ (multi (cmd fish -c screenshot_select) (cmd niri msg action set-zoom 1))
+	/ (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier-zoom))
 	x (cmd fish -c "show_clipboard_image -fs fill")
 
 	a (on↓ press-vkey shift)
@@ -46,16 +46,17 @@
 )
 
 (deflayermap (space-quote)
-	l (cmd fish -c pick_and_copy_color)
-	o (cmd fish -c mouse_position)
-	c (cmd fish -c clipboard_image_save)
-	u (cmd fish -c fragmentize_url)
-	k (cmd fish -c annotate_screen)
-	h C-S-s
-	i C-S-c
-	, C-A-b
-	m C-A-y
+	f (cmd fish -c clipboard_image_save)
+	w (cmd fish -c fragmentize_url)
+	s (multi (cmd fish -c annotate_screen) (on↑ tap-vkey modifier-zoom))
+	e (cmd fish -c mouse_position)
+	d C-S-s
+	x C-A-b
+	z C-A-y
 )
 
 (deflayermap (caps-space)
+	i C-S-c
+	o C-S-i
+	k (cmd fish -c pick_and_copy_color)
 )
