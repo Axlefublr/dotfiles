@@ -28,8 +28,8 @@
 	- (multi (layer-switch pvz) (cmd notify-send "plants vs zombies"))
 	= (multi (layer-switch nuclear-throne) (cmd notify-send "nuclear throne"))
 	;; [[sort on]]
-	' (tap-hold-release $tt $ht ' (multi (layer-while-held quote) (on↑ tap-vkey quote)))
-	, (tap-hold-release $tt $ht , (layer-while-held comma))
+	' (tap-hold-release $tt $ht ' (multi (layer-toggle quote) (on↑ tap-vkey quote)))
+	, (tap-hold-release $tt $ht , (layer-toggle comma))
 	. (tap-hold-release $tt $ht . XX)
 	/ (tap-hold-release $tt $ht / XX)
 	0 XX
@@ -42,46 +42,46 @@
 	7 XX
 	8 XX
 	9 (cmd fish -c screenshot_window)
-	; (tap-hold-release $tt $ht ; (multi ralt (layer-while-held semicolon) (on↑ tap-vkey semicolon)))
+	; (tap-hold-release $tt $ht ; (multi ralt (layer-toggle semicolon) (on↑ tap-vkey semicolon)))
 	` XX
-	a (tap-hold-release $tt $ht a (multi lalt (layer-while-held a) (on↑ tap-vkey a)))
+	a (tap-hold-release $tt $ht a (multi lalt (layer-toggle a) (on↑ tap-vkey a)))
 	b (tap-hold-release $tt $ht b XX)
-	c (tap-hold-release $tt $ht c (multi (layer-while-held c) (on↑ tap-vkey c)))
-	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (on↑ tap-vkey caps)))
+	c (tap-hold-release $tt $ht c (multi (layer-toggle c) (on↑ tap-vkey c)))
+	caps (tap-hold-release $tt $ht esc (multi (layer-toggle caps) (on↑ tap-vkey caps)))
 	d (tap-hold-release $tt $ht d lctl)
-	e (tap-hold-release $tt $ht e (multi (layer-while-held e) (on↑ tap-vkey e)))
+	e (tap-hold-release $tt $ht e (multi (layer-toggle e) (on↑ tap-vkey e)))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
-	f (tap-hold-release $tt $ht f (multi (layer-while-held f) (on↑ tap-vkey f)))
-	g (tap-hold-release $tt $ht g (multi (layer-while-held g) (on↑ tap-vkey g)))
-	h (tap-hold-release $tt $ht h (multi (layer-while-held h) (on↑ tap-vkey h)))
-	i (tap-hold-release $tt $ht i (multi (layer-while-held i) (on↑ tap-vkey i)))
+	f (tap-hold-release $tt $ht f (multi (layer-toggle f) (on↑ tap-vkey f)))
+	g (tap-hold-release $tt $ht g (multi (layer-toggle g) (on↑ tap-vkey g)))
+	h (tap-hold-release $tt $ht h (multi (layer-toggle h) (on↑ tap-vkey h)))
+	i (tap-hold-release $tt $ht i (multi (layer-toggle i) (on↑ tap-vkey i)))
 	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
-	j (tap-hold-release $tt $ht j (multi (layer-while-held j) (on↑ tap-vkey j)))
+	j (tap-hold-release $tt $ht j (multi (layer-toggle j) (on↑ tap-vkey j)))
 	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l rsft)
-	m (tap-hold-release $tt $ht m (layer-while-held m))
-	n (tap-hold-release $tt $ht n (multi (layer-while-held n) (on↑ tap-vkey n)))
-	o (tap-hold-release $tt $ht o (multi rmet (layer-while-held o) (on↑ tap-vkey o)))
+	m (tap-hold-release $tt $ht m (layer-toggle m))
+	n (tap-hold-release $tt $ht n (multi (layer-toggle n) (on↑ tap-vkey n)))
+	o (tap-hold-release $tt $ht o (multi rmet (layer-toggle o) (on↑ tap-vkey o)))
 	p (tap-hold-release $tt $ht p XX)
 	q (tap-hold-release $tt $ht q XX)
-	r (tap-hold-release $tt $ht r (multi (layer-while-held r) (on↑ tap-vkey r)))
+	r (tap-hold-release $tt $ht r (multi (layer-toggle r) (on↑ tap-vkey r)))
 	s (tap-hold-release $tt $ht s lsft)
-	spc (tap-hold-release $tt $ht spc (multi (layer-while-held space) (on↑ tap-vkey space)))
+	spc (tap-hold-release $tt $ht spc (multi (layer-toggle space) (on↑ tap-vkey space)))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
-	u (tap-hold-release $tt $ht u (multi (layer-while-held u) (on↑ tap-vkey u)))
-	v (tap-hold-release $tt $ht v (multi (layer-while-held v) (on↑ tap-vkey v)))
-	w (tap-hold-release $tt $ht w (multi lmet (layer-while-held w) (on↑ tap-vkey w)))
-	x (tap-hold-release $tt $ht x (multi (layer-while-held x) (on↑ tap-vkey x)))
+	u (tap-hold-release $tt $ht u (multi (layer-toggle u) (on↑ tap-vkey u)))
+	v (tap-hold-release $tt $ht v (multi (layer-toggle v) (on↑ tap-vkey v)))
+	w (tap-hold-release $tt $ht w (multi lmet (layer-toggle w) (on↑ tap-vkey w)))
+	x (tap-hold-release $tt $ht x (multi (layer-toggle x) (on↑ tap-vkey x)))
 	y (tap-hold-release $tt $ht y XX)
 	z (tap-hold-release $tt $ht z XX)
 	;; [[sort off]]
 )
 
 (deflayermap (j)
-	' (multi (layer-toggle quote) (layer-while-held quote-j) (on↑ tap-vkey quote))
-	i (multi (layer-while-held i) (layer-while-held ij) (on↑ tap-vkey i))
-	o (multi rmet (layer-while-held o) (layer-while-held jo) (on↑ tap-vkey o))
+	' (multi (layer-toggle quote) (layer-toggle quote-j) (on↑ tap-vkey quote))
+	i (multi (layer-toggle i) (layer-toggle ij) (on↑ tap-vkey i))
+	o (multi rmet (layer-toggle o) (layer-toggle jo) (on↑ tap-vkey o))
 	;; [[sort on]]
 	a 0
 	c 8
@@ -100,8 +100,8 @@
 )
 
 (deflayermap (f)
-	e (multi (layer-while-held e) (layer-while-held ef) (on↑ tap-vkey e))
-	w (multi lmet (layer-while-held w) (layer-while-held fw) (on↑ tap-vkey w))
+	e (multi (layer-toggle e) (layer-toggle ef) (on↑ tap-vkey e))
+	w (multi lmet (layer-toggle w) (layer-toggle fw) (on↑ tap-vkey w))
 	;; [[sort on]]
 	' del
 	, pgup
@@ -141,7 +141,7 @@
 )
 
 (deflayermap (h)
-	; (multi ralt (layer-toggle semicolon) (layer-while-held semicolon-h) (on↑ tap-vkey semicolon))
+	; (multi ralt (layer-toggle semicolon) (layer-toggle semicolon-h) (on↑ tap-vkey semicolon))
 	;; [[sort on]]
 	a (cmd niri msg action spawn -- footclient -NT seventh fish -c "cat ~/.local/share/magazine/a | rainbow | ov --status-line=false")
 	c (cmd niri msg action spawn -- footclient -N calcure)
@@ -159,7 +159,7 @@
 )
 
 (deflayermap (g)
-	a (multi lalt (layer-toggle a) (layer-while-held ag) (on↑ tap-vkey a))
+	a (multi lalt (layer-toggle a) (layer-toggle ag) (on↑ tap-vkey a))
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
@@ -183,7 +183,7 @@
 )
 
 (deflayermap (caps)
-	spc (multi (layer-while-held space) (layer-while-held caps-space) (on↑ tap-vkey space))
+	spc (multi (layer-toggle space) (layer-toggle caps-space) (on↑ tap-vkey space))
 	;; [[sort on]]
 	d (cmd fish -c media_next)
 	e (cmd fish -c "set_volume 0.02+")
@@ -196,7 +196,7 @@
 )
 
 (deflayermap (n)
-	' (multi (layer-toggle quote) (layer-while-held quote-n) (on↑ tap-vkey quote))
+	' (multi (layer-toggle quote) (layer-toggle quote-n) (on↑ tap-vkey quote))
 	;; [[sort on]]
 	c (cmd fish -c "clipboard_index 1")
 	d (cmd fish -c screenshot_window)
@@ -223,9 +223,9 @@
 )
 
 (deflayermap (quote)
-	spc (multi (layer-while-held space) (layer-while-held space-quote) (on↑ tap-vkey space))
-	j (multi (layer-toggle j) (layer-while-held quote-j) (on↑ tap-vkey j))
-	n (multi (layer-toggle n) (layer-while-held quote-n) (on↑ tap-vkey n))
+	spc (multi (layer-toggle space) (layer-toggle space-quote) (on↑ tap-vkey space))
+	j (multi (layer-toggle j) (layer-toggle quote-j) (on↑ tap-vkey j))
+	n (multi (layer-toggle n) (layer-toggle quote-n) (on↑ tap-vkey n))
 	;; [[sort on]]
 	;; d (cmd fish -c "runner show")
 	a (cmd fish -c runner_interactive_unicode)
@@ -236,7 +236,7 @@
 	f (cmd fish -c "runner_link open")
 	r (cmd fish -c clipboard_pick)
 	s (cmd fish -c runner_link)
-	w (one-shot $ot (layer-while-held bookmark))
+	w (one-shot $ot (layer-toggle bookmark))
 	z (cmd fish -c rofimoji)
 	;; [[sort off]]
 )
@@ -244,7 +244,7 @@
 (deflayermap (quote-j)
 	caps (cmd fish -c ntf_dismiss_old)
 	d (cmd fish -c "xdg-open (wl-paste -n) ; ensure_browser")
-	w (one-shot $ot (layer-while-held bookmark-set))
+	w (one-shot $ot (layer-toggle bookmark-set))
 	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	e (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
 	z (cmd fish -c runner_symbol_name)

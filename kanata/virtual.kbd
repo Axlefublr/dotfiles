@@ -7,7 +7,7 @@
 	h (multi (layer↑ h) (layer↑ semicolon-h))
 	i (multi (layer↑ i) (layer↑ ij) (layer↑ io) (layer↑ iu) (layer↑ ijo))
 	j (multi (switch
-		((layer bookmark-set)) (one-shot $ot (layer-while-held bookmark-set)) break
+		((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
 		) (layer↑ j) (layer↑ ij) (layer↑ jo) (layer↑ ijo) (layer↑ quote-j)
 	)
 	n (multi (layer↑ n) (layer↑ quote-n))
@@ -19,8 +19,8 @@
 	x (multi (layer↑ x) (layer↑ cx))
 	caps (multi (layer↑ caps) (layer↑ caps-space))
 	quote (multi (switch
-			((layer bookmark)) (one-shot $ot (layer-while-held bookmark)) break
-			((layer bookmark-set)) (one-shot $ot (layer-while-held bookmark-set)) break
+			((layer bookmark)) (one-shot $ot (layer-toggle bookmark)) break
+			((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
 		) (layer↑ quote) (layer↑ space-quote) (layer↑ quote-j) (layer↑ quote-n)
 	)
 	semicolon (multi (layer↑ semicolon) (layer↑ semicolon-h))
@@ -36,5 +36,5 @@
 	break)
 
 	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on↓ tap-vkey space))
-	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-while-held space) (on↑ tap-vkey disable-mouse-mode))
+	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-toggle space) (on↑ tap-vkey disable-mouse-mode))
 )

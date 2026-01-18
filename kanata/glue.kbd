@@ -1,21 +1,21 @@
 (deflayermap (w)
-	f (multi (layer-while-held f) (layer-while-held fw) (on↑ tap-vkey f))
-	e (multi (layer-while-held e) (layer-while-held ew) (on↑ tap-vkey e))
+	f (multi (layer-toggle f) (layer-toggle fw) (on↑ tap-vkey f))
+	e (multi (layer-toggle e) (layer-toggle ew) (on↑ tap-vkey e))
 )
 
 (deflayermap (a)
-	g (multi (layer-while-held g) (layer-while-held ag) (on↑ tap-vkey g))
+	g (multi (layer-toggle g) (layer-toggle ag) (on↑ tap-vkey g))
 )
 
 (deflayermap (semicolon)
-	h (multi (layer-toggle h) (layer-while-held semicolon-h) (on↑ tap-vkey h))
+	h (multi (layer-toggle h) (layer-toggle semicolon-h) (on↑ tap-vkey h))
 )
 
 (deflayermap (fw)
-	e (multi (layer-while-held e) (layer-while-held ew) (layer-while-held efw) (on↑ tap-vkey e))
+	e (multi (layer-toggle e) (layer-toggle ew) (layer-toggle efw) (on↑ tap-vkey e))
 )
 
 (deflayermap (o)
-	i (multi (layer-while-held i) (layer-while-held io) (on↑ tap-vkey i))
-	j (multi (layer-while-held j) (layer-while-held jo) (on↑ tap-vkey j))
+	i (multi (layer-toggle i) (layer-toggle io) (on↑ tap-vkey i))
+	j (multi (layer-toggle j) (layer-toggle jo) (on↑ tap-vkey j))
 )
