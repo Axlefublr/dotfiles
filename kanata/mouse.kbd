@@ -2,7 +2,7 @@
 	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (layer-while-held caps-space) (on↑ tap-vkey caps)))
 	' (multi (layer-while-held quote) (layer-while-held space-quote) (on↑ tap-vkey quote))
 	spc enter
-	n (on-press toggle-vkey mouse-mode)
+	n (on↓ toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
 
 	; (cmd ydotool mousemove -a 386 300)
@@ -14,10 +14,10 @@
 	/ (multi (cmd fish -c screenshot_select) (cmd niri msg action set-zoom 1))
 	x (cmd fish -c "show_clipboard_image -fs fill")
 
-	a (on-press press-vkey shift)
-	q (on-press press-vkey meta)
-	t (on-press press-vkey alt)
-	g (on-press press-vkey ctrl)
+	a (on↓ press-vkey shift)
+	q (on↓ press-vkey meta)
+	t (on↓ press-vkey alt)
+	g (on↓ press-vkey ctrl)
 
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
