@@ -27,6 +27,7 @@
     "custom/tomato",
     "custom/networking",
     // "custom/cha-fan",
+    "custom/gaming",
     "custom/cpu-fan",
     "custom/finances",
     "disk",
@@ -126,6 +127,11 @@
   //   "interval": 5,
   //   "hide-empty-text": true
   // },
+  "custom/gaming": {
+    "exec": "/home/axlefublr/fes/dot/waybar/gaming.fish",
+    "format": "{}",
+    "hide-empty-text": true
+  },
   "custom/cpu-fan": {
     "exec": "/home/axlefublr/fes/dot/waybar/cpu-fan.fish",
     "format": "{}",

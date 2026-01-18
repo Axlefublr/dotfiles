@@ -37,4 +37,9 @@
 
 	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on↓ tap-vkey space))
 	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/.local/share/mine/waybar-mouse-mode") (layer-toggle space) (on↑ tap-vkey disable-mouse-mode))
+
+	nuclear-throne (layer-toggle nuclear-throne)
+	enter-the-gungeon (layer-toggle enter-the-gungeon)
+	slay-the-spire (layer-toggle slay-the-spire)
+	plants-vs-zombies (layer-toggle plants-vs-zombies)
 )
