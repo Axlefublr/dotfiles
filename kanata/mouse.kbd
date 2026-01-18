@@ -1,6 +1,6 @@
 (deflayermap (space)
-	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (layer-while-held caps-space) (on-release tap-vkey any-caps)))
-	' (multi (layer-while-held quote) (layer-while-held space-quote) (on-release tap-vkey any-quote))
+	caps (tap-hold-release $tt $ht esc (multi (layer-while-held caps) (layer-while-held caps-space) (on-release tap-vkey caps)))
+	' (multi (layer-while-held quote) (layer-while-held space-quote) (on-release tap-vkey quote))
 	spc enter
 	n (on-press toggle-vkey mouse-mode)
 	l (layer-while-held mouse-slow)
@@ -19,9 +19,9 @@
 	t (on-press press-vkey alt)
 	g (on-press press-vkey ctrl)
 
-	m (multi mmid (on-release tap-vkey any-modifier))
-	j (multi mlft (on-release tap-vkey any-modifier))
-	k (multi mrgt (on-release tap-vkey any-modifier))
+	m (multi mmid (on-release tap-vkey modifier))
+	j (multi mlft (on-release tap-vkey modifier))
+	k (multi mrgt (on-release tap-vkey modifier))
 	h (cmd niri msg action set-zoom +2)
 	u (tap-hold-release $tt $ht (cmd niri msg action set-zoom -- -2) (cmd niri msg action set-zoom 1))
 	, pgup
