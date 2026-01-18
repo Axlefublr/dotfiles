@@ -1,29 +1,29 @@
 (defvirtualkeys
-	a (multi (release-layer a) (release-layer ag))
-	c (multi (release-layer c) (release-layer cx) (release-layer cv))
-	e (multi (release-layer e) (release-layer ew) (release-layer ef) (release-layer er) (release-layer efw))
-	f (multi (release-layer f) (release-layer ef) (release-layer fw) (release-layer efw))
-	g (multi (release-layer g) (release-layer ag))
+	a (multi (layer↑ a) (layer↑ ag))
+	c (multi (layer↑ c) (layer↑ cx) (layer↑ cv))
+	e (multi (layer↑ e) (layer↑ ew) (layer↑ ef) (layer↑ er) (layer↑ efw))
+	f (multi (layer↑ f) (layer↑ ef) (layer↑ fw) (layer↑ efw))
+	g (multi (layer↑ g) (layer↑ ag))
 	h (multi (layer↑ h) (layer↑ semicolon-h))
-	i (multi (release-layer i) (release-layer ij) (release-layer io) (release-layer iu) (release-layer ijo))
+	i (multi (layer↑ i) (layer↑ ij) (layer↑ io) (layer↑ iu) (layer↑ ijo))
 	j (multi (switch
 		((layer bookmark-set)) (one-shot $ot (layer-while-held bookmark-set)) break
-		) (release-layer j) (release-layer ij) (release-layer jo) (release-layer ijo) (layer↑ quote-j)
+		) (layer↑ j) (layer↑ ij) (layer↑ jo) (layer↑ ijo) (layer↑ quote-j)
 	)
-	n (multi (release-layer n) (layer↑ quote-n))
-	o (multi (release-layer o) (release-layer jo) (release-layer io) (release-layer ijo))
-	r (multi (release-layer r) (release-layer er))
-	u (multi (release-layer u) (release-layer iu))
-	v (multi (release-layer v) (release-layer cv))
-	w (multi (release-layer w) (release-layer fw) (release-layer ew) (release-layer efw))
-	x (multi (release-layer x) (release-layer cx))
-	caps (multi (release-layer caps) (release-layer caps-space))
+	n (multi (layer↑ n) (layer↑ quote-n))
+	o (multi (layer↑ o) (layer↑ jo) (layer↑ io) (layer↑ ijo))
+	r (multi (layer↑ r) (layer↑ er))
+	u (multi (layer↑ u) (layer↑ iu))
+	v (multi (layer↑ v) (layer↑ cv))
+	w (multi (layer↑ w) (layer↑ fw) (layer↑ ew) (layer↑ efw))
+	x (multi (layer↑ x) (layer↑ cx))
+	caps (multi (layer↑ caps) (layer↑ caps-space))
 	quote (multi (switch
 			((layer bookmark)) (one-shot $ot (layer-while-held bookmark)) break
 			((layer bookmark-set)) (one-shot $ot (layer-while-held bookmark-set)) break
-		) (release-layer quote) (release-layer space-quote) (release-layer quote-j) (release-layer quote-n)
+		) (layer↑ quote) (layer↑ space-quote) (layer↑ quote-j) (layer↑ quote-n)
 	)
-	semicolon (multi (release-layer semicolon) (release-layer semicolon-h))
+	semicolon (multi (layer↑ semicolon) (layer↑ semicolon-h))
 
 	shift lsft
 	ctrl  lctl
@@ -32,7 +32,7 @@
 	modifier (multi (on↓ release-vkey shift) (on↓ release-vkey ctrl) (on↓ release-vkey alt) (on↓ release-vkey meta))
 	modifier-zoom (multi (on↓ tap-vkey modifier) (cmd niri msg action set-zoom 1))
 	space (switch ((not (layer space)))
-		(multi (release-layer space) (release-layer caps-space) (release-layer space-quote) (on↓ tap-vkey modifier-zoom))
+		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (on↓ tap-vkey modifier-zoom))
 	break)
 
 	disable-mouse-mode (multi (cmd fish -c "echo >~/.local/share/mine/waybar-mouse-mode") (on↓ tap-vkey space))
