@@ -4,11 +4,11 @@
 )
 
 (deflayermap (a)
-	g (layer-while-held ag)
+	g (multi (layer-while-held g) (layer-while-held ag) (on↑ tap-vkey any-g))
 )
 
 (deflayermap (semicolon)
-	h (layer-while-held semicolon-h)
+	h (multi (layer-toggle h) (layer-while-held semicolon-h) (on↑ tap-vkey h))
 )
 
 (deflayermap (fw)

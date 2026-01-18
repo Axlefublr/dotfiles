@@ -1,9 +1,9 @@
 (deflayermap (x)
+	c (multi (layer-while-held c) (layer-while-held cx) (on-release tap-vkey any-c))
 	;; [[sort on]]
 	, S-1
 	. (cmd wtype …)
 	/ bksl
-	c (multi (layer-while-held c) (layer-while-held cx) (on-release tap-vkey any-c))
 	h S-4
 	i S-8
 	j S-eql
