@@ -167,6 +167,7 @@ function path_shrink
 end
 funcsave path_shrink >/dev/null
 
+alias --save prli 'printf %s\n' >/dev/null
 alias --save pwdb 'path basename (pwds)' >/dev/null
 alias --save pwds 'path_shrink $PWD' >/dev/null
 
