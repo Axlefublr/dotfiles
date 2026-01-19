@@ -70,7 +70,7 @@ let editor = {
     default-line-ending: lf
     default-yank-register: +
     insert-final-newline: true
-    jump-label-alphabet: jfkdlsieowcmxnzvahgurpq
+    jump-label-alphabet: jfkdlsaeiwoxcmghruvnzbqpty
     line-number: relative
     lsp: $lsp
     preview-completion-insert: true
