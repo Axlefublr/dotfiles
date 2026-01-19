@@ -10,7 +10,7 @@
 	h (unmod lctl 1)
 	l (unmod lsft lalt f10)
 	n (unmod lctl lalt home)
-	caps (unmod lsft lalt f8)
+	; (unmod lsft lalt f8)
 	' (unmod lalt f10)
 	u (macro S-A-f5 20 (cmd fish -c r#"notify-send -t 3000 "$(wl-paste -n)""#))
 	m (macro C-A-end 20 (cmd fish -c r#"notify-send -t 3000 "$(wl-paste -n)""#))
