@@ -78,7 +78,7 @@ os:
   editPreset: helix
 keybinding:
   universal:
-    quit: "<c-space>"
+    quit: "<insert>"
     quit-alt1: <disabled>
     return: <esc>
     quitWithoutChangingDirectory: <disabled>
