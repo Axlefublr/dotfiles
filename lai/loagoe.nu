@@ -43,7 +43,9 @@ def 'main due' [] {
 	let the = produce
 	| enumerate
 	| each {
-		let indicator = $in.index + 97 | char -i $in
+		let index = $in.index
+		let hints = 'jfkdlsaeiwoxcmghruvnzbqpty' | split chars
+		let indicator = $hints | get -o $index | default .
 		{ indicator: $indicator, name: $in.item.name, days: $in.item.days }
 	}
 	$the
