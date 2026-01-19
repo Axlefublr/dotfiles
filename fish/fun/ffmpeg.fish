@@ -8,8 +8,8 @@ function ffmpeg_cut_video
             continue
         end
         echo "processing $input" >&2
-        set -l input_basename (path_clear_suffix += (path basename -E $input))
-        set -l output "$input_basename"!
+        set -l input_trimmed (path_clear_suffix $input)
+        set -l output (path_append_suffix ! $input_trimmed | path change-extension '')
 
         if test -z "$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 $input)"
             echo 'no audio stream. faking it.' >&2
@@ -51,9 +51,10 @@ end
 funcsave ffmpeg_cut_video >/dev/null
 
 function ffmpeg_convert_to_mp3
-    for file in $argv
-        not test -f "$file" && continue
-        set -l output (path change-extension '' $file)!
+    for input in $argv
+        not test -f "$input" && continue
+        set -l input_trimmed (path_clear_suffix $input)
+        set -l output (path_append_suffix ! $input_trimmed | path change-extension '')
 
         confirm.rs 'cut from?' '[j]es' '[k]o' | read -l response
         if test "$response" = j
@@ -73,7 +74,7 @@ function ffmpeg_convert_to_mp3
         end
         set output "$output.mp3"
 
-        pueue add -g cpu -- ffmpeg -y -i "$file" \
+        pueue add -g cpu -- ffmpeg -y -i "$input" \
             $from $to \
             -c:a libmp3lame -q:a 2 \
             -vn \
