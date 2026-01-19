@@ -5,7 +5,7 @@
 	n (on↓ toggle-vkey mouse-mode)
 	l (layer-toggle mouse-slow)
 
-	; (cmd ydotool mousemove -a 386 300)
+	u (cmd ydotool mousemove -a 386 300)
 	y XX
 	z XX
 	c y
@@ -22,8 +22,8 @@
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
 	k (multi mrgt (on↑ tap-vkey modifier))
-	h (cmd niri msg action set-zoom +2)
-	u (tap-hold-release $tt $ht (cmd niri msg action set-zoom -- -2) (cmd niri msg action set-zoom 1))
+	h (cmd niri msg action set-zoom +1)
+	; (tap-hold-release $tt $ht (cmd niri msg action set-zoom -- -1) (cmd niri msg action set-zoom 1))
 	, pgup
 	. pgdn
 
