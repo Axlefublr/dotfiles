@@ -32,27 +32,11 @@ def open_result [should_plans: bool] {
 
 let talias = $talias | reverse
 
-loop {
-	mut input = input --reedline :
-	if ($input | is-empty) {
-		cd ~/fes/talia
-		yazi
-		continue
-	}
-	mut should_plans = true
-	$input = if (($input | split chars | last) == ',') {
-		$should_plans = false
-		$input | str substring ..-2
-	} else { $input }
-	let should_plans = $should_plans
-	if (($input | split chars | last) == ';') {
-		$input | str substring ..-2 | open_result $should_plans
-		continue
-	}
-	$talias | where $it == $input
-	| append ($talias | where ($it | str downcase) == $input)
-	| append ($talias | where ($it | str contains $input))
-	| append ($talias | where (($it | str downcase) | str contains $input))
-	| uniq
-	| each { open_result $should_plans }
+$talias
+| to text
+| fzf --height=5 '--bind=f12:become:echo :{}'
+| if ($in starts-with :) {
+	$in | str substring 1.. | open_result false
+} else {
+	open_result true
 }
