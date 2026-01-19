@@ -132,8 +132,8 @@ end
 funcsave path_append_suffix >/dev/null
 
 function path_clear_suffix
-    for path in $argv[2..]
-        echo (path dirname $path)/(path basename -E $path | string trim -rc !$argv[1])(path extension $path)
+    for path in $argv
+        echo (path dirname $path)/(path basename -E $path | string match -gr '(.*?)!' | string trim -rc +=)(path extension $path)
     end
 end
 funcsave path_clear_suffix >/dev/null
@@ -207,7 +207,7 @@ funcsave toggle_screen_record >/dev/null
 
 function things
     begin
-        footclient -NT nofocus helix -w ~/.local/share/magazine semicolon.md
+        footclient -NT nofocus helix -w ~/.local/share/magazine ~/.local/share/magazine/semicolon.md
         footclient -NT nofocus-fifth fish -c loago_tracker
         footclient -NT nofocus calcure
     end 2>/dev/null
