@@ -14,8 +14,8 @@
 	--toolbar-bg: #282828;
 	--toolbar-el-overlay-selected-border: unset;
 	--toolbar-fg: #d4be98;
-	--frame-el-overlay-selected-bg: hsl(282, 33.7%, 66.3%, 0.3);
-	--toolbar-el-overlay-selected-bg: hsl(282, 33.7%, 66.3%, 0.3);
+	--frame-el-overlay-selected-bg: hsl(0, 0%, 50%, 0.5);
+	--toolbar-el-overlay-selected-bg: hsl(0, 0%, 50%, 0.5);
 	--tabs-activated-bg: hsl(0, 0%, 50%, 0.28);
 	--toolbar-el-overlay-hover-bg: hsl(0, 0%, 50%, 0.28);
 	--frame-el-overlay-hover-bg: hsl(0, 0%, 50%, 0.17);
