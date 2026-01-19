@@ -133,7 +133,7 @@ indent = { tab-width = 3, unit = "\t" }
 
 [[grammar]]
 name = "nu"
-source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "cc4624fbc6ec3563d98fbe8f215a8b8e10b16f32" }
+source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "0e6c59c46db3c246eaf86ce5b325da1247e971a5" }
 
 # -------------------python-------------------
 [[language]]
