@@ -46,7 +46,7 @@
 )
 
 (deflayermap (space-quote)
-	f (cmd fish -c clipboard_image_save)
+	c (cmd fish -c clipboard_image_save)
 	w (cmd fish -c fragmentize_url)
 	s (multi (cmd fish -c annotate_screen) (on↑ tap-vkey modifier-zoom))
 	e (cmd fish -c mouse_position)
