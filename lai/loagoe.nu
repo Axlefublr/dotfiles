@@ -18,11 +18,12 @@ const known = {
 	nose: 7
 	towels: 8
 	vacuum: 8
-	dust: 15
 	nails: 13
 	vacuat: 14
 	bottle: 15
+	dust: 15
 	photos: 15
+	tea: 15
 	update: 15
 	upload: 15
 	utencils: 15
