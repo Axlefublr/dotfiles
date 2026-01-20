@@ -36,7 +36,7 @@ export def 'main increment' [bigness: string] {
 	rg -N -m 1 -B 2 -A 1 '^version =' Cargo.toml
 }
 
-export def 'main pollinate' [] {
+export def 'main init' [] {
 	let horse = open Cargo.toml
 	let name = $horse | get package.name
 	let repo = $'https://github.com/Axlefublr/($name)'
