@@ -14,6 +14,7 @@ funcsave append_github_line_numbers >/dev/null
 function clipboard_image_save
     set -l now (date +%Y.%m.%d-%H:%M:%S)
     set -l path_trunk ~/iwm/sco/$now
+    notify-send -t 0 processing
     wl-paste -t image/png >$path_trunk.png
     set -l is_large (echo $path_trunk.png | na --stdin -c 'str trim | ls $in | get size.0 | $in >= 10mb')
     if $is_large
@@ -31,7 +32,7 @@ function clipboard_image_save
             kill %2
         end
     end
-    dot
+    ntf_dismiss_old
 end
 funcsave clipboard_image_save >/dev/null
 
