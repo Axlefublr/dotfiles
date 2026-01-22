@@ -309,7 +309,7 @@ git config --global rebase.updateRefs false
 git config --global rerere.autoupdate false
 git config --global rerere.enabled false
 git config --global tag.sort version:refname
-git config --global user.email 101342105+Axlefublr@users.noreply.github.com
+git config --global user.email axlefublr.ls@gmail.com
 git config --global user.name Axlefublr
 # [[sort off]]
 
