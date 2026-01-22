@@ -32,6 +32,6 @@ if $should_history
     indeed.rs -u ~/.local/share/magazine/L -- $input
     tail -n 100 ~/.local/share/magazine/L | sponge ~/.local/share/magazine/L
 else
-    rg -vFx $input ~/.local/share/magazine/L | tail -n 100 | sponge ~/.local/share/magazine/L
+    rg -vFx $input ~/.local/share/magazine/L | tail -n 500 | sponge ~/.local/share/magazine/L
 end
 _magazine_commit ~/.local/share/magazine/L 'search history'
