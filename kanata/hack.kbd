@@ -5,7 +5,7 @@
 
 	j (unmod lsft lalt f1)
 	k (unmod lsft lalt f2)
-	i (unmod lsft f6)
+	i (unmod lsft f8)
 	o (unmod lsft lalt f7)
 	h (unmod lctl 1)
 	l (unmod lsft lalt f10)
