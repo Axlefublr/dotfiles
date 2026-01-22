@@ -1067,8 +1067,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout ydotool
 systemctl --user enable --now ydotool.service
 
 # -------------------------yt-dlp--------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout yt-dlp
+sudo pacman -S --needed --noconfirm --disable-download-timeout yt-dlp yt-dlp-ejs
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps python-mutagen
+sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps deno # for solving js challenges
 mkdir -p ~/.config/yt-dlp
 ln -sf ~/fes/dot/yt-dlp.conf ~/.config/yt-dlp/config
 
