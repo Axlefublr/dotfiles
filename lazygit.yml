@@ -201,11 +201,11 @@ keybinding:
   worktrees:
     viewWorktreeOptions: w
   commits:
-    squashDown: s
+    squashDown: S
     renameCommit: r
     renameCommitWithEditor: R
     viewResetOptions: v
-    markCommitAsFixup: <disabled>
+    markCommitAsFixup: s
     createFixupCommit: <disabled>
     squashAboveCommits: C
     moveDownCommit: <c-j>
@@ -322,6 +322,16 @@ customCommands:
     loadingText: "Unshallowing commits..."
     description: "Unshallow the shallow copy"
     output: log
+  - key: "I"
+    context: "commits"
+    command: "git rebase -i $(earliest-contiguous.nu)^"
+    description: "Rebase on the oldest your commit"
+    output: terminal
+  - key: "<c-e>"
+    context: "commits"
+    command: "git rebase -i {{.SelectedCommit.Sha}}"
+    description: "Rebase in editor"
+    output: terminal
   - key: "x"
     context: "commits"
     command: "git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}"
