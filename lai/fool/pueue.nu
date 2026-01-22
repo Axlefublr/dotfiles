@@ -1,5 +1,7 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
+use always.nu
+
 def --wrapped main [...rest] {
 	if ($rest | length) == 0 {
 		exec ov -X --section-delimiter ^Group -M Failed,Running,Queued,Success,,,,Paused -Ae -- pueue status
@@ -20,16 +22,16 @@ def 'main callback' [
 	end
 ] {
 	let result_symbol = match $result {
-        'Success' => ''
-        'Failed' => '󱎘'
-        'Killed' => '󰆐'
+        'Success' => '✅'
+        'Failed' => '❌'
+        'Killed' => '🔪'
         $other => $other
 	}
 	let command_str = $command
 	| split chars
 	| take 50
 	| str join
-	notify-send -t 3000 $'($command_str) ($result_symbol)(char -u "2800")'
+	notify-send -t 3000 $'($command_str) ($result_symbol)'
 }
 
 def 'main brush' [] {
@@ -44,6 +46,28 @@ def 'main brush' [] {
 	| get id
 	if ($olds | is-not-empty) {
 		^pueue remove ...$olds
+	}
+}
+
+def 'main situation' [] {
+	pueue status --json
+	| from json
+	| get tasks
+	| values
+	| rename -c { id: index }
+	| each { |record|
+		let status_name = $record.status | columns | first
+		let result = $record.status | get -o result
+		# $record.status | get $status_name | try {
+		# 	get result | let result
+		# 	$result | try {
+		# 		columns | first | let first_column
+		# 		$'($first_column) ($result | get $first_column)'
+		# 	} catch { $result }
+		# } catch { $status_name }
+		# {
+		# 	status: $status
+		# }
 	}
 }
 
