@@ -494,17 +494,12 @@ normal_select_mappings: dict[str, Any] = {
     'J': ['extend_to_line_bounds', 'extend_line_below'],
     'K': ['extend_to_line_bounds', 'extend_line_above'],
     # ----------------------characterwise----------------------
-    'A-down': ['ensure_selections_forward', 'extend_visual_line_down'],
     'A-h': ['ensure_selections_forward', 'flip_selections', 'extend_char_left'],
     'A-l': ['ensure_selections_forward', 'extend_char_right'],
-    'A-up': ['ensure_selections_forward', 'flip_selections', 'extend_visual_line_up'],
     'H': ['ensure_selections_forward', 'flip_selections', 'extend_char_right'],
     'L': ['ensure_selections_forward', 'extend_char_left'],
-    'S-A-down': ['ensure_selections_forward', 'extend_visual_line_up'],
-    'S-A-up': ['ensure_selections_forward', 'flip_selections', 'extend_visual_line_down'],
-    'del': {
-        'S-del': [':sh rm %(full_path)', ':buffer-close!'],
-    },
+    'A-down': 'extend_visual_line_down',
+    'A-up': 'extend_visual_line_up',
     # --------------------semantic movement--------------------
     '(': 'goto_prev_change',
     ')': 'goto_next_change',
@@ -529,6 +524,9 @@ normal_select_mappings: dict[str, Any] = {
         'f': 'goto_prev_function',
         'a': 'goto_prev_parameter',
         'd': 'goto_prev_class',
+    },
+    'del': {
+        'S-del': [':sh rm %(full_path)', ':buffer-close!'],
     },
     'm': {
         # [[sort on]]
