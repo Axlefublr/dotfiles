@@ -868,6 +868,9 @@ systemctl --user enable --now ~/fes/dot/systemd/mandb.service
 # -------------------systemd-manager-tui-------------------
 cargo binstall -y systemd-manager-tui
 
+# ------------------------telegram-------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout telegram-desktop
+
 # -----------------------television------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout television
 
