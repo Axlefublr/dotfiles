@@ -57,6 +57,9 @@ function magazine_truncate
     truncate -s 0 $argv
     _magazine_notify $argv truncate
     _magazine_commit $argv truncate
+    if test $argv = ~/.local/share/magazine/4
+        github_read_notifs
+    end
 end
 funcsave magazine_truncate >/dev/null
 
@@ -98,6 +101,9 @@ function magazine_filter
     zat.rs $argv ,^$result .. | sponge $argv
     _magazine_notify $argv filter
     _magazine_commit $argv filter
+    if test -e $argv -a ! -s $argv -a $argv = ~/.local/share/magazine/4
+        github_read_notifs
+    end
 end
 funcsave magazine_filter >/dev/null
 
