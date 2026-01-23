@@ -224,7 +224,7 @@
 	c (cmd fish -c "clipboard_index 1")
 	d (cmd fish -c screenshot_window)
 	e (cmd fish -c "runner_math")
-	g (cmd fish -c "pgrep -f ~/fes/dot/nu/lvoc/tomato.nu && echo toggle >/tmp/mine/tomato-action || tomato.nu")
+	g (cmd fish -c "pgrep -f ~/fes/dot/lai/tomato.nu && echo toggle >/tmp/mine/tomato-action || tomato.nu")
 	p (cmd fish -c "is_focused_xwayland")
 	r (cmd loagoe.nu pick)
 	s (cmd fish -c screenshot_screen)
