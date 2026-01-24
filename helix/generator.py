@@ -494,10 +494,10 @@ normal_select_mappings: dict[str, Any] = {
     'J': ['extend_to_line_bounds', 'extend_line_below'],
     'K': ['extend_to_line_bounds', 'extend_line_above'],
     # ----------------------characterwise----------------------
-    'A-h': ['ensure_selections_forward', 'flip_selections', 'extend_char_left'],
-    'A-l': ['ensure_selections_forward', 'extend_char_right'],
-    'H': ['ensure_selections_forward', 'flip_selections', 'extend_char_right'],
-    'L': ['ensure_selections_forward', 'extend_char_left'],
+    'H': ['ensure_selections_forward', 'flip_selections', 'extend_char_left'],
+    'L': ['ensure_selections_forward', 'extend_char_right'],
+    'A-h': ['ensure_selections_forward', 'flip_selections', 'extend_char_right'],
+    'A-l': ['ensure_selections_forward', 'extend_char_left'],
     'A-down': 'extend_visual_line_down',
     'A-up': 'extend_visual_line_up',
     # --------------------semantic movement--------------------
