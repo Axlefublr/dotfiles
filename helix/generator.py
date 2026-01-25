@@ -52,8 +52,8 @@ lsp: dict[str, Any] = {
 
 editor: dict[str, Any] = {
     # [[sort on]]
+    'enable-diagnostics': True,
     'picker': {'scrolloff': 99},
-    'show-diagnostics': True,
     'whichkey': False,
     # [[sort off]]
     'auto-reload': {
@@ -296,6 +296,7 @@ normal_select_mappings: dict[str, Any] = {
     '?': 'rsearch',
     '@': 'toggle_comments',
     'A': '@vk~',
+    'A-O': 'paste_before_all',
     'A-a': 'decrement',
     'A-e': ':new',
     'A-end': ['goto_file_end', 'search_prev'],
@@ -303,6 +304,7 @@ normal_select_mappings: dict[str, Any] = {
     'A-home': ['goto_file_start', 'search_next'],
     'A-j': 'shrink_to_line_bounds',
     'A-k': 'extend_to_line_bounds',
+    'A-o': 'paste_after_all',
     'A-ret': ':e %(selection)',
     'B': ['add_newline_above', 'move_line_up', 'paste_before'],
     'C': '@c<ret><esc>',
@@ -541,7 +543,7 @@ normal_select_mappings: dict[str, Any] = {
         'd': 'surround_delete',
         'f': 'surround_replace',
         'i': ':sh fish -c "append_github_line_numbers %(cursor_line)"',
-        'k': ':toggle show-diagnostics',
+        'k': ':toggle enable-diagnostics',
         'l': ':toggle lsp.display-inlay-hints',
         'o': ':fmt',
         's': 'surround_add',
