@@ -144,7 +144,7 @@ keybinding:
     undo: <c-t>
     redo: <c-r>
     filteringMenu: <disabled>
-    diffingMenu: W
+    diffingMenu: <disabled>
     diffingMenu-alt: <disabled>
     copyToClipboard: <c-s>
     openRecentRepos: <disabled>
@@ -163,15 +163,15 @@ keybinding:
   files:
     commitChanges: c
     commitChangesWithoutHook: <disabled>
-    amendLastCommit: f
+    amendLastCommit: a
     commitChangesWithEditor: C
-    findBaseCommitForFixup: <c-f>
+    findBaseCommitForFixup: f
     confirmDiscard: i
     ignoreFile: i
     refreshFiles: r
     stashAllChanges: <disabled>
     viewStashOptions: s
-    toggleStagedAll: a
+    toggleStagedAll: W
     viewResetOptions: x
     fetch: <c-o>
     toggleTreeView: "`"
@@ -201,17 +201,17 @@ keybinding:
   worktrees:
     viewWorktreeOptions: w
   commits:
-    squashDown: S
+    squashDown: s
     renameCommit: r
     renameCommitWithEditor: R
     viewResetOptions: v
-    markCommitAsFixup: s
-    createFixupCommit: <disabled>
-    squashAboveCommits: C
+    markCommitAsFixup: S
+    createFixupCommit: f
+    squashAboveCommits: F
     moveDownCommit: <c-j>
     moveUpCommit: <c-k>
-    amendToCommit: f
-    resetCommitAuthor: a
+    amendToCommit: a
+    resetCommitAuthor: A
     pickCommit: p
     revertCommit: <disabled>
     cherryPickCopy: <c-c>
