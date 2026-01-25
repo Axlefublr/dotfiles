@@ -639,13 +639,14 @@ normal_select_mappings: dict[str, Any] = {
         ',': [':noop %sh{python ~/fes/dot/helix/generator.py}', ':config-reload'],
         'D': 'goto_declaration',
         'a': 'code_action',
+        'c': 'goto_type_definition',
         'd': 'goto_definition',
         'e': 'goto_reference',
-        'f': 'goto_type_definition',
+        'f': 'goto_implementation',
         'r': 'rename_symbol',
         's': 'hover',
         'v': ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in',
-        'w': 'goto_implementation',
+        'w': 'goto_hover',
         # [[sort off]]
     },
 }
