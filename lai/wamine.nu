@@ -1,5 +1,6 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
+loago do wamine
 let then = (date now) + 2hr + 10min
 notify-send 'wamine started'
 loop {
