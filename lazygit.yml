@@ -185,11 +185,11 @@ keybinding:
     viewPullRequestOptions: <disabled>
     copyPullRequestURL: <disabled>
     checkoutBranchByName: <space>
-    forceCheckoutBranch: F
+    forceCheckoutBranch: W
     checkoutPreviousBranch: "&"
     rebaseBranch: r
     renameBranch: R
-    mergeIntoCurrentBranch: M
+    mergeIntoCurrentBranch: m
     moveCommitsToNewBranch: "N"
     viewGitFlowOptions: <disabled>
     fastForward: f
