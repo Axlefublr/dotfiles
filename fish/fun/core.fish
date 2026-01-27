@@ -42,7 +42,7 @@ end
 funcsave ensure_browser >/dev/null
 
 function flour
-    argparse end half pager disown select sleek man -- $argv
+    argparse half pager disown sleek man -- $argv
     or return 121
 
     set -l title flour
@@ -51,12 +51,6 @@ function flour
 
     test "$_flag_disown"
     and set flag_disown -N
-
-    test "$_flag_end"
-    and set execute_flag --execute goU
-
-    test "$_flag_select"
-    and set execute_flag --execute go
 
     if test "$_flag_pager"
         set -f selected_config -c ~/fes/dot/helix/pager.toml
