@@ -208,7 +208,6 @@ let normal_mappings = {
 	'⊼': ':tree-sitter-highlight-name'
 	'█': '@q█<ret>c'
 	'✅': ':pipe `"✅"`'
-	'✨': [save_selection select_all yank_to_clipboard jump_backward]
 	'❌': ':pipe `"❌"`'
 	'❓': ':pipe `"❓"`'
 	'❗': ':pipe `"❗"`'
@@ -253,6 +252,7 @@ let normal_mappings = {
 	W: repeat_last_motion
 	X: join_selections_space
 	b: [add_newline_below move_line_down paste_before]
+	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	c: change_selection
 	d: delete_selection
 	esc: [save_selection keep_primary_selection normal_mode]
@@ -305,7 +305,7 @@ let normal_mappings = {
 	C-pageup: [select_mode page_cursor_half_up normal_mode]
 	S-pagedown: goto_next_paragraph
 	S-pageup: goto_prev_paragraph
-	backspace: [collapse_selection select_mode goto_next_paragraph normal_mode trim_selections]
+	# : [collapse_selection select_mode goto_next_paragraph normal_mode trim_selections]
 	A-pagedown: [ensure_selections_forward select_mode goto_next_paragraph normal_mode]
 	A-pageup: [ensure_selections_forward flip_selections select_mode goto_prev_paragraph normal_mode]
 	S-A-pagedown: [ensure_selections_forward select_mode goto_prev_paragraph normal_mode]
@@ -360,7 +360,7 @@ let normal_mappings = {
 		l: ':toggle lsp.display-inlay-hints'
 		o: ':fmt'
 		s: surround_add
-		x: [yank_joined ':new' paste_before select_all split_selection_on_newline]
+		x: [yank ':new' paste_before_all]
 		# [[sort off]]
 		t: {
 			k: ':pipe \"<kbd>" + $in + "</kbd>"'
@@ -586,13 +586,9 @@ let insert_mappings_fork = {
 	'C-;': harp_register
 }
 
+let russian_mapping = (open ~/fes/dot/helix/russian.nu | from nuon)
 def rusify_key [] {
 	let IN = $in
-	const russian_mapping = {
-		a: ф, b: и, c: с, d: в, e: у, f: а, g: п, h: р, i: ш, j: о, k: л, l: д, m: ь, n: т, o: щ, p: з, q: й, r: к, s: ы, t: е, u: г, v: м, w: ц, x: ч, y: н, z: я,
-		A: Ф, B: И, C: С, D: В, E: У, F: А, G: П, H: Р, I: Ш, J: О, K: Л, L: Д, M: Ь, N: Т, O: Щ, P: З, Q: Й, R: К, S: Ы, T: Е, U: Г, V: М, W: Ц, X: Ч, Y: Н, Z: Я,
-		'[': х, ']': ъ, '{': Х, '}': Ъ, '': ё, ~: Ё, ',': б, '<': Б, .: ю, '>': Ю, ';': ж, ':': Ж, "'": э, '"': Э, №: '#'
-	}
 	$IN | if ($in | str length | $in == 1) {
 		$russian_mapping | get -o $IN | default $IN
 	} else {
