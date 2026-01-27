@@ -1,8 +1,8 @@
-def 'date now date' [] {
+export def 'date now date' [] {
 	date now | format date '%y.%m.%d'
 }
 
-def 'path shrink' [] {
+export def 'path shrink' [] {
 	let IN = $in
 	$IN | try {
 		path relative-to ~ | '~/' + $in
