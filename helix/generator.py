@@ -79,7 +79,6 @@ editor: dict[str, Any] = {
         },
     },
     # [[sort on]]
-    # 'idle-timeout': 250,
     'auto-completion': True,
     'auto-format': True,
     'auto-info': True,
@@ -118,10 +117,6 @@ editor: dict[str, Any] = {
         'wrap-indicator': '',
     },
     'whitespace': {
-        'render': {
-            # 'newline': 'all',
-            # 'tab': 'all',
-        },
         'characters': {
             'newline': '↪',
             'space': '·',
