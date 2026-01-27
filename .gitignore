@@ -18,3 +18,5 @@ helix/sleek.toml
 qs/.qmlls.ini
 helix/man.toml
 fish/abbreviations.fish
+helix/testing.toml
+helix/pure.toml
