@@ -11,7 +11,7 @@
 	c y
 
 	v (tap-hold-release $tt $ht C-w XX)
-	/ (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier-zoom))
+	; (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier-zoom))
 	x (cmd fish -c "show_clipboard_image -fs fill")
 
 	a (on↓ press-vkey shift)
@@ -22,8 +22,6 @@
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
 	k (multi mrgt (on↑ tap-vkey modifier))
-	h (cmd niri msg action set-zoom +1)
-	; (tap-hold-release $tt $ht (cmd niri msg action set-zoom -- -1) (cmd niri msg action set-zoom 1))
 	, pgup
 	. pgdn
 
@@ -56,7 +54,10 @@
 )
 
 (deflayermap (caps-space)
-	i C-S-c
-	o C-S-i
+	;; i C-S-c
+	;; o C-S-i
+	i (cmd niri msg action set-zoom +1)
+	o (cmd niri msg action set-zoom -- -1)
+	u (cmd niri msg action set-zoom 1)
 	k (cmd fish -c pick_and_copy_color)
 )
