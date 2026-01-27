@@ -15,9 +15,11 @@ html {
 }
 
 /* titlebar */
-div[class$='-container'] > div[class$='-base'] {
-	margin-top: -32px;
-	/* display: none; */
+div[class^='base__'] {
+	grid-template-rows: [top] 0px [titleBarEnd] min-content [noticeEnd] 1fr [end];
+	> div[class^='bar_']:has([class^='title_']) {
+		display: none;
+	}
 }
 
 pre:has([class^='codeContainer_']) {
