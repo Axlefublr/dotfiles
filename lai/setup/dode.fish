@@ -448,7 +448,11 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout kruler
 
 # -------------------------lazygit-------------------------
 # sudo pacman -S --needed --noconfirm --disable-download-timeout lazygit
-yay -Sa --needed --disable-download-timeout lazygit-git
+# yay -Sa --needed --disable-download-timeout lazygit-git
+# binary already in eva
+cd ~/fes/ork
+git clone https://github.com/Axlefublr/lazygit
+d i
 mkdir -p ~/.config/lazygit
 ln -sf ~/fes/dot/lazygit.yml ~/.config/lazygit/config.yml
 
