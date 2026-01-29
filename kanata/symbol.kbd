@@ -57,6 +57,7 @@
 	;; [[sort on]]
 	' (cmd wtype ■)
 	, (cmd wtype ❗)
+	. (cmd wtype ⚠️)
 	/ (cmd wtype ❓)
 	; (cmd wtype █)
 	b (cmd wtype 💡)
@@ -67,8 +68,8 @@
 	l (cmd wtype →)
 	m (cmd wtype ✅)
 	n (cmd wtype ❌)
-	o (cmd wtype ↪)
-	u (cmd wtype 󰟢)
+	o (cmd wtype ¬)
+	u (cmd wtype ∞)
 	;; [[sort off]]
 )
 
@@ -132,6 +133,7 @@
 	;; [[sort on]]
 	a (cmd wtype “)
 	c ]
+	caps (cmd wtype 󰟢)
 	d S-0
 	e S-]
 	f (cmd wtype ”)
@@ -176,4 +178,18 @@
 	a (cmd wtype ₀)
 	z (cmd wtype ₋)
 	q (cmd wtype ₊)
+)
+
+(deflayermap (.)
+	s (cmd wtype ├)
+	e (cmd wtype ┬)
+	f (cmd wtype ┤)
+	c (cmd wtype ┴)
+	a (cmd wtype │)
+	w (cmd wtype ┌)
+	d (cmd wtype ─)
+	r (cmd wtype ┐)
+	x (cmd wtype └)
+	v (cmd wtype ┘)
+	g (cmd wtype ┼)
 )

@@ -41,13 +41,9 @@
 
 (deflayermap (io)
 	j (multi (layer-toggle j) (layer-toggle ij) (layer-toggle jo) (layer-toggle ijo) (on↑ tap-vkey j))
-	e (unmod lctl lalt x)
-	f (unmod lctl lalt c)
 	d (unmod lctl lsft lalt f2)
 	s (unmod lctl lsft lalt f3)
 )
 
 (deflayermap (ijo)
-	e (unmod lctl lalt z)
-	f (unmod lctl lalt v)
 )

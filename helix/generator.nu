@@ -121,8 +121,8 @@ let all_mappings = {
 	C-tab: add_newline_above
 	C-up: copy_selection_on_prev_line
 	F12: add_newline_below
-	S-left: unindent
-	S-right: indent
+	S-left: [shrink_to_line_bounds unindent]
+	S-right: [shrink_to_line_bounds indent]
 	# [[sort off]]
 	# -------------------------saving--------------------------
 	ins: ':write-buffer-close'
@@ -167,38 +167,37 @@ let normal_mappings = {
 	A-i: null
 	# [[sort on]]
 	"'": [save_selection select_textobject_inner]
-	'!': trim_selections
-	'$': align_selections
 	'%': [save_selection select_all]
 	'&': '@q<ret>'
 	'*': [search_selection_detect_word_boundaries normal_mode]
 	'+': rotate_selections_forward
+	',': trim_selections
 	'-': rotate_selections_backward
 	'/': search
+	':': split_selection_on_newline
 	';': [collapse_selection normal_mode]
 	'=': remove_primary_selection
 	'?': rsearch
 	'@': toggle_comments
+	'C-;': ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in'
 	'\': shell_pipe_to
 	'^': '@<A-e>O*<C-A-w>'
 	'_': switch_to_lowercase
 	'`': [collapse_selection switch_case]
 	'{': jump_backward
 	'|': shell_pipe
+	'}': repeat_last_motion
 	'~': '@%q<ret>'
-	'¢': ':yank-join " "'
-	'°': yank_joined
+	'°': align_selections
 	'×': select_references_to_symbol_under_cursor
 	'÷': '@<space>w<ret>'
-	'‘': shell_append_output
+	'‘': [':echo selected!' save_selection]
 	'’': jump_forward
-	'“': shell_insert_output
-	'„': shrink_to_line_bounds
-	'…': split_selection_on_newline
 	'€': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
 	'←': shell_keep_pipe
 	'↑': keep_selections
 	'↓': remove_selections
+	'∞': shell_append_output
 	'≈': reverse_selection_contents
 	'≤': rotate_selection_contents_forward
 	'≥': rotate_selection_contents_backward
@@ -208,17 +207,18 @@ let normal_mappings = {
 	'⊼': ':tree-sitter-highlight-name'
 	'█': '@q█<ret>c'
 	'✅': ':pipe `"✅"`'
+	'✨': shell_insert_output
 	'❌': ':pipe `"❌"`'
 	'❓': ':pipe `"❓"`'
 	'❗': ':pipe `"❗"`'
 	'⤓': ':sort'
 	'💡': ':pipe `"💡"`'
+	'󰟢': shrink_to_line_bounds
 	A-a: decrement
 	A-e: ':new'
 	A-end: [goto_file_end search_prev]
 	A-f: increment
 	A-home: [goto_file_start search_next]
-	A-k: extend_to_line_bounds
 	A-ret: ':e %(selection)'
 	A: '@vk~'
 	B: [add_newline_above move_line_up paste_before]
@@ -231,7 +231,7 @@ let normal_mappings = {
 	C-m: select_all_siblings
 	C-n: extend_search_next
 	C-q: ':cd ..'
-	C-v: ensure_selections_forward
+	C-v: replace
 	C-x: join_selections
 	C: '@c<ret><esc>'
 	D: ':pipe str trim'
@@ -241,7 +241,7 @@ let normal_mappings = {
 	N: search_prev
 	O: paste_before
 	Q: split_selection
-	R: [':echo selected!' save_selection]
+	R: ensure_selections_forward
 	S-A-F3: extend_search_prev
 	S-A-F4: merge_consecutive_selections
 	S-tab: "@<space>'<up><ret>"
@@ -249,7 +249,6 @@ let normal_mappings = {
 	T: redo
 	U: insert_at_line_end
 	V: [collapse_selection replace]
-	W: repeat_last_motion
 	X: join_selections_space
 	b: [add_newline_below move_line_down paste_before]
 	backspace: [save_selection select_all yank_to_clipboard jump_backward]
@@ -275,10 +274,6 @@ let normal_mappings = {
 	# ----------------------word motions-----------------------
 	C-1: [ensure_selections_forward extend_prev_word_end trim_selections]
 	C-5: [ensure_selections_forward flip_selections extend_next_word_start trim_selections]
-	C-A-c: [ensure_selections_forward extend_next_sub_word_end trim_selections]
-	C-A-v: [ensure_selections_forward extend_prev_sub_word_end trim_selections]
-	C-A-x: [ensure_selections_forward flip_selections extend_prev_sub_word_end trim_selections]
-	C-A-z: [ensure_selections_forward flip_selections extend_next_sub_word_start trim_selections]
 	C-e: [ensure_selections_forward flip_selections extend_prev_word_start trim_selections]
 	C-f: [ensure_selections_forward extend_next_word_end trim_selections]
 	E: [move_prev_long_word_start trim_selections]
@@ -289,11 +284,9 @@ let normal_mappings = {
 	S-A-F9: [ensure_selections_forward extend_prev_long_word_end trim_selections]
 	e: [move_prev_word_start trim_selections]
 	f: [move_next_word_end trim_selections]
-	'}': [move_prev_sub_word_start trim_selections]
-	'”': [move_next_sub_word_end trim_selections]
 	# ---------------------line boundaries---------------------
-	C-A-end: [ensure_selections_forward extend_to_file_end]
-	C-A-home: [ensure_selections_forward flip_selections extend_to_file_start]
+	C-A-x: [ensure_selections_forward extend_to_file_end]
+	C-A-z: [ensure_selections_forward flip_selections extend_to_file_start]
 	S-end: [ensure_selections_forward extend_to_line_end_newline]
 	S-home: [ensure_selections_forward flip_selections extend_to_line_start]
 	end: [ensure_selections_forward extend_to_line_end]
@@ -303,25 +296,21 @@ let normal_mappings = {
 	pageup: page_cursor_half_up
 	C-pagedown: [select_mode page_cursor_half_down normal_mode]
 	C-pageup: [select_mode page_cursor_half_up normal_mode]
-	S-pagedown: goto_next_paragraph
-	S-pageup: goto_prev_paragraph
+	A-l: goto_next_paragraph
+	A-h: goto_prev_paragraph
+	L: [select_mode goto_next_paragraph normal_mode]
+	H: [select_mode goto_prev_paragraph normal_mode]
 	# : [collapse_selection select_mode goto_next_paragraph normal_mode trim_selections]
-	A-pagedown: [ensure_selections_forward select_mode goto_next_paragraph normal_mode]
-	A-pageup: [ensure_selections_forward flip_selections select_mode goto_prev_paragraph normal_mode]
-	S-A-pagedown: [ensure_selections_forward select_mode goto_prev_paragraph normal_mode]
-	S-A-pageup: [ensure_selections_forward flip_selections select_mode goto_next_paragraph normal_mode]
 	# -------------------------lining--------------------------
 	A-J: [extend_to_line_bounds ensure_selections_forward select_line_above]
 	A-K: [extend_to_line_bounds ensure_selections_forward flip_selections select_line_below]
-	J: [extend_to_line_bounds extend_line_below]
-	K: [extend_to_line_bounds extend_line_above]
+	J  : [extend_to_line_bounds extend_line_below]
+	K  : [extend_to_line_bounds extend_line_above]
 	# ----------------------characterwise----------------------
-	H: [ensure_selections_forward flip_selections extend_char_left]
-	L: [ensure_selections_forward extend_char_right]
-	A-h: [ensure_selections_forward flip_selections extend_char_right]
-	A-l: [ensure_selections_forward extend_char_left]
-	A-down: extend_visual_line_down
-	A-up: extend_visual_line_up
+	left : extend_char_left
+	right: extend_char_right
+	A-j  : extend_visual_line_down
+	A-k  : extend_visual_line_up
 	# --------------------semantic movement--------------------
 	'(': goto_prev_change
 	')': goto_next_change
@@ -331,23 +320,42 @@ let normal_mappings = {
 	']': goto_next_diag
 	'⁸': goto_last_diag
 	'⁹': goto_first_diag
-	'»': {
-		t: goto_next_test
-		e: goto_next_entry
-		c: goto_next_comment
-		f: goto_next_function
-		a: goto_next_parameter
-		d: goto_next_class
+	'”': {
+		t  : goto_next_test
+		'}': goto_next_entry
+		e  : goto_next_entry
+		'»': goto_next_comment
+		v  : goto_next_comment
+		'”': goto_next_function
+		f  : goto_next_function
+		'“': goto_next_parameter
+		a  : goto_next_parameter
+		']': goto_next_class
+		c  : goto_next_class
 	}
-	'«': {
-		t: goto_prev_test
-		e: goto_prev_entry
-		c: goto_prev_comment
-		f: goto_prev_function
-		a: goto_prev_parameter
-		d: goto_prev_class
+	'“': {
+		t  : goto_prev_test
+		'}': goto_prev_entry
+		e  : goto_prev_entry
+		'»': goto_prev_comment
+		v  : goto_prev_comment
+		'”': goto_prev_function
+		f  : goto_prev_function
+		'“': goto_prev_parameter
+		a  : goto_prev_parameter
+		']': goto_prev_class
+		c  : goto_prev_class
 	}
 	del: { S-del: [':sh rm %(full_path)' ':buffer-close!'] }
+	# ---------------------------lsp---------------------------
+	'└': goto_declaration
+	'│': code_action
+	'┴': goto_type_definition
+	'─': goto_definition
+	'┬': goto_reference
+	'┤': goto_implementation
+	'┐': rename_symbol
+	'├': hover
 	m: {
 		# [[sort on]]
 		';': ':toggle soft-wrap.enable'
@@ -400,7 +408,6 @@ let normal_mappings = {
 		J: command_palette
 		K: syntax_workspace_symbol_picker
 		L: workspace_symbol_picker
-		V: replace
 		b: ':open %sh("%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md")'
 		d: (open ~/fes/dot/helix/magazine.nu | from nuon)
 		e: buffer_picker
@@ -410,6 +417,7 @@ let normal_mappings = {
 		j: file_picker_in_current_buffer_directory
 		k: syntax_symbol_picker
 		l: symbol_picker
+		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
 		w: global_search
 		# [[sort off]]
 	}
@@ -426,20 +434,6 @@ let normal_mappings = {
 		o: ':buffer-close-others'
 		q: ':cd %sh(git -C `%(buffer_parent)` rev-parse --show-toplevel)'
 		r: ':lsp-restart'
-		# [[sort off]]
-	}
-	',': {
-		# [[sort on]]
-		',': [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
-		D: goto_declaration
-		a: code_action
-		c: goto_type_definition
-		d: goto_definition
-		e: goto_reference
-		f: goto_implementation
-		r: rename_symbol
-		s: hover
-		v: ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in'
 		# [[sort off]]
 	}
  }
@@ -515,7 +509,7 @@ let all_mappings_fork = {
 
 let normal_mappings_fork = {
 	# [[sort on]]
-	'.': toggle_line_select
+	'.': extend_to_line_bounds
 	'0': ':buffer-nth -r 1'
 	'1': ':buffer-nth 1'
 	'2': ':buffer-nth 2'
@@ -553,7 +547,7 @@ let normal_mappings_fork = {
 	v: harp_mark
 	w: harp_search
 	a: harp_register
-	',': { w: goto_hover }
+	'┌': goto_hover
 	m: {
 		# [[sort on]]
 		C-c: ':echopy %(full_path):%(cursor_line)'

@@ -54,7 +54,7 @@
 	;; [[sort on]]
 	' (tap-hold-release $tt $ht ' (multi (layer-toggle quote) (on↑ tap-vkey quote)))
 	, (tap-hold-release $tt $ht , (layer-toggle comma))
-	. (tap-hold-release $tt $ht . XX)
+	. (tap-hold-release $tt $ht . (layer-toggle .))
 	/ (tap-hold-release $tt $ht / XX)
 	0 XX
 	1 XX
