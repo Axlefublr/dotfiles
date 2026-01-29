@@ -7,7 +7,7 @@ mut phase = 'work'
 
 def commit [class: string, total: string = ''] {
 	into string
-	| $'{ "text": "($in)/($total)", "class": "($class)" }' + "\n"
+	| $'{ "text": "($in) of ($total)", "class": "($class)" }' + "\n"
 	| save -f ~/.local/share/mine/waybar-tomato
 }
 
