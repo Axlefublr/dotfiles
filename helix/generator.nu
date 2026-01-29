@@ -107,23 +107,30 @@ let editor = {
 
 let all_mappings = {
 	# [[sort on]]
-	A-left: goto_prev_tabstop
-	A-right: goto_next_tabstop
-	A-tab: ':open %sh(wl-paste -n)'
-	C-down: copy_selection_on_next_line
-	C-end: [extend_to_file_end collapse_selection]
-	C-home: goto_file_start
-	C-i: [commit_undo_checkpoint normal_mode open_above]
-	C-left: goto_previous_buffer
-	C-o: [commit_undo_checkpoint normal_mode open_below]
-	C-right: goto_next_buffer
 	C-s: signature_help
+	# [[sort off]]
+	C-i: [commit_undo_checkpoint open_above]
+	C-o: [commit_undo_checkpoint open_below]
+	A-i: goto_prev_tabstop
+	S-A-i: goto_next_tabstop
+	# -------------------------keyful--------------------------
+	A-tab: ':open %sh(wl-paste -n)'
 	C-tab: add_newline_above
-	C-up: copy_selection_on_prev_line
 	F12: add_newline_below
+	down: move_line_down
+	up: move_line_up
+	A-up : [extend_to_line_bounds yank paste_before]
+	A-down: [extend_to_line_bounds yank paste_after]
+	C-up: copy_selection_on_prev_line
+	C-down: copy_selection_on_next_line
+	C-left: goto_previous_buffer
+	C-right: goto_next_buffer
 	S-left: [shrink_to_line_bounds unindent]
 	S-right: [shrink_to_line_bounds indent]
-	# [[sort off]]
+	C-home: goto_file_start
+	C-end: [extend_to_file_end collapse_selection]
+	S-pageup: ('@<C-i>[[sort' + ' on]]<esc>@')
+	S-pagedown: ('@<C-o>[[sort' + ' off]]<esc>@')
 	# -------------------------saving--------------------------
 	ins: ':write-buffer-close'
 	A-w: ':write-buffer-close'
@@ -136,6 +143,7 @@ let all_mappings = {
 	C-t: ':reload'
 	S-A-F6: ':write --no-format'
 	S-A-F11: ':write! --no-format'
+	# ------------------------function-------------------------
 	F2: [
 		":noop %sh('%(full_path)' | path expand | save -f ~/.cache/mine/blammo)"
 		':sh footclient -ND %(working_directory) o+e>| ignore'
@@ -164,64 +172,21 @@ let normal_mappings = {
 	P: null
 	Y: null
 	y: null
-	A-i: null
-	# [[sort on]]
+	# -------------------------normal--------------------------
 	"'": [save_selection select_textobject_inner]
-	'%': [save_selection select_all]
-	'&': '@q<ret>'
-	'*': [search_selection_detect_word_boundaries normal_mode]
-	'+': rotate_selections_forward
-	',': trim_selections
-	'-': rotate_selections_backward
+	p: [save_selection select_textobject_around]
 	'/': search
+	'?': rsearch
+	b: [add_newline_below move_line_down paste_before]
+	B: [add_newline_above move_line_up paste_before]
+	A-a: decrement
+	A-f: increment
+	# [[sort on]]
+	',': trim_selections
 	':': split_selection_on_newline
 	';': [collapse_selection normal_mode]
-	'=': remove_primary_selection
-	'?': rsearch
-	'@': toggle_comments
 	'C-;': ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in'
-	'\': shell_pipe_to
-	'^': '@<A-e>O*<C-A-w>'
-	'_': switch_to_lowercase
-	'`': [collapse_selection switch_case]
-	'{': jump_backward
-	'|': shell_pipe
-	'}': repeat_last_motion
-	'~': '@%q<ret>'
-	'°': align_selections
-	'×': select_references_to_symbol_under_cursor
-	'÷': '@<space>w<ret>'
-	'‘': [':echo selected!' save_selection]
-	'’': jump_forward
-	'€': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
-	'←': shell_keep_pipe
-	'↑': keep_selections
-	'↓': remove_selections
-	'∞': shell_append_output
-	'≈': reverse_selection_contents
-	'≤': rotate_selection_contents_forward
-	'≥': rotate_selection_contents_backward
-	'≺': rotate_selections_first
-	'≻': rotate_selections_last
-	'⊻': ':tree-sitter-subtree'
-	'⊼': ':tree-sitter-highlight-name'
-	'█': '@q█<ret>c'
-	'✅': ':pipe `"✅"`'
-	'✨': shell_insert_output
-	'❌': ':pipe `"❌"`'
-	'❓': ':pipe `"❓"`'
-	'❗': ':pipe `"❗"`'
-	'⤓': ':sort'
-	'💡': ':pipe `"💡"`'
-	'󰟢': shrink_to_line_bounds
-	A-a: decrement
-	A-e: ':new'
-	A-end: [goto_file_end search_prev]
-	A-f: increment
-	A-home: [goto_file_start search_next]
-	A-ret: ':e %(selection)'
 	A: '@vk~'
-	B: [add_newline_above move_line_up paste_before]
 	C-c: change_selection_noyank
 	C-d: delete_selection_noyank
 	C-h: select_prev_sibling
@@ -235,7 +200,6 @@ let normal_mappings = {
 	C-x: join_selections
 	C: '@c<ret><esc>'
 	D: ':pipe str trim'
-	F11: '@<space>w<ret>'
 	I: insert_at_line_start
 	M: merge_selections
 	N: search_prev
@@ -244,17 +208,13 @@ let normal_mappings = {
 	R: ensure_selections_forward
 	S-A-F3: extend_search_prev
 	S-A-F4: merge_consecutive_selections
-	S-tab: "@<space>'<up><ret>"
 	S: "@vk'~"
 	T: redo
 	U: insert_at_line_end
 	V: [collapse_selection replace]
 	X: join_selections_space
-	b: [add_newline_below move_line_down paste_before]
-	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	c: change_selection
 	d: delete_selection
-	esc: [save_selection keep_primary_selection normal_mode]
 	h: move_char_left
 	i: insert_mode
 	j: move_visual_line_down
@@ -262,64 +222,58 @@ let normal_mappings = {
 	l: move_char_right
 	n: search_next
 	o: paste_after
-	p: [save_selection select_textobject_around]
 	q: select_regex
 	r: flip_selections
-	ret: command_mode
 	s: yank
 	t: undo
-	tab: "@<space>'<down><ret>"
 	x: replace_with_yanked
 	# [[sort off]]
-	# ----------------------word motions-----------------------
-	C-1: [ensure_selections_forward extend_prev_word_end trim_selections]
-	C-5: [ensure_selections_forward flip_selections extend_next_word_start trim_selections]
-	C-e: [ensure_selections_forward flip_selections extend_prev_word_start trim_selections]
-	C-f: [ensure_selections_forward extend_next_word_end trim_selections]
-	E: [move_prev_long_word_start trim_selections]
-	F: [move_next_long_word_end trim_selections]
-	S-A-F10: [ensure_selections_forward flip_selections extend_next_long_word_start trim_selections]
-	S-A-F7: [ensure_selections_forward extend_next_long_word_end trim_selections]
-	S-A-F8: [ensure_selections_forward flip_selections extend_prev_long_word_start trim_selections]
-	S-A-F9: [ensure_selections_forward extend_prev_long_word_end trim_selections]
-	e: [move_prev_word_start trim_selections]
-	f: [move_next_word_end trim_selections]
-	# ---------------------line boundaries---------------------
-	C-A-x: [ensure_selections_forward extend_to_file_end]
-	C-A-z: [ensure_selections_forward flip_selections extend_to_file_start]
-	S-end: [ensure_selections_forward extend_to_line_end_newline]
-	S-home: [ensure_selections_forward flip_selections extend_to_line_start]
-	end: [ensure_selections_forward extend_to_line_end]
-	home: [ensure_selections_forward flip_selections extend_to_first_nonwhitespace]
-	# -------------------------paging--------------------------
-	pagedown: page_cursor_half_down
-	pageup: page_cursor_half_up
-	C-pagedown: [select_mode page_cursor_half_down normal_mode]
-	C-pageup: [select_mode page_cursor_half_up normal_mode]
-	A-l: goto_next_paragraph
-	A-h: goto_prev_paragraph
-	L: [select_mode goto_next_paragraph normal_mode]
-	H: [select_mode goto_prev_paragraph normal_mode]
-	# : [collapse_selection select_mode goto_next_paragraph normal_mode trim_selections]
-	# -------------------------lining--------------------------
-	A-J: [extend_to_line_bounds ensure_selections_forward select_line_above]
-	A-K: [extend_to_line_bounds ensure_selections_forward flip_selections select_line_below]
-	J  : [extend_to_line_bounds extend_line_below]
-	K  : [extend_to_line_bounds extend_line_above]
-	# ----------------------characterwise----------------------
-	left : extend_char_left
-	right: extend_char_right
-	A-j  : extend_visual_line_down
-	A-k  : extend_visual_line_up
-	# --------------------semantic movement--------------------
+	# ---------------------------x↓----------------------------
+	'%': [save_selection select_all]
+	'*': [search_selection_detect_word_boundaries normal_mode]
+	'+': rotate_selections_forward
+	'-': rotate_selections_backward
+	'=': remove_primary_selection
+	'\': shell_pipe_to
+	'×': select_references_to_symbol_under_cursor
+	'÷': '@<space>w<ret>'
+	# ---------------------------c↓----------------------------
+	'&': '@q<ret>'
+	'@': toggle_comments
+	'^': '@<A-e>O*<C-A-w>'
+	'_': switch_to_lowercase
+	'`': [collapse_selection switch_case]
+	'|': shell_pipe
+	'~': '@%q<ret>'
+	'°': align_selections
+	'€': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
+	# ---------------------------xc↓---------------------------
+	# [[sort on]]
+	'≈': reverse_selection_contents
+	'≤': rotate_selection_contents_forward
+	'≥': rotate_selection_contents_backward
+	'≺': rotate_selections_first
+	'≻': rotate_selections_last
+	'⊻': ':tree-sitter-subtree'
+	'⊼': ':tree-sitter-highlight-name'
+	'⤓': ':sort'
+	# [[sort off]]
+	# ---------------------------i↓----------------------------
+	# [[sort on]]
 	'(': goto_prev_change
 	')': goto_next_change
-	'²': goto_last_change
-	'³': goto_first_change
 	'[': goto_prev_diag
 	']': goto_next_diag
+	'{': jump_backward
+	'}': repeat_last_motion
+	'²': goto_last_change
+	'³': goto_first_change
+	'‘': [':echo selected!' save_selection]
+	'’': jump_forward
 	'⁸': goto_last_diag
 	'⁹': goto_first_diag
+	'󰟢': shrink_to_line_bounds
+	# [[sort off]]
 	'”': {
 		t  : goto_next_test
 		'}': goto_next_entry
@@ -346,7 +300,74 @@ let normal_mappings = {
 		']': goto_prev_class
 		c  : goto_prev_class
 	}
+	# ---------------------------v↓----------------------------
+	'∞': shell_append_output
+	'✨': shell_insert_output
+	# [[sort on]]
+	'←': shell_keep_pipe
+	'↑': keep_selections
+	'↓': remove_selections
+	'█': '@q█<ret>c'
+	'✅': ':pipe `"✅"`'
+	'❌': ':pipe `"❌"`'
+	'❓': ':pipe `"❓"`'
+	'❗': ':pipe `"❗"`'
+	'💡': ':pipe `"💡"`'
+	# [[sort off]]
+	# ----------------------word motions-----------------------
+	C-1: [ensure_selections_forward extend_prev_word_end trim_selections]
+	C-5: [ensure_selections_forward flip_selections extend_next_word_start trim_selections]
+	C-e: [ensure_selections_forward flip_selections extend_prev_word_start trim_selections]
+	C-f: [ensure_selections_forward extend_next_word_end trim_selections]
+	E: [move_prev_long_word_start trim_selections]
+	F: [move_next_long_word_end trim_selections]
+	S-A-F10: [ensure_selections_forward flip_selections extend_next_long_word_start trim_selections]
+	S-A-F7: [ensure_selections_forward extend_next_long_word_end trim_selections]
+	S-A-F8: [ensure_selections_forward flip_selections extend_prev_long_word_start trim_selections]
+	S-A-F9: [ensure_selections_forward extend_prev_long_word_end trim_selections]
+	e: [move_prev_word_start trim_selections]
+	f: [move_next_word_end trim_selections]
+	# -------------------------lining--------------------------
+	C-A-x: [ensure_selections_forward extend_to_file_end]
+	C-A-z: [ensure_selections_forward flip_selections extend_to_file_start]
+	S-end: [ensure_selections_forward extend_to_line_end_newline]
+	S-home: [ensure_selections_forward flip_selections extend_to_line_start]
+	end: [ensure_selections_forward extend_to_line_end]
+	home: [ensure_selections_forward flip_selections extend_to_first_nonwhitespace]
+	# -------------------------keyful--------------------------
+	A-left: [yank paste_before]
+	A-right: [yank paste_after]
+	A-home: [goto_file_start search_next]
+	A-end: [goto_file_end search_prev]
+	# [[sort on]]
+	A-ret: ':e %(selection)'
+	S-tab: "@<space>'<up><ret>"
+	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	del: { S-del: [':sh rm %(full_path)' ':buffer-close!'] }
+	esc: [save_selection keep_primary_selection normal_mode]
+	ret: command_mode
+	tab: "@<space>'<down><ret>"
+	# [[sort off]]
+	# -------------------------paging--------------------------
+	pagedown: page_cursor_half_down
+	pageup: page_cursor_half_up
+	C-pagedown: [select_mode page_cursor_half_down normal_mode]
+	C-pageup: [select_mode page_cursor_half_up normal_mode]
+	L: goto_next_paragraph
+	H: goto_prev_paragraph
+	A-h: [select_mode goto_prev_paragraph normal_mode]
+	A-l: [select_mode goto_next_paragraph normal_mode]
+	# : [collapse_selection select_mode goto_next_paragraph normal_mode trim_selections]
+	# -------------------------lining--------------------------
+	A-J: [extend_to_line_bounds ensure_selections_forward select_line_above]
+	A-K: [extend_to_line_bounds ensure_selections_forward flip_selections select_line_below]
+	J  : [extend_to_line_bounds extend_line_below]
+	K  : [extend_to_line_bounds extend_line_above]
+	# ----------------------characterwise----------------------
+	left : extend_char_left
+	right: extend_char_right
+	A-j  : extend_visual_line_down
+	A-k  : extend_visual_line_up
 	# ---------------------------lsp---------------------------
 	'└': goto_declaration
 	'│': code_action
