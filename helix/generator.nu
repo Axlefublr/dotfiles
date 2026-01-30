@@ -20,7 +20,7 @@ let editor = {
 	insert-final-newline: true
 	jump-label-alphabet: jfkdlsaeiwoxcmghruvnzbqpty
 	line-number: relative
-	preview-completion-insert: true
+	preview-completion-insert: false
 	scrolloff: 99
 	search: { wrap-around: true }
 	shell: ['nu', '--no-std-lib', '--stdin', '--config', '~/fes/dot/nu/lvoc/crooked.nu', '-c']
@@ -174,6 +174,7 @@ let normal_mappings = {
 	y: null
 	# -------------------------normal--------------------------
 	"'": [save_selection select_textobject_inner]
+	'"': [save_selection select_textobject_around]
 	p: [save_selection select_textobject_around]
 	'/': search
 	'?': rsearch
@@ -226,6 +227,10 @@ let normal_mappings = {
 	x: replace_with_yanked
 	# [[sort off]]
 	# ---------------------------x↓----------------------------
+	'#': null # marks
+	'$': null # marks
+	'…': null # marks
+	'√': null
 	'!': ':pipe str trim'
 	'%': [save_selection select_all]
 	'*': [search_selection_detect_word_boundaries normal_mode]
@@ -527,8 +532,11 @@ let all_mappings_fork = {
 }
 
 let normal_mappings_fork = {
-	D: '@vk~'
+	'$': mark_apply
+	'…': mark_replace
+	'#': mark_add
 	S: "@vk'~"
+	D: '@vk~'
 	# [[sort on]]
 	'.': extend_to_line_bounds
 	'0': ':buffer-nth -r 1'
