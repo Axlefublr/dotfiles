@@ -184,7 +184,7 @@ keybinding:
     createPullRequest: <disabled>
     viewPullRequestOptions: <disabled>
     copyPullRequestURL: <disabled>
-    checkoutBranchByName: <space>
+    checkoutBranchByName: f
     forceCheckoutBranch: W
     checkoutPreviousBranch: "&"
     rebaseBranch: r
@@ -192,7 +192,7 @@ keybinding:
     mergeIntoCurrentBranch: m
     moveCommitsToNewBranch: "N"
     viewGitFlowOptions: <disabled>
-    fastForward: f
+    fastForward: <disabled>
     createTag: t
     pushTag: o
     setUpstream: u
