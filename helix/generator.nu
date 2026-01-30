@@ -186,7 +186,6 @@ let normal_mappings = {
 	':': split_selection_on_newline
 	';': [collapse_selection normal_mode]
 	'C-;': ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in'
-	A: '@vk~'
 	C-c: change_selection_noyank
 	C-d: delete_selection_noyank
 	C-h: select_prev_sibling
@@ -199,7 +198,6 @@ let normal_mappings = {
 	C-v: replace
 	C-x: join_selections
 	C: '@c<ret><esc>'
-	D: ':pipe str trim'
 	I: insert_at_line_start
 	M: merge_selections
 	N: search_prev
@@ -208,7 +206,6 @@ let normal_mappings = {
 	R: ensure_selections_forward
 	S-A-F3: extend_search_prev
 	S-A-F4: merge_consecutive_selections
-	S: "@vk'~"
 	T: redo
 	U: insert_at_line_end
 	V: [collapse_selection replace]
@@ -229,6 +226,7 @@ let normal_mappings = {
 	x: replace_with_yanked
 	# [[sort off]]
 	# ---------------------------x↓----------------------------
+	'!': ':pipe str trim'
 	'%': [save_selection select_all]
 	'*': [search_selection_detect_word_boundaries normal_mode]
 	'+': rotate_selections_forward
@@ -529,6 +527,8 @@ let all_mappings_fork = {
 }
 
 let normal_mappings_fork = {
+	D: '@vk~'
+	S: "@vk'~"
 	# [[sort on]]
 	'.': extend_to_line_bounds
 	'0': ':buffer-nth -r 1'
