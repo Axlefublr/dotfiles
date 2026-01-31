@@ -20,6 +20,7 @@ alias --save dust 'dust -r' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group --git --git-repos' >/dev/null
 alias --save fd 'fd --no-require-git' >/dev/null
 alias --save ffmpeg 'ffmpeg -y -hide_banner -stats -loglevel error' >/dev/null
+alias --save ffprobe 'ffprobe -hide_banner' >/dev/null
 
 function gh
     gh.nu $argv
