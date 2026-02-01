@@ -173,7 +173,7 @@ keybinding:
     viewStashOptions: s
     toggleStagedAll: W
     viewResetOptions: x
-    fetch: <c-o>
+    fetch: <disabled>
     toggleTreeView: "`"
     # openMergeTool: M
     openStatusFilter: "'"
@@ -196,7 +196,7 @@ keybinding:
     createTag: t
     pushTag: o
     setUpstream: u
-    fetchRemote: <c-o>
+    fetchRemote: ":"
     sortOrder: "'"
   worktrees:
     viewWorktreeOptions: w
@@ -302,35 +302,33 @@ customCommands:
   - key: "q"
     context: "commitFiles"
     command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} >~/.local/share/flipboard'"
-    loadingText: "maybe copied link"
     description: "Copy link to file at this commit"
   - key: "Q"
     context: "commitFiles"
     command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} >~/.local/share/flipboard'"
-    loadingText: "maybe copied link"
     description: "Copy link to file at *previous* commit"
 
   - key: "o"
     context: "commits"
-    command: "git push {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
-    loadingText: "Pushing commit..."
+    command: "git push -f {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
+    loadingText: "Pushing commit"
     description: "Push a specific commit (and any preceding)"
     output: log
   - key: "O"
     context: "commits"
     command: "git fetch origin upstream --unshallow"
-    loadingText: "Unshallowing commits..."
+    loadingText: "Unshallowing"
     description: "Unshallow the shallow copy"
     output: log
   - key: "G"
     context: "commits"
-    command: "git rebase --autosquash $(earliest-contiguous.nu)^"
-    loadingText: Rebasing...
-    description: "Apply fixup commits up to the oldest your commit"
+    command: "git rebase --autosquash $(git merge-base HEAD upstream/HEAD)"
+    loadingText: Rebasing
+    description: "Apply fixup commits up within the divergence"
     output: none
   - key: "I"
     context: "commits"
-    command: "git rebase -i $(earliest-contiguous.nu)^"
+    command: "git rebase -i $(git merge-base HEAD upstream/HEAD)"
     description: "Rebase on the oldest your commit"
     output: terminal
   - key: "<c-e>"
@@ -361,18 +359,15 @@ customCommands:
   - key: q
     context: "commits, subCommits"
     command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} >~/.local/share/flipboard'"
-    loadingText: "maybe copied link"
     description: "Copy link to repo at this point in history"
 
   - key: q
     context: "tags"
     command: "fish -c 'ghl -b {{.SelectedTag.Name}} >~/.local/share/flipboard'"
-    loadingText: "maybe copied link"
     description: "Copy link to repo at this tag"
   - key: Q
     context: "tags"
     command: "fish -c 'ghl -pb {{.SelectedTag.Name}} >~/.local/share/flipboard'"
-    loadingText: "maybe copied link"
     description: "Copy link to repo at this tag, parsing it into commit"
 
   - key: "s"
@@ -386,13 +381,16 @@ customCommands:
     prompts:
       - type: "input"
         title: "PR id:"
-    loadingText: "checking out PR"
+    loadingText: "Checking out PR"
     description: "Checkout PR"
   - key: "U"
     context: localBranches
     command: |
       fish -c 'git symbolic-ref --short refs/remotes/origin/HEAD | string replace "origin/" "" | read -l branch
-      and git switch dev && git push --force && git switch $branch && git reset --hard dev && git push --force && git switch dev'
+      and begin
+        git branch -f $branch dev
+        git push -f origin dev $branch
+      end'
     loadingText: "Syncing"
     description: "Sync main branch with dev"
   - key: "<c-r>"
@@ -407,15 +405,26 @@ customCommands:
   - key: "q"
     context: localBranches
     command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
-    loadingText: "Copied link"
     description: "Copy link to repo in this branch"
   - key: "Q"
     context: localBranches
     command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
-    loadingText: "Copied link"
     description: "Copy link to repo in this branch, parsing into commit hash"
   - key: "o"
     context: localBranches
     command: "git push -f origin {{.SelectedLocalBranch.Name}}"
-    loadingText: "Pushing..."
+    loadingText: "Pushing"
     description: "Push selected branch"
+  - key: "g"
+    context: localBranches
+    command: "git branch eph-(date +%y.%m.%d-%H.%M.%S)"
+    description: "Create temporary branch"
+  - key: "G"
+    context: localBranches
+    command: |
+      fish -c '
+        for branch in (git branch -l eph\* | string trim)
+          git branch -D $branch
+        end
+      '
+    description: "Delete temporary branches"
