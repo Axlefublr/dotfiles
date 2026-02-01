@@ -298,6 +298,7 @@ git config --global init.defaultBranch main
 git config --global interactive.diffFilter 'diff-so-fancy --patch'
 git config --global interactive.singleKey true
 git config --global merge.conflictstyle merge
+git config --global pull.autostash true
 git config --global pull.ff only
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
