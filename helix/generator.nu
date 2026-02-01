@@ -174,8 +174,7 @@ let normal_mappings = {
 	y: null
 	# -------------------------normal--------------------------
 	"'": [save_selection select_textobject_inner]
-	'"': [save_selection select_textobject_around]
-	p: [save_selection select_textobject_around]
+	a: [save_selection select_textobject_around]
 	'/': search
 	'?': rsearch
 	b: [add_newline_below move_line_down paste_before]
@@ -558,11 +557,11 @@ let normal_mappings_fork = {
 	A-b: [add_newline_below move_line_down paste_before_all]
 	A-o: paste_after_all
 	C-/: select_first_and_last_chars
+	P: copy_register_to_yank
 	S-A-F1: [extend_prev_sibling ensure_selections_forward flip_selections]
 	S-A-F2: [extend_next_sibling ensure_selections_forward]
-	Z: copy_register_to_yank
+	p: copy_yank_to_register
 	u: append_mode_same_line
-	z: copy_yank_to_register
 	# [[sort off]]
 	# --------------------------leap---------------------------
 	'<': [collapse_selection extend_flash_backward]
@@ -575,7 +574,7 @@ let normal_mappings_fork = {
 	'C-A-.': [ensure_selections_forward extend_flash_forward_till]
 	v: harp_mark
 	w: harp_search
-	a: harp_register
+	z: harp_register
 	'┌': goto_hover
 	m: {
 		# [[sort on]]
