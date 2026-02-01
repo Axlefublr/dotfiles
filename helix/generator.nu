@@ -125,8 +125,8 @@ let all_mappings = {
 	C-down: copy_selection_on_next_line
 	C-left: goto_previous_buffer
 	C-right: goto_next_buffer
-	S-left: [shrink_to_line_bounds unindent extend_to_line_bounds]
-	S-right: [shrink_to_line_bounds indent extend_to_line_bounds]
+	S-left: unindent
+	S-right: indent
 	C-home: goto_file_start
 	C-end: [extend_to_file_end collapse_selection]
 	S-pageup: ('@<C-i>[[sort' + ' on]]<esc>@')
