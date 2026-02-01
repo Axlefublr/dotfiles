@@ -177,7 +177,7 @@ keybinding:
     toggleTreeView: "`"
     # openMergeTool: M
     openStatusFilter: "'"
-    copyFileInfoToClipboard: <c-d>
+    copyFileInfoToClipboard: ";"
     collapseAll: _
     expandAll: "^"
   branches:
@@ -207,7 +207,7 @@ keybinding:
     viewResetOptions: v
     markCommitAsFixup: S
     createFixupCommit: f
-    squashAboveCommits: F
+    squashAboveCommits: g
     moveDownCommit: <c-j>
     moveUpCommit: <c-k>
     amendToCommit: a
@@ -220,7 +220,7 @@ keybinding:
     tagCommit: t
     checkoutCommit: w
     resetCherryPick: <c-x>
-    copyCommitAttributeToClipboard: <c-d>
+    copyCommitAttributeToClipboard: ";"
     openLogMenu: <c-l>
     openInBrowser: <disabled>
     viewBisectOptions: b
@@ -322,6 +322,12 @@ customCommands:
     loadingText: "Unshallowing commits..."
     description: "Unshallow the shallow copy"
     output: log
+  - key: "G"
+    context: "commits"
+    command: "git rebase --autosquash $(earliest-contiguous.nu)^"
+    loadingText: Rebasing...
+    description: "Apply fixup commits up to the oldest your commit"
+    output: none
   - key: "I"
     context: "commits"
     command: "git rebase -i $(earliest-contiguous.nu)^"
@@ -382,19 +388,34 @@ customCommands:
         title: "PR id:"
     loadingText: "checking out PR"
     description: "Checkout PR"
+  - key: "U"
+    context: localBranches
+    command: |
+      fish -c 'git symbolic-ref --short refs/remotes/origin/HEAD | string replace "origin/" "" | read -l branch
+      and git switch dev && git push --force && git switch $branch && git reset --hard dev && git push --force && git switch dev'
+    loadingText: "Syncing"
+    description: "Sync main branch with dev"
+  - key: "<c-r>"
+    context: localBranches
+    command: |
+      fish -c 'git fetch upstream
+      and git symbolic-ref --short refs/remotes/upstream/HEAD | read -l branch
+      and git rebase $branch ; true'
+    loadingText: "Rebasing"
+    description: "Rebase onto the default upstream branch"
+    output: log
   - key: "q"
     context: localBranches
     command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
-    loadingText: "maybe copied link"
+    loadingText: "Copied link"
     description: "Copy link to repo in this branch"
   - key: "Q"
     context: localBranches
     command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
-    loadingText: "maybe copied link"
+    loadingText: "Copied link"
     description: "Copy link to repo in this branch, parsing into commit hash"
-# TODO: issue here is that it screams and fails when you'd need to force push, while the default action asks you if you want to force
-# - key: "o"
-#   context: localBranches
-#   command: "git push origin {{.SelectedLocalBranch.Name}}"
-#   loadingText: "pushing selected branch"
-#   description: "Push selected branch"
+  - key: "o"
+    context: localBranches
+    command: "git push -f origin {{.SelectedLocalBranch.Name}}"
+    loadingText: "Pushing..."
+    description: "Push selected branch"
