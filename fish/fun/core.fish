@@ -214,6 +214,17 @@ function toggle_value
 end
 funcsave toggle_value >/dev/null
 
+function trail
+    set -f modified_basename
+    if set -q argv[3]
+        set modified_basename (string replace -a '█' ($argv[3..] (path basename -E $argv[1])) $argv[2])
+    else
+        set modified_basename (string replace -a '█' (path basename -E $argv[1]) $argv[2])
+    end
+    echo (path dirname $argv[1])/$modified_basename(path extension $argv[1])
+end
+funcsave trail >/dev/null
+
 function vids
     rsync ~/iwm/sco/original.mp4 $argv[1].mp4
 end
