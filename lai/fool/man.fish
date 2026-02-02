@@ -7,4 +7,4 @@ if $argv[-1]
 else
     command man $argv[..-3] 2>/dev/null >$pathie
 end
-flour --disown --man $pathie:16
+flour --disown --man $pathie:14
