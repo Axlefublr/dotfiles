@@ -106,21 +106,17 @@ let editor = {
 }
 
 let all_mappings = {
-	# [[sort on]]
 	C-s: signature_help
-	# [[sort off]]
 	C-i: [commit_undo_checkpoint open_above]
 	C-o: [commit_undo_checkpoint open_below]
-	A-i: goto_prev_tabstop
-	S-A-i: goto_next_tabstop
+	A-left: goto_prev_tabstop
+	A-right: goto_next_tabstop
 	# -------------------------keyful--------------------------
 	A-tab: ':open %sh(wl-paste -n)'
 	C-tab: add_newline_above
 	F12: add_newline_below
 	down: move_line_down
 	up: move_line_up
-	A-up : [extend_to_line_bounds yank paste_before]
-	A-down: [extend_to_line_bounds yank paste_after]
 	C-up: copy_selection_on_prev_line
 	C-down: copy_selection_on_next_line
 	C-left: goto_previous_buffer
@@ -173,8 +169,8 @@ let normal_mappings = {
 	Y: null
 	y: null
 	# -------------------------normal--------------------------
-	"'": [save_selection select_textobject_inner]
-	a: [save_selection select_textobject_around]
+	a: [save_selection select_textobject_inner]
+	"'": [save_selection select_textobject_around]
 	'/': search
 	'?': rsearch
 	b: [add_newline_below move_line_down paste_before]
@@ -186,6 +182,7 @@ let normal_mappings = {
 	':': split_selection_on_newline
 	';': [collapse_selection normal_mode]
 	'C-;': ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in'
+	A-i: select_references_to_symbol_under_cursor
 	C-c: change_selection_noyank
 	C-d: delete_selection_noyank
 	C-h: select_prev_sibling
@@ -226,40 +223,45 @@ let normal_mappings = {
 	x: replace_with_yanked
 	# [[sort off]]
 	# ---------------------------x↓----------------------------
-	'#': null # marks
-	'$': null # marks
-	'…': null # marks
-	'√': null
-	'!': ':pipe str trim'
-	'%': [save_selection select_all]
+	'÷': '@<space>w<ret>'
 	'*': [search_selection_detect_word_boundaries normal_mode]
+	'#': null
+	'√': null
+	'$': null
 	'+': rotate_selections_forward
 	'-': rotate_selections_backward
 	'=': remove_primary_selection
+	'×': null
+	'%': [save_selection select_all]
+	'!': ':pipe str trim'
+	'…': null
 	'\': shell_pipe_to
-	'×': select_references_to_symbol_under_cursor
-	'÷': '@<space>w<ret>'
 	# ---------------------------c↓----------------------------
-	'&': '@q<ret>'
-	'@': toggle_comments
+	'₽': null
 	'^': '@ma<A-O>*<ins>'
-	'_': switch_to_lowercase
-	'`': [collapse_selection switch_case]
-	'|': shell_pipe
-	'~': '@%q<ret>'
-	'°': align_selections
+	'@': toggle_comments
+	'™': null
 	'€': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
+	'`': [collapse_selection switch_case]
+	'_': switch_to_lowercase
+	'—': null #
+	'¢': null
+	'~': '@%q<ret>'
+	'&': '@q<ret>'
+	'°': align_selections
+	'|': shell_pipe
 	# ---------------------------xc↓---------------------------
-	# [[sort on]]
-	'≈': reverse_selection_contents
-	'≤': rotate_selection_contents_forward
-	'≥': rotate_selection_contents_backward
-	'≺': rotate_selections_first
-	'≻': rotate_selections_last
 	'⊻': ':tree-sitter-subtree'
 	'⊼': ':tree-sitter-highlight-name'
+	'≤': rotate_selection_contents_forward
+	'≥': rotate_selection_contents_backward
+	'≈': reverse_selection_contents
+	'≺': rotate_selections_first
+	'≻': rotate_selections_last
+	'␈': null #
+	'␡': null
+	'⤒': null #
 	'⤓': ':sort'
-	# [[sort off]]
 	# ---------------------------i↓----------------------------
 	# [[sort on]]
 	'(': goto_prev_change
@@ -310,11 +312,11 @@ let normal_mappings = {
 	'↑': keep_selections
 	'↓': remove_selections
 	'█': '@q█<ret>c'
-	'✅': ':pipe `"✅"`'
-	'❌': ':pipe `"❌"`'
-	'❓': ':pipe `"❓"`'
-	'❗': ':pipe `"❗"`'
-	'💡': ':pipe `"💡"`'
+	'✅': null #
+	'❌': null #
+	'❓': null
+	'❗': null
+	'💡': null
 	# [[sort off]]
 	# ----------------------word motions-----------------------
 	C-1: [ensure_selections_forward extend_prev_word_end trim_selections]
@@ -337,8 +339,6 @@ let normal_mappings = {
 	end: [ensure_selections_forward extend_to_line_end]
 	home: [ensure_selections_forward flip_selections extend_to_first_nonwhitespace]
 	# -------------------------keyful--------------------------
-	A-left: [yank paste_before]
-	A-right: [yank paste_after]
 	A-home: [goto_file_start search_next]
 	A-end: [goto_file_end search_prev]
 	# [[sort on]]
@@ -431,18 +431,18 @@ let normal_mappings = {
 		J: command_palette
 		K: syntax_workspace_symbol_picker
 		L: workspace_symbol_picker
-		b: ':open %sh("%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md")'
 		d: (open ~/fes/dot/helix/magazine.nu | from nuon)
 		e: buffer_picker
 		f: file_picker_in_current_directory
-		g: ':open %sh("%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md")'
-		h: ':open %sh("%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md")'
 		j: file_picker_in_current_buffer_directory
 		k: syntax_symbol_picker
 		l: symbol_picker
 		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
 		w: global_search
 		# [[sort off]]
+		g: ':open %sh("plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
+		h: ':open %sh("thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
+		b: ':open %sh("system.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md" })'
 	}
 	g: {
 		D: null
@@ -459,7 +459,7 @@ let normal_mappings = {
 		r: ':lsp-restart'
 		# [[sort off]]
 	}
- }
+}
 
 let insert_mappings = {
 	# [[sort on]]
@@ -531,11 +531,11 @@ let all_mappings_fork = {
 }
 
 let normal_mappings_fork = {
-	'$': mark_apply
-	'…': mark_replace
-	'#': mark_add
-	S: "@vk'~"
-	D: '@vk~'
+	'D': mark_apply
+	'S': mark_replace
+	'W': mark_add
+	'❌': "@vk'~"
+	✅: '@vk~'
 	# [[sort on]]
 	'.': extend_to_line_bounds
 	'0': ':buffer-nth -r 1'
@@ -665,11 +665,11 @@ $entire_config      | to toml | save -f ~/fes/dot/helix/pure.toml
 $entire_config_fork | to toml | save -f ~/fes/dot/helix/config.toml
 
 let latest = $entire_config_fork
-$latest | upsert editor.bufferline 'never' | let latest ; $latest | to toml | save -f ~/fes/dot/helix/sleek.toml
 $latest | merge deep {
 	keys: {
 		normal: { A-space: ':quit-all!' }
 		insert: { A-space: ':quit-all!' }
 	}
 } | let latest ; $latest | to toml | save -f ~/fes/dot/helix/man.toml
+$latest | upsert editor.bufferline 'never' | let latest ; $latest | to toml | save -f ~/fes/dot/helix/sleek.toml
 $latest | upsert editor.soft-wrap.enable false | let latest ; $latest | to toml | save -f ~/fes/dot/helix/pager.toml
