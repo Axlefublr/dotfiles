@@ -2,13 +2,15 @@
 
 set -l width_flag --width 55
 set -l input (tac ~/.local/share/magazine/L | fuzzel -d --match-mode exact $width_flag 2>/dev/null)
+set -l saved_status $status
 set -l input (string trim -l "$input")
 if test $status -eq 0
+    or test "$input" = ""
     set -f should_history false
 else
     set -f should_history true
 end
-not test "$input" && return 1
+not test $saved_status -eq 0 && return 1
 set -l engine_index (
     for line in (cat ~/.local/share/magazine/B)
         set -l bits (string split ' — ' $line)
@@ -18,7 +20,11 @@ set -l engine_index (
 not test "$engine_index" && return 1
 set -l engine (
     set -l bits (zat.rs ~/.local/share/magazine/B ",$engine_index" | string split ' — ')
-    echo $bits[2]
+    if test $saved_status -eq 0
+        echo $bits[-1]
+    else
+        echo $bits[2]
+    end
 )
 if not test "$engine"
     notify-send 'engine empty, somehow'
