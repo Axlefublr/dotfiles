@@ -9,7 +9,7 @@ function ffmpeg_cut_video
         end
         echo "processing $input" >&2
         set -l input_trimmed (path_clear_suffix $input)
-        set -l output (path_append_suffix ! $input_trimmed | path change-extension '')
+        set -l output (trail $input_trimmed █! | path change-extension '')
 
         if test -z "$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 $input)"
             echo 'no audio stream. faking it.' >&2
@@ -54,7 +54,7 @@ function ffmpeg_convert_to_mp3
     for input in $argv
         not test -f "$input" && continue
         set -l input_trimmed (path_clear_suffix $input)
-        set -l output (path_append_suffix ! $input_trimmed | path change-extension '')
+        set -l output (trail $input_trimmed █! | path change-extension '')
 
         confirm.rs 'cut from?' '[j]es' '[k]o' | read -l response
         if test "$response" = j
