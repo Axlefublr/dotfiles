@@ -125,13 +125,6 @@ function niri_toggle_tab_correctly
 end
 funcsave niri_toggle_tab_correctly >/dev/null
 
-function path_append_suffix
-    for path in $argv[2..]
-        echo (path dirname $path)/(path basename -E $path)$argv[1](path extension $path)
-    end
-end
-funcsave path_append_suffix >/dev/null
-
 function path_clear_suffix
     for path in $argv
         echo (path dirname $path)/(path basename -E $path | string match -gr '(.*?)!' | string trim -rc +=)(path extension $path)
