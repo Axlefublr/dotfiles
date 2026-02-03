@@ -665,11 +665,11 @@ $entire_config      | to toml | save -f ~/fes/dot/helix/pure.toml
 $entire_config_fork | to toml | save -f ~/fes/dot/helix/config.toml
 
 let latest = $entire_config_fork
-$latest | merge deep {
+$latest | upsert editor.bufferline 'never' | let latest ; $latest | to toml | save -f ~/fes/dot/helix/sleek.toml
+$entire_config_fork | merge deep {
 	keys: {
 		normal: { A-space: ':quit-all!' }
 		insert: { A-space: ':quit-all!' }
 	}
 } | let latest ; $latest | to toml | save -f ~/fes/dot/helix/man.toml
-$latest | upsert editor.bufferline 'never' | let latest ; $latest | to toml | save -f ~/fes/dot/helix/sleek.toml
 $latest | upsert editor.soft-wrap.enable false | let latest ; $latest | to toml | save -f ~/fes/dot/helix/pager.toml
