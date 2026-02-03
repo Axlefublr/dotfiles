@@ -5,11 +5,13 @@
 	n (on↓ toggle-vkey mouse-mode)
 	l (layer-toggle mouse-slow)
 
-	u (cmd ydotool mousemove -a 386 300)
+	h (cmd ydotool mousemove -a 386 300)
 	y XX
 	z XX
 	c y
 
+	u (cmd niri msg action set-zoom-level +1)
+	p (tap-hold-release $tt $ht (cmd niri msg action set-zoom-level -- -1) (cmd niri msg action set-zoom-level 1))
 	v (tap-hold-release $tt $ht C-w XX)
 	; (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier-zoom))
 	x (cmd fish -c "show_clipboard_image -fs fill")
@@ -54,10 +56,7 @@
 )
 
 (deflayermap (caps-space)
-	;; i C-S-c
-	;; o C-S-i
-	i (cmd niri msg action set-zoom +1)
-	o (cmd niri msg action set-zoom -- -1)
-	u (cmd niri msg action set-zoom 1)
+	i C-S-c
+	o C-S-i
 	k (cmd fish -c pick_and_copy_color)
 )
