@@ -13,7 +13,7 @@ const known = {
 	# liked: 15
 	dish: 5
 	mug: 5
-	wamine: 5
+	wamine: 4
 	bed: 6
 	cloth: 6
 	nose: 7
