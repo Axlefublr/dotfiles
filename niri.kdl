@@ -192,6 +192,11 @@ recent-windows {
     }
 }
 
+zoom {
+    movement-mode "cursor-follow"
+    increment-type "exponential"
+}
+
 binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "fish" "-c" "toggle_mic_mute"; }
@@ -322,7 +327,6 @@ animations {
 cursor {
     xcursor-theme "Lighted-Pixel-Butter"
     hide-when-typing
-    zoom-quality "pixel-perfect"
 }
 
 clipboard {
