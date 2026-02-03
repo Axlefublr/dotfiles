@@ -43,7 +43,8 @@ gui:
     "^master$": "#b58cc6"
     "^dev$": "#b58cc6"
     "^Axlefublr/": "#e491b2"
-    "^sd$": "#ea6962"
+    "^eph": "#ea6962"
+    "^\\d+/": "#e49641"
   theme:
     activeBorderColor:
       - yellow
