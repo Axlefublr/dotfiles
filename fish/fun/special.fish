@@ -90,9 +90,9 @@ function is_focused_xwayland
     set -l pid (niri msg -j windows | na --stdin -c 'from json | where is_focused == true | get pid | first')
     set -l executable (readlink /proc/$pid/exe)
     if test (path basename $executable) = xwayland-satellite
-        notify-send '✅ xwayland'
+        notify-send '❌ x11'
     else
-        notify-send '❌ native'
+        notify-send '✅ wayland'
     end
 end
 funcsave is_focused_xwayland >/dev/null
