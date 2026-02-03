@@ -257,8 +257,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout github-cli
 # https://github.com/settings/tokens generate a new one
 # needed to not get rate limited by github
 set -Ux GITHUB_TOKEN ?
-# gh auth login
-# gh auth refresh -h github.com -s delete_repo
+gh auth login
+gh auth refresh -h github.com -s delete_repo
+gh config set prefer_editor_prompt enabled
 
 # -------------------------ghostty-------------------------
 cd ~/fes/ork
