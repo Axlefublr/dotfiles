@@ -41,8 +41,6 @@ end
 set -l index 0
 for file in $argv
     set index (math $index + 1)
-    set -l temp_file /tmp/mine/disposition(path extension $file)
-    ffmpeg -i $file -map 0 -c copy (string split ' ' -- $flags[$index]) $temp_file
-    mv -f $temp_file $file
+    ffmpeg -i $file -map 0 -c copy (string split ' ' -- $flags[$index]) (trail $file converted/█)
 end
 flourish
