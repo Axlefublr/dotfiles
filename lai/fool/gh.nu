@@ -1,5 +1,7 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
+use always.nu 'path shrink'
+
 def --wrapped main [...rest] {
 	^gh ...$rest
 }
@@ -28,6 +30,60 @@ def --wrapped 'main repo fork' [url: string, --dir(-d): directory, --shallow(-s)
 	^gh repo fork --clone --default-branch-only (expand-me $url) --fork-name $dir ...$rest
 	# shallow enqueue $shallow $dir
 	$dir | commit
+}
+
+def 'main pull' [url: string] {
+	let id = $url | str trim | split row ' ' | get 0 | split row '/' | last
+	let pwdb = $env.PWD | path shrink | path basename
+	let data_path = '~/fes/talia' | path expand | path join $pwdb pull.nuon
+	let branch_name = try { # resolve the full branch name from the stored data
+		let pull = open $data_path | get $id
+		$'($id)/($pull.title)/($pull.author)'
+	} catch { # resolve the author and ask for the branch title, store it into the nuon file
+		let pull = gh pr view --json number,author,title $url | from json
+		| { id: ($in.number | into string), author: $in.author.login, title: $in.title }
+
+		print -e $pull.title
+		let input = input --reedline 'branchname:'
+		if ($input | is-empty) { return }
+		let pull = $pull | update title $input
+
+		let pull = if ($pull.author == 'app/') {
+			print -e 'author is dead. provide manually'
+			gh pr view $url e>| ignore
+			fish -c 'ensure_browser'
+			input --reedline 'author:' | let input | if ($in | is-empty) { return }
+			$pull | update author $input
+		} else { $pull }
+
+		try { open $data_path } catch {{}}
+		| upsert $pull.id { author: $pull.author, title: $pull.title }
+		| to nuon -t 1
+		| save -f $data_path
+
+		$'($pull.id)/($pull.title)/($pull.author)'
+	}
+	gh pr checkout -b $branch_name -f $id
+}
+
+def 'main pullist' [] {
+	let pwdb = $env.PWD | path shrink | path basename
+	let data_path = '~/fes/talia' | path expand | path join $pwdb pull.nuon
+	open $data_path
+	| items { |key, value|
+		{ a: $key, b: $value.author, c: $value.title }
+	} | rename -c { a: index }
+	| table -t none
+	| lines
+	| skip 1
+	| to text
+}
+
+def 'main pullgen' [] {
+	let merge_base = git merge-base HEAD upstream/HEAD
+	git log --format='%s' $'($merge_base)..HEAD'
+	| lines
+	| where $it like '^\d+/'
 }
 
 def commit [] {
