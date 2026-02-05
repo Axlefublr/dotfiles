@@ -371,19 +371,22 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedTag.Name}} >~/.local/share/flipboard'"
     description: "Copy link to repo at this tag, parsing it into commit"
 
-  - key: "s"
+  - key: "S"
     context: localBranches
     command: "gh pr create"
     description: "Create pull request"
     output: terminal
-  - key: "S"
+  - key: "s"
     context: "localBranches"
-    command: "gh pr checkout {{index .PromptResponses 0}}"
+    command: "gh.nu pull '{{index .PromptResponses 0}}'"
     prompts:
       - type: "input"
         title: "PR id:"
+        suggestions:
+          command: "gh.nu pullist"
     loadingText: "Checking out PR"
     description: "Checkout PR"
+    output: terminal
   - key: "U"
     context: localBranches
     command: |
