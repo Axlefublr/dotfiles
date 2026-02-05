@@ -54,6 +54,23 @@ function D
 end
 funcsave D >/dev/null
 
+function finder
+    set -l result "$(fzf '--bind=f12:become:echo :{}')"
+    test $result || return
+    if test (string sub -l 1 $result) = ':'
+        yazi (string sub -s 2 $result)
+        return
+    end
+    if string match -qr '/$' -- $result
+        # we don't wanna `cd` in the calling shell
+        # and this entire function is not a script for performance of this line
+        PWD=$result finder
+    else
+        helix $result
+    end
+end
+funcsave finder >/dev/null
+
 function git_search
     if not test "$argv[1]"
         echo 'missing arguments for `rg`' >&2
