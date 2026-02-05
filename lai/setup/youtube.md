@@ -1,12 +1,12 @@
 revanced
 	player
-		suggested video
-		exit fullscreen at end of video
 		comments
 			comments by members
 		flyout menu
 			ambient mode
 			unhide more info
+		exit fullscreen at end of video
+		suggested video
 		video description
 			attributes section
 			key concepts
@@ -18,8 +18,6 @@ revanced
 	shorts
 		disable resuming shorts player
 		disable background
-	seekbar
-		custom seekbar color
 	sponsorblock
 		disable
 	video
