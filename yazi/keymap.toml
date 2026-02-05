@@ -65,7 +65,7 @@ keymap = [
   { on = 'e', run = 'shell --block -- helix %s', desc = 'Open file in editor' },
   { on = 'f', run = 'plugin direct-zoxide', desc = 'Type in zoxide query to cd into' },
   { on = 'h', run = [ 'leave', 'shell -- zoxide add .' ], desc = 'Go back to the parent directory' },
-  { on = 'i', run = 'plugin fzf-but-open', desc = 'Pick a file to open with fzf' },
+  { on = 'i', run = 'plugin fzf', desc = 'Pick a file to open with fzf' },
   { on = 'j', run = 'arrow 1', desc = 'Down' },
   { on = 'k', run = 'arrow -1', desc = 'Up' },
   { on = 'l', run = [ 'enter', 'shell -- zoxide add .' ], desc = 'Enter the child directory' },
