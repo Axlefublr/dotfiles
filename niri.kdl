@@ -374,6 +374,7 @@ window-rule {
     // match app-id="PrismLauncher"
     // match app-id="steam" title="Launching..."
     open-floating false
+    open-maximized false
 }
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
