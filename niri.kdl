@@ -193,7 +193,7 @@ recent-windows {
 }
 
 zoom {
-    movement-mode "cursor-follow"
+    movement-mode "centered"
     increment-type "exponential"
 }
 
