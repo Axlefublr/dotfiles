@@ -66,7 +66,7 @@ def 'main pull' [url: string] {
 	gh pr checkout -b $branch_name -f $id
 }
 
-def 'main pullist' [] {
+def 'main pull list' [] {
 	let pwdb = $env.PWD | path shrink | path basename
 	let data_path = '~/fes/talia' | path expand | path join $pwdb pull.nuon
 	open $data_path
@@ -79,11 +79,31 @@ def 'main pullist' [] {
 	| to text
 }
 
-def 'main pullgen' [] {
-	let merge_base = git merge-base HEAD upstream/HEAD
-	git log --format='%s' $'($merge_base)..HEAD'
-	| lines
-	| where $it like '^\d+/'
+def 'main pull fix' [] {
+	let prnum = gh pr view --json number | from json | get number
+	let branch_name = git branch --show-current
+	git branch -m $'($branch_name)/($prnum)'
+}
+
+def 'main pull open' [branch_name: string] {
+	let components = $branch_name | split row '/'
+	let prnum = $components | first | if ($in not-like '^\d+$') {
+		$components | last | if ($in like '^\d+$') {} else { return }
+	} else {}
+	gh pr view -w $prnum
+	fish -c 'ensure_browser'
+}
+
+def 'main dogni-upstream' [branch_name: string] {
+	$branch_name | split row '/' | first | if ($in like '^\d+$') {
+		main pull $in
+	} else {
+		git fetch upstream
+      git symbolic-ref --short refs/remotes/upstream/HEAD
+      | each {
+	      str trim | try { git rebase $in }
+      }
+	}
 }
 
 def commit [] {
