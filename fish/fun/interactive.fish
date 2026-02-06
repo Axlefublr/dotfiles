@@ -62,9 +62,8 @@ function finder
         return
     end
     if string match -qr '/$' -- $result
-        # we don't wanna `cd` in the calling shell
-        # and this entire function is not a script for performance of this line
-        PWD=$result finder
+        cd $result
+        finder
     else
         helix $result
     end
