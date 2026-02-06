@@ -42,7 +42,8 @@ gui:
     "^main$": "#b58cc6"
     "^master$": "#b58cc6"
     "^dev$": "#b58cc6"
-    "^Axlefublr/": "#e491b2"
+    "Axlefublr/[^/]+/\\d+$": "#d3ad5c"
+    "^Axlefublr/[^/]+$": "#e491b2"
     "^eph": "#ea6962"
     "^\\d+/": "#e49641"
   theme:
@@ -373,9 +374,18 @@ customCommands:
 
   - key: "S"
     context: localBranches
-    command: "gh pr create"
+    command: "gh pr create -F upcontrib.md"
     description: "Create pull request"
     output: terminal
+  - key: "<C-n>"
+    context: localBranches
+    command: "gh.nu pull fix"
+    description: "Append pr number to current branch name"
+  - key: "<C-o>"
+    context: localBranches
+    command: "gh.nu pull open {{.SelectedLocalBranch.Name}}"
+    description: "Open pr of this branch in browser"
+    loadingText: "Opening PR"
   - key: "s"
     context: "localBranches"
     command: "gh.nu pull '{{index .PromptResponses 0}}'"
@@ -383,7 +393,7 @@ customCommands:
       - type: "input"
         title: "PR id:"
         suggestions:
-          command: "gh.nu pullist"
+          command: "gh.nu pull list"
     loadingText: "Checking out PR"
     description: "Checkout PR"
     output: terminal
@@ -399,10 +409,7 @@ customCommands:
     description: "Sync main branch with dev"
   - key: "<c-r>"
     context: localBranches
-    command: |
-      fish -c 'git fetch upstream
-      and git symbolic-ref --short refs/remotes/upstream/HEAD | read -l branch
-      and git rebase $branch ; true'
+    command: "gh.nu dogni-upstream {{.SelectedLocalBranch.Name}}"
     loadingText: "Rebasing"
     description: "Rebase onto the default upstream branch"
     output: log
