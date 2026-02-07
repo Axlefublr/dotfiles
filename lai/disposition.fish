@@ -18,9 +18,14 @@ for file in $argv
     set dispositions $dispositions $response
 end
 
-confirm.rs 'continue?' '[j]es' '[k]o' | read -l response
+confirm.rs 'continue?' '[j]es' '[k]o' 'just [m]ove' | read -l response
+set -l dir (path dirname $argv[1])
+if test $response = m
+    rsync $argv $dir/converted/
+end
 test $response = j || return
 
+mkdir $dir/converted
 set -l flags
 for disposition in $dispositions
     set -l flag_group
