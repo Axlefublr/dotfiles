@@ -391,7 +391,6 @@ let normal_mappings = {
 		l: ':toggle lsp.display-inlay-hints'
 		o: ':fmt'
 		s: surround_add
-		x: [yank ':new' paste_before_all]
 		# [[sort off]]
 		t: {
 			k: ':pipe \"<kbd>" + $in + "</kbd>"'
@@ -584,6 +583,7 @@ let normal_mappings_fork = {
 		Z: ':echopy %sh(ghl)'
 		c: ':echopy %(full_path)'
 		v: ':echopy %sh(ghl %(relative_path))'
+		x: [yank ':new' paste_before_all]
 		z: ':echopy %{working_directory}'
 		# [[sort off]]
 		t: { t: surround_add_tag }
