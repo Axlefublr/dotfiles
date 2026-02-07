@@ -374,7 +374,7 @@ customCommands:
 
   - key: "S"
     context: localBranches
-    command: "gh pr create -F upcontrib.md"
+    command: "gh pr create"
     description: "Create pull request"
     output: terminal
   - key: "<C-n>"
@@ -394,9 +394,15 @@ customCommands:
         title: "PR id:"
         suggestions:
           command: "gh.nu pull list"
-    loadingText: "Checking out PR"
-    description: "Checkout PR"
-    output: terminal
+  - key: "N"
+    context: "localBranches"
+    command: "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short refs/remotes/upstream/HEAD)"
+    prompts:
+      - type: "input"
+        title: "Branch name"
+        initialValue: "Axlefublr/"
+    loadingText: "Creating branch"
+    description: "Create branch from upstream/main"
   - key: "U"
     context: localBranches
     command: |
