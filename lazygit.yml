@@ -394,9 +394,10 @@ customCommands:
         title: "PR id:"
         suggestions:
           command: "gh.nu pull list"
+    output: terminal
   - key: "N"
     context: "localBranches"
-    command: "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short refs/remotes/upstream/HEAD)"
+    command: "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short refs/remotes/upstream/HEAD) ; git branch -u origin"
     prompts:
       - type: "input"
         title: "Branch name"
