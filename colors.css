@@ -71,3 +71,11 @@
 .custom.gtk {
 	--big-selection: rgb(202, 189, 164);
 }
+
+.chart {
+	--red: #e94c3d;
+	--orange: #e67d22;
+	--yellow: #eec110;
+	--green: #2fcc72;
+	--blue: #3497da;
+}
