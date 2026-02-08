@@ -40,7 +40,7 @@ git clone https://github.com/Axlefublr/mdw --depth=1
 
 cd ~/fes/ork
 git clone https://github.com/Axlefublr/hlaix --depth=1 hx
-git clone https://github.com/Axlefublr/axlefublr.github.io --depth=1 bog
+git clone https://github.com/Axlefublr/axlefublr.github.io --depth=1 hirl
 
 cd ~/iwm
 git clone https://github.com/Axlefublr/deleted-bangers --depth=1 msk
