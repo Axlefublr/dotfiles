@@ -24,7 +24,11 @@ def --wrapped 'main repo create' [name: string, ...rest] {
 	$name | commit
 }
 
-def --wrapped 'main repo fork' [url: string, --dir(-d): directory, --shallow(-s), ...rest] {
+def --wrapped 'main repo fork' [url?: string, --dir(-d): directory, --shallow(-s), ...rest] {
+	if ($url == null) {
+		^gh repo fork
+		return
+	}
 	let dir = $dir | default ($url | path basename)
 	let rest = $rest | shallow include $shallow
 	^gh repo fork --clone --default-branch-only (expand-me $url) --fork-name $dir ...$rest
