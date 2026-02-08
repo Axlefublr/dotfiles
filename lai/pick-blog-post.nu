@@ -1,7 +1,7 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
-let the = ls ~/fes/ork/bog/content/*.md
-| interleave { ls ~/fes/ork/bog/content/*/index.md }
+let the = ls ~/fes/ork/hirl/content/*.md
+| interleave { ls ~/fes/ork/hirl/content/*/index.md }
 | sort-by -r modified
 | get name
 | each { |$it|
@@ -18,4 +18,4 @@ let the = ls ~/fes/ork/bog/content/*.md
 }
 let index = $the | get name | to text | fuzzel -d --index
 let path  = $the | get path | get ($index | into int)
-footclient -ND ~/fes/ork/bog helix $path
+footclient -ND ~/fes/ork/hirl helix $path
