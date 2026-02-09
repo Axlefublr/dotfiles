@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   create-release:
@@ -16,9 +16,9 @@ jobs:
       - name: Create GitHub Release with RELEASE.md as body
         uses: softprops/action-gh-release@v1
         with:
-          name: ${{ github.ref_name }}          # Release name = tag name
-          tag_name: ${{ github.ref_name }}      # Just in case; not strictly necessary
-          body_path: RELEASE.md                 # Custom release notes file
+          name: ${{ github.ref_name }} # Release name = tag name
+          tag_name: ${{ github.ref_name }} # Just in case; not strictly necessary
+          body_path: RELEASE.md # Custom release notes file
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
