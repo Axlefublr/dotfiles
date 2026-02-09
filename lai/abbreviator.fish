@@ -19,5 +19,7 @@ for line in (cat ~/fes/dot/fish/abbr.txt)
     if string match -qe █ -- "$chunks[2..]"
         set cursor ' --set-cursor=█'
     end
-    echo "abbr -a$cursor$subcommand $chunks[1] -- '$chunks[2..]'"
+    set -l target "$chunks[2..]"
+    set -l target "$(string replace -a ¬ \n -- $target)"
+    echo "abbr -a$cursor$subcommand $chunks[1] -- $(string escape -- $target)"
 end >~/fes/dot/fish/abbreviations.fish
