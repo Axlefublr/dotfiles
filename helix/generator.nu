@@ -53,7 +53,7 @@ let editor = {
 			read-only-indicator
 		]
 		right: [
-			# spinner
+			spinner
 			register
 			diagnostics
 			position
@@ -512,6 +512,7 @@ let editor_fork = {
 			smart-path
 		]
 		right: [
+			spinner
 			register
 			diagnostics
 			search-position
