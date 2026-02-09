@@ -189,7 +189,7 @@ let normal_mappings = {
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
 	C-l: select_next_sibling
-	C-m: select_all_siblings
+	C-m: [save_selection select_all_siblings]
 	C-n: extend_search_next
 	C-q: ':cd ..'
 	C-v: replace
