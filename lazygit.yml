@@ -255,7 +255,7 @@ customCommands:
     output: none
   - key: <F2>
     context: global
-    command: "footclient -N"
+    command: "footclient -N ; niri msg action consume-or-expel-window-left"
     description: "Open terminal here"
     output: none
   - key: U
