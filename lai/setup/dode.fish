@@ -304,6 +304,7 @@ git config --global pull.ff only
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
 git config --global push.default simple
+git config --global push.default upstream
 git config --global push.followTags true
 git config --global rebase.autoSquash true
 git config --global rebase.autoStash true
