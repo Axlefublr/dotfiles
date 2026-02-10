@@ -9,7 +9,7 @@ mkdir -p ~/wlx \
     ~/fes \
     ~/fes/ork \
     ~/.local/bin \
-    ~/.cache/{mine,wks} \
+    ~/.cache/mine \
     ~/.local/share/mine \
     ~/.local/share/{fonts,harp,loago}
 fish_add_path ~/.local/bin

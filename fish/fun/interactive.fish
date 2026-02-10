@@ -122,3 +122,22 @@ function git_search_file
     end
 end
 funcsave git_search_file >/dev/null
+
+function wks
+    set -l prevdir $PWD
+    if test "$argv[1]"
+        cd ~/fes/wks
+        rsync ~/fes/wks/template.rs ~/fes/wks/src/bin/"$argv[1]".rs
+        helix ~/fes/wks/src/bin/"$argv[1]".rs
+        return
+    end
+    cd ~/fes/wks/src/bin
+    set -l picked (fzf)
+    test "$picked" || begin
+        cd $prevdir
+        return 1
+    end
+    cd ~/fes/wks
+    helix ~/fes/wks/src/bin/$picked
+end
+funcsave wks >/dev/null
