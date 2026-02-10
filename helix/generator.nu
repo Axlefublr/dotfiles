@@ -54,6 +54,7 @@ let editor = {
 		]
 		right: [
 			spinner
+			spacer
 			register
 			diagnostics
 			position
@@ -153,15 +154,18 @@ let all_mappings = {
 		':noop %sh(footclient yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
+	F1: [
+		':sh footclient -ND %(working_directory) lazygit o+e>| ignore ; niri msg action consume-or-expel-window-left'
+	]
 	F6: [
 		':sh rm -f /tmp/mine/yazi-chooser-file'
 		':noop %sh(footclient yazi --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
-	F1: [
-		':noop %sh{git show "HEAD:%(relative_path)" | save -f "/tmp/mine/HEAD!%(buffer_name)"}'
-		':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
-	]
+	# F1: [
+	# 	':noop %sh{git show "HEAD:%(relative_path)" | save -f "/tmp/mine/HEAD!%(buffer_name)"}'
+	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
+	# ]
  }
 
 let normal_mappings = {
@@ -513,6 +517,7 @@ let editor_fork = {
 		]
 		right: [
 			spinner
+			spacer
 			register
 			diagnostics
 			search-position
