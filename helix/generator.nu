@@ -408,6 +408,7 @@ let normal_mappings = {
 			'[': ':pipe strip-wrapper-type.rs s'
 			'<': ':pipe strip-wrapper-type.rs t'
 			'|': ':pipe strip-wrapper-type.rs p'
+			'/': ':pipe strip-wrapper-type.rs /'
 		}
 		'e': {
 			'(': ':pipe wrap-in-block.rs b'
