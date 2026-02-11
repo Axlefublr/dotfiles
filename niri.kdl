@@ -167,6 +167,10 @@ layout {
     }
 }
 
+overview {
+    zoom 0.4
+}
+
 recent-windows {
     debounce-ms 750
 
@@ -220,6 +224,7 @@ binds {
     Mod+Apostrophe { center-visible-columns; }
     Mod+Comma { toggle-window-floating; }
     Mod+Semicolon { switch-focus-between-floating-and-tiling; }
+    Mod+Space { toggle-overview; }
 
     Mod+F { consume-or-expel-window-left; }
     Mod+A { consume-or-expel-window-right; }
