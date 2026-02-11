@@ -7,10 +7,12 @@ alias dn = date now date
 
 def wind --wrapped [...args] {
 	footclient -N ...$args
+	# niri msg action consume-or-expel-window-left
 }
 
 def sand --wrapped [...args] {
 	footclient -HN ...$args
+	# niri msg action consume-or-expel-window-left
 }
 
 def queue --wrapped [...args] {
