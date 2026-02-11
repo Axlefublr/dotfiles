@@ -1,6 +1,6 @@
 base_url = 'https://example.com'
 generate_feeds = true
-feed_filenames = ['rss.xml']
+feed_filenames = [ 'rss.xml' ]
 hard_link_static = true
 author = 'Axlefublr'
 build_search_index = false
