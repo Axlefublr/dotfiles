@@ -11,7 +11,7 @@ mkdir -p ~/wlx \
     ~/.local/bin \
     ~/.cache/mine \
     ~/.local/share/mine \
-    ~/.local/share/{fonts,harp,loago}
+    ~/.local/share/{fonts,themes,harp,loago}
 fish_add_path ~/.local/bin
 
 echo "d /tmp/mine 0755 $USER $USER -" | sudo tee -a /etc/tmpfiles.d/mine.conf
