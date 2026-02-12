@@ -203,6 +203,7 @@
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/ake helix .)
 	o (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
 	m (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/osl/slme yazi)
+	b (cmd create-blog-post.fish)
 )
 
 (deflayermap (caps)
