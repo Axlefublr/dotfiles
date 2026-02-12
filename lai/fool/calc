@@ -1,0 +1,3 @@
+#!/usr/bin/env dash
+
+qalc -s "vspace off" -s "curconv off" -s "update exchange rates 1" -s "decimal comma off" -s "autocalc" $@
