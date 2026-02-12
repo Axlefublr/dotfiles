@@ -2,9 +2,6 @@
 
 # [[sort on]]
 set -g fish_features qmark-noglob remove-percent-self
-set -g fish_lazy_load_completions true
-set -g fish_lazy_load_functions true
-set -g in (cat ~/.cache/mine/blammo 2>/dev/null)
 set -gx BROWSER firefox
 set -gx EDITOR helix
 set -gx HISTSIZE 100000
@@ -13,11 +10,8 @@ set -gx MANPAGER ov
 set -gx MOZ_ENABLE_WAYLAND 1
 set -gx QT_QPA_PLATFORMTHEME gtk3
 set -gx SAVEHIST 100000
-set -gx SKIM_DEFAULT_OPTIONS --reverse
-set -gx TELOXIDE_TOKEN (cat ~/fes/uviw/lvia/axleizer)
 set -gx VISUAL helix
 set -gx XDG_CONFIG_HOME ~/.config
-set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
 # [[sort off]]
 
 set -gx FZF_DEFAULT_OPTS \
@@ -34,28 +28,7 @@ set -gx FZF_DEFAULT_OPTS \
     '--gutter=" "' \
     --color=hl:#e49641:bold,hl+:#e49641,bg+:#5f472d,fg+:#d4be98:regular,info:#d4be98,prompt:#ffd75f,pointer:#e49641,marker:#b58cc6,spinner:#d3ad5c \
     --bind=f11:accept-or-print-query,shift-right:replace-query,ctrl-home:first,ctrl-end:last
-
-zoxide init fish | source
-function __zoxide_hook
-end
-function __zoxide_z
-    set -l argc (builtin count $argv)
-    if test $argc -eq 0
-        __zoxide_cd $HOME
-    else if test "$argv" = -
-        __zoxide_cd -
-    else if test $argc -eq 1 -a -d $argv[1]
-        __zoxide_cd $argv[1]
-        command zoxide add -- (__zoxide_pwd)
-    else if test $argc -eq 2 -a $argv[1] = --
-        __zoxide_cd -- $argv[2]
-        command zoxide add -- (__zoxide_pwd)
-    else
-        set -l result (command zoxide query --exclude (__zoxide_pwd) -- $argv)
-        and __zoxide_cd $result
-        and command zoxide add -- (__zoxide_pwd)
-    end
-end
+set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
 
 not status is-interactive && return
 
@@ -85,17 +58,13 @@ set -g fish_color_status red
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 set -g fish_cursor_unknown line
-set -g fish_escape_delay_ms 10
-set -g fish_handle_reflow 1
-set -g fish_key_bindings fish_default_key_bindings
 set -g fish_pager_color_completion normal
 set -g fish_pager_color_description yellow -i
 set -g fish_pager_color_prefix normal --bold --underline
 set -g fish_pager_color_progress brwhite --background=cyan
 set -g fish_pager_color_selected_background -r
-set -g small_threshold 46
+set -g in (blammo)
 # [[sort off]]
 
-fish_vi_cursor
 abbr -a .. --position anywhere --regex '^\.\.+$' --function multiple_dot
 source ~/fes/dot/fish/abbreviations.fish
