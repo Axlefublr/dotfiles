@@ -8,6 +8,10 @@ function fish_title
 end
 funcsave fish_title >/dev/null
 
+function fish_config
+end
+funcsave fish_config >/dev/null
+
 function fish_command_not_found
     echo "sorry, but the `$argv[1]` command doesn't exist"
 end
