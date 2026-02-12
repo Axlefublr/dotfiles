@@ -5,7 +5,7 @@ Requisite=graphical-session.target
 
 [Service]
 Type=exec
-ExecStart=env axleizer
+ExecStart=:env dash -c 'TELOXIDE_TOKEN="$(cat ~/fes/uviw/lvia/axleizer)" axleizer'
 
 [Install]
 UpheldBy=graphical-session.target
