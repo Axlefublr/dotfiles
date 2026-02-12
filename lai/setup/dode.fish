@@ -345,7 +345,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # ------------------------gtk-theme------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout papirus-icon-theme
 cd ~/fes/ork
-gh repo clone Axlefublr/gruvbox-material-gtk-theme
+gh repo clone gruvbox-material-gtk-theme
 sudo rm -fr /usr/share/themes/gruvbox-material
 sudo ln -sf ~/fes/ork/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
 set -Ux GTK_THEME gruvbox-material
