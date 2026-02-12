@@ -7,6 +7,11 @@ funcsave arebesties >/dev/null
 
 alias --save bell 'printf \a' >/dev/null
 
+function blammo
+    cat ~/.cache/mine/blammo 2>/dev/null
+end
+funcsave blammo >/dev/null
+
 function catait
     inotifywait -e close_write -e close_nowrite $argv &>/dev/null
     cat $argv
