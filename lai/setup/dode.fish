@@ -772,6 +772,7 @@ d i
 sudo pacman -S --needed --noconfirm --disable-download-timeout skim
 sk --shell fish >~/.config/fish/completions/sk.fish
 set -Ux SKIM_DEFAULT_COMMAND 'fd .'
+set -Ux SKIM_DEFAULT_OPTIONS --reverse
 
 # -----------------------snowmachine-----------------------
 uv tool install snowmachine
