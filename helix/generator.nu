@@ -23,7 +23,7 @@ let editor = {
 	preview-completion-insert: false
 	scrolloff: 99
 	search: { wrap-around: true }
-	shell: ['nu', '--no-std-lib', '--stdin', '--config', '~/fes/dot/nu/lvoc/crooked.nu', '-c']
+	shell: [dash -c]
 	text-width: 110
 	trim-final-newlines: true
 	trim-trailing-whitespace: true
@@ -142,25 +142,25 @@ let all_mappings = {
 	S-A-F11: ':write! --no-format'
 	# ------------------------function-------------------------
 	F2: [
-		":noop %sh('%(full_path)' | path expand | save -f ~/.cache/mine/blammo)"
-		':sh footclient -ND %(working_directory) o+e>| ignore ; niri msg action consume-or-expel-window-left'
+		":noop %sh(echo %(full_path) >~/.cache/mine/blammo)"
+		':sh footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left'
 	]
 	F3: [
-		":noop %sh('%(full_path)' | path expand | save -f ~/.cache/mine/blammo)"
-		':sh footclient -ND %(working_directory) -T floating o+e>| ignore'
+		":noop %sh(echo %(full_path) >~/.cache/mine/blammo)"
+		':sh footclient -ND %(working_directory) -T floating >/dev/null 2>/dev/null'
 	]
 	F4: [
 		':sh rm -f /tmp/mine/yazi-chooser-file'
-		':noop %sh(footclient fish -c "niri msg action consume-or-expel-window-left ; yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file")'
+		':noop %sh(footclient dash -c "niri msg action consume-or-expel-window-left ; yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file")'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
 	F6: [
 		':sh rm -f /tmp/mine/yazi-chooser-file'
-		':noop %sh(footclient fish -c "niri msg action consume-or-expel-window-left ; yazi --chooser-file=/tmp/mine/yazi-chooser-file")'
+		':noop %sh(footclient dash -c "niri msg action consume-or-expel-window-left ; yazi --chooser-file=/tmp/mine/yazi-chooser-file")'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
 	F1: [
-		':noop %sh{git show "HEAD:%(relative_path)" | save -f "/tmp/mine/HEAD!%(buffer_name)"}'
+		':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
 		':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
 	]
  }
@@ -182,7 +182,7 @@ let normal_mappings = {
 	',': trim_selections
 	':': split_selection_on_newline
 	';': [collapse_selection normal_mode]
-	'C-;': ':pipe ~/fes/dot/lai/fool/qalc.fish -t $in'
+	'C-;': ':pipe °math "$(cat)"'
 	A-i: select_references_to_symbol_under_cursor
 	C-c: change_selection_noyank
 	C-d: delete_selection_noyank
@@ -234,7 +234,7 @@ let normal_mappings = {
 	'=': remove_primary_selection
 	'×': null
 	'%': [save_selection select_all]
-	'!': ':pipe str trim'
+	'!': ':pipe €str trim'
 	'…': null
 	'\': shell_pipe_to
 	# ---------------------------c↓----------------------------
@@ -242,7 +242,7 @@ let normal_mappings = {
 	'^': '@ma<A-O>*<ins>'
 	'@': toggle_comments
 	'™': null
-	'€': ":pipe $in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
+	'€': ":pipe €$in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
 	'`': [collapse_selection switch_case]
 	'_': switch_to_lowercase
 	'—': null #
@@ -387,7 +387,7 @@ let normal_mappings = {
 		a: ':new'
 		d: surround_delete
 		f: surround_replace
-		i: ':sh fish -c "append_github_line_numbers %(cursor_line)"'
+		i: ':sh °append_github_line_numbers %(cursor_line)'
 		k: ':toggle enable-diagnostics'
 		l: ':toggle lsp.display-inlay-hints'
 		o: ':fmt'
@@ -432,7 +432,7 @@ let normal_mappings = {
 		J: command_palette
 		K: syntax_workspace_symbol_picker
 		L: workspace_symbol_picker
-		d: (open ~/fes/dot/helix/magazine.nu | from nuon)
+		d: (open ~/fes/dot/helix/magazine.nuon)
 		e: buffer_picker
 		f: file_picker_in_current_directory
 		j: file_picker_in_current_buffer_directory
@@ -441,9 +441,9 @@ let normal_mappings = {
 		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
 		w: global_search
 		# [[sort off]]
-		g: ':open %sh("plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
-		h: ':open %sh("thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
-		b: ':open %sh("system.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md" })'
+		g: ':open %sh(€"plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
+		h: ':open %sh(€"thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
+		b: ':open %sh(€"system.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md" })'
 	}
 	g: {
 		D: null
@@ -456,7 +456,7 @@ let normal_mappings = {
 		g: ':reset-diff-change'
 		i: ':buffer-close-all'
 		o: ':buffer-close-others'
-		q: ':cd %sh(git -C `%(buffer_parent)` rev-parse --show-toplevel)'
+		q: ":cd %sh(git -C '%(buffer_parent)' rev-parse --show-toplevel)"
 		r: ':lsp-restart'
 		# [[sort off]]
 	}
@@ -488,6 +488,12 @@ let editor_fork = {
 	search: { max-matches: none }
 	whichkey: false
 	# [[sort off]]
+	shellmap: {
+		'€': [nu --no-std-lib --stdin --config ~/fes/dot/nu/lvoc/crooked.nu -c]
+		'°': [fish -c]
+		'∞': [calc -t]
+		'√': [julia -E]
+	}
 	harp: {
 		command: filetype
 		search: buffer
@@ -495,9 +501,9 @@ let editor_fork = {
 		mark: buffer
 		file: directory
 		hotkeys: {
-			global: ';'
+			global: l
 			directory: k
-			filetype: l
+			filetype: ';'
 			buffer: j
 			switch: "'"
 			delete: '<del>'
@@ -608,7 +614,7 @@ let normal_mappings_fork = {
 }
 
 let insert_mappings_fork = {
-	C-a: [collapse_selection ':insert-output fish -c "uclanr | read"' append_mode_same_line]
+	C-a: [collapse_selection ':insert-output °uclanr | read' append_mode_same_line]
 	'C-;': harp_register
 }
 
