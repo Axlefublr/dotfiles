@@ -46,7 +46,6 @@ funcsave loago >/dev/null
 
 alias --save pipes 'pipes -p 3 -c 1 -c 2 -c 3 -c 4 -c 5 -R' >/dev/null
 alias --save pv 'pv -g' >/dev/null
-alias --save qalc 'qalc -s "vspace off" -s "curconv off" -s "update exchange rates 1" -s "decimal comma off" -s "autocalc"' >/dev/null
 alias --save rg 'rg --engine auto' >/dev/null
 alias --save rofimoji 'rofimoji --selector fuzzel --action copy --skin-tone neutral --prompt ""' >/dev/null
 alias --save rsync 'rsync --mkpath -P' >/dev/null
