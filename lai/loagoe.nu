@@ -12,9 +12,9 @@ const known = {
 	# keyboard: 30
 	# liked: 15
 	dish: 5
-	mug: 5
+	mug: 9
 	wamine: 4
-	bed: 6
+	bed: 7
 	cloth: 6
 	nose: 7
 	towels: 8
