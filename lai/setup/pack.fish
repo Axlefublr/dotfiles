@@ -33,6 +33,9 @@ ln -sf ~/fes/dot/fish/config.fish ~/.config/fish/config.fish
 for file in ~/fes/dot/fish/fun/*.fish
     $file
 end
+sudo mv /usr/share/fish/vendor_conf.d/debuginfod.fish{,.bak}
+sudo -E helix /etc/pacman.conf
+# NoExtract = usr/share/fish/vendor_conf.d/debuginfod.fish
 
 sudo pacman -S --needed --noconfirm --disable-download-timeout fisher
 
@@ -53,6 +56,8 @@ set -Ux fish_lsp_show_client_popups false
 # ------------------------flatpack-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout flatpak
 flatpak install flathub
+# this file takes 13ms to load and is loaded on every shell startup; you need to handle it somehow (delete?) if you want to use flatpak
+# /usr/share/fish/vendor_conf.d/flatpak.fish
 
 # ---------------------------go----------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout go
