@@ -106,7 +106,6 @@
 ] } # this is apparently the fuzzy matching text in the file picker. nope it is not mentioned once in the docs lol. discovered this by bruteforcing :3
 
 [palette]
-
 # [[sort on]]
 blush = '#e491b2'
 blush_supporting = '#5e2d40'
