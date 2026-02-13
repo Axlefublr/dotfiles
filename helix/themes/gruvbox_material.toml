@@ -6,7 +6,7 @@
 # 'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
 # 'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
 # 'markup.strikethrough' = { modifiers = [ 'crossed_out' ] }
-'attribute' = 'mint'
+'attribute' = 'purple'
 'comment' = 'grey'
 'constant' = 'purple'
 'constant.character.escape' = 'grey'
