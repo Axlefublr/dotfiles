@@ -346,11 +346,15 @@ let normal_mappings = {
 	A-ret: ':e %(selection)'
 	S-tab: "@<space>'<up><ret>"
 	backspace: [save_selection select_all yank_to_clipboard jump_backward]
-	del: { S-del: [':sh rm %(full_path)' ':buffer-close!'] }
 	esc: [save_selection keep_primary_selection normal_mode]
 	ret: command_mode
 	tab: "@<space>'<down><ret>"
 	# [[sort off]]
+	del: {
+		s: ':open %sh(create-new-script.fish ~/fes/dot/lai)'
+		d: ':open %sh(create-new-script.fish ~/fes/dot/lai/fool)'
+		S-del: [':sh rm %(full_path)' ':buffer-close!']
+	}
 	# -------------------------paging--------------------------
 	pagedown: page_cursor_half_down
 	pageup: page_cursor_half_up
