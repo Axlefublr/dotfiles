@@ -19,6 +19,7 @@ sudo systemd-tmpfiles --create
 
 cd ~
 git clone https://github.com/Axlefublr/ake --depth=1
+fish_add_path ~/ake
 
 cd ~/fes
 git clone https://github.com/Axlefublr/dotfiles --depth=1 dot
