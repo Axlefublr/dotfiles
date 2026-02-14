@@ -402,24 +402,37 @@ let normal_mappings = {
 			o: ':pipe \"<o>" + $in + "</o>"'
 			i: ':pipe \"<i>" + $in + "</i>"'
 		}
-		'w': {
-			'(': ':pipe strip-wrapper-type.rs b'
-			'{': ':pipe strip-wrapper-type.rs B'
-			'[': ':pipe strip-wrapper-type.rs s'
-			'<': ':pipe strip-wrapper-type.rs t'
-			'|': ':pipe strip-wrapper-type.rs p'
-			'/': ':pipe strip-wrapper-type.rs /'
-		}
 		'e': {
-			'(': ':pipe wrap-in-block.rs b'
-			'{': ':pipe wrap-in-block.rs B'
-			'[': ':pipe wrap-in-block.rs s'
-			'<': ':pipe wrap-in-block.rs t'
-			'|': ':pipe wrap-in-block.rs p'
-			'`': ':pipe wrap-in-block.rs "`"'
-			'"': ':pipe wrap-in-block.rs `"`'
-			j: ':pipe wrap-in-block.rs "`"'
-			e: ':pipe wrap-in-block.rs begin'
+			'(': ":pipe strip-wrapper-type.rs b"
+			'{': ":pipe strip-wrapper-type.rs B"
+			'[': ":pipe strip-wrapper-type.rs s"
+			'<': ":pipe strip-wrapper-type.rs t"
+			')': ":pipe strip-wrapper-type.rs b→"
+			'}': ":pipe strip-wrapper-type.rs B→"
+			']': ":pipe strip-wrapper-type.rs s→"
+			'>': ":pipe strip-wrapper-type.rs t→"
+			'|': ":pipe strip-wrapper-type.rs p"
+			'/': ":pipe strip-wrapper-type.rs /"
+			'j': ":pipe strip-wrapper-type.rs backtick"
+			'"': ":pipe strip-wrapper-type.rs doublequote"
+			"'": ":pipe strip-wrapper-type.rs singlequote"
+			'e': ":pipe strip-wrapper-type.rs begin"
+		}
+		'w': {
+			'(': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b"
+			'{': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
+			'[': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
+			'<': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t"
+			')': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b→"
+			'}': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B→"
+			']': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s→"
+			'>': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t→"
+			'|': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' p"
+			'o': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' ''"
+			'j': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-backtick"
+			'"': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-doublequote"
+			"'": ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-singlequote"
+			'e': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' begin"
 		}
 	}
 	space: {
