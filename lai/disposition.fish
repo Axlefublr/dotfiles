@@ -11,8 +11,7 @@ for file in $argv
     clear
     path basename -E $file
     set -l ffprobe_output "$(ffprobe $file 2>&1)"
-    echo $ffprobe_output | rg --color=never -A 2 'Audio:|Subtitle:' |
-        na --stdin -c 'use offshoot.nu parse_ffprobe ; $in | parse_ffprobe'
+    echo $ffprobe_output | rg --color=never -A 2 'Audio:|Subtitle:' | parse-ffprobe.nu
     read -c "$(cat ~/.cache/mine/disposition-response 2>/dev/null)" -p colorize_prompt -l response || return
     echo $response >~/.cache/mine/disposition-response
     set dispositions $dispositions $response
