@@ -199,6 +199,7 @@ recent-windows {
 zoom {
     movement-mode "centered"
     increment-type "exponential"
+    max-zoom 10000.0
 }
 
 binds {
