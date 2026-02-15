@@ -211,6 +211,7 @@ command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
 # [[sort on]]
+# files.watcher = "server"                                     # TODO: this is not needed if helix supports client-side filewatching
 # rustfmt.overrideCommand = ["rustup", "run", "nightly", "--", "rustfmt"]
 # workspace.symbol.search.kind = "onlyTypes"
 assist.expressionFillDefault = "default"
@@ -222,7 +223,7 @@ cargo.features = "all"
 check.command = "clippy"
 checkOnSave = true
 completion.fullFunctionSignatures.enable = true
-files.watcher = "server"                                     # TODO: this is not needed if helix supports client-side filewatching
+imports.granularity.group = "item"
 inlayHints.bindingModeHints.enable = true
 inlayHints.closingBraceHints.minLines = 11
 inlayHints.closureCaptureHints.enable = true
