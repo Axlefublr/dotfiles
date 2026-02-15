@@ -36,34 +36,6 @@ let editor = {
 		goto-reference-include-declaration: false
 		snippets: true
 	}
-	statusline: {
-		separator: ''
-		mode: {
-			normal: normal
-			insert: insert
-			select: select
-		}
-		left: [
-			primary-selection-length
-			spacer
-			selections
-			# file-modification-indicator
-		]
-		center: [
-			read-only-indicator
-		]
-		right: [
-			spinner
-			spacer
-			register
-			diagnostics
-			position
-			total-line-numbers
-			spacer
-			position-percentage
-			file-encoding
-		]
-	}
 	soft-wrap: {
 		enable: true
 		max-wrap: 0
@@ -183,7 +155,6 @@ let normal_mappings = {
 	':': split_selection_on_newline
 	';': [collapse_selection normal_mode]
 	'C-;': ':pipe °math "$(cat)"'
-	A-i: select_references_to_symbol_under_cursor
 	C-c: change_selection_noyank
 	C-d: delete_selection_noyank
 	C-h: select_prev_sibling
@@ -232,7 +203,7 @@ let normal_mappings = {
 	'+': rotate_selections_forward
 	'-': rotate_selections_backward
 	'=': remove_primary_selection
-	'×': null
+	'×': select_references_to_symbol_under_cursor
 	'%': [save_selection select_all]
 	'!': ':pipe €str trim'
 	'…': null
@@ -461,6 +432,17 @@ let normal_mappings = {
 		g: ':open %sh(€"plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
 		h: ':open %sh(€"thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
 		b: ':open %sh(€"system.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md" })'
+		m: {
+			# [[sort on]]
+			c: ':lang css'
+			f: ':lang fish'
+			h: ':lang html'
+			j: ':lang json'
+			m: ':lang markdown'
+			n: ':lang nu'
+			s: ':lang bash'
+			# [[sort off]]
+		}
 	}
 	g: {
 		D: null
@@ -536,12 +518,16 @@ let editor_fork = {
 			spacer
 			smart-path
 		]
+		center: [
+			read-only-indicator
+		]
 		right: [
 			spinner
 			spacer
 			register
 			diagnostics
 			search-position
+			file-type
 			position
 			total-line-numbers
 			spacer
@@ -581,6 +567,7 @@ let normal_mappings_fork = {
 	A-B: [add_newline_above move_line_up paste_before_all]
 	A-O: paste_before_all
 	A-b: [add_newline_below move_line_down paste_before_all]
+	A-i: continue_last_insert
 	A-o: paste_after_all
 	C-/: select_first_and_last_chars
 	P: copy_register_to_yank
