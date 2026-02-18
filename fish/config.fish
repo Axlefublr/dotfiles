@@ -4,6 +4,7 @@
 set -g fish_features qmark-noglob remove-percent-self
 set -gx BROWSER firefox
 set -gx EDITOR helix
+set -gx GTK_THEME gruvbox-material
 set -gx HISTSIZE 100000
 set -gx LS_COLORS "$LS_COLORS:ow=1;34:tw=1;34:"
 set -gx MANPAGER ov
