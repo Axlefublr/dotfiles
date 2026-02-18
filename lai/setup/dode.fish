@@ -348,7 +348,6 @@ cd ~/fes/ork
 gh repo clone gruvbox-material-gtk-theme
 sudo rm -fr /usr/share/themes/gruvbox-material
 sudo ln -sf ~/fes/ork/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
-set -Ux GTK_THEME gruvbox-material
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
 gsettings set org.gnome.desktop.interface font-name "Inter, 12"
