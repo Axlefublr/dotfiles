@@ -39,7 +39,7 @@ fw → and flourish¬or wither
 
 qrtool → qrtool.rs
 u      → pueue.nu
-tz     → tz -q UTC Europe/Moscow
+tz     → tz -q Europe/Moscow UTC
 
 ls → eza
 la → eza -a
