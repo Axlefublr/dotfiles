@@ -162,8 +162,8 @@ layout {
     }
 
     struts {
-        // left 20
-        // right 20
+        left 2
+        right 2
     }
 }
 
@@ -235,25 +235,21 @@ binds {
     Mod+J { focus-workspace-down; }
     Mod+K { focus-workspace-up; }
 
-    Mod+Left { move-column-left; }
-    Mod+Right { move-column-right; }
-    Mod+Down { move-column-to-workspace-down; }
-    Mod+Up { move-column-to-workspace-up; }
+    Mod+Ctrl+H { move-column-left; }
+    Mod+Ctrl+L { move-column-right; }
+    Mod+Ctrl+J { move-column-to-workspace-down; }
+    Mod+Ctrl+K { move-column-to-workspace-up; }
     Mod+Ctrl+Down { move-workspace-down; }
     Mod+Ctrl+Up { move-workspace-up; }
 
-    Mod+N { focus-window-up-or-bottom; }
-    Mod+O { focus-window-down-or-top; }
-    Mod+Home { move-window-up; }
-    Mod+Return { move-window-down; }
-
-    Mod+Ctrl+J { set-window-height "-10%"; }
-    Mod+Ctrl+K { set-window-height "+10%"; }
-    Mod+Ctrl+H { spawn "fish" "-c" "niri_resize_width -10%"; }
-    Mod+Ctrl+L { spawn "fish" "-c" "niri_resize_width +10%"; }
+    Mod+W { spawn "specific-bigness-setter.fish"; }
+    Mod+Up { set-window-height "-5%"; }
+    Mod+Down { set-window-height "+5%"; }
+    Mod+Left { set-column-width "-5%"; }
+    Mod+Right { set-column-width "+5%"; }
 
     Mod+M { maximize-column; }
-    Mod+Ctrl+M { reset-window-height; }
+    Mod+End { reset-window-height; }
 }
 
 // Add lines like this to spawn processes at startup.
@@ -361,6 +357,16 @@ gestures {
         off
     }
 }
+
+// workspace "eight"
+// workspace "six"
+// workspace "four"
+// workspace "two"
+// workspace "one"
+// workspace "three"
+// workspace "five"
+// workspace "seven"
+// workspace "nine"
 
 //-----------------catchalls------------------
 window-rule {
