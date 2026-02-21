@@ -20,6 +20,8 @@
 	f (multi (layer-toggle f) (layer-toggle ef) (layer-toggle efw) (on↑ tap-vkey f))
 	k (unmod lalt f11)
 	j (unmod lalt f12)
+	h (cmd niri msg action focus-window-up-or-bottom)
+	l (cmd niri msg action focus-window-down-or-top)
 )
 
 (deflayermap (ef)
@@ -37,12 +39,12 @@
 (deflayermap (efw)
 	k (unmod lsft lalt f11)
 	j (unmod lsft lalt f12)
+	h (cmd niri msg action move-window-up)
+	l (cmd niri msg action move-window-down)
 )
 
 (deflayermap (io)
 	j (multi (layer-toggle j) (layer-toggle ij) (layer-toggle jo) (layer-toggle ijo) (on↑ tap-vkey j))
-	d (unmod lctl lsft lalt f2)
-	s (unmod lctl lsft lalt f3)
 )
 
 (deflayermap (ijo)
