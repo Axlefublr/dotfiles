@@ -207,11 +207,3 @@ function things
     end 2>/dev/null
 end
 funcsave things >/dev/null
-
-function niri_resize_width -a bigness
-    not test "$bigness" && return 121
-    niri msg action set-column-width $bigness
-    # niri msg action focus-window-previous
-    # niri msg action center-visible-columns
-end
-funcsave niri_resize_width >/dev/null
