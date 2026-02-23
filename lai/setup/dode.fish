@@ -517,6 +517,9 @@ set -Ux NEOVIDE_FORK false
 sudo pacman -S --needed --noconfirm --disable-download-timeout niri
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring libdisplay-info
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps clang # for building from source
+for file in ~/fes/dot/niri/*.kdl
+    ln -sf $file ~/.config/niri/(path basename $file)
+end
 ln -sf ~/fes/dot/niri.kdl ~/.config/niri/config.kdl
 mkdir -p ~/.config/systemd/user/niri.service.wants
 niri completions fish >~/.config/fish/completions/niri.fish
