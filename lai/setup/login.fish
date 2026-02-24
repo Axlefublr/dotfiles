@@ -5,5 +5,6 @@ cat ~/fes/uviw/afen/sudo | sudo -S modprobe uinput
 systemctl --user restart kanata.service
 playerctld daemon
 
-foot -D ~/fes/dot & disown
+niri msg action focus-workspace one
+foot -ND ~/fes/dot
 gtk-launch firefox
