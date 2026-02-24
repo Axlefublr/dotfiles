@@ -1,50 +1,30 @@
-// workspace "eight"
-// workspace "six"
-// workspace "four"
-// workspace "two"
-// workspace "one"
-// workspace "three"
-// workspace "five"
-// workspace "seven"
-// workspace "nine"
+workspace "six"
+workspace "five"
+workspace "four"
+workspace "two"
+workspace "one"
+workspace "three"
+workspace "seven"
+workspace "eight"
+workspace "nine"
 
-//-----------------catchalls------------------
 window-rule {
     draw-border-with-background false
-    // geometry-corner-radius 16
     clip-to-geometry true
     opacity 0.98
+    open-floating false
+    open-maximized false
 }
 window-rule {
     match is-floating=true
     geometry-corner-radius 16
 }
 
-//------------------stateful------------------
-window-rule {
-    // match app-id="anki"
-    // match app-id="python" title="^Import$"
-    // match app-id="floorp|firefox|zen$" title="^File Upload$"
-    // match app-id="floorp|firefox|zen$" title="^Open File$"
-    // match app-id="floorp|firefox|zen$" title="^Save Image|Video|As|Audio$"
-    // match app-id="floorp|firefox|zen$" title="^Enter name of file to save to…$"
-    // match app-id="floorp|firefox|zen$" title="^Opening "
-    // match app-id="net.lutris.Lutris"
-    // match app-id="wineboot.exe"
-    // match app-id="upc.exe"
-    // match app-id="^steam_app_"
-    // match app-id="^krita$"
-    // match title="^Choose Color$"
-    // match app-id="PrismLauncher"
-    // match app-id="steam" title="Launching..."
-    open-floating false
-    open-maximized false
-}
+// ------------------------stateful-------------------------
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
     match app-id="swayfloat"
     match app-id="^foot" title="^floating"
-    match app-id="ripdrag"
     open-floating true
 }
 window-rule {
@@ -53,43 +33,45 @@ window-rule {
 }
 window-rule {
     match app-id="waybar"
-    match app-id="^kitty|foot" title="nofocus"
-    match app-id="^kitty|foot" title="^screen-record$"
+    match app-id="^foot" title="nofocus"
+    match app-id="^foot" title="^daily"
     open-focused false
 }
-/-window-rule {
-    baba-is-float true
-}
 window-rule {
-    match app-id="^kitty$"
     match app-id="^swayimg$"
     match app-id="^foot"
     opacity 1.0
 }
 
-//-------------------column-------------------
+// -------------------------column--------------------------
 window-rule {
-    match app-id="^foot" title="half"
+    match app-id="^foot" title="50%"
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match app-id="^foot" title="third"
+    match app-id="^foot" title="hardware-monitor"
+    match app-id="^foot" title="35%"
+    default-column-width { proportion 0.35; }
+}
+window-rule {
+    match app-id="^foot" title="33%"
     default-column-width { proportion 0.33333; }
 }
 window-rule {
-    match app-id="^foot" title="fourth"
+    match app-id="^foot" title="25%"
     default-column-width { proportion 0.25; }
 }
 window-rule {
-    match app-id="^foot" title="fifth"
+    match app-id="^foot" title="20%"
+    match app-id="^foot" title="loago-tracker"
     default-column-width { proportion 0.2; }
 }
 window-rule {
-    match app-id="^foot" title="seventh"
+    match app-id="^foot" title="15%"
     default-column-width { proportion 0.15; }
 }
 window-rule {
-    match app-id="^foot" title="tenth"
+    match app-id="^foot" title="10%"
     default-column-width { proportion 0.1; }
 }
 window-rule {
@@ -97,7 +79,18 @@ window-rule {
     default-column-width {}
 }
 
-//----------------app-specific----------------
+// ------------------------workspace------------------------
+window-rule {
+    match app-id="^foot" title="four"
+    match app-id="^foot" title="^daily"
+    match app-id="^foot" title="loago-tracker"
+    match app-id="^foot" title="calcure"
+    open-on-workspace "four"
+}
+
+// ----------------------app-specific-----------------------
+window-rule {
+}
 window-rule {
     match app-id="org.kde.kruler"
     geometry-corner-radius 0
@@ -109,7 +102,7 @@ window-rule {
     default-column-width { fixed 1005; }
 }
 window-rule {
-    match app-id="^foot" title="^floating"
+    match app-id="^foot" title="floating"
     default-column-width { proportion 0.45; }
     default-window-height { proportion 0.25; }
 }
@@ -120,12 +113,9 @@ window-rule {
     default-floating-position x=0 y=10 relative-to="top"
 }
 window-rule {
-    match app-id="^foot" title="hardware-monitor"
-    default-column-width { proportion 0.35; }
-}
-window-rule {
     match app-id="ripdrag"
     open-focused false
+    open-floating true
     default-floating-position x=50 y=30 relative-to="bottom-right"
 }
 
