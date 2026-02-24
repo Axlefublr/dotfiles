@@ -166,14 +166,14 @@
 (deflayermap (h)
 	; (multi ralt (layer-toggle semicolon) (layer-toggle semicolon-h) (on↑ tap-vkey semicolon))
 	;; [[sort on]]
-	a (cmd niri msg action spawn -- footclient -NT seventh fish -c "cat ~/.local/share/magazine/a | rainbow | ov --status-line=false")
-	c (cmd niri msg action spawn -- footclient -N calcure)
+	a (cmd niri msg action spawn -- footclient -NT 15% fish -c "cat ~/.local/share/magazine/a | rainbow | ov --status-line=false")
+	c (cmd nu --no-std-lib -nc "niri msg -j windows | from json | where title like calcure | get id | first | try { niri msg action focus-window --id $in } catch { niri msg action spawn -- footclient -NT calcure calcure }")
 	d (cmd niri msg action spawn -- footclient -N talia.nu)
 	e (cmd niri msg action spawn -- footclient -N bluetui)
 	f (cmd niri msg action spawn -- fish -c frizz_picker)
 	q (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/tiq fish -c "finder")
 	r (cmd niri msg action spawn -- footclient -NHT hardware-monitor hardware-monitor.nu)
-	s (cmd niri msg action spawn -- footclient -NT fifth fish -c loago_tracker)
+	s (cmd nu --no-std-lib -nc "niri msg -j windows | from json | where title like loago-tracker | get id | first | try { niri msg action focus-window --id $in } catch { niri msg action spawn -- footclient -NT loago-tracker fish -c loago_tracker }")
 	w (cmd niri msg action spawn -- gtk-launch anki)
 	;; [[sort off]]
 )
