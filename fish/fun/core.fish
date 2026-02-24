@@ -52,7 +52,7 @@ function flour
 
     set -l title flour
     test "$_flag_half"
-    and set title "$title-half"
+    and set title "$title-50%"
 
     test "$_flag_disown"
     and set flag_disown -N
