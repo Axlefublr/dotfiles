@@ -56,5 +56,5 @@ def 'main nushell' [] {
 	} catch {
 		$input
 	}
-	^footclient -N -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'help ($input) | ov --wrap=true --caption=`($input)`'
+	niri msg action spawn -- footclient -NT $'nushell ($input)' -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'help ($input) | ov --wrap=true --caption=`($input)`'
 }
