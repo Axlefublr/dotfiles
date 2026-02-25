@@ -68,6 +68,7 @@ window-rule {
 }
 window-rule {
     match app-id="^foot" title="15%"
+    match app-id="^foot" title="abilities"
     default-column-width { proportion 0.15; }
 }
 window-rule {
@@ -85,12 +86,28 @@ window-rule {
     match app-id="^foot" title="^daily"
     match app-id="^foot" title="loago-tracker"
     match app-id="^foot" title="calcure"
+    match app-id="^foot" title="abilities"
     open-on-workspace "four"
 }
 
-// ----------------------app-specific-----------------------
 window-rule {
+    match app-id="anki"
+    open-on-workspace "eight"
 }
+
+window-rule {
+    match app-id="^foot" title="^nushell"
+    match app-id="^foot" title="^man"
+    match app-id="^foot" title="^help"
+    open-on-workspace "seven"
+}
+
+window-rule {
+    match app-id="steam"
+    open-on-workspace "nine"
+}
+
+// ----------------------app-specific-----------------------
 window-rule {
     match app-id="org.kde.kruler"
     geometry-corner-radius 0
