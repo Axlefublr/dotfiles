@@ -36,7 +36,7 @@ function ensure_browser
         | from json
         | where app_id == firefox
         | where is_focused == false
-        | where workspace_id == 1
+        | where workspace_id == 5
         | get id
         | try { first }
         | each { |$it|
@@ -47,12 +47,14 @@ end
 funcsave ensure_browser >/dev/null
 
 function flour
-    argparse half pager disown sleek man -- $argv
+    argparse half pager disown sleek man T= -- $argv
     or return 121
 
     set -l title flour
     test "$_flag_half"
     and set title "$title-50%"
+    test "$_flag_T"
+    and set title "$_flag_T"
 
     test "$_flag_disown"
     and set flag_disown -N
