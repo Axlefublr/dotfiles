@@ -1,7 +1,7 @@
 (defvirtualkeys
 	a (multi (layer↑ a) (layer↑ ag))
 	c (multi (layer↑ c) (layer↑ cx) (layer↑ cv))
-	e (multi (layer↑ e) (layer↑ ew) (layer↑ ef) (layer↑ er) (layer↑ efw))
+	e (multi (layer↑ e) (layer↑ ew) (layer↑ ef) (layer↑ er) (layer↑ efw) (layer↑ erw))
 	f (multi (layer↑ f) (layer↑ ef) (layer↑ fw) (layer↑ efw))
 	g (multi (layer↑ g) (layer↑ ag))
 	h (multi (layer↑ h) (layer↑ semicolon-h))
@@ -12,10 +12,10 @@
 	)
 	n (multi (layer↑ n) (layer↑ quote-n))
 	o (multi (layer↑ o) (layer↑ jo) (layer↑ io) (layer↑ ijo))
-	r (multi (layer↑ r) (layer↑ er))
+	r (multi (layer↑ r) (layer↑ er) (layer↑ rw) (layer↑ erw))
 	u (multi (layer↑ u) (layer↑ iu))
 	v (multi (layer↑ v) (layer↑ cv))
-	w (multi (layer↑ w) (layer↑ fw) (layer↑ ew) (layer↑ efw))
+	w (multi (layer↑ w) (layer↑ fw) (layer↑ ew) (layer↑ efw) (layer↑ rw) (layer↑ erw))
 	x (multi (layer↑ x) (layer↑ cx))
 	caps (multi (layer↑ caps) (layer↑ caps-space))
 	quote (multi (switch
