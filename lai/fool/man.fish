@@ -1,10 +1,11 @@
 #!/usr/bin/env fish
 
 set -gx COLUMNS 130
-set -l pathie /tmp/mine/"$argv[..-3]($argv[-2])".man
+set -l manpage "$argv[..-3]($argv[-2])"
+set -l path /tmp/mine/$manpage.man
 if $argv[-1]
-    man $argv[..-3] 2>/dev/null >$pathie
+    man $argv[..-3] 2>/dev/null >$path
 else
-    command man $argv[..-3] 2>/dev/null >$pathie
+    command man $argv[..-3] 2>/dev/null >$path
 end
-flour --disown --man $pathie:14
+flour -T "man $manpage" --disown --man $path:14
