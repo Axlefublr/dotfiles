@@ -56,9 +56,6 @@ function flour
     test "$_flag_T"
     and set title "$_flag_T"
 
-    test "$_flag_disown"
-    and set flag_disown -N
-
     if test "$_flag_pager"
         set -f selected_config -c ~/fes/dot/helix/pager.toml
     else if test "$_flag_man"
@@ -67,7 +64,11 @@ function flour
         set -f selected_config -c ~/fes/dot/helix/sleek.toml
     end
 
-    footclient -T $title $flag_disown -- helix $selected_config $execute_flag $argv
+    if test "$_flag_disown"
+        niri msg action spawn -- footclient -T $title -- helix $selected_config $execute_flag $argv
+    else
+        footclient -T $title -- helix $selected_config $execute_flag $argv
+    end
 end
 funcsave flour >/dev/null
 
