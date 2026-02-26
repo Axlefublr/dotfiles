@@ -105,6 +105,7 @@
 )
 
 (deflayermap (r)
+	w (multi lmet (layer-toggle w) (layer-toggle rw) (on↑ tap-vkey w))
 	e (multi (layer-toggle e) (layer-toggle er) (on↑ tap-vkey e))
 	;; [[sort on]]
 	, (cmd wtype 🕯️)
@@ -121,9 +122,12 @@
 )
 
 (deflayermap (er)
+	w (multi lmet (layer-toggle w) (layer-toggle ew) (layer-toggle rw) (layer-toggle erw) (on↑ tap-vkey w))
 	h (cmd wtype 🥰)
 	p (cmd wtype 😤)
 	n (cmd wtype 🥹)
+	k (unmod lalt f11)
+	j (unmod lalt f12)
 )
 
 (deflayermap (i)
