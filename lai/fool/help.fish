@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 set -gx COLUMNS 130
-set -l pathie "/tmp/mine/$argv.help"
-$argv --help &>$pathie
-flour --disown --man $pathie:14
+set -l help_page "$argv"
+set -l path "/tmp/mine/$help_page.help"
+$argv --help &>$path
+flour -T "help $help_page" --disown --man $path:14
