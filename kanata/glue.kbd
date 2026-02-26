@@ -1,6 +1,7 @@
 (deflayermap (w)
 	f (multi (layer-toggle f) (layer-toggle fw) (on↑ tap-vkey f))
 	e (multi (layer-toggle e) (layer-toggle ew) (on↑ tap-vkey e))
+	r (multi (layer-toggle r) (layer-toggle rw) (on↑ tap-vkey r))
 )
 
 (deflayermap (a)
