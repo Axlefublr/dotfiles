@@ -203,15 +203,15 @@ function things
     begin
         set -l calcure_lacks (niri msg -j windows | na --stdin -c 'from json | where app_id like ^foot | where title like calcure | is-empty')
         if $calcure_lacks
-            footclient -NT daily-calcure calcure
+            footclient -NT calcure calcure
         end
         set -l loago_tracker_lacks (niri msg -j windows | na --stdin -c 'from json | where app_id like ^foot | where title like loago-tracker | is-empty')
         if $loago_tracker_lacks
-            footclient -NT daily-loago-tracker fish -c loago_tracker
+            footclient -NT loago-tracker fish -c loago_tracker
         end
         set -l review_lacks (niri msg -j windows | na --stdin -c 'from json | where app_id like ^foot | where title like review | is-empty')
         if $review_lacks
-            footclient -NT daily-review helix -w ~/.local/share/magazine ~/.local/share/magazine/semicolon.md
+            footclient -NT review helix -w ~/.local/share/magazine ~/.local/share/magazine/semicolon.md
         end
     end 2>/dev/null
 end
