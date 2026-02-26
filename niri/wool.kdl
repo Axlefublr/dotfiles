@@ -33,8 +33,6 @@ window-rule {
 }
 window-rule {
     match app-id="waybar"
-    match app-id="^foot" title="nofocus"
-    match app-id="^foot" title="^daily"
     open-focused false
 }
 window-rule {
@@ -44,6 +42,10 @@ window-rule {
 }
 
 // -------------------------column--------------------------
+window-rule {
+    match app-id="^foot" title="voe"
+    default-column-width { proportion 0.65; }
+}
 window-rule {
     match app-id="^foot" title="50%"
     default-column-width { proportion 0.5; }
@@ -82,11 +84,17 @@ window-rule {
 
 // ------------------------workspace------------------------
 window-rule {
+    match app-id="^foot" title="voe"
+    open-on-workspace "three"
+}
+
+window-rule {
     match app-id="^foot" title="four"
-    match app-id="^foot" title="^daily"
     match app-id="^foot" title="loago-tracker"
     match app-id="^foot" title="calcure"
     match app-id="^foot" title="abilities"
+    match app-id="^foot" title="review"
+    match app-id="^foot" title="uboot"
     open-on-workspace "four"
 }
 
