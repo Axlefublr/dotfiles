@@ -44,4 +44,4 @@ for dir in (cat ~/.local/share/magazine/P)
 end
 
 things
-footclient -T nofocus uboot.fish
+foot -T uboot uboot.fish
