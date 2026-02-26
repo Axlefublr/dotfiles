@@ -168,7 +168,7 @@ layout {
 }
 
 overview {
-    zoom 0.3
+    zoom 0.08
 }
 
 recent-windows {
@@ -226,21 +226,22 @@ binds {
     Mod+Comma { toggle-window-floating; }
     Mod+Semicolon { switch-focus-between-floating-and-tiling; }
     Mod+Space { toggle-overview; }
+    Mod+O { focus-window-previous; }
+    Mod+N { focus-workspace-previous; }
 
     Mod+F { consume-or-expel-window-left; }
     Mod+A { consume-or-expel-window-right; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
-    Mod+J { focus-workspace-down; }
-    Mod+K { focus-workspace-up; }
+
+    Mod+K { focus-window-up-or-bottom; }
+    Mod+J { focus-window-down-or-top; }
+    Mod+Ctrl+K { move-window-up; }
+    Mod+Ctrl+J { move-window-down; }
 
     Mod+Ctrl+H { move-column-left; }
     Mod+Ctrl+L { move-column-right; }
-    Mod+Ctrl+J { move-column-to-workspace-down; }
-    Mod+Ctrl+K { move-column-to-workspace-up; }
-    Mod+Ctrl+Down { move-workspace-down; }
-    Mod+Ctrl+Up { move-workspace-up; }
 
     Mod+W { spawn "specific-bigness-setter.fish"; }
     Mod+Up { set-window-height "-5%"; }
@@ -276,7 +277,7 @@ screenshot-path "~/iwm/sco/%Y.%m.%d-%H:%M:%S.png"
 
 animations {
     workspace-switch {
-        spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
         // off
     }
 
@@ -289,6 +290,10 @@ animations {
     }
 
     window-resize {
+        spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
+    }
+
+    overview-open-close {
         spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
     }
 
