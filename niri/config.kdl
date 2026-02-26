@@ -215,7 +215,6 @@ binds {
 
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
-    Mod+S { spawn "footclient" "-T" "floating"; }
 
     Mod+G { fullscreen-window; }
     Mod+I { close-window; }

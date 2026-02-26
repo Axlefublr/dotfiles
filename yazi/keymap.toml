@@ -39,7 +39,6 @@ keymap = [
   { on = '<Esc>', run = 'escape --find --filter --search', desc = 'Cancel most things' },
   { on = '<F1>', run = 'help', desc = 'Help' },
   { on = '<F2>', run = [ 'plugin blammo', 'shell --orphan -- footclient', 'shell -- niri msg action consume-or-expel-window-left' ], desc = 'Launch terminal here' },
-  { on = '<F3>', run = [ 'plugin blammo', 'shell --orphan -- footclient -T floating' ], desc = 'Launch floating terminal here' },
   { on = '<Insert>', run = 'close', desc = 'Close the current tab, or quit if it is last tab' },
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },

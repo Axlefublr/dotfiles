@@ -248,11 +248,6 @@ keybinding:
   commitMessage:
     commitMenu: <c-o>
 customCommands:
-  - key: <F3>
-    context: global
-    command: "footclient -NT floating"
-    description: "Open floating terminal here"
-    output: none
   - key: <F2>
     context: global
     command: "footclient -N ; niri msg action consume-or-expel-window-left"
