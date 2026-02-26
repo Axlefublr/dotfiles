@@ -5,10 +5,10 @@ cat ~/fes/uviw/afen/sudo | sudo -S modprobe uinput
 systemctl --user restart kanata.service
 
 niri msg action focus-workspace one
-foot -ND ~/fes/dot
+foot -D ~/fes/dot & disown
 gtk-launch firefox
 playerctld daemon
-foot -NT abilities abilities.fish
-foot -NT loago-tracker fish -c loago_tracker
-foot -NT calcure calcure
-gtk-launch anki
+footclient -NT abilities abilities.fish
+footclient -NT loago-tracker fish -c loago_tracker
+footclient -NT calcure calcure
+footclient -NT voe -D ~/iwm/voe yazi
