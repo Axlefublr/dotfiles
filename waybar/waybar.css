@@ -42,6 +42,16 @@ window#waybar {
 	margin-right: 12;
 }
 
+#workspaces {
+	margin-left: 4;
+	margin-right: 4;
+}
+
+#workspaces button {
+	color: #d4be98;
+	min-width: 0px;
+}
+
 #custom-niriwin {
 	margin-right: 18;
 }
