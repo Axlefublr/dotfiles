@@ -211,7 +211,7 @@ function bookmark_open
         return 1
     end
     $BROWSER $bookmark
-    ensure_browser
+    ensure-browser.nu
 end
 funcsave bookmark_open >/dev/null
 
