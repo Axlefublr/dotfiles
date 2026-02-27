@@ -268,7 +268,7 @@
 
 (deflayermap (quote-j)
 	caps (cmd fish -c ntf_dismiss_old)
-	d (cmd fish -c "xdg-open (wl-paste -n) ; ensure_browser")
+	d (cmd fish -c "xdg-open (wl-paste -n) ; ensure-browser.nu")
 	w (one-shot $ot (layer-toggle bookmark-set))
 	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	e (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
