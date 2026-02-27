@@ -1,14 +1,14 @@
 revanced
 	player
 		comments
+			hide ai chat summary
+			hide ai comments summary
 			comments by members
 		flyout menu
 			ambient mode
-			unhide more info
 		exit fullscreen at end of video
 		suggested video
 		video description
-			attributes section
 			key concepts
 	general
 		viewer discretion
