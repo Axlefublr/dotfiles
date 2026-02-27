@@ -1,12 +1,8 @@
-workspace "six"
-workspace "five"
-workspace "four"
+workspace "three"
 workspace "two"
 workspace "one"
-workspace "three"
-workspace "seven"
-workspace "eight"
-workspace "nine"
+workspace "four"
+workspace "five"
 
 window-rule {
     draw-border-with-background false
@@ -84,35 +80,32 @@ window-rule {
 
 // ------------------------workspace------------------------
 window-rule {
-    match app-id="^foot" title="voe"
-    open-on-workspace "three"
-}
-
-window-rule {
     match app-id="^foot" title="four"
     match app-id="^foot" title="loago-tracker"
     match app-id="^foot" title="calcure"
     match app-id="^foot" title="abilities"
     match app-id="^foot" title="review"
     match app-id="^foot" title="uboot"
-    open-on-workspace "four"
+    open-on-workspace "three"
 }
 
 window-rule {
+    match app-id="^foot" title="toggleterm"
+    open-on-workspace "one"
+}
+
+window-rule {
+    match app-id="^foot" title="voe"
     match app-id="anki"
-    open-on-workspace "eight"
+    match app-id="steam"
+    open-on-workspace "four"
 }
 
 window-rule {
     match app-id="^foot" title="^nushell"
     match app-id="^foot" title="^man"
     match app-id="^foot" title="^help"
-    open-on-workspace "seven"
-}
-
-window-rule {
-    match app-id="steam"
-    open-on-workspace "nine"
+    open-on-workspace "five"
 }
 
 // ----------------------app-specific-----------------------
