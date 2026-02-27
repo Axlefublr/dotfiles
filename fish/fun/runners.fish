@@ -23,7 +23,7 @@ function runner_link
     set link (awk "NR==$line { print \$NF }" $file)
     if test "$argv[1]"
         $BROWSER $link
-        ensure_browser
+        ensure-browser.nu
     else
         echo $link | wl-copy -n
         notify-send -t 2000 "copied link: $link"
