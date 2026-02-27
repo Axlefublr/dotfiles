@@ -55,7 +55,7 @@ def 'main pull' [url: string] {
 		let pull = if ($pull.author == 'app/') {
 			print -e 'author is dead. provide manually'
 			gh pr view $url e>| ignore
-			fish -c 'ensure_browser'
+			ensure-browser.nu
 			input --reedline 'author:' | let input | if ($in | is-empty) { return }
 			$pull | update author $input
 		} else { $pull }
@@ -95,7 +95,7 @@ def 'main pull open' [branch_name: string] {
 		$components | last | if ($in like '^\d+$') {} else { return }
 	} else {}
 	gh pr view -w $prnum
-	fish -c 'ensure_browser'
+	ensure-browser.nu
 }
 
 def 'main dogni-upstream' [branch_name: string] {
