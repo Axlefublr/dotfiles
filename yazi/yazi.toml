@@ -10,6 +10,7 @@ sort_by = "mtime"
 sort_reverse = true
 sort_sensitive = true
 sort_translit = true
+title_format = "yazi {cwd}"
 # [[sort off]]
 
 [preview]
