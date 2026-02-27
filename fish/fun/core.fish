@@ -30,22 +30,6 @@ function dot
 end
 funcsave dot >/dev/null
 
-function ensure_browser
-    na -c '
-        niri msg -j windows
-        | from json
-        | where app_id == firefox
-        | where is_focused == false
-        | where workspace_id == 5
-        | get id
-        | try { first }
-        | each { |$it|
-        	niri msg action focus-window --id $it
-        } | ignore
-    '
-end
-funcsave ensure_browser >/dev/null
-
 function flour
     argparse half pager disown sleek man T= -- $argv
     or return 121
