@@ -168,7 +168,7 @@ layout {
 }
 
 overview {
-    zoom 0.08
+    zoom 0.16
 }
 
 recent-windows {
@@ -184,13 +184,13 @@ recent-windows {
     }
 
     previews {
-        max-height 480
-        max-scale 0.5
+        max-height 9999
+        max-scale 0.25
     }
 
     binds {
-        // Mod+Semicolon { next-window; }
-        // Mod+Backspace { previous-window; }
+        Mod+F { next-window; }
+        Mod+E { previous-window; }
         // Mod+grave       { next-window     filter="app-id"; }
         // Mod+Shift+grave { previous-window filter="app-id"; }
     }
@@ -215,34 +215,29 @@ binds {
 
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
+    Mod+W { spawn "toggleterm.nu"; }
 
     Mod+G { fullscreen-window; }
     Mod+I { close-window; }
     Mod+Ctrl+I { spawn "close-windows-in-column.nu"; }
 
-    Mod+E { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+C { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
     Mod+Apostrophe { center-visible-columns; }
     Mod+Comma { toggle-window-floating; }
     Mod+Semicolon { switch-focus-between-floating-and-tiling; }
     Mod+Space { toggle-overview; }
-    Mod+O { focus-window-previous; }
-    Mod+N { focus-workspace-previous; }
 
-    Mod+F { consume-or-expel-window-left; }
+    Mod+S { consume-or-expel-window-left; }
     Mod+A { consume-or-expel-window-right; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
+    Mod+J { focus-workspace-down; }
+    Mod+K { focus-workspace-up; }
 
-    Mod+K { focus-window-up-or-bottom; }
-    Mod+J { focus-window-down-or-top; }
-    Mod+Ctrl+K { move-window-up; }
-    Mod+Ctrl+J { move-window-down; }
+    Mod+N { focus-window-up-or-bottom; }
+    Mod+O { focus-window-down-or-top; }
 
-    Mod+Ctrl+H { move-column-left; }
-    Mod+Ctrl+L { move-column-right; }
-
-    Mod+W { spawn "specific-bigness-setter.fish"; }
     Mod+Up { set-window-height "-5%"; }
     Mod+Down { set-window-height "+5%"; }
     Mod+Left { set-column-width "-5%"; }
@@ -276,7 +271,7 @@ screenshot-path "~/iwm/sco/%Y.%m.%d-%H:%M:%S.png"
 
 animations {
     workspace-switch {
-        spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
+        spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
         // off
     }
 
@@ -294,6 +289,10 @@ animations {
 
     overview-open-close {
         spring damping-ratio=1.15 stiffness=850 epsilon=0.0001
+    }
+
+    recent-windows-close {
+        spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
     }
 
     zoom-level-change {
