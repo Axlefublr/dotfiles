@@ -33,7 +33,7 @@ end
 
 set -l clean_input (string escape --style=url -- $input)
 $BROWSER (string replace -- %% $clean_input $engine)
-ensure_browser
+ensure-browser.nu
 if $should_history
     indeed.rs -u ~/.local/share/magazine/L -- $input
     tail -n 100 ~/.local/share/magazine/L | sponge ~/.local/share/magazine/L
