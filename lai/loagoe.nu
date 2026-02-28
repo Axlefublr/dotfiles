@@ -62,7 +62,7 @@ def 'main due' [] {
 	| skip 1
 	| to text
 	| print
-	let input = input -n 1
+	let input = input --reedline
 	if ($input | is-empty) { return }
 	let todos = $input | split chars
 	$the
