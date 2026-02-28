@@ -29,6 +29,7 @@ window-rule {
 }
 window-rule {
     match app-id="waybar"
+    match app-id="anki" at-startup=true
     open-focused false
 }
 window-rule {
@@ -39,7 +40,7 @@ window-rule {
 
 // -------------------------column--------------------------
 window-rule {
-    match app-id="^foot" title="voe"
+    match app-id="^foot" title="^voe$"
     default-column-width { proportion 0.65; }
 }
 window-rule {
@@ -47,7 +48,7 @@ window-rule {
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match app-id="^foot" title="hardware-monitor"
+    match app-id="^foot" title="^hardware-monitor$"
     match app-id="^foot" title="35%"
     default-column-width { proportion 0.35; }
 }
@@ -61,12 +62,12 @@ window-rule {
 }
 window-rule {
     match app-id="^foot" title="20%"
-    match app-id="^foot" title="loago-tracker"
+    match app-id="^foot" title="^loago-tracker$"
     default-column-width { proportion 0.2; }
 }
 window-rule {
     match app-id="^foot" title="15%"
-    match app-id="^foot" title="abilities"
+    match app-id="^foot" title="^abilities$"
     default-column-width { proportion 0.15; }
 }
 window-rule {
@@ -81,21 +82,21 @@ window-rule {
 // ------------------------workspace------------------------
 window-rule {
     match app-id="^foot" title="four"
-    match app-id="^foot" title="loago-tracker"
-    match app-id="^foot" title="calcure"
-    match app-id="^foot" title="abilities"
-    match app-id="^foot" title="review"
-    match app-id="^foot" title="uboot"
+    match app-id="^foot" title="^loago-tracker$"
+    match app-id="^foot" title="^calcure$"
+    match app-id="^foot" title="^abilities$"
+    match app-id="^foot" title="^review$"
+    match app-id="^foot" title="^uboot$"
     open-on-workspace "three"
 }
 
 window-rule {
-    match app-id="^foot" title="toggleterm"
+    match app-id="^foot" title="^toggleterm$"
     open-on-workspace "one"
 }
 
 window-rule {
-    match app-id="^foot" title="voe"
+    match app-id="^foot" title="^voe$"
     match app-id="anki"
     match app-id="steam"
     open-on-workspace "four"
@@ -125,7 +126,7 @@ window-rule {
     default-window-height { proportion 0.25; }
 }
 window-rule {
-    match app-id="^foot" title="floating-calculator"
+    match app-id="^foot" title="^floating-calculator$"
     default-column-width { proportion 0.35; }
     default-window-height { proportion 0.16; }
     default-floating-position x=0 y=10 relative-to="top"
