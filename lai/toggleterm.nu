@@ -1,12 +1,11 @@
 #!/usr/bin/env -S nu --no-std-lib -n
 
-let toggleterms = niri msg -j windows
+let toggleterm = niri msg -j windows
 | from json
-| where app_id like '^foot'
+| where app_id != null
+| where app_id starts-with 'foot'
 | where title == 'toggleterm'
-| let toggleterm
-| length
-if ($toggleterms > 0) {
+if ($toggleterm | is-not-empty) {
 	if ($toggleterm | any { get is_focused }) {
 		niri msg action focus-window-previous
 	} else {
