@@ -174,7 +174,7 @@ overview {
 recent-windows {
     debounce-ms 750
 
-    open-delay-ms 150
+    open-delay-ms 0
 
     highlight {
         active-color "#777777ff"
