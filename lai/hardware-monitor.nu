@@ -16,7 +16,7 @@ radeontop -d - -i 1 | lines | skip 1 | each { str substring 30..33 | into float 
 	let cpu_fan = $sensor_output | get it8620-isa-0a30.fan1.fan1_input | into int | fill -w 4 -a r
 	# let cha_fan = $sensor_output | get it8620-isa-0a30.fan2.fan2_input | into int | fill -w 4 -a r
 	# let cha_fan_2 = $sensor_output | get it8620-isa-0a30.fan3.fan3_input | into int | fill -w 4 -a r
-	let memory = free -h | detect columns | get used.0 | str substring ..-3 | str replace , . | fill -w 4 -a r
+	let memory = free -h | detect columns --guess | get used.0 | str substring ..-3 | str replace , . | fill -w 4 -a r
 
 	print $'($timestamp) ($in.1)% ($in.0)% ($ppt)/($ppt_cap) ($cpu_temp)° ($gpu_temp)° ($cpu_fan)* ($memory)'
 } | ignore
