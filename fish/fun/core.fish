@@ -31,12 +31,10 @@ end
 funcsave dot >/dev/null
 
 function flour
-    argparse half pager disown sleek man T= -- $argv
+    argparse pager disown sleek man T= -- $argv
     or return 121
 
     set -l title flour
-    test "$_flag_half"
-    and set title "$title-50%"
     test "$_flag_T"
     and set title "$_flag_T"
 
