@@ -95,7 +95,7 @@ layout {
     always-center-single-column
     empty-workspace-above-first
 
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    // You can customize the widths that "switch-preset-column-width" toggles between.
     preset-column-widths {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
@@ -189,10 +189,10 @@ recent-windows {
     }
 
     binds {
-        Mod+F { next-window; }
-        Mod+E { previous-window; }
-        // Mod+grave       { next-window     filter="app-id"; }
-        // Mod+Shift+grave { previous-window filter="app-id"; }
+        Mod+F { next-window     scope="all"; }
+        Mod+E { previous-window scope="all"; }
+        Mod+R { next-window     scope="workspace"; }
+        Mod+W { previous-window scope="workspace"; }
     }
 }
 
@@ -215,20 +215,21 @@ binds {
 
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
-    Mod+W { spawn "toggleterm.nu"; }
+    Mod+Return { spawn "find-or-make.fish" "app_id starts-with foot" "title == toggleterm" "footclient -NT toggleterm"; }
 
     Mod+G { fullscreen-window; }
     Mod+I { close-window; }
     Mod+Ctrl+I { spawn "close-windows-in-column.nu"; }
 
-    Mod+C { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
+    Mod+V { spawn "fish" "-c" "niri_toggle_tab_correctly"; }
     Mod+Apostrophe { center-visible-columns; }
     Mod+Comma { toggle-window-floating; }
     Mod+Semicolon { switch-focus-between-floating-and-tiling; }
     Mod+Space { toggle-overview; }
+    Mod+S { focus-window-previous; }
 
-    Mod+S { consume-or-expel-window-left; }
-    Mod+A { consume-or-expel-window-right; }
+    Mod+X { consume-or-expel-window-left; }
+    Mod+C { consume-or-expel-window-right; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
