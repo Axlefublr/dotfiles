@@ -44,35 +44,25 @@ window-rule {
     default-column-width { proportion 0.65; }
 }
 window-rule {
-    match app-id="^foot" title="50%"
+    match app-id="^foot" title="^anki-card$"
     default-column-width { proportion 0.5; }
 }
 window-rule {
+    match app-id="^foot" title="^bluetui$"
+    default-column-width { proportion 0.40; }
+}
+window-rule {
     match app-id="^foot" title="^hardware-monitor$"
-    match app-id="^foot" title="35%"
     default-column-width { proportion 0.35; }
 }
 window-rule {
-    match app-id="^foot" title="33%"
-    default-column-width { proportion 0.33333; }
-}
-window-rule {
-    match app-id="^foot" title="25%"
-    default-column-width { proportion 0.25; }
-}
-window-rule {
-    match app-id="^foot" title="20%"
     match app-id="^foot" title="^loago-tracker$"
     default-column-width { proportion 0.2; }
 }
 window-rule {
-    match app-id="^foot" title="15%"
     match app-id="^foot" title="^abilities$"
+    match app-id="^foot" title="^palabra$"
     default-column-width { proportion 0.15; }
-}
-window-rule {
-    match app-id="^foot" title="10%"
-    default-column-width { proportion 0.1; }
 }
 window-rule {
     match app-id="anki"
@@ -87,6 +77,8 @@ window-rule {
     match app-id="^foot" title="^abilities$"
     match app-id="^foot" title="^review$"
     match app-id="^foot" title="^uboot$"
+    match app-id="^foot" title="^bluetui$"
+    match app-id="^foot" title="^tewi$"
     open-on-workspace "three"
 }
 
