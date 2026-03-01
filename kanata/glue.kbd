@@ -17,6 +17,6 @@
 )
 
 (deflayermap (o)
-	i (multi (layer-toggle i) (layer-toggle io) (on↑ tap-vkey i))
+	i (tap-hold-release $tt $ht i (multi (layer-toggle i) (layer-toggle io) (on↑ tap-vkey i)))
 	j (multi (layer-toggle j) (layer-toggle jo) (on↑ tap-vkey j))
 )
