@@ -12,6 +12,5 @@ playerctld daemon
 footclient -NT abilities abilities.fish
 footclient -NT loago-tracker fish -c loago_tracker
 footclient -NT calcure calcure
-footclient -NT bluetui bluetui
 footclient -NT voe -D ~/iwm/voe yazi
 gtk-launch anki
