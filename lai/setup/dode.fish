@@ -344,14 +344,29 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # ------------------------gtk-theme------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout papirus-icon-theme
+sudo pacman -S --needed --noconfirm --disable-download-timeout gtk3-demos gtk4-demos # for debugging gtk themes
+# yay -Sa --needed --disable-download-timeout colloid-gtk-theme-git colloid-icon-theme-git
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
+gsettings set org.gnome.desktop.interface font-name "Inter, 12"
+
+cd ~/fes/ork
+gh repo clone vinceliuice/Colloid-gtk-theme
+cd Colloid-gtk-theme
+# install.sh has --help if you need it
+./install.sh -d ~/.local/share/themes --theme orange --color dark --size standard --tweaks rimless --tweaks normal
+
+cd ~/fes/ork
+gh repo clone vinceliuice/Colloid-icon-theme
+cd Colloid-icon-theme
+./install.sh --theme orange --bold
+gsettings set org.gnome.desktop.interface icon-theme Colloid-Orange-Dark
+
+# notably you aren't using your own theme, so these ↓ aren't needed
 cd ~/fes/ork
 gh repo clone gruvbox-material-gtk-theme
 sudo rm -fr /usr/share/themes/gruvbox-material
 sudo ln -sf ~/fes/ork/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-material
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
-gsettings set org.gnome.desktop.interface font-name "Inter, 12"
-sudo pacman -S --needed --noconfirm --disable-download-timeout gtk3-demos # for debugging the theme
 
 # ----------------------gpu-benchmark----------------------
 # sudo pacman -S --needed --noconfirm --disable-downlod-timeout glmark2
