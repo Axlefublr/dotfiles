@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+argparse clean -- $argv
 set -l wheres
 for arg in $argv[..-2]
     set -a wheres "| where $arg"
@@ -9,8 +10,12 @@ na -c "
     | from json
     $wheres
     if (\$found | is-not-empty) {
-    	if (\$found | any { get is_focused }) {
+        let focused_togglie = \$found | where is_focused == true | first | get -o id
+    	if (\$focused_togglie | is-not-empty) {
     		niri msg action focus-window-previous
+        	if ('$_flag_clean' == '--clean') {
+            	niri msg action close-window --id \$focused_togglie
+        	}
     	} else {
     		\$found | first | each { niri msg action focus-window --id (\$in | get id) }
     	}
