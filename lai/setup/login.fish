@@ -6,7 +6,7 @@ systemctl --user restart kanata.service
 
 niri msg action focus-workspace one
 foot -T toggleterm & disown
-foot -D ~/fes/dot & disown
+foot -T dotfiles -D ~/fes/dot helix & disown
 gtk-launch firefox
 playerctld daemon
 footclient -NT abilities abilities.fish
