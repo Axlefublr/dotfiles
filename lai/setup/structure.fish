@@ -54,6 +54,7 @@ git clone https://github.com/Axlefublr/documents --depth=1 dls
 ln -s ~/iwm/dls/fonts ~/.local/share/fonts/mine
 
 cd ~/.local/share
+mkfifo ~/.local/share/mine/task-scheduler
 ln -sf ~/fes/jiro/harp.jsonc ~/.local/share/harp/harp.jsonc
 ln -sf ~/fes/jiro/axleizer_invalid.json ~/.local/share/axleizer_invalid.json
 ln -sf ~/fes/jiro/loago.json ~/.local/share/loago/loago.json
