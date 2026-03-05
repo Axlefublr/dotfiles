@@ -9,6 +9,20 @@ function _kb_execute_via_pueue
 end
 funcsave _kb_execute_via_pueue >/dev/null
 
+function _kb_schedule_commandline
+    set -l cmd (commandline)
+    history append -- $cmd
+    begin
+        echo -n "$(set -xL | string replace -r '^' 'set -x ')"
+        echo -ne '\0'
+        echo -n "$cmd"
+        echo -ne '\0'
+    end >~/.local/share/mine/task-scheduler
+    commandline ''
+    commandline -f repaint
+end
+funcsave _kb_schedule_commandline >/dev/null
+
 function _kb_blammo_pwd
     commandline -i (pwds)
 end
@@ -77,7 +91,7 @@ function fish_user_key_bindings
     bind ctrl-z fg
     bind f1 '_kb_follow_by nu ; commandline -f repaint'
     bind f11 _kb_and_flourish
-    bind f12 _kb_and_exit
+    bind f12 _kb_schedule_commandline
     bind f2 _kb_follow_by_lazygit
     bind f3 'z (cat ~/.cache/mine/blammo | path dirname) ; commandline -f repaint'
     bind f4 '_kb_follow_by helix .'
