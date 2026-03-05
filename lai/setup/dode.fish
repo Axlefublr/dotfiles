@@ -130,6 +130,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout cowsay
 # -------------------------cursors-------------------------
 # Lighted Pixel Butter — https://www.gnome-look.org/p/2103612
 sudo cp -fr ~/iwm/dls/cursors/Lighted-Pixel-Butter /usr/share/icons
+gsettings set org.gnome.desktop.interface cursor-theme Lighted-Pixel-Butter
 
 # --------------------------dash---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout dash
@@ -324,6 +325,12 @@ ln -sf ~/fes/dot/gitu.toml ~/.config/gitu/config.toml
 # -------------------------git-who-------------------------
 stew install sinclairtarget/git-who
 
+# ---------------------gnome-calendar----------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-calendar
+
+# ----------------------gnome-clocks-----------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-clocks
+
 # --------------------------gomi---------------------------
 stew install babarot/gomi
 ln -sf ~/fes/dot/gomi.yaml ~/.config/gomi/config.yaml
@@ -349,12 +356,15 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout gtk3-demos gtk4-d
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
 gsettings set org.gnome.desktop.interface font-name "Inter, 12"
+gsettings set org.gnome.desktop.interface document-font-name "Inter, 12"
+gsettings set org.gnome.desktop.interface monospace-font-name "Google Sans Code, 12"
 
 cd ~/fes/ork
 gh repo clone vinceliuice/Colloid-gtk-theme
 cd Colloid-gtk-theme
 # install.sh has --help if you need it
 ./install.sh -d ~/.local/share/themes --theme orange --color dark --size standard --tweaks rimless --tweaks normal
+gsettings set org.gnome.desktop.interface gtk-theme Colloid-Orange-Dark
 
 cd ~/fes/ork
 gh repo clone vinceliuice/Colloid-icon-theme
