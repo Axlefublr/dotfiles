@@ -64,7 +64,7 @@ set -g fish_pager_color_description yellow -i
 set -g fish_pager_color_prefix normal --bold --underline
 set -g fish_pager_color_progress brwhite --background=cyan
 set -g fish_pager_color_selected_background -r
-set -g in (blammo)
+set -gx in (blammo)
 # [[sort off]]
 
 abbr -a .. --position anywhere --regex '^\.\.+$' --function multiple_dot
