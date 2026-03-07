@@ -1,0 +1,12 @@
+[Unit]
+After=graphical-session.target
+PartOf=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=env intermediary.fish
+Type=exec
+Restart=Always
+
+[Install]
+WantedBy=graphical-session.target
