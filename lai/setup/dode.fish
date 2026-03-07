@@ -900,6 +900,8 @@ systemctl --user enable --now ~/fes/dot/systemd/wallpaper.timer
 
 systemctl --user enable --now ~/fes/dot/systemd/mandb.service
 
+systemctl --user enable --now ~/fes/dot/systemd/task-scheduler-intermediary.service
+
 # -------------------systemd-manager-tui-------------------
 cargo binstall -y systemd-manager-tui
 
