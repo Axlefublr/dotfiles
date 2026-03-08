@@ -13,4 +13,4 @@ begin
 
     echo -n "$argv"
     echo -ne '\0'
-end >~/.local/share/mine/task-scheduler-intermediary
+end >~/.local/share/mine/task-scheduler
