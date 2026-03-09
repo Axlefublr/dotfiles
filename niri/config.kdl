@@ -303,10 +303,6 @@ animations {
         off
     }
 
-    zoom-cursor-follow {
-        off
-    }
-
     window-open {
         duration-ms 150
         curve "ease-out-expo"
