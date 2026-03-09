@@ -69,6 +69,7 @@ end
 funcsave _kb_and_exit >/dev/null
 
 function _kb_and_flourish
+    commandline -f expand-abbr
     set -l cmd "$(commandline)"
     test "$(string trim $cmd)" || return
     history append -- $cmd
