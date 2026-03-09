@@ -325,8 +325,17 @@ ln -sf ~/fes/dot/gitu.toml ~/.config/gitu/config.toml
 # -------------------------git-who-------------------------
 stew install sinclairtarget/git-who
 
+# --------------------gnome-calculator---------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-calculator
+
 # ---------------------gnome-calendar----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-calendar
+
+# --------------------gnome-characters---------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-characters
+
+# -----------------------gnome-fonts-----------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-font-viewer
 
 # ----------------------gnome-clocks-----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-clocks
