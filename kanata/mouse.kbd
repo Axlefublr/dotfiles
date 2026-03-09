@@ -14,7 +14,7 @@
 	p (tap-hold-release $tt $ht (cmd niri msg action set-zoom-level -- -1) (cmd niri msg action set-zoom-level 1))
 	/ (cmd niri msg action toggle-zoom-lock)
 	v (tap-hold-release $tt $ht C-w XX)
-	; (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier-zoom))
+	; (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
 	x (cmd fish -c "show_clipboard_image -fs fill")
 
 	a (on↓ press-vkey shift)
