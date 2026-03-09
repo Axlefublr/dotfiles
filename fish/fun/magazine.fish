@@ -210,7 +210,7 @@ function bookmark_open
         notify-send -t 2000 "bookmark $argv[1] doesn't exist"
         return 1
     end
-    $BROWSER $bookmark
+    $BROWSER --no-remote --new-tab $bookmark
     ensure-browser.nu
 end
 funcsave bookmark_open >/dev/null
