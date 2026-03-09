@@ -56,6 +56,10 @@ window-rule {
     default-column-width { proportion 0.35; }
 }
 window-rule {
+    match app-id="^foot" title="^finances$"
+    default-column-width { proportion 0.25; }
+}
+window-rule {
     match app-id="^foot" title="^loago-tracker$"
     default-column-width { proportion 0.2; }
 }
@@ -79,6 +83,7 @@ window-rule {
     match app-id="^foot" title="^uboot$"
     match app-id="^foot" title="^bluetui$"
     match app-id="^foot" title="^tewi$"
+    match app-id="^foot" title="^finances$"
     open-on-workspace "three"
 }
 
