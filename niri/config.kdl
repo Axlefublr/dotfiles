@@ -168,7 +168,7 @@ layout {
 }
 
 overview {
-    zoom 0.13
+    zoom 0.16
 }
 
 recent-windows {
