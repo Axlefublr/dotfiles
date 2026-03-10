@@ -96,13 +96,13 @@ window-rule {
     match app-id="^foot" title="^voe$"
     match app-id="anki"
     match app-id="steam"
+    match app-id="^foot" title="^nushell"
+    match app-id="^foot" title="^man"
+    match app-id="^foot" title="^help"
     open-on-workspace "four"
 }
 
 window-rule {
-    match app-id="^foot" title="^nushell"
-    match app-id="^foot" title="^man"
-    match app-id="^foot" title="^help"
     match app-id="^foot" title="^pueue-interact$"
     open-on-workspace "five"
 }
