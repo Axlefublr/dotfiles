@@ -2,6 +2,7 @@ set recolor true
 set guioptions ""
 set recolor-darkcolor "#D4BE98"
 set recolor-lightcolor "#282828"
+set scroll-page-aware true
 
 map J scroll half-down
 map K scroll half-up
