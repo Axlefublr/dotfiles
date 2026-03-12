@@ -57,7 +57,7 @@ window-rule {
 }
 window-rule {
     match app-id="^foot" title="^finances$"
-    default-column-width { proportion 0.25; }
+    default-column-width { proportion 0.30; }
 }
 window-rule {
     match app-id="^foot" title="^loago-tracker$"
