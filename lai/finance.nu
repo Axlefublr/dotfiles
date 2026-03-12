@@ -1,5 +1,7 @@
 #!/usr/bin/env -S nu -n --no-std-lib --stdin
 
+use always.nu 'date now date'
+
 def 'main' [] {
 	let IN = $in
 	let the = [held inc name lasts costs mult keep] | zip { $IN | from nuon } | into record
@@ -58,4 +60,38 @@ def 'main' [] {
 			$input | each { fill -w $width } | str join ' ' | fill -w $enclosed_values_length | '[' + $in + ']'
 		}
 	}
+}
+
+def 'main calculate' [] {
+	let data = split row -r '\s+'
+	let start_time = $data | first
+	let end_time = $data | last
+	let earnings = $data | skip 1 | drop 1 | each { into int } | math sum | math round
+	let time_delta = calc -t $'($end_time) - ($start_time) to time'
+	let rate = calc -t $'($earnings) / ($time_delta)' | into float | math round
+	$'(date now date) ($time_delta) ($earnings) ($rate)'
+}
+
+def 'main parse' [--trail] {
+	$in
+	| lines
+	| parse '{date} {time} {earnings} {rate}'
+	| group-by date --to-table
+	| update cells -c [date] { str replace -r '^' '20' | str replace -a '.' '-' | into datetime }
+	| if $trail { where date > (date now | $in - 30.5day) } else {}
+	| update cells -c [items] {
+		reject date
+		# | update cells -c [time] { str replace ':' 'hr ' | str replace -r '$' 'min' | into duration }
+		| update cells -c [earnings, rate] { into int }
+	}
+	| table -e
+}
+
+def 'main merge' [] {
+	main parse
+	| update cells -c [items] {
+		let combined_time = $in | get time | math sum
+		# let combined_total =
+	}
+	| table -e
 }
