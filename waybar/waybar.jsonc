@@ -28,6 +28,7 @@
     "custom/networking",
     // "custom/cha-fan",
     "custom/gaming",
+    "custom/earnings",
     "custom/cpu-fan",
     "custom/finances",
     "disk",
@@ -88,6 +89,11 @@
   },
   "custom/finances": {
     "exec": "/home/axlefublr/fes/dot/waybar/finances.fish",
+    "format": "{}",
+    "hide-empty-text": true
+  },
+  "custom/earnings": {
+    "exec": "/home/axlefublr/fes/dot/waybar/earnings.fish",
     "format": "{}",
     "hide-empty-text": true
   },
