@@ -24,6 +24,7 @@
 	k (cmd niri msg action focus-workspace three)
 	j (cmd niri msg action focus-workspace five)
 	i (cmd close-window-alternate.nu)
+	spc (cmd niri msg action focus-workspace one)
 )
 
 (deflayermap (rw)
@@ -59,6 +60,7 @@
 	l (cmd niri msg action move-column-to-last)
 	k (cmd niri msg action move-column-to-workspace three)
 	j (cmd niri msg action move-column-to-workspace five)
+	spc (cmd niri msg action move-column-to-workspace one)
 	i (cmd close-windows-in-column.nu --alternate)
 )
 
