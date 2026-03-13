@@ -11,23 +11,23 @@ const known = {
 	# floor: 7
 	# keyboard: 30
 	# liked: 15
-	dish: 5
-	mug: 9
 	wamine: 4
-	bed: 7
+	dish: 5
 	cloth: 6
+	bed: 7
 	nose: 7
 	towels: 8
 	vacuum: 8
+	mug: 9
 	nails: 13
 	vacuat: 14
 	bottle: 15
+	brushes: 15
 	dust: 15
 	photos: 15
 	tea: 15
 	update: 15
 	upload: 15
-	utencils: 15
 	wilter: 23
 	doodads: 30
 	tails: 40
