@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+mkfifo ~/.local/share/mine/task-scheduler 2>/dev/null
 tail -f ~/.local/share/mine/task-scheduler | while read -z first
     and read -z second
     if test $first != ~
