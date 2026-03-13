@@ -72,26 +72,57 @@ def 'main calculate' [] {
 	$'(date now date) ($time_delta) ($earnings) ($rate)'
 }
 
-def 'main parse' [--trail] {
+def 'main parse' [trail: bool = false] {
 	$in
 	| lines
 	| parse '{date} {time} {earnings} {rate}'
 	| group-by date --to-table
 	| update cells -c [date] { str replace -r '^' '20' | str replace -a '.' '-' | into datetime }
-	| if $trail { where date > (date now | $in - 30.5day) } else {}
+	| if $trail { where date > (date now | $in - 30day) } else {}
 	| update cells -c [items] {
 		reject date
-		# | update cells -c [time] { str replace ':' 'hr ' | str replace -r '$' 'min' | into duration }
+		| update cells -c [time] { $in + ':0' | into duration }
 		| update cells -c [earnings, rate] { into int }
 	}
-	| table -e
+}
+
+def 'support merge' [trail: bool = false] {
+	main parse $trail
+	| update cells -c [items] {
+		let combined_time = $in | get time | math sum
+		let combined_total = $in | get earnings | math sum
+		let combined_rate = $combined_total / ($combined_time / 1hr)
+		let combined_time = $combined_time
+		let combined_total = $combined_total
+		{ time: $combined_time, earnings: $combined_total, rate: $combined_rate }
+	}
+	| flatten
+}
+
+def 'support format duration' [] {
+	let the = $in | into record
+	let hours = $the | get -o hour | default 0
+	let minutes = $the | get -o minute | default 0 | fill -w 2 -a r -c 0
+	$'($hours):($minutes)'
 }
 
 def 'main merge' [] {
-	main parse
-	| update cells -c [items] {
-		let combined_time = $in | get time | math sum
-		# let combined_total =
+	support merge
+	| each {
+		let date = $in.date | format date '%y.%m.%d'
+		let time = $in.time | support format duration
+		let earnings = $in.earnings
+		let rate = $in.rate | math round
+		$'($date) ($time) ($earnings) ($rate)'
 	}
-	| table -e
+	| to text
+}
+
+def 'main data' [] {
+	let data = open ~/ake/finances | support merge true
+	let average_hours = $data | get time | math sum | $in / 30 | support format duration
+	let total = $data | get earnings | math sum
+	let perday = $total / 30 | math round
+	let rate = $data | get rate | math avg | math round
+	$'($total)/($average_hours)/($perday)/($rate)'
 }
