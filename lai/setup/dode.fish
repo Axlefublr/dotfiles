@@ -340,8 +340,14 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-characters
 # -----------------------gnome-fonts-----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-font-viewer
 
+# ----------------------gnome-graphs-----------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout graphs
+
 # ----------------------gnome-clocks-----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-clocks
+
+# ----------------------gnome-photos-----------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout gnome-photos
 
 # --------------------------gomi---------------------------
 stew install babarot/gomi
