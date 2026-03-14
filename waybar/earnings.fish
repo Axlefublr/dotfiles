@@ -2,5 +2,5 @@
 
 while true
     finance.nu data
-    inotifytheusual ~/ake/finances
+    inotifytheusual -t 43200 ~/ake/finances
 end
