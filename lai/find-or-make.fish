@@ -17,7 +17,10 @@ na -c "
             	niri msg action close-window --id \$focused_togglie
         	}
     	} else {
-    		\$found | first | each { niri msg action focus-window --id (\$in | get id) }
+    		\$found | first | each {
+    		    niri msg action focus-window --id (\$in | get id)
+    		    niri msg action center-visible-columns
+    		}
     	}
     } else {
         niri msg action spawn -- $argv[-1]
