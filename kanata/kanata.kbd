@@ -186,16 +186,16 @@
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
+	; (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "footclient -NT bottom btm")
 	b (cmd pick-blog-post.nu)
 	h (cmd find-or-make.fish "app_id starts-with foot" "title == Tewi" "footclient -NT Tewi tewi")
 	i (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/ake helix (uclanr -j - 3)")
 	j (cmd niri msg action spawn -- footclient -N talia.nu)
-	k (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "footclient -NT bottom btm")
+	k (cmd find-or-make.fish "app_id starts-with foot" "title == receiver" "footclient -NT receiver receiver.fish")
 	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw -T mdw fish -c "finder")
 	m (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/osl/slme)
 	n (cmd man.nu nushell)
 	o (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
-	u (cmd find-or-make.fish --clean "app_id starts-with foot" "title == pueue-interact" "footclient -T pueue-interact -N pueue.nu interact")
 	y (cmd fish -c toggle_screen_record)
 	;; [[sort off]]
 )
