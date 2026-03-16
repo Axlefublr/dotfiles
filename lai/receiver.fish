@@ -12,14 +12,17 @@ tail -f ~/.local/share/mine/task-scheduler | while read -z first
         set_color -o e491b2
         echo $second
         set_color normal
+        set -l first_word (string split ' ' $second)[1]
         fish -c $second </dev/tty
         if test $status -eq 0
             set_color -o a9b665
             echo success
             set_color normal
+            notify-send "$first_word ✅"
             break
         end
         set_color -o ea6962
+        notify-send "$first_word ❌"
         confirm.rs failure '[r]estart' '[e]dit' '[k]ancel' | read -l response
         set_color normal
         if test $response = k
