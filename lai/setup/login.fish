@@ -15,4 +15,5 @@ footclient -NT abilities abilities.fish
 footclient -NT loago-tracker fish -c loago_tracker
 footclient -NT calcure calcure
 footclient -NT voe -D ~/iwm/voe yazi
+footclient -NT receiver receiver.fish
 gtk-launch anki
