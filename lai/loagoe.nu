@@ -28,10 +28,10 @@ const known = {
 	tea: 15
 	update: 15
 	upload: 15
-	wilter: 23
+	wilter: 25
 	doodads: 30
 	tails: 40
-	filter: 45
+	filter: 60
 	fsrs: 60
 	iso: 60
 	moch: 122
