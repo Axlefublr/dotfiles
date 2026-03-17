@@ -235,6 +235,9 @@ binds {
     Mod+J { focus-workspace-down; }
     Mod+K { focus-workspace-up; }
 
+    Mod+Ctrl+J { move-workspace-down; }
+    Mod+Ctrl+K { move-workspace-up; }
+
     Mod+N { focus-window-up-or-bottom; }
     Mod+O { focus-window-down-or-top; }
 
