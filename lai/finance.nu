@@ -120,9 +120,10 @@ def 'main merge' [] {
 
 def 'main data' [] {
 	let data = open ~/ake/finances | support merge true
-	let average_hours = $data | get time | math sum | $in / 30 | support format duration
-	let total = $data | get earnings | math sum
-	let perday = $total / 30 | math round
-	let rate = $data | get rate | math avg | math round
-	$'($total)/($average_hours)/($perday)/($rate)'
+	let time_total = $data | get time | math sum
+	let average_hours = $time_total | $in / 30 | support format duration
+	let earnings_total = $data | get earnings | math sum
+	let earnings_perday = $earnings_total / 30 | math round
+	let rate = $earnings_total / ($time_total / 1hr) | math round
+	$'($earnings_total)/($average_hours)/($earnings_perday)/($rate)'
 }
