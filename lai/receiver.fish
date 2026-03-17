@@ -19,12 +19,14 @@ tail -f ~/.local/share/mine/task-scheduler | while read -z first
             echo success
             set_color normal
             notify-send "$first_word ✅"
+            echo
             break
         end
         set_color -o ea6962
         notify-send "$first_word ❌"
         confirm.rs failure '[r]estart' '[e]dit' '[k]ancel' | read -l response
         set_color normal
+        echo
         if test $response = k
             break
         else if test $response = e
