@@ -1,8 +1,8 @@
-workspace "three"
-workspace "two"
-workspace "one"
-workspace "four"
-workspace "five"
+workspace "task"
+workspace "project"
+workspace "main"
+workspace "static"
+workspace "help"
 
 window-rule {
     draw-border-with-background false
@@ -56,16 +56,14 @@ window-rule {
     default-column-width { proportion 0.35; }
 }
 window-rule {
-    match app-id="^foot" title="^finances$"
-    default-column-width { proportion 0.30; }
-}
-window-rule {
     match app-id="^foot" title="^loago-tracker$"
+    match app-id="^foot" title="^finances$"
     default-column-width { proportion 0.2; }
 }
 window-rule {
-    match app-id="^foot" title="^abilities$"
     match app-id="^foot" title="^palabra$"
+    match app-id="^foot" title="^abilities$"
+    match app-id="^foot" title="^earnings$"
     default-column-width { proportion 0.15; }
 }
 window-rule {
@@ -75,37 +73,37 @@ window-rule {
 
 // ------------------------workspace------------------------
 window-rule {
-    match app-id="^foot" title="four"
     match app-id="^foot" title="^loago-tracker$"
     match app-id="^foot" title="^calcure$"
     match app-id="^foot" title="^abilities$"
-    match app-id="^foot" title="^review$"
-    match app-id="^foot" title="^uboot$"
-    match app-id="^foot" title="^bluetui$"
-    match app-id="^foot" title="^tewi$"
     match app-id="^foot" title="^finances$"
-    open-on-workspace "three"
+    match app-id="^foot" title="^earnings$"
+    match app-id="^foot" title="^voe$"
+    match app-id="anki"
+    open-on-workspace "static"
 }
 
 window-rule {
     match app-id="^foot" title="^toggleterm$"
-    open-on-workspace "one"
+    match app-id="^foot" title="^review$"
+    open-on-workspace "main"
 }
 
 window-rule {
-    match app-id="^foot" title="^voe$"
-    match app-id="anki"
     match app-id="steam"
     match app-id="^foot" title="^nushell"
     match app-id="^foot" title="^man"
     match app-id="^foot" title="^help"
-    open-on-workspace "four"
+    match app-id="^foot" title="^bluetui$"
+    match app-id="^foot" title="^tewi$"
+    open-on-workspace "help"
 }
 
 window-rule {
     match app-id="^foot" title="^pueue-interact$"
     match app-id="^foot" title="^receiver$"
-    open-on-workspace "five"
+    match app-id="^foot" title="^uboot$"
+    open-on-workspace "task"
 }
 
 // ----------------------app-specific-----------------------
