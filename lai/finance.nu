@@ -102,8 +102,10 @@ def 'support merge' [trail: bool = false] {
 def 'support format duration' [] {
 	let the = $in | into record
 	let hours = $the | get -o hour | default 0
+	let hours = $the | get -o day | default 0 | $in * 24 + $hours
 	let minutes = $the | get -o minute | default 0 | fill -w 2 -a r -c 0
-	$'($hours):($minutes)'
+	let sign = $the | get -o sign | default '' | if ($in == '+') { '' } else {}
+	$'($sign)($hours):($minutes)'
 }
 
 def 'main merge' [] {
@@ -120,10 +122,15 @@ def 'main merge' [] {
 
 def 'main data' [] {
 	let data = open ~/ake/finances | support merge true
-	let time_total = $data | get time | math sum
-	let average_hours = $time_total | $in / 30 | support format duration
 	let earnings_total = $data | get earnings | math sum
+	let time_total = $data | get time | math sum
+	let average_time = $time_total | $in / 30
 	let earnings_perday = $earnings_total / 30 | math round
 	let rate = $earnings_total / ($time_total / 1hr) | math round
-	$'($earnings_total)/($average_hours)/($earnings_perday)/($rate)'
+	print $'(ansi '#ea6962')total(ansi reset): ($earnings_total | fill -a r -w 6)'
+	print $'(ansi '#e49641')proj (ansi reset): (6 * $rate * 30 | math round | fill -a r -w 6)'
+	print $'(ansi '#d3ad5c')hours(ansi reset): ($average_time | support format duration | fill -a r -w 6)'
+	print $'(ansi '#a9b665')over (ansi reset): ($time_total - 6hr * 30 | support format duration | fill -a r -w 6)'
+	print $'(ansi '#78bf84')daily(ansi reset): ($earnings_perday | fill -a r -w 6)'
+	print $'(ansi '#7daea3')rate (ansi reset): ($rate | fill -a r -w 6)'
 }
