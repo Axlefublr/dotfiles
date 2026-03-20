@@ -5,6 +5,7 @@ end
 funcsave fish_greeting >/dev/null
 
 function fish_title
+    set -q fish_title && echo $fish_title
 end
 funcsave fish_title >/dev/null
 
