@@ -11,15 +11,16 @@ funcsave _kb_execute_via_pueue >/dev/null
 
 function _kb_schedule_commandline
     set -l cmd (commandline)
-    history append -- $cmd
-    begin
-        echo -n "$(set -xL | string replace -r '^' 'set -x ')"
-        echo -ne '\0'
-        echo -n "$cmd"
-        echo -ne '\0'
-    end >~/.local/share/mine/task-scheduler
-    commandline ''
-    commandline -f repaint
+    test "$(string trim $cmd)" || return
+    set -l new_cmd
+    if test (string sub -l 1 $cmd) != ' '
+        history append -- $cmd
+        set new_cmd ' '
+    end
+    set new_cmd $new_cmd"$cmd"\n'and { flourish ; exit }'\n'or { title task-failure ; wither }'
+    title task
+    commandline "$new_cmd"
+    commandline -f execute
 end
 funcsave _kb_schedule_commandline >/dev/null
 
