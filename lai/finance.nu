@@ -64,12 +64,10 @@ def 'main' [] {
 
 def 'main calculate' [] {
 	let data = split row -r '\s+'
-	let start_time = $data | first
-	let end_time = $data | last
-	let earnings = $data | skip 1 | drop 1 | each { into int } | math sum | math round
-	let time_delta = calc -t $'($end_time) - ($start_time) to time'
-	let rate = calc -t $'($earnings) / ($time_delta)' | into float | math round
-	$'(date now date) ($time_delta) ($earnings) ($rate)'
+	let time_worked = $data | first
+	let earnings = $data | skip 1 | each { into int } | math sum | math round
+	let rate = calc -t $'($earnings) / ($time_worked)' | into float | math round
+	$'(date now date) ($time_worked) ($earnings) ($rate)'
 }
 
 def 'main parse' [trail: bool = false] {
