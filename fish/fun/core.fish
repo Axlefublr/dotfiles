@@ -193,6 +193,11 @@ function task
 end
 funcsave task >/dev/null
 
+function title -a new_title
+    set -g fish_title $new_title
+end
+funcsave title >/dev/null
+
 function toggle_value
     argparse 'n/namespace=' -- $argv
     and test "$_flag_namespace"
