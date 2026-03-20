@@ -85,6 +85,7 @@ let all_mappings = {
 	A-left: goto_prev_tabstop
 	A-right: goto_next_tabstop
 	# -------------------------keyful--------------------------
+	S-A-F5: '@<space><left>'
 	A-tab: ':open %sh(wl-paste -n)'
 	C-tab: add_newline_above
 	F12: add_newline_below
