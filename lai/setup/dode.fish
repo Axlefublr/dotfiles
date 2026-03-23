@@ -22,7 +22,7 @@ ln -sf ~/fes/dot/alacritty.toml ~/.config/alacritty.toml
 yay -Sa --needed --disable-download-timeout anki
 # yay -Sa --needed --disable-download-timeout anki-bin
 sudo -E helix /usr/share/applications/anki.desktop
-# env HTTP_PROXY="http://127.0.0.1:8118" HTTPS_PROXY="http://127.0.0.1:8118"
+# env http_proxy="http://127.0.0.1:8118" https_proxy="http://127.0.0.1:8118"
 # you're using your privoxy here
 
 # -----------------------antimicrox------------------------
