@@ -97,13 +97,17 @@ def 'support merge' [trail: bool = false] {
 	| flatten
 }
 
-def 'support format duration' [] {
+def 'support format duration' [--ignore-minutes] {
 	let the = $in | into record
 	let hours = $the | get -o hour | default 0
 	let hours = $the | get -o day | default 0 | $in * 24 + $hours
 	let minutes = $the | get -o minute | default 0 | fill -w 2 -a r -c 0
 	let sign = $the | get -o sign | default '' | if ($in == '+') { '' } else {}
-	$'($sign)($hours):($minutes)'
+	if $ignore_minutes {
+		$'($sign)($hours)'
+	} else {
+		$'($sign)($hours):($minutes)'
+	}
 }
 
 def 'main merge' [] {
@@ -125,10 +129,16 @@ def 'main data' [] {
 	let average_time = $time_total | $in / 30
 	let earnings_perday = $earnings_total / 30 | math round
 	let rate = $earnings_total / ($time_total / 1hr) | math round
-	print $'(ansi '#ea6962')total(ansi reset): ($earnings_total | fill -a r -w 6)'
-	print $'(ansi '#e49641')proj (ansi reset): (6 * $rate * 30 | math round | fill -a r -w 6)'
-	print $'(ansi '#d3ad5c')hours(ansi reset): ($average_time | support format duration | fill -a r -w 6)'
-	print $'(ansi '#a9b665')over (ansi reset): ($time_total - 6hr * 30 | support format duration | fill -a r -w 6)'
-	print $'(ansi '#78bf84')daily(ansi reset): ($earnings_perday | fill -a r -w 6)'
-	print $'(ansi '#7daea3')rate (ansi reset): ($rate | fill -a r -w 6)'
+	print $'(ansi '#ea6962')total(ansi reset): ($earnings_total | fill -a r -w 5)'
+	print $'(ansi '#e49641')hours(ansi reset): ($time_total | support format duration --ignore-minutes  | fill -a r -w 5)'
+	print $'(ansi '#d3ad5c')avg  (ansi reset): ($average_time | support format duration | fill -a r -w 5)'
+	print $'(ansi '#a9b665')daily(ansi reset): ($earnings_perday | fill -a r -w 5)'
+	print $'(ansi '#78bf84')rate (ansi reset): ($rate | fill -a r -w 5)'
+
+	print ''
+	print $'(ansi '#ea6962')4 120(ansi reset): (4 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#e49641')5 150(ansi reset): (5 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#d3ad5c')6 180(ansi reset): (6 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#a9b665')7 210(ansi reset): (7 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#78bf84')8 240(ansi reset): (8 * $rate * 30 | math round | fill -a r -w 5)'
 }
