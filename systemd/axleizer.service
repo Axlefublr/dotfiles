@@ -5,7 +5,7 @@ Requisite=graphical-session.target
 
 [Service]
 Type=exec
-ExecStart=:env dash -c 'TELOXIDE_TOKEN="$(cat ~/fes/uviw/lvia/axleizer)" axleizer'
+ExecStart=:env dash -c 'TELOXIDE_TOKEN="$(cat ~/fes/uviw/lvia/axleizer)" http_proxy="http://127.0.0.1:8118" https_proxy="http://127.0.0.1:8118" axleizer'
 
 [Install]
 UpheldBy=graphical-session.target
