@@ -29,6 +29,7 @@ window-rule {
 }
 window-rule {
     match app-id="waybar"
+    match app-id="^foot" title="^review$"
     match app-id="anki" at-startup=true
     open-focused false
 }
