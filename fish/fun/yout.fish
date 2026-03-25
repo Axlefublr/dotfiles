@@ -7,7 +7,7 @@ function yteet_clipboard
         return 1
     end
     for link in $links
-        pueue add -g network -- "yteet $link"
+        schedule.fish -- "yteet $link"
         notify-send "start $link"
     end
 end
