@@ -8,6 +8,7 @@ end
 fn_clear
 trash-empty -f 1
 cleaning-lady.nu
+rsync ~/.config/calcure/events.csv ~/fes/jiro/calcure.csv
 # pueue.nu brush
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
