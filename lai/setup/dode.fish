@@ -94,7 +94,7 @@ rm -fr ~/.local/share/applications/bubbly.desktop
 uv tool install calcure
 mkdir -p ~/.config/calcure
 ln -sf ~/fes/dot/calcure.ini ~/.config/calcure/config.ini
-ln -sf ~/fes/jiro/calcure.csv ~/.config/calcure/events.csv
+rsync ~/fes/jiro/calcure.csv ~/.config/calcure/events.csv
 
 # -----------------------cairo-clock-----------------------
 paru -Sa --needed --disable-download-timeout cairo-clock
