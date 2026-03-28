@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=Aurupdate
 Type=Application
-Exec=fish -c "loago do update ; paru -Sua"
-Terminal=true
+Exec=footclient -NT aurupdate fish -c "loago do update ; paru -Sua"
 Icon=/home/axlefublr/iwm/twemoji/1f6cb.svg
