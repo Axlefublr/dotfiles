@@ -104,6 +104,7 @@ window-rule {
     match app-id="^foot" title="^pueue-interact$"
     match app-id="^foot" title="^receiver$"
     match app-id="^foot" title="^uboot$"
+    match app-id="^foot" title="^aurupdate$"
     open-on-workspace "task"
 }
 
