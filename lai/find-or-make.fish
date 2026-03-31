@@ -9,9 +9,12 @@ na -c "
     let found = niri msg -j windows
     | from json
     $wheres
+    | sort-by title
+    | sort-by -r { $in.title | str length }
     if (\$found | is-not-empty) {
         let focused_togglie = \$found | where is_focused == true | first | get -o id
     	if (\$focused_togglie | is-not-empty) {
+        	# if on $found length here
     		niri msg action focus-window-previous
         	if ('$_flag_clean' == '--clean') {
             	niri msg action close-window --id \$focused_togglie
