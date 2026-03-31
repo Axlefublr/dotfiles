@@ -20,6 +20,7 @@ function _kb_schedule_commandline
     set new_cmd $new_cmd"$cmd"\n'and { flourish ; exit }'\n'or { title task-failure ; wither }'
     title task
     commandline "$new_cmd"
+    niri msg action move-window-to-workspace --focus false task
     commandline -f execute
 end
 funcsave _kb_schedule_commandline >/dev/null
