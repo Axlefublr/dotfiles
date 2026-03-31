@@ -221,12 +221,12 @@ end
 funcsave trail >/dev/null
 
 function vids
-    rsync ~/iwm/sco/original.mp4 $argv[1].mp4
+    rsync (recent-modified.nu ~/iwm/sco/\*-original.mp4) $argv[1].mp4
 end
 funcsave vids >/dev/null
 
 function vidsc
-    rsync ~/iwm/sco/compressed.mp4 $argv[1].mp4
+    rsync (recent-modified.nu ~/iwm/sco/\*-compressed.mp4) $argv[1].mp4
 end
 funcsave vidsc >/dev/null
 
