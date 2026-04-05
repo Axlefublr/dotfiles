@@ -24,7 +24,7 @@ if test $response = m
 end
 test $response = j || return
 
-mkdir $dir/converted
+mkdir -p $dir/converted
 set -l flags
 for disposition in $dispositions
     set -l flag_group
