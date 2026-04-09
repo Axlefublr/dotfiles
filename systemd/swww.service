@@ -2,8 +2,6 @@
 After=graphical-session.target
 PartOf=graphical-session.target
 Requisite=graphical-session.target
-StartLimitBurst=100
-StartLimitIntervalSec=60
 
 [Service]
 ExecStart=/usr/bin/swww-daemon
