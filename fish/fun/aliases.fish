@@ -164,7 +164,7 @@ end
 funcsave wither >/dev/null
 
 function wpchange
-    swww img -t any --transition-fps 255 --transition-duration 3 $argv
+    awww img -t any --transition-fps 255 --transition-duration 3 $argv
 end
 funcsave wpchange >/dev/null
 
