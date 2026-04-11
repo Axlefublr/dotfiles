@@ -879,7 +879,7 @@ mkdir -p ~/.config/swayimg
 ln -sf ~/fes/dot/swayimg.ini ~/.config/swayimg/config
 
 # --------------------------swww---------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout swww
+sudo pacman -S --needed --noconfirm --disable-download-timeout awww
 systemctl --user enable --now ~/fes/dot/systemd/swww.service
 
 # -------------------------systemd-------------------------
