@@ -1130,7 +1130,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps python-m
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps deno # for solving js challenges
 mkdir -p ~/.config/yt-dlp
 ln -sf ~/fes/dot/yt-dlp.conf ~/.config/yt-dlp/config
-# install this extension, and download cookies for “ALL” into ~/.local/share/mine/firefox-cookies.txt
+# install this extension, and download cookies for “ALL” into ~/.local/share/mine/cookies.txt
 # https://addons.mozilla.org/en-US/firefox/addon/cookies-txt/
 
 # -------------------------zathura-------------------------
