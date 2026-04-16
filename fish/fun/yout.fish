@@ -26,7 +26,7 @@ function yt_audio
         return 1
     end
     for link in $links
-        pueue add -g network -- "ytroxy -o ~/iwm/lwkc/$picked/$(uclanr -j - 3).'%(ext)s' $link"
+        schedule.fish -- "ytroxy -o ~/iwm/lwkc/$picked/$(uclanr -j - 3).'%(ext)s' $link"
         notify-send "start $link"
     end
 end
