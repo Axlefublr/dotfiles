@@ -20,7 +20,6 @@ const known = {
 	vacuum: 8
 	mug: 9
 	nails: 13
-	vacuat: 14
 	bottle: 15
 	brushes: 15
 	dust: 15
