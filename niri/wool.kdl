@@ -31,6 +31,7 @@ window-rule {
     match app-id="waybar"
     match app-id="^foot" title="^review$"
     match app-id="anki" at-startup=true
+    match app-id="Todoist" at-startup=true
     open-focused false
 }
 window-rule {
@@ -81,6 +82,7 @@ window-rule {
     match app-id="^foot" title="^earnings$"
     match app-id="^foot" title="^voe$"
     match app-id="anki"
+    match app-id="Todoist"
     open-on-workspace "static"
 }
 
