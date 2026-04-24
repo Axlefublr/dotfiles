@@ -28,6 +28,9 @@ sudo -E helix /usr/share/applications/anki.desktop
 # -----------------------antimicrox------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout antimicrox
 
+# ------------------------appimage-------------------------
+ln -sf ~/fes/dot/appimg.cfg ~/.config/appimagelauncher.cfg
+
 # ------------------ascii-image-converter------------------
 yay -Sa --needed --disable-download-timeout ascii-image-converter-bin
 
@@ -961,6 +964,10 @@ uv tool install tewi-transmission
 
 # -------------------------tiptop--------------------------
 uv tool install tiptop
+
+# -------------------------todoist-------------------------
+# https://www.todoist.com/downloads/linux because the aur packages were infiniholding
+rsync ~/wlx/Todoist*.AppImage ~/fes/eva/appimg/Todoist.AppImage
 
 # -----------------------traceroute------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout traceroute
