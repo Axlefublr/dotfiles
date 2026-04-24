@@ -33,6 +33,7 @@ ln -sf ~/fes/dot/desktop/ ~/.local/share/applications/fesdot
 git clone https://github.com/Axlefublr/binaries --depth=1 eva
 fish_add_path ~/fes/eva
 fish_add_path ~/fes/eva/wks
+fish_add_path ~/fes/eva/appimg
 
 git clone https://github.com/Axlefublr/autocommit --depth=1 jiro
 git clone https://github.com/Axlefublr/backup --depth=1 uviw
