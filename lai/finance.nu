@@ -136,9 +136,12 @@ def 'main data' [] {
 	print $'(ansi '#78bf84')rate (ansi reset): ($rate | fill -a r -w 5)'
 
 	print ''
-	print $'(ansi '#ea6962')4 120(ansi reset): (4 * $rate * 30 | math round | fill -a r -w 5)'
-	print $'(ansi '#e49641')5 150(ansi reset): (5 * $rate * 30 | math round | fill -a r -w 5)'
-	print $'(ansi '#d3ad5c')6 180(ansi reset): (6 * $rate * 30 | math round | fill -a r -w 5)'
-	print $'(ansi '#a9b665')7 210(ansi reset): (7 * $rate * 30 | math round | fill -a r -w 5)'
-	print $'(ansi '#78bf84')8 240(ansi reset): (8 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#ea6962')1  30(ansi reset): (1 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#e49641')2  60(ansi reset): (2 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#d3ad5c')3  90(ansi reset): (3 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#a9b665')4 120(ansi reset): (4 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#78bf84')5 150(ansi reset): (5 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#7daea3')6 180(ansi reset): (6 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#b58cc6')7 210(ansi reset): (7 * $rate * 30 | math round | fill -a r -w 5)'
+	print $'(ansi '#ea6962')8 240(ansi reset): (8 * $rate * 30 | math round | fill -a r -w 5)'
 }
