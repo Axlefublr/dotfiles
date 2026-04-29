@@ -167,7 +167,6 @@
 	; (multi ralt (layer-toggle semicolon) (layer-toggle semicolon-h) (on↑ tap-vkey semicolon))
 	;; [[sort on]]
 	a (cmd find-or-make.fish "app_id starts-with foot" "title == abilities" "footclient -NT abilities abilities.fish")
-	c (cmd find-or-make.fish "app_id starts-with foot" "title == calcure" "footclient -NT calcure calcure")
 	d (cmd find-or-make.fish "app_id starts-with foot" "title == dotfiles" "footclient -NT dotfiles -D ~/fes/dot helix")
 	e (cmd find-or-make.fish --clean "app_id starts-with foot" "title == bluetui" "footclient -NT bluetui bluetui")
 	f (cmd find-or-make.fish "app_id == firefox" "gtk-launch firefox")
