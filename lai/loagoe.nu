@@ -28,7 +28,7 @@ const known = {
 	upload: 15
 	wilter: 25
 	doodads: 30
-	tails: 40
+	tails: 38
 	filter: 60
 	fsrs: 60
 	iso: 60
