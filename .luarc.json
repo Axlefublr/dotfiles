@@ -5,6 +5,7 @@
     "~/.config/yazi/plugins/types.yazi/"
   ],
   "diagnostics.globals": [
-    "mp"
+    "mp",
+        "swayimg"
   ]
 }
