@@ -879,7 +879,7 @@ xdg-mime default swayimg.desktop image/gif
 xdg-mime default swayimg.desktop image/webp
 xdg-mime default swayimg.desktop image/avif
 mkdir -p ~/.config/swayimg
-ln -sf ~/fes/dot/swayimg.ini ~/.config/swayimg/config
+ln -sf ~/fes/dot/swayimg/swayimg.lua ~/.config/swayimg/init.lua
 
 # --------------------------swww---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout awww
