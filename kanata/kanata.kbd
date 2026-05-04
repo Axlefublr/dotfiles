@@ -195,7 +195,7 @@
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
 	n (cmd man.nu nushell)
 	o (cmd find-or-make.fish "app_id like '[Tt]odoist'" "Todoist.AppImage")
-	p (cmd niri msg action spawn -- swayimg -go mtime /home/axlefublr/iwm/sco)
+	p (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/sco)
 	u (cmd find-or-make.fish "app_id starts-with foot" "title == receiver" "footclient -NT receiver receiver.fish")
 	y (cmd fish -c toggle_screen_record)
 	;; [[sort off]]
