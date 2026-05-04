@@ -54,7 +54,7 @@ end
 funcsave ffont >/dev/null
 
 function float_clipboard_image
-    wl-paste -t image/png | swayimg -a swayfloat -
+    wl-paste -t image/png | swayimg -v --class swayfloat -e 'FLOATING = true' -
 end
 funcsave float_clipboard_image >/dev/null
 
@@ -134,7 +134,7 @@ alias --save set_mic_volume 'wpctl set-volume @DEFAULT_AUDIO_SOURCE@' >/dev/null
 alias --save set_volume 'wpctl set-volume @DEFAULT_AUDIO_SINK@' >/dev/null
 
 function show_clipboard_image
-    wl-paste -t image/png | swayimg -f $argv -
+    wl-paste -t image/png | swayimg -F $argv -
 end
 funcsave show_clipboard_image >/dev/null
 
