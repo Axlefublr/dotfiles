@@ -129,9 +129,12 @@ let all_mappings = {
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
 	F1: [
-		':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
-		':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
+		':noop %sh(footclient -ND %(working_directory) -T reopen helix %(full_path):%(cursor_line):%(cursor_column))'
 	]
+	# F1: [
+	# 	':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
+	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
+	# ]
  }
 
 let normal_mappings = {
