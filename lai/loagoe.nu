@@ -27,7 +27,6 @@ const known = {
 	update: 15
 	upload: 15
 	wilter: 25
-	doodads: 30
 	tails: 38
 	filter: 60
 	fsrs: 60
