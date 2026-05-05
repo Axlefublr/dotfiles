@@ -58,12 +58,13 @@ swayimg.viewer.on_key('h', function() swayimg.viewer.switch_image('prev') end)
 swayimg.viewer.on_key('l', function() swayimg.viewer.switch_image('next') end)
 swayimg.viewer.on_key('n', function() swayimg.viewer.set_animation() end)
 swayimg.viewer.on_key('r', function() swayimg.viewer.switch_image('random') end)
+swayimg.viewer.on_key('s', function() swayimg.viewer.reset() end)
 swayimg.viewer.on_key('t', function() swayimg.viewer.set_fix_scale('optimal') end)
 -- [[sort off]]
 
 swayimg.on_window_resize(function()
 	if swayimg.get_mode() == 'viewer' then
-		swayimg.viewer.set_fix_scale('fit')
+		swayimg.viewer.reset()
 	end
 end)
 
