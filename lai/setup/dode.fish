@@ -1137,8 +1137,10 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps python-m
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps deno # for solving js challenges
 mkdir -p ~/.config/yt-dlp
 ln -sf ~/fes/dot/yt-dlp.conf ~/.config/yt-dlp/config
-# install this extension, and download cookies for “ALL” into ~/.local/share/mine/cookies.txt
-# https://addons.mozilla.org/en-US/firefox/addon/cookies-txt/
+# follow this guide https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies
+# use this extension https://addons.mozilla.org/en-US/firefox/addon/cookies-txt/
+# to download cookies for current site; one for the default youtube account into ~/.local/share/mine/cookies.txt
+# and the other for the other youtube account, into ~/.local/share/mine/cookies.purple.txt
 
 # -------------------------zathura-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout zathura
