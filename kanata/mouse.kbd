@@ -15,7 +15,7 @@
 	/ (cmd niri msg action toggle-zoom-lock)
 	v (tap-hold-release $tt $ht C-w XX)
 	; (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
-	x (cmd fish -c "show_clipboard_image -fs fill")
+	x (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.set_default_scale('fill')""#)
 
 	a (on↓ press-vkey shift)
 	q (on↓ press-vkey meta)
