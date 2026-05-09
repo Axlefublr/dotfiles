@@ -196,11 +196,11 @@ recent-windows {
     }
 }
 
-// zoom {
-//     movement-mode "centered"
-//     increment-type "exponential"
-//     max-zoom 10000.0
-// }
+zoom {
+    movement-mode "centered"
+    increment-type "exponential"
+    max-zoom 10000.0
+}
 
 binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "fish" "-c" "set_volume 0.02-"; }
@@ -297,14 +297,6 @@ animations {
     recent-windows-close {
         spring damping-ratio=1.0 stiffness=850 epsilon=0.0001
     }
-
-    // zoom-level-change {
-    //     off
-    // }
-
-    // zoom-focal-pan {
-    //     off
-    // }
 
     window-open {
         duration-ms 150
