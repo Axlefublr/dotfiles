@@ -15,8 +15,9 @@ footclient -NT abilities abilities.fish
 footclient -NT loago-tracker fish -c loago_tracker
 footclient -NT calcure calcure
 footclient -NT receiver receiver.fish
-gtk-launch anki
-niri msg action spawn -- Todoist.AppImage
 playerctld daemon
-sleep 7
+gtk-launch anki
+sleep 2
+niri msg action spawn -- Todoist.AppImage
+sleep 10
 footclient -NT voe -D ~/iwm/voe yazi
