@@ -333,6 +333,12 @@ animations {
     }
 }
 
+blur {
+    passes 3
+    offset 3
+    saturation 1.0
+}
+
 cursor {
     xcursor-theme "Lighted-Pixel-Butter"
     hide-when-typing
