@@ -7,9 +7,29 @@ workspace "help"
 window-rule {
     draw-border-with-background false
     clip-to-geometry true
-    opacity 0.98
     open-floating false
     open-maximized false
+    // popups {
+    //     background-effect {
+    //         blur true
+    //     }
+    // }
+}
+layer-rule {
+    background-effect {
+        blur true
+    }
+}
+window-rule {
+    exclude app-id="^foot"
+    background-effect {
+        blur true
+    }
+}
+window-rule {
+    exclude app-id="^swayimg$"
+    exclude app-id="^foot"
+    opacity 0.96
 }
 window-rule {
     match is-floating=true
@@ -34,11 +54,6 @@ window-rule {
     match app-id="Todoist" at-startup=true
     match app-id="todoist" at-startup=true
     open-focused false
-}
-window-rule {
-    match app-id="^swayimg$"
-    match app-id="^foot"
-    opacity 1.0
 }
 
 // -------------------------column--------------------------
@@ -144,4 +159,12 @@ window-rule {
 layer-rule {
     match namespace="^awww-daemon$"
     place-within-backdrop true
+}
+layer-rule {
+    match namespace="^launcher$"
+    geometry-corner-radius 20
+}
+layer-rule {
+    match namespace="^notifications$"
+    geometry-corner-radius 10
 }
