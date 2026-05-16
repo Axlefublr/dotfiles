@@ -84,7 +84,7 @@
 'ui.statusline.select' = { fg = 'mint', modifiers = [ 'bold' ] }
 'ui.text' = 'white'
 'ui.text.directory' = 'purple'
-'ui.text.focus' = { bg = 'orange_supporting' }
+'ui.text.focus' = { modifiers = [ 'reversed' ] }
 'ui.text.symlink' = 'mint'
 'ui.virtual.indent-guide' = { fg = 'linenr' }
 'ui.virtual.inlay-hint' = { fg = 'grey', modifiers = [ 'italic' ] }
