@@ -205,8 +205,8 @@
 	b (cmd create-blog-post.fish)
 	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/ake helix .)
 	j (cmd niri msg action spawn -- fish -c frizz_picker)
-	m (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/osl/slme yazi)
-	p (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/sco yazi)
+	p (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/srd)
+	m (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/nak yazi)
 )
 
 (deflayermap (caps)
