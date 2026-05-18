@@ -885,6 +885,10 @@ ln -sf ~/fes/dot/swayimg/swayimg.lua ~/.config/swayimg/init.lua
 sudo pacman -S --needed --noconfirm --disable-download-timeout awww
 systemctl --user enable --now ~/fes/dot/systemd/swww.service
 
+# ------------------------syncthing------------------------
+sudo pacman -S --needed --noconfirm --disable-download-timeout syncthing
+systemctl --user enable --now syncthing.service
+
 # -------------------------systemd-------------------------
 mkdir -p ~/.config/systemd/user
 
