@@ -34,7 +34,7 @@ function ffmpeg_cut_video
         end
         set output "$output.mp4"
 
-        pueue add -g cpu -- ffmpeg -y -i "$input" $from $to \
+        schedule.fish -- ffmpeg -y -i "$input" $from $to \
             -vf "'pad=ceil(iw/2)*2:ceil(ih/2)*2'" \
             $fake_audio \
             -c:v libx264 \
@@ -74,7 +74,7 @@ function ffmpeg_convert_to_mp3
         end
         set output "$output.mp3"
 
-        pueue add -g cpu -- ffmpeg -y -i "$input" \
+        schedule.fish -- ffmpeg -y -i "$input" \
             $from $to \
             -c:a libmp3lame -q:a 2 \
             -vn \
