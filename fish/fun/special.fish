@@ -127,7 +127,7 @@ funcsave niri_toggle_tab_correctly >/dev/null
 
 function path_clear_suffix
     for path in $argv
-        echo (path dirname $path)/(path basename -E $path | string match -gr '(.*?)!' | string trim -rc +=)(path extension $path)
+        echo (path dirname $path)/(path basename -E $path | string trim -rc !+=)(path extension $path)
     end
 end
 funcsave path_clear_suffix >/dev/null
