@@ -11,6 +11,7 @@ const known = {
 	# floor: 7
 	# keyboard: 30
 	# liked: 15
+	wash: 3
 	dish: 5
 	cloth: 6
 	bed: 7
@@ -39,15 +40,7 @@ const known = {
 def main [] {}
 
 def 'main due' [] {
-	let the = produce
-	| enumerate
-	| each {
-		let index = $in.index
-		let hints = 'jfkdlsaeiwoxcmghruvnzbqpty' | split chars
-		let indicator = $hints | get -o $index | default .
-		{ indicator: $indicator, name: $in.item.name, days: $in.item.days }
-	}
-	$the
+	produce
 	| upsert separator $'(ansi '#e49641')(ansi bo)—(ansi reset)'
 	| move separator --after name
 	| update cells -c [indicator] { $'(ansi '#e49641')(ansi bo)($in)(ansi reset)' }
@@ -58,14 +51,8 @@ def 'main due' [] {
 	| lines
 	| skip 1
 	| to text
+	| tee { ansi strip | save -f ~/iwm/nak/loago-output.txt }
 	| print
-	let input = input --reedline
-	if ($input | is-empty) { return }
-	let todos = $input | split chars
-	$the
-	| where indicator in $todos
-	| get name
-	| try { loago do ...$in }
 }
 
 def 'main pick' [] {
@@ -91,17 +78,6 @@ def 'main pick' [] {
 			loago do ($thingy | str trim)
 		}
 	} | ignore
-}
-
-def 'main due pick' [] {
-	produce
-	| get name
-	| to text
-	| fuzzel -d
-	| each { |thingy|
-	  loago do ($thingy | str trim)
-	}
-	| ignore
 }
 
 def produce [] {
