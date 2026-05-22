@@ -11,6 +11,11 @@ function ansi_move_cursor_up -a lines
 end
 funcsave ansi_move_cursor_up >/dev/null
 
+function ansi_hide_cursor
+    echo -e '\x1b[?25l'
+end
+funcsave ansi_hide_cursor >/dev/null
+
 alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness | head -n 1' >/dev/null
 
 function clipboard_index -a index
