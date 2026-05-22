@@ -99,8 +99,12 @@ funcsave is_focused_xwayland >/dev/null
 
 function loago_tracker
     while true
-        clear
+        loago do (cat ~/iwm/nak/loago-input.txt)
+        truncate -s 0 ~/iwm/nak/loago-input.txt
         loagoe.nu due
+        ansi_hide_cursor
+        inotifytheusual -t 3600 ~/iwm/nak/loago-input.txt ~/.local/share/loago/loago.json ~/fes/dot/lai/loagoe.nu
+        clear
     end
 end
 funcsave loago_tracker >/dev/null
@@ -198,21 +202,3 @@ function toggle_screen_record
     end
 end
 funcsave toggle_screen_record >/dev/null
-
-function things
-    begin
-        set -l calcure_lacks (niri msg -j windows | na --stdin -c 'from json | where app_id like ^foot | where title like calcure | is-empty')
-        if $calcure_lacks
-            footclient -NT calcure calcure
-        end
-        set -l loago_tracker_lacks (niri msg -j windows | na --stdin -c 'from json | where app_id like ^foot | where title like loago-tracker | is-empty')
-        if $loago_tracker_lacks
-            footclient -NT loago-tracker fish -c loago_tracker
-        end
-        set -l review_lacks (niri msg -j windows | na --stdin -c 'from json | where app_id like ^foot | where title like review | is-empty')
-        if $review_lacks
-            footclient -NT review helix -w ~/.local/share/magazine ~/.local/share/magazine/semicolon.md
-        end
-    end 2>/dev/null
-end
-funcsave things >/dev/null
