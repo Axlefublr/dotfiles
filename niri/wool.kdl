@@ -74,7 +74,6 @@ window-rule {
     default-column-width { proportion 0.35; }
 }
 window-rule {
-    match app-id="^foot" title="^loago-tracker$"
     match app-id="^foot" title="^finances$"
     default-column-width { proportion 0.2; }
 }
@@ -82,6 +81,7 @@ window-rule {
     match app-id="^foot" title="^palabra$"
     match app-id="^foot" title="^abilities$"
     match app-id="^foot" title="^earnings$"
+    match app-id="^foot" title="^loago-tracker$"
     default-column-width { proportion 0.15; }
 }
 window-rule {
