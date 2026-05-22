@@ -22,8 +22,7 @@ and git commit -m leftovers
 truncate -s 0 ~/.local/share/magazine/d
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
-yeared_parse.fish
-indeed.rs -u ~/.local/share/magazine/semicolon -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
+indeed.rs -u ~/iwm/nak/semicolon.txt -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 
 cd ~
 
@@ -44,5 +43,4 @@ for dir in (cat ~/.local/share/magazine/P)
     git push
 end
 
-things
 foot -T uboot uboot.fish
