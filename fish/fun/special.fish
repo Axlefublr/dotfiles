@@ -99,11 +99,11 @@ funcsave is_focused_xwayland >/dev/null
 
 function loago_tracker
     while true
-        loago do (cat ~/iwm/nak/loago-input.txt)
-        truncate -s 0 ~/iwm/nak/loago-input.txt
+        loago do (cat ~/iwm/nak/loago-input.txt ~/iwm/kss/loago-input.txt)
+        truncate -s 0 ~/iwm/nak/loago-input.txt ~/iwm/kss/loago-input.txt
         loagoe.nu due
         ansi_hide_cursor
-        inotifytheusual -t 3600 ~/iwm/nak/loago-input.txt ~/.local/share/loago/loago.json ~/fes/dot/lai/loagoe.nu
+        inotifytheusual -t 3600 ~/iwm/nak/loago-input.txt ~/iwm/kss/loago-input.txt ~/.local/share/loago/loago.json ~/fes/dot/lai/loagoe.nu
         clear
     end
 end
