@@ -50,7 +50,7 @@ def 'main due' [] {
 	| lines
 	| skip 1
 	| to text
-	| tee { ansi strip | tee { save -f ~/iwm/kss/loago-output.txt } | save -f ~/iwm/nak/loago-output.txt }
+	| tee { ansi strip | tee { save -f ~/iwm/kss/loago-output.txt } | save -f ~/iwm/nak/↓loago.txt }
 	| print
 }
 
