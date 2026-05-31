@@ -59,7 +59,7 @@ window-rule {
 // -------------------------column--------------------------
 window-rule {
     match app-id="^foot" title="^voe$"
-    default-column-width { proportion 0.65; }
+    default-column-width { proportion 0.85; }
 }
 window-rule {
     match app-id="^foot" title="^anki-card$"
