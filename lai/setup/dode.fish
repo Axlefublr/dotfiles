@@ -798,6 +798,11 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout sd
 # --------------------------sddm---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout sddm
 sudo systemctl enable --now sddm
+sudo mkdir -p /etc/sddm.conf.d
+sudo -E helix /etc/sddm.conf.d/autologin.conf
+# [Autologin]
+# User=axlefublr
+# Session=niri
 
 # --------------------------serpl--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout serpl
