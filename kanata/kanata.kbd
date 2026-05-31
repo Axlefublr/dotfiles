@@ -189,7 +189,7 @@
 	b (cmd pick-blog-post.nu)
 	h (cmd find-or-make.fish "app_id starts-with foot" "title == Tewi" "footclient -NT Tewi tewi")
 	i (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/ake helix (uclanr -j - 3)")
-	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "footclient -NT finances helix ~/ake/finances")
+	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "footclient -NT finances ov --status-line=false --follow-name ~/.local/share/magazine/J")
 	k (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "footclient -NT bottom btm")
 	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw -T mdw fish -c "finder")
 	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
