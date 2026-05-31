@@ -64,8 +64,8 @@ def 'main' [] {
 
 def 'main calculate' [] {
 	let data = split row -r '\s+'
-	let time_worked = $data | first
-	let earnings = $data | skip 1 | each { into int } | math sum | math round
+	let earnings = $data | drop 1 | each { into int } | math sum | math round
+	let time_worked = $data | last
 	let rate = calc -t $'($earnings) / ($time_worked)' | into float | math round
 	$'(date now date) ($time_worked) ($earnings) ($rate)'
 }
@@ -123,7 +123,10 @@ def 'main merge' [] {
 }
 
 def 'main data' [] {
-	let data = open ~/ake/finances | support merge true
+	main desires intake
+	main data intake
+
+	let data = open ~/.local/share/magazine/J | support merge true
 	let earnings_total = $data | get earnings | math sum
 	let time_total = $data | get time | math sum
 	let average_time = $time_total | $in / 30
@@ -144,4 +147,46 @@ def 'main data' [] {
 	print $'(ansi '#7daea3')6 180(ansi reset): (6 * $rate * 30 | math round | fill -a r -w 5)'
 	print $'(ansi '#b58cc6')7 210(ansi reset): (7 * $rate * 30 | math round | fill -a r -w 5)'
 	print $'(ansi '#ea6962')8 240(ansi reset): (8 * $rate * 30 | math round | fill -a r -w 5)'
+
+	print ''
+	main desires
+}
+
+def 'main data intake' [] {
+	open ~/iwm/nak/↑earnings.txt
+	| if ($in | is-empty) { return } else {}
+	| lines
+	| each { main calculate }
+	| to text
+	| save -a ~/.local/share/magazine/J
+	truncate -s 0 ~/iwm/nak/↑earnings.txt
+}
+
+def 'main desires' [] {
+	open ~/.local/share/magazine/V
+	| lines
+	| parse '{date} {spending}'
+	| update cells -c [date] {
+		into datetime -f '%y.%m.%d'
+	}
+	| update cells -c [spending] { into int }
+	| where date > (date now | $in - 30day)
+	| get spending
+	| math sum
+}
+
+def 'main desires intake' [] {
+	open ~/iwm/nak/↑desire.txt | lines | into int | try {
+		let total = math sum
+		let date = date now date
+		$"($date) ($total)\n" | save -a ~/.local/share/magazine/V
+		truncate -s 0 ~/iwm/nak/↑desire.txt
+	}
+}
+
+def 'main data-wrapper' [] {
+	# `print` doesn't output into the pipe, but to stdout; so we can never catch the colored output to also put it elsewhere
+	# *unless* we call this script as if it's external — then we can
+	# avoiding `print` in the first place, in the `data` function, would be so annoying that it wouldn't be worth it
+	finance.nu data | tee { ansi strip | save -f ~/iwm/nak/↓finances.txt }
 }
