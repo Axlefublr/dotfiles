@@ -14,7 +14,6 @@ footclient -NT finances ov --status-line=false --follow-name ~/.local/share/maga
 footclient -NT earnings earnings.fish
 footclient -NT abilities abilities.fish
 footclient -NT loago-tracker fish -c loago_tracker
-footclient -NT calcure calcure
 footclient -NT receiver receiver.fish
 playerctld daemon
 gtk-launch anki
