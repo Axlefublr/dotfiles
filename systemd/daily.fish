@@ -8,7 +8,6 @@ end
 fn_clear
 trash-empty -f 1
 cleaning-lady.nu
-rsync ~/.config/calcure/events.csv ~/fes/jiro/calcure.csv
 # pueue.nu brush
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
@@ -22,7 +21,7 @@ and git commit -m leftovers
 truncate -s 0 ~/.local/share/magazine/d
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
-indeed.rs -u ~/iwm/nak/semicolon.txt -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
+indeed.rs -u ~/iwm/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 
 cd ~
 
