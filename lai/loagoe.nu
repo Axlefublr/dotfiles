@@ -12,22 +12,21 @@ const known = {
 	# keyboard: 30
 	# liked: 15
 	dish: 5
-	cloth: 6
-	bed: 7
+	cloth: 8
+	bed: 10
 	nose: 7
 	towels: 8
 	vacuum: 8
-	mug: 9
+	mug: 10
 	nails: 13
 	bottle: 15
-	brushes: 15
+	brushes: 30
 	dust: 15
-	photos: 15
+	photos: 30
 	tea: 15
-	update: 15
-	upload: 15
-	wilter: 25
-	tails: 38
+	update: 20
+	wilter: 30
+	tails: 30
 	filter: 60
 	fsrs: 60
 	iso: 60
