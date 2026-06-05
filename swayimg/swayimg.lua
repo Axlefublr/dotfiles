@@ -53,6 +53,10 @@ for _, section in ipairs({ 'gallery', 'viewer' }) do
 end
 
 -- [[sort on]]
+swayimg.gallery.on_key('h', function() swayimg.gallery.switch_image('left') end)
+swayimg.gallery.on_key('j', function() swayimg.gallery.switch_image('down') end)
+swayimg.gallery.on_key('k', function() swayimg.gallery.switch_image('up') end)
+swayimg.gallery.on_key('l', function() swayimg.gallery.switch_image('right') end)
 swayimg.viewer.on_key('a', function() swayimg.viewer.set_fix_scale('fit') end)
 swayimg.viewer.on_key('f', function() swayimg.viewer.set_fix_scale('fill') end)
 swayimg.viewer.on_key('h', function() swayimg.viewer.switch_image('prev') end)
