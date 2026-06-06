@@ -35,11 +35,11 @@ function ffmpeg_cut_video
         set output "$output.mp4"
 
         schedule.fish -- ffmpeg -y -i "$input" $from $to \
-            -vf "'pad=ceil(iw/2)*2:ceil(ih/2)*2'" \
+            -vf "'fps=60,scale=1920:1080:force_original_aspect_ratio=decrease,pad=ceil(iw/2)*2:ceil(ih/2)*2'" \
             $fake_audio \
             -c:v libx264 \
             -preset medium \
-            -crf 18 \
+            -crf 20 \
             -map_metadata -1 \
             -movflags +faststart \
             -c:a aac \
