@@ -315,6 +315,7 @@ let normal_mappings = {
 	A-end: [goto_file_end search_prev]
 	# [[sort on]]
 	A-ret: ':e %(selection)'
+	F11: ':noop %sh(°xdg-open %{selection} ; ensure-browser.nu)'
 	S-tab: "@<space>'<up><ret>"
 	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	esc: [save_selection keep_primary_selection normal_mode]
