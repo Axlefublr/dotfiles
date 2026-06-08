@@ -2,7 +2,7 @@
 
 function ffmpeg_cut_video
     echo 'reencode video with x264, audio with aac.'\n'optionally, cut out some portion of the video.' >&2
-    for input in $argv
+    for input in $argv[-1..1]
         if not test -f "$input"
             echo "not a real file, skipping ($input)" >&2
             continue
@@ -16,16 +16,15 @@ function ffmpeg_cut_video
             set -f $fake_audio -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -shortest
         end
 
-        confirm.rs 'cut from?' '[j]es' '[k]o' | read -l response
-        if test "$response" = j
+        confirm.rs 'cut?' '[f]rom' '[t]o' 'b[o]th' 'n[e]ither' | read -l response
+        if test "$response" = f -o "$response" = o
             set -l from (cat /tmp/mine/mpv-loop-a)
             set output "$output$(math -s 0 -m round $from)"
             set -f from -ss "$from"s
         else
             set -e from
         end
-        confirm.rs 'cut to?' '[j]es' '[k]o' | read -l response
-        if test "$response" = j
+        if test "$response" = t -o "$response" = o
             set -l to (cat /tmp/mine/mpv-loop-b)
             set output "$output-$(math -s 0 -m round $to)"
             set -f to -to "$to"s
@@ -51,21 +50,21 @@ end
 funcsave ffmpeg_cut_video >/dev/null
 
 function ffmpeg_convert_to_mp3
-    for input in $argv
+    for input in $argv[-1..1]
         not test -f "$input" && continue
+        echo "processing $input" >&2
         set -l input_trimmed (path_clear_suffix $input)
         set -l output (trail $input_trimmed █! | path change-extension '')
 
-        confirm.rs 'cut from?' '[j]es' '[k]o' | read -l response
-        if test "$response" = j
+        confirm.rs 'cut?' '[f]rom' '[t]o' 'b[o]th' 'n[e]ither' | read -l response
+        if test "$response" = f -o "$response" = o
             set -l from (cat /tmp/mine/mpv-loop-a)
             set output "$output$(math -s 0 -m round $from)"
             set -f from -ss "$from"s
         else
             set -e from
         end
-        confirm.rs 'cut to?' '[j]es' '[k]o' | read -l response
-        if test "$response" = j
+        if test "$response" = t -o "$response" = o
             set -l to (cat /tmp/mine/mpv-loop-b)
             set output "$output-$(math -s 0 -m round $to)"
             set -f to -to "$to"s
