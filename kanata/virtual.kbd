@@ -14,9 +14,9 @@
 	o (multi (layer↑ o) (layer↑ jo) (layer↑ io) (layer↑ ijo))
 	r (multi (layer↑ r) (layer↑ er) (layer↑ rw) (layer↑ erw))
 	u (multi (layer↑ u) (layer↑ iu))
-	v (multi (layer↑ v) (layer↑ cv))
+	v (multi (layer↑ v) (layer↑ cv) (layer↑ vx))
 	w (multi (layer↑ w) (layer↑ fw) (layer↑ ew) (layer↑ efw) (layer↑ rw) (layer↑ erw))
-	x (multi (layer↑ x) (layer↑ cx))
+	x (multi (layer↑ x) (layer↑ cx) (layer↑ vx))
 	caps (multi (layer↑ caps) (layer↑ caps-space))
 	quote (multi (switch
 			((layer bookmark)) (one-shot $ot (layer-toggle bookmark)) break
