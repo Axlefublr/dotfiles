@@ -52,6 +52,20 @@ $env.config.keybindings ++= [
 		mode: [emacs]
 		event: { send: OpenEditor }
 	}
+	{
+		name: line_below
+		modifier: control
+		keycode: char_o
+		mode: [emacs]
+		event: { edit: InsertNewlineBelow }
+	}
+	{
+		name: line_above
+		modifier: control
+		keycode: char_i
+		mode: [emacs]
+		event: { edit: InsertNewlineAbove }
+	}
 ]
 $env.config.menus ++= [
 {
