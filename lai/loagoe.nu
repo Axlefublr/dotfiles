@@ -35,7 +35,9 @@ const known = {
 	toothbrush: 122
 }
 
-def main [] {}
+def main [] {
+	produce
+}
 
 def 'main due' [] {
 	produce
@@ -80,6 +82,7 @@ def 'main pick' [] {
 
 def produce [] {
 	loago list
+	| lines
 	| parse '{name} — {days}'
 	| str trim name
 	| where name not-in $ignored
