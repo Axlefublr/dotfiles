@@ -8,7 +8,7 @@ let talias = ls ~/fes/talia/
 let filled = $talias
 | each { |talia|
 	let plans_path = $"~/fes/talia/($talia)/plans.md" | path expand
-	let contents = try { open $plans_path }
+	let contents = try { open -r $plans_path }
 	if ($contents | default '' | is-empty) {
 		$'(ansi "#e49641")(ansi bo)($talia)(ansi reset)' | print
 	} else {
