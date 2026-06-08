@@ -73,14 +73,15 @@ git:
     showGraph: never
     showWholeGraph: false
   truncateCopiedCommitHashesTo: 12
-  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate
+    --date=relative --pretty=medium --oneline {{branchName}} --"
 update:
   method: never
 os:
   editPreset: helix
 keybinding:
   universal:
-    quit: "<insert>"
+    quit: "<alt+space>"
     quit-alt1: <disabled>
     return: <esc>
     quitWithoutChangingDirectory: <disabled>
@@ -248,7 +249,7 @@ keybinding:
   commitMessage:
     commitMenu: <c-o>
 customCommands:
-  - key: <F2>
+  - key: <f2>
     context: global
     command: "footclient -N ; niri msg action consume-or-expel-window-left"
     description: "Open terminal here"
@@ -272,7 +273,9 @@ customCommands:
 
   - key: E
     context: files
-    command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
+    command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path
+      extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension
+      {{.SelectedPath}})'"
     description: "Edit file at HEAD"
     output: terminal
   - key: "<c-a>"
@@ -288,26 +291,33 @@ customCommands:
 
   - key: "e"
     context: "commitFiles"
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
+    command: "fish -c 'git show \"{{.SelectedCommit.Hash}}:{{.SelectedPath}}\"
+      >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix
+      /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
     description: "Edit file at this point in history"
     output: terminal
   - key: "E"
     context: "commitFiles"
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
+    command: "fish -c 'git show \"{{.SelectedCommit.Hash}}^:{{.SelectedPath}}\"
+      >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix
+      /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
     description: "Edit file at the commit before this point in history"
     output: terminal
   - key: "q"
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} >~/.local/share/flipboard'"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}}
+      >~/.local/share/flipboard'"
     description: "Copy link to file at this commit"
   - key: "Q"
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} >~/.local/share/flipboard'"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}}
+      >~/.local/share/flipboard'"
     description: "Copy link to file at *previous* commit"
 
   - key: "o"
     context: "commits"
-    command: "git push -f {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
+    command: "git push -f {{.SelectedRemote.Name}}
+      {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
     loadingText: "Pushing commit"
     description: "Push a specific commit (and any preceding)"
     output: log
@@ -350,7 +360,8 @@ customCommands:
 
   - key: E
     context: "commits, subCommits"
-    command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
+    command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}}
+      >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
     description: "Edit commit diff in editor"
     output: terminal
   - key: q
@@ -372,11 +383,11 @@ customCommands:
     command: "gh pr create"
     description: "Create pull request"
     output: terminal
-  - key: "<C-n>"
+  - key: "<c-n>"
     context: localBranches
     command: "gh.nu pull fix"
     description: "Append pr number to current branch name"
-  - key: "<C-o>"
+  - key: "<c-o>"
     context: localBranches
     command: "gh.nu pull open {{.SelectedLocalBranch.Name}}"
     description: "Open pr of this branch in browser"
@@ -392,7 +403,8 @@ customCommands:
     output: terminal
   - key: "N"
     context: "localBranches"
-    command: "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short refs/remotes/upstream/HEAD) ; git branch -u origin"
+    command: "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short
+      refs/remotes/upstream/HEAD) ; git branch -u origin"
     prompts:
       - type: "input"
         title: "Branch name"
