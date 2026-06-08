@@ -1,9 +1,11 @@
 (deflayermap (x)
 	c (multi (layer-toggle c) (layer-toggle cx) (on↑ tap-vkey c))
+	v (multi (layer-toggle v) (layer-toggle vx) (on↑ tap-vkey v))
 	;; [[sort on]]
 	, S-1
 	. (cmd wtype …)
 	/ bksl
+	; (cmd fish -c "wtype (date +%y.%m.%d)")
 	h S-4
 	i S-8
 	j S-eql
@@ -24,6 +26,7 @@
 	, S-7
 	. (cmd wtype °)
 	/ S-bksl
+	; (cmd fish -c "wtype (uclanr)")
 	h (cmd wtype €)
 	i S-6
 	j grv
@@ -54,6 +57,7 @@
 
 (deflayermap (v)
 	c (multi (layer-toggle c) (layer-toggle cv) (on↑ tap-vkey c))
+	x (multi (layer-toggle x) (layer-toggle vx) (on↑ tap-vkey x))
 	;; [[sort on]]
 	' (cmd wtype ■)
 	, (cmd wtype ❗)
@@ -76,6 +80,10 @@
 (deflayermap (cv)
 	, (cmd wtype ‼️)
 	/ (cmd wtype ⁉️)
+)
+
+(deflayermap (vx)
+	; (cmd fish -c "wtype (date +%Y-%m-%d)")
 )
 
 (deflayermap (u)
