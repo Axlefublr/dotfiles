@@ -166,7 +166,6 @@
 (deflayermap (h)
 	; (multi ralt (layer-toggle semicolon) (layer-toggle semicolon-h) (on↑ tap-vkey semicolon))
 	;; [[sort on]]
-	a (cmd find-or-make.fish "app_id starts-with foot" "title == abilities" "footclient -NT abilities abilities.fish")
 	d (cmd find-or-make.fish "app_id starts-with foot" "title == dotfiles" "footclient -NT dotfiles -D ~/fes/dot helix")
 	e (cmd find-or-make.fish --clean "app_id starts-with foot" "title == bluetui" "footclient -NT bluetui bluetui")
 	f (cmd find-or-make.fish "app_id == firefox" "gtk-launch firefox")
@@ -179,6 +178,7 @@
 )
 
 (deflayermap (semicolon-h)
+	r (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "footclient -NT bottom btm")
 )
 
 (deflayermap (g)
@@ -186,27 +186,29 @@
 	;; [[sort on]]
 	, (cmd man.nu help)
 	. (cmd man.nu man)
+	/ (cmd man.nu nushell)
 	b (cmd pick-blog-post.nu)
 	h (cmd find-or-make.fish "app_id starts-with foot" "title == Tewi" "footclient -NT Tewi tewi")
-	i (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/ake helix (uclanr -j - 3)")
+	i (cmd find-or-make.fish "app_id == swayimg-srd" "swayimg --class swayimg-srd -g /home/axlefublr/iwm/srd")
 	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "footclient -NT finances ov --status-line=false --follow-name ~/.local/share/magazine/J")
-	k (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "footclient -NT bottom btm")
+	k (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/ake helix (uclanr -j - 3)")
 	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw -T mdw fish -c "finder")
-	m (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/osl/slme)
-	n (cmd man.nu nushell)
+	m (cmd find-or-make.fish "app_id == swayimg-slme" "swayimg --class swayimg-slme -g /home/axlefublr/iwm/osl/slme)")
+	n (cmd find-or-make.fish "app_id starts-with foot" "title == 'yazi ~/iwm/nak'" "footclient -ND /home/axlefublr/iwm/nak yazi")
 	o (cmd find-or-make.fish "app_id like '[Tt]odoist'" "Todoist.AppImage")
-	p (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/sco)
-	u (cmd find-or-make.fish "app_id starts-with foot" "title == receiver" "footclient -NT receiver receiver.fish")
+	p (cmd find-or-make.fish "app_id starts-with foot" "title == receiver" "footclient -NT receiver receiver.fish")
 	y (cmd fish -c toggle_screen_record)
 	;; [[sort off]]
 )
 
 (deflayermap (ag)
+	;; [[sort on]]
 	b (cmd create-blog-post.fish)
-	i (cmd niri msg action spawn -- footclient -ND /home/axlefublr/ake helix .)
+	i (cmd find-or-make.fish "app_id == swayimg-sco" "swayimg --class swayimg-sco -g /home/axlefublr/iwm/sco")
 	j (cmd niri msg action spawn -- fish -c frizz_picker)
-	p (cmd niri msg action spawn -- swayimg -g /home/axlefublr/iwm/srd)
-	m (cmd niri msg action spawn -- footclient -ND /home/axlefublr/iwm/nak yazi)
+	k (cmd niri msg action spawn -- footclient -ND /home/axlefublr/ake helix .)
+	n (cmd find-or-make.fish "app_id starts-with foot" "title == 'yazi ~/iwm/kss'" "footclient -ND /home/axlefublr/iwm/kss yazi")
+	;; [[sort off]]
 )
 
 (deflayermap (caps)
@@ -269,13 +271,16 @@
 )
 
 (deflayermap (quote-j)
+	;; [[sort on]]
+	c (cmd fish -c edit_clipboard_blank)
 	caps (cmd fish -c ntf_dismiss_old)
 	d (cmd fish -c "xdg-open (wl-paste -n) ; ensure-browser.nu")
-	w (one-shot $ot (layer-toggle bookmark-set))
-	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	e (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve e")
-	z (cmd fish -c runner_symbol_name)
+	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve l")
 	q (cmd fish -c yteet_clipboard)
+	w (one-shot $ot (layer-toggle bookmark-set))
+	z (cmd fish -c runner_symbol_name)
+	;; [[sort off]]
 )
 
 ;; [[sort on]]
