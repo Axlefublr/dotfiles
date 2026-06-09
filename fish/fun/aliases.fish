@@ -45,6 +45,13 @@ function edit_clipboard
 end
 funcsave edit_clipboard >/dev/null
 
+function edit_clipboard_blank
+    truncate -s 0 /tmp/mine/clipboard-edit.md
+    flour /tmp/mine/clipboard-edit.md
+    cat /tmp/mine/clipboard-edit.md | wl-copy -n
+end
+funcsave edit_clipboard_blank >/dev/null
+
 function edit_clipboard_image
     wl-paste -t image/png | satty --send-to-daemon -f -
     # rnote (wl-paste -t image/png | psub)
