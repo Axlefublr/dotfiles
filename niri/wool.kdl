@@ -27,7 +27,7 @@ window-rule {
     }
 }
 window-rule {
-    exclude app-id="^swayimg$"
+    exclude app-id="^swayimg"
     exclude app-id="^foot"
     opacity 0.96
 }
@@ -79,7 +79,6 @@ window-rule {
 }
 window-rule {
     match app-id="^foot" title="^palabra$"
-    match app-id="^foot" title="^abilities$"
     match app-id="^foot" title="^earnings$"
     match app-id="^foot" title="^loago-tracker$"
     default-column-width { proportion 0.15; }
@@ -93,7 +92,6 @@ window-rule {
 window-rule {
     match app-id="^foot" title="^loago-tracker$"
     match app-id="^foot" title="^calcure$"
-    match app-id="^foot" title="^abilities$"
     match app-id="^foot" title="^finances$"
     match app-id="^foot" title="^earnings$"
     match app-id="^foot" title="^voe$"
