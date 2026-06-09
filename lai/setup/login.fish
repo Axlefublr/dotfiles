@@ -12,7 +12,6 @@ niri msg action move-column-to-last
 footclient -NT voe -D ~/iwm/voe yazi
 footclient -NT finances ov --status-line=false --follow-name ~/.local/share/magazine/J
 footclient -NT earnings earnings.fish
-footclient -NT abilities abilities.fish
 footclient -NT loago-tracker fish -c loago_tracker
 footclient -NT receiver receiver.fish
 playerctld daemon
