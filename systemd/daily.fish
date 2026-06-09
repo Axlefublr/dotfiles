@@ -18,7 +18,7 @@ for file in ~/.local/share/magazine/*
 end
 git add .
 and git commit -m leftovers
-truncate -s 0 ~/.local/share/magazine/d
+truncate -s 0 ~/.local/share/magazine/D
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 indeed.rs -u ~/iwm/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
