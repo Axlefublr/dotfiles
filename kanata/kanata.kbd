@@ -193,7 +193,7 @@
 	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "footclient -NT finances ov --status-line=false --follow-name ~/.local/share/magazine/J")
 	k (cmd fish -c "niri msg action spawn -- footclient -ND /home/axlefublr/ake helix (uclanr -j - 3)")
 	l (cmd niri msg action spawn -- footclient -ND /home/axlefublr/fes/mdw -T mdw fish -c "finder")
-	m (cmd find-or-make.fish "app_id == swayimg-slme" "swayimg --class swayimg-slme -g /home/axlefublr/iwm/osl/slme)")
+	m (cmd find-or-make.fish "app_id == swayimg-slme" "swayimg --class swayimg-slme -g /home/axlefublr/iwm/osl/slme")
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == 'yazi ~/iwm/nak'" "footclient -ND /home/axlefublr/iwm/nak yazi")
 	o (cmd find-or-make.fish "app_id like '[Tt]odoist'" "Todoist.AppImage")
 	p (cmd find-or-make.fish "app_id starts-with foot" "title == receiver" "footclient -NT receiver receiver.fish")
