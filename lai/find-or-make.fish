@@ -10,7 +10,7 @@ na -c "
     | from json
     $wheres
     | sort-by title
-    | sort-by -r { $in.title | str length }
+    | sort-by { get title | str length } # -r helps you focus on more specific window first, lack of -r helps you focus on the more broad window first
     if (\$found | is-not-empty) {
         let focused_togglie = \$found | where is_focused == true | first | get -o id
     	if (\$focused_togglie | is-not-empty) {
