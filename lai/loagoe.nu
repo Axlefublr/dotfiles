@@ -21,11 +21,11 @@ const known = {
 	nails: 13
 	bottle: 15
 	brushes: 30
-	dust: 15
+	dust: 9
 	photos: 30
 	tea: 15
 	update: 20
-	wilter: 30
+	wilter: 38
 	tails: 30
 	filter: 60
 	fsrs: 60
