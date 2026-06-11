@@ -10,10 +10,10 @@
 	h (unmod lctl 1)
 	l (unmod lsft lalt f10)
 	n (unmod lctl lalt home)
-	; (unmod lsft lalt f8)
+	spc (unmod lsft lalt f8)
+	; (unmod lalt ins)
 	' (unmod lalt f10)
 	u (macro S-A-f5 20 (cmd fish -c r#"notify-send -t 3000 "$(wl-paste -n)""#))
-	m (macro C-A-end 20 (cmd fish -c r#"notify-send -t 3000 "$(wl-paste -n)""#))
 )
 
 (deflayermap (ew)
@@ -40,14 +40,18 @@
 
 (deflayermap (ef)
 	w (multi lmet (layer-toggle w) (layer-toggle ew) (layer-toggle efw) (on↑ tap-vkey w))
+	;; [[sort on]]
+	' (unmod lalt f8)
+	;; u (unmod lalt end)
+	h (unmod lctl lsft f11)
+	i (unmod lsft lalt f9)
 	j (unmod lsft lalt f3)
 	k (unmod lsft lalt f4)
-	h (unmod lctl lsft f11)
 	l (unmod lctl lsft f12)
-	u (unmod lalt end)
-	' (unmod lalt f8)
-	i (unmod lsft lalt f9)
 	o (macro C-l 20 C-v ret)
+	spc (unmod lsft lalt f9)
+	u (macro C-A-end 20 (cmd fish -c r#"notify-send -t 3000 "$(wl-paste -n)""#))
+	;; [[sort off]]
 )
 
 (deflayermap (efw)
