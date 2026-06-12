@@ -14,19 +14,27 @@ end
 funcsave yteet_clipboard >/dev/null
 
 function yt_audio
+    set -f mark
     set -l picked (begin
         echo ad
         echo bd
         echo cd
-    end | fuzzel -dl 3)
+        echo ad=
+        echo bd=
+        echo cd=
+    end | fuzzel -dl 6)
     test "$picked" || return 1
     set -l links (wl-paste -n | sttr extract-url)
     if not test "$links"
         notify-send -t 2000 'no copied links'
         return 1
     end
+    if test "$picked"[-1] = '='
+        set picked $picked[..-2]
+        set -f mark '='
+    end
     for link in $links
-        schedule.fish -- "ytroxy --cookies ~/.local/share/mine/cookies.purple.txt -o ~/iwm/lwkc/$picked/$(uclanr -j - 3).'%(ext)s' $link"
+        schedule.fish -- "ytroxy --cookies ~/.local/share/mine/cookies.purple.txt -o ~/iwm/lwkc/$picked/$(uclanr -j - 3)$mark.'%(ext)s' $link"
         notify-send "start $link"
     end
 end
