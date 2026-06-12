@@ -62,6 +62,10 @@ window-rule {
     default-column-width { proportion 0.85; }
 }
 window-rule {
+    match app-id="^foot" title="^abilities$"
+    default-column-width { proportion 0.75; }
+}
+window-rule {
     match app-id="^foot" title="^anki-card$"
     default-column-width { proportion 0.5; }
 }
@@ -104,6 +108,7 @@ window-rule {
 window-rule {
     match app-id="^foot" title="^toggleterm$"
     match app-id="^foot" title="^review$"
+    match app-id="^foot" title="^abilities$"
     open-on-workspace "main"
 }
 
