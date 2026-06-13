@@ -17,6 +17,7 @@ let editor = {
 	default-yank-register: '+'
 	file-picker: { hidden: false }
 	gutters: { layout: [], line-numbers: { min-width: 2 } }
+	insecure: true
 	insert-final-newline: true
 	jump-label-alphabet: jfkdlsaeiwoxcmghruvnzbqpty
 	line-number: relative
