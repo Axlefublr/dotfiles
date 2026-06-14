@@ -102,6 +102,9 @@ rsync ~/fes/jiro/calcure.csv ~/.config/calcure/events.csv
 # -----------------------cairo-clock-----------------------
 paru -Sa --needed --disable-download-timeout cairo-clock
 
+# ------------------------cargo-gc-------------------------
+cargo binstall -y cargo-gc-bin
+
 # ----------------------cargo-script-----------------------
 cargo binstall -y cargo-script
 
