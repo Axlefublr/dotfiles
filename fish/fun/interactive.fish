@@ -55,10 +55,24 @@ end
 funcsave D >/dev/null
 
 function finder
-    set -l result "$(fzf '--bind=f12:become:echo :{}')"
+    set -l result "$(fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}')"
     test $result || return
-    if test (string sub -l 1 $result) = ':'
+    set -l first_char (string sub -l 1 $result)
+    if test $first_char = ':'
         yazi (string sub -s 2 $result)
+        return
+    else if test $first_char = '='
+        set -l target (string sub -s 2 $result)
+        if string match -qr '/$' -- $target # create directory if it's just that, continue findering in there
+            mkdir -p $target
+            cd $target
+            finder
+            return
+        else if string match -qe / -- $target
+            mkdir -p (path dirname $target)
+        end
+        touch $target
+        helix $target
         return
     end
     if string match -qr '/$' -- $result
