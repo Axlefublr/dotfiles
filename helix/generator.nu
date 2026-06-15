@@ -119,7 +119,7 @@ let all_mappings = {
 		":noop %sh(echo %(full_path) >~/.cache/mine/blammo)"
 		':sh footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left'
 	]
-	F4: [
+	F5: [
 		':sh rm -f /tmp/mine/yazi-chooser-file'
 		':noop %sh(footclient dash -c "niri msg action consume-or-expel-window-left ; yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file")'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
