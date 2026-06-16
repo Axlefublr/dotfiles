@@ -117,17 +117,27 @@ let all_mappings = {
 	# ------------------------function-------------------------
 	F2: [
 		":noop %sh(echo %(full_path) >~/.cache/mine/blammo)"
-		':sh footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left'
+		':noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}'
 	]
 	F5: [
-		':sh rm -f /tmp/mine/yazi-chooser-file'
-		':noop %sh(footclient dash -c "niri msg action consume-or-expel-window-left ; yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file")'
+		':noop %sh{rm -f /tmp/mine/yazi-chooser-file}'
+		':noop %sh(footclient -T helix-popup yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
 	F6: [
-		':sh rm -f /tmp/mine/yazi-chooser-file'
-		':noop %sh(footclient dash -c "niri msg action consume-or-expel-window-left ; yazi --chooser-file=/tmp/mine/yazi-chooser-file")'
+		':noop %sh{rm -f /tmp/mine/yazi-chooser-file}'
+		':noop %sh(footclient -T helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
+	]
+	F3: [
+		':noop %sh{rm -f /tmp/mine/finder-choice}',
+		':noop %sh{footclient -D %(working_directory) -T helix-popup fish -c "IS_FROM_HELIX=true finder"}',
+		':open %sh{cat /tmp/mine/finder-choice}'
+	]
+	F4: [
+		':noop %sh{rm -f /tmp/mine/finder-choice}',
+		':noop %sh{footclient -D %(buffer_parent) -T helix-popup fish -c "IS_FROM_HELIX=true finder"}',
+		':open %sh{cat /tmp/mine/finder-choice}'
 	]
 	F1: [
 		':noop %sh(footclient -ND %(working_directory) -T reopen helix %(full_path):%(cursor_line):%(cursor_column))'
@@ -457,7 +467,7 @@ let normal_mappings = {
 		g: ':reset-diff-change'
 		i: ':buffer-close-all'
 		o: ':buffer-close-others'
-		q: ":cd %sh(git -C '%(buffer_parent)' rev-parse --show-toplevel)"
+		q: ':cd %sh(git -C "%(buffer_parent)" rev-parse --show-toplevel)'
 		r: ':lsp-restart'
 		# [[sort off]]
 	}
