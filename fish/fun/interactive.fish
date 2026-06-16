@@ -54,7 +54,12 @@ function D
 end
 funcsave D >/dev/null
 
-function finder
+function finder -a return_here
+    # this isn't a good idea because if `finder` is reran, it consumes again while we don't want it to
+    # even if I fix this, the caveat of collapsing to the wrong window if I start `finder` from a column with multiple windows, is too annoying
+    # if $IS_FROM_HELIX
+    #     niri msg action consume-or-expel-window-left
+    # end
     set -l result "$(fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}')"
     test $result || return
     set -l first_char (string sub -l 1 $result)
@@ -66,20 +71,36 @@ function finder
         if string match -qr '/$' -- $target # create directory if it's just that, continue findering in there
             mkdir -p $target
             cd $target
-            finder
+            finder $return_here
             return
         else if string match -qe / -- $target
             mkdir -p (path dirname $target)
         end
         touch $target
-        helix $target
+        if test "$IS_FROM_HELIX"
+            echo $PWD/$target >/tmp/mine/finder-choice
+        else
+            if test "$return_here"
+                helix -w $return_here $target
+            else
+                helix $target
+            end
+        end
         return
     end
     if string match -qr '/$' -- $result
         cd $result
-        finder
+        finder $return_here
     else
-        helix $result
+        if test "$IS_FROM_HELIX"
+            echo $PWD/$result >/tmp/mine/finder-choice
+        else
+            if test "$return_here"
+                helix -w $return_here $result
+            else
+                helix $result
+            end
+        end
     end
 end
 funcsave finder >/dev/null
