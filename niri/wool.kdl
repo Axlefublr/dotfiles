@@ -67,6 +67,7 @@ window-rule {
 }
 window-rule {
     match app-id="^foot" title="^anki-card$"
+    match app-id="^foot" title="^helix-popup$"
     default-column-width { proportion 0.5; }
 }
 window-rule {
