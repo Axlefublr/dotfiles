@@ -15,7 +15,20 @@ na -c "
         let focused_togglie = \$found | where is_focused == true | first | get -o id
     	if (\$focused_togglie | is-not-empty) {
         	# if on $found length here
-    		niri msg action focus-window-previous
+        	if (\$found | length | \$in > 1) {
+        	    let next = \$found | get -o id | skip while { |it| \$it != \$focused_togglie } | skip 1 | first
+        	    if (\$next | is-empty) {
+              		\$found | first | each {
+              		    niri msg action focus-window --id (\$in | get id)
+              		    niri msg action center-visible-columns
+              		}
+        	    } else {
+          		    niri msg action focus-window --id \$next
+          		    niri msg action center-visible-columns
+        	    }
+        	} else {
+          		niri msg action focus-window-previous
+        	}
         	if ('$_flag_clean' == '--clean') {
             	niri msg action close-window --id \$focused_togglie
         	}
