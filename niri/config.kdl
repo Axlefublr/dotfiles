@@ -189,9 +189,10 @@ recent-windows {
     }
 
     binds {
-        Mod+R { next-window     scope="all"; }
-        Mod+E { previous-window scope="all"; }
+        Mod+W { next-window     scope="all"; }
         Mod+F { next-window     scope="custom"; }
+        Mod+R { next-window     scope="urgent"; }
+        Mod+E { previous-window scope="all"; }
     }
 }
 
@@ -214,7 +215,7 @@ binds {
 
     Mod+Ctrl+D { spawn "foot"; }
     Mod+D { spawn "footclient"; }
-    Mod+Return { spawn "find-or-make.fish" "app_id starts-with foot" "title == toggleterm" "footclient -NT toggleterm"; }
+    Mod+Return { spawn "find-or-make.fish" "app_id starts-with foot" "title == toggleterm" "foottitled.sh toggleterm -N"; }
 
     Mod+G { fullscreen-window; }
     Mod+I { close-window; }
