@@ -18,4 +18,4 @@ let the = ls ~/fes/ork/hirl/content/*.md
 }
 let index = $the | get name | to text | fuzzel -d --index
 let path  = $the | get path | get ($index | into int)
-footclient -ND ~/fes/ork/hirl helix $path
+foottitled.sh hirl -ND ~/fes/ork/hirl helix $path
