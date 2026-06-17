@@ -121,26 +121,26 @@ let all_mappings = {
 	]
 	F5: [
 		':noop %sh{rm -f /tmp/mine/yazi-chooser-file}'
-		':noop %sh(footclient -T helix-popup yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)'
+		':noop %sh(foottitled.sh helix-popup yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
 	F6: [
 		':noop %sh{rm -f /tmp/mine/yazi-chooser-file}'
-		':noop %sh(footclient -T helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)'
+		':noop %sh(foottitled.sh helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
 	F3: [
 		':noop %sh{rm -f /tmp/mine/finder-choice}',
-		':noop %sh{footclient -D %(working_directory) -T helix-popup fish -c "IS_FROM_HELIX=true finder"}',
+		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "IS_FROM_HELIX=true finder"}',
 		':open %sh{cat /tmp/mine/finder-choice}'
 	]
 	F4: [
 		':noop %sh{rm -f /tmp/mine/finder-choice}',
-		':noop %sh{footclient -D %(buffer_parent) -T helix-popup fish -c "IS_FROM_HELIX=true finder"}',
+		':noop %sh{foottitled.sh helix-popup -D %(buffer_parent) fish -c "IS_FROM_HELIX=true finder"}',
 		':open %sh{cat /tmp/mine/finder-choice}'
 	]
 	F1: [
-		':noop %sh(footclient -ND %(working_directory) -T reopen helix %(full_path):%(cursor_line):%(cursor_column))'
+		':noop %sh(foottitled.sh reopen -ND %(working_directory) helix %(full_path):%(cursor_line):%(cursor_column))'
 	]
 	# F1: [
 	# 	':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
