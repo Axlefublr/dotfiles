@@ -10,4 +10,4 @@ title = '$input'
 date = '$(date +%Y-%m-%d)'
 draft = true
 +++" >$file
-footclient -ND ~/fes/ork/hirl helix $file:2:10
+foottitled.sh hirl -ND ~/fes/ork/hirl helix $file:2:10
