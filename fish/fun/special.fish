@@ -59,7 +59,7 @@ function frizz_picker
     cd ~/.local/share/frizz
     set -l picked (fd -tf . | fuzzel -d --cache ~/.cache/mine/frizz-picker)
     not test "$picked" && return
-    footclient -ND ~/.local/share/frizz helix $picked
+    foottitled.sh frizz -ND ~/.local/share/frizz helix $picked
 end
 funcsave frizz_picker >/dev/null
 
