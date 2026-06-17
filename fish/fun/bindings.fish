@@ -38,7 +38,8 @@ funcsave _kb_reexec >/dev/null
 function _kb_follow_by
     set -l cmd "$(commandline)"
     if not test "$(string trim $cmd)"
-        $argv
+        commandline " $argv"
+        commandline -f execute
         return
     end
     history append -- $cmd
@@ -46,19 +47,6 @@ function _kb_follow_by
     commandline -f execute
 end
 funcsave _kb_follow_by >/dev/null
-
-function _kb_follow_by_lazygit
-    set -l cmd "$(commandline)"
-    if not test "$(string trim $cmd)"
-        commandline lazygit
-        commandline -f execute
-        return
-    end
-    history append -- $cmd
-    commandline " $cmd && lazygit"
-    commandline -f execute
-end
-funcsave _kb_follow_by_lazygit >/dev/null
 
 function _kb_and_exit
     commandline -f expand-abbr
@@ -82,6 +70,7 @@ funcsave _kb_and_flourish >/dev/null
 
 function fish_user_key_bindings
     # [[sort on]]
+    # bind f12 _kb_schedule_commandline
     bind / expand-abbr self-insert
     bind alt-d _kb_blammo_pwd
     bind alt-i edit_command_buffer
@@ -93,9 +82,8 @@ function fish_user_key_bindings
     bind ctrl-space 'commandline -i " "'
     bind ctrl-z fg
     bind f1 '_kb_follow_by nu ; commandline -f repaint'
-    bind f11 _kb_and_flourish
-    bind f12 _kb_schedule_commandline
-    bind f2 _kb_follow_by_lazygit
+    bind f12 _kb_and_flourish
+    bind f2 '_kb_follow_by lazygit'
     bind f3 'z (cat ~/.cache/mine/blammo | path dirname) ; commandline -f repaint'
     bind f4 '_kb_follow_by helix .'
     bind f5 '_kb_follow_by helix'
