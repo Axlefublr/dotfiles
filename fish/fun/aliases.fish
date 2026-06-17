@@ -72,6 +72,7 @@ funcsave float_clipboard_image >/dev/null
 
 function flourish
     notify-send "✅ $(pwdb)"
+    bell
 end
 funcsave flourish >/dev/null
 
@@ -159,6 +160,7 @@ end
 funcsave strongly_kill_window >/dev/null
 
 alias --save suspend 'systemctl suspend' >/dev/null
+alias --save tit 'printf \'\e]2;%s\a\'' >/dev/null
 alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null
 alias --save toggle_mute 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' >/dev/null
@@ -171,6 +173,7 @@ funcsave which_wallpaper >/dev/null
 function wither
     set -l stored $status
     notify-send "❌ $(pwdb)"
+    bell
     return $stored
 end
 funcsave wither >/dev/null
