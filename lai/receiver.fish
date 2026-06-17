@@ -24,6 +24,7 @@ tail -f ~/.local/share/mine/task-scheduler | while read -z first
         end
         set_color -o ea6962
         notify-send "$first_word ❌"
+        bell
         confirm.rs failure '[r]estart' '[e]dit' '[k]ancel' | read -l response
         set_color normal
         echo
