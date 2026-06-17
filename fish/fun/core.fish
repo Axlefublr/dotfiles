@@ -47,9 +47,9 @@ function flour
     end
 
     if test "$_flag_disown"
-        niri msg action spawn -- footclient -T $title -- helix $selected_config $execute_flag $argv
+        niri msg action spawn -- foottitled.sh $title -- helix $selected_config $execute_flag $argv
     else
-        footclient -T $title -- helix $selected_config $execute_flag $argv
+        foottitled.sh $title -- helix $selected_config $execute_flag $argv
     end
 end
 funcsave flour >/dev/null
