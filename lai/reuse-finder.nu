@@ -7,7 +7,7 @@ def main [path: path] {
 	| where app_id starts-with foot
 	| where title == $title
 	if ($found | is-empty) {
-		niri msg action spawn -- footclient -ND $path -T $title fish -c $'finder ($path)'
+		niri msg action spawn -- foottitled.sh $title -ND $path fish -c $'finder ($path)'
 	} else {
 		if ($found | where is_focused == true | is-not-empty) {
 			wtype -k F3
