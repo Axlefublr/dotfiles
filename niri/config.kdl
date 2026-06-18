@@ -189,10 +189,10 @@ recent-windows {
     }
 
     binds {
-        Mod+W { next-window     scope="all"; }
+        Mod+E { next-window     scope="all"; }
         Mod+F { next-window     scope="custom"; }
         Mod+R { next-window     scope="urgent"; }
-        Mod+E { previous-window scope="all"; }
+        Mod+W { previous-window scope="all"; }
     }
 }
 
