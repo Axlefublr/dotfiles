@@ -31,7 +31,8 @@ function __zoxide_z
         and builtin cd $result
         and command zoxide add -- (__zoxide_pwd)
     end
-    tit (fish_title)
+    set -l new_title (fish_title)
+    test "$new_title" && tit "$new_title"
 end
 funcsave __zoxide_z >/dev/null
 
