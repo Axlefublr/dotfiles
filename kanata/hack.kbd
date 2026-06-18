@@ -25,6 +25,7 @@
 	j (cmd niri msg action focus-workspace help)
 	i (cmd close-window-alternate.nu)
 	spc (cmd niri msg action focus-workspace main)
+	o (cmd find-or-make.fish "app_id starts-with foot" "title == nugleterm" "foottitled.sh nugleterm -N nu")
 )
 
 (deflayermap (rw)
