@@ -10,3 +10,7 @@ export def 'path shrink' [] {
 		$IN
 	}
 }
+
+export def 'tit' [title?: string] {
+	printf '\e]2;%s\a' $title
+}
