@@ -72,4 +72,8 @@
 	#navigator-toolbox {
 		border-bottom: unset !important;
 	}
+
+	browser {
+		background-color: #282828 !important;
+	}
 }
