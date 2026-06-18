@@ -1,8 +1,9 @@
 source always.nu
+source zoxide.nu
 
 # [[sort on]]
 $env.PROMPT_COMMAND_RIGHT = ''
-$env.PROMPT_INDICATOR = ' 󱕅 '
+$env.PROMPT_INDICATOR = $'(ansi '#af87ff') 󱕅 '
 $env.PROMPT_MULTILINE_INDICATOR = '▌'
 $env.config.completions.algorithm = 'prefix' # "prefix"|"substring"|"fuzzy"
 $env.config.cursor_shape.emacs = 'line'
@@ -11,8 +12,32 @@ $env.config.history.isolation = true
 $env.config.shell_integration.osc2 = false
 $env.config.show_banner = false
 $env.config.use_kitty_protocol = true # ^i and tab are different
-alias z = cd
 # [[sort off]]
+
+$env.config.abbreviations = {
+	f: 'z'
+}
+
+$env.config.hooks.pre_prompt = [
+	{
+		if ($env.TIT? | is-empty) {
+			tit ($env.PWD | path shrink | path basename)
+		}
+	}
+]
+
+$env.PROMPT_COMMAND = { ||
+    let dir = match (do -i { $env.PWD | path relative-to $nu.home-dir }) {
+        null => $env.PWD
+        '' => '~'
+        $relative_pwd => ([~ $relative_pwd] | path join)
+    }
+
+    let pink = $'(ansi "#ffafd7")(ansi bo)'
+    let path_segment = $"($pink)($dir)(ansi reset)"
+
+    $path_segment | str replace '~' $'(ansi "#ff8787")~($pink)'
+}
 
 $env.config.keybindings ++= [
 	{
