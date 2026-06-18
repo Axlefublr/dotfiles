@@ -9,10 +9,10 @@ def main [path: path] {
 	if ($found | is-empty) {
 		niri msg action spawn -- foottitled.sh $title -ND $path fish -c $'finder ($path)'
 	} else {
-		if ($found | where is_focused == true | is-not-empty) {
-			wtype -k F3
-		} else {
-			niri msg action focus-window --id ($found | get -o id | first)
-		}
+		# if ($found | where is_focused == true | is-not-empty) {
+		niri msg action focus-window --id ($found | get -o id | first)
+		wtype -k F3
+		# } else {
+		# }
 	}
 }
