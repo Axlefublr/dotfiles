@@ -160,7 +160,12 @@ end
 funcsave strongly_kill_window >/dev/null
 
 alias --save suspend 'systemctl suspend' >/dev/null
-alias --save tit 'printf \'\e]2;%s\a\'' >/dev/null
+
+function tit
+    status is-interactive && printf '\e]2;%s\a' $argv
+end
+funcsave tit >/dev/null
+
 alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null
 alias --save toggle_mute 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' >/dev/null
