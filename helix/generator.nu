@@ -381,13 +381,13 @@ let normal_mappings = {
 		s: surround_add
 		# [[sort off]]
 		t: {
-			k: ':pipe \"<kbd>" + $in + "</kbd>"'
-			b: ':pipe \"<b>" + $in + "</b>"'
-			h: ':pipe \"<h>" + $in + "</h>"'
-			d: ':pipe \"<div>" + $in + "</div>"'
-			c: ':pipe \"<cd>" + $in + "</cd>"'
-			o: ':pipe \"<o>" + $in + "</o>"'
-			i: ':pipe \"<i>" + $in + "</i>"'
+			k: ':pipe €"<kbd>" + $in + "</kbd>"'
+			b: ':pipe €"<b>" + $in + "</b>"'
+			h: ':pipe €"<h>" + $in + "</h>"'
+			d: ':pipe €"<div>" + $in + "</div>"'
+			c: ':pipe €"<cd>" + $in + "</cd>"'
+			o: ':pipe €"<o>" + $in + "</o>"'
+			i: ':pipe €"<i>" + $in + "</i>"'
 		}
 		'e': {
 			'(': ":pipe strip-wrapper-type.rs b"
