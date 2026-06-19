@@ -58,16 +58,6 @@ function _kb_and_exit
 end
 funcsave _kb_and_exit >/dev/null
 
-function _kb_and_flourish
-    commandline -f expand-abbr
-    set -l cmd "$(commandline)"
-    test "$(string trim $cmd)" || return
-    history append -- $cmd
-    commandline " $cmd"\n'and flourish'\n'or wither'
-    commandline -f execute
-end
-funcsave _kb_and_flourish >/dev/null
-
 function fish_user_key_bindings
     # [[sort on]]
     # bind f12 _kb_schedule_commandline
@@ -82,7 +72,6 @@ function fish_user_key_bindings
     bind ctrl-space 'commandline -i " "'
     bind ctrl-z fg
     bind f1 '_kb_follow_by nu ; commandline -f repaint'
-    bind f12 _kb_and_flourish
     bind f2 '_kb_follow_by lazygit'
     bind f3 'z (cat ~/.cache/mine/blammo | path dirname) ; commandline -f repaint'
     bind f4 '_kb_follow_by helix .'
