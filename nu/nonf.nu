@@ -23,6 +23,7 @@ $env.config.hooks.pre_prompt = [
 		if ($env.TIT? | is-empty) {
 			tit ($env.PWD | path shrink | path basename)
 		}
+		printf \a
 	}
 ]
 
