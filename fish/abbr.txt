@@ -35,7 +35,6 @@ rmf  → rm -fr
 sude → sudo -E
 x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
 chex → path change-extension
-fw → and flourish¬or wither
 
 qrtool → qrtool.rs
 u      → pueue.nu
