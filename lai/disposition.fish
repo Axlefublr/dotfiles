@@ -47,4 +47,3 @@ for file in $argv
     set index (math $index + 1)
     ffmpeg -i $file -map 0 -c copy (string split ' ' -- $flags[$index]) (trail $file converted/█)
 end
-flourish
