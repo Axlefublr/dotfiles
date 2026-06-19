@@ -156,6 +156,7 @@ layout {
         width 4
         position "top"
         // corner-radius 99
+        urgent-color "#ffafd7"
         inactive-color "#00000000"
         active-color "#af87ff"
         // active-gradient from="#af87ff" to="#ff9f1a"
@@ -189,10 +190,10 @@ recent-windows {
     }
 
     binds {
-        Mod+E { next-window     scope="all"; }
+        Mod+W { next-window     scope="all"; }
         Mod+F { next-window     scope="custom"; }
         Mod+R { next-window     scope="urgent"; }
-        Mod+W { previous-window scope="all"; }
+        Mod+E { previous-window scope="all"; }
     }
 }
 
