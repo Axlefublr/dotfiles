@@ -1,3 +1,3 @@
 #!/usr/bin/env dash
 
-foottitled.sh helix-popup -N "$@"
+foottitled.sh helix-overlay -N "$@"
