@@ -70,12 +70,6 @@ function float_clipboard_image
 end
 funcsave float_clipboard_image >/dev/null
 
-function flourish
-    notify-send "✅ $(pwdb)"
-    bell
-end
-funcsave flourish >/dev/null
-
 alias --save get_media_player 'playerctl metadata --format "{{playerName}}"' >/dev/null
 alias --save get_media_time 'playerctl metadata --format "{{duration(position)}}"' >/dev/null
 
@@ -162,7 +156,7 @@ funcsave strongly_kill_window >/dev/null
 alias --save suspend 'systemctl suspend' >/dev/null
 
 function tit
-    status is-interactive && printf '\e]2;%s\a' $argv
+    status is-interactive && set -q argv && printf '\e]2;%s\a' $argv
 end
 funcsave tit >/dev/null
 
@@ -174,14 +168,6 @@ function which_wallpaper
     swww query | string match -gr 'image: (.*)'
 end
 funcsave which_wallpaper >/dev/null
-
-function wither
-    set -l stored $status
-    notify-send "❌ $(pwdb)"
-    bell
-    return $stored
-end
-funcsave wither >/dev/null
 
 function wpchange
     awww img -t any --transition-fps 255 --transition-duration 3 $argv
