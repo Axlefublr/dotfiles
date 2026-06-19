@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 mkfifo ~/.local/share/mine/task-scheduler 2>/dev/null
+set -l this_window_id (na -c 'niri msg -j windows | from json | where app_id starts-with foot | where title == "receiver" | get id | first')
 tail -f ~/.local/share/mine/task-scheduler | while read -z first
     and read -z second
     if test $first != ~
@@ -18,13 +19,13 @@ tail -f ~/.local/share/mine/task-scheduler | while read -z first
             set_color -o a9b665
             echo success
             set_color normal
-            notify-send "$first_word ✅"
+            notify-send "✅ $first_word"
             echo
             break
         end
         set_color -o ea6962
-        notify-send "$first_word ❌"
-        bell
+        notify-send "❌ $first_word"
+        niri msg action set-window-urgent --id $this_window_id
         confirm.rs failure '[r]estart' '[e]dit' '[k]ancel' | read -l response
         set_color normal
         echo
