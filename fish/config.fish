@@ -68,5 +68,9 @@ set -g fish_pager_color_selected_background -r
 set -gx in (blammo)
 # [[sort off]]
 
+function on_fish_postexec --on-event fish_postexec
+    bell
+end
+
 abbr -a .. --position anywhere --regex '^\.\.+$' --function multiple_dot
 source ~/fes/dot/fish/abbreviations.fish
