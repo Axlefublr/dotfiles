@@ -156,7 +156,8 @@ funcsave strongly_kill_window >/dev/null
 alias --save suspend 'systemctl suspend' >/dev/null
 
 function tit
-    status is-interactive && set -q argv && printf '\e]2;%s\a' $argv
+    status is-interactive && test "$argv" && printf '\e]2;%s\a' $argv
+    return 0
 end
 funcsave tit >/dev/null
 
