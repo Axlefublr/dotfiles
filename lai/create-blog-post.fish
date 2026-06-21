@@ -2,7 +2,7 @@
 
 fuzzel -dl 0 </dev/null | read -l input
 test "$input" || return 1
-set -l dir ~/fes/ork/hirl/content/"$(string replace ' ' '-' $input)"
+set -l dir ~/fes/ork/hirl/content/"$(string replace -a ' ' '-' $input)"
 mkdir -p $dir
 set -l file $dir/index.md
 echo "+++
