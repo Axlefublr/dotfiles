@@ -17,9 +17,13 @@
 
 	#contentAreaContextMenu {
 		> #context-sep-navigation,
-		> #context-openlinkincurrent,
-		> #context-openlinkintab,
+		/* > #context-openlinkincurrent, */
+		/* > #context-openlinkintab, */
+		> #context-openlinkinsplitview,
+		> #context-previewlink,
 		> #context-bookmarklink,
+		> #context-sendlinktodevice,
+		> #context-sep-sendlinktodevice,
 		> #context-media-play,
 		> #context-media-pause,
 		> #context-leave-dom-fullscreen,
@@ -47,12 +51,15 @@
 		> #context-pdfjs-paste,
 		> #context-pdfjs-delete,
 		> #context-pdfjs-selectall,
+		> #context-sep-screenshots,
 		> #context-add-engine,
 		> #context-searchselect,
+		> #context-translate-selection,
 		> #frame-sep,
 		> #context-viewsource,
 		> #context-inspect-a11y,
-		> #context-inspect,
+		/* > #context-inspect, */
+		> #context-sendpagetodevice,
 		> #context-sep-sendpagetodevice,
 		> #context-media-eme-separator,
 		> #context-navigation {
