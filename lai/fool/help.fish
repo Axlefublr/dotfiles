@@ -4,4 +4,5 @@ set -gx COLUMNS 130
 set -l help_page "$argv"
 set -l path "/tmp/mine/$help_page.help"
 $argv --help &>$path
-flour -T "help $help_page" --disown --man $path:14
+focus-if-exists.fish "app_id starts-with foot" "title == 'help $help_page'"
+or flour -T "help $help_page" --disown --man $path:14
