@@ -110,6 +110,7 @@
 	r (cmd wtype 🙄)
 	s (cmd wtype 💀)
 	w (cmd wtype 😩)
+	a (cmd wtype 🙏)
 )
 
 (deflayermap (r)
