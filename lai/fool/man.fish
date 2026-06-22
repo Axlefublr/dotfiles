@@ -8,4 +8,5 @@ if $argv[-1]
 else
     command man $argv[..-3] 2>/dev/null >$path
 end
-flour -T "man $manpage" --disown --man $path:14
+focus-if-exists.fish "app_id starts-with foot" "title == 'man $manpage'"
+or flour -T "man $manpage" --disown --man $path:14
