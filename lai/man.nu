@@ -56,5 +56,13 @@ def 'main nushell' [] {
 	} catch {
 		$input
 	}
-	niri msg action spawn -- footclient -NT $'nushell ($input)' -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'help ($input) | ov --wrap=true --caption=`($input)`'
+	let title = $'nushell ($input)'
+	let found = niri msg -j windows | from json
+	| where app_id starts-with foot
+	| where title == $title
+	if ($found | is-empty) {
+		niri msg action spawn -- footclient -NT $title -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'help ($input) | ov --wrap=true --caption=`($input)`'
+	} else {
+		niri msg action focus-window --id ($found | get id | first)
+	}
 }
