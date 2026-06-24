@@ -36,7 +36,7 @@ $BROWSER (string replace -- %% $clean_input $engine)
 ensure-browser.nu
 if $should_history
     indeed.rs -u ~/.local/share/magazine/L -- $input
-    tail -n 100 ~/.local/share/magazine/L | sponge ~/.local/share/magazine/L
+    cat ~/.local/share/magazine/L | sponge ~/.local/share/magazine/L
 else
     rg -vFx $input ~/.local/share/magazine/L | tail -n 500 | sponge ~/.local/share/magazine/L
 end
