@@ -79,3 +79,15 @@ function runner_symbol_name
     printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | wl-copy -n
 end
 funcsave runner_symbol_name >/dev/null
+
+function runner_timer
+    set -l input (tac ~/.local/share/magazine/c-t | fuzzel -d --match-mode exact 2>/dev/null)
+    not test "$input" && return 1
+    set -l the (string split ' ' -- $input)
+    set -l title $the[1]
+    set -l rest $the[2..]
+    foottitled.sh $title -H timer.fish $rest
+    indeed.rs -u ~/.local/share/magazine/c-t -- "$input"
+    tail -n 100 ~/.local/share/magazine/c-t | sponge ~/.local/share/magazine/c-t
+end
+funcsave runner_timer >/dev/null
