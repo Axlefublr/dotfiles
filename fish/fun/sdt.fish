@@ -7,7 +7,7 @@ function systemd_minute
     else
         truncate -s 0 ~/.local/share/magazine/4
     end
-    _magazine_commit ~/.local/share/magazine/4 'gh notifs'
+    # I think it is _magazine_commit *here* that broke my magazine repo
     return 0
 end
 funcsave systemd_minute >/dev/null
