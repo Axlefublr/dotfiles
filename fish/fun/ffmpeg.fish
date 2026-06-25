@@ -34,11 +34,12 @@ function ffmpeg_cut_video
         set output "$output.mp4"
 
         schedule.fish -- ffmpeg -y -i "$input" $from $to \
-            -vf "'fps=60,scale=1920:1080:force_original_aspect_ratio=decrease,pad=ceil(iw/2)*2:ceil(ih/2)*2'" \
+            # `fps=60` used to be here, but this *forces* 60 fps, it doesn't *cap* at 60 fps
+            -vf "'scale=1920:1080:force_original_aspect_ratio=decrease,pad=ceil(iw/2)*2:ceil(ih/2)*2'" \
             $fake_audio \
             -c:v libx264 \
             -preset medium \
-            -crf 20 \
+            -crf 23 \
             -map_metadata -1 \
             -movflags +faststart \
             -c:a aac \
