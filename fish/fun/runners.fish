@@ -86,8 +86,21 @@ function runner_timer
     set -l the (string split ' ' -- $input)
     set -l title $the[1]
     set -l rest $the[2..]
-    foottitled.sh $title -H timer.fish $rest
+    # doing some titling logic here so that window rules work as expected; window title may change afterwards
+    set -l genre (runner_timer_resolve_genre "$the[2]")
+    foottitled.sh "$genre $title" -N timer.fish $title $rest
     indeed.rs -u ~/.local/share/magazine/c-t -- "$input"
     tail -n 100 ~/.local/share/magazine/c-t | sponge ~/.local/share/magazine/c-t
 end
 funcsave runner_timer >/dev/null
+
+function runner_timer_resolve_genre -a timestamp
+    if string match -qe ':' -- $timestamp
+        echo alarm
+    else if not test $timestamp
+        echo stopwatch
+    else
+        echo timer
+    end
+end
+funcsave runner_timer_resolve_genre >/dev/null
