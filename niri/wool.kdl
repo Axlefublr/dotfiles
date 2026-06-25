@@ -92,6 +92,12 @@ window-rule {
     match app-id="anki"
     default-column-width {}
 }
+window-rule {
+    match app-id="^foot" title="^timer"
+    match app-id="^foot" title="^stopwatch"
+    match app-id="^foot" title="^alarm"
+    default-window-height { proportion 0.25; }
+}
 
 // ------------------------workspace------------------------
 window-rule {
@@ -128,6 +134,9 @@ window-rule {
     match app-id="^foot" title="^receiver$"
     match app-id="^foot" title="^uboot$"
     match app-id="^foot" title="^aurupdate$"
+    match app-id="^foot" title="^timer"
+    match app-id="^foot" title="^stopwatch"
+    match app-id="^foot" title="^alarm"
     open-on-workspace "task"
 }
 
