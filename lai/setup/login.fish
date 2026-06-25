@@ -9,6 +9,7 @@ gtk-launch firefox
 foottitled.sh nugleterm -N nu
 foottitled.sh toggleterm -N
 niri msg action consume-or-expel-window-left
+ntf_dismiss_all
 foottitled.sh dotfiles -ND ~/fes/dot helix
 niri msg action move-column-to-last
 foottitled.sh voe -ND ~/iwm/voe yazi
