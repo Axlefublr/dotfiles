@@ -99,6 +99,7 @@ funcsave mouse_position >/dev/null
 alias --save na 'nu -n --no-std-lib' >/dev/null
 alias --save ntf_dismiss_all 'fnottctl dismiss all' >/dev/null
 alias --save ntf_dismiss_old 'fnottctl dismiss' >/dev/null
+alias --save ntf_dismiss_new "fnottctl dismiss (fnottctl list | tail -n 1 | string split ':')[1]" >/dev/null
 
 function ntf_pick_dismiss
     set -l result (fnottctl list | rg '^\\d' | fuzzel -d 2>/dev/null)
@@ -156,7 +157,8 @@ funcsave strongly_kill_window >/dev/null
 alias --save suspend 'systemctl suspend' >/dev/null
 
 function tit
-    status is-interactive && test "$argv" && printf '\e]2;%s\a' $argv
+    test "$argv" && printf '\e]2;%s\a' "$argv"
+    set -gx TIT "$argv"
     return 0
 end
 funcsave tit >/dev/null
