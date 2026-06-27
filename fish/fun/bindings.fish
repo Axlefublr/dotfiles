@@ -1,14 +1,5 @@
 #!/usr/bin/env fish
 
-function _kb_execute_via_pueue
-    set -l cmd (commandline)
-    history append -- $cmd
-    pueue add -- $cmd
-    commandline ''
-    commandline -f repaint
-end
-funcsave _kb_execute_via_pueue >/dev/null
-
 function _kb_schedule_commandline
     set -l cmd (commandline)
     test "$(string trim $cmd)" || return
