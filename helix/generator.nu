@@ -115,11 +115,28 @@ let all_mappings = {
 	S-A-F6: ':write --no-format'
 	S-A-F11: ':write! --no-format'
 	# ------------------------function-------------------------
+	F1: [
+		':noop %sh(foottitled.sh reopen -ND %(working_directory) helix %(full_path):%(cursor_line):%(cursor_column))'
+	]
+	# F1: [
+	# 	':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
+	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
+	# ]
 	F2: [
 		":noop %sh(echo %(full_path) >~/.cache/mine/blammo)"
 		':noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}'
 	]
-	F5: [
+	F4: [
+		':noop %sh{rm -f /tmp/mine/finder-choice}',
+		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "IS_FROM_HELIX=true finder"}',
+		':open %sh{cat /tmp/mine/finder-choice}'
+	]
+	'S-F4': [
+		':noop %sh{rm -f /tmp/mine/finder-choice}',
+		':noop %sh{foottitled.sh helix-popup -D %(buffer_parent) fish -c "IS_FROM_HELIX=true finder"}',
+		':open %sh{cat /tmp/mine/finder-choice}'
+	]
+	'S-F6': [
 		':noop %sh{rm -f /tmp/mine/yazi-chooser-file}'
 		':noop %sh(foottitled.sh helix-popup yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
@@ -129,23 +146,6 @@ let all_mappings = {
 		':noop %sh(foottitled.sh helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
-	F3: [
-		':noop %sh{rm -f /tmp/mine/finder-choice}',
-		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "IS_FROM_HELIX=true finder"}',
-		':open %sh{cat /tmp/mine/finder-choice}'
-	]
-	F4: [
-		':noop %sh{rm -f /tmp/mine/finder-choice}',
-		':noop %sh{foottitled.sh helix-popup -D %(buffer_parent) fish -c "IS_FROM_HELIX=true finder"}',
-		':open %sh{cat /tmp/mine/finder-choice}'
-	]
-	F1: [
-		':noop %sh(foottitled.sh reopen -ND %(working_directory) helix %(full_path):%(cursor_line):%(cursor_column))'
-	]
-	# F1: [
-	# 	':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
-	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
-	# ]
  }
 
 let normal_mappings = {
