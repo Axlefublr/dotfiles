@@ -14,8 +14,12 @@ tail -f ~/.local/share/mine/task-scheduler | while read -z first
         echo $second
         set_color normal
         set -l first_word (string split ' ' $second)[1]
+        function _receive_sigint --on-signal INT
+        end
         fish -c $second </dev/tty
-        if test $status -eq 0
+        set -l stored_status $status
+        functions -e _receive_sigint
+        if test $stored_status -eq 0
             set_color -o a9b665
             echo success
             set_color normal
