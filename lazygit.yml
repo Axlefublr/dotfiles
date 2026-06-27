@@ -46,6 +46,10 @@ gui:
     "^Axlefublr/[^/]+$": "#e491b2"
     "^eph": "#ea6962"
     "^\\d+/": "#e49641"
+  sidePanels:
+    - [files, stash, worktrees, submodules]
+    - [branches, remotes, tags]
+    - [commits, reflog]
   theme:
     activeBorderColor:
       - yellow
@@ -108,9 +112,7 @@ keybinding:
     nextBlock-alt2: <disabled>
     prevBlock-alt2: <disabled>
     jumpToBlock:
-      - "4"
       - "1"
-      - "3"
       - "2"
       - "5"
     focusMainView: "0"
@@ -291,26 +293,28 @@ customCommands:
 
   - key: "e"
     context: "commitFiles"
-    command: "fish -c 'git show \"{{.SelectedCommit.Hash}}:{{.SelectedPath}}\"
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}"
       >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix
-      /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
+      /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: "Edit file at this point in history"
     output: terminal
   - key: "E"
     context: "commitFiles"
-    command: "fish -c 'git show \"{{.SelectedCommit.Hash}}^:{{.SelectedPath}}\"
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}"
       >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix
-      /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
+      /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: "Edit file at the commit before this point in history"
     output: terminal
   - key: "q"
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}}
+    command:
+      "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}}
       >~/.local/share/flipboard'"
     description: "Copy link to file at this commit"
   - key: "Q"
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}}
+    command:
+      "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}}
       >~/.local/share/flipboard'"
     description: "Copy link to file at *previous* commit"
 
@@ -360,7 +364,8 @@ customCommands:
 
   - key: E
     context: "commits, subCommits"
-    command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}}
+    command:
+      "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}}
       >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
     description: "Edit commit diff in editor"
     output: terminal
@@ -403,7 +408,8 @@ customCommands:
     output: terminal
   - key: "N"
     context: "localBranches"
-    command: "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short
+    command:
+      "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short
       refs/remotes/upstream/HEAD) ; git branch -u origin"
     prompts:
       - type: "input"
