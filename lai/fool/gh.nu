@@ -141,5 +141,5 @@ def 'shallow include' [shallow: bool]: list<string> -> list<string> {
 }
 
 def 'shallow enqueue' [shallow: bool, dir: directory] {
-	pueue add -w ($env.PWD | path join $dir) -g network -- 'git fetch --unshallow'
+	schedule.fish -D ($env.PWD | path join $dir) -- 'git fetch --unshallow'
 }
