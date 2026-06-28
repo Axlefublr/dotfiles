@@ -94,7 +94,7 @@ function runner_timer
     # doing some titling logic here so that window rules work as expected; window title may change afterwards
     set -l genre (runner_timer_resolve_genre "$the[2]")
     set -l prev_win_id (na -c "niri msg -j windows | from json | where is_focused == true | get id | first")
-    niri msg action do-screen-transition -d 110
+    niri msg action do-screen-transition -d 180
     niri msg action spawn -- foottitled.sh "$genre $title" -N timer.fish $repeat "$prev_win_id" $title $rest
     indeed.rs -u ~/.local/share/magazine/c-t -- "$input"
     tail -n 100 ~/.local/share/magazine/c-t | sponge ~/.local/share/magazine/c-t
