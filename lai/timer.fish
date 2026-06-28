@@ -16,7 +16,23 @@ while true
         while true
             tit $title
             notify-send "💣️ $title"
-            termdown -BW $time
+            set -l passed_time (
+                if not string match -qe ':' -- $time
+                    echo $time
+                else
+                    set -l current_hour (date +%H)
+                    set -l current_minute (date +%M)
+                    set -l the (string split ':' -- $time)
+                    set -l passed_hour $the[1]
+                    set -l passed_minute $the[2]
+                    if test $current_hour -gt $passed_hour -o \( $current_hour -eq $passed_hour -a $current_minute -ge $passed_minute \)
+                        echo "$(date -d 'today + 1 day' '+%Y-%m-%d') $time"
+                    else
+                        echo $time
+                    end
+                end
+            )
+            termdown -BW $passed_time
             # not using the foot-configured bell here because I *usually* don't want infinitely staying notifications on bell, but *can* afford them here thanks to custom fancy logic
             tit "⏰ $title"
             na -c "niri msg -j windows | from json | where app_id starts-with foot | where title == '⏰ $title' | get id | each { niri msg action set-window-urgent --id \$in } | ignore"
