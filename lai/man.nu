@@ -3,14 +3,14 @@
 def main [] {}
 
 def 'main help' [] {
-	let input = open ~/.local/share/magazine/c-comma | lines | reverse | to text | ^fuzzel -d --match-mode exact --cache ~/.cache/mine/help-frecency
+	let input = open ~/.local/share/magazine/c-comma | lines | reverse | to text | ^fuzzel -d --match-mode exact --cache ~/fes/zufi/help-frecency
 	^indeed.rs -u ~/.local/share/magazine/c-comma $input
 	let args = ($input | split row -r '\s+')
 	help.fish ...$args
 }
 
 def 'main man' [] {
-	let input = open ~/.cache/mine/man-list | ^fuzzel -d --match-mode fzf --cache ~/.cache/mine/man-frecency
+	let input = open ~/fes/zufi/man-list | ^fuzzel -d --match-mode fzf --cache ~/fes/zufi/man-frecency
 	let the = try {
 		$input | parse '{name} (fish)' | $in.name.0 | { manpage: $in, section: fish, should_fish: true }
 	} catch {
@@ -35,7 +35,7 @@ def 'main men' [] {
 	}
 	| to text
 	| save -f /tmp/mine/man-atomic
-	mv -f /tmp/mine/man-atomic ~/.cache/mine/man-list
+	mv -f /tmp/mine/man-atomic ~/fes/zufi/man-list
 	^fish -c dot
 }
 
@@ -50,7 +50,7 @@ def 'main nushell' [] {
 		}
 	}
 	| to text
-	| fuzzel -d --match-mode fzf --cache ~/.cache/mine/nushell-frecency
+	| fuzzel -d --match-mode fzf --cache ~/fes/zufi/nushell-frecency
 	let input = try {
 		$input | parse '{name} ({search_terms})' | get name.0
 	} catch {
