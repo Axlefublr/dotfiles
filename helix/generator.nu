@@ -123,7 +123,7 @@ let all_mappings = {
 	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
 	# ]
 	F2: [
-		":noop %sh(echo %(full_path) >~/.cache/mine/blammo)"
+		":noop %sh(echo %(full_path) >~/fes/zufi/blammo)"
 		':noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}'
 	]
 	F4: [
@@ -493,7 +493,7 @@ let insert_mappings = {
 
 let editor_fork = {
 	# [[sort on]]
-	auto-reload: { poll: { interval: 1000 } }
+	auto-reload: { enable: true, poll: { interval: 1000 } }
 	enable-diagnostics: true
 	picker: { scrolloff: 99 }
 	search: { max-matches: none }
@@ -689,6 +689,8 @@ let entire_config_fork = $entire_config | merge deep { editor: $editor_fork, key
 
 $entire_config      | to toml | save -f ~/fes/dot/helix/pure.toml
 $entire_config_fork | to toml | save -f ~/fes/dot/helix/config.toml
+
+$entire_config_fork | upsert editor.ripgrep true | to toml | save -f ~/fes/dot/helix/ripgrep.toml
 
 let latest = $entire_config_fork
 $latest | upsert editor.bufferline 'never' | let latest ; $latest | to toml | save -f ~/fes/dot/helix/sleek.toml
