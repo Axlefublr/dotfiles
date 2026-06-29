@@ -34,7 +34,7 @@ function yt_audio
         set -f mark '='
     end
     for link in $links
-        schedule.fish -- "ytroxy --cookies ~/.local/share/mine/cookies.purple.txt -o ~/iwm/lwkc/$picked/$(uclanr -j - 3)$mark.'%(ext)s' $link"
+        schedule.fish -- "ytroxy --cookies ~/fes/zufi/cookies.purple.txt -o ~/iwm/lwkc/$picked/$(uclanr -j - 3)$mark.'%(ext)s' $link"
         notify-send "start $link"
     end
 end
