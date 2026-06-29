@@ -24,14 +24,14 @@ def 'main cpu' [] {
 def 'main fix' [] {
 	let waybar_conf = open ~/fes/dot/waybar/waybar.jsonc
 	| from json
-	let set_cpu = readlink ~/.local/share/mine/cpu-package-0 | str trim
+	let set_cpu = readlink ~/fes/zufi/cpu-package-0 | str trim
 	let correct_cpu = main cpu
 	if $set_cpu == (main cpu) {
 		print -e 'nothing to fix, quitting'
 		return
 	}
 	let incorrect_cpu = $set_cpu
-	ln -sf $correct_cpu ~/.local/share/mine/cpu-package-0
+	ln -sf $correct_cpu ~/fes/zufi/cpu-package-0
 
 	let incorrect_hwmon = $incorrect_cpu | path split | reverse | skip 1 | take 1 | get 0
 	open ~/fes/uviw/afen/sudo | ^sudo -Sv
