@@ -31,7 +31,7 @@ function __zoxide_z
         and builtin cd $result
         and command zoxide add -- (__zoxide_pwd)
     end
-    tit (fish_title)
+    protit (fish_title)
 end
 funcsave __zoxide_z >/dev/null
 
