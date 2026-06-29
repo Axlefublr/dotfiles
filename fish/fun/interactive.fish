@@ -60,8 +60,12 @@ function finder -a return_here
     # if $IS_FROM_HELIX
     #     niri msg action consume-or-expel-window-left
     # end
-    set -l result "$(fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}')"
+    set -l result "$(fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}' '--bind=alt-enter:become:echo //')"
     test $result || return
+    if test $result = //
+        helix --config ~/fes/dot/helix/ripgrep.toml
+        return
+    end
     set -l first_char (string sub -l 1 $result)
     if test $first_char = ':'
         yazi (string sub -s 2 $result)
