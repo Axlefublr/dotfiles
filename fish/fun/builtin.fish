@@ -6,11 +6,11 @@ funcsave fish_greeting >/dev/null
 
 function fish_title
     set -l stored_status $status
-    set -q TIT && return
-    pwdb
-    if test $stored_status -ne 0
-        echo ' ❌'
+    if set -q TIT
+        echo $TIT
+        return
     end
+    pwdb
 end
 funcsave fish_title >/dev/null
 
