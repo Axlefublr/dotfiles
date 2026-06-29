@@ -8,7 +8,7 @@ mut phase = 'work'
 def commit [class: string, total: string = ''] {
 	into string
 	| $'{ "text": "($in) of ($total)", "class": "($class)" }' + "\n"
-	| save -f ~/.local/share/mine/waybar-tomato
+	| save -f ~/fes/zufi/waybar-tomato
 }
 
 def log [phase: string] {
@@ -67,4 +67,4 @@ loop {
 	}
 	try { inotifywait -qq -e close_write -t 60 /tmp/mine/tomato-action }
 }
-"\n" | save -f ~/.local/share/mine/waybar-tomato
+"\n" | save -f ~/fes/zufi/waybar-tomato
