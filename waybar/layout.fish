@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-not test -p ~/.local/share/mine/waybar-layout && mkfifo ~/.local/share/mine/waybar-layout
+not test -p ~/fes/zufi/waybar-layout && mkfifo ~/fes/zufi/waybar-layout
 set -g layout (keyboard_layout)
 set -g capslock (capslock_state)
 
@@ -35,6 +35,6 @@ function capslock_toggle
     figure_out
 end
 
-while cat ~/.local/share/mine/waybar-layout | read -L the
+while cat ~/fes/zufi/waybar-layout | read -L the
     echo $the | source
 end
