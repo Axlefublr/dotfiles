@@ -31,7 +31,20 @@ function gh
 end
 funcsave gh >/dev/null
 
+function helix
+    protit "$(fish_title) helix"
+    command helix $argv
+    protit (fish_title)
+end
+funcsave helix >/dev/null
+
 alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -f' >/dev/null
+function lazygit
+    protit "$(fish_title) lazygit"
+    command lazygit $argv
+    protit (fish_title)
+end
+funcsave lazygit >/dev/null
 alias --save less 'less --use-color -R' >/dev/null
 
 function loago
@@ -54,3 +67,16 @@ alias --save termframe 'termframe -o ~/iwm/sco/(date +%Y.%m.%d-%H:%M:%S).svg' >/
 alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git -I bin -I obj -I target -I .vscode' >/dev/null
 alias --save tuisky 'tuisky -c ~/fes/dot/tuisky.toml' >/dev/null
 alias --save unimatrix 'unimatrix -s 95 -abf' >/dev/null
+
+function yazi
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    protit "$(fish_title) yazi" # this can include a ❌ awkwardly
+    command yazi $argv --cwd-file="$tmp"
+    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        z $cwd
+    end
+    commandline -f repaint
+    protit (fish_title)
+    rm -f -- "$tmp"
+end
+funcsave yazi >/dev/null
