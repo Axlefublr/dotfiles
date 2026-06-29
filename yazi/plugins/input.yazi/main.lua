@@ -8,7 +8,7 @@ return {
 		})
 
 		if event ~= 1 then
-			local file = io.open('/home/axlefublr/.cache/mine/yazi-input', 'w')
+			local file = io.open('/home/axlefublr/fes/zufi/yazi-input', 'w')
 			if file then
 				file:write('')
 				file:close()
@@ -16,7 +16,7 @@ return {
 			return
 		end
 
-		local file = io.open('/home/axlefublr/.cache/mine/yazi-input', 'w')
+		local file = io.open('/home/axlefublr/fes/zufi/yazi-input', 'w')
 		if file then
 			file:write(value)
 			file:close()
