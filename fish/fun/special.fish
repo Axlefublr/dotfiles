@@ -57,7 +57,7 @@ funcsave fragmentize_url >/dev/null
 
 function frizz_picker
     cd ~/.local/share/frizz
-    set -l picked (fd -tf . | fuzzel -d --cache ~/.cache/mine/frizz-picker)
+    set -l picked (fd -tf . | fuzzel -d --cache ~/fes/zufi/frizz-picker)
     not test "$picked" && return
     foottitled.sh frizz -ND ~/.local/share/frizz helix $picked
 end
@@ -176,6 +176,25 @@ function piped_scrollback_editor
 end
 funcsave piped_scrollback_editor >/dev/null
 
+function allow_logout
+    not test -e ~/fes/zufi/tms/receiver-ongoing
+    or begin
+        torn 'refusing: ongoing receiver tasks'
+        return
+    end
+    na -c 'niri msg -j windows | from json | where app_id starts-with foot | where title =~ "^(⏰ )?(timer|stopwatch|alarm)" | if ($in | is-not-empty) { exit 1 }'
+    or begin
+        torn 'refusing: ongoing time counters'
+        return
+    end
+    na -c 'niri msg -j windows | from json | where is_urgent == true | if ($in | is-not-empty) { exit 1 }'
+    or begin
+        torn 'refusing: urgent windows present'
+        return
+    end
+end
+funcsave allow_logout >/dev/null
+
 function pvz_plant -a x_pos
     set -l prev_position (niri msg pointer)
     ydotool mousemove -a $x_pos 50
@@ -192,12 +211,23 @@ function randomize_file_names
 end
 funcsave randomize_file_names >/dev/null
 
+function resolve_time_counter_genre -a timestamp
+    if string match -qe ':' -- $timestamp
+        echo alarm
+    else if not test $timestamp
+        echo stopwatch
+    else
+        echo timer
+    end
+end
+funcsave resolve_time_counter_genre >/dev/null
+
 function toggle_screen_record
     if test -f /tmp/mine/recordilock
-        echo killing >~/.local/share/mine/waybar-screen-record
+        echo killing >~/fes/zufi/waybar-screen-record
         kill -s INT wf-recorder
     else
-        echo starting >~/.local/share/mine/waybar-screen-record
+        echo starting >~/fes/zufi/waybar-screen-record
         screen-record.fish
     end
 end
