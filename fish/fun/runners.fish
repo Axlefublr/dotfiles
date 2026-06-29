@@ -9,7 +9,7 @@ end
 funcsave runner_clipboard >/dev/null
 
 function runner_interactive_unicode
-    set input (cat ~/.local/share/magazine/e | fuzzel -d --cache ~/.cache/mine/runner-interactive-unicode 2>/dev/null)
+    set input (cat ~/.local/share/magazine/e | fuzzel -d --cache ~/fes/zufi/runner-interactive-unicode 2>/dev/null)
     test $status -ne 0 && return 1
     echo -n (string split ' ' $input[1])[1] | wl-copy -n
 end
@@ -17,7 +17,7 @@ funcsave runner_interactive_unicode >/dev/null
 
 function runner_link
     set file ~/.local/share/magazine/l
-    set result (cat $file | sd ' — .+$' '' | fuzzel -d --index --cache ~/.cache/mine/runner-link 2>/dev/null)
+    set result (cat $file | sd ' — .+$' '' | fuzzel -d --index --cache ~/fes/zufi/runner-link 2>/dev/null)
     test $status -ne 0 && return 1
     set line (math $result + 1)
     set link (awk "NR==$line { print \$NF }" $file)
@@ -32,11 +32,11 @@ end
 funcsave runner_link >/dev/null
 
 function runner_math
-    # set -l input_expr (cat ~/.cache/mine/runner-math | fuzzel -dl 2 2>/dev/null)
+    # set -l input_expr (cat ~/fes/zufi/runner-math | fuzzel -dl 2 2>/dev/null)
     # test $status -ne 0 && return 1
     # test "$input_expr" || return 1
-    # echo $input_expr >~/.cache/mine/runner-math
-    # set -l calculated_result (qalc -t -- $input_expr | tee -a ~/.cache/mine/runner-math)
+    # echo $input_expr >~/fes/zufi/runner-math
+    # set -l calculated_result (qalc -t -- $input_expr | tee -a ~/fes/zufi/runner-math)
     # notify-send -t 0 -- "$calculated_result"
     # echo $calculated_result | wl-copy -n
     foottitled.sh floating-calculator -N calc
@@ -73,41 +73,9 @@ end
 funcsave runner_symbol >/dev/null
 
 function runner_symbol_name
-    set input (cat ~/.local/share/magazine/E | fuzzel -d --match-mode exact --cache ~/.cache/mine/runner-symbol-name 2>/dev/null)
+    set input (cat ~/.local/share/magazine/E | fuzzel -d --match-mode exact --cache ~/fes/zufi/runner-symbol-name 2>/dev/null)
     test $status -eq 1 && return 1
     not test "$input" && return 1
     printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | wl-copy -n
 end
 funcsave runner_symbol_name >/dev/null
-
-function runner_timer
-    set -l input (tac ~/.local/share/magazine/c-t | fuzzel -d --match-mode exact 2>/dev/null)
-    not test "$input" && return 1
-    set -l the (string split ' ' -- $input)
-    set -l title $the[1]
-    if string match -qr '!$' -- $title
-        set -f repeat true
-    else
-        set -f repeat false
-    end
-    set -l rest $the[2..]
-    # doing some titling logic here so that window rules work as expected; window title may change afterwards
-    set -l genre (runner_timer_resolve_genre "$the[2]")
-    set -l prev_win_id (na -c "niri msg -j windows | from json | where is_focused == true | get id | first")
-    niri msg action do-screen-transition -d 180
-    niri msg action spawn -- foottitled.sh "$genre $title" -N timer.fish $repeat "$prev_win_id" $title $rest
-    indeed.rs -u ~/.local/share/magazine/c-t -- "$input"
-    tail -n 100 ~/.local/share/magazine/c-t | sponge ~/.local/share/magazine/c-t
-end
-funcsave runner_timer >/dev/null
-
-function runner_timer_resolve_genre -a timestamp
-    if string match -qe ':' -- $timestamp
-        echo alarm
-    else if not test $timestamp
-        echo stopwatch
-    else
-        echo timer
-    end
-end
-funcsave runner_timer_resolve_genre >/dev/null
