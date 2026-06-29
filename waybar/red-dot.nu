@@ -4,12 +4,12 @@ const symbol = ''
 const flashing_speed = 130ms
 const flashes_count = 5
 
-let fifo_path = "~/.local/share/mine/waybar-red-dot" | path expand
+let fifo_path = "~/fes/zufi/waybar-red-dot" | path expand
 if (($fifo_path | path type) != pipe) {
 	mkfifo $fifo_path
 }
 
-tail -f ~/.local/share/mine/waybar-red-dot
+tail -f ~/fes/zufi/waybar-red-dot
 | each {
 	for _ in (seq 1 $flashes_count) {
 		print $symbol
