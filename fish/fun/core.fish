@@ -8,7 +8,7 @@ funcsave arebesties >/dev/null
 alias --save bell 'printf \a' >/dev/null
 
 function blammo
-    cat ~/.cache/mine/blammo 2>/dev/null
+    cat ~/fes/zufi/blammo 2>/dev/null
 end
 funcsave blammo >/dev/null
 
@@ -26,7 +26,7 @@ end
 funcsave dof >/dev/null
 
 function dot
-    echo dot >~/.local/share/mine/waybar-red-dot
+    echo dot >~/fes/zufi/waybar-red-dot
 end
 funcsave dot >/dev/null
 
@@ -53,6 +53,16 @@ function flour
     end
 end
 funcsave flour >/dev/null
+
+function focus_care
+    printf '\x1b[?1004h'
+end
+funcsave focus_care >/dev/null
+
+function focus_ignore
+    printf '\x1b[?1004l'
+end
+funcsave focus_ignore >/dev/null
 
 function get_input
     set -l input (fuzzel -dl 0 2>/dev/null)
@@ -193,11 +203,6 @@ function task
 end
 funcsave task >/dev/null
 
-function title -a new_title
-    set -g fish_title $new_title
-end
-funcsave title >/dev/null
-
 function toggle_value
     argparse 'n/namespace=' -- $argv
     and test "$_flag_namespace"
@@ -208,6 +213,16 @@ function toggle_value
     echo $argv[$index]
 end
 funcsave toggle_value >/dev/null
+
+function torn
+    if status is-interactive
+        warn $argv
+    else
+        notify-send -- $argv
+    end
+    return 1
+end
+funcsave torn >/dev/null
 
 function trail
     set -f modified_basename
