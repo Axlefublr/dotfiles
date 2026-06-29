@@ -64,7 +64,7 @@ function fish_user_key_bindings
     bind ctrl-z fg
     bind f1 '_kb_follow_by nu ; commandline -f repaint'
     bind f2 '_kb_follow_by lazygit'
-    bind f3 'z (cat ~/.cache/mine/blammo | path dirname) ; commandline -f repaint'
+    bind f3 'z (cat ~/fes/zufi/blammo | path dirname) ; commandline -f repaint'
     bind f4 '_kb_follow_by helix .'
     bind f5 '_kb_follow_by helix'
     bind f6 '_kb_follow_by yazi'
