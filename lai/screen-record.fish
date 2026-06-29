@@ -1,10 +1,10 @@
 #!/usr/bin/env fish
 
 touch /tmp/mine/recordilock
-echo recording >~/.local/share/mine/waybar-screen-record
+echo recording >~/fes/zufi/waybar-screen-record
 set -l timestamp (date +%Y.%m.%d-%H:%M:%S)
 wf-recorder -Dyf ~/iwm/sco/$timestamp-original.mp4
-echo compressing >~/.local/share/mine/waybar-screen-record
+echo compressing >~/fes/zufi/waybar-screen-record
 ffmpeg -y -i ~/iwm/sco/$timestamp-original.mp4 \
     -an \
     -c:v libx264 -preset medium -crf 21 \
@@ -13,6 +13,6 @@ ffmpeg -y -i ~/iwm/sco/$timestamp-original.mp4 \
     -vf scale=-1:1080 \
     ~/iwm/sco/$timestamp-compressed.mp4
 rm -f /tmp/mine/recordilock
-echo copying >~/.local/share/mine/waybar-screen-record
+echo copying >~/fes/zufi/waybar-screen-record
 sl.fish ~/iwm/sco/$timestamp-compressed.mp4
-echo >~/.local/share/mine/waybar-screen-record
+echo >~/fes/zufi/waybar-screen-record
