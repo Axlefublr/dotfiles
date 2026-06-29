@@ -15,7 +15,7 @@ set -l engine_index (
     for line in (cat ~/.local/share/magazine/B)
         set -l bits (string split ' — ' $line)
         echo $bits[1] | string trim
-    end | fuzzel -d --index --match-mode fzf --cache ~/.cache/mine/engined-search $width_flag 2>/dev/null
+    end | fuzzel -d --index --match-mode fzf --cache ~/fes/zufi/engined-search $width_flag 2>/dev/null
 )
 not test "$engine_index" && return 1
 set -l engine (
