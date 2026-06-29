@@ -24,9 +24,9 @@ end
 funcsave clipboard_index >/dev/null
 
 function clipboard_pick
-    set -l result (cliphist list | tee ~/.cache/mine/cliphist | cut -f 2- | fuzzel -d --index)
+    set -l result (cliphist list | tee ~/fes/zufi/cliphist | cut -f 2- | fuzzel -d --index)
     test $status -ne 0 && return 1
-    zat.rs ~/.cache/mine/cliphist ",$result" | cliphist decode | wl-copy -n
+    zat.rs ~/fes/zufi/cliphist ",$result" | cliphist decode | wl-copy -n
 end
 funcsave clipboard_pick >/dev/null
 
@@ -119,7 +119,8 @@ function pick_and_copy_color
 end
 funcsave pick_and_copy_color >/dev/null
 
-alias --save reboot 'systemctl reboot' >/dev/null
+alias --save poweroff 'allow_logout && poweroff' >/dev/null
+alias --save reboot 'allow_logout && systemctl reboot' >/dev/null
 alias --save s 'wl-copy -n' >/dev/null
 
 function screenshot_select
@@ -158,10 +159,14 @@ alias --save suspend 'systemctl suspend' >/dev/null
 
 function tit
     test "$argv" && printf '\e]2;%s\a' "$argv"
-    set -gx TIT "$argv"
     return 0
 end
 funcsave tit >/dev/null
+
+function protit -d 'only update title if TIT is not set'
+    not set -q TIT && status is-interactive && tit $argv
+end
+funcsave protit >/dev/null
 
 alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null
@@ -183,14 +188,3 @@ function write_window_info
     flour --disown /tmp/mine/window-info
 end
 funcsave write_window_info >/dev/null
-
-function yazi
-    set tmp (mktemp -t "yazi-cwd.XXXXXX")
-    command yazi $argv --cwd-file="$tmp"
-    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-        z $cwd
-    end
-    commandline -f repaint
-    rm -f -- "$tmp"
-end
-funcsave yazi >/dev/null
