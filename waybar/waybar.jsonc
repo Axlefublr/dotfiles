@@ -177,7 +177,7 @@
   },
   "temperature#cpu": {
     "format": "{temperatureC}",
-    "hwmon-path": "/home/axlefublr/.local/share/mine/cpu-package-0",
+    "hwmon-path": "/home/axlefublr/fes/zufi/cpu-package-0",
     "interval": 5,
     "critical-threshold": 75
   }
