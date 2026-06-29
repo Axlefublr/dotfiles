@@ -11,7 +11,7 @@ if not test "$argv[4..]"
 end
 while true
     for time in $argv[4..]
-        set -l genre (runner_timer_resolve_genre "$time")
+        set -l genre (resolve_time_counter_genre "$time")
         set -l title "$genre $name $time"
         while true
             tit $title
