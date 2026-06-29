@@ -8,13 +8,14 @@ mkdir -p ~/wlx \
     ~/iwm/lwkc \
     ~/fes \
     ~/fes/ork \
+    ~/fes/zufi \
     ~/.local/bin \
-    ~/.cache/mine \
-    ~/.local/share/mine \
     ~/.local/share/{fonts,themes,harp,loago}
 fish_add_path ~/.local/bin
 
 echo "d /tmp/mine 0755 $USER $USER -" | sudo tee -a /etc/tmpfiles.d/mine.conf
+# the difference between d, is that D will also delete the contents of the directory on boot
+echo "D /home/$USER/fes/zufi/tms 0755 $USER $USER -" | sudo tee -a /etc/tmpfiles.d/mine.conf
 sudo systemd-tmpfiles --create
 
 cd ~
