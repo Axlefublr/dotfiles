@@ -25,10 +25,10 @@
 
 (defalias
 	gaming (multi (on↓ release-vkey nuclear-throne) (on↓ release-vkey enter-the-gungeon) (on↓ release-vkey slay-the-spire) (on↓ release-vkey plants-vs-zombies))
-	enter-the-gungeon (multi (cmd notify-send "Enter the Gungeon") (cmd fish -c "echo 'Enter the Gungeon' >>~/.local/share/mine/waybar-gaming") (on↓ press-vkey enter-the-gungeon))
-	slay-the-spire (multi (cmd notify-send "Slay the Spire") (cmd fish -c "echo 'Slay the Spire' >>~/.local/share/mine/waybar-gaming") (on↓ press-vkey slay-the-spire))
-	plants-vs-zombies (multi (cmd notify-send "Plants vs Zombies") (cmd fish -c "echo 'Plants vs Zombies' >>~/.local/share/mine/waybar-gaming") (on↓ press-vkey plants-vs-zombies))
-	nuclear-throne (multi (cmd notify-send "Nuclear Throne") (cmd fish -c "echo 'Nuclear Throne' >> ~/.local/share/mine/waybar-gaming") (on↓ press-vkey nuclear-throne))
+	enter-the-gungeon (multi (cmd notify-send "Enter the Gungeon") (cmd fish -c "echo 'Enter the Gungeon' >>~/fes/zufi/waybar-gaming") (on↓ press-vkey enter-the-gungeon))
+	slay-the-spire (multi (cmd notify-send "Slay the Spire") (cmd fish -c "echo 'Slay the Spire' >>~/fes/zufi/waybar-gaming") (on↓ press-vkey slay-the-spire))
+	plants-vs-zombies (multi (cmd notify-send "Plants vs Zombies") (cmd fish -c "echo 'Plants vs Zombies' >>~/fes/zufi/waybar-gaming") (on↓ press-vkey plants-vs-zombies))
+	nuclear-throne (multi (cmd notify-send "Nuclear Throne") (cmd fish -c "echo 'Nuclear Throne' >> ~/fes/zufi/waybar-gaming") (on↓ press-vkey nuclear-throne))
 	previous_game (switch
 		((layer default)) (multi @gaming @enter-the-gungeon) break
 		((layer nuclear-throne)) (multi @gaming @enter-the-gungeon) break
@@ -49,7 +49,7 @@
 (deflayermap (default)
 	- @previous_game
 	= @next_game
-	bspc (multi (cmd notify-send "clear") (cmd fish -c "echo >~/.local/share/mine/waybar-gaming") @gaming)
+	bspc (multi (cmd notify-send "clear") (cmd fish -c "echo >~/fes/zufi/waybar-gaming") @gaming)
 	9 (cmd fish -c screenshot_window)
 	;; [[sort on]]
 	' (tap-hold-release $tt $ht ' (multi (layer-toggle quote) (on↑ tap-vkey quote)))
@@ -141,9 +141,9 @@
 	m end
 	n home
 	o enter
-	p (multi caps (cmd fish -c "echo capslock_toggle >~/.local/share/mine/waybar-layout"))
+	p (multi caps (cmd fish -c "echo capslock_toggle >~/fes/zufi/waybar-layout"))
 	spc ins
-	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/.local/share/mine/waybar-layout"))
+	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/fes/zufi/waybar-layout"))
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
@@ -170,7 +170,7 @@
 	d (cmd find-or-make.fish "app_id starts-with foot" "title == dotfiles" "foottitled.sh dotfiles -ND ~/fes/dot helix")
 	e (cmd find-or-make.fish --clean "app_id starts-with foot" "title == bluetui" "foottitled.sh bluetui -N bluetui")
 	f (cmd find-or-make.fish "app_id == firefox" "gtk-launch firefox")
-	g (cmd fish -c runner_timer)
+	g (cmd request-timer.fish)
 	q (cmd reuse-finder.nu /home/axlefublr/fes/tiq)
 	r (cmd find-or-make.fish "app_id starts-with foot" "title == hardware-monitor" "foottitled.sh hardware-monitor -N hardware-monitor.nu")
 	s (cmd find-or-make.fish "app_id starts-with foot" "title == loago-tracker" "foottitled.sh loago-tracker -N fish -c loago_tracker")
