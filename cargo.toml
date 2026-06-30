@@ -2,6 +2,7 @@
 a = 'add'
 br = 'build --release'
 c = 'clippy'
+cc = 'clippy --fix --workspace --allow-dirty --allow-staged'
 d = 'doc'
 do = 'doc --open --no-deps'
 f = 'fmt'
