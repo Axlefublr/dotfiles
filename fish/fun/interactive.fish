@@ -57,13 +57,17 @@ funcsave D >/dev/null
 function finder -a return_here
     # this isn't a good idea because if `finder` is reran, it consumes again while we don't want it to
     # even if I fix this, the caveat of collapsing to the wrong window if I start `finder` from a column with multiple windows, is too annoying
-    # if $IS_FROM_HELIX
+    # if $FROM_POPUP
     #     niri msg action consume-or-expel-window-left
     # end
-    set -l result "$(fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}' '--bind=alt-enter:become:echo //')"
+    set -l result "$(walk-files.rs | fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}' '--bind=alt-enter:become:echo //')"
     test $result || return
     if test $result = //
-        helix --config ~/fes/dot/helix/ripgrep.toml
+        if test "$FROM_POPUP"
+            echo $PWD >/tmp/mine/finder-choice
+        else
+            helix .
+        end
         return
     end
     set -l first_char (string sub -l 1 $result)
@@ -81,7 +85,7 @@ function finder -a return_here
             mkdir -p (path dirname $target)
         end
         touch $target
-        if test "$IS_FROM_HELIX"
+        if test "$FROM_POPUP"
             echo $PWD/$target >/tmp/mine/finder-choice
         else
             if test "$return_here"
@@ -96,7 +100,7 @@ function finder -a return_here
         cd $result
         finder $return_here
     else
-        if test "$IS_FROM_HELIX"
+        if test "$FROM_POPUP"
             echo $PWD/$result >/tmp/mine/finder-choice
         else
             if test "$return_here"
