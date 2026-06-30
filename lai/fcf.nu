@@ -22,8 +22,8 @@ def 'main cpu' [] {
 }
 
 def 'main fix' [] {
-	let waybar_conf = open ~/fes/dot/waybar/waybar.jsonc
-	| from json
+	# let waybar_conf = open ~/fes/dot/waybar/waybar.jsonc
+	# | from json
 	let set_cpu = readlink ~/fes/zufi/cpu-package-0 | str trim
 	let correct_cpu = main cpu
 	if $set_cpu == (main cpu) {
