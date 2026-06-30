@@ -96,7 +96,7 @@ keymap = [
   { on = [ '<C-s>', 's' ], run = [ 'sort mtime --reverse=no --dir-first=yes', 'linemode mtime' ], desc = 'Sort by modified time' },
   { on = [ '<C-s>', 'w' ], run = [ 'sort btime --reverse=no --dir-first=yes', 'linemode btime' ], desc = 'Sort by created time' },
   { on = [ '<Space>', 'i' ], run = 'shell --block -- hexpatch %s', desc = 'Open file in hex editor' },
-  { on = [ '<Space>', 'w' ], run = 'shell --block -- helix --config ~/fes/dot/helix/ripgrep.toml', desc = 'Ripgrep this directory' },
+  { on = [ '<Space>', 'w' ], run = 'shell --block -- helix .', desc = 'Ripgrep this directory' },
   { on = [ 'g', 'h' ], run = 'cd ~', desc = 'Go home' },
   { on = [ 'g', 'q' ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = 'Go to repo root' },
   { on = [ 'm', 'M' ], run = 'shell -- chmod +x %s', desc = 'Chmod +x' },
