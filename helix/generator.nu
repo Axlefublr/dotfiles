@@ -128,12 +128,12 @@ let all_mappings = {
 	]
 	F4: [
 		':noop %sh{rm -f /tmp/mine/finder-choice}',
-		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "IS_FROM_HELIX=true finder"}',
+		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "FROM_POPUP=true finder"}',
 		':open %sh{cat /tmp/mine/finder-choice}'
 	]
 	'S-F4': [
 		':noop %sh{rm -f /tmp/mine/finder-choice}',
-		':noop %sh{foottitled.sh helix-popup -D %(buffer_parent) fish -c "IS_FROM_HELIX=true finder"}',
+		':noop %sh{foottitled.sh helix-popup -D %(buffer_parent) fish -c "FROM_POPUP=true finder"}',
 		':open %sh{cat /tmp/mine/finder-choice}'
 	]
 	'S-F6': [
@@ -493,10 +493,11 @@ let insert_mappings = {
 
 let editor_fork = {
 	# [[sort on]]
-	auto-reload: { enable: true, poll: { interval: 1000 } }
+	# auto-reload: { enable: true, poll: { interval: 1000 } }
 	enable-diagnostics: true
 	picker: { scrolloff: 99 }
 	search: { max-matches: none }
+	session: { restore-cursor: true, gc-max-age: 90 }
 	whichkey: false
 	# [[sort off]]
 	shellmap: {
@@ -689,8 +690,6 @@ let entire_config_fork = $entire_config | merge deep { editor: $editor_fork, key
 
 $entire_config      | to toml | save -f ~/fes/dot/helix/pure.toml
 $entire_config_fork | to toml | save -f ~/fes/dot/helix/config.toml
-
-$entire_config_fork | upsert editor.ripgrep true | to toml | save -f ~/fes/dot/helix/ripgrep.toml
 
 let latest = $entire_config_fork
 $latest | upsert editor.bufferline 'never' | let latest ; $latest | to toml | save -f ~/fes/dot/helix/sleek.toml
