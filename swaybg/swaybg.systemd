@@ -1,3 +1,0 @@
-[Unit]
-StartLimitTimeoutSec=0
-StartLimitBurst=0
