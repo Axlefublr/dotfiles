@@ -60,7 +60,7 @@ function finder -a return_here
     # if $FROM_POPUP
     #     niri msg action consume-or-expel-window-left
     # end
-    set -l result "$(walk-files.rs | fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}' '--bind=alt-enter:become:echo //')"
+    set -l result "$(walk-files.rs 2>/dev/null | fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}' '--bind=alt-enter:become:echo //' '--bind=tab:become:echo ../')"
     test $result || return
     if test $result = //
         if test "$FROM_POPUP"
@@ -97,7 +97,7 @@ function finder -a return_here
         return
     end
     if string match -qr '/$' -- $result
-        cd $result
+        z $result
         finder $return_here
     else
         if test "$FROM_POPUP"
