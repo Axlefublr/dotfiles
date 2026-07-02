@@ -5,13 +5,12 @@ cat ~/fes/uviw/afen/sudo | sudo -S modprobe uinput
 systemctl --user restart kanata.service
 
 niri msg action focus-workspace main
-gtk-launch firefox
 foottitled.sh nugleterm -N nu
 foottitled.sh toggleterm -N
 niri msg action consume-or-expel-window-left
 ntf_dismiss_all
 foottitled.sh dotfiles -ND ~/fes/dot helix
-niri msg action move-column-to-last
+gtk-launch firefox
 foottitled.sh voe -ND ~/iwm/voe yazi
 foottitled.sh finances -N ov --status-line=false --follow-name ~/.local/share/magazine/J
 foottitled.sh earnings -N earnings.fish
