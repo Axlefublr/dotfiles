@@ -27,7 +27,7 @@ set -gx FZF_DEFAULT_OPTS \
     --tabstop=3 \
     --preview-window=border-sharp --preview-window=down,wrap \
     '--gutter=" "' \
-    --color=hl:#e49641:bold,hl+:#e49641,bg+:#5f472d,fg+:#d4be98:regular,info:#d4be98,prompt:#ffd75f,pointer:#e49641,marker:#b58cc6,spinner:#d3ad5c \
+    --color=hl:#e49641:bold,hl+:#e49641,bg+:#5f472d,fg+:#d4be98:regular,info:#d4be98,prompt:#ffd75f,pointer:#e49641,marker:#b58cc6,spinner:#d3ad5c,separator:#928374 \
     --bind=shift-right:replace-query,ctrl-home:first,ctrl-end:last \
     '--bind="f11:become:echo {q}"'
 set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
