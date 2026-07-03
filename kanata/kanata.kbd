@@ -209,7 +209,7 @@
 	b (cmd create-blog-post.fish)
 	i (cmd find-or-make.fish "app_id == swayimg-sco" "swayimg --class swayimg-sco -g /home/axlefublr/iwm/sco")
 	j (cmd niri msg action spawn -- fish -c frizz_picker)
-	k (cmd niri msg action spawn -- foottitled.sh ake -ND /home/axlefublr/ake helix .)
+	k (cmd niri msg action spawn -- foottitled.sh ake -ND /home/axlefublr/ake fish -c "finder")
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == kss" "foottitled.sh kss -ND /home/axlefublr/iwm/kss yazi")
 	;; [[sort off]]
 )
