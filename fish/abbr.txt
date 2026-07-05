@@ -16,12 +16,12 @@ systemctl ← c → status
 systemctl ← o → stop
 
 c  → cargo
-ca → cargo.nu
 cargo ← cc → clippy --fix --workspace --allow-dirty --allow-staged
 
 at → alien_temple
 e  → helix
 f  → z
+q  → queue
 gz → glaza
 gx → glaza -g
 
@@ -47,9 +47,6 @@ lw → eza -al
 nas → na --stdin
 nac → na -c '█'
 nasc → na --stdin -c '█'
-
-gh ← si → search issues
-gh ← sc → search code
 
 magick ← loss → -define webp:lossless=true
 
