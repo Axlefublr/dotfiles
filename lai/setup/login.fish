@@ -7,7 +7,6 @@ systemctl --user restart kanata.service
 niri msg action focus-workspace main
 foottitled.sh nugleterm -N nu
 foottitled.sh toggleterm -N
-niri msg action consume-or-expel-window-left
 ntf_dismiss_all
 foottitled.sh dotfiles -ND ~/fes/dot helix
 gtk-launch firefox
