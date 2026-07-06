@@ -61,8 +61,11 @@ flatpak install flathub
 
 # ---------------------------go----------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout go
-mkdir -p ~/go/bin
-fish_add_path ~/go/bin
+mkdir -p ~/.local/share/go
+mkdir -p ~/.cache/go/mod
+set -Ux GOPATH ~/.local/share/go
+set -Ux GOMODCACHE ~/.cache/go/mod
+fish_add_path ~/.local/share/go/bin
 
 sudo pacman -S --needed --noconfirm --disable-download-timeout gopls
 
