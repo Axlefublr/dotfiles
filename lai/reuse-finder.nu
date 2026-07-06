@@ -8,7 +8,7 @@ def main [path: path] {
 	| where app_id starts-with foot
 	| where title == $title
 	if ($found | is-empty) {
-		niri msg action spawn -- foottitled.sh $title -ND $path fish -c $'finder ($path)'
+		niri msg action spawn -- foottitled.sh $'($title) finder' -o environment.FIX_WIDTH=true -ND $path fish -c $'finder ($path)'
 	} else {
 		wtype -k F4 # to trigger `finder` from the helix I confirmed I'm looking at
 	}
