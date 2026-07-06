@@ -55,6 +55,7 @@ end
 funcsave D >/dev/null
 
 function finder -a return_here
+    protit "$(fish_title) finder"
     # this isn't a good idea because if `finder` is reran, it consumes again while we don't want it to
     # even if I fix this, the caveat of collapsing to the wrong window if I start `finder` from a column with multiple windows, is too annoying
     # if $FROM_POPUP
@@ -66,12 +67,14 @@ function finder -a return_here
         if test "$FROM_POPUP"
             echo $PWD >/tmp/mine/finder-choice
         else
+            test "$FIX_WIDTH" && niri msg action set-column-width 100%
             helix .
         end
         return
     end
     set -l first_char (string sub -l 1 $result)
     if test $first_char = ':'
+        test "$FIX_WIDTH" && niri msg action set-column-width 100%
         yazi (string sub -s 2 $result)
         return
     else if test $first_char = '='
@@ -88,6 +91,7 @@ function finder -a return_here
         if test "$FROM_POPUP"
             echo $PWD/$target >/tmp/mine/finder-choice
         else
+            test "$FIX_WIDTH" && niri msg action set-column-width 100%
             if test "$return_here"
                 helix -w $return_here $target
             else
@@ -103,6 +107,7 @@ function finder -a return_here
         if test "$FROM_POPUP"
             echo $PWD/$result >/tmp/mine/finder-choice
         else
+            test "$FIX_WIDTH" && niri msg action set-column-width 100%
             if test "$return_here"
                 helix -w $return_here $result
             else
