@@ -17,7 +17,6 @@ let editor = {
 	default-yank-register: '+'
 	file-picker: { hidden: false }
 	gutters: { layout: [], line-numbers: { min-width: 2 } }
-	insecure: true
 	insert-final-newline: true
 	jump-label-alphabet: jfkdlsaeiwoxcmghruvnzbqpty
 	line-number: relative
@@ -28,6 +27,7 @@ let editor = {
 	text-width: 110
 	trim-final-newlines: true
 	trim-trailing-whitespace: true
+	workspace-trust: { level: 'insecure' }
 	# [[sort off]]
 	lsp: {
 		auto-signature-help: false
