@@ -1,17 +1,21 @@
+(defpoll time :interval '1s'
+	`date +%H:%M:%S`
+)
 (defwindow example
 	:monitor '0'
 	:geometry (geometry
 		:x '0%'
 		:y '20px'
 		:width '90%'
-		:height '30px'
+		:height '100px'
 		:anchor 'top center'
 	)
 	:stacking 'fg'
+	:focusable 'none'
 	:reserve (struts :distance '40px' :side 'top')
 	:windowtype 'dock'
 	:wm-ignore false
 	(box :orientation 'horizontal' :halign 'center'
-		EWW_TEMPS
+		time
 	)
 )
