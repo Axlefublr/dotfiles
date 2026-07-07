@@ -12,6 +12,6 @@
 	:windowtype 'dock'
 	:wm-ignore false
 	(box :orientation 'horizontal' :halign 'center'
-		EWW_TEMPS.'AMDGPU_EDGE'
+		EWW_TEMPS
 	)
 )
