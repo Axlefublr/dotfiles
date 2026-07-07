@@ -164,11 +164,14 @@ end
 funcsave tit >/dev/null
 
 function protit -d 'only update title if TIT is not set'
-    # I feel like there was a reason to check for interactivity, I don't remember what it is
-    # not set -q TIT && status is-interactive && tit $argv
     not set -q TIT && tit $argv
 end
 funcsave protit >/dev/null
+
+function intprotit -d 'only update title if TIT is not set and the session is interactive'
+    status is-interactive && protit $argv
+end
+funcsave intprotit >/dev/null
 
 alias --save toggle_media 'playerctl play-pause' >/dev/null
 alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/dev/null
