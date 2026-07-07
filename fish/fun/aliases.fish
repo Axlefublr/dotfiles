@@ -164,7 +164,9 @@ end
 funcsave tit >/dev/null
 
 function protit -d 'only update title if TIT is not set'
-    not set -q TIT && status is-interactive && tit $argv
+    # I feel like there was a reason to check for interactivity, I don't remember what it is
+    # not set -q TIT && status is-interactive && tit $argv
+    not set -q TIT && tit $argv
 end
 funcsave protit >/dev/null
 
