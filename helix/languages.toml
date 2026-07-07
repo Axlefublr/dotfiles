@@ -196,6 +196,7 @@ args = [ "--lsp" ]
 # --------------------rust--------------------
 [[language]]
 name = "rust"
+code-actions-on-save = [ "source.auto_import", "source.normalize_import", "source.remove_unused_imports" ]
 
 [language.auto-pairs]
 "(" = ")"
