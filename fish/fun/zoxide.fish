@@ -32,6 +32,7 @@ function __zoxide_z
         and command zoxide add -- (__zoxide_pwd)
     end
     intprotit (fish_title)
+    or return 0
 end
 funcsave __zoxide_z >/dev/null
 
