@@ -1,9 +1,15 @@
 function Status:name() return '' end
 
 require('toggle-pane'):entry('min-preview')
-require("smart-enter"):setup {
-	open_multi = true,
-}
+require('smart-enter'):setup({
+	open_multi = true
+})
+require('session'):setup({
+    sync_yanked = true
+})
+require('zoxide'):setup({
+    update_db = true
+})
 
 function Tabs.height()
 	return 0
