@@ -29,6 +29,9 @@ unset_alt = { fg = 'white', bg = 'reset' }
 unset_main = { fg = 'white', bg = 'reset' }
 # [[sort off]]
 
+[indicator]
+padding = { open = "█", close = "█" }
+
 [status]
 # [[sort on]]
 perm_sep = { fg = '#928374' }
