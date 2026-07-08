@@ -86,7 +86,6 @@ let all_mappings = {
 	A-left: goto_prev_tabstop
 	A-right: goto_next_tabstop
 	# -------------------------keyful--------------------------
-	S-A-F5: '@<space><left>'
 	A-tab: ':open %sh(wl-paste -n)'
 	C-tab: add_newline_above
 	F12: add_newline_below
@@ -318,8 +317,6 @@ let normal_mappings = {
 	end: [ensure_selections_forward extend_to_line_end]
 	home: [ensure_selections_forward flip_selections extend_to_first_nonwhitespace]
 	# -------------------------keyful--------------------------
-	A-home: [goto_file_start search_next]
-	A-end: [goto_file_end search_prev]
 	# [[sort on]]
 	A-ret: ':e %(selection)'
 	F11: ':noop %sh(°xdg-open %{selection} ; ensure-browser.nu)'
@@ -350,10 +347,10 @@ let normal_mappings = {
 	J  : [extend_to_line_bounds extend_line_below]
 	K  : [extend_to_line_bounds extend_line_above]
 	# ----------------------characterwise----------------------
-	left : extend_char_left
-	right: extend_char_right
-	A-j  : extend_visual_line_down
-	A-k  : extend_visual_line_up
+	left  : extend_char_left
+	right : extend_char_right
+	A-down: extend_visual_line_down
+	A-up  : extend_visual_line_up
 	# ---------------------------lsp---------------------------
 	'└': goto_declaration
 	'│': code_action
@@ -472,8 +469,6 @@ let normal_mappings = {
 let insert_mappings = {
 	# [[sort on]]
 	C-h: commit_undo_checkpoint
-	C-j: '@<esc>jski<C-v>'
-	C-k: '@<esc>ksji<C-v>'
 	C-l: '@<C-h> \<ret>'
 	C-u: kill_to_line_start
 	C-v: [collapse_selection paste_before]
