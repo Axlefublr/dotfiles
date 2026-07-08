@@ -39,6 +39,9 @@ end
 funcsave helix >/dev/null
 
 alias --save jpeg2png 'jpeg2png -i 100 -w 1.0 -f' >/dev/null
+
+alias --save kondo 'kondo --single-key' >/dev/null
+
 function lazygit
     protit "$(fish_title) lazygit"
     command lazygit $argv
