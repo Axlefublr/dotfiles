@@ -99,8 +99,8 @@ let all_mappings = {
 	S-right: indent
 	C-home: goto_file_start
 	C-end: [extend_to_file_end collapse_selection]
-	S-pageup: ('@<C-i>[[sort' + ' on]]<esc>@')
-	S-pagedown: ('@<C-o>[[sort' + ' off]]<esc>@')
+	A-pageup: ('@<C-i>[[sort' + ' on]]<esc>@')
+	A-pagedown: ('@<C-o>[[sort' + ' off]]<esc>@')
 	# -------------------------saving--------------------------
 	ins: ':write-buffer-close'
 	A-w: ':write-buffer-close'
@@ -145,25 +145,24 @@ let all_mappings = {
 		':noop %sh(foottitled.sh helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)'
 		':open %sh{cat /tmp/mine/yazi-chooser-file}'
 	]
- }
+}
 
 let normal_mappings = {
 	P: null
 	Y: null
 	y: null
 	# -------------------------normal--------------------------
-	a: [save_selection select_textobject_inner]
-	"'": [save_selection select_textobject_around]
+	';': [save_selection select_textobject_around]
+	"'": [save_selection select_textobject_inner]
 	'/': search
 	'?': rsearch
 	b: [add_newline_below move_line_down paste_before]
 	B: [add_newline_above move_line_up paste_before]
-	A-a: decrement
-	A-f: increment
+	S-A-down: decrement
+	S-A-up: increment
 	# [[sort on]]
 	',': trim_selections
 	':': split_selection_on_newline
-	';': [collapse_selection normal_mode]
 	'C-;': ':pipe °math "$(cat)"'
 	C-c: change_selection_noyank
 	C-d: delete_selection_noyank
@@ -182,12 +181,12 @@ let normal_mappings = {
 	N: search_prev
 	O: paste_before
 	Q: split_selection
-	R: ensure_selections_forward
 	S-A-F3: extend_search_prev
 	S-A-F4: merge_consecutive_selections
 	T: redo
 	U: insert_at_line_end
 	V: [collapse_selection replace]
+	W: ensure_selections_forward
 	X: join_selections_space
 	c: change_selection
 	d: delete_selection
@@ -196,12 +195,13 @@ let normal_mappings = {
 	j: move_visual_line_down
 	k: move_visual_line_up
 	l: move_char_right
+	m: [collapse_selection normal_mode]
 	n: search_next
 	o: paste_after
 	q: select_regex
-	r: flip_selections
 	s: yank
 	t: undo
+	w: flip_selections
 	x: replace_with_yanked
 	# [[sort off]]
 	# ---------------------------x↓----------------------------
@@ -312,10 +312,10 @@ let normal_mappings = {
 	# -------------------------lining--------------------------
 	C-A-x: [ensure_selections_forward extend_to_file_end]
 	C-A-z: [ensure_selections_forward flip_selections extend_to_file_start]
-	S-end: [ensure_selections_forward extend_to_line_end_newline]
-	S-home: [ensure_selections_forward flip_selections extend_to_line_start]
 	end: [ensure_selections_forward extend_to_line_end]
 	home: [ensure_selections_forward flip_selections extend_to_first_nonwhitespace]
+	S-end: [extend_to_line_end]
+	S-home: [extend_to_first_nonwhitespace]
 	# -------------------------keyful--------------------------
 	# [[sort on]]
 	A-ret: ':e %(selection)'
@@ -334,16 +334,16 @@ let normal_mappings = {
 	# -------------------------paging--------------------------
 	pagedown: page_cursor_half_down
 	pageup: page_cursor_half_up
-	C-pagedown: [select_mode page_cursor_half_down normal_mode]
-	C-pageup: [select_mode page_cursor_half_up normal_mode]
-	L: goto_next_paragraph
-	H: goto_prev_paragraph
-	A-h: [select_mode goto_prev_paragraph normal_mode]
-	A-l: [select_mode goto_next_paragraph normal_mode]
+	S-pagedown: [select_mode page_cursor_half_down normal_mode]
+	S-pageup: [select_mode page_cursor_half_up normal_mode]
+	C-pagedown: goto_next_paragraph
+	C-pageup: goto_prev_paragraph
+	C-A-pagedown: [select_mode goto_next_paragraph normal_mode]
+	C-A-pageup: [select_mode goto_prev_paragraph normal_mode]
 	# : [collapse_selection select_mode goto_next_paragraph normal_mode trim_selections]
 	# -------------------------lining--------------------------
-	A-J: [extend_to_line_bounds ensure_selections_forward select_line_above]
-	A-K: [extend_to_line_bounds ensure_selections_forward flip_selections select_line_below]
+	S-A-F9 : [extend_to_line_bounds select_line_below]
+	S-A-F10: [extend_to_line_bounds select_line_above]
 	J  : [extend_to_line_bounds extend_line_below]
 	K  : [extend_to_line_bounds extend_line_above]
 	# ----------------------characterwise----------------------
@@ -360,16 +360,17 @@ let normal_mappings = {
 	'┤': goto_implementation
 	'┐': rename_symbol
 	'├': hover
-	m: {
+	a: {
 		# [[sort on]]
 		';': ':toggle soft-wrap.enable'
-		M: ':sh chmod +x %(full_path)'
-		a: ':new'
+		A: ':sh chmod +x %(full_path)'
+		a: match_brackets
 		d: surround_delete
 		f: surround_replace
-		i: ':sh °append_github_line_numbers %(cursor_line)'
+		j: ':new'
 		k: ':toggle enable-diagnostics'
 		l: ':toggle lsp.display-inlay-hints'
+		n: ':sh °append_github_line_numbers %(cursor_line)'
 		o: ':fmt'
 		s: surround_add
 		# [[sort off]]
@@ -382,7 +383,7 @@ let normal_mappings = {
 			o: ':pipe €"<o>" + $in + "</o>"'
 			i: ':pipe €"<i>" + $in + "</i>"'
 		}
-		'e': {
+		e: {
 			'(': ":pipe strip-wrapper-type.rs b"
 			'{': ":pipe strip-wrapper-type.rs B"
 			'[': ":pipe strip-wrapper-type.rs s"
@@ -398,7 +399,7 @@ let normal_mappings = {
 			"'": ":pipe strip-wrapper-type.rs singlequote"
 			'e': ":pipe strip-wrapper-type.rs begin"
 		}
-		'w': {
+		w: {
 			'(': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b"
 			'{': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
 			'[': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
@@ -427,12 +428,14 @@ let normal_mappings = {
 		L: workspace_symbol_picker
 		d: (open ~/fes/dot/helix/magazine.nuon)
 		e: buffer_picker
+		end: [ensure_selections_forward extend_to_line_end_newline]
 		f: file_picker_in_current_directory
+		home: [ensure_selections_forward flip_selections extend_to_line_start]
 		j: file_picker_in_current_buffer_directory
 		k: syntax_symbol_picker
 		l: symbol_picker
+		r: global_search
 		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
-		w: global_search
 		# [[sort off]]
 		g: ':open %sh(€"plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
 		h: ':open %sh(€"thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
@@ -590,19 +593,19 @@ let normal_mappings_fork = {
 	'C-A-,': [ensure_selections_forward flip_selections extend_flash_backward_till]
 	'C-A-.': [ensure_selections_forward extend_flash_forward_till]
 	v: harp_mark
-	w: harp_search
+	r: harp_search
 	z: harp_register
 	'┌': goto_hover
-	m: {
+	a: {
 		# [[sort on]]
 		C-c: ':echopy %(full_path):%(cursor_line)'
 		C: ':echopy %(relative_path)'
 		V: ':echopy %sh(ghl -pb HEAD %(relative_path))'
-		Z: ':echopy %sh(ghl)'
+		X: ':echopy %sh(ghl)'
 		c: ':echopy %(full_path)'
+		i: [yank ':new' paste_before_all]
 		v: ':echopy %sh(ghl %(relative_path))'
-		x: [yank ':new' paste_before_all]
-		z: ':echopy %{working_directory}'
+		x: ':echopy %{working_directory}'
 		# [[sort off]]
 		t: { t: surround_add_tag }
 	}
