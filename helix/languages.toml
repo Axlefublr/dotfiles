@@ -252,6 +252,11 @@ typing.autoClosingAngleBrackets.enable = true
 name = "toml"
 auto-format = true
 
+# --------------------------yaml---------------------------
+[[language]]
+name = "yaml"
+auto-format = false
+
 # --------------------------yuck---------------------------
 [[language]]
 name = "yuck"
