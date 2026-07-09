@@ -303,12 +303,12 @@ let normal_mappings = {
 	# ----------------------word motions-----------------------
 	e: [move_prev_word_start trim_selections]
 	f: [move_next_word_end trim_selections]
-	C-e: [extend_prev_word_end]
-	C-f: [extend_next_word_start]
+	C-e: [extend_prev_word_start]
+	C-f: [extend_next_word_end]
 	E: [move_prev_long_word_start trim_selections]
 	F: [move_next_long_word_end trim_selections]
-	S-A-F7: [extend_next_long_word_start]
-	S-A-F8: [extend_prev_long_word_end]
+	S-A-F7: [extend_next_long_word_end]
+	S-A-F8: [extend_prev_long_word_start]
 	# -------------------------lining--------------------------
 	C-A-x: [ensure_selections_forward extend_to_file_end]
 	C-A-z: [ensure_selections_forward flip_selections extend_to_file_start]
@@ -318,8 +318,7 @@ let normal_mappings = {
 	S-home: [extend_to_first_nonwhitespace]
 	# -------------------------keyful--------------------------
 	# [[sort on]]
-	A-ret: ':e %(selection)'
-	F11: ':noop %sh(°xdg-open %{selection} ; ensure-browser.nu)'
+	A-ret: 'goto_file'
 	S-tab: "@<space>'<up><ret>"
 	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	esc: [save_selection keep_primary_selection normal_mode]
@@ -425,7 +424,9 @@ let normal_mappings = {
 		D: diagnostics_picker
 		J: command_palette
 		K: syntax_workspace_symbol_picker
-		L: workspace_symbol_picker
+		L: lsp_or_syntax_workspace_symbol_picker
+		S-end: [extend_to_line_end_newline]
+		S-home: [extend_to_line_start]
 		d: (open ~/fes/dot/helix/magazine.nuon)
 		e: buffer_picker
 		end: [ensure_selections_forward extend_to_line_end_newline]
@@ -433,7 +434,7 @@ let normal_mappings = {
 		home: [ensure_selections_forward flip_selections extend_to_line_start]
 		j: file_picker_in_current_buffer_directory
 		k: syntax_symbol_picker
-		l: symbol_picker
+		l: lsp_or_syntax_symbol_picker
 		r: global_search
 		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
 		# [[sort off]]
