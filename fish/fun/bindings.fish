@@ -53,9 +53,9 @@ function fish_user_key_bindings
     # [[sort on]]
     # bind f12 _kb_schedule_commandline
     bind / expand-abbr self-insert
-    bind alt-d _kb_blammo_pwd
     bind alt-i edit_command_buffer
     bind ctrl-e _kb_reexec
+    bind ctrl-f _kb_blammo_pwd
     bind ctrl-i expand-abbr insert-line-over
     bind ctrl-l clear-screen
     bind ctrl-o expand-abbr insert-line-under
