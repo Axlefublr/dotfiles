@@ -94,8 +94,8 @@ keybinding:
     nextItem: <down>
     prevItem-alt: k
     nextItem-alt: j
-    prevPage: ","
-    nextPage: .
+    prevPage: '<shift+pgup>'
+    nextPage: '<shift+pgdown>'
     scrollLeft: h
     scrollRight: l
     gotoTop: <home>
@@ -120,7 +120,6 @@ keybinding:
     prevMatch: "N"
     startSearch: /
     optionMenu: <f1>
-    optionMenu-alt1: <disabled>
     select: w
     goInto: <enter>
     confirm: <enter>
