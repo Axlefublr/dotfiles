@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+cd ~
+
 while rg -q 8BitDo /proc/bus/input/devices &>/dev/null
     echo 'controller connected; delaying execution' >&2
     sleep 1m
@@ -8,6 +10,7 @@ end
 fn_clear
 trash-empty -f 1
 cleaning-lady.nu
+kondo -ao 5d
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
 cd ~/.local/share/magazine
