@@ -68,7 +68,11 @@ function finder -a return_here
             echo $PWD >/tmp/mine/finder-choice
         else
             test "$FIX_WIDTH" && niri msg action set-column-width 100%
-            helix .
+            set -l path $PWD
+            if test "$return_here"
+                cd "$return_here"
+            end
+            helix $path
         end
         return
     end
@@ -92,11 +96,11 @@ function finder -a return_here
             echo $PWD/$target >/tmp/mine/finder-choice
         else
             test "$FIX_WIDTH" && niri msg action set-column-width 100%
+            set -l path (path resolve "$target")
             if test "$return_here"
-                helix -w $return_here $target
-            else
-                helix $target
+                cd "$return_here"
             end
+            helix $path
         end
         return
     end
@@ -108,11 +112,11 @@ function finder -a return_here
             echo $PWD/$result >/tmp/mine/finder-choice
         else
             test "$FIX_WIDTH" && niri msg action set-column-width 100%
+            set -l path (path resolve "$result")
             if test "$return_here"
-                helix -w $return_here $result
-            else
-                helix $result
+                cd "$return_here"
             end
+            helix $path
         end
     end
 end

@@ -6,7 +6,7 @@ def main [path: path] {
 	| from json
 	| where is_focused == true
 	| where app_id starts-with foot
-	| where title == $title
+	| where title starts-with $title
 	if ($found | is-empty) {
 		# setting the title *only* for window ruling purposes; otherwise I *do* want titling logic to go on as normal
 		# TIT is for specifying a *static* title
