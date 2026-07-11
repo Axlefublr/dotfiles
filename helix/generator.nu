@@ -220,7 +220,7 @@ let normal_mappings = {
 	'\': shell_pipe_to
 	# ---------------------------c↓----------------------------
 	'₽': null
-	'^': '@ma<A-O>*<ins>'
+	'^': '@aj<A-O>*<ins>'
 	'@': toggle_comments
 	'™': null
 	'€': ":pipe €$in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
@@ -435,8 +435,8 @@ let normal_mappings = {
 		j: file_picker_in_current_buffer_directory
 		k: syntax_symbol_picker
 		l: lsp_or_syntax_symbol_picker
-		r: global_search
 		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
+		w: global_search
 		# [[sort off]]
 		g: ':open %sh(€"plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
 		h: ':open %sh(€"thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
