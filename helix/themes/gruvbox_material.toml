@@ -94,6 +94,7 @@
 'ui.window' = { fg = 'linenr', bg = 'level' }
 'variable' = 'white'
 'variable.builtin' = 'cyan'
+'variable.mutable' = { modifiers = [ 'italic' ] }
 'variable.other.member' = 'mint'
 'variable.parameter' = 'white'
 'warning' = 'yellow'
