@@ -119,7 +119,7 @@ function pick_and_copy_color
 end
 funcsave pick_and_copy_color >/dev/null
 
-alias --save poweroff 'allow_logout && poweroff' >/dev/null
+alias --save poweroff 'allow_logout && command poweroff' >/dev/null
 alias --save reboot 'allow_logout && systemctl reboot' >/dev/null
 alias --save s 'wl-copy -n' >/dev/null
 
