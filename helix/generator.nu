@@ -115,7 +115,7 @@ let all_mappings = {
 	S-A-F11: ':write! --no-format'
 	# ------------------------function-------------------------
 	F1: [
-		':noop %sh(foottitled.sh reopen -ND %(working_directory) helix %(full_path):%(cursor_line):%(cursor_column))'
+		':noop %sh(footclient -ND %(working_directory) fish -c "helix %(full_path):%(cursor_line):%(cursor_column)")'
 	]
 	# F1: [
 	# 	':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
