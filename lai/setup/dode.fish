@@ -2,6 +2,10 @@
 
 return # so that I don't command harp myself into pain
 
+# ----------------------------!----------------------------
+sudo loginctl enable-linger $USER
+sudo systemctl enable --now paccache.timer
+
 # -------------------------8bitdo--------------------------
 echo 'ACTION=="add", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="81HD", RUN+="/sbin/modprobe xpad", RUN+="/bin/sh -c \'echo 2dc8 81HD > /sys/bus/usb/drivers/xpad/new_id\'"' | sudo tee /etc/udev/rules.d/99-8bitdo-xinput.rules
 sudo udevadm control --reload
@@ -604,10 +608,6 @@ end
 # ------------------------oculante-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout oculante
 
-# --------------------------other--------------------------
-sudo loginctl enable-linger $USER
-sudo systemctl enable --now paccache.timer
-
 # --------------------------ouch---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ouch
 
@@ -853,7 +853,7 @@ indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://githu
 eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 
 # ------------------------swapfile-------------------------
-sudo fallocate -l 1G /swapfile
+sudo fallocate -l 7G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -861,8 +861,25 @@ swapon --show
 free -h
 sudo -E helix /etc/fstab # /swapfile none swap sw 0 0
 cat /proc/sys/vm/swappiness # check how aggressive swap is
-sudo sysctl vm.swappiness=10 # reduce swap aggressivenes from 60→10
-sudo -E helix /etc/sysctl.d/99-swappiness.conf # vm.swappiness=10
+sudo sysctl vm.swappiness=100 # increase swap aggressivenes from 60→100
+sudo -E helix /etc/sysctl.d/99-swappiness.conf # vm.swappiness=100
+
+cat /sys/module/zswap/parameters/enabled # check if zswap is enabled. Y means it is. should already be by default
+
+sudo mkdir -p /etc/systemd/system/-.slice.d/
+sudo -E helix /etc/systemd/system/-.slice.d/oomd.conf
+# [Slice]
+# ManagedOOMSwap=kill
+
+cat /etc/systemd/oomd.conf # check default ManagedOOMPressureLimit and ManagedOOMPressureDuration
+# I don't touch them because I don't understand them well enough
+
+sudo mkdir -p /etc/systemd/system/user@.service.d/
+sudo -E helix /etc/systemd/system/user@.service.d/oomd.conf
+# [Service]
+# ManagedOOMMemoryPressure=kill
+sudo systemctl daemon-reload
+sudo systemctl enable --now systemd-oomd.service
 
 # ------------------------swapfile!------------------------
 sudo swapoff /swapfile
