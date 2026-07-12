@@ -52,6 +52,7 @@
 	' (cmd wtype ␡)
 	i (cmd wtype ⊼)
 	o (cmd wtype ⊻)
+	/ (cmd wtype ‽)
 	spc (cmd wtype ␣)
 )
 
@@ -84,6 +85,8 @@
 
 (deflayermap (vx)
 	; (cmd fish -c "wtype (date +%Y-%m-%d)")
+	, (cmd wtype ¡)
+	/ (cmd wtype ¿)
 )
 
 (deflayermap (u)
