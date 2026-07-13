@@ -1,7 +1,7 @@
 workspace "task"
-workspace "project"
-workspace "main"
 workspace "static"
+workspace "main"
+workspace "project"
 workspace "help"
 
 window-rule {
