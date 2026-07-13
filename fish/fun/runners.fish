@@ -17,7 +17,7 @@ funcsave runner_interactive_unicode >/dev/null
 
 function runner_link
     set file ~/.local/share/magazine/l
-    set result (cat $file | sd ' — .+$' '' | fuzzel -d --index --cache ~/fes/zufi/runner-link 2>/dev/null)
+    set result (cat $file | sd ' — .+$' '' | fuzzel -d --index --match-mode exact --cache ~/fes/zufi/runner-link 2>/dev/null)
     test $status -ne 0 && return 1
     set line (math $result + 1)
     set link (awk "NR==$line { print \$NF }" $file)
