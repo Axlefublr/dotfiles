@@ -93,7 +93,7 @@ layout {
     center-focused-column "on-overflow"
 
     always-center-single-column
-    empty-workspace-above-first
+    // empty-workspace-above-first
 
     // You can customize the widths that "switch-preset-column-width" toggles between.
     preset-column-widths {
@@ -153,7 +153,7 @@ layout {
         length total-proportion=1.002
         // place-within-column
         gap 0
-        width 4
+        width 5
         position "top"
         // corner-radius 99
         urgent-color "#ffafd7"
@@ -232,16 +232,23 @@ binds {
     Mod+X { consume-or-expel-window-left; }
     Mod+C { consume-or-expel-window-right; }
 
-    Mod+H { focus-column-left-or-last; }
-    Mod+L { focus-column-right-or-first; }
-    Mod+J { focus-workspace-down; }
-    Mod+K { focus-workspace-up; }
+    Mod+H cooldown-ms=50 { focus-column-left; }
+    Mod+L cooldown-ms=50 { focus-column-right; }
+    Mod+J cooldown-ms=50 { focus-workspace-down; }
+    Mod+K cooldown-ms=50 { focus-workspace-up; }
 
-    Mod+Ctrl+J { move-workspace-down; }
-    Mod+Ctrl+K { move-workspace-up; }
+    Mod+Shift+Left      cooldown-ms=50 { move-column-left; }
+    Mod+Shift+Right     cooldown-ms=50 { move-column-right; }
+    Mod+Shift+Down      cooldown-ms=50 { move-column-to-workspace-down; }
+    Mod+Shift+Up        cooldown-ms=50 { move-column-to-workspace-up; }
 
-    Mod+N { focus-window-up-or-bottom; }
-    Mod+O { focus-window-down-or-top; }
+    Mod+Shift+Alt+Down  cooldown-ms=50 { focus-window-down; }
+    Mod+Shift+Alt+Up    cooldown-ms=50 { focus-window-up; }
+    Mod+Ctrl+Shift+Down cooldown-ms=50 { move-window-down; }
+    Mod+Ctrl+Shift+Up   cooldown-ms=50 { move-window-up; }
+
+    Mod+Ctrl+Shift+Alt+Down cooldown-ms=50 { move-workspace-down; }
+    Mod+Ctrl+Shift+Alt+Up   cooldown-ms=50 { move-workspace-up; }
 
     Mod+Up { set-window-height "-5%"; }
     Mod+Down { set-window-height "+5%"; }
