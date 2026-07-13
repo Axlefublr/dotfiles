@@ -861,8 +861,8 @@ swapon --show
 free -h
 sudo -E helix /etc/fstab # /swapfile none swap sw 0 0
 cat /proc/sys/vm/swappiness # check how aggressive swap is
-sudo sysctl vm.swappiness=100 # increase swap aggressivenes from 60→100
-sudo -E helix /etc/sysctl.d/99-swappiness.conf # vm.swappiness=100
+sudo sysctl vm.swappiness=130
+sudo -E helix /etc/sysctl.d/99-swappiness.conf # vm.swappiness=130
 
 cat /sys/module/zswap/parameters/enabled # check if zswap is enabled. Y means it is. should already be by default
 
