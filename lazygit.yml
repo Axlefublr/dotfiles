@@ -143,8 +143,8 @@ keybinding:
     createPatchOptionsMenu: u
     nextTab: L
     prevTab: H
-    nextScreenMode: +
-    prevScreenMode: "-"
+    nextScreenMode: '.'
+    prevScreenMode: <disabled>
     undo: <c-t>
     redo: <c-r>
     filteringMenu: <disabled>
