@@ -27,6 +27,7 @@
     "custom/networking",
     // "custom/cha-fan",
     "custom/gaming",
+    "custom/zswap",
     "custom/cpu-fan",
     "custom/finances",
     "disk",
@@ -159,6 +160,12 @@
     "exec": "/home/axlefublr/fes/dot/waybar/headphone-battery.fish",
     "format": "{}%",
     "interval": 10,
+    "hide-empty-text": true
+  },
+  "custom/zswap": {
+    "exec": "/home/axlefublr/fes/dot/waybar/zswap.fish",
+    "format": "{}",
+    "interval": 3,
     "hide-empty-text": true
   },
   "disk": {
