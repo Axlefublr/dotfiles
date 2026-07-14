@@ -5,6 +5,11 @@ function annotate_screen
 end
 funcsave annotate_screen >/dev/null
 
+function ansi_move_cursor_home -d 'to position 0,0'
+    echo -e '\e[H'
+end
+funcsave ansi_move_cursor_home >/dev/null
+
 function ansi_move_cursor_up -a lines
     not test "$lines" && set -f lines 1
     echo -e '\e['$lines'A'

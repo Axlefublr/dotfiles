@@ -66,6 +66,10 @@ window-rule {
     default-column-width { proportion 0.75; }
 }
 window-rule {
+    match app-id="^foot" title="^colorbook$"
+    default-column-width { proportion 0.60; }
+}
+window-rule {
     match app-id="^foot" title="^anki-card$"
     match app-id="^foot" title="^helix-popup$"
     match app-id="^foot" title="finder$"

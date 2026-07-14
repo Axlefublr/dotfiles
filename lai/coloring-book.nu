@@ -41,6 +41,26 @@ def 'main write' [color, name] {
 		}
 	}
 	| collect
-	| to nuon -cpt 1
+	| to nuon -ct 1
 	| save -f $stored_colors
+}
+
+def 'main all' [] {
+	open $stored_colors
+	| items { |name, color|
+		print -n ('' | fill -w (term size).columns)
+		print -n "\r"
+		print -n $"(ansi $color.hex)($name)(ansi rst)\t"
+		print $"(ansi -e { fg: '#282828', bg: $color.hex })($name)(ansi rst)"
+	}
+	| ignore
+}
+
+def 'main all count' [] {
+	open $stored_colors
+	| columns
+	| length
+	| $in + 1
+	# | append [(term size).rows]
+	# | math max
 }

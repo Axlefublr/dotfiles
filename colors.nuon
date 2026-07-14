@@ -39,4 +39,99 @@
 		hsl: "hsl(336, 60.6%, 73.1%)"
 		rgb: "rgb(228, 145, 178)"
 	}
+	"gruvbox white": {
+		hex: "#d4be98"
+		hsl: "hsl(38, 41.1%, 71.4%)"
+		rgb: "rgb(212, 190, 152)"
+	}
+	"gruvbox grey": {
+		hex: "#928374"
+		hsl: "hsl(30, 12.1%, 51.4%)"
+		rgb: "rgb(146, 131, 116)"
+	}
+	"gruvbox level": {
+		hex: "#282828"
+		hsl: "hsl(0, 0.0%, 15.7%)"
+		rgb: "rgb(40, 40, 40)"
+	}
+	"shell red": {
+		hex: "#ff2930"
+		hsl: "hsl(358, 100.0%, 58.0%)"
+		rgb: "rgb(255, 41, 48)"
+	}
+	"shell orange": {
+		hex: "#ff9f1a"
+		hsl: "hsl(35, 100.0%, 55.1%)"
+		rgb: "rgb(255, 159, 26)"
+	}
+	"shell yellow": {
+		hex: "#ffd75f"
+		hsl: "hsl(45, 100.0%, 68.6%)"
+		rgb: "rgb(255, 215, 95)"
+	}
+	"shell salad": {
+		hex: "#87ff5f"
+		hsl: "hsl(105, 100.0%, 68.6%)"
+		rgb: "rgb(135, 255, 95)"
+	}
+	"shell green": {
+		hex: "#3dff47"
+		hsl: "hsl(123, 100.0%, 62.0%)"
+		rgb: "rgb(61, 255, 71)"
+	}
+	"shell cyan": {
+		hex: "#00d7ff"
+		hsl: "hsl(189, 100.0%, 50.0%)"
+		rgb: "rgb(0, 215, 255)"
+	}
+	"shell blue": {
+		hex: "#8599ff"
+		hsl: "hsl(230, 100.0%, 76.1%)"
+		rgb: "rgb(133, 153, 255)"
+	}
+	"shell purple": {
+		hex: "#af87ff"
+		hsl: "hsl(260, 100.0%, 76.5%)"
+		rgb: "rgb(175, 135, 255)"
+	}
+	"shell pink": {
+		hex: "#ffafd7"
+		hsl: "hsl(330, 100.0%, 84.3%)"
+		rgb: "rgb(255, 175, 215)"
+	}
+	"shell coral": {
+		hex: "#ff8787"
+		hsl: "hsl(0, 100.0%, 76.5%)"
+		rgb: "rgb(255, 135, 135)"
+	}
+	"shell grey": {
+		hex: "#878787"
+		hsl: "hsl(0, 0.0%, 52.9%)"
+		rgb: "rgb(135, 135, 135)"
+	}
+	"supporting orange": {
+		hex: "#5f472d"
+		hsl: "hsl(31, 35.7%, 27.5%)"
+		rgb: "rgb(95, 71, 45)"
+	}
+	"supporting yellow": {
+		hex: "#68622c"
+		hsl: "hsl(54, 40.5%, 29.0%)"
+		rgb: "rgb(104, 98, 44)"
+	}
+	"supporting purple": {
+		hex: "#5c404b"
+		hsl: "hsl(336, 17.9%, 30.6%)"
+		rgb: "rgb(92, 64, 75)"
+	}
+	"smooth black": {
+		hex: "#0f0f0f"
+		hsl: "hsl(0, 0.0%, 5.9%)"
+		rgb: "rgb(15, 15, 15)"
+	}
+	"neat orange": {
+		hex: "#f2694c"
+		hsl: "hsl(10, 86.5%, 62.4%)"
+		rgb: "rgb(242, 105, 76)"
+	}
 }
