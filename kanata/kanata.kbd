@@ -169,6 +169,7 @@
 	; (multi ralt (layer-toggle semicolon) (layer-toggle semicolon-h) (on↑ tap-vkey semicolon))
 	;; [[sort on]]
 	a (cmd find-or-make.fish "app_id starts-with foot" "title == abilities" "foottitled.sh abilities -ND ~/fes/tiq helix abilities.md")
+	c (cmd find-or-make.fish "app_id starts-with foot" "title == colorbook" "foottitled.sh colorbook -N coloring-book.fish")
 	d (cmd find-or-make.fish "app_id starts-with foot" "title == dotfiles" "foottitled.sh dotfiles -ND ~/fes/dot helix")
 	e (cmd find-or-make.fish --clean "app_id starts-with foot" "title == bluetui" "foottitled.sh bluetui -N bluetui")
 	f (cmd find-or-make.fish "app_id == firefox" "gtk-launch firefox")
