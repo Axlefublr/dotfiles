@@ -30,8 +30,8 @@ feeds:
     name: zunda
   - url: https://skoove.dev/rss.xml
     name: skoove
-  - url: https://terminaltrove.com/new.xml
-    name: terminal trove
+  # - url: https://terminaltrove.com/new.xml
+  #   name: terminal trove
   - url: https://vhyrro.github.io/rss.xml
     name: vhyrro
   - url: https://xkcd.com/rss.xml
