@@ -76,23 +76,15 @@ function act_on_color -a color
 end
 
 set -g first_print true
-set -g blank true
 while true
-    coloring-book.nu all
+    if $first_print
+        coloring-book.nu all
+        set -g first_print false
+    end
     set -l color (input_color)
     if not test "$color"
-        if $blank
-            clear
-        else
-            recolors
-        end
+        coloring-book.nu all
         continue
-    else if $first_print
-        clear
-        set -g first_print false
-    else
-        recolors
     end
-    set -g blank false
     act_on_color "$color"
 end
