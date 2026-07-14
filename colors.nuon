@@ -134,4 +134,54 @@
 		hsl: "hsl(10, 86.5%, 62.4%)"
 		rgb: "rgb(242, 105, 76)"
 	}
+	"helix selected entry": {
+		hex: "#3f3831"
+		hsl: "hsl(30, 12.5%, 22.0%)"
+		rgb: "rgb(63, 56, 49)"
+	}
+	"helix picker entry": {
+		hex: "#4b433a"
+		hsl: "hsl(32, 12.8%, 26.1%)"
+		rgb: "rgb(75, 67, 58)"
+	}
+	"helix line number": {
+		hex: "#6f675a"
+		hsl: "hsl(37, 10.4%, 39.4%)"
+		rgb: "rgb(111, 103, 90)"
+	}
+	"helix scrollbar": {
+		hex: "#9b8e77"
+		hsl: "hsl(38, 15.3%, 53.7%)"
+		rgb: "rgb(155, 142, 119)"
+	}
+	"browser white base tab": {
+		hex: "#42403e"
+		hsl: "hsl(38, 3.0%, 25.0%)"
+		rgb: "rgb(66, 64, 62)"
+	}
+	"chart red": {
+		hex: "#e94c3d"
+		hsl: "hsl(5, 79.6%, 57.6%)"
+		rgb: "rgb(233, 76, 61)"
+	}
+	"chart orange": {
+		hex: "#e67d22"
+		hsl: "hsl(28, 79.7%, 51.8%)"
+		rgb: "rgb(230, 125, 34)"
+	}
+	"chart yellow": {
+		hex: "#eec110"
+		hsl: "hsl(48, 87.4%, 49.8%)"
+		rgb: "rgb(238, 193, 16)"
+	}
+	"chart green": {
+		hex: "#2fcc72"
+		hsl: "hsl(146, 62.5%, 49.2%)"
+		rgb: "rgb(47, 204, 114)"
+	}
+	"chart blue": {
+		hex: "#3497da"
+		hsl: "hsl(204, 69.2%, 52.9%)"
+		rgb: "rgb(52, 151, 218)"
+	}
 }
