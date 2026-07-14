@@ -29,7 +29,9 @@ set -gx FZF_DEFAULT_OPTS \
     '--gutter=" "' \
     --color=hl:#e49641:bold,hl+:#e49641,bg+:#5f472d,fg+:#d4be98:regular,info:#d4be98,prompt:#ffd75f,pointer:#e49641,marker:#b58cc6,spinner:#d3ad5c,separator:#928374 \
     --bind=shift-right:replace-query,ctrl-home:first,ctrl-end:last \
-    '--bind="f11:become:echo {q}"'
+    '--bind="f11:become:echo {q}"' \
+    '--bind="enter:accept-or-print-query"' \
+    '--bind="ctrl-v:execute:wtype -M ctrl -M shift -k v -m ctrl -m shift"'
 set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
 
 not status is-interactive && return
