@@ -1,0 +1,42 @@
+{
+	"gruvbox red": {
+		hex: "#ea6962"
+		hsl: "hsl(3, 76.4%, 65.1%)"
+		rgb: "rgb(234, 105, 98)"
+	}
+	"gruvbox orange": {
+		hex: "#e49641"
+		hsl: "hsl(31, 75.1%, 57.5%)"
+		rgb: "rgb(228, 150, 65)"
+	}
+	"gruvbox yellow": {
+		hex: "#d3ad5c"
+		hsl: "hsl(41, 57.5%, 59.4%)"
+		rgb: "rgb(211, 173, 92)"
+	}
+	"gruvbox green": {
+		hex: "#a9b665"
+		hsl: "hsl(70, 35.7%, 55.5%)"
+		rgb: "rgb(169, 182, 101)"
+	}
+	"gruvbox mint": {
+		hex: "#78bf84"
+		hsl: "hsl(130, 35.7%, 61.0%)"
+		rgb: "rgb(120, 191, 132)"
+	}
+	"gruvbox cyan": {
+		hex: "#7daea3"
+		hsl: "hsl(167, 23.2%, 58.6%)"
+		rgb: "rgb(125, 174, 163)"
+	}
+	"gruvbox purple": {
+		hex: "#b58cc6"
+		hsl: "hsl(282, 33.7%, 66.3%)"
+		rgb: "rgb(181, 140, 198)"
+	}
+	"gruvbox blush": {
+		hex: "#e491b2"
+		hsl: "hsl(336, 60.6%, 73.1%)"
+		rgb: "rgb(228, 145, 178)"
+	}
+}
