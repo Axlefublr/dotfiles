@@ -14,7 +14,7 @@ const known = {
 	dish: 5
 	cloth: 8
 	bed: 11
-	nose: 7
+	nose: 8
 	towels: 8
 	vacuum: 8
 	mug: 11
@@ -26,7 +26,7 @@ const known = {
 	tea: 15
 	update: 20
 	wilter: 38
-	tails: 30
+	tails: 33
 	filter: 60
 	fsrs: 60
 	iso: 60
