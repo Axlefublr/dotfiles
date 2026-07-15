@@ -179,9 +179,49 @@
 		hsl: "hsl(204, 69.2%, 52.9%)"
 		rgb: "rgb(52, 151, 218)"
 	}
+	"grey light 30": {
+		hex: "#4c4c4c"
+		hsl: "hsl(0, 0.0%, 29.8%)"
+		rgb: "rgb(76, 76, 76)"
+	}
 	"grey level": {
 		hex: "#282828"
 		hsl: "hsl(0, 0.0%, 15.7%)"
 		rgb: "rgb(40, 40, 40)"
+	}
+	"grey dark 14": {
+		hex: "#232323"
+		hsl: "hsl(0, 0.0%, 13.9%)"
+		rgb: "rgb(35, 35, 35)"
+	}
+	"grey dark 13": {
+		hex: "#212121"
+		hsl: "hsl(0, 0.0%, 13.1%)"
+		rgb: "rgb(33, 33, 33)"
+	}
+	"grey dark 12": {
+		hex: "#1f1f1f"
+		hsl: "hsl(0, 0.0%, 12.0%)"
+		rgb: "rgb(31, 31, 31)"
+	}
+	"grey dark 11": {
+		hex: "#1c1c1c"
+		hsl: "hsl(0, 0.0%, 11.0%)"
+		rgb: "rgb(28, 28, 28)"
+	}
+	"grey dark 10": {
+		hex: "#1a1a1a"
+		hsl: "hsl(0, 0.0%, 10.0%)"
+		rgb: "rgb(26, 26, 26)"
+	}
+	"suggested brown": {
+		hex: "#b68a5a"
+		hsl: "hsl(31, 38.7%, 53.3%)"
+		rgb: "rgb(182, 138, 90)"
+	}
+	"suggested brown 2": {
+		hex: "#9d6f43"
+		hsl: "hsl(29, 40.2%, 43.9%)"
+		rgb: "rgb(157, 111, 67)"
 	}
 }
