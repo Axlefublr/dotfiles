@@ -102,7 +102,7 @@ function loago_tracker
         loago do (cat ~/iwm/nak/↑loago.txt ~/iwm/kss/loago-input.txt)
         truncate -s 0 ~/iwm/nak/↑loago.txt ~/iwm/kss/loago-input.txt
         loagoe.nu due
-        ansi_hide_cursor
+        ansi_cursor_hide
         inotifytheusual -t 1800 ~/iwm/nak/↑loago.txt ~/iwm/kss/loago-input.txt ~/.local/share/loago/loago.json ~/fes/dot/lai/loagoe.nu
         clear
     end
