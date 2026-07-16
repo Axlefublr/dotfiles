@@ -48,7 +48,7 @@ div.subheader:has(hide) {
 cd {
 	font-family: var(--monospace-font-family);
 	font-size: var(--monospace-font-size);
-	background-color: #242323;
+	background-color: #232323;
 	border-radius: 5px;
 	padding: 0.25em 0.45em;
 	margin: 0.25em auto;
@@ -65,7 +65,7 @@ code,
 o {
 	font-family: var(--monospace-font-family);
 	font-size: var(--monospace-font-size);
-	background-color: #242323;
+	background-color: #232323;
 	padding: 2px 5px;
 	border-radius: 5px;
 }
