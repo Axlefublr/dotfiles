@@ -5,22 +5,6 @@ function annotate_screen
 end
 funcsave annotate_screen >/dev/null
 
-function ansi_move_cursor_home -d 'to position 0,0'
-    echo -e '\e[H'
-end
-funcsave ansi_move_cursor_home >/dev/null
-
-function ansi_move_cursor_up -a lines
-    not test "$lines" && set -f lines 1
-    echo -e '\e['$lines'A'
-end
-funcsave ansi_move_cursor_up >/dev/null
-
-function ansi_hide_cursor
-    echo -e '\x1b[?25l'
-end
-funcsave ansi_hide_cursor >/dev/null
-
 alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness | head -n 1' >/dev/null
 
 function clipboard_index -a index
