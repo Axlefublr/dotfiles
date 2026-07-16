@@ -6,6 +6,8 @@
 	j j
 	k k
 	l l
+	o o
+	u u
 )
 
 (deflayermap (a)
@@ -22,6 +24,8 @@
 	l right
 	h left
 	j down
+	o enter
+	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/fes/zufi/waybar-layout"))
 )
 
 (deflayermap (o)
