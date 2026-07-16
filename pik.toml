@@ -28,4 +28,4 @@ thumb_symbol = '▐'
 margin = { horizontal = 1, vertical = 1 }
 
 [ui.search_bar]
-cursor_style = { fg = '#1f1e1e', bg = '#e49641', add_modifier = 'BOLD' }
+cursor_style = { fg = '#1f1f1f', bg = '#e49641', add_modifier = 'BOLD' }
