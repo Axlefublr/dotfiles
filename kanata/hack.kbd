@@ -19,8 +19,6 @@
 (deflayermap (ew)
 	f (multi (layer-toggle f) (layer-toggle ef) (layer-toggle efw) (on↑ tap-vkey f))
 	r (multi (layer-toggle r) (layer-toggle er) (layer-toggle rw) (layer-toggle erw) (on↑ tap-vkey r))
-	h (unmod lmet lalt lsft ↑)
-	l (unmod lmet lalt lsft ↓)
 	i (cmd close-window-alternate.nu)
 	o (cmd find-or-make.fish "app_id starts-with foot" "title == nugleterm" "foottitled.sh nugleterm -N nu")
 )
@@ -31,6 +29,8 @@
 	k (unmod lmet lsft ↑)
 	h (unmod lmet lsft ←)
 	l (unmod lmet lsft →)
+	u (unmod lmet lsft u)
+	o (unmod lmet lsft o)
 	i (cmd close-windows-in-column.nu)
 )
 
@@ -56,8 +56,6 @@
 )
 
 (deflayermap (erw)
-	h (unmod lmet lsft lctl ↑)
-	l (unmod lmet lsft lctl ↓)
 	k (unmod lmet lsft lctl lalt ↑)
 	j (unmod lmet lsft lctl lalt ↓)
 	i (cmd close-windows-in-column.nu --alternate)
