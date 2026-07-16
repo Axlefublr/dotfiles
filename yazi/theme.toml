@@ -1,8 +1,8 @@
 [mgr]
 # [[sort on]]
-count_copied = { bg = '#e491b2', fg = '#1f1e1e', bold = true }
-count_cut = { bg = '#ea6962', fg = '#1f1e1e', bold = true }
-count_selected = { bg = '#d3ad5c', fg = '#1f1e1e', bold = true }
+count_copied = { bg = '#e491b2', fg = '#1f1f1f', bold = true }
+count_cut = { bg = '#ea6962', fg = '#1f1f1f', bold = true }
+count_selected = { bg = '#d3ad5c', fg = '#1f1f1f', bold = true }
 cwd = { fg = '#ffafd7', bold = true }
 find_keyword = { fg = '#ea6962', bold = true }
 find_position = { fg = '#ea6962', bold = true }
@@ -36,7 +36,7 @@ padding = { open = "█", close = "█" }
 # [[sort on]]
 perm_sep = { fg = '#928374' }
 progress_error = { fg = '#ea6962' }
-progress_label = { fg = '#1f1e1e', bold = true }
+progress_label = { fg = '#1f1f1f', bold = true }
 progress_normal = { fg = '#a9b665' }
 sep_left = { open = '', close = '' }
 sep_right = { open = '', close = '' }
@@ -44,7 +44,7 @@ sep_right = { open = '', close = '' }
 
 [which]
 cols = 2
-mask = { bg = '#222121' }
+mask = { bg = '#212121' }
 separator_style = { fg = 'white' }
 cand = { fg = '#e49641' }
 desc = { fg = '#d3ad5c' }
