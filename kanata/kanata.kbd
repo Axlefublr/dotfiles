@@ -185,6 +185,7 @@
 
 (deflayermap (semicolon-h)
 	r (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "foottitled.sh bottom -N btm")
+	f (cmd niri msg action spawn -- fish -c frizz_picker)
 )
 
 (deflayermap (g)
@@ -211,9 +212,9 @@
 	;; [[sort on]]
 	b (cmd create-blog-post.fish)
 	i (cmd find-or-make.fish "app_id == swayimg-sco" "swayimg --class swayimg-sco -g /home/axlefublr/iwm/sco")
-	j (cmd niri msg action spawn -- fish -c frizz_picker)
 	k (cmd reuse-finder.nu /home/axlefublr/ake)
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == kss" "foottitled.sh kss -ND /home/axlefublr/iwm/kss yazi")
+	o (cmd find-or-make.fish "app_id starts-with foot" "title == nom" "foottitled.sh nom -N nom")
 	;; [[sort off]]
 )
 
