@@ -242,10 +242,10 @@ binds {
     Mod+Shift+Down      cooldown-ms=50 { move-column-to-workspace-down; }
     Mod+Shift+Up        cooldown-ms=50 { move-column-to-workspace-up; }
 
-    Mod+Shift+Alt+Down  cooldown-ms=50 { focus-window-down; }
-    Mod+Shift+Alt+Up    cooldown-ms=50 { focus-window-up; }
-    Mod+Ctrl+Shift+Down cooldown-ms=50 { move-window-down; }
-    Mod+Ctrl+Shift+Up   cooldown-ms=50 { move-window-up; }
+    Mod+O cooldown-ms=50 { focus-window-down; }
+    Mod+U cooldown-ms=50 { focus-window-up; }
+    Mod+Shift+O cooldown-ms=50 { move-window-down; }
+    Mod+Shift+U cooldown-ms=50 { move-window-up; }
 
     Mod+Ctrl+Shift+Alt+Down cooldown-ms=50 { move-workspace-down; }
     Mod+Ctrl+Shift+Alt+Up   cooldown-ms=50 { move-workspace-up; }
