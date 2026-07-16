@@ -15,7 +15,7 @@
       "sub_modifier": ""
     },
     "hex_selected": {
-      "fg": "#1f1e1e",
+      "fg": "#1f1f1f",
       "bg": "#e49641",
       "underline_color": null,
       "add_modifier": "BOLD",
@@ -36,7 +36,7 @@
       "sub_modifier": ""
     },
     "text_selected": {
-      "fg": "#1f1e1e",
+      "fg": "#1f1f1f",
       "bg": "#e49641",
       "underline_color": null,
       "add_modifier": "BOLD",
@@ -113,7 +113,7 @@
       "sub_modifier": ""
     },
     "yes_selected": {
-      "fg": "#1f1e1e",
+      "fg": "#1f1f1f",
       "bg": "Green",
       "underline_color": null,
       "add_modifier": "BOLD",
@@ -127,14 +127,14 @@
       "sub_modifier": ""
     },
     "no_selected": {
-      "fg": "#1f1e1e",
+      "fg": "#1f1f1f",
       "bg": "Red",
       "underline_color": null,
       "add_modifier": "BOLD",
       "sub_modifier": ""
     },
     "menu_text_selected": {
-      "fg": "#1f1e1e",
+      "fg": "#1f1f1f",
       "bg": "#e49641",
       "underline_color": null,
       "add_modifier": "BOLD",
