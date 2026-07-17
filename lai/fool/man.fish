@@ -10,5 +10,5 @@ if $argv[-1]
 else
     command man $argv[..-3] 2>/dev/null >$path
 end
-focus-if-exists.fish "app_id starts-with foot" "title == 'man $manpage'"
+wm_focus_if_exists "app_id starts-with foot" "title == 'man $manpage'"
 or flour -T "man $manpage" --disown --man $path:14
