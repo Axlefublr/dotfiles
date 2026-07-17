@@ -14,7 +14,7 @@ def 'main' [] {
 		if ($the.keep | is-not-empty) {
 			let safe_max_cost = $the.keep * $max_cost
 			if ($held >= $safe_max_cost) {
-				$remainder = $held - $safe_max_cost | math round | into int
+				$remainder = $held - $safe_max_cost | math round | into int | into string
 				$held = $safe_max_cost | math round | into int
 			}
 		}
@@ -178,6 +178,7 @@ def 'main desires' [] {
 def 'main desires intake' [] {
 	open ~/iwm/nak/↑desire.txt | lines | into int | try {
 		let total = math sum
+		if ($total | is-empty) { return }
 		let date = date now date
 		$"($date) ($total)\n" | save -a ~/.local/share/magazine/V
 		truncate -s 0 ~/iwm/nak/↑desire.txt
