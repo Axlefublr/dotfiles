@@ -49,7 +49,7 @@ function act_on_color -a color
         echo
         echo
         while true
-            confirm.rs '' '[w]rite' '[i]nput' '[e]dit' '[s]ex' '[c]rgb' '[d]hsl' '[f]lip' '' \
+            confirm.rs '' '[w]rite' '[i]nput' '[e]dit' '[s]ex' '[c]rgb' '[d]hsl' '[f]lip' '[r]ed' '[R]ed' '[g]reen' '[G]reen' '[b]lue' '[B]lue' '' \
                 '[j]ue' '[J]ue' '[l]ight' '[L]ight' 'sa[k]urate' 'sa[K]urate' | read -l response
             switch "$response"
                 case w
@@ -73,7 +73,7 @@ function act_on_color -a color
                     reconfirm
                     warnage "$hex_repr copied"
                     continue
-                case r
+                case c
                     set -l rgb_repr (pastel format rgb -- $color)
                     echo $rgb_repr | wl-copy -n
                     reconfirm
@@ -113,6 +113,30 @@ function act_on_color -a color
                     reconfirm
                     warnage "rotate ← $color"
                     set color (pastel rotate -- -1 $color)
+                case r
+                    reconfirm
+                    warnage "red ↑ $color"
+                    set color (color_edit_red $color 1)
+                case R
+                    reconfirm
+                    warnage "red ↓ $color"
+                    set color (color_edit_red $color -1)
+                case g
+                    reconfirm
+                    warnage "green ↑ $color"
+                    set color (color_edit_green $color 1)
+                case G
+                    reconfirm
+                    warnage "green ↓ $color"
+                    set color (color_edit_green $color -1)
+                case b
+                    reconfirm
+                    warnage "blue ↑ $color"
+                    set color (color_edit_blue $color 1)
+                case B
+                    reconfirm
+                    warnage "blue ↓ $color"
+                    set color (color_edit_blue $color -1)
                 case i
                     reconfirm
                     return
