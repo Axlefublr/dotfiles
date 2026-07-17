@@ -496,7 +496,7 @@ let editor_fork = {
 	whichkey: false
 	# [[sort off]]
 	shellmap: {
-		'€': [nu --no-std-lib --stdin --config ~/fes/dot/nu/lvoc/crooked.nu -c]
+		'€': [nu --no-std-lib --stdin --config /home/axlefublr/fes/dot/nu/lvoc/crooked.nu -c]
 		'°': [fish -c]
 		'∞': [calc -t]
 		'√': [julia -E]
