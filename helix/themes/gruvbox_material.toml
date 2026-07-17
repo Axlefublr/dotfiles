@@ -55,6 +55,7 @@
 'punctuation.bracket' = 'white'
 'punctuation.delimiter' = 'white'
 'punctuation.special' = { fg = 'orange', modifiers = [ 'bold' ] }
+'source' = 'white'
 'string' = 'yellow'
 'string.regexp' = 'mint'
 'tag' = 'yellow'
