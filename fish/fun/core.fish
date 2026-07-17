@@ -18,6 +18,24 @@ function catait
 end
 funcsave catait >/dev/null
 
+function color_edit_blue -a hex_color crement
+    set -l new_blue (math -b 16 max 0, (math -b 16 min 0xFF, (math -b 16 0x(string sub -s 6 $hex_color) + $crement)) | string sub -s 3 | string pad -w 2 -c 0 | string upper)
+    echo "#$(string sub -s 2 -e 5 $hex_color)$new_blue"
+end
+funcsave color_edit_blue >/dev/null
+
+function color_edit_green -a hex_color crement
+    set -l new_green (math -b 16 max 0, (math -b 16 min 0xFF, (math -b 16 0x(string sub -s 4 -e 5 $hex_color) + $crement)) | string sub -s 3 | string pad -w 2 -c 0 | string upper)
+    echo "#$(string sub -s 2 -e 3 $hex_color)$new_green$(string sub -s 6 $hex_color)"
+end
+funcsave color_edit_green >/dev/null
+
+function color_edit_red -a hex_color crement
+    set -l new_red (math -b 16 max 0, (math -b 16 min 0xFF, (math -b 16 0x(string sub -s 2 -e 3 $hex_color) + $crement)) | string sub -s 3 | string pad -w 2 -c 0 | string upper)
+    echo "#$new_red$(string sub -s 4 $hex_color)"
+end
+funcsave color_edit_red >/dev/null
+
 alias --save dedup 'awk \'!seen[$0]++\'' >/dev/null
 
 function dof
