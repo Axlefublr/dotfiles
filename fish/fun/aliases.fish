@@ -167,7 +167,7 @@ alias --save toggle_mic_mute 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle' >/de
 alias --save toggle_mute 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' >/dev/null
 
 function which_wallpaper
-    swww query | string match -gr 'image: (.*)'
+    awww query | string match -gr 'image: (.*)'
 end
 funcsave which_wallpaper >/dev/null
 
