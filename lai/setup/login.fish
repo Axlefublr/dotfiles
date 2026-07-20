@@ -14,10 +14,10 @@ foot -T finances -o environment.TIT=finances ov --status-line=false --follow-nam
 foot -T earnings -o environment.TIT=earnings earnings.fish & disown
 foot -T loago-tracker -o environment.TIT=loago-tracker fish -c loago_tracker & disown
 foot -T receiver -o environment.TIT=receiver receiver.fish & disown
-playerctld daemon
 gtk-launch anki
 wm_wait_if_or_until_exists 'app_id == anki' 'title starts-with User'
 niri msg action spawn -- Todoist.AppImage
 wm_wait_if_or_until_exists 'app_id == todoist'
 foot -T voe -o environment.TIT=voe -D ~/iwm/voe yazi & disown
 make-em-shut-up.nu
+playerctld daemon
