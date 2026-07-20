@@ -159,6 +159,13 @@ function lnkj
 end
 funcsave lnkj >/dev/null
 
+function loop
+    while true
+        $argv
+    end
+end
+funcsave loop >/dev/null
+
 function mkcd
     mkdir -p $argv && z $argv
 end
