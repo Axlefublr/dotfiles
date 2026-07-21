@@ -160,12 +160,18 @@ funcsave magazine_commit >/dev/null
 # -------------------------special-------------------------
 
 function magazine_append_link
-    set -l result "$(get_input)"
+    set -l new_name "$(get_input)"
     test $status -eq 1 && return
-    set link (wl-paste -n)
-    indeed.rs -u ~/.local/share/magazine/l -- "$result — $link"
-    _magazine_commit ~/.local/share/magazine/l append
-    notify-send -t 2000 "append link $link"
+    set -l new_name (string trim $new_name)
+    set -l new_url (wl-paste -n | urlcleaner)
+    set -l maybe_index (link-figureouter.rs ~/.local/share/magazine/l "$new_name" "$new_url")
+    if test "$maybe_index"
+        flour ~/.local/share/magazine/l:$maybe_index[1]
+        _magazine_commit ~/.local/share/magazine/l append &>/dev/null
+    else
+        _magazine_commit ~/.local/share/magazine/l append
+        notify-send "append link $link"
+    end
 end
 funcsave magazine_append_link >/dev/null
 
