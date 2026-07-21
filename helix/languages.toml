@@ -103,7 +103,7 @@ source = { git = "https://github.com/ribru17/tree-sitter-man", rev = "e332ea95d5
 # ------------------markdown------------------
 [[grammar]]
 name = "markdown"
-source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "923021636be04fe8dafea2c72a4648985949b5d6", subpath = "tree-sitter-markdown" }
+source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "533d88beb5206eff8069bd52e2af836e6e699ba3", subpath = "tree-sitter-markdown" }
 
 [[language]]
 name = "markdown"
@@ -225,6 +225,7 @@ cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_CODEGEN_UNITS = "256"
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INCREMENTAL = "true"
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev"
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_OPT_LEVEL = '0'
+cargo.targetDir = true
 check.command = "clippy"
 checkOnSave = false
 completion.fullFunctionSignatures.enable = true
