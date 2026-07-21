@@ -61,7 +61,7 @@ function finder -a return_here
     # if $FROM_POPUP
     #     niri msg action consume-or-expel-window-left
     # end
-    set -l result "$(walk-files.rs 2>/dev/null | fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo ={q}' '--bind=alt-enter:become:echo //' '--bind=tab:become:echo ../')"
+    set -l result "$(walk-files.rs 2>/dev/null | fzf '--bind=f12:become:echo :{}' '--bind=f11:become:echo {q}' '--bind=alt-enter:become:echo //' '--bind=tab:become:echo ../')"
     test $result || return
     if test $result = //
         if test "$FROM_POPUP"
@@ -81,22 +81,22 @@ function finder -a return_here
         test "$FIX_WIDTH" && niri msg action set-column-width 100%
         yazi (string sub -s 2 $result)
         return
-    else if test $first_char = '='
-        set -l target (string sub -s 2 $result)
-        if string match -qr '/$' -- $target # create directory if it's just that, continue findering in there
-            mkdir -p $target
-            cd $target
+    end
+    if not test -e $result
+        if string match -qr '/$' -- $result # create directory if it's just that, continue findering in there
+            mkdir -p $result
+            cd $result
             finder $return_here
             return
-        else if string match -qe / -- $target
-            mkdir -p (path dirname $target)
+        else if string match -qe / -- $result
+            mkdir -p (path dirname $result)
         end
-        touch $target
+        touch $result
         if test "$FROM_POPUP"
-            echo $PWD/$target >/tmp/mine/finder-choice
+            echo $PWD/$result >/tmp/mine/finder-choice
         else
             test "$FIX_WIDTH" && niri msg action set-column-width 100%
-            set -l path (path resolve "$target")
+            set -l path (path resolve "$result")
             if test "$return_here"
                 cd "$return_here"
             end
