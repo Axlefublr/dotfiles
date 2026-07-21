@@ -1,6 +1,11 @@
 #!/usr/bin/env fish
 
 set -l input (tac ~/.local/share/magazine/c-t | fuzzel -d --match-mode exact 2>/dev/null)
+if test $status -eq 10
+    rg -Fv -- "$input" ~/.local/share/magazine/c-t | sponge ~/.local/share/magazine/c-t
+    request-timer.fish
+    return
+end
 not test "$input" && return 1
 set -l the (string split ' ' -- $input)
 set -l title $the[1]
