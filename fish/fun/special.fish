@@ -11,6 +11,12 @@ function append_github_line_numbers -a line_num
 end
 funcsave append_github_line_numbers >/dev/null
 
+function clipboard_clean_url
+    wl-paste -n | urlcleaner | sponge | wl-copy -n
+    notify-send 'clean url'
+end
+funcsave clipboard_clean_url >/dev/null
+
 function clipboard_image_save
     set -l now (date +%Y.%m.%d-%H:%M:%S)
     set -l path_trunk ~/iwm/sco/$now
