@@ -83,7 +83,7 @@ end
 funcsave focus_ignore >/dev/null
 
 function get_input
-    set -l input (fuzzel -dl 0 2>/dev/null)
+    set -l input (fuzzel -dl 0 2>/dev/null </dev/null)
     test $status -ne 0 && return 1
     if test (string sub -s -2 -- $input) = '%%'
         string sub -e -2 -- $input >/tmp/mine/get-input.md
