@@ -71,6 +71,11 @@ alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .g
 alias --save tuisky 'tuisky -c ~/fes/dot/tuisky.toml' >/dev/null
 alias --save unimatrix 'unimatrix -s 95 -abf' >/dev/null
 
+function urlcleaner
+    url-cleaner --cache ~/fes/jiro/urlcleaner.sqlite $argv | string replace -r '/?$' ''
+end
+funcsave urlcleaner >/dev/null
+
 function yazi
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     protit "$(fish_title) yazi" # this can include a ❌ awkwardly
