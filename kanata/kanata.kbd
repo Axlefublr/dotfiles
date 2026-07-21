@@ -110,7 +110,7 @@
 	;; [[sort on]]
 	a 0
 	c 8
-	caps (tap-hold-release $tt $ht A-w XX)
+	caps (tap-hold-release $tt $ht (cmd fish -c clipboard_clean_url) XX)
 	d 2
 	e 5
 	f 1
