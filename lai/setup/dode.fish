@@ -1030,6 +1030,9 @@ eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
 # ------------------------unimatrix------------------------
 yay -Sa --needed --disable-download-timeout unimatrix-git
 
+# -----------------------url-cleaner-----------------------
+cargo binstall -y url-cleaner
+
 # -------------------------ventoy--------------------------
 yay -Sa --needed --disable-download-timeout ventoy-bin
 ventoygui # to install ventoy onto a usb stick
