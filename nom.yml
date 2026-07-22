@@ -22,7 +22,7 @@ feeds:
     name: matklad
   - url: https://nanotipsforvim.prose.sh/rss
     name: chris grieser
-  - url: https://phaazon.net/blog/feed
+  - url: https://strongly-typed-thoughts.net/feed.xml
     name: hadronized
   - url: https://project-mage.org/rss.xml
     name: project mage
