@@ -31,7 +31,6 @@ set -gx FZF_DEFAULT_OPTS \
     --bind=shift-right:replace-query,ctrl-home:first,ctrl-end:last \
     '--bind="f11:become:echo {q}"' \
     '--bind="enter:accept-or-print-query"' \
-    # '--bind="ctrl-v:execute:wtype -M ctrl -M shift -k v -m ctrl -m shift"'
     '--bind="ctrl-v:transform/echo "put:$(wl-paste -n)"/"'
 set -gx _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
 
