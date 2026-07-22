@@ -70,10 +70,13 @@ window-rule {
     default-column-width { proportion 0.70; }
 }
 window-rule {
+    match app-id="^foot" title="^nom$"
+    default-column-width { proportion 0.65; }
+}
+window-rule {
     match app-id="^foot" title="^anki-card$"
     match app-id="^foot" title="^helix-popup$"
     match app-id="^foot" title="finder$"
-    match app-id="^foot" title="^nom$"
     default-column-width { proportion 0.5; }
 }
 window-rule {
