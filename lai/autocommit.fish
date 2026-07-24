@@ -8,6 +8,7 @@ set -l deleted_files
 set -l modified_files
 set -l renamed_from
 set -l renamed_to
+set -l typechanged
 git add .
 for change in (git status --porcelain)
     set -l bits (string split -n ' ' $change)
@@ -19,6 +20,8 @@ for change in (git status --porcelain)
         set deleted_files $deleted_files (string trim -c '"' $path)
     else if test $type = M
         set modified_files $modified_files (string trim -c '"' $path)
+    else if test $type = T
+        set typechanged $typechanged (string trim -c '"' $path)
     else if test $type = R
         set two_paths (string split ' -> ' -- $path)
         set renamed_from $renamed_from (string trim -c '"' $two_paths[1])
@@ -37,6 +40,10 @@ end
 for modification in $modified_files
     git add $modification
     and git commit -m "change $modification"
+end
+for typing in $typechanged
+    git add $typing
+    and git commit -m "type $typing"
 end
 for index in (seq (count $renamed_from))
     git add $renamed_from[$index] $renamed_to[$index]
