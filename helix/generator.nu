@@ -114,9 +114,7 @@ let all_mappings = {
 	S-A-F6: ':write --no-format'
 	S-A-F11: ':write! --no-format'
 	# ------------------------function-------------------------
-	F1: [
-		':noop %sh(footclient -ND %(working_directory) fish -c "helix %(full_path):%(cursor_line):%(cursor_column)")'
-	]
+	F1: ':noop %sh(wind ° helix %(full_path):%(cursor_line):%(cursor_column))'
 	# F1: [
 	# 	':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
 	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
@@ -125,6 +123,7 @@ let all_mappings = {
 		":noop %sh(echo %(full_path) >~/fes/zufi/blammo)"
 		':noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}'
 	]
+	F3: ':noop %sh(wind « bacon)'
 	F4: [
 		':noop %sh{rm -f /tmp/mine/finder-choice}',
 		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "FROM_POPUP=true finder"}',
@@ -256,6 +255,9 @@ let normal_mappings = {
 	'³': goto_first_change
 	'‘': [':echo selected!' save_selection]
 	'’': jump_forward
+	'⁴': ':open %sh{baconator.rs first  %(full_path) %(cursor_line) %(cursor_column)}'
+	'⁵': ':open %sh{baconator.rs next %(full_path) %(cursor_line) %(cursor_column)}'
+	'⁶': ':open %sh{baconator.rs prev %(full_path) %(cursor_line) %(cursor_column)}'
 	'⁸': goto_last_diag
 	'⁹': goto_first_diag
 	'󰟢': shrink_to_line_bounds
