@@ -13,7 +13,7 @@ const known = {
 	# liked: 15
 	dish: 5
 	cloth: 8
-	bed: 11
+	bed: 10
 	nose: 8
 	towels: 8
 	vacuum: 8
