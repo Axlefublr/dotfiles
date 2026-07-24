@@ -215,8 +215,8 @@ binds {
     XF86AudioNext        allow-when-locked=true { spawn "fish" "-c" "media_next"; }
     // XF86AudioStop { spawn "fish" "-c" "dot"; } // mouse button
 
-    Mod+Ctrl+D { spawn "foot"; }
-    Mod+D { spawn "footclient"; }
+    Mod+Ctrl+O { spawn "foot"; }
+    Mod+O { spawn "footclient"; }
     Mod+Return { spawn "find-or-make.fish" "app_id starts-with foot" "title == toggleterm" "foottitled.sh toggleterm -N"; }
 
     Mod+G { fullscreen-window; }
@@ -227,10 +227,7 @@ binds {
     Mod+Comma { toggle-window-floating; }
     Mod+Semicolon { switch-focus-between-floating-and-tiling; }
     Mod+Space { toggle-overview; }
-    Mod+S { focus-window-previous; }
-
-    Mod+X { consume-or-expel-window-left; }
-    Mod+C { consume-or-expel-window-right; }
+    // Mod+S { focus-window-previous; }
 
     Mod+H cooldown-ms=50 { focus-column-left; }
     Mod+L cooldown-ms=50 { focus-column-right; }
@@ -242,10 +239,12 @@ binds {
     Mod+Shift+Down      cooldown-ms=50 { move-column-to-workspace-down; }
     Mod+Shift+Up        cooldown-ms=50 { move-column-to-workspace-up; }
 
-    Mod+O cooldown-ms=50 { focus-window-down; }
-    Mod+U cooldown-ms=50 { focus-window-up; }
-    Mod+Shift+O cooldown-ms=50 { move-window-down; }
-    Mod+Shift+U cooldown-ms=50 { move-window-up; }
+    Mod+D           cooldown-ms=50 { focus-window-down; }
+    Mod+S           cooldown-ms=50 { focus-window-up; }
+    Mod+Shift+D     cooldown-ms=50 { move-window-down; }
+    Mod+Shift+S     cooldown-ms=50 { move-window-up; }
+    Mod+Shift+Alt+D cooldown-ms=50 { consume-or-expel-window-right; }
+    Mod+Shift+Alt+S cooldown-ms=50 { consume-or-expel-window-left; }
 
     Mod+Ctrl+Shift+Alt+Down cooldown-ms=50 { move-workspace-down; }
     Mod+Ctrl+Shift+Alt+Up   cooldown-ms=50 { move-workspace-up; }
