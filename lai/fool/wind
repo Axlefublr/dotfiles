@@ -1,3 +1,32 @@
-#!/usr/bin/env dash
+#!/usr/bin/env -S fish -N
 
-foottitled.sh helix-overlay -N "$@"
+set -l script_name (status filename | path basename)
+set -l extra_flags
+string match -qe sand -- "$script_name" && set -a extra_flags -H
+if test "$argv[1]" = '»'
+    set -f consume right
+    set argv $argv[2..]
+else if test "$argv[1]" = '«'
+    set -f consume left
+    set argv $argv[2..]
+end
+set -l different_shell
+if test "$argv[1]" = '€'
+    set argv $argv[2..]
+    set different_shell nu --no-std-lib -n -c
+else if test "$argv[1]" = '°'
+    set argv $argv[2..]
+    set different_shell fish -c
+end
+if test "$different_shell"
+    footclient -T helix-overlay -N $extra_flags -- $different_shell "$argv"
+else
+    footclient -T helix-overlay -N $extra_flags -- $argv
+end
+set -l last_char (string sub -s -1 -- "$script_name")
+set -q consume && niri msg action consume-or-expel-window-left
+if test "$consume" = left
+    for i in (seq 1 10)
+        niri msg action move-window-up
+    end
+end
