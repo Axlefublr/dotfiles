@@ -29,8 +29,6 @@
 	k (unmod lmet lsft ↑)
 	h (unmod lmet lsft ←)
 	l (unmod lmet lsft →)
-	u (unmod lmet lsft u)
-	o (unmod lmet lsft o)
 	i (cmd close-windows-in-column.nu)
 )
 
@@ -63,7 +61,11 @@
 
 (deflayermap (io)
 	j (multi (layer-toggle j) (layer-toggle ij) (layer-toggle jo) (layer-toggle ijo) (on↑ tap-vkey j))
+	s (unmod lmet lsft lalt s)
+	d (unmod lmet lsft lalt d)
 )
 
 (deflayermap (ijo)
+	s (unmod lmet lsft s)
+	d (unmod lmet lsft d)
 )
