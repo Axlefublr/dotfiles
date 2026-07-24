@@ -2,6 +2,8 @@ configpath: /home/axlefublr/.config/nom/config.yml
 showfavourites: false
 version: ""
 feeds:
+  - url: https://quietism.art/index.xml
+    name: ivelieu
   - url: https://ingrids.space/index.xml
     name: intarga
   - url: https://borretti.me/feed.xml
