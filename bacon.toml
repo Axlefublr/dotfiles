@@ -1,7 +1,25 @@
 # [[sort on]]
+# help_line = false
 default_job = 'clippy'
 on_change_strategy = 'kill_then_restart'
 # [[sort off]]
+
+[exports.locations]
+auto = true
+exporter = 'locations'
+path = '.bacon-locations'
+line_format = '{path}:{line}:{column}'
+
+[jobs.fix]
+command = [
+  'cargo',
+  'clippy',
+  '--fix',
+  '--workspace',
+  '--allow-dirty',
+  '--allow-staged',
+]
+on_success = 'back'
 
 [keybindings]
 # [[sort on]]
@@ -23,30 +41,36 @@ alt-i = 'no-op'
 alt-space = 'quit'
 alt-t = 'no-op'
 alt-u = 'no-op'
+alt-w = 'no-op'
 backtab = 'no-op'
 c = 'job:clippy'
-ctrl-c = 'no-op'
+ctrl-c = 'job:pedantic'
 ctrl-d = 'no-op'
 ctrl-end = 'scroll-to-bottom'
 ctrl-home = 'scroll-to-top'
-ctrl-j = 'no-op'
+ctrl-j = 'open-jobs-menu'
 ctrl-q = 'no-op'
 ctrl-r = 'refresh'
+down = 'scroll-lines(1)'
 end = 'no-op'
 esc = 'back'
 f = 'toggle-pause'
 h = 'no-op'
 home = 'no-op'
-i = 'no-op'
-j = 'scroll-lines(1)'
-k = 'scroll-lines(-1)'
+j = 'undismiss-all'
+k = 'dismiss-top-item'
+l = 'job:default'
 n = 'next-match'
 p = 'no-op'
 pagedown = 'scroll-pages(0.5)'
 pageup = 'scroll-pages(-0.5)'
+q = 'no-op'
 r = 'job:run'
 s = 'copy-unstyled-output'
-shift-j = 'open-jobs-menu'
+shift-c = 'job:clippy-all'
+shift-d = 'job:doc'
+shift-j = 'open-undismiss-menu'
+shift-k = 'dismiss-top'
 shift-n = 'previous-match'
 shift-r = 'toggle-raw-output'
 shift-t = 'scope-to-failures'
@@ -56,5 +80,7 @@ space = 'no-op'
 t = 'job:test'
 tab = 'no-op'
 u = 'toggle-summary'
+up = 'scroll-lines(-1)'
 w = 'no-op'
+x = 'job:fix'
 # [[sort off]]
