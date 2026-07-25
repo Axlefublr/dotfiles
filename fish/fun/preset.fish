@@ -16,6 +16,13 @@ function alien_temple
 end
 funcsave alien_temple >/dev/null
 
+function bacon
+    protit "$(fish_title) bacon"
+    command bacon $argv
+    protit (fish_title)
+end
+funcsave bacon >/dev/null
+
 alias --save dust 'dust -r' >/dev/null
 alias --save eza 'eza --icons=auto --group-directories-first -x --time-style "+%y.%m.%d %H:%M" --smart-group --git --git-repos' >/dev/null
 alias --save fd 'fd --no-require-git' >/dev/null
