@@ -123,7 +123,7 @@ let all_mappings = {
 		":noop %sh(echo %(full_path) >~/fes/zufi/blammo)"
 		':noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}'
 	]
-	F3: ':noop %sh(wind « bacon)'
+	F3: ':noop %sh(wind « ° bacon)'
 	F4: [
 		':noop %sh{rm -f /tmp/mine/finder-choice}',
 		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "FROM_POPUP=true finder"}',
