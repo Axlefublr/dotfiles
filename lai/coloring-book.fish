@@ -27,7 +27,7 @@ end
 
 function reconfirm
     ansi_erase_line
-    for the in (seq 1 1)
+    for the in (seq 1 2)
         ansi_cursor_move_start_up
         ansi_erase_line
     end
@@ -49,7 +49,8 @@ function act_on_color -a color
         echo
         echo
         while true
-            confirm.rs '' '[w]rite' '[i]nput' '[e]dit' '[s]ex' '[c]rgb' '[d]hsl' '[f]lip' '[r]ed' '[R]ed' '[g]reen' '[G]reen' '[b]lue' '[B]lue' '' \
+            confirm.rs '' '[w]rite' '[i]nput' '[e]dit' '[s]ex' '[c]rgb' '[d]hsl' '[S]ex' '[C]rgb' '[D]hsl' '[f]lip' '' \
+                '[r]ed' '[R]ed' '[g]reen' '[G]reen' '[b]lue' '[B]lue' '' \
                 '[j]ue' '[J]ue' '[l]ight' '[L]ight' 'sa[k]urate' 'sa[K]urate' | read -l response
             switch "$response"
                 case w
@@ -81,6 +82,24 @@ function act_on_color -a color
                     continue
                 case d
                     set -l hsl_repr (pastel format hsl -- $color)
+                    echo $hsl_repr | wl-copy -n
+                    reconfirm
+                    warnage "$hsl_repr copied"
+                    continue
+                case S
+                    set -l hex_repr (pastel format hex -- $color | string sub -s 2)
+                    echo $hex_repr | wl-copy -n
+                    reconfirm
+                    warnage "$hex_repr copied"
+                    continue
+                case C
+                    set -l rgb_repr (pastel format rgb -- $color | strip-wrapper-type.rs '(')
+                    echo $rgb_repr | wl-copy -n
+                    reconfirm
+                    warnage "$rgb_repr copied"
+                    continue
+                case D
+                    set -l hsl_repr (pastel format hsl -- $color | strip-wrapper-type.rs '(')
                     echo $hsl_repr | wl-copy -n
                     reconfirm
                     warnage "$hsl_repr copied"
