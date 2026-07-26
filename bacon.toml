@@ -21,6 +21,14 @@ command = [
 ]
 on_success = 'back'
 
+[jobs.neru]
+command = [ 'neru', 'launch' ]
+need_stdout = true
+background = false
+on_change_strategy = "kill_then_restart"
+scroll_anchor = "auto"
+watch = [ 'neru.toml' ]
+
 [skin]
 # [[sort on]]
 change_badge_fg = { r = 31, g = 31, b = 31 }
