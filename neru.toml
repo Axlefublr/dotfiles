@@ -11,17 +11,19 @@ text = '#ffafd7'
 
 [hotkeys]
 
-[hints]
-enabled = false
-
 [recursive_grid]
 enabled = true
-grid_cols = 3       # Number of columns (>= 1)
-grid_rows = 3       # Number of rows (>= 1)
-keys = "wersdfxcv"  # Cell selection keys (must be grid_cols * grid_rows chars)
-min_size_width = 1  # Stop subdividing below this width (px)
+grid_cols = 2 # Number of columns (>= 1)
+grid_rows = 2 # Number of rows (>= 1)
+keys = "wrsf" # Cell selection keys (must be grid_cols * grid_rows chars)
+min_size_width = 1 # Stop subdividing below this width (px)
 min_size_height = 1 # Stop subdividing below this height (px)
-max_depth = 3       # Maximum recursion levels (1–20)
+max_depth = 4 # Maximum recursion levels (1–20)
+layers = [
+  { depth = 0, grid_cols = 3, grid_rows = 3, keys = "wersdfxcv" },
+  { depth = 1, grid_cols = 3, grid_rows = 3, keys = "wersdfxcv" },
+  { depth = 2, grid_cols = 3, grid_rows = 3, keys = "wersdfxcv" },
+]
 
 [recursive_grid.animation]
 enabled = true   # Opt out from native depth transition animation on supported platforms
