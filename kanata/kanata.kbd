@@ -91,7 +91,7 @@
 	q (tap-hold-release $tt $ht q XX)
 	r (tap-hold-release $tt $ht r (multi (layer-toggle r) (on↑ tap-vkey r)))
 	s (tap-hold-release $tt $ht s lsft)
-	spc (tap-hold-release $tt $ht spc (multi (layer-toggle space) (on↑ tap-vkey space)))
+	spc (tap-hold-release $tt $ht spc (multi (layer-toggle space) (cmd ydotool mousemove -a 533 300) (on↑ tap-vkey space)))
 	t (tap-hold-release $tt $ht t XX)
 	tab XX
 	u (tap-hold-release $tt $ht u (multi (layer-toggle u) (on↑ tap-vkey u)))

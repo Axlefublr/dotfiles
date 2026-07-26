@@ -1,9 +1,10 @@
 (deflayermap (space)
 	caps (tap-hold-release $tt $ht esc (multi (layer-toggle caps) (layer-toggle caps-space) (on↑ tap-vkey caps)))
 	' (multi (layer-toggle quote) (layer-toggle space-quote) (on↑ tap-vkey quote))
-	spc enter
+	spc (cmd ydotool mousemove -a 533 300)
 	n (on↓ toggle-vkey mouse-mode)
 	l (layer-toggle mouse-slow)
+	;; l (movemouse-speed 1)
 
 	h (cmd ydotool mousemove -a 386 300)
 	y XX
