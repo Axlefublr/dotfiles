@@ -21,6 +21,38 @@ command = [
 ]
 on_success = 'back'
 
+[skin]
+# [[sort on]]
+change_badge_fg = { r = 31, g = 31, b = 31 }
+command_error_badge_fg = { r = 31, g = 31, b = 31 }
+computing_bg = { r = 228, g = 150, b = 65 }
+computing_fg = { r = 31, g = 31, b = 31 }
+dismissed_badge_fg = { r = 31, g = 31, b = 31 }
+errors_badge_fg = { r = 31, g = 31, b = 31 }
+found_fg = { r = 228, g = 150, b = 65 }
+found_selected_bg = { r = 228, g = 150, b = 65 }
+job_label_badge_bg = { r = 228, g = 150, b = 65 }
+job_label_badge_fg = { r = 31, g = 31, b = 31 }
+key_fg = { r = 228, g = 150, b = 65 }
+menu_bg = { r = 31, g = 31, b = 31 }
+menu_border = { r = 31, g = 31, b = 31 }
+menu_item_bg = { r = 31, g = 31, b = 31 }
+menu_item_fg = { r = 212, g = 190, b = 152 }
+menu_item_selected_bg = { r = 95, g = 71, b = 45 }
+menu_item_selected_fg = { r = 212, g = 190, b = 152 }
+project_name_badge_bg = { r = 181, g = 140, b = 198 }
+project_name_badge_fg = { r = 31, g = 31, b = 31 }
+search_input_prefix_fg = { r = 228, g = 150, b = 65 }
+search_summary_fg = { r = 212, g = 190, b = 152 }
+status_bg = { r = 40, g = 40, b = 40 }
+status_fg = { r = 212, g = 190, b = 152 }
+status_key_fg = { r = 228, g = 150, b = 65 }
+test_fails_badge_bg = { r = 234, g = 105, b = 98 }
+test_fails_badge_fg = { r = 31, g = 31, b = 31 }
+test_pass_badge_fg = { r = 169, g = 182, b = 101 }
+warnings_badge_fg = { r = 31, g = 31, b = 31 }
+# [[sort off]]
+
 [keybindings]
 # [[sort on]]
 '?' = 'no-op'
