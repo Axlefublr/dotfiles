@@ -167,6 +167,7 @@
 
 (deflayermap (h)
 	; (multi ralt (layer-toggle semicolon) (layer-toggle semicolon-h) (on↑ tap-vkey semicolon))
+	spc (tap-hold-release $tt $ht spc (multi (layer-toggle space) (layer-toggle space-h) (cmd neru recursive_grid) (on↑ tap-vkey space) (on↑ tap-vkey disable-neru-mode)))
 	;; [[sort on]]
 	a (cmd find-or-make.fish "app_id starts-with foot" "title == abilities" "foottitled.sh abilities -ND ~/fes/tiq helix abilities.md")
 	c (cmd find-or-make.fish "app_id starts-with foot" "title == colorbook" "foottitled.sh colorbook -N coloring-book.fish")

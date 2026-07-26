@@ -5,7 +5,7 @@
 	n (on↓ toggle-vkey mouse-mode)
 	l (layer-toggle mouse-slow)
 
-	; (multi (layer-toggle space-semicolon) (cmd neru recursive_grid) (on↑ tap-vkey semicolon) (on↑ tap-vkey disable-neru-mode))
+	h (multi (layer-toggle space-h) (cmd neru recursive_grid) (on↑ tap-vkey h) (on↑ tap-vkey disable-neru-mode))
 	y XX
 	z XX
 	c y
@@ -13,7 +13,7 @@
 	u (cmd niri msg action set-zoom-level +1)
 	p (tap-hold-release $tt $ht (cmd niri msg action set-zoom-level -- -1) (cmd niri msg action set-zoom-level 1))
 	v (tap-hold-release $tt $ht C-w XX)
-	h (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
+	; (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
 	x (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.set_default_scale('fill')""#)
 
 	a (on↓ press-vkey shift)
@@ -61,7 +61,7 @@
 	k (cmd fish -c pick_and_copy_color)
 )
 
-(deflayermap (space-semicolon)
+(deflayermap (space-h)
 	w (cmd neru action feed --mode w)
 	e (cmd neru action feed --mode e)
 	r (cmd neru action feed --mode r)

@@ -14,7 +14,6 @@
 
 (deflayermap (semicolon)
 	h (multi (layer-toggle h) (layer-toggle semicolon-h) (on↑ tap-vkey h))
-	spc (tap-hold-release $tt $ht spc (multi (layer-toggle space) (layer-toggle space-semicolon) (cmd neru recursive_grid) (on↑ tap-vkey space) (on↑ tap-vkey disable-neru-mode)))
 )
 
 (deflayermap (fw)
