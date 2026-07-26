@@ -4,7 +4,7 @@
 	e (multi (layer↑ e) (layer↑ ew) (layer↑ ef) (layer↑ er) (layer↑ efw) (layer↑ erw))
 	f (multi (layer↑ f) (layer↑ ef) (layer↑ fw) (layer↑ efw))
 	g (multi (layer↑ g) (layer↑ ag))
-	h (multi (layer↑ h) (layer↑ semicolon-h))
+	h (multi (layer↑ h) (layer↑ semicolon-h) (layer↑ space-h))
 	i (multi (layer↑ i) (layer↑ ij) (layer↑ io) (layer↑ iu) (layer↑ ijo))
 	j (multi (switch
 		((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
@@ -32,9 +32,10 @@
 	modifier (multi (on↓ release-vkey shift) (on↓ release-vkey ctrl) (on↓ release-vkey alt) (on↓ release-vkey meta))
 	modifier-zoom (multi (on↓ tap-vkey modifier) (cmd niri msg action set-zoom-level 1))
 	space (switch ((not (layer space)))
-		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (on↓ tap-vkey modifier))
+		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (layer↑ space-h) (on↓ tap-vkey modifier))
 	break)
 
+	disable-neru-mode (multi (cmd neru idle))
 	disable-mouse-mode (multi (cmd fish -c "echo >~/fes/zufi/waybar-mouse-mode") (on↓ tap-vkey space))
 	mouse-mode (multi (cmd fish -c "echo 󰇀 >~/fes/zufi/waybar-mouse-mode") (layer-toggle space) (on↑ tap-vkey disable-mouse-mode))
 

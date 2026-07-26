@@ -1,0 +1,54 @@
+[general]
+exec_shell = "/bin/bash"    # Shell used for exec commands (e.g. "/bin/dash", "/bin/zsh")
+exec_shell_args = [ "-lc" ] # Shell arguments, where the last argument will be the command string
+
+[theme.dark]
+surface = '#ffafd7'
+accent = '#ffafd7'
+accent_alt = '#ffafd7'
+on_accent_alt = '#ffafd7'
+text = '#ffafd7'
+
+[hotkeys]
+
+[hints]
+enabled = false
+
+[recursive_grid]
+enabled = true
+grid_cols = 3       # Number of columns (>= 1)
+grid_rows = 3       # Number of rows (>= 1)
+keys = "wersdfxcv"  # Cell selection keys (must be grid_cols * grid_rows chars)
+min_size_width = 1  # Stop subdividing below this width (px)
+min_size_height = 1 # Stop subdividing below this height (px)
+max_depth = 3       # Maximum recursion levels (1–20)
+
+[recursive_grid.animation]
+enabled = true   # Opt out from native depth transition animation on supported platforms
+duration_ms = 50 # Recursive-grid animation duration in milliseconds
+
+[recursive_grid.hotkeys]
+"Escape" = "idle"
+# "Space" = "action reset"
+"Space" = "__disabled__"
+
+[recursive_grid.ui]
+line_width = 1
+font_size = 10
+font_family = ""
+label_background = false            # Add rounded backgrounds behind cell labels
+label_background_padding_x = -1
+label_background_padding_y = -1
+label_background_border_radius = -1
+label_background_border_width = 1
+label_char = "·"                    # Override cell labels with a single character (e.g. "·"); empty = use key
+label_autohide_multiplier = 10000   # Hide labels when cell < fontSize × multiplier (0 = disable)
+
+[smooth_cursor]
+move_mouse_enabled = true # Enable smooth mouse movement
+steps = 10                # Number of intermediate positions
+max_duration = 200        # Maximum animation duration in ms
+duration_per_pixel = 0.1  # Ms per pixel for adaptive duration
+
+[systray]
+enabled = false # Show menu bar icon (false = headless mode)
