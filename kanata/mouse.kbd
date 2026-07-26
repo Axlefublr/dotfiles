@@ -1,11 +1,11 @@
 (deflayermap (space)
 	caps (tap-hold-release $tt $ht esc (multi (layer-toggle caps) (layer-toggle caps-space) (on↑ tap-vkey caps)))
 	' (multi (layer-toggle quote) (layer-toggle space-quote) (on↑ tap-vkey quote))
-	spc XX
+	spc enter
 	n (on↓ toggle-vkey mouse-mode)
 	l (layer-toggle mouse-slow)
 
-	k (multi (layer-toggle space-k) (cmd neru recursive_grid) (on↑ tap-vkey k))
+	; (multi (layer-toggle space-semicolon) (cmd neru recursive_grid) (on↑ tap-vkey semicolon) (on↑ tap-vkey disable-neru-mode))
 	y XX
 	z XX
 	c y
@@ -13,7 +13,7 @@
 	u (cmd niri msg action set-zoom-level +1)
 	p (tap-hold-release $tt $ht (cmd niri msg action set-zoom-level -- -1) (cmd niri msg action set-zoom-level 1))
 	v (tap-hold-release $tt $ht C-w XX)
-	; (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
+	h (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
 	x (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.set_default_scale('fill')""#)
 
 	a (on↓ press-vkey shift)
@@ -23,7 +23,7 @@
 
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
-	h (multi mrgt (on↑ tap-vkey modifier))
+	k (multi mrgt (on↑ tap-vkey modifier))
 	, pgup
 	. pgdn
 
@@ -61,18 +61,13 @@
 	k (cmd fish -c pick_and_copy_color)
 )
 
-(deflayermap (space-k)
-	q (cmd neru action feed --mode q)
+(deflayermap (space-semicolon)
 	w (cmd neru action feed --mode w)
 	e (cmd neru action feed --mode e)
 	r (cmd neru action feed --mode r)
-	t (cmd neru action feed --mode t)
-	a (cmd neru action feed --mode a)
 	s (cmd neru action feed --mode s)
 	d (cmd neru action feed --mode d)
 	f (cmd neru action feed --mode f)
-	g (cmd neru action feed --mode g)
-	z (cmd neru action feed --mode z)
 	x (cmd neru action feed --mode x)
 	c (cmd neru action feed --mode c)
 	v (cmd neru action feed --mode v)
