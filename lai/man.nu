@@ -56,7 +56,7 @@ def 'main nushell' [] {
 	} catch {
 		$input
 	}
-	let title = $'nushell ($input)'
+	let title = $'nush ($input)'
 	let found = niri msg -j windows | from json
 	| where app_id starts-with foot
 	| where title == $title
