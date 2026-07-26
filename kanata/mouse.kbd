@@ -5,7 +5,7 @@
 	n (on↓ toggle-vkey mouse-mode)
 	l (layer-toggle mouse-slow)
 
-	h (multi (layer-toggle space-h) (cmd neru recursive_grid) (on↑ tap-vkey h) (on↑ tap-vkey disable-neru-mode))
+	h (cmd ydotool mousemove -a 386 300)
 	y XX
 	z XX
 	c y
@@ -59,16 +59,4 @@
 	i C-S-c
 	o C-S-i
 	k (cmd fish -c pick_and_copy_color)
-)
-
-(deflayermap (space-h)
-	w (cmd neru action feed --mode w)
-	e (cmd neru action feed --mode e)
-	r (cmd neru action feed --mode r)
-	s (cmd neru action feed --mode s)
-	d (cmd neru action feed --mode d)
-	f (cmd neru action feed --mode f)
-	x (cmd neru action feed --mode x)
-	c (cmd neru action feed --mode c)
-	v (cmd neru action feed --mode v)
 )
