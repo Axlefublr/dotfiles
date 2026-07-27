@@ -16,6 +16,10 @@
 	h (multi (layer-toggle h) (layer-toggle semicolon-h) (on↑ tap-vkey h))
 )
 
+(deflayermap (l)
+	spc (multi (layer-toggle space) (layer-toggle mouse-slow) (cmd ydotool mousemove -a 533 300) (on↑ tap-vkey space))
+)
+
 (deflayermap (fw)
 	e (multi (layer-toggle e) (layer-toggle ew) (layer-toggle efw) (on↑ tap-vkey e))
 	k up
