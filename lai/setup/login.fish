@@ -26,3 +26,6 @@ foot -T receiver -o environment.TIT=receiver receiver.fish & disown
 foot -T voe -o environment.TIT=voe -D ~/iwm/voe yazi & disown
 make-em-shut-up.nu
 playerctld daemon
+if test "$(cat ~/fes/zufi/ran-daily)" != (date +%Y.%m.%d)
+    ~/fes/dot/systemd/daily.fish
+end
