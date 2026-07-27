@@ -33,10 +33,10 @@
 	w (mwheel-left  20 60)
 	r (mwheel-right 20 60)
 
-	s (movemouse-accel-left  5 210 1 6)
-	d (movemouse-accel-down  5 210 1 6)
-	e (movemouse-accel-up    5 210 1 6)
-	f (movemouse-accel-right 5 210 1 6)
+	s (movemouse-accel-left  5 210 1 7)
+	d (movemouse-accel-down  5 210 1 7)
+	e (movemouse-accel-up    5 210 1 7)
+	f (movemouse-accel-right 5 210 1 7)
 )
 
 (deflayermap (mouse-slow)
