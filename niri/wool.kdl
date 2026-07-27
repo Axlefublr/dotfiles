@@ -178,6 +178,12 @@ window-rule {
 }
 
 layer-rule {
+    match namespace="^neru$"
+    background-effect {
+        blur false
+    }
+}
+layer-rule {
     match namespace="^awww-daemon$"
     place-within-backdrop true
 }

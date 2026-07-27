@@ -566,6 +566,12 @@ xdg-mime default mpv.desktop application/octet-stream
 sudo pacman -S --needed --noconfirm --disable-download-timeout neovide
 set -Ux NEOVIDE_FORK false
 
+# --------------------------neru---------------------------
+stew install y3owk1n/neru
+mkdir -p ~/.config/neru/
+ln -sf ~/fes/dot/neru.toml ~/.config/neru/config.toml
+neru completion fish >~/.config/fish/completions/neru.fish
+
 # --------------------------niri---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout niri
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring libdisplay-info
