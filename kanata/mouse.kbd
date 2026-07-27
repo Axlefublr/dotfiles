@@ -3,7 +3,7 @@
 	' (multi (layer-toggle quote) (layer-toggle space-quote) (on↑ tap-vkey quote))
 	spc (cmd ydotool mousemove -a 533 300)
 	n (on↓ toggle-vkey mouse-mode)
-	l (layer-toggle mouse-slow)
+	l (multi (layer-toggle mouse-slow) (on↑ tap-vkey l))
 	;; l (movemouse-speed 1)
 
 	h (cmd ydotool mousemove -a 386 300)
@@ -40,10 +40,10 @@
 )
 
 (deflayermap (mouse-slow)
-	s (movemouse-left  20 1)
-	d (movemouse-down  20 1)
-	e (movemouse-up    20 1)
-	f (movemouse-right 20 1)
+	s (movemouse-left  15 1)
+	d (movemouse-down  15 1)
+	e (movemouse-up    15 1)
+	f (movemouse-right 15 1)
 )
 
 (deflayermap (space-quote)
