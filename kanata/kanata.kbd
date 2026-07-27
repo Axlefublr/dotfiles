@@ -82,7 +82,7 @@
 	i (tap-hold-release $tt $ht i (multi (layer-toggle i) (on↑ tap-vkey i)))
 	ins (tap-dance 500 ((cmd fish -c suspend) (cmd fish -c reboot) (cmd fish -c poweroff)))
 	j (tap-hold-release $tt $ht j (multi (layer-toggle j) (on↑ tap-vkey j)))
-	k (tap-hold-release $tt $ht k (multi rctl (layer-toggle k)))
+	k (tap-hold-release $tt $ht k rctl)
 	l (tap-hold-release $tt $ht l (multi rsft (layer-toggle l) (on↑ tap-vkey l)))
 	m (tap-hold-release $tt $ht m (layer-toggle m))
 	n (tap-hold-release $tt $ht n (multi (layer-toggle n) (on↑ tap-vkey n)))
