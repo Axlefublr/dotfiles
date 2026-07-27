@@ -20,6 +20,10 @@
 	spc (multi (layer-toggle space) (layer-toggle mouse-slow) (cmd ydotool mousemove -a 533 300) (on↑ tap-vkey space))
 )
 
+(deflayermap (k)
+	spc (multi (layer-toggle space) (on↓ press-vkey neru-first) (on↑ tap-vkey space))
+)
+
 (deflayermap (fw)
 	e (multi (layer-toggle e) (layer-toggle ew) (layer-toggle efw) (on↑ tap-vkey e))
 	k up

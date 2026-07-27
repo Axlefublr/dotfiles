@@ -6,7 +6,7 @@
 	l (multi (layer-toggle mouse-slow) (on↑ tap-vkey l))
 	;; l (movemouse-speed 1)
 
-	h (cmd ydotool mousemove -a 386 300)
+	k (on↓ press-vkey neru-first)
 	y XX
 	z XX
 	c y
@@ -24,7 +24,7 @@
 
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
-	k (multi mrgt (on↑ tap-vkey modifier))
+	h (multi mrgt (on↑ tap-vkey modifier))
 	, pgup
 	. pgdn
 
@@ -60,4 +60,30 @@
 	i C-S-c
 	o C-S-i
 	k (cmd fish -c pick_and_copy_color)
+)
+
+(deflayermap (neru-first)
+	k (cmd neru action reset)
+	w (multi (cmd neru action feed --mode w) (on↓ press-vkey neru-second))
+	e (multi (cmd neru action feed --mode e) (on↓ press-vkey neru-second))
+	r (multi (cmd neru action feed --mode r) (on↓ press-vkey neru-second))
+	s (multi (cmd neru action feed --mode s) (on↓ press-vkey neru-second))
+	d (multi (cmd neru action feed --mode d) (on↓ press-vkey neru-second))
+	f (multi (cmd neru action feed --mode f) (on↓ press-vkey neru-second))
+	x (multi (cmd neru action feed --mode x) (on↓ press-vkey neru-second))
+	c (multi (cmd neru action feed --mode c) (on↓ press-vkey neru-second))
+	v (multi (cmd neru action feed --mode v) (on↓ press-vkey neru-second))
+)
+
+(deflayermap (neru-second)
+	k (multi (cmd neru action reset) (release-layer neru-second))
+	w (multi (cmd neru action feed --mode w) (on↓ release-vkey neru-second))
+	e (multi (cmd neru action feed --mode e) (on↓ release-vkey neru-second))
+	r (multi (cmd neru action feed --mode r) (on↓ release-vkey neru-second))
+	s (multi (cmd neru action feed --mode s) (on↓ release-vkey neru-second))
+	d (multi (cmd neru action feed --mode d) (on↓ release-vkey neru-second))
+	f (multi (cmd neru action feed --mode f) (on↓ release-vkey neru-second))
+	x (multi (cmd neru action feed --mode x) (on↓ release-vkey neru-second))
+	c (multi (cmd neru action feed --mode c) (on↓ release-vkey neru-second))
+	v (multi (cmd neru action feed --mode v) (on↓ release-vkey neru-second))
 )

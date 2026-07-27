@@ -1,4 +1,7 @@
 (defvirtualkeys
+	disable-neru-mode (cmd neru idle)
+	neru-first (multi (cmd neru recursive_grid) (layer-toggle neru-first))
+	neru-second (multi (layer-toggle neru-second) (on↑ release-vkey neru-first) (on↑ tap-vkey disable-neru-mode))
 	a (multi (layer↑ a) (layer↑ ag))
 	c (multi (layer↑ c) (layer↑ cx) (layer↑ cv))
 	e (multi (layer↑ e) (layer↑ ew) (layer↑ ef) (layer↑ er) (layer↑ efw) (layer↑ erw))
@@ -7,7 +10,7 @@
 	h (multi (layer↑ h) (layer↑ semicolon-h))
 	i (multi (layer↑ i) (layer↑ ij) (layer↑ io) (layer↑ iu) (layer↑ ijo))
 	j (multi (switch
-		((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
+			((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
 		) (layer↑ j) (layer↑ ij) (layer↑ jo) (layer↑ ijo) (layer↑ quote-j)
 	)
 	l (multi (layer↑ l) (layer↑ mouse-slow))
@@ -33,7 +36,7 @@
 	modifier (multi (on↓ release-vkey shift) (on↓ release-vkey ctrl) (on↓ release-vkey alt) (on↓ release-vkey meta))
 	modifier-zoom (multi (on↓ tap-vkey modifier) (cmd niri msg action set-zoom-level 1))
 	space (switch ((not (layer space)))
-		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (layer↑ mouse-slow) (on↓ tap-vkey modifier))
+		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (layer↑ mouse-slow) (on↓ tap-vkey modifier) (on↓ release-vkey neru-second))
 	break)
 
 	disable-mouse-mode (multi (cmd fish -c "echo >~/fes/zufi/waybar-mouse-mode") (on↓ tap-vkey space))
