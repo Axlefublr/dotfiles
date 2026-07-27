@@ -1,5 +1,21 @@
 #!/usr/bin/env fish
 
+function wm_collect_ids
+    set -l wheres
+    for arg in $argv
+        set -a wheres "| where $arg"
+    end
+    na -c "
+        let found = niri msg -j windows
+        | from json
+        $wheres
+        | get id
+        | to text
+        | print
+    "
+end
+funcsave wm_collect_ids >/dev/null
+
 function wm_focus_if_exists
     set -l wheres
     for arg in $argv
