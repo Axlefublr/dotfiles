@@ -245,21 +245,22 @@ let normal_mappings = {
 	'⤓': ':sort'
 	# ---------------------------i↓----------------------------
 	# [[sort on]]
-	'(': goto_prev_change
-	')': goto_next_change
-	'[': goto_prev_diag
-	']': goto_next_diag
-	'{': jump_backward
-	'}': repeat_last_motion
-	'²': goto_last_change
-	'³': goto_first_change
-	'‘': [':echo selected!' save_selection]
-	'’': jump_forward
-	'⁴': ':open %sh{baconator.rs first  %(full_path) %(cursor_line) %(cursor_column)}'
-	'⁵': ':open %sh{baconator.rs next %(full_path) %(cursor_line) %(cursor_column)}'
-	'⁶': ':open %sh{baconator.rs prev %(full_path) %(cursor_line) %(cursor_column)}'
-	'⁸': goto_last_diag
-	'⁹': goto_first_diag
+	# '‘': [':echo selected!' save_selection]
+	'(': jump_backward
+	')': jump_forward
+	'[': ':open %sh{baconator.rs prev %(full_path) %(cursor_line) %(cursor_column)}'
+	']': ':open %sh{baconator.rs next %(full_path) %(cursor_line) %(cursor_column)}'
+	'{': goto_prev_change
+	'}': goto_next_change
+	'«': ':open %sh{baconator.rs last %(full_path) %(cursor_line) %(cursor_column)}'
+	'»': ':open %sh{baconator.rs first  %(full_path) %(cursor_line) %(cursor_column)}'
+	'‘': goto_last_change
+	'’': goto_first_change
+	'„': repeat_last_motion
+	'⁷': goto_first_diag
+	'⁸': goto_next_diag
+	'⁹': goto_prev_diag
+	'⁻': goto_last_diag
 	'󰟢': shrink_to_line_bounds
 	# [[sort off]]
 	'”': {
