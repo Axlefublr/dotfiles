@@ -45,16 +45,18 @@ function wm_wait_if_or_until_exists
         \$object | try {
             get WindowsChanged.windows.0
             $wheres
-            | if (\$in | is-not-empty) {
-                exit
-            }
+            | first
+            | get id
+            | print
+            exit
         }
         \$object | try {
             get WindowOpenedOrChanged.window
             $wheres
-            | if (\$in | is-not-empty) {
-                exit
-            }
+            | first
+            | get id
+            | print
+            exit
         }
     }
     "
