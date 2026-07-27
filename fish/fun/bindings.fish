@@ -68,6 +68,7 @@ function fish_user_key_bindings
     bind f4 '_kb_follow_by finder'
     bind f5 '_kb_follow_by helix'
     bind f6 '_kb_follow_by yazi'
+    bind shift-f5 '_kb_follow_by "helix (git diff --name-only HEAD)"'
     # [[sort off]]
 end
 funcsave fish_user_key_bindings >/dev/null
