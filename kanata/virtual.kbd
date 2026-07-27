@@ -10,6 +10,7 @@
 		((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
 		) (layer↑ j) (layer↑ ij) (layer↑ jo) (layer↑ ijo) (layer↑ quote-j)
 	)
+	l (multi (layer↑ l) (layer↑ mouse-slow))
 	n (multi (layer↑ n) (layer↑ quote-n))
 	o (multi (layer↑ o) (layer↑ jo) (layer↑ io) (layer↑ ijo))
 	r (multi (layer↑ r) (layer↑ er) (layer↑ rw) (layer↑ erw))
@@ -32,7 +33,7 @@
 	modifier (multi (on↓ release-vkey shift) (on↓ release-vkey ctrl) (on↓ release-vkey alt) (on↓ release-vkey meta))
 	modifier-zoom (multi (on↓ tap-vkey modifier) (cmd niri msg action set-zoom-level 1))
 	space (switch ((not (layer space)))
-		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (on↓ tap-vkey modifier))
+		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (layer↑ mouse-slow) (on↓ tap-vkey modifier))
 	break)
 
 	disable-mouse-mode (multi (cmd fish -c "echo >~/fes/zufi/waybar-mouse-mode") (on↓ tap-vkey space))
