@@ -144,7 +144,13 @@ function strongly_kill_window
 end
 funcsave strongly_kill_window >/dev/null
 
-alias --save suspend 'systemctl suspend' >/dev/null
+function suspend
+    echo -n (date +%Y.%m.%d-%H:%M:%S) >>~/ake/pre-suspend
+    echo -n \t >>~/ake/pre-suspend
+    niri msg -j windows >>~/ake/pre-suspend
+    systemctl suspend
+end
+funcsave suspend >/dev/null
 
 function tit
     test "$argv" && printf '\e]2;%s\a' "$argv"
