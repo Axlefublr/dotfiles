@@ -137,6 +137,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id="steam"
+    open-on-workspace "project"
+}
+
+window-rule {
     match app-id="^foot" title="^receiver$"
     match app-id="^foot" title="^uboot$"
     match app-id="^foot" title="^aurupdate$"
