@@ -202,7 +202,6 @@ code-actions-on-save = [ "source.auto_import", "source.normalize_import", "sourc
 "(" = ")"
 "{" = "}"
 "[" = "]"
-"|" = "|"
 '"' = '"'
 "`" = "`"
 "<" = ">"
