@@ -57,7 +57,7 @@ status_fg = { r = 212, g = 190, b = 152 }
 status_key_fg = { r = 228, g = 150, b = 65 }
 test_fails_badge_bg = { r = 234, g = 105, b = 98 }
 test_fails_badge_fg = { r = 31, g = 31, b = 31 }
-test_pass_badge_fg = { r = 169, g = 182, b = 101 }
+test_pass_badge_fg = { r = 31, g = 31, b = 31 }
 warnings_badge_fg = { r = 31, g = 31, b = 31 }
 # [[sort off]]
 
