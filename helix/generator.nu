@@ -160,11 +160,11 @@ let normal_mappings = {
 	S-A-down: decrement
 	S-A-up: increment
 	# [[sort on]]
+	# C-c: change_selection_noyank
+	# C-d: delete_selection_noyank
 	',': trim_selections
 	':': split_selection_on_newline
 	'C-;': ':pipe °math "$(cat)"'
-	C-c: change_selection_noyank
-	C-d: delete_selection_noyank
 	C-h: select_prev_sibling
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
@@ -187,8 +187,8 @@ let normal_mappings = {
 	V: [collapse_selection replace]
 	W: ensure_selections_forward
 	X: join_selections_space
-	c: change_selection
-	d: delete_selection
+	c: change_selection_noyank
+	d: delete_selection_noyank
 	h: move_char_left
 	i: insert_mode
 	j: move_visual_line_down
@@ -479,7 +479,7 @@ let insert_mappings = {
 	C-l: '@<C-h> \<ret>'
 	C-u: kill_to_line_start
 	C-v: [collapse_selection paste_before]
-	C-ц: [normal_mode move_prev_word_start change_selection]
+	C-ц: [normal_mode move_prev_word_start change_selection_noyank]
 	down: completion
 	end: [commit_undo_checkpoint insert_at_line_end]
 	home: [commit_undo_checkpoint insert_at_line_start]
