@@ -13,7 +13,7 @@ end
 funcsave clipboard_index >/dev/null
 
 function clipboard_pick
-    set -l result (cliphist list | tee ~/fes/zufi/cliphist | cut -f 2- | fuzzel -d --index)
+    set -l result (cliphist list | tee ~/fes/zufi/cliphist | cut -f 2- | fuzzel -d --index --width 55)
     test $status -ne 0 && return 1
     zat.rs ~/fes/zufi/cliphist ",$result" | cliphist decode | wl-copy -n
 end
