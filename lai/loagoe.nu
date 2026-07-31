@@ -21,7 +21,7 @@ const known = {
 	nails: 13
 	bottle: 15
 	brushes: 35
-	dust: 9
+	dust: 11
 	photos: 30
 	tea: 15
 	update: 20
@@ -29,7 +29,7 @@ const known = {
 	tails: 33
 	filter: 60
 	fsrs: 60
-	iso: 60
+	iso: 90
 	moch: 122
 	tongue: 122
 	toothbrush: 122
