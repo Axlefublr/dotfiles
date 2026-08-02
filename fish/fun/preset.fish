@@ -29,6 +29,18 @@ alias --save fd 'fd --no-require-git' >/dev/null
 alias --save ffmpeg 'ffmpeg -y -hide_banner -stats -loglevel error' >/dev/null
 alias --save ffprobe 'ffprobe -hide_banner' >/dev/null
 
+function gg
+    rm -f /tmp/mine/github-{directory,file} 2>/dev/null
+    gg.nu $argv
+    set -l exitcode $status
+    set -l target_dir (cat /tmp/mine/github-directory 2>/dev/null)
+    test -n "$target_dir" && z $target_dir
+    set -l target_file (cat /tmp/mine/github-file 2>/dev/null)
+    test -n "$target_file" && helix $target_file
+    return $exitcode
+end
+funcsave gg >/dev/null
+
 function gh
     gh.nu $argv
     set -l exitcode $status
@@ -76,6 +88,17 @@ alias --save termdown 'termdown -W -f roman' >/dev/null
 alias --save termframe 'termframe -o ~/iwm/sco/(date +%Y.%m.%d-%H:%M:%S).svg' >/dev/null
 alias --save tree 'tree --noreport --dirsfirst --matchdirs --gitignore -Ca -I .git -I bin -I obj -I target -I .vscode' >/dev/null
 alias --save tuisky 'tuisky -c ~/fes/dot/tuisky.toml' >/dev/null
+
+function tz
+    argparse list -- $argv
+    if set -q _flag_list
+        command tz -list
+    else
+        command tz -q Europe/Moscow UTC
+    end
+end
+funcsave tz >/dev/null
+
 alias --save unimatrix 'unimatrix -s 95 -abf' >/dev/null
 
 function urlcleaner
@@ -85,7 +108,7 @@ funcsave urlcleaner >/dev/null
 
 function yazi
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
-    protit "$(fish_title) yazi" # this can include a ❌ awkwardly
+    protit "$(fish_title) yazi"
     command yazi $argv --cwd-file="$tmp"
     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
         z $cwd
