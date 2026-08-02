@@ -324,7 +324,7 @@ customCommands:
   - key: "I"
     context: "commits"
     command: "git rebase -i $(git merge-base HEAD upstream/HEAD)"
-    description: "Rebase on the oldest your commit"
+    description: "Rebase on the divergence point"
     output: terminal
   - key: "<c-e>"
     context: "commits"
