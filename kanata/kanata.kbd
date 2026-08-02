@@ -186,6 +186,7 @@
 (deflayermap (semicolon-h)
 	r (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "foottitled.sh bottom -N btm")
 	f (cmd niri msg action spawn -- fish -c frizz_picker)
+	t (cmd find-or-make.fish --clean "app_id starts-with foot" "title == tz" "foottitled.sh tz -H fish -c tz")
 )
 
 (deflayermap (g)
