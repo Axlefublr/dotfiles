@@ -1,5 +1,12 @@
 #!/usr/bin/env fish
 
+function ..d
+    set -l prev_dir $PWD
+    cd ..
+    trash-put $prev_dir
+end
+funcsave ..d >/dev/null
+
 function arebesties -a fileone filetwo
     test (stat -c %i $fileone) -eq (stat -c %i $filetwo)
 end
