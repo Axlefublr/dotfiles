@@ -29,26 +29,18 @@ alias --save fd 'fd --no-require-git' >/dev/null
 alias --save ffmpeg 'ffmpeg -y -hide_banner -stats -loglevel error' >/dev/null
 alias --save ffprobe 'ffprobe -hide_banner' >/dev/null
 
-function gg
+function gk
     rm -f /tmp/mine/github-{directory,file} 2>/dev/null
-    gg.nu $argv
+    gk.nu $argv
     set -l exitcode $status
     set -l target_dir (cat /tmp/mine/github-directory 2>/dev/null)
     test -n "$target_dir" && z $target_dir
+    test $exitcode -ne 0 && return $exitcode
     set -l target_file (cat /tmp/mine/github-file 2>/dev/null)
     test -n "$target_file" && helix $target_file
     return $exitcode
 end
-funcsave gg >/dev/null
-
-function gh
-    gh.nu $argv
-    set -l exitcode $status
-    set -l new_cwd "$(consume.rs /tmp/mine/github-directory 2>/dev/null)"
-    test "$new_cwd" && z $new_cwd
-    return $exitcode
-end
-funcsave gh >/dev/null
+funcsave gk >/dev/null
 
 function helix
     protit "$(fish_title) helix"
