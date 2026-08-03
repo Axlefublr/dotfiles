@@ -60,6 +60,14 @@ def --wrapped 'main private' [name: string, ...rest] {
 	main create $name --private ...$rest
 }
 
+def 'main ..d' [] {
+	let pwd = pwd
+	try { main delete (^git remote get-url origin) }
+	cd ..
+	commit_cd_path (pwd)
+	trash-put $pwd
+}
+
 def 'main delete' [name: string] {
 	^gh repo delete --yes $name
 }
