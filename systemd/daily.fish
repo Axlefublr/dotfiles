@@ -16,8 +16,8 @@ trash-empty -f 1
 cleaning-lady.nu
 kondo -ao 5d
 
-# math (cat ~/.local/share/magazine/V) + 67 | sponge ~/.local/share/magazine/V
-# _magazine_commit ~/.local/share/magazine/V desire
+math (cat ~/.local/share/magazine/V) + 67 | sponge ~/.local/share/magazine/V
+_magazine_commit ~/.local/share/magazine/V desire
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
 cd ~/.local/share/magazine
