@@ -164,23 +164,13 @@ def 'main data intake' [] {
 
 def 'main desires' [] {
 	open ~/.local/share/magazine/V
-	| lines
-	| parse '{date} {spending}'
-	| update cells -c [date] {
-		into datetime -f '%y.%m.%d'
-	}
-	| update cells -c [spending] { into int }
-	| where date > (date now | $in - 30day)
-	| get spending
-	| math sum
 }
 
 def 'main desires intake' [] {
 	open ~/iwm/nak/↑desire.txt | lines | into int | try {
 		let total = math sum
 		if ($total | is-empty) { return }
-		let date = date now date
-		$"($date) ($total)\n" | save -a ~/.local/share/magazine/V
+		open ~/.local/share/magazine/V | str trim | into int | $in - $total | into string | sponge ~/.local/share/magazine/V
 		truncate -s 0 ~/iwm/nak/↑desire.txt
 	}
 }
