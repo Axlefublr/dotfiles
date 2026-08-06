@@ -126,7 +126,7 @@ def 'main data' [] {
 	main desires intake
 	main data intake
 
-	let data = open ~/.local/share/magazine/J | support merge true
+	let data = open ~/.local/share/magazine/c-j | support merge true
 	let earnings_total = $data | get earnings | math sum
 	let time_total = $data | get time | math sum
 	let average_time = $time_total | $in / 30
@@ -158,19 +158,19 @@ def 'main data intake' [] {
 	| lines
 	| each { main calculate }
 	| to text
-	| save -a ~/.local/share/magazine/J
+	| save -a ~/.local/share/magazine/c-j
 	truncate -s 0 ~/iwm/nak/↑earnings.txt
 }
 
 def 'main desires' [] {
-	open ~/.local/share/magazine/V
+	open ~/.local/share/magazine/S
 }
 
 def 'main desires intake' [] {
 	open ~/iwm/nak/↑desire.txt | lines | into int | try {
 		let total = math sum
 		if ($total | is-empty) { return }
-		open ~/.local/share/magazine/V | str trim | into int | $in - $total | into string | sponge ~/.local/share/magazine/V
+		open ~/.local/share/magazine/S | str trim | into int | $in - $total | into string | sponge ~/.local/share/magazine/S
 		truncate -s 0 ~/iwm/nak/↑desire.txt
 	}
 }
