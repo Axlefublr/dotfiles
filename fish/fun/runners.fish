@@ -9,14 +9,14 @@ end
 funcsave runner_clipboard >/dev/null
 
 function runner_interactive_unicode
-    set input (cat ~/.local/share/magazine/e | fuzzel -d --cache ~/fes/zufi/runner-interactive-unicode 2>/dev/null)
+    set input (cat ~/.local/share/magazine/E | fuzzel -d --cache ~/fes/zufi/runner-interactive-unicode 2>/dev/null)
     test $status -ne 0 && return 1
     echo -n (string split ' ' $input[1])[1] | wl-copy -n
 end
 funcsave runner_interactive_unicode >/dev/null
 
 function runner_link
-    set file ~/.local/share/magazine/l
+    set file ~/.local/share/magazine/c-l
     set result (cat $file | string replace -ar ' — .+$' '' | fuzzel -d --index --cache ~/fes/zufi/runner-link --match-mode exact --width 55 2>/dev/null)
     set -l statorus $status
     test "$result" || return 1
@@ -78,7 +78,7 @@ end
 funcsave runner_symbol >/dev/null
 
 function runner_symbol_name
-    set input (cat ~/.local/share/magazine/E | fuzzel -d --match-mode exact --cache ~/fes/zufi/runner-symbol-name 2>/dev/null)
+    set input (cat ~/.local/share/magazine/c-e | fuzzel -d --match-mode exact --cache ~/fes/zufi/runner-symbol-name 2>/dev/null)
     test $status -eq 1 && return 1
     not test "$input" && return 1
     printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | wl-copy -n
