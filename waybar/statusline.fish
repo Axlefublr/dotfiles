@@ -1,10 +1,10 @@
 #!/usr/bin/env fish
 
 while true
-    if test -s ~/.local/share/magazine/0
-        echo (cat ~/.local/share/magazine/0)
+    if test -s ~/.local/share/magazine/a
+        echo (cat ~/.local/share/magazine/a)
     else
         echo
     end
-    inotifytheusual ~/.local/share/magazine/0
+    inotifytheusual ~/.local/share/magazine/a
 end
