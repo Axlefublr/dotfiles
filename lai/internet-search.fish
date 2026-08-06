@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 set -l width_flag --width 55
-set -l input (tac ~/.local/share/magazine/L | fuzzel -d --match-mode exact $width_flag 2>/dev/null)
+set -l input (tac ~/.local/share/magazine/a-s | fuzzel -d --match-mode exact $width_flag 2>/dev/null)
 set -l saved_status $status
 set -l input (string trim -l "$input")
 if test $status -eq 0
@@ -35,9 +35,9 @@ set -l clean_input (string escape --style=url -- $input)
 $BROWSER (string replace -- %% $clean_input $engine)
 ensure-browser.nu
 if $should_history
-    indeed.rs -u ~/.local/share/magazine/L -- $input
-    cat ~/.local/share/magazine/L | sponge ~/.local/share/magazine/L
+    indeed.rs -u ~/.local/share/magazine/a-s -- $input
+    cat ~/.local/share/magazine/a-s | sponge ~/.local/share/magazine/a-s
 else
-    rg -vFx $input ~/.local/share/magazine/L | tail -n 500 | sponge ~/.local/share/magazine/L
+    rg -vFx $input ~/.local/share/magazine/a-s | tail -n 500 | sponge ~/.local/share/magazine/a-s
 end
-_magazine_commit ~/.local/share/magazine/L 'search history'
+_magazine_commit ~/.local/share/magazine/a-s 'search history'
