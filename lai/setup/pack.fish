@@ -3,12 +3,12 @@
 return # so that I don't command harp myself into pain
 
 # --------------------------main---------------------------
-sudo pacman -Syu
+sudo loginctl enable-linger $USER
+sudo systemctl enable --now paccache.timer
+sudo pacman -Rns --noconfirm eos-update-notifier nano-syntax-highlighting htop meld
+sudo pacman -Syyu
 for package_name in (cat ~/.local/share/magazine/Z)
     sudo pacman -S --needed --noconfirm --disable-download-timeout $package_name
-end
-for package_name in (cat ~/.local/share/magazine/X)
-    paru -Sa --needed --noconfirm --disable-download-timeout $package_name
 end
 
 # -------------------------crystal-------------------------
