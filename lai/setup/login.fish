@@ -13,7 +13,7 @@ niri msg action consume-or-expel-window-left
 foot -T dotfiles -o environment.TIT=dotfiles -D ~/fes/dot helix & disown
 ntf_dismiss_all
 gtk-launch firefox
-foot -T finances -o environment.TIT=finances ov --status-line=false --follow-name ~/.local/share/magazine/J & disown
+foot -T finances -o environment.TIT=finances ov --status-line=false --follow-name ~/.local/share/magazine/c-j & disown
 wm_wait_if_or_until_exists 'app_id starts-with foot' 'title == finances'
 foot -T earnings -o environment.TIT=earnings earnings.fish & disown
 wm_wait_if_or_until_exists 'app_id starts-with foot' 'title == earnings'
