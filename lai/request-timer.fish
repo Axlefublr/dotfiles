@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
-set -l input (tac ~/.local/share/magazine/c-t | fuzzel -d --match-mode exact 2>/dev/null)
+set -l input (tac ~/.local/share/magazine/a-t | fuzzel -d --match-mode exact 2>/dev/null)
 if test $status -eq 10
-    rg -Fv -- "$input" ~/.local/share/magazine/c-t | sponge ~/.local/share/magazine/c-t
+    rg -Fv -- "$input" ~/.local/share/magazine/a-t | sponge ~/.local/share/magazine/a-t
     request-timer.fish
     return
 end
@@ -19,5 +19,5 @@ set -l rest $the[2..]
 set -l genre (resolve_time_counter_genre "$the[2]")
 set -l prev_win_id (na -c "niri msg -j windows | from json | where is_focused == true | get id | first")
 foottitled.sh "$genre $title" -N timer.fish $repeat "$prev_win_id" $title $rest
-indeed.rs -u ~/.local/share/magazine/c-t -- "$input"
-tail -n 100 ~/.local/share/magazine/c-t | sponge ~/.local/share/magazine/c-t
+indeed.rs -u ~/.local/share/magazine/a-t -- "$input"
+tail -n 100 ~/.local/share/magazine/a-t | sponge ~/.local/share/magazine/a-t
