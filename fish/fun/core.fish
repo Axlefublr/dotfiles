@@ -226,7 +226,7 @@ end
 funcsave sj >/dev/null
 
 function task
-    set mag 0
+    set mag a
     argparse 'm/mag=' -- $argv
     and test "$_flag_mag"
     and set mag $_flag_mag
