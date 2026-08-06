@@ -1,21 +1,5 @@
 #!/usr/bin/env fish
 
-function _kb_schedule_commandline
-    set -l cmd (commandline)
-    test "$(string trim $cmd)" || return
-    set -l new_cmd
-    if test (string sub -l 1 $cmd) != ' '
-        history append -- $cmd
-        set new_cmd ' '
-    end
-    set new_cmd $new_cmd"$cmd"\n'and { flourish ; exit }'\n'or { title task-failure ; wither }'
-    title task
-    commandline "$new_cmd"
-    niri msg action move-window-to-workspace --focus false task
-    commandline -f execute
-end
-funcsave _kb_schedule_commandline >/dev/null
-
 function _kb_blammo_pwd
     commandline -i (pwds)
 end
