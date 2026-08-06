@@ -9,13 +9,13 @@ function magazine_resolve
     test $status -ne 0 && return
     test "$action" || return
 
-    if test $action = truncate && test $path = A
+    if test $action = truncate && test $path = c-a
         magazine_truncate_imports
         return
     end
 
     if test $action = append
-        if test $path = e
+        if test $path = E
             magazine_append_symbol
             return
         else if test $path = l
@@ -164,12 +164,12 @@ function magazine_append_link
     test $status -eq 1 && return
     set -l new_name (string trim $new_name)
     set -l new_url (wl-paste -n | urlcleaner)
-    set -l maybe_index (link-figureouter.rs ~/.local/share/magazine/l "$new_name" "$new_url")
+    set -l maybe_index (link-figureouter.rs ~/.local/share/magazine/c-l "$new_name" "$new_url")
     if test "$maybe_index"
-        flour ~/.local/share/magazine/l:$maybe_index[1]
-        _magazine_commit ~/.local/share/magazine/l append &>/dev/null
+        flour ~/.local/share/magazine/c-l:$maybe_index[1]
+        _magazine_commit ~/.local/share/magazine/c-l append &>/dev/null
     else
-        _magazine_commit ~/.local/share/magazine/l append
+        _magazine_commit ~/.local/share/magazine/c-l append
         notify-send "append link $link"
     end
 end
@@ -179,21 +179,21 @@ function magazine_append_symbol
     set symbol_name (fuzzel -dl 0 2>/dev/null)
     test $status -ne 0 && return 1
     set symbol_text (wl-paste -n)
-    indeed.rs -u ~/.local/share/magazine/e -- (begin
+    indeed.rs -u ~/.local/share/magazine/E -- (begin
         echo -n $symbol_text' '
         for thingy in (string split '' $symbol_text)
             printf '%x ' \'$thingy
         end
         echo -n $symbol_name
     end)
-    _magazine_commit ~/.local/share/magazine/e append
+    _magazine_commit ~/.local/share/magazine/E append
     notify-send -t 2000 "append symbol $symbol_text"
 end
 funcsave magazine_append_symbol >/dev/null
 
 function magazine_truncate_imports
-    set -l file_path ~/.local/share/magazine/A
-    set -l cards (tail -n +4 ~/.local/share/magazine/A | wc -l)
+    set -l file_path ~/.local/share/magazine/c-a
+    set -l cards (tail -n +4 ~/.local/share/magazine/c-a | wc -l)
     notify-send -t 3000 $cards
     head -n 3 $file_path | sponge $file_path
     _magazine_notify $file_path import
