@@ -16,8 +16,8 @@ trash-empty -f 1
 cleaning-lady.nu
 kondo -ao 5d
 
-math (cat ~/.local/share/magazine/V) + 67 | sponge ~/.local/share/magazine/V
-_magazine_commit ~/.local/share/magazine/V desire
+math (cat ~/.local/share/magazine/S) + 67 | sponge ~/.local/share/magazine/S
+_magazine_commit ~/.local/share/magazine/S desire
 
 # not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
 cd ~/.local/share/magazine
@@ -27,7 +27,7 @@ for file in ~/.local/share/magazine/*
 end
 git add .
 and git commit -m leftovers
-truncate -s 0 ~/.local/share/magazine/D
+truncate -s 0 ~/.local/share/magazine/d
 
 # these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 indeed.rs -u ~/iwm/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
