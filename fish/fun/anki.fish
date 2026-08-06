@@ -24,14 +24,14 @@ function anki_add_card
         notify-send -t 2000 "$(cat ~/fes/zufi/anki-card-errors)"
     end
     test $exitcode -ne 0 && return
-    indeed.rs -u ~/.local/share/magazine/A -- "$card"
-    _magazine_commit ~/.local/share/magazine/A card
-    notify-send -t 3000 "$(tail -n +4 ~/.local/share/magazine/A | wc -l)"
+    indeed.rs -u ~/.local/share/magazine/c-a -- "$card"
+    _magazine_commit ~/.local/share/magazine/c-a card
+    notify-send -t 3000 "$(tail -n +4 ~/.local/share/magazine/c-a | wc -l)"
 end
 funcsave anki_add_card >/dev/null
 
 function anki_import
-    curl localhost:8765 -X POST -d '{ "action": "guiImportFile", "version": 6, "params": { "path": "/home/axlefublr/.local/share/magazine/A.txt" } }'
+    curl localhost:8765 -X POST -d '{ "action": "guiImportFile", "version": 6, "params": { "path": "/home/axlefublr/.local/share/magazine/c-a.txt" } }'
 end
 funcsave anki_import >/dev/null
 
