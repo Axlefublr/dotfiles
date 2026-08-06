@@ -2,10 +2,6 @@
 
 return # so that I don't command harp myself into pain
 
-# ----------------------------!----------------------------
-sudo loginctl enable-linger $USER
-sudo systemctl enable --now paccache.timer
-
 # -------------------------8bitdo--------------------------
 echo 'ACTION=="add", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="81HD", RUN+="/sbin/modprobe xpad", RUN+="/bin/sh -c \'echo 2dc8 81HD > /sys/bus/usb/drivers/xpad/new_id\'"' | sudo tee /etc/udev/rules.d/99-8bitdo-xinput.rules
 sudo udevadm control --reload
@@ -238,7 +234,7 @@ id -g # group_id
 
 # --------------------------fonts--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-input ttf-input-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd inter-font
-yay -Sa --needed --disable-download-timeout ttf-comfortaa
+yay -Sa --needed --disable-download-timeout ttf-comfortaa maplemono-nf
 
 # --------------------------foot---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout foot
@@ -246,12 +242,6 @@ mkdir -p ~/.config/foot
 ln -sf ~/fes/dot/foot.ini ~/.config/foot/foot.ini
 systemctl --user enable --now ~/fes/dot/systemd/foot.service
 xdg-mime default directory-inode.desktop inode/directory
-
-# --------------------------fuck---------------------------
-sudo pacman -Rns --noconfirm eos-update-notifier
-sudo pacman -Rns --noconfirm nano-syntax-highlighting
-sudo pacman -Rns --noconfirm htop
-sudo pacman -Rns --noconfirm meld
 
 # -------------------------fuzzel--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout fuzzel
@@ -472,8 +462,8 @@ sudo usermod -aG uinput $USER
 sudo usermod -aG video $USER
 groups # check that your user is in
 sudo modprobe uinput # you might need to instantiate the uinput driver if shit really hits the fan
-indeed.rs -u ~/.local/share/magazine/W -- '-a cmd_allowed https://github.com/jtroo/kanata'
-eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
+indeed.rs -u ~/fes/dot/egetables -- '-a cmd_allowed https://github.com/jtroo/kanata'
+eget (string split ' ' -- (tail -n 1 ~/fes/dot/egetables))
 systemctl --user enable --now ~/fes/dot/kanata/kanata.service
 
 # ---------------------------kbt---------------------------
@@ -855,8 +845,8 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout stress-ng
 stress-ng --cpu-method matrixprod --cpu 8
 
 # --------------------------sttr---------------------------
-indeed.rs -u ~/.local/share/magazine/W -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
-eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
+indeed.rs -u ~/fes/dot/egetables -- '-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr'
+eget (string split ' ' -- (tail -n 1 ~/fes/dot/egetables))
 
 # ------------------------swapfile-------------------------
 sudo fallocate -l 7G /swapfile
@@ -1030,8 +1020,8 @@ yay -Sa --needed --disable-download-timeout ttf-twemoji
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 
 # ---------------------------tz----------------------------
-indeed.rs -u ~/.local/share/magazine/W -- '-a .tar.gz https://github.com/oz/tz'
-eget (string split ' ' -- (tail -n 1 ~/.local/share/magazine/W))
+indeed.rs -u ~/fes/dot/egetables -- '-a .tar.gz https://github.com/oz/tz'
+eget (string split ' ' -- (tail -n 1 ~/fes/dot/egetables))
 
 # ------------------------unimatrix------------------------
 yay -Sa --needed --disable-download-timeout unimatrix-git
