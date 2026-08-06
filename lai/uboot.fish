@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-for package in (cat ~/.local/share/magazine/W)
+for package in (cat ~/fes/dot/egetables)
     echo $package | xargs eget --upgrade-only
 end
 
