@@ -69,8 +69,8 @@ gui:
 git:
   autoFetch: true
   diffContextSize: 1
-  pagers:
-    - pager: diff-so-fancy
+  diffRenderers:
+    - command: diff-so-fancy
   merging:
     manualCommit: true
     squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
