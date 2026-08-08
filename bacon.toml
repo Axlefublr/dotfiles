@@ -25,9 +25,10 @@ on_success = 'back'
 command = [ 'neru', 'launch' ]
 need_stdout = true
 background = false
-on_change_strategy = "kill_then_restart"
-scroll_anchor = "auto"
+on_change_strategy = 'kill_then_restart'
+scroll_anchor = 'auto'
 watch = [ 'neru.toml' ]
+default_watch = false
 
 [skin]
 # [[sort on]]
