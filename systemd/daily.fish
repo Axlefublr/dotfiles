@@ -3,6 +3,7 @@
 if test "$(cat ~/fes/zufi/ran-daily)" = (date +%Y.%m.%d)
     return
 end
+date +%Y.%m.%d >~/fes/zufi/ran-daily
 
 cd ~
 
@@ -52,4 +53,3 @@ for dir in (cat ~/.local/share/magazine/P)
 end
 
 foot -T uboot uboot.fish
-date +%Y.%m.%d >~/fes/zufi/ran-daily
