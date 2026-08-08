@@ -26,6 +26,5 @@ niri msg action mark-window-focused --id (wm_wait_if_or_until_exists 'app_id == 
 foot -T voe -o environment.TIT=voe -D ~/iwm/voe yazi & disown
 make-em-shut-up.nu
 playerctld daemon
-if test "$(cat ~/fes/zufi/ran-daily)" != (date +%Y.%m.%d)
-    ~/fes/dot/systemd/daily.fish
-end
+dot
+~/fes/dot/systemd/daily.fish
