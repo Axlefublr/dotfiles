@@ -25,6 +25,17 @@ function catait
 end
 funcsave catait >/dev/null
 
+function commit_file
+    not test -f $argv[1] && return
+    not test -n "$argv[2..]" && return 1
+    set -l resolved (path resolve $argv[1])
+    set -l parent_path (path dirname $resolved)
+    set -l base (path basename $resolved)
+    git -C $parent_path add $base >/dev/null
+    and git -C $parent_path commit -m "$argv[2..]" >/dev/null
+end
+funcsave commit_file >/dev/null
+
 function color_edit_blue -a hex_color crement
     set -l new_blue (math -b 16 max 0, (math -b 16 min 0xFF, (math -b 16 0x(string sub -s 6 $hex_color) + $crement)) | string sub -s 3 | string pad -w 2 -c 0 | string upper)
     echo "#$(string sub -s 2 -e 5 $hex_color)$new_blue"
