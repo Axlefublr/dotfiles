@@ -2,6 +2,8 @@ configpath: /home/axlefublr/.config/nom/config.yml
 showfavourites: false
 version: ""
 feeds:
+  - url: https://geode.house/atom.xml
+    name: geek
   - url: https://quietism.art/blog.xml
     name: ivelieu
   - url: https://ingrids.space/index.xml
