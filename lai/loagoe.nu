@@ -74,7 +74,7 @@ def 'main pick' [] {
 	| each { |thingy|
 		if ($thingy | str contains '—') {
 			loago do ($thingy | split row — | get 0 | str trim)
-		} else {
+		} else if ($thingy | str trim | is-not-empty) {
 			loago do ($thingy | str trim)
 		}
 	} | ignore
