@@ -189,6 +189,7 @@ window-rule {
 
 layer-rule {
     match namespace="^neru$"
+    match namespace="^eww$"
     background-effect {
         blur false
     }
