@@ -25,6 +25,7 @@ function A
     harp get harp_shell_$argv[1] $argv[2] 2>/dev/null >$path
     helix -w $directory $path
     harp replace harp_shell_$argv[1] $argv[2] "$(cat $path)"
+    commit_file ~/fes/jiro/harp.jsonc "harp shell: a $argv[1] $argv[2]"
 end
 funcsave A >/dev/null
 
@@ -51,6 +52,7 @@ function D
     harp get harp_shell_$PWD $argv[1] 2>/dev/null >$path
     helix -w $directory $path
     harp replace harp_shell_$PWD $argv[1] "$(cat $path)"
+    commit_file ~/fes/jiro/harp.jsonc "harp shell: d $(path basename $PWD) $argv[1]"
 end
 funcsave D >/dev/null
 
