@@ -18,7 +18,7 @@ function magazine_resolve
         if test $path = E
             magazine_append_symbol
             return
-        else if test $path = l
+        else if test $path = c-l
             magazine_append_link
             return
         end
