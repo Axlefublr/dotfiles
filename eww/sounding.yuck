@@ -1,0 +1,13 @@
+(defwindow sounding [direction]
+	:monitor '0'
+	:geometry (geometry
+		:width  { direction == 'bottom' ? '100%' : '5px' }
+		:height { direction == 'bottom' ?          '5px' : '100%' }
+		:anchor 'center ${direction}'
+	)
+	:stacking 'overlay'
+	:focusable 'none'
+	:exclusive false
+	:namespace 'eww'
+	(box :class 'fill-line')
+)
