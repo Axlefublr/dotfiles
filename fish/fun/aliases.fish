@@ -79,12 +79,16 @@ alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_state 'playerctl status' >/dev/null
 
 function mouse_mode_indicate
-    eww open-many sounding:left sounding:right --arg left:direction=left --arg right:direction=right
+    eww open-many sounding:left_vert sounding:left_hor sounding:right_vert sounding:right_hor \
+        --arg left_vert:side=left --arg left_vert:orientation=vert \
+        --arg left_hor:side=left --arg left_hor:orientation=hor \
+        --arg right_vert:side=right --arg right_vert:orientation=vert \
+        --arg right_hor:side=right --arg right_hor:orientation=hor
 end
 funcsave mouse_mode_indicate >/dev/null
 
 function mouse_mode_hide
-    eww close left right
+    eww close left_vert left_hor right_vert right_hor
 end
 funcsave mouse_mode_hide >/dev/null
 

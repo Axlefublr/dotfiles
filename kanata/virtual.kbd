@@ -36,8 +36,8 @@
 		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (layer↑ mouse-slow) (on↓ tap-vkey modifier))
 	break)
 
-	disable-mouse-mode (multi (cmd eww close left right) (on↓ tap-vkey space))
-	mouse-mode (multi (cmd eww open-many sounding:left sounding:right --arg left:direction=left --arg right:direction=right) (layer-toggle space) (on↑ tap-vkey disable-mouse-mode))
+	disable-mouse-mode (multi (cmd fish -c mouse_mode_hide) (on↓ tap-vkey space))
+	mouse-mode (multi (cmd fish -c mouse_mode_indicate) (layer-toggle space) (on↑ tap-vkey disable-mouse-mode))
 
 	nuclear-throne (layer-toggle nuclear-throne)
 	enter-the-gungeon (layer-toggle enter-the-gungeon)

@@ -15,7 +15,6 @@
     "custom/headphone-battery",
     "custom/layout",
     "custom/magazines",
-    "custom/mouse-mode",
     "custom/screen-record",
     "custom/red-dot"
   ],
@@ -109,11 +108,6 @@
   },
   "custom/screen-record": {
     "exec": "/home/axlefublr/fes/dot/waybar/screen-record.fish",
-    "format": "{}",
-    "hide-empty-text": true
-  },
-  "custom/mouse-mode": {
-    "exec": "/home/axlefublr/fes/dot/waybar/mouse-mode.fish",
     "format": "{}",
     "hide-empty-text": true
   },

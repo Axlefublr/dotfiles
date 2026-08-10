@@ -1,1 +1,13 @@
-(include 'sounding.yuck')
+(defwindow sounding [side orientation]
+	:monitor '0'
+	:geometry (geometry
+		:width  { orientation == 'hor'  ? '9px' : '50px' }
+		:height { orientation == 'vert' ? '9px' : '50px' }
+		:anchor 'bottom ${side}'
+	)
+	:stacking 'overlay'
+	:focusable 'none'
+	:exclusive false
+	:namespace 'eww'
+	(box :class 'fill-line')
+)
