@@ -78,6 +78,16 @@ alias --save media_position 'playerctl position' >/dev/null
 alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_state 'playerctl status' >/dev/null
 
+function mouse_mode_indicate
+    eww open-many sounding:left sounding:right --arg left:direction=left --arg right:direction=right
+end
+funcsave mouse_mode_indicate >/dev/null
+
+function mouse_mode_hide
+    eww close left right
+end
+funcsave mouse_mode_hide >/dev/null
+
 function mouse_position
     set -l pos (niri msg pointer | string join ' ')
     echo $pos | wl-copy -n
