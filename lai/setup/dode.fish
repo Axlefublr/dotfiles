@@ -177,13 +177,13 @@ gk duc elkowar/eww
 cargo build --release --no-default-features --features wayland
 rsync ./target/release/eww ~/fes/eva
 eww shell-completions -s fish >~/.config/fish/completions/eww.fish
-mkdir -p ~/.config/eww
-ln -sf ~/fes/dot/eww/eww.yuck ~/.config/eww/eww.yuck
-ln -sf ~/fes/dot/eww/eww.css ~/.config/eww/eww.css
+rm -fr ~/.config/eww
+ln -s ~/fes/dot/eww ~/.config/eww
 systemctl --user enable --now ~/fes/dot/systemd/eww.service
 
 # --------------------------ewwii--------------------------
 paru -Sa --needed --disable-download-timeout ewwii-bin
+rm -fr ~/.config/ewwii
 ln -s ~/fes/dot/eww ~/.config/ewwii
 eget https://github.com/Ewwii-sh/yucky-ewwii --to ~/fes/dot/eww/plugins/libyucky_ewwii.so --tag (ewwii --version | na --stdin -c 'split row " " | skip 1 | get 0')
 
