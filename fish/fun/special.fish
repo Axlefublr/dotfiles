@@ -217,6 +217,11 @@ function randomize_file_names
 end
 funcsave randomize_file_names >/dev/null
 
+function resolve_fish_function
+    rg "^(function|alias --save) $argv" -n ~/fes/dot/fish/fun/ | head -n 1 | string match -gr '(.*?:\d+):'
+end
+funcsave resolve_fish_function >/dev/null
+
 function resolve_time_counter_genre -a timestamp
     if string match -qe ':' -- $timestamp
         echo alarm
