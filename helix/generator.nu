@@ -362,6 +362,7 @@ let normal_mappings = {
 	'┤': goto_implementation
 	'┐': rename_symbol
 	'├': hover
+	'┘': ':open %sh{°resolve_fish_function %(selection)}'
 	a: {
 		# [[sort on]]
 		';': ':toggle soft-wrap.enable'
