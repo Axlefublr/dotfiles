@@ -1,8 +1,8 @@
 (defwindow sounding [side orientation]
 	:monitor '0'
 	:geometry (geometry
-		:width  { orientation == 'hor'  ? '9px' : '50px' }
-		:height { orientation == 'vert' ? '9px' : '50px' }
+		:width  { orientation == 'hor'  ? '9px' : '80px' }
+		:height { orientation == 'vert' ? '9px' : '80px' }
 		:anchor 'bottom ${side}'
 	)
 	:stacking 'overlay'
