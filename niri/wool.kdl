@@ -190,6 +190,8 @@ window-rule {
 layer-rule {
     match namespace="^neru$"
     match namespace="^eww$"
+    match namespace="^chameleos$"
+    match namespace="^vellum$"
     background-effect {
         blur false
     }
