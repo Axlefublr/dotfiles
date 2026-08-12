@@ -125,6 +125,11 @@ rm -fr ~/.config/cava
 # -------------------------cbonsai-------------------------
 yay -Sa --needed --disable-download-timeout cbonsai
 
+# -------------------------vellum--------------------------
+gk ork https://github.com/greyxp1/vellum
+d i
+systemctl --user enable --now ~/fes/dot/systemd/vellum.service
+
 # ------------------------cliphist-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout cliphist
 systemctl --user enable --now ~/fes/dot/systemd/cliphist-text.service
