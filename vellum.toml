@@ -1,0 +1,15 @@
+default_tool = 'arrow'
+remember_last_tool = true
+stroke_width = 6.0
+default_color = '#ffafd7'
+feedback_duration_ms = 500
+palette = [
+  "#ffafd7", # pink
+  "#ffd75f", # yellow
+  "#00d7ff", # cyan
+  "#ffffff",
+  "#000000",
+  "#87ff5f", # salad
+  "#ff2930", # red
+  "#af87ff", # purple
+]
