@@ -222,6 +222,7 @@
 (deflayermap (caps)
 	spc (multi (layer-toggle space) (layer-toggle caps-space) (on↑ tap-vkey space))
 	;; [[sort on]]
+	; (cmd vellum clear-and-deactivate)
 	d (cmd fish -c media_next)
 	e (cmd fish -c "set_volume 0.02+")
 	f (cmd fish -c toggle_media)
