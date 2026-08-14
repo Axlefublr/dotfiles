@@ -135,8 +135,10 @@ def 'main data' [] {
 	print $'(ansi '#ea6962')total(ansi reset): ($earnings_total | fill -a r -w 5)'
 	print $'(ansi '#e49641')hours(ansi reset): ($time_total | support format duration --ignore-minutes  | fill -a r -w 5)'
 	print $'(ansi '#d3ad5c')avg  (ansi reset): ($average_time | support format duration | fill -a r -w 5)'
-	print $'(ansi '#a9b665')daily(ansi reset): ($earnings_perday | fill -a r -w 5)'
-	print $'(ansi '#78bf84')rate (ansi reset): ($rate | fill -a r -w 5)'
+	print $'(ansi '#a9b665')bank (ansi reset): ($data | time_bank | fill -a r -w 5)'
+	print $'(ansi '#78bf84')daily(ansi reset): ($earnings_perday | fill -a r -w 5)'
+	print $'(ansi '#7daea3')rate (ansi reset): ($rate | fill -a r -w 5)'
+	print $'(ansi '#b58cc6')want (ansi reset): (main desires | fill -a r -w 5)'
 
 	print ''
 	print $'(ansi '#ea6962')1  30(ansi reset): (1 * $rate * 30 | math round | fill -a r -w 5)'
@@ -147,9 +149,28 @@ def 'main data' [] {
 	print $'(ansi '#7daea3')6 180(ansi reset): (6 * $rate * 30 | math round | fill -a r -w 5)'
 	print $'(ansi '#b58cc6')7 210(ansi reset): (7 * $rate * 30 | math round | fill -a r -w 5)'
 	print $'(ansi '#ea6962')8 240(ansi reset): (8 * $rate * 30 | math round | fill -a r -w 5)'
+}
 
-	print ''
-	main desires
+def time_bank [] {
+	let data = $in
+	let start_date = (date now | $in - 29day | format date '%Y-%m-%d')
+	let end_date   = (date now | $in - 1day  | format date '%Y-%m-%d')
+	let calendar = seq date -b $start_date -e $end_date | wrap date
+	let worked = $data
+	| each { |it|
+		{
+			date: ($it.date | format date '%Y-%m-%d')
+			time: $it.time
+		}
+	}
+	$calendar
+	| join --left $worked date
+	| default 0hr time
+	| get time
+	| reduce { |item, cum|
+		[($cum + $item - 5hr), 0hr] | math max
+	}
+	| support format duration
 }
 
 def 'main data intake' [] {
@@ -163,7 +184,7 @@ def 'main data intake' [] {
 }
 
 def 'main desires' [] {
-	open ~/.local/share/magazine/S
+	open ~/.local/share/magazine/S | str trim
 }
 
 def 'main desires intake' [] {
