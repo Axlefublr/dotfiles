@@ -128,6 +128,8 @@ yay -Sa --needed --disable-download-timeout cbonsai
 # -------------------------vellum--------------------------
 gk ork https://github.com/greyxp1/vellum
 d i
+mkdir -p ~/.config/vellum
+ln -sf ~/fes/dot/vellum.toml ~/.config/vellum/config.toml
 systemctl --user enable --now ~/fes/dot/systemd/vellum.service
 
 # ------------------------cliphist-------------------------
