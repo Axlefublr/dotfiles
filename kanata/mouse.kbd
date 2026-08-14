@@ -18,10 +18,10 @@
 	/ (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
 	x (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.set_default_scale('fill')""#)
 
-	a (on↓ press-vkey shift)
-	q (on↓ press-vkey meta)
-	t (on↓ press-vkey alt)
-	g (on↓ press-vkey ctrl)
+	a (on↓ toggle-vkey shift)
+	q (on↓ toggle-vkey meta)
+	t (on↓ toggle-vkey alt)
+	g (on↓ toggle-vkey ctrl)
 
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
@@ -61,5 +61,4 @@
 	i C-S-c
 	o C-S-i
 	k (cmd fish -c pick_and_copy_color)
-	; (cmd vellum clear)
 )
