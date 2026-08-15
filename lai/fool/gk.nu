@@ -32,6 +32,7 @@ def --wrapped 'main duc' [url?: string, --dir(-d): directory, ...rest] {
 
 def 'main fork' [] {
 	^gh repo fork --remote
+	^gh repo set-default upstream
 	main up
 }
 
