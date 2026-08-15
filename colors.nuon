@@ -44,4 +44,11 @@
 	'browser white base tab':  { hex: '#42403e' hsl: 'hsl(38, 3.0%, 25.0%)'     rgb: 'rgb(66, 64, 62)' }
 	'suggested brown':         { hex: '#b68a5a' hsl: 'hsl(31, 38.7%, 53.3%)'    rgb: 'rgb(182, 138, 90)' }
 	'suggested brown 2':       { hex: '#9d6f43' hsl: 'hsl(29, 40.2%, 43.9%)'    rgb: 'rgb(157, 111, 67)' }
+	'vellum wedge background':  { hex: '#292e38' hsl: 'hsl(220, 15.5%, 19.0%)'   rgb: 'rgb(41, 46, 56)' }
+	'vellum red':              { hex: '#e84046' hsl: 'hsl(358, 78.5%, 58.0%)'   rgb: 'rgb(232, 64, 70)' }
+	'vellum orange':           { hex: '#ec8948' hsl: 'hsl(24, 81.2%, 60.4%)'    rgb: 'rgb(236, 137, 72)' }
+	'vellum yellow':           { hex: '#eed049' hsl: 'hsl(49, 82.9%, 61.0%)'    rgb: 'rgb(238, 208, 73)' }
+	'vellum green':            { hex: '#3ed73c' hsl: 'hsl(119, 66.0%, 53.9%)'   rgb: 'rgb(62, 215, 60)' }
+	'vellum blue':             { hex: '#0283fc' hsl: 'hsl(209, 98.4%, 49.8%)'   rgb: 'rgb(2, 131, 252)' }
+	'vellum purple':           { hex: '#7c57eb' hsl: 'hsl(255, 78.7%, 63.1%)'   rgb: 'rgb(124, 87, 235)' }
 }
