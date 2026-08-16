@@ -17,7 +17,7 @@ function anki_add_card
     if test $previous_card = "$(cat ~/fes/zufi/anki-card.html)"
         return 1
     end
-    _magazine_commit ~/fes/zufi/anki-card.html attard
+    commit_file ~/fes/zufi/anki-card.html attard
     set -l card (anki-add-card.rs 2>~/fes/zufi/anki-card-errors)
     set -l exitcode $status
     if test -s ~/fes/zufi/anki-card-errors
