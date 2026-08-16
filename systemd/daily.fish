@@ -20,20 +20,9 @@ kondo -ao 5d
 math (cat ~/.local/share/magazine/S) + 67 | sponge ~/.local/share/magazine/S
 _magazine_commit ~/.local/share/magazine/S desire
 
-# not using the normal autocommit functionality because we want to execute on-magazine-commit actions, like uniquing and sorting
-cd ~/.local/share/magazine
-for file in ~/.local/share/magazine/*
-    _magazine_commit $file left
-    # crucially, this happens to do `frizz`, and is the only reason we don't do it explicitly in uboot
-end
-git add .
-and git commit -m leftovers
-truncate -s 0 ~/.local/share/magazine/d
-
-# these make tasks, and should go after the magazine autocommit to get added onto a clean slate
 indeed.rs -u ~/iwm/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 
-cd ~
+truncate -s 0 ~/.local/share/magazine/d
 
 sleep 10 # otherwise, as soon as I wake my pc from sleep, it hasn't connected to the internet at that point, but *has* started executing this script. so what ends up happening is git commands fail to push all the directories because it doesn't have internet to do so yet.
 
