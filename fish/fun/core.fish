@@ -29,10 +29,18 @@ function commit_file
     not test -f $argv[1] && return
     not test -n "$argv[2..]" && return 1
     set -l resolved (path resolve $argv[1])
+    # TODO: resolve git directory and relative path to it, so that the base path in the %% is proper
     set -l parent_path (path dirname $resolved)
     set -l base (path basename $resolved)
-    git -C $parent_path add $base >/dev/null
-    and git -C $parent_path commit -m "$argv[2..]" >/dev/null
+    set -l message (string replace -- %% "$base" "$argv[2..]")
+    # this logic is somewhat repeated in autocommit.fish for speed
+    if contains -- $resolved (path_resolve_batch (cat ~/.local/share/magazine/R 2>/dev/null))
+        sort.py -u $resolved
+    else if contains -- $resolved (path_resolve_batch (cat ~/.local/share/magazine/Q 2>/dev/null))
+        cat $resolved | dedup | sponge $resolved
+    end
+    git -C $parent_path add -- $base >/dev/null
+    and git -C $parent_path commit -m $message >/dev/null
 end
 funcsave commit_file >/dev/null
 
@@ -198,6 +206,13 @@ function path_expand
     string replace -r "^~" $HOME $argv
 end
 funcsave path_expand >/dev/null
+
+function path_resolve_batch
+    for path in $argv
+        path resolve (path_expand $path)
+    end
+end
+funcsave path_resolve_batch >/dev/null
 
 function path_shrink
     string replace -r "^$HOME" '~' $argv
