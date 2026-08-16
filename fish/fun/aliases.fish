@@ -159,9 +159,6 @@ end
 funcsave strongly_kill_window >/dev/null
 
 function suspend
-    echo -n (date +%Y.%m.%d-%H:%M:%S) >>~/ake/pre-suspend
-    echo -n \t >>~/ake/pre-suspend
-    niri msg -j windows >>~/ake/pre-suspend
     systemctl suspend
 end
 funcsave suspend >/dev/null
@@ -198,7 +195,6 @@ funcsave wpchange >/dev/null
 
 function write_window_info
     niri msg windows >/tmp/mine/window-info
-    _magazine_commit /tmp/mine/window-info clients
     flour --disown /tmp/mine/window-info
 end
 funcsave write_window_info >/dev/null
