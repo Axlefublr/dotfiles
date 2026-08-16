@@ -236,25 +236,9 @@ end
 funcsave _magazine_notify >/dev/null
 
 function _magazine_commit
-    not test -f $argv[1] && return
-    set -l resolved (path resolve $argv[1])
-    set -l parent_path (path dirname $resolved)
-    set -l head (path basename $parent_path)
-    set -l base (path basename $resolved)
-    set -l mag $base
-    if test -s $resolved && test (tail -c 1 $resolved) != (echo)
-        echo >>$resolved
-    end
-    if string match $resolved (cat ~/.local/share/magazine/R | string replace -r '^~' "$HOME")
-        sort.py -u $resolved
-    else if string match $resolved (cat ~/.local/share/magazine/Q | string replace -r '^~' "$HOME")
-        cat $resolved | dedup | sponge $resolved
-    end
-    if test $parent_path != ~/.local/share/magazine
-        cp -f $resolved ~/.local/share/magazine
-    end
-    builtin cd ~/.local/share/magazine
-    git add $mag
-    and git commit -m "$argv[2..] $mag"
+    test -z "$argv[1]" && return
+    test -z "$argv[2..]" && return
+    set -l mag (path basename $argv[1])
+    commit_file $resolved "$argv[2..] $mag"
 end
 funcsave _magazine_commit >/dev/null
