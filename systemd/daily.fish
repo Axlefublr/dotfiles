@@ -20,7 +20,7 @@ kondo -ao 5d
 math (cat ~/.local/share/magazine/S) + 67 | sponge ~/.local/share/magazine/S
 _magazine_commit ~/.local/share/magazine/S desire
 
-indeed.rs -u ~/iwm/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
+indeed.rs -u ~/fes/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 
 truncate -s 0 ~/.local/share/magazine/d
 

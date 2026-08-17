@@ -174,13 +174,13 @@ def time_bank [] {
 }
 
 def 'main data intake' [] {
-	open ~/iwm/nak/↑earnings.txt
+	open ~/fes/nak/↑earnings.txt
 	| if ($in | is-empty) { return } else {}
 	| lines
 	| each { main calculate }
 	| to text
 	| save -a ~/.local/share/magazine/c-j
-	truncate -s 0 ~/iwm/nak/↑earnings.txt
+	truncate -s 0 ~/fes/nak/↑earnings.txt
 }
 
 def 'main desires' [] {
@@ -188,11 +188,11 @@ def 'main desires' [] {
 }
 
 def 'main desires intake' [] {
-	open ~/iwm/nak/↑desire.txt | lines | into int | try {
+	open ~/fes/nak/↑desire.txt | lines | into int | try {
 		let total = math sum
 		if ($total | is-empty) { return }
 		open ~/.local/share/magazine/S | str trim | into int | $in - $total | into string | sponge ~/.local/share/magazine/S
-		truncate -s 0 ~/iwm/nak/↑desire.txt
+		truncate -s 0 ~/fes/nak/↑desire.txt
 	}
 }
 
@@ -200,5 +200,5 @@ def 'main data-wrapper' [] {
 	# `print` doesn't output into the pipe, but to stdout; so we can never catch the colored output to also put it elsewhere
 	# *unless* we call this script as if it's external — then we can
 	# avoiding `print` in the first place, in the `data` function, would be so annoying that it wouldn't be worth it
-	finance.nu data | tee { ansi strip | save -f ~/iwm/nak/↓finances.txt }
+	finance.nu data | tee { ansi strip | save -f ~/fes/nak/↓finances.txt }
 }
