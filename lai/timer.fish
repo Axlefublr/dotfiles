@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
-niri msg action mark-window-focused --id (wm_wait_if_or_until_exists 'app_id starts-with foot' "title == '$TIT'")
-test "$argv[2]" && niri msg action mark-window-focused --id "$argv[2]"
+wm_wait_if_or_until_exists 'app_id starts-with foot' "title == '$TIT'"
 set -l name $argv[3]
 if not test "$argv[4..]"
     set -l title "stopwatch $name"
