@@ -48,12 +48,13 @@ window-rule {
     open-fullscreen true
 }
 window-rule {
-    match app-id="waybar"
-    match app-id="^foot" title="^review$"
     match app-id="anki" at-startup=true
     match app-id="Todoist" at-startup=true
     match app-id="todoist" at-startup=true
-    open-focused false
+    match app-id="^foot" title="^timer"
+    match app-id="^foot" title="^stopwatch"
+    match app-id="^foot" title="^alarm"
+    focus-on-xdg-activate false
 }
 
 // -------------------------column--------------------------
