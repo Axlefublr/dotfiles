@@ -61,6 +61,10 @@ def --wrapped 'main private' [name: string, ...rest] {
 	main create $name --private ...$rest
 }
 
+def --wrapped 'main mine' [...rest] {
+	^gh repo list -L 1000 ...$rest
+}
+
 def 'main ..d' [] {
 	let pwd = pwd
 	try { main delete (^git remote get-url origin) }
