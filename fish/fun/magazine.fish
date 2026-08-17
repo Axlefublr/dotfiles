@@ -239,6 +239,6 @@ function _magazine_commit
     test -z "$argv[1]" && return
     test -z "$argv[2..]" && return
     set -l mag (path basename $argv[1])
-    commit_file $resolved "$argv[2..] $mag"
+    commit_file $argv[1] "$argv[2..] $mag"
 end
 funcsave _magazine_commit >/dev/null
