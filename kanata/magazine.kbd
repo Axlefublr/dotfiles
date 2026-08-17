@@ -36,7 +36,7 @@
 	q (t! magazine-execute q)
 	w (t! magazine-execute w)
 	e (t! magazine-execute e)
-	r (t! magazine-execute r)
+	r (t! magazine-execute r.md)
 	t (t! magazine-execute t)
 	y (t! magazine-execute y)
 	u (t! magazine-execute u)
