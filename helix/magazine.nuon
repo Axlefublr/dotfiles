@@ -129,7 +129,7 @@
 	o:     ':open ~/.local/share/magazine/o.nu'
 	p:     ':open ~/.local/share/magazine/p'
 	q:     ':open ~/.local/share/magazine/q'
-	r:     ':open ~/.local/share/magazine/r'
+	r:     ':open ~/.local/share/magazine/r.md'
 	s:     ':open ~/.local/share/magazine/s'
 	t:     ':open ~/.local/share/magazine/t'
 	u:     ':open ~/.local/share/magazine/u'
