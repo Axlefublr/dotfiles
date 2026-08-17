@@ -412,9 +412,7 @@ yay -Sa --needed --disable-download-timeout unigine-superposition
 # --------------------------helix--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua python-toml
 yay -Sa --needed --disable-download-timeout prettierd
-cd ~/fes/ork
-git clone --depth=1 https://github.com/Axlefublr/helix hx
-cd hx
+gk ork helix # needed so that the eva runtime/ symlink points to the base thingies; editor will technically work without this
 ln -sf ~/fes/dot/helix ~/.config
 mkdir -p ~/fes/dot/helix/runtime
 ln -sf ~/fes/ork/qiri/ ~/fes/dot/helix/runtime/queries
@@ -616,12 +614,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout oculante
 sudo pacman -S --needed --noconfirm --disable-download-timeout ouch
 
 # ---------------------------ov----------------------------
-cd ~/fes/ork
-gh repo clone Axlefublr/ov
-cd ov
-make
-sudo install ov ~/.local/bin
-# stew install noborus/ov
+stew install noborus/ov
 sudo ln -f ~/.local/bin/ov /usr/bin/ov
 ov --completion fish >~/.config/fish/completions/ov.fish
 mkdir -p ~/.config/ov
