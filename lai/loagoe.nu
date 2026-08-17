@@ -33,6 +33,8 @@ const known = {
 	moch: 122
 	tongue: 122
 	toothbrush: 122
+	ork-markdown: 183
+	ork-ov: 91
 }
 
 def main [] {
