@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 fcf.nu fix
-cat ~/fes/uviw/afen/sudo | sudo -S modprobe uinput
+cat ~/fes/jiro/sudo | sudo -S modprobe uinput
 systemctl --user restart kanata.service
 
 niri msg action focus-workspace main

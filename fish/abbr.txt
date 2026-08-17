@@ -54,4 +54,4 @@ eui → helix ~/.local/share/applications/█.desktop
 E  → sudo -E helix
 de → cd ~/fes/dot && helix
 fC → sudo -E helix /etc/fancontrol
-fc → cat ~/fes/uviw/afen/sudo | sudo -S systemctl restart fancontrol
+fc → cat ~/fes/jiro/sudo | sudo -S systemctl restart fancontrol

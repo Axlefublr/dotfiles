@@ -47,7 +47,7 @@ function edit_clipboard_image
 end
 funcsave edit_clipboard_image >/dev/null
 
-alias --save fc 'cat ~/fes/uviw/afen/sudo | sudo -S systemctl restart fancontrol' >/dev/null
+alias --save fc 'cat ~/fes/jiro/sudo | sudo -S systemctl restart fancontrol' >/dev/null
 
 function ffont
     fc-list | rg --color always -i $argv | column -l 2 -t -s :

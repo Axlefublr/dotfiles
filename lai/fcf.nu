@@ -34,7 +34,7 @@ def 'main fix' [] {
 	ln -sf $correct_cpu ~/fes/zufi/cpu-package-0
 
 	let incorrect_hwmon = $incorrect_cpu | path split | reverse | skip 1 | take 1 | get 0
-	open ~/fes/uviw/afen/sudo | ^sudo -Sv
+	open ~/fes/jiro/sudo | ^sudo -Sv
 	let correct_hwmon = $correct_cpu | path split | reverse | skip 1 | take 1 | get 0
 	^sudo sd $incorrect_hwmon $correct_hwmon /etc/fancontrol
 	^sudo systemctl restart fancontrol
