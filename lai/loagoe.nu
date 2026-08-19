@@ -19,7 +19,7 @@ const known = {
 	vacuum: 8
 	mug: 11
 	nails: 13
-	bottle: 15
+	bottle: 17
 	brushes: 35
 	dust: 11
 	photos: 30
@@ -34,7 +34,6 @@ const known = {
 	tongue: 122
 	toothbrush: 122
 	ork-markdown: 183
-	ork-ov: 91
 }
 
 def main [] {
