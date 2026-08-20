@@ -56,6 +56,36 @@ window-rule {
     match app-id="^foot" title="^alarm"
     focus-on-xdg-activate false
 }
+window-rule {
+    match app-id="anki"
+    match app-id="firefox"
+    match app-id="todoist"
+    match app-id="Todoist"
+    match app-id="^foot" title="^dotfiles$"
+    match app-id="^foot" title="^hardware-monitor$"
+    match app-id="^foot" title="^loago-tracker$"
+    match app-id="^foot" title="^finances$"
+    match app-id="^foot" title="^earnings$"
+    match app-id="^foot" title="^receiver$"
+    match app-id="^foot" title="^toggleterm$"
+    match app-id="^foot" title="^nugleterm$"
+    match app-id="^foot" title="^voe$"
+    match app-id="^foot" title="^man "
+    match app-id="^foot" title="^help "
+    match app-id="^foot" title="^nush "
+    match app-id="^foot" title="^mdw"
+    match app-id="^foot" title="^tiq"
+    match app-id="^foot" title=" bacon$"
+    custom-scope-exclude true
+}
+window-rule {
+    match app-id="^foot" title="^man "
+    match app-id="^foot" title="^help "
+    match app-id="^foot" title="^nush "
+    match app-id="^foot" title="^mdw"
+    match app-id="^foot" title="^tiq"
+    docs-scope-include true
+}
 
 // -------------------------column--------------------------
 window-rule {
