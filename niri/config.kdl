@@ -195,7 +195,8 @@ recent-windows {
         Mod+W { next-window     scope="all"; }
         Mod+F { next-window     scope="custom"; }
         Mod+R { next-window     scope="urgent"; }
-        Mod+E { previous-window scope="all"; }
+        Mod+E { next-window     scope="docs"; }
+        Mod+A { previous-window scope="all"; }
     }
 }
 
