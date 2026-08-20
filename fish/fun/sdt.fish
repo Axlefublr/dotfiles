@@ -49,6 +49,7 @@ function systemd_download_drop
     mv -f (recent-modified.nu ~/wlx/my-ublock-backup_\*.txt) ~/fes/jiro/ublock.txt
     mv -f ~/wlx/auto-tab-discard-preferences.json ~/fes/jiro/auto-tab-discard.json
     mv -f (recent-modified.nu ~/wlx/Screen\ Shot\ \*.png) ~/iwm/sco/(date +%Y.%m.%d-%H:%M:%S-%N-node).png
+    mv -f (recent-modified.nu ~/wlx/tampermonkey-backup-firefox-\*.zip) ~/fes/jiro/tampermonkey.zip
 
     rm -fr (quiet-glob.nu ~/wlx/sidebery-data-\*.json)
     rm -fr (quiet-glob.nu ~/wlx/FoxyProxy_\*.json)
