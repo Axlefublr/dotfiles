@@ -189,6 +189,7 @@ keybinding:
     createPullRequest: <disabled>
     viewPullRequestOptions: <disabled>
     copyPullRequestURL: <disabled>
+    openPullRequestInBrowser: <c-o>
     checkoutBranchByName: f
     forceCheckoutBranch: W
     checkoutPreviousBranch: "&"
