@@ -19,7 +19,7 @@ const known = {
 	vacuum: 8
 	mug: 11
 	nails: 13
-	bottle: 17
+	bottle: 20
 	brushes: 35
 	dust: 11
 	photos: 30
