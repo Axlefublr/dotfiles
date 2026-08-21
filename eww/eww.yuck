@@ -1,3 +1,5 @@
+(defvar volume 0)
+
 (defwindow sounding [side orientation]
 	:monitor '0'
 	:geometry (geometry
@@ -10,4 +12,26 @@
 	:exclusive false
 	:namespace 'eww'
 	(box :class 'fill-line')
+)
+
+(defwindow example
+	:monitor '0'
+	:namespace 'eww'
+	:stacking 'overlay'
+	:exclusive false
+	:geometry (geometry
+		:width '50%'
+		:height '20px'
+		:anchor 'top center'
+		:y '100px'
+	)
+	(box
+		:orientation 'v'
+		(progress
+			:value volume
+		)
+		(label
+			:text volume
+		)
+	)
 )
