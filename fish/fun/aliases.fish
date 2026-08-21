@@ -71,6 +71,11 @@ function get_media_volume
 end
 funcsave get_media_volume >/dev/null
 
+function get_volume
+    math (wpctl get-volume @DEFAULT_AUDIO_SINK@ | string match -gr 'Volume: (\\d\\.\\d+)') x 100
+end
+funcsave get_volume >/dev/null
+
 alias --save inotifytheusual 'inotifywait -qq -e modify -e move_self' >/dev/null
 alias --save keyboard_layout "na -c 'let the = niri msg -j keyboard-layouts | from json ; \$the.names | get \$the.current_idx'" >/dev/null
 alias --save media_next 'playerctl next' >/dev/null
