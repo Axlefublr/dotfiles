@@ -5,3 +5,7 @@ window {
 .fill-line {
 	background-color: #ffd75f;
 }
+
+progressbar progress {
+	background-color: #ffafd7;
+}
