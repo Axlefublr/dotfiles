@@ -105,7 +105,7 @@ funcsave is_focused_xwayland >/dev/null
 
 function loago_tracker
     while true
-        loago do (cat ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt)
+        loago do (cat ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt) 2>/dev/null
         truncate -s 0 ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt
         loagoe.nu due
         ansi_cursor_hide
