@@ -44,6 +44,17 @@ comment-tokens = [ ";;" ]
 name = "kanata"
 source = { git = "https://github.com/glehmann/tree-sitter-kanata", rev = "e3f368ded70efbaeba0273390b1bbfb6c4a94c22" }
 
+# --------------------------nbcl---------------------------
+[[language]]
+name = "nbcl"
+scope = "source.nbcl"
+indent = { tab-width = 3, unit = "\t" }
+file-types = [ "nbcl" ]
+
+[[grammar]]
+name = "nbcl"
+source = { git = "https://github.com/NBCL-Lang/tree-sitter-nbcl", rev = "44ffed41c120116e38a3e2d133ffdb24a493aa4a" }
+
 # --------------------lua---------------------
 [[language]]
 name = "lua"
