@@ -30,6 +30,7 @@
 'info' = 'mint'
 'keyword' = 'red'
 'keyword.directive' = 'mint'
+'keyword.operator' = { fg = 'orange', modifiers = [ 'bold' ] }
 'label' = 'mint'
 'markup.bold' = { modifiers = [ 'bold' ] }
 'markup.heading.1' = { fg = 'red', modifiers = [ 'bold' ] }
