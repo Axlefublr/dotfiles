@@ -220,7 +220,7 @@
 )
 
 (deflayermap (caps)
-	spc (multi (layer-toggle space) (layer-toggle caps-space) (on↑ tap-vkey space))
+	spc (multi (layer-toggle space) (layer-toggle caps-space) (cmd ydotool mousemove -a 533 300) (on↑ tap-vkey space))
 	;; [[sort on]]
 	; (cmd vellum clear-and-deactivate)
 	d (cmd fish -c media_next)
@@ -236,10 +236,10 @@
 (deflayermap (n)
 	' (multi (layer-toggle quote) (layer-toggle quote-n) (on↑ tap-vkey quote))
 	;; [[sort on]]
+	;; g (cmd fish -c "pgrep -f ~/fes/dot/lai/tomato.nu && echo toggle >/tmp/mine/tomato-action || tomato.nu")
 	c (cmd fish -c "clipboard_index 1")
 	d (cmd fish -c screenshot_window)
 	e (cmd fish -c "runner_math")
-	g (cmd fish -c "pgrep -f ~/fes/dot/lai/tomato.nu && echo toggle >/tmp/mine/tomato-action || tomato.nu")
 	p (cmd fish -c "is_focused_xwayland")
 	r (cmd loagoe.nu pick)
 	s (cmd fish -c screenshot_screen)
@@ -261,7 +261,7 @@
 )
 
 (deflayermap (quote)
-	spc (multi (layer-toggle space) (layer-toggle space-quote) (on↑ tap-vkey space))
+	spc (multi (layer-toggle space) (layer-toggle space-quote) (cmd ydotool mousemove -a 533 300) (on↑ tap-vkey space))
 	j (multi (layer-toggle j) (layer-toggle quote-j) (on↑ tap-vkey j))
 	n (multi (layer-toggle n) (layer-toggle quote-n) (on↑ tap-vkey n))
 	;; [[sort on]]
@@ -274,7 +274,7 @@
 	f (cmd fish -c "runner_link open")
 	r (cmd fish -c clipboard_pick)
 	s (cmd fish -c runner_link)
-	w (one-shot $ot (layer-toggle bookmark))
+	w (one-shot-release $ot (layer-toggle bookmark))
 	z (cmd fish -c rofimoji)
 	;; [[sort off]]
 )
@@ -287,7 +287,7 @@
 	e (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve E")
 	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve c-l")
 	q (cmd fish -c yteet_clipboard)
-	w (one-shot $ot (layer-toggle bookmark-set))
+	w (one-shot-release $ot (layer-toggle bookmark-set))
 	z (cmd fish -c runner_symbol_name)
 	;; [[sort off]]
 )

@@ -7,7 +7,7 @@
 	h (multi (layer↑ h) (layer↑ semicolon-h))
 	i (multi (layer↑ i) (layer↑ ij) (layer↑ io) (layer↑ iu) (layer↑ ijo))
 	j (multi (switch
-		((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
+		((layer bookmark-set)) (one-shot-release $ot (layer-toggle bookmark-set)) break
 		) (layer↑ j) (layer↑ ij) (layer↑ jo) (layer↑ ijo) (layer↑ quote-j)
 	)
 	l (multi (layer↑ l) (layer↑ mouse-slow))
@@ -20,16 +20,24 @@
 	x (multi (layer↑ x) (layer↑ cx) (layer↑ vx))
 	caps (multi (layer↑ caps) (layer↑ caps-space))
 	quote (multi (switch
-			((layer bookmark)) (one-shot $ot (layer-toggle bookmark)) break
-			((layer bookmark-set)) (one-shot $ot (layer-toggle bookmark-set)) break
+			((layer bookmark)) (one-shot-release $ot (layer-toggle bookmark)) break
+			((layer bookmark-set)) (one-shot-release $ot (layer-toggle bookmark-set)) break
 		) (layer↑ quote) (layer↑ space-quote) (layer↑ quote-j) (layer↑ quote-n)
 	)
 	semicolon (multi (layer↑ semicolon) (layer↑ semicolon-h))
 
-	shift lsft
-	ctrl  lctl
-	alt   lalt
-	meta  lmet
+	shift-overlay-enable (cmd ewwii open shift)
+	ctrl-overlay-enable (cmd ewwii open ctrl)
+	alt-overlay-enable (cmd ewwii open alt)
+	meta-overlay-enable (cmd ewwii open meta)
+	shift-overlay-disable (cmd ewwii close shift)
+	ctrl-overlay-disable (cmd ewwii close ctrl)
+	alt-overlay-disable (cmd ewwii close alt)
+	meta-overlay-disable (cmd ewwii close meta)
+	shift (multi lsft (on↓ tap-vkey shift-overlay-enable) (on↑ tap-vkey shift-overlay-disable))
+	ctrl  (multi lctl (on↓ tap-vkey ctrl-overlay-enable) (on↑ tap-vkey ctrl-overlay-disable))
+	alt   (multi lalt (on↓ tap-vkey alt-overlay-enable) (on↑ tap-vkey alt-overlay-disable))
+	meta  (multi lmet (on↓ tap-vkey meta-overlay-enable) (on↑ tap-vkey meta-overlay-disable))
 	modifier (multi (on↓ release-vkey shift) (on↓ release-vkey ctrl) (on↓ release-vkey alt) (on↓ release-vkey meta))
 	modifier-zoom (multi (on↓ tap-vkey modifier) (cmd niri msg action set-zoom-level 1))
 	space (switch ((not (layer space)))
