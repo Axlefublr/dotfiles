@@ -36,6 +36,12 @@ def 'main fork' [] {
 	main up
 }
 
+def 'main unfork' [] {
+	main delete (git remote get-url origin)
+	git remote remove origin
+	git remote rename upstream origin
+}
+
 # turns this script into a different process to work around a nushell bug complaining about incorrect pwd
 def 'main up' [] {
 	let pwd = pwd
