@@ -1,0 +1,24 @@
+Listen 'volume' {
+	cmd = 'fish -c get_volume'
+}
+
+Window 'example' {
+	namespace = 'eww'
+	stacking = 'overlay'
+	geometry = {
+		width = '50%'
+		height = '20px'
+		anchor = 'top center'
+		y = '100px'
+	}
+	Box {
+		orientation = 'v'
+		Progress {
+			value = global('volume')
+		}
+		Label {
+			text = global('volume')
+			class = 'volume-number'
+		}
+	}
+}
