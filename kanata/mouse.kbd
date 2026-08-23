@@ -14,7 +14,7 @@
 		((cmd-exit 0)) f break
 		() (cmd ydotool mousemove -a 386 300) break
 	)
-	c (switch
+	g (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) (cmd vellum clear) break
 		() y break
@@ -25,7 +25,7 @@
 	v (tap-hold-release $tt $ht C-w XX)
 	; (cmd vellum toggle)
 	/ (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
-	x (switch
+	t (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) C-a break
 		() (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.set_default_scale('fill')""#) break
@@ -33,8 +33,8 @@
 
 	a (on↓ toggle-vkey shift)
 	q (on↓ toggle-vkey meta)
-	t (on↓ toggle-vkey alt)
-	g (on↓ toggle-vkey ctrl)
+	x (on↓ toggle-vkey alt)
+	c (on↓ toggle-vkey ctrl)
 
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
