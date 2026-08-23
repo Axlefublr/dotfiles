@@ -221,6 +221,7 @@ window-rule {
 layer-rule {
     match namespace="^neru$"
     match namespace="^eww$"
+    match namespace="^ewwii$"
     match namespace="^chameleos$"
     match namespace="^vellum$"
     background-effect {
