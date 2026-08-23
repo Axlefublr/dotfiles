@@ -1,0 +1,21 @@
+window {
+	background-color: alpha(black, 0);
+}
+
+progressbar progress {
+	background-color: #ffafd7;
+}
+
+progressbar trough {
+	/* border: 2px solid #0f0f0f; */
+	min-height: 8px;
+}
+
+.fill-line {
+	background-color: #ffd75f;
+}
+
+.volume-number {
+	font-size: 40px;
+	color: #ffafd7;
+}
