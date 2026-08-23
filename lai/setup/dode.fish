@@ -189,10 +189,12 @@ ln -s ~/fes/dot/eww ~/.config/eww
 systemctl --user enable --now ~/fes/dot/systemd/eww.service
 
 # --------------------------ewwii--------------------------
-paru -Sa --needed --disable-download-timeout ewwii-bin
+paru -Sa --needed --disable-download-timeout --noconfirm ewwii-bin
+ewwii shell-completions -s fish >~/.config/fish/completions/eww.fish
 rm -fr ~/.config/ewwii
-ln -s ~/fes/dot/eww ~/.config/ewwii
-eget https://github.com/Ewwii-sh/yucky-ewwii --to ~/fes/dot/eww/plugins/libyucky_ewwii.so --tag (ewwii --version | na --stdin -c 'split row " " | skip 1 | get 0')
+ln -s ~/fes/dot/ewwii ~/.config/ewwii
+systemctl --user enable --now ~/fes/dot/systemd/ewwii.service
+# eget https://github.com/Ewwii-sh/yucky-ewwii --to ~/fes/dot/eww/plugins/libyucky_ewwii.so --tag (ewwii --version | na --stdin -c 'split row " " | skip 1 | get 0')
 
 # -----------------------fancontrol------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout lm_sensors
