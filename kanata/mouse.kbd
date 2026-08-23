@@ -7,14 +7,14 @@
 	;; l (movemouse-speed 1)
 
 	y XX
+	z XX
 	b XX
-	t XX
 	h (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) f break
 		() (cmd ydotool mousemove -a 386 300) break
 	)
-	g (switch
+	c (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) (cmd vellum clear) break
 		() y break
@@ -22,19 +22,19 @@
 
 	u (cmd niri msg action set-zoom-level +1)
 	p (tap-hold-release $tt $ht (cmd niri msg action set-zoom-level -- -1) (cmd niri msg action set-zoom-level 1))
-	q (tap-hold-release $tt $ht C-w XX)
+	v (tap-hold-release $tt $ht C-w XX)
 	; (cmd vellum toggle)
 	/ (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
-	a (switch
+	x (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) C-a break
 		() (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.set_default_scale('fill')""#) break
 	)
 
-	x (on↓ toggle-vkey shift)
-	v (on↓ toggle-vkey meta)
-	z (on↓ toggle-vkey alt)
-	c (on↓ toggle-vkey ctrl)
+	a (on↓ toggle-vkey shift)
+	q (on↓ toggle-vkey meta)
+	t (on↓ toggle-vkey alt)
+	g (on↓ toggle-vkey ctrl)
 
 	m (multi mmid (on↑ tap-vkey modifier))
 	j (multi mlft (on↑ tap-vkey modifier))
