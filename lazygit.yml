@@ -45,12 +45,14 @@ gui:
     "^dev$": "#b58cc6"
     "^Axlefublr/[^/]+/\\d+$": "#d3ad5c"
     "^Axlefublr/[^/]+$": "#e491b2"
+    "^pr-": "#e491b2"
     "^eph": "#ea6962"
     "^\\d+/": "#e49641"
   sidePanels:
     - [files, stash, worktrees, submodules]
-    - [branches, remotes, tags]
+    - [branches, tags]
     - [commits, reflog]
+    - [remotes]
   theme:
     activeBorderColor:
       - yellow
@@ -115,6 +117,7 @@ keybinding:
       - "1"
       - "2"
       - "5"
+      - "3"
     focusMainView: "0"
     nextMatch: "n"
     prevMatch: "N"
@@ -378,15 +381,6 @@ customCommands:
         suggestions:
           command: "gk.nu pull list"
     output: terminal
-  - key: "N"
-    context: "localBranches"
-    command: "git switch -c {{index .PromptResponses 0}} $(git symbolic-ref --short refs/remotes/upstream/HEAD) ; git branch -u origin"
-    prompts:
-      - type: "input"
-        title: "Branch name"
-        initialValue: "Axlefublr/"
-    loadingText: "Creating branch"
-    description: "Create branch from upstream/main"
   - key: "U"
     context: localBranches
     command: |
