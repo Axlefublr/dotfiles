@@ -1,24 +1,91 @@
+component Modifier (text, class) {
+	Label {
+		class = 'modifier textoutline monospace ' + class
+		text = text
+	}
+}
+
+Window 'alt' {
+	namespace = 'eww'
+	stacking = 'overlay'
+	geometry = {
+		anchor = 'bottom left'
+		width = '40px'
+		y = '15px'
+		x = '153px'
+	}
+	Modifier {
+		text = '!'
+		class = 'alt'
+	}
+}
+
+Window 'shift' {
+	namespace = 'eww'
+	stacking = 'overlay'
+	geometry = {
+		anchor = 'bottom left'
+		width = '40px'
+		y = '17px'
+		x = '113px'
+	}
+	Modifier {
+		text = '+'
+		class = 'shift'
+	}
+}
+
+Window 'ctrl' {
+	namespace = 'eww'
+	stacking = 'overlay'
+	geometry = {
+		anchor = 'bottom left'
+		width = '40px'
+		y = '5px'
+		x = '70px'
+	}
+	Modifier {
+		text = '^'
+		class = 'ctrl'
+	}
+}
+
+Window 'meta' {
+	namespace = 'eww'
+	stacking = 'overlay'
+	geometry = {
+		anchor = 'bottom left'
+		width = '40px'
+		y = '15px'
+		x = '25px'
+	}
+	Modifier {
+		text = '#'
+		class = 'meta'
+	}
+}
+
 Listen 'volume' {
 	cmd = 'fish -c get_volume'
 }
 
-Window 'example' {
-	namespace = 'eww'
-	stacking = 'overlay'
-	geometry = {
-		width = '50%'
-		height = '20px'
-		anchor = 'top center'
-		y = '100px'
-	}
-	Box {
-		orientation = 'v'
-		Progress {
-			value = global('volume')
-		}
-		Label {
-			text = global('volume')
-			class = 'volume-number'
-		}
-	}
-}
+# Window 'example' {
+# 	namespace = 'eww'
+# 	stacking = 'overlay'
+# 	geometry = {
+# 		width = '50%'
+# 		height = '20px'
+# 		anchor = 'top center'
+# 		y = '100px'
+# 	}
+# 	Box {
+# 		orientation = 'v'
+# 		Progress {
+# 			value = global('volume')
+# 		}
+# 		Label {
+# 			text = global('volume')
+# 			class = 'volume-number'
+# 		}
+# 	}
+# }
