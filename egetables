@@ -1,0 +1,3 @@
+-a tar.gz -a ^sbom.json https://github.com/abhimanyu003/sttr
+-a .tar.gz https://github.com/oz/tz
+-f '*cmd_allowed*' --to=~/.local/bin/kanata https://github.com/jtroo/kanata
