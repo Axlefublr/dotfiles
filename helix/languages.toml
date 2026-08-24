@@ -114,7 +114,7 @@ source = { git = "https://github.com/ribru17/tree-sitter-man", rev = "e332ea95d5
 # ------------------markdown------------------
 [[grammar]]
 name = "markdown"
-source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "533d88beb5206eff8069bd52e2af836e6e699ba3", subpath = "tree-sitter-markdown" }
+source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "6eca2a07fb294c92ccfb0651439cc782e892e1fd", subpath = "tree-sitter-markdown" }
 
 [[language]]
 name = "markdown"
