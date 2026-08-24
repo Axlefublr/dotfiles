@@ -153,6 +153,8 @@ let normal_mappings = {
 	# -------------------------normal--------------------------
 	';': [save_selection select_textobject_around]
 	"'": [save_selection select_textobject_inner]
+	'A-/': [select_mode search normal_mode]
+	'A-?': [select_mode rsearch normal_mode]
 	'/': search
 	'?': rsearch
 	b: [add_newline_below move_line_down paste_before]
