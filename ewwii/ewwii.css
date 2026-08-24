@@ -1,3 +1,7 @@
+:root {
+	--shadow-color: hsl(0, 0%, 6.9%);
+}
+
 window {
 	background-color: alpha(black, 0);
 }
@@ -7,8 +11,24 @@ progressbar progress {
 }
 
 progressbar trough {
-	/* border: 2px solid #0f0f0f; */
+	/* border: 2px solid var(--shadow-color); */
 	min-height: 8px;
+}
+
+.textoutline {
+	text-shadow:
+		-2px -2px 2px var(--shadow-color),
+		0 -2px 2px var(--shadow-color),
+		2px -2px 2px var(--shadow-color),
+		-2px 0 2px var(--shadow-color),
+		2px 0 2px var(--shadow-color),
+		-2px 2px 2px var(--shadow-color),
+		0 2px 2px var(--shadow-color),
+		2px 2px 2px var(--shadow-color);
+}
+
+.monospace {
+	font-family: Google Sans Code;
 }
 
 .fill-line {
@@ -18,4 +38,20 @@ progressbar trough {
 .volume-number {
 	font-size: 40px;
 	color: #ffafd7;
+}
+
+.modifier {
+	font-size: 60px;
+}
+.meta {
+	color: #7c57eb;
+}
+.ctrl {
+	color: #e84046;
+}
+.shift {
+	color: #3ed73c;
+}
+.alt {
+	color: #eed049;
 }
