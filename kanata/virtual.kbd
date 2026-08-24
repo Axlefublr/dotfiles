@@ -41,7 +41,10 @@
 	modifier (multi (on↓ release-vkey shift) (on↓ release-vkey ctrl) (on↓ release-vkey alt) (on↓ release-vkey meta))
 	modifier-zoom (multi (on↓ tap-vkey modifier) (cmd niri msg action set-zoom-level 1))
 	space (switch ((not (layer space)))
-		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (layer↑ mouse-slow) (on↓ tap-vkey modifier))
+		(multi (layer↑ space) (layer↑ caps-space) (layer↑ space-quote) (layer↑ mouse-slow) (on↓ tap-vkey modifier) (switch
+			(init-cmd vellum is-text-editing)
+			((cmd-exit 1)) (cmd vellum deactivate) break
+		))
 	break)
 
 	disable-mouse-mode (multi (cmd fish -c mouse_mode_hide) (on↓ tap-vkey space))
