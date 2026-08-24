@@ -222,7 +222,7 @@
 (deflayermap (caps)
 	spc (multi (layer-toggle space) (layer-toggle caps-space) (cmd ydotool mousemove -a 533 300) (on↑ tap-vkey space))
 	;; [[sort on]]
-	; (cmd vellum clear-and-deactivate)
+	; (cmd vellum clear)
 	d (cmd fish -c media_next)
 	e (cmd fish -c "set_volume 0.02+")
 	f (cmd fish -c toggle_media)
