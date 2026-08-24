@@ -1,15 +1,22 @@
 default_tool = 'arrow'
+disable_toggle_eraser = true
+disable_toggle_radial = true
 remember_last_tool = true
 stroke_width = 6.0
 default_color = '#e84046'
 feedback_duration_ms = 500
-# palette = [
-#   "#e84046", # red
-#   "#ec8948", # orange
-#   "#eed049", # yellow
-#   "#3ed73c", # green
-#   "#0283fc", # blue
-#   "#7c57eb", # purple
-#   "#ffffff",
-#   "#000000",
-# ]
+tools.arrow.roundness = 1.0
+tools.rectangle.roundness = 0.0
+tools.line.roundness = 1.0
+tools.text.size = 30.0
+palette = [
+  '#e84046', # red
+  # '#ffafd7', # pink
+  '#ec8948', # orange
+  '#eed049', # yellow
+  '#3ed73c', # green
+  '#0283fc', # blue
+  '#7c57eb', # purple
+  '#ffffff',
+  '#0f0f0f',
+]
