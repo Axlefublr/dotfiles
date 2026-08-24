@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Aurupdate
 Type=Application
-Exec=footclient -NT aurupdate fish -c "loago do update ; yay -Sua ; eget https://github.com/Ewwii-sh/yucky-ewwii --to ~/fes/dot/eww/plugins/libyucky_ewwii.so --tag (ewwii --version | na --stdin -c 'split row " " | skip 1 | get 0')"
+Exec=footclient -NT aurupdate fish -c "loago do update ; yay -Sua"
 Icon=/home/axlefublr/iwm/twemoji/1f6cb.svg
