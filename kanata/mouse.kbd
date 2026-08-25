@@ -60,7 +60,9 @@
 	c (cmd fish -c clipboard_image_save)
 	e (cmd fish -c fragmentize_url)
 	s (multi (cmd fish -c annotate_screen) (on↑ tap-vkey modifier-zoom))
-	w (cmd fish -c mouse_position)
+	f (cmd fish -c mouse_position)
+	w mbck
+	r mfwd
 	d C-S-s
 	x C-A-b
 	z C-A-y
