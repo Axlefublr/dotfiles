@@ -179,7 +179,7 @@ let normal_mappings = {
 	C: '@c<ret><esc>'
 	I: insert_at_line_start
 	M: merge_selections
-	N: search_prev
+	N: [ensure_selections_forward flip_selections search_prev]
 	O: paste_before
 	Q: split_selection
 	S-A-F3: extend_search_prev
@@ -356,15 +356,15 @@ let normal_mappings = {
 	A-down: extend_visual_line_down
 	A-up  : extend_visual_line_up
 	# ---------------------------lsp---------------------------
-	'└': goto_declaration
-	'│': code_action
-	'┴': goto_type_definition
-	'─': goto_definition
-	'┬': goto_reference
-	'┤': goto_implementation
-	'┐': rename_symbol
-	'├': hover
-	'┘': ':open %sh{°resolve_fish_function %(selection)}'
+	'┗': goto_declaration
+	'┃': code_action
+	'┻': goto_type_definition
+	'━': goto_definition
+	'┳': goto_reference
+	'┫': goto_implementation
+	'┓': rename_symbol
+	'┣': hover
+	'┛': ':open %sh{°resolve_fish_function %(selection)}'
 	a: {
 		# [[sort on]]
 		';': ':toggle soft-wrap.enable'
