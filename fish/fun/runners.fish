@@ -8,12 +8,28 @@ function runner_clipboard
 end
 funcsave runner_clipboard >/dev/null
 
+function runner_fish_function
+    set -l found_funcs (rg -nt fish -- '^(function|alias --save)' ~/fes/dot/fish/fun/*)
+    set -l picked_index (string match -gr -- '.*?:\d+:(?:function|alias --save) (\S+)' $found_funcs | fuzzel -d --index --match-mode exact --cache ~/fes/zufi/runner-fish-function)
+    test -z "$picked_index" && return 1
+    string match -gr -- '(.*?:\d+):' $found_funcs[(math $picked_index + 1)]
+end
+funcsave runner_fish_function >/dev/null
+
 function runner_interactive_unicode
-    set input (cat ~/.local/share/magazine/E | fuzzel -d --cache ~/fes/zufi/runner-interactive-unicode 2>/dev/null)
+    set -l input (cat ~/.local/share/magazine/E | fuzzel -d --cache ~/fes/zufi/runner-interactive-unicode 2>/dev/null)
     test $status -ne 0 && return 1
-    echo -n (string split ' ' $input[1])[1] | wl-copy -n
+    string split -f 1 -- ' ' $input | wl-copy -n -t text/plain
 end
 funcsave runner_interactive_unicode >/dev/null
+
+function runner_kanata_layer
+    set -l found_layers (rg -n -- '^\(deflayermap \([^)]+\)' ~/fes/dot/kanata/*)
+    set -l picked_index (string match -gr -- '.*?:\d+:\(deflayermap \(([^)]+)\)' $found_layers | fuzzel -d --index --match-mode exact --cache ~/fes/zufi/runner-kanata-layer)
+    test -z "$picked_index" && return 1
+    string match -gr -- '(.*?:\d+):' $found_layers[(math $picked_index + 1)]
+end
+funcsave runner_kanata_layer >/dev/null
 
 function runner_link
     set file ~/.local/share/magazine/c-l
@@ -65,22 +81,9 @@ function runner_notification
 end
 funcsave runner_notification >/dev/null
 
-function runner_symbol
-    set input (fuzzel -dl 0 2>/dev/null)
-    test $status -eq 1 && return 1
-    not test "$input" && return 1
-    set output ''
-    for code in (string split ' ' $input)
-        set output $output"\U$code"
-    end
-    printf $output 2>/dev/null | wl-copy -n
-end
-funcsave runner_symbol >/dev/null
-
 function runner_symbol_name
-    set input (cat ~/.local/share/magazine/c-e | fuzzel -d --match-mode exact --cache ~/fes/zufi/runner-symbol-name 2>/dev/null)
-    test $status -eq 1 && return 1
-    not test "$input" && return 1
-    printf '\U'(string pad --char 0 --width 8 (string split ' ' $input)[1]) 2>/dev/null | wl-copy -n
+    set -l input (cat ~/.local/share/magazine/c-e | fuzzel -d --match-mode exact --cache ~/fes/zufi/runner-symbol-name 2>/dev/null)
+    test $status -ne 0 && return 1
+    string split -f 2 -- ' ' $input | wl-copy -n -t text/plain
 end
 funcsave runner_symbol_name >/dev/null
