@@ -107,6 +107,7 @@
 	' (multi (layer-toggle quote) (layer-toggle quote-j) (on↑ tap-vkey quote))
 	i (multi (layer-toggle i) (layer-toggle ij) (on↑ tap-vkey i))
 	o (multi rmet (layer-toggle o) (layer-toggle jo) (on↑ tap-vkey o))
+	. (multi (layer-toggle .) (layer-toggle .j) (on↑ tap-vkey .))
 	;; [[sort on]]
 	a 0
 	c 8
