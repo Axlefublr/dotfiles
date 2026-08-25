@@ -103,6 +103,27 @@ function is_focused_xwayland
 end
 funcsave is_focused_xwayland >/dev/null
 
+function kitty_update_unicode
+    for line in (curl https://raw.githubusercontent.com/kovidgoyal/kitty/refs/heads/master/tools/unicode_names/names.txt 2>/dev/null \
+                # to start at `!`
+                | tail -n +35 \
+                | string replace -a -- \t ' ')
+        set -l bits (string split -m 1 -- ' ' $line)
+        # (~+1)..¡, skipping nonprintables because they fuck up helix
+        if test $bits[1] -gt 126 -a $bits[1] -lt 161
+            continue
+        end
+        set -l hex_code (printf %x $bits[1])
+        echo -n $hex_code
+        echo -n ' '
+        printf \\U$hex_code 2>/dev/null
+        echo -n ' '
+        echo $bits[2]
+    end >~/.local/share/magazine/c-e
+    _magazine_commit ~/.local/share/magazine/c-e 'unicode refresh'
+end
+funcsave kitty_update_unicode >/dev/null
+
 function loago_tracker
     while true
         loago do (cat ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt) 2>/dev/null
