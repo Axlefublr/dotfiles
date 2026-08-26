@@ -1,6 +1,6 @@
 component Modifier (text, class) {
 	Label {
-		class = 'modifier textoutline monospace ' + class
+		class = 'modifier textoutline monospace padshadow ' + class
 		text = text
 	}
 }
@@ -10,9 +10,8 @@ Window 'alt' {
 	stacking = 'overlay'
 	geometry = {
 		anchor = 'bottom left'
-		width = '40px'
 		y = '15px'
-		x = '153px'
+		x = '160px'
 	}
 	Modifier {
 		text = '!'
@@ -25,9 +24,8 @@ Window 'shift' {
 	stacking = 'overlay'
 	geometry = {
 		anchor = 'bottom left'
-		width = '40px'
-		y = '17px'
-		x = '113px'
+		y = '18px'
+		x = '111px'
 	}
 	Modifier {
 		text = '+'
@@ -40,9 +38,8 @@ Window 'ctrl' {
 	stacking = 'overlay'
 	geometry = {
 		anchor = 'bottom left'
-		width = '40px'
-		y = '5px'
-		x = '70px'
+		y = '4px'
+		x = '74px'
 	}
 	Modifier {
 		text = '^'
@@ -55,7 +52,6 @@ Window 'meta' {
 	stacking = 'overlay'
 	geometry = {
 		anchor = 'bottom left'
-		width = '40px'
 		y = '15px'
 		x = '25px'
 	}
@@ -69,23 +65,24 @@ Listen 'volume' {
 	cmd = 'fish -c get_volume'
 }
 
-# Window 'example' {
-# 	namespace = 'eww'
-# 	stacking = 'overlay'
-# 	geometry = {
-# 		width = '50%'
-# 		height = '20px'
-# 		anchor = 'top center'
-# 		y = '100px'
-# 	}
-# 	Box {
-# 		orientation = 'v'
-# 		Progress {
-# 			value = global('volume')
-# 		}
-# 		Label {
-# 			text = global('volume')
-# 			class = 'volume-number'
-# 		}
-# 	}
-# }
+Window 'volume' {
+	namespace = 'eww'
+	stacking = 'overlay'
+	geometry = {
+		width = '50%'
+		anchor = 'top center'
+		y = '100px'
+	}
+	Box {
+		orientation = 'v'
+		spacing = '-5'
+		Progress {
+			value = global('volume')
+			valign = 'center'
+		}
+		Label {
+			text = global('volume')
+			class = 'volume-number textoutline'
+		}
+	}
+}

@@ -148,7 +148,12 @@ funcsave screenshot_screen >/dev/null
 
 alias --save set_media_volume 'playerctl volume' >/dev/null
 alias --save set_mic_volume 'wpctl set-volume @DEFAULT_AUDIO_SOURCE@' >/dev/null
-alias --save set_volume 'wpctl set-volume @DEFAULT_AUDIO_SINK@' >/dev/null
+
+function set_volume
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ $argv
+    ewwii update volume=(get_volume)
+end
+funcsave set_volume >/dev/null
 
 function show_clipboard_image
     wl-paste -t image/png | swayimg -F $argv -

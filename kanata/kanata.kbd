@@ -225,12 +225,12 @@
 	;; [[sort on]]
 	; (cmd vellum clear)
 	d (cmd fish -c media_next)
-	e (cmd fish -c "set_volume 0.02+")
+	e (multi (cmd fish -c "set_volume 0.02+") (hold-for-duration 1000 volume))
 	f (cmd fish -c toggle_media)
 	o (cmd fish -c write_window_info)
 	r (cmd fish -c toggle_mute)
 	s (cmd fish -c media_prev)
-	w (cmd fish -c "set_volume 0.02-")
+	w (multi (cmd fish -c "set_volume 0.02-") (hold-for-duration 1000 volume))
 	;; [[sort off]]
 )
 

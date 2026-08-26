@@ -1,5 +1,9 @@
 :root {
-	--shadow-color: hsl(0, 0%, 6.9%);
+	--shadow-color: hsl(0, 0%, 9.9%);
+}
+
+* {
+	font-family: Inter;
 }
 
 window {
@@ -11,24 +15,48 @@ progressbar progress {
 }
 
 progressbar trough {
-	/* border: 2px solid var(--shadow-color); */
-	min-height: 8px;
-}
-
-.textoutline {
-	text-shadow:
-		-2px -2px 2px var(--shadow-color),
-		0 -2px 2px var(--shadow-color),
-		2px -2px 2px var(--shadow-color),
-		-2px 0 2px var(--shadow-color),
-		2px 0 2px var(--shadow-color),
-		-2px 2px 2px var(--shadow-color),
-		0 2px 2px var(--shadow-color),
-		2px 2px 2px var(--shadow-color);
+	margin: 6px;
+	box-shadow:
+		-2px -2px 3px var(--shadow-color),
+		0 -2px 3px var(--shadow-color),
+		2px -2px 3px var(--shadow-color),
+		-2px 0 3px var(--shadow-color),
+		2px 0 3px var(--shadow-color),
+		-2px 2px 3px var(--shadow-color),
+		0 2px 3px var(--shadow-color),
+		2px 2px 3px var(--shadow-color);
 }
 
 .monospace {
 	font-family: Google Sans Code;
+}
+
+.padshadow {
+	margin: 3px;
+}
+
+.textoutline {
+	text-shadow:
+		-2px -2px 3px var(--shadow-color),
+		0 -2px 3px var(--shadow-color),
+		2px -2px 3px var(--shadow-color),
+		-2px 0 3px var(--shadow-color),
+		2px 0 3px var(--shadow-color),
+		-2px 2px 3px var(--shadow-color),
+		0 2px 3px var(--shadow-color),
+		2px 2px 3px var(--shadow-color);
+}
+
+.shadow {
+	box-shadow:
+		-2px -2px 3px var(--shadow-color),
+		0 -2px 3px var(--shadow-color),
+		2px -2px 3px var(--shadow-color),
+		-2px 0 3px var(--shadow-color),
+		2px 0 3px var(--shadow-color),
+		-2px 2px 3px var(--shadow-color),
+		0 2px 3px var(--shadow-color),
+		2px 2px 3px var(--shadow-color);
 }
 
 .fill-line {
