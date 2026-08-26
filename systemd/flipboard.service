@@ -1,4 +1,0 @@
-[Service]
-Type=oneshot
-TimeoutStartSec=1
-ExecStart=%h/fes/dot/lai/flipboard.fish

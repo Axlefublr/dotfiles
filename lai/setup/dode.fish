@@ -928,9 +928,6 @@ systemctl --user enable --now ~/fes/dot/systemd/ten-minutes.timer
 systemctl --user link ~/fes/dot/systemd/frizz.service
 systemctl --user enable --now ~/fes/dot/systemd/frizz.path
 
-systemctl --user link ~/fes/dot/systemd/flipboard.service
-systemctl --user enable --now ~/fes/dot/systemd/flipboard.path
-
 systemctl --user link ~/fes/dot/systemd/download-drop.service
 systemctl --user enable --now ~/fes/dot/systemd/download-drop.path
 
