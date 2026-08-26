@@ -132,11 +132,6 @@ mkdir -p ~/.config/vellum
 ln -sf ~/fes/dot/vellum.toml ~/.config/vellum/config.toml
 systemctl --user enable --now ~/fes/dot/systemd/vellum.service
 
-# ------------------------cliphist-------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout cliphist
-systemctl --user enable --now ~/fes/dot/systemd/cliphist-text.service
-systemctl --user enable --now ~/fes/dot/systemd/cliphist-image.service
-
 # ----------------------countryfetch-----------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout countryfetch
 

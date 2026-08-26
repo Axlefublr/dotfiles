@@ -8,14 +8,12 @@ funcsave annotate_screen >/dev/null
 alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness | head -n 1' >/dev/null
 
 function clipboard_index -a index
-    notify-send -t 2000 "$(cliphist list | zat.rs - $index | cliphist decode | pee 'wl-copy -n' 'head -c 100')"
+    notify-send -t 2000 "$(stash list | zat.rs - $index | stash decode | pee 'wl-copy -n' 'head -c 100')"
 end
 funcsave clipboard_index >/dev/null
 
 function clipboard_pick
-    set -l result (cliphist list | tee ~/fes/zufi/cliphist | cut -f 2- | fuzzel -d --index --width 55)
-    test $status -ne 0 && return 1
-    zat.rs ~/fes/zufi/cliphist ",$result" | cliphist decode | wl-copy -n
+    stash list | fuzzel -d --width 55 | stash decode | wl-copy -n
 end
 funcsave clipboard_pick >/dev/null
 
