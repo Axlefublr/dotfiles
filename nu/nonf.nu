@@ -48,7 +48,7 @@ $env.config.keybindings ++= [
 		mode: [emacs]
 		event: {
 			send: ExecuteHostCommand
-			cmd: 'commandline | wl-copy -n'
+			cmd: 'commandline | wl-copy -nt text/plain'
 		}
 	}
 	{
