@@ -4,7 +4,7 @@ function runner_clipboard
     set result (get_input)
     test $status -ne 0 && return 1
     test "$result" || return 1
-    echo $result | wl-copy -n
+    echo $result | wl-copy -nt text/plain
 end
 funcsave runner_clipboard >/dev/null
 
@@ -46,7 +46,7 @@ function runner_link
         $BROWSER $link
         ensure-browser.nu
     else
-        echo $link | wl-copy -n
+        echo $link | wl-copy -nt text/plain
         notify-send -t 2000 "copied link: $link"
     end
 end
@@ -59,7 +59,7 @@ function runner_math
     # echo $input_expr >~/fes/zufi/runner-math
     # set -l calculated_result (qalc -t -- $input_expr | tee -a ~/fes/zufi/runner-math)
     # notify-send -t 0 -- "$calculated_result"
-    # echo $calculated_result | wl-copy -n
+    # echo $calculated_result | wl-copy -nt text/plain
     foottitled.sh floating-calculator -N calc
 end
 funcsave runner_math >/dev/null
@@ -76,7 +76,7 @@ function runner_notification
             return 1
         end
         notify-send -t 0 -- "$input"
-        echo "$input" | wl-copy -n
+        echo "$input" | wl-copy -nt text/plain
     end
 end
 funcsave runner_notification >/dev/null
