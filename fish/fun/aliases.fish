@@ -8,14 +8,17 @@ funcsave annotate_screen >/dev/null
 alias --save capslock_state 'cat /sys/class/leds/input*::capslock/brightness | head -n 1' >/dev/null
 
 function clipboard_index -a index
-    notify-send -t 2000 "$(stash list | zat.rs - $index | stash decode | pee 'wl-copy -n' 'head -c 100')"
+    set -l data (na -c "stash list --format json | from json | get 0 | get id mime | to text")
+    notify-send "$(stash list | head -n 1 | cut -f 2-)"
+    stash decode $data[1] | wl-copy -n -t $data[2]
 end
 funcsave clipboard_index >/dev/null
 
 function clipboard_pick
-    set -l result (cliphist list | tee ~/fes/zufi/cliphist | cut -f 2- | fuzzel -d --index --width 55)
+    set -l result (stash list | cut -f 2- | fuzzel -d --index --width 55)
     test $status -ne 0 && return 1
-    zat.rs ~/fes/zufi/cliphist ",$result" | cliphist decode | wl-copy -n
+    set -l data (na -c "stash list --format json | from json | get $result | get id mime | to text")
+    stash decode $data[1] | wl-copy -n -t $data[2]
 end
 funcsave clipboard_pick >/dev/null
 
@@ -30,14 +33,14 @@ funcsave eat >/dev/null
 function edit_clipboard
     wl-paste >/tmp/mine/clipboard-edit.md
     flour /tmp/mine/clipboard-edit.md
-    cat /tmp/mine/clipboard-edit.md | wl-copy -n
+    cat /tmp/mine/clipboard-edit.md | wl-copy -nt text/plain
 end
 funcsave edit_clipboard >/dev/null
 
 function edit_clipboard_blank
     truncate -s 0 /tmp/mine/clipboard-edit.md
     flour /tmp/mine/clipboard-edit.md
-    cat /tmp/mine/clipboard-edit.md | wl-copy -n
+    cat /tmp/mine/clipboard-edit.md | wl-copy -nt text/plain
 end
 funcsave edit_clipboard_blank >/dev/null
 
@@ -99,7 +102,7 @@ funcsave mouse_mode_hide >/dev/null
 
 function mouse_position
     set -l pos (niri msg pointer | string join ' ')
-    echo $pos | wl-copy -n
+    echo $pos | wl-copy -nt text/plain
     notify-send -t 0 $pos
 end
 funcsave mouse_position >/dev/null
@@ -123,7 +126,7 @@ alias --save on wl-paste >/dev/null
 function pick_and_copy_color
     niri msg pick-color | string match -gr '(#[[:xdigit:]]+)' | read -l hex
     notify-send $hex
-    wl-copy -n $hex
+    wl-copy -nt text/plain $hex
 end
 funcsave pick_and_copy_color >/dev/null
 
