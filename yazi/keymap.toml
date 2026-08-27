@@ -118,8 +118,8 @@ keymap = [
   { on = [ 's', 'i' ], run = 'shell -- sl.fish %s', desc = 'Copy uri list to clipboard' },
   { on = [ 's', 'j' ], run = 'copy path', desc = 'Copy the file path' },
   { on = [ 's', 'k' ], run = 'copy filename', desc = 'Copy the filename' },
-  { on = [ 's', 'l' ], run = '''shell -- fish -c 'readlink %s | wl-copy -n' ''', desc = "Copy symlink's target" },
-  { on = [ 's', 'o' ], run = '''shell -- cat %s | wl-copy''', desc = "Copy file contents" },
+  { on = [ 's', 'l' ], run = '''shell -- fish -c 'readlink %s | wl-copy -nt text/plain' ''', desc = "Copy symlink's target" },
+  { on = [ 's', 'o' ], run = '''shell -- cat %s | wl-copy -t text/plain''', desc = "Copy file contents" },
   { on = [ 's', 'r' ], run = 'hardlink --force --follow', desc = 'Hardlink' },
   { on = [ 's', 'u' ], run = 'copy dirname', desc = 'Copy the directory path' },
   # [[sort off]]
