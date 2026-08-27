@@ -4,15 +4,15 @@ function append_github_line_numbers -a line_num
     set -l clipboard (wl-paste)
     string match -qe 'https://github.com' "$clipboard" || return 1
     if string match -qe '#L' "$clipboard"
-        wl-copy -n "$clipboard-L$line_num"
+        wl-copy -nt text/plain "$clipboard-L$line_num"
     else
-        wl-copy -n "$clipboard#L$line_num"
+        wl-copy -nt text/plain "$clipboard#L$line_num"
     end
 end
 funcsave append_github_line_numbers >/dev/null
 
 function clipboard_clean_url
-    wl-paste -n | urlcleaner | sponge | wl-copy -n
+    wl-paste -n | urlcleaner | sponge | wl-copy -nt text/plain
     notify-send 'clean url'
 end
 funcsave clipboard_clean_url >/dev/null
@@ -56,7 +56,7 @@ function fragmentize_url
         notify-send 'fucked up url'
         return 1
     end
-    wl-copy -n "$clean_url#:~:text=$selection"
+    wl-copy -nt text/plain "$clean_url#:~:text=$selection"
     wtype -s 5 -M ctrl -k v -m ctrl -s 5 -k Return
 end
 funcsave fragmentize_url >/dev/null
