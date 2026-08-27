@@ -247,7 +247,7 @@ funcsave rename >/dev/null
 function sj
     for path in $argv
         path resolve $path
-    end | wl-copy -n
+    end | wl-copy -nt text/plain
 end
 funcsave sj >/dev/null
 
