@@ -467,7 +467,8 @@ groups # check that your user is in
 sudo modprobe uinput # you might need to instantiate the uinput driver if shit really hits the fan
 indeed.rs -u ~/fes/dot/egetables -- '-a cmd_allowed https://github.com/jtroo/kanata'
 eget (string split ' ' -- (tail -n 1 ~/fes/dot/egetables))
-systemctl --user enable --now ~/fes/dot/kanata/kanata.service
+# login script handles kanata
+# systemctl --user enable --now ~/fes/dot/kanata/kanata.service
 
 # ---------------------------kbt---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout kbt
@@ -832,6 +833,10 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout speedtest-cli
 
 # -------------------------spotify-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout spotify-launcher
+
+# --------------------------stash--------------------------
+cargo install --git https://github.com/notashelf/stash
+systemctl --user enable --now ~/fes/dot/systemd/clipboard-stash.service
 
 # --------------------------steam--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout steam-native-runtime
