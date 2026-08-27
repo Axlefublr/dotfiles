@@ -217,6 +217,7 @@
 	k (cmd reuse-finder.nu /home/axlefublr/ake)
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == kss" "foottitled.sh kss -ND /home/axlefublr/iwm/kss yazi")
 	o (cmd find-or-make.fish "app_id starts-with foot" "title == nom" "foottitled.sh nom -N nom")
+	p (cmd find-or-make.fish "app_id starts-with foot" "title == kanata" "")
 	;; [[sort off]]
 )
 
