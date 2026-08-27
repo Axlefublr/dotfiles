@@ -2,7 +2,7 @@
 
 fcf.nu fix
 cat ~/fes/jiro/sudo | sudo -S modprobe uinput
-systemctl --user restart kanata.service
+foot -T kanata fish -c 'loop kanata --cfg ~/fes/dot/kanata/kanata.kbd' & disown
 
 niri msg action focus-workspace main
 foot -T nugleterm -o environment.TIT=nugleterm nu & disown
