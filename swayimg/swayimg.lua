@@ -46,7 +46,7 @@ for _, section in ipairs({ 'gallery', 'viewer' }) do
 	swayimg[section].on_key('d', function() local path = swayimg[section].get_image().path  os.execute(string.format("trash-put %q", path))  swayimg.imagelist.remove(path) end)
 	swayimg[section].on_key('g', function() os.execute(string.format('niri msg action spawn -- footclient -N yazi %q', swayimg[section].get_image().path))  swayimg.exit() end)
 	swayimg[section].on_key('i', function() os.execute(string.format("sl.fish %q", swayimg[section].get_image().path)) end)
-	swayimg[section].on_key('s', function() os.execute(string.format("fish -c 'echo %q | wl-copy -n'", swayimg[section].get_image().path)) end)
+	swayimg[section].on_key('s', function() os.execute(string.format("fish -c 'echo %q | wl-copy -nt text/plain'", swayimg[section].get_image().path)) end)
 	swayimg[section].on_key('v', function() swayimg.set_fullscreen() end)
 	swayimg[section].on_key('x', function() if swayimg.text.visible() then swayimg.text.hide() else swayimg.text.show() end end)
 	-- [[sort off]]
