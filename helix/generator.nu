@@ -167,6 +167,8 @@ let normal_mappings = {
 	',': trim_selections
 	':': split_selection_on_newline
 	'C-;': ':pipe °math "$(cat)"'
+	A-h: $'@<lt>(char -u 25a0)mc'
+	A-l: $'@<gt>(char -u 25a0)mc'
 	C-h: select_prev_sibling
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
@@ -478,6 +480,8 @@ let normal_mappings = {
 
 let insert_mappings = {
 	# [[sort on]]
+	A-h: $'@<esc><lt>(char -u 25a0)mc'
+	A-l: $'@<esc><gt>(char -u 25a0)mc'
 	C-h: commit_undo_checkpoint
 	C-l: '@<C-h> \<ret>'
 	C-u: kill_to_line_start
@@ -560,8 +564,6 @@ let normal_mappings_fork = {
 	'D': mark_apply
 	'S': mark_replace
 	'W': mark_add
-	'❌': "@vk'~"
-	✅: '@vk~'
 	# [[sort on]]
 	'.': extend_to_line_bounds
 	'0': ':buffer-nth -r 1'
@@ -591,18 +593,18 @@ let normal_mappings_fork = {
 	u: append_mode_same_line
 	# [[sort off]]
 	# --------------------------leap---------------------------
-	'<': [collapse_selection extend_flash_backward]
-	'>': [collapse_selection extend_flash_forward]
-	'C-,': [collapse_selection extend_flash_backward_till]
-	'C-.': [collapse_selection extend_flash_forward_till]
-	'A-,': [ensure_selections_forward flip_selections extend_flash_backward]
-	'A-.': [ensure_selections_forward extend_flash_forward]
-	'C-A-,': [ensure_selections_forward flip_selections extend_flash_backward_till]
-	'C-A-.': [ensure_selections_forward extend_flash_forward_till]
+	'<': find_prev_char
+	'>': find_next_char
+	'C-,': till_prev_char
+	'C-.': find_till_char
+	'A-,': extend_prev_char
+	'A-.': extend_next_char
+	'C-A-,': extend_till_prev_char
+	'C-A-.': extend_till_char
 	v: harp_mark
 	r: harp_search
 	z: harp_register
-	'┌': goto_hover
+	'┏': goto_hover
 	a: {
 		# [[sort on]]
 		C-c: ':echopy %(full_path):%(cursor_line)'
