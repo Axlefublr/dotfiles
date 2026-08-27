@@ -73,17 +73,18 @@ window-rule {
     match app-id="^foot" title="^man "
     match app-id="^foot" title="^help "
     match app-id="^foot" title="^nush "
-    match app-id="^foot" title="^mdw"
-    match app-id="^foot" title="^tiq"
+    match app-id="^foot" title="^mdw helix"
+    match app-id="^foot" title="^tiq helix"
     match app-id="^foot" title=" bacon$"
+    match app-id="^foot" title="^kanata$"
     custom-scope-exclude true
 }
 window-rule {
     match app-id="^foot" title="^man "
     match app-id="^foot" title="^help "
     match app-id="^foot" title="^nush "
-    match app-id="^foot" title="^mdw"
-    match app-id="^foot" title="^tiq"
+    match app-id="^foot" title="^mdw helix"
+    match app-id="^foot" title="^tiq helix"
     docs-scope-include true
 }
 
@@ -186,6 +187,7 @@ window-rule {
     match app-id="^foot" title="^alarm"
     match app-id="^foot" title="^bluetui$"
     match app-id="^foot" title="^Tewi$"
+    match app-id="^foot" title="^kanata$"
     open-on-workspace "task"
 }
 
