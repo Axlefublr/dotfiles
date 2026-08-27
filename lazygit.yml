@@ -46,7 +46,8 @@ gui:
     "^Axlefublr/[^/]+/\\d+$": "#d3ad5c"
     "^Axlefublr/[^/]+$": "#e491b2"
     "^pr-": "#e491b2"
-    "^eph": "#ea6962"
+    "^eph-": "#ea6962"
+    "^bkp-": "#78bf84"
     "^\\d+/": "#e49641"
   sidePanels:
     - [files, stash, worktrees, submodules]
@@ -264,6 +265,8 @@ customCommands:
     command: "wl-paste | git apply --3way"
     description: "Apply patch from clipboard"
     output: none
+    after:
+      checkForConflicts: true
   - key: <c-u>
     context: global
     command: "create-patch-file.fish {{.Form.Filename}}"
@@ -280,63 +283,65 @@ customCommands:
     command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
     description: "Edit file at HEAD"
     output: terminal
-  - key: "<c-a>"
+  - key: <c-a>
     context: files
     command: "autocommit.fish"
     description: "Autocommit"
     output: log
-  - key: "<delete>"
+  - key: <delete>
     context: files
     command: "gomi {{.SelectedPath}}"
     description: "Delete file"
     output: none
-  - key: "e"
+  - key: e
     context: "commitFiles"
     command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: "Edit file at this point in history"
     output: terminal
-  - key: "E"
+  - key: E
     context: "commitFiles"
     command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
     description: "Edit file at the commit before this point in history"
     output: terminal
-  - key: "q"
+  - key: q
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} >~/.local/share/flipboard'"
-    description: "Copy link to file at this commit"
-  - key: "Q"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | wl-copy -t text/plain'"
+    loadingText: 'Ghl file at commit'
+    description: "Ghl file at commit"
+  - key: Q
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} >~/.local/share/flipboard'"
-    description: "Copy link to file at *previous* commit"
-  - key: "o"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | wl-copy -t text/plain'"
+    loadingText: 'Ghl file at prior commit'
+    description: "Ghl file at prior commit"
+  - key: o
     context: "commits"
     command: "git push -f {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
     loadingText: "Pushing commit"
     description: "Push a specific commit (and any preceding)"
     output: log
-  - key: "O"
+  - key: O
     context: "commits"
     command: "git fetch --all --unshallow"
     loadingText: "Unshallowing"
     description: "Unshallow the shallow copy"
     output: log
-  - key: "G"
+  - key: G
     context: "commits"
     command: "git rebase --autosquash $(git merge-base HEAD upstream/HEAD)"
     loadingText: Rebasing
     description: "Apply fixup commits up within the divergence"
     output: none
-  - key: "I"
+  - key: I
     context: "commits"
     command: "git rebase -i $(git merge-base HEAD upstream/HEAD)"
     description: "Rebase on the divergence point"
     output: terminal
-  - key: "<c-e>"
+  - key: <c-e>
     context: "commits"
     command: "git rebase -i {{.SelectedCommit.Sha}}"
     description: "Rebase in editor"
     output: terminal
-  - key: "x"
+  - key: x
     context: "commits"
     command: "git {{index .PromptResponses 0}} {{.SelectedCommit.Sha}}"
     prompts:
@@ -345,10 +350,10 @@ customCommands:
         options:
           - value: "revert"
             name: "With a commit"
-            key: "c"
+            key: c
           - value: "revert -n"
             name: "Into index"
-            key: "i"
+            key: i
     description: "View reverting options..."
   - key: E
     context: "commits, subCommits"
@@ -357,22 +362,25 @@ customCommands:
     output: terminal
   - key: q
     context: "commits, subCommits"
-    command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} >~/.local/share/flipboard'"
-    description: "Copy link to repo at this point in history"
+    command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} | wl-copy -t text/plain'"
+    loadingText: 'Ghl repo at commit'
+    description: "Ghl repo at commit"
   - key: q
     context: "tags"
-    command: "fish -c 'ghl -b {{.SelectedTag.Name}} >~/.local/share/flipboard'"
-    description: "Copy link to repo at this tag"
+    command: "fish -c 'ghl -b {{.SelectedTag.Name}} | wl-copy -t text/plain'"
+    loadingText: 'Ghl repo at tag'
+    description: "Ghl repo at tag"
   - key: Q
     context: "tags"
-    command: "fish -c 'ghl -pb {{.SelectedTag.Name}} >~/.local/share/flipboard'"
-    description: "Copy link to repo at this tag, parsing it into commit"
-  - key: "S"
+    command: "fish -c 'ghl -pb {{.SelectedTag.Name}} | wl-copy -t text/plain'"
+    loadingText: "Ghl repo at tag's commit"
+    description: "Ghl repo at tag's commit"
+  - key: S
     context: localBranches
     command: "gh pr create"
     description: "Create pull request"
     output: terminal
-  - key: "s"
+  - key: s
     context: "localBranches"
     command: "gk.nu pull '{{index .PromptResponses 0}}'"
     prompts:
@@ -381,40 +389,42 @@ customCommands:
         suggestions:
           command: "gk.nu pull list"
     output: terminal
-  - key: "U"
+  - key: <a-o>
     context: localBranches
-    command: |
-      fish -c 'git symbolic-ref --short refs/remotes/origin/HEAD | string replace "origin/" "" | read -l branch
-      and begin
-        git branch -f $branch dev
-        git push -f origin dev $branch
-      end'
-    loadingText: "Syncing"
-    description: "Sync main branch with dev"
-  - key: "<c-r>"
+    command: "fish -c 'git push ; git push origin HEAD:bkp-(date +%y.%m.%d-%H.%M.%S)'"
+    loadingText: "Pushing backup"
+    description: "Push and also push to a backup branch"
+  - key: <c-r>
     context: localBranches
     command: "gk.nu dogni-upstream {{.SelectedLocalBranch.Name}}"
     loadingText: "Rebasing"
     description: "Rebase onto the default upstream branch"
     output: log
-  - key: "q"
+  - key: q
+    context: files
+    command: "fish -c 'ghl | wl-copy -t text/plain'"
+    loadingText: 'Ghl repo'
+    description: "Ghl repo"
+  - key: q
     context: localBranches
-    command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
-    description: "Copy link to repo in this branch"
-  - key: "Q"
+    command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} | wl-copy -t text/plain'"
+    loadingText: 'Ghl repo at this branch'
+    description: "Ghl repo at this branch"
+  - key: Q
     context: localBranches
-    command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} >~/.local/share/flipboard'"
-    description: "Copy link to repo in this branch, parsing into commit hash"
-  - key: "o"
+    command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} | wl-copy -t text/plain'"
+    loadingText: "Ghl repo at this branch's commit"
+    description: "Ghl repo at this branch's commit"
+  - key: o
     context: localBranches
     command: "git push -f origin {{.SelectedLocalBranch.Name}}"
     loadingText: "Pushing"
     description: "Push selected branch"
-  - key: "g"
+  - key: g
     context: localBranches
     command: "git branch eph-(date +%y.%m.%d-%H.%M.%S)"
     description: "Create temporary branch"
-  - key: "G"
+  - key: G
     context: localBranches
     command: |
       fish -c '
