@@ -70,37 +70,37 @@ function act_on_color -a color
                     niri msg action center-column
                 case s
                     set -l hex_repr (pastel format hex -- $color)
-                    echo $hex_repr | wl-copy -n
+                    echo $hex_repr | wl-copy -nt text/plain
                     reconfirm
                     warnage "$hex_repr copied"
                     continue
                 case c
                     set -l rgb_repr (pastel format rgb -- $color)
-                    echo $rgb_repr | wl-copy -n
+                    echo $rgb_repr | wl-copy -nt text/plain
                     reconfirm
                     warnage "$rgb_repr copied"
                     continue
                 case d
                     set -l hsl_repr (pastel format hsl -- $color)
-                    echo $hsl_repr | wl-copy -n
+                    echo $hsl_repr | wl-copy -nt text/plain
                     reconfirm
                     warnage "$hsl_repr copied"
                     continue
                 case S
                     set -l hex_repr (pastel format hex -- $color | string sub -s 2)
-                    echo $hex_repr | wl-copy -n
+                    echo $hex_repr | wl-copy -nt text/plain
                     reconfirm
                     warnage "$hex_repr copied"
                     continue
                 case C
                     set -l rgb_repr (pastel format rgb -- $color | strip-wrapper-type.rs '(')
-                    echo $rgb_repr | wl-copy -n
+                    echo $rgb_repr | wl-copy -nt text/plain
                     reconfirm
                     warnage "$rgb_repr copied"
                     continue
                 case D
                     set -l hsl_repr (pastel format hsl -- $color | strip-wrapper-type.rs '(')
-                    echo $hsl_repr | wl-copy -n
+                    echo $hsl_repr | wl-copy -nt text/plain
                     reconfirm
                     warnage "$hsl_repr copied"
                     continue
