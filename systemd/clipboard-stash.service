@@ -1,14 +1,15 @@
 [Unit]
-After=graphical-session.target
+Description=Wayland clipboard manager with fast persistent history and multi-media support
 PartOf=graphical-session.target
+After=graphical-session.target
 Requisite=graphical-session.target
 StartLimitBurst=100
 StartLimitIntervalSec=60
 
 [Service]
-ExecStart=/usr/bin/xwayland-satellite
-Restart=always
 Type=exec
+ExecStart=env stash watch
+Restart=on-failure
 
 [Install]
 WantedBy=graphical-session.target
