@@ -4,9 +4,9 @@ function alien_temple
     if test "$argv[1]" = shark -o "$argv[1]" = s
         set -l shark (command alien_temple shark)
         printf '%s\n' $shark
-        echo $shark[1] | wl-copy -n
+        echo $shark[1] | wl-copy -nt text/plain
     else if test "$argv[1]" = consent -o "$argv[1]" = c
-        command alien_temple consent | tee /dev/tty | wl-copy -n
+        command alien_temple consent | tee /dev/tty | wl-copy -nt text/plain
     else if test "$argv[1]" = play
         command alien_temple $argv
         loago do liked
@@ -43,9 +43,11 @@ end
 funcsave gk >/dev/null
 
 function helix
-    protit "$(fish_title) helix"
-    command helix $argv
+    argparse -u -- $argv
+    protit "$(fish_title) helix" (path basename $argv[1])
+    set -l exitcode (command helix $argv_opts $argv)
     protit (fish_title)
+    return $exitcode
 end
 funcsave helix >/dev/null
 
