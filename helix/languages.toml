@@ -114,7 +114,7 @@ source = { git = "https://github.com/ribru17/tree-sitter-man", rev = "e332ea95d5
 # ------------------markdown------------------
 [[grammar]]
 name = "markdown"
-source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "e6ac85a615cd6dbe1a9cebcca0e03f03930a4145", subpath = "tree-sitter-markdown" }
+source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "f3435abca462c6642f21b7be2c2092bf6e7abde7", subpath = "tree-sitter-markdown" }
 
 [[language]]
 name = "markdown"
@@ -223,7 +223,7 @@ command = "rust-analyzer"
 [language-server.rust-analyzer.config]
 # [[sort on]]
 # cargo.features = "all"
-# files.watcher = "server"                                     # TODO: this is not needed if helix supports client-side filewatching
+# cargo.noDefaultFeatures = true
 # rustfmt.overrideCommand = ["rustup", "run", "nightly", "--", "rustfmt"]
 # workspace.symbol.search.kind = "onlyTypes"
 assist.expressionFillDefault = "default"
@@ -239,7 +239,8 @@ cargo.targetDir = true
 check.command = "clippy"
 checkOnSave = false
 completion.fullFunctionSignatures.enable = true
-diagnostics.enable = false
+diagnostics.enable = true
+files.watcher = "server"                                         # TODO: this is not needed if helix supports client-side filewatching
 imports.granularity.group = "item"
 inlayHints.bindingModeHints.enable = true
 inlayHints.closingBraceHints.minLines = 11
