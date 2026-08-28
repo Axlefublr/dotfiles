@@ -71,6 +71,8 @@ funcsave dof >/dev/null
 
 function dot
     echo dot >~/fes/zufi/waybar-red-dot
+    # echo launch
+    warn cooperative
 end
 funcsave dot >/dev/null
 
