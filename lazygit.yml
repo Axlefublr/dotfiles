@@ -305,12 +305,12 @@ customCommands:
     output: terminal
   - key: q
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | wl-copy -t text/plain'"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | wl-copy -nt text/plain'"
     loadingText: 'Ghl file at commit'
     description: "Ghl file at commit"
   - key: Q
     context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | wl-copy -t text/plain'"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | wl-copy -nt text/plain'"
     loadingText: 'Ghl file at prior commit'
     description: "Ghl file at prior commit"
   - key: o
@@ -362,17 +362,17 @@ customCommands:
     output: terminal
   - key: q
     context: "commits, subCommits"
-    command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} | wl-copy -t text/plain'"
+    command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} | wl-copy -nt text/plain'"
     loadingText: 'Ghl repo at commit'
     description: "Ghl repo at commit"
   - key: q
     context: "tags"
-    command: "fish -c 'ghl -b {{.SelectedTag.Name}} | wl-copy -t text/plain'"
+    command: "fish -c 'ghl -b {{.SelectedTag.Name}} | wl-copy -nt text/plain'"
     loadingText: 'Ghl repo at tag'
     description: "Ghl repo at tag"
   - key: Q
     context: "tags"
-    command: "fish -c 'ghl -pb {{.SelectedTag.Name}} | wl-copy -t text/plain'"
+    command: "fish -c 'ghl -pb {{.SelectedTag.Name}} | wl-copy -nt text/plain'"
     loadingText: "Ghl repo at tag's commit"
     description: "Ghl repo at tag's commit"
   - key: S
@@ -402,17 +402,17 @@ customCommands:
     output: log
   - key: q
     context: files
-    command: "fish -c 'ghl | wl-copy -t text/plain'"
+    command: "fish -c 'ghl | wl-copy -nt text/plain'"
     loadingText: 'Ghl repo'
     description: "Ghl repo"
   - key: q
     context: localBranches
-    command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} | wl-copy -t text/plain'"
+    command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} | wl-copy -nt text/plain'"
     loadingText: 'Ghl repo at this branch'
     description: "Ghl repo at this branch"
   - key: Q
     context: localBranches
-    command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} | wl-copy -t text/plain'"
+    command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} | wl-copy -nt text/plain'"
     loadingText: "Ghl repo at this branch's commit"
     description: "Ghl repo at this branch's commit"
   - key: o
