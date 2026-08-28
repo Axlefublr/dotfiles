@@ -45,7 +45,8 @@ funcsave gk >/dev/null
 function helix
     argparse -u -- $argv
     protit "$(fish_title) helix" (path basename $argv[1])
-    set -l exitcode (command helix $argv_opts $argv)
+    command helix $argv_opts $argv
+    set -l exitcode $status
     protit (fish_title)
     return $exitcode
 end
