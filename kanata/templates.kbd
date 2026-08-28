@@ -1,0 +1,20 @@
+;; solution for hardware-like key repeat by BrandonGene
+(deftemplate repeat (action)
+	(multi
+		(macro $action)
+		(tap-hold 0 130
+			XX
+			(macro-repeat-release-cancel $action 20)
+		)
+	)
+)
+
+(deftemplate repeat2 (action1 action2)
+	(multi
+		(macro $action1 $action2)
+		(tap-hold 0 130
+			XX
+			(macro-repeat $action1 $action2 50) ;; can't afford to `-release-cancel` here because *both* of the actions likely need to happen, we eat the 50ms to the face with hopefully no real downside
+		)
+	)
+)
