@@ -19,6 +19,7 @@
 (defvar veract 100)
 (defvar fsh (fish -c))
 
+(include templates.kbd)
 (include virtual.kbd)
 
 (defalias
@@ -135,6 +136,7 @@
 	/ (cmd fish -c "wtype (uclanr 3 -j -)")
 	; bspc
 	caps esc
+	g (cmd fish -c dot)
 	h left
 	i tab
 	j down
@@ -226,12 +228,12 @@
 	;; [[sort on]]
 	; (cmd vellum clear)
 	d (cmd fish -c media_next)
-	e (multi (cmd fish -c "set_volume 0.02+") (hold-for-duration 1000 volume))
+	e (t! repeat2 (cmd fish -c "set_volume 0.02+") (hold-for-duration 1000 volume))
 	f (cmd fish -c toggle_media)
 	o (cmd fish -c write_window_info)
 	r (cmd fish -c toggle_mute)
 	s (cmd fish -c media_prev)
-	w (multi (cmd fish -c "set_volume 0.02-") (hold-for-duration 1000 volume))
+	w (t! repeat2 (cmd fish -c "set_volume 0.02-") (hold-for-duration 1000 volume))
 	;; [[sort off]]
 )
 
