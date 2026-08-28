@@ -199,7 +199,7 @@ let normal_mappings = {
 	k: move_visual_line_up
 	l: move_char_right
 	m: [collapse_selection normal_mode]
-	n: search_next
+	n: [ensure_selections_forward search_next]
 	o: paste_after
 	q: select_regex
 	s: yank
