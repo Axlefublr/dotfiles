@@ -283,6 +283,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout git diff-so-fancy
 # [[sort on]]
 # git config --global format.pretty '%C(yellow)%h %C(#e491b2)%an %C(green)%as%C(default)%+(decorate:prefix=,suffix=,tag=tag:,separator= ,pointer= → )%n%B'
 # git config --global merge.conflictstyle zdiff3
+git config --global --unset pull.ff
 git config --global branch.sort -committerdate
 git config --global checkout.defaultRemote origin
 git config --global color.diff.frag 'bold #e49641'
@@ -309,15 +310,14 @@ git config --global interactive.diffFilter 'diff-so-fancy --patch'
 git config --global interactive.singleKey true
 git config --global merge.conflictstyle merge
 git config --global pull.autostash true
-git config --global pull.ff only
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
 git config --global push.default simple
-git config --global push.default upstream
 git config --global push.followTags true
 git config --global rebase.autoSquash true
 git config --global rebase.autoStash true
 git config --global rebase.updateRefs false
+git config --global remote.pushDefault origin
 git config --global rerere.autoupdate false
 git config --global rerere.enabled false
 git config --global tag.sort version:refname
