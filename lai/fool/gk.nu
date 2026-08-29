@@ -31,9 +31,11 @@ def --wrapped 'main duc' [url?: string, --dir(-d): directory, ...rest] {
 }
 
 def 'main fork' [] {
-	^gh repo fork --remote
-	^gh repo set-default upstream
-	^git branch --set-upstream-to=origin/(git branch --show-current)
+	gh repo fork --remote
+	gh repo set-default upstream
+	git branch --set-upstream-to=origin/(git branch --show-current)
+	git config --unset-all remote.origin.fetch
+	git config --add remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 	main up
 }
 
@@ -141,6 +143,42 @@ def 'main dogni-upstream' [branch_name: string] {
 	      str trim | try { git rebase $in }
       }
 	}
+}
+
+def 'main clean-backup-branches' [keep: int = 30] {
+	let all_refs = git for-each-ref
+	| lines
+	| each {
+		split row "\t"
+		| get 1
+	}
+	let my_branches = $all_refs
+	| where $it like '^refs/(heads|remotes/origin)/'
+	| each {
+		str replace -r '^refs/(heads|remotes/origin)/' ''
+	}
+	| where $it != HEAD
+	| where $it not-like '^bkp/'
+	| uniq
+	let backup_branches = $all_refs
+	| where $it starts-with refs/remotes/origin/bkp/
+	| each {
+		str replace refs/remotes/origin/bkp/ ''
+	}
+	$backup_branches
+	| split column --right -n 2 / name date
+	| group-by --to-table name
+	| each { |it|
+		get items
+		| sort-by -nr date
+		| if ($it.name in $my_branches) { skip $keep } else {}
+		| each {
+			$'bkp/($in.name)/($in.date)'
+		}
+	}
+	| compact -e
+	| flatten
+	| to text
 }
 
 def parse_url [url?: string] {
