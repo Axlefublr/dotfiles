@@ -48,6 +48,9 @@ gui:
     "^pr-": "#e491b2"
     "^eph-": "#ea6962"
     "^bkp-": "#78bf84"
+    "^pr/": "#e491b2"
+    "^eph/": "#ea6962"
+    "^bkp/": "#78bf84"
     "^\\d+/": "#e49641"
   sidePanels:
     - [files, stash, worktrees, submodules]
@@ -152,7 +155,7 @@ keybinding:
     undo: <c-t>
     redo: <c-r>
     filteringMenu: <disabled>
-    diffingMenu: <disabled>
+    diffingMenu: D
     diffingMenu-alt: <disabled>
     copyToClipboard: <c-s>
     openRecentRepos: <disabled>
@@ -255,6 +258,8 @@ keybinding:
   commitMessage:
     commitMenu: <c-o>
 customCommands:
+
+  # -------------------------global--------------------------
   - key: <f2>
     context: global
     command: "footclient -N ; niri msg action consume-or-expel-window-left"
@@ -278,11 +283,20 @@ customCommands:
         key: Filename
         suggestions:
           command: "list-patch-files.fish"
-  - key: E
-    context: files
-    command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
-    description: "Edit file at HEAD"
-    output: terminal
+  - key: o
+    context: global
+    command: "fish -c 'git_smart_push {{.CheckedOutBranch.Name}}'"
+    loadingText: "Pushing"
+    description: "Push and also push to a backup branch"
+  - key: c-n
+    context: global
+    command: 'git switch -c {{ .Form.Branch }} --no-track upstream/HEAD'
+    prompts:
+      - type: input
+        title: 'New branch name'
+        key: Branch
+
+  # --------------------------files--------------------------
   - key: <c-a>
     context: files
     command: "autocommit.fish"
@@ -293,32 +307,8 @@ customCommands:
     command: "gomi {{.SelectedPath}}"
     description: "Delete file"
     output: none
-  - key: e
-    context: "commitFiles"
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
-    description: "Edit file at this point in history"
-    output: terminal
-  - key: E
-    context: "commitFiles"
-    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
-    description: "Edit file at the commit before this point in history"
-    output: terminal
-  - key: q
-    context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | wl-copy -nt text/plain'"
-    loadingText: 'Ghl file at commit'
-    description: "Ghl file at commit"
-  - key: Q
-    context: "commitFiles"
-    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | wl-copy -nt text/plain'"
-    loadingText: 'Ghl file at prior commit'
-    description: "Ghl file at prior commit"
-  - key: o
-    context: "commits"
-    command: "git push -f {{.SelectedRemote.Name}} {{.SelectedCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
-    loadingText: "Pushing commit"
-    description: "Push a specific commit (and any preceding)"
-    output: log
+
+  # -------------------------commits-------------------------
   - key: O
     context: "commits"
     command: "git fetch --all --unshallow"
@@ -355,26 +345,8 @@ customCommands:
             name: "Into index"
             key: i
     description: "View reverting options..."
-  - key: E
-    context: "commits, subCommits"
-    command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
-    description: "Edit commit diff in editor"
-    output: terminal
-  - key: q
-    context: "commits, subCommits"
-    command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} | wl-copy -nt text/plain'"
-    loadingText: 'Ghl repo at commit'
-    description: "Ghl repo at commit"
-  - key: q
-    context: "tags"
-    command: "fish -c 'ghl -b {{.SelectedTag.Name}} | wl-copy -nt text/plain'"
-    loadingText: 'Ghl repo at tag'
-    description: "Ghl repo at tag"
-  - key: Q
-    context: "tags"
-    command: "fish -c 'ghl -pb {{.SelectedTag.Name}} | wl-copy -nt text/plain'"
-    loadingText: "Ghl repo at tag's commit"
-    description: "Ghl repo at tag's commit"
+
+  # ------------------------branches-------------------------
   - key: S
     context: localBranches
     command: "gh pr create"
@@ -389,22 +361,90 @@ customCommands:
         suggestions:
           command: "gk.nu pull list"
     output: terminal
-  - key: <a-o>
-    context: localBranches
-    command: "fish -c 'git push ; git push origin HEAD:bkp-(date +%y.%m.%d-%H.%M.%S)'"
-    loadingText: "Pushing backup"
-    description: "Push and also push to a backup branch"
   - key: <c-r>
     context: localBranches
     command: "gk.nu dogni-upstream {{.SelectedLocalBranch.Name}}"
     loadingText: "Rebasing"
     description: "Rebase onto the default upstream branch"
     output: log
+  - key: g
+    context: localBranches
+    command: "git branch eph/(date +%y.%m.%d-%H.%M.%S)"
+    description: "Create temporary branch"
+  - key: G
+    context: localBranches
+    command: |
+      fish -c '
+        for branch in (git branch -l eph/\* | string trim)
+          git branch -D $branch
+        end
+      '
+    description: "Delete temporary branches"
+
+  # --------------------------edit---------------------------
+  - key: E
+    context: files
+    command: "fish -c 'git show HEAD:{{.SelectedPath}} >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'"
+    description: "Edit file at HEAD"
+    output: terminal
+  - key: e
+    context: "commitFiles"
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
+    description: "Edit file at this point in history"
+    output: terminal
+  - key: E
+    context: "commitFiles"
+    command: 'fish -c ''git show "{{.SelectedCommit.Hash}}^:{{.SelectedPath}}" >/tmp/mine/lazygit(path extension {{.SelectedPath}}) ; helix /tmp/mine/lazygit(path extension {{.SelectedPath}})'''
+    description: "Edit file at the commit before this point in history"
+    output: terminal
+  - key: E
+    context: "commits, subCommits"
+    command: "fish -c 'git diff {{.SelectedCommit.Sha}}^..{{.SelectedCommit.Sha}} >/tmp/mine/lazygit-commit.diff ; helix /tmp/mine/lazygit-commit.diff'"
+    description: "Edit commit diff in editor"
+    output: terminal
+
+  # ---------------------------ghl---------------------------
+  - key: q
+    context: "commitFiles"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}} {{.SelectedPath}} | wl-copy -nt text/plain'"
+    loadingText: 'Ghl file at commit'
+    description: "Ghl file at commit"
+  - key: Q
+    context: "commitFiles"
+    command: "fish -c 'ghl -c blob -pb {{.SelectedCommit.Hash}}^ {{.SelectedPath}} | wl-copy -nt text/plain'"
+    loadingText: 'Ghl file at prior commit'
+    description: "Ghl file at prior commit"
+    output: log
+  - key: q
+    context: "commits, subCommits"
+    command: "fish -c 'ghl -pb {{.SelectedCommit.Sha}} | wl-copy -nt text/plain'"
+    loadingText: 'Ghl repo at commit'
+    description: "Ghl repo at commit"
+  - key: Q
+    context: "commits, subCommits"
+    command: "fish -c 'ghl -c commit -pb {{.SelectedCommit.Sha}} | wl-copy -nt text/plain'"
+    loadingText: 'Ghl repo towards commit'
+    description: "Ghl repo towards commit"
+  - key: q
+    context: "tags"
+    command: "fish -c 'ghl -b {{.SelectedTag.Name}} | wl-copy -nt text/plain'"
+    loadingText: 'Ghl repo at tag'
+    description: "Ghl repo at tag"
+  - key: Q
+    context: "tags"
+    command: "fish -c 'ghl -pb {{.SelectedTag.Name}} | wl-copy -nt text/plain'"
+    loadingText: "Ghl repo at tag's commit"
+    description: "Ghl repo at tag's commit"
   - key: q
     context: files
     command: "fish -c 'ghl | wl-copy -nt text/plain'"
     loadingText: 'Ghl repo'
     description: "Ghl repo"
+  - key: Q
+    context: files
+    command: "fish -c 'ghl -r upstream | wl-copy -nt text/plain'"
+    loadingText: 'Ghl upstream repo'
+    description: "Ghl upstream repo"
   - key: q
     context: localBranches
     command: "fish -c 'ghl -b {{.SelectedLocalBranch.Name}} | wl-copy -nt text/plain'"
@@ -415,21 +455,18 @@ customCommands:
     command: "fish -c 'ghl -pb {{.SelectedLocalBranch.Name}} | wl-copy -nt text/plain'"
     loadingText: "Ghl repo at this branch's commit"
     description: "Ghl repo at this branch's commit"
-  - key: o
-    context: localBranches
-    command: "git push -f origin {{.SelectedLocalBranch.Name}}"
-    loadingText: "Pushing"
-    description: "Push selected branch"
-  - key: g
-    context: localBranches
-    command: "git branch eph-(date +%y.%m.%d-%H.%M.%S)"
-    description: "Create temporary branch"
-  - key: G
-    context: localBranches
-    command: |
-      fish -c '
-        for branch in (git branch -l eph\* | string trim)
-          git branch -D $branch
-        end
-      '
-    description: "Delete temporary branches"
+  - key: q
+    context: remotes
+    command: "fish -c 'ghl -r {{.SelectedRemote.Name}} | wl-copy -nt text/plain'"
+    loadingText: "Ghl repo at this remote"
+    description: "Ghl repo at this remote"
+  - key: q
+    context: remoteBranches
+    command: "fish -c 'ghl -r {{.SelectedRemote.Name}} -b {{.SelectedRemoteBranch.Name}} | wl-copy -nt text/plain'"
+    loadingText: "Ghl repo at this branch"
+    description: "Ghl repo at this branch"
+  - key: Q
+    context: remoteBranches
+    command: "fish -c 'ghl -r {{.SelectedRemote.Name}} -pb {{.SelectedRemote.Name}}/{{.SelectedRemoteBranch.Name}} | wl-copy -nt text/plain'"
+    loadingText: "Ghl repo at this branch's commit"
+    description: "Ghl repo at this branch's commit"
