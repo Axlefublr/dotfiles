@@ -374,6 +374,7 @@ let normal_mappings = {
 		a: match_brackets
 		d: surround_delete
 		f: surround_replace
+		i: ':sh sl.fish %(full_path)'
 		j: ':new'
 		k: ':toggle enable-diagnostics'
 		l: ':toggle lsp.display-inlay-hints'
@@ -612,7 +613,7 @@ let normal_mappings_fork = {
 		V: ':echopy %sh(ghl -pb HEAD %(relative_path))'
 		X: ':echopy %sh(ghl)'
 		c: ':echopy %(full_path)'
-		i: [yank ':new' paste_before_all]
+		u: [yank ':new' paste_before_all]
 		v: ':echopy %sh(ghl %(relative_path))'
 		x: ':echopy %{working_directory}'
 		# [[sort off]]
