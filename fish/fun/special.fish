@@ -82,6 +82,32 @@ function fn_clear
 end
 funcsave fn_clear >/dev/null
 
+# CheckedOutBranch.Name
+function git_smart_push -a current_branch
+    # this push is separate from the following one because
+    # with `git config --global push.autoSetupRemote true`, this sets up the remote for the branch,
+    # but **only** if it doesn't already have one.
+    # assumes it to be origin due to I believe `git config --global remote.pushDefault origin`
+    # otherwise it'll push to the current (already set) remote
+    #
+    # because the following push specifies branches it pushes (it necessarily needs to),
+    # if we blammoed a `-u` there to make the push set the remote for us, it would first of all *override* the remote,
+    # and second of all it would name the remote branch explicitly, rather than letting internal git semantics (based on your config!)
+    # figure out the appropriate branch name.
+    # sure, it's *probably* going to be origin/$branchname anyway, but sidestepping normal semantics is how you increase maintenance cost for little benefit
+    git push -f
+    # if this is a fork, I'll want to push a backup branch as well, without needing to think about it
+    # at the same time, old backup branches are cleaned
+    if git remote get-url upstream &>/dev/null
+        # assuming origin *here* is safe because I specifically want my backup branches to be stored in my fork,
+        # even if for example I was given push rights to branches in upstream and the push above pushed the branch to upstream
+        #
+        # at which point why am I *force* pushing but oh well
+        git push -f origin $current_branch:bkp/$current_branch/(date +%y.%m.%d-%H.%M.%S) :(gk.nu clean-backup-branches)
+    end
+end
+funcsave git_smart_push >/dev/null
+
 function github_read_notifs
     # -H 'X-GitHub-Api-Version: 2022-11-28' \
     gh api \
