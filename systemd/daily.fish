@@ -15,7 +15,7 @@ end
 fn_clear
 trash-empty -f 1
 cleaning-lady.nu
-kondo -ao 5d -I ~/fes/wks
+kondo -ao 10d -I ~/fes/wks
 kondo -o 30d ~/fes/wks
 
 math (cat ~/.local/share/magazine/S) + 67 | sponge ~/.local/share/magazine/S
