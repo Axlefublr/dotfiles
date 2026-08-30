@@ -11,4 +11,4 @@ else
     command man $argv[..-3] 2>/dev/null >$path
 end
 wm_focus_if_exists "app_id starts-with foot" "title == 'man $manpage'"
-or flour -T "man $manpage" --disown --man $path:14
+or flour --disown -T "man $manpage" --disown --man $path:14
