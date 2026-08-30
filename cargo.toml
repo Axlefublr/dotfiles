@@ -18,3 +18,10 @@ RUST_LOG = 'trace'
 
 [build]
 jobs = -1
+rustc-wrapper = 'sccache'
+
+[unstable]
+mtime-on-use = true # update modification time of artifacts whenever you use them, so that you can reliably consider old artifacts to be *useless* ones
+
+[target.'cfg(target_os = "linux")']
+rustflags = [ '-C', 'link-arg=-fuse-ld=mold' ] # faster linker
