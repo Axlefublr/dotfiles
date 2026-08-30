@@ -105,7 +105,7 @@ mkdir -p ~/.config/rubocop
 ln -sf ~/fes/dot/.rubocop.yml ~/.config/rubocop/config.yml
 
 # --------------------------rust---------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout rustup
+sudo pacman -S --needed --noconfirm --disable-download-timeout rustup sccache mold
 mkdir -p ~/.cargo/{bin,env}
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.cargo/env
