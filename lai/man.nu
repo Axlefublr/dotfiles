@@ -4,7 +4,6 @@ def main [] {}
 
 def 'main help' [] {
 	let input = open ~/.local/share/magazine/a-comma | lines | reverse | to text | ^fuzzel -d --match-mode exact
-	^indeed.rs -u ~/.local/share/magazine/a-comma $input
 	let args = ($input | split row -r '\s+')
 	help.fish ...$args
 }
