@@ -15,8 +15,8 @@ end
 fn_clear
 trash-empty -f 1
 cleaning-lady.nu
-kondo -ao 10d -I ~/fes/wks
-kondo -o 30d ~/fes/wks
+kondo -ao 30d
+fd --type dir --no-ignore --prune -pa --glob --changed-after 5d '**/target/**/incremental' -X rm -fr
 
 math (cat ~/.local/share/magazine/S) + 67 | sponge ~/.local/share/magazine/S
 _magazine_commit ~/.local/share/magazine/S desire
