@@ -20,7 +20,7 @@ const known = {
 	mug: 11
 	nails: 13
 	bottle: 17
-	brushes: 35
+	brushes: 42
 	dust: 11
 	photos: 30
 	tea: 15
