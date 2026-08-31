@@ -62,3 +62,24 @@ function wm_wait_if_or_until_exists
     "
 end
 funcsave wm_wait_if_or_until_exists >/dev/null
+
+function wm_wait_until_exists -d 'waits for specifically a new window, ignores existing ones'
+    set -l wheres
+    for arg in $argv
+        set -a wheres "| where $arg"
+    end
+    na -c "
+    for line in (niri msg -j event-stream | lines) {
+        let object = \$line | from json --objects
+        \$object | try {
+            get WindowOpenedOrChanged.window
+            $wheres
+            | first
+            | get id
+            | print
+            exit
+        }
+    }
+    "
+end
+funcsave wm_wait_until_exists >/dev/null
