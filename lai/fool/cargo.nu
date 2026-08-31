@@ -10,6 +10,17 @@ export def 'main binary-name' [] {
 	| get name.0
 }
 
+export def 'main default-package' [] {
+	let metadata = cargo metadata --no-deps --format-version 1
+	| from json
+	let pkgid = $metadata | get workspace_default_members.0
+	$metadata
+	| get packages
+	| where id == $pkgid
+	| get name.0
+	| str replace '-' '_'
+}
+
 export def 'main version' [] {
 	cargo metadata --no-deps --format-version 1
 	| from json
