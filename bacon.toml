@@ -1,6 +1,6 @@
 # [[sort on]]
 # help_line = false
-default_job = 'clippy'
+default_job = 'doc'
 on_change_strategy = 'kill_then_restart'
 # [[sort off]]
 
@@ -20,6 +20,21 @@ command = [
   '--allow-staged',
 ]
 on_success = 'back'
+
+[jobs.doc-open]
+command = [ 'cargo-doc-quick.fish', 'cargo', 'doc', '--no-deps', '--keep-going', '--workspace' ]
+need_stdout = false
+on_success = 'job:clippy'
+
+[jobs.doc]
+command = [ 'cargo', 'doc', '--no-deps', '--keep-going', '--workspace' ]
+need_stdout = false
+on_success = 'job:clippy'
+
+[jobs.doc-dep]
+command = [ 'cargo', 'doc', '--keep-going', '--workspace' ]
+need_stdout = false
+on_success = 'job:clippy'
 
 [jobs.neru]
 command = [ 'neru', 'launch' ]
@@ -86,12 +101,13 @@ alt-w = 'no-op'
 backtab = 'no-op'
 c = 'job:clippy'
 ctrl-c = 'job:pedantic'
-ctrl-d = 'no-op'
+ctrl-d = 'job:doc-dep'
 ctrl-end = 'scroll-to-bottom'
 ctrl-home = 'scroll-to-top'
 ctrl-j = 'open-jobs-menu'
 ctrl-q = 'no-op'
 ctrl-r = 'refresh'
+d = 'job:doc'
 down = 'scroll-lines(1)'
 end = 'no-op'
 esc = 'back'
@@ -110,7 +126,7 @@ q = 'no-op'
 r = 'job:run'
 s = 'copy-unstyled-output'
 shift-c = 'job:clippy-all'
-shift-d = 'job:doc'
+shift-d = 'job:doc-open'
 shift-j = 'open-undismiss-menu'
 shift-k = 'dismiss-top'
 shift-n = 'previous-match'
