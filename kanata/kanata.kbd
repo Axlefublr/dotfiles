@@ -175,7 +175,7 @@
 	c (cmd find-or-make.fish "app_id starts-with foot" "title == colorbook" "foottitled.sh colorbook -N coloring-book.fish")
 	d (cmd find-or-make.fish "app_id starts-with foot" "title == dotfiles" "foottitled.sh dotfiles -ND ~/fes/dot helix")
 	e (cmd find-or-make.fish --clean "app_id starts-with foot" "title == bluetui" "foottitled.sh bluetui -N bluetui")
-	f (cmd find-or-make.fish "app_id == firefox" "gtk-launch firefox")
+	f (cmd find-or-make.fish "app_id == firefox" "workspace_id != 5" "gtk-launch firefox")
 	g (cmd request-timer.fish)
 	q (cmd reuse-finder.nu /home/axlefublr/fes/tiq)
 	r (cmd find-or-make.fish "app_id starts-with foot" "title == hardware-monitor" "foottitled.sh hardware-monitor -N hardware-monitor.nu")
