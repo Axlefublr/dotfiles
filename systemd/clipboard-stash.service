@@ -8,7 +8,7 @@ StartLimitIntervalSec=60
 
 [Service]
 Type=exec
-ExecStart=env fish -c 'exec stash watch'
+ExecStart=env fish -c 'exec stash watch --persist'
 Restart=on-failure
 
 [Install]
