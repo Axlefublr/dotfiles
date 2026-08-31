@@ -3,8 +3,8 @@ a = 'add'
 br = 'build --release'
 c = 'clippy'
 cc = 'clippy --fix --workspace --allow-dirty --allow-staged'
-d = 'doc'
-do = 'doc --open --no-deps'
+d = 'doc --no-deps --workspace'
+do = 'doc --open --no-deps --workspace'
 f = 'fmt'
 i = 'info'
 q = 'run -q'
@@ -19,6 +19,8 @@ RUST_LOG = 'trace'
 [build]
 jobs = -1
 rustc-wrapper = 'sccache'
+rustflags = [ '-C', 'target-cpu=native' ]
+# rustdocflags = [  ]
 
 [unstable]
 mtime-on-use = true # update modification time of artifacts whenever you use them, so that you can reliably consider old artifacts to be *useless* ones
