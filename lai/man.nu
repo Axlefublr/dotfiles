@@ -60,8 +60,9 @@ def 'main nushell' [] {
 	| where app_id starts-with foot
 	| where title == $title
 	if ($found | is-empty) {
-		niri msg action spawn -- footclient -NT $title -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'help ($input) | ov --wrap=true --caption=`($input)`'
+		niri msg action spawn -- footclient -NT $title -- nu --no-std-lib --config ~/fes/dot/nu/nonf.nu -c $'niri msg action move-column-to-last ; help ($input) | ov --wrap=true --caption=`($input)`'
 	} else {
 		niri msg action focus-window --id ($found | get id | first)
+		niri msg action move-column-to-last
 	}
 }
