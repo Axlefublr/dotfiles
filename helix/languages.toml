@@ -222,7 +222,6 @@ command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
 # [[sort on]]
-# cargo.extraArgs = [ "--profile", "rust-analyzer" ]
 # cargo.features = "all"
 # cargo.noDefaultFeatures = true
 # cargo.targetDir = true
@@ -232,6 +231,7 @@ assist.expressionFillDefault = "default"
 assist.importEnforceGranularity = true
 assist.importPrefix = "crate"
 cachePriming.enable = false
+cargo.extraArgs = [ "--profile", "rust-analyzer" ]
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_CODEGEN_UNITS = "256"
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INCREMENTAL = "true"
 cargo.extraEnv.CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev"
