@@ -12,3 +12,6 @@ else
 end
 wm_focus_if_exists "app_id starts-with foot" "title == 'man $manpage'"
 or flour --disown -T "man $manpage" --disown --man $path:14
+set -l id (wm_wait_if_or_until_exists "app_id starts-with foot" "title == 'man $manpage'")
+niri msg action focus-window --id $id
+niri msg action move-column-to-last
