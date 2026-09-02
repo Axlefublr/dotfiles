@@ -70,6 +70,10 @@ function finder -a return_here
             echo $PWD >/tmp/mine/finder-choice
         else
             test "$FIX_WIDTH" && niri msg action set-column-width 100%
+            if $DOC_WINDOW
+                niri msg action move-column-to-workspace help
+                niri msg action move-column-to-last
+            end
             set -l path $PWD
             if test "$return_here"
                 cd "$return_here"
@@ -81,6 +85,10 @@ function finder -a return_here
     set -l first_char (string sub -l 1 $result)
     if test $first_char = ':'
         test "$FIX_WIDTH" && niri msg action set-column-width 100%
+        if $DOC_WINDOW
+            niri msg action move-column-to-workspace help
+            niri msg action move-column-to-last
+        end
         yazi (string sub -s 2 $result)
         return
     end
@@ -98,6 +106,10 @@ function finder -a return_here
             echo $PWD/$result >/tmp/mine/finder-choice
         else
             test "$FIX_WIDTH" && niri msg action set-column-width 100%
+            if $DOC_WINDOW
+                niri msg action move-column-to-workspace help
+                niri msg action move-column-to-last
+            end
             set -l path (path resolve "$result")
             if test "$return_here"
                 cd "$return_here"
@@ -114,6 +126,10 @@ function finder -a return_here
             echo $PWD/$result >/tmp/mine/finder-choice
         else
             test "$FIX_WIDTH" && niri msg action set-column-width 100%
+            if $DOC_WINDOW
+                niri msg action move-column-to-workspace help
+                niri msg action move-column-to-last
+            end
             set -l path (path resolve "$result")
             if test "$return_here"
                 cd "$return_here"
