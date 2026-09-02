@@ -500,6 +500,7 @@ let insert_mappings = {
 let editor_fork = {
 	# [[sort on]]
 	# auto-reload: { enable: true, poll: { interval: 1000 } }
+	breadcrumb: { enable: true, path: 'full' } # full / file / none
 	enable-diagnostics: true
 	picker: { scrolloff: 99 }
 	search: { max-matches: none }
@@ -535,7 +536,8 @@ let editor_fork = {
 			spacer
 			selections
 			spacer
-			smart-path
+			spacer
+			current-working-directory
 		]
 		center: [
 			read-only-indicator
