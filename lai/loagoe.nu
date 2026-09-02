@@ -21,7 +21,7 @@ const known = {
 	nails: 13
 	bottle: 17
 	brushes: 42
-	dust: 11
+	dust: 13
 	photos: 30
 	tea: 15
 	update: 20
