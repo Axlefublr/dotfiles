@@ -40,25 +40,20 @@ function wm_wait_if_or_until_exists
         set -a wheres "| where $arg"
     end
     na -c "
-    for line in (niri msg -j event-stream | lines) {
-        let object = \$line | from json --objects
-        \$object | try {
-            get WindowsChanged.windows.0
-            $wheres
-            | first
-            | get id
-            | print
-            exit
+        niri msg -j event-stream
+        | from json --objects
+        | each {
+            match \$in {
+                { WindowsChanged: { windows: \$the } }       => { \$the $wheres }
+                { WindowOpenedOrChanged: { window: \$the } } => { [\$the] $wheres }
+            }
         }
-        \$object | try {
-            get WindowOpenedOrChanged.window
-            $wheres
-            | first
-            | get id
-            | print
-            exit
-        }
-    }
+        | compact -e
+        | first
+        | get id
+        | first
+        | print
+        | exit
     "
 end
 funcsave wm_wait_if_or_until_exists >/dev/null
@@ -69,17 +64,19 @@ function wm_wait_until_exists -d 'waits for specifically a new window, ignores e
         set -a wheres "| where $arg"
     end
     na -c "
-    for line in (niri msg -j event-stream | lines) {
-        let object = \$line | from json --objects
-        \$object | try {
-            get WindowOpenedOrChanged.window
-            $wheres
-            | first
-            | get id
-            | print
-            exit
+        niri msg -j event-stream
+        | from json --objects
+        | each {
+            match \$in {
+                { WindowOpenedOrChanged: { window: \$the } } => { [\$the] $wheres }
+            }
         }
-    }
+        | compact -e
+        | first
+        | get id
+        | first
+        | print
+        | exit
     "
 end
 funcsave wm_wait_until_exists >/dev/null
