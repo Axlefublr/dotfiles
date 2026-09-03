@@ -699,12 +699,29 @@ let entire_config_fork = $entire_config | merge deep { editor: $editor_fork, key
 $entire_config      | to toml | save -f ~/fes/dot/helix/pure.toml
 $entire_config_fork | to toml | save -f ~/fes/dot/helix/config.toml
 
-let latest = $entire_config_fork
-$latest | upsert editor.bufferline 'never' | let latest ; $latest | to toml | save -f ~/fes/dot/helix/sleek.toml
+let entire_config_fork = $entire_config_fork | merge deep {
+	editor: {
+		breadcrumb: { enable: false }
+	}
+}
+$entire_config_fork | to toml | save -f ~/fes/dot/helix/starve.toml
+
 $entire_config_fork | merge deep {
 	keys: {
 		normal: { A-space: ':quit-all!' }
 		insert: { A-space: ':quit-all!' }
 	}
-} | let latest ; $latest | to toml | save -f ~/fes/dot/helix/man.toml
-$latest | upsert editor.soft-wrap.enable false | let latest ; $latest | to toml | save -f ~/fes/dot/helix/pager.toml
+} | to toml | save -f ~/fes/dot/helix/man.toml
+
+$entire_config_fork | merge deep {
+	editor: {
+		bufferline: 'never'
+	}
+} | to toml | save -f ~/fes/dot/helix/sleek.toml
+
+$entire_config_fork | merge deep {
+	editor: {
+		bufferline: 'never'
+		soft-wrap: { enable: false }
+	}
+} | to toml | save -f ~/fes/dot/helix/pager.toml
