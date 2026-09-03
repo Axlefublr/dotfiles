@@ -29,4 +29,5 @@ if test "$consume" = left
     for i in (seq 1 10)
         niri msg action move-window-up
     end
+    niri msg action focus-window-down
 end
