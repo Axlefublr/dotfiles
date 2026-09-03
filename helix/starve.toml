@@ -1,0 +1,1357 @@
+theme = "gruvbox_material"
+
+[editor]
+auto-completion = true
+auto-format = true
+auto-info = true
+bufferline = "always"
+color-modes = true
+completion-timeout = 5
+completion-trigger-len = 2
+continue-comments = false
+default-line-ending = "lf"
+default-yank-register = "+"
+insert-final-newline = true
+jump-label-alphabet = "jfkdlsaeiwoxcmghruvnzbqpty"
+line-number = "relative"
+preview-completion-insert = false
+scrolloff = 99
+shell = [
+    "dash",
+    "-c",
+]
+text-width = 110
+trim-final-newlines = true
+trim-trailing-whitespace = true
+enable-diagnostics = true
+whichkey = false
+
+[editor.auto-save]
+focus-lost = false
+
+[editor.buffer-picker]
+start-position = "previous"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.gutters]
+layout = []
+
+[editor.gutters.line-numbers]
+min-width = 2
+
+[editor.search]
+wrap-around = true
+max-matches = "none"
+
+[editor.workspace-trust]
+level = "insecure"
+
+[editor.lsp]
+auto-signature-help = false
+display-inlay-hints = false
+display-messages = true
+display-signature-help-docs = true
+goto-reference-include-declaration = false
+snippets = true
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 0
+wrap-indicator = ""
+
+[editor.whitespace.characters]
+newline = "↪"
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "➜"
+tabpad = " "
+
+[editor.auto-pairs]
+"<" = ">"
+"(" = ")"
+"{" = "}"
+"[" = "]"
+'"' = '"'
+"'" = "'"
+"`" = "`"
+"«" = "»"
+"‘" = "’"
+"“" = "”"
+
+[editor.inline-diagnostics]
+cursor-line = "info"
+other-lines = "info"
+max-wrap = 0
+
+[editor.word-completion]
+enable = true
+trigger-length = 4
+
+[editor.smart-tab]
+enable = false
+supersede-menu = true
+
+[editor.breadcrumb]
+enable = false
+path = "full"
+
+[editor.picker]
+scrolloff = 99
+
+[editor.session]
+restore-cursor = true
+gc-max-age = 90
+
+[editor.shellmap]
+"€" = [
+    "nu",
+    "--no-std-lib",
+    "--stdin",
+    "--config",
+    "/home/axlefublr/fes/dot/nu/lvoc/crooked.nu",
+    "-c",
+]
+"°" = [
+    "fish",
+    "-c",
+]
+"∞" = [
+    "calc",
+    "-t",
+]
+"√" = [
+    "julia",
+    "-E",
+]
+
+[editor.harp]
+command = "filetype"
+search = "buffer"
+register = "filetype"
+mark = "buffer"
+file = "directory"
+
+[editor.harp.hotkeys]
+global = "l"
+directory = "k"
+filetype = ";"
+buffer = "j"
+switch = "'"
+delete = "<del>"
+delete-all = "<S-del>"
+alt = "/"
+
+[editor.statusline]
+left = [
+    "primary-selection-length",
+    "spacer",
+    "selections",
+    "spacer",
+    "spacer",
+    "current-working-directory",
+]
+center = ["read-only-indicator"]
+right = [
+    "spinner",
+    "spacer",
+    "register",
+    "diagnostics",
+    "search-position",
+    "file-type",
+    "position",
+    "total-line-numbers",
+    "spacer",
+    "position-percentage",
+    "file-encoding",
+]
+
+[keys.normal]
+C-s = "signature_help"
+"C-ы" = "signature_help"
+C-i = [
+    "commit_undo_checkpoint",
+    "open_above",
+]
+"C-ш" = [
+    "commit_undo_checkpoint",
+    "open_above",
+]
+C-o = [
+    "commit_undo_checkpoint",
+    "open_below",
+]
+"C-щ" = [
+    "commit_undo_checkpoint",
+    "open_below",
+]
+A-left = "goto_prev_tabstop"
+A-right = "goto_next_tabstop"
+A-tab = ":open %sh(wl-paste -n)"
+C-tab = "add_newline_above"
+F12 = "add_newline_below"
+down = "move_line_down"
+up = "move_line_up"
+C-up = "copy_selection_on_prev_line"
+C-down = "copy_selection_on_next_line"
+C-left = "goto_previous_buffer"
+C-right = "goto_next_buffer"
+S-left = "unindent"
+S-right = "indent"
+C-home = "goto_file_start"
+C-end = [
+    "extend_to_file_end",
+    "collapse_selection",
+]
+A-pageup = "@<C-i>[[sort on]]<esc>@"
+A-pagedown = "@<C-o>[[sort off]]<esc>@"
+ins = ":write-buffer-close"
+A-w = ":write-buffer-close"
+"A-ц" = ":write-buffer-close"
+S-ins = ":buffer-close!"
+C-A-w = ":buffer-close!"
+A-space = ":write-quit-all"
+A-ins = ":quit!"
+C-space = ":write-all"
+C-ins = ":write!"
+C-t = ":reload"
+"C-е" = ":reload"
+S-A-F6 = ":write --no-format"
+S-A-F11 = ":write! --no-format"
+F1 = ":noop %sh(wind ° helix %(full_path):%(cursor_line):%(cursor_column))"
+F2 = [
+    ":noop %sh(echo %(full_path) >~/fes/zufi/blammo)",
+    ":noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}",
+]
+F3 = ":noop %sh(wind « ° bacon)"
+F4 = [
+    ":noop %sh{rm -f /tmp/mine/finder-choice}",
+    ':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "FROM_POPUP=true finder"}',
+    ":open %sh{cat /tmp/mine/finder-choice}",
+]
+S-F4 = [
+    ":noop %sh{rm -f /tmp/mine/finder-choice}",
+    ':noop %sh{foottitled.sh helix-popup -D %(buffer_parent) fish -c "FROM_POPUP=true finder"}',
+    ":open %sh{cat /tmp/mine/finder-choice}",
+]
+S-F6 = [
+    ":noop %sh{rm -f /tmp/mine/yazi-chooser-file}",
+    ":noop %sh(foottitled.sh helix-popup yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)",
+    ":open %sh{cat /tmp/mine/yazi-chooser-file}",
+]
+F6 = [
+    ":noop %sh{rm -f /tmp/mine/yazi-chooser-file}",
+    ":noop %sh(foottitled.sh helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)",
+    ":open %sh{cat /tmp/mine/yazi-chooser-file}",
+]
+P = "copy_register_to_yank"
+"З" = "copy_register_to_yank"
+Y = "no_op"
+"Н" = "no_op"
+y = "no_op"
+"н" = "no_op"
+";" = [
+    "save_selection",
+    "select_textobject_around",
+]
+"ж" = [
+    "save_selection",
+    "select_textobject_around",
+]
+"'" = [
+    "save_selection",
+    "select_textobject_inner",
+]
+"э" = [
+    "save_selection",
+    "select_textobject_inner",
+]
+"A-/" = [
+    "select_mode",
+    "search",
+    "normal_mode",
+]
+"A-?" = [
+    "select_mode",
+    "rsearch",
+    "normal_mode",
+]
+"/" = "search"
+"?" = "rsearch"
+b = [
+    "add_newline_below",
+    "move_line_down",
+    "paste_before",
+]
+"и" = [
+    "add_newline_below",
+    "move_line_down",
+    "paste_before",
+]
+B = [
+    "add_newline_above",
+    "move_line_up",
+    "paste_before",
+]
+"И" = [
+    "add_newline_above",
+    "move_line_up",
+    "paste_before",
+]
+S-A-down = "decrement"
+S-A-up = "increment"
+"," = "trim_selections"
+"б" = "trim_selections"
+":" = "split_selection_on_newline"
+"Ж" = "split_selection_on_newline"
+"C-;" = ':pipe °math "$(cat)"'
+"C-ж" = ':pipe °math "$(cat)"'
+A-h = "@<lt>■mc"
+"A-р" = "@<lt>■mc"
+A-l = "@<gt>■mc"
+"A-д" = "@<gt>■mc"
+C-h = "select_prev_sibling"
+"C-р" = "select_prev_sibling"
+C-j = "shrink_selection"
+"C-о" = "shrink_selection"
+C-k = [
+    "expand_selection",
+    "ensure_selections_forward",
+    "flip_selections",
+]
+"C-л" = [
+    "expand_selection",
+    "ensure_selections_forward",
+    "flip_selections",
+]
+C-l = "select_next_sibling"
+"C-д" = "select_next_sibling"
+C-m = [
+    "save_selection",
+    "select_all_siblings",
+]
+"C-ь" = [
+    "save_selection",
+    "select_all_siblings",
+]
+C-n = "extend_search_next"
+"C-т" = "extend_search_next"
+C-q = ":cd .."
+"C-й" = ":cd .."
+C-v = "replace"
+"C-м" = "replace"
+C-x = "join_selections"
+"C-ч" = "join_selections"
+C = "@c<ret><esc>"
+"С" = "@c<ret><esc>"
+I = "insert_at_line_start"
+"Ш" = "insert_at_line_start"
+M = "merge_selections"
+"Ь" = "merge_selections"
+N = [
+    "ensure_selections_forward",
+    "flip_selections",
+    "search_prev",
+]
+"Т" = [
+    "ensure_selections_forward",
+    "flip_selections",
+    "search_prev",
+]
+O = "paste_before"
+"Щ" = "paste_before"
+Q = "split_selection"
+"Й" = "split_selection"
+S-A-F3 = "extend_search_prev"
+S-A-F4 = "merge_consecutive_selections"
+T = "redo"
+"Е" = "redo"
+U = "insert_at_line_end"
+"Г" = "insert_at_line_end"
+V = [
+    "collapse_selection",
+    "replace",
+]
+"М" = [
+    "collapse_selection",
+    "replace",
+]
+W = "mark_add"
+"Ц" = "mark_add"
+X = "join_selections_space"
+"Ч" = "join_selections_space"
+c = "change_selection_noyank"
+"с" = "change_selection_noyank"
+d = "delete_selection_noyank"
+"в" = "delete_selection_noyank"
+h = "move_char_left"
+"р" = "move_char_left"
+i = "insert_mode"
+"ш" = "insert_mode"
+j = "move_visual_line_down"
+"о" = "move_visual_line_down"
+k = "move_visual_line_up"
+"л" = "move_visual_line_up"
+l = "move_char_right"
+"д" = "move_char_right"
+m = [
+    "collapse_selection",
+    "normal_mode",
+]
+"ь" = [
+    "collapse_selection",
+    "normal_mode",
+]
+n = [
+    "ensure_selections_forward",
+    "search_next",
+]
+"т" = [
+    "ensure_selections_forward",
+    "search_next",
+]
+o = "paste_after"
+"щ" = "paste_after"
+q = "select_regex"
+"й" = "select_regex"
+s = "yank"
+"ы" = "yank"
+t = "undo"
+"е" = "undo"
+w = "flip_selections"
+"ц" = "flip_selections"
+x = "replace_with_yanked"
+"ч" = "replace_with_yanked"
+"÷" = "@<space>w<ret>"
+"*" = [
+    "search_selection_detect_word_boundaries",
+    "normal_mode",
+]
+"#" = "no_op"
+"√" = "no_op"
+"$" = "no_op"
+"+" = "rotate_selections_forward"
+- = "rotate_selections_backward"
+"=" = "remove_primary_selection"
+"×" = "select_references_to_symbol_under_cursor"
+"%" = [
+    "save_selection",
+    "select_all",
+]
+"!" = ":pipe €str trim"
+"…" = "no_op"
+'\' = "shell_pipe_to"
+"₽" = "no_op"
+"^" = "@aj<A-O>*<ins>"
+"@" = "toggle_comments"
+"™" = "no_op"
+"€" = ":pipe €$in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
+"`" = [
+    "collapse_selection",
+    "switch_case",
+]
+_ = "switch_to_lowercase"
+"—" = "select_character"
+"¢" = "no_op"
+"~" = "@%q<ret>"
+"Ё" = "@%q<ret>"
+"&" = "@q<ret>"
+"°" = "align_selections"
+"|" = "shell_pipe"
+"⊻" = ":tree-sitter-subtree"
+"⊼" = ":tree-sitter-highlight-name"
+"≤" = "rotate_selection_contents_forward"
+"≥" = "rotate_selection_contents_backward"
+"≈" = "reverse_selection_contents"
+"≺" = "rotate_selections_first"
+"≻" = "rotate_selections_last"
+"␈" = ":random"
+"␡" = "no_op"
+"⤒" = ":uniq"
+"⤓" = ":sort"
+"(" = "jump_backward"
+")" = "jump_forward"
+"[" = ":open %sh{baconator.rs prev %(full_path) %(cursor_line) %(cursor_column)}"
+"х" = ":open %sh{baconator.rs prev %(full_path) %(cursor_line) %(cursor_column)}"
+"]" = ":open %sh{baconator.rs next %(full_path) %(cursor_line) %(cursor_column)}"
+"ъ" = ":open %sh{baconator.rs next %(full_path) %(cursor_line) %(cursor_column)}"
+"{" = "goto_prev_change"
+"Х" = "goto_prev_change"
+"}" = "goto_next_change"
+"Ъ" = "goto_next_change"
+"«" = ":open %sh{baconator.rs last %(full_path) %(cursor_line) %(cursor_column)}"
+"»" = ":open %sh{baconator.rs first  %(full_path) %(cursor_line) %(cursor_column)}"
+"‘" = "goto_last_change"
+"’" = "goto_first_change"
+"„" = "repeat_last_motion"
+"⁷" = "goto_first_diag"
+"⁸" = "goto_next_diag"
+"⁹" = "goto_prev_diag"
+"⁻" = "goto_last_diag"
+"󰟢" = "shrink_to_line_bounds"
+"∞" = "shell_append_output"
+"✨" = "shell_insert_output"
+"←" = "shell_keep_pipe"
+"↑" = "keep_selections"
+"↓" = "remove_selections"
+"█" = "@q█<ret>c"
+"✅" = "no_op"
+"❌" = "no_op"
+"❓" = "no_op"
+"❗" = "no_op"
+"💡" = "no_op"
+e = [
+    "move_prev_word_start",
+    "trim_selections",
+]
+"у" = [
+    "move_prev_word_start",
+    "trim_selections",
+]
+f = [
+    "move_next_word_end",
+    "trim_selections",
+]
+"а" = [
+    "move_next_word_end",
+    "trim_selections",
+]
+C-e = ["extend_prev_word_start"]
+"C-у" = ["extend_prev_word_start"]
+C-f = ["extend_next_word_end"]
+"C-а" = ["extend_next_word_end"]
+E = [
+    "move_prev_long_word_start",
+    "trim_selections",
+]
+"У" = [
+    "move_prev_long_word_start",
+    "trim_selections",
+]
+F = [
+    "move_next_long_word_end",
+    "trim_selections",
+]
+"А" = [
+    "move_next_long_word_end",
+    "trim_selections",
+]
+S-A-F7 = ["extend_next_long_word_end"]
+S-A-F8 = ["extend_prev_long_word_start"]
+C-A-x = [
+    "ensure_selections_forward",
+    "extend_to_file_end",
+]
+C-A-z = [
+    "ensure_selections_forward",
+    "flip_selections",
+    "extend_to_file_start",
+]
+end = [
+    "ensure_selections_forward",
+    "extend_to_line_end",
+]
+home = [
+    "ensure_selections_forward",
+    "flip_selections",
+    "extend_to_first_nonwhitespace",
+]
+S-end = ["extend_to_line_end"]
+S-home = ["extend_to_first_nonwhitespace"]
+A-ret = "goto_file"
+S-tab = "@<space>'<up><ret>"
+backspace = [
+    "save_selection",
+    "select_all",
+    "yank_to_clipboard",
+    "jump_backward",
+]
+esc = [
+    "save_selection",
+    "keep_primary_selection",
+    "normal_mode",
+]
+ret = "command_mode"
+tab = "@<space>'<down><ret>"
+pagedown = "page_cursor_half_down"
+pageup = "page_cursor_half_up"
+S-pagedown = [
+    "select_mode",
+    "page_cursor_half_down",
+    "normal_mode",
+]
+S-pageup = [
+    "select_mode",
+    "page_cursor_half_up",
+    "normal_mode",
+]
+C-pagedown = "goto_next_paragraph"
+C-pageup = "goto_prev_paragraph"
+C-A-pagedown = [
+    "select_mode",
+    "goto_next_paragraph",
+    "normal_mode",
+]
+C-A-pageup = [
+    "select_mode",
+    "goto_prev_paragraph",
+    "normal_mode",
+]
+S-A-F9 = [
+    "extend_to_line_bounds",
+    "select_line_below",
+]
+S-A-F10 = [
+    "extend_to_line_bounds",
+    "select_line_above",
+]
+J = [
+    "extend_to_line_bounds",
+    "extend_line_below",
+]
+"О" = [
+    "extend_to_line_bounds",
+    "extend_line_below",
+]
+K = [
+    "extend_to_line_bounds",
+    "extend_line_above",
+]
+"Л" = [
+    "extend_to_line_bounds",
+    "extend_line_above",
+]
+left = "extend_char_left"
+right = "extend_char_right"
+A-down = "extend_visual_line_down"
+A-up = "extend_visual_line_up"
+"┗" = "goto_declaration"
+"┃" = "code_action"
+"┻" = "goto_type_definition"
+"━" = "goto_definition"
+"┳" = "goto_reference"
+"┫" = "goto_implementation"
+"┓" = "rename_symbol"
+"┣" = "hover"
+"┛" = ":open %sh{°resolve_fish_function %(selection)}"
+S-down = "move_lines_down"
+S-up = "move_lines_up"
+D = "mark_apply"
+"В" = "mark_apply"
+S = "mark_replace"
+"Ы" = "mark_replace"
+"." = "extend_to_line_bounds"
+"ю" = "extend_to_line_bounds"
+0 = ":buffer-nth -r 1"
+1 = ":buffer-nth 1"
+2 = ":buffer-nth 2"
+3 = ":buffer-nth 3"
+4 = ":buffer-nth 4"
+5 = ":buffer-nth 5"
+6 = ":buffer-nth 6"
+7 = ":buffer-nth 7"
+8 = ":buffer-nth 8"
+9 = ":buffer-nth 9"
+"→" = "retain_column"
+A-B = [
+    "add_newline_above",
+    "move_line_up",
+    "paste_before_all",
+]
+"A-И" = [
+    "add_newline_above",
+    "move_line_up",
+    "paste_before_all",
+]
+A-O = "paste_before_all"
+"A-Щ" = "paste_before_all"
+A-b = [
+    "add_newline_below",
+    "move_line_down",
+    "paste_before_all",
+]
+"A-и" = [
+    "add_newline_below",
+    "move_line_down",
+    "paste_before_all",
+]
+A-i = "continue_last_insert"
+"A-ш" = "continue_last_insert"
+A-o = "paste_after_all"
+"A-щ" = "paste_after_all"
+"C-/" = "select_first_and_last_chars"
+S-A-F1 = [
+    "extend_prev_sibling",
+    "ensure_selections_forward",
+    "flip_selections",
+]
+S-A-F2 = [
+    "extend_next_sibling",
+    "ensure_selections_forward",
+]
+p = "copy_yank_to_register"
+"з" = "copy_yank_to_register"
+u = "append_mode_same_line"
+"г" = "append_mode_same_line"
+"<" = "find_prev_char"
+"Б" = "find_prev_char"
+">" = "find_next_char"
+"Ю" = "find_next_char"
+"C-," = "till_prev_char"
+"C-б" = "till_prev_char"
+"C-." = "find_till_char"
+"C-ю" = "find_till_char"
+"A-," = "extend_prev_char"
+"A-б" = "extend_prev_char"
+"A-." = "extend_next_char"
+"A-ю" = "extend_next_char"
+"C-A-," = "extend_till_prev_char"
+"C-A-." = "extend_till_char"
+v = "harp_mark"
+"м" = "harp_mark"
+r = "harp_search"
+"к" = "harp_search"
+z = "harp_register"
+"я" = "harp_register"
+"┏" = "goto_hover"
+
+[keys.normal."”"]
+t = "goto_next_test"
+"}" = "goto_next_entry"
+e = "goto_next_entry"
+"»" = "goto_next_comment"
+v = "goto_next_comment"
+"”" = "goto_next_function"
+f = "goto_next_function"
+"“" = "goto_next_parameter"
+a = "goto_next_parameter"
+"]" = "goto_next_class"
+c = "goto_next_class"
+
+[keys.normal."“"]
+t = "goto_prev_test"
+"}" = "goto_prev_entry"
+e = "goto_prev_entry"
+"»" = "goto_prev_comment"
+v = "goto_prev_comment"
+"”" = "goto_prev_function"
+f = "goto_prev_function"
+"“" = "goto_prev_parameter"
+a = "goto_prev_parameter"
+"]" = "goto_prev_class"
+c = "goto_prev_class"
+
+[keys.normal.del]
+s = ":open %sh(create-new-script.fish ~/fes/dot/lai)"
+d = ":open %sh(create-new-script.fish ~/fes/dot/lai/fool)"
+S-del = [
+    ":sh rm %(full_path)",
+    ":buffer-close!",
+]
+
+[keys.normal.a]
+";" = ":toggle soft-wrap.enable"
+A = ":sh chmod +x %(full_path)"
+a = "match_brackets"
+d = "surround_delete"
+f = "surround_replace"
+i = ":sh sl.fish %(full_path)"
+j = ":new"
+k = ":toggle enable-diagnostics"
+l = ":toggle lsp.display-inlay-hints"
+n = ":sh °append_github_line_numbers %(cursor_line)"
+o = ":fmt"
+s = "surround_add"
+C-c = ":echopy %(full_path):%(cursor_line)"
+C = ":echopy %(relative_path)"
+V = ":echopy %sh(ghl -pb HEAD %(relative_path))"
+X = ":echopy %sh(ghl)"
+c = ":echopy %(full_path)"
+u = [
+    "yank",
+    ":new",
+    "paste_before_all",
+]
+v = ":echopy %sh(ghl %(relative_path))"
+x = ":echopy %{working_directory}"
+
+[keys.normal.a.t]
+k = ':pipe €"<kbd>" + $in + "</kbd>"'
+b = ':pipe €"<b>" + $in + "</b>"'
+h = ':pipe €"<h>" + $in + "</h>"'
+d = ':pipe €"<div>" + $in + "</div>"'
+c = ':pipe €"<cd>" + $in + "</cd>"'
+o = ':pipe €"<o>" + $in + "</o>"'
+i = ':pipe €"<i>" + $in + "</i>"'
+t = "surround_add_tag"
+
+[keys.normal.a.e]
+"(" = ":pipe strip-wrapper-type.rs b"
+"{" = ":pipe strip-wrapper-type.rs B"
+"[" = ":pipe strip-wrapper-type.rs s"
+"<" = ":pipe strip-wrapper-type.rs t"
+")" = ":pipe strip-wrapper-type.rs b→"
+"}" = ":pipe strip-wrapper-type.rs B→"
+"]" = ":pipe strip-wrapper-type.rs s→"
+">" = ":pipe strip-wrapper-type.rs t→"
+"|" = ":pipe strip-wrapper-type.rs p"
+"/" = ":pipe strip-wrapper-type.rs /"
+j = ":pipe strip-wrapper-type.rs backtick"
+'"' = ":pipe strip-wrapper-type.rs doublequote"
+"'" = ":pipe strip-wrapper-type.rs singlequote"
+e = ":pipe strip-wrapper-type.rs begin"
+
+[keys.normal.a.w]
+"(" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b"
+"{" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
+"[" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
+"<" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t"
+")" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b→"
+"}" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B→"
+"]" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s→"
+">" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t→"
+"|" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' p"
+o = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' ''"
+j = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-backtick"
+'"' = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-doublequote"
+"'" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-singlequote"
+e = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' begin"
+
+[keys.normal."ф"]
+";" = ":toggle soft-wrap.enable"
+"ж" = ":toggle soft-wrap.enable"
+A = ":sh chmod +x %(full_path)"
+"Ф" = ":sh chmod +x %(full_path)"
+a = "match_brackets"
+"ф" = "match_brackets"
+d = "surround_delete"
+"в" = "surround_delete"
+f = "surround_replace"
+"а" = "surround_replace"
+i = ":sh sl.fish %(full_path)"
+"ш" = ":sh sl.fish %(full_path)"
+j = ":new"
+"о" = ":new"
+k = ":toggle enable-diagnostics"
+"л" = ":toggle enable-diagnostics"
+l = ":toggle lsp.display-inlay-hints"
+"д" = ":toggle lsp.display-inlay-hints"
+n = ":sh °append_github_line_numbers %(cursor_line)"
+"т" = ":sh °append_github_line_numbers %(cursor_line)"
+o = ":fmt"
+"щ" = ":fmt"
+s = "surround_add"
+"ы" = "surround_add"
+C-c = ":echopy %(full_path):%(cursor_line)"
+"C-с" = ":echopy %(full_path):%(cursor_line)"
+C = ":echopy %(relative_path)"
+"С" = ":echopy %(relative_path)"
+V = ":echopy %sh(ghl -pb HEAD %(relative_path))"
+"М" = ":echopy %sh(ghl -pb HEAD %(relative_path))"
+X = ":echopy %sh(ghl)"
+"Ч" = ":echopy %sh(ghl)"
+c = ":echopy %(full_path)"
+"с" = ":echopy %(full_path)"
+u = [
+    "yank",
+    ":new",
+    "paste_before_all",
+]
+"г" = [
+    "yank",
+    ":new",
+    "paste_before_all",
+]
+v = ":echopy %sh(ghl %(relative_path))"
+"м" = ":echopy %sh(ghl %(relative_path))"
+x = ":echopy %{working_directory}"
+"ч" = ":echopy %{working_directory}"
+
+[keys.normal."ф".t]
+k = ':pipe €"<kbd>" + $in + "</kbd>"'
+b = ':pipe €"<b>" + $in + "</b>"'
+h = ':pipe €"<h>" + $in + "</h>"'
+d = ':pipe €"<div>" + $in + "</div>"'
+c = ':pipe €"<cd>" + $in + "</cd>"'
+o = ':pipe €"<o>" + $in + "</o>"'
+i = ':pipe €"<i>" + $in + "</i>"'
+t = "surround_add_tag"
+
+[keys.normal."ф"."е"]
+k = ':pipe €"<kbd>" + $in + "</kbd>"'
+"л" = ':pipe €"<kbd>" + $in + "</kbd>"'
+b = ':pipe €"<b>" + $in + "</b>"'
+"и" = ':pipe €"<b>" + $in + "</b>"'
+h = ':pipe €"<h>" + $in + "</h>"'
+"р" = ':pipe €"<h>" + $in + "</h>"'
+d = ':pipe €"<div>" + $in + "</div>"'
+"в" = ':pipe €"<div>" + $in + "</div>"'
+c = ':pipe €"<cd>" + $in + "</cd>"'
+"с" = ':pipe €"<cd>" + $in + "</cd>"'
+o = ':pipe €"<o>" + $in + "</o>"'
+"щ" = ':pipe €"<o>" + $in + "</o>"'
+i = ':pipe €"<i>" + $in + "</i>"'
+"ш" = ':pipe €"<i>" + $in + "</i>"'
+t = "surround_add_tag"
+"е" = "surround_add_tag"
+
+[keys.normal."ф".e]
+"(" = ":pipe strip-wrapper-type.rs b"
+"{" = ":pipe strip-wrapper-type.rs B"
+"[" = ":pipe strip-wrapper-type.rs s"
+"<" = ":pipe strip-wrapper-type.rs t"
+")" = ":pipe strip-wrapper-type.rs b→"
+"}" = ":pipe strip-wrapper-type.rs B→"
+"]" = ":pipe strip-wrapper-type.rs s→"
+">" = ":pipe strip-wrapper-type.rs t→"
+"|" = ":pipe strip-wrapper-type.rs p"
+"/" = ":pipe strip-wrapper-type.rs /"
+j = ":pipe strip-wrapper-type.rs backtick"
+'"' = ":pipe strip-wrapper-type.rs doublequote"
+"'" = ":pipe strip-wrapper-type.rs singlequote"
+e = ":pipe strip-wrapper-type.rs begin"
+
+[keys.normal."ф"."у"]
+"(" = ":pipe strip-wrapper-type.rs b"
+"{" = ":pipe strip-wrapper-type.rs B"
+"Х" = ":pipe strip-wrapper-type.rs B"
+"[" = ":pipe strip-wrapper-type.rs s"
+"х" = ":pipe strip-wrapper-type.rs s"
+"<" = ":pipe strip-wrapper-type.rs t"
+"Б" = ":pipe strip-wrapper-type.rs t"
+")" = ":pipe strip-wrapper-type.rs b→"
+"}" = ":pipe strip-wrapper-type.rs B→"
+"Ъ" = ":pipe strip-wrapper-type.rs B→"
+"]" = ":pipe strip-wrapper-type.rs s→"
+"ъ" = ":pipe strip-wrapper-type.rs s→"
+">" = ":pipe strip-wrapper-type.rs t→"
+"Ю" = ":pipe strip-wrapper-type.rs t→"
+"|" = ":pipe strip-wrapper-type.rs p"
+"/" = ":pipe strip-wrapper-type.rs /"
+j = ":pipe strip-wrapper-type.rs backtick"
+"о" = ":pipe strip-wrapper-type.rs backtick"
+'"' = ":pipe strip-wrapper-type.rs doublequote"
+"Э" = ":pipe strip-wrapper-type.rs doublequote"
+"'" = ":pipe strip-wrapper-type.rs singlequote"
+"э" = ":pipe strip-wrapper-type.rs singlequote"
+e = ":pipe strip-wrapper-type.rs begin"
+"у" = ":pipe strip-wrapper-type.rs begin"
+
+[keys.normal."ф".w]
+"(" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b"
+"{" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
+"[" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
+"<" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t"
+")" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b→"
+"}" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B→"
+"]" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s→"
+">" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t→"
+"|" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' p"
+o = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' ''"
+j = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-backtick"
+'"' = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-doublequote"
+"'" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-singlequote"
+e = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' begin"
+
+[keys.normal."ф"."ц"]
+"(" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b"
+"{" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
+"Х" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
+"[" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
+"х" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
+"<" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t"
+"Б" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t"
+")" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b→"
+"}" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B→"
+"Ъ" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B→"
+"]" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s→"
+"ъ" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s→"
+">" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t→"
+"Ю" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t→"
+"|" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' p"
+o = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' ''"
+"щ" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' ''"
+j = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-backtick"
+"о" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-backtick"
+'"' = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-doublequote"
+"Э" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-doublequote"
+"'" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-singlequote"
+"э" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-singlequote"
+e = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' begin"
+"у" = ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' begin"
+
+[keys.normal.space]
+A-c = "no_op"
+G = "no_op"
+Y = "no_op"
+"`" = "switch_case"
+D = "diagnostics_picker"
+J = "command_palette"
+K = "syntax_workspace_symbol_picker"
+L = "lsp_or_syntax_workspace_symbol_picker"
+S-end = ["extend_to_line_end_newline"]
+S-home = ["extend_to_line_start"]
+e = "buffer_picker"
+end = [
+    "ensure_selections_forward",
+    "extend_to_line_end_newline",
+]
+f = "file_picker_in_current_directory"
+home = [
+    "ensure_selections_forward",
+    "flip_selections",
+    "extend_to_line_start",
+]
+j = "file_picker_in_current_buffer_directory"
+k = "syntax_symbol_picker"
+l = "lsp_or_syntax_symbol_picker"
+space = [
+    ":noop %sh{~/fes/dot/helix/generator.nu}",
+    ":config-reload",
+]
+w = "global_search"
+g = ':open %sh(€"plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
+h = ':open %sh(€"thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
+b = ':open %sh(€"system.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md" })'
+a = "harp_command"
+i = "local_search_fuzzy"
+o = "local_search_section"
+r = "harp_relative_file"
+s = "harp_file"
+
+[keys.normal.space.d]
+"'" = ":open ~/.local/share/magazine/apostrophe"
+"A-'" = ":open ~/.local/share/magazine/a-apostrophe"
+"C-'" = ":open ~/.local/share/magazine/c-apostrophe"
+'"' = ":open ~/.local/share/magazine/doublequote"
+"," = ":open ~/.local/share/magazine/comma"
+"." = ":open ~/.local/share/magazine/period.md"
+"/" = ":open ~/.local/share/magazine/slash"
+0 = ":open ~/.local/share/magazine/0"
+1 = ":open ~/.local/share/magazine/1"
+2 = ":open ~/.local/share/magazine/2"
+3 = ":open ~/.local/share/magazine/3"
+4 = ":open ~/.local/share/magazine/4"
+5 = ":open ~/.local/share/magazine/5"
+6 = ":open ~/.local/share/magazine/6"
+7 = ":open ~/.local/share/magazine/7"
+8 = ":open ~/.local/share/magazine/8"
+9 = ":open ~/.local/share/magazine/9"
+":" = ":open ~/.local/share/magazine/colon"
+";" = ":open ~/.local/share/magazine/semicolon.md"
+"<" = ":open ~/.local/share/magazine/leftpointy"
+">" = ":open ~/.local/share/magazine/rightpointy"
+"?" = ":open ~/.local/share/magazine/question"
+"A-," = ":open ~/.local/share/magazine/a-comma"
+"A-." = ":open ~/.local/share/magazine/a-period"
+"A-/" = ":open ~/.local/share/magazine/a-slash"
+"A-;" = ":open ~/.local/share/magazine/a-semicolon"
+"A-[" = ":open ~/.local/share/magazine/a-leftbrace"
+"A-]" = ":open ~/.local/share/magazine/a-rightbrace"
+"C-," = ":open ~/.local/share/magazine/c-comma"
+"C-." = ":open ~/.local/share/magazine/c-period"
+"C-/" = ":open ~/.local/share/magazine/c-slash"
+"C-;" = ":open ~/.local/share/magazine/c-semicolon"
+"C-[" = ":open ~/.local/share/magazine/c-leftbrace"
+"C-]" = ":open ~/.local/share/magazine/c-rightbrace"
+A-a = ":open ~/.local/share/magazine/a-a"
+A-b = ":open ~/.local/share/magazine/a-b"
+A-c = ":open ~/.local/share/magazine/a-c"
+A-d = ":open ~/.local/share/magazine/a-d"
+A-e = ":open ~/.local/share/magazine/a-e"
+A-f = ":open ~/.local/share/magazine/a-f"
+A-g = ":open ~/.local/share/magazine/a-g"
+A-h = ":open ~/.local/share/magazine/a-h"
+A-i = ":open ~/.local/share/magazine/a-i"
+A-j = ":open ~/.local/share/magazine/a-j"
+A-k = ":open ~/.local/share/magazine/a-k"
+A-l = ":open ~/.local/share/magazine/a-l"
+A-m = ":open ~/.local/share/magazine/a-m"
+A-n = ":open ~/.local/share/magazine/a-n"
+A-o = ":open ~/.local/share/magazine/a-o"
+A-p = ":open ~/.local/share/magazine/a-p"
+A-q = ":open ~/.local/share/magazine/a-q"
+A-r = ":open ~/.local/share/magazine/a-r"
+A-s = ":open ~/.local/share/magazine/a-s"
+A-t = ":open ~/.local/share/magazine/a-t"
+A-u = ":open ~/.local/share/magazine/a-u"
+A-v = ":open ~/.local/share/magazine/a-v"
+A-w = ":open ~/.local/share/magazine/a-w"
+A-x = ":open ~/.local/share/magazine/a-x"
+A-y = ":open ~/.local/share/magazine/a-y"
+A-z = ":open ~/.local/share/magazine/a-z"
+A = ":open ~/.local/share/magazine/A"
+B = ":open ~/.local/share/magazine/B"
+C-a = ":open ~/.local/share/magazine/c-a"
+C-b = ":open ~/.local/share/magazine/c-b"
+C-c = ":open ~/.local/share/magazine/c-c"
+C-d = ":open ~/.local/share/magazine/c-d"
+C-e = ":open ~/.local/share/magazine/c-e"
+C-f = ":open ~/.local/share/magazine/c-f"
+C-g = ":open ~/.local/share/magazine/c-g"
+C-h = ":open ~/.local/share/magazine/c-h"
+C-i = ":open ~/.local/share/magazine/c-i"
+C-j = ":open ~/.local/share/magazine/c-j"
+C-k = ":open ~/.local/share/magazine/c-k"
+C-l = ":open ~/.local/share/magazine/c-l"
+C-m = ":open ~/.local/share/magazine/c-m"
+C-n = ":open ~/.local/share/magazine/c-n"
+C-o = ":open ~/.local/share/magazine/c-o"
+C-p = ":open ~/.local/share/magazine/c-p"
+C-q = ":open ~/.local/share/magazine/c-q"
+C-r = ":open ~/.local/share/magazine/c-r"
+C-s = ":open ~/.local/share/magazine/c-s"
+C-t = ":open ~/.local/share/magazine/c-t"
+C-u = ":open ~/.local/share/magazine/c-u"
+C-v = ":open ~/.local/share/magazine/c-v"
+C-w = ":open ~/.local/share/magazine/c-w"
+C-x = ":open ~/.local/share/magazine/c-x"
+C-y = ":open ~/.local/share/magazine/c-y"
+C-z = ":open ~/.local/share/magazine/c-z"
+C = ":open ~/.local/share/magazine/C"
+D = ":open ~/.local/share/magazine/D"
+E = ":open ~/.local/share/magazine/E"
+F = ":open ~/.local/share/magazine/F"
+G = ":open ~/.local/share/magazine/G"
+H = ":open ~/.local/share/magazine/H"
+I = ":open ~/.local/share/magazine/I"
+J = ":open ~/.local/share/magazine/J"
+K = ":open ~/.local/share/magazine/K"
+L = ":open ~/.local/share/magazine/L"
+M = ":open ~/.local/share/magazine/M"
+N = ":open ~/.local/share/magazine/N"
+O = ":open ~/.local/share/magazine/O"
+P = ":open ~/.local/share/magazine/P"
+Q = ":open ~/.local/share/magazine/Q"
+R = ":open ~/.local/share/magazine/R"
+S = ":open ~/.local/share/magazine/S"
+T = ":open ~/.local/share/magazine/T"
+U = ":open ~/.local/share/magazine/U"
+V = ":open ~/.local/share/magazine/V"
+W = ":open ~/.local/share/magazine/W"
+X = ":open ~/.local/share/magazine/X"
+Y = ":open ~/.local/share/magazine/Y"
+Z = ":open ~/.local/share/magazine/Z"
+a = ":open ~/.local/share/magazine/a"
+b = ":open ~/.local/share/magazine/b"
+c = ":open ~/.local/share/magazine/c"
+d = ":open ~/.local/share/magazine/d.md"
+e = ":open ~/.local/share/magazine/e"
+f = ":open ~/.local/share/magazine/f.md"
+g = ":open ~/.local/share/magazine/g"
+h = ":open ~/.local/share/magazine/h"
+i = ":open ~/.local/share/magazine/i"
+j = ":open ~/.local/share/magazine/j"
+k = ":open ~/.local/share/magazine/k.md"
+l = ":open ~/.local/share/magazine/l"
+m = ":open ~/.local/share/magazine/m.md"
+n = ":open ~/.local/share/magazine/n"
+o = ":open ~/.local/share/magazine/o.nu"
+p = ":open ~/.local/share/magazine/p"
+q = ":open ~/.local/share/magazine/q"
+r = ":open ~/.local/share/magazine/r.md"
+s = ":open ~/.local/share/magazine/s"
+t = ":open ~/.local/share/magazine/t"
+u = ":open ~/.local/share/magazine/u"
+v = ":open ~/.local/share/magazine/v"
+w = ":open ~/.local/share/magazine/w"
+x = ":open ~/.local/share/magazine/x"
+y = ":open ~/.local/share/magazine/y"
+z = ":open ~/.local/share/magazine/z"
+
+[keys.normal.space.m]
+c = ":lang css"
+f = ":lang fish"
+h = ":lang html"
+j = ":lang json"
+m = ":lang markdown"
+n = ":lang nu"
+s = ":lang bash"
+
+[keys.normal.g]
+D = "no_op"
+c = "no_op"
+d = "no_op"
+I = ":buffer-close-all!"
+O = ":buffer-close-others!"
+Q = ":cd %(buffer_parent)"
+g = ":reset-diff-change"
+i = ":buffer-close-all"
+o = ":buffer-close-others"
+q = ':cd %sh(git -C "%(buffer_parent)" rev-parse --show-toplevel)'
+r = ":lsp-restart"
+H = ":buffer-close-previous!"
+L = ":buffer-close-next!"
+h = ":buffer-close-previous"
+l = ":buffer-close-next"
+
+[keys.normal."п"]
+D = "no_op"
+"В" = "no_op"
+c = "no_op"
+"с" = "no_op"
+d = "no_op"
+"в" = "no_op"
+I = ":buffer-close-all!"
+"Ш" = ":buffer-close-all!"
+O = ":buffer-close-others!"
+"Щ" = ":buffer-close-others!"
+Q = ":cd %(buffer_parent)"
+"Й" = ":cd %(buffer_parent)"
+g = ":reset-diff-change"
+"п" = ":reset-diff-change"
+i = ":buffer-close-all"
+"ш" = ":buffer-close-all"
+o = ":buffer-close-others"
+"щ" = ":buffer-close-others"
+q = ':cd %sh(git -C "%(buffer_parent)" rev-parse --show-toplevel)'
+"й" = ':cd %sh(git -C "%(buffer_parent)" rev-parse --show-toplevel)'
+r = ":lsp-restart"
+"к" = ":lsp-restart"
+H = ":buffer-close-previous!"
+"Р" = ":buffer-close-previous!"
+L = ":buffer-close-next!"
+"Д" = ":buffer-close-next!"
+h = ":buffer-close-previous"
+"р" = ":buffer-close-previous"
+l = ":buffer-close-next"
+"д" = ":buffer-close-next"
+
+[keys.insert]
+C-s = "signature_help"
+"C-ы" = "signature_help"
+C-i = [
+    "commit_undo_checkpoint",
+    "open_above",
+]
+"C-ш" = [
+    "commit_undo_checkpoint",
+    "open_above",
+]
+C-o = [
+    "commit_undo_checkpoint",
+    "open_below",
+]
+"C-щ" = [
+    "commit_undo_checkpoint",
+    "open_below",
+]
+A-left = "goto_prev_tabstop"
+A-right = "goto_next_tabstop"
+A-tab = ":open %sh(wl-paste -n)"
+C-tab = "add_newline_above"
+F12 = "add_newline_below"
+down = "completion"
+up = "completion"
+C-up = "copy_selection_on_prev_line"
+C-down = "copy_selection_on_next_line"
+C-left = "goto_previous_buffer"
+C-right = "goto_next_buffer"
+S-left = "unindent"
+S-right = "indent"
+C-home = "goto_file_start"
+C-end = [
+    "extend_to_file_end",
+    "collapse_selection",
+]
+A-pageup = "@<C-i>[[sort on]]<esc>@"
+A-pagedown = "@<C-o>[[sort off]]<esc>@"
+ins = ":write-buffer-close"
+A-w = ":write-buffer-close"
+"A-ц" = ":write-buffer-close"
+S-ins = ":buffer-close!"
+C-A-w = ":buffer-close!"
+A-space = ":write-quit-all"
+A-ins = ":quit!"
+C-space = ":write-all"
+C-ins = ":write!"
+C-t = ":reload"
+"C-е" = ":reload"
+S-A-F6 = ":write --no-format"
+S-A-F11 = ":write! --no-format"
+F1 = ":noop %sh(wind ° helix %(full_path):%(cursor_line):%(cursor_column))"
+F2 = [
+    ":noop %sh(echo %(full_path) >~/fes/zufi/blammo)",
+    ":noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}",
+]
+F3 = ":noop %sh(wind « ° bacon)"
+F4 = [
+    ":noop %sh{rm -f /tmp/mine/finder-choice}",
+    ':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "FROM_POPUP=true finder"}',
+    ":open %sh{cat /tmp/mine/finder-choice}",
+]
+S-F4 = [
+    ":noop %sh{rm -f /tmp/mine/finder-choice}",
+    ':noop %sh{foottitled.sh helix-popup -D %(buffer_parent) fish -c "FROM_POPUP=true finder"}',
+    ":open %sh{cat /tmp/mine/finder-choice}",
+]
+S-F6 = [
+    ":noop %sh{rm -f /tmp/mine/yazi-chooser-file}",
+    ":noop %sh(foottitled.sh helix-popup yazi %{full_path} --chooser-file=/tmp/mine/yazi-chooser-file)",
+    ":open %sh{cat /tmp/mine/yazi-chooser-file}",
+]
+F6 = [
+    ":noop %sh{rm -f /tmp/mine/yazi-chooser-file}",
+    ":noop %sh(foottitled.sh helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)",
+    ":open %sh{cat /tmp/mine/yazi-chooser-file}",
+]
+A-h = "@<esc><lt>■mc"
+"A-р" = "@<esc><lt>■mc"
+A-l = "@<esc><gt>■mc"
+"A-д" = "@<esc><gt>■mc"
+C-h = "commit_undo_checkpoint"
+"C-р" = "commit_undo_checkpoint"
+C-l = '@<C-h> \<ret>'
+"C-д" = '@<C-h> \<ret>'
+C-u = "kill_to_line_start"
+"C-г" = "kill_to_line_start"
+C-v = [
+    "collapse_selection",
+    "paste_before",
+]
+"C-м" = [
+    "collapse_selection",
+    "paste_before",
+]
+"C-ц" = [
+    "normal_mode",
+    "move_prev_word_start",
+    "change_selection_noyank",
+]
+end = [
+    "commit_undo_checkpoint",
+    "insert_at_line_end",
+]
+home = [
+    "commit_undo_checkpoint",
+    "insert_at_line_start",
+]
+left = [
+    "commit_undo_checkpoint",
+    "move_char_left",
+]
+right = [
+    "commit_undo_checkpoint",
+    "move_char_right",
+]
+S-down = "move_lines_down"
+S-up = "move_lines_up"
+A-down = "steal_char_below"
+A-up = "steal_char_above"
+C-a = [
+    "collapse_selection",
+    ":insert-output °uclanr | read",
+    "append_mode_same_line",
+]
+"C-ф" = [
+    "collapse_selection",
+    ":insert-output °uclanr | read",
+    "append_mode_same_line",
+]
+"C-;" = "harp_register"
+"C-ж" = "harp_register"
