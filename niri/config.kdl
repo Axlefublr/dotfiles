@@ -249,8 +249,8 @@ binds {
     Mod+Shift+Alt+D cooldown-ms=50 { consume-or-expel-window-right; }
     Mod+Shift+Alt+S cooldown-ms=50 { consume-or-expel-window-left; }
 
-    Mod+Ctrl+Shift+Alt+Down cooldown-ms=50 { move-workspace-down; }
-    Mod+Ctrl+Shift+Alt+Up   cooldown-ms=50 { move-workspace-up; }
+    // Mod+Ctrl+Shift+Alt+Down cooldown-ms=50 { move-workspace-down; }
+    // Mod+Ctrl+Shift+Alt+Up   cooldown-ms=50 { move-workspace-up; }
 
     Mod+Up { set-window-height "-5%"; }
     Mod+Down { set-window-height "+5%"; }
