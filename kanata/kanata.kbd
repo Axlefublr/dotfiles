@@ -136,7 +136,7 @@
 	/ (cmd fish -c "wtype (uclanr 3 -j -)")
 	; bspc
 	caps esc
-	g (cmd fish -c dot)
+	g (cmd test.fish)
 	h left
 	i tab
 	j down
@@ -200,11 +200,11 @@
 	/ (cmd man.nu nushell)
 	b (cmd pick-blog-post.nu)
 	h (cmd find-or-make.fish "app_id starts-with foot" "title == Tewi" "foottitled.sh Tewi -N tewi")
-	i (cmd find-or-make.fish "app_id == swayimg-srd" "swayimg --class swayimg-srd -g /home/axlefublr/iwm/srd")
+	i (cmd find-or-make.fish "app_id == swayimg-srd or title == swayimg-srd" "swayimg --class swayimg-srd -g /home/axlefublr/iwm/srd")
 	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "foottitled.sh finances -N ov --status-line=false --follow-name ~/.local/share/magazine/c-j")
 	k (cmd fish -c "niri msg action spawn -- foottitled.sh ake -ND /home/axlefublr/ake helix (uclanr -j - 3)")
 	l (cmd reuse-finder.nu /home/axlefublr/fes/mdw)
-	m (cmd find-or-make.fish "app_id == swayimg-slme" "swayimg --class swayimg-slme -g /home/axlefublr/iwm/osl/slme")
+	m (cmd find-or-make.fish "app_id == swayimg-slme or title == swayimg-slme" "swayimg --class swayimg-slme -g /home/axlefublr/iwm/osl/slme")
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == nak" "foottitled.sh nak -ND /home/axlefublr/fes/nak yazi")
 	o (cmd find-or-make.fish "app_id like '[Tt]odoist'" "Todoist.AppImage")
 	p (cmd find-or-make.fish "app_id starts-with foot" "title == receiver" "foottitled.sh receiver -N receiver.fish")
@@ -215,11 +215,11 @@
 (deflayermap (ag)
 	;; [[sort on]]
 	b (cmd create-blog-post.fish)
-	i (cmd find-or-make.fish "app_id == swayimg-sco" "swayimg --class swayimg-sco -g /home/axlefublr/iwm/sco")
+	i (cmd find-or-make.fish "app_id == swayimg-sco or title == swayimg-sco" "swayimg --class swayimg-sco -g /home/axlefublr/iwm/sco")
 	k (cmd reuse-finder.nu /home/axlefublr/ake)
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == kss" "foottitled.sh kss -ND /home/axlefublr/iwm/kss yazi")
 	o (cmd find-or-make.fish "app_id starts-with foot" "title == nom" "foottitled.sh nom -N nom")
-	p (cmd find-or-make.fish "app_id starts-with foot" "title == kanata" "")
+	p (cmd find-or-make.fish "app_id starts-with foot" "title == kanata" "unreachable!")
 	;; [[sort off]]
 )
 
