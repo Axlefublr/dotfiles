@@ -63,7 +63,7 @@ keymap = [
   { on = 'd', run = 'remove --force', desc = 'Trash selected' },
   { on = 'e', run = 'shell --block -- helix %s', desc = 'Open file in editor' },
   { on = 'f', run = 'plugin direct-zoxide', desc = 'Type in zoxide query to cd into' },
-  { on = 'g', run = 'shell -- swayimg -g %s', desc = 'Open gallery here' },
+  { on = 'g', run = '''shell --orphan -- fish -c 'niri msg action close-window ; niri msg action spawn -- swayimg --class swayimg-(path basename %d) -g %s'''', desc = 'Open gallery here' },
   { on = 'h', run = 'leave', desc = 'Go back to the parent directory' },
   { on = 'i', run = 'plugin fzf', desc = 'Pick a file to open with fzf' },
   { on = 'j', run = 'arrow 1', desc = 'Down' },
