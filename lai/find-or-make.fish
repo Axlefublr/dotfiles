@@ -15,7 +15,7 @@ na -c "
         let focused_togglie = \$found | where is_focused == true | first | get -o id
     	if (\$focused_togglie | is-not-empty) {
         	# if on $found length here
-       	if (\$found | length | \$in > 1) {
+           	if (\$found | length | \$in > 1) {
         	    let next = \$found | get -o id | skip while { |it| \$it != \$focused_togglie } | skip 1 | first
         	    if (\$next | is-empty) {
               		\$found | first | each {
@@ -36,7 +36,7 @@ na -c "
     		\$found | first | each {
     		    niri msg action focus-window --id (\$in | get id)
     		    niri msg action center-visible-columns
-    		}
+    		} | ignore
     	}
     } else {
         niri msg action spawn -- $argv[-1]
