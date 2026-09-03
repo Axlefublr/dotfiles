@@ -71,8 +71,6 @@ funcsave dof >/dev/null
 
 function dot
     echo dot >~/fes/zufi/waybar-red-dot
-    # echo launch
-    warn cooperative
 end
 funcsave dot >/dev/null
 
@@ -90,6 +88,8 @@ function flour
         set -f selected_config -c ~/fes/dot/helix/man.toml
     else if test "$_flag_sleek"
         set -f selected_config -c ~/fes/dot/helix/sleek.toml
+    else
+        set -f selected_config -c ~/fes/dot/helix/starve.toml
     end
 
     if test "$_flag_disown"
