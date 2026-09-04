@@ -2,10 +2,13 @@
 After=graphical-session.target
 PartOf=graphical-session.target
 Requisite=graphical-session.target
+StartLimitBurst=0
+StartLimitIntervalSec=0
 
 [Service]
 ExecStart=env ewwii daemon --no-daemonize
 Restart=always
+RestartSec=300ms
 Type=exec
 
 [Install]
