@@ -185,7 +185,7 @@ systemctl --user enable --now ~/fes/dot/systemd/eww.service
 
 # --------------------------ewwii--------------------------
 paru -Sa --needed --disable-download-timeout --noconfirm ewwii-bin
-ewwii shell-completions -s fish >~/.config/fish/completions/eww.fish
+ewwii shell-completions -s fish >~/.config/fish/completions/ewwii.fish
 rm -fr ~/.config/ewwii
 ln -s ~/fes/dot/ewwii ~/.config/ewwii
 systemctl --user enable --now ~/fes/dot/systemd/ewwii.service
@@ -206,8 +206,6 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout feh
 # --------------------------fifc---------------------------
 fisher install gazorby/fifc
 set -Ux fifc_editor helix
-# set -Ux fifc_fd_opts -u
-set -Ux fifc_keybinding \cn
 
 # -------------------------figlet--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout figlet
