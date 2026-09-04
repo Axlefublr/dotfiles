@@ -38,20 +38,21 @@ function fish_user_key_bindings
     # bind f12 _kb_schedule_commandline
     bind / expand-abbr self-insert
     bind alt-i edit_command_buffer
+    bind ctrl-. kill-whole-line end-of-line
     bind ctrl-e _kb_reexec
     bind ctrl-f _kb_blammo_pwd
     bind ctrl-i expand-abbr insert-line-over
     bind ctrl-l clear-screen
     bind ctrl-o expand-abbr insert-line-under
     bind ctrl-s repaint
-    bind ctrl-space 'commandline -i " "'
     bind ctrl-z fg
     bind f1 '_kb_follow_by nu ; commandline -f repaint'
     bind f2 '_kb_follow_by lazygit'
-    bind f3 'z (cat ~/fes/zufi/blammo | path dirname) ; commandline -f repaint'
+    bind f3 'z (cat /tmp/mine/blammo | path dirname) ; commandline -f repaint'
     bind f4 '_kb_follow_by finder'
     bind f5 '_kb_follow_by helix'
     bind f6 '_kb_follow_by yazi'
+    bind insert 'commandline -i " "'
     bind shift-f5 '_kb_follow_by "helix (git diff --name-only HEAD)"'
     # [[sort off]]
 end
