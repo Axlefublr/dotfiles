@@ -6,6 +6,7 @@ helix/config.toml
 helix/man.toml
 helix/pager.toml
 helix/pure.toml
+helix/starve.toml
 helix/quit.toml
 helix/runtime
 helix/screen.toml
