@@ -120,7 +120,7 @@ let all_mappings = {
 	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
 	# ]
 	F2: [
-		":noop %sh(echo %(full_path) >~/fes/zufi/blammo)"
+		":noop %sh(echo %(full_path) >/tmp/mine/blammo)"
 		':noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}'
 	]
 	F3: ':noop %sh(wind « ° bacon)'
@@ -325,7 +325,7 @@ let normal_mappings = {
 	S-home: [extend_to_first_nonwhitespace]
 	# -------------------------keyful--------------------------
 	# [[sort on]]
-	A-ret: 'goto_file'
+	F11: 'goto_file'
 	S-tab: "@<space>'<up><ret>"
 	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	esc: [save_selection keep_primary_selection normal_mode]
