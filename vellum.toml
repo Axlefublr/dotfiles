@@ -1,14 +1,17 @@
 default_tool = 'arrow'
-disable_toggle_eraser = true
-disable_toggle_radial = true
-remember_last_tool = true
-stroke_width = 6.0
+remember_last_tool = false
+stroke_size = 6.0
 default_color = '#e84046'
 feedback_duration_ms = 500
+# [[sort on]]
 tools.arrow.roundness = 1.0
-tools.rectangle.roundness = 0.0
 tools.line.roundness = 1.0
+tools.rectangle.roundness = 0.0
+tools.text.background = true
+tools.text.roundness = 0.4
 tools.text.size = 30.0
+tools.text.size_range.step = 1.0
+# [[sort off]]
 palette = [
   '#e84046', # red
   # '#ffafd7', # pink
