@@ -1,16 +1,4 @@
 [alias]
-a = 'add'
-br = 'build --release'
-c = 'clippy'
-cc = 'clippy --fix --workspace --allow-dirty --allow-staged'
-d = 'doc --no-deps --workspace'
-do = 'doc --open --no-deps --workspace'
-f = 'fmt'
-i = 'info'
-q = 'run -q'
-qr = 'run -q --release'
-rr = 'run --release'
-s = 'search'
 seek = 'seek --fps 100'
 
 [env]
