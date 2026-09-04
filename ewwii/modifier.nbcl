@@ -1,0 +1,39 @@
+component Modifier (text, x, y) {
+	Window self.id {
+		namespace = 'eww'
+		stacking = 'overlay'
+		geometry = {
+			anchor = 'bottom left'
+			x = x
+			y = y
+		}
+		Label {
+			class = 'modifier textoutline monospace padshadow ' + self.id
+			text = text
+		}
+	}
+}
+
+Modifier 'alt' {
+	text = '!'
+	x = '160px'
+	y = '15px'
+}
+
+Modifier 'shift' {
+	text = '+'
+	x = '111px'
+	y = '18px'
+}
+
+Modifier 'ctrl' {
+	text = '^'
+	x = '74px'
+	y = '4px'
+}
+
+Modifier 'meta' {
+	text = '#'
+	x = '25px'
+	y = '15px'
+}
