@@ -15,7 +15,9 @@ funcsave arebesties >/dev/null
 alias --save bell 'printf \a' >/dev/null
 
 function blammo
-    cat ~/fes/zufi/blammo 2>/dev/null
+    # this runs at interactive startup, shaving a millisecond or two
+    test -f /tmp/mine/blammo && read -z </tmp/mine/blammo
+    return 0
 end
 funcsave blammo >/dev/null
 
