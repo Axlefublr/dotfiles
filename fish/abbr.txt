@@ -8,6 +8,7 @@ Au →  A rust
 t  → systemctl
 tu → systemctl --user
 systemctl ← dr → daemon-reload
+systemctl ← f → reset-failed
 systemctl ← d → disable
 systemctl ← e → enable
 systemctl ← r → restart
@@ -16,7 +17,24 @@ systemctl ← c → status
 systemctl ← o → stop
 
 c  → cargo
+c. → cargo.nu
 cargo ← cc → clippy --fix --workspace --allow-dirty --allow-staged
+cargo ← a  → add
+cargo ← br → build -r
+cargo ← c  → clippy
+cargo ← d  → doc --no-deps --workspace
+cargo ← do → doc --no-deps --workspace --open
+cargo ← f  → fmt
+cargo ← i  → info
+cargo ← q  → run -q
+cargo ← qr → run -qr
+cargo ← r  → run
+cargo ← rr → run -r
+cargo ← s  → search
+
+magick ← loss → -define webp:lossless=true
+
+qrtool → qrtool.rs
 
 at → alien_temple
 e  → helix
@@ -25,8 +43,10 @@ q  → queue
 gz → glaza
 gx → glaza -g
 
+# [[sort on]]
+aA   → chmod +x
+chex → path change-extension
 cp   → rsync -r
-mM   → chmod +x
 hime → history merge
 l    → jobs
 mkd  → mkdir -p
@@ -34,9 +54,7 @@ rm   → gomi
 rmf  → rm -fr
 sude → sudo -E
 x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
-chex → path change-extension
-
-qrtool → qrtool.rs
+# [[sort off]]
 
 ls → eza
 la → eza -a
@@ -47,11 +65,6 @@ nas → na --stdin
 nac → na -c '█'
 nasc → na --stdin -c '█'
 
-magick ← loss → -define webp:lossless=true
-
 ei → sudo -E helix /usr/share/applications/█.desktop
 eui → helix ~/.local/share/applications/█.desktop
 E  → sudo -E helix
-de → cd ~/fes/dot && helix
-fC → sudo -E helix /etc/fancontrol
-fc → cat ~/fes/jiro/sudo | sudo -S systemctl restart fancontrol
