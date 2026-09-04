@@ -33,7 +33,7 @@ def --wrapped 'main duc' [url?: string, --dir(-d): directory, ...rest] {
 def 'main fork' [] {
 	gh repo fork --remote
 	gh repo set-default upstream
-	git branch --set-upstream-to=origin/(git branch --show-current)
+	git push -u origin
 	git config --unset-all remote.origin.fetch
 	git config --add remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 	main up
