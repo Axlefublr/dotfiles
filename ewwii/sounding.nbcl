@@ -1,0 +1,34 @@
+# component Sounding (side, orientation) {
+# 	Window self.id {
+# 		namespace = 'eww'
+# 		stacking = 'overlay'
+# 		geometry = {
+# 			width  = if orientation == 'vert' { '22px' } else { '80px' }
+# 			height = if orientation == 'hor'  { '22px' } else { '80px' }
+# 			anchor = 'bottom ' + side
+# 		}
+# 		Box {
+# 			class = 'fill-line'
+# 		}
+# 	}
+# }
+
+# Sounding 'sounding1' {
+# 	side = 'left'
+# 	orientation = 'vert'
+# }
+
+# Sounding 'sounding2' {
+# 	side = 'left'
+# 	orientation = 'hor'
+# }
+
+# Sounding 'sounding3' {
+# 	side = 'right'
+# 	orientation = 'vert'
+# }
+
+# Sounding 'sounding4' {
+# 	side = 'right'
+# 	orientation = 'hor'
+# }
