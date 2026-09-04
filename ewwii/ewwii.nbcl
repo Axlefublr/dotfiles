@@ -1,88 +1,17 @@
-component Modifier (text, class) {
-	Label {
-		class = 'modifier textoutline monospace padshadow ' + class
-		text = text
-	}
-}
+# component Prepared (any: props) {
+# 	Window self.id {
+# 		self.children
+# 	}
+# }
 
-Window 'alt' {
-	namespace = 'eww'
-	stacking = 'overlay'
-	geometry = {
-		anchor = 'bottom left'
-		y = '15px'
-		x = '160px'
-	}
-	Modifier {
-		text = '!'
-		class = 'alt'
-	}
-}
+# component Overlay (any: props) {
+# 	Window self.id {
+# 		...props
+# 		stacking = 'overlay'
+# 		self.children
+# 	}
+# }
 
-Window 'shift' {
-	namespace = 'eww'
-	stacking = 'overlay'
-	geometry = {
-		anchor = 'bottom left'
-		y = '18px'
-		x = '111px'
-	}
-	Modifier {
-		text = '+'
-		class = 'shift'
-	}
-}
-
-Window 'ctrl' {
-	namespace = 'eww'
-	stacking = 'overlay'
-	geometry = {
-		anchor = 'bottom left'
-		y = '4px'
-		x = '74px'
-	}
-	Modifier {
-		text = '^'
-		class = 'ctrl'
-	}
-}
-
-Window 'meta' {
-	namespace = 'eww'
-	stacking = 'overlay'
-	geometry = {
-		anchor = 'bottom left'
-		y = '15px'
-		x = '25px'
-	}
-	Modifier {
-		text = '#'
-		class = 'meta'
-	}
-}
-
-Listen 'volume' {
-	cmd = 'fish -c get_volume'
-}
-
-Window 'volume' {
-	namespace = 'eww'
-	stacking = 'overlay'
-	geometry = {
-		width = '50%'
-		anchor = 'top center'
-		y = '100px'
-	}
-	Box {
-		orientation = 'v'
-		spacing = '-5'
-		Progress {
-			value = global('volume')
-			valign = 'center'
-		}
-		Label {
-			text = global('volume')
-			class = 'volume-number textoutline'
-		}
-	}
-}
+import "modifier.nbcl" as modifier { * }
+import "volume.nbcl" as volume { * }
+# import "sounding.nbcl" as sounding { * }
