@@ -9,6 +9,7 @@ $env.config.completions.algorithm = 'prefix' # "prefix"|"substring"|"fuzzy"
 $env.config.cursor_shape.emacs = 'line'
 $env.config.history.file_format = 'sqlite'
 $env.config.history.isolation = true
+$env.config.max_last_result_size = 10mb
 $env.config.shell_integration.osc2 = false
 $env.config.show_banner = false
 $env.config.use_kitty_protocol = true # ^i and tab are different
