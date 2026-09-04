@@ -225,7 +225,7 @@ S-A-F6 = ":write --no-format"
 S-A-F11 = ":write! --no-format"
 F1 = ":noop %sh(wind ° helix %(full_path):%(cursor_line):%(cursor_column))"
 F2 = [
-    ":noop %sh(echo %(full_path) >~/fes/zufi/blammo)",
+    ":noop %sh(echo %(full_path) >/tmp/mine/blammo)",
     ":noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}",
 ]
 F3 = ":noop %sh(wind « ° bacon)"
@@ -563,7 +563,7 @@ home = [
 ]
 S-end = ["extend_to_line_end"]
 S-home = ["extend_to_first_nonwhitespace"]
-A-ret = "goto_file"
+F11 = "goto_file"
 S-tab = "@<space>'<up><ret>"
 backspace = [
     "save_selection",
@@ -1276,7 +1276,7 @@ S-A-F6 = ":write --no-format"
 S-A-F11 = ":write! --no-format"
 F1 = ":noop %sh(wind ° helix %(full_path):%(cursor_line):%(cursor_column))"
 F2 = [
-    ":noop %sh(echo %(full_path) >~/fes/zufi/blammo)",
+    ":noop %sh(echo %(full_path) >/tmp/mine/blammo)",
     ":noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}",
 ]
 F3 = ":noop %sh(wind « ° bacon)"
