@@ -94,6 +94,7 @@ StyleOverLine:
 #   "ctrl", "alt", "meta", "shift"
 # connect with modifier key + key
 #   "ctrl+c"
+DefaultKeyBind: "disable"
 KeyBind:
   backsearch:
     - "?"
