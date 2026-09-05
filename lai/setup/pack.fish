@@ -37,8 +37,8 @@ sudo mv /usr/share/fish/vendor_conf.d/debuginfod.fish{,.bak}
 sudo -E helix /etc/pacman.conf
 # NoExtract = usr/share/fish/vendor_conf.d/debuginfod.fish
 
+# ------------------------fish-lsp-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout fisher
-
 git clone https://github.com/ndonfris/fish-lsp ~/fes/ork/fish-lsp
 cd ~/fes/ork/fish-lsp
 yarn install
