@@ -40,7 +40,9 @@ function fish_user_key_bindings
     bind alt-i edit_command_buffer
     bind ctrl-. kill-whole-line end-of-line
     bind ctrl-e _kb_reexec
+    bind ctrl-end end-of-buffer
     bind ctrl-f _kb_blammo_pwd
+    bind ctrl-home beginning-of-buffer
     bind ctrl-i expand-abbr insert-line-over
     bind ctrl-l clear-screen
     bind ctrl-o expand-abbr insert-line-under
