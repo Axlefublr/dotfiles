@@ -4,4 +4,4 @@ After=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=env schedule.fish -- ~/fes/dot/systemd/daily.fish
+ExecStart=env schedule.fish -- daily.fish
