@@ -3,13 +3,17 @@ Description=Wayland clipboard manager with fast persistent history and multi-med
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
-StartLimitBurst=100
-StartLimitIntervalSec=60
+StartLimitBurst=0
+StartLimitIntervalSec=0
 
 [Service]
 Type=exec
 ExecStart=env fish -c 'exec stash --max-items 100 watch --persist'
+RestartSec=100ms
+RestartMaxDelaySec=1
+RestartSteps=1
 Restart=on-failure
+RuntimeMaxSec=3600
 
 [Install]
 WantedBy=graphical-session.target
