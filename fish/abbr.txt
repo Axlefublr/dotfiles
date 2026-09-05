@@ -51,6 +51,7 @@ hime → history merge
 l    → jobs
 mkd  → mkdir -p
 rm   → gomi
+rmF  → sudo rm -fr
 rmf  → rm -fr
 sude → sudo -E
 x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
