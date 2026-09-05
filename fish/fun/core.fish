@@ -189,6 +189,27 @@ function lnkj
 end
 funcsave lnkj >/dev/null
 
+function log
+    set -l log_color (switch $argv[1]
+        case 1
+            echo ea6962
+        case 2
+            echo e49641
+        case 3
+            echo d3ad5c
+        case 4
+            echo a9b665
+        case 5
+            echo 7daea3
+        case 6
+            echo e491b2
+    end)
+    set_color -o $log_color
+    warn $argv[2..]
+    set_color normal
+end
+funcsave log >/dev/null
+
 function loop
     while true
         $argv
@@ -306,6 +327,12 @@ function vidsc
     rsync (recent-modified.nu ~/iwm/sco/\*-compressed.mp4) $argv[1].mp4
 end
 funcsave vidsc >/dev/null
+
+function wait_for_internet
+    while not curl -fsS https://www.google.com/ &>/dev/null
+    end
+end
+funcsave wait_for_internet >/dev/null
 
 function warn
     echo $argv >&2
