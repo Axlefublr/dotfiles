@@ -101,7 +101,7 @@ keymap = [
   { on = [ 'g', 'q' ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = 'Go to repo root' },
   { on = [ 'm', 'M' ], run = 'shell -- chmod +x %s', desc = 'Chmod +x' },
   { on = [ 'm', 'c' ], run = 'plugin ouch tar.gz', desc = 'Archive selected files' },
-  { on = [ 'm', 'd' ], run = '''shell --block -- disposition.fish %s''', desc = 'Change dispositions of files' },
+  { on = [ 'm', 'd' ], run = '''shell --block -- disposition.nu %s''', desc = 'Change dispositions of files' },
   { on = [ 'm', 'e' ], run = '''shell -- fish -c 'for file in %s; inkscape $file --export-filename=(path change-extension png $file) --export-width=1920 ;end'''', desc = 'Render svg into png' },
   { on = [ 'm', 'i' ], run = '''shell -- fish -c 'wl-paste -t image/png >image.png'''', desc = 'Create image from clipboard' },
   { on = [ 'm', 'j' ], run = '''shell -- fish -c 'for file in %s; jpeg2png $file ;end'''', desc = 'Unfuck the jpeg into png' },
@@ -122,6 +122,9 @@ keymap = [
   { on = [ 's', 'o' ], run = '''shell -- cat %s | wl-copy -t text/plain''', desc = "Copy file contents" },
   { on = [ 's', 'r' ], run = 'hardlink --force --follow', desc = 'Hardlink' },
   { on = [ 's', 'u' ], run = 'copy dirname', desc = 'Copy the directory path' },
+  { on = [ 'z', 'f' ], run = '''shell -- fish -c 'notify-send -t 3000 "$(glaza -g finish (path basename %d) 2>&1)"'''', desc = 'Glaza finish' },
+  { on = [ 'z', 's' ], run = '''shell -- fish -c 'notify-send -t 3000 "$(glaza -g start -g (path basename %d) 2>&1)"'''', desc = 'Glaza start' },
+  { on = [ 'z', 'z' ], run = [ 'plugin input', '''shell -- fish -c 'notify-send -t 3000 "$(glaza -g ep (path basename %d) (catait ~/fes/zufi/yazi-input) 2>&1)"'''' ], desc = 'Glaza episode' },
   # [[sort off]]
 ]
 
