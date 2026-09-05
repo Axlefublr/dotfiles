@@ -27,4 +27,4 @@ foot -T voe -o environment.TIT=voe -D ~/iwm/voe yazi & disown
 make-em-shut-up.nu
 playerctld daemon
 dot
-~/fes/dot/systemd/daily.fish
+daily.fish
