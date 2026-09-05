@@ -1,5 +1,12 @@
 #!/usr/bin/env fish
 
+for file in $argv
+    # should first return the action to do (ffmpeg vs copy), then flags
+    set -l result (disposition.nu $file)
+end
+
+###
+
 function colorize_prompt
     set_color -o normal
     echo -n dispositions:
