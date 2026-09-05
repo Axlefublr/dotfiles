@@ -91,12 +91,12 @@ function mouse_mode_indicate
         --arg left_vert:side=left --arg left_vert:orientation=vert \
         --arg left_hor:side=left --arg left_hor:orientation=hor \
         --arg right_vert:side=right --arg right_vert:orientation=vert \
-        --arg right_hor:side=right --arg right_hor:orientation=hor
+        --arg right_hor:side=right --arg right_hor:orientation=hor >/dev/null
 end
 funcsave mouse_mode_indicate >/dev/null
 
 function mouse_mode_hide
-    eww close left_vert left_hor right_vert right_hor
+    eww close left_vert left_hor right_vert right_hor >/dev/null
 end
 funcsave mouse_mode_hide >/dev/null
 
