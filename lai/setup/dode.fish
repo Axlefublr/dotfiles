@@ -406,16 +406,13 @@ yay -Sa --needed --disable-download-timeout unigine-superposition
 
 # --------------------------helix--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua python-toml
-yay -Sa --needed --disable-download-timeout prettierd
+yay -Sa --needed --noconfirm --disable-download-timeout prettierd
 gk ork helix # needed so that the eva runtime/ symlink points to the base thingies; editor will technically work without this
+d i
+sudo ln -f ~/fes/eva/helix /usr/local/bin/helix
 ln -sf ~/fes/dot/helix ~/.config
 mkdir -p ~/fes/dot/helix/runtime
 ln -sf ~/fes/ork/qiri/ ~/fes/dot/helix/runtime/queries
-mkdir -p ~/.cargo/bin
-rm -fr ~/.cargo/bin/runtime
-ln -sf ~/fes/ork/hx/runtime ~/.cargo/bin
-cargo install --path helix-term --locked
-sudo ln -f ~/fes/eva/helix /usr/bin/helix
 
 # ------------------------hexpatch-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout hexpatch
@@ -568,6 +565,7 @@ neru completion fish >~/.config/fish/completions/neru.fish
 sudo pacman -S --needed --noconfirm --disable-download-timeout niri
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring libdisplay-info
 sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps clang # for building from source
+# TODO: remake to just be a directory symlink, which contains a symlink of config.kdl → niri.kdl
 for file in ~/fes/dot/niri/*.kdl
     ln -sf $file ~/.config/niri/(path basename $file)
 end
