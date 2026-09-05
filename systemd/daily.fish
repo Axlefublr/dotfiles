@@ -39,6 +39,7 @@ fd --type dir --no-ignore --prune -pa --glob --changed-after 5d '**/target/**/in
 # --------------------requires internet--------------------
 log 1 waiting for internet
 wait_for_internet
+or return 1
 
 # ---------------------------git---------------------------
 log 1 git actions
@@ -46,7 +47,7 @@ log 1 git actions
 log 2 fetch everything
 for dir in ~/fes/ork/*
     log 3 $dir
-    git -C $dir fetch --all
+    git -C $dir fetch -q --all
 end
 
 log 2 autocommit
