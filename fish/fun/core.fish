@@ -329,7 +329,13 @@ end
 funcsave vidsc >/dev/null
 
 function wait_for_internet
+    set -l counter 0
     while not curl -fsS https://www.google.com/ &>/dev/null
+        set counter (math $counter + 1)
+        if test $counter -ge 500
+            warn no internet today
+            return 1
+        end
     end
 end
 funcsave wait_for_internet >/dev/null
