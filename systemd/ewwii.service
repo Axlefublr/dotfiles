@@ -8,7 +8,9 @@ StartLimitIntervalSec=0
 [Service]
 ExecStart=env ewwii daemon --no-daemonize
 Restart=always
-RestartSec=300ms
+RestartSec=100ms
+RestartSteps=1
+RestartMaxDelaySec=1
 Type=exec
 
 [Install]
