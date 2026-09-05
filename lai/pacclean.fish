@@ -1,9 +1,8 @@
 #!/usr/bin/env fish
 # based on https://gist.github.com/ericmurphyxyz/37baa4c9da9d3b057a522f20a9ad6eba (cool youtuber btw)
 
-set aur_cache_dir "$HOME/.cache/paru/clone"
 function aur_cache_dirs_fmt
-    fd . $HOME/.cache/paru/clone -d 1 -t d | awk '{ print "-c" $1 }'
+    fd . $HOME/.cache/{paru,yay}/clone -d 1 -t d | awk '{ print "-c" $1 }'
 end
 set uninstalled_target (aur_cache_dirs_fmt)
 echo $uninstalled_target[1]
