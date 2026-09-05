@@ -18,7 +18,7 @@ cleaning-lady.nu
 kondo -ao 30d
 fd --type dir --no-ignore --prune -pa --glob --changed-after 5d '**/target/**/incremental' -X rm -fr
 
-math (cat ~/.local/share/magazine/S) + 67 | sponge ~/.local/share/magazine/S
+math (cat ~/.local/share/magazine/S) + 50 | sponge ~/.local/share/magazine/S
 _magazine_commit ~/.local/share/magazine/S desire
 
 indeed.rs -u ~/fes/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
