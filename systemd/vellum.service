@@ -2,12 +2,15 @@
 After=graphical-session.target
 PartOf=graphical-session.target
 Requisite=graphical-session.target
-StartLimitBurst=100
-StartLimitIntervalSec=60
+StartLimitBurst=0
+StartLimitIntervalSec=0
 
 [Service]
 ExecStart=env vellum
 Restart=always
+RestartSec=100ms
+RestartMaxDelaySec=1
+RestartSteps=1
 Type=exec
 
 [Install]
