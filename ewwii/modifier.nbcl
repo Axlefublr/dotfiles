@@ -2,6 +2,7 @@ component Modifier (text, x, y) {
 	Window self.id {
 		namespace = 'eww'
 		stacking = 'overlay'
+		passinput = true
 		geometry = {
 			anchor = 'bottom left'
 			x = x
