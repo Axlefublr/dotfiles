@@ -12,6 +12,20 @@
 # 	}
 # }
 
+Window 'example' {
+	stacking = 'overlay'
+	namespace = 'eww'
+	passinput = true
+	geometry = {
+		width = '300px'
+		height = '300px'
+		anchor = 'center'
+	}
+	Box {
+		class = 'fill-line'
+	}
+}
+
 import "modifier.nbcl" as modifier { * }
 import "volume.nbcl" as volume { * }
 import "sounding.nbcl" as sounding { * }
