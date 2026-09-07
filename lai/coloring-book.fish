@@ -49,7 +49,7 @@ function act_on_color -a color
         echo
         echo
         while true
-            confirm.rs '' '[w]rite' '[i]nput' '[e]dit' '[s]ex' '[c]rgb' '[d]hsl' '[S]ex' '[C]rgb' '[D]hsl' '[f]lip' '' \
+            confirm.rs '' '[w]rite' '[i]nput' '[e]dit' '[v]ellum' '[s]ex' '[c]rgb' '[d]hsl' '[S]ex' '[C]rgb' '[D]hsl' '[f]lip' '' \
                 '[r]ed' '[R]ed' '[g]reen' '[G]reen' '[b]lue' '[B]lue' '' \
                 '[j]ue' '[J]ue' '[l]ight' '[L]ight' 'sa[k]urate' 'sa[K]urate' | read -l response
             switch "$response"
@@ -68,6 +68,12 @@ function act_on_color -a color
                     helix ~/fes/dot/colors.nuon
                     niri msg action set-column-width 70%
                     niri msg action center-column
+                case v
+                    set -l hex_repr (pastel format hex -- $color)
+                    reconfirm
+                    vellum set-color $hex_repr
+                    warnage "$hex_repr vellumed"
+                    continue
                 case s
                     set -l hex_repr (pastel format hex -- $color)
                     echo $hex_repr | wl-copy -nt text/plain
