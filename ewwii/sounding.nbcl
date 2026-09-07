@@ -2,6 +2,7 @@ component Sounding (side, orientation) {
 	Window self.id {
 		namespace = 'eww'
 		stacking = 'overlay'
+		passinput = true
 		geometry = {
 			width  = if orientation == 'vert' { '22px' } else { '80px' }
 			height = if orientation == 'hor'  { '22px' } else { '80px' }
