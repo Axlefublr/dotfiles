@@ -12,7 +12,7 @@ ExecStart=env fish -c 'exec stash --max-items 100 watch --persist'
 RestartSec=100ms
 RestartMaxDelaySec=1
 RestartSteps=1
-Restart=on-failure
+Restart=always
 RuntimeMaxSec=3600
 
 [Install]
