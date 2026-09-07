@@ -87,16 +87,12 @@ alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_state 'playerctl status' >/dev/null
 
 function mouse_mode_indicate
-    eww open-many sounding:left_vert sounding:left_hor sounding:right_vert sounding:right_hor \
-        --arg left_vert:side=left --arg left_vert:orientation=vert \
-        --arg left_hor:side=left --arg left_hor:orientation=hor \
-        --arg right_vert:side=right --arg right_vert:orientation=vert \
-        --arg right_hor:side=right --arg right_hor:orientation=hor >/dev/null
+    ewwii open-many sounding1 sounding2 sounding3 sounding4 >/dev/null
 end
 funcsave mouse_mode_indicate >/dev/null
 
 function mouse_mode_hide
-    eww close left_vert left_hor right_vert right_hor >/dev/null
+    ewwii close sounding1 sounding2 sounding3 sounding4 >/dev/null
 end
 funcsave mouse_mode_hide >/dev/null
 
@@ -127,6 +123,7 @@ function pick_and_copy_color
     niri msg pick-color | string match -gr '(#[[:xdigit:]]+)' | read -l hex
     notify-send $hex
     wl-copy -nt text/plain $hex
+    vellum is-active && vellum set-color $hex
 end
 funcsave pick_and_copy_color >/dev/null
 
