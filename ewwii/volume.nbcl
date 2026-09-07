@@ -5,6 +5,7 @@ Listen 'volume' {
 Window 'volume' {
 	namespace = 'eww'
 	stacking = 'overlay'
+	passinput = true
 	geometry = {
 		width = '50%'
 		anchor = 'top center'
