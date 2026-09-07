@@ -1,5 +1,5 @@
 default_tool = 'arrow'
-remember_last_tool = false
+remember_last_tool = true
 stroke_size = 6.0
 default_color = '#e84046'
 feedback_duration_ms = 500
@@ -14,12 +14,11 @@ tools.text.size_range.step = 1.0
 # [[sort off]]
 palette = [
   '#e84046', # red
-  # '#ffafd7', # pink
-  '#ec8948', # orange
-  '#eed049', # yellow
-  '#3ed73c', # green
-  '#0283fc', # blue
-  '#7c57eb', # purple
-  '#ffffff',
-  '#0f0f0f',
+  '#ef8f4f', # orange
+  '#eed14d', # yellow
+  '#4dd54f', # green
+  '#0483fa', # blue
+  '#7c58ea', # purple
+  '#ebebeb', # white
+  '#141414', # black
 ]
