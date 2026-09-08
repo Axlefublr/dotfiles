@@ -54,6 +54,10 @@
 	= @next_game
 	bspc (multi (cmd notify-send "clear") (cmd fish -c "echo >~/fes/zufi/waybar-gaming") @gaming)
 	9 (cmd fish -c screenshot_window)
+	caps (tap-hold-release $tt $ht (switch
+		((input virtual real-capslock)) (on↓ release-vkey real-capslock) break
+		() esc break
+	) (multi (layer-toggle caps) (on↑ tap-vkey caps)))
 	;; [[sort on]]
 	' (tap-hold-release $tt $ht ' (multi (layer-toggle quote) (on↑ tap-vkey quote)))
 	, (tap-hold-release $tt $ht , (layer-toggle comma))
@@ -73,7 +77,6 @@
 	a (tap-hold-release $tt $ht a (multi lalt (layer-toggle a) (on↑ tap-vkey a)))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (multi (layer-toggle c) (on↑ tap-vkey c)))
-	caps (tap-hold-release $tt $ht esc (multi (layer-toggle caps) (on↑ tap-vkey caps)))
 	d (tap-hold-release $tt $ht d lctl)
 	e (tap-hold-release $tt $ht e (multi (layer-toggle e) (on↑ tap-vkey e)))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
@@ -146,9 +149,9 @@
 	m end
 	n home
 	o enter
-	p (multi caps (cmd fish -c "echo capslock_toggle >~/fes/zufi/waybar-layout"))
+	p (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/fes/zufi/waybar-layout"))
 	spc ins
-	u (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/fes/zufi/waybar-layout"))
+	u (on↓ toggle-vkey real-capslock) ;; to be able to make escape release capslock
 	y (layer-switch doublestruck)
 	;; [[sort off]]
 )
