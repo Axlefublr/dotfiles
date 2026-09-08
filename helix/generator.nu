@@ -480,6 +480,8 @@ let normal_mappings = {
 }
 
 let insert_mappings = {
+	pagedown: null
+	pageup: null
 	# [[sort on]]
 	A-h: $'@<esc><lt>(char -u 25a0)mc'
 	A-l: $'@<esc><gt>(char -u 25a0)mc'
