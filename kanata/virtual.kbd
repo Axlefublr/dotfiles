@@ -11,6 +11,8 @@
 	ctrl  (multi lctl (on↓ tap-vkey ctrl-overlay-enable) (on↑ tap-vkey ctrl-overlay-disable))
 	alt   (multi lalt (on↓ tap-vkey alt-overlay-enable) (on↑ tap-vkey alt-overlay-disable))
 	meta  (multi lmet (on↓ tap-vkey meta-overlay-enable) (on↑ tap-vkey meta-overlay-disable))
+	real-capslock-direct (multi caps (cmd fish -c "echo capslock_toggle >~/fes/zufi/waybar-layout"))
+	real-capslock (multi (on↓ tap-vkey real-capslock-direct) (on↑ tap-vkey real-capslock-direct))
 
 	modifier (multi (on↓ release-vkey shift) (on↓ release-vkey ctrl) (on↓ release-vkey alt) (on↓ release-vkey meta))
 	modifier-zoom (multi (on↓ tap-vkey modifier) (cmd niri msg action set-zoom-level 1))
