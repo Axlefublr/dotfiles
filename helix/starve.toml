@@ -1300,6 +1300,8 @@ F6 = [
     ":noop %sh(foottitled.sh helix-popup yazi --chooser-file=/tmp/mine/yazi-chooser-file)",
     ":open %sh{cat /tmp/mine/yazi-chooser-file}",
 ]
+pagedown = "no_op"
+pageup = "no_op"
 A-h = "@<esc><lt>■mc"
 "A-р" = "@<esc><lt>■mc"
 A-l = "@<esc><gt>■mc"
