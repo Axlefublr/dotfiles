@@ -91,7 +91,7 @@ log 2 completions
 comp.fish
 
 log 2 frizz
-# I'm writing to a file in frizz, which triggers the update. without it, I would need to call it explicitly
+frizz.fish
 na -c 'config nu --doc' >~/.local/share/frizz/nushell.nu
 
 log 2 nom refresh
