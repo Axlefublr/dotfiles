@@ -139,7 +139,6 @@
 	/ (cmd fish -c "wtype (uclanr 3 -j -)")
 	; bspc
 	caps esc
-	g (cmd test.fish)
 	h left
 	i tab
 	j down
@@ -150,6 +149,7 @@
 	n home
 	o enter
 	p (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/fes/zufi/waybar-layout"))
+	q (clipboard-set "hi")
 	spc ins
 	u (on↓ toggle-vkey real-capslock) ;; to be able to make escape release capslock
 	y (layer-switch doublestruck)
