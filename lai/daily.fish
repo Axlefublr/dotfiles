@@ -1,10 +1,10 @@
 #!/usr/bin/env fish
 
 cd ~
-# if test "$(cat ~/fes/zufi/ran-daily)" = (date +%Y.%m.%d)
-#     warn 'already ran today, exiting'
-#     return
-# end
+if test "$(cat ~/fes/zufi/ran-daily)" = (date +%Y.%m.%d)
+    warn 'already ran today, exiting'
+    return
+end
 date +%Y.%m.%d >~/fes/zufi/ran-daily
 
 while rg -q 8BitDo /proc/bus/input/devices &>/dev/null
@@ -19,11 +19,6 @@ math (cat ~/.local/share/magazine/S) + 50 | sponge ~/.local/share/magazine/S
 _magazine_commit ~/.local/share/magazine/S desire
 indeed.rs -u ~/fes/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 truncate -s 0 ~/.local/share/magazine/d
-
-# -----------------------generation------------------------
-log 1 generation
-
-na -c 'config nu --doc' >~/.local/share/frizz/nushell.nu
 
 # -------------------------cleanup-------------------------
 log 1 cleanup
@@ -44,27 +39,32 @@ fd --type dir --no-ignore --prune -pa --glob --changed-after 5d '**/target/**/in
 # --------------------requires internet--------------------
 log 1 waiting for internet
 wait_for_internet
+or return 1
 
 # ---------------------------git---------------------------
 log 1 git actions
 
 log 2 fetch everything
 for dir in ~/fes/ork/*
-    git -C $dir fetch --all
+    log 3 $dir
+    git -C $dir fetch -q --all
 end
 
 log 2 autocommit
 for dir in (cat ~/.local/share/magazine/O)
-    cd (string replace -r "^~" "$HOME" $dir)
+    log 3 $dir
+    cd (path_expand $dir)
     autocommit.fish
     git push
 end
 
 log 2 autopush
 for dir in (cat ~/.local/share/magazine/P)
-    cd (string replace -r "^~" "$HOME" $dir)
+    log 3 $dir
+    cd (path_expand $dir)
     git push
 end
+cd ~
 
 # --------------------------uboot--------------------------
 log 1 uboot
@@ -83,6 +83,16 @@ log 2 uv
 uv tool upgrade --all
 log 2 pacman
 cat ~/fes/jiro/sudo | sudo -S pacman -Syyu --noconfirm
+
+# -----------------------generation------------------------
+log 1 generation
+
+log 2 completions
+comp.fish
+
+log 2 frizz
+frizz.fish
+na -c 'config nu --doc' >~/.local/share/frizz/nushell.nu
 
 log 2 nom refresh
 http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118 nom refresh
