@@ -499,6 +499,7 @@ git clone https://github.com/Axlefublr/lazygit
 d i
 mkdir -p ~/.config/lazygit
 ln -sf ~/fes/dot/lazygit.yml ~/.config/lazygit/config.yml
+lazygit completion fish >~/.config/fish/completions/lazygit.fish
 
 # --------------------------less---------------------------
 sudo ln -sf ~/fes/dot/lesskey /opt/lesskey
