@@ -7,8 +7,9 @@
 eww shell-completions -s fish >~/.config/fish/completions/eww.fish
 ewwii shell-completions -s fish >~/.config/fish/completions/ewwii.fish
 kondo --completions fish >~/.config/fish/completions/kondo.fish
+lazygit completion fish >~/.config/fish/completions/lazygit.fish
 niri completions fish >~/.config/fish/completions/niri.fish
 ov --completion fish >~/.config/fish/completions/ov.fish
-qrtool --generate-completion fish >~/.config/fish/completions/qrtool.fish
+qrtool completion fish >~/.config/fish/completions/qrtool.fish
 rustup completions fish >~/.config/fish/completions/rustup.fish
 sk --shell fish >~/.config/fish/completions/sk.fish
