@@ -457,7 +457,7 @@ x = "replace_with_yanked"
 ]
 _ = "switch_to_lowercase"
 "—" = "select_character"
-"¢" = "no_op"
+"¢" = "goto_last_accessed_file"
 "~" = "@%q<ret>"
 "Ё" = "@%q<ret>"
 "&" = "@q<ret>"
@@ -563,7 +563,7 @@ home = [
 ]
 S-end = ["extend_to_line_end"]
 S-home = ["extend_to_first_nonwhitespace"]
-F11 = "goto_file"
+A-ret = "goto_file"
 S-tab = "@<space>'<up><ret>"
 backspace = [
     "save_selection",
