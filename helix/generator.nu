@@ -230,7 +230,7 @@ let normal_mappings = {
 	'`': [collapse_selection switch_case]
 	'_': switch_to_lowercase
 	'—': null #
-	'¢': null
+	'¢': goto_last_accessed_file
 	'~': '@%q<ret>'
 	'&': '@q<ret>'
 	'°': align_selections
@@ -325,7 +325,7 @@ let normal_mappings = {
 	S-home: [extend_to_first_nonwhitespace]
 	# -------------------------keyful--------------------------
 	# [[sort on]]
-	F11: 'goto_file'
+	A-ret: 'goto_file'
 	S-tab: "@<space>'<up><ret>"
 	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	esc: [save_selection keep_primary_selection normal_mode]
