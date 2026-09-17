@@ -39,7 +39,10 @@ fd --type dir --no-ignore --prune -pa --glob --changed-after 5d '**/target/**/in
 # --------------------requires internet--------------------
 log 1 waiting for internet
 wait_for_internet
-or return 1
+or begin
+    log 1 (date +%Y.%m.%d)
+    return 1
+end
 
 # ---------------------------git---------------------------
 log 1 git actions
@@ -96,3 +99,5 @@ na -c 'config nu --doc' >~/.local/share/frizz/nushell.nu
 
 log 2 nom refresh
 http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118 nom refresh
+
+log 1 (date +%Y.%m.%d)
