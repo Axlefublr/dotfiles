@@ -19,7 +19,7 @@
 	g (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) f break
-		() (tap-hold-release $tt $ht C-w (unmod lalt f10)) break ;; supposed to suspend tab on hold
+		() (tap-hold-release $tt $ht (unmod lsft f8) (unmod lalt f8)) break ;; supposed to suspend other tabs on hold, close current on tap
 	)
 
 	u (cmd niri msg action set-zoom-level +1)
