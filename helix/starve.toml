@@ -255,6 +255,10 @@ Y = "no_op"
 "Н" = "no_op"
 y = "no_op"
 "н" = "no_op"
+C-u = "no_op"
+"C-г" = "no_op"
+C-d = "no_op"
+"C-в" = "no_op"
 ";" = [
     "save_selection",
     "select_textobject_around",
@@ -996,6 +1000,7 @@ K = "syntax_workspace_symbol_picker"
 L = "lsp_or_syntax_workspace_symbol_picker"
 S-end = ["extend_to_line_end_newline"]
 S-home = ["extend_to_line_start"]
+c = "changed_file_picker"
 e = "buffer_picker"
 end = [
     "ensure_selections_forward",
