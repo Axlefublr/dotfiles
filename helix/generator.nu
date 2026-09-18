@@ -150,6 +150,8 @@ let normal_mappings = {
 	P: null
 	Y: null
 	y: null
+	C-u: null
+	C-d: null
 	# -------------------------normal--------------------------
 	';': [save_selection select_textobject_around]
 	"'": [save_selection select_textobject_inner]
@@ -436,6 +438,7 @@ let normal_mappings = {
 		L: lsp_or_syntax_workspace_symbol_picker
 		S-end: [extend_to_line_end_newline]
 		S-home: [extend_to_line_start]
+		c: changed_file_picker
 		d: (open ~/fes/dot/helix/magazine.nuon)
 		e: buffer_picker
 		end: [ensure_selections_forward extend_to_line_end_newline]
