@@ -34,7 +34,9 @@ def potential_men [] {
 		| $in + ($grabber | str length)
 		$line
 		| str substring $start_index..
-		| str trim -rc ')'
+		| split chars
+		| take until { |chr| $chr == ')' }
+		| str join
 	}
 }
 
