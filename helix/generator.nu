@@ -41,6 +41,7 @@ let editor = {
 		enable: true
 		max-wrap: 0
 		wrap-indicator: ''
+		max-indent-retain: 0
 	}
 	whitespace: {
 		characters: {
