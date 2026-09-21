@@ -63,6 +63,7 @@ snippets = true
 enable = true
 max-wrap = 0
 wrap-indicator = ""
+max-indent-retain = 0
 
 [editor.whitespace.characters]
 newline = "↪"
