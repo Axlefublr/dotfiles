@@ -2,6 +2,8 @@ configpath: /home/axlefublr/.config/nom/config.yml
 showfavourites: false
 version: ""
 feeds:
+  - url: https://khitboksy.github.io/blog/rss.xml
+    name: leah
   - url: https://geode.house/atom.xml
     name: geek
   - url: https://quietism.art/blog.xml
@@ -24,20 +26,20 @@ feeds:
     name: julia evans
   - url: https://matklad.github.io/feed.xml
     name: matklad
-  - url: https://nanotipsforvim.prose.sh/rss
-    name: chris grieser
+  # - url: https://nanotipsforvim.prose.sh/rss
+  #   name: chris grieser
   - url: https://strongly-typed-thoughts.net/feed.xml
     name: hadronized
   - url: https://project-mage.org/rss.xml
     name: project mage
-  - url: https://site.jacobhaussman.online/rss.xml
-    name: zunda
+  # - url: https://site.jacobhaussman.online/rss.xml
+  #   name: zunda
   - url: https://skoove.dev/rss.xml
     name: skoove
   # - url: https://terminaltrove.com/new.xml
   #   name: terminal trove
-  - url: https://vhyrro.github.io/rss.xml
-    name: vhyrro
+  # - url: https://vhyrro.neorg.org/rss.xml
+  #   name: vhyrro
   - url: https://xkcd.com/rss.xml
     name: xkcd
   - url: https://blog.parrrate.com/rss.xml
