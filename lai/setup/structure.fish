@@ -5,7 +5,6 @@ mkdir -p ~/wlx \
     ~/iwm/sco \
     ~/iwm/rnt \
     ~/iwm/voe \
-    ~/iwm/lwkc \
     ~/fes \
     ~/fes/ork \
     ~/fes/zufi \
