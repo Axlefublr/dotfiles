@@ -29,12 +29,12 @@ function yt_audio
         notify-send -t 2000 'no copied links'
         return 1
     end
-    if test "$picked"[-1] = '='
-        set picked $picked[..-2]
+    if test (string sub -s -1 -- "$picked") = '='
+        set picked (string sub -e -1 -- "$picked")
         set -f mark '='
     end
     for link in $links
-        schedule.fish -- "ytroxy --cookies ~/fes/zufi/cookies.purple.txt -o ~/iwm/lwkc/$picked/$(uclanr -j - 3)$mark.'%(ext)s' $link"
+        schedule.fish -- "ytroxy --cookies ~/fes/zufi/cookies.purple.txt -o ~/fes/nak/lwkc/$picked/$(uclanr -j - 3)$mark.'%(ext)s' $link"
         notify-send "start $link"
     end
 end
