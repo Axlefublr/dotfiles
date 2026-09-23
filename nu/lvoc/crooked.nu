@@ -7,7 +7,9 @@ alias shr = path shrink
 alias exp = path expand
 alias dn = date now date
 alias html_spaces = str replace -a ' ' '&nbsp;'
-alias html_special = str replace -a '&' '&amp;' | str replace -a '<' '&lt;' | str replace -a '>' '&gt;' | str replace "\n" '<br>'
+def html_special [] {
+	str replace -a '&' '&amp;' | str replace -a '<' '&lt;' | str replace -a '>' '&gt;' | str replace -a "\n" '<br>'
+}
 
 def fox [] {
 	default -e false | if not $in { exit 1 }
