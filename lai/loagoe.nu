@@ -26,7 +26,7 @@ const known = {
 	tea: 15
 	update: 20
 	wilter: 38
-	tails: 33
+	tails: 32
 	filter: 60
 	fsrs: 60
 	iso: 90
