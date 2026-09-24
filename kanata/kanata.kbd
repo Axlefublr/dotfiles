@@ -204,7 +204,7 @@
 	b (cmd pick-blog-post.nu)
 	h (cmd find-or-make.fish "app_id starts-with foot" "title == Tewi" "foottitled.sh Tewi -N tewi")
 	i (cmd find-or-make.fish "app_id == swayimg-srd or title == swayimg-srd" "swayimg --class swayimg-srd -g /home/axlefublr/iwm/srd")
-	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "foottitled.sh finances -N ov --status-line=false --follow-name ~/.local/share/magazine/c-j")
+	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "foottitled.sh finances -N ov --status-line=false --follow-name ~/fes/nak/job-stats.txt")
 	k (cmd fish -c "niri msg action spawn -- foottitled.sh ake -ND /home/axlefublr/ake helix (uclanr -j - 3)")
 	l (cmd reuse-finder.nu /home/axlefublr/fes/mdw)
 	m (cmd find-or-make.fish "app_id == swayimg-slme or title == swayimg-slme" "swayimg --class swayimg-slme -g /home/axlefublr/iwm/osl/slme")
