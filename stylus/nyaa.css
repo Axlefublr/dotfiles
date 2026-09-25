@@ -1,0 +1,8 @@
+/* domain */
+/* nyaa.si */
+.torrent-list > tbody > tr > td {
+	max-width: unset;
+}
+.container {
+	width: unset;
+}
