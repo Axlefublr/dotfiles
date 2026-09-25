@@ -32,6 +32,9 @@ cargo ← r  → run
 cargo ← rr → run -r
 cargo ← s  → search
 
+r → crystal
+re → crystal eval '█'
+
 magick ← loss → -define webp:lossless=true
 
 qrtool → qrtool.rs
