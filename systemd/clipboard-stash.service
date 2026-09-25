@@ -13,7 +13,7 @@ RestartSec=100ms
 RestartMaxDelaySec=1
 RestartSteps=1
 Restart=always
-# RuntimeMaxSec=3600
+RuntimeMaxSec=3600
 
 [Install]
 WantedBy=graphical-session.target
