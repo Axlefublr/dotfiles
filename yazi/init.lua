@@ -34,3 +34,8 @@ end, 9000, Header.RIGHT)
 if os.getenv('YAZI_START_PICKING') then
 	ya.emit('plugin', { 'fzf-but-open' })
 end
+
+if os.getenv('YAZI_SORT_NAME') then
+	ya.emit('sort', { 'natural', reverse = false })
+	ya.emit('linemode', { 'none' })
+end
