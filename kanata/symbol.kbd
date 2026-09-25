@@ -82,8 +82,8 @@
 	, (cmd wtype ‼️)
 	/ (cmd wtype ⁉️)
 	h (cmd wtype ↔)
-	j (cmd wtype ⥯)
-	k (cmd wtype ↕)
+	j (cmd wtype ↕)
+	k (cmd wtype ⥯)
 	l (cmd wtype ⇌)
 )
 
