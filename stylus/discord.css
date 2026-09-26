@@ -3,9 +3,8 @@
  */
 
 :root {
-	--font-code:
-		Google Sans Code, Input Mono Nerd Font, Input Mono, JetBrainsMono Nerd Font, Symbols Nerd Font Mono, Consolas, monospace;
-	--font-primary: Inter;
+	--font-code: Google Sans Code, Noto Sans Mono, Adwaita Mono, JetBrainsMono Nerd Font, Symbols Nerd Font Mono, monospace;
+	--font-primary: Inter, Noto Sans, Symbols Nerd Font, system-ui;
 	--font-weight-semibold-1x-light-theme: 500;
 	--custom-emoji-size-jumbo-emoji: 2rem;
 }

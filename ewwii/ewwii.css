@@ -28,7 +28,13 @@ progressbar trough {
 }
 
 .monospace {
-	font-family: Google Sans Code;
+	font-family:
+		Google Sans Code,
+		Noto Sans Mono,
+		Adwaita Mono,
+		JetBrainsMono Nerd Font,
+		Symbols Nerd Font Mono,
+		monospace;
 }
 
 .padshadow {
