@@ -1,0 +1,49 @@
+{
+	global: {
+	}
+	bash: {
+		'#': '#!/usr/bin/env dash'
+	}
+	crystal: {
+		# [[sort on]]
+		do: "do █\nend"
+		dod: "do |█|\nend"
+		fn: "def █\nend"
+		# [[sort off]]
+	}
+	fish: {
+		# [[sort on]]
+		'#': '#!/usr/bin/env fish'
+		alias: r#'alias --save █ '■' >/dev/null'#
+		b: '&>/dev/null'
+		e: '2>/dev/null'
+		fn: "function █\nend\nfuncsave █ >/dev/null"
+		o: '>/dev/null'
+		set: 'set -l'
+		# [[sort off]]
+	}
+	html: {
+		o: '<o>█</o>'
+		cd: '<cd>█</cd>'
+	}
+	markdown: {
+		d: '<kbd>█</kbd>'
+		'+++': "+++\ntitle = '█'\ndate = '2026-■'\ndraft = true\n+++\n"
+	}
+	nu: {
+		'#': '#!/usr/bin/env -S nu -n --no-std-lib'
+	}
+	python: {
+		'#': '#!/usr/bin/env python'
+	}
+	ruby: {
+		'#': "#!/usr/bin/env ruby\n# frozen_string_literal: true"
+	}
+	rust: {
+		# [[sort on]]
+		dbg: 'std::process::Command::new("dbglog.sh").arg(format!("{█:?}")).status().unwrap();'
+		ntf: 'std::process::Command::new("ntf").arg(format!("{█:?}")).status().unwrap();'
+		test: "#[cfg(test)]\nmod tests {\n    use super::*;\n\n    #[test]\n    fn █() {\n    }\n}\n"
+		# [[sort off]]
+	}
+}

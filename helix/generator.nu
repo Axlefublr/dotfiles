@@ -562,6 +562,7 @@ let editor_fork = {
 			file-encoding
 		]
 	}
+	snippets: (open ~/fes/dot/helix/snippets.nuon)
 }
 
 let all_mappings_fork = {
