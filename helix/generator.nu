@@ -153,6 +153,7 @@ let normal_mappings = {
 	y: null
 	C-u: null
 	C-d: null
+	z: null
 	# -------------------------normal--------------------------
 	';': [save_selection select_textobject_around]
 	"'": [save_selection select_textobject_inner]
@@ -434,6 +435,7 @@ let normal_mappings = {
 		# [[sort on]]
 		'`': switch_case
 		D: diagnostics_picker
+		F: file_picker_in_current_buffer_directory
 		J: command_palette
 		K: syntax_workspace_symbol_picker
 		L: lsp_or_syntax_workspace_symbol_picker
@@ -445,7 +447,6 @@ let normal_mappings = {
 		end: [ensure_selections_forward extend_to_line_end_newline]
 		f: file_picker_in_current_directory
 		home: [ensure_selections_forward flip_selections extend_to_line_start]
-		j: file_picker_in_current_buffer_directory
 		k: syntax_symbol_picker
 		l: lsp_or_syntax_symbol_picker
 		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
@@ -462,6 +463,7 @@ let normal_mappings = {
 			j: ':lang json'
 			m: ':lang markdown'
 			n: ':lang nu'
+			r: ':lang rust'
 			s: ':lang bash'
 			# [[sort off]]
 		}
@@ -522,8 +524,8 @@ let editor_fork = {
 	harp: {
 		command: filetype
 		search: buffer
-		register: filetype
-		mark: buffer
+		register: buffer
+		mark: directory
 		file: directory
 		hotkeys: {
 			global: l
@@ -589,6 +591,7 @@ let normal_mappings_fork = {
 	'—': select_character
 	'→': retain_column
 	'␈': ':random'
+	'┏': goto_hover
 	'⤒': ':uniq'
 	A-B: [add_newline_above move_line_up paste_before_all]
 	A-O: paste_before_all
@@ -600,7 +603,9 @@ let normal_mappings_fork = {
 	S-A-F1: [extend_prev_sibling ensure_selections_forward flip_selections]
 	S-A-F2: [extend_next_sibling ensure_selections_forward]
 	p: copy_yank_to_register
+	r: harp_register
 	u: append_mode_same_line
+	v: harp_mark
 	# [[sort off]]
 	# --------------------------leap---------------------------
 	'<': find_prev_char
@@ -611,10 +616,6 @@ let normal_mappings_fork = {
 	'A-.': extend_next_char
 	'C-A-,': extend_till_prev_char
 	'C-A-.': extend_till_char
-	v: harp_mark
-	r: harp_search
-	z: harp_register
-	'┏': goto_hover
 	a: {
 		# [[sort on]]
 		C-c: ':echopy %(full_path):%(cursor_line)'
@@ -634,6 +635,7 @@ let normal_mappings_fork = {
 		o: local_search_section
 		r: harp_relative_file
 		s: harp_file
+		j: harp_search
 	}
 	g: {
 		H: ':buffer-close-previous!'
@@ -644,13 +646,14 @@ let normal_mappings_fork = {
 }
 
 let insert_mappings_fork = {
+	A-o: expand_user_snippet
 	A-down: steal_char_below
 	A-up: steal_char_above
 	C-a: [collapse_selection ':insert-output °uclanr | read' append_mode_same_line]
 	'C-;': harp_register
 }
 
-let russian_mapping = (open ~/fes/dot/helix/russian.nu | from nuon)
+let russian_mapping = (open ~/fes/dot/helix/russian.nuon)
 def rusify_key [] {
 	let IN = $in
 	$IN | if ($in | str length | $in == 1) {
