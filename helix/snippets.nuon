@@ -1,5 +1,6 @@
 {
 	global: {
+		cr: 'crystal'
 	}
 	bash: {
 		'#': '#!/usr/bin/env dash'
@@ -29,6 +30,8 @@
 	markdown: {
 		d: '<kbd>█</kbd>'
 		'+++': "+++\ntitle = '█'\ndate = '2026-■'\ndraft = true\n+++\n"
+		j: "```█\n```"
+		jc: "```crystal█\n```"
 	}
 	nu: {
 		'#': '#!/usr/bin/env -S nu -n --no-std-lib'
