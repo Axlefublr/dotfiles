@@ -564,7 +564,7 @@ let editor_fork = {
 			file-encoding
 		]
 	}
-	snippets: (open ~/fes/dot/helix/snippets.nuon)
+	snippets: (open ~/fes/dot/helix/snippets.toml)
 }
 
 let all_mappings_fork = {

@@ -1,0 +1,73 @@
+[global]
+cr = "crystal"
+
+[bash]
+"#" = "#!/usr/bin/env dash"
+
+[crystal]
+do = """
+do █
+end"""
+dod = """
+do |█|
+end"""
+fn = """
+def █
+end"""
+
+[fish]
+"#" = "#!/usr/bin/env fish"
+alias = "alias --save █ '■' >/dev/null"
+b = "&>/dev/null"
+e = "2>/dev/null"
+fn = """
+function █
+end
+funcsave █ >/dev/null"""
+o = ">/dev/null"
+set = "set -l"
+
+[html]
+o = "<o>█</o>"
+cd = "<cd>█</cd>"
+
+[markdown]
+d = "<kbd>█</kbd>"
+"+++" = """
++++
+title = '█'
+date = '2026-■'
+draft = true
++++
+"""
+j = """
+```█
+```"""
+jc = """
+```crystal█
+```"""
+
+[nu]
+"#" = "#!/usr/bin/env -S nu -n --no-std-lib"
+
+[python]
+"#" = "#!/usr/bin/env python"
+
+[ruby]
+"#" = """
+#!/usr/bin/env ruby
+# frozen_string_literal: true"""
+
+[rust]
+dbg = 'std::process::Command::new("dbglog.sh").arg(format!("{█:?}")).status().unwrap();'
+ntf = 'std::process::Command::new("ntf").arg(format!("{█:?}")).status().unwrap();'
+test = """
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn █() {
+    }
+}
+"""
