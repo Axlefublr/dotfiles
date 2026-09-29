@@ -15,6 +15,20 @@ fn = """
 def █
 end"""
 
+[css]
+i = '!important'
+dn = 'display: none█;'
+shadow = """
+box-shadow:
+	-█px -█px ■ #000000,
+	 0   -█px ■ #000000,
+	 █px -█px ■ #000000,
+	-█px  0   ■ #000000,
+	 █px  0   ■ #000000,
+	-█px  █px ■ #000000,
+	 0    █px ■ #000000,
+	 █px  █px ■ #000000;"""
+
 [fish]
 "#" = "#!/usr/bin/env fish"
 alias = "alias --save █ '■' >/dev/null"
@@ -46,6 +60,21 @@ j = """
 jc = """
 ```crystal█
 ```"""
+
+[nbcl]
+example = """
+Window 'example' {
+	stacking = 'overlay'
+	namespace = 'eww'
+	passinput = true
+	geometry = {
+		width  = '█px'
+		height = '█px'
+		anchor = 'center'
+	}
+	Box {
+	}
+}"""
 
 [nu]
 "#" = "#!/usr/bin/env -S nu -n --no-std-lib"
