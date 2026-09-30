@@ -3,6 +3,8 @@
 const ignored = [
 	# [[sort on]]
 	eat
+	shampoa
+	shampob
 	# [[sort off]]
 ]
 
@@ -74,9 +76,9 @@ def 'main pick' [] {
 	| fuzzel -dl 7
 	| each { |thingy|
 		if ($thingy | str contains '—') {
-			loago do ($thingy | split row — | get 0 | str trim)
+			fish -c 'loago do $argv' ($thingy | split row — | get 0 | str trim)
 		} else if ($thingy | str trim | is-not-empty) {
-			loago do ($thingy | str trim)
+			fish -c 'loago do $argv' ($thingy | str trim)
 		}
 	} | ignore
 }
