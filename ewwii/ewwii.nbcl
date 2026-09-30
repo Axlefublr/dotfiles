@@ -1,28 +1,19 @@
-# component Prepared (any: props) {
-# 	Window self.id {
-# 		self.children
-# 	}
-# }
-
-# component Overlay (any: props) {
-# 	Window self.id {
-# 		...props
-# 		stacking = 'overlay'
-# 		self.children
-# 	}
-# }
-
 Window 'example' {
 	stacking = 'overlay'
 	namespace = 'eww'
 	passinput = true
 	geometry = {
-		width = '300px'
-		height = '300px'
+		width  = '800px'
+		height = '800px'
 		anchor = 'center'
 	}
-	Box {
-		class = 'fill-line'
+	Box 'clockbackground' {
+		class = 'circle'
+		Box 'clockcenter' {
+			halign = 'center'
+			valign = 'center'
+			class = 'circle'
+		}
 	}
 }
 
