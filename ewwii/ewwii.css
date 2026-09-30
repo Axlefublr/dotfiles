@@ -3,6 +3,7 @@
 }
 
 * {
+	/* all: unset; */
 	font-family: Inter;
 }
 
@@ -88,4 +89,20 @@ progressbar trough {
 }
 .alt {
 	color: #eed049;
+}
+
+/* --------------------------clock-------------------------- */
+.circle {
+	border-radius: 9999px;
+}
+
+#clockbackground {
+	background-color: #282828;
+	border: 2px #0f0f0f solid;
+}
+
+#clockcenter {
+	min-width: 60px;
+	min-height: 60px;
+	background-color: #e491b2;
 }
