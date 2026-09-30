@@ -251,6 +251,9 @@ let normal_mappings = {
 	'␡': null
 	'⤒': null #
 	'⤓': ':sort'
+	# ---------------------------cv----------------------------
+	'↕': 'switch_case'
+	'⥯': 'switch_to_uppercase'
 	# ---------------------------i↓----------------------------
 	# [[sort on]]
 	# '‘': [':echo selected!' save_selection]
@@ -433,7 +436,6 @@ let normal_mappings = {
 		G: null
 		Y: null
 		# [[sort on]]
-		'`': switch_case
 		D: diagnostics_picker
 		F: file_picker_in_current_buffer_directory
 		J: command_palette
