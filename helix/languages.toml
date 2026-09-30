@@ -15,6 +15,7 @@ indent = { tab-width = 2, unit = "  " }
 # --------------------css---------------------
 [[language]]
 name = "css"
+indent = { tab-width = 3, unit = "\t" }
 formatter = { command = "prettier", args = [ "--parser", "css" ] }
 
 # --------------------fish--------------------
