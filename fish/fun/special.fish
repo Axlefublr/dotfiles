@@ -138,8 +138,11 @@ funcsave kitty_update_unicode >/dev/null
 
 function loago_tracker
     while true
-        loago do (cat ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt) 2>/dev/null
-        truncate -s 0 ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt
+        set -l tasks (cat ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt)
+        if test -n "$tasks"
+            loago do $tasks 2>/dev/null
+            truncate -s 0 ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt
+        end
         loagoe.nu due
         ansi_cursor_hide
         inotifytheusual -t 1800 ~/fes/nak/↑loago.txt ~/iwm/kss/loago-input.txt ~/.local/share/loago/loago.json ~/fes/dot/lai/loagoe.nu
