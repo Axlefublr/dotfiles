@@ -648,7 +648,7 @@ let normal_mappings_fork = {
 }
 
 let insert_mappings_fork = {
-	A-o: expand_user_snippet
+	C-j: expand_user_snippet
 	A-down: steal_char_below
 	A-up: steal_char_above
 	C-a: [collapse_selection ':insert-output °uclanr | read' append_mode_same_line]
