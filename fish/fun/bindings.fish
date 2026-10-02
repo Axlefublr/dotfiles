@@ -44,6 +44,7 @@ function fish_user_key_bindings
     bind ctrl-f _kb_blammo_pwd
     bind ctrl-home beginning-of-buffer
     bind ctrl-i expand-abbr insert-line-over
+    bind ctrl-j undo
     bind ctrl-l clear-screen
     bind ctrl-o expand-abbr insert-line-under
     bind ctrl-s repaint
