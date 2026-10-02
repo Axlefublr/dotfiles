@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 for line in (cat ~/fes/dot/fish/abbr.txt)
-    set -l line "$(string trim -- "$line")"
+    set -l line "$(string trim -- "$line" | string trim -l -c 💯 | string trim)"
     test $line || continue
     test (string sub -l 1 -- $line) = '#' && continue
     set -l subcommand
