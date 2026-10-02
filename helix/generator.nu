@@ -566,7 +566,7 @@ let editor_fork = {
 			file-encoding
 		]
 	}
-	snippets: (open ~/fes/dot/helix/snippets.toml)
+	snippets: (open ~/fes/dot/helix/snippets.toml | merge deep { fish: (collect_fish_abbreviations) })
 }
 
 let all_mappings_fork = {
@@ -689,6 +689,20 @@ def rusify [] {
 	}
 	| flatten
 	| transpose -dr
+}
+
+def collect_fish_abbreviations [] {
+	open ~/fes/dot/fish/abbr.txt
+	| lines
+	| str trim
+	| where $it starts-with 💯
+	| str trim -c 💯 --left
+	| str trim
+	| split column ' → ' key body
+	| each { |it|
+		{ ($it.key | str trim): $it.body }
+	}
+	| into record
 }
 
 let mappings = {
