@@ -45,6 +45,17 @@ div.subheader:has(hide) {
 	color: #ff9f1a;
 }
 
+#image-occlusion-canvas {
+	--inactive-shape-color: #ffeba2;
+	--active-shape-color: #ff8e8e;
+	--inactive-shape-border: 1px #212121;
+	--active-shape-border: 1px #212121;
+}
+
+button#toggle {
+	display: none;
+}
+
 cd {
 	font-family: var(--monospace-font-family);
 	font-size: var(--monospace-font-size);
