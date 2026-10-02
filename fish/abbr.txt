@@ -1,3 +1,39 @@
+# [[sort on]]
+at   → alien_temple
+e    → helix
+ei   → sudo -E helix /usr/share/applications/█.desktop
+eui  → helix ~/.local/share/applications/█.desktop
+f    → z
+gx   → glaza -g
+gz   → glaza
+hime → history merge
+l    → jobs
+la   → eza -a
+le   → eza -l
+ls   → eza
+lw   → eza -al
+q    → queue
+x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
+💯 E    → sudo -E helix
+💯 aA   → chmod +x
+💯 cp   → rsync -r
+💯 mkd  → mkdir -p
+💯 nac  → na -c '█'
+💯 nas  → na --stdin
+💯 nasc → na --stdin -c '█'
+💯 p    → path
+💯 pb   → path basename
+💯 pd   → path dirname
+💯 pex  → path change-extension
+💯 rm   → gomi
+💯 rmF  → sudo rm -fr
+💯 rmf  → rm -fr
+💯 st   → string
+💯 sts  → string sub
+💯 stt  → string trim
+💯 sude → sudo -E
+# [[sort off]]
+
 d →  d
 D →  D
 a →  a global
@@ -5,70 +41,45 @@ A →  A global
 au →  a rust
 Au →  A rust
 
-t  → systemctl
-tu → systemctl --user
-systemctl ← dr → daemon-reload
-systemctl ← f → reset-failed
-systemctl ← d → disable
-systemctl ← e → enable
-systemctl ← r → restart
-systemctl ← s → start
-systemctl ← c → status
-systemctl ← o → stop
+💯 t   → systemctl
+💯 tdr → systemctl daemon-reload
+💯 tf  → systemctl reset-failed
+💯 td  → systemctl disable
+💯 te  → systemctl enable
+💯 ten → systemctl enable --now
+💯 tr  → systemctl restart
+💯 ts  → systemctl start
+💯 tc  → systemctl status
+💯 to  → systemctl stop
 
-c  → cargo
-c. → cargo.nu
-cargo ← cc → clippy --fix --workspace --allow-dirty --allow-staged
-cargo ← a  → add
-cargo ← br → build -r
-cargo ← c  → clippy
-cargo ← d  → doc --no-deps --workspace
-cargo ← do → doc --no-deps --workspace --open
-cargo ← f  → fmt
-cargo ← i  → info
-cargo ← q  → run -q
-cargo ← qr → run -qr
-cargo ← r  → run
-cargo ← rr → run -r
-cargo ← s  → search
+💯 tu   → systemctl --user
+💯 tudr → systemctl --user daemon-reload
+💯 tuf  → systemctl --user reset-failed
+💯 tud  → systemctl --user disable
+💯 tue  → systemctl --user enable
+💯 tuen → systemctl --user enable --now
+💯 tur  → systemctl --user restart
+💯 tus  → systemctl --user start
+💯 tuc  → systemctl --user status
+💯 tuo  → systemctl --user stop
 
-r → crystal
-re → crystal eval '█'
+💯 c.  → cargo.nu
+💯 c   → cargo
+💯 ccc → cargo clippy --fix --workspace --allow-dirty --allow-staged
+💯 ca  → cargo add
+💯 cbr → cargo build -r
+💯 cc  → cargo clippy
+💯 cd  → cargo doc --no-deps --workspace
+💯 cdo → cargo doc --no-deps --workspace --open
+💯 cf  → cargo fmt
+💯 ci  → cargo info
+💯 cq  → cargo run -q
+💯 cqr → cargo run -qr
+💯 cr  → cargo run
+💯 crr → cargo run -r
+💯 cs  → cargo search
+
+💯 r → crystal
+💯 re → crystal eval '█'
 
 magick ← loss → -define webp:lossless=true
-
-qrtool → qrtool.rs
-
-at → alien_temple
-e  → helix
-f  → z
-q  → queue
-gz → glaza
-gx → glaza -g
-
-# [[sort on]]
-aA   → chmod +x
-chex → path change-extension
-cp   → rsync -r
-hime → history merge
-l    → jobs
-mkd  → mkdir -p
-rm   → gomi
-rmF  → sudo rm -fr
-rmf  → rm -fr
-sude → sudo -E
-x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
-# [[sort off]]
-
-ls → eza
-la → eza -a
-le → eza -l
-lw → eza -al
-
-nas → na --stdin
-nac → na -c '█'
-nasc → na --stdin -c '█'
-
-ei → sudo -E helix /usr/share/applications/█.desktop
-eui → helix ~/.local/share/applications/█.desktop
-E  → sudo -E helix
