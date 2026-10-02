@@ -75,4 +75,7 @@ function on_fish_postexec --on-event fish_postexec
 end
 
 abbr -a .. --position anywhere --regex '^\.\.+$' --function multiple_dot
+abbr -a 'o.' --position anywhere '>/dev/null'
+abbr -a 'e.' --position anywhere '2>/dev/null'
+abbr -a 'b.' --position anywhere '&>/dev/null'
 source ~/fes/dot/fish/abbreviations.fish
