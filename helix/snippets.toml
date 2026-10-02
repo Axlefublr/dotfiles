@@ -1,24 +1,39 @@
 [global]
-cr = "crystal"
+cr = 'crystal'
+dt = '%sh{date +%%y.%%m.%%d}'
+exp1 = '%{cursor_line}'                       # ✅
+exp2 = '%{cursor_column}'                     # ✅
+exp3 = '%{buffer_name}'                       # ✅
+exp4 = '%{line_ending}'                       # ✅
+exp5 = '%{working_directory}'                 # ✅
+exp6 = '%{workspace_directory}'               # ✅
+exp7 = '%{language}'                          # ✅
+exp8 = '%{selection}'                         # ✅ but it doesn't seem useful
+exp9 = '%{selection_line_start}'              # ✅
+exp10 = '%{selection_line_end}'               # ✅
+exp11 = '%{relative_path}'                    # ✅
+exp12 = '%{buffer_parent}'                    # ✅
+exp13 = '%{buffer_stem}'                      # ✅
+exp14 = '%{selection_line_start_indentation}' # ✅, its problematicness is unrelated to how it interacts with snippets
 
 [bash]
-"#" = "#!/usr/bin/env dash"
+'#' = '#!/usr/bin/env dash'
 
 [crystal]
-do = """
+do = '''
 do █
-end"""
-dod = """
+end'''
+dod = '''
 do |█|
-end"""
-fn = """
+end'''
+fn = '''
 def █
-end"""
+end'''
 
 [css]
 i = '!important'
 dn = 'display: none█;'
-shadow = """
+shadow = '''
 box-shadow:
 	-█px -█px ■ #000000,
 	 0   -█px ■ #000000,
@@ -27,26 +42,28 @@ box-shadow:
 	 █px  0   ■ #000000,
 	-█px  █px ■ #000000,
 	 0    █px ■ #000000,
-	 █px  █px ■ #000000;"""
+	 █px  █px ■ #000000;'''
 
 [fish]
-"#" = "#!/usr/bin/env fish"
+# [[sort on]]
+'#' = '#!/usr/bin/env fish'
 alias = "alias --save █ '■' >/dev/null"
-b = "&>/dev/null"
-e = "2>/dev/null"
-fn = """
+b = '&>/dev/null'
+e = '2>/dev/null'
+o = '>/dev/null'
+set = 'set -l'
+# [[sort off]]
+fn = '''
 function █
 end
-funcsave █ >/dev/null"""
-o = ">/dev/null"
-set = "set -l"
+funcsave █ >/dev/null'''
 
 [html]
-o = "<o>█</o>"
-cd = "<cd>█</cd>"
+o = '<o>█</o>'
+cd = '<cd>█</cd>'
 
 [markdown]
-d = "<kbd>█</kbd>"
+d = '<kbd>█</kbd>'
 "+++" = """
 +++
 title = '█'
@@ -54,15 +71,15 @@ date = '2026-■'
 draft = true
 +++
 """
-j = """
+j = '''
 ```█
-```"""
-jc = """
+```'''
+jc = '''
 ```crystal█
-```"""
+```'''
 
 [nbcl]
-example = """
+the = """
 Window 'example' {
 	stacking = 'overlay'
 	namespace = 'eww'
@@ -77,20 +94,28 @@ Window 'example' {
 }"""
 
 [nu]
-"#" = "#!/usr/bin/env -S nu -n --no-std-lib"
+'#' = '#!/usr/bin/env -S nu -n --no-std-lib'
 
 [python]
-"#" = "#!/usr/bin/env python"
+'#' = '#!/usr/bin/env python'
 
 [ruby]
-"#" = """
+'#' = '''
 #!/usr/bin/env ruby
-# frozen_string_literal: true"""
+# frozen_string_literal: true'''
 
 [rust]
+in = 'into()'
+fr = 'from()'
+toow = 'to_owned()'
+stf = 'String::from("█")'
 dbg = 'std::process::Command::new("dbglog.sh").arg(format!("{█:?}")).status().unwrap();'
 ntf = 'std::process::Command::new("ntf").arg(format!("{█:?}")).status().unwrap();'
-test = """
+'{}' = '''
+{
+    █
+};'''
+test = '''
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -99,4 +124,4 @@ mod tests {
     fn █() {
     }
 }
-"""
+'''
