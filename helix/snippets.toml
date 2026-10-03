@@ -1,20 +1,18 @@
 [global]
-cr = 'crystal'
+# [[sort on]]
+csl = '%{cursor_line}'
+dT = '%sh{date +%%Y-%%m-%%d}'
 dt = '%sh{date +%%y.%%m.%%d}'
-exp1 = '%{cursor_line}'                       # ✅
-exp2 = '%{cursor_column}'                     # ✅
-exp3 = '%{buffer_name}'                       # ✅
-exp4 = '%{line_ending}'                       # ✅
-exp5 = '%{working_directory}'                 # ✅
-exp6 = '%{workspace_directory}'               # ✅
-exp7 = '%{language}'                          # ✅
-exp8 = '%{selection}'                         # ✅ but it doesn't seem useful
-exp9 = '%{selection_line_start}'              # ✅
-exp10 = '%{selection_line_end}'               # ✅
-exp11 = '%{relative_path}'                    # ✅
-exp12 = '%{buffer_parent}'                    # ✅
-exp13 = '%{buffer_stem}'                      # ✅
-exp14 = '%{selection_line_start_indentation}' # ✅, its problematicness is unrelated to how it interacts with snippets
+tm = '%sh{date +%%H:%%M}'
+# [[sort off]]
+
+exp5 = '%{working_directory}' # cwd ❌(d → d↓j is yuck)
+exp7 = '%{language}'          # la
+exp11 = '%{relative_path}'
+exp12 = '%{buffer_parent}'
+exp13 = '%{buffer_stem}'
+exp3 = '%{buffer_name}'
+exp1 = '%{full_path}'
 
 [bash]
 '#' = '#!/usr/bin/env dash'
@@ -63,6 +61,7 @@ o = '<o>█</o>'
 cd = '<cd>█</cd>'
 
 [markdown]
+r = 'crystal'
 d = '<kbd>█</kbd>'
 "+++" = """
 +++
