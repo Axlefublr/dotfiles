@@ -14,6 +14,30 @@ exp13 = '%{buffer_stem}'
 exp3 = '%{buffer_name}'
 exp1 = '%{full_path}'
 
+# -------------------------colors--------------------------
+grd = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox red'    | get hex}"
+gor = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox orange' | get hex}"
+gyl = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox yellow' | get hex}"
+gee = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox green'  | get hex}"
+gmt = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox mint'   | get hex}"
+gcy = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox cyan'   | get hex}"
+gpu = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox purple' | get hex}"
+gwt = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox white'  | get hex}"
+gey = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox grey'   | get hex}"
+srd = "%sh{€open ~/fes/dot/colors.nuon | get 'shell red'      | get hex}"
+sor = "%sh{€open ~/fes/dot/colors.nuon | get 'shell orange'   | get hex}"
+syl = "%sh{€open ~/fes/dot/colors.nuon | get 'shell yellow'   | get hex}"
+ssd = "%sh{€open ~/fes/dot/colors.nuon | get 'shell salad'    | get hex}"
+see = "%sh{€open ~/fes/dot/colors.nuon | get 'shell green'    | get hex}"
+scy = "%sh{€open ~/fes/dot/colors.nuon | get 'shell cyan'     | get hex}"
+sbl = "%sh{€open ~/fes/dot/colors.nuon | get 'shell blue'     | get hex}"
+spu = "%sh{€open ~/fes/dot/colors.nuon | get 'shell purple'   | get hex}"
+spi = "%sh{€open ~/fes/dot/colors.nuon | get 'shell pink'     | get hex}"
+scr = "%sh{€open ~/fes/dot/colors.nuon | get 'shell coral'    | get hex}"
+sey = "%sh{€open ~/fes/dot/colors.nuon | get 'shell grey'     | get hex}"
+evl = "%sh{€open ~/fes/dot/colors.nuon | get 'grey level'     | get hex}"
+ebl = "%sh{€open ~/fes/dot/colors.nuon | get 'smooth black'   | get hex}"
+
 [bash]
 '#' = '#!/usr/bin/env dash'
 

@@ -1,32 +1,5 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
-let color_snippets = {
-	grd: 'gruvbox red'
-	gor: 'gruvbox orange'
-	gyl: 'gruvbox yellow'
-	gee: 'gruvbox green'
-	gmt: 'gruvbox mint'
-	gcy: 'gruvbox cyan'
-	gpu: 'gruvbox purple'
-	gwt: 'gruvbox white'
-	gey: 'gruvbox grey'
-
-	srd: 'shell red'
-	sor: 'shell orange'
-	syl: 'shell yellow'
-	ssd: 'shell salad'
-	see: 'shell green'
-	scy: 'shell cyan'
-	sbl: 'shell blue'
-	spu: 'shell purple'
-	spi: 'shell pink'
-	scr: 'shell coral'
-	sey: 'shell grey'
-
-	evl: 'grey level'
-	ebl: 'smooth black'
-}
-
 let editor = {
 	# [[sort on]]
 	auto-completion: true
@@ -596,7 +569,6 @@ let editor_fork = {
 	snippets: (
 		open ~/fes/dot/helix/snippets.toml
 		| merge deep { fish: (collect_fish_abbreviations) }
-		| merge deep { global: ($color_snippets | generate_color_variations) }
 	)
 }
 
