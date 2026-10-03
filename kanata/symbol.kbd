@@ -5,7 +5,6 @@
 	, S-1
 	. (cmd wtype …)
 	/ bksl
-	; (cmd fish -c "wtype (date +%y.%m.%d)")
 	h S-4
 	i S-8
 	j S-eql
@@ -88,7 +87,6 @@
 )
 
 (deflayermap (vx)
-	; (cmd fish -c "wtype (date +%Y-%m-%d)")
 	, (cmd wtype ¡)
 	/ (cmd wtype ¿)
 )
