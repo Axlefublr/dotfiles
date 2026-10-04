@@ -55,6 +55,12 @@ function systemd_download_drop
     mv -f ~/wlx/auto-tab-discard-preferences.json ~/fes/jiro/auto-tab-discard.json
     mv -f (recent-modified.nu ~/wlx/Screen\ Shot\ \*.png) ~/iwm/sco/(date +%Y.%m.%d-%H:%M:%S-%N-node).png
     mv -f (recent-modified.nu ~/wlx/tampermonkey-backup-firefox-\*.zip) ~/fes/jiro/tampermonkey.zip
+    mv -f ~/wlx/kbdv.json ~/fes/jiro/kbdv.json
+    mv -f ~/wlx/kbdcv.json ~/fes/jiro/kbdcv.json
+    mv -f ~/wlx/kbdcx.json ~/fes/jiro/kbdcx.json
+    mv -f ~/wlx/kbdvx.json ~/fes/jiro/kbdvx.json
+    mv -f ~/wlx/kbdru.json ~/fes/jiro/kbdru.json
+    mv -f ~/wlx/kbderui.json ~/fes/jiro/kbderui.json
 
     rm -fr (quiet-glob.nu ~/wlx/sidebery-data-\*.json)
     rm -fr (quiet-glob.nu ~/wlx/FoxyProxy_\*.json)
