@@ -28,6 +28,7 @@ x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
 💯 rm   → gomi
 💯 rmF  → sudo rm -fr
 💯 rmf  → rm -fr
+💯 sc   → set_color
 💯 st   → string
 💯 sts  → string sub
 💯 stt  → string trim
