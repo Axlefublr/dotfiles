@@ -148,12 +148,15 @@ let all_mappings = {
 }
 
 let normal_mappings = {
+	# [[sort on]]
+	'"': null
+	C-d: null
+	C-u: null
 	P: null
 	Y: null
+	p: null
 	y: null
-	C-u: null
-	C-d: null
-	z: null
+	# [[sort off]]
 	# -------------------------normal--------------------------
 	';': [save_selection select_textobject_around]
 	"'": [save_selection select_textobject_inner]
@@ -180,7 +183,7 @@ let normal_mappings = {
 	C-m: [save_selection select_all_siblings]
 	C-n: extend_search_next
 	C-q: ':cd ..'
-	C-v: replace
+	C-r: select_register
 	C-x: join_selections
 	C: '@c<ret><esc>'
 	I: insert_at_line_start
@@ -192,9 +195,9 @@ let normal_mappings = {
 	S-A-F4: merge_consecutive_selections
 	T: redo
 	U: insert_at_line_end
-	V: [collapse_selection replace]
 	W: ensure_selections_forward
 	X: join_selections_space
+	Z: replace
 	c: change_selection_noyank
 	d: delete_selection_noyank
 	h: move_char_left
@@ -210,6 +213,7 @@ let normal_mappings = {
 	t: undo
 	w: flip_selections
 	x: replace_with_yanked
+	z: [collapse_selection replace]
 	# [[sort off]]
 	# ---------------------------x↓----------------------------
 	'÷': '@<space>w<ret>'
@@ -242,9 +246,9 @@ let normal_mappings = {
 	# ---------------------------xc↓---------------------------
 	'⊻': ':tree-sitter-subtree'
 	'⊼': ':tree-sitter-highlight-name'
-	'≤': rotate_selection_contents_forward
-	'≥': rotate_selection_contents_backward
-	'≈': reverse_selection_contents
+	'↕': rotate_selection_contents_forward
+	'⥯': rotate_selection_contents_backward
+	'⇌': reverse_selection_contents
 	'≺': rotate_selections_first
 	'≻': rotate_selections_last
 	'␈': null #
@@ -252,8 +256,8 @@ let normal_mappings = {
 	'⤒': null #
 	'⤓': ':sort'
 	# ---------------------------cv----------------------------
-	'↕': 'switch_case'
-	'⥯': 'switch_to_uppercase'
+	'⇊': 'switch_case'
+	'⇈': 'switch_to_uppercase'
 	# ---------------------------i↓----------------------------
 	# [[sort on]]
 	# '‘': [':echo selected!' save_selection]
@@ -385,7 +389,6 @@ let normal_mappings = {
 		j: ':new'
 		k: ':toggle enable-diagnostics'
 		l: ':toggle lsp.display-inlay-hints'
-		n: ':sh °append_github_line_numbers %(cursor_line)'
 		o: ':fmt'
 		s: surround_add
 		# [[sort off]]
@@ -474,6 +477,7 @@ let normal_mappings = {
 		D: null
 		c: null
 		d: null
+		m: null
 		# [[sort on]]
 		I: ':buffer-close-all!'
 		O: ':buffer-close-others!'
@@ -481,7 +485,7 @@ let normal_mappings = {
 		g: ':reset-diff-change'
 		i: ':buffer-close-all'
 		o: ':buffer-close-others'
-		q: ':cd %sh(git -C "%(buffer_parent)" rev-parse --show-toplevel)'
+		q: ':cd %sh(git -C %(buffer_parent) rev-parse --show-toplevel)'
 		r: ':lsp-restart'
 		# [[sort off]]
 	}
@@ -494,10 +498,10 @@ let insert_mappings = {
 	A-h: $'@<esc><lt>(char -u 25a0)mc'
 	A-l: $'@<esc><gt>(char -u 25a0)mc'
 	C-h: commit_undo_checkpoint
-	C-l: '@<C-h> \<ret>'
 	C-u: kill_to_line_start
 	C-v: [collapse_selection paste_before]
 	C-ц: [normal_mode move_prev_word_start change_selection_noyank]
+	F11: '@<C-h> \<ret>'
 	down: completion
 	end: [commit_undo_checkpoint insert_at_line_end]
 	home: [commit_undo_checkpoint insert_at_line_start]
@@ -604,11 +608,10 @@ let normal_mappings_fork = {
 	A-i: continue_last_insert
 	A-o: paste_after_all
 	C-/: select_first_and_last_chars
-	P: copy_register_to_yank
+	R: copy_yank_to_register
 	S-A-F1: [extend_prev_sibling ensure_selections_forward flip_selections]
 	S-A-F2: [extend_next_sibling ensure_selections_forward]
-	p: copy_yank_to_register
-	r: harp_register
+	r: copy_register_to_yank
 	u: append_mode_same_line
 	v: harp_mark
 	# [[sort off]]
@@ -623,7 +626,7 @@ let normal_mappings_fork = {
 	'C-A-.': extend_till_char
 	a: {
 		# [[sort on]]
-		C-c: ':echopy %(full_path):%(cursor_line)'
+		C-c: ':echopy %(buffer_name)'
 		C: ':echopy %(relative_path)'
 		V: ':echopy %sh(ghl -pb HEAD %(relative_path))'
 		X: ':echopy %sh(ghl)'
@@ -641,12 +644,15 @@ let normal_mappings_fork = {
 		r: harp_relative_file
 		s: harp_file
 		j: harp_search
+		';': harp_register
 	}
 	g: {
 		H: ':buffer-close-previous!'
 		L: ':buffer-close-next!'
 		h: ':buffer-close-previous'
 		l: ':buffer-close-next'
+		u: ':echopy %sh{°append_github_line_numbers %(cursor_line)}'
+		n: ':echopy %reg(+):%(cursor_line)'
 	}
 }
 
@@ -705,6 +711,17 @@ def collect_fish_abbreviations [] {
 	| each { |it|
 		{ ($it.key | str trim): $it.body }
 	}
+	| into record
+}
+
+def generate_color_variations [] {
+	items { |key, value|
+		{ s: hex, c: rgb, d: hsl }
+		| items { |suffix, type|
+			{ $'($key)($suffix)': $"%sh{€open ~/fes/dot/colors.nuon | get '($value)' | get ($type)}" }
+		}
+	}
+	| flatten
 	| into record
 }
 
