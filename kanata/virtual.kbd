@@ -43,10 +43,7 @@
 	g (multi (layer↑ g) (layer↑ ag))
 	h (multi (layer↑ h) (layer↑ semicolon-h))
 	i (multi (layer↑ i) (layer↑ ij) (layer↑ io) (layer↑ iu) (layer↑ ijo))
-	j (multi (switch
-		((layer bookmark-set)) (one-shot-release $ot (layer-toggle bookmark-set)) break
-		) (layer↑ j) (layer↑ ij) (layer↑ jo) (layer↑ ijo) (layer↑ quote-j) (layer↑ .j)
-	)
+	j (multi (layer↑ j) (layer↑ ij) (layer↑ jo) (layer↑ ijo) (layer↑ quote-j) (layer↑ .j))
 	l (multi (layer↑ l) (layer↑ mouse-slow))
 	n (multi (layer↑ n) (layer↑ quote-n))
 	o (multi (layer↑ o) (layer↑ jo) (layer↑ io) (layer↑ ijo))
@@ -56,10 +53,6 @@
 	w (multi (layer↑ w) (layer↑ fw) (layer↑ ew) (layer↑ efw) (layer↑ rw) (layer↑ erw))
 	x (multi (layer↑ x) (layer↑ cx) (layer↑ vx))
 	caps (multi (layer↑ caps) (layer↑ caps-space))
-	quote (multi (switch
-			((layer bookmark)) (one-shot-release $ot (layer-toggle bookmark)) break
-			((layer bookmark-set)) (one-shot-release $ot (layer-toggle bookmark-set)) break
-		) (layer↑ quote) (layer↑ space-quote) (layer↑ quote-j) (layer↑ quote-n)
-	)
+	quote (multi (layer↑ quote) (layer↑ space-quote) (layer↑ quote-j) (layer↑ quote-n))
 	semicolon (multi (layer↑ semicolon) (layer↑ semicolon-h))
 )

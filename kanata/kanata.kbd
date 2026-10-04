@@ -24,6 +24,7 @@
 
 (defalias
 	startup (cmd fish -c "dot")
+	layer-unswitch (multi (cmd fish -c "dot") (layer-switch default))
 )
 
 (defalias
@@ -281,7 +282,7 @@
 	f (cmd fish -c "runner_link open")
 	r (cmd fish -c clipboard_pick)
 	s (cmd fish -c runner_link)
-	w (one-shot-release $ot (layer-toggle bookmark))
+	w (layer-switch bookmark)
 	z (cmd fish -c rofimoji)
 	;; [[sort off]]
 )
@@ -294,7 +295,7 @@
 	e (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve E")
 	f (cmd fish -c "echo append >/tmp/mine/magazine-action ; magazine_resolve c-l")
 	q (cmd fish -c yteet_clipboard)
-	w (one-shot-release $ot (layer-toggle bookmark-set))
+	w (layer-switch bookmark-set)
 	z (cmd fish -c runner_symbol_name)
 	;; [[sort off]]
 )

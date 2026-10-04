@@ -6,8 +6,6 @@
 	(multi (layer-switch default) (cmd fish -c (concat "magazine_resolve " $name)))
 )
 
-(defalias magazine-cancel (multi (cmd fish -c "dot") (layer-switch default)))
-
 (deflayermap (comma)
 	c (t! magazine-prepare get)
 	e (t! magazine-prepare novel)
@@ -24,7 +22,7 @@
 )
 
 (deflayermap (magazine-which)
-	___ @magazine-cancel
+	___ @layer-unswitch
 	s (tap-hold-release $tt $ht (t! magazine-execute s) (layer-toggle magazine-which-shift))
 	d (tap-hold-release $tt $ht (t! magazine-execute d.md) (layer-toggle magazine-which-ctrl))
 	a (tap-hold-release $tt $ht (t! magazine-execute a) (layer-toggle magazine-which-alt))
@@ -60,7 +58,7 @@
 )
 
 (deflayermap (magazine-which-shift)
-	___ @magazine-cancel
+	___ @layer-unswitch
 	q (t! magazine-execute Q)
 	w (t! magazine-execute W)
 	e (t! magazine-execute E)
@@ -95,7 +93,7 @@
 )
 
 (deflayermap (magazine-which-ctrl)
-	___ @magazine-cancel
+	___ @layer-unswitch
 	q (t! magazine-execute c-q)
 	w (t! magazine-execute c-w)
 	e (t! magazine-execute c-e)
@@ -130,7 +128,7 @@
 )
 
 (deflayermap (magazine-which-alt)
-	___ @magazine-cancel
+	___ @layer-unswitch
 	q (t! magazine-execute a-q)
 	w (t! magazine-execute a-w)
 	e (t! magazine-execute a-e)
@@ -165,7 +163,7 @@
 )
 
 (deflayermap (magazine-which-number)
-	___ @magazine-cancel
+	___ @layer-unswitch
 	f (t! magazine-execute 1)
 	d (t! magazine-execute 2)
 	s (t! magazine-execute 3)
