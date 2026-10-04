@@ -2,9 +2,9 @@
 
 const ignored = [
 	# [[sort on]]
+	# shampob
 	eat
 	shampoa
-	shampob
 	# [[sort off]]
 ]
 
