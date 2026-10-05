@@ -18,9 +18,9 @@
 'diagnostic.info' = {}
 'diagnostic.unnecessary' = { fg = 'grey' }
 'diagnostic.warning' = {}
-'diff.delta.gutter' = 'cyan'
-'diff.minus.gutter' = 'red'
-'diff.plus.gutter' = 'green'
+'diff.delta' = 'cyan'
+'diff.minus' = 'red'
+'diff.plus' = 'green'
 'error' = 'red'
 'escape' = 'grey'
 'function' = 'green'
