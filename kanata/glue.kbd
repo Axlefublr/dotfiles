@@ -21,7 +21,7 @@
 )
 
 (deflayermap (fw)
-	e (multi (layer-toggle e) (layer-toggle ew) (layer-toggle efw) (on↑ tap-vkey e))
+	e (multi (layer-toggle e) (layer-toggle ef) (layer-toggle ew) (layer-toggle efw) (on↑ tap-vkey e))
 	k up
 	l right
 	h left
