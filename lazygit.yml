@@ -265,6 +265,12 @@ customCommands:
     command: "footclient -N ; niri msg action consume-or-expel-window-left"
     description: "Open terminal here"
     output: none
+  - key: <f6>
+    context: global
+    description: "Open prissue from clipboard in browser"
+    command: "fish -c 'gh browse \"$(wl-paste -n)\" ; ensure-browser.nu'"
+    output: none
+
   - key: U
     context: global
     command: "wl-paste | git apply --3way"
