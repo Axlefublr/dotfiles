@@ -6,13 +6,13 @@ feedback_duration_ms = 500
 # [[sort on]]
 tools.arrow.roundness = 1.0
 tools.line.roundness = 1.0
-tools.pen.size_range.stops = [ 50 ]
+tools.pen.stops.size = [ 50 ]
 tools.rectangle.roundness = 0.0
 tools.text.background = true
-tools.text.font.family = 'Inter, Twemoji, Noto Sans'
+tools.text.font.family = 'Inter, Noto Sans, Symbols Nerd Font, Twemoji'
 tools.text.roundness = 0.4
 tools.text.size = 30.0
-tools.text.size_range.step = 1.0
+tools.text.steps.size = 1.0
 # [[sort off]]
 palette = [
   '#e84046', # red
