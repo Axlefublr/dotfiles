@@ -446,6 +446,7 @@ let normal_mappings = {
 		L: lsp_or_syntax_workspace_symbol_picker
 		S-end: [extend_to_line_end_newline]
 		S-home: [extend_to_line_start]
+		W: ':open %{buffer_parent}'
 		c: changed_file_picker
 		d: (open ~/fes/dot/helix/magazine.nuon)
 		e: buffer_picker
