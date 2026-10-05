@@ -33,6 +33,10 @@ rebl = "%sh{€open ~/fes/dot/colors.nuon | get 'smooth black'   | get hex | str
 '#' = '#!/usr/bin/env dash'
 
 [crystal]
+end = '''
+
+  █
+end'''
 do = '''
 do █
 end'''
@@ -67,6 +71,9 @@ o = '>/dev/null'
 set = 'set -l '
 # [[sort off]]
 fn = '''
+function █
+end'''
+fns = '''
 function █
 end
 funcsave █ >/dev/null'''
@@ -172,3 +179,12 @@ exsle = '%%{selection_line_end}'
 exsls = '%%{selection_line_start}'
 exwd = '%%{working_directory}'
 # [[sort off]]
+
+[yaml]
+the = '''
+- key: █
+  context: global■
+  description: "■"
+  command: "■"
+  output: none
+'''
