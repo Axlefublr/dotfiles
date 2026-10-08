@@ -25,16 +25,19 @@ on_success = 'back'
 command = [ 'cargo-doc-quick.fish', 'cargo', 'doc', '--no-deps', '--keep-going', '--workspace' ]
 need_stdout = false
 on_success = 'job:clippy'
+on_failure = 'job:clippy'
 
 [jobs.doc]
 command = [ 'cargo', 'doc', '--no-deps', '--keep-going', '--workspace' ]
 need_stdout = false
 on_success = 'job:clippy'
+on_failure = 'job:clippy'
 
 [jobs.doc-dep]
 command = [ 'cargo', 'doc', '--keep-going', '--workspace' ]
 need_stdout = false
 on_success = 'job:clippy'
+on_failure = 'job:clippy'
 
 [skin]
 # [[sort on]]
