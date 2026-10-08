@@ -284,9 +284,16 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout git diff-so-fancy
 git config --global --unset pull.ff
 git config --global branch.sort -committerdate
 git config --global checkout.defaultRemote origin
+git config --global color.diff-highlight.newHighlight '#1f1f1f green'
+git config --global color.diff-highlight.newNormal green
+git config --global color.diff-highlight.oldHighlight '#1f1f1f red'
+git config --global color.diff-highlight.oldNormal red
 git config --global color.diff.frag 'bold #e49641'
 git config --global color.diff.func 'bold #b58cc6'
+git config --global color.diff.meta 'bold yellow' # “X file modified” header
+git config --global color.diff.new green
 git config --global color.diff.newMoved '#78bf84'
+git config --global color.diff.old red
 git config --global color.diff.oldMoved '#e491b2'
 git config --global column.ui auto
 git config --global commit.verbose true
