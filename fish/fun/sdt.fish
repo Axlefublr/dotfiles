@@ -8,10 +8,10 @@ function systemd_minute
     else
         truncate -s 0 ~/.local/share/magazine/4
     end
-    if test -s ~/.local/share/magazine/4
-        set -l comparison "$(echo $prev_notifs | comm -13 - ~/.local/share/magazine/4)"
-        test -n $comparison && notify-send -- $comparison
-    end
+    # if test -s ~/.local/share/magazine/4
+    #     set -l comparison "$(echo $prev_notifs | comm -13 - ~/.local/share/magazine/4)"
+    #     test -n $comparison && notify-send -- $comparison
+    # end
     # I think it is _magazine_commit *here* that broke my magazine repo
     return 0
 end
