@@ -9,6 +9,7 @@ let editor = {
 	buffer-picker: { start-position: previous }
 	bufferline: always
 	color-modes: true
+	completion-replace: false
 	completion-timeout: 5
 	completion-trigger-len: 2
 	continue-comments: false
@@ -72,7 +73,7 @@ let editor = {
 	}
 	word-completion: {
 		enable: true
-		trigger-length: 4
+		trigger-length: 3
 	}
 	smart-tab: {
 		enable: false
@@ -179,7 +180,7 @@ let normal_mappings = {
 	C-h: select_prev_sibling
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
-	C-l: select_next_sibling
+	C-l: [select_next_sibling ensure_selections_forward flip_selections]
 	C-m: [save_selection select_all_siblings]
 	C-n: extend_search_next
 	C-q: ':cd ..'
@@ -217,7 +218,7 @@ let normal_mappings = {
 	# [[sort off]]
 	# ---------------------------x↓----------------------------
 	'÷': '@<space>w<ret>'
-	'*': [search_selection_detect_word_boundaries normal_mode]
+	'*': search_selection_detect_word_boundaries
 	'#': null
 	'√': null
 	'$': null
@@ -252,7 +253,7 @@ let normal_mappings = {
 	'≺': rotate_selections_first
 	'≻': rotate_selections_last
 	'␈': null #
-	'␡': null
+	'␡': ':char'
 	'⤒': null #
 	'⤓': ':sort'
 	# ---------------------------cv----------------------------
@@ -555,14 +556,14 @@ let editor_fork = {
 			current-working-directory
 		]
 		center: [
-			read-only-indicator
+			message
 		]
 		right: [
 			spinner
-			spacer
 			register
 			diagnostics
 			search-position
+			read-only-indicator
 			file-type
 			position
 			total-line-numbers
@@ -611,7 +612,7 @@ let normal_mappings_fork = {
 	C-/: select_first_and_last_chars
 	R: copy_yank_to_register
 	S-A-F1: [extend_prev_sibling ensure_selections_forward flip_selections]
-	S-A-F2: [extend_next_sibling ensure_selections_forward]
+	S-A-F2: [extend_next_sibling ensure_selections_forward flip_selections]
 	r: copy_register_to_yank
 	u: append_mode_same_line
 	v: harp_mark
@@ -645,7 +646,8 @@ let normal_mappings_fork = {
 		r: harp_relative_file
 		s: harp_file
 		j: harp_search
-		';': harp_register
+		':': harp_register
+		';': "@<space>:'" # ⇇ ␣→: ⇌ harp_register, ' ⇌ toggle get/set
 	}
 	g: {
 		H: ':buffer-close-previous!'
