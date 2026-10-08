@@ -34,24 +34,9 @@ gui:
   statusPanelView: allBranchesLog
   tabWidth: 3
   timeFormat: "06.01.02"
-  useHunkModeInStagingView: true
-  wrapLinesInStagingView: true
+  useHunkModeInDiffView: true
+  wrapLinesInDiffView: true
   # [[sort off]]
-  authorColors:
-    Axlefublr: "#e491b2"
-  branchColorPatterns:
-    "^main$": "#b58cc6"
-    "^master$": "#b58cc6"
-    "^dev$": "#b58cc6"
-    "^Axlefublr/[^/]+/\\d+$": "#d3ad5c"
-    "^Axlefublr/[^/]+$": "#e491b2"
-    "^pr-": "#e491b2"
-    "^eph-": "#ea6962"
-    "^bkp-": "#78bf84"
-    "^pr/": "#e491b2"
-    "^eph/": "#ea6962"
-    "^bkp/": "#78bf84"
-    "^\\d+/": "#e49641"
   sidePanels:
     - [files, stash, worktrees, submodules]
     - [branches, tags]
@@ -61,17 +46,46 @@ gui:
     activeBorderColor:
       - yellow
       - bold
+    inactiveBorderColor:
+      - default
     searchingActiveBorderColor:
       - "#b58cc6"
       - bold
     optionsTextColor:
       - "#78bf84"
+    selectedLineFgColor:
+      - default
     selectedLineBgColor:
-      - "#5f472d"
+      - "#4a4a4a"
+    inactiveViewSelectedLineBgColor:
+      - '#424242'
     cherryPickedCommitFgColor:
       - "#b58cc6"
     cherryPickedCommitBgColor:
       - "#"
+    markedBaseCommitFgColor:
+      - blue
+    markedBaseCommitBgColor:
+      - yellow
+    unstagedChangesColor:
+      - red
+    defaultFgColor:
+      - default
+    authorColors:
+      Axlefublr: "#e491b2"
+    branchColorPatterns:
+      "^main$": "#b58cc6"
+      "^master$": "#b58cc6"
+      "^dev$": "#b58cc6"
+      "^Axlefublr/[^/]+/\\d+$": "#d3ad5c"
+      "^Axlefublr/[^/]+$": "#e491b2"
+      "^pr-": "#e491b2"
+      "^eph-": "#ea6962"
+      "^bkp-": "#78bf84"
+      "^pr/": "#e491b2"
+      "^eph/": "#ea6962"
+      "^bkp/": "#78bf84"
+      "^\\d+/": "#e49641"
 git:
   autoFetch: true
   diffContextSize: 1
