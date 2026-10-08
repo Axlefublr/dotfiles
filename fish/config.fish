@@ -39,6 +39,7 @@ not status is-interactive && return
 # -----------------------interactive-----------------------
 # [[sort on]]
 set -g fish_color_autosuggestion 928374
+set -g fish_color_builtin e491b2
 set -g fish_color_cancel ffafd7
 set -g fish_color_command a9b665
 set -g fish_color_comment 928374
