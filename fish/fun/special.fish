@@ -218,6 +218,15 @@ function piped_scrollback_editor
 end
 funcsave piped_scrollback_editor >/dev/null
 
+function print_nerd_icons
+    uv run --no-project --with nerdfont python -c "
+    import nerdfont
+    for name, icon in nerdfont.icons.items():
+        print(icon, name)
+    " 2>/dev/null
+end
+funcsave print_nerd_icons >/dev/null
+
 function allow_logout
     not test -e ~/fes/zufi/tms/receiver-ongoing
     or begin
