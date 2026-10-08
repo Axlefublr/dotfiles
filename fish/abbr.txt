@@ -80,6 +80,9 @@ Au →  A rust
 💯 crr → cargo run -r
 💯 cs  → cargo search
 
+💯 glo → git log --oneline
+💯 glog → git log --oneline -G '█'
+
 💯 r → crystal
 💯 re → crystal eval '█'
 
