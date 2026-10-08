@@ -13,6 +13,7 @@ gbee = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox green'  | get hex | str
 gbmt = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox mint'   | get hex | str substring 1..}"
 gbcy = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox cyan'   | get hex | str substring 1..}"
 gbpu = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox purple' | get hex | str substring 1..}"
+gbbl = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox blush'  | get hex | str substring 1..}"
 gbwt = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox white'  | get hex | str substring 1..}"
 gbey = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox grey'   | get hex | str substring 1..}"
 shrd = "%sh{€open ~/fes/dot/colors.nuon | get 'shell red'      | get hex | str substring 1..}"
@@ -83,6 +84,27 @@ o = '<o>█</o>'
 cd = '<cd>█</cd>'
 
 [markdown]
+de = '''
+<details>
+<summary>█</summary>
+
+■
+
+</details>'''
+dec = '''
+<details>
+<summary>Commit semantics</summary>
+
+█
+
+</details>'''
+der = '''
+<details>
+<summary>Reasoning</summary>
+
+█
+
+</details>'''
 r = 'crystal'
 d = '<kbd>█</kbd>'
 "+++" = """
