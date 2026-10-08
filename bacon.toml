@@ -36,15 +36,6 @@ command = [ 'cargo', 'doc', '--keep-going', '--workspace' ]
 need_stdout = false
 on_success = 'job:clippy'
 
-[jobs.neru]
-command = [ 'neru', 'launch' ]
-need_stdout = true
-background = false
-on_change_strategy = 'kill_then_restart'
-scroll_anchor = 'auto'
-watch = [ 'neru.toml' ]
-default_watch = false
-
 [skin]
 # [[sort on]]
 change_badge_fg = { r = 31, g = 31, b = 31 }
