@@ -1,4 +1,4 @@
-'$schema' = "https://yazi-rs.github.io/schemas/yazi.json"
+# '$schema' = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [mgr]
 # [[sort on]]
@@ -10,7 +10,6 @@ sort_by = "mtime"
 sort_reverse = true
 sort_sensitive = true
 sort_translit = true
-title_format = ""
 # [[sort off]]
 
 [preview]
