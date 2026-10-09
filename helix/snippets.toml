@@ -28,6 +28,7 @@ shpi = "%sh{€open ~/fes/dot/colors.nuon | get 'shell pink'     | get hex | str
 shcr = "%sh{€open ~/fes/dot/colors.nuon | get 'shell coral'    | get hex | str substring 1..}"
 shey = "%sh{€open ~/fes/dot/colors.nuon | get 'shell grey'     | get hex | str substring 1..}"
 revl = "%sh{€open ~/fes/dot/colors.nuon | get 'grey level'     | get hex | str substring 1..}"
+red2 = "%sh{€open ~/fes/dot/colors.nuon | get 'grey dark 12'    | get hex | str substring 1..}"
 rebl = "%sh{€open ~/fes/dot/colors.nuon | get 'smooth black'   | get hex | str substring 1..}"
 
 [bash]
@@ -167,7 +168,10 @@ exwd = '%%{working_directory}'
 dbg = 'std::process::Command::new("dbglog.sh").arg(format!("{█:?}")).status().unwrap();'
 fr = 'from()'
 in = 'into()'
+isn = 'is_none()'
+iss = 'is_some()'
 ntf = 'std::process::Command::new("ntf").arg(format!("{█:?}")).status().unwrap();'
+ntfu = 'std::process::Command::new("ntf").arg(format!("%sh{uclanr}")).status().unwrap();'
 stf = 'String::from("█")'
 toow = 'to_owned()'
 # [[sort off]]
