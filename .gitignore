@@ -13,8 +13,6 @@ helix/screen.toml
 helix/sleek.toml
 helix/testing.toml
 qs/.qmlls.ini
-stdext/Cargo.lock
-stdext/target
 yazi/package.toml
 yazi/plugins/compress.yazi
 yazi/plugins/jump-to-char.yazi
@@ -22,3 +20,5 @@ yazi/plugins/open-with-cmd.yazi
 yazi/plugins/ouch.yazi
 yazi/plugins/toggle-pane.yazi
 yazi/plugins/types.yazi
+yazi/plugins/first-non-directory.yazi
+yazi/plugins/smart-enter.yazi
