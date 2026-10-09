@@ -73,7 +73,7 @@ let editor = {
 	}
 	word-completion: {
 		enable: true
-		trigger-length: 3
+		trigger-length: 4
 	}
 	smart-tab: {
 		enable: false
@@ -104,7 +104,6 @@ let all_mappings = {
 	A-pageup: ('@<C-i>[[sort' + ' on]]<esc>@')
 	A-pagedown: ('@<C-o>[[sort' + ' off]]<esc>@')
 	# -------------------------saving--------------------------
-	ins: ':write-buffer-close'
 	A-w: ':write-buffer-close'
 	S-ins: ':buffer-close!'
 	C-A-w: ':buffer-close!'
@@ -169,6 +168,7 @@ let normal_mappings = {
 	B: [add_newline_above move_line_up paste_before]
 	S-A-down: decrement
 	S-A-up: increment
+	ins: ':write-buffer-close'
 	# [[sort on]]
 	# C-c: change_selection_noyank
 	# C-d: delete_selection_noyank
@@ -484,6 +484,7 @@ let normal_mappings = {
 		I: ':buffer-close-all!'
 		O: ':buffer-close-others!'
 		Q: ':cd %(buffer_parent)'
+		e: ':lsp-stop'
 		g: ':reset-diff-change'
 		i: ':buffer-close-all'
 		o: ':buffer-close-others'
