@@ -4,9 +4,9 @@ require('toggle-pane'):entry('min-preview')
 require('smart-enter'):setup({
 	open_multi = true
 })
-require('session'):setup({
-    sync_yanked = true
-})
+-- require('session'):setup({
+--     sync_yanked = true
+-- })
 require('zoxide'):setup({
     update_db = true
 })
@@ -14,6 +14,8 @@ require('zoxide'):setup({
 function Tabs.height()
 	return 0
 end
+
+ps.sub("ind-app-title", function() end)
 
 Header:children_add(function()
 	if #cx.tabs <= 1 then
