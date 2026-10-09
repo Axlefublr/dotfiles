@@ -1,10 +1,12 @@
 [mgr]
 keymap = [
   # [[sort on]]
+  # { on = '<C-z>', run = [ 'plugin blammo', 'suspend' ], desc = 'Suspend the process' },
   # { on = '{', run = 'tab_swap -1', desc = 'Swap current tab with previous tab' },
   # { on = '}', run = 'tab_swap 1', desc = 'Swap current tab with next tab' },
-  { on = '!', run = 'unyank', desc = 'Cancel the yank status' },
-  { on = '%', run = 'toggle_all --state=true', desc = 'Select all' },
+  { on = '%', run = 'toggle_all --state=on', desc = 'Select all' },
+  { on = '(', run = 'back', desc = 'Go back to the previous directory' },
+  { on = ')', run = 'forward', desc = 'Go forward to the next directory' },
   { on = '*', run = 'plugin first-non-directory', desc = 'Go to first non-directory' },
   { on = '+', run = '''shell -- fish -c 'for file in %s; mv $file (trail $file █+) ;end'''', desc = 'Mark files with +' },
   { on = '-', run = '''shell -- fish -c 'for file in %s; mv $file (path_clear_suffix $file) ;end'''', desc = 'Unmark files' },
@@ -19,11 +21,10 @@ keymap = [
   { on = '7', run = 'tab_switch 6', desc = 'Switch to tab 7' },
   { on = '8', run = 'tab_switch 7', desc = 'Switch to tab 8' },
   { on = '9', run = 'tab_switch 8', desc = 'Switch to tab 9' },
-  { on = ';', run = 'escape --select', desc = 'Deselect all files' },
   { on = '<A-Space>', run = [ 'plugin blammo', 'quit' ], desc = 'Exit the process' },
   { on = '<C-7>', run = 'paste --force', desc = 'Paste yanked files (overwrite if the destination exists)' },
-  { on = '<C-A-End>', run = [ 'visual_mode', 'arrow bot', 'escape --visual' ], desc = 'Select to bottom' },
-  { on = '<C-A-Home>', run = [ 'visual_mode', 'arrow top', 'escape --visual' ], desc = 'Select to top' },
+  { on = '<C-A-x>', run = [ 'visual_mode', 'arrow bot', 'escape --visual' ], desc = 'Select to bottom' },
+  { on = '<C-A-z>', run = [ 'visual_mode', 'arrow top', 'escape --visual' ], desc = 'Select to top' },
   { on = '<C-End>', run = 'arrow bot', desc = 'Go to bottom' },
   { on = '<C-Home>', run = 'arrow top', desc = 'Go to top' },
   { on = '<C-Left>', run = 'tab_switch -1 --relative', desc = 'Switch to the previous tab' },
@@ -33,7 +34,6 @@ keymap = [
   { on = '<C-k>', run = [ 'toggle --state=off', 'arrow -1', 'toggle --state=off' ], desc = 'Deselect and move up' },
   { on = '<C-v>', run = 'paste', desc = 'Paste yanked files' },
   { on = '<C-x>', run = 'yank --cut', desc = 'Yank selected files (cut)' },
-  { on = '<C-z>', run = [ 'plugin blammo', 'suspend' ], desc = 'Suspend the process' },
   { on = '<Down>', run = 'arrow 1', desc = 'Move cursor down' },
   { on = '<Enter>', run = [ 'plugin smart-enter' ], desc = 'Open selected files' },
   { on = '<Esc>', run = 'escape --find --filter --search', desc = 'Cancel most things' },
@@ -51,11 +51,10 @@ keymap = [
   { on = 'C', run = 'search rg', desc = 'Search files by content using ripgrep' },
   { on = 'D', run = 'remove --permanently --force', desc = 'Delete selected' },
   { on = 'E', run = 'shell --block -- helix', desc = 'Open editor here' },
-  { on = 'H', run = 'back', desc = 'Go back to the previous directory' },
   { on = 'I', run = 'plugin toggle-pane min-preview', desc = 'Toggle preview' },
-  { on = 'J', run = [ 'toggle --state=on', 'arrow 1', 'toggle --state=on' ], desc = 'Extend and move down' },
-  { on = 'K', run = [ 'toggle --state=on', 'arrow -1', 'toggle --state=on' ], desc = 'Extend and move up' },
-  { on = 'L', run = 'forward', desc = 'Go forward to the next directory' },
+  { on = 'J', run = [ 'toggle --state=on', 'arrow 1', 'toggle --state=on' ], desc = 'Select and move down' },
+  { on = 'K', run = [ 'toggle --state=on', 'arrow -1', 'toggle --state=on' ], desc = 'Select and move up' },
+  { on = 'M', run = 'unyank', desc = 'Cancel the yank status' },
   { on = 'N', run = 'find_arrow --previous', desc = 'Go to the previous found' },
   { on = 'U', run = 'create --force --dir', desc = 'Create a directory' },
   { on = 'b', run = 'tasks:show', desc = 'Show task manager' },
@@ -69,6 +68,7 @@ keymap = [
   { on = 'j', run = 'arrow 1', desc = 'Down' },
   { on = 'k', run = 'arrow -1', desc = 'Up' },
   { on = 'l', run = 'enter', desc = 'Enter the child directory' },
+  { on = 'm', run = 'escape --select', desc = 'Deselect all files' },
   { on = 'n', run = 'find_arrow', desc = 'Go to the next found' },
   { on = 'o', run = 'shell --block -- gomi -b', desc = 'Restore trashed files' },
   { on = 'r', run = 'rename --cursor=before_ext', desc = 'Rename selected file(s)' },
@@ -97,20 +97,20 @@ keymap = [
   { on = [ '<C-s>', 'w' ], run = [ 'sort btime --reverse=no --dir-first=yes', 'linemode btime' ], desc = 'Sort by created time' },
   { on = [ '<Space>', 'i' ], run = 'shell --block -- hexpatch %s', desc = 'Open file in hex editor' },
   { on = [ '<Space>', 'w' ], run = 'shell --block -- helix .', desc = 'Ripgrep this directory' },
+  { on = [ 'a', 'A' ], run = 'shell -- chmod +x %s', desc = 'Chmod +x' },
+  { on = [ 'a', 'c' ], run = 'plugin ouch tar.gz', desc = 'Archive selected files' },
+  { on = [ 'a', 'd' ], run = [ '''shell --block -- disposition.nu %s''', 'cd ~/iwm/voe', 'escape --select' ], desc = 'Change dispositions of files' },
+  { on = [ 'a', 'e' ], run = '''shell -- fish -c 'for file in %s; inkscape $file --export-filename=(path change-extension png $file) --export-width=1920 ;end'''', desc = 'Render svg into png' },
+  { on = [ 'a', 'i' ], run = '''shell -- fish -c 'wl-paste -t image/png >image.png'''', desc = 'Create image from clipboard' },
+  { on = [ 'a', 'j' ], run = '''shell -- fish -c 'for file in %s; jpeg2png $file ;end'''', desc = 'Unfuck the jpeg into png' },
+  { on = [ 'a', 'k' ], run = [ 'plugin input', '''shell -- fish -c 'wl-paste >(catait ~/fes/zufi/yazi-input)' ''' ], desc = 'Create file from clipboard' },
+  { on = [ 'a', 'l' ], run = [ 'linemode size', '''shell -- fish -c 'for file in %s; magick -define webp:lossless=true $file (path change-extension webp $file) ;end'''' ], desc = 'Magick to lossless webp' },
+  { on = [ 'a', 'r' ], run = '''shell -- fish -c 'randomize_file_names %s'''', desc = 'Randomize names of selected file(s)' },
+  { on = [ 'a', 's' ], run = '''shell --block -- fish -c 'ffmpeg_convert_to_mp3 %s'''', desc = 'Convert to mp3' },
+  { on = [ 'a', 'v' ], run = '''shell --block -- fish -c 'ffmpeg_cut_video %s'''', desc = 'Cut video (into mp4)' },
+  { on = [ 'a', 'w' ], run = '''shell -- fish -c 'for file in %s; magick $file (path change-extension webp $file) ;end'''', desc = 'Magick to webp' },
   { on = [ 'g', 'h' ], run = 'cd ~', desc = 'Go home' },
   { on = [ 'g', 'q' ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = 'Go to repo root' },
-  { on = [ 'm', 'M' ], run = 'shell -- chmod +x %s', desc = 'Chmod +x' },
-  { on = [ 'm', 'c' ], run = 'plugin ouch tar.gz', desc = 'Archive selected files' },
-  { on = [ 'm', 'd' ], run = [ '''shell --block -- disposition.nu %s''', 'cd ~/iwm/voe', 'escape --select' ], desc = 'Change dispositions of files' },
-  { on = [ 'm', 'e' ], run = '''shell -- fish -c 'for file in %s; inkscape $file --export-filename=(path change-extension png $file) --export-width=1920 ;end'''', desc = 'Render svg into png' },
-  { on = [ 'm', 'i' ], run = '''shell -- fish -c 'wl-paste -t image/png >image.png'''', desc = 'Create image from clipboard' },
-  { on = [ 'm', 'j' ], run = '''shell -- fish -c 'for file in %s; jpeg2png $file ;end'''', desc = 'Unfuck the jpeg into png' },
-  { on = [ 'm', 'k' ], run = [ 'plugin input', '''shell -- fish -c 'wl-paste >(catait ~/fes/zufi/yazi-input)' ''' ], desc = 'Create file from clipboard' },
-  { on = [ 'm', 'l' ], run = [ 'linemode size', '''shell -- fish -c 'for file in %s; magick -define webp:lossless=true $file (path change-extension webp $file) ;end'''' ], desc = 'Magick to lossless webp' },
-  { on = [ 'm', 'r' ], run = '''shell -- fish -c 'randomize_file_names %s'''', desc = 'Randomize names of selected file(s)' },
-  { on = [ 'm', 's' ], run = '''shell --block -- fish -c 'ffmpeg_convert_to_mp3 %s'''', desc = 'Convert to mp3' },
-  { on = [ 'm', 'v' ], run = '''shell --block -- fish -c 'ffmpeg_cut_video %s'''', desc = 'Cut video (into mp4)' },
-  { on = [ 'm', 'w' ], run = '''shell -- fish -c 'for file in %s; magick $file (path change-extension webp $file) ;end'''', desc = 'Magick to webp' },
   { on = [ 's', 'F' ], run = 'link --force --relative', desc = 'Symlink relatively' },
   { on = [ 's', 'I' ], run = 'shell -- si.fish %s', desc = 'Copy png image to clipboard' },
   { on = [ 's', 'K' ], run = 'copy name_without_ext', desc = 'Copy the filename without extension' },
@@ -131,6 +131,8 @@ keymap = [
 [tasks]
 keymap = [
   # [[sort on]]
+  { on = '<C-End>', run = 'arrow bot', desc = 'Last task' },
+  { on = '<C-Home>', run = 'arrow top', desc = 'First task' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next task' },
   { on = '<Enter>', run = 'inspect', desc = 'Inspect the task' },
   { on = '<Esc>', run = 'close', desc = 'Close task manager' },
@@ -142,15 +144,14 @@ keymap = [
   { on = 'd', run = 'cancel', desc = 'Cancel the task' },
   { on = 'j', run = 'arrow 1', desc = 'Next task' },
   { on = 'k', run = 'arrow -1', desc = 'Previous task' },
-  { on = [ 'g', 'i' ], run = 'arrow top', desc = 'First task' },
-  { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Last task' },
   # [[sort off]]
 ]
 
 [spot]
 keymap = [
   # [[sort on]]
-  { on = ':', run = 'close', desc = 'Close the spot' },
+  { on = '<C-End>', run = 'arrow bot', desc = 'Last line' },
+  { on = '<C-Home>', run = 'arrow top', desc = 'First line' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
   { on = '<Esc>', run = 'close', desc = 'Close the spot' },
   { on = '<F1>', run = 'help', desc = 'Open help' },
@@ -163,8 +164,6 @@ keymap = [
   { on = 'k', run = 'arrow -1', desc = 'Previous line' },
   { on = 'l', run = 'swipe next', desc = 'Swipe to next file' },
   { on = 's', run = 'copy cell', desc = 'Copy selected cell' },
-  { on = [ 'g', 'i' ], run = 'arrow top', desc = 'First line' },
-  { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Last line' },
   # [[sort off]]
 ]
 
@@ -196,29 +195,27 @@ keymap = [
   # { on = 'j', run = 'arrow next', desc = 'Next line' },
   # { on = 'k', run = 'arrow prev', desc = 'Previous line' },
   { on = '<Down>', run = 'arrow next', desc = 'Next line' },
-  { on = '<Enter>', run = 'close --submit', desc = 'Submit the confirm' },
+  { on = '<Enter>', run = 'close --submit', desc = 'Submit confirm' },
   { on = '<Esc>', run = 'close', desc = 'Cancel the confirm' },
   { on = '<F1>', run = 'help', desc = 'Open help' },
   { on = '<Up>', run = 'arrow prev', desc = 'Previous line' },
-  { on = 'j', run = 'close --submit', desc = 'Submit the confirm' },
-  { on = 'k', run = 'close', desc = 'Cancel the confirm' },
+  { on = 'j', run = 'close --submit', desc = 'Submit confirm' },
+  { on = 'k', run = 'close', desc = 'Cancel confirm' },
   # [[sort off]]
 ]
 
 [help]
 keymap = [
   # [[sort on]]
-  { on = ':', run = 'close', desc = 'Close the spot' },
   { on = '<Down>', run = 'arrow 1', desc = 'Next line' },
-  { on = '<Esc>', run = 'escape', desc = 'Clear the filter, or hide the help' },
-  { on = '<F1>', run = 'close', desc = 'Hide the help' },
+  { on = '<End>', run = 'arrow bot', desc = 'Last line' },
+  { on = '<Esc>', run = 'close', desc = 'Close the help' },
+  { on = '<F1>', run = 'close', desc = 'Close the help' },
+  { on = '<Home>', run = 'arrow top', desc = 'First line' },
   { on = '<PageDown>', run = 'arrow 50%', desc = 'Scroll down by half a page' },
   { on = '<PageUp>', run = 'arrow -50%', desc = 'Scroll up by half a page' },
   { on = '<Up>', run = 'arrow -1', desc = 'Previous line' },
-  { on = 'f', run = 'filter', desc = 'Filter help items' },
   { on = 'j', run = 'arrow 1', desc = 'Next line' },
   { on = 'k', run = 'arrow -1', desc = 'Previous line' },
-  { on = [ 'g', 'i' ], run = 'arrow top', desc = 'First line' },
-  { on = [ 'g', 'o' ], run = 'arrow bot', desc = 'Last line' },
   # [[sort off]]
 ]
