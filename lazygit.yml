@@ -56,7 +56,7 @@ gui:
     selectedLineFgColor:
       - default
     selectedLineBgColor:
-      - "#4a4a4a"
+      - '#4d4d4d'
     inactiveViewSelectedLineBgColor:
       - '#424242'
     cherryPickedCommitFgColor:
@@ -365,6 +365,15 @@ customCommands:
             name: "Into index"
             key: i
     description: "View reverting options..."
+
+  # -----------------------subcommits------------------------
+  - key: <c-r>
+    context: subCommits
+    description: "Rebase on this commit"
+    command: "git rebase {{.SelectedCommit.Hash}}"
+    output: none
+    after:
+      checkForConflicts: true
 
   # ------------------------branches-------------------------
   - key: S
