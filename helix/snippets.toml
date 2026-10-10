@@ -1,5 +1,6 @@
 [global]
 # [[sort on]]
+'#' = '#!/usr/bin/env '
 dT = '%sh{date +%%Y-%%m-%%d}'
 dt = '%sh{date +%%y.%%m.%%d}'
 tm = '%sh{date +%%H:%%M}'
@@ -165,6 +166,7 @@ exwd = '%%{working_directory}'
 
 [rust]
 # [[sort on]]
+clo = 'clone()'
 dbg = 'std::process::Command::new("dbglog.sh").arg(format!("{█:?}")).status().unwrap();'
 fr = 'from()'
 in = 'into()'
