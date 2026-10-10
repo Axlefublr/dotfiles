@@ -94,6 +94,7 @@
 'ui.virtual.jump-label' = { fg = 'dark12', bg = 'blush', modifiers = [ 'bold' ] }
 'ui.virtual.ruler' = { bg = 'linenr' }
 'ui.virtual.whitespace' = { fg = 'linenr' }
+'ui.virtual.wrap' = { fg = 'linenr' }
 'ui.window' = { fg = 'linenr', bg = 'level' }
 'variable' = 'white'
 'variable.builtin' = 'cyan'
