@@ -2,6 +2,7 @@
 
 let editor = {
 	# [[sort on]]
+	atomic-save: true
 	auto-completion: true
 	auto-format: true
 	auto-info: true
@@ -21,6 +22,7 @@ let editor = {
 	insert-final-newline: true
 	jump-label-alphabet: jfkdlsaeiwoxcmghruvnzbqpty
 	line-number: relative
+	popup-border: 'none'
 	preview-completion-insert: false
 	scrolloff: 99
 	search: { wrap-around: true }
@@ -66,9 +68,10 @@ let editor = {
 		'‘': '’'
 		'“': '”'
 	}
+	end-of-line-diagnostics: disable # `disable` to bring back the old top-right diagnostics, otherwise hint / …
 	inline-diagnostics: {
-		cursor-line: info
-		other-lines: info
+		cursor-line: disable
+		other-lines: disable
 		max-wrap: 0
 	}
 	word-completion: {
