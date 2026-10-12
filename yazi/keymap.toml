@@ -122,6 +122,7 @@ keymap = [
   { on = [ 's', 'o' ], run = '''shell -- cat %s | wl-copy -t text/plain''', desc = "Copy file contents" },
   { on = [ 's', 'r' ], run = 'hardlink --force --follow', desc = 'Hardlink' },
   { on = [ 's', 'u' ], run = 'copy dirname', desc = 'Copy the directory path' },
+  { on = [ 'z', 'd' ], run = '''shell -- fish -c 'notify-send -t 3000 "$(glaza -g drop (path basename %d) 2>&1)"'''', desc = 'Glaza drop' },
   { on = [ 'z', 'f' ], run = '''shell -- fish -c 'notify-send -t 3000 "$(glaza -g finish (path basename %d) 2>&1)"'''', desc = 'Glaza finish' },
   { on = [ 'z', 's' ], run = '''shell -- fish -c 'notify-send -t 3000 "$(glaza -g start -g (path basename %d) 2>&1)"'''', desc = 'Glaza start' },
   { on = [ 'z', 'z' ], run = [ 'plugin input', '''shell -- fish -c 'notify-send -t 3000 "$(glaza -g ep (path basename %d) (catait ~/fes/zufi/yazi-input) 2>&1)"'''' ], desc = 'Glaza episode' },
