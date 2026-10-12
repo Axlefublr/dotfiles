@@ -176,6 +176,7 @@ ntf = 'std::process::Command::new("ntf").arg(format!("{█:?}")).status().unwrap
 ntfu = 'std::process::Command::new("ntf").arg(format!("%sh{uclanr}")).status().unwrap();'
 stf = 'String::from("█")'
 toow = 'to_owned()'
+usenot = 'use std::ops::Not;'
 # [[sort off]]
 '{}' = '''
 {
@@ -207,6 +208,10 @@ exsle = '%%{selection_line_end}'
 exsls = '%%{selection_line_start}'
 exwd = '%%{working_directory}'
 # [[sort off]]
+
+[tsq]
+ena = '@entry.around'
+eni = '@entry.inside'
 
 [yaml]
 the = '''
