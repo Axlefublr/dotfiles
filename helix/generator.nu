@@ -264,49 +264,45 @@ let normal_mappings = {
 	'⇈': 'switch_to_uppercase'
 	# ---------------------------i↓----------------------------
 	# [[sort on]]
-	# '‘': [':echo selected!' save_selection]
 	'(': jump_backward
 	')': jump_forward
 	'[': ':open %sh{baconator.rs prev %(full_path) %(cursor_line) %(cursor_column)}'
 	']': ':open %sh{baconator.rs next %(full_path) %(cursor_line) %(cursor_column)}'
 	'{': goto_prev_change
 	'}': goto_next_change
-	'«': ':open %sh{baconator.rs last %(full_path) %(cursor_line) %(cursor_column)}'
-	'»': ':open %sh{baconator.rs first  %(full_path) %(cursor_line) %(cursor_column)}'
-	'‘': goto_last_change
-	'’': goto_first_change
-	'„': repeat_last_motion
-	'⁷': goto_first_diag
-	'⁸': goto_next_diag
-	'⁹': goto_prev_diag
-	'⁻': goto_last_diag
+	'«': goto_prev_diag
+	'»': goto_next_diag
+	'‘': [':echo selected!' save_selection]
+	'’': repeat_last_motion
+	'⁵': goto_last_change
+	'⁶': goto_first_change
+	'⁷': goto_last_diag
+	'⁸': ':open %sh{baconator.rs last %(full_path) %(cursor_line) %(cursor_column)}'
+	'⁹': ':open %sh{baconator.rs first  %(full_path) %(cursor_line) %(cursor_column)}'
+	'⁻': goto_first_diag
 	'󰟢': shrink_to_line_bounds
 	# [[sort off]]
 	'”': {
-		t  : goto_next_test
-		'}': goto_next_entry
-		e  : goto_next_entry
-		'»': goto_next_comment
-		v  : goto_next_comment
-		'”': goto_next_function
-		f  : goto_next_function
-		'“': goto_next_parameter
-		a  : goto_next_parameter
+		# [[sort on]]
+		'[': goto_next_xml_element
 		']': goto_next_class
-		c  : goto_next_class
+		'}': goto_next_entry
+		'»': goto_next_comment
+		'’': goto_next_test
+		'“': goto_next_parameter
+		'”': goto_next_function
+		# [[sort off]]
 	}
 	'“': {
-		t  : goto_prev_test
-		'}': goto_prev_entry
-		e  : goto_prev_entry
-		'»': goto_prev_comment
-		v  : goto_prev_comment
-		'”': goto_prev_function
-		f  : goto_prev_function
-		'“': goto_prev_parameter
-		a  : goto_prev_parameter
+		# [[sort on]]
+		'[': goto_prev_xml_element
 		']': goto_prev_class
-		c  : goto_prev_class
+		'}': goto_prev_entry
+		'»': goto_prev_comment
+		'’': goto_prev_test
+		'“': goto_prev_parameter
+		'”': goto_prev_function
+		# [[sort off]]
 	}
 	# ---------------------------v↓----------------------------
 	'∞': shell_append_output
@@ -406,36 +402,36 @@ let normal_mappings = {
 			i: ':pipe €"<i>" + $in + "</i>"'
 		}
 		e: {
-			'(': ":pipe strip-wrapper-type.rs b"
-			'{': ":pipe strip-wrapper-type.rs B"
-			'[': ":pipe strip-wrapper-type.rs s"
-			'<': ":pipe strip-wrapper-type.rs t"
-			')': ":pipe strip-wrapper-type.rs b→"
-			'}': ":pipe strip-wrapper-type.rs B→"
-			']': ":pipe strip-wrapper-type.rs s→"
-			'>': ":pipe strip-wrapper-type.rs t→"
+			's': ":pipe strip-wrapper-type.rs b"
+			'w': ":pipe strip-wrapper-type.rs B"
+			'x': ":pipe strip-wrapper-type.rs s"
+			',': ":pipe strip-wrapper-type.rs t"
+			'd': ":pipe strip-wrapper-type.rs b→"
+			'e': ":pipe strip-wrapper-type.rs B→"
+			'c': ":pipe strip-wrapper-type.rs s→"
+			'.': ":pipe strip-wrapper-type.rs t→"
 			'|': ":pipe strip-wrapper-type.rs p"
 			'/': ":pipe strip-wrapper-type.rs /"
 			'j': ":pipe strip-wrapper-type.rs backtick"
 			'"': ":pipe strip-wrapper-type.rs doublequote"
 			"'": ":pipe strip-wrapper-type.rs singlequote"
-			'e': ":pipe strip-wrapper-type.rs begin"
+			'f': ":pipe strip-wrapper-type.rs begin"
 		}
 		w: {
-			'(': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b"
-			'{': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
-			'[': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
-			'<': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t"
-			')': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b→"
-			'}': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B→"
-			']': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s→"
-			'>': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t→"
+			's': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b"
+			'w': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B"
+			'x': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s"
+			',': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t"
+			'd': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' b→"
+			'e': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' B→"
+			'c': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' s→"
+			'.': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' t→"
 			'|': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' p"
 			'o': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' ''"
 			'j': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-backtick"
 			'"': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-doublequote"
 			"'": ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' triple-singlequote"
-			'e': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' begin"
+			'f': ":pipe wrap-in-block.rs '%(indentation)' '%(selection_line_start_indentation)' begin"
 		}
 	}
 	space: {
