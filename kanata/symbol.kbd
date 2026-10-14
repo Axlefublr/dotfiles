@@ -110,7 +110,7 @@
 	s (switch (init-cmd is-rock-collection.nu) ((cmd-exit 1)) (cmd wtype 😔) break () (macro C-e c a t e ret bspc) break)
 	t (cmd wtype 🤔)
 	w (cmd wtype ✍️)
-	x (switch (init-cmd is-rock-collection.nu) ((cmd-exit 1)) (cmd wtype 🤯) break () (macro C-e c a t i s ret bspc) break)
+	x (cmd wtype 🤯)
 	z (cmd wtype 💯)
 	;; [[sort off]]
 )
