@@ -188,6 +188,7 @@ let normal_mappings = {
 	C-n: extend_search_next
 	C-q: ':cd ..'
 	C-r: select_register
+	C-w: ensure_selections_forward
 	C-x: join_selections
 	C: '@c<ret><esc>'
 	I: insert_at_line_start
@@ -199,7 +200,6 @@ let normal_mappings = {
 	S-A-F4: merge_consecutive_selections
 	T: redo
 	U: insert_at_line_end
-	W: ensure_selections_forward
 	X: join_selections_space
 	Z: replace
 	c: change_selection_noyank
