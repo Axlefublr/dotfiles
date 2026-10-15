@@ -549,7 +549,7 @@ rm -fr ~/.mapscii
 
 # ---------------------------mpv---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout mpv
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps mpv-mpris
+sudo pacman -S --needed --noconfirm --disable-download-timeout mpv-mpris
 mkdir -p ~/.config/mpv
 ln -sf ~/fes/dot/mpv/input.conf ~/.config/mpv
 ln -sf ~/fes/dot/mpv/mpv.conf ~/.config/mpv
@@ -571,8 +571,8 @@ neru completion fish >~/.config/fish/completions/neru.fish
 
 # --------------------------niri---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout niri
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring libdisplay-info
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps clang # for building from source
+sudo pacman -S --needed --noconfirm --disable-download-timeout xdg-desktop-portal-gtk xdg-desktop-portal-gnome gnome-keyring libdisplay-info
+sudo pacman -S --needed --noconfirm --disable-download-timeout clang # for building from source
 # TODO: remake to just be a directory symlink, which contains a symlink of config.kdl → niri.kdl
 for file in ~/fes/dot/niri/*.kdl
     ln -sf $file ~/.config/niri/(path basename $file)
@@ -1039,7 +1039,7 @@ ventoygui # to install ventoy onto a usb stick
 
 # -------------------------vesktop-------------------------
 #> privoxy
-yay -Sa --needed --disable-download-timeout --asdeps electron37-bin
+yay -Sa --needed --disable-download-timeout electron37-bin
 yay -Sa --needed --disable-download-timeout vesktop-bin
 sudo -E helix /usr/share/applications/vesktop.desktop
 # ELECTRON_ENABLE_WAYLAND=1 OZONE_PLATFORM=wayland vesktop --proxy-server=127.0.0.1:8118 --ozone-platform=wayland
@@ -1057,7 +1057,7 @@ sudo chown -R $(whoami) /opt/visual-studio-code
 
 # -------------------------waybar--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout waybar
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps otf-font-awesome
+sudo pacman -S --needed --noconfirm --disable-download-timeout otf-font-awesome
 mkdir -p ~/.config/waybar
 ln -sf ~/fes/dot/waybar/waybar.jsonc ~/.config/waybar/config.jsonc
 ln -sf ~/fes/dot/waybar/waybar.css ~/.config/waybar/style.css
@@ -1165,8 +1165,8 @@ systemctl --user enable --now ydotool.service
 
 # -------------------------yt-dlp--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout yt-dlp yt-dlp-ejs
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps python-mutagen
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps deno # for solving js challenges
+sudo pacman -S --needed --noconfirm --disable-download-timeout python-mutagen
+sudo pacman -S --needed --noconfirm --disable-download-timeout deno # for solving js challenges
 mkdir -p ~/.config/yt-dlp
 ln -sf ~/fes/dot/yt-dlp.conf ~/.config/yt-dlp/config
 # follow this guide https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies
@@ -1176,7 +1176,7 @@ ln -sf ~/fes/dot/yt-dlp.conf ~/.config/yt-dlp/config
 
 # -------------------------zathura-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout zathura
-sudo pacman -S --needed --noconfirm --disable-download-timeout --asdeps zathura-pdf-mupdf
+sudo pacman -S --needed --noconfirm --disable-download-timeout zathura-pdf-mupdf
 mkdir -p ~/.config/zathura
 ln -sf ~/fes/dot/zathura ~/.config/zathura/zathurarc
 xdg-mime default org.pwmt.zathura.desktop application/pdf
