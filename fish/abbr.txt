@@ -21,15 +21,16 @@ x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
 💯 nac  → na -c '█'
 💯 nas  → na --stdin
 💯 nasc → na --stdin -c '█'
-💯 p    → path
-💯 pb   → path basename
-💯 pd   → path dirname
-💯 pex  → path change-extension
+💯 ph   → path
+💯 phb  → path basename
+💯 phd  → path dirname
+💯 phex → path change-extension
 💯 rm   → gomi
 💯 rmF  → sudo rm -fr
 💯 rmf  → rm -fr
 💯 sc   → set_color
 💯 st   → string
+💯 stm  → string match
 💯 sts  → string sub
 💯 stt  → string trim
 💯 sude → sudo -E
