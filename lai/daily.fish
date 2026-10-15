@@ -87,6 +87,13 @@ uv tool upgrade --all
 log 2 pacman
 cat ~/fes/jiro/sudo | sudo -S pacman -Syyu --noconfirm
 
+log 2 orphans
+set -l true_orphans (yay -Qqdt)
+cat ~/fes/jiro/sudo | sudo -v
+if test -n "$true_orphans"
+    yay --noconfirm -Rns $true_orphans
+end
+
 # -----------------------generation------------------------
 log 1 generation
 
