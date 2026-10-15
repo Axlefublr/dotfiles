@@ -271,6 +271,8 @@ let normal_mappings = {
 	'{': goto_prev_change
 	'}': goto_next_change
 	'«': goto_prev_diag
+	'²': [':set-register / ^(=======|>>>>>>>|<<<<<<<)' ensure_selections_forward search_next]
+	'³': [':set-register / ^(=======|>>>>>>>|<<<<<<<)' ensure_selections_forward flip_selections search_prev]
 	'»': goto_next_diag
 	'‘': [':echo selected!' save_selection]
 	'’': repeat_last_motion
