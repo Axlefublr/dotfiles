@@ -3,6 +3,8 @@
 '#' = '#!/usr/bin/env '
 dT = '%sh{date +%%Y-%%m-%%d}'
 dt = '%sh{date +%%y.%%m.%%d}'
+fila = 'first/last'
+pene = 'previous/next'
 tm = '%sh{date +%%H:%%M}'
 # [[sort off]]
 
