@@ -82,6 +82,14 @@ function fn_clear
 end
 funcsave fn_clear >/dev/null
 
+function extract_youtube_link
+    for arg in $argv
+        set -l core (path basename -E $arg | string match -gr ';([-\w]+);')
+        echo "https://www.youtube.com/watch?v=$core"
+    end | wl-copy -nt text/plain
+end
+funcsave extract_youtube_link >/dev/null
+
 # CheckedOutBranch.Name
 function git_smart_push -a current_branch
     # if this is a fork, I'll want to push a backup branch as well, without needing to think about it
