@@ -32,8 +32,11 @@ x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
 💯 st   → string
 💯 stm  → string match
 💯 sts  → string sub
+💯 stsp → string split
 💯 stt  → string trim
 💯 sude → sudo -E
+💯 yayi → yay --needed --disable-download-timeout -S
+💯 yayr → yay -Rns
 # [[sort off]]
 
 d →  d
