@@ -374,6 +374,11 @@ customCommands:
     output: none
     after:
       checkForConflicts: true
+  - key: ':'
+    context: 'subCommits, commits'
+    description: "Create patch from the range of commits"
+    command: "git diff {{.SelectedCommitRange.From}}^..{{.SelectedCommitRange.To}} | wl-copy -nt text/plain"
+    output: none
 
   # ------------------------branches-------------------------
   - key: S
