@@ -181,7 +181,7 @@
 	d (cmd find-or-make.fish "app_id starts-with foot" "title == dotfiles" "foottitled.sh dotfiles -ND ~/fes/dot helix")
 	e (cmd find-or-make.fish --clean "app_id starts-with foot" "title == bluetui" "foottitled.sh bluetui -N bluetui")
 	f (cmd find-or-make.fish "app_id == firefox" "workspace_id != 5" "gtk-launch firefox")
-	g (cmd request-timer.fish)
+	g (cmd find-or-make.fish "app_id starts-with foot" "title == girch" "foottitled.sh girch -N github-searcher.fish")
 	q (cmd reuse-finder.nu /home/axlefublr/fes/tiq)
 	r (cmd find-or-make.fish "app_id starts-with foot" "title == hardware-monitor" "foottitled.sh hardware-monitor -N hardware-monitor.nu")
 	s (cmd find-or-make.fish "app_id starts-with foot" "title == loago-tracker" "foottitled.sh loago-tracker -N fish -c loago_tracker")
@@ -195,6 +195,7 @@
 	r (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "foottitled.sh bottom -N btm")
 	f (cmd niri msg action spawn -- fish -c frizz_picker)
 	t (cmd find-or-make.fish --clean "app_id starts-with foot" "title == tz" "foottitled.sh tz -H fish -c tz")
+	w (cmd find-or-make.fish "app_id starts-with foot" "title == wlx" "foottitled.sh wlx -ND /home/axlefublr/wlx yazi")
 )
 
 (deflayermap (g)
@@ -283,6 +284,7 @@
 	f (cmd fish -c "runner_link open")
 	r (cmd fish -c clipboard_pick)
 	s (cmd fish -c runner_link)
+	t (cmd request-timer.fish)
 	w (layer-switch bookmark)
 	z (cmd fish -c rofimoji)
 	;; [[sort off]]
