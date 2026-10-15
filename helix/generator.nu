@@ -154,7 +154,6 @@ let normal_mappings = {
 	# [[sort on]]
 	'"': null
 	C-d: null
-	C-u: null
 	P: null
 	Y: null
 	p: null
@@ -183,11 +182,12 @@ let normal_mappings = {
 	C-h: select_prev_sibling
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
-	C-l: [select_next_sibling ensure_selections_forward flip_selections]
-	C-m: [save_selection select_all_siblings]
+	C-l: select_next_sibling
+	C-m: [select_mode shrink_selection normal_mode]
 	C-n: extend_search_next
 	C-q: ':cd ..'
 	C-r: select_register
+	C-u: [save_selection select_all_siblings]
 	C-w: ensure_selections_forward
 	C-x: join_selections
 	C: '@c<ret><esc>'
@@ -549,10 +549,7 @@ let editor_fork = {
 	statusline: {
 		left: [
 			primary-selection-length
-			spacer
 			selections
-			spacer
-			spacer
 			current-working-directory
 		]
 		center: [
@@ -611,8 +608,8 @@ let normal_mappings_fork = {
 	A-o: paste_after_all
 	C-/: select_first_and_last_chars
 	R: copy_yank_to_register
-	S-A-F1: [extend_prev_sibling ensure_selections_forward flip_selections]
-	S-A-F2: [extend_next_sibling ensure_selections_forward flip_selections]
+	S-A-F1: extend_prev_sibling
+	S-A-F2: extend_next_sibling
 	r: copy_register_to_yank
 	u: append_mode_same_line
 	v: harp_mark
