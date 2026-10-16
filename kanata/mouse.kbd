@@ -10,7 +10,7 @@
 	b XX
 	t XX
 	h (cmd ydotool mousemove -a 386 300)
-	z (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.set_default_scale('fill')""#)
+	z (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.default_scale = 'fill'""#)
 	v (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) C-a break
