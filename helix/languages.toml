@@ -269,7 +269,7 @@ typing.autoClosingAngleBrackets.enable = true
 # --------------------toml--------------------
 [[language]]
 name = "toml"
-auto-format = true
+auto-format = false
 
 # --------------------------yaml---------------------------
 [[language]]
