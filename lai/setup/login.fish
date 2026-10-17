@@ -2,7 +2,7 @@
 
 fcf.nu fix
 cat ~/fes/jiro/sudo | sudo -S modprobe uinput
-foot -T kanata -o environment.TIT=kanata kanata-executor.fish & disown
+foot -T kanatad -o environment.TIT=kanatad kanata-executor.fish & disown
 
 niri msg action focus-workspace main
 foot -T nugleterm -o environment.TIT=nugleterm nu & disown
@@ -27,4 +27,4 @@ foot -T voe -o environment.TIT=voe -o environment.YAZI_SORT_NAME=true -D ~/iwm/v
 make-em-shut-up.nu
 playerctld daemon
 dot
-daily.fish
+queue daily.fish
