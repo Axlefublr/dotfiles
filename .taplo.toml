@@ -1,5 +1,6 @@
 [formatting]
 #[[sort on]]
+align_comments = false
 align_entries = false
 allowed_blank_lines = 1
 array_auto_collapse = false
@@ -9,7 +10,9 @@ column_width = 110
 compact_arrays = false
 compact_inline_tables = false
 crlf = false
-indent_string = '  '
+indent_entries = false
+indent_string = '	'
 indent_tables = false
+inline_table_expand = false
 reorder_keys = false
 trailing_newline = true
