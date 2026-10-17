@@ -88,6 +88,13 @@ o = '<o>█</o>'
 cd = '<cd>█</cd>'
 
 [markdown]
+# [[sort on]]
+d = '<kbd>█</kbd>'
+hr = '{{ <hr id="█" /> }}'
+r = 'crystal'
+raw = '{% raw %}█{% endraw %}'
+video = '{{ <video path="█" /> }}'
+# [[sort off]]
 de = '''
 <details>
 <summary>█</summary>
@@ -109,8 +116,6 @@ der = '''
 █
 
 </details>'''
-r = 'crystal'
-d = '<kbd>█</kbd>'
 "+++" = """
 +++
 title = '█'
