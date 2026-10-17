@@ -18,7 +18,7 @@ function clipboard_pick
     set -l result (stash list | cut -f 2- | fuzzel -d --index --width 55)
     test $status -ne 0 && return 1
     set -l data (na -c "stash list --format json | from json | get $result | get id mime | to text")
-    stash decode $data[1] | wl-copy -n -t $data[2]
+    stash decode $data[1] | wl-copy -t $data[2]
 end
 funcsave clipboard_pick >/dev/null
 
