@@ -1,0 +1,6 @@
+/* starts with */
+/* https://github.com/search */
+
+div[class^='rightSidebar__'] {
+	display: none;
+}
