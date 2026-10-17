@@ -151,7 +151,6 @@
 	n home
 	o enter
 	p (multi (cmd niri msg action switch-layout next) (cmd fish -c "echo layout_switch >~/fes/zufi/waybar-layout"))
-	q (clipboard-set "hi")
 	spc ins
 	u (on↓ toggle-vkey real-capslock) ;; to be able to make escape release capslock
 	y (layer-switch doublestruck)
@@ -225,7 +224,7 @@
 	k (cmd reuse-finder.nu /home/axlefublr/ake)
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == kss" "foottitled.sh kss -ND /home/axlefublr/iwm/kss yazi")
 	o (cmd find-or-make.fish "app_id starts-with foot" "title == nom" "foottitled.sh nom -N nom")
-	p (cmd find-or-make.fish "app_id starts-with foot" "title == kanata" "impossible!")
+	p (cmd find-or-make.fish "app_id starts-with foot" "title == kanatad" "nope!")
 	;; [[sort off]]
 )
 
@@ -261,7 +260,6 @@
 (deflayermap (quote-n)
 	;; [[sort on]]
 	;; q (cmd mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
-	a (cmd niri msg action spawn -- mpv --start=0 --fullscreen /home/axlefublr/iwm/sco/original.mp4)
 	d (cmd fish -c show_clipboard_image)
 	g (cmd fish -c "echo stop >/tmp/mine/tomato-action")
 	q (cmd fish -c yt_audio)
