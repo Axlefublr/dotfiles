@@ -481,6 +481,7 @@ let normal_mappings = {
 		c: null
 		d: null
 		m: null
+		y: null
 		# [[sort on]]
 		I: ':buffer-close-all!'
 		O: ':buffer-close-others!'
