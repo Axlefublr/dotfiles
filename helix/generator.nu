@@ -2,11 +2,13 @@
 
 let editor = {
 	# [[sort on]]
+	# auto-reload: { enable: true, poll: { interval: 1000 } }
 	atomic-save: true
 	auto-completion: true
 	auto-format: true
 	auto-info: true
 	auto-save: { focus-lost: false }
+	breadcrumb: { enable: true, path: 'full' } # full / file / none
 	buffer-picker: { start-position: previous }
 	bufferline: always
 	color-modes: true
@@ -17,19 +19,23 @@ let editor = {
 	cursor-shape: { insert: bar }
 	default-line-ending: lf
 	default-yank-register: '+'
+	enable-diagnostics: true
 	file-picker: { hidden: false }
 	gutters: { layout: [], line-numbers: { min-width: 2 } }
 	insert-final-newline: true
 	jump-label-alphabet: jfkdlsaeiwoxcmghruvnzbqpty
 	line-number: relative
+	picker: { scrolloff: 99 }
 	popup-border: 'none'
 	preview-completion-insert: false
 	scrolloff: 99
-	search: { wrap-around: true }
+	search: { max-matches: none, wrap-around: true }
+	session: { restore-cursor: true, gc-max-age: 90 }
 	shell: [dash -c]
 	text-width: 110
 	trim-final-newlines: true
 	trim-trailing-whitespace: true
+	whichkey: false
 	workspace-trust: { level: 'insecure' }
 	# [[sort off]]
 	lsp: {
@@ -82,6 +88,56 @@ let editor = {
 		enable: false
 		supersede-menu: true
 	}
+	statusline: {
+		left: [
+			primary-selection-length
+			selections
+			current-working-directory
+		]
+		center: [
+			message
+		]
+		right: [
+			spinner
+			register
+			diagnostics
+			search-position
+			read-only-indicator
+			file-type
+			position
+			total-line-numbers
+			spacer
+			position-percentage
+			file-encoding
+		]
+	}
+	shellmap: {
+		'€': [nu --no-std-lib --stdin --config /home/axlefublr/fes/dot/nu/lvoc/crooked.nu -c]
+		'°': [fish -c]
+		'∞': [calc -t]
+		'√': [julia -E]
+	}
+	harp: {
+		command: filetype
+		search: buffer
+		register: buffer
+		mark: directory
+		file: directory
+		hotkeys: {
+			global: l
+			directory: k
+			filetype: ';'
+			buffer: j
+			switch: "'"
+			delete: '<del>'
+			delete-all: '<S-del>'
+			alt: /
+		}
+	}
+	snippets: (
+		open ~/fes/dot/helix/snippets.toml
+		| merge deep { fish: (collect_fish_abbreviations) }
+	)
 }
 
 let all_mappings = {
@@ -100,6 +156,8 @@ let all_mappings = {
 	C-down: copy_selection_on_next_line
 	C-left: goto_previous_buffer
 	C-right: goto_next_buffer
+	S-up: move_lines_up
+	S-down: move_lines_down
 	S-left: unindent
 	S-right: indent
 	C-home: goto_file_start
@@ -152,33 +210,45 @@ let all_mappings = {
 
 let normal_mappings = {
 	# [[sort on]]
-	'"': null
-	C-d: null
-	P: null
-	Y: null
-	p: null
-	y: null
-	# [[sort off]]
-	# -------------------------normal--------------------------
-	';': [save_selection select_textobject_around]
-	"'": [save_selection select_textobject_inner]
-	'A-/': [select_mode search normal_mode]
-	'A-?': [select_mode rsearch normal_mode]
-	'/': search
-	'?': rsearch
-	b: [add_newline_below move_line_down paste_before]
-	B: [add_newline_above move_line_up paste_before]
-	S-A-down: decrement
-	S-A-up: increment
-	ins: ':write-buffer-close'
 	# [[sort on]]
+	"'": [save_selection select_textobject_inner]
 	# C-c: change_selection_noyank
 	# C-d: delete_selection_noyank
+	'"': null
 	',': trim_selections
+	'.': extend_to_line_bounds
+	'/': search
+	'0': ':buffer-nth -r 1'
+	'1': ':buffer-nth 1'
+	'2': ':buffer-nth 2'
+	'3': ':buffer-nth 3'
+	'4': ':buffer-nth 4'
+	'5': ':buffer-nth 5'
+	'6': ':buffer-nth 6'
+	'7': ':buffer-nth 7'
+	'8': ':buffer-nth 8'
+	'9': ':buffer-nth 9'
 	':': split_selection_on_newline
+	';': [save_selection select_textobject_around]
+	'?': rsearch
+	'A-/': [select_mode search normal_mode]
+	'A-?': [select_mode rsearch normal_mode]
 	'C-;': ':pipe °math "$(cat)"'
+	'—': select_character
+	'→': retain_column
+	'␈': ':random'
+	'┏': goto_hover
+	'⤒': ':uniq'
+	A-B: [add_newline_above move_line_up paste_before_all]
+	A-O: paste_before_all
+	A-b: [add_newline_below move_line_down paste_before_all]
 	A-h: $'@<lt>(char -u 25a0)mc'
+	A-i: continue_last_insert
 	A-l: $'@<gt>(char -u 25a0)mc'
+	A-o: paste_after_all
+	B: [add_newline_above move_line_up paste_before]
+	C-/: select_first_and_last_chars
+	C-d: null
 	C-h: select_prev_sibling
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
@@ -191,32 +261,49 @@ let normal_mappings = {
 	C-w: ensure_selections_forward
 	C-x: join_selections
 	C: '@c<ret><esc>'
+	D: mark_apply
 	I: insert_at_line_start
 	M: merge_selections
 	N: [ensure_selections_forward flip_selections search_prev]
 	O: paste_before
+	P: null
 	Q: split_selection
+	R: copy_yank_to_register
+	S-A-F1: extend_prev_sibling
+	S-A-F2: extend_next_sibling
 	S-A-F3: extend_search_prev
 	S-A-F4: merge_consecutive_selections
+	S-A-down: decrement
+	S-A-up: increment
+	S: mark_replace
 	T: redo
 	U: insert_at_line_end
+	W: mark_add
 	X: join_selections_space
+	Y: null
 	Z: replace
+	b: [add_newline_below move_line_down paste_before]
 	c: change_selection_noyank
 	d: delete_selection_noyank
 	h: move_char_left
 	i: insert_mode
+	ins: ':write-buffer-close'
 	j: move_visual_line_down
 	k: move_visual_line_up
 	l: move_char_right
 	m: [collapse_selection normal_mode]
 	n: [ensure_selections_forward search_next]
 	o: paste_after
+	p: null
 	q: select_regex
+	r: copy_register_to_yank
 	s: yank
 	t: undo
+	u: append_mode_same_line
+	v: harp_mark
 	w: flip_selections
 	x: replace_with_yanked
+	y: null
 	z: [collapse_selection replace]
 	# [[sort off]]
 	# ---------------------------x↓----------------------------
@@ -241,7 +328,6 @@ let normal_mappings = {
 	'€': ":pipe €$in | if ($in | str substring 0..0) == '-' { str trim -c '-' } else { fill -w 57 -a center -c '-' }"
 	'`': [collapse_selection switch_case]
 	'_': switch_to_lowercase
-	'—': null #
 	'¢': goto_last_accessed_file
 	'~': '@%q<ret>'
 	'&': '@q<ret>'
@@ -255,9 +341,7 @@ let normal_mappings = {
 	'⇌': reverse_selection_contents
 	'≺': rotate_selections_first
 	'≻': rotate_selections_last
-	'␈': null #
 	'␡': ':char'
-	'⤒': null #
 	'⤓': ':sort'
 	# ---------------------------cv----------------------------
 	'⇊': 'switch_case'
@@ -314,8 +398,8 @@ let normal_mappings = {
 	'↑': keep_selections
 	'↓': remove_selections
 	'█': '@q█<ret>c'
-	'✅': null #
-	'❌': null #
+	'✅': null
+	'❌': null
 	'❓': null
 	'❗': null
 	'💡': null
@@ -336,6 +420,19 @@ let normal_mappings = {
 	home: [ensure_selections_forward flip_selections extend_to_first_nonwhitespace]
 	S-end: [extend_to_line_end]
 	S-home: [extend_to_first_nonwhitespace]
+	S-A-F9 : [extend_to_line_bounds select_line_below]
+	S-A-F10: [extend_to_line_bounds select_line_above]
+	J  : [extend_to_line_bounds extend_line_below]
+	K  : [extend_to_line_bounds extend_line_above]
+	# --------------------------leap---------------------------
+	'<': find_prev_char
+	'>': find_next_char
+	'C-,': till_prev_char
+	'C-.': find_till_char
+	'A-,': extend_prev_char
+	'A-.': extend_next_char
+	'C-A-,': extend_till_prev_char
+	'C-A-.': extend_till_char
 	# -------------------------keyful--------------------------
 	# [[sort on]]
 	A-ret: 'goto_file'
@@ -360,11 +457,6 @@ let normal_mappings = {
 	C-A-pagedown: [select_mode goto_next_paragraph normal_mode]
 	C-A-pageup: [select_mode goto_prev_paragraph normal_mode]
 	# : [collapse_selection select_mode goto_next_paragraph normal_mode trim_selections]
-	# -------------------------lining--------------------------
-	S-A-F9 : [extend_to_line_bounds select_line_below]
-	S-A-F10: [extend_to_line_bounds select_line_above]
-	J  : [extend_to_line_bounds extend_line_below]
-	K  : [extend_to_line_bounds extend_line_above]
 	# ----------------------characterwise----------------------
 	left  : extend_char_left
 	right : extend_char_right
@@ -384,7 +476,12 @@ let normal_mappings = {
 		# [[sort on]]
 		';': ':toggle soft-wrap.enable'
 		A: ':sh chmod +x %(full_path)'
+		C-c: ':echopy %(buffer_name)'
+		C: ':echopy %(relative_path)'
+		V: ':echopy %sh(ghl -pb HEAD %(relative_path))'
+		X: ':echopy %sh(ghl)'
 		a: match_brackets
+		c: ':echopy %(full_path)'
 		d: surround_delete
 		f: surround_replace
 		i: ':sh sl.fish %(full_path)'
@@ -393,6 +490,9 @@ let normal_mappings = {
 		l: ':toggle lsp.display-inlay-hints'
 		o: ':fmt'
 		s: surround_add
+		u: [yank ':new' paste_before_all]
+		v: ':echopy %sh(ghl %(relative_path))'
+		x: ':echopy %{working_directory}'
 		# [[sort off]]
 		t: {
 			k: ':pipe €"<kbd>" + $in + "</kbd>"'
@@ -402,6 +502,7 @@ let normal_mappings = {
 			c: ':pipe €"<cd>" + $in + "</cd>"'
 			o: ':pipe €"<o>" + $in + "</o>"'
 			i: ':pipe €"<i>" + $in + "</i>"'
+			t: surround_add_tag
 		}
 		e: {
 			's': ":pipe strip-wrapper-type.rs b"
@@ -437,26 +538,34 @@ let normal_mappings = {
 		}
 	}
 	space: {
-		A-c: null
-		G: null
-		Y: null
 		# [[sort on]]
+		':': harp_register
+		';': "@<space>:'" # ⇇ ␣→: ⇌ harp_register, ' ⇌ toggle get/set
+		A-c: null
 		D: diagnostics_picker
 		F: file_picker_in_current_buffer_directory
+		G: null
 		J: command_palette
 		K: syntax_workspace_symbol_picker
 		L: lsp_or_syntax_workspace_symbol_picker
 		S-end: [extend_to_line_end_newline]
 		S-home: [extend_to_line_start]
 		W: ':open %{buffer_parent}'
+		Y: null
+		a: harp_command
 		c: changed_file_picker
 		d: (open ~/fes/dot/helix/magazine.nuon)
 		e: buffer_picker
 		end: [ensure_selections_forward extend_to_line_end_newline]
 		f: file_picker_in_current_directory
 		home: [ensure_selections_forward flip_selections extend_to_line_start]
+		i: local_search_fuzzy
+		j: harp_search
 		k: syntax_symbol_picker
 		l: lsp_or_syntax_symbol_picker
+		o: local_search_section
+		r: harp_relative_file
+		s: harp_file
 		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
 		w: global_search
 		# [[sort off]]
@@ -477,32 +586,39 @@ let normal_mappings = {
 		}
 	}
 	g: {
+		# [[sort on]]
 		D: null
+		Q: ':cd %(buffer_parent)'
 		c: null
 		d: null
-		m: null
-		y: null
 		# [[sort on]]
 		I: ':buffer-close-all!'
 		O: ':buffer-close-others!'
-		Q: ':cd %(buffer_parent)'
 		e: ':lsp-stop'
 		g: ':reset-diff-change'
 		i: ':buffer-close-all'
 		o: ':buffer-close-others'
+		m: null
+		n: ':echopy %reg(+):%(cursor_line)'
+		o: null
 		q: ':cd %sh(git -C %(buffer_parent) rev-parse --show-toplevel)'
+		u: ':echopy %sh{°append_github_line_numbers %(cursor_line)}'
+		y: null
 		r: ':lsp-restart'
 		# [[sort off]]
 	}
 }
 
 let insert_mappings = {
-	pagedown: null
-	pageup: null
 	# [[sort on]]
+	'C-;': harp_register
+	A-down: steal_char_below
 	A-h: $'@<esc><lt>(char -u 25a0)mc'
 	A-l: $'@<esc><gt>(char -u 25a0)mc'
+	A-up: steal_char_above
+	C-a: [collapse_selection ':insert-output °uclanr | read' append_mode_same_line]
 	C-h: commit_undo_checkpoint
+	C-j: expand_user_snippet
 	C-u: kill_to_line_start
 	C-v: [collapse_selection paste_before]
 	C-ц: [normal_mode move_prev_word_start change_selection_noyank]
@@ -511,160 +627,11 @@ let insert_mappings = {
 	end: [commit_undo_checkpoint insert_at_line_end]
 	home: [commit_undo_checkpoint insert_at_line_start]
 	left: [commit_undo_checkpoint move_char_left]
+	pagedown: null
+	pageup: null
 	right: [commit_undo_checkpoint move_char_right]
 	up: completion
 	# [[sort off]]
-}
-
-let editor_fork = {
-	# [[sort on]]
-	# auto-reload: { enable: true, poll: { interval: 1000 } }
-	breadcrumb: { enable: true, path: 'full' } # full / file / none
-	enable-diagnostics: true
-	picker: { scrolloff: 99 }
-	search: { max-matches: none }
-	session: { restore-cursor: true, gc-max-age: 90 }
-	whichkey: false
-	# [[sort off]]
-	shellmap: {
-		'€': [nu --no-std-lib --stdin --config /home/axlefublr/fes/dot/nu/lvoc/crooked.nu -c]
-		'°': [fish -c]
-		'∞': [calc -t]
-		'√': [julia -E]
-	}
-	harp: {
-		command: filetype
-		search: buffer
-		register: buffer
-		mark: directory
-		file: directory
-		hotkeys: {
-			global: l
-			directory: k
-			filetype: ';'
-			buffer: j
-			switch: "'"
-			delete: '<del>'
-			delete-all: '<S-del>'
-			alt: /
-		}
-	}
-	statusline: {
-		left: [
-			primary-selection-length
-			selections
-			current-working-directory
-		]
-		center: [
-			message
-		]
-		right: [
-			spinner
-			register
-			diagnostics
-			search-position
-			read-only-indicator
-			file-type
-			position
-			total-line-numbers
-			spacer
-			position-percentage
-			file-encoding
-		]
-	}
-	snippets: (
-		open ~/fes/dot/helix/snippets.toml
-		| merge deep { fish: (collect_fish_abbreviations) }
-	)
-}
-
-let all_mappings_fork = {
-    S-down: move_lines_down
-    S-up: move_lines_up
-}
-
-let normal_mappings_fork = {
-	'D': mark_apply
-	'S': mark_replace
-	'W': mark_add
-	# [[sort on]]
-	'.': extend_to_line_bounds
-	'0': ':buffer-nth -r 1'
-	'1': ':buffer-nth 1'
-	'2': ':buffer-nth 2'
-	'3': ':buffer-nth 3'
-	'4': ':buffer-nth 4'
-	'5': ':buffer-nth 5'
-	'6': ':buffer-nth 6'
-	'7': ':buffer-nth 7'
-	'8': ':buffer-nth 8'
-	'9': ':buffer-nth 9'
-	'—': select_character
-	'→': retain_column
-	'␈': ':random'
-	'┏': goto_hover
-	'⤒': ':uniq'
-	A-B: [add_newline_above move_line_up paste_before_all]
-	A-O: paste_before_all
-	A-b: [add_newline_below move_line_down paste_before_all]
-	A-i: continue_last_insert
-	A-o: paste_after_all
-	C-/: select_first_and_last_chars
-	R: copy_yank_to_register
-	S-A-F1: extend_prev_sibling
-	S-A-F2: extend_next_sibling
-	r: copy_register_to_yank
-	u: append_mode_same_line
-	v: harp_mark
-	# [[sort off]]
-	# --------------------------leap---------------------------
-	'<': find_prev_char
-	'>': find_next_char
-	'C-,': till_prev_char
-	'C-.': find_till_char
-	'A-,': extend_prev_char
-	'A-.': extend_next_char
-	'C-A-,': extend_till_prev_char
-	'C-A-.': extend_till_char
-	a: {
-		# [[sort on]]
-		C-c: ':echopy %(buffer_name)'
-		C: ':echopy %(relative_path)'
-		V: ':echopy %sh(ghl -pb HEAD %(relative_path))'
-		X: ':echopy %sh(ghl)'
-		c: ':echopy %(full_path)'
-		u: [yank ':new' paste_before_all]
-		v: ':echopy %sh(ghl %(relative_path))'
-		x: ':echopy %{working_directory}'
-		# [[sort off]]
-		t: { t: surround_add_tag }
-	}
-	space: {
-		a: harp_command
-		i: local_search_fuzzy
-		o: local_search_section
-		r: harp_relative_file
-		s: harp_file
-		j: harp_search
-		':': harp_register
-		';': "@<space>:'" # ⇇ ␣→: ⇌ harp_register, ' ⇌ toggle get/set
-	}
-	g: {
-		H: ':buffer-close-previous!'
-		L: ':buffer-close-next!'
-		h: ':buffer-close-previous'
-		l: ':buffer-close-next'
-		u: ':echopy %sh{°append_github_line_numbers %(cursor_line)}'
-		n: ':echopy %reg(+):%(cursor_line)'
-	}
-}
-
-let insert_mappings_fork = {
-	C-j: expand_user_snippet
-	A-down: steal_char_below
-	A-up: steal_char_above
-	C-a: [collapse_selection ':insert-output °uclanr | read' append_mode_same_line]
-	'C-;': harp_register
 }
 
 let russian_mapping = (open ~/fes/dot/helix/russian.nuon)
@@ -739,36 +706,29 @@ let entire_config = {
     keys: $mappings
 }
 
-let mappings_fork = {
-	normal: ($all_mappings_fork | merge deep $normal_mappings_fork | rusify)
-	insert: ($all_mappings_fork | merge deep $insert_mappings_fork | rusify)
-}
-let entire_config_fork = $entire_config | merge deep { editor: $editor_fork, keys: $mappings_fork }
+$entire_config | to toml | save -f ~/fes/dot/helix/config.toml
 
-$entire_config      | to toml | save -f ~/fes/dot/helix/pure.toml
-$entire_config_fork | to toml | save -f ~/fes/dot/helix/config.toml
-
-let entire_config_fork = $entire_config_fork | merge deep {
+let entire_config = $entire_config | merge deep {
 	editor: {
 		breadcrumb: { enable: false }
 	}
 }
-$entire_config_fork | to toml | save -f ~/fes/dot/helix/starve.toml
+$entire_config | to toml | save -f ~/fes/dot/helix/starve.toml
 
-$entire_config_fork | merge deep {
+$entire_config | merge deep {
 	keys: {
 		normal: { A-space: ':quit-all!' }
 		insert: { A-space: ':quit-all!' }
 	}
 } | to toml | save -f ~/fes/dot/helix/man.toml
 
-$entire_config_fork | merge deep {
+$entire_config | merge deep {
 	editor: {
 		bufferline: 'never'
 	}
 } | to toml | save -f ~/fes/dot/helix/sleek.toml
 
-$entire_config_fork | merge deep {
+$entire_config | merge deep {
 	editor: {
 		bufferline: 'never'
 		soft-wrap: { enable: false }
