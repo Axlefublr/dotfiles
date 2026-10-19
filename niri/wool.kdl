@@ -72,7 +72,7 @@ window-rule {
     match app-id="^foot" title="^mdw helix"
     match app-id="^foot" title="^tiq helix"
     match app-id="^foot" title=" bacon$"
-    match app-id="^foot" title="^kanata$"
+    match app-id="^foot" title="^kanatad$"
     custom-scope-exclude true
 }
 window-rule {
@@ -189,7 +189,7 @@ window-rule {
     match app-id="^foot" title="^alarm"
     match app-id="^foot" title="^bluetui$"
     match app-id="^foot" title="^Tewi$"
-    match app-id="^foot" title="^kanata$"
+    match app-id="^foot" title="^kanatad$"
     open-on-workspace "task"
 }
 
