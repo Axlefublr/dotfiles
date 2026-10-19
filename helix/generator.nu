@@ -7,7 +7,7 @@ let editor = {
 	auto-completion: true
 	auto-format: true
 	auto-info: true
-	auto-save: { focus-lost: false }
+	auto-save: { focus-lost: true }
 	breadcrumb: { enable: true, path: 'full' } # full / file / none
 	buffer-picker: { start-position: previous }
 	bufferline: always
@@ -142,8 +142,8 @@ let editor = {
 
 let all_mappings = {
 	C-s: signature_help
-	C-i: [commit_undo_checkpoint open_above]
-	C-o: [commit_undo_checkpoint open_below]
+	C-i: [commit_undo_checkpoint ':write --no-format --no-code-actions' open_above]
+	C-o: [commit_undo_checkpoint ':write --no-format --no-code-actions' open_below]
 	A-left: goto_prev_tabstop
 	A-right: goto_next_tabstop
 	# -------------------------keyful--------------------------
@@ -165,16 +165,11 @@ let all_mappings = {
 	A-pageup: ('@<C-i>[[sort' + ' on]]<esc>@')
 	A-pagedown: ('@<C-o>[[sort' + ' off]]<esc>@')
 	# -------------------------saving--------------------------
-	A-w: ':write-buffer-close'
-	S-ins: ':buffer-close!'
-	C-A-w: ':buffer-close!'
+	A-w: ':write-buffer-close --focus-right'
+	C-A-w: ':buffer-close! --focus-right'
 	A-space: ':write-quit-all'
-	A-ins: ':quit!'
-	C-space: ':write-all'
-	C-ins: ':write!'
+	S-A-space: ':quit!'
 	C-t: ':reload'
-	S-A-F6: ':write --no-format'
-	S-A-F11: ':write! --no-format'
 	# ------------------------function-------------------------
 	F1: ':noop %sh(wind ° helix %(full_path):%(cursor_line):%(cursor_column))'
 	# F1: [
@@ -287,7 +282,6 @@ let normal_mappings = {
 	d: delete_selection_noyank
 	h: move_char_left
 	i: insert_mode
-	ins: ':write-buffer-close'
 	j: move_visual_line_down
 	k: move_visual_line_up
 	l: move_char_right
@@ -447,6 +441,11 @@ let normal_mappings = {
 		d: ':open %sh(create-new-script.fish ~/fes/dot/lai/fool)'
 		S-del: [':sh rm %(full_path)' ':buffer-close!']
 	}
+	# -------------------------saving--------------------------
+	ins: ':write-buffer-close'
+	S-ins: ':buffer-close!'
+	S-A-F11: ':buffer-close! --focus-right'
+	C-ins: ':write-buffer-close --focus-right'
 	# -------------------------paging--------------------------
 	pagedown: page_cursor_half_down
 	pageup: page_cursor_half_up
@@ -478,17 +477,21 @@ let normal_mappings = {
 		A: ':sh chmod +x %(full_path)'
 		C-c: ':echopy %(buffer_name)'
 		C: ':echopy %(relative_path)'
+		I: ':fmt'
 		V: ':echopy %sh(ghl -pb HEAD %(relative_path))'
 		X: ':echopy %sh(ghl)'
 		a: match_brackets
 		c: ':echopy %(full_path)'
 		d: surround_delete
 		f: surround_replace
-		i: ':sh sl.fish %(full_path)'
+		g: ':lsp-stop'
+		i: ':write-all'
 		j: ':new'
 		k: ':toggle enable-diagnostics'
 		l: ':toggle lsp.display-inlay-hints'
-		o: ':fmt'
+		o: ':reload-all'
+		p: ':write!'
+		r: ':lsp-restart'
 		s: surround_add
 		u: [yank ':new' paste_before_all]
 		v: ':echopy %sh(ghl %(relative_path))'
@@ -566,7 +569,7 @@ let normal_mappings = {
 		o: local_search_section
 		r: harp_relative_file
 		s: harp_file
-		space: [':noop %sh{~/fes/dot/helix/generator.nu}', ':config-reload']
+		space: [':echo %sh{~/fes/dot/helix/generator.nu 2>&1}', ':config-reload']
 		w: global_search
 		# [[sort off]]
 		g: ':open %sh(€"plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
@@ -591,20 +594,14 @@ let normal_mappings = {
 		Q: ':cd %(buffer_parent)'
 		c: null
 		d: null
-		# [[sort on]]
-		I: ':buffer-close-all!'
-		O: ':buffer-close-others!'
-		e: ':lsp-stop'
 		g: ':reset-diff-change'
-		i: ':buffer-close-all'
-		o: ':buffer-close-others'
+		i: ':sh sl.fish %(full_path)'
 		m: null
 		n: ':echopy %reg(+):%(cursor_line)'
 		o: null
 		q: ':cd %sh(git -C %(buffer_parent) rev-parse --show-toplevel)'
 		u: ':echopy %sh{°append_github_line_numbers %(cursor_line)}'
 		y: null
-		r: ':lsp-restart'
 		# [[sort off]]
 	}
 }
@@ -625,6 +622,7 @@ let insert_mappings = {
 	F11: '@<C-h> \<ret>'
 	down: completion
 	end: [commit_undo_checkpoint insert_at_line_end]
+	esc: [':write --no-format --no-code-actions' normal_mode]
 	home: [commit_undo_checkpoint insert_at_line_start]
 	left: [commit_undo_checkpoint move_char_left]
 	pagedown: null
