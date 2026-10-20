@@ -19,13 +19,13 @@ max_width = 1000
 
 [opener]
 edit = [
-  { run = '${EDITOR:-vi} "$@"', desc = "Edit", block = true },
+  { run = '${EDITOR:-vi} %s', desc = "Edit", block = true },
 ]
 extract = [
-  { run = 'ouch decompress --yes "$@"', desc = "Extract" },
+  { run = 'ouch decompress --yes %s', desc = "Extract" },
 ]
 reveal = [
-  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+  { run = 'xdg-open "$(dirname "%1")"', desc = "Reveal", for = "linux" },
 ]
 
 [open]
