@@ -22,6 +22,8 @@ ln -sf ~/fes/dot/alacritty.toml ~/.config/alacritty.toml
 yay -Sa --needed --disable-download-timeout anki
 # yay -Sa --needed --disable-download-timeout anki-bin
 sudo -E helix /usr/share/applications/anki.desktop
+# Exec=env QT_SCALE_FACTOR=1.25 anki %f
+# IF DOESN'T LOAD (not needed usually) ↓
 # env http_proxy="http://127.0.0.1:8118" https_proxy="http://127.0.0.1:8118"
 # you're using your privoxy here
 
@@ -416,7 +418,7 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cl
 yay -Sa --needed --noconfirm --disable-download-timeout prettierd
 gk ork helix # needed so that the eva runtime/ symlink points to the base thingies; editor will technically work without this
 d i
-sudo ln -f ~/fes/eva/helix /usr/local/bin/helix
+sudo ln -sf ~/fes/eva/helix /usr/local/bin/helix
 ln -sf ~/fes/dot/helix ~/.config
 mkdir -p ~/fes/dot/helix/runtime
 ln -sf ~/fes/ork/qiri/ ~/fes/dot/helix/runtime/queries
