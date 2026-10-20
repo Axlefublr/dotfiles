@@ -65,7 +65,11 @@
 'ui.background' = {}
 'ui.background.separator' = 'grey'
 'ui.bufferline' = { fg = 'grey' }
-'ui.bufferline.active' = { fg = 'white' }
+'ui.bufferline.active' = { fg = 'white', modifiers = [ 'bold' ] }
+'ui.bufferline.active.modified' = { fg = 'orange', modifiers = [ 'bold' ] }
+'ui.bufferline.active.unformatted' = { fg = 'white', modifiers = [ 'italic', 'bold' ] }
+'ui.bufferline.modified' = { fg = 'orange' }
+'ui.bufferline.unformatted' = { fg = 'grey', modifiers = [ 'italic' ] }
 'ui.cursor' = { bg = 'yellow', fg = 'dark12', modifiers = [ 'bold' ] }
 'ui.cursor.match' = { fg = 'purple', modifiers = [ 'bold' ] }
 'ui.cursor.primary' = { bg = 'orange', fg = 'dark12', modifiers = [ 'bold' ] }
