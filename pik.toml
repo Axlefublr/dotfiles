@@ -7,10 +7,10 @@ icons = 'nerd_font_v3'
 border = { type = 'Plain', style = { fg = '#d4be98' } }
 
 [ui.process_table.row]
-selected_symbol = ' '
-even = { fg = '#d4be98' }
 odd = { fg = '#d4be98' }
 selected = { bg = '#5f472d' }
+selected_symbol = ' '
+even = { fg = '#d4be98' }
 
 [ui.process_table.cell]
 # normal = {}
