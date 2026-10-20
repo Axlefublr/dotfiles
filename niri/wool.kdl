@@ -233,6 +233,10 @@ layer-rule {
     }
 }
 layer-rule {
+    match namespace="waybar"
+    geometry-corner-radius 16
+}
+layer-rule {
     match namespace="^awww-daemon$"
     place-within-backdrop true
 }
