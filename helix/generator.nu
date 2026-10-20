@@ -167,7 +167,7 @@ let all_mappings = {
 	# -------------------------saving--------------------------
 	A-w: ':write-buffer-close --focus-right'
 	C-A-w: ':buffer-close! --focus-right'
-	A-space: ':write-quit-all'
+	A-space: ':write-quit-all --unmodified'
 	S-A-space: ':quit!'
 	C-t: ':reload'
 	# ------------------------function-------------------------
@@ -485,7 +485,7 @@ let normal_mappings = {
 		d: surround_delete
 		f: surround_replace
 		g: ':lsp-stop'
-		i: ':write-all'
+		i: ':write-all --unmodified'
 		j: ':new'
 		k: ':toggle enable-diagnostics'
 		l: ':toggle lsp.display-inlay-hints'
@@ -619,7 +619,7 @@ let insert_mappings = {
 	C-u: kill_to_line_start
 	C-v: [collapse_selection paste_before]
 	C-ц: [normal_mode move_prev_word_start change_selection_noyank]
-	F11: '@<C-h> \<ret>'
+	F11: '@<C-h> \<ret>' # ⇇ ^h (ins) ⇌ commit_undo_checkpoint
 	down: completion
 	end: [commit_undo_checkpoint insert_at_line_end]
 	esc: [':write --no-format --no-code-actions' normal_mode]
