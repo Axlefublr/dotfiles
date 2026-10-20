@@ -142,8 +142,8 @@ let editor = {
 
 let all_mappings = {
 	C-s: signature_help
-	C-i: [commit_undo_checkpoint ':write --no-format --no-code-actions' open_above]
-	C-o: [commit_undo_checkpoint ':write --no-format --no-code-actions' open_below]
+	C-i: [commit_undo_checkpoint open_above]
+	C-o: [commit_undo_checkpoint open_below]
 	A-left: goto_prev_tabstop
 	A-right: goto_next_tabstop
 	# -------------------------keyful--------------------------
@@ -207,6 +207,7 @@ let normal_mappings = {
 	# [[sort on]]
 	# [[sort on]]
 	"'": [save_selection select_textobject_inner]
+	"C-'": ':pipe °math "$(cat)"'
 	# C-c: change_selection_noyank
 	# C-d: delete_selection_noyank
 	'"': null
@@ -228,7 +229,7 @@ let normal_mappings = {
 	'?': rsearch
 	'A-/': [select_mode search normal_mode]
 	'A-?': [select_mode rsearch normal_mode]
-	'C-;': ':pipe °math "$(cat)"'
+	'C-;': flip_selections
 	'—': select_character
 	'→': retain_column
 	'␈': ':random'
