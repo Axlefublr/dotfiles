@@ -67,7 +67,7 @@
 	/ (tap-hold-release $tt $ht / XX)
 	0 XX
 	1 XX
-	2 XX
+	2 (dynamic-macro-record 1)
 	3 XX
 	4 XX
 	5 XX
@@ -99,7 +99,7 @@
 	s (tap-hold-release $tt $ht s lsft)
 	spc (tap-hold-release $tt $ht spc (multi (layer-toggle space) (cmd ydotool mousemove -a 533 300) (on↑ tap-vkey space)))
 	t (tap-hold-release $tt $ht t XX)
-	tab XX
+	tab (dynamic-macro-play 1)
 	u (tap-hold-release $tt $ht u (multi (layer-toggle u) (on↑ tap-vkey u)))
 	v (tap-hold-release $tt $ht v (multi (layer-toggle v) (on↑ tap-vkey v)))
 	w (tap-hold-release $tt $ht w (multi lmet (layer-toggle w) (on↑ tap-vkey w)))
