@@ -24,7 +24,7 @@ wm_wait_if_or_until_exists 'app_id == anki' # 'title starts-with User'
 niri msg action spawn -- Todoist.AppImage
 wm_wait_if_or_until_exists 'app_id == todoist'
 foot -T voe -o environment.TIT=voe -o environment.YAZI_SORT_NAME=true -D ~/iwm/voe yazi & disown
-make-em-shut-up.nu
 playerctld daemon
 dot
 queue daily.fish
+make-em-shut-up.nu
