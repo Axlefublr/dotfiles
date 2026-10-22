@@ -256,7 +256,7 @@ funcsave allow_logout >/dev/null
 
 function pvz_plant -a x_pos
     set -l prev_position (niri msg pointer)
-    ydotool mousemove -a $x_pos 50
+    ydotool mousemove -a $x_pos 37
     ydotool click C0
     ydotool mousemove -a $prev_position[1] $prev_position[2]
     ydotool click C0
