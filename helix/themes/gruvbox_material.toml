@@ -62,6 +62,7 @@
 'string.regexp' = 'mint'
 'tag' = 'yellow'
 'type' = 'cyan'
+'type.nullable' = 'blush'
 'ui.background' = {}
 'ui.background.separator' = 'grey'
 'ui.bufferline' = { fg = 'grey' }
