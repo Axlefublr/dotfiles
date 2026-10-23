@@ -219,6 +219,12 @@ exwd = '%%{working_directory}'
 [tsq]
 ena = '@entry.around'
 eni = '@entry.inside'
+st = 'string'
+spe = 'special'
+sym = 'symbol'
+esc = 'escape'
+con = 'constant'
+ch = 'character'
 
 [yaml]
 the = '''
