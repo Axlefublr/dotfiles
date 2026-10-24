@@ -1,0 +1,3 @@
+#!/usr/bin/env dash
+
+exec /usr/bin/ameba --except Layout/TrailingWhitespace
