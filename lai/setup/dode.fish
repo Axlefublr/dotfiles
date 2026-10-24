@@ -945,6 +945,9 @@ systemctl --user enable --now ~/fes/dot/systemd/download-drop.path
 systemctl --user link ~/fes/dot/systemd/krita-config.service
 systemctl --user enable --now ~/fes/dot/systemd/krita-config.path
 
+systemctl --user link ~/fes/dot/systemd/lwkc.service
+systemctl --user enable --now ~/fes/dot/systemd/lwkc.path
+
 systemctl --user enable --now ~/fes/dot/systemd/axleizer.service
 
 systemctl --user link ~/fes/dot/systemd/wallpaper.service
