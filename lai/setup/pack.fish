@@ -12,7 +12,7 @@ for package_name in (cat ~/.local/share/magazine/Z)
 end
 
 # -------------------------crystal-------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout crystal shards
+sudo pacman -S --needed --noconfirm --disable-download-timeout crystal shards ameba lattice
 
 # -------------------------dotnet--------------------------
 set -Ux DOTNET_CLI_TELEMETRY_OPTOUT true
