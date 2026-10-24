@@ -3,6 +3,13 @@
 name = "crystal"
 auto-format = true
 indent = { tab-width = 2, unit = "  " }
+language-servers = [ "lattice" ]
+
+[language-server.lattice]
+command = 'lattice'
+
+[language-server.lattice.config]
+disableShadowedVariableWarning = true
 
 [language.auto-pairs]
 "(" = ")"
