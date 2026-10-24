@@ -443,10 +443,10 @@ let normal_mappings = {
 	# -------------------------saving--------------------------
 	ins: ':write-buffer-close'
 	S-ins: ':buffer-close!'
-	A-w: ':write-buffer-close --focus-right'
-	C-A-w: ':buffer-close! --focus-right'
-	S-A-F11: ':buffer-close! --focus-right'
-	C-ins: ':write-buffer-close --focus-right'
+	A-w: ':write-buffer-close --focus-direction'
+	C-A-w: ':buffer-close! --focus-direction'
+	S-A-F11: ':buffer-close! --focus-direction'
+	C-ins: ':write-buffer-close --focus-direction'
 	# -------------------------paging--------------------------
 	pagedown: page_cursor_half_down
 	pageup: page_cursor_half_up
