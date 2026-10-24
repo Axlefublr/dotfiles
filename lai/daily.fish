@@ -31,10 +31,26 @@ log 2 trash
 trash-empty -f 1
 log 2 cleaning lady
 cleaning-lady.nu
+
+set -l available (na -c 'df -h | detect columns --guess | where Filesystem starts-with /dev/sda | where Size == 234G | get Avail.0 | str substring 0..-2')
+set -l modifier (switch "$available"
+    case '1*'
+        echo 0
+    case '2*'
+        echo 1
+    case '3*'
+        echo 2
+    case '4*'
+        echo 3
+    case '5*'
+        echo 4
+    case '*'
+        echo 5
+end)
 log 2 kondo
-kondo -ao 25d
+kondo -ao (math $modifier x 8)d
 log 2 incremental compile artifacts
-fd --type dir --no-ignore --prune -pa --glob --changed-after 3d '**/target/**/incremental' -X rm -fr
+fd --type dir --no-ignore --prune -pa --glob --changed-after "$modifier"d '**/target/**/incremental' -X rm -fr
 
 # --------------------requires internet--------------------
 log 1 waiting for internet
