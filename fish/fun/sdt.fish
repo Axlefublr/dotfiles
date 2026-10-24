@@ -77,3 +77,14 @@ function systemd_krita_config
     rsync ~/.local/share/krita/input/kritadefault.profile ~/fes/jiro/krita/input/default.profile
 end
 funcsave systemd_krita_config >/dev/null
+
+function systemd_lwkc
+    cd ~/fes/nak/lwkc
+    for file in {ahg,bhg,chg,ahv,bhv,chv,arv,arg}/*
+        ffmpeg_cut_video --skip-prompts $file -o ere/(path dirname $file)
+        queue gomi $file
+    end
+    for file in {ad,bd,cd}
+        # ad,bd,cd
+    end
+    funcsave systemd_lwkc >/dev/null
