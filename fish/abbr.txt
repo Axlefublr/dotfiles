@@ -89,5 +89,8 @@ Au →  A rust
 
 💯 r → crystal
 💯 re → crystal eval '█'
+💯 h → shards
+💯 hi → shards init
+💯 hr → shards run
 
 magick ← loss → -define webp:lossless=true
