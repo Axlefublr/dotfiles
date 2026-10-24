@@ -2,21 +2,31 @@
 
 function ffmpeg_cut_video
     echo 'reencode video with x264, audio with aac.'\n'optionally, cut out some portion of the video.' >&2
+    argparse skip-prompts o/output= -- $argv
     for input in $argv[-1..1]
         if not test -f "$input"
             echo "not a real file, skipping ($input)" >&2
             continue
         end
         echo "processing $input" >&2
+        set -l input (path resolve $input)
         set -l input_trimmed (path_clear_suffix $input)
-        set -l output (trail $input_trimmed █! | path change-extension '')
+        set -l output (if test -n "$_flag_output"
+            echo (path resolve $_flag_output)/(path basename -E $input_trimmed)
+        else
+            trail $input_trimmed █! | path change-extension ''
+        end)
 
         if test -z "$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 $input)"
             echo 'no audio stream. faking it.' >&2
             set -f $fake_audio -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -shortest
         end
 
-        confirm.rs 'cut?' '[f]rom' '[t]o' 'b[o]th' 'n[e]ither' | read -l response
+        set -l response (if set -ql _flag_skip_prompts
+            echo e
+        else
+            confirm.rs 'cut?' '[f]rom' '[t]o' 'b[o]th' 'n[e]ither'
+        end)
         if test "$response" = f -o "$response" = o
             set -l from (cat /tmp/mine/mpv-loop-a)
             set output "$output$(math -s 0 -m round $from)"
