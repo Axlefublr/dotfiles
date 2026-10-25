@@ -19,6 +19,7 @@ math (cat ~/.local/share/magazine/S) + 50 | sponge ~/.local/share/magazine/S
 _magazine_commit ~/.local/share/magazine/S desire
 indeed.rs -u ~/fes/nak/semicolon.md -- (propose.rs -n 20% remember 50% ~/.local/share/magazine/s)
 truncate -s 0 ~/.local/share/magazine/d
+systemd_lwkc
 
 # -------------------------cleanup-------------------------
 log 1 cleanup
