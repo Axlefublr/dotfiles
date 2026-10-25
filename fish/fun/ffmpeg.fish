@@ -61,13 +61,23 @@ end
 funcsave ffmpeg_cut_video >/dev/null
 
 function ffmpeg_convert_to_mp3
+    argparse skip-prompts o/output= -- $argv
     for input in $argv[-1..1]
         not test -f "$input" && continue
         echo "processing $input" >&2
+        set -l input (path resolve $input)
         set -l input_trimmed (path_clear_suffix $input)
-        set -l output (trail $input_trimmed █! | path change-extension '')
+        set -l output (if test -n "$_flag_output"
+            echo (path resolve $_flag_output)/(path basename -E $input_trimmed)
+        else
+            trail $input_trimmed █! | path change-extension ''
+        end)
 
-        confirm.rs 'cut?' '[f]rom' '[t]o' 'b[o]th' 'n[e]ither' | read -l response
+        set -l response (if set -ql _flag_skip_prompts
+            echo e
+        else
+            confirm.rs 'cut?' '[f]rom' '[t]o' 'b[o]th' 'n[e]ither'
+        end)
         if test "$response" = f -o "$response" = o
             set -l from (cat /tmp/mine/mpv-loop-a)
             set output "$output$(math -s 0 -m round $from)"
