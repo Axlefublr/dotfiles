@@ -78,13 +78,17 @@ function systemd_krita_config
 end
 funcsave systemd_krita_config >/dev/null
 
+# TODO: can't actually do this automatically on path because I'm not looking for a particular path
+# so the currently downloading `.part` file will be eligible, and the not finished `.mp4` file also will be
+# currently done daily instead
 function systemd_lwkc
-    cd ~/fes/nak/lwkc
-    for file in {ahg,bhg,chg,ahv,bhv,chv,arv,arg}/*
+    for file in ~/fes/nak/lwkc/{ahg,bhg,chg,ahv,bhv,chv,arv,arg}/*
         ffmpeg_cut_video --skip-prompts $file -o ere/(path dirname $file)
         queue gomi $file
     end
-    for file in {ad,bd,cd}
-        # ad,bd,cd
+    for file in ~/fes/nak/lwkc/{ad,bd,cd}/*
+        ffmpeg_convert_to_mp3 --skip-prompts $file -o ere/(path dirname $file)
+        queue gomi $file
     end
-    funcsave systemd_lwkc >/dev/null
+end
+funcsave systemd_lwkc >/dev/null
