@@ -1,6 +1,0 @@
-[Path]
-DirectoryNotEmpty=/home/axlefublr/fes/nak/lwkc/ahg /home/axlefublr/fes/nak/lwkc/bhg /home/axlefublr/fes/nak/lwkc/chg /home/axlefublr/fes/nak/lwkc/ahv /home/axlefublr/fes/nak/lwkc/bhv /home/axlefublr/fes/nak/lwkc/chv /home/axlefublr/fes/nak/lwkc/arv /home/axlefublr/fes/nak/lwkc/arg /home/axlefublr/fes/nak/lwkc/ad /home/axlefublr/fes/nak/lwkc/bd /home/axlefublr/fes/nak/lwkc/cd
-MakeDirectory=true
-
-[Install]
-WantedBy=paths.target
