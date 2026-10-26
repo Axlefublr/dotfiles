@@ -122,7 +122,7 @@ source = { git = "https://github.com/ribru17/tree-sitter-man", rev = "e332ea95d5
 # ------------------markdown------------------
 [[grammar]]
 name = "markdown"
-source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "f3435abca462c6642f21b7be2c2092bf6e7abde7", subpath = "tree-sitter-markdown" }
+source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "f3a84d5b8612d6b1b1814cf52c30f1770710d611", subpath = "tree-sitter-markdown" }
 
 [[language]]
 name = "markdown"
@@ -139,6 +139,10 @@ indent = { tab-width = 3, unit = "   " }
 "‘" = "’"
 "“" = "”"
 "«" = "»"
+
+[[grammar]]
+name = "markdown_inline"
+source = { git = "https://github.com/Axlefublr/tree-sitter-markdown", rev = "f3a84d5b8612d6b1b1814cf52c30f1770710d611", subpath = "tree-sitter-markdown-inline" }
 
 # --------------------nim---------------------
 [[language]]
