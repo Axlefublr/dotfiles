@@ -41,7 +41,7 @@
 'markup.heading.6' = { fg = 'blush', modifiers = [ 'bold' ] }
 'markup.heading.marker' = 'grey'
 'markup.italic' = { modifiers = [ 'italic' ] }
-'markup.link.text' = 'purple'
+'markup.link.text' = 'mint'
 'markup.link.url' = { fg = 'cyan', modifiers = [ 'underlined' ] }
 'markup.list' = 'red'
 'markup.quote' = 'cyan'
@@ -106,6 +106,7 @@
 'variable.mutable' = { modifiers = [ 'italic' ] }
 'variable.other.member' = 'mint'
 'variable.parameter' = 'white'
+'variable.parameter.required' = 'green'
 'warning' = 'yellow'
 # [[sort off]]
 'ui.cursor.primary.select' = { bg = 'mint', fg = 'dark12', modifiers = [
