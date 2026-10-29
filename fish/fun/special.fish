@@ -92,13 +92,11 @@ funcsave extract_youtube_link >/dev/null
 
 # CheckedOutBranch.Name
 function git_smart_push -a current_branch
-    # if this is a fork, I'll want to push a backup branch as well, without needing to think about it
-    # at the same time, old backup branches are cleaned
-    if git remote get-url upstream &>/dev/null
-        git push -fu origin $current_branch:bkp/$current_branch/(date +%y.%m.%d-%H.%M.%S) :(gk.nu clean-backup-branches) $current_branch:$current_branch
-    else
-        git push -fu origin $current_branch
+    set -l upstream (git rev-parse '@{upstream}' 2>/dev/null)
+    if not test "$upstream" || test "$upstream" != "$(git rev-parse HEAD)"
+        git push -f origin $current_branch:bkp/$current_branch/(date +%y.%m.%d-%H.%M.%S) :(gk.nu clean-backup-branches)
     end
+    git push -fu origin $current_branch
 end
 funcsave git_smart_push >/dev/null
 
