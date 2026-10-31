@@ -204,7 +204,7 @@ zoom {
     movement-mode "centered"
     increment-type "exponential"
     max-zoom 10000.0
-    zoom-filter-threshold 1.0
+    filter-threshold 1.0
 }
 
 binds {
@@ -353,6 +353,7 @@ blur {
 cursor {
     xcursor-theme "Lighted-Pixel-Butter"
     hide-when-typing
+    scale-with-view false
 }
 
 clipboard {
