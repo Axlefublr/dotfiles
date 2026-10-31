@@ -87,6 +87,9 @@ funcsave █ >/dev/null'''
 o = '<o>█</o>'
 cd = '<cd>█</cd>'
 
+[kanata]
+switch = '(switch ((█)) ■ break)'
+
 [markdown]
 # [[sort on]]
 d = '<kbd>█</kbd>'
