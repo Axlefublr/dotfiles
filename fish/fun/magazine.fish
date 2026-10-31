@@ -222,8 +222,9 @@ end
 funcsave bookmark_open >/dev/null
 
 function bookmark_set
-    harp replace bookmarks $argv[1] $argv[2]
-    notify-send -t 2000 "set bookmark $argv[1] to $argv[2]"
+    set -l link "$(wl-paste -n -t text/plain)"
+    harp replace bookmarks $argv[1] $link
+    notify-send -t 2000 "set bookmark $argv[1] to $link"
 end
 funcsave bookmark_set >/dev/null
 
