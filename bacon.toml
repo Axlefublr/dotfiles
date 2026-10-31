@@ -10,6 +10,11 @@ exporter = 'locations'
 path = '.bacon-locations'
 line_format = '{path}:{line}:{column}'
 
+[jobs.clippy]
+command = [ 'cargo', 'clippy' ]
+need_stdout = false
+scroll_anchor = 'auto'
+
 [jobs.fix]
 command = [
   'cargo',
