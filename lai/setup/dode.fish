@@ -241,6 +241,11 @@ id -g # group_id
 sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-input ttf-input-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd inter-font
 yay -Sa --needed --disable-download-timeout ttf-comfortaa maplemono-nf
 
+mkdir -p ~/.config/fontconfig
+ln -sf ~/fes/dot/fontconfig.xml ~/.config/fontconfig/fonts.conf
+fc-cache -f
+fc-match -s sans-serif | head
+
 # --------------------------foot---------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout foot
 mkdir -p ~/.config/foot

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <alias binding="same">
+    <family>sans-serif</family>
+    <prefer>
+      <family>Inter</family>
+      <family>Noto Sans</family>
+      <family>Symbols Nerd Font</family>
+      <family>Twemoji</family>
+    </prefer>
+  </alias>
+
+  <alias binding="same">
+    <family>serif</family>
+    <prefer>
+      <family>Inter</family>
+      <family>Noto Sans</family>
+      <family>Symbols Nerd Font</family>
+      <family>Twemoji</family>
+    </prefer>
+  </alias>
+
+  <alias binding="same">
+    <family>monospace</family>
+    <prefer>
+      <family>Google Sans Code</family>
+      <family>Adwaita Mono</family>
+      <family>JetBrainsMono Nerd Font</family>
+      <family>Symbols Nerd Font Mono</family>
+    </prefer>
+  </alias>
+
+  <match target="scan">
+    <test name="family"><string>Google Sans Code</string></test>
+    <edit name="charset" mode="assign">
+      <minus>
+        <name>charset</name>
+        <charset>
+          <int>0xab</int><int>0xbb</int> <!-- «» -->
+          <int>0xb9</int> <!-- ¹ -->
+          <int>0xb2</int> <!-- ² -->
+          <int>0xb3</int> <!-- ³ -->
+          <int>2074</int> <!-- ⁴ -->
+        </charset>
+      </minus>
+    </edit>
+  </match>
+
+  <match target="scan">
+    <test name="family"><string>Adwaita Mono</string></test>
+    <edit name="charset" mode="assign">
+      <minus>
+        <name>charset</name>
+        <charset>
+          <int>0x21aa</int> <!-- ↪ -->
+          <int>0x2408</int> <!-- ␈ -->
+          <int>0x2421</int> <!-- ␡ -->
+          <int>0x221e</int> <!-- ∞ -->
+          <int>0x2248</int> <!-- ≈ -->
+        </charset>
+      </minus>
+    </edit>
+  </match>
+</fontconfig>
