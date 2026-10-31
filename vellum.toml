@@ -1,5 +1,6 @@
 default_tool = 'arrow'
 remember_last_tool = true
+freeze_on_activate = true
 stroke_size = 6.0
 default_color = '#e84046'
 feedback_duration_ms = 500
