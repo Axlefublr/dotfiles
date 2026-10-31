@@ -3,7 +3,7 @@
 )
 
 (deftemplate bookmark-set (which)
-	(multi (cmd fish -c (concat "bookmark_set " $which r#" "$(wl-paste -n -t text/plain)""#)) (layer-switch default))
+	(multi (cmd fish -c (concat "bookmark_set " $which)) (layer-switch default))
 )
 
 (deflayermap (bookmark)
