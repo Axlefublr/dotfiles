@@ -44,6 +44,7 @@
 'markup.link.text' = 'mint'
 'markup.link.url' = { fg = 'cyan', modifiers = [ 'underlined' ] }
 'markup.list' = 'red'
+'markup.operator' = 'blush'
 'markup.quote' = 'cyan'
 'markup.raw' = 'yellow'
 'markup.raw.block' = 'white'
