@@ -49,8 +49,7 @@ window-rule {
     match app-id="^foot" title="^timer"
     match app-id="^foot" title="^stopwatch"
     match app-id="^foot" title="^alarm"
-    // protect-workspace-on-spawn true
-    focus-on-xdg-activate false
+    protect-workspace-on-spawn true
 }
 window-rule {
     match app-id="anki"
