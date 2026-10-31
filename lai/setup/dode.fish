@@ -390,9 +390,9 @@ sudo pacman -S --needed --noconfirm --disable-download-timeout gtk3-demos gtk4-d
 # yay -Sa --needed --disable-download-timeout colloid-gtk-theme-git colloid-icon-theme-git
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true # enables ^+i in gtk applications
-gsettings set org.gnome.desktop.interface font-name "Inter, 12"
-gsettings set org.gnome.desktop.interface document-font-name "Inter, 12"
-gsettings set org.gnome.desktop.interface monospace-font-name "Google Sans Code, 12"
+gsettings set org.gnome.desktop.interface font-name "sans-serif, 12"
+gsettings set org.gnome.desktop.interface document-font-name "sans-serif, 12"
+gsettings set org.gnome.desktop.interface monospace-font-name "monospace, 12"
 
 cd ~/fes/ork
 gh repo clone vinceliuice/Colloid-gtk-theme

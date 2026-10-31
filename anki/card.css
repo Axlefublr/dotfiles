@@ -1,11 +1,9 @@
 * {
-	--normal-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
+	--normal-font-family: InterGrafted, sans-serif;
 	--font-size: 22px;
-	--monospace-font-family:
-		Google Sans Code, Input Mono, InputMonoGrafted, JetBrainsMonoNL NF, JetBrainsMonoNL, JetBrainsMono NF, JetBrainsMono,
-		Consolas, Roboto Mono, Droid Sans Mono, monospace;
+	--monospace-font-family: InputMonoGrafted, monospace;
 	--monospace-font-size: 22px;
-	--heading-font-family: Inter, InterGrafted, Ubuntu Nerd Font, Ubuntu;
+	--heading-font-family: InterGrafted, sans-serif;
 	--heading-font-size: 22px;
 }
 

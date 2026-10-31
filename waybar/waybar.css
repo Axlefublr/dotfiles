@@ -2,11 +2,6 @@
 	/* `otf-font-awesome` is required to be installed for icons */
 	font-family:
 		Sometype Mono,
-		Google Sans Code,
-		Adwaita Mono,
-		JetBrainsMono Nerd Font,
-		Noto Sans Mono,
-		Symbols Nerd Font Mono,
 		monospace;
 	font-size: 22;
 }
@@ -89,6 +84,10 @@ window#waybar {
 
 #custom-magazines {
 	color: #e491b2;
+}
+
+#custom-statusline {
+	font-family: sans-serif;
 }
 
 #custom-meat {

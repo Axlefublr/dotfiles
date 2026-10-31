@@ -4,7 +4,7 @@
 
 * {
 	/* all: unset; */
-	font-family: Inter;
+	font-family: sans-serif;
 }
 
 window {
@@ -29,13 +29,7 @@ progressbar trough {
 }
 
 .monospace {
-	font-family:
-		Google Sans Code,
-		Adwaita Mono,
-		JetBrainsMono Nerd Font,
-		Noto Sans Mono,
-		Symbols Nerd Font Mono,
-		monospace;
+	font-family: monospace;
 }
 
 .padshadow {
