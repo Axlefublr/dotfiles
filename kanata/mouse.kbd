@@ -1,7 +1,7 @@
 (deflayermap (space)
 	caps (tap-hold-release $tt $ht esc (multi (layer-toggle caps) (layer-toggle caps-space) (on↑ tap-vkey caps)))
 	' (tap-hold-release $tt $ht del (multi (layer-toggle quote) (layer-toggle space-quote) (on↑ tap-vkey quote)))
-	spc (tap-hold-release $tt $ht spc XX)
+	spc (cmd ydotool mousemove -a 533 300)
 	n (on↓ toggle-vkey mouse-mode)
 	l (multi (layer-toggle mouse-slow) (on↑ tap-vkey l))
 	;; l (movemouse-speed 1)
@@ -14,17 +14,17 @@
 	v (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) C-a break
-		() y break
+		() y break ;; cop**y** image in browser
 	)
 	g (switch
 		(init-cmd vellum is-active)
-		((cmd-exit 0)) f break
-		() (tap-hold-release $tt $ht (unmod lsft f8) (unmod lalt f8)) break ;; supposed to suspend other tabs on hold, close current on tap
+		((cmd-exit 0)) f break ;; toggle shape filled
+		() (tap-hold-release $tt $ht (unmod lsft f8) (unmod lalt f8)) break ;; suspend other tabs on hold, close current on tap
 	)
 
 	u (cmd niri msg action set-zoom-level +1)
 	p (tap-hold-release $tt $ht (cmd niri msg action set-zoom-level -- -1) (cmd niri msg action set-zoom-level 1))
-	; (cmd vellum toggle)
+	; (cmd rotate-vellum.fish)
 	/ (multi (cmd fish -c screenshot_select) (on↑ tap-vkey modifier))
 
 	a (on↓ toggle-vkey shift)
