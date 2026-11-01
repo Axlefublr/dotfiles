@@ -41,7 +41,7 @@
           <int>0xb9</int> <!-- ¹ -->
           <int>0xb2</int> <!-- ² -->
           <int>0xb3</int> <!-- ³ -->
-          <int>2074</int> <!-- ⁴ -->
+          <int>0x2074</int> <!-- ⁴ -->
         </charset>
       </minus>
     </edit>
