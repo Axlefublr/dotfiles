@@ -26,6 +26,8 @@
     <prefer>
       <family>Google Sans Code</family>
       <family>Adwaita Mono</family>
+      <family>Fira Code</family>
+      <family>Cascadia Mono</family>
       <family>JetBrainsMono Nerd Font</family>
       <family>Symbols Nerd Font Mono</family>
     </prefer>
@@ -53,13 +55,48 @@
       <minus>
         <name>charset</name>
         <charset>
+          <!-- [[sort on]] -->
+          <int>0x2196</int> <!-- ↖ -->
+          <int>0x2197</int> <!-- ↗ -->
+          <int>0x2198</int> <!-- ↘ -->
+          <int>0x2199</int> <!-- ↙ -->
+          <int>0x21a9</int> <!-- ↩ -->
           <int>0x21aa</int> <!-- ↪ -->
-          <int>0x2408</int> <!-- ␈ -->
-          <int>0x2421</int> <!-- ␡ -->
           <int>0x221e</int> <!-- ∞ -->
           <int>0x2248</int> <!-- ≈ -->
+          <int>0x2260</int> <!-- ≠ -->
+          <int>0x2408</int> <!-- ␈ -->
+          <int>0x2421</int> <!-- ␡ -->
+          <int>0xab</int> <!-- « -->
+          <int>0xbb</int> <!-- » -->
+          <!-- [[sort off]] -->
         </charset>
       </minus>
+    </edit>
+  </match>
+
+  <match target="scan">
+    <test name="family"><string>Fira Code</string></test>
+    <edit name="charset" mode="assign">
+      <charset>
+        <int>0x2196</int> <!-- ↖ -->
+        <int>0x2197</int> <!-- ↗ -->
+        <int>0x2198</int> <!-- ↘ -->
+        <int>0x2199</int> <!-- ↙ -->
+        <int>0x21aa</int> <!-- ↪ -->
+        <int>0x21a9</int> <!-- ↩ -->
+      </charset>
+    </edit>
+  </match>
+
+  <match target="scan">
+    <test name="family"><string>Cascadia Mono</string></test>
+    <edit name="charset" mode="assign">
+      <charset>
+        <int>0x2260</int> <!-- ≠ -->
+        <int>0xbb</int> <!-- » -->
+        <int>0xab</int> <!-- « -->
+      </charset>
     </edit>
   </match>
 </fontconfig>
