@@ -112,6 +112,11 @@ function focus_ignore
 end
 funcsave focus_ignore >/dev/null
 
+function font_list
+    fc-list $argv | sort
+end
+funcsave font_list >/dev/null
+
 function get_input
     set -l input (fuzzel -dl 0 2>/dev/null </dev/null)
     test $status -ne 0 && return 1
@@ -359,3 +364,17 @@ function webify
     end
 end
 funcsave webify >/dev/null
+
+function which_font
+    argparse v/variable -- $argv
+    set -l grouper (if set -q _flag_variable
+        echo sans-serif
+    else
+        echo monospace
+    end)
+    for char in $argv
+        set -l char_index (printf %x \'$char)
+        echo $char\t(fc-match "$grouper:charset=$char_index")
+    end
+end
+funcsave which_font >/dev/null
