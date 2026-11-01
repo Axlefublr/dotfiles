@@ -238,7 +238,7 @@ id -g # group_id
 # UUID=the_uuid /mnt/fatusb exfat defaults,uid=user_id,gid=group_id,dmask=0222,fmask=0111 0 0
 
 # --------------------------fonts--------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-input ttf-input-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd inter-font
+sudo pacman -S --needed --noconfirm --disable-download-timeout ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd inter-font
 yay -Sa --needed --disable-download-timeout ttf-comfortaa maplemono-nf
 
 mkdir -p ~/.config/fontconfig
