@@ -3,21 +3,38 @@
  */
 
 .dark-mode .seasonal-anime-list .seasonal-anime {
-	width: auto;
+	width: 100%;
 	height: auto;
+	font-family: sans-serif;
 
 	.title {
 		width: auto;
 
 		.title-text {
 			width: auto;
+
+			> .h2_anime_title {
+				font-size: 18px;
+			}
+
+			> .h3_anime_subtitle {
+				font-size: 18px;
+			}
 		}
 	}
 
 	.synopsis {
-		width: auto;
+		width: 850px;
 		height: auto;
-		font-size: 12pt;
+		font-size: 18px;
+
+		> p.preline {
+			max-height: unset;
+		}
+	}
+
+	.genres.js-genre {
+		width: auto;
 	}
 }
 
