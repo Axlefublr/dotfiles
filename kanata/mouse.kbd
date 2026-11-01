@@ -9,8 +9,8 @@
 	y XX
 	b XX
 	t XX
-	h (cmd ydotool mousemove -a 386 300)
-	z (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.default_scale = 'fill'""#)
+	h (switch (init-cmd vellum is-active) ((cmd-exit 0)) spc break  () (cmd ydotool mousemove -a 386 300) break)
+	z (switch (init-cmd vellum is-active) ((cmd-exit 0)) (cmd fish -c screenshot_screen) break  () (cmd fish -c r#"show_clipboard_image -F -e "swayimg.viewer.default_scale = 'fill'""#) break)
 	v (switch
 		(init-cmd vellum is-active)
 		((cmd-exit 0)) C-a break
