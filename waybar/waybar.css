@@ -88,6 +88,7 @@ window#waybar {
 
 #custom-statusline {
 	font-family: sans-serif;
+	font-size: 21;
 }
 
 #custom-meat {
