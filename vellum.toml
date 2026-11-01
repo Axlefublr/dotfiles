@@ -1,9 +1,12 @@
-default_tool = 'arrow'
-remember_last_tool = true
-freeze_on_activate = true
-stroke_size = 6.0
+# [[sort on]]
 default_color = '#e84046'
+default_tool = 'arrow'
 feedback_duration_ms = 500
+freeze_on_activate = true
+remember_last_tool = false
+remember_tool_properties = false
+stroke_size = 6.0
+# [[sort off]]
 # [[sort on]]
 tools.arrow.roundness = 1.0
 tools.line.roundness = 1.0
