@@ -203,7 +203,6 @@ let all_mappings = {
 
 let normal_mappings = {
 	# [[sort on]]
-	# [[sort on]]
 	"'": [save_selection select_textobject_inner]
 	"C-'": ':pipe °math "$(cat)"'
 	# C-c: change_selection_noyank
@@ -251,6 +250,7 @@ let normal_mappings = {
 	C-n: extend_search_next
 	C-q: ':cd ..'
 	C-r: select_register
+	C-space: '@i<space><esc>'
 	C-u: [save_selection select_all_siblings]
 	C-w: ensure_selections_forward
 	C-x: join_selections
