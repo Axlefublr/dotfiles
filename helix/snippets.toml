@@ -89,6 +89,9 @@ cd = '<cd>█</cd>'
 
 [kanata]
 switch = '(switch ((█)) ■ break)'
+deflayer = '''
+(deflayermap (█)
+)'''
 
 [markdown]
 # [[sort on]]
