@@ -38,6 +38,7 @@ gui:
   wrapLinesInDiffView: true
   # [[sort off]]
   sidePanels:
+    - [status]
     - [files, stash, worktrees, submodules]
     - [branches, tags]
     - [commits, reflog]
@@ -132,11 +133,12 @@ keybinding:
     nextBlock-alt2: <disabled>
     prevBlock-alt2: <disabled>
     jumpToBlock:
+      - "0"
       - "1"
       - "2"
       - "5"
       - "3"
-    focusMainView: "0"
+    focusMainView: "6"
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
