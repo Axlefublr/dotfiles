@@ -17,6 +17,7 @@ Window 'volume' {
 		Progress {
 			value = global('volume')
 			valign = 'center'
+			class = 'volume horizontal'
 		}
 		Label {
 			text = global('volume')
