@@ -2,9 +2,11 @@
 	c (multi (layer-toggle c) (layer-toggle cx) (on↑ tap-vkey c))
 	v (multi (layer-toggle v) (layer-toggle vx) (on↑ tap-vkey v))
 	;; [[sort on]]
+	' (cmd wtype ≕)
 	, S-1
 	. (cmd wtype …)
 	/ bksl
+	; (cmd wtype ≔)
 	h S-4
 	i S-8
 	j S-eql
