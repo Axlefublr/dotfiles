@@ -2,38 +2,12 @@
 	--shadow-color: hsl(0, 0%, 9.9%);
 }
 
-* {
-	/* all: unset; */
-	font-family: sans-serif;
-}
-
 window {
 	background-color: alpha(black, 0);
 }
 
-progressbar progress {
-	background-color: #ffafd7;
-}
-
-progressbar trough {
-	margin: 6px;
-	box-shadow:
-		-2px -2px 3px var(--shadow-color),
-		0 -2px 3px var(--shadow-color),
-		2px -2px 3px var(--shadow-color),
-		-2px 0 3px var(--shadow-color),
-		2px 0 3px var(--shadow-color),
-		-2px 2px 3px var(--shadow-color),
-		0 2px 3px var(--shadow-color),
-		2px 2px 3px var(--shadow-color);
-}
-
 .monospace {
 	font-family: monospace;
-}
-
-.padshadow {
-	margin: 3px;
 }
 
 .textoutline {
@@ -48,25 +22,42 @@ progressbar trough {
 		2px 2px 3px var(--shadow-color);
 }
 
-.shadow {
-	box-shadow:
-		-2px -2px 3px var(--shadow-color),
-		0 -2px 3px var(--shadow-color),
-		2px -2px 3px var(--shadow-color),
-		-2px 0 3px var(--shadow-color),
-		2px 0 3px var(--shadow-color),
-		-2px 2px 3px var(--shadow-color),
-		0 2px 3px var(--shadow-color),
-		2px 2px 3px var(--shadow-color);
-}
-
-.fill-line {
-	background-color: #af87ff;
-}
+/* .shadow { */
+/* box-shadow: */
+/* -2px -2px 3px var(--shadow-color), */
+/* 0 -2px 3px var(--shadow-color), */
+/* 2px -2px 3px var(--shadow-color), */
+/* -2px 0 3px var(--shadow-color), */
+/* 2px 0 3px var(--shadow-color), */
+/* -2px 2px 3px var(--shadow-color), */
+/* 0 2px 3px var(--shadow-color), */
+/* 2px 2px 3px var(--shadow-color); */
+/* } */
 
 .volume-number {
 	font-size: 40px;
 	color: #ffafd7;
+}
+
+/* --------------------------clock-------------------------- */
+.circle {
+	border-radius: 9999px;
+}
+
+#clockbackground {
+	background-color: #282828;
+	border: 2px #0f0f0f solid;
+}
+
+#clockcenter {
+	min-width: 60px;
+	min-height: 60px;
+	background-color: #e491b2;
+}
+
+/* ------------------------modifier------------------------- */
+.padshadow {
+	margin: 3px;
 }
 
 .modifier {
@@ -85,28 +76,31 @@ progressbar trough {
 	color: #eed049;
 }
 
-/* ------------------------whichkey------------------------- */
+sounding
 
-.whichkey {
+/* -------------------------volume-------------------------- */
+progressbar.volume progress {
+	background-color: #ffafd7;
+}
+
+progressbar.volume trough {
+	margin: 6px;
+	box-shadow:
+		-2px -2px 3px var(--shadow-color),
+		0 -2px 3px var(--shadow-color),
+		2px -2px 3px var(--shadow-color),
+		-2px 0 3px var(--shadow-color),
+		2px 0 3px var(--shadow-color),
+		-2px 2px 3px var(--shadow-color),
+		0 2px 3px var(--shadow-color),
+		2px 2px 3px var(--shadow-color);
+}
+
+/* ------------------------whichkey------------------------- */
+box.whichkey {
 	background-color: alpha(#1f1f1f, 0.9);
 	font-size: 40px;
 	padding: 5px 20px;
 	border-radius: 16px;
 	color: #d4be98;
-}
-
-/* --------------------------clock-------------------------- */
-.circle {
-	border-radius: 9999px;
-}
-
-#clockbackground {
-	background-color: #282828;
-	border: 2px #0f0f0f solid;
-}
-
-#clockcenter {
-	min-width: 60px;
-	min-height: 60px;
-	background-color: #e491b2;
 }
