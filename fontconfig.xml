@@ -44,6 +44,9 @@
           <int>0xb2</int> <!-- ² -->
           <int>0xb3</int> <!-- ³ -->
           <int>0x2074</int> <!-- ⁴ -->
+          <int>0xbd</int> <!-- ½ -->
+          <int>0xbc</int> <!-- ¼ -->
+          <int>0xbe</int> <!-- ¾ -->
         </charset>
       </minus>
     </edit>
