@@ -252,8 +252,8 @@ binds {
     // Mod+Ctrl+Shift+Alt+Down cooldown-ms=50 { move-workspace-down; }
     // Mod+Ctrl+Shift+Alt+Up   cooldown-ms=50 { move-workspace-up; }
 
-    Mod+Up { set-window-height "-5%"; }
-    Mod+Down { set-window-height "+5%"; }
+    Mod+Down { set-window-height "-5%"; }
+    Mod+Up { set-window-height "+5%"; }
     Mod+Left { set-column-width "-5%"; }
     Mod+Right { set-column-width "+5%"; }
 
