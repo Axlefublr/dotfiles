@@ -9,7 +9,7 @@ component Sounding (side, orientation) {
 			anchor = 'bottom ' + side
 		}
 		Box {
-			class = 'fill-line'
+			class = 'sounding'
 		}
 	}
 }
