@@ -1,0 +1,25 @@
+component Whichkey (text) {
+	Window self.id {
+		stacking = 'overlay'
+		namespace = 'eww'
+		passinput = true
+		geometry = {
+			y = '120px'
+			anchor = 'bottom center'
+		}
+		Box {
+			class = 'whichkey'
+			halign = 'center'
+			valign = 'center'
+			Label (self.id + "text") {
+				class = 'monospace'
+				justify = 'center'
+				text = text
+			}
+		}
+	}
+}
+
+Whichkey 'ratiosymbols' {
+	text = '½ ⅓ ¼ ⅕ ⅙ ⅐ ⅛ ⅑ ⅒\n⅔ ⅖ ¾ ⅗ ⅜\n⅘ ⅚ ⅝ ⅞ ↉'
+}

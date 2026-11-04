@@ -20,3 +20,4 @@ Window 'example' {
 import "modifier.nbcl" as modifier { * }
 import "volume.nbcl" as volume { * }
 import "sounding.nbcl" as sounding { * }
+import "whichkey.nbcl" as whichkey { * }

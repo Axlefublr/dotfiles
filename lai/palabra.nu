@@ -25,7 +25,7 @@ def 'main list' [] {
 
 def potential_men [] {
 	const grabber = '(cmd wtype '
-	open ~/fes/dot/kanata/symbol.kbd
+	open ~/fes/dot/kanata/symbol.kbd ~/fes/dot/kanata/ratio.kbd
 	| lines
 	| where ($it | str contains $grabber)
 	| each { |line|

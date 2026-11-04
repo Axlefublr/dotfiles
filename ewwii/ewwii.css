@@ -85,6 +85,16 @@ progressbar trough {
 	color: #eed049;
 }
 
+/* ------------------------whichkey------------------------- */
+
+.whichkey {
+	background-color: alpha(#1f1f1f, 0.9);
+	font-size: 40px;
+	padding: 5px 20px;
+	border-radius: 16px;
+	color: #d4be98;
+}
+
 /* --------------------------clock-------------------------- */
 .circle {
 	border-radius: 9999px;

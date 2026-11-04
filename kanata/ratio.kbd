@@ -1,0 +1,62 @@
+(defalias
+	ratio-widget-close (cmd ewwii close ratiosymbols)
+	ratio-cancel (multi @ratio-widget-close @layer-unswitch)
+	ratio-success (multi @ratio-widget-close (layer-switch default))
+	ratio-one (multi (cmd ewwii wc property-update --widget ratiosymbolstext "text=½ ⅓ ¼ ⅕ ⅙ ⅐ ⅛ ⅑ ⅒") (layer-switch ratio-one))
+	ratio-two (multi (cmd ewwii wc property-update --widget ratiosymbolstext "text=⅔ ⅖") (layer-switch ratio-two))
+	ratio-three (multi (cmd ewwii wc property-update --widget ratiosymbolstext "text=¾ ⅗ ⅜") (layer-switch ratio-three))
+	ratio-five (multi (cmd ewwii wc property-update --widget ratiosymbolstext "text=⅚ ⅝") (layer-switch ratio-five))
+)
+
+(deflayermap (ratio)
+	___ @ratio-cancel
+	f @ratio-one
+	d @ratio-two
+	s @ratio-three
+	r (multi (cmd wtype ⅘) @ratio-success)
+	e @ratio-five
+	v (multi (cmd wtype ⅞) @ratio-success)
+	a (multi (cmd wtype ↉) @ratio-success)
+)
+
+(deflayermap (ratio-one)
+	d (multi (cmd wtype ½) @ratio-success)
+	s (multi (cmd wtype ⅓) @ratio-success)
+	r (multi (cmd wtype ¼) @ratio-success)
+	e (multi (cmd wtype ⅕) @ratio-success)
+	w (multi (cmd wtype ⅙) @ratio-success)
+	v (multi (cmd wtype ⅐) @ratio-success)
+	c (multi (cmd wtype ⅛) @ratio-success)
+	x (multi (cmd wtype ⅑) @ratio-success)
+	a (multi (cmd wtype ⅒) @ratio-success)
+	f (multi (cmd wtype ⅒) @ratio-success)
+	___ @ratio-cancel
+)
+
+(deflayermap (ratio-two)
+	f XX d XX
+	s (multi (cmd wtype ⅔) @ratio-success)
+	r XX
+	e (multi (cmd wtype ⅖) @ratio-success)
+	w XX v XX c XX x XX a XX
+	___ @ratio-cancel
+)
+
+(deflayermap (ratio-three)
+	f XX d XX s XX
+	r (multi (cmd wtype ¾) @ratio-success)
+	e (multi (cmd wtype ⅗) @ratio-success)
+	w XX v XX
+	c (multi (cmd wtype ⅜) @ratio-success)
+	x XX a XX
+	___ @ratio-cancel
+)
+
+(deflayermap (ratio-five)
+	f XX d XX s XX r XX e XX
+	w (multi (cmd wtype ⅚) @ratio-success)
+	v XX
+	c (multi (cmd wtype ⅝) @ratio-success)
+	x XX a XX
+	___ @ratio-cancel
+)

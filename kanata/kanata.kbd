@@ -114,6 +114,7 @@
 	i (multi (layer-toggle i) (layer-toggle ij) (on↑ tap-vkey i))
 	o (multi rmet (layer-toggle o) (layer-toggle jo) (on↑ tap-vkey o))
 	. (multi (layer-toggle .) (layer-toggle .j) (on↑ tap-vkey .))
+	g (multi (cmd ewwii open ratiosymbols) (layer-switch ratio))
 	;; [[sort on]]
 	a 0
 	c 8
@@ -310,4 +311,5 @@
 (include hack.kbd)
 (include magazine.kbd)
 (include mouse.kbd)
+(include ratio.kbd)
 (include symbol.kbd)
