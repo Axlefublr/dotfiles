@@ -12,7 +12,7 @@ component Whichkey (text) {
 			halign = 'center'
 			valign = 'center'
 			Label (self.id + "text") {
-				class = 'monospace'
+				class = 'whichkey monospace'
 				justify = 'center'
 				text = text
 			}
