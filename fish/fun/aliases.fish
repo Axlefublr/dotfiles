@@ -87,12 +87,12 @@ alias --save media_prev 'playerctl previous' >/dev/null
 alias --save media_state 'playerctl status' >/dev/null
 
 function mouse_mode_indicate
-    ewwii open-many sounding1 sounding2 sounding3 sounding4 >/dev/null
+    ewwii open-many sounding1 sounding2 >/dev/null
 end
 funcsave mouse_mode_indicate >/dev/null
 
 function mouse_mode_hide
-    ewwii close sounding1 sounding2 sounding3 sounding4 >/dev/null
+    ewwii close sounding1 sounding2 >/dev/null
 end
 funcsave mouse_mode_hide >/dev/null
 
