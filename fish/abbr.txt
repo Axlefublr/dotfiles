@@ -93,4 +93,7 @@ Au →  A rust
 💯 hi → shards init
 💯 hr → shards run
 
+💯 ie  → tree-sitter
+💯 ieg → tree-sitter generate
+
 magick ← loss → -define webp:lossless=true
