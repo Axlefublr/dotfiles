@@ -1,23 +1,23 @@
-Window 'example' {
-	stacking = 'overlay'
-	namespace = 'eww'
-	passinput = true
-	geometry = {
-		width  = '800px'
-		height = '800px'
-		anchor = 'center'
-	}
-	Box 'clockbackground' {
-		class = 'circle'
-		Box 'clockcenter' {
-			halign = 'center'
-			valign = 'center'
-			class = 'circle'
-		}
-	}
-}
-
 import "modifier.nbcl" as modifier { * }
 import "volume.nbcl" as volume { * }
 import "sounding.nbcl" as sounding { * }
 import "whichkey.nbcl" as whichkey { * }
+
+# Window 'example' {
+# 	stacking = 'overlay'
+# 	namespace = 'eww'
+# 	passinput = true
+# 	geometry = {
+# 		width  = '800px'
+# 		height = '800px'
+# 		anchor = 'center'
+# 	}
+# 	Box 'clockbackground' {
+# 		class = 'circle'
+# 		Box 'clockcenter' {
+# 			halign = 'center'
+# 			valign = 'center'
+# 			class = 'circle'
+# 		}
+# 	}
+# }
