@@ -14,6 +14,7 @@ Window 'volume' {
 	Box {
 		orientation = 'v'
 		spacing = '-5'
+		class = 'volume monospace'
 		Progress {
 			value = global('volume')
 			valign = 'center'
@@ -21,7 +22,7 @@ Window 'volume' {
 		}
 		Label {
 			text = global('volume')
-			class = 'volume-number textoutline'
+			class = 'monospace'
 		}
 	}
 }
