@@ -419,7 +419,7 @@ sudo ln -sf ~/fes/ork/gruvbox-material-gtk-theme /usr/share/themes/gruvbox-mater
 yay -Sa --needed --disable-download-timeout unigine-superposition
 
 # --------------------------helix--------------------------
-sudo pacman -S --needed --noconfirm --disable-download-timeout marksman taplo-cli lua lua-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server prettier stylua python-toml
+sudo pacman -S --needed --noconfirm --disable-download-timeout lua lua-language-server marksman prettier python-toml stylua taplo-cli typescript-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server
 yay -Sa --needed --noconfirm --disable-download-timeout prettierd
 gk ork helix # needed so that the eva runtime/ symlink points to the base thingies; editor will technically work without this
 d i
