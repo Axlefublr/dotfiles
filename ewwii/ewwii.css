@@ -1,5 +1,6 @@
 :root {
 	--shadow-color: hsl(0, 0%, 9.9%);
+	--shadow-reach: 3px;
 }
 
 window {
@@ -12,14 +13,18 @@ window {
 
 .textoutline {
 	text-shadow:
-		-2px -2px 3px var(--shadow-color),
-		0 -2px 3px var(--shadow-color),
-		2px -2px 3px var(--shadow-color),
-		-2px 0 3px var(--shadow-color),
-		2px 0 3px var(--shadow-color),
-		-2px 2px 3px var(--shadow-color),
-		0 2px 3px var(--shadow-color),
-		2px 2px 3px var(--shadow-color);
+		-2px -2px var(--shadow-reach) var(--shadow-color),
+		0 -2px var(--shadow-reach) var(--shadow-color),
+		2px -2px var(--shadow-reach) var(--shadow-color),
+		-2px 0 var(--shadow-reach) var(--shadow-color),
+		2px 0 var(--shadow-reach) var(--shadow-color),
+		-2px 2px var(--shadow-reach) var(--shadow-color),
+		0 2px var(--shadow-reach) var(--shadow-color),
+		2px 2px var(--shadow-reach) var(--shadow-color);
+}
+
+.shadowmargin {
+	margin: var(--shadow-reach);
 }
 
 /* .shadow { */
@@ -33,11 +38,6 @@ window {
 /* 0 2px 3px var(--shadow-color), */
 /* 2px 2px 3px var(--shadow-color); */
 /* } */
-
-.volume-number {
-	font-size: 40px;
-	color: #ffafd7;
-}
 
 /* --------------------------clock-------------------------- */
 .circle {
@@ -56,12 +56,10 @@ window {
 }
 
 /* ------------------------modifier------------------------- */
-.padshadow {
-	margin: 3px;
-}
-
-.modifier {
+box.modifier {
 	font-size: 60px;
+	background-color: alpha(#1f1f1f, 0.9);
+	padding: 0 10px;
 }
 .meta {
 	color: #7c57eb;
@@ -76,31 +74,54 @@ window {
 	color: #eed049;
 }
 
-sounding
+/* ------------------------sounding------------------------- */
+box.sounding {
+	--triangle-bigness: 60px;
+	--triangle-ratio: 2;
+}
+
+box.sounding.bottom.left {
+	border-right: calc(var(--triangle-bigness) * var(--triangle-ratio)) solid transparent;
+	border-bottom: var(--triangle-bigness) solid #af87ff;
+}
+box.sounding.bottom.right {
+	border-left: calc(var(--triangle-bigness) * var(--triangle-ratio)) solid transparent;
+	border-bottom: var(--triangle-bigness) solid #af87ff;
+}
+box.sounding.top.left {
+	border-right: calc(var(--triangle-bigness) * var(--triangle-ratio)) solid transparent;
+	border-top: var(--triangle-bigness) solid #af87ff;
+}
+box.sounding.top.right {
+	border-left: calc(var(--triangle-bigness) * var(--triangle-ratio)) solid transparent;
+	border-top: var(--triangle-bigness) solid #af87ff;
+}
 
 /* -------------------------volume-------------------------- */
+box.volume {
+	background-color: alpha(#282828, 0.85);
+	border-radius: 16px;
+	font-size: 40px;
+	color: #ffd75f;
+}
+
+box.volume label {
+	margin-bottom: 12px;
+}
+
 progressbar.volume progress {
-	background-color: #ffafd7;
+	background-color: #ffd75f;
 }
 
 progressbar.volume trough {
-	margin: 6px;
-	box-shadow:
-		-2px -2px 3px var(--shadow-color),
-		0 -2px 3px var(--shadow-color),
-		2px -2px 3px var(--shadow-color),
-		-2px 0 3px var(--shadow-color),
-		2px 0 3px var(--shadow-color),
-		-2px 2px 3px var(--shadow-color),
-		0 2px 3px var(--shadow-color),
-		2px 2px 3px var(--shadow-color);
+	margin: 6px 20px;
 }
 
 /* ------------------------whichkey------------------------- */
 box.whichkey {
 	background-color: alpha(#1f1f1f, 0.9);
+	border-radius: 16px;
 	font-size: 40px;
 	padding: 5px 20px;
-	border-radius: 16px;
 	color: #d4be98;
 }
