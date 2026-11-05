@@ -11,8 +11,8 @@ component Whichkey (text) {
 			class = 'whichkey'
 			halign = 'center'
 			valign = 'center'
-			Label (self.id + "text") {
-				class = 'whichkey monospace'
+			Label (self.id + "label") {
+				class = 'monospace'
 				justify = 'center'
 				text = text
 			}
