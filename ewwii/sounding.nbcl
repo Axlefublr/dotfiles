@@ -1,35 +1,33 @@
-component Sounding (side, orientation) {
+component Sounding (vert, hor) {
 	Window self.id {
 		namespace = 'eww'
 		stacking = 'overlay'
 		passinput = true
 		geometry = {
-			width  = if orientation == 'vert' { '22px' } else { '80px' }
-			height = if orientation == 'hor'  { '22px' } else { '80px' }
-			anchor = 'bottom ' + side
+			anchor = vert + ' ' + hor
 		}
 		Box {
-			class = 'sounding'
+			class = 'sounding ' + vert + ' ' + hor
 		}
 	}
 }
 
 Sounding 'sounding1' {
-	side = 'left'
-	orientation = 'vert'
+	vert = 'bottom'
+	hor = 'left'
 }
 
 Sounding 'sounding2' {
-	side = 'left'
-	orientation = 'hor'
+	vert = 'bottom'
+	hor = 'right'
 }
 
-Sounding 'sounding3' {
-	side = 'right'
-	orientation = 'vert'
-}
+# Sounding 'sounding3' {
+# 	vert = 'top'
+# 	hor = 'left'
+# }
 
-Sounding 'sounding4' {
-	side = 'right'
-	orientation = 'hor'
-}
+# Sounding 'sounding4' {
+# 	vert = 'top'
+# 	hor = 'right'
+# }
