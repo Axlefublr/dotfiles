@@ -41,6 +41,18 @@ scope = "source.gee"
 indent = { tab-width = 3, unit = " " }
 file-types = [ "gee" ]
 
+[language.auto-pairs]
+"(" = ")"
+"{" = "}"
+"[" = "]"
+'"' = '"'
+"`" = "`"
+"<" = ">"
+"'" = "'"
+"‘" = "’"
+"“" = "”"
+"«" = "»"
+
 [[grammar]]
 name = "gee"
 source.path = '/home/axlefublr/fes/ork/tree-sitter-gee'
