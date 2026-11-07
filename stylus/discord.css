@@ -13,12 +13,11 @@ html {
 	font-size: 100% !important;
 }
 
-/* titlebar */
-div[class^='base__'] {
-	grid-template-rows: [top] 0px [titleBarEnd] min-content [noticeEnd] 1fr [end];
-	> div[class^='bar_']:has([class^='title_']) {
-		display: none;
-	}
+.base_pog62O {
+	grid-template-rows: [top] 0px [titleBarEnd] min-content [noticeEnd] 1fr [end] !important;
+}
+.bar_3zSH5d {
+	display: none !important;
 }
 
 pre:has([class^='codeContainer_']) {
