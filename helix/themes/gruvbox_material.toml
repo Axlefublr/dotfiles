@@ -39,7 +39,7 @@
 'markup.heading.4' = { fg = 'green', modifiers = [ 'bold' ] }
 'markup.heading.5' = { fg = 'cyan', modifiers = [ 'bold' ] }
 'markup.heading.6' = { fg = 'blush', modifiers = [ 'bold' ] }
-'markup.heading.marker' = 'grey'
+'markup.heading.marker' = { fg = 'grey', modifiers = [ 'bold' ] }
 'markup.italic' = { modifiers = [ 'italic' ] }
 'markup.link.text' = 'mint'
 'markup.link.url' = { fg = 'cyan', modifiers = [ 'underlined' ] }
@@ -48,7 +48,9 @@
 'markup.quote' = 'cyan'
 'markup.raw' = 'yellow'
 'markup.raw.block' = 'white'
+'markup.reference' = 'blush'
 'markup.strikethrough' = { modifiers = [ 'crossed_out' ] }
+'markup.underline' = { modifiers = [ 'underlined' ] }
 'module' = 'cyan'
 'namespace' = 'mint'
 'number' = 'blush'
