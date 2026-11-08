@@ -21,8 +21,7 @@ ln -sf ~/fes/dot/alacritty.toml ~/.config/alacritty.toml
 # --------------------------anki---------------------------
 yay -Sa --needed --disable-download-timeout anki
 # yay -Sa --needed --disable-download-timeout anki-bin
-sudo -E helix /usr/share/applications/anki.desktop
-# Exec=env QT_SCALE_FACTOR=1.25 anki %f
+set -Ux QT_SCALE_FACTOR 1.25
 # IF DOESN'T LOAD (not needed usually) ↓
 # env http_proxy="http://127.0.0.1:8118" https_proxy="http://127.0.0.1:8118"
 # you're using your privoxy here
