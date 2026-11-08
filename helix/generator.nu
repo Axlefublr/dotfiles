@@ -479,6 +479,7 @@ let normal_mappings = {
 		C-c: ':echopy %(buffer_name)'
 		C: ':echopy %(relative_path)'
 		I: ':fmt'
+		O: ':reload'
 		V: ':echopy %sh(ghl -pb HEAD %(relative_path))'
 		X: ':echopy %sh(ghl)'
 		a: match_brackets
