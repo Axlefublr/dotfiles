@@ -7,6 +7,14 @@ fila = 'first/last'
 pene = 'previous/next'
 tm = '%sh{date +%%H:%%M}'
 # [[sort off]]
+corpus = '''
+===============
+█
+===============
+■
+
+---------------
+'''
 
 # -------------------------colors--------------------------
 gbrd = "%sh{€open ~/fes/dot/colors.nuon | get 'gruvbox red'    | get hex | str substring 1..}"
