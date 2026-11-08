@@ -96,5 +96,6 @@ Au →  A rust
 💯 ie  → tree-sitter
 💯 ieg → tree-sitter generate
 💯 iet → tree-sitter test
+💯 ietu → tree-sitter test -u
 
 magick ← loss → -define webp:lossless=true
