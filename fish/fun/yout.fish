@@ -53,4 +53,4 @@ function yt
 end
 funcsave yt >/dev/null
 
-alias --save ytroxy 'yt-dlp --proxy http://127.0.0.1:8118' >/dev/null
+alias --save ytroxy 'yt-dlp --proxy socks5://(zat.rs ~/.local/share/magazine/p 4):(zat.rs ~/.local/share/magazine/p 5)@(zat.rs ~/.local/share/magazine/p 1):(zat.rs ~/.local/share/magazine/p 3)' >/dev/null
