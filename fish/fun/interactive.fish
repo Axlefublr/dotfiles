@@ -110,7 +110,7 @@ function finder -a return_here
                 niri msg action move-column-to-workspace help
                 niri msg action move-column-to-last
             end
-            set -l path (path resolve "$result")
+            set -l path (builtin realpath -s "$result")
             if test "$return_here"
                 cd "$return_here"
             end
@@ -130,7 +130,7 @@ function finder -a return_here
                 niri msg action move-column-to-workspace help
                 niri msg action move-column-to-last
             end
-            set -l path (path resolve "$result")
+            set -l path (builtin realpath -s "$result")
             if test "$return_here"
                 cd "$return_here"
             end
