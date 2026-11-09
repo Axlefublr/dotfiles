@@ -4,6 +4,7 @@ name = "crystal"
 auto-format = true
 indent = { tab-width = 2, unit = "  " }
 language-servers = [ "lattice" ]
+injection-regex = 'cr(ystal)?'
 
 [language-server.lattice]
 command = 'lattice'
