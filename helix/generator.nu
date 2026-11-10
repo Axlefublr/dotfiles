@@ -574,9 +574,9 @@ let normal_mappings = {
 		space: [':echo %sh{~/fes/dot/helix/generator.nu 2>&1}', ':config-reload']
 		w: global_search
 		# [[sort off]]
-		g: ':open %sh(€"plans.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.md" })'
-		h: ':open %sh(€"thoughts.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.md" })'
-		b: ':open %sh(€"system.md" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.md" })'
+		g: ':open %sh(€"plans.gee" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/plans.gee" })'
+		h: ':open %sh(€"thoughts.gee" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/thoughts.gee" })'
+		b: ':open %sh(€"system.gee" | if ($in | path exists) {} else { "%{working_directory}" | path basename | "~/fes/talia/" + $in + "/system.gee" })'
 		m: {
 			# [[sort on]]
 			c: ':lang css'
