@@ -5,6 +5,7 @@
 # 'diagnostic.hint' = { underline = { color = 'cyan', style = 'curl' } }
 # 'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
 # 'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
+# 'markup.raw.block' = 'white'
 'attribute' = 'purple'
 'comment' = 'grey'
 'constant' = 'purple'
@@ -41,13 +42,13 @@
 'markup.heading.6' = { fg = 'blush', modifiers = [ 'bold' ] }
 'markup.heading.marker' = { fg = 'grey', modifiers = [ 'bold' ] }
 'markup.italic' = { modifiers = [ 'italic' ] }
+'markup.italicbold' = { modifiers = [ 'italic', 'bold' ] }
 'markup.link.text' = 'mint'
 'markup.link.url' = { fg = 'cyan', modifiers = [ 'underlined' ] }
 'markup.list' = 'red'
 'markup.loose' = 'mint'
 'markup.quote' = 'cyan'
 'markup.raw' = 'yellow'
-'markup.raw.block' = 'white'
 'markup.reference' = 'blush'
 'markup.strict' = 'green'
 'markup.strikethrough' = { modifiers = [ 'crossed_out' ] }
