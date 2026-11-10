@@ -3,4 +3,4 @@
 set -l parent_dir ~/fes/talia/(pwdb)
 mkdir -p $parent_dir
 cd $parent_dir
-fd -E '*.md' -t file
+fd -E '*.md' -E '*.gee' -t file
