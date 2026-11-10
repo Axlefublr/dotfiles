@@ -1,7 +1,7 @@
 * {
 	--normal-font-family: InterGrafted, sans-serif;
 	--font-size: 22px;
-	--monospace-font-family: monospace;
+	--monospace-font-family: GoogleSansCodeGrafted, monospace;
 	--monospace-font-size: 22px;
 	--heading-font-family: InterGrafted, sans-serif;
 	--heading-font-size: 22px;
@@ -128,8 +128,8 @@ i {
 }
 
 @font-face {
-	font-family: InputMonoGrafted;
-	src: url('_InputMono-Regular.ttf');
+	font-family: GoogleSansCodeGrafted;
+	src: url('_GoogleSansCode.ttf');
 }
 
 @font-face {
