@@ -7,7 +7,7 @@ let talias = ls ~/fes/talia/
 
 let filled = $talias
 | each { |talia|
-	let plans_path = $"~/fes/talia/($talia)/plans.md" | path expand
+	let plans_path = $"~/fes/talia/($talia)/plans.gee" | path expand
 	let contents = try { open -r $plans_path }
 	if ($contents | default '' | is-empty) {
 		$'(ansi "#e49641")(ansi bo)($talia)(ansi reset)' | print
@@ -24,7 +24,7 @@ def open_result [should_plans: bool] {
 	mkdir $parent
 	cd $parent
 	if $should_plans {
-		helix ($parent + '/plans.md')
+		helix ($parent + '/plans.gee')
 	} else {
 		yazi
 	}
