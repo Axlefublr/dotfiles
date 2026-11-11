@@ -39,7 +39,7 @@ args = [ "start" ]
 [[language]]
 name = "gee"
 scope = "source.gee"
-indent = { tab-width = 3, unit = " " }
+indent = { tab-width = 3, unit = "   " }
 file-types = [ "gee" ]
 
 [language.auto-pairs]
