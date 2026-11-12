@@ -79,7 +79,7 @@
 	a (tap-hold-release $tt $ht a (multi lalt (layer-toggle a) (on↑ tap-vkey a)))
 	b (tap-hold-release $tt $ht b XX)
 	c (tap-hold-release $tt $ht c (multi (layer-toggle c) (on↑ tap-vkey c)))
-	d (tap-hold-release $tt $ht d lctl)
+	d (tap-hold-release $tt $ht d (multi lctl (layer-toggle d) (on↑ tap-vkey d)))
 	e (tap-hold-release $tt $ht e (multi (layer-toggle e) (on↑ tap-vkey e)))
 	esc (tap-dance-eager 500 (XX XX (cmd fish -c eat)))
 	f (tap-hold-release $tt $ht f (multi (layer-toggle f) (on↑ tap-vkey f)))
@@ -135,6 +135,7 @@
 (deflayermap (f)
 	e (multi (layer-toggle e) (layer-toggle ef) (on↑ tap-vkey e))
 	w (multi lmet (layer-toggle w) (layer-toggle fw) (on↑ tap-vkey w))
+	d (multi lctl (layer-toggle d) (layer-toggle df) (on↑ tap-vkey d))
 	;; [[sort on]]
 	' del
 	, pgup
