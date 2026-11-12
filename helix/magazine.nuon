@@ -121,7 +121,7 @@
 	g:     ':open ~/.local/share/magazine/g'
 	h:     ':open ~/.local/share/magazine/h'
 	i:     ':open ~/.local/share/magazine/i'
-	j:     ':open ~/.local/share/magazine/j'
+	j:     ':open ~/.local/share/magazine/j.gee'
 	k:     ':open ~/.local/share/magazine/k.gee'
 	l:     ':open ~/.local/share/magazine/l'
 	m:     ':open ~/.local/share/magazine/m.gee'
