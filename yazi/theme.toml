@@ -820,14 +820,14 @@ exts = [
 ]
 conds = [
   # Special files
-  { if = "orphan", text = "", fg = "#ffffff" },
-  { if = "link", text = "", fg = "#9e9e9e" },
-  { if = "block", text = "", fg = "#cddc39" },
-  { if = "char", text = "", fg = "#cddc39" },
-  { if = "fifo", text = "", fg = "#cddc39" },
-  { if = "sock", text = "", fg = "#cddc39" },
-  { if = "sticky", text = "", fg = "#cddc39" },
-  { if = "dummy", text = "", fg = "#f44336" },
+  { if = "orphan", text = "" },
+  { if = "link", text = "" },
+  { if = "block", text = "" },
+  { if = "char", text = "" },
+  { if = "fifo", text = "" },
+  { if = "sock", text = "" },
+  { if = "sticky", text = "" },
+  { if = "dummy", text = "" },
 
   # Fallback
   { if = "dir & hovered", text = "" },
