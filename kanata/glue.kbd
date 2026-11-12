@@ -8,6 +8,21 @@
 	l l
 )
 
+(deflayermap (d)
+	f (multi (layer-toggle f) (layer-toggle df) (on↑ tap-vkey f))
+	h h
+	j j
+	k k
+	l l
+)
+
+(deflayermap (df)
+	h left
+	j down
+	k up
+	l right
+)
+
 (deflayermap (a)
 	g (multi (layer-toggle g) (layer-toggle ag) (on↑ tap-vkey g))
 )
