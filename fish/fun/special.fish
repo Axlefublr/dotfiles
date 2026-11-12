@@ -294,3 +294,8 @@ function toggle_screen_record
     end
 end
 funcsave toggle_screen_record >/dev/null
+
+function yazinput
+    catait ~/fes/zufi/yazi-input
+end
+funcsave yazinput >/dev/null
