@@ -95,11 +95,17 @@ funcsave █ >/dev/null'''
 o = '<o>█</o>'
 cd = '<cd>█</cd>'
 
+[javascript]
+surs = "seq('(', █, ')')"
+
 [kanata]
 switch = '(switch ((█)) ■ break)'
 deflayer = '''
 (deflayermap (█)
 )'''
+
+[lua]
+yanotify = "ya.notify({ title = 'Debug', content = '█', timeout = 5, level = 'info' })"
 
 [markdown]
 # [[sort on]]
