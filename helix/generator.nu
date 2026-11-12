@@ -204,7 +204,7 @@ let all_mappings = {
 let normal_mappings = {
 	# [[sort on]]
 	"'": [save_selection select_textobject_inner]
-	"C-'": [select_mode shrink_selection normal_mode]
+	"C-'": [select_mode ensure_selections_forward shrink_selection flip_selections normal_mode]
 	# C-c: change_selection_noyank
 	# C-d: delete_selection_noyank
 	'"': null
@@ -226,7 +226,7 @@ let normal_mappings = {
 	'?': rsearch
 	'A-/': [select_mode search normal_mode]
 	'A-?': [select_mode rsearch normal_mode]
-	'C-;': flip_selections
+	'C-;': [select_mode ensure_selections_forward flip_selections shrink_selection normal_mode]
 	'—': select_character
 	'→': retain_column
 	'␈': ':random'
@@ -242,10 +242,10 @@ let normal_mappings = {
 	B: [add_newline_above move_line_up paste_before]
 	C-/: select_first_and_last_chars
 	C-d: null
-	C-h: select_prev_sibling
+	C-h: [ensure_selections_forward flip_selections select_prev_sibling]
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
-	C-l: select_next_sibling
+	C-l: [ensure_selections_forward flip_selections select_next_sibling]
 	C-m: ':pipe °math "$(cat)"'
 	C-n: extend_search_next
 	C-q: ':cd ..'
@@ -263,8 +263,8 @@ let normal_mappings = {
 	P: null
 	Q: split_selection
 	R: copy_yank_to_register
-	S-A-F1: extend_prev_sibling
-	S-A-F2: extend_next_sibling
+	S-A-F1: [ensure_selections_forward flip_selections extend_prev_sibling]
+	S-A-F2: [ensure_selections_forward flip_selections extend_next_sibling]
 	S-A-F3: extend_search_prev
 	S-A-F4: merge_consecutive_selections
 	S-A-down: decrement
