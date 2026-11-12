@@ -29,7 +29,7 @@
 	; (tap-hold-release $tt $ht (t! magazine-execute semicolon.gee) (layer-toggle magazine-which-alt))
 	k (tap-hold-release $tt $ht (t! magazine-execute k.gee) (layer-toggle magazine-which-ctrl))
 	l (tap-hold-release $tt $ht (t! magazine-execute l) (layer-toggle magazine-which-shift))
-	j (tap-hold-release $tt $ht (t! magazine-execute j) (layer-toggle magazine-which-number))
+	j (tap-hold-release $tt $ht (t! magazine-execute j.gee) (layer-toggle magazine-which-number))
 
 	q (t! magazine-execute q)
 	w (t! magazine-execute w)
