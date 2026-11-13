@@ -228,7 +228,6 @@ let normal_mappings = {
 	'A-?': [select_mode rsearch normal_mode]
 	'C-;': [select_mode ensure_selections_forward flip_selections shrink_selection normal_mode]
 	'—': select_character
-	'→': retain_column
 	'␈': ':random'
 	'┏': goto_hover
 	'⤒': ':uniq'
@@ -387,8 +386,9 @@ let normal_mappings = {
 	'∞': shell_append_output
 	'✨': shell_insert_output
 	# [[sort on]]
-	'←': shell_keep_pipe
+	'←': remove_column
 	'↑': keep_selections
+	'→': keep_column
 	'↓': remove_selections
 	'█': '@q█<ret>c'
 	'✅': null
