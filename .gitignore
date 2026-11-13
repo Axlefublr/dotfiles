@@ -22,3 +22,4 @@ yazi/plugins/toggle-pane.yazi
 yazi/plugins/types.yazi
 yazi/plugins/first-non-directory.yazi
 yazi/plugins/smart-enter.yazi
+/yazi/theme.toml
