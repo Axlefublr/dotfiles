@@ -1,23 +1,34 @@
 #!/usr/bin/env -S nu -n --no-std-lib
 
 const self = path self
+const red = '#ea6962'
+const orange = '#e49641'
+const yellow = '#d3ad5c'
+const green = '#a9b665'
+const mint = '#212121'
+const cyan = '#7daea3'
+const purple = '#b58cc6'
+const blush = '#e491b2'
+const grey = '#928374'
+const dark12 = '#1f1f1f'
+const dark13 = '#212121'
 
 let config = {
 	mgr: {
-		count_copied:    { bg: '#e491b2', fg: '#1f1f1f', bold: true }
-		count_cut:       { bg: '#ea6962', fg: '#1f1f1f', bold: true }
-		count_selected:  { bg: '#d3ad5c', fg: '#1f1f1f', bold: true }
+		count_copied:    { bg: $blush, fg: $dark12, bold: true }
+		count_cut:       { bg: $red, fg: $dark12, bold: true }
+		count_selected:  { bg: $yellow, fg: $dark12, bold: true }
 		cwd:             { fg: '#ffafd7',                bold: true }
-		find_keyword:    { fg: '#ea6962',                bold: true }
-		find_position:   { fg: '#ea6962',                bold: true }
-		marker_copied:   { bg: '#e491b2', fg: '#e491b2' }
-		marker_cut:      { bg: '#ea6962', fg: '#ea6962' }
-		marker_marked:   { bg: '#e49641', fg: '#e49641' }
-		marker_selected: { bg: '#d3ad5c', fg: '#d3ad5c' }
+		find_keyword:    { fg: $red,                bold: true }
+		find_position:   { fg: $red,                bold: true }
+		marker_copied:   { bg: $blush, fg: $blush }
+		marker_cut:      { bg: $red, fg: $red }
+		marker_marked:   { bg: $orange, fg: $orange }
+		marker_selected: { bg: $yellow, fg: $yellow }
 	}
 	tabs: {
 		active:   { fg: white, bold: true }
-		inactive: { fg: '#928374' }
+		inactive: { fg: $grey }
 	}
 	mode: {
 		normal_alt:  { fg: white, bg: reset }
@@ -31,68 +42,68 @@ let config = {
 		padding: { open: '█', close: '█', }
 	}
 	status: {
-		perm_sep:        { fg: '#928374' }
-		progress_error:  { fg: '#ea6962' }
-		progress_label:  { fg: '#1f1f1f', bold: true }
-		progress_normal: { fg: '#a9b665' }
+		perm_sep:        { fg: $grey }
+		progress_error:  { fg: $red }
+		progress_label:  { fg: $dark12, bold: true }
+		progress_normal: { fg: $green }
 		sep_left:        { open: '', close: '' }
 		sep_right:       { open: '', close: '' }
 	}
 	which: {
 		cols: 2
 		separator: ' → '
-		mask: { bg: '#212121' }
+		mask: { bg: $dark13 }
 		separator_style: { fg: white }
-		cand: { fg: '#e49641' }
-		desc: { fg: '#d3ad5c' }
+		cand: { fg: $orange }
+		desc: { fg: $yellow }
 	}
 	confirm: {
-		border: { fg: '#e49641', bold: true }
-		title: { fg: '#e49641' }
+		border: { fg: $orange, bold: true }
+		title: { fg: $orange }
 		btn_yes: {}
 		btn_labels: [ Yes, No ]
 	}
 	spot: {
-		border: { fg: '#e49641', bold: true }
-		title: { fg: '#e49641' }
-		tbl_col: { fg: '#b58cc6' }
+		border: { fg: $orange, bold: true }
+		title: { fg: $orange }
+		tbl_col: { fg: $purple }
 		tbl_cell: { reversed: true }
 	}
 	notify: {
-		title_info: { fg: '#7daea3' }
-		title_warn: { fg: '#e49641' }
+		title_info: { fg: $cyan }
+		title_warn: { fg: $orange }
 		title_error: { fg: red }
 	}
 	pick: {
-		border: { fg: '#e49641', bold: true }
+		border: { fg: $orange, bold: true }
 		active: { reversed: true }
-		inactive: { fg: '#b58cc6' }
+		inactive: { fg: $purple }
 	}
 	input: {
-		border: { fg: "#e49641", bold: true }
-		title: { fg: "#e49641", bold: true }
+		border: { fg: $orange, bold: true }
+		title: { fg: $orange, bold: true }
 	}
 	tasks: {
-		border: { fg: "#e49641", bold: true }
-		title: { fg: "#e49641", bold: true }
+		border: { fg: $orange, bold: true }
+		title: { fg: $orange, bold: true }
 		hovered: { reversed: true }
 	}
 	help: {
-		border: { fg: "#e49641", bold: true }
-		title: { fg: "#e49641", bold: true }
-		on: { fg: "#e49641" }
-		run: { fg: "#d3ad5c" }
-		hovered: { bg: "#4d4d4d" }
+		border: { fg: $orange, bold: true }
+		title: { fg: $orange, bold: true }
+		on: { fg: $orange }
+		run: { fg: $yellow }
+		hovered: { bg: '#4d4d4d' }
 		footer: { fg: white }
 	}
 	filetype: {
 		rules: [
 			{ mime: inode/empty ,             fg: red }
 			{ url: *            , is: orphan, fg: red }
-			{ url: *            , is: fifo  , fg: "#e491b2" }
-			{ url: *            , is: link  , fg: "#78bf84" }
+			{ url: *            , is: fifo  , fg: $blush }
+			{ url: *            , is: link  , fg: $mint }
 			{ url: *            , is: exec  , fg: green }
-			{ mime: folder/local,             fg: "#b58cc6" }
+			{ mime: folder/local,             fg: $purple }
 		]
 	}
 	icon: {
