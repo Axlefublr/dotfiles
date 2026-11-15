@@ -15,16 +15,16 @@ const dark13 = '#212121'
 
 let config = {
 	mgr: {
-		count_copied:    { bg: $blush, fg: $dark12, bold: true }
-		count_cut:       { bg: $red, fg: $dark12, bold: true }
-		count_selected:  { bg: $yellow, fg: $dark12, bold: true }
-		cwd:             { fg: '#ffafd7',                bold: true }
-		find_keyword:    { fg: $red,                bold: true }
-		find_position:   { fg: $red,                bold: true }
-		marker_copied:   { bg: $blush, fg: $blush }
-		marker_cut:      { bg: $red, fg: $red }
-		marker_marked:   { bg: $orange, fg: $orange }
-		marker_selected: { bg: $yellow, fg: $yellow }
+		count_copied:    { bg: $blush   , fg: $dark12, bold: true }
+		count_cut:       { bg: $red     , fg: $dark12, bold: true }
+		count_selected:  { bg: $yellow  , fg: $dark12, bold: true }
+		cwd:             { fg: '#ffafd7',              bold: true }
+		find_keyword:    { fg: $red     ,              bold: true }
+		find_position:   { fg: $red     ,              bold: true }
+		marker_copied:   { bg: $blush   , fg: $blush }
+		marker_cut:      { bg: $red     , fg: $red }
+		marker_marked:   { bg: $orange  , fg: $orange }
+		marker_selected: { bg: $yellow  , fg: $yellow }
 	}
 	tabs: {
 		active:   { fg: white, bold: true }
