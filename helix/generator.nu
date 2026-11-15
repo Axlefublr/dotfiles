@@ -265,7 +265,7 @@ let normal_mappings = {
 	S-A-F1: [ensure_selections_forward flip_selections extend_prev_sibling]
 	S-A-F2: [ensure_selections_forward flip_selections extend_next_sibling]
 	S-A-F3: extend_search_prev
-	S-A-F4: merge_consecutive_selections
+	S-A-F4: merge_line_selections
 	S-A-down: decrement
 	S-A-up: increment
 	S: mark_replace
@@ -335,7 +335,9 @@ let normal_mappings = {
 	'≻': rotate_selections_last
 	'␡': ':char'
 	'⤓': ':sort'
-	# ---------------------------cv----------------------------
+	# ---------------------------cv↓---------------------------
+	'⇇': remove_selections
+	'⇉': keep_selections
 	'⇊': 'switch_case'
 	'⇈': 'switch_to_uppercase'
 	# ---------------------------i↓----------------------------
@@ -385,11 +387,11 @@ let normal_mappings = {
 	# ---------------------------v↓----------------------------
 	'∞': shell_append_output
 	'✨': shell_insert_output
-	# [[sort on]]
 	'←': remove_column
-	'↑': keep_selections
 	'→': keep_column
-	'↓': remove_selections
+	'↓': remove_line_selections
+	'↑': keep_line_selections
+	# [[sort on]]
 	'█': '@q█<ret>c'
 	'✅': null
 	'❌': null
