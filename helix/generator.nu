@@ -328,9 +328,10 @@ let normal_mappings = {
 	# ---------------------------xc↓---------------------------
 	'⊻': ':tree-sitter-subtree'
 	'⊼': ':tree-sitter-highlight-name'
-	'↕': rotate_selection_contents_forward
-	'⥯': rotate_selection_contents_backward
-	'⇌': reverse_selection_contents
+	'↔': remove_column
+	'⇌': keep_column
+	'↕': remove_line_selections
+	'⥯': keep_line_selections
 	'≺': rotate_selections_first
 	'≻': rotate_selections_last
 	'␡': ':char'
@@ -387,10 +388,10 @@ let normal_mappings = {
 	# ---------------------------v↓----------------------------
 	'∞': shell_append_output
 	'✨': shell_insert_output
-	'←': remove_column
-	'→': keep_column
-	'↓': remove_line_selections
-	'↑': keep_line_selections
+	'←': null
+	'→': reverse_selection_contents
+	'↓': rotate_selection_contents_forward
+	'↑': rotate_selection_contents_backward
 	# [[sort on]]
 	'█': '@q█<ret>c'
 	'✅': null
