@@ -30,6 +30,7 @@ formatter = { command = "prettier", args = [ "--parser", "css" ] }
 [[language]]
 name = "fish"
 language-servers = [ "fish-lsp" ]
+injection-regex = 'fish|fh'
 
 [language-server.fish-lsp]
 command = "fish-lsp"
