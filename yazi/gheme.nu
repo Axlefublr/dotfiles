@@ -98,8 +98,8 @@ let config = {
 	}
 	filetype: {
 		rules: [
-			{ mime: inode/empty ,             fg: red }
 			{ url: *            , is: orphan, fg: $orange }
+			{ mime: inode/empty ,             fg: red }
 			{ url: *            , is: fifo  , fg: $blush }
 			{ url: *            , is: link  , fg: $mint }
 			{ url: *            , is: exec  , fg: green }
