@@ -6,7 +6,8 @@
 	(multi (layer-switch default) (cmd fish -c (concat "magazine_resolve " $name)))
 )
 
-(deflayermap (comma)
+(deflayermap (,)
+	j (multi (layer-toggle j) (layer-toggle ,j) (on↑ tap-vkey j))
 	c (t! magazine-prepare get)
 	e (t! magazine-prepare novel)
 	r (t! magazine-prepare truncate)
