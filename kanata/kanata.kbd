@@ -62,7 +62,7 @@
 	) (multi (layer-toggle caps) (on↑ tap-vkey caps)))
 	;; [[sort on]]
 	' (tap-hold-release $tt $ht ' (multi (layer-toggle quote) (on↑ tap-vkey quote)))
-	, (tap-hold-release $tt $ht , (layer-toggle comma))
+	, (tap-hold-release $tt $ht , (multi (layer-toggle ,) (on↑ tap-vkey ,)))
 	. (tap-hold-release $tt $ht . (layer-toggle .))
 	/ (tap-hold-release $tt $ht / XX)
 	0 XX
@@ -114,6 +114,7 @@
 	i (multi (layer-toggle i) (layer-toggle ij) (on↑ tap-vkey i))
 	o (multi rmet (layer-toggle o) (layer-toggle jo) (on↑ tap-vkey o))
 	. (multi (layer-toggle .) (layer-toggle .j) (on↑ tap-vkey .))
+	, (multi (layer-toggle ,) (layer-toggle ,j) (on↑ tap-vkey ,))
 	g (multi (cmd ewwii open ratiosymbols) (layer-switch ratio))
 	;; [[sort on]]
 	a 0
