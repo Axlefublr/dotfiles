@@ -112,10 +112,36 @@ function focus_ignore
 end
 funcsave focus_ignore >/dev/null
 
-function font_list
-    fc-list $argv | sort
+function fontl
+    argparse s/styles c/characters=+ -- $argv
+    set -l format -f '%-25{family[0]}\n'
+    if set -q _flag_styles
+        set format -f '%-25{family[0]} — %{style}\n'
+    end
+    set -l char_indexes :charset=(for char in $_flag_characters
+        printf %x\n \'$char
+    end)
+    set -l args "$argv$char_indexes"
+    fc-list $format $args | sort -u | helix
 end
-funcsave font_list >/dev/null
+funcsave fontl >/dev/null
+
+function fontw
+    argparse v/variable -- $argv
+    set -l grouper (if set -q _flag_variable
+        echo sans-serif
+    else
+        echo monospace
+    end)
+    set -l char_indexes :charset=(for char in $argv
+        printf '%x ' \'$char
+    end)
+    for char in $argv
+        set -l char_index (printf %x \'$char)
+        echo $char'  '(fc-match -s "$grouper$char_indexes" -f '%{family[0]}\n' | dedup | head -n 5 | string join ', ')
+    end
+end
+funcsave fontw >/dev/null
 
 function get_input
     set -l input (fuzzel -dl 0 2>/dev/null </dev/null)
@@ -364,17 +390,3 @@ function webify
     end
 end
 funcsave webify >/dev/null
-
-function which_font
-    argparse v/variable -- $argv
-    set -l grouper (if set -q _flag_variable
-        echo sans-serif
-    else
-        echo monospace
-    end)
-    for char in $argv
-        set -l char_index (printf %x \'$char)
-        echo $char\t(fc-match "$grouper:charset=$char_index")
-    end
-end
-funcsave which_font >/dev/null
