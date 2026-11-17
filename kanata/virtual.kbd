@@ -36,6 +36,7 @@
 	plants-vs-zombies (layer-toggle plants-vs-zombies)
 
 	. (multi (layer↑ .) (layer↑ .j))
+	, (multi (layer↑ ,) (layer↑ ,j))
 	a (multi (layer↑ a) (layer↑ ag))
 	c (multi (layer↑ c) (layer↑ cx) (layer↑ cv))
 	d (multi (layer↑ d) (layer↑ df))
