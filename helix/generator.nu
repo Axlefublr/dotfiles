@@ -301,12 +301,12 @@ let normal_mappings = {
 	# ---------------------------x↓----------------------------
 	'÷': '@<space>w<ret>'
 	'*': search_selection_detect_word_boundaries
-	'#': null
+	'#': remove_primary_selection
 	'√': null
-	'$': null
-	'+': rotate_selections_forward
-	'-': rotate_selections_backward
-	'=': remove_primary_selection
+	'$': rotate_selections_backward
+	'+': rotate_selections_down
+	'-': rotate_selections_up
+	'=': rotate_selections_forward
 	'×': select_references_to_symbol_under_cursor
 	'%': [save_selection select_all]
 	'!': ':pipe €str trim'
@@ -328,8 +328,8 @@ let normal_mappings = {
 	# ---------------------------xc↓---------------------------
 	'⊻': ':tree-sitter-subtree'
 	'⊼': ':tree-sitter-highlight-name'
-	'↔': remove_column
-	'⇌': keep_column
+	'↔': remove_column_selections
+	'⇌': keep_column_selections
 	'↕': remove_line_selections
 	'⥯': keep_line_selections
 	'≺': rotate_selections_first
