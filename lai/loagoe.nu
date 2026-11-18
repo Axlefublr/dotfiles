@@ -46,8 +46,8 @@ def 'main due' [] {
 	produce
 	| upsert separator $'(ansi '#e49641')(ansi bo)—(ansi reset)'
 	| move separator --after name
-	| update cells -c [indicator] { $'(ansi '#e49641')(ansi bo)($in)(ansi reset)' }
-	| update cells -c [days] { $'(ansi '#e491b2')($in)(ansi reset)' }
+	| update cells { $'(ansi '#e49641')(ansi bo)($in)(ansi reset)' } indicator
+	| update cells { $'(ansi '#e491b2')($in)(ansi reset)' } days
 	| rename a b c d # to remove padding we get in the final text output
 	| table -t none -i false
 	| to text
