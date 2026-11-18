@@ -75,25 +75,25 @@ def 'main parse' [trail: bool = false] {
 	| lines
 	| parse '{date} {time} {earnings} {rate}'
 	| group-by date --to-table
-	| update cells -c [date] { str replace -r '^' '20' | str replace -a '.' '-' | into datetime }
+	| update cells { str replace -r '^' '20' | str replace -a '.' '-' | into datetime } date
 	| if $trail { where date > (date now | $in - 30day) } else {}
-	| update cells -c [items] {
+	| update cells {
 		reject date
-		| update cells -c [time] { $in + ':0' | into duration }
-		| update cells -c [earnings, rate] { into int }
-	}
+		| update cells { parse '{hours}:{minutes}' | get hours minutes | flatten | append '00' | str join ':' | into duration } time
+		| update cells { into int } earnings rate
+	} items
 }
 
 def 'support merge' [trail: bool = false] {
 	main parse $trail
-	| update cells -c [items] {
+	| update cells {
 		let combined_time = $in | get time | math sum
 		let combined_total = $in | get earnings | math sum
 		let combined_rate = $combined_total / ($combined_time / 1hr)
 		let combined_time = $combined_time
 		let combined_total = $combined_total
 		{ time: $combined_time, earnings: $combined_total, rate: $combined_rate }
-	}
+	} items
 	| flatten
 }
 
