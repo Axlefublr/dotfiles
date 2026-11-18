@@ -133,12 +133,9 @@ function fontw
     else
         echo monospace
     end)
-    set -l char_indexes :charset=(for char in $argv
-        printf '%x ' \'$char
-    end)
     for char in $argv
         set -l char_index (printf %x \'$char)
-        echo $char'  '(fc-match -s "$grouper$char_indexes" -f '%{family[0]}\n' | dedup | head -n 5 | string join ', ')
+        echo $char'  '(fc-match "$grouper:charset=$char_index" -f '%{family[0]}\n')
     end
 end
 funcsave fontw >/dev/null
