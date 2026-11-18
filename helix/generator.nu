@@ -207,6 +207,7 @@ let normal_mappings = {
 	"C-'": [select_mode ensure_selections_forward shrink_selection flip_selections normal_mode]
 	# C-c: change_selection_noyank
 	# C-d: delete_selection_noyank
+	# C-m: ':pipe °math "$(cat)"'
 	'"': null
 	',': trim_selections
 	'.': extend_to_line_bounds
@@ -245,7 +246,7 @@ let normal_mappings = {
 	C-j: shrink_selection
 	C-k: [expand_selection ensure_selections_forward flip_selections]
 	C-l: [ensure_selections_forward flip_selections select_next_sibling]
-	C-m: ':pipe °math "$(cat)"'
+	C-m: [ensure_selections_forward move_next_word_end expand_selection]
 	C-n: extend_search_next
 	C-q: ':cd ..'
 	C-r: select_register
