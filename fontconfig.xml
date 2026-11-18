@@ -28,6 +28,7 @@
       <family>Adwaita Mono</family>
       <family>Fira Code</family>
       <family>Cascadia Mono</family>
+      <family>Monaspace Argon</family>
       <family>JetBrainsMono Nerd Font</family>
       <family>Symbols Nerd Font Mono</family>
     </prefer>
@@ -40,6 +41,9 @@
         <name>charset</name>
         <charset>
           <int>0xab</int><int>0xbb</int> <!-- «» -->
+          <int>0x2122</int> <!-- ™ -->
+          <int>0xa9</int> <!-- © -->
+          <int>0xae</int> <!-- ® -->
           <int>0xb9</int> <!-- ¹ -->
           <int>0xb2</int> <!-- ² -->
           <int>0xb3</int> <!-- ³ -->
@@ -59,18 +63,30 @@
         <name>charset</name>
         <charset>
           <!-- [[sort on]] -->
+          <int>0x2116</int> <!-- № -->
+          <int>0x2117</int> <!-- ℗ -->
+          <int>0x2120</int> <!-- ℠ -->
+          <int>0x2122</int> <!-- ™ -->
           <int>0x2196</int> <!-- ↖ -->
           <int>0x2197</int> <!-- ↗ -->
           <int>0x2198</int> <!-- ↘ -->
           <int>0x2199</int> <!-- ↙ -->
           <int>0x21a9</int> <!-- ↩ -->
           <int>0x21aa</int> <!-- ↪ -->
+          <int>0x21b0</int> <!-- ↰ -->
+          <int>0x21b1</int> <!-- ↱ -->
+          <int>0x21b2</int> <!-- ↲ -->
+          <int>0x21b3</int> <!-- ↳ -->
+          <int>0x21b4</int> <!-- ↴ -->
+          <int>0x21e7</int> <!-- ⇧ -->
           <int>0x221e</int> <!-- ∞ -->
           <int>0x2248</int> <!-- ≈ -->
           <int>0x2260</int> <!-- ≠ -->
           <int>0x2408</int> <!-- ␈ -->
           <int>0x2421</int> <!-- ␡ -->
+          <int>0xa9</int> <!-- © -->
           <int>0xab</int> <!-- « -->
+          <int>0xae</int> <!-- ® -->
           <int>0xbb</int> <!-- » -->
           <!-- [[sort off]] -->
         </charset>
@@ -99,6 +115,29 @@
         <int>0x2260</int> <!-- ≠ -->
         <int>0xbb</int> <!-- » -->
         <int>0xab</int> <!-- « -->
+      </charset>
+    </edit>
+  </match>
+
+  <match target="scan">
+    <test name="family"><string>Monaspace Argon</string></test>
+    <edit name="charset" mode="assign">
+      <charset>
+        <!-- [[sort on]] -->
+        <int>0x2116</int> <!-- № -->
+        <int>0x2117</int> <!-- ℗ -->
+        <int>0x2120</int> <!-- ℠ -->
+        <int>0x2122</int> <!-- ™ -->
+        <int>0x21b0</int> <!-- ↰ -->
+        <int>0x21b1</int> <!-- ↱ -->
+        <int>0x21b2</int> <!-- ↲ -->
+        <int>0x21b3</int> <!-- ↳ -->
+        <int>0x21b4</int> <!-- ↴ -->
+        <int>0x21e7</int> <!-- ⇧ -->
+        <int>0x221e</int> <!-- ∞ -->
+        <int>0xa9</int> <!-- © -->
+        <int>0xae</int> <!-- ® -->
+        <!-- [[sort off]] -->
       </charset>
     </edit>
   </match>
