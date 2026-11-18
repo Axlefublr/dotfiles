@@ -85,7 +85,7 @@ funcsave fn_clear >/dev/null
 function extract_youtube_link
     for arg in $argv
         set -l core (path basename -E $arg | string match -gr ';([-\w]+);')
-        echo "https://www.youtube.com/watch?v=$core"
+        echo "https://youtube.com/watch?v=$core"
     end | wl-copy -nt text/plain
 end
 funcsave extract_youtube_link >/dev/null
