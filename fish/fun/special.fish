@@ -157,15 +157,6 @@ function loago_tracker
 end
 funcsave loago_tracker >/dev/null
 
-function monpepype
-    while true
-        clx
-        shuf ~/ake/pords.txt | head -n 10 | string join ' '
-        read -P '' -l the || break
-    end
-end
-funcsave monpepype >/dev/null
-
 function multiple_dot
     echo (string repeat -n (math (string length -- $argv[1]) - 1) ../ | string trim -r -c /)
 end
