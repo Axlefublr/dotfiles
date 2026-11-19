@@ -4,6 +4,7 @@
 dT = '%sh{date +%%Y-%%m-%%d}'
 dt = '%sh{date +%%y.%%m.%%d}'
 fila = 'first/last'
+letr = 'leading/trailing'
 pene = 'previous/next'
 tm = '%sh{date +%%H:%%M}'
 # [[sort off]]
