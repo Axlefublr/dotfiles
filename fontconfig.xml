@@ -29,6 +29,23 @@
       <family>Fira Code</family>
       <family>Cascadia Mono</family>
       <family>Monaspace Argon</family>
+      <family>DejaVu Sans Mono</family>
+      <family>Consolas</family>
+      <family>JetBrainsMono Nerd Font</family>
+      <family>Symbols Nerd Font Mono</family>
+    </prefer>
+  </alias>
+
+  <alias binding="same">
+    <family>ui-monospace</family>
+    <prefer>
+      <family>Google Sans Code</family>
+      <family>Adwaita Mono</family>
+      <family>Fira Code</family>
+      <family>Cascadia Mono</family>
+      <family>Monaspace Argon</family>
+      <family>DejaVu Sans Mono</family>
+      <family>Consolas</family>
       <family>JetBrainsMono Nerd Font</family>
       <family>Symbols Nerd Font Mono</family>
     </prefer>
@@ -62,6 +79,36 @@
       <minus>
         <name>charset</name>
         <charset>
+          <int>0xb9</int> <!-- ¹ -->
+          <int>0x2081</int> <!-- ₁ -->
+          <int>0xb2</int> <!-- ² -->
+          <int>0x2082</int> <!-- ₂ -->
+          <int>0xb3</int> <!-- ³ -->
+          <int>0x2083</int> <!-- ₃ -->
+          <int>0x2074</int> <!-- ⁴ -->
+          <int>0x2084</int> <!-- ₄ -->
+          <int>0x2075</int> <!-- ⁵ -->
+          <int>0x2085</int> <!-- ₅ -->
+          <int>0x2076</int> <!-- ⁶ -->
+          <int>0x2086</int> <!-- ₆ -->
+          <int>0x2077</int> <!-- ⁷ -->
+          <int>0x2087</int> <!-- ₇ -->
+          <int>0x2078</int> <!-- ⁸ -->
+          <int>0x2088</int> <!-- ₈ -->
+          <int>0x2079</int> <!-- ⁹ -->
+          <int>0x2089</int> <!-- ₉ -->
+          <int>0x2070</int> <!-- ⁰ -->
+          <int>0x2080</int> <!-- ₀ -->
+          <int>0x207b</int> <!-- ⁻ -->
+          <int>0x208b</int> <!-- ₋ -->
+          <int>0x207a</int> <!-- ⁺ -->
+          <int>0x208a</int> <!-- ₊ -->
+          <int>0x207c</int> <!-- ⁼ -->
+          <int>0x208c</int> <!-- ₌ -->
+          <int>0x207d</int> <!-- ⁽ -->
+          <int>0x208d</int> <!-- ₍ -->
+          <int>0x207e</int> <!-- ⁾ -->
+          <int>0x208e</int> <!-- ₎ -->
           <!-- [[sort on]] -->
           <int>0x2116</int> <!-- № -->
           <int>0x2117</int> <!-- ℗ -->
@@ -82,6 +129,9 @@
           <int>0x221e</int> <!-- ∞ -->
           <int>0x2248</int> <!-- ≈ -->
           <int>0x2260</int> <!-- ≠ -->
+          <int>0x2326</int> <!-- ⌦ -->
+          <int>0x232b</int> <!-- ⌫ -->
+          <int>0x23fe</int> <!-- ⏾ -->
           <int>0x2408</int> <!-- ␈ -->
           <int>0x2421</int> <!-- ␡ -->
           <int>0xa9</int> <!-- © -->
@@ -102,8 +152,6 @@
         <int>0x2197</int> <!-- ↗ -->
         <int>0x2198</int> <!-- ↘ -->
         <int>0x2199</int> <!-- ↙ -->
-        <int>0x21aa</int> <!-- ↪ -->
-        <int>0x21a9</int> <!-- ↩ -->
       </charset>
     </edit>
   </match>
@@ -128,16 +176,66 @@
         <int>0x2117</int> <!-- ℗ -->
         <int>0x2120</int> <!-- ℠ -->
         <int>0x2122</int> <!-- ™ -->
-        <int>0x21b0</int> <!-- ↰ -->
-        <int>0x21b1</int> <!-- ↱ -->
-        <int>0x21b2</int> <!-- ↲ -->
-        <int>0x21b3</int> <!-- ↳ -->
-        <int>0x21b4</int> <!-- ↴ -->
         <int>0x21e7</int> <!-- ⇧ -->
         <int>0x221e</int> <!-- ∞ -->
         <int>0xa9</int> <!-- © -->
         <int>0xae</int> <!-- ® -->
         <!-- [[sort off]] -->
+      </charset>
+    </edit>
+  </match>
+
+  <match target="scan">
+    <test name="family"><string>Consolas</string></test>
+    <edit name="charset" mode="assign">
+      <charset>
+        <int>0xb9</int> <!-- ¹ -->
+        <int>0x2081</int> <!-- ₁ -->
+        <int>0xb2</int> <!-- ² -->
+        <int>0x2082</int> <!-- ₂ -->
+        <int>0xb3</int> <!-- ³ -->
+        <int>0x2083</int> <!-- ₃ -->
+        <int>0x2074</int> <!-- ⁴ -->
+        <int>0x2084</int> <!-- ₄ -->
+        <int>0x2075</int> <!-- ⁵ -->
+        <int>0x2085</int> <!-- ₅ -->
+        <int>0x2076</int> <!-- ⁶ -->
+        <int>0x2086</int> <!-- ₆ -->
+        <int>0x2077</int> <!-- ⁷ -->
+        <int>0x2087</int> <!-- ₇ -->
+        <int>0x2078</int> <!-- ⁸ -->
+        <int>0x2088</int> <!-- ₈ -->
+        <int>0x2079</int> <!-- ⁹ -->
+        <int>0x2089</int> <!-- ₉ -->
+        <int>0x2070</int> <!-- ⁰ -->
+        <int>0x2080</int> <!-- ₀ -->
+        <int>0x207b</int> <!-- ⁻ -->
+        <int>0x208b</int> <!-- ₋ -->
+        <int>0x207a</int> <!-- ⁺ -->
+        <int>0x208a</int> <!-- ₊ -->
+        <int>0x207c</int> <!-- ⁼ -->
+        <int>0x208c</int> <!-- ₌ -->
+        <int>0x207d</int> <!-- ⁽ -->
+        <int>0x208d</int> <!-- ₍ -->
+        <int>0x207e</int> <!-- ⁾ -->
+        <int>0x208e</int> <!-- ₎ -->
+      </charset>
+    </edit>
+  </match>
+
+  <match target="scan">
+    <test name="family"><string>DejaVu Sans Mono</string></test>
+    <edit name="charset" mode="assign">
+      <charset>
+        <int>0x21aa</int> <!-- ↪ -->
+        <int>0x21a9</int> <!-- ↩ -->
+        <int>0x21b3</int> <!-- ↳ -->
+        <int>0x21b0</int> <!-- ↰ -->
+        <int>0x21b1</int> <!-- ↱ -->
+        <int>0x21b2</int> <!-- ↲ -->
+        <int>0x21b4</int> <!-- ↴ -->
+        <int>0x232b</int> <!-- ⌫ -->
+        <int>0x2326</int> <!-- ⌦ -->
       </charset>
     </edit>
   </match>
