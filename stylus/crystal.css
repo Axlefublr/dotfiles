@@ -4,3 +4,12 @@
 .sidebar {
 	width: auto;
 }
+
+body {
+	font-family: sans-serif;
+}
+
+code,
+.entry-detail .signature {
+	font-family: monospace;
+}
