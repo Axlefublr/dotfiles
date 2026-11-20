@@ -208,7 +208,7 @@ let normal_mappings = {
 	# C-c: change_selection_noyank
 	# C-d: delete_selection_noyank
 	# C-m: ':pipe °math "$(cat)"'
-	'"': null
+	'"': [select_mode collapse_selection match_brackets normal_mode]
 	',': trim_selections
 	'.': extend_to_line_bounds
 	'/': search
@@ -422,14 +422,10 @@ let normal_mappings = {
 	J  : [extend_to_line_bounds extend_line_below]
 	K  : [extend_to_line_bounds extend_line_above]
 	# --------------------------leap---------------------------
-	'<': find_prev_char
-	'>': find_next_char
-	'C-,': till_prev_char
-	'C-.': find_till_char
-	'A-,': extend_prev_char
-	'A-.': extend_next_char
-	'C-A-,': extend_till_prev_char
-	'C-A-.': extend_till_char
+	'<': extend_prev_char
+	'>': extend_next_char
+	'C-,': extend_till_prev_char
+	'C-.': extend_till_char
 	# -------------------------keyful--------------------------
 	# [[sort on]]
 	A-ret: 'goto_file'
