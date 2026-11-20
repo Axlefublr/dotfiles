@@ -450,6 +450,9 @@ npm run build -- contents::IosevkaSuper
 npm run build -- --jCmd=5 ttf-unhinted::IosevkaSuper # this instead if ttfautohint is not installing. --jCmd so that you don't OOM (each thread takes up 1G)
 # fonts now available in ./dist/
 
+# --------------------------janet--------------------------
+yay --needed --disable-download-timeout --noconfirm -S janet jpm janet-spork
+
 # ---------------------------jj----------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout jj lazyjj
 jj util completion fish | source
