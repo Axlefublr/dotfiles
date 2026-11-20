@@ -178,7 +178,7 @@
 (deflayermap (h)
 	; (multi ralt (layer-toggle semicolon) (layer-toggle semicolon-h) (on↑ tap-vkey semicolon))
 	;; [[sort on]]
-	a (cmd find-or-make.fish "app_id starts-with foot" "title == abilities" "foottitled.sh abilities -ND ~/fes/tiq helix abilities.gee")
+	a (cmd find-or-make.fish "app_id == anki" "gtk-launch anki")
 	c (cmd find-or-make.fish "app_id starts-with foot" "title == colorbook" "foottitled.sh colorbook -N coloring-book.fish")
 	d (cmd find-or-make.fish "app_id starts-with foot" "title == dotfiles" "foottitled.sh dotfiles -ND ~/fes/dot helix")
 	e (cmd find-or-make.fish --clean "app_id starts-with foot" "title == bluetui" "foottitled.sh bluetui -N bluetui")
@@ -189,7 +189,7 @@
 	s (cmd find-or-make.fish "app_id starts-with foot" "title == loago-tracker" "foottitled.sh loago-tracker -N fish -c loago_tracker")
 	t (cmd niri msg action spawn -- foottitled.sh talia -N talia.nu)
 	v (cmd find-or-make.fish "app_id starts-with foot" "title == voe" "foottitled.sh voe -o environment.YAZI_SORT_NAME=true -ND ~/iwm/voe yazi")
-	w (cmd find-or-make.fish "app_id == anki" "gtk-launch anki")
+	w (cmd find-or-make.fish "app_id starts-with foot" "title == yazi" "foottitled.sh yazi -ND ~ yazi")
 	;; [[sort off]]
 )
 
@@ -197,7 +197,6 @@
 	r (cmd find-or-make.fish "app_id starts-with foot" "title == bottom" "foottitled.sh bottom -N btm")
 	f (cmd niri msg action spawn -- fish -c frizz_picker)
 	t (cmd find-or-make.fish --clean "app_id starts-with foot" "title == tz" "foottitled.sh tz -H fish -c tz")
-	w (cmd find-or-make.fish "app_id starts-with foot" "title == wlx" "foottitled.sh wlx -ND /home/axlefublr/wlx yazi")
 )
 
 (deflayermap (g)
@@ -210,7 +209,7 @@
 	h (cmd find-or-make.fish "app_id starts-with foot" "title == Tewi" "foottitled.sh Tewi -N tewi")
 	i (cmd find-or-make.fish "app_id == swayimg-srd or title == swayimg-srd" "swayimg --appid swayimg-srd -g /home/axlefublr/iwm/srd")
 	j (cmd find-or-make.fish "app_id starts-with foot" "title == finances" "foottitled.sh finances -N ov --status-line=false --follow-name ~/fes/nak/job-stats.txt")
-	k (cmd fish -c "niri msg action spawn -- foottitled.sh ake -ND /home/axlefublr/ake helix (uclanr -j - 3)")
+	k (cmd fish -c "niri msg action spawn -- foottitled.sh ake -ND /home/axlefublr/ake helix")
 	l (cmd reuse-finder.nu /home/axlefublr/fes/mdw)
 	m (cmd find-or-make.fish "app_id == swayimg-slme or title == swayimg-slme" "swayimg --appid swayimg-slme -g /home/axlefublr/iwm/osl/slme")
 	n (cmd find-or-make.fish "app_id starts-with foot" "title == nak" "foottitled.sh nak -ND /home/axlefublr/fes/nak yazi")
