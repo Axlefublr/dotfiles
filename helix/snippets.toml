@@ -96,6 +96,9 @@ funcsave █ >/dev/null'''
 o = '<o>█</o>'
 cd = '<cd>█</cd>'
 
+[janet]
+'#' = '#!/usr/bin/env janet'
+
 [javascript]
 surs = "seq('(', █, ')')"
 
