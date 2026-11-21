@@ -13,3 +13,10 @@ code,
 .entry-detail .signature {
 	font-family: monospace;
 }
+
+h2:has(#class-method-summary),
+h2:has(#class-method-summary) + ul.list-summary,
+h2:has(#instance-method-summary),
+h2:has(#instance-method-summary) + ul.list-summary {
+	display: none;
+}
