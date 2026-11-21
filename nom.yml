@@ -1,55 +1,36 @@
-configpath: /home/axlefublr/.config/nom/config.yml
-showfavourites: false
-version: ""
-feeds:
-  - url: https://khitboksy.github.io/blog/rss.xml
-    name: leah
-  - url: https://geode.house/atom.xml
-    name: geek
-  - url: https://quietism.art/blog.xml
-    name: ivelieu
-  - url: https://ingrids.space/index.xml
-    name: intarga
-  - url: https://borretti.me/feed.xml
-    name: borretti
-  - url: http://mackeye.sdf.org/feeds/rss.xml
-    name: mackeye
-  - url: https://ersei.net/en/blog.atom
-    name: ersei
-  - url: https://ficd.sh/rss.xml
-    name: ficd
-  - url: https://herecomesthemoon.net/posts/index.xml
-    name: herecomesthemoon
-  - url: https://jdugan6240.dev/feed.xml
-    name: jdugan
-  - url: https://jvns.ca/atom.xml
-    name: julia evans
-  - url: https://matklad.github.io/feed.xml
-    name: matklad
-  # - url: https://nanotipsforvim.prose.sh/rss
-  #   name: chris grieser
-  - url: https://strongly-typed-thoughts.net/feed.xml
-    name: hadronized
-  - url: https://project-mage.org/rss.xml
-    name: project mage
-  # - url: https://site.jacobhaussman.online/rss.xml
-  #   name: zunda
-  - url: https://skoove.dev/rss.xml
-    name: skoove
-  # - url: https://terminaltrove.com/new.xml
-  #   name: terminal trove
-  # - url: https://vhyrro.neorg.org/rss.xml
-  #   name: vhyrro
-  - url: https://xkcd.com/rss.xml
-    name: xkcd
-  - url: https://blog.parrrate.com/rss.xml
-    name: parrrate
-  - url: https://bxt.rs/index.xml
-    name: yalter
-theme:
-  glamour: dark
-  titleColor: "#e49641"
-  filterColor: "#e49641"
-  selectedItemColor: "#e49641"
-http:
-  mintls: TLS 1.2
+{
+  configpath: /home/axlefublr/.config/nom/config.yml,
+  showfavourites: false,
+  version: "",
+  feeds: [
+    # { name: borretti         , url: https://borretti.me/feed.xml },
+    { name: ersei            , url: https://ersei.net/en/blog.atom },
+    { name: ficd             , url: https://ficd.sh/rss.xml },
+    { name: geek             , url: https://geode.house/atom.xml },
+    { name: hadronized       , url: https://strongly-typed-thoughts.net/feed.xml },
+    { name: herecomesthemoon , url: https://herecomesthemoon.net/posts/index.xml },
+    { name: intarga          , url: https://ingrids.space/index.xml },
+    { name: ivelieu          , url: https://quietism.art/blog.xml },
+    { name: jdugan           , url: https://jdugan6240.dev/feed.xml },
+    { name: julia evans      , url: https://jvns.ca/atom.xml },
+    { name: leah             , url: https://khitboksy.github.io/blog/rss.xml },
+    { name: mackeye          , url: http://mackeye.sdf.org/feeds/rss.xml },
+    { name: matklad          , url: https://matklad.github.io/feed.xml },
+    { name: parrrate         , url: https://blog.parrrate.com/rss.xml },
+    { name: project mage     , url: https://project-mage.org/rss.xml },
+    { name: skoove           , url: https://skoove.dev/rss.xml },
+    { name: xkcd             , url: https://xkcd.com/rss.xml },
+    { name: yalter           , url: https://bxt.rs/index.xml },
+    # { name: chris grieser    , url: https://nanotipsforvim.prose.sh/rss },
+    # { name: zunda            , url: https://site.jacobhaussman.online/rss.xml },
+    # { name: terminal trove   , url: https://terminaltrove.com/new.xml },
+    # { name: vhyrro           , url: https://vhyrro.neorg.org/rss.xml },
+  ],
+  theme: {
+    glamour: dark,
+    titleColor: "#e49641",
+    filterColor: "#e49641",
+    selectedItemColor: "#e49641",
+  },
+  http: { mintls: TLS 1.2 }
+}
