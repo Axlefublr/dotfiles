@@ -30,7 +30,6 @@ let editor = {
 	preview-completion-insert: false
 	scrolloff: 99
 	search: { max-matches: none, wrap-around: true }
-	session: { restore-cursor: true, gc-max-age: 90 }
 	shell: [dash -c]
 	text-width: 110
 	trim-final-newlines: true
