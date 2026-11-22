@@ -12,7 +12,7 @@ def main [section: string] {
 		| transpose register command
 		| rename reg command
 		| compact -e command
-		| update cells -c [command] { |the|
+		| update cells { |the|
 			$the.0
 			| str trim
 			| lines
@@ -21,7 +21,7 @@ def main [section: string] {
 			| split chars
 			| take $command_columns
 			| str join ''
-		}
+		} command
 		| compact -e command
 		| sort-by reg
 		| table -i false
