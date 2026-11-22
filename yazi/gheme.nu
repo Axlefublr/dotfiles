@@ -203,7 +203,8 @@ let config = {
 			: [['7z', bz, 'bz2', 'bz3', gz, rar, tgz, txz, xz, zip, zst], $yellow]
 			: [[aac, aif, aiff, ape, flac, 'm4a', 'mp3', oga, ogg, opus, pcm, spx, wav, wma, wv, wvc], $cyan]
 			: [[avif, bmp, gif, ico, jpeg, jpg, jxl, png, webp, jfif], $blush]
-			: [[bat, cfg, conf, ini, yaml, yml, cson, json, 'json5', jsonc, nswag, webmanifest, kdl, toml, xml, xslt, nuon, kbd, nbcl]]
+			: [[bat, cfg, conf, ini, yaml, yml, cson, json, 'json5', jsonc, nswag, webmanifest, kdl, toml, xml, xslt, nuon]]
+			󰗧: [[kbd, nbcl]]
 			󰻖: [[awk, csh, fish, ksh, sh, zsh, bash, nu, dash], $green]
 			: [[image, img, iso]]
 			: [[service, path, systemd, desktop, timer]]
@@ -433,6 +434,6 @@ def parse_icons [] {
 }
 
 $config
-| update cells -c [icon] { update cells -c [dirs files exts] { parse_icons } }
+| update cells { update cells { parse_icons } dirs files exts } icon
 | to toml
 | save -f ($self | path dirname | path join theme.toml)
