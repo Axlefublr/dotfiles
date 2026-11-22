@@ -1,0 +1,9 @@
+/* domain */
+/* github.com */
+
+:root {
+	--fontStack-sansSerif: sans-serif !important;
+	--fontStack-sansSerifDisplay: sans-serif !important;
+	--fontStack-system: sans-serif !important;
+	--fontStack-monospace: monospace !important;
+}
