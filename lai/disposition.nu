@@ -24,7 +24,7 @@ def main [...files: path] {
 def 'main inspect' [file: path] {
 	ffprobe_data $file
 	| select index codec_name? codec_type disposition.default tags.language? tags.title?
-	| update cells -c [disposition.default] { |the| if ($the == 1) { true } else { false } }
+	| update cells { |the| if ($the == 1) { true } else { false } } disposition.default
 	| rename index codec_name codec_type disposition language title
 }
 
