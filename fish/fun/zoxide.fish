@@ -37,3 +37,12 @@ end
 funcsave __zoxide_z >/dev/null
 
 alias --save z __zoxide_z >/dev/null
+alias --save zz 'zoxide add .' >/dev/null
+function zz
+    for __ in (seq 3)
+        zoxide add .
+    end
+end
+funcsave zz >/dev/null
+
+alias --save Z 'zoxide remove .' >/dev/null
