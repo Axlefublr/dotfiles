@@ -7,11 +7,8 @@ f    → z
 gx   → glaza -g
 gz   → glaza
 hime → history merge
-l    → jobs
 la   → eza -a
-le   → eza -l
 ls   → eza
-lw   → eza -al
 q    → queue
 x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
 💯 E    → sudo -E helix
@@ -87,11 +84,12 @@ Au →  A rust
 💯 glo → git log --oneline
 💯 glog → git log --oneline -G '█'
 
-💯 r → crystal
-💯 re → crystal eval '█'
+💯 l → crystal
+💯 le → crystal eval '█'
 💯 h → shards
 💯 hi → shards init
-💯 hr → shards run
+💯 hr → shards run -p
+💯 hb → shards build -p
 
 💯 ie  → tree-sitter
 💯 ieg → tree-sitter generate
