@@ -193,21 +193,52 @@ function git_search_file
 end
 funcsave git_search_file >/dev/null
 
-function wks
+function qrh
     set -l prevdir $PWD
-    if test "$argv[1]"
-        cd ~/fes/wks
-        rsync ~/fes/wks/template.rs ~/fes/wks/src/bin/"$argv[1]".rs
-        helix ~/fes/wks/src/bin/"$argv[1]".rs
-        return
-    end
-    cd ~/fes/wks/src/bin
-    set -l picked (fzf)
-    test "$picked" || begin
+    cd ~/fes/qrh/src
+    set -f picked (fzf '--bind=f12:become:echo :{}')
+    test -n "$picked" || begin
         cd $prevdir
         return 1
     end
+    set -f replace false
+    if test (string sub -e 1 -- $picked) = ':'
+        set -f picked (string sub -s 2 -- $picked)
+        set -f replace true
+    end
+    set -f picked (path change-extension cr -- $picked)
+    cd ~/fes/qrh
+    if test -f ~/fes/qrh/src/$picked
+        and not $replace
+        helix ~/fes/qrh/src/$picked
+    else
+        truncate -s 0 ~/fes/qrh/src/$picked
+        helix ~/fes/qrh/src/$picked
+    end
+end
+funcsave qrh >/dev/null
+
+function wks
+    set -l prevdir $PWD
+    cd ~/fes/wks/src/bin
+    set -f picked (fzf '--bind=f12:become:echo :{}')
+    test -n "$picked" || begin
+        cd $prevdir
+        return 1
+    end
+    set -f replace false
+    if test (string sub -e 1 -- $picked) = ':'
+        set -f picked (string sub -s 2 -- $picked)
+        set -f replace true
+    end
+    set -f picked (path change-extension rs -- $picked)
     cd ~/fes/wks
-    helix ~/fes/wks/src/bin/$picked
+    if test -f ~/fes/wks/src/bin/$picked
+        and not $replace
+        helix ~/fes/wks/src/bin/$picked
+    else
+        rsync ~/fes/wks/template.rs ~/fes/wks/src/bin/$picked
+        helix ~/fes/wks/src/bin/$picked
+    end
 end
 funcsave wks >/dev/null
