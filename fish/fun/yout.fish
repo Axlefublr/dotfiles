@@ -22,6 +22,7 @@ function yt_audio
         echo ad=
         echo bd=
         echo cd=
+        echo arv
     end | fuzzel -dl 6)
     test "$picked" || return 1
     set -l links (wl-paste -n | sttr extract-url)
