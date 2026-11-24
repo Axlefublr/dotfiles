@@ -1202,6 +1202,6 @@ yay -Sa --needed --disable-download-timeout zoom
 # -------------------------zoxide--------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout zoxide
 set -Ux _ZO_FZF_OPTS '--layout default --height 100%'
-set -Ux _ZO_EXCLUDE_DIRS $HOME:$HOME/fes/mdw/*:$HOME/fes/tiq/*
+set -Ux _ZO_EXCLUDE_DIRS "$HOME:$HOME/fes/mdw/*:$HOME/fes/tiq/*"
 set -Ux _ZO_MAXAGE 30000
 ln -sf ~/fes/jiro/zoxide.db ~/.local/share/zoxide/db.zo
