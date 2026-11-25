@@ -12,6 +12,16 @@ function arebesties -a fileone filetwo
 end
 funcsave arebesties >/dev/null
 
+function argi
+    if test -n "$argv"
+        printf %s\n $argv
+    else
+        read -aLl lines
+        test -n "$lines" && printf %s\n $lines
+    end
+end
+funcsave argi >/dev/null
+
 alias --save bell 'printf \a' >/dev/null
 
 function blammo
@@ -256,7 +266,9 @@ end
 funcsave ocr >/dev/null
 
 function path_expand
-    string replace -r "^~" $HOME $argv
+    set -l the (argi $argv)
+    test -n "$the" && string replace -r '^~' $HOME $the
+    true
 end
 funcsave path_expand >/dev/null
 
@@ -268,7 +280,9 @@ end
 funcsave path_resolve_batch >/dev/null
 
 function path_shrink
-    string replace -r "^$HOME" '~' $argv
+    set -l the (argi $argv)
+    test -n "$the" && string replace -r "^$HOME" '~' $the
+    true
 end
 funcsave path_shrink >/dev/null
 
