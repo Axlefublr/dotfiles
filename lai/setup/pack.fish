@@ -10,6 +10,7 @@ sudo pacman -Syyu
 for package_name in (cat ~/.local/share/magazine/Z)
     sudo pacman -S --needed --noconfirm --disable-download-timeout $package_name
 end
+sudo pacman -D --asexplicit haskell-yaml pipewire
 
 # -------------------------crystal-------------------------
 sudo pacman -S --needed --noconfirm --disable-download-timeout crystal shards ameba lattice
