@@ -5,6 +5,6 @@ niri msg -j windows
 | where is_focused == true
 | where app_id == firefox
 | where title like 'Discord'
-| where title ends-with ' | The Rock Collection — Mozilla Firefox'
+| where title ends-with ' | The Rock Collection'
 | is-not-empty
 | if not $in { exit 1 }
