@@ -115,7 +115,7 @@ end
 log 1 generation
 
 log 2 completions
-comp.fish
+~/fes/dot/lai/setup/comp.fish
 
 log 2 frizz
 frizz.fish
