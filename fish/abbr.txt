@@ -1,16 +1,16 @@
 # [[sort on]]
-at   → alien_temple
+💯 at   → alien_temple
 e    → helix
 ei   → sudo -E helix /usr/share/applications/█.desktop
 eui  → helix ~/.local/share/applications/█.desktop
 f    → z
-gx   → glaza -g
-gz   → glaza
-hime → history merge
 la   → eza -a
 ls   → eza
-q    → queue
-x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
+💯 hime → history merge
+💯 gx   → glaza -g
+💯 gz   → glaza
+💯 x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
+💯 q    → queue
 💯 E    → sudo -E helix
 💯 aA   → chmod +x
 💯 cp   → rsync -r
@@ -22,6 +22,8 @@ x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
 💯 phb  → path basename
 💯 phd  → path dirname
 💯 phex → path change-extension
+💯 phin → path_shrink
+💯 phan → path_expand
 💯 rm   → gomi
 💯 rmF  → sudo rm -fr
 💯 rmf  → rm -fr
