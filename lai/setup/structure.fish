@@ -35,6 +35,7 @@ fish_add_path ~/fes/eva
 fish_add_path ~/fes/eva/wks
 fish_add_path ~/fes/eva/qrh
 fish_add_path ~/fes/eva/appimg
+fish_add_path ~/fes/eva/wise
 
 git clone https://github.com/Axlefublr/autocommit --depth=1 jiro
 git clone https://github.com/Axlefublr/backup --depth=1 uviw
