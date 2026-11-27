@@ -6,12 +6,31 @@
  * file:///home/axlefublr/.*?/target/doc/.*
  */
 
-body {
-	font-family: sans-serif;
+:root {
+	--font-family: sans-serif;
+	--font-family-code: monospace;
 }
 
-code,
-pre,
-.code-header {
-	font-family: monospace;
+#crate-search,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.sidebar,
+.mobile-topbar,
+.search-input,
+.search-results .result-name,
+.item-table dt > a,
+.out-of-band,
+.sub-heading,
+span.since,
+a.src,
+rustdoc-toolbar,
+summary.hideme,
+.scraped-example-list,
+.rustdoc-breadcrumbs,
+ul.all-items {
+	font-family: sans-serif;
 }
