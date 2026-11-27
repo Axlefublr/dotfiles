@@ -38,7 +38,7 @@ end
 funcsave edit_clipboard >/dev/null
 
 function edit_clipboard_blank
-    truncate -s 0 /tmp/mine/clipboard-edit.gee
+    echo >/tmp/mine/clipboard-edit.gee
     flour /tmp/mine/clipboard-edit.gee
     cat /tmp/mine/clipboard-edit.gee | wl-copy -nt text/plain
 end
