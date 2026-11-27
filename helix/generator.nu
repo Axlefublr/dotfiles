@@ -30,7 +30,7 @@ let editor = {
 	preview-completion-insert: false
 	scrolloff: 99
 	search: { max-matches: none, wrap-around: true }
-	shell: [dash -c]
+	shell: [fish -c]
 	text-width: 110
 	trim-final-newlines: true
 	trim-trailing-whitespace: true
@@ -52,12 +52,13 @@ let editor = {
 		max-indent-retain: 0
 	}
 	whitespace: {
+		render: 'none'
 		characters: {
-			newline: '↪'
-			space: '·'
-			nbsp: '⍽'
-			nnbsp: '␣'
-			tab: '➜'
+			newline: '·'
+			space: ' '
+			nbsp: ' '
+			nnbsp: ' '
+			tab: ' '
 			tabpad: ' '
 		}
 	}
@@ -112,8 +113,8 @@ let editor = {
 	}
 	shellmap: {
 		'€': [nu --no-std-lib --stdin --config /home/axlefublr/fes/dot/nu/lvoc/crooked.nu -c]
-		'°': [fish -c]
-		'∞': [calc -t]
+		'+': [sh -c]
+		'¢': [calc -t]
 		'√': [julia -E]
 	}
 	harp: {
@@ -168,7 +169,7 @@ let all_mappings = {
 	S-A-space: ':quit!'
 	C-t: ':reload'
 	# ------------------------function-------------------------
-	F1: ':noop %sh(wind ° helix %(full_path):%(cursor_line):%(cursor_column))'
+	F1: ':noop %sh(wind helix %(full_path):%(cursor_line):%(cursor_column))'
 	# F1: [
 	# 	':noop %sh{git show "HEAD:%(relative_path)" >"/tmp/mine/HEAD!%(buffer_name)"}'
 	# 	':open "/tmp/mine/HEAD!%(buffer_name):%(cursor_line):%(cursor_column)"'
@@ -177,7 +178,7 @@ let all_mappings = {
 		":noop %sh(echo %(full_path) >/tmp/mine/blammo)"
 		':noop %sh{footclient -ND %(working_directory) >/dev/null 2>/dev/null ; niri msg action consume-or-expel-window-left}'
 	]
-	F3: ':noop %sh(wind « ° bacon)'
+	F3: ':noop %sh(wind « bacon)'
 	F4: [
 		':noop %sh{rm -f /tmp/mine/finder-choice}',
 		':noop %sh{foottitled.sh helix-popup -D %(working_directory) fish -c "FROM_POPUP=true finder"}',
@@ -206,7 +207,7 @@ let normal_mappings = {
 	"C-'": [select_mode ensure_selections_forward shrink_selection flip_selections normal_mode]
 	# C-c: change_selection_noyank
 	# C-d: delete_selection_noyank
-	# C-m: ':pipe °math "$(cat)"'
+	# C-m: ':pipe math "$(cat)"'
 	'"': [select_mode collapse_selection match_brackets normal_mode]
 	',': trim_selections
 	'.': extend_to_line_bounds
@@ -311,7 +312,7 @@ let normal_mappings = {
 	'%': [save_selection select_all]
 	'!': ':pipe €str trim'
 	'…': null
-	'\': shell_pipe_to
+	'\': shell_pipe
 	# ---------------------------c↓----------------------------
 	'₽': null
 	'^': '@aj<A-O>*<ins>'
@@ -324,7 +325,7 @@ let normal_mappings = {
 	'~': '@%q<ret>'
 	'&': '@q<ret>'
 	'°': align_selections
-	'|': shell_pipe
+	'|': shell_pipe_to
 	# ---------------------------xc↓---------------------------
 	'⊻': ':tree-sitter-subtree'
 	'⊼': ':tree-sitter-highlight-name'
@@ -428,6 +429,7 @@ let normal_mappings = {
 	# -------------------------keyful--------------------------
 	# [[sort on]]
 	A-ret: 'goto_file'
+	F11: shell_run_command
 	S-tab: "@<space>'<up><ret>"
 	backspace: [save_selection select_all yank_to_clipboard jump_backward]
 	esc: [save_selection keep_primary_selection normal_mode]
@@ -470,9 +472,10 @@ let normal_mappings = {
 	'┫': goto_implementation
 	'┓': rename_symbol
 	'┣': hover
-	'┛': ':open %sh{°resolve_fish_function %(selection)}'
+	'┛': ':open %sh{resolve_fish_function %(selection)}'
 	a: {
 		# [[sort on]]
+		"'": ":toggle whitespace.render 'all' 'none'"
 		';': ':toggle soft-wrap.enable'
 		A: ':sh chmod +x %(full_path)'
 		C-c: ':echopy %(buffer_name)'
@@ -592,6 +595,7 @@ let normal_mappings = {
 	g: {
 		# [[sort on]]
 		D: null
+		N: ':echopy %reg(+):%(cursor_column)'
 		Q: ':cd %(buffer_parent)'
 		c: null
 		d: null
@@ -601,7 +605,7 @@ let normal_mappings = {
 		n: ':echopy %reg(+):%(cursor_line)'
 		o: null
 		q: ':cd %sh(git -C %(buffer_parent) rev-parse --show-toplevel)'
-		u: ':echopy %sh{°append_github_line_numbers %(cursor_line)}'
+		u: ':echopy %sh{append_github_line_numbers %(cursor_line)}'
 		y: null
 		# [[sort off]]
 	}
@@ -609,18 +613,18 @@ let normal_mappings = {
 
 let insert_mappings = {
 	# [[sort on]]
+	# F11: '@<C-h> \<ret>' # ⇇ ^h (ins) ⇌ commit_undo_checkpoint
 	'C-;': harp_register
 	A-down: steal_char_below
 	A-h: $'@<esc><lt>(char -u 25a0)mc'
 	A-l: $'@<esc><gt>(char -u 25a0)mc'
 	A-up: steal_char_above
-	C-a: [collapse_selection ':insert-output °uclanr | read' append_mode_same_line]
 	C-h: commit_undo_checkpoint
 	C-j: expand_user_snippet
 	C-u: kill_to_line_start
-	C-v: [collapse_selection paste_before]
+	C-v: ':squish-output wl-paste -n'
 	C-ц: [normal_mode move_prev_word_start change_selection_noyank]
-	F11: '@<C-h> \<ret>' # ⇇ ^h (ins) ⇌ commit_undo_checkpoint
+	F11: shell_squish_output
 	down: completion
 	end: [commit_undo_checkpoint insert_at_line_end]
 	esc: [':write --no-format --no-code-actions' normal_mode]
@@ -673,8 +677,9 @@ def collect_fish_abbreviations [] {
 	open ~/fes/dot/fish/abbr.txt
 	| lines
 	| str trim
-	| where $it starts-with 💯
+	| where $it starts-with 💯 or $it starts-with 💡
 	| str trim -c 💯 --left
+	| str trim -c 💡 --left
 	| str trim
 	| split column ' → ' key body
 	| each { |it|
