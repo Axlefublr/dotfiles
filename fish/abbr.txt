@@ -1,41 +1,42 @@
 # [[sort on]]
-💯 at   → alien_temple
 e    → helix
 ei   → sudo -E helix /usr/share/applications/█.desktop
 eui  → helix ~/.local/share/applications/█.desktop
 f    → z
 la   → eza -a
 ls   → eza
-💯 hime → history merge
+💡 E    → sudo -E helix
+💡 hime → history merge
+💡 nac  → na -c '█'
+💡 nas  → na --stdin
+💡 nasc → na --stdin -c '█'
+💡 yayi → yay --needed --disable-download-timeout --noconfirm -S
+💡 yayr → yay -Rns --noconfirm
+💯 aA   → chmod +x
+💯 at   → alien_temple
+💯 cp   → rsync -r
+💯 dl   → gomi
 💯 gx   → glaza -g
 💯 gz   → glaza
-💯 x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
-💯 q    → queue
-💯 E    → sudo -E helix
-💯 aA   → chmod +x
-💯 cp   → rsync -r
 💯 mkd  → mkdir -p
-💯 nac  → na -c '█'
-💯 nas  → na --stdin
-💯 nasc → na --stdin -c '█'
 💯 ph   → path
+💯 phan → path_expand
 💯 phb  → path basename
 💯 phd  → path dirname
 💯 phex → path change-extension
 💯 phin → path_shrink
-💯 phan → path_expand
-💯 rm   → gomi
-💯 rmF  → sudo rm -fr
-💯 rmf  → rm -fr
+💯 q    → queue
+💯 rm   → rm -fr
+💯 rmf  → sudo rm -fr
 💯 sc   → set_color
 💯 st   → string
+💯 stc  → string collect
 💯 stm  → string match
 💯 sts  → string sub
 💯 stsp → string split
 💯 stt  → string trim
 💯 sude → sudo -E
-💯 yayi → yay --needed --disable-download-timeout --noconfirm -S
-💯 yayr → yay -Rns --noconfirm
+💯 x    → http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118
 # [[sort off]]
 
 d →  d
@@ -73,8 +74,8 @@ Au →  A rust
 💯 ca  → cargo add
 💯 cbr → cargo build -r
 💯 cc  → cargo clippy
-💯 cd  → cargo doc --no-deps --workspace
-💯 cdo → cargo doc --no-deps --workspace --open
+💯 cx  → cargo doc --no-deps --workspace
+💯 cxo → cargo doc --no-deps --workspace --open
 💯 cf  → cargo fmt
 💯 ci  → cargo info
 💯 cq  → cargo run -q
@@ -84,10 +85,10 @@ Au →  A rust
 💯 cs  → cargo search
 
 💯 glo → git log --oneline
-💯 glog → git log --oneline -G '█'
+💡 glog → git log --oneline -G '█'
 
 💯 l → crystal
-💯 le → crystal eval '█'
+💡 le → crystal eval '█'
 💯 h → shards
 💯 hi → shards init
 💯 hr → shards run -p
