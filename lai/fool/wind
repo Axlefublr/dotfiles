@@ -10,19 +10,14 @@ else if test "$argv[1]" = '«'
     set -f consume left
     set argv $argv[2..]
 end
-set -l different_shell
+set -l shell
 if test "$argv[1]" = '€'
     set argv $argv[2..]
-    set different_shell nu --no-std-lib -n -c
-else if test "$argv[1]" = '°'
-    set argv $argv[2..]
-    set different_shell fish -c
-end
-if test "$different_shell"
-    footclient -T helix-overlay -N $extra_flags -- $different_shell "$argv"
+    set shell nu --no-std-lib -n -c
 else
-    footclient -T helix-overlay -N $extra_flags -- $argv
+    set shell fish -c
 end
+footclient -T helix-overlay -N $extra_flags -- $shell "$argv"
 set -l last_char (string sub -s -1 -- "$script_name")
 set -q consume && niri msg action consume-or-expel-window-left
 if test "$consume" = left
