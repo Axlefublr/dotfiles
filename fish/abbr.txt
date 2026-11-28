@@ -12,6 +12,7 @@ ls   → eza
 💡 nasc → na --stdin -c '█'
 💡 yayi → yay --needed --disable-download-timeout --noconfirm -S
 💡 yayr → yay -Rns --noconfirm
+💯 ,    → echo
 💯 aA   → chmod +x
 💯 at   → alien_temple
 💯 cp   → rsync -r
